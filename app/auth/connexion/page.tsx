@@ -57,7 +57,7 @@ export default function ConnexionPage() {
 
   if (resetSent) {
     return (
-      <div className="mx-auto max-w-md px-4 py-16">
+      <div className="mx-auto max-w-md px-4 py-8 md:py-16">
         <h1 className="font-display text-3xl font-bold">Email envoyé</h1>
         <p className="mt-4 text-slate-600">Vérifiez votre boîte mail pour réinitialiser votre mot de passe.</p>
         <Link href="/auth/connexion" className="mt-6 inline-block font-medium text-[var(--accent)] hover:underline">Retour à la connexion</Link>
@@ -66,7 +66,7 @@ export default function ConnexionPage() {
   }
 
   return (
-    <div className="mx-auto max-w-md px-4 py-16">
+    <div className="mx-auto max-w-md px-4 py-8 md:py-16">
       <h1 className="font-display text-3xl font-bold">Connexion</h1>
       <p className="mt-2 text-slate-600">Accède à ton espace apprenant</p>
 

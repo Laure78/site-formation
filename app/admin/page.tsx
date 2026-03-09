@@ -39,7 +39,7 @@ export default async function AdminDashboardPage() {
   const profilesMap = Object.fromEntries((profiles ?? []).map((p: { id: string; full_name?: string; email?: string }) => [p.id, p]));
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <h1 className="font-display text-2xl font-bold text-slate-900">Dashboard</h1>
       <p className="mt-1 text-slate-600">Vue d&apos;ensemble de la plateforme</p>
 

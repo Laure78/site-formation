@@ -66,7 +66,7 @@ export default function NouvelleFormationPage() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <Link href="/admin/formations" className="text-sm text-[var(--accent)] hover:underline">
         ← Retour aux formations
       </Link>

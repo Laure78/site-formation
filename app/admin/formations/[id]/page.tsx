@@ -23,7 +23,7 @@ export default async function AdminFormationEditPage({
     .order('order_index');
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <Link href="/admin/formations" className="flex items-center gap-2 text-sm text-[var(--accent)] hover:underline">
         <ArrowLeft size={16} strokeWidth={1.5} />
         Retour aux formations

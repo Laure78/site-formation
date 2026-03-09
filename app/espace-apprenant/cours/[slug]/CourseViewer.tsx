@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, ChevronRight, Play, FileText, LayoutList, Lock } from 'lucide-react';
+import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 
 interface Lesson {
@@ -37,6 +37,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
   const allLessons = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleTitle: m.title })));
   const firstLesson = allLessons[0];
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(firstLesson?.id ?? null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const selectedLesson = allLessons.find((l) => l.id === selectedLessonId);
 
   const markComplete = async () => {
@@ -66,10 +67,52 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
 
   return (
     <div className="flex">
+      {/* Mobile: sélecteur de leçon (dropdown) — masqué sur desktop car sidebar visible */}
+      <div className="fixed left-0 right-0 top-16 z-20 border-b border-slate-200 bg-white px-4 py-3 lg:hidden">
+        <select
+          value={selectedLessonId ?? ''}
+          onChange={(e) => setSelectedLessonId(e.target.value || null)}
+          className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-medium text-slate-900 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+        >
+          {allLessons.map((l) => (
+            <option key={l.id} value={l.id}>
+              {l.moduleTitle} — {l.title}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Bouton ouvrir sidebar sur mobile */}
+      <button
+        type="button"
+        onClick={() => setSidebarOpen(true)}
+        className="fixed bottom-6 right-6 z-20 flex h-14 w-14 items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-lg lg:hidden"
+        aria-label="Programme"
+      >
+        <Menu size={24} strokeWidth={1.5} />
+      </button>
+
+      {/* Overlay sidebar mobile */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="fixed left-0 top-0 z-30 h-screen w-72 overflow-y-auto border-r border-slate-200 bg-white">
+      <aside
+        className={`fixed left-0 top-0 z-40 h-screen w-72 overflow-y-auto border-r border-slate-200 bg-white transition-transform lg:translate-x-0 ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
         <div className="border-b border-slate-200 p-4">
-          <Link href="/espace-apprenant/mes-formations" className="text-sm text-[var(--accent)] hover:underline">← Mes formations</Link>
+          <div className="flex items-center justify-between">
+            <Link href="/espace-apprenant/mes-formations" className="text-sm text-[var(--accent)] hover:underline">← Mes formations</Link>
+            <button type="button" onClick={() => setSidebarOpen(false)} className="rounded p-2 lg:hidden" aria-label="Fermer">
+              ×
+            </button>
+          </div>
           <h1 className="mt-2 font-display text-lg font-bold text-slate-900">{course.title}</h1>
           <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
             <div className="h-full rounded-full bg-[var(--accent)]" style={{ width: `${progressPercent}%` }} />
@@ -88,7 +131,10 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                     <li key={l.id}>
                       <button
                         type="button"
-                        onClick={() => setSelectedLessonId(l.id)}
+                        onClick={() => {
+                          setSelectedLessonId(l.id);
+                          setSidebarOpen(false);
+                        }}
                         className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
                           isSelected ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]' : 'text-slate-700 hover:bg-slate-100'
                         }`}
@@ -115,10 +161,10 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
       </aside>
 
       {/* Contenu principal */}
-      <main className="ml-72 flex-1 p-8">
+      <main className="flex-1 p-4 pt-24 lg:ml-72 lg:p-8 lg:pt-8">
         {selectedLesson ? (
           <div className="mx-auto max-w-4xl">
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-8">
               <div className="flex items-center gap-2 text-sm text-slate-500">
                 <span>{(allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })?.moduleTitle}</span>
                 <ChevronRight size={16} strokeWidth={1.5} />
@@ -143,11 +189,11 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                     <p className="text-slate-500">Aucun contenu texte pour cette leçon</p>
                   </div>
                 ) : selectedLesson.type === 'pdf' && selectedLesson.content_url ? (
-                  <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+                  <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
                     <iframe
                       src={`${selectedLesson.content_url}#view=FitH`}
                       title={selectedLesson.title}
-                      className="h-[70vh] w-full"
+                      className="h-[50vh] w-full md:h-[70vh]"
                     />
                     <a
                       href={selectedLesson.content_url}
@@ -173,7 +219,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                 )}
               </div>
 
-              <div className="mt-8 flex items-center justify-between">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:mt-8">
                 <button
                   type="button"
                   onClick={markComplete}

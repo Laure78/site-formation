@@ -72,7 +72,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/icon-192.png', sizes: '192x192', type: 'image/png' }],
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: SITE_CONFIG.name,
+  },
+  themeColor: [{ media: '(prefers-color-scheme: light)', color: '#ffffff' }, { media: '(prefers-color-scheme: dark)', color: '#1e293b' }],
 };
 
 export default function RootLayout({

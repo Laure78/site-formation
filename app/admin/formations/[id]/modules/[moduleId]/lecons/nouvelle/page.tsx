@@ -55,7 +55,7 @@ export default function NouvelleLeconPage() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <Link href={`/admin/formations/${courseId}`} className="text-sm text-[var(--accent)] hover:underline">← Retour</Link>
       <h1 className="mt-6 font-display text-2xl font-bold">Nouvelle leçon</h1>
 

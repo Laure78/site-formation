@@ -20,12 +20,12 @@ export default async function AdminApprenantsPage() {
   }
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <h1 className="font-display text-2xl font-bold text-slate-900">Apprenants</h1>
       <p className="mt-2 text-slate-600">Liste des inscrits et leur progression</p>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <table className="w-full">
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm md:mt-8">
+        <table className="w-full min-w-[500px]">
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50">
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Prénom</th>

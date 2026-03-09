@@ -78,6 +78,7 @@ export function Footer() {
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
                 { href: '/tarifs', label: 'Financement OPCO' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },
+                { href: '/install-pwa', label: 'Installer l\'app mobile' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link

@@ -56,7 +56,7 @@ export default function InscriptionPage() {
   };
 
   return (
-    <div className="mx-auto max-w-md px-4 py-16">
+    <div className="mx-auto max-w-md px-4 py-8 md:py-16">
       <h1 className="font-display text-3xl font-bold">Inscription</h1>
       <p className="mt-2 text-slate-600">Crée ton compte pour accéder aux formations</p>
 

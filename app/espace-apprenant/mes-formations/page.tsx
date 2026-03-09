@@ -14,7 +14,7 @@ export default async function MesFormationsPage() {
     .eq('user_id', user.id);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="mx-auto max-w-4xl px-4 py-8 md:py-16">
       <h1 className="font-display text-2xl font-bold text-slate-900">Mes formations</h1>
       <p className="mt-2 text-slate-600">Continue là où tu t&apos;es arrêté</p>
 

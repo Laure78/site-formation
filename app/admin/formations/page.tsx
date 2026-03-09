@@ -10,8 +10,8 @@ export default async function AdminFormationsPage() {
     .order('created_at', { ascending: false });
 
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between">
+    <div className="p-4 md:p-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="font-display text-2xl font-bold text-slate-900">Formations</h1>
         <Link
           href="/admin/formations/nouveau"
@@ -22,8 +22,8 @@ export default async function AdminFormationsPage() {
         </Link>
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <table className="w-full">
+      <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm md:mt-8">
+        <table className="w-full min-w-[640px]">
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50">
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Formation</th>

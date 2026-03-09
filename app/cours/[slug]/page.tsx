@@ -69,7 +69,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
                 </div>
               )}
             </div>
-            <div className="p-8">
+            <div className="p-4 md:p-8">
               <span className="text-xs font-medium uppercase tracking-wide text-slate-400">{course.level ?? 'débutant'}</span>
               <h1 className="mt-1 font-display text-3xl font-bold text-slate-900">{course.title}</h1>
               <p className="mt-4 text-slate-600">{course.description ?? ''}</p>
@@ -94,7 +94,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
               )}
             </div>
           </div>
-          <div className="border-t border-slate-200 p-8 md:col-span-2 md:border-t-0 md:border-l">
+          <div className="border-t border-slate-200 p-6 md:col-span-2 md:border-t-0 md:border-l md:p-8">
             <div className="sticky top-8">
               <div className="flex items-center gap-2 text-slate-600">
                 <Clock size={20} strokeWidth={1.5} />

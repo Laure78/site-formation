@@ -32,7 +32,7 @@ export default async function CoursPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <div className="mx-auto max-w-6xl px-4 py-8 md:py-16">
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Catalogue des cours en ligne
