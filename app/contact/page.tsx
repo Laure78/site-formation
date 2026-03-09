@@ -2,10 +2,14 @@ import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { ContactForm } from '@/components/landing/ContactForm';
 
-export const metadata = {
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata({
   title: 'Contact Laure Olivié — Formation IA BTP',
-  description: 'Contactez Laure Olivié pour organiser une formation IA. Devis personnalisé sous 24h. Qualiopi · Constructys.',
-};
+  description:
+    'Contactez Laure Olivié pour organiser une formation IA BTP. Devis sous 24h. Paris, Île-de-France. 06 95 66 18 18 · laureolivie@yahoo.fr',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

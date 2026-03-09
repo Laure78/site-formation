@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { BookingCalendar } from '@/components/booking/BookingCalendar';
 
-export const metadata = {
-  title: 'Prendre rendez-vous — Laure Olivié',
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata({
+  title: 'Prendre rendez-vous — Formation IA BTP',
   description:
-    "Réservez un créneau pour échanger sur votre projet de formation IA BTP. 30 minutes gratuites pour discuter de vos besoins.",
-};
+    'Réservez un créneau de 30 min pour votre formation IA BTP. Paris, Île-de-France, France. Devis personnalisé · 100% finançable OPCO Constructys.',
+  path: '/prendre-rdv',
+});
 
 export default function PrendreRDVPage() {
   return (

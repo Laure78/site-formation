@@ -9,9 +9,7 @@ export function Footer() {
           {/* Colonne principale */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent)] font-display text-lg font-bold text-white shadow-lg shadow-blue-500/20">
-                IA
-              </div>
+              <img src="/logo-lo.svg" alt="Laure Olivié" className="h-12 w-auto" />
               <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-600">
@@ -52,7 +50,10 @@ export function Footer() {
                 </span>
                 www.laureolivie.fr
               </a>
-              <p className="px-4 text-xs text-slate-500">SIRET 905 244 281 00010</p>
+              <address className="not-italic px-4 text-xs text-slate-500">
+                France · Île-de-France · Paris<br />
+                SIRET 905 244 281 00010
+              </address>
             </div>
             <a
               href="https://www.linkedin.com/in/laure-olivie"

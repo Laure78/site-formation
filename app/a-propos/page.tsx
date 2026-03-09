@@ -2,10 +2,14 @@ import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 
-export const metadata = {
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata({
   title: 'À propos — Laure Olivié',
-  description: 'Formatrice IA pour les entreprises du BTP. 10 ans d\'expérience, méthode 100% pratique, formation Qualiopi finançable OPCO.',
-};
+  description:
+    'Laure Olivié, formatrice IA pour le BTP. 10 ans d\'expérience, méthode 100% pratique. Paris, Île-de-France. Qualiopi · Constructys.',
+  path: '/a-propos',
+});
 
 export default function AProposPage() {
   return (

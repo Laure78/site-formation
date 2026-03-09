@@ -62,8 +62,9 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link
           href="/"
-          className="font-display text-xl font-bold tracking-tight text-slate-900"
+          className="flex items-center gap-3 font-display text-xl font-bold tracking-tight text-slate-900"
         >
+          <img src="/logo-lo.svg" alt="" className="h-9 w-auto" aria-hidden />
           Laure Olivié
         </Link>
 

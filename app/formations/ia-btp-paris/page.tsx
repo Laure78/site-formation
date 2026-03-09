@@ -1,11 +1,21 @@
 import Link from 'next/link';
 import { Check, Phone, Calendar } from 'lucide-react';
+import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Formation IA BTP à Paris — Laure Olivié',
   description:
-    "Formation ultra-pratique de 4h pour les professionnels du BTP en Île-de-France. Devis, chiffrages et communication avec ChatGPT. Paris et 8 départements. 100% finançable OPCO.",
-};
+    'Formation IA BTP à Paris et Île-de-France (75, 92, 93, 94, 77, 78, 91, 95). 4h pratiques : devis, chiffrages, ChatGPT. Qualiopi · Constructys. Nanterre, Bobigny, Créteil, Versailles.',
+  path: '/formations/ia-btp-paris',
+  keywords: [
+    'formation IA Paris',
+    'formation BTP Paris',
+    'formation IA Île-de-France',
+    'formation ChatGPT BTP 75',
+    'formation IA 92 93 94',
+    'OPCO Constructys Paris',
+  ],
+});
 
 const ZONES = [
   {
@@ -50,9 +60,21 @@ const ZONES = [
   },
 ];
 
+const courseSchema = getCourseSchema({
+  name: 'Formation IA BTP à Paris',
+  description: 'Formation de 4h pour professionnels du BTP en Île-de-France. Devis, chiffrages, ChatGPT. Paris (75) et 8 départements. Qualiopi · Constructys.',
+  path: '/formations/ia-btp-paris',
+  providerName: SITE_CONFIG.legalName,
+  areaServed: ['Paris', 'Île-de-France', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', 'Seine-et-Marne', 'Yvelines', 'Essonne', "Val-d'Oise"],
+});
+
 export default function FormationIABTPParisPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">

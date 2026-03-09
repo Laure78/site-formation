@@ -1,5 +1,13 @@
 import Link from 'next/link';
 import { Clock, Users, Check } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata({
+  title: 'Catalogue des formations IA BTP — Laure Olivié',
+  description:
+    'Formations IA pour le BTP : devis, appels d\'offres, RH, travaux publics. Paris, Île-de-France, France. Qualiopi · 100% finançable Constructys.',
+  path: '/formations',
+});
 
 const FORMATIONS = [
   {

@@ -160,15 +160,10 @@ create index if not exists idx_appointments_status on public.appointments(status
      - **Project URL** (ex : `https://abcdef.supabase.co`)
      - **anon public** (longue clé qui commence par `eyJ…`)
 6. Retournez sur Railway.
-7. **Première variable** :
-   - **Name** : `NEXT_PUBLIC_SUPABASE_URL`
-   - **Value** : collez votre Project URL de Supabase
-   - Validez (Add ou Enter).
-8. **Deuxième variable** :
-   - **Name** : `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - **Value** : collez la clé « anon public » de Supabase
-   - Validez.
-9. Vérifiez qu’il y a bien 2 variables listées.
+7. **Première variable** : `NEXT_PUBLIC_SITE_URL` = URL de votre site (ex. `https://site-formation.up.railway.app` ou domaine perso).
+8. **Deuxième variable** : `NEXT_PUBLIC_SUPABASE_URL` = Project URL de Supabase.
+9. **Troisième variable** : `NEXT_PUBLIC_SUPABASE_ANON_KEY` = clé « anon public » de Supabase.
+10. Vérifiez qu’il y a bien 3 variables listées.
 
 ---
 
