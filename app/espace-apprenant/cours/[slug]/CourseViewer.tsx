@@ -1,0 +1,170 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { Check, ChevronRight, Play, FileText, LayoutList, Lock } from 'lucide-react';
+
+interface Lesson {
+  id: string;
+  title: string;
+  type: string;
+  order_index: number;
+  duration_minutes?: number;
+}
+
+interface Module {
+  id: string;
+  title: string;
+  order_index: number;
+  lessons: Lesson[];
+}
+
+interface Props {
+  course: { id: string; slug: string; title: string; description?: string };
+  modules: Module[];
+  completedLessonIds: string[];
+  enrollmentId?: string;
+  userId: string;
+  progressPercent: number;
+}
+
+export function CourseViewer({ course, modules, completedLessonIds, enrollmentId, userId, progressPercent }: Props) {
+  const router = useRouter();
+  const allLessons = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleTitle: m.title })));
+  const firstLesson = allLessons[0];
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(firstLesson?.id ?? null);
+  const selectedLesson = allLessons.find((l) => l.id === selectedLessonId);
+
+  const markComplete = async () => {
+    if (!selectedLessonId || !enrollmentId) return;
+    try {
+      const res = await fetch('/api/lesson-progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lessonId: selectedLessonId, completed: true }),
+      });
+      if (res.ok) {
+        router.refresh();
+      }
+    } catch {}
+  };
+
+  const nextLesson = allLessons[allLessons.findIndex((l) => l.id === selectedLessonId) + 1];
+
+  const icon = (type: string) => {
+    switch (type) {
+      case 'video': return <Play size={16} strokeWidth={1.5} />;
+      case 'pdf': return <FileText size={16} strokeWidth={1.5} />;
+      case 'quiz': return <LayoutList size={16} strokeWidth={1.5} />;
+      default: return <FileText size={16} strokeWidth={1.5} />;
+    }
+  };
+
+  return (
+    <div className="flex">
+      {/* Sidebar */}
+      <aside className="fixed left-0 top-0 z-30 h-screen w-72 overflow-y-auto border-r border-slate-200 bg-white">
+        <div className="border-b border-slate-200 p-4">
+          <Link href="/espace-apprenant/mes-formations" className="text-sm text-[var(--accent)] hover:underline">← Mes formations</Link>
+          <h1 className="mt-2 font-display text-lg font-bold text-slate-900">{course.title}</h1>
+          <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+            <div className="h-full rounded-full bg-[var(--accent)]" style={{ width: `${progressPercent}%` }} />
+          </div>
+          <p className="mt-1 text-xs text-slate-500">{progressPercent}% complété</p>
+        </div>
+        <nav className="p-2">
+          {modules.map((m) => (
+            <div key={m.id} className="mb-4">
+              <p className="mb-2 px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">{m.title}</p>
+              <ul className="space-y-0.5">
+                {(m.lessons ?? []).map((l) => {
+                  const isCompleted = completedLessonIds.includes(l.id);
+                  const isSelected = selectedLessonId === l.id;
+                  return (
+                    <li key={l.id}>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedLessonId(l.id)}
+                        className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                          isSelected ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]' : 'text-slate-700 hover:bg-slate-100'
+                        }`}
+                      >
+                        {isCompleted ? (
+                          <Check size={18} strokeWidth={2} className="shrink-0 text-emerald-500" />
+                        ) : (
+                          <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center text-slate-400">
+                            {icon(l.type)}
+                          </span>
+                        )}
+                        <span className="truncate">{l.title}</span>
+                        {l.duration_minutes && (
+                          <span className="ml-auto text-xs text-slate-400">{l.duration_minutes} min</span>
+                        )}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </aside>
+
+      {/* Contenu principal */}
+      <main className="ml-72 flex-1 p-8">
+        {selectedLesson ? (
+          <div className="mx-auto max-w-4xl">
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <span>{(allLessons.find((l) => l.id === selectedLessonId) as { moduleTitle?: string })?.moduleTitle}</span>
+                <ChevronRight size={16} strokeWidth={1.5} />
+                <span className="font-medium text-slate-700">{selectedLesson.title}</span>
+              </div>
+              <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">{selectedLesson.title}</h2>
+
+              <div className="mt-8 min-h-[200px] rounded-xl bg-slate-100 p-12 text-center">
+                {selectedLesson.type === 'video' ? (
+                  <p className="text-slate-500">Vidéo (à brancher Vimeo / Supabase Storage)</p>
+                ) : selectedLesson.type === 'texte' ? (
+                  <p className="text-slate-500">Contenu texte (à charger depuis la base)</p>
+                ) : selectedLesson.type === 'quiz' ? (
+                  <p className="text-slate-500">Quiz (à implémenter)</p>
+                ) : (
+                  <p className="text-slate-500">Contenu PDF ou ressource</p>
+                )}
+              </div>
+
+              <div className="mt-8 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={markComplete}
+                  disabled={completedLessonIds.includes(selectedLesson.id) || !enrollmentId}
+                  className="flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
+                >
+                  <Check size={20} strokeWidth={1.5} />
+                  {completedLessonIds.includes(selectedLesson.id) ? 'Terminée' : 'Marquer comme terminée'}
+                </button>
+                {nextLesson && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedLessonId(nextLesson.id)}
+                    className="flex items-center gap-2 rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-50"
+                  >
+                    Leçon suivante
+                    <ChevronRight size={20} strokeWidth={1.5} />
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white">
+            <Lock size={48} strokeWidth={1} className="text-slate-300" />
+            <p className="mt-4 font-medium text-slate-600">Sélectionne une leçon dans le menu</p>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
