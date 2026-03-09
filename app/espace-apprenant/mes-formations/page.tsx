@@ -24,8 +24,8 @@ export default async function MesFormationsPage() {
             <BookOpen size={48} strokeWidth={1} className="mx-auto text-slate-300" />
             <p className="mt-4 font-medium text-slate-700">Aucune formation pour l&apos;instant</p>
             <p className="mt-2 text-sm text-slate-500">Parcours le catalogue pour t&apos;inscrire à une formation</p>
-            <Link href="/formations" className="mt-6 inline-block rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700">
-              Voir le catalogue
+            <Link href="/cours" className="mt-6 inline-block rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700">
+              Voir le catalogue des cours
             </Link>
           </div>
         ) : (

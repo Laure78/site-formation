@@ -10,6 +10,9 @@ export default function NouvelleFormationPage() {
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
   const [description, setDescription] = useState('');
+  const [objectifs, setObjectifs] = useState('');
+  const [prerequis, setPrerequis] = useState('');
+  const [programme, setProgramme] = useState('');
   const [price, setPrice] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -42,6 +45,9 @@ export default function NouvelleFormationPage() {
           title,
           slug: slug || deriveSlug(title),
           description: description || null,
+          objectifs: objectifs || null,
+          prerequis: prerequis || null,
+          programme: programme || null,
           price: parseFloat(price) || 0,
           creator_id: user.id,
           published: false,
@@ -101,6 +107,39 @@ export default function NouvelleFormationPage() {
             onChange={(e) => setDescription(e.target.value)}
             rows={4}
             placeholder="Décris le parcours..."
+            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+          />
+        </div>
+        <div>
+          <label htmlFor="objectifs" className="block text-sm font-medium text-slate-700">Objectifs</label>
+          <textarea
+            id="objectifs"
+            value={objectifs}
+            onChange={(e) => setObjectifs(e.target.value)}
+            rows={3}
+            placeholder="Ex : Maîtriser ChatGPT pour les devis..."
+            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+          />
+        </div>
+        <div>
+          <label htmlFor="prerequis" className="block text-sm font-medium text-slate-700">Prérequis</label>
+          <textarea
+            id="prerequis"
+            value={prerequis}
+            onChange={(e) => setPrerequis(e.target.value)}
+            rows={2}
+            placeholder="Ex : Aucun prérequis technique..."
+            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+          />
+        </div>
+        <div>
+          <label htmlFor="programme" className="block text-sm font-medium text-slate-700">Programme (résumé)</label>
+          <textarea
+            id="programme"
+            value={programme}
+            onChange={(e) => setProgramme(e.target.value)}
+            rows={3}
+            placeholder="Ex : Module 1 - Découverte..."
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
         </div>

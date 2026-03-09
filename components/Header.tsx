@@ -15,6 +15,7 @@ const NAV_ITEMS: {
     href: '/formations',
     label: 'Formations',
     children: [
+      { href: '/cours', label: 'Cours en ligne (LMS)' },
       { href: '/#programme', label: "L'IA au service du BTP" },
       { href: '/formations/ia-travaux-publics', label: 'IA & Travaux Publics' },
       { href: '/formations/ia-appels-offre-btp', label: 'IA appels d\'offre BTP' },

@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { ArrowLeft, Plus, GripVertical } from 'lucide-react';
+import { CourseEditForm } from './CourseEditForm';
 
 export default async function AdminFormationEditPage({
   params,
@@ -11,6 +12,7 @@ export default async function AdminFormationEditPage({
   const { data: course } = await supabase.from('courses').select('*').eq('id', id).single();
   if (!course) notFound();
 
+  const c = course as { objectifs?: string; prerequis?: string; programme?: string };
   const { data: modules } = await supabase
     .from('modules')
     .select(`
@@ -26,13 +28,24 @@ export default async function AdminFormationEditPage({
         <ArrowLeft size={16} strokeWidth={1.5} />
         Retour aux formations
       </Link>
-      <div className="mt-6 flex items-start justify-between">
+      <div className="mt-6 space-y-8">
+        <CourseEditForm
+          courseId={id}
+          initial={{
+            title: course.title,
+            slug: course.slug,
+            description: course.description,
+            objectifs: c.objectifs,
+            prerequis: c.prerequis,
+            programme: c.programme,
+            published: course.published ?? false,
+          }}
+        />
+      </div>
+      <div className="mt-8 flex items-start justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-slate-900">{course.title}</h1>
-          <p className="mt-1 text-slate-500">/{course.slug}</p>
-          <span className={`mt-2 inline-block rounded-full px-2.5 py-1 text-xs font-medium ${course.published ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600'}`}>
-            {course.published ? 'Publiée' : 'Brouillon'}
-          </span>
+          <h2 className="font-display text-lg font-semibold text-slate-900">Modules et leçons</h2>
+          <p className="text-sm text-slate-500">Ajoutez des modules, puis des leçons (vidéos, slides PDF, texte).</p>
         </div>
         <Link
           href={`/admin/formations/${id}/modules/nouveau`}
@@ -43,8 +56,7 @@ export default async function AdminFormationEditPage({
         </Link>
       </div>
 
-      <div className="mt-10">
-        <h2 className="font-display text-lg font-semibold text-slate-900">Modules et leçons</h2>
+      <div className="mt-6">
         <div className="mt-4 space-y-4">
           {(modules ?? []).length === 0 ? (
             <div className="rounded-2xl border-2 border-dashed border-slate-200 p-12 text-center">

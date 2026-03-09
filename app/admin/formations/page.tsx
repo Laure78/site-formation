@@ -6,7 +6,7 @@ export default async function AdminFormationsPage() {
   const supabase = await createClient();
   const { data: courses } = await supabase
     .from('courses')
-    .select('id, slug, title, price, published, created_at')
+    .select('id, slug, title, description, objectifs, prerequis, programme, price, published, created_at')
     .order('created_at', { ascending: false });
 
   return (
@@ -27,6 +27,7 @@ export default async function AdminFormationsPage() {
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50">
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Formation</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Objectifs / Programme</th>
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Prix</th>
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Statut</th>
               <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900">Actions</th>
@@ -35,7 +36,7 @@ export default async function AdminFormationsPage() {
           <tbody>
             {(courses ?? []).length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-6 py-12 text-center text-slate-500">
+                <td colSpan={5} className="px-6 py-12 text-center text-slate-500">
                   Aucune formation. <Link href="/admin/formations/nouveau" className="text-[var(--accent)] hover:underline">Créer la première</Link>
                 </td>
               </tr>
@@ -45,6 +46,11 @@ export default async function AdminFormationsPage() {
                   <td className="px-6 py-4">
                     <p className="font-medium text-slate-900">{c.title}</p>
                     <p className="text-sm text-slate-500">/{c.slug}</p>
+                  </td>
+                  <td className="max-w-xs px-6 py-4 text-sm text-slate-600">
+                    <p className="line-clamp-1"><strong>Objectifs :</strong> {(c as { objectifs?: string }).objectifs || '—'}</p>
+                    <p className="mt-1 line-clamp-1"><strong>Prérequis :</strong> {(c as { prerequis?: string }).prerequis || '—'}</p>
+                    <p className="mt-1 line-clamp-1"><strong>Programme :</strong> {(c as { programme?: string }).programme || '—'}</p>
                   </td>
                   <td className="px-6 py-4 text-slate-600">{c.price} €</td>
                   <td className="px-6 py-4">

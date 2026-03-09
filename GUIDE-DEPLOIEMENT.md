@@ -163,7 +163,8 @@ create index if not exists idx_appointments_status on public.appointments(status
 7. **Première variable** : `NEXT_PUBLIC_SITE_URL` = URL de votre site (ex. `https://site-formation.up.railway.app` ou domaine perso).
 8. **Deuxième variable** : `NEXT_PUBLIC_SUPABASE_URL` = Project URL de Supabase.
 9. **Troisième variable** : `NEXT_PUBLIC_SUPABASE_ANON_KEY` = clé « anon public » de Supabase.
-10. Vérifiez qu’il y a bien 3 variables listées.
+10. **(Optionnel – Paiements Stripe)** Pour vendre des cours en ligne : créez un compte sur stripe.com, récupérez la Secret key (Developers → API keys), ajoutez `STRIPE_SECRET_KEY`. Créez un webhook pointant vers `https://VOTRE-SITE.com/api/stripe/webhook` (événement `checkout.session.completed`), puis ajoutez `STRIPE_WEBHOOK_SECRET` avec le signing secret.
+11. Vérifiez qu’il y a bien 3 variables listées.
 
 ---
 

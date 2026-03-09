@@ -11,7 +11,12 @@ export const metadata = createPageMetadata({
   path: '/contact',
 });
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ formation?: string }>;
+}) {
+  const { formation } = await searchParams;
   return (
     <div>
       {/* Hero */}
@@ -209,7 +214,7 @@ export default function ContactPage() {
             Je vous réponds sous 24h.
           </p>
           <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8">
-            <ContactForm />
+            <ContactForm formationDefault={formation} />
           </div>
         </div>
       </section>

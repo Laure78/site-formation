@@ -3,8 +3,13 @@
 import { useRouter } from 'next/navigation';
 import { Send } from 'lucide-react';
 
-export function ContactForm() {
+interface Props {
+  formationDefault?: string | null;
+}
+
+export function ContactForm({ formationDefault }: Props = {}) {
   const router = useRouter();
+  const messageDefault = formationDefault ? `Je souhaite accéder à la formation : ${formationDefault}.` : '';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,6 +95,7 @@ export function ContactForm() {
           name="message"
           required
           rows={5}
+          defaultValue={messageDefault}
           placeholder="Décrivez-nous votre projet de formation IA, vos besoins spécifiques, le nombre de participants..."
           className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
         />
