@@ -1,65 +1,763 @@
-import Image from "next/image";
+import Link from 'next/link';
+import {
+  BookOpen,
+  Video,
+  FileText,
+  Award,
+  Clock,
+  Zap,
+  Target,
+  Shield,
+  Users,
+  TrendingUp,
+  Briefcase,
+  BarChart3,
+  Check,
+  Phone,
+  Calendar,
+  Mail,
+  GraduationCap,
+  ExternalLink,
+} from 'lucide-react';
+import { FAQAccordion } from '@/components/landing/FAQAccordion';
+import { DevisForm } from '@/components/landing/DevisForm';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      {/* Hero — Formation IA BTP */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-24 text-white md:py-32">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40" />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm">
+                <Check size={16} strokeWidth={1.5} />
+                <span>CERTIFIÉE QUALIOPI · FINANCEMENT CONSTRUCTYS 100%</span>
+              </div>
+              <h1 className="mt-6 font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+                Formation IA pour les entreprises du{' '}
+                <span className="text-[var(--accent)]">BTP</span>
+              </h1>
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
+                Gagnez{' '}
+                <span className="font-semibold text-white">3 à 5 heures par semaine</span>{' '}
+                sur vos devis, chiffrages, emails et comptes rendus chantier grâce à
+                l&apos;intelligence artificielle.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Link
+                  href="/prendre-rdv"
+                  className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
+                >
+                  Organiser une formation
+                </Link>
+                <Link
+                  href="#programme"
+                  className="rounded-xl border-2 border-white/40 px-8 py-4 text-center font-semibold text-white hover:bg-white/10"
+                >
+                  Voir le programme
+                </Link>
+              </div>
+              <div className="mt-12 grid gap-4 sm:grid-cols-3">
+                {[
+                  { val: '1592', label: 'PERSONNES FORMÉES' },
+                  { val: '100%', label: 'FINANÇABLE OPCO' },
+                  { val: '4,85/5', label: 'NOTE MOYENNE' },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl bg-white/5 p-4 text-center backdrop-blur-sm"
+                  >
+                    <p className="text-2xl font-bold text-[var(--accent)] md:text-3xl">
+                      {stat.val}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-400">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gains concrets — Pourquoi l'IA change le quotidien */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+            <Zap size={16} strokeWidth={1.5} />
+            <span>GAINS CONCRETS</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            Pourquoi l&apos;IA change le quotidien des entreprises du BTP
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Les professionnels du BTP perdent un temps précieux sur des tâches
+            administratives répétitives. L&apos;IA vous permet de vous recentrer sur
+            le chantier.
           </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Clock,
+                title: 'Trop de temps sur les devis',
+                desc: "Un devis détaillé prend 2h à 4h à rédiger. Avec l'IA, vous passez à 15 minutes chrono tout en gardant la qualité professionnelle.",
+              },
+              {
+                icon: FileText,
+                title: "Les appels d'offres prennent des heures",
+                desc: "Analysez un DCE, structurez votre mémoire technique et rédigez une réponse convaincante 5 fois plus rapidement.",
+              },
+              {
+                icon: FileText,
+                title: "Les comptes rendus ne sont jamais faits",
+                desc: "Générez automatiquement vos CR, rapports d'avancement et fiches de suivi depuis vos notes vocales.",
+              },
+              {
+                icon: Mail,
+                title: "Trop d'emails à gérer",
+                desc: "Rédigez vos emails clients, fournisseurs et sous-traitants en quelques secondes avec le bon ton professionnel.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6 transition-shadow hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent)] text-white shadow-lg shadow-blue-500/20">
+                  <Icon size={24} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-4 font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Public visé */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+            <Users size={16} strokeWidth={1.5} />
+            <span>PUBLIC VISÉ</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            À qui s&apos;adresse cette formation IA BTP
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Briefcase,
+                title: 'Dirigeants d\'entreprise BTP',
+                desc: "Vous dirigez une PME ou ETI du bâtiment et souhaitez optimiser la productivité de vos équipes. Gagnez du temps sur le chiffrage et la gestion administrative.",
+              },
+              {
+                icon: Target,
+                title: 'Conducteurs de travaux',
+                desc: "Automatisez vos comptes rendus chantier, rapports d'avancement et coordination entre équipes. Moins de temps sur l'administratif, plus sur le terrain.",
+              },
+              {
+                icon: Briefcase,
+                title: 'Assistantes administratives BTP',
+                desc: "Gérez plus efficacement les emails, relances clients, modèles de documents et suivi administratif grâce à l'IA. Améliorez votre productivité quotidienne.",
+              },
+              {
+                icon: BarChart3,
+                title: 'Chargés d\'affaires et métreurs',
+                desc: "Accélérez la préparation de vos chiffrages, devis détaillés et réponses techniques. L'IA vous aide à être plus réactif face à la concurrence.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                  <Icon size={24} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-4 font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Bénéfices — fond bleu */}
+      <section className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-center text-3xl font-bold text-white md:text-4xl">
+            Les bénéfices de se former à l&apos;IA dans le BTP
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: Award, title: 'Augmentez votre rentabilité', desc: "Réduisez vos coûts administratifs de 30 à 40 %. Répondez à plus d'appels d'offres avec les mêmes ressources." },
+              { icon: Zap, title: 'Gagnez en réactivité commerciale', desc: "Répondez aux devis en 15 minutes au lieu de 2 jours. Augmentez votre taux de transformation de 25 %." },
+              { icon: Users, title: 'Fidélisez vos équipes', desc: "Libérez vos collaborateurs des tâches répétitives. Réduisez le turnover grâce à des conditions modernisées." },
+              { icon: TrendingUp, title: 'Développez votre CA sans embaucher', desc: "Traitez 50 % de chantiers supplémentaires avec les mêmes effectifs. Optimisez vos marges." },
+              { icon: Target, title: 'Professionnalisez votre image', desc: "Démarquez-vous par votre rapidité. Proposez des documents ultra-professionnels." },
+              { icon: Shield, title: 'Sécurisez vos process', desc: "Standardisez vos documents. Assurez la traçabilité complète. Réduisez les litiges." },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-colors hover:bg-white/15"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-400/20 text-amber-300">
+                  <Icon size={24} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-4 font-semibold text-white">{title}</h3>
+                <p className="mt-2 text-sm text-blue-100">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Programme modulaire — fond sombre */}
+      <section id="programme" className="bg-slate-900 px-4 py-20 text-white">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium">
+            <span>PROGRAMME MODULAIRE</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+            Programme détaillé de la formation
+          </h2>
+          <p className="mt-3 text-slate-300">
+            Formation modulaire adaptée aux besoins de votre entreprise BTP. De 4h à
+            14h selon vos objectifs.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                n: 1,
+                title: 'Devis & chiffrage avec l\'IA',
+                items: [
+                  'Créez des devis professionnels en 15 min',
+                  'Ajustez les prix selon vos marges',
+                  'Calculez automatiquement la rentabilité',
+                  'Générez des variantes en un clic',
+                ],
+              },
+              {
+                n: 2,
+                title: "Réponses aux appels d'offres",
+                items: [
+                  'Analysez un DCE rapidement',
+                  'Structurez votre mémoire technique',
+                  'Rédigez une proposition convaincante',
+                  'Sécurisez la confidentialité des données',
+                ],
+              },
+              {
+                n: 3,
+                title: 'Comptes rendus et DOE',
+                items: [
+                  'Générez vos CR de chantier automatiquement',
+                  'Structurez vos DOE',
+                  "Créez des rapports d'avancement",
+                  'Documentez vos réunions de chantier',
+                ],
+              },
+              {
+                n: 4,
+                title: 'Gestion des emails & relation client',
+                items: [
+                  'Rédigez vos emails professionnels',
+                  'Créez des modèles de relances',
+                  'Gérez les réclamations clients',
+                  'Communiquez avec les fournisseurs',
+                ],
+              },
+            ].map((mod) => (
+              <div
+                key={mod.n}
+                className="rounded-2xl border border-slate-700 bg-slate-800/50 p-6"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-lg font-bold">
+                  {mod.n}
+                </div>
+                <h3 className="mt-4 font-semibold">{mod.title}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                  {mod.items.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="text-[var(--accent)]">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Catalogue formations */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+            <span>CATALOGUE</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            Nos formations IA spécialisées BTP
+          </h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                ref: 'BTP-01',
+                level: 'DÉBUTANT',
+                title: "L'IA au service du BTP",
+                duree: '4h ou 7h',
+                effectif: '12 max',
+                objectifs: [
+                  "Identifier les usages IA utiles dans le BTP",
+                  "Accélérer la rédaction de devis et messages clients",
+                  "Structurer l'administratif (CR, relances, modèles)",
+                  "Repartir avec des trames et prompts prêts à l'emploi",
+                ],
+              },
+              {
+                ref: 'BTP-02',
+                level: 'AVANCÉ',
+                title: "Répondre à un appel d'offre BTP avec l'IA",
+                duree: '7h (à adapter)',
+                effectif: '12 max',
+                objectifs: [
+                  "Analyser un DCE et extraire les exigences",
+                  "Structurer une réponse (mémoire technique, trames)",
+                  "Sécuriser le process : confidentialité + relecture",
+                  "Gagner du temps sans perdre la qualité",
+                ],
+              },
+              {
+                ref: 'BTP-03',
+                level: 'INTERMÉDIAIRE',
+                title: "L'IA au service de la fonction RH du BTP",
+                duree: '7h (à définir)',
+                effectif: '12 max',
+                objectifs: [
+                  "Rédiger des offres d'emploi plus attractives",
+                  "Créer grilles de pré-qualification et scoring",
+                  "Standardiser l'onboarding et les procédures",
+                  "Gagner du temps sur les documents RH",
+                ],
+              },
+            ].map((cours) => (
+              <div
+                key={cours.ref}
+                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div className="flex items-start justify-between">
+                  <span className="text-sm text-slate-500">RÉF: {cours.ref}</span>
+                  <span className="rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
+                    {cours.level}
+                  </span>
+                </div>
+                <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">
+                  {cours.title}
+                </h3>
+                <div className="mt-4 flex gap-4 rounded-lg bg-slate-50 px-4 py-3">
+                  <span className="flex items-center gap-2 text-sm text-slate-600">
+                    <Clock size={16} strokeWidth={1.5} />
+                    {cours.duree}
+                  </span>
+                  <span className="flex items-center gap-2 text-sm text-slate-600">
+                    <Users size={16} strokeWidth={1.5} />
+                    {cours.effectif}
+                  </span>
+                </div>
+                <p className="mt-4 font-semibold text-slate-900">
+                  OBJECTIFS PÉDAGOGIQUES
+                </p>
+                <ul className="mt-2 flex-1 space-y-2">
+                  {cours.objectifs.map((obj) => (
+                    <li key={obj} className="flex gap-2 text-sm text-slate-600">
+                      <Check size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
+                      {obj}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/prendre-rdv"
+                  className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700"
+                >
+                  Prendre rendez-vous
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/formations"
+              className="text-[var(--accent)] font-medium hover:underline"
+            >
+              Voir tout le catalogue →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Financement Constructys */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+            <span>FINANCEMENT</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            Formation finançable par Constructys
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Cette formation peut être{' '}
+            <span className="font-semibold text-[var(--accent)]">
+              prise en charge à 100% par Constructys
+            </span>{' '}
+            dans le cadre du Plan de Développement des Compétences 2026 pour les
+            entreprises de moins de 50 salariés.
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                icon: Award,
+                title: '100% finançable',
+                desc: "Coût pédagogique pris en charge à hauteur de 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum.",
+              },
+              {
+                icon: Target,
+                title: 'Salaires remboursés',
+                desc: 'Pour les entreprises de moins de 11 salariés : 15€ HT/heure/stagiaire. Éligible si formation « gestion d\'entreprise ».',
+              },
+              {
+                icon: Check,
+                title: 'Certification Qualiopi',
+                desc: "Organisme certifié Qualiopi. Démarches administratives simplifiées. Accompagnement complet pour monter le dossier.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                  <Icon size={24} strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-4 font-semibold text-slate-900">{title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/tarifs"
+              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+            >
+              Tout savoir sur le financement Constructys
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Pourquoi choisir Laure Olivié */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
+            <div className="shrink-0 lg:w-80">
+              <div className="aspect-square max-w-sm overflow-hidden rounded-3xl bg-slate-200 shadow-lg">
+                <div className="flex h-full w-full items-center justify-center text-slate-400">
+                  <Users size={80} strokeWidth={1} />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+                <span>VOTRE FORMATRICE</span>
+              </div>
+              <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+                Pourquoi choisir Laure Olivié ?
+              </h2>
+              <blockquote className="mt-6 rounded-2xl bg-[var(--accent-soft)] p-6 text-[var(--accent)]">
+                « Je forme les entreprises du BTP depuis 10 ans. Mon objectif : zéro
+                théorie, 100 % pratique. Vous repartez avec des outils opérationnels
+                dès le lendemain. »
+              </blockquote>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    icon: GraduationCap,
+                    title: '10 ans d\'expérience BTP',
+                    desc: '11 492 professionnels formés. Spécialisation métiers du bâtiment, TP, génie civil.',
+                  },
+                  {
+                    icon: Zap,
+                    title: 'Méthode 100 % opérationnelle',
+                    desc: "Pas de PowerPoint théorique. On travaille directement sur vos documents réels.",
+                  },
+                  {
+                    icon: Check,
+                    title: 'Certification Qualiopi',
+                    desc: "Organisme certifié. Financement OPCO Constructys garanti.",
+                  },
+                  {
+                    icon: Users,
+                    title: 'Accompagnement post-formation',
+                    desc: "Support WhatsApp. Accès 1 an aux ressources. Suivi personnalisé.",
+                  },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="rounded-xl border border-slate-200 p-4 shadow-sm"
+                  >
+                    <Icon size={24} strokeWidth={1.5} className="text-[var(--accent)]" />
+                    <h3 className="mt-2 font-semibold text-slate-900">{title}</h3>
+                    <p className="mt-1 text-sm text-slate-600">{desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Avis clients */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+            <Award size={16} strokeWidth={1.5} />
+            <span>AVIS CLIENTS</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            Cas concrets d&apos;entreprises du BTP formées
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Découvrez comment des entreprises du BTP comme la vôtre utilisent
+            l&apos;IA au quotidien.
+          </p>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                quote: "Depuis la formation, je génère mes devis 10 fois plus vite. Le retour sur investissement est immédiat. Mes équipes ont gagné en productivité.",
+                name: "Marc DUBOIS",
+                role: "Dirigeant",
+                company: "DUBOIS Travaux Publics - 25 salariés",
+              },
+              {
+                quote: "Formation 100 % terrain, zéro théorie inutile. On travaille directement sur nos vrais documents. Les gains de temps sont concrets dès le lendemain.",
+                name: "Sophie MARTIN",
+                role: "Assistante de direction",
+                company: "BTP Construction - 45 salariés",
+              },
+              {
+                quote: "J'ai automatisé tous mes comptes rendus de chantier. Je gagne minimum 2h par jour. La formation est parfaitement adaptée à notre métier.",
+                name: "Pierre LEFEBVRE",
+                role: "Conducteur de travaux",
+                company: "Groupe Construction",
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="flex gap-1 text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                </div>
+                <p className="mt-4 italic text-slate-700">« {t.quote} »</p>
+                <div className="mt-6 border-t border-slate-100 pt-4">
+                  <p className="font-semibold text-slate-900">{t.name}</p>
+                  <p className="text-sm text-slate-600">{t.role}</p>
+                  <p className="text-sm text-slate-500">{t.company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Qualiopi certification */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-center">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="font-display text-xl font-bold text-[var(--accent)]">
+                Qualiopi
+              </p>
+              <p className="mt-1 text-sm text-slate-600">processus certifié</p>
+              <p className="mt-4 text-xs text-slate-500">
+                La certification a été délivrée au titre de la catégorie d&apos;action
+                suivante : Action de formation
+              </p>
+            </div>
+            <div className="flex-1">
+              <h2 className="font-display text-2xl font-bold text-slate-900">
+                Organisme de formation certifié Qualiopi
+              </h2>
+              <p className="mt-3 text-slate-600">
+                OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi. Cette formation
+                est éligible aux financements OPCO et peut être prise en charge dans le
+                cadre du plan de développement des compétences de votre entreprise.
+              </p>
+              <Link
+                href="/tarifs"
+                className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
+              >
+                En savoir plus sur les financements →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
+            <span>FAQ</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900">
+            Questions fréquentes sur la formation IA BTP
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Vous avez des questions ? Voici les réponses aux interrogations les plus
+            fréquentes.
+          </p>
+          <div className="mt-8">
+            <FAQAccordion />
+          </div>
+        </div>
+      </section>
+
+      {/* Une autre question ? Contact CTA */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-2xl">
+          <div className="rounded-2xl bg-[var(--accent-soft)] p-10 text-center">
+            <h2 className="font-display text-2xl font-bold text-slate-900">
+              Une autre question ?
+            </h2>
+            <p className="mt-3 text-slate-600">
+              Appelez-moi directement ou prenez rendez-vous pour un échange de 30
+              minutes gratuit.
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href="tel:+33695661818"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+              >
+                <Phone size={20} strokeWidth={1.5} />
+                06 95 66 18 18
+              </a>
+              <Link
+                href="/prendre-rdv"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                <Calendar size={20} strokeWidth={1.5} />
+                Prendre RDV
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Prendre rendez-vous */}
+      <section id="rdv" className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+                <Calendar size={16} strokeWidth={1.5} />
+                <span>PRENDRE RDV</span>
+              </div>
+              <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+                Réservez un créneau en ligne
+              </h2>
+              <p className="mt-3 text-slate-600">
+                Choisissez le jour et l&apos;heure qui vous conviennent pour un échange
+                de 30 minutes. Devis personnalisé sous 24h après notre rendez-vous.
+              </p>
+              <Link
+                href="/prendre-rdv"
+                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600"
+              >
+                <Calendar size={20} strokeWidth={1.5} />
+                Voir le calendrier
+              </Link>
+              <p className="mt-6 text-sm text-slate-500">
+                Ou laissez vos coordonnées ci-contre pour être recontacté.
+              </p>
+              <div className="mt-8 space-y-6">
+                {[
+                  {
+                    icon: Clock,
+                    title: 'Réponse rapide',
+                    desc: 'Devis détaillé sous 24h avec programme personnalisé',
+                  },
+                  {
+                    icon: Check,
+                    title: 'Financement OPCO inclus',
+                    desc: 'Votre devis intègre les possibilités de prise en charge Constructys',
+                  },
+                  {
+                    icon: Phone,
+                    title: 'Besoin d\'échanger ?',
+                    desc: '06 95 66 18 18 · laureolivie@yahoo.fr',
+                  },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div key={title} className="flex gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white">
+                      <Icon size={20} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900">{title}</p>
+                      <p className="text-sm text-slate-600">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+              <DevisForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA final — Prêt à transformer */}
+      <section className="relative overflow-hidden bg-[var(--accent)] px-4 py-24">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
+        <div className="relative mx-auto max-w-4xl text-center text-white">
+          <h2 className="font-display text-3xl font-bold md:text-4xl">
+            Prêt à transformer votre métier avec l&apos;IA ?
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
+            Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
+            grâce à nos formations IA personnalisées pour le BTP.
+          </p>
+          <div className="mt-12 flex flex-wrap justify-center gap-8">
+            {[
+              { val: '+1592', label: 'Professionnels formés' },
+              { val: '98%', label: 'Satisfaction' },
+              { val: '100%', label: 'Finançable OPCO' },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl font-bold md:text-4xl">{s.val}</p>
+                <p className="mt-1 text-sm text-blue-200">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/prendre-rdv"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
+              <Calendar size={20} strokeWidth={1.5} />
+              Réserver ma formation
+            </Link>
+            <a
+              href="tel:+33695661818"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10"
+            >
+              <Phone size={20} strokeWidth={1.5} />
+              Appeler directement
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
