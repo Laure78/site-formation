@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Check, ChevronRight, Play, FileText, LayoutList, Lock } from 'lucide-react';
+import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 
 interface Lesson {
   id: string;
@@ -11,6 +12,8 @@ interface Lesson {
   type: string;
   order_index: number;
   duration_minutes?: number;
+  content_url?: string | null;
+  content_text?: string | null;
 }
 
 interface Module {
@@ -123,15 +126,50 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
               </div>
               <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">{selectedLesson.title}</h2>
 
-              <div className="mt-8 min-h-[200px] rounded-xl bg-slate-100 p-12 text-center">
-                {selectedLesson.type === 'video' ? (
-                  <p className="text-slate-500">Vidéo (à brancher Vimeo / Supabase Storage)</p>
+              <div className="mt-8 min-h-[200px]">
+                {selectedLesson.type === 'video' && selectedLesson.content_url ? (
+                  <YouTubeOrVideoEmbed url={selectedLesson.content_url} />
+                ) : selectedLesson.type === 'video' ? (
+                  <div className="rounded-xl bg-slate-100 p-12 text-center">
+                    <p className="text-slate-500">Aucune vidéo configurée pour cette leçon</p>
+                  </div>
+                ) : selectedLesson.type === 'texte' && selectedLesson.content_text ? (
+                  <div
+                    className="prose prose-slate max-w-none rounded-xl border border-slate-200 bg-white p-6"
+                    dangerouslySetInnerHTML={{ __html: selectedLesson.content_text.replace(/\n/g, '<br />') }}
+                  />
                 ) : selectedLesson.type === 'texte' ? (
-                  <p className="text-slate-500">Contenu texte (à charger depuis la base)</p>
+                  <div className="rounded-xl bg-slate-100 p-12 text-center">
+                    <p className="text-slate-500">Aucun contenu texte pour cette leçon</p>
+                  </div>
+                ) : selectedLesson.type === 'pdf' && selectedLesson.content_url ? (
+                  <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
+                    <iframe
+                      src={`${selectedLesson.content_url}#view=FitH`}
+                      title={selectedLesson.title}
+                      className="h-[70vh] w-full"
+                    />
+                    <a
+                      href={selectedLesson.content_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block border-t border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm font-medium text-[var(--accent)] hover:bg-slate-100"
+                    >
+                      Ouvrir le PDF dans un nouvel onglet
+                    </a>
+                  </div>
+                ) : selectedLesson.type === 'pdf' ? (
+                  <div className="rounded-xl bg-slate-100 p-12 text-center">
+                    <p className="text-slate-500">Aucun PDF configuré pour cette leçon</p>
+                  </div>
                 ) : selectedLesson.type === 'quiz' ? (
-                  <p className="text-slate-500">Quiz (à implémenter)</p>
+                  <div className="rounded-xl bg-slate-100 p-12 text-center">
+                    <p className="text-slate-500">Quiz (à implémenter)</p>
+                  </div>
                 ) : (
-                  <p className="text-slate-500">Contenu PDF ou ressource</p>
+                  <div className="rounded-xl bg-slate-100 p-12 text-center">
+                    <p className="text-slate-500">Contenu non disponible</p>
+                  </div>
                 )}
               </div>
 

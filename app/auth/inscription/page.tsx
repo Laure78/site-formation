@@ -7,6 +7,8 @@ import { createClient } from '@/lib/supabase/client';
 
 export default function InscriptionPage() {
   const router = useRouter();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -32,7 +34,17 @@ export default function InscriptionPage() {
     setLoading(true);
     try {
       const supabase = createClient();
-      const { error: err } = await supabase.auth.signUp({ email, password });
+      const { error: err } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            first_name: firstName.trim() || undefined,
+            last_name: lastName.trim() || undefined,
+            full_name: [firstName.trim(), lastName.trim()].filter(Boolean).join(' ') || undefined,
+          },
+        },
+      });
       if (err) throw err;
       router.push('/espace-apprenant');
       router.refresh();
@@ -69,6 +81,34 @@ export default function InscriptionPage() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="firstName" className="block text-sm font-medium text-slate-700">
+              Prénom
+            </label>
+            <input
+              id="firstName"
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Marie"
+              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastName" className="block text-sm font-medium text-slate-700">
+              Nom
+            </label>
+            <input
+              id="lastName"
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Dupont"
+              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+            />
+          </div>
+        </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-slate-700">
             Email

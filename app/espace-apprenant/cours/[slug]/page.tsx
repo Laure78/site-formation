@@ -39,7 +39,7 @@ export default async function CoursPage({
     .from('modules')
     .select(`
       id, title, order_index,
-      lessons(id, title, type, order_index, duration_minutes)
+      lessons(id, title, type, order_index, duration_minutes, content_url, content_text)
     `)
     .eq('course_id', course.id)
     .order('order_index');

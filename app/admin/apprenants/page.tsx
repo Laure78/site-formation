@@ -5,7 +5,7 @@ export default async function AdminApprenantsPage() {
   const supabase = await createClient();
   const { data: profiles } = await supabase
     .from('profiles')
-    .select('id, full_name, email, created_at')
+    .select('id, first_name, last_name, full_name, email, created_at')
     .eq('role', 'apprenant')
     .order('created_at', { ascending: false });
 
@@ -28,7 +28,8 @@ export default async function AdminApprenantsPage() {
         <table className="w-full">
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50">
-              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Apprenant</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Prénom</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Nom</th>
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Email</th>
               <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900">Formations</th>
             </tr>
@@ -36,7 +37,7 @@ export default async function AdminApprenantsPage() {
           <tbody>
             {(profiles ?? []).length === 0 ? (
               <tr>
-                <td colSpan={3} className="px-6 py-12 text-center text-slate-500">
+                <td colSpan={4} className="px-6 py-12 text-center text-slate-500">
                   Aucun apprenant inscrit
                 </td>
               </tr>
@@ -46,8 +47,11 @@ export default async function AdminApprenantsPage() {
                 return (
                   <tr key={p.id} className="border-b border-slate-100 last:border-0">
                     <td className="px-6 py-4">
-                      <p className="font-medium text-slate-900">{p.full_name || '—'}</p>
+                      <p className="font-medium text-slate-900">{(p as { first_name?: string }).first_name || '—'}</p>
                       <p className="text-xs text-slate-500">Inscrit le {new Date(p.created_at).toLocaleDateString('fr-FR')}</p>
+                    </td>
+                    <td className="px-6 py-4 font-medium text-slate-900">
+                      {(p as { last_name?: string }).last_name || '—'}
                     </td>
                     <td className="px-6 py-4 text-slate-600">{p.email}</td>
                     <td className="px-6 py-4">

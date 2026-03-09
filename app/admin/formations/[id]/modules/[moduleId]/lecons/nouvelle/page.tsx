@@ -7,9 +7,9 @@ import { createClient } from '@/lib/supabase/client';
 import { FileUploadButton } from '@/components/FileUploadButton';
 
 const LESSON_TYPES = [
-  { value: 'video', label: 'Vidéo' },
+  { value: 'video', label: 'Vidéo YouTube ou autre' },
   { value: 'texte', label: 'Texte' },
-  { value: 'pdf', label: 'Slides (PDF)' },
+  { value: 'pdf', label: 'Slides PDF' },
   { value: 'quiz', label: 'Quiz' },
 ];
 
@@ -93,21 +93,38 @@ export default function NouvelleLeconPage() {
             />
           </div>
         )}
-        {(type === 'video' || type === 'pdf') && (
+        {type === 'video' && (
           <div className="space-y-2">
             <label className="block text-sm font-medium text-slate-700">
-              {type === 'video' ? 'Vidéo : URL ou dépôt de fichier' : 'Slides : URL ou dépôt de fichier PDF'}
+              Lien YouTube ou URL vidéo
+            </label>
+            <input
+              type="url"
+              value={contentUrl}
+              onChange={(e) => setContentUrl(e.target.value)}
+              placeholder="https://www.youtube.com/watch?v=... ou https://youtu.be/..."
+              className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+            />
+            <p className="text-xs text-slate-500">
+              Collez le lien de la vidéo YouTube (ex : youtube.com/watch?v=xxx) ou une URL vidéo directe (Vimeo, etc.)
+            </p>
+          </div>
+        )}
+        {type === 'pdf' && (
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-slate-700">
+              Slides PDF : déposer un fichier ou coller une URL
             </label>
             <div className="flex gap-2">
               <input
                 type="url"
                 value={contentUrl}
                 onChange={(e) => setContentUrl(e.target.value)}
-                placeholder="https://... ou déposez un fichier"
+                placeholder="https://... ou cliquez sur Déposer pour uploader"
                 className="flex-1 rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
               />
               <FileUploadButton
-                accept={type === 'video' ? 'video/*' : '.pdf'}
+                accept=".pdf,application/pdf"
                 onUrl={(url) => setContentUrl(url)}
               />
             </div>
