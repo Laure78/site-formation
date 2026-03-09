@@ -26,22 +26,22 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero — Formation IA BTP */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-24 text-white md:py-32">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40" />
+      <section className="relative overflow-hidden border-b border-slate-200 bg-white px-4 py-24 md:py-32">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
         <div className="relative mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <Check size={16} strokeWidth={1.5} />
                 <span>CERTIFIÉE QUALIOPI · FINANCEMENT CONSTRUCTYS 100%</span>
               </div>
-              <h1 className="mt-6 font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+              <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
                 Formation IA pour les entreprises du{' '}
                 <span className="text-[var(--accent)]">BTP</span>
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
                 Gagnez{' '}
-                <span className="font-semibold text-white">3 à 5 heures par semaine</span>{' '}
+                <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
                 sur vos devis, chiffrages, emails et comptes rendus chantier grâce à
                 l&apos;intelligence artificielle.
               </p>
@@ -54,7 +54,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="#programme"
-                  className="rounded-xl border-2 border-white/40 px-8 py-4 text-center font-semibold text-white hover:bg-white/10"
+                  className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
                 >
                   Voir le programme
                 </Link>
@@ -67,12 +67,12 @@ export default function HomePage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl bg-white/5 p-4 text-center backdrop-blur-sm"
+                    className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center"
                   >
                     <p className="text-2xl font-bold text-[var(--accent)] md:text-3xl">
                       {stat.val}
                     </p>
-                    <p className="mt-1 text-xs text-slate-400">{stat.label}</p>
+                    <p className="mt-1 text-xs text-slate-600">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -212,16 +212,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Programme modulaire — fond sombre */}
-      <section id="programme" className="bg-slate-900 px-4 py-20 text-white">
+      {/* Programme modulaire — fond blanc */}
+      <section id="programme" className="border-b border-slate-200 bg-white px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <span>PROGRAMME MODULAIRE</span>
           </div>
-          <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Programme détaillé de la formation
           </h2>
-          <p className="mt-3 text-slate-300">
+          <p className="mt-3 text-slate-600">
             Formation modulaire adaptée aux besoins de votre entreprise BTP. De 4h à
             14h selon vos objectifs.
           </p>
@@ -270,13 +270,13 @@ export default function HomePage() {
             ].map((mod) => (
               <div
                 key={mod.n}
-                className="rounded-2xl border border-slate-700 bg-slate-800/50 p-6"
+                className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-lg font-bold">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-lg font-bold text-white">
                   {mod.n}
                 </div>
-                <h3 className="mt-4 font-semibold">{mod.title}</h3>
-                <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                <h3 className="mt-4 font-semibold text-slate-900">{mod.title}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-slate-600">
                   {mod.items.map((item) => (
                     <li key={item} className="flex gap-2">
                       <span className="text-[var(--accent)]">•</span>

@@ -349,13 +349,13 @@ export default function FormationIAProductiviteChantierPage() {
       </section>
 
       {/* CTA final */}
-      <section className="bg-slate-900 px-4 py-16 text-white">
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold">
+          <h2 className="font-display text-3xl font-bold text-slate-900">
             Prêt à gagner{' '}
-            <span className="text-blue-300">5h par semaine</span> sur votre paperasse ?
+            <span className="text-[var(--accent)]">5h par semaine</span> sur votre paperasse ?
           </h2>
-          <p className="mt-4 text-lg text-slate-300">
+          <p className="mt-4 text-lg text-slate-600">
             Discutons de votre situation concrète — votre métier, vos contraintes,
             vos objectifs. Je vous propose un programme adapté, finançable,
             opérationnel dès le premier jour.
@@ -363,19 +363,19 @@ export default function FormationIAProductiviteChantierPage() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="flex items-center gap-2 rounded-xl border-2 border-slate-400 bg-white px-8 py-4 font-semibold text-slate-800 hover:bg-slate-50"
+              className="flex items-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-8 py-4 font-semibold text-slate-800 hover:bg-slate-50"
             >
               <Mail size={20} strokeWidth={1.5} />
               Me contacter
             </Link>
             <Link
               href="/formations"
-              className="flex items-center gap-2 rounded-xl border-2 border-blue-400 bg-transparent px-8 py-4 font-semibold text-white hover:bg-slate-800"
+              className="flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700"
             >
               Voir tous les programmes
             </Link>
           </div>
-          <p className="mt-8 text-sm text-slate-400">
+          <p className="mt-8 text-sm text-slate-500">
             OFC Création d&apos;Entreprise · Certifié Qualiopi · Formation inter et intra
             entreprise
           </p>
