@@ -20,6 +20,7 @@ import {
   Monitor,
 } from 'lucide-react';
 import { ProgrammeAccordion } from '@/components/formations/ProgrammeAccordion';
+import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 
 export const metadata = {
   title: 'Formation IA pour la Fonction RH dans le BTP — Laure Olivié',
@@ -288,6 +289,22 @@ export default function FormationIARHBTPPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Formation LinkedIn — recrutement BTP */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-3xl font-bold text-slate-900">
+            Ma formation LinkedIn Learning sur le recrutement
+          </h2>
+          <p className="mt-3 text-slate-600">
+            « L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement » —
+            une formation complémentaire pour automatiser vos process RH.
+          </p>
+          <div className="mt-8">
+            <LinkedInLearningEmbed />
           </div>
         </div>
       </section>

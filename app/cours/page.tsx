@@ -2,8 +2,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { createPageMetadata } from '@/lib/seo';
-import { BookOpen, Clock } from 'lucide-react';
+import { BookOpen, Clock, Video } from 'lucide-react';
 import { BuyButton } from './BuyButton';
+import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue des cours en ligne — IA BTP',
@@ -41,6 +42,30 @@ export default async function CoursPage() {
           Formations IA pratiques accessibles à tout moment.
         </p>
       </div>
+
+      {/* Formation LinkedIn — expertise à découvrir */}
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+        <div className="flex items-center gap-2">
+          <Video size={24} strokeWidth={1.5} className="text-[var(--accent)]" />
+          <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+            Formation LinkedIn Learning : L&apos;IA pour recruter sa main-d&apos;œuvre
+          </h2>
+        </div>
+        <p className="mt-2 text-slate-600">
+          Découvrez ma formation sur le recrutement BTP avec l&apos;IA — Laure Olivié, formatrice LinkedIn Learning.
+        </p>
+        <div className="mt-6">
+          <LinkedInLearningEmbed showCaption={false} compact />
+        </div>
+        <a
+          href="https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
+        >
+          Voir la formation complète sur LinkedIn Learning →
+        </a>
+      </section>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {(courses ?? []).length === 0 ? (

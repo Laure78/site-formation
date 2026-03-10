@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { DevisForm } from '@/components/landing/DevisForm';
+import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 
 export default function HomePage() {
   return (
@@ -566,6 +567,27 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Formation LinkedIn — expertise */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+            <Video size={16} strokeWidth={1.5} />
+            <span>FORMATION LINKEDIN LEARNING</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            Découvrez ma formation sur le recrutement BTP avec l&apos;IA
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Formatrice sur LinkedIn Learning : « L&apos;IA pour les artisans et TPE :
+            Recruter sa main-d&apos;œuvre efficacement ». Un aperçu de mon expertise pour
+            vous accompagner.
+          </p>
+          <div className="mt-8">
+            <LinkedInLearningEmbed />
           </div>
         </div>
       </section>
