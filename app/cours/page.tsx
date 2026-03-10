@@ -43,29 +43,53 @@ export default async function CoursPage() {
         </p>
       </div>
 
-      {/* Formation LinkedIn — expertise à découvrir */}
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-        <div className="flex items-center gap-2">
-          <Video size={24} strokeWidth={1.5} className="text-[var(--accent)]" />
-          <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-            Formation LinkedIn Learning : L&apos;IA pour recruter sa main-d&apos;œuvre
-          </h2>
-        </div>
-        <p className="mt-2 text-slate-600">
-          Découvrez ma formation sur le recrutement BTP avec l&apos;IA — Laure Olivié, formatrice LinkedIn Learning.
-        </p>
-        <div className="mt-6">
-          <LinkedInLearningEmbed showCaption={false} compact />
-        </div>
-        <a
-          href="https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
-        >
-          Voir la formation complète sur LinkedIn Learning →
-        </a>
-      </section>
+      {/* Formations LinkedIn — expertise à découvrir */}
+      <div className="mt-12 space-y-8">
+        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+          <div className="flex items-center gap-2">
+            <Video size={24} strokeWidth={1.5} className="text-[var(--accent)]" />
+            <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              L&apos;IA pour le BTP : Des solutions concrètes pour vos chantiers
+            </h2>
+          </div>
+          <p className="mt-2 text-slate-600">
+            Découvrez ma formation sur les solutions IA pour vos chantiers — Laure Olivié, formatrice LinkedIn Learning.
+          </p>
+          <div className="mt-6">
+            <LinkedInLearningEmbed course="chantiers" showCaption={false} compact />
+          </div>
+          <a
+            href="https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
+          >
+            Voir la formation complète sur LinkedIn Learning →
+          </a>
+        </section>
+        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+          <div className="flex items-center gap-2">
+            <Video size={24} strokeWidth={1.5} className="text-[var(--accent)]" />
+            <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              L&apos;IA pour recruter sa main-d&apos;œuvre efficacement
+            </h2>
+          </div>
+          <p className="mt-2 text-slate-600">
+            Découvrez ma formation sur le recrutement BTP avec l&apos;IA — Laure Olivié, formatrice LinkedIn Learning.
+          </p>
+          <div className="mt-6">
+            <LinkedInLearningEmbed course="recrutement" showCaption={false} compact />
+          </div>
+          <a
+            href="https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
+          >
+            Voir la formation complète sur LinkedIn Learning →
+          </a>
+        </section>
+      </div>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {(courses ?? []).length === 0 ? (

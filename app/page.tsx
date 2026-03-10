@@ -571,23 +571,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Formation LinkedIn — expertise */}
+      {/* Formations LinkedIn — expertise */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <Video size={16} strokeWidth={1.5} />
-            <span>FORMATION LINKEDIN LEARNING</span>
+            <span>FORMATIONS LINKEDIN LEARNING</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            Découvrez ma formation sur le recrutement BTP avec l&apos;IA
+            Découvrez mes formations sur l&apos;IA pour le BTP
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Formatrice sur LinkedIn Learning : « L&apos;IA pour les artisans et TPE :
-            Recruter sa main-d&apos;œuvre efficacement ». Un aperçu de mon expertise pour
-            vous accompagner.
+            Formatrice LinkedIn Learning : solutions concrètes pour vos chantiers et recrutement.
           </p>
-          <div className="mt-8">
-            <LinkedInLearningEmbed />
+          <div className="mt-8 space-y-12">
+            <div>
+              <h3 className="font-display text-xl font-semibold text-slate-900">
+                L&apos;IA pour le BTP : Des solutions concrètes pour vos chantiers
+              </h3>
+              <div className="mt-4">
+                <LinkedInLearningEmbed course="chantiers" />
+              </div>
+            </div>
+            <div>
+              <h3 className="font-display text-xl font-semibold text-slate-900">
+                L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement
+              </h3>
+              <div className="mt-4">
+                <LinkedInLearningEmbed course="recrutement" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ import {
   Smartphone,
   Target,
 } from 'lucide-react';
+import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 
 export const metadata = {
   title: 'Formation IA BTP : Boostez votre productivité de chantier — Laure Olivié',
@@ -345,6 +346,29 @@ export default function FormationIAProductiviteChantierPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Formation LinkedIn — solutions chantiers */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-3xl font-bold text-slate-900">
+            Ma formation LinkedIn : L&apos;IA pour le BTP, des solutions concrètes pour vos chantiers
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Découvrez mon approche terrain en vidéo — Laure Olivié, formatrice LinkedIn Learning.
+          </p>
+          <div className="mt-8">
+            <LinkedInLearningEmbed course="chantiers" />
+          </div>
+          <a
+            href="https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
+          >
+            Voir la formation complète sur LinkedIn Learning →
+          </a>
         </div>
       </section>
 
