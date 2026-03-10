@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   legalName: 'OFC Création d\'Entreprise',
   description:
     'Formation IA pour les entreprises du BTP. Gagnez 3 à 5h/semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Paris, Île-de-France, France.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://formation.laureolivie.fr',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
   phoneDisplay: '06 95 66 18 18',
