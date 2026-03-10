@@ -3,6 +3,9 @@
 
 name: Media Machine — Génération articles
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 4 * * *'

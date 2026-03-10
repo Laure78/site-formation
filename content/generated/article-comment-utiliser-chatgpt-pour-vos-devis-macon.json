@@ -1,13 +1,13 @@
 {
-  "slug": "financement-constructys-mode-d-emploi",
-  "title": "Financement Constructys : mode d'emploi",
-  "description": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
+  "slug": "comment-utiliser-chatgpt-pour-vos-devis-macon",
+  "title": "Comment utiliser ChatGPT pour vos devis maçon",
+  "description": "Comment utiliser ChatGPT pour vos devis maçon. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finança",
   "date": "2026-03-10",
   "keywords": [
-    "emails artisans",
-    "relance client IA",
-    "email professionnel ChatGPT",
-    "ChatGPT artisans"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -62,8 +62,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Financement Constructys : mode d'emploi",
-  "metaDescription": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
+  "seoTitle": "Comment utiliser ChatGPT pour vos devis maçon",
+  "metaDescription": "Comment utiliser ChatGPT pour vos devis maçon. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finança",
   "internalLinks": [
     {
       "path": "/formations",
@@ -71,11 +71,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

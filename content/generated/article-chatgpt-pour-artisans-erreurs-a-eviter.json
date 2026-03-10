@@ -4,10 +4,10 @@
   "description": "ChatGPT pour artisans : erreurs à éviter. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable C",
   "date": "2026-03-10",
   "keywords": [
-    "offre emploi IA",
-    "recruter artisans",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -71,7 +71,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "réserver formation"
     },
     {
       "path": "/blog",

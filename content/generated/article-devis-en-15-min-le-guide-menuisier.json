@@ -1,13 +1,13 @@
 {
-  "slug": "financement-constructys-mode-d-emploi",
-  "title": "Financement Constructys : mode d'emploi",
-  "description": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
+  "slug": "devis-en-15-min-le-guide-menuisier",
+  "title": "Devis en 15 min : le guide menuisier",
+  "description": "Devis en 15 min : le guide menuisier. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Const",
   "date": "2026-03-10",
   "keywords": [
-    "emails artisans",
-    "relance client IA",
-    "email professionnel ChatGPT",
-    "ChatGPT artisans"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -58,12 +58,12 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Financement Constructys : mode d'emploi",
-  "metaDescription": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
+  "seoTitle": "Devis en 15 min : le guide menuisier",
+  "metaDescription": "Devis en 15 min : le guide menuisier. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Const",
   "internalLinks": [
     {
       "path": "/formations",
@@ -71,11 +71,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

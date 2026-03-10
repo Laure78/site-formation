@@ -1,13 +1,13 @@
 {
-  "slug": "financement-constructys-mode-d-emploi",
-  "title": "Financement Constructys : mode d'emploi",
-  "description": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
+  "slug": "ia-et-carreleur-5-gains-de-temps-concrets",
+  "title": "IA et carreleur : 5 gains de temps concrets",
+  "description": "IA et carreleur : 5 gains de temps concrets. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançabl",
   "date": "2026-03-10",
   "keywords": [
-    "emails artisans",
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
     "relance client IA",
-    "email professionnel ChatGPT",
-    "ChatGPT artisans"
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -58,12 +58,12 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Financement Constructys : mode d'emploi",
-  "metaDescription": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
+  "seoTitle": "IA et carreleur : 5 gains de temps concrets",
+  "metaDescription": "IA et carreleur : 5 gains de temps concrets. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançabl",
   "internalLinks": [
     {
       "path": "/formations",
@@ -71,11 +71,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
+      "anchor": "réserver formation"
     },
     {
       "path": "/blog",
