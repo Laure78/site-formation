@@ -80,6 +80,7 @@ export function Footer() {
                 { href: '/ia-devis-batiment', label: 'IA pour devis bâtiment' },
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
                 { href: '/tarifs', label: 'Financement OPCO' },
+                { href: '/blog', label: 'Ressources & Articles' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },
                 { href: '/install-pwa', label: 'Installer l\'app mobile' },
               ].map(({ href, label }) => (

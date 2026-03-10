@@ -1,8 +1,19 @@
 import { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/seo';
+import { getAllSlugs } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
+
+  const blogRoutes: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    ...getAllSlugs().map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85 as const,
+    })),
+  ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
@@ -30,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/offres`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/annuaire-handicap`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
     { url: `${baseUrl}/install-pwa`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    ...blogRoutes,
   ];
 
   return staticRoutes;

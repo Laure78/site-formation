@@ -37,6 +37,7 @@ const NAV_ITEMS: {
     ],
   },
   { href: '/financement-constructys', label: 'Financement' },
+  { href: '/blog', label: 'Ressources' },
   { href: '/prendre-rdv', label: 'Prendre RDV' },
 ];
 

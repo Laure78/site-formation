@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "media:trends": "npx tsx scripts/trends.ts",
+    "media:generate": "npx tsx scripts/generate-daily.ts",
+    "media:publish": "npx tsx scripts/publish.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.9.0",
