@@ -8,3 +8,8 @@ export async function POST(request: NextRequest) {
   url.pathname = '/';
   return NextResponse.redirect(url, { status: 302 });
 }
+
+/** GET fallback pour lien direct (ex. signet déconnexion) */
+export async function GET(request: NextRequest) {
+  return POST(request);
+}

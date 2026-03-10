@@ -12,21 +12,32 @@ export default async function MessagesPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/auth/connexion');
 
-  const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single();
-  const isStaff = (profile as { role?: string } | null)?.role === 'admin' || (profile as { role?: string } | null)?.role === 'formateur';
+  let profile: { role?: string } | null = null;
+  let courses: { id: string; title: string; slug: string; creator_id: string | null }[] = [];
+  let enrollments: { course_id: string }[] = [];
 
-  const { data: courses } = await supabase
-    .from('courses')
-    .select('id, title, slug, creator_id')
-    .eq('published', true);
+  try {
+    const profileRes = await supabase.from('profiles').select('role').eq('id', user.id).single();
+    profile = profileRes.data as { role?: string } | null;
 
-  const { data: enrollments } = await supabase
-    .from('enrollments')
-    .select('course_id')
-    .eq('user_id', user.id);
+    const coursesRes = await supabase
+      .from('courses')
+      .select('id, title, slug, creator_id')
+      .eq('published', true);
+    courses = (coursesRes.data ?? []) as typeof courses;
 
-  const enrolledIds = new Set((enrollments ?? []).map((e) => e.course_id));
-  const accessibleCourses = (courses ?? []).filter(
+    const enrollRes = await supabase
+      .from('enrollments')
+      .select('course_id')
+      .eq('user_id', user.id);
+    enrollments = (enrollRes.data ?? []) as typeof enrollments;
+  } catch (e) {
+    console.error('Messages page data error:', e);
+  }
+
+  const isStaff = profile?.role === 'admin' || profile?.role === 'formateur';
+  const enrolledIds = new Set(enrollments.map((e) => e.course_id));
+  const accessibleCourses = courses.filter(
     (c) => isStaff || enrolledIds.has(c.id) || c.creator_id === user.id
   );
 

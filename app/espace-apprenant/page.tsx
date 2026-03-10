@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
-import { BookOpen, Award, ChevronRight, MessageCircle } from 'lucide-react';
+import { BookOpen, Award, ChevronRight, MessageCircle, LogOut } from 'lucide-react';
 import { getProfile } from '@/lib/auth';
+import { signOutAction } from './actions';
 
 export default async function EspaceApprenantPage() {
   const supabase = await createClient();
@@ -29,7 +30,7 @@ export default async function EspaceApprenantPage() {
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <Link
           href="/messages"
-          className="group rounded-2xl border border-slate-200 bg-white p-8 transition-shadow hover:shadow-md"
+          className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent-soft)]/30"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -101,18 +102,19 @@ export default async function EspaceApprenantPage() {
         </div>
       )}
 
-      <div className="mt-10 flex gap-4">
+      <div className="mt-10 flex flex-wrap gap-4">
         <Link
           href="/formations"
           className="rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
         >
           Voir le catalogue
         </Link>
-        <form action="/auth/deconnexion" method="post">
+        <form action={signOutAction}>
           <button
             type="submit"
-            className="rounded-lg border border-slate-200 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50"
+            className="flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
           >
+            <LogOut size={18} strokeWidth={2} />
             Se déconnecter
           </button>
         </form>
