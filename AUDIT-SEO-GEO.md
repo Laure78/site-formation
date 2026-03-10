@@ -49,7 +49,7 @@
 | 1 | Schema Course uniquement sur ia-btp-paris — 5 autres formations sans Course |
 | 2 | Pas de FAQPage schema sur la homepage (section FAQ existante) |
 | 3 | annuaire-handicap, offres absents du sitemap |
-| 4 | formations/[slug] (excel-avance, etc.) : metadata manquant |
+| 4 | ~~formations/[slug] (excel-avance, etc.)~~ — supprimé |
 | 5 | Contenu mince sur ia-pme-btp (~30 lignes) |
 | 6 | Mots-clés GEO manquants : "ChatGPT pour artisans", "IA devis bâtiment" peu présents |
 

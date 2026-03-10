@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
-import { BookOpen, Award, ChevronRight } from 'lucide-react';
+import { BookOpen, Award, ChevronRight, MessageCircle } from 'lucide-react';
 import { getProfile } from '@/lib/auth';
 
 export default async function EspaceApprenantPage() {
@@ -26,7 +26,25 @@ export default async function EspaceApprenantPage() {
       <h1 className="font-display text-3xl font-bold">Espace apprenant</h1>
       <p className="mt-2 text-slate-600">Bienvenue, {profile?.full_name || user.email}</p>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <Link
+          href="/messages"
+          className="group rounded-2xl border border-slate-200 bg-white p-8 transition-shadow hover:shadow-md"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                <MessageCircle size={24} strokeWidth={1.5} />
+              </div>
+              <div>
+                <h2 className="font-display text-xl font-semibold text-slate-900">Messages</h2>
+                <p className="mt-1 text-sm text-slate-600">Discussion avec le formateur et les apprenants</p>
+              </div>
+            </div>
+            <ChevronRight size={24} strokeWidth={1.5} className="text-slate-400 group-hover:text-[var(--accent)]" />
+          </div>
+        </Link>
+
         <Link
           href="/espace-apprenant/mes-formations"
           className="group rounded-2xl border border-slate-200 bg-white p-8 transition-shadow hover:shadow-md"

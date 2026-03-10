@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { Users, BookOpen, TrendingUp, Euro } from 'lucide-react';
+import { Users, BookOpen, TrendingUp, Euro, MessageCircle } from 'lucide-react';
 
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
@@ -110,6 +110,15 @@ export default async function AdminDashboardPage() {
                 <Users size={20} strokeWidth={1.5} />
               </div>
               <span className="font-medium">Voir les apprenants</span>
+            </Link>
+            <Link
+              href="/messages"
+              className="flex items-center gap-3 rounded-xl border border-slate-200 px-4 py-3 text-left transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
+                <MessageCircle size={20} strokeWidth={1.5} />
+              </div>
+              <span className="font-medium">Modérer les messages</span>
             </Link>
           </div>
         </div>
