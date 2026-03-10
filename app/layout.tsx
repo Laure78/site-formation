@@ -9,6 +9,7 @@ import {
   getOrganizationSchema,
   getLocalBusinessSchema,
   getWebSiteSchema,
+  getPersonSchema,
 } from '@/lib/seo';
 
 const dmSans = DM_Sans({
@@ -91,6 +92,7 @@ export default function RootLayout({
   const orgSchema = getOrganizationSchema();
   const localSchema = getLocalBusinessSchema();
   const webSchema = getWebSiteSchema();
+  const personSchema = getPersonSchema();
 
   return (
     <html lang="fr">
@@ -114,6 +116,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(webSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
           }}
         />
         <Header />

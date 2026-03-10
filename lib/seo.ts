@@ -181,6 +181,95 @@ export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
   };
 }
 
+/** Schéma Article pour blog (GEO) */
+export function getArticleSchema({
+  headline,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  authorName,
+  image,
+}: {
+  headline: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName: string;
+  image?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline,
+    description,
+    url: `${SITE_CONFIG.url}${path}`,
+    datePublished,
+    dateModified: dateModified ?? datePublished,
+    author: { '@type': 'Person', name: authorName },
+    publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
+    ...(image && { image }),
+  };
+}
+
+/** Schéma Person (Laure Olivié) */
+export function getPersonSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE_CONFIG.url}/#person`,
+    name: SITE_CONFIG.name,
+    jobTitle: 'Formatrice IA BTP',
+    worksFor: { '@id': `${SITE_CONFIG.url}/#organization` },
+    url: SITE_CONFIG.url,
+    email: SITE_CONFIG.email,
+    telephone: SITE_CONFIG.phone,
+    sameAs: SITE_CONFIG.sameAs,
+  };
+}
+
+/** Schéma HowTo pour guides */
+export function getHowToSchema({
+  name,
+  description,
+  path,
+  steps,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    url: `${SITE_CONFIG.url}${path}`,
+    step: steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+/** Schéma BreadcrumbList */
+export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${SITE_CONFIG.url}${item.path}`,
+    })),
+  };
+}
+
 /** Schéma WebSite pour moteur de recherche */
 export function getWebSiteSchema() {
   return {

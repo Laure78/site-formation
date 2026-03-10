@@ -23,6 +23,7 @@ export async function createAppointment(data: CreateAppointmentInput) {
   }).select('id').single();
 
   if (error) {
+    console.error('[createAppointment]', error.message, error.code);
     return { ok: false, error: error.message };
   }
   return { ok: true, id: row.id };

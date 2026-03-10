@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getArticleSchema, getBreadcrumbSchema } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo';
 import { getArticle, getAllSlugs, getAllArticles } from '@/lib/blog';
+import { CTABlock } from '@/components/CTABlock';
 import { Calendar, ArrowLeft, Check } from 'lucide-react';
 
 interface Props {
@@ -34,8 +36,23 @@ export default async function BlogArticlePage({ params }: Props) {
     .map((s) => allArticles.find((a) => a.slug === s))
     .filter(Boolean) as typeof allArticles;
 
+  const articleSchema = getArticleSchema({
+    headline: article.title,
+    description: article.description,
+    path: `/blog/${article.slug}`,
+    datePublished: article.date,
+    authorName: SITE_CONFIG.name,
+  });
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Accueil', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: article.title, path: `/blog/${article.slug}` },
+  ]);
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <nav className="mb-8">
         <Link
           href="/blog"
@@ -169,11 +186,12 @@ export default async function BlogArticlePage({ params }: Props) {
           </section>
         )}
 
-        <div className="mt-12 flex flex-wrap gap-4">
-          <Link
-            href="/formations"
-            className="text-[var(--accent)] hover:underline"
-          >
+        <div className="mt-12">
+          <CTABlock variant="compact" />
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-4">
+          <Link href="/formations" className="text-[var(--accent)] hover:underline">
             Voir les formations IA BTP
           </Link>
           <Link href="/blog" className="text-[var(--accent)] hover:underline">
