@@ -19,12 +19,22 @@ import {
   Shield,
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
+import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Formation IA & Travaux Publics — Laure Olivié',
   description:
     "Formation immersive en 2 jours : maîtriser l'IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier et créer votre assistant IA métier. 100% finançable OPCO.",
-};
+  path: '/formations/ia-travaux-publics',
+});
+
+const courseSchema = getCourseSchema({
+  name: "Formation IA & Travaux Publics",
+  description: "Formation immersive 2 jours : maîtriser l'IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier, créer votre assistant IA métier. 100% finançable OPCO.",
+  path: '/formations/ia-travaux-publics',
+  providerName: SITE_CONFIG.legalName,
+  areaServed: ['France', 'Île-de-France'],
+});
 
 const OBJECTIFS = [
   {
@@ -127,6 +137,10 @@ const LIVRABLES = [
 export default function FormationIATravauxPublicsPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">

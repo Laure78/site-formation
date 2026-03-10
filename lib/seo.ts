@@ -165,6 +165,22 @@ export function getLocalBusinessSchema() {
   };
 }
 
+/** Schéma FAQPage pour GEO (ChatGPT, Perplexity, etc.) */
+export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+}
+
 /** Schéma WebSite pour moteur de recherche */
 export function getWebSiteSchema() {
   return {

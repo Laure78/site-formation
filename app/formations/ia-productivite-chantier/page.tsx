@@ -11,12 +11,22 @@ import {
   Target,
 } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Formation IA BTP : Boostez votre productivité de chantier — Laure Olivié',
   description:
     "Programme opérationnel pour automatiser devis, factures et emails avec ChatGPT. Résultats dès la première semaine. Atelier Action, micro-learning ou coaching. 100% finançable Constructys.",
-};
+  path: '/formations/ia-productivite-chantier',
+});
+
+const courseSchema = getCourseSchema({
+  name: 'Formation IA BTP : Productivité de chantier',
+  description: "Programme opérationnel pour automatiser devis, factures et emails avec ChatGPT. Atelier Action, micro-learning ou coaching. 100% finançable Constructys.",
+  path: '/formations/ia-productivite-chantier',
+  providerName: SITE_CONFIG.legalName,
+  areaServed: ['France', 'Île-de-France'],
+});
 
 const AVANTAGES = [
   {
@@ -106,6 +116,10 @@ const CHECKLIST = [
 export default function FormationIAProductiviteChantierPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">

@@ -93,7 +93,10 @@ export default function RootLayout({
 
   return (
     <html lang="fr">
-      <head>
+      <body
+        className={`${dmSans.variable} ${outfit.variable} font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900`}
+      >
+        {/* JSON-LD dans le body pour éviter les conflits de streaming metadata */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -112,10 +115,6 @@ export default function RootLayout({
             __html: JSON.stringify(webSchema),
           }}
         />
-      </head>
-      <body
-        className={`${dmSans.variable} ${outfit.variable} font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900`}
-      >
         <Header />
         <main className="flex-1" id="main-content">
           {children}

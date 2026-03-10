@@ -327,4 +327,62 @@ Sur Chrome, `https://laureolivie.fr` peut afficher cette erreur (conflit ECH / C
 
 ---
 
+---
+
+## Partie D : Autoriser les bots IA (GEO — ChatGPT, Claude, Perplexity)
+
+Pour que votre site soit référencé dans les réponses de ChatGPT, Claude, Perplexity et Google AI Overviews, les crawlers IA doivent pouvoir accéder à vos pages. Voici comment configurer Cloudflare pour **autoriser** ces bots.
+
+### D1 : Vérifier le réglage global « Block AI bots »
+
+1. Connectez-vous à **https://dash.cloudflare.com**
+2. Sélectionnez **laureolivie.fr**
+3. Allez dans **Sécurité** (Security) → **Paramètres** (Settings)
+4. Repérez la section **« Block AI bots »** / **« Bloquer les bots IA »**
+5. Choisissez **« Do not block (off) »** / **« Ne pas bloquer (désactivé) »**
+6. Enregistrez
+
+→ Si cette option était activée, les bots IA (GPTBot, ClaudeBot, etc.) étaient bloqués. La désactiver les autorise globalement.
+
+### D2 : Contrôle individuel via AI Crawl Control
+
+Pour gérer chaque crawler (Allow / Block) :
+
+1. Dans le tableau de bord Cloudflare, sélectionnez **laureolivie.fr**
+2. Allez dans **Paramètres** (Settings) → **AI Crawl Control**
+   - Ou directement : **https://dash.cloudflare.com/** → votre compte → laureolivie.fr → **AI**
+3. Onglet **Crawlers** : vous verrez la liste des bots IA détectés (GPTBot, ClaudeBot, Google-Extended, etc.)
+4. Pour chaque crawler que vous souhaitez autoriser, dans la colonne **Action**, sélectionnez **Allow** (Autoriser)
+5. Enregistrez
+
+**Bots à autoriser pour le GEO :**
+- **GPTBot** (OpenAI — ChatGPT)
+- **ClaudeBot** (Anthropic — Claude)
+- **Google-Extended** (Google AI / Bard)
+- **PerplexityBot** (Perplexity)
+- **Cohere AI** (si pertinent)
+
+### D3 : Vérifier les règles WAF personnalisées
+
+Si vous avez des règles de pare-feu personnalisées qui bloquent certains User-Agents :
+
+1. Allez dans **Sécurité** → **Pare-feu WAF** (WAF)
+2. Vérifiez les **règles personnalisées** (Custom rules)
+3. Assurez-vous qu’aucune règle ne bloque les User-Agents : `GPTBot`, `ClaudeBot`, `Google-Extended`, `PerplexityBot`
+
+→ Si une règle bloque ces bots, modifiez-la ou supprimez-la pour le domaine laureolivie.fr.
+
+### D4 : robots.txt de votre site
+
+Votre application génère déjà un `robots.txt` via `app/robots.ts`. Assurez-vous qu’il **n’interdit pas** explicitement les bots IA. Exemple à éviter :
+
+```
+User-agent: GPTBot
+Disallow: /
+```
+
+Pour autoriser tous les crawlers sur tout le site, ne pas ajouter de règles `Disallow` pour ces User-Agents.
+
+---
+
 *Dernière mise à jour : mars 2026*

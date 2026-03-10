@@ -1,5 +1,14 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata({
+  title: 'Tarifs formations IA BTP — Financement Constructys 100%',
+  description:
+    'Tarifs des formations IA pour le BTP : découverte gratuite, formation à l\'unité ou accès complet. 100% finançable OPCO Constructys. Organisme certifié Qualiopi.',
+  path: '/tarifs',
+  keywords: ['tarifs formation IA BTP', 'financement Constructys', 'formation Qualiopi', 'formation IA Paris'],
+});
 
 const PLANS = [
   {

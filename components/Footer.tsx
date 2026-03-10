@@ -76,6 +76,9 @@ export function Footer() {
               {[
                 { href: '/formations', label: 'Catalogue des formations' },
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
+                { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour artisans BTP' },
+                { href: '/ia-devis-batiment', label: 'IA pour devis bâtiment' },
+                { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
                 { href: '/tarifs', label: 'Financement OPCO' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },
                 { href: '/install-pwa', label: 'Installer l\'app mobile' },

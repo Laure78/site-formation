@@ -21,12 +21,22 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordion } from '@/components/formations/ProgrammeAccordion';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Formation IA pour la Fonction RH dans le BTP — Laure Olivié',
   description:
     "Formation opérationnelle en 2 jours : automatiser le recrutement, optimiser la GEPP, créer des tableaux de bord RH et votre assistant IA. DRH, chargés de recrutement BTP. 100% finançable OPCO.",
-};
+  path: '/formations/ia-rh-btp',
+});
+
+const courseSchema = getCourseSchema({
+  name: "Formation IA pour la Fonction RH dans le BTP",
+  description: "Formation opérationnelle 2 jours : automatiser le recrutement, optimiser la GEPP, créer des tableaux de bord RH et votre assistant IA. 100% finançable OPCO.",
+  path: '/formations/ia-rh-btp',
+  providerName: SITE_CONFIG.legalName,
+  areaServed: ['France', 'Île-de-France'],
+});
 
 const OBJECTIFS = [
   {
@@ -132,6 +142,10 @@ const LIVRABLES = [
 export default function FormationIARHBTPPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
       {/* Hero — 2 colonnes */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">

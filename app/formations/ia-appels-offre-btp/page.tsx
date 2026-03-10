@@ -16,12 +16,22 @@ import {
   Settings,
   LayoutTemplate,
 } from 'lucide-react';
+import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Répondre aux Appels d'Offres BTP avec l'IA — Laure Olivié",
   description:
     "Formation opérationnelle : analysez les DCE 5 fois plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages avec l'IA. Chargés d'affaires, bureaux d'études. 100% finançable OPCO.",
-};
+  path: '/formations/ia-appels-offre-btp',
+});
+
+const courseSchema = getCourseSchema({
+  name: "Répondre aux Appels d'Offres BTP avec l'IA",
+  description: "Formation opérationnelle : analysez les DCE 5 fois plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages avec l'IA. 100% finançable OPCO.",
+  path: '/formations/ia-appels-offre-btp',
+  providerName: SITE_CONFIG.legalName,
+  areaServed: ['France', 'Île-de-France'],
+});
 
 const MODALITES = [
   {
@@ -106,6 +116,10 @@ const PROGRAMME_POINTS = [
 export default function FormationIAAppelsOffreBTPPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">

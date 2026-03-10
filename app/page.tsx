@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import {
-  BookOpen,
   Video,
   FileText,
   Award,
@@ -17,15 +16,23 @@ import {
   Calendar,
   Mail,
   GraduationCap,
-  ExternalLink,
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { DevisForm } from '@/components/landing/DevisForm';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { getFAQSchema } from '@/lib/seo';
+import { FAQ_ITEMS } from '@/lib/faq';
 
 export default function HomePage() {
+  const faqSchema = getFAQSchema(FAQ_ITEMS);
+
   return (
     <div>
+      {/* FAQPage JSON-LD pour GEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero — Formation IA BTP */}
       <section className="relative overflow-hidden border-b border-slate-200 bg-white px-4 py-24 md:py-32">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />

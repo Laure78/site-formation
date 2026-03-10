@@ -134,7 +134,13 @@ export function BookingCalendar() {
     if (result.ok) {
       router.push('/merci-rdv');
     } else {
-      setError(result.error ?? 'Une erreur est survenue.');
+      const msg = result.error ?? 'Une erreur est survenue.';
+      // Éviter d'afficher du HTML brut (erreur serveur, page 500, etc.)
+      setError(
+        typeof msg === 'string' && (msg.startsWith('<') || msg.includes('<!DOCTYPE'))
+          ? 'Une erreur est survenue. Veuillez réessayer ou nous contacter au 06 95 66 18 18.'
+          : msg
+      );
     }
   };
 
