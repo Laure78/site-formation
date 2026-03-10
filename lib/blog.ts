@@ -1,6 +1,10 @@
 /**
  * Blog / Ressources — Articles SEO pour formation IA BTP
+ * Fusionne les articles statiques + générés (content/generated/)
  */
+
+import { readdirSync, readFileSync, existsSync } from 'fs';
+import { join } from 'path';
 
 export interface BlogArticle {
   slug: string;
@@ -166,10 +170,43 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
 ];
 
+function loadGeneratedArticles(): BlogArticle[] {
+  const dir = join(process.cwd(), 'content', 'generated');
+  if (!existsSync(dir)) return [];
+  try {
+    const files = readdirSync(dir).filter(
+      (f) => f.startsWith('article-') && f.endsWith('.json')
+    );
+    return files.map((f) => {
+      const raw = readFileSync(join(dir, f), 'utf-8');
+      const a = JSON.parse(raw) as BlogArticle & { internalLinks?: unknown };
+      return {
+        slug: a.slug,
+        title: a.title,
+        description: a.description,
+        date: a.date,
+        keywords: a.keywords ?? [],
+        sections: a.sections ?? [],
+        relatedSlugs: a.relatedSlugs ?? [],
+      };
+    });
+  } catch {
+    return [];
+  }
+}
+
+/** Tous les articles : statiques + générés (publiés automatiquement) */
+export function getAllArticles(): BlogArticle[] {
+  const generated = loadGeneratedArticles();
+  const staticSlugs = new Set(BLOG_ARTICLES.map((a) => a.slug));
+  const generatedFiltered = generated.filter((a) => !staticSlugs.has(a.slug));
+  return [...BLOG_ARTICLES, ...generatedFiltered];
+}
+
 export function getArticle(slug: string): BlogArticle | undefined {
-  return BLOG_ARTICLES.find((a) => a.slug === slug);
+  return getAllArticles().find((a) => a.slug === slug);
 }
 
 export function getAllSlugs(): string[] {
-  return BLOG_ARTICLES.map((a) => a.slug);
+  return getAllArticles().map((a) => a.slug);
 }

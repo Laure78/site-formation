@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createPageMetadata } from '@/lib/seo';
-import { getArticle, getAllSlugs, BLOG_ARTICLES } from '@/lib/blog';
+import { getArticle, getAllSlugs, getAllArticles } from '@/lib/blog';
 import { Calendar, ArrowLeft, Check } from 'lucide-react';
 
 interface Props {
@@ -29,9 +29,10 @@ export default async function BlogArticlePage({ params }: Props) {
   const article = getArticle(slug);
   if (!article) notFound();
 
+  const allArticles = getAllArticles();
   const related = (article.relatedSlugs ?? [])
-    .map((s) => BLOG_ARTICLES.find((a) => a.slug === s))
-    .filter(Boolean) as typeof BLOG_ARTICLES;
+    .map((s) => allArticles.find((a) => a.slug === s))
+    .filter(Boolean) as typeof allArticles;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">

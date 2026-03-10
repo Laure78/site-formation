@@ -9,6 +9,7 @@
     "lint": "eslint",
     "media:trends": "npx tsx scripts/trends.ts",
     "media:generate": "npx tsx scripts/generate-daily.ts",
+    "media:generate:ai": "npx tsx scripts/generate-daily-ai.ts",
     "media:publish": "npx tsx scripts/publish.ts",
     "agent:index": "npx tsx scripts/index-knowledge.ts"
   },

@@ -1,0 +1,39 @@
+# Génération quotidienne d'articles blog + LinkedIn
+# Exécution : tous les jours à 4h (Paris)
+
+name: Media Machine — Génération articles
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Générer articles
+        run: npm run media:generate
+
+      - name: Commit et push si changements
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/generated/
+          if git diff --staged --quiet; then
+            echo "Aucun changement"
+          else
+            git commit -m "chore(media): articles générés $(date +%Y-%m-%d)"
+            git push
+          fi

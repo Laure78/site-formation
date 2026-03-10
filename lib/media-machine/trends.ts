@@ -38,26 +38,35 @@ function slugify(text: string): string {
     .replace(/(^-|-$)/g, '');
 }
 
+/** Offset basé sur la date pour varier les articles chaque jour */
+function getDayOffset(): number {
+  const d = new Date();
+  return d.getFullYear() * 366 + d.getMonth() * 31 + d.getDate();
+}
+
 export function generateDailyIdeas(count = 10): ContentIdea[] {
   const ideas: ContentIdea[] = [];
   const used = new Set<string>();
   const now = new Date().toISOString();
+  const offset = getDayOffset();
 
   for (let i = 0; i < count; i++) {
-    const cluster = TOPIC_CLUSTERS[i % TOPIC_CLUSTERS.length];
-    const subTopic = cluster.subTopics[i % cluster.subTopics.length];
-    const metier = METIERS[i % METIERS.length];
-    const template = SEED_TITLES[i % SEED_TITLES.length];
+    const j = (i + offset) % Math.max(TOPIC_CLUSTERS.length * 3, METIERS.length * 2);
+    const cluster = TOPIC_CLUSTERS[(i + offset) % TOPIC_CLUSTERS.length];
+    const subTopic = cluster.subTopics[(j + i) % cluster.subTopics.length];
+    const metier = METIERS[(i + offset) % METIERS.length];
+    const template = SEED_TITLES[(j + offset) % SEED_TITLES.length];
     const title = template.replace(/{metier}/g, metier);
     const slug = slugify(title);
 
-    if (used.has(slug)) continue;
-    used.add(slug);
+    const uniqueSlug = used.has(slug) ? `${slug}-${offset}-${i}` : slug;
+    if (used.has(uniqueSlug)) continue;
+    used.add(uniqueSlug);
 
     ideas.push({
       id: `idea-${Date.now()}-${i}`,
       title,
-      slug,
+      slug: uniqueSlug,
       clusterId: cluster.id,
       keywords: [...subTopic.keywords, cluster.pillarKeyword].slice(0, 5),
       source: 'cluster',

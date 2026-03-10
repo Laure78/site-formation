@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
-import { BLOG_ARTICLES } from '@/lib/blog';
+import { getAllArticles } from '@/lib/blog';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 export const metadata = createPageMetadata({
@@ -23,7 +23,7 @@ export default function BlogPage() {
       </p>
 
       <div className="mt-12 space-y-8">
-        {BLOG_ARTICLES.map((article) => (
+        {getAllArticles().map((article) => (
           <article
             key={article.slug}
             className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8"
