@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
 import { CourseViewer } from './CourseViewer';
+import { SessionLogger } from '@/components/SessionLogger';
 
 export default async function CoursPage({
   params,
@@ -51,8 +51,11 @@ export default async function CoursPage({
 
   const completedIds = new Set((progress ?? []).filter((p) => p.completed).map((p) => p.lesson_id));
 
+  const moduleIds = (modules ?? []).map((m) => m.id);
+
   return (
     <div className="min-h-screen bg-slate-50">
+      <SessionLogger modulesConsulted={moduleIds} />
       <CourseViewer
         course={course}
         modules={modules ?? []}

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { BookOpen, Award, ChevronRight, MessageCircle, LogOut } from 'lucide-react';
 import { getProfile } from '@/lib/auth';
 import { signOutAction } from './actions';
+import { SessionLogger } from '@/components/SessionLogger';
 
 export default async function EspaceApprenantPage() {
   const supabase = await createClient();
@@ -24,6 +25,7 @@ export default async function EspaceApprenantPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-16">
+      <SessionLogger />
       <h1 className="font-display text-3xl font-bold">Espace apprenant</h1>
       <p className="mt-2 text-slate-600">Bienvenue, {profile?.full_name || user.email}</p>
 

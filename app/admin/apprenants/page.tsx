@@ -1,13 +1,17 @@
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
+import { InviterForm } from './InviterForm';
 
 export default async function AdminApprenantsPage() {
   const supabase = await createClient();
-  const { data: profiles } = await supabase
-    .from('profiles')
-    .select('id, first_name, last_name, full_name, email, created_at')
-    .eq('role', 'apprenant')
-    .order('created_at', { ascending: false });
+  const [{ data: profiles }, { data: courses }] = await Promise.all([
+    supabase
+      .from('profiles')
+      .select('id, first_name, last_name, full_name, email, created_at')
+      .eq('role', 'apprenant')
+      .order('created_at', { ascending: false }),
+    supabase.from('courses').select('id, title').eq('published', true).order('title'),
+  ]);
 
   const { data: enrollments } = await supabase.from('enrollments').select('user_id, course_id, progress_percent, courses(title)');
 
@@ -24,7 +28,13 @@ export default async function AdminApprenantsPage() {
       <h1 className="font-display text-2xl font-bold text-slate-900">Apprenants</h1>
       <p className="mt-2 text-slate-600">Liste des inscrits et leur progression</p>
 
-      <div className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm md:mt-8">
+      {(courses ?? []).length > 0 && (
+        <div className="mt-8">
+          <InviterForm courses={courses ?? []} />
+        </div>
+      )}
+
+      <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
         <table className="w-full min-w-[500px]">
           <thead>
             <tr className="border-b border-slate-200 bg-slate-50">
@@ -47,7 +57,9 @@ export default async function AdminApprenantsPage() {
                 return (
                   <tr key={p.id} className="border-b border-slate-100 last:border-0">
                     <td className="px-6 py-4">
-                      <p className="font-medium text-slate-900">{(p as { first_name?: string }).first_name || '—'}</p>
+                      <Link href={`/admin/apprenants/${p.id}`} className="font-medium text-slate-900 hover:text-[var(--accent)]">
+                        {(p as { first_name?: string }).first_name || '—'}
+                      </Link>
                       <p className="text-xs text-slate-500">Inscrit le {new Date(p.created_at).toLocaleDateString('fr-FR')}</p>
                     </td>
                     <td className="px-6 py-4 font-medium text-slate-900">

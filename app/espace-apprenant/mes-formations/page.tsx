@@ -55,7 +55,14 @@ export default async function MesFormationsPage() {
                       style={{ width: `${e.progress_percent}%` }}
                     />
                   </div>
-                  <p className="mt-1 text-sm text-slate-500">{e.progress_percent}% complété</p>
+                  <p className="mt-1 text-sm text-slate-500">
+                    {e.progress_percent}% complété
+                    {e.progress_percent >= 100 && (
+                      <Link href={`/espace-apprenant/attestation/${course?.id}`} className="ml-2 text-[var(--accent)] hover:underline">
+                        Attestation
+                      </Link>
+                    )}
+                  </p>
                 </div>
                 <ChevronRight size={24} strokeWidth={1.5} className="shrink-0 text-slate-400" />
               </Link>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
+import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
 
 interface Lesson {
   id: string;
@@ -241,6 +242,22 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                 )}
               </div>
             </div>
+
+            {progressPercent >= 100 && (
+              <div className="mx-auto mt-10 max-w-2xl space-y-6">
+                <SatisfactionSurvey courseId={course.id} courseTitle={course.title} onSubmitted={() => router.refresh()} />
+                <div className="rounded-2xl border border-slate-200 bg-white p-6">
+                  <p className="font-semibold text-slate-900">Formation terminée</p>
+                  <p className="mt-1 text-sm text-slate-600">Téléchargez votre attestation de suivi.</p>
+                  <Link
+                    href={`/espace-apprenant/attestation/${course.id}`}
+                    className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-2.5 font-medium text-white hover:bg-[var(--accent)]/90"
+                  >
+                    Obtenir l&apos;attestation
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex min-h-[400px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-200 bg-white">

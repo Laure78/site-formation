@@ -3,12 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck } from 'lucide-react';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/formations', label: 'Formations', icon: BookOpen },
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },
+  { href: '/admin/progression', label: 'Progression', icon: TrendingUp },
+  { href: '/admin/qualite', label: 'Qualiopi / Qualité', icon: ShieldCheck },
   { href: '/admin/media-dashboard', label: 'Media Machine', icon: BarChart3 },
   { href: '/admin/agent', label: 'Agent Chat', icon: MessageCircle },
 ];
