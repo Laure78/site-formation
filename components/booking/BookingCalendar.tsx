@@ -111,13 +111,29 @@ export function BookingCalendar() {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    getBusySlots(rangeStart, rangeEnd).then((slots) => {
+    const timeout = window.setTimeout(() => {
       if (!cancelled) {
-        setBusySlots(slots);
         setLoading(false);
       }
-    });
-    return () => { cancelled = true; };
+    }, 8000);
+    getBusySlots(rangeStart, rangeEnd)
+      .then((slots) => {
+        if (!cancelled) {
+          setBusySlots(Array.isArray(slots) ? slots : []);
+          setLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setBusySlots([]);
+          setLoading(false);
+        }
+      })
+      .finally(() => clearTimeout(timeout));
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
   }, [rangeStart, rangeEnd]);
 
   const timeSlots = selectedDate ? getTimeSlotsForDate(selectedDate, availabilities) : [];
@@ -226,7 +242,9 @@ export function BookingCalendar() {
             <p className="text-sm text-slate-500">Chargement...</p>
           ) : availableSlots.length === 0 ? (
             <p className="text-sm text-slate-500">
-              Aucun créneau disponible ce jour-là.
+              {timeSlots.length === 0
+                ? 'Aucun créneau ce jour-là. Les créneaux sont ouverts le lundi, mardi et jeudi (10h–12h).'
+                : 'Tous les créneaux de ce jour sont déjà réservés.'}
             </p>
           ) : (
             <div className="flex flex-wrap gap-2">

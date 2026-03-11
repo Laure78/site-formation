@@ -35,11 +35,15 @@ export async function getBusySlots(startDate: string, endDate: string) {
   const end = `${endDate}T23:59:59.999Z`;
   const { data, error } = await supabase
     .from('appointments')
-    .select('start_at')
+    .select('start_at, status')
     .gte('start_at', start)
-    .lte('start_at', end)
-    .in('status', ['demande', 'confirme']);
+    .lte('start_at', end);
 
-  if (error) return [];
-  return (data ?? []).map((r) => r.start_at);
+  if (error) {
+    console.error('[getBusySlots]', error.message);
+    return [];
+  }
+  return (data ?? [])
+    .filter((r) => !r.status || r.status === 'demande' || r.status === 'confirme')
+    .map((r) => r.start_at);
 }
