@@ -2,40 +2,58 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ChevronLeft, ChevronRight, Clock, Calendar } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 import { getBusySlots } from '@/app/actions/appointments';
+import { getAvailabilities } from '@/app/actions/availabilities';
 import { QualificationForm } from './QualificationForm';
 
 const DUREE_CRENEAU_MINUTES = 30;
-const HEURES_MATIN = [9, 10, 11]; // 9h à 12h
-const HEURES_APRES_MIDI = [14, 15, 16, 17]; // 14h à 18h
+const INTERVALLE_MINUTES = 5;
 
 function formatDateISO(d: Date): string {
   return d.toISOString().slice(0, 10);
 }
 
-function getTimeSlotsForDate(date: Date): string[] {
+/** Parse "10:00" ou "10:00:00" -> { h, m } */
+function parseTime(t: string): { h: number; m: number } {
+  const [h, m] = t.split(':').map(Number);
+  return { h: h ?? 0, m: m ?? 0 };
+}
+
+/** Génère les créneaux 30 min avec 5 min d'intervalle dans une plage horaire */
+function getTimeSlotsForDate(
+  date: Date,
+  availabilities: { jour: number; heure_debut: string; heure_fin: string }[]
+): string[] {
   const slots: string[] = [];
+  const jour = date.getDay(); // 0=dim, 1=lun, ...
+  const blocks = availabilities.filter((a) => a.jour === jour);
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = date.getDate();
 
-  for (const h of HEURES_MATIN) {
-    slots.push(new Date(year, month, day, h, 0, 0).toISOString());
-    if (h < 12) slots.push(new Date(year, month, day, h, 30, 0).toISOString());
+  for (const block of blocks) {
+    const { h: hDebut, m: mDebut } = parseTime(block.heure_debut);
+    const { h: hFin, m: mFin } = parseTime(block.heure_fin);
+    const debutMinutes = hDebut * 60 + mDebut;
+    const finMinutes = hFin * 60 + mFin;
+
+    let currentMinutes = debutMinutes;
+    while (currentMinutes + DUREE_CRENEAU_MINUTES <= finMinutes) {
+      const h = Math.floor(currentMinutes / 60);
+      const m = currentMinutes % 60;
+      slots.push(new Date(year, month, day, h, m, 0).toISOString());
+      currentMinutes += DUREE_CRENEAU_MINUTES + INTERVALLE_MINUTES;
+    }
   }
-  for (const h of HEURES_APRES_MIDI) {
-    slots.push(new Date(year, month, day, h, 0, 0).toISOString());
-    slots.push(new Date(year, month, day, h, 30, 0).toISOString());
-  }
-  return slots;
+  return slots.sort((a, b) => a.localeCompare(b));
 }
 
 function formatDisplayTime(iso: string): string {
   const d = new Date(iso);
   const h = d.getHours();
   const m = d.getMinutes();
-  return `${String(h).padStart(2, '0')}h${m ? '30' : '00'}`;
+  return `${String(h).padStart(2, '0')}h${String(m).padStart(2, '0')}`;
 }
 
 function addMinutes(iso: string, min: number): string {
@@ -67,7 +85,15 @@ export function BookingCalendar() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [busySlots, setBusySlots] = useState<string[]>([]);
+  const [availabilities, setAvailabilities] = useState<{ jour: number; heure_debut: string; heure_fin: string }[]>([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getAvailabilities().then(setAvailabilities);
+  }, []);
+
+  const hasAvailabilityForDay = (jour: number) =>
+    availabilities.some((a) => a.jour === jour);
 
   const weeksToShow = 4;
   const days: Date[] = [];
@@ -94,7 +120,7 @@ export function BookingCalendar() {
     return () => { cancelled = true; };
   }, [rangeStart, rangeEnd]);
 
-  const timeSlots = selectedDate ? getTimeSlotsForDate(selectedDate) : [];
+  const timeSlots = selectedDate ? getTimeSlotsForDate(selectedDate, availabilities) : [];
   const availableSlots = timeSlots.filter((s) => !busySlots.includes(s));
 
   const goPrev = () => {
@@ -153,6 +179,8 @@ export function BookingCalendar() {
         <div className="grid grid-cols-7 gap-1">
           {days.map((d) => {
             const isPast = isDateInPast(new Date(d));
+            const hasAvailability = hasAvailabilityForDay(d.getDay());
+            const isSelectable = !isPast && hasAvailability;
             const iso = formatDateISO(d);
             const isSelected =
               selectedDate && formatDateISO(selectedDate) === iso;
@@ -163,13 +191,13 @@ export function BookingCalendar() {
                 key={iso}
                 type="button"
                 onClick={() => {
-                  if (isPast) return;
+                  if (!isSelectable) return;
                   setSelectedDate(new Date(d));
                   setSelectedSlot(null);
                 }}
-                disabled={isPast}
+                disabled={!isSelectable}
                 className={`rounded-lg py-2 text-sm font-medium transition-colors ${
-                  isPast
+                  !isSelectable
                     ? 'cursor-not-allowed text-slate-300'
                     : isSelected
                       ? 'bg-[var(--accent)] text-white'
@@ -224,8 +252,8 @@ export function BookingCalendar() {
       {/* Formulaire de qualification */}
       {selectedSlot && (
         <QualificationForm
-          selectedSlot={selectedSlot}
-          onSuccess={() => router.push('/merci-rdv')}
+          slotIso={selectedSlot}
+          endAtIso={addMinutes(selectedSlot, DUREE_CRENEAU_MINUTES)}
         />
       )}
     </div>

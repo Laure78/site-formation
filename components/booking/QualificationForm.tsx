@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Calendar } from 'lucide-react';
-import { createProspectAndAppointment } from '@/app/actions/prospects';
+import { createProspectAndAppointment, type QualificationFormData } from '@/app/actions/prospects';
 
 const SECTEURS = [
   { value: 'btp', label: 'BTP' },

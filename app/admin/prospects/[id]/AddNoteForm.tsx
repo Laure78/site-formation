@@ -12,8 +12,9 @@ export function AddNoteForm({ prospectId }: { prospectId: string }) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     setSubmitting(true);
+    const typeNote = (fd.get('type_note') as string) || 'note';
     const ok = await addProspectNoteAction(prospectId, {
-      type_note: (fd.get('type_note') as string) || 'note',
+      type_note: typeNote as 'note' | 'cr_rdv' | 'action_suivante',
       contenu: (fd.get('contenu') as string)?.trim() || '',
     });
     setSubmitting(false);

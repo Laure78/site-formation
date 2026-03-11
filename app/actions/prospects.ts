@@ -16,11 +16,11 @@ export type QualificationFormData = {
   email: string;
   telephone?: string;
   entreprise?: string;
-  secteur?: Secteur;
-  taille_entreprise?: Taille;
-  niveau_ia?: NiveauIa;
-  objectif?: Objectif;
-  budget?: Budget;
+  secteur?: Secteur | string;
+  taille_entreprise?: Taille | string;
+  niveau_ia?: NiveauIa | string;
+  objectif?: Objectif | string;
+  budget?: Budget | string;
   projet?: string;
 };
 

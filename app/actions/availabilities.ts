@@ -3,6 +3,18 @@
 import { createClient } from '@/lib/supabase/server';
 import { isAdmin } from '@/lib/auth';
 
+export type Availability = { jour: number; heure_debut: string; heure_fin: string };
+
+export async function getAvailabilities(): Promise<Availability[]> {
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from('availabilities')
+    .select('jour, heure_debut, heure_fin')
+    .order('jour')
+    .order('heure_debut');
+  return (data ?? []) as Availability[];
+}
+
 export async function addAvailabilityAction(jour: number, heureDebut: string, heureFin: string): Promise<boolean> {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
