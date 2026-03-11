@@ -7,12 +7,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/auth/', '/merci-devis', '/merci-rdv'],
+        disallow: ['/admin/', '/auth/', '/merci-devis', '/merci-rdv', '/questionnaire/'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/admin/', '/auth/', '/merci-devis', '/merci-rdv'],
+        disallow: ['/admin/', '/auth/', '/merci-devis', '/merci-rdv', '/questionnaire/'],
       },
     ],
     sitemap: `${SITE_CONFIG.url}/sitemap.xml`,

@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, Clock, Calendar } from 'lucide-react';
-import { createAppointment, getBusySlots } from '@/app/actions/appointments';
+import { getBusySlots } from '@/app/actions/appointments';
+import { QualificationForm } from './QualificationForm';
 
 const DUREE_CRENEAU_MINUTES = 30;
 const HEURES_MATIN = [9, 10, 11]; // 9h à 12h
@@ -67,8 +68,6 @@ export function BookingCalendar() {
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [busySlots, setBusySlots] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const weeksToShow = 4;
   const days: Date[] = [];
@@ -112,36 +111,6 @@ export function BookingCalendar() {
     setWeekStart(d);
     setSelectedDate(null);
     setSelectedSlot(null);
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!selectedSlot) return;
-    const form = e.currentTarget;
-    const fd = new FormData(form);
-    setSubmitting(true);
-    setError(null);
-    const endAt = addMinutes(selectedSlot, DUREE_CRENEAU_MINUTES);
-    const result = await createAppointment({
-      start_at: selectedSlot,
-      end_at: endAt,
-      client_name: (fd.get('nom') as string) || '',
-      client_email: (fd.get('email') as string) || '',
-      client_phone: (fd.get('tel') as string) || undefined,
-      client_message: (fd.get('message') as string) || undefined,
-    });
-    setSubmitting(false);
-    if (result.ok) {
-      router.push('/merci-rdv');
-    } else {
-      const msg = result.error ?? 'Une erreur est survenue.';
-      // Éviter d'afficher du HTML brut (erreur serveur, page 500, etc.)
-      setError(
-        typeof msg === 'string' && (msg.startsWith('<') || msg.includes('<!DOCTYPE'))
-          ? 'Une erreur est survenue. Veuillez réessayer ou nous contacter au 06 95 66 18 18.'
-          : msg
-      );
-    }
   };
 
   return (
@@ -252,78 +221,12 @@ export function BookingCalendar() {
         </div>
       )}
 
-      {/* Formulaire */}
+      {/* Formulaire de qualification */}
       {selectedSlot && (
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-          <h2 className="mb-6 flex items-center gap-2 font-display text-lg font-semibold text-slate-900">
-            <Calendar size={18} strokeWidth={1.5} />
-            Confirmer votre rendez-vous — {formatDisplayTime(selectedSlot)}
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {error && (
-              <div className="rounded-xl bg-red-50 p-4 text-sm text-red-700">
-                {error}
-              </div>
-            )}
-            <div>
-              <label htmlFor="nom" className="block text-sm font-medium text-slate-700">
-                Nom complet *
-              </label>
-              <input
-                id="nom"
-                name="nom"
-                type="text"
-                required
-                placeholder="Jean Dupont"
-                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-slate-700">
-                Email *
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="j.dupont@entreprise.fr"
-                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-              />
-            </div>
-            <div>
-              <label htmlFor="tel" className="block text-sm font-medium text-slate-700">
-                Téléphone
-              </label>
-              <input
-                id="tel"
-                name="tel"
-                type="tel"
-                placeholder="06 12 34 56 78"
-                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-slate-700">
-                Message (optionnel)
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={3}
-                placeholder="Votre projet, nombre de participants, période souhaitée..."
-                className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-4 font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-60"
-            >
-              {submitting ? 'Envoi...' : 'Réserver ce créneau'}
-            </button>
-          </form>
-        </div>
+        <QualificationForm
+          selectedSlot={selectedSlot}
+          onSuccess={() => router.push('/merci-rdv')}
+        />
       )}
     </div>
   );

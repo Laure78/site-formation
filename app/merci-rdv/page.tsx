@@ -1,12 +1,19 @@
 import Link from 'next/link';
-import { CheckCircle, Phone, Mail, Home, Calendar } from 'lucide-react';
+import { CheckCircle, Phone, Mail, Home, Calendar, ClipboardList } from 'lucide-react';
 
 export const metadata = {
   title: 'Rendez-vous confirmé — Laure Olivié',
   description: 'Votre rendez-vous a bien été enregistré. Confirmation par email.',
 };
 
-export default function MerciRDVPage() {
+export default async function MerciRDVPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ t?: string }>;
+}) {
+  const { t } = await searchParams;
+  const hasToken = !!t?.trim();
+
   return (
     <div className="min-h-[60vh] bg-slate-50 px-4 py-16">
       <div className="mx-auto max-w-2xl">
@@ -29,7 +36,25 @@ export default function MerciRDVPage() {
             à me contacter.
           </p>
 
-          <div className="mt-8 rounded-xl border-2 border-[var(--accent-soft)] bg-[var(--accent-soft)] p-6">
+          {hasToken && (
+            <div className="mt-8 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+              <p className="font-semibold text-slate-900">
+                Complétez notre questionnaire pour mieux préparer notre échange
+              </p>
+              <p className="mt-2 text-sm text-slate-600">
+                Répondez en 2 minutes à quelques questions sur votre entreprise et vos besoins.
+              </p>
+              <Link
+                href={`/questionnaire/${t}`}
+                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+              >
+                <ClipboardList size={20} strokeWidth={1.5} />
+                Remplir le questionnaire
+              </Link>
+            </div>
+          )}
+
+          <div className="mt-8 rounded-xl border-2 border-slate-200 bg-slate-50 p-6">
             <p className="font-semibold text-slate-900">
               Une question avant notre échange ?
             </p>

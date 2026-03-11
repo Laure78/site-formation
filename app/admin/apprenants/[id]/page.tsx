@@ -17,7 +17,8 @@ export default async function AdminApprenantProfilPage({
     .eq('id', id)
     .single();
 
-  if (!profile || profile.role !== 'apprenant') notFound();
+  if (!profile) notFound();
+  // Autoriser la vue pour tout utilisateur inscrit (y compris admin/formateur en formation)
 
   const { data: enrollments } = await supabase
     .from('enrollments')
