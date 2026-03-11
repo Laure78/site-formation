@@ -1,13 +1,13 @@
 {
-  "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
-  "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "description": "Formation IA BTP : ce qu'il faut savoir en 2026. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
+  "slug": "l-ia-va-t-elle-remplacer-les-menuisiers",
+  "title": "L'IA va-t-elle remplacer les menuisiers ?",
+  "description": "L'IA va-t-elle remplacer les menuisiers ?. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable ",
   "date": "2026-03-11",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -58,12 +58,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA BTP : ce qu'il faut savoir en 2026. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
+  "seoTitle": "L'IA va-t-elle remplacer les menuisiers ?",
+  "metaDescription": "L'IA va-t-elle remplacer les menuisiers ?. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable ",
   "internalLinks": [
     {
       "path": "/formations",
@@ -71,7 +71,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

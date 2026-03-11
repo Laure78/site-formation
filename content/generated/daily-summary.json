@@ -1,14 +1,6 @@
 {
-  "date": "2026-03-10",
+  "date": "2026-03-11",
   "articles": [
-    {
-      "slug": "l-ia-va-t-elle-remplacer-les-serruriers",
-      "title": "L'IA va-t-elle remplacer les serruriers ?"
-    },
-    {
-      "slug": "automatiser-vos-emails-clients-avec-l-ia",
-      "title": "Automatiser vos emails clients avec l'IA"
-    },
     {
       "slug": "appels-d-offres-btp-l-ia-comme-assistant",
       "title": "Appels d'offres BTP : l'IA comme assistant"
@@ -18,12 +10,12 @@
       "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-macon",
-      "title": "Comment utiliser ChatGPT pour vos devis maçon"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-electricien",
+      "title": "Comment utiliser ChatGPT pour vos devis électricien"
     },
     {
-      "slug": "ia-et-carreleur-5-gains-de-temps-concrets",
-      "title": "IA et carreleur : 5 gains de temps concrets"
+      "slug": "ia-et-macon-5-gains-de-temps-concrets",
+      "title": "IA et maçon : 5 gains de temps concrets"
     },
     {
       "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
@@ -38,8 +30,16 @@
       "title": "ChatGPT pour artisans : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-menuisier",
-      "title": "Devis en 15 min : le guide menuisier"
+      "slug": "devis-en-15-min-le-guide-couvreur",
+      "title": "Devis en 15 min : le guide couvreur"
+    },
+    {
+      "slug": "l-ia-va-t-elle-remplacer-les-menuisiers",
+      "title": "L'IA va-t-elle remplacer les menuisiers ?"
+    },
+    {
+      "slug": "automatiser-vos-emails-clients-avec-l-ia",
+      "title": "Automatiser vos emails clients avec l'IA"
     }
   ],
   "linkedinCount": 10
