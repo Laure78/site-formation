@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { User, BookOpen, ChevronLeft } from 'lucide-react';
 import { ResetProgressionButton } from './ResetProgressionButton';
+import { SupprimerInscriptionButton } from './SupprimerInscriptionButton';
 
 export default async function AdminApprenantProfilPage({
   params,
@@ -99,11 +100,12 @@ export default async function AdminApprenantProfilPage({
                         <p className="text-sm text-slate-500">Progression : {e.progress_percent}%</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                       <Link href="/admin/progression" className="text-sm font-medium text-[var(--accent)] hover:underline">
                         Voir détail
                       </Link>
                       <ResetProgressionButton userId={id} courseId={e.course_id} courseTitle={title} />
+                      <SupprimerInscriptionButton userId={id} courseId={e.course_id} courseTitle={title} />
                     </div>
                   </div>
                   <div className="mt-4 flex gap-4">

@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import { InviterForm } from './InviterForm';
 import { ImportApprenantsForm } from './ImportApprenantsForm';
+import { ExportApprenantsButton } from './ExportApprenantsButton';
 
 export default async function AdminApprenantsPage() {
   const supabase = await createClient();
@@ -41,8 +42,13 @@ export default async function AdminApprenantsPage() {
 
   return (
     <div className="p-4 md:p-8">
-      <h1 className="font-display text-2xl font-bold text-slate-900">Apprenants</h1>
-      <p className="mt-2 text-slate-600">Liste des inscrits et leur progression</p>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="font-display text-2xl font-bold text-slate-900">Apprenants</h1>
+          <p className="mt-2 text-slate-600">Liste des inscrits et leur progression</p>
+        </div>
+        <ExportApprenantsButton />
+      </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         {(courses ?? []).length > 0 && <InviterForm courses={courses ?? []} />}
