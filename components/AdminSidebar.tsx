@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings } from 'lucide-react';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
@@ -13,6 +13,7 @@ const nav = [
   { href: '/admin/qualite', label: 'Qualiopi / Qualité', icon: ShieldCheck },
   { href: '/admin/media-dashboard', label: 'Media Machine', icon: BarChart3 },
   { href: '/admin/agent', label: 'Agent Chat', icon: MessageCircle },
+  { href: '/admin/parametres', label: 'Paramètres', icon: Settings },
 ];
 
 export function AdminSidebar() {

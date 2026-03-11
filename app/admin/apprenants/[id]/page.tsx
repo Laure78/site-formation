@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
-import { User, BookOpen, CheckCircle, ChevronLeft } from 'lucide-react';
+import { User, BookOpen, ChevronLeft } from 'lucide-react';
+import { ResetProgressionButton } from './ResetProgressionButton';
 
 export default async function AdminApprenantProfilPage({
   params,
@@ -98,12 +99,12 @@ export default async function AdminApprenantProfilPage({
                         <p className="text-sm text-slate-500">Progression : {e.progress_percent}%</p>
                       </div>
                     </div>
-                    <Link
-                      href={`/admin/progression`}
-                      className="text-sm font-medium text-[var(--accent)] hover:underline"
-                    >
-                      Voir détail
-                    </Link>
+                    <div className="flex items-center gap-3">
+                      <Link href="/admin/progression" className="text-sm font-medium text-[var(--accent)] hover:underline">
+                        Voir détail
+                      </Link>
+                      <ResetProgressionButton userId={id} courseId={e.course_id} courseTitle={title} />
+                    </div>
                   </div>
                   <div className="mt-4 flex gap-4">
                     <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-200">

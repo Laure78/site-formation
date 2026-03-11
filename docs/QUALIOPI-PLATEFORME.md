@@ -12,7 +12,7 @@ La plateforme intègre les éléments nécessaires pour produire les preuves pé
 
 ### Menu (AdminSidebar)
 
-- **Dashboard** — Vue d'ensemble (apprenants, formations, inscriptions, revenus)
+- **Dashboard** — Apprenants, actifs (30j), formations, inscriptions, taux complétion moyen, temps moyen, revenus, graphique par formation
 - **Formations** — CRUD des formations, modules, leçons
 - **Apprenants** — Liste, invitation, lien vers profil
 - **Progression** — Suivi pédagogique (%, leçons complétées, dernière activité)
@@ -25,8 +25,8 @@ La plateforme intègre les éléments nécessaires pour produire les preuves pé
 | Page | Fonction |
 |------|----------|
 | `/admin` | Dashboard avec stats |
-| `/admin/apprenants` | Liste + formulaire d'invitation |
-| `/admin/apprenants/[id]` | Profil détaillé (progression, quiz, satisfaction) |
+| `/admin/apprenants` | Liste (nom, email, formation, progression, dernière connexion, statut) + invitation + import CSV |
+| `/admin/apprenants/[id]` | Profil détaillé (progression, quiz, satisfaction, bouton réinitialiser progression) |
 | `/admin/progression` | Tableau suivi pédagogique |
 | `/admin/qualite` | Export CSV Qualiopi |
 
@@ -94,6 +94,7 @@ supabase db push
 ### Admin
 
 - Formulaire sur `/admin/apprenants` : email + formation → génère un lien
+- **Import CSV** : colonnes email, prenom, nom → crée des invitations en masse
 - Lien valide 7 jours
 - Copier le lien et l'envoyer par email à l'apprenant
 
