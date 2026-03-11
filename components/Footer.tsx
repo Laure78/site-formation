@@ -140,13 +140,19 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <a
+              href="https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 block rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-slate-300 hover:bg-slate-100"
+              title="Vérifier la certification Qualiopi sur l'annuaire officiel"
+            >
               <p className="font-semibold text-slate-900">Qualiopi</p>
               <p className="mt-1 text-xs text-slate-500">Processus certifié</p>
               <p className="mt-2 text-xs text-slate-500">
                 RÉPUBLIQUE FRANÇAISE — Action de formation
               </p>
-            </div>
+            </a>
           </div>
         </div>
 
