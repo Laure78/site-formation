@@ -4,6 +4,7 @@ import { createPageMetadata, getArticleSchema, getBreadcrumbSchema } from '@/lib
 import { SITE_CONFIG } from '@/lib/seo';
 import { getArticle, getAllSlugs, getAllArticles } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
+import { ChecklistBanner } from '@/components/checklist/ChecklistBanner';
 import { Calendar, ArrowLeft, Check } from 'lucide-react';
 
 interface Props {
@@ -185,6 +186,10 @@ export default async function BlogArticlePage({ params }: Props) {
             </ul>
           </section>
         )}
+
+        <div className="mt-12">
+          <ChecklistBanner />
+        </div>
 
         <div className="mt-12">
           <CTABlock variant="compact" />

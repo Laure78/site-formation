@@ -38,6 +38,7 @@ const NAV_ITEMS: {
   },
   { href: '/financement-constructys', label: 'Financement' },
   { href: '/blog', label: 'Ressources' },
+  { href: '/checklist-ia-btp', label: 'Checklist IA BTP' },
   { href: '/prendre-rdv', label: 'Prendre RDV' },
 ];
 
