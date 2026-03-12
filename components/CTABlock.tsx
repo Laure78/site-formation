@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 interface CTABlockProps {
   title?: string;
+  /** Description personnalisée (ex. CTA pour prendre RDV) */
+  description?: string;
   primaryLabel?: string;
   primaryHref?: string;
   secondaryLabel?: string;
@@ -13,6 +15,7 @@ interface CTABlockProps {
 
 export function CTABlock({
   title = 'Prêt à vous former à l\'IA ?',
+  description,
   primaryLabel = 'Découvrir la formation IA BTP',
   primaryHref = '/formations',
   secondaryLabel = 'Prendre rendez-vous',
@@ -27,7 +30,7 @@ export function CTABlock({
         </h2>
       )}
       <p className="mt-2 text-white/90">
-        Formation certifiée Qualiopi · 100% finançable Constructys
+        {description ?? 'Formation certifiée Qualiopi · 100% finançable Constructys'}
       </p>
       <div className="mt-6 flex flex-wrap gap-4">
         <Link

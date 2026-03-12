@@ -19,9 +19,9 @@ import {
 import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: "Répondre aux Appels d'Offres BTP avec l'IA — Laure Olivié",
+  title: "Formation IA BTP appels d'offres | Constructys finançable",
   description:
-    "Formation opérationnelle : analysez les DCE 5 fois plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages avec l'IA. Chargés d'affaires, bureaux d'études. 100% finançable OPCO.",
+    "Formation IA BTP appels d'offres. Analysez DCE 5x plus vite, mémoires techniques. Gagnez du temps. Formation finançable Constructys.",
   path: '/formations/ia-appels-offre-btp',
 });
 
@@ -132,9 +132,8 @@ export default function FormationIAAppelsOffreBTPPage() {
                 ← Retour au catalogue
               </Link>
               <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Répondre aux{' '}
-                <span className="text-[var(--accent)]">Appels d&apos;Offres</span>{' '}
-                BTP avec l&apos;Intelligence Artificielle
+                Formation IA BTP : répondre aux{' '}
+                <span className="text-[var(--accent)]">appels d&apos;offres</span>
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
                 Analysez les DCE 5 fois plus vite, rédigez des mémoires techniques

@@ -24,9 +24,9 @@ import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour la Fonction RH dans le BTP — Laure Olivié',
+  title: 'Formation IA BTP RH — Recrutement, GEPP | Constructys',
   description:
-    "Formation opérationnelle en 2 jours : automatiser le recrutement, optimiser la GEPP, créer des tableaux de bord RH et votre assistant IA. DRH, chargés de recrutement BTP. 100% finançable OPCO.",
+    "Formation IA BTP pour la fonction RH. Recrutement, GEPP, tableaux de bord. Automatiser la gestion admin. Formation finançable Constructys.",
   path: '/formations/ia-rh-btp',
 });
 

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Tarifs formations IA BTP — Financement Constructys 100%',
+  title: 'Formation IA BTP — Tarifs, financement Constructys',
   description:
-    'Tarifs des formations IA pour le BTP : découverte gratuite, formation à l\'unité ou accès complet. 100% finançable OPCO Constructys. Organisme certifié Qualiopi.',
+    'Formation IA BTP : tarifs et financement Constructys. 100% finançable pour artisans et PME bâtiment. Gagnez du temps sur devis. Qualiopi.',
   path: '/tarifs',
   keywords: ['tarifs formation IA BTP', 'financement Constructys', 'formation Qualiopi', 'formation IA Paris'],
 });
@@ -45,7 +46,7 @@ export default function TarifsPage() {
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div className="text-center">
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-          Tarifs
+          Formation IA BTP : tarifs et financement
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
           Un prix adapté à chaque besoin. Pas d&apos;engagement caché.
@@ -89,6 +90,29 @@ export default function TarifsPage() {
           </div>
         ))}
       </div>
+
+      <div className="mt-16 rounded-2xl bg-[var(--accent-soft)] p-8 text-center">
+        <h2 className="font-display text-xl font-semibold text-slate-900">
+          Découvrir toutes nos formations IA BTP
+        </h2>
+        <p className="mt-2 text-slate-600">
+          Formations sur mesure : devis, appels d&apos;offres, RH, productivité chantier…
+        </p>
+        <Link
+          href="/formations"
+          className="mt-6 inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
+        >
+          Voir le catalogue formations →
+        </Link>
+        <Link
+          href="/prendre-rdv"
+          className="mt-4 ml-4 inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+        >
+          Prendre rendez-vous
+        </Link>
+      </div>
+
+      <AllerPlusLoin />
     </div>
   );
 }

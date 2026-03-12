@@ -10,6 +10,7 @@ import {
   getLocalBusinessSchema,
   getWebSiteSchema,
   getPersonSchema,
+  getMainCourseSchema,
 } from '@/lib/seo';
 
 const dmSans = DM_Sans({
@@ -25,8 +26,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default:
-      'Formation IA BTP — Laure Olivié | Paris · Qualiopi · Constructys',
+    default: 'Formation IA BTP — Gagnez 3 à 5h/semaine | Laure Olivié',
     template: '%s | Laure Olivié',
   },
   description: SITE_CONFIG.description,
@@ -93,37 +93,31 @@ export default function RootLayout({
   const localSchema = getLocalBusinessSchema();
   const webSchema = getWebSiteSchema();
   const personSchema = getPersonSchema();
+  const mainCourseSchema = getMainCourseSchema();
+
+  const jsonLdScripts = [
+    orgSchema,
+    localSchema,
+    webSchema,
+    personSchema,
+    mainCourseSchema,
+  ];
 
   return (
     <html lang="fr">
+      <head>
+        {/* Données structurées Schema.org JSON-LD — Rich Results Google */}
+        {jsonLdScripts.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+      </head>
       <body
         className={`${dmSans.variable} ${outfit.variable} font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900`}
       >
-        {/* JSON-LD dans le body pour éviter les conflits de streaming metadata */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(orgSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(webSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personSchema),
-          }}
-        />
         <Header />
         <main className="flex-1" id="main-content">
           {children}

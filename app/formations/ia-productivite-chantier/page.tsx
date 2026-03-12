@@ -14,9 +14,9 @@ import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP : Boostez votre productivité de chantier — Laure Olivié',
+  title: 'Formation IA BTP productivité chantier | Constructys',
   description:
-    "Programme opérationnel pour automatiser devis, factures et emails avec ChatGPT. Résultats dès la première semaine. Atelier Action, micro-learning ou coaching. 100% finançable Constructys.",
+    'Formation IA BTP : productivité chantier. Automatiser devis, emails, CR. Gagnez du temps. Formation finançable Constructys. Qualiopi.',
   path: '/formations/ia-productivite-chantier',
 });
 
@@ -132,9 +132,7 @@ export default function FormationIAProductiviteChantierPage() {
                 ← Retour au catalogue
               </Link>
               <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Formation IA BTP :{' '}
-                <span className="text-[var(--accent)]">Gagnez en productivité</span>{' '}
-                sur votre gestion de chantier
+                Formation IA BTP : <span className="text-[var(--accent)]">productivité</span> entreprise bâtiment
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
                 Programme court et opérationnel pour automatiser vos devis,

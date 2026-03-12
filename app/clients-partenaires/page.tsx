@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { BarChart3, Building2, Shield } from 'lucide-react';
 
 export const metadata = {
-  title: 'Nos Clients & Partenaires — Laure Olivié',
-  description: 'FFB, GERESO, Lefebvre Dalloz — Collaborations solides avec les acteurs majeurs du BTP et de la formation professionnelle.',
+  title: 'Formation IA BTP — FFB, GERESO, Lefebvre Dalloz',
+  description: 'Nos formations IA BTP avec FFB, GERESO, Lefebvre Dalloz. Partenariat Constructys. Artisans et PME bâtiment.',
 };
 
 export default function ClientsPartenairesPage() {
@@ -83,8 +83,9 @@ export default function ClientsPartenairesPage() {
                   l&apos;intelligence artificielle.
                 </p>
                 <p className="mt-4 text-slate-600">
-                  Ce partenariat stratégique nous permet d&apos;offrir des formations
-                  100% adaptées aux réalités du secteur du bâtiment, avec un
+                  Ce partenariat stratégique nous permet d&apos;offrir des{' '}
+                  <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">formations</Link>
+                  {' '}100% adaptées aux réalités du secteur du bâtiment, avec un
                   financement facilité via Constructys pour les adhérents FFB.
                 </p>
                 <p className="mt-6 font-semibold text-slate-900">
@@ -190,10 +191,10 @@ export default function ClientsPartenairesPage() {
               </svg>
             </Link>
             <Link
-              href="/#programme"
+              href="/formations"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-8 py-4 font-semibold text-white hover:bg-white/10"
             >
-              Voir le programme
+              Catalogue des formations
             </Link>
           </div>
         </div>

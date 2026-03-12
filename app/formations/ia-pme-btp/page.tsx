@@ -3,8 +3,9 @@ import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour PME du BTP — Laure Olivié',
-  description: 'Formation IA adaptée aux PME du bâtiment : devis, administrative, productivité. 100% finançable Constructys.',
+  title: 'Formation IA bâtiment PME — Devis, productivité',
+  description:
+    "Formation IA bâtiment pour PME. Automatiser devis, emails, administratif. Productivité sans embaucher. Formation finançable Constructys.",
   path: '/formations/ia-pme-btp',
 });
 

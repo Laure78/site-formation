@@ -5,6 +5,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { getArticle, getAllSlugs, getAllArticles } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
 import { ChecklistBanner } from '@/components/checklist/ChecklistBanner';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { Calendar, ArrowLeft, Check } from 'lucide-react';
 
 interface Props {
@@ -192,17 +193,28 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         <div className="mt-12">
-          <CTABlock variant="compact" />
+          <CTABlock
+            variant="compact"
+            description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet."
+          />
         </div>
 
         <div className="mt-8 flex flex-wrap gap-4">
           <Link href="/formations" className="text-[var(--accent)] hover:underline">
-            Voir les formations IA BTP
+            Formation IA BTP
+          </Link>
+          <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
+            Prendre rendez-vous
+          </Link>
+          <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+            IA pour artisans et PME bâtiment
           </Link>
           <Link href="/blog" className="text-[var(--accent)] hover:underline">
             Toutes les ressources
           </Link>
         </div>
+
+        <AllerPlusLoin variant="compact" />
       </article>
     </div>
   );

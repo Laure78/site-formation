@@ -20,6 +20,7 @@ import {
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { DevisForm } from '@/components/landing/DevisForm';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { Devis60sBlock } from '@/components/Devis60sBlock';
 import { getFAQSchema } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 
@@ -44,11 +45,10 @@ export default function HomePage() {
                 <span>CERTIFIÉE QUALIOPI · FINANCEMENT CONSTRUCTYS 100%</span>
               </div>
               <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-                Formation IA pour les entreprises du{' '}
-                <span className="text-[var(--accent)]">BTP</span>
+                Formation IA BTP : gagnez du temps sur vos tâches administratives
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-                Gagnez{' '}
+                Formation IA BTP finançable par Constructys. Gagnez{' '}
                 <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
                 sur vos devis, chiffrages, emails et comptes rendus chantier grâce à
                 l&apos;intelligence artificielle.
@@ -100,9 +100,9 @@ export default function HomePage() {
             Pourquoi l&apos;IA change le quotidien des entreprises du BTP
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Les professionnels du BTP perdent un temps précieux sur des tâches
-            administratives répétitives. L&apos;IA vous permet de vous recentrer sur
-            le chantier.
+            L&apos;IA pour gestion administrative BTP permet d&apos;automatiser devis bâtiment
+            et emails en quelques clics. Les professionnels du BTP perdent un temps précieux
+            sur des tâches répétitives ; l&apos;IA vous recentre sur le chantier.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -402,6 +402,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Devis gratuit en 60 secondes */}
+      <Devis60sBlock placement="homepage" />
 
       {/* Financement Constructys */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT pour artisans BTP — Guide pratique et formation',
+  title: 'ChatGPT artisans BTP — Devis, emails, formation finançable',
   description:
-    'Utilisez ChatGPT pour gagner du temps : devis, emails clients, comptes rendus chantier. Guide concret pour artisans et TPE du BTP. Formation certifiée Qualiopi.',
+    'ChatGPT artisans BTP : automatiser devis bâtiment et emails. Formation finançable Constructys. Gagnez 3 à 5h/semaine. Qualiopi.',
   path: '/chatgpt-artisans-btp',
   keywords: [
     'ChatGPT artisans BTP',
@@ -78,12 +79,15 @@ export default function ChatGPTArtisansBTPPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          ChatGPT pour <span className="text-[var(--accent)]">artisans BTP</span>
+          ChatGPT pour <span className="text-[var(--accent)]">artisans BTP</span> : automatiser devis et emails
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Guide pratique pour utiliser l&apos;intelligence artificielle dans votre
-          métier d&apos;artisan : devis, emails, comptes rendus. Formation certifiée
-          Qualiopi, 100 % finançable Constructys.
+          métier d&apos;artisan : devis, emails, comptes rendus. Notre{' '}
+          <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+            formation IA pour entreprises du bâtiment
+          </Link>
+          {' '}est certifiée Qualiopi, 100 % finançable Constructys.
         </p>
 
         {/* Bloc GEO : Réponse courte */}
@@ -159,7 +163,11 @@ export default function ChatGPTArtisansBTPPage() {
             Ne collez jamais de données clients réelles (adresses, noms, montants
             confidentiels) dans ChatGPT public. Utilisez ChatGPT Team ou Enterprise
             pour les données sensibles, ou anonymisez avant de demander une
-            aide. La formation IA BTP vous apprend un process sécurisé.
+            aide. La{' '}
+            <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+              formation IA BTP
+            </Link>
+            {' '}vous apprend un process sécurisé.
           </p>
           <div className="mt-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4">
             <Shield size={24} className="text-amber-600" />
@@ -193,13 +201,30 @@ export default function ChatGPTArtisansBTPPage() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/formations/ia-btp-paris"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-          >
-            Voir la formation IA BTP
-            <ArrowRight size={20} strokeWidth={1.5} />
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/formations/ia-btp-paris"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
+              Voir la formation IA BTP
+              <ArrowRight size={20} strokeWidth={1.5} />
+            </Link>
+            <Link
+              href="/prendre-rdv"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              Prendre rendez-vous
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+          <p className="text-slate-800">
+            Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
+            <Link href="/prendre-rdv" className="font-semibold text-[var(--accent)] hover:underline">
+              Prenez rendez-vous pour échanger sur votre projet.
+            </Link>
+          </p>
         </section>
 
         {/* FAQ */}
@@ -254,6 +279,14 @@ export default function ChatGPTArtisansBTPPage() {
             </li>
           </ul>
         </section>
+
+        <AllerPlusLoin
+          links={[
+            { href: '/formations', label: 'Formation IA BTP' },
+            { href: '/ia-devis-batiment', label: 'Automatiser les devis avec l\'IA' },
+            { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+          ]}
+        />
       </article>
     </div>
   );

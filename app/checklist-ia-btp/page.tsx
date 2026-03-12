@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet';
 
 export const metadata = createPageMetadata({
-  title: '10 Prompts ChatGPT pour le BTP – Checklist gratuite',
+  title: 'ChatGPT artisans BTP — 10 prompts gratuits',
   description:
-    'Téléchargez gratuitement la checklist des 10 prompts ChatGPT pour les entreprises du BTP et gagnez plusieurs heures par semaine.',
+    '10 prompts ChatGPT pour artisans BTP. Devis, emails, CR chantier. Checklist gratuite. Formation IA BTP finançable Constructys. Qualiopi.',
   path: '/checklist-ia-btp',
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT artisans'],
 });
@@ -42,7 +43,13 @@ export default function ChecklistIABTPPage() {
                 href="/formations"
                 className="text-[#166534] font-medium hover:underline"
               >
-                Découvrir nos formations IA BTP →
+                Formation IA BTP →
+              </Link>
+              <Link
+                href="/chatgpt-artisans-btp"
+                className="text-[#166534] font-medium hover:underline"
+              >
+                IA pour artisans et PME bâtiment →
               </Link>
               <Link
                 href="/prendre-rdv"
@@ -50,6 +57,9 @@ export default function ChecklistIABTPPage() {
               >
                 Prendre rendez-vous →
               </Link>
+            </div>
+            <div className="mt-12 pt-8 border-t border-slate-200">
+              <AllerPlusLoin variant="compact" />
             </div>
           </div>
         </div>

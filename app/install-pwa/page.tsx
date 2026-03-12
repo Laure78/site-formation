@@ -40,13 +40,21 @@ export default function InstallPWAPage() {
         </div>
       </div>
 
-      <Link
-        href="/"
-        className="mt-10 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700"
-      >
-        <Download size={20} strokeWidth={1.5} />
-        Ouvrir la plateforme
-      </Link>
+      <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <Link
+          href="/formations"
+          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700"
+        >
+          <Download size={20} strokeWidth={1.5} />
+          Voir le catalogue formations
+        </Link>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+        >
+          Accueil
+        </Link>
+      </div>
 
       <p className="mt-8 text-xs text-slate-500">
         Aucune donnée personnelle stockée sur l&apos;appareil. Connexion internet requise pour les formations.

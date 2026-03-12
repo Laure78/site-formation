@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { Check, Phone, Calendar } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP à Paris — Laure Olivié',
+  title: 'Formation IA bâtiment Paris — Devis, ChatGPT | Constructys',
   description:
-    'Formation IA BTP à Paris et Île-de-France (75, 92, 93, 94, 77, 78, 91, 95). 4h pratiques : devis, chiffrages, ChatGPT. Qualiopi · Constructys. Nanterre, Bobigny, Créteil, Versailles.',
+    'Formation IA bâtiment Paris et Île-de-France. Automatiser devis, emails. Gagnez 3 à 5h/semaine. Formation finançable Constructys. Qualiopi.',
   path: '/formations/ia-btp-paris',
   keywords: [
     'formation IA Paris',
@@ -91,14 +92,13 @@ export default function FormationIABTPParisPage() {
                 Formation Paris & Île-de-France • Financement OPCO
               </div>
               <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Formation IA BTP à{' '}
-                <span className="text-[var(--accent)]">Paris</span>
+                Formation IA bâtiment à{' '}
+                <span className="text-[var(--accent)]">Paris</span> et Île-de-France
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
-                Formation ultra-pratique de 4h pour les professionnels du BTP en
-                Île-de-France. Automatisez vos devis, chiffrages et communication
-                avec ChatGPT. Intervention à Paris (75) et dans les 8 départements
-                d&apos;Île-de-France.
+                Formation IA bâtiment adaptée aux artisans et PME du BTP en Île-de-France.
+                Productivité entreprise bâtiment : ChatGPT pour devis, emails, relances clients.
+                Intervention à Paris (75) et dans les 8 départements.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Link
@@ -235,6 +235,19 @@ export default function FormationIABTPParisPage() {
           >
             Voir la formation complète sur LinkedIn Learning →
           </a>
+        </div>
+      </section>
+
+      {/* Aller plus loin */}
+      <section className="border-b border-slate-200 bg-white px-4 py-12">
+        <div className="mx-auto max-w-6xl">
+          <AllerPlusLoin
+            links={[
+              { href: '/formations', label: 'Formation IA BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+              { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+            ]}
+          />
         </div>
       </section>
 

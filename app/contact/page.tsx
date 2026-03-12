@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContactForm } from '@/components/landing/ContactForm';
 
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Contact Laure Olivié — Formation IA BTP',
+  title: 'Formation IA BTP — Contact, devis gratuit | Laure Olivié',
   description:
-    'Contactez Laure Olivié pour organiser une formation IA BTP. Devis sous 24h. Paris, Île-de-France. 06 95 66 18 18 · laureolivie@yahoo.fr',
+    'Contactez Laure Olivié pour votre formation IA BTP. Devis personnalisé sous 24h. Formation finançable Constructys. Paris, Île-de-France.',
   path: '/contact',
 });
 
@@ -141,7 +142,7 @@ export default async function ContactPage({
               relances clients. »
             </blockquote>
             <p>
-              Mes formations sont certifiées Qualiopi et peuvent être prises en
+              Mes <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">formations IA BTP</Link> sont certifiées Qualiopi et peuvent être prises en
               charge à 100% par votre OPCO (Constructys, etc.). Je vous
               accompagne également dans les démarches administratives pour
               faciliter le financement de votre formation.
@@ -193,7 +194,13 @@ export default async function ContactPage({
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/formations"
+              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
+            >
+              Voir le catalogue formations
+            </Link>
             <Link
               href="#formulaire"
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
@@ -229,7 +236,19 @@ export default async function ContactPage({
             Contactez-moi pour discuter de votre projet de formation et obtenir un
             devis personnalisé.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+            <Link
+              href="/formations"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
+              Formation IA BTP
+            </Link>
+            <Link
+              href="/prendre-rdv"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
+              Prendre rendez-vous
+            </Link>
             <a
               href="tel:+33695661818"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
@@ -242,6 +261,17 @@ export default async function ContactPage({
             >
               laureolivie@yahoo.fr
             </a>
+          </div>
+          <div className="mt-12 border-t border-white/30 pt-8">
+            <div className="rounded-xl bg-white/10 p-6">
+              <AllerPlusLoin
+                links={[
+                  { href: '/formations', label: 'Formation IA BTP' },
+                  { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+                  { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>

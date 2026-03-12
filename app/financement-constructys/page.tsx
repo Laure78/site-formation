@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import {
   Download,
   Building2,
@@ -10,8 +11,9 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Financement Constructys — Formation IA BTP | Laure Olivié',
-  description: 'Modalités de prise en charge 2026 Constructys pour votre formation IA. 100% finançable. Plateforme eGestion.',
+  title: 'Formation IA Constructys — Financement 100% | Laure Olivié',
+  description:
+    'Formation IA Constructys : 100% finançable. Modalités 2026, eGestion. Gagnez du temps sur devis et emails. Artisans, PME BTP.',
 };
 
 export default function FinancementConstructysPage() {
@@ -21,10 +23,10 @@ export default function FinancementConstructysPage() {
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="font-display text-3xl font-bold md:text-4xl">
-            Financement Constructys
+            Formation IA Constructys : financement 100%
           </h1>
           <p className="mt-2 font-display text-xl text-[var(--accent)]">
-            de votre Formation IA
+            de votre <Link href="/formations" className="underline hover:no-underline">Formation IA</Link>
           </p>
           <p className="mt-6 text-slate-300">
             Découvrez les modalités de prise en charge 2026 et faites votre
@@ -381,6 +383,9 @@ export default function FinancementConstructysPage() {
           >
             ← Retour à l&apos;accueil
           </Link>
+          <div className="mt-8">
+            <AllerPlusLoin />
+          </div>
         </div>
       </div>
     </div>

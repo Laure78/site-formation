@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Check, FileText, Calculator, Clock, ArrowRight } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'IA pour devis bâtiment — Automatiser vos devis BTP avec ChatGPT',
+  title: 'IA devis BTP — Automatiser devis bâtiment | Formation finançable',
   description:
-    "Utilisez l'IA pour rédiger vos devis bâtiment 10 fois plus vite : descriptifs techniques, chiffrages, variantes. Formation pratique pour artisans et PME BTP. 100% finançable Constructys.",
+    'IA devis BTP : automatiser devis bâtiment 10x plus vite. Formation finançable Constructys. Artisans, PME bâtiment. Gain de temps garanti. Qualiopi.',
   path: '/ia-devis-batiment',
   keywords: [
     'IA devis bâtiment',
@@ -78,12 +79,18 @@ export default function IADevisBatimentPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          IA pour <span className="text-[var(--accent)]">devis bâtiment</span>
+          IA devis BTP : <span className="text-[var(--accent)]">automatiser devis bâtiment</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Automatisez la rédaction de vos devis BTP avec l&apos;intelligence
-          artificielle. Descriptifs techniques, chiffrages, variantes : gain de
-          temps garanti.
+          L&apos;IA devis BTP permet d&apos;{' '}
+          <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+            automatiser devis bâtiment
+          </Link>
+          {' '}et gagner 2h à 4h par devis. Descriptifs techniques, chiffrages, variantes : productivité entreprise bâtiment garantie. Découvrez notre{' '}
+          <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+            formation IA BTP
+          </Link>
+          {' '}finançable Constructys.
         </p>
 
         {/* Bloc GEO : Réponse courte */}
@@ -134,7 +141,11 @@ export default function IADevisBatimentPage() {
             fournis. Main d&apos;œuvre + fournitures. TVA 10 %. » L&apos;IA génère
             un descriptif structuré avec postes (décapage, préparation,
             pose, joints), quantités, prix unitaires et total. Vous vérifiez et
-            ajustez selon vos tarifs réels.
+            ajustez selon vos tarifs réels. Pour apprendre à{' '}
+            <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+              utiliser ChatGPT dans le BTP
+            </Link>
+            , notre formation pratique vous donne les trames prêtes à l&apos;emploi.
           </p>
         </section>
 
@@ -165,16 +176,34 @@ export default function IADevisBatimentPage() {
             Module dédié dans la formation « L&apos;IA au service du BTP ». 4h ou
             7h de pratique sur vos vrais devis. 100 % finançable Constructys.
           </p>
-          <Link
-            href="/formations/ia-btp-paris"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-          >
-            Voir le programme
-            <ArrowRight size={20} strokeWidth={1.5} />
-          </Link>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Link
+              href="/formations/ia-btp-paris"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
+              Voir le programme
+              <ArrowRight size={20} strokeWidth={1.5} />
+            </Link>
+            <Link
+              href="/prendre-rdv"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              Prendre rendez-vous
+            </Link>
+          </div>
         </section>
 
-        {/* Liens */}
+        {/* CTA RDV */}
+        <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+          <p className="text-slate-800">
+            Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
+            <Link href="/prendre-rdv" className="font-semibold text-[var(--accent)] hover:underline">
+              Prenez rendez-vous pour échanger sur votre projet.
+            </Link>
+          </p>
+        </section>
+
+        {/* Liens + Aller plus loin */}
         <section className="mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-lg font-semibold text-slate-900">
             Sur le même thème
@@ -182,7 +211,7 @@ export default function IADevisBatimentPage() {
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
               <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-                ChatGPT pour artisans BTP
+                Formation IA pour artisans
               </Link>
             </li>
             <li>
@@ -192,11 +221,24 @@ export default function IADevisBatimentPage() {
             </li>
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Catalogue formations IA BTP
+                Formation IA BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
+                Prendre rendez-vous
               </Link>
             </li>
           </ul>
         </section>
+
+        <AllerPlusLoin
+          links={[
+            { href: '/formations', label: 'Formation IA BTP' },
+            { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+            { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+          ]}
+        />
       </article>
     </div>
   );

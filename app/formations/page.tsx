@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Clock, Users, Check } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Catalogue des formations IA BTP — Laure Olivié',
+  title: 'Formation IA BTP — Catalogue qualiopi Constructys',
   description:
-    'Formations IA pour le BTP : devis, appels d\'offres, RH, travaux publics. Paris, Île-de-France, France. Qualiopi · 100% finançable Constructys.',
+    'Formation IA BTP finançable Constructys. Devis, appels d\'offres, productivité chantier. Gagnez 3 à 5h/semaine. 100% qualiopi. Paris, Île-de-France.',
   path: '/formations',
 });
 
@@ -113,11 +114,18 @@ export default function FormationsPage() {
     <div className="mx-auto max-w-6xl px-4 py-16">
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-          Catalogue des formations IA BTP
+          Formation IA BTP : programmes certifiés et finançables
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600">
-          Formations certifiées Qualiopi, 100% finançables par Constructys. De 4h
-          à 14h selon vos objectifs. Méthode 100% pratique.
+          Formations IA finançables pour artisans et PME du bâtiment. Apprenez à{' '}
+          <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+            utiliser ChatGPT dans le BTP
+          </Link>
+          , automatisez devis bâtiment, emails et comptes rendus chantier. De 4h à 14h selon vos objectifs. Méthode 100% pratique.{' '}
+          <Link href="/prendre-rdv" className="text-[var(--accent)] font-medium hover:underline">
+            Prenez rendez-vous
+          </Link>
+          {' '}pour un diagnostic personnalisé.
         </p>
       </div>
 
@@ -159,11 +167,57 @@ export default function FormationsPage() {
               ))}
             </ul>
             <span className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors group-hover:bg-blue-700">
-              Prendre rendez-vous
+              Voir le programme
             </span>
           </Link>
         ))}
       </div>
+
+      <section className="mt-16 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8">
+        <h2 className="font-display text-xl font-bold text-slate-900">
+          Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?
+        </h2>
+        <p className="mt-3 text-slate-700">
+          Prenez rendez-vous pour échanger sur votre projet et recevoir un devis personnalisé.
+        </p>
+        <Link
+          href="/prendre-rdv"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+        >
+          Prendre rendez-vous pour un diagnostic
+        </Link>
+      </section>
+
+      <section className="mt-12 border-t border-slate-200 pt-12">
+        <h2 className="font-display text-lg font-semibold text-slate-900">
+          Par métier
+        </h2>
+        <ul className="mt-4 flex flex-wrap gap-4">
+          <li>
+            <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+              Formation IA pour artisans
+            </Link>
+          </li>
+          <li>
+            <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
+              Formation IA conducteur de travaux
+            </Link>
+          </li>
+          <li>
+            <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
+              Automatiser les devis avec l&apos;IA
+            </Link>
+          </li>
+        </ul>
+      </section>
+
+      <AllerPlusLoin
+        links={[
+          { href: '/formations', label: 'Formation IA BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+          { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+        ]}
+      />
     </div>
   );
 }

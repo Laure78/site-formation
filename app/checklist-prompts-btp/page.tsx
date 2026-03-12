@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
 export const metadata = createPageMetadata({
-  title: '10 Prompts ChatGPT pour le BTP – Checklist gratuite',
+  title: '10 Prompts ChatGPT artisans BTP — Devis, emails',
   description:
-    'Téléchargez gratuitement la checklist des 10 prompts ChatGPT pour les entreprises du BTP et gagnez plusieurs heures par semaine.',
+    '10 prompts ChatGPT pour artisans BTP. Automatiser devis bâtiment, emails, CR chantier. Formation IA BTP finançable Constructys.',
   path: '/checklist-prompts-btp',
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'ChatGPT artisans'],
 });
@@ -108,7 +109,21 @@ export default function ChecklistDocumentPage() {
         <footer className="mt-12 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
           <p className="font-semibold text-[#166534]">Formation IA pour le BTP</p>
           <p>100% finançable OPCO Constructys</p>
-          <p className="mt-2">laureolivie.fr · 06 95 66 18 18</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <Link href="/formations" className="font-medium text-[#166534] hover:underline">
+              Formation IA BTP
+            </Link>
+            <Link href="/prendre-rdv" className="font-medium text-[#166534] hover:underline">
+              Prendre rendez-vous
+            </Link>
+            <Link href="/chatgpt-artisans-btp" className="font-medium text-[#166534] hover:underline">
+              IA pour artisans et PME bâtiment
+            </Link>
+          </div>
+          <div className="mt-8 text-left">
+            <AllerPlusLoin variant="compact" />
+          </div>
+          <p className="mt-6">laureolivie.fr · 06 95 66 18 18</p>
           <p className="mt-4 text-xs">
             Document offert par Laure Olivié. Téléchargez cette checklist sur{' '}
             <Link href="/checklist-ia-btp" className="text-[#166534] hover:underline">

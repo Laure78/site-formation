@@ -96,10 +96,17 @@ export default function MerciDevisPage() {
         </div>
 
         {/* Boutons navigation */}
-        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
+          <Link
+            href="/formations"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700 sm:w-auto"
+          >
+            <BookOpen size={20} strokeWidth={1.5} />
+            Voir le catalogue formations
+          </Link>
           <Link
             href="/"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700 sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto"
           >
             <Home size={20} strokeWidth={1.5} />
             Retour à l&apos;accueil
@@ -108,7 +115,6 @@ export default function MerciDevisPage() {
             href="/clients-partenaires"
             className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto"
           >
-            <BookOpen size={20} strokeWidth={1.5} />
             Voir les cas concrets
           </Link>
         </div>

@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'À propos — Laure Olivié',
+  title: 'Laure Olivié — Formatrice IA BTP | Formation bâtiment',
   description:
     'Laure Olivié, formatrice IA pour le BTP. 10 ans d\'expérience, méthode 100% pratique. Paris, Île-de-France. Qualiopi · Constructys.',
   path: '/a-propos',
@@ -142,13 +143,22 @@ export default function AProposPage() {
               formation.
             </p>
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/formations"
+              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
+            >
+              Voir le catalogue formations
+            </Link>
             <Link
               href="/prendre-rdv"
-              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
+              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
             >
               Prendre RDV
             </Link>
+          </div>
+          <div className="mt-16 border-t border-slate-200 pt-12">
+            <AllerPlusLoin />
           </div>
         </div>
       </section>

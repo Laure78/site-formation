@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { BookingCalendar } from '@/components/booking/BookingCalendar';
+import { Devis60sBlock } from '@/components/Devis60sBlock';
 
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Prendre rendez-vous — Formation IA BTP',
+  title: 'Formation IA BTP — Réserver un RDV gratuit',
   description:
-    'Réservez un créneau de 30 min pour votre formation IA BTP. Paris, Île-de-France, France. Devis personnalisé · 100% finançable OPCO Constructys.',
+    'Réservez un RDV de 30 min pour votre formation IA BTP. Devis personnalisé. Formation finançable Constructys. Paris, Île-de-France.',
   path: '/prendre-rdv',
 });
 
@@ -29,9 +30,19 @@ export default function PrendreRDVPage() {
             formation IA et obtenir un devis personnalisé. Choisissez le jour et
             l&apos;heure qui vous conviennent.
           </p>
+          <p className="mt-4">
+            <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+              Découvrir le catalogue des formations IA BTP →
+            </Link>
+          </p>
 
           <div className="mt-10">
             <BookingCalendar />
+          </div>
+
+          {/* Backup : devis gratuit en 1 clic si pas de créneau */}
+          <div className="mt-16">
+            <Devis60sBlock placement="backup" />
           </div>
         </div>
       </section>

@@ -22,9 +22,9 @@ import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordion
 import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA & Travaux Publics — Laure Olivié',
+  title: 'Formation IA BTP Travaux Publics — DCE, CR | Constructys',
   description:
-    "Formation immersive en 2 jours : maîtriser l'IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier et créer votre assistant IA métier. 100% finançable OPCO.",
+    "Formation IA BTP travaux publics. DCE, CCTP, CR chantier. Gagnez du temps. Formation finançable Constructys.",
   path: '/formations/ia-travaux-publics',
 });
 

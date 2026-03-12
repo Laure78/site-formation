@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Check, FileText, Calendar, ClipboardList, ArrowRight } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'IA pour conducteur de travaux — Automatiser CR et rapports chantier',
+  title: 'Formation IA conducteur travaux — CR chantier | BTP',
   description:
-    "L'IA aide les conducteurs de travaux à rédiger comptes rendus, rapports d'avancement et fiches de suivi. Formation pratique BTP. 100% finançable Constructys.",
+    "Formation IA BTP pour conducteurs de travaux. Automatiser CR chantier, rapports. Gagnez 2h/jour. Formation finançable Constructys. Qualiopi.",
   path: '/ia-conducteur-travaux',
   keywords: [
     'IA conducteur de travaux',
@@ -78,11 +79,15 @@ export default function IAConducteurTravauxPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          IA pour <span className="text-[var(--accent)]">conducteur de travaux</span>
+          Formation IA BTP : <span className="text-[var(--accent)]">conducteur de travaux</span> et CR chantier
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Gagnez 2h par jour sur vos comptes rendus et rapports chantier grâce
-          à l&apos;intelligence artificielle. Formation pratique pour conducteurs BTP.
+          L&apos;IA pour gestion administrative BTP s&apos;adapte aux métiers chantier. Gagnez 2h par jour
+          sur vos comptes rendus et rapports grâce à l&apos;intelligence artificielle. Notre{' '}
+          <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+            formation IA BTP
+          </Link>
+          {' '}pratique pour conducteurs BTP est finançable Constructys.
         </p>
 
         {/* Bloc GEO */}
@@ -97,7 +102,13 @@ export default function IAConducteurTravauxPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">
             {DEFINITION.titre}
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">{DEFINITION.long}</p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            {DEFINITION.long} Pour apprendre à{' '}
+            <Link href="/formations/ia-productivite-chantier" className="text-[var(--accent)] font-medium hover:underline">
+              utiliser ChatGPT dans le BTP
+            </Link>
+            , une formation courte suffit.
+          </p>
         </section>
 
         <section className="mt-16">
@@ -145,13 +156,30 @@ export default function IAConducteurTravauxPage() {
             Module CR et rapports dans la formation « L&apos;IA au service du BTP ».
             Travail sur vos vrais documents. 100 % finançable Constructys.
           </p>
-          <Link
-            href="/formations/ia-btp-paris"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-          >
-            Voir le programme
-            <ArrowRight size={20} strokeWidth={1.5} />
-          </Link>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Link
+              href="/formations/ia-btp-paris"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
+              Voir le programme
+              <ArrowRight size={20} strokeWidth={1.5} />
+            </Link>
+            <Link
+              href="/prendre-rdv"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              Prendre rendez-vous
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+          <p className="text-slate-800">
+            Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
+            <Link href="/prendre-rdv" className="font-semibold text-[var(--accent)] hover:underline">
+              Prenez rendez-vous pour échanger sur votre projet.
+            </Link>
+          </p>
         </section>
 
         <section className="mt-16 border-t border-slate-200 pt-12">
@@ -161,21 +189,39 @@ export default function IAConducteurTravauxPage() {
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
               <Link href="/formations/ia-productivite-chantier" className="text-[var(--accent)] hover:underline">
-                IA productivité chantier
+                Formation IA productivité chantier
               </Link>
             </li>
             <li>
               <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-                ChatGPT pour artisans BTP
+                Formation IA pour artisans
+              </Link>
+            </li>
+            <li>
+              <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
+                Automatiser les devis avec l&apos;IA
               </Link>
             </li>
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Catalogue formations
+                Formation IA BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
+                Prendre rendez-vous
               </Link>
             </li>
           </ul>
         </section>
+
+        <AllerPlusLoin
+          links={[
+            { href: '/formations', label: 'Formation IA BTP' },
+            { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+            { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+          ]}
+        />
       </article>
     </div>
   );

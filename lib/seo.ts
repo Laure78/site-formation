@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    'Formation IA pour les entreprises du BTP. Gagnez 3 à 5h/semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Paris, Île-de-France, France.',
+    'Formation IA BTP finançable Constructys. Gagnez du temps sur devis, emails et CR chantier. Artisans, PME bâtiment. 100% qualiopi. Paris, Île-de-France.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
@@ -70,6 +70,36 @@ export function createPageMetadata({
   };
 }
 
+/** Schéma Course principal "Formation IA BTP" (visible sur toutes les pages) */
+export function getMainCourseSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    '@id': `${SITE_CONFIG.url}/#course`,
+    name: 'Formation IA BTP',
+    description:
+      "Formation pour apprendre à utiliser ChatGPT et l'IA dans les entreprises du bâtiment afin de gagner du temps et automatiser certaines tâches.",
+    url: `${SITE_CONFIG.url}/formations`,
+    provider: {
+      '@type': 'Person',
+      '@id': `${SITE_CONFIG.url}/#person`,
+      name: SITE_CONFIG.name,
+      sameAs: SITE_CONFIG.url,
+    },
+    teaches: [
+      'Automatisation administrative',
+      'Génération de devis',
+      'Utilisation de ChatGPT en entreprise',
+    ],
+    educationalLevel: 'Professionnel',
+    inLanguage: 'fr-FR',
+    areaServed: [
+      { '@type': 'Country', name: 'France' },
+      { '@type': 'State', name: 'Île-de-France' },
+    ],
+  };
+}
+
 /** Schéma Course pour une formation (GEO) */
 export function getCourseSchema({
   name,
@@ -100,15 +130,16 @@ export function getCourseSchema({
   };
 }
 
-/** Schéma JSON-LD Organisation + LocalBusiness (GEO) */
+/** Schéma JSON-LD Organization / EducationalOrganization */
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
+    '@type': ['Organization', 'EducationalOrganization'],
     '@id': `${SITE_CONFIG.url}/#organization`,
-    name: SITE_CONFIG.legalName,
+    name: SITE_CONFIG.name,
     legalName: SITE_CONFIG.legalName,
-    description: SITE_CONFIG.description,
+    alternateName: SITE_CONFIG.legalName,
+    description: 'Formation en intelligence artificielle pour les entreprises du BTP',
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
     telephone: SITE_CONFIG.phone,
@@ -137,10 +168,10 @@ export function getOrganizationSchema() {
 export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': ['ProfessionalService', 'LocalBusiness'],
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: SITE_CONFIG.name,
-    description: SITE_CONFIG.description,
+    description: 'Formation en intelligence artificielle pour les entreprises du BTP. Formatrice IA générative pour artisans, PME bâtiment, conducteurs de travaux.',
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
@@ -220,7 +251,13 @@ export function getPersonSchema() {
     '@type': 'Person',
     '@id': `${SITE_CONFIG.url}/#person`,
     name: SITE_CONFIG.name,
-    jobTitle: 'Formatrice IA BTP',
+    jobTitle: 'Formatrice en intelligence artificielle',
+    knowsAbout: [
+      'IA générative appliquée aux entreprises du BTP',
+      'ChatGPT pour artisans et PME bâtiment',
+      'Automatisation administrative BTP',
+      'Génération de devis avec l\'IA',
+    ],
     worksFor: { '@id': `${SITE_CONFIG.url}/#organization` },
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
