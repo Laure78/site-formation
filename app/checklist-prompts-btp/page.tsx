@@ -5,7 +5,7 @@ export const metadata = createPageMetadata({
   title: '10 Prompts ChatGPT pour le BTP – Checklist gratuite',
   description:
     'Téléchargez gratuitement la checklist des 10 prompts ChatGPT pour les entreprises du BTP et gagnez plusieurs heures par semaine.',
-  path: '/documents/checklist-10-prompts-chatgpt-btp',
+  path: '/checklist-prompts-btp',
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'ChatGPT artisans'],
 });
 

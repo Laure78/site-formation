@@ -48,7 +48,7 @@ export async function submitLeadChecklistAction(
 
   // Envoi email avec lien vers la checklist (page Next.js, fiable sur tous hébergements)
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
-  const docLink = `${baseUrl}/documents/checklist-10-prompts-chatgpt-btp`;
+  const docLink = `${baseUrl}/checklist-prompts-btp`;
 
   if (resend) {
     const { error: errEmail } = await resend.emails.send({
