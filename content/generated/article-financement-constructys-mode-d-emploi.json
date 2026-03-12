@@ -2,12 +2,12 @@
   "slug": "financement-constructys-mode-d-emploi",
   "title": "Financement Constructys : mode d'emploi",
   "description": "Financement Constructys : mode d'emploi. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Co",
-  "date": "2026-03-11",
+  "date": "2026-03-12",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
+    "relance client IA",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -71,7 +71,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/blog",

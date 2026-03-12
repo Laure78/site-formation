@@ -2,12 +2,12 @@
   "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
   "title": "ChatGPT pour artisans : erreurs à éviter",
   "description": "ChatGPT pour artisans : erreurs à éviter. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable C",
-  "date": "2026-03-11",
+  "date": "2026-03-12",
   "keywords": [
-    "devis plombier IA",
-    "devis électricien ChatGPT",
-    "chiffrage artisan IA",
-    "ChatGPT artisans"
+    "offre emploi IA",
+    "recruter artisans",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -72,10 +72,6 @@
     {
       "path": "/prendre-rdv",
       "anchor": "devis formation"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

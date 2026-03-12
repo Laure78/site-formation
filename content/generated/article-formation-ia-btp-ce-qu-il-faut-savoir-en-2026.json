@@ -2,12 +2,12 @@
   "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
   "description": "Formation IA BTP : ce qu'il faut savoir en 2026. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
-  "date": "2026-03-11",
+  "date": "2026-03-12",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -71,7 +71,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
