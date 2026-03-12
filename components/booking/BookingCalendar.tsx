@@ -8,7 +8,7 @@ import { getAvailabilities } from '@/app/actions/availabilities';
 import { QualificationForm } from './QualificationForm';
 
 const DUREE_CRENEAU_MINUTES = 30;
-const INTERVALLE_MINUTES = 5;
+const INTERVALLE_MINUTES = 0;
 
 function formatDateISO(d: Date): string {
   return d.toISOString().slice(0, 10);
