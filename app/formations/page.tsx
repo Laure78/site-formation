@@ -6,7 +6,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Catalogue qualiopi Constructys',
   description:
-    'Formation IA BTP finançable Constructys. Devis, appels d\'offres, productivité chantier. Gagnez 3 à 5h/semaine. 100% qualiopi. Paris, Île-de-France.',
+    'Formation IA BTP finançable Constructys. Devis, appels d\'offres, productivité chantier. Gagnez 3 à 5h/semaine. 100% qualiopi. Guyancourt, Île-de-France.',
   path: '/formations',
 });
 
@@ -105,6 +105,45 @@ const FORMATIONS = [
       "Devis et chiffrages optimisés",
       "Emails et administratif simplifié",
       "Productivité sans embaucher",
+    ],
+  },
+  {
+    ref: 'BTP-08',
+    level: 'DÉBUTANT',
+    title: 'Formation IA BTP à Lyon',
+    href: '/formations/ia-btp-lyon',
+    duree: '4h',
+    effectif: '12 max',
+    objectifs: [
+      "Devis, appels d'offres et emails avec l'IA",
+      "Rhône, Ain, Isère, Loire",
+      "100% finançable Constructys",
+    ],
+  },
+  {
+    ref: 'BTP-09',
+    level: 'DÉBUTANT',
+    title: 'Formation IA BTP à Bordeaux',
+    href: '/formations/ia-btp-bordeaux',
+    duree: '4h',
+    effectif: '12 max',
+    objectifs: [
+      "ChatGPT pour le BTP en Gironde",
+      "Gironde, Charente, Dordogne, Landes",
+      "100% finançable Constructys",
+    ],
+  },
+  {
+    ref: 'BTP-10',
+    level: 'DÉBUTANT',
+    title: 'Formation IA BTP à Lille',
+    href: '/formations/ia-btp-lille',
+    duree: '4h',
+    effectif: '12 max',
+    objectifs: [
+      "Appels d'offres et administratif avec l'IA",
+      "Nord, Pas-de-Calais, Somme",
+      "100% finançable Constructys",
     ],
   },
 ];

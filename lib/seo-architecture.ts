@@ -8,7 +8,7 @@ export const PILLAR_PAGES = [
     id: 'formation-ia-btp',
     path: '/formations',
     title: 'Formation IA BTP — Programmes et financement 100%',
-    description: 'Formations IA certifiées Qualiopi pour le BTP. Devis, appels d\'offres, RH. 100% finançable OPCO Constructys. Paris, Île-de-France.',
+    description: 'Formations IA certifiées Qualiopi pour le BTP. Devis, appels d\'offres, RH. 100% finançable OPCO Constructys. Île-de-France, Yvelines, Guyancourt.',
     h1: 'Formation IA BTP : programmes et financement',
     keywords: ['formation IA BTP', 'formation ChatGPT BTP', 'formation intelligence artificielle bâtiment'],
   },

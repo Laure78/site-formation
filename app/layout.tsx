@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/ChatWidget';
+import { StickyRDVCTA } from '@/components/StickyRDVCTA';
 import {
   SITE_CONFIG,
   getOrganizationSchema,
@@ -26,7 +27,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'Formation IA BTP — Gagnez 3 à 5h/semaine | Laure Olivié',
+    default: 'Formation IA BTP — Gagnez 3 à 5h/semaine | Laure Olivié | Île-de-France',
     template: '%s | Laure Olivié',
   },
   description: SITE_CONFIG.description,
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: 'Formation IA BTP — Laure Olivié | Paris · Qualiopi',
+    title: 'Formation IA BTP — Laure Olivié | Île-de-France · Yvelines · Qualiopi',
     description: SITE_CONFIG.description,
     images: [
       {
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Formation IA BTP — Laure Olivié | Paris',
+    title: 'Formation IA BTP — Laure Olivié | Île-de-France · Yvelines',
     description: SITE_CONFIG.description,
   },
   robots: {
@@ -123,6 +124,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <StickyRDVCTA />
         <ChatWidget />
       </body>
     </html>

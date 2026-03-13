@@ -17,7 +17,7 @@ const BASE_URL = SITE_CONFIG.url;
 
 // Formations (données statiques du site)
 const FORMATIONS_DATA = [
-  { path: '/formations', title: 'Catalogue formations IA BTP', desc: "Formations IA pour le BTP : devis, appels d'offres, RH, travaux publics. Paris, Île-de-France. Qualiopi, 100% finançable Constructys." },
+  { path: '/formations', title: 'Catalogue formations IA BTP', desc: "Formations IA pour le BTP : devis, appels d'offres, RH, travaux publics. Guyancourt, Île-de-France. Qualiopi, 100% finançable Constructys." },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: '4h pratiques. Devis en 15 min, emails automatisés. Paris + Île-de-France. 100% finançable OPCO.' },
   { path: '/formations/ia-travaux-publics', title: 'IA & Travaux Publics', desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
   { path: '/formations/ia-appels-offre-btp', title: 'Appels d\'offres BTP avec l\'IA', desc: '1 jour. Analyser un DCE en 30 min, mémoires techniques, prompts par métier.' },
@@ -28,9 +28,9 @@ const FORMATIONS_DATA = [
 
 // Pages clés + contenu synthétique
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil — Laure Olivié', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Paris, Île-de-France.' },
+  { path: '/', title: 'Accueil — Laure Olivié', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CAPEB, GERESO, CNAM, FNTP.' },
-  { path: '/contact', title: 'Contact', content: `Contact : laureolivie@yahoo.fr — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Paris.` },
+  { path: '/contact', title: 'Contact', content: `Contact : laureolivie@yahoo.fr — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange de 30 minutes pour une formation sur-mesure. Formulaire de prise de rendez-vous.' },
   { path: '/tarifs', title: 'Tarifs', content: 'Tarif journalier 2026 : 1000€ HT. formations 100% finançables OPCO Constructys. Qualiopi.' },
   { path: '/financement-constructys', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },

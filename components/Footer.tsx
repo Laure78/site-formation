@@ -10,7 +10,15 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
               <img src="/logo-lo.svg" alt="Laure Olivié" className="h-12 w-auto" />
-              <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
+              <div>
+                <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
+                <p className="text-sm font-medium text-slate-600">
+                  Formatrice en intelligence artificielle
+                </p>
+                <p className="text-xs text-[var(--accent)]">
+                  Intervenante LinkedIn Learning
+                </p>
+              </div>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-600">
               Formation spécialisée en intelligence artificielle pour les
@@ -51,7 +59,7 @@ export function Footer() {
                 www.laureolivie.fr
               </a>
               <address className="not-italic px-4 text-xs text-slate-500">
-                France · Île-de-France · Paris<br />
+                France · Île-de-France · Guyancourt (Yvelines)<br />
                 SIRET 905 244 281 00010
               </address>
             </div>
@@ -74,6 +82,7 @@ export function Footer() {
             </h4>
             <ul className="mt-5 space-y-3">
               {[
+                { href: '/a-propos', label: 'À propos' },
                 { href: '/formations', label: 'Catalogue des formations' },
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
                 { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour artisans BTP' },

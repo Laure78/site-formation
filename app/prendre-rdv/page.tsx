@@ -7,7 +7,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Réserver un RDV gratuit',
   description:
-    'Réservez un RDV de 30 min pour votre formation IA BTP. Devis personnalisé. Formation finançable Constructys. Paris, Île-de-France.',
+    'Réservez un RDV de 30 min pour votre formation IA BTP. Devis personnalisé. Basée à Guyancourt (78), j\'interviens en Île-de-France et partout en France. Formation finançable Constructys.',
   path: '/prendre-rdv',
 });
 

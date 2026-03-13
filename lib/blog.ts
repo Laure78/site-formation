@@ -16,6 +16,7 @@ export interface BlogArticle {
     type: 'paragraph' | 'definition' | 'list' | 'faq' | 'cta';
     content: string | string[];
     title?: string;
+    formationHref?: string;
   }[];
   relatedSlugs?: string[];
 }
@@ -26,7 +27,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title: 'Comment financer sa formation IA BTP avec Constructys',
     description:
       'Guide complet : financement Constructys à 100% pour votre formation IA BTP. Plan de développement des compétences, OPCO, démarches.',
-    date: '2026-03-10',
+    date: '2025-03-05',
     keywords: ['financement Constructys', 'formation IA BTP', 'OPCO', 'Plan développement compétences'],
     sections: [
       {
@@ -78,7 +79,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title: '5 cas d\'usage de ChatGPT pour les artisans du bâtiment',
     description:
       'Découvrez 5 usages concrets de ChatGPT pour les artisans BTP : devis, emails, CR chantier, relances, descriptifs techniques.',
-    date: '2026-03-10',
+    date: '2025-02-20',
     keywords: ['ChatGPT artisans', 'IA BTP', 'ChatGPT bâtiment', 'artisan intelligence artificielle'],
     sections: [
       {
@@ -125,7 +126,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title: 'IA et devis : gain de temps réel pour les PME BTP',
     description:
       "Comment l'IA divise par 10 le temps de rédaction des devis bâtiment. Témoignages et chiffres concrets.",
-    date: '2026-03-10',
+    date: '2025-01-28',
     keywords: ['IA devis BTP', 'gain de temps devis', 'devis bâtiment IA', 'productivité BTP'],
     sections: [
       {
@@ -167,6 +168,119 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'financer-formation-ia-btp-constructys'],
+  },
+  // Cluster SEO local — articles par ville
+  {
+    slug: 'ia-btp-lyon',
+    title: 'IA pour les entreprises du BTP à Lyon : cas d\'usage concrets',
+    description:
+      'Cas pratiques d\'utilisation de l\'IA pour artisans et PME du bâtiment à Lyon : automatisation devis, appels d\'offres, emails et administratif.',
+    date: '2025-03-08',
+    keywords: ['formation IA BTP Lyon', 'IA bâtiment Lyon', 'ChatGPT BTP', 'IA artisans Lyon'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          "L'intelligence artificielle permet aux entreprises du BTP à Lyon et en Auvergne-Rhône-Alpes d'automatiser devis, analyse d'appels d'offres, réponses emails clients et organisation administrative. Artisans, conducteurs de travaux et PME du bâtiment gagnent plusieurs heures par semaine.",
+      },
+      {
+        type: 'list',
+        title: 'Cas pratiques pour artisans à Lyon',
+        content: [
+          "Automatisation des devis — Gérez vos chiffrages plomberie, électricité, maçonnerie en 15 minutes avec ChatGPT.",
+          "Analyse d'appels d'offres — Extrayez les exigences d'un DCE en 30 min au lieu de 3h.",
+          "Réponse aux emails clients — Relances, réclamations, confirmations : l'IA adapte le ton professionnel.",
+          "Organisation administrative — CR de chantier, comptes rendus de réunion, suivi documentaire.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Formation IA BTP à Lyon',
+        content:
+          "Laure Olivié propose des formations IA adaptées aux professionnels du BTP à Lyon, Villeurbanne, Vénissieux et dans toute la métropole. Formation 4h ou 7h, 100% pratique, finançable Constructys.",
+      },
+      {
+        type: 'cta',
+        content: 'Réservez votre formation IA BTP à Lyon. Devis personnalisé sous 24h.',
+        formationHref: '/formations/ia-btp-lyon',
+      },
+    ],
+    relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'chatgpt-btp-bordeaux'],
+  },
+  {
+    slug: 'chatgpt-btp-bordeaux',
+    title: 'Comment les PME du bâtiment utilisent ChatGPT à Bordeaux',
+    description:
+      'Exemples de prompts et gains de temps pour les entreprises du BTP à Bordeaux : administratif, appels d\'offres, organisation de chantier.',
+    date: '2025-03-07',
+    keywords: ['ChatGPT BTP Bordeaux', 'formation IA Bordeaux', 'IA bâtiment Gironde', 'PME bâtiment Bordeaux'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          "Les PME du bâtiment à Bordeaux et en Gironde utilisent ChatGPT pour gagner du temps sur l'administratif, les réponses aux appels d'offres et l'organisation de chantier. Voici des exemples concrets.",
+      },
+      {
+        type: 'list',
+        title: 'Exemples de prompts pour le BTP',
+        content: [
+          "Gain de temps administratif — Devis, emails, relances : l'IA rédige en quelques secondes.",
+          "Réponses aux appels d'offres — Analyse de DCE, synthèse cahier des charges, structure de mémoire technique.",
+          "Organisation de chantier — CR de chantier, planning, coordination entre corps de métier.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Formation ChatGPT pour le BTP à Bordeaux',
+        content:
+          "Formation IA BTP à Bordeaux, Mérignac, Pessac et dans toute la Nouvelle-Aquitaine. Méthode 100% pratique, trames et prompts prêts à l'emploi. Financement OPCO Constructys.",
+      },
+      {
+        type: 'cta',
+        content: 'Découvrez notre formation IA BTP à Bordeaux. 100% finançable.',
+        formationHref: '/formations/ia-btp-bordeaux',
+      },
+    ],
+    relatedSlugs: ['ia-btp-lyon', 'appels-offres-btp-ia-lille'],
+  },
+  {
+    slug: 'appels-offres-btp-ia-lille',
+    title: 'Automatiser les appels d\'offres BTP avec l\'IA à Lille',
+    description:
+      'Analyse DCE, synthèse cahier des charges, rédaction mémoire technique : comment l\'IA accélère les réponses aux appels d\'offres pour les entreprises du BTP à Lille.',
+    date: '2025-03-06',
+    keywords: ['appels d\'offres BTP IA', 'formation IA Lille', 'IA bâtiment Nord', 'DCE BTP'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          "L'IA générative permet aux entreprises du BTP à Lille, Roubaix, Tourcoing et dans les Hauts-de-France d'analyser un DCE en 30 minutes, de synthétiser un cahier des charges et de rédiger un mémoire technique structuré.",
+      },
+      {
+        type: 'list',
+        title: 'Les 3 étapes clés',
+        content: [
+          "Analyse DCE — Extraire les exigences, les délais et les points de vigilance en quelques minutes.",
+          "Synthèse cahier des charges — Structurer les informations pour préparer votre réponse.",
+          "Rédaction mémoire technique — Générer une première version professionnelle à personnaliser.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Formation appels d\'offres BTP à Lille',
+        content:
+          "Formation dédiée aux appels d'offres BTP à Lille et en Nord-Pas-de-Calais. Travail sur vos vrais DCE, prompts par métier, bonnes pratiques confidentialité. Qualiopi · Constructys.",
+      },
+      {
+        type: 'cta',
+        content: 'Réservez votre formation appels d\'offres BTP à Lille. Devis gratuit.',
+        formationHref: '/formations/ia-btp-lille',
+      },
+    ],
+    relatedSlugs: ['chatgpt-btp-bordeaux', '5-cas-usage-chatgpt-artisans-btp'],
   },
 ];
 

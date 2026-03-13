@@ -8,7 +8,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Formatrice IA BTP | Formation bâtiment',
   description:
-    'Laure Olivié, formatrice IA pour le BTP. 10 ans d\'expérience, méthode 100% pratique. Paris, Île-de-France. Qualiopi · Constructys.',
+    'Laure Olivié, formatrice IA pour le BTP. 10 ans d\'expérience, méthode 100% pratique. Basée à Guyancourt (78), j\'interviens en Île-de-France et partout en France. Qualiopi · Constructys.',
   path: '/a-propos',
 });
 
@@ -38,9 +38,10 @@ export default function AProposPage() {
                 <span className="text-[var(--accent)]">entreprises du BTP</span>
               </h2>
               <p className="mt-6 max-w-xl text-slate-600">
-                J&apos;accompagne les artisans, conducteurs de travaux et dirigeants
-                de TPE/PME du bâtiment pour intégrer l&apos;IA dans leurs tâches
-                quotidiennes et{' '}
+                Basée à Guyancourt dans les Yvelines, j&apos;interviens auprès des entreprises
+                du BTP en Île-de-France et partout en France. J&apos;accompagne les artisans,
+                conducteurs de travaux et dirigeants de TPE/PME du bâtiment pour intégrer
+                l&apos;IA dans leurs tâches quotidiennes et{' '}
                 <span className="font-semibold text-slate-900">
                   gagner 3 à 5 heures par semaine.
                 </span>

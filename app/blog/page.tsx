@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { getAllArticles } from '@/lib/blog';
 import { Calendar, ArrowRight } from 'lucide-react';
 
@@ -41,13 +41,16 @@ export default function BlogPage() {
             key={article.slug}
             className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8"
           >
-            <div className="flex items-center gap-2 text-sm text-slate-500">
-              <Calendar size={16} strokeWidth={1.5} />
-              {new Date(article.date).toLocaleDateString('fr-FR', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              })}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+              <time dateTime={article.date}>
+                {new Date(article.date).toLocaleDateString('fr-FR', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </time>
+              <span aria-hidden>·</span>
+              <span>Par {SITE_CONFIG.name}</span>
             </div>
             <h2 className="mt-3 font-display text-2xl font-bold text-slate-900">
               <Link

@@ -21,7 +21,7 @@ import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { DevisForm } from '@/components/landing/DevisForm';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
-import { getFAQSchema } from '@/lib/seo';
+import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 
 export default function HomePage() {
@@ -69,7 +69,7 @@ export default function HomePage() {
               </div>
               <div className="mt-12 grid gap-4 sm:grid-cols-3">
                 {[
-                  { val: '1592', label: 'PERSONNES FORMÉES' },
+                  { val: String(SITE_CONFIG.statsPersonnesFormees), label: 'PERSONNES FORMÉES' },
                   { val: '100%', label: 'FINANÇABLE OPCO' },
                   { val: '4,85/5', label: 'NOTE MOYENNE' },
                 ].map((stat) => (
@@ -492,7 +492,7 @@ export default function HomePage() {
                   {
                     icon: GraduationCap,
                     title: '10 ans d\'expérience BTP',
-                    desc: '11 492 professionnels formés. Spécialisation métiers du bâtiment, TP, génie civil.',
+                    desc: 'Spécialisation métiers du bâtiment, TP, génie civil.',
                   },
                   {
                     icon: Zap,
@@ -775,7 +775,7 @@ export default function HomePage() {
           </p>
           <div className="mt-12 flex flex-wrap justify-center gap-8">
             {[
-              { val: '+1592', label: 'Professionnels formés' },
+              { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'Professionnels formés' },
               { val: '98%', label: 'Satisfaction' },
               { val: '100%', label: 'Finançable OPCO' },
             ].map((s) => (

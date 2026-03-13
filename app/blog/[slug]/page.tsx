@@ -4,8 +4,8 @@ import { createPageMetadata, getArticleSchema, getBreadcrumbSchema } from '@/lib
 import { SITE_CONFIG } from '@/lib/seo';
 import { getArticle, getAllSlugs, getAllArticles } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
-import { ChecklistBanner } from '@/components/checklist/ChecklistBanner';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { AuthorBlock } from '@/components/blog/AuthorBlock';
 import { Calendar, ArrowLeft, Check } from 'lucide-react';
 
 interface Props {
@@ -20,12 +20,22 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return { title: 'Article non trouvé' };
-  return createPageMetadata({
+  const base = createPageMetadata({
     title: article.title,
     description: article.description,
     path: `/blog/${slug}`,
     keywords: article.keywords,
   });
+  return {
+    ...base,
+    authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
+    openGraph: {
+      ...base.openGraph,
+      type: 'article',
+      publishedTime: article.date,
+      authors: [SITE_CONFIG.name],
+    },
+  };
 }
 
 export default async function BlogArticlePage({ params }: Props) {
@@ -66,13 +76,21 @@ export default async function BlogArticlePage({ params }: Props) {
       </nav>
 
       <article>
-        <div className="flex items-center gap-2 text-sm text-slate-500">
-          <Calendar size={16} strokeWidth={1.5} />
-          {new Date(article.date).toLocaleDateString('fr-FR', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-          })}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
+          <time dateTime={article.date}>
+            {new Date(article.date).toLocaleDateString('fr-FR', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })}
+          </time>
+          <span aria-hidden>·</span>
+          <address className="not-italic">
+            Par{' '}
+            <Link href="/auteur/laure-olivie" className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline" rel="author">
+              {SITE_CONFIG.name}
+            </Link>
+          </address>
         </div>
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           {article.title}
@@ -156,17 +174,29 @@ export default async function BlogArticlePage({ params }: Props) {
               {section.type === 'cta' && (
                 <div className="rounded-2xl bg-[var(--accent)] p-6 text-white">
                   <p className="font-medium">{section.content}</p>
-                  <Link
-                    href="/prendre-rdv"
-                    className="mt-4 inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50"
-                  >
-                    Prendre rendez-vous
-                  </Link>
+                  <div className="mt-4 flex flex-wrap gap-4">
+                    <Link
+                      href="/prendre-rdv"
+                      className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50"
+                    >
+                      Prendre rendez-vous
+                    </Link>
+                    {'formationHref' in section && section.formationHref && (
+                      <Link
+                        href={section.formationHref}
+                        className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
+                      >
+                        Découvrir la formation
+                      </Link>
+                    )}
+                  </div>
                 </div>
               )}
             </section>
           ))}
         </div>
+
+        <AuthorBlock className="mt-12" />
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-slate-200 pt-12">
@@ -187,10 +217,6 @@ export default async function BlogArticlePage({ params }: Props) {
             </ul>
           </section>
         )}
-
-        <div className="mt-12">
-          <ChecklistBanner />
-        </div>
 
         <div className="mt-12">
           <CTABlock

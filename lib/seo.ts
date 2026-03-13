@@ -1,13 +1,13 @@
 /**
  * Configuration SEO et GEO pour Laure Olivié / OFC Création d'Entreprise
- * Formation IA BTP — France, Île-de-France, Paris
+ * Formation IA BTP — France, Île-de-France, Guyancourt (Yvelines)
  */
 
 export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    'Formation IA BTP finançable Constructys. Gagnez du temps sur devis, emails et CR chantier. Artisans, PME bâtiment. 100% qualiopi. Paris, Île-de-France.',
+    'Formation IA BTP finançable Constructys. Gagnez du temps sur devis, emails et CR chantier. Artisans, PME bâtiment. 100% qualiopi. Guyancourt, Yvelines, Île-de-France.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
@@ -17,10 +17,13 @@ export const SITE_CONFIG = {
   geo: {
     country: 'FR',
     region: 'Île-de-France',
-    city: 'Paris',
-    // Paris centre approximatif (pour schéma)
-    latitude: 48.8566,
-    longitude: 2.3522,
+    city: 'Guyancourt',
+    département: 'Yvelines',
+    streetAddress: '6 Rue Henri Dunant',
+    postalCode: '78280',
+    // Guyancourt — siège social
+    latitude: 48.7713,
+    longitude: 2.0739,
   },
   keywords: [
     'formation IA BTP',
@@ -30,8 +33,10 @@ export const SITE_CONFIG = {
     'devis IA BTP',
     'OPCO Constructys',
     'formation Qualiopi BTP',
-    'formation IA Paris',
+    'formation IA Guyancourt',
     'formation IA Île-de-France',
+    'formation IA Yvelines',
+    'formation IA Seine-et-Marne',
     'conducteur de travaux IA',
     'IA chantier',
     'formation PME BTP',
@@ -40,6 +45,8 @@ export const SITE_CONFIG = {
     'https://www.linkedin.com/in/laure-olivie',
     'https://www.laureolivie.fr',
   ],
+  /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
+  statsPersonnesFormees: '1592',
 } as const;
 
 /** Helper pour métadonnées de page avec Open Graph */
@@ -100,28 +107,41 @@ export function getMainCourseSchema() {
   };
 }
 
-/** Schéma Course pour une formation (GEO) */
+/** Schéma Course pour une formation (GEO) — EEAT avec instructor */
 export function getCourseSchema({
   name,
   description,
   path,
   providerName,
   areaServed,
+  instructorName,
 }: {
   name: string;
   description: string;
   path: string;
   providerName: string;
   areaServed?: string[];
+  instructorName?: string;
 }) {
+  const instructor = instructorName ?? SITE_CONFIG.name;
   return {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name,
     description,
     provider: {
-      '@type': 'Organization',
-      name: providerName,
+      '@type': 'Person',
+      '@id': `${SITE_CONFIG.url}/#person`,
+      name: instructor,
+    },
+    instructor: {
+      '@type': 'Person',
+      '@id': `${SITE_CONFIG.url}/#person`,
+      name: instructor,
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      name: 'Formation IA pour entreprises du BTP',
     },
     url: `${SITE_CONFIG.url}${path}`,
     ...(areaServed?.length && {
@@ -148,6 +168,8 @@ export function getOrganizationSchema() {
       addressCountry: 'FR',
       addressRegion: SITE_CONFIG.geo.region,
       addressLocality: SITE_CONFIG.geo.city,
+      streetAddress: SITE_CONFIG.geo.streetAddress,
+      postalCode: SITE_CONFIG.geo.postalCode,
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -157,7 +179,8 @@ export function getOrganizationSchema() {
     areaServed: [
       { '@type': 'Country', name: 'France' },
       { '@type': 'State', name: 'Île-de-France' },
-      { '@type': 'City', name: 'Paris' },
+      { '@type': 'City', name: 'Guyancourt' },
+      { '@type': 'State', name: 'Yvelines' },
     ],
     sameAs: SITE_CONFIG.sameAs,
     taxID: SITE_CONFIG.siret,
@@ -170,16 +193,18 @@ export function getLocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': ['ProfessionalService', 'LocalBusiness'],
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
-    name: SITE_CONFIG.name,
+    name: 'Laure Olivié — Formation IA BTP',
     description: 'Formation en intelligence artificielle pour les entreprises du BTP. Formatrice IA générative pour artisans, PME bâtiment, conducteurs de travaux.',
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
     address: {
       '@type': 'PostalAddress',
+      addressLocality: 'Guyancourt',
+      addressRegion: 'Île-de-France',
       addressCountry: 'FR',
-      addressRegion: SITE_CONFIG.geo.region,
-      addressLocality: SITE_CONFIG.geo.city,
+      streetAddress: SITE_CONFIG.geo.streetAddress,
+      postalCode: SITE_CONFIG.geo.postalCode,
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -189,7 +214,7 @@ export function getLocalBusinessSchema() {
     areaServed: [
       { '@type': 'Country', name: 'France' },
       { '@type': 'State', name: 'Île-de-France' },
-      { '@type': 'City', name: 'Paris' },
+      { '@type': 'City', name: 'Guyancourt' },
     ],
     priceRange: '€€',
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
@@ -238,31 +263,43 @@ export function getArticleSchema({
     url: `${SITE_CONFIG.url}${path}`,
     datePublished,
     dateModified: dateModified ?? datePublished,
-    author: { '@type': 'Person', name: authorName },
+    author: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: authorName },
     publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
     ...(image && { image }),
   };
 }
 
-/** Schéma Person (Laure Olivié) */
+/** Schéma Person (Laure Olivié) — EEAT / Autorité */
 export function getPersonSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': `${SITE_CONFIG.url}/#person`,
     name: SITE_CONFIG.name,
-    jobTitle: 'Formatrice en intelligence artificielle',
+    jobTitle: 'Formatrice en intelligence artificielle pour le BTP',
+    description: 'Formatrice spécialisée dans l\'intégration de l\'IA générative dans les entreprises du bâtiment.',
     knowsAbout: [
-      'IA générative appliquée aux entreprises du BTP',
-      'ChatGPT pour artisans et PME bâtiment',
+      'Intelligence artificielle',
+      'IA générative',
+      'ChatGPT',
+      'IA pour le BTP',
       'Automatisation administrative BTP',
-      'Génération de devis avec l\'IA',
+      'Analyse d\'appels d\'offres',
     ],
     worksFor: { '@id': `${SITE_CONFIG.url}/#organization` },
+    affiliation: {
+      '@type': 'Organization',
+      name: 'LinkedIn Learning',
+      url: 'https://www.linkedin.com/learning/',
+    },
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
     telephone: SITE_CONFIG.phone,
-    sameAs: SITE_CONFIG.sameAs,
+    sameAs: [
+      ...SITE_CONFIG.sameAs,
+      'https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers',
+      'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
+    ],
   };
 }
 

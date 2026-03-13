@@ -8,7 +8,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Contact, devis gratuit | Laure Olivié',
   description:
-    'Contactez Laure Olivié pour votre formation IA BTP. Devis personnalisé sous 24h. Formation finançable Constructys. Paris, Île-de-France.',
+    'Contactez Laure Olivié pour votre formation IA BTP. Devis personnalisé sous 24h. Basée à Guyancourt (78), interventions en Île-de-France. Formation finançable Constructys.',
   path: '/contact',
 });
 
@@ -63,12 +63,41 @@ export default async function ContactPage({
               </span>
             ))}
           </div>
-          <Link
-            href="#formulaire"
-            className="mt-8 inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-          >
-            Prendre rendez-vous
-          </Link>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="#formulaire"
+              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+            >
+              Me contacter
+            </Link>
+            <Link
+              href="/prendre-rdv"
+              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
+            >
+              Prendre rendez-vous
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Formulaire de contact — Section dédiée, accès rapide */}
+      <section id="formulaire" className="border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-16">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Discutons de votre projet de formation IA pour le BTP
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Réservez un créneau ou laissez vos coordonnées — je vous réponds sous 24h.
+          </p>
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+            <ContactForm formationDefault={formation} />
+          </div>
+          <p className="mt-6 text-center text-sm text-slate-600">
+            Préférez-vous choisir votre créneau directement ?{' '}
+            <Link href="/prendre-rdv" className="font-medium text-[var(--accent)] hover:underline">
+              Prendre rendez-vous →
+            </Link>
+          </p>
         </div>
       </section>
 
