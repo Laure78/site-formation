@@ -70,18 +70,29 @@ function isDateInPast(d: Date): boolean {
 }
 
 const JOURS = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
-const MOIS = [
-  'Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'
-];
+
+function formatMonthYear(date: Date): string {
+  return date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+}
 
 export function BookingCalendar() {
   const router = useRouter();
-  const [weekStart, setWeekStart] = useState<Date>(() => {
+  const [viewMonth, setViewMonth] = useState<Date>(() => {
     const d = new Date();
-    d.setDate(d.getDate() - d.getDay() + 1);
+    d.setDate(1);
     d.setHours(0, 0, 0, 0);
     return d;
   });
+  // Lundi de la semaine qui contient le 1er du mois affiché
+  const calendarStart = (() => {
+    const firstOfMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), 1);
+    const d = new Date(firstOfMonth);
+    const dayOfWeek = d.getDay();
+    const diff = dayOfWeek === 0 ? -6 : 1 - dayOfWeek; // Lundi = 1
+    d.setDate(d.getDate() + diff);
+    d.setHours(0, 0, 0, 0);
+    return d;
+  })();
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [busySlots, setBusySlots] = useState<string[]>([]);
@@ -95,12 +106,12 @@ export function BookingCalendar() {
   const hasAvailabilityForDay = (jour: number) =>
     availabilities.some((a) => a.jour === jour);
 
-  const weeksToShow = 4;
+  const weeksToShow = 6; // Couvre un mois complet (31 j + jours avant/après)
   const days: Date[] = [];
   for (let w = 0; w < weeksToShow; w++) {
     for (let d = 0; d < 7; d++) {
-      const x = new Date(weekStart);
-      x.setDate(weekStart.getDate() + w * 7 + d);
+      const x = new Date(calendarStart);
+      x.setDate(calendarStart.getDate() + w * 7 + d);
       days.push(x);
     }
   }
@@ -140,17 +151,15 @@ export function BookingCalendar() {
   const availableSlots = timeSlots.filter((s) => !busySlots.includes(s));
 
   const goPrev = () => {
-    const d = new Date(weekStart);
-    d.setDate(d.getDate() - 7);
-    setWeekStart(d);
+    const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1);
+    setViewMonth(d);
     setSelectedDate(null);
     setSelectedSlot(null);
   };
 
   const goNext = () => {
-    const d = new Date(weekStart);
-    d.setDate(d.getDate() + 7);
-    setWeekStart(d);
+    const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1);
+    setViewMonth(d);
     setSelectedDate(null);
     setSelectedSlot(null);
   };
@@ -168,18 +177,18 @@ export function BookingCalendar() {
               type="button"
               onClick={goPrev}
               className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
-              aria-label="Semaine précédente"
+              aria-label="Mois précédent"
             >
               <ChevronLeft size={20} strokeWidth={1.5} />
             </button>
-            <span className="min-w-[140px] text-center text-sm font-medium text-slate-700">
-              {MOIS[weekStart.getMonth()]} {weekStart.getFullYear()}
+            <span className="min-w-[160px] shrink-0 text-center text-base font-semibold capitalize text-slate-900">
+              {formatMonthYear(viewMonth)}
             </span>
             <button
               type="button"
               onClick={goNext}
               className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
-              aria-label="Semaine suivante"
+              aria-label="Mois suivant"
             >
               <ChevronRight size={20} strokeWidth={1.5} />
             </button>
@@ -235,7 +244,7 @@ export function BookingCalendar() {
           <h2 className="mb-3 flex items-center gap-2 font-display text-lg font-semibold text-slate-900">
             <Clock size={18} strokeWidth={1.5} />
             Créneaux disponibles le{' '}
-            {selectedDate.getDate()} {MOIS[selectedDate.getMonth()]}{' '}
+            {selectedDate.getDate()} {selectedDate.toLocaleDateString('fr-FR', { month: 'long' })}{' '}
             {selectedDate.getFullYear()}
           </h2>
           {loading ? (

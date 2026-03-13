@@ -309,12 +309,54 @@ function loadGeneratedArticles(): BlogArticle[] {
   }
 }
 
+/** Catégories du blog — tri et filtrage */
+export const BLOG_CATEGORIES = {
+  devis: 'Devis & chiffrage',
+  'appels-offres': 'Appels d\'offres',
+  financement: 'Financement OPCO',
+  chatgpt: 'ChatGPT & bonnes pratiques',
+  metiers: 'IA par métier',
+  rh: 'RH & recrutement',
+  productivite: 'Productivité & emails',
+  regions: 'Formations par région',
+} as const;
+
+export type BlogCategoryId = keyof typeof BLOG_CATEGORIES;
+
+/** Détermine la catégorie d'un article à partir du slug */
+export function getArticleCategory(slug: string): BlogCategoryId {
+  const s = slug.toLowerCase();
+  if (s.includes('appels-d-offres') || s.includes('appels-offres')) return 'appels-offres';
+  if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
+  if (s.includes('recrutement')) return 'rh';
+  if (s.includes('emails') || s.includes('automatiser-vos')) return 'productivite';
+  if (s.includes('lyon') || s.includes('bordeaux') || s.includes('lille')) return 'regions';
+  if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
+  if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';
+  if (s.includes('chatgpt') || s.includes('erreurs') || s.includes('cas-usage')) return 'chatgpt';
+  return 'chatgpt'; // défaut : ChatGPT & bonnes pratiques
+}
+
+/** Articles groupés par catégorie */
+export function getArticlesByCategory(): Record<BlogCategoryId, BlogArticle[]> {
+  const articles = getAllArticles();
+  const grouped = Object.fromEntries(
+    (Object.keys(BLOG_CATEGORIES) as BlogCategoryId[]).map((id) => [id, [] as BlogArticle[]])
+  ) as Record<BlogCategoryId, BlogArticle[]>;
+  for (const a of articles) {
+    const cat = getArticleCategory(a.slug);
+    grouped[cat].push(a);
+  }
+  return grouped;
+}
+
 /** Tous les articles : statiques + générés (publiés automatiquement) */
 export function getAllArticles(): BlogArticle[] {
   const generated = loadGeneratedArticles();
   const staticSlugs = new Set(BLOG_ARTICLES.map((a) => a.slug));
   const generatedFiltered = generated.filter((a) => !staticSlugs.has(a.slug));
-  return [...BLOG_ARTICLES, ...generatedFiltered];
+  const all = [...BLOG_ARTICLES, ...generatedFiltered];
+  return all.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getArticle(slug: string): BlogArticle | undefined {
