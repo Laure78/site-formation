@@ -1,13 +1,13 @@
 {
-  "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
-  "title": "Recrutement BTP : l'IA pour attirer les talents",
-  "description": "Recrutement BTP : l'IA pour attirer les talents. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
+  "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
+  "title": "L'IA va-t-elle remplacer les charpentiers ?",
+  "description": "L'IA va-t-elle remplacer les charpentiers ?. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançabl",
   "date": "2026-03-13",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "emails artisans",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -62,8 +62,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Recrutement BTP : l'IA pour attirer les talents",
-  "metaDescription": "Recrutement BTP : l'IA pour attirer les talents. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
+  "seoTitle": "L'IA va-t-elle remplacer les charpentiers ?",
+  "metaDescription": "L'IA va-t-elle remplacer les charpentiers ?. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançabl",
   "internalLinks": [
     {
       "path": "/formations",
@@ -71,7 +71,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

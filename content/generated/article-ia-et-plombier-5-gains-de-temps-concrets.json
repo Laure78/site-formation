@@ -1,13 +1,13 @@
 {
-  "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
-  "title": "Recrutement BTP : l'IA pour attirer les talents",
-  "description": "Recrutement BTP : l'IA pour attirer les talents. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
+  "slug": "ia-et-plombier-5-gains-de-temps-concrets",
+  "title": "IA et plombier : 5 gains de temps concrets",
+  "description": "IA et plombier : 5 gains de temps concrets. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable",
   "date": "2026-03-13",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "devis plombier IA",
+    "devis électricien ChatGPT",
+    "chiffrage artisan IA",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -58,12 +58,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Recrutement BTP : l'IA pour attirer les talents",
-  "metaDescription": "Recrutement BTP : l'IA pour attirer les talents. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finan",
+  "seoTitle": "IA et plombier : 5 gains de temps concrets",
+  "metaDescription": "IA et plombier : 5 gains de temps concrets. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable",
   "internalLinks": [
     {
       "path": "/formations",
@@ -71,7 +71,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",
