@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContactForm } from '@/components/landing/ContactForm';
+import { FAQSection } from '@/components/landing/FAQSection';
 
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_CONTACT } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Contact, devis gratuit | Laure Olivié',
@@ -11,6 +13,8 @@ export const metadata = createPageMetadata({
     'Contactez Laure Olivié pour votre formation IA BTP. Devis personnalisé sous 24h. Basée à Guyancourt (78), interventions en Île-de-France. Formation finançable Constructys.',
   path: '/contact',
 });
+
+const faqSchema = getFAQSchema(FAQ_CONTACT);
 
 export default async function ContactPage({
   searchParams,
@@ -20,23 +24,20 @@ export default async function ContactPage({
   const { formation } = await searchParams;
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--accent)] font-bold text-white">
-              IA
-            </div>
-            <div>
-              <h1 className="font-display text-2xl font-bold text-slate-900">
-                Laure Olivié
-              </h1>
-              <p className="text-sm text-slate-500">
-                Formation IA pour le BTP
-              </p>
-            </div>
-          </div>
-          <h2 className="mt-8 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+          <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            Contact
+          </h1>
+          <p className="mt-2 text-slate-600">
+            Formation IA pour le BTP — Devis personnalisé sous 24h
+          </p>
+          <h2 className="mt-8 font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Formatrice IA pour les{' '}
             <span className="text-[var(--accent)]">entreprises du BTP</span>
           </h2>
@@ -255,6 +256,16 @@ export default async function ContactPage({
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FAQSection
+            items={FAQ_CONTACT}
+            title="Questions fréquentes — Contact"
+          />
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="rounded-t-3xl bg-[var(--accent)] px-4 py-16">
         <div className="mx-auto max-w-2xl text-center text-white">
@@ -285,10 +296,10 @@ export default async function ContactPage({
               <span>06 95 66 18 18</span>
             </a>
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
-              laureolivie@yahoo.fr
+              contact@laureolivie.fr
             </a>
           </div>
           <div className="mt-12 border-t border-white/30 pt-8">

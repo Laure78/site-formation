@@ -40,7 +40,7 @@ export default async function MesFormationsPage() {
               >
                 <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-slate-200">
                   {course?.image_url ? (
-                    <img src={course.image_url} alt="" className="h-full w-full object-cover" />
+                    <img src={course.image_url} alt={`Formation ${course?.title ?? ''} — Laure Olivié`} className="h-full w-full object-cover" />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-slate-400">
                       <BookOpen size={32} strokeWidth={1.5} />

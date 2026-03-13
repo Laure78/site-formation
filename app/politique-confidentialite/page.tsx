@@ -31,10 +31,10 @@ export default function PolitiqueConfidentialitePage() {
           <p>
             Email :{' '}
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              laureolivie@yahoo.fr
+              contact@laureolivie.fr
             </a>
             {' · '}
             Téléphone :{' '}
@@ -65,10 +65,10 @@ export default function PolitiqueConfidentialitePage() {
           <p className="mt-1 text-sm text-slate-600">
             Pour exercer vos droits RGPD :{' '}
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              laureolivie@yahoo.fr
+              contact@laureolivie.fr
             </a>
           </p>
           <p className="mt-1 text-sm text-slate-600">
@@ -655,10 +655,10 @@ export default function PolitiqueConfidentialitePage() {
             <li>
               Par email :{' '}
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="text-[var(--accent)] hover:underline"
               >
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
             </li>
             <li>
@@ -861,10 +861,10 @@ export default function PolitiqueConfidentialitePage() {
             </p>
             <p className="mt-2">
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="text-[var(--accent)] hover:underline"
               >
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
               {' · '}
               <a

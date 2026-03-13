@@ -1,11 +1,12 @@
 import { FormationCityPage } from '@/components/formations/FormationCityPage';
 import { LYON } from '@/lib/formation-cities';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_FORMATION_VILLE } from '@/lib/faq';
+import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Lyon | Automatiser devis, appels d\'offres et administratif',
   description:
-    'Formation IA pour entreprises du BTP à Lyon. Automatisez devis, réponses aux appels d\'offres, emails clients et gestion administrative grâce à l\'IA générative.',
+    'Formation IA BTP à Lyon. Rhône, Ain, Isère, Loire. Devis, appels d\'offres, emails. 4h. 100% finançable Constructys. Qualiopi. Artisans et PME bâtiment.',
   path: '/formations/ia-btp-lyon',
   keywords: [
     'formation IA BTP Lyon',
@@ -25,6 +26,15 @@ const courseSchema = getCourseSchema({
   areaServed: LYON.areaServed,
 });
 
+const faqSchema = getFAQSchema(FAQ_FORMATION_VILLE);
+
 export default function FormationIABTPLyonPage() {
-  return <FormationCityPage config={LYON} courseSchema={courseSchema} />;
+  return (
+    <FormationCityPage
+      config={LYON}
+      courseSchema={courseSchema}
+      faqSchema={faqSchema}
+      faqItems={FAQ_FORMATION_VILLE}
+    />
+  );
 }

@@ -10,8 +10,8 @@ export interface AllerPlusLoinLink {
 
 const DEFAULT_LINKS: AllerPlusLoinLink[] = [
   { href: '/formations', label: 'Formation IA BTP' },
-  { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
-  { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+  { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+  { href: '/tarifs', label: 'Tarifs et financement' },
 ];
 
 interface AllerPlusLoinProps {

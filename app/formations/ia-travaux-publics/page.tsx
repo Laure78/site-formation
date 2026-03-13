@@ -19,12 +19,14 @@ import {
   Shield,
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Travaux Publics — DCE, CR | Constructys',
   description:
-    "Formation IA BTP travaux publics. DCE, CCTP, CR chantier. Gagnez du temps. Formation finançable Constructys.",
+    "Formation IA & Travaux Publics. DCE, CCTP, CR chantier. 2 jours (14h). 100% finançable Constructys. Qualiopi. Conducteurs, chargés d'affaires TP.",
   path: '/formations/ia-travaux-publics',
 });
 
@@ -35,6 +37,14 @@ const courseSchema = getCourseSchema({
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
 });
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', path: '/' },
+  { name: 'Formations', path: '/formations' },
+  { name: 'IA & Travaux Publics', path: '/formations/ia-travaux-publics' },
+]);
+
+const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 
 const OBJECTIFS = [
   {
@@ -140,6 +150,10 @@ export default function FormationIATravauxPublicsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
@@ -335,6 +349,16 @@ export default function FormationIATravauxPublicsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FAQSection
+            items={FAQ_TRAVAUX_PUBLICS}
+            title="Questions fréquentes — Formation IA Travaux Publics"
+          />
         </div>
       </section>
 

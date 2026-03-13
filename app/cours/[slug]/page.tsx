@@ -62,7 +62,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
           <div className="md:col-span-3">
             <div className="aspect-video w-full overflow-hidden bg-slate-200">
               {course.image_url ? (
-                <img src={course.image_url} alt="" className="h-full w-full object-cover" />
+                <img src={course.image_url} alt={`Formation IA BTP : ${course.title}`} className="h-full w-full object-cover" />
               ) : (
                 <div className="flex h-full w-full items-center justify-center text-slate-400">
                   <BookOpen size={64} strokeWidth={1.5} />

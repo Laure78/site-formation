@@ -49,10 +49,10 @@ export default function MentionsLegalesPage() {
           <p className="mt-2">
             Email :{' '}
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              laureolivie@yahoo.fr
+              contact@laureolivie.fr
             </a>
           </p>
           <p className="mt-2">
@@ -121,10 +121,10 @@ export default function MentionsLegalesPage() {
             <li>
               Par email :{' '}
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="text-[var(--accent)] hover:underline"
               >
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
             </li>
             <li>
@@ -245,10 +245,10 @@ export default function MentionsLegalesPage() {
             <li>
               Email :{' '}
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="text-[var(--accent)] hover:underline"
               >
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
             </li>
             <li>

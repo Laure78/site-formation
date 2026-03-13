@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { DisponibilitesForm } from './DisponibilitesForm';
+import { BookingSettingsForm } from './BookingSettingsForm';
 
 const JOURS = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
 
@@ -30,6 +31,8 @@ export default async function DisponibilitesPage() {
       </p>
 
       <DisponibilitesForm availabilities={availabilities ?? []} />
+
+      <BookingSettingsForm />
 
       <div className="mt-10">
         <h2 className="font-display text-lg font-semibold text-slate-900">Plages actuelles</h2>

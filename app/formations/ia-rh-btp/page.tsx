@@ -21,12 +21,14 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordion } from '@/components/formations/ProgrammeAccordion';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_RH_BTP } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP RH — Recrutement, GEPP | Constructys',
   description:
-    "Formation IA BTP pour la fonction RH. Recrutement, GEPP, tableaux de bord. Automatiser la gestion admin. Formation finançable Constructys.",
+    "Formation IA fonction RH BTP. Recrutement, GEPP, tableaux de bord. 2 jours (14h). 100% finançable Constructys. DRH, chargés recrutement. Qualiopi.",
   path: '/formations/ia-rh-btp',
 });
 
@@ -37,6 +39,14 @@ const courseSchema = getCourseSchema({
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
 });
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', path: '/' },
+  { name: 'Formations', path: '/formations' },
+  { name: 'Formation IA pour la fonction RH BTP', path: '/formations/ia-rh-btp' },
+]);
+
+const faqSchema = getFAQSchema(FAQ_RH_BTP);
 
 const OBJECTIFS = [
   {
@@ -145,6 +155,14 @@ export default function FormationIARHBTPPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero — 2 colonnes */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
@@ -304,6 +322,16 @@ export default function FormationIARHBTPPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FAQSection
+            items={FAQ_RH_BTP}
+            title="Questions fréquentes — Formation IA fonction RH BTP"
+          />
         </div>
       </section>
 

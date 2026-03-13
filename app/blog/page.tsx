@@ -1,11 +1,13 @@
 import Link from 'next/link';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_BLOG } from '@/lib/faq';
 import {
   BLOG_CATEGORIES,
   getArticlesByCategory,
 } from '@/lib/blog';
 import type { BlogCategoryId } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
+import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Articles, guides pratiques',
@@ -14,6 +16,8 @@ export const metadata = createPageMetadata({
   path: '/blog',
   keywords: ['blog formation IA BTP', 'ressources IA bâtiment', 'articles ChatGPT BTP'],
 });
+
+const faqSchema = getFAQSchema(FAQ_BLOG);
 
 function ArticleCard({
   article,
@@ -66,6 +70,10 @@ export default async function BlogPage({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
         Formation IA BTP : ressources et articles
       </h1>
@@ -74,17 +82,35 @@ export default async function BlogPage({
         les gains de productivité.
       </p>
 
-      <div className="mt-8 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-        <p className="font-semibold text-slate-900">
-          Formations IA BTP — Devis et chiffrage · Appels d&apos;offres · Productivité chantier
-        </p>
-        <Link
-          href="/formations"
-          className="mt-3 inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
-        >
-          Voir le catalogue formations
-          <ArrowRight size={18} strokeWidth={1.5} />
-        </Link>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+          <p className="font-semibold text-slate-900">
+            Formations IA BTP — Devis et chiffrage · Appels d&apos;offres · Productivité chantier
+          </p>
+          <Link
+            href="/formations"
+            className="mt-3 inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
+          >
+            Voir le catalogue formations
+            <ArrowRight size={18} strokeWidth={1.5} />
+          </Link>
+        </div>
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <p className="font-semibold text-slate-900">
+            Guides pratiques
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <Link href="/chatgpt-artisans-btp" className="text-sm font-medium text-[var(--accent)] hover:underline">
+              ChatGPT artisans BTP
+            </Link>
+            <Link href="/ia-devis-batiment" className="text-sm font-medium text-[var(--accent)] hover:underline">
+              IA devis bâtiment
+            </Link>
+            <Link href="/ia-conducteur-travaux" className="text-sm font-medium text-[var(--accent)] hover:underline">
+              IA conducteur de travaux
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Filtres par catégorie */}
@@ -147,6 +173,14 @@ export default async function BlogPage({
             ))
         )}
       </div>
+
+      {/* FAQ */}
+      <section className="mt-16 border-t border-slate-200 pt-16">
+        <FAQSection
+          items={FAQ_BLOG}
+          title="Questions fréquentes — Blog formation IA BTP"
+        />
+      </section>
     </div>
   );
 }

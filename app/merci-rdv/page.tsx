@@ -6,13 +6,30 @@ export const metadata = {
   description: 'Votre rendez-vous a bien été enregistré. Confirmation par email.',
 };
 
+function formatRDVDisplay(startIso: string): string {
+  try {
+    const d = new Date(startIso);
+    return d.toLocaleDateString('fr-FR', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  } catch {
+    return '';
+  }
+}
+
 export default async function MerciRDVPage({
   searchParams,
 }: {
-  searchParams: Promise<{ t?: string }>;
+  searchParams: Promise<{ t?: string; start?: string }>;
 }) {
-  const { t } = await searchParams;
+  const { t, start } = await searchParams;
   const hasToken = !!t?.trim();
+  const rdvDisplay = start?.trim() ? formatRDVDisplay(start.trim()) : '';
 
   return (
     <div className="min-h-[60vh] bg-slate-50 px-4 py-16">
@@ -30,6 +47,15 @@ export default async function MerciRDVPage({
             <CheckCircle size={18} strokeWidth={1.5} className="shrink-0 text-emerald-500" />
             Votre réservation a bien été enregistrée
           </p>
+          {rdvDisplay && (
+            <div className="mt-6 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-4 text-center">
+              <p className="text-sm font-medium text-slate-600">Votre rendez-vous</p>
+              <p className="mt-1 font-display text-lg font-bold capitalize text-slate-900">
+                {rdvDisplay}
+              </p>
+              <p className="mt-1 text-sm text-slate-600">(30 minutes)</p>
+            </div>
+          )}
           <p className="mt-6 text-center text-slate-600">
             Merci pour votre confiance. Vous recevrez une confirmation par email
             dans les plus brefs délais. En cas de changement, n&apos;hésitez pas
@@ -67,11 +93,11 @@ export default async function MerciRDVPage({
                 06 95 66 18 18
               </a>
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
               >
                 <Mail size={20} strokeWidth={1.5} />
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
             </div>
           </div>

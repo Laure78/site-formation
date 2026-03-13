@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { createPageMetadata } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_TARIFS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Tarifs, financement Constructys',
@@ -42,8 +44,14 @@ const PLANS = [
 ];
 
 export default function TarifsPage() {
+  const faqSchema = getFAQSchema(FAQ_TARIFS);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="text-center">
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Formation IA BTP : tarifs et financement
@@ -111,6 +119,12 @@ export default function TarifsPage() {
           Prendre rendez-vous
         </Link>
       </div>
+
+      <FAQSection
+        items={FAQ_TARIFS}
+        title="Questions fréquentes sur les tarifs et le financement"
+        subtitle="Tarifs, prise en charge Constructys, avance de frais : vos questions, nos réponses."
+      />
 
       <AllerPlusLoin />
     </div>

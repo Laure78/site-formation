@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { BookingCalendar } from '@/components/booking/BookingCalendar';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
+import { FAQSection } from '@/components/landing/FAQSection';
 
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Réserver un RDV gratuit',
@@ -12,8 +14,14 @@ export const metadata = createPageMetadata({
 });
 
 export default function PrendreRDVPage() {
+  const faqSchema = getFAQSchema(FAQ_PRENDRE_RDV);
+
   return (
     <div className="min-h-[80vh]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-4xl">
           <Link
@@ -44,6 +52,12 @@ export default function PrendreRDVPage() {
           <div className="mt-16">
             <Devis60sBlock placement="backup" />
           </div>
+
+          <FAQSection
+            items={FAQ_PRENDRE_RDV}
+            title="Questions fréquentes sur le rendez-vous"
+            subtitle="RDV gratuit, déroulement, créneaux disponibles."
+          />
         </div>
       </section>
     </div>

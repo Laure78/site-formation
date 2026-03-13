@@ -2,12 +2,14 @@ import Link from 'next/link';
 import { Check, Phone, Calendar } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment Paris — Devis, ChatGPT | Constructys',
   description:
-    'Formation IA bâtiment Paris et Île-de-France. Automatiser devis, emails. Gagnez 3 à 5h/semaine. Formation finançable Constructys. Qualiopi.',
+    'Formation IA BTP à Paris (75) et Île-de-France. Devis, emails, ChatGPT. 4h pratiques. 100% finançable Constructys. Qualiopi. Réservez votre créneau.',
   path: '/formations/ia-btp-paris',
   keywords: [
     'formation IA Paris',
@@ -70,12 +72,28 @@ const courseSchema = getCourseSchema({
   areaServed: ['Paris', 'Île-de-France', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', 'Seine-et-Marne', 'Yvelines', 'Essonne', "Val-d'Oise"],
 });
 
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', path: '/' },
+  { name: 'Formations', path: '/formations' },
+  { name: 'Formation IA BTP à Paris', path: '/formations/ia-btp-paris' },
+]);
+
+const faqSchema = getFAQSchema(FAQ_IA_BTP_PARIS);
+
 export default function FormationIABTPParisPage() {
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
@@ -256,6 +274,16 @@ export default function FormationIABTPParisPage() {
           >
             Voir la formation complète sur LinkedIn Learning →
           </a>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FAQSection
+            items={FAQ_IA_BTP_PARIS}
+            title="Questions fréquentes — Formation IA BTP Paris"
+          />
         </div>
       </section>
 

@@ -181,6 +181,30 @@ export default async function BlogArticlePage({ params }: Props) {
                     >
                       Prendre rendez-vous
                     </Link>
+                    <Link
+                      href="/formations"
+                      className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
+                    >
+                      Catalogue formations
+                    </Link>
+                    <Link
+                      href="/chatgpt-artisans-btp"
+                      className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
+                    >
+                      ChatGPT artisans BTP
+                    </Link>
+                    <Link
+                      href="/ia-devis-batiment"
+                      className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
+                    >
+                      IA devis bâtiment
+                    </Link>
+                    <Link
+                      href="/tarifs"
+                      className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
+                    >
+                      Tarifs et financement
+                    </Link>
                     {'formationHref' in section && section.formationHref && (
                       <Link
                         href={section.formationHref}
@@ -218,6 +242,37 @@ export default async function BlogArticlePage({ params }: Props) {
           </section>
         )}
 
+        <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <h2 className="font-display text-lg font-semibold text-slate-900">
+            Guides pratiques
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Découvrez nos guides dédiés à l&apos;IA pour le BTP :
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-4">
+            <li>
+              <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
+                ChatGPT pour artisans BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/ia-devis-batiment" className="text-[var(--accent)] font-medium hover:underline">
+                IA devis bâtiment
+              </Link>
+            </li>
+            <li>
+              <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] font-medium hover:underline">
+                IA conducteur de travaux
+              </Link>
+            </li>
+            <li>
+              <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+                Catalogue des formations
+              </Link>
+            </li>
+          </ul>
+        </section>
+
         <div className="mt-12">
           <CTABlock
             variant="compact"
@@ -229,18 +284,37 @@ export default async function BlogArticlePage({ params }: Props) {
           <Link href="/formations" className="text-[var(--accent)] hover:underline">
             Formation IA BTP
           </Link>
+          <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+            ChatGPT artisans BTP
+          </Link>
+          <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
+            IA devis bâtiment
+          </Link>
+          <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
+            IA conducteur de travaux
+          </Link>
           <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous
           </Link>
-          <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-            IA pour artisans et PME bâtiment
+          <Link href="/tarifs" className="text-[var(--accent)] hover:underline">
+            Tarifs et financement
           </Link>
           <Link href="/blog" className="text-[var(--accent)] hover:underline">
             Toutes les ressources
           </Link>
         </div>
 
-        <AllerPlusLoin variant="compact" />
+        <AllerPlusLoin
+          variant="compact"
+          links={[
+            { href: '/formations', label: 'Formation IA BTP' },
+            { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+            { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+            { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+            { href: '/blog', label: 'Articles et guides' },
+          ]}
+        />
       </article>
     </div>
   );

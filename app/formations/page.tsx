@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import { Clock, Users, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { createPageMetadata } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_FORMATIONS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Catalogue qualiopi Constructys',
   description:
-    'Formation IA BTP finançable Constructys. Devis, appels d\'offres, productivité chantier. Gagnez 3 à 5h/semaine. 100% qualiopi. Guyancourt, Île-de-France.',
+    'Catalogue formations IA BTP : devis, appels d\'offres, productivité chantier. De 4h à 14h. 100% finançable Constructys. Qualiopi. Paris, Lyon, Bordeaux, Lille.',
   path: '/formations',
 });
 
@@ -149,8 +152,14 @@ const FORMATIONS = [
 ];
 
 export default function FormationsPage() {
+  const faqSchema = getFAQSchema(FAQ_FORMATIONS);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Formation IA BTP : programmes certifiés et finançables
@@ -166,6 +175,11 @@ export default function FormationsPage() {
           </Link>
           {' '}pour un diagnostic personnalisé.
         </p>
+        <div className="mt-8">
+          <ShortAnswerBlock>
+            L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+          </ShortAnswerBlock>
+        </div>
       </div>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -227,24 +241,35 @@ export default function FormationsPage() {
         </Link>
       </section>
 
+      <FAQSection
+        items={FAQ_FORMATIONS}
+        title="Questions fréquentes sur les formations IA BTP"
+        subtitle="Vous avez des questions ? Voici les réponses aux interrogations les plus fréquentes."
+      />
+
       <section className="mt-12 border-t border-slate-200 pt-12">
         <h2 className="font-display text-lg font-semibold text-slate-900">
-          Par métier
+          Par métier et par sujet
         </h2>
         <ul className="mt-4 flex flex-wrap gap-4">
           <li>
             <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-              Formation IA pour artisans
-            </Link>
-          </li>
-          <li>
-            <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
-              Formation IA conducteur de travaux
+              ChatGPT pour artisans BTP
             </Link>
           </li>
           <li>
             <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
-              Automatiser les devis avec l&apos;IA
+              IA devis bâtiment
+            </Link>
+          </li>
+          <li>
+            <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
+              IA conducteur de travaux
+            </Link>
+          </li>
+          <li>
+            <Link href="/blog" className="text-[var(--accent)] hover:underline">
+              Articles et guides blog
             </Link>
           </li>
         </ul>
@@ -252,9 +277,11 @@ export default function FormationsPage() {
 
       <AllerPlusLoin
         links={[
-          { href: '/formations', label: 'Formation IA BTP' },
-          { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
-          { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+          { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+          { href: '/blog', label: 'Articles et guides' },
+          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
         ]}
       />
     </div>

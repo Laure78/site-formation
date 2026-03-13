@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_CHECKLIST_IA_BTP } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet';
+import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: 'ChatGPT artisans BTP — 10 prompts gratuits',
@@ -11,9 +13,15 @@ export const metadata = createPageMetadata({
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT artisans'],
 });
 
+const faqSchema = getFAQSchema(FAQ_CHECKLIST_IA_BTP);
+
 export default function ChecklistIABTPPage() {
   return (
     <div className="min-h-[80vh]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <nav className="mb-8">
@@ -57,6 +65,12 @@ export default function ChecklistIABTPPage() {
               >
                 Prendre rendez-vous →
               </Link>
+            </div>
+            <div className="mt-12 pt-8 border-t border-slate-200">
+              <FAQSection
+                items={FAQ_CHECKLIST_IA_BTP}
+                title="Questions fréquentes — Checklist ChatGPT BTP"
+              />
             </div>
             <div className="mt-12 pt-8 border-t border-slate-200">
               <AllerPlusLoin variant="compact" />

@@ -11,12 +11,14 @@ import {
   Target,
 } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_PRODUCTIVITE_CHANTIER } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP productivité chantier | Constructys',
   description:
-    'Formation IA BTP : productivité chantier. Automatiser devis, emails, CR. Gagnez du temps. Formation finançable Constructys. Qualiopi.',
+    'Formation IA productivité chantier. Devis, emails, CR en quelques secondes. Atelier, micro-learning ou coaching. 100% finançable Constructys. Qualiopi.',
   path: '/formations/ia-productivite-chantier',
 });
 
@@ -27,6 +29,14 @@ const courseSchema = getCourseSchema({
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
 });
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', path: '/' },
+  { name: 'Formations', path: '/formations' },
+  { name: 'Formation IA BTP productivité chantier', path: '/formations/ia-productivite-chantier' },
+]);
+
+const faqSchema = getFAQSchema(FAQ_PRODUCTIVITE_CHANTIER);
 
 const AVANTAGES = [
   {
@@ -94,31 +104,20 @@ const FINANCEMENT = [
   },
 ];
 
-const CHECKLIST = [
-  {
-    question: 'Le formateur connaît-il les spécificités du bâtiment ?',
-    reponse: 'DTU, assurances (RC Pro, décennale), sous-traitance, marchés publics... Un formateur généraliste ne comprendra pas vos vrais besoins terrain.',
-  },
-  {
-    question: 'La formation inclut-elle des prompts prêts à l\'emploi ?',
-    reponse: 'Des commandes ChatGPT adaptées à votre métier : devis plomberie, descriptif maçonnerie, mail de relance client... Utilisables dès le lendemain.',
-  },
-  {
-    question: 'Est-elle finançable par les OPCO ou le CPF ?',
-    reponse: 'Constructys, Atlas ou Mon Compte Formation — une formation de qualité doit pouvoir être prise en charge. Exigez un devis clair avec code formation.',
-  },
-  {
-    question: 'Y a-t-il un suivi après la formation ?',
-    reponse: 'L\'adoption des outils IA prend du temps. Un accompagnement post-formation garantit que les nouvelles habitudes s\'installent.',
-  },
-];
-
 export default function FormationIAProductiviteChantierPage() {
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
@@ -332,32 +331,13 @@ export default function FormationIAProductiviteChantierPage() {
         </div>
       </section>
 
-      {/* Checklist */}
+      {/* FAQ */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Checklist : Bien choisir sa formation IA BTP
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Avant de vous engager, vérifiez ces quatre points — ils font la différence
-            entre une journée utile et une journée perdue.
-          </p>
-          <div className="mt-12 space-y-4">
-            {CHECKLIST.map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{item.question}</h3>
-                  <p className="mt-2 text-slate-600">{item.reponse}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <FAQSection
+            items={FAQ_PRODUCTIVITE_CHANTIER}
+            title="Questions fréquentes — Formation IA productivité chantier"
+          />
         </div>
       </section>
 

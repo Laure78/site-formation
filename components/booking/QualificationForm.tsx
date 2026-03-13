@@ -76,7 +76,10 @@ export function QualificationForm({ slotIso, endAtIso }: Props) {
     setSubmitting(false);
     if (result.ok) {
       const token = 'questionnaireToken' in result ? result.questionnaireToken : undefined;
-      router.push(token ? `/merci-rdv?t=${token}` : '/merci-rdv');
+      const params = new URLSearchParams();
+      if (token) params.set('t', token);
+      params.set('start', slotIso);
+      router.push(`/merci-rdv?${params.toString()}`);
     } else {
       setError(result.error ?? 'Une erreur est survenue.');
     }

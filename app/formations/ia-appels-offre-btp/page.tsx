@@ -16,12 +16,14 @@ import {
   Settings,
   LayoutTemplate,
 } from 'lucide-react';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: "Formation IA BTP appels d'offres | Constructys finançable",
   description:
-    "Formation IA BTP appels d'offres. Analysez DCE 5x plus vite, mémoires techniques. Gagnez du temps. Formation finançable Constructys.",
+    "Formation IA appels d'offres BTP. Analysez DCE 5x plus vite, rédigez mémoires techniques. 7h. 100% finançable Constructys. Chargés d'affaires, bureaux d'études.",
   path: '/formations/ia-appels-offre-btp',
 });
 
@@ -32,6 +34,14 @@ const courseSchema = getCourseSchema({
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
 });
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', path: '/' },
+  { name: 'Formations', path: '/formations' },
+  { name: "Répondre aux appels d'offres BTP avec l'IA", path: '/formations/ia-appels-offre-btp' },
+]);
+
+const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
 
 const MODALITES = [
   {
@@ -119,6 +129,14 @@ export default function FormationIAAppelsOffreBTPPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
@@ -259,6 +277,16 @@ export default function FormationIAAppelsOffreBTPPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FAQSection
+            items={FAQ_APPELS_OFFRE}
+            title="Questions fréquentes — Formation IA appels d'offres BTP"
+          />
         </div>
       </section>
 

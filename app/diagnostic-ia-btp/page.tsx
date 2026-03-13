@@ -1,5 +1,6 @@
 import { DiagnosticIABTPWizard } from '@/components/diagnostic/DiagnosticIABTPWizard';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_DIAGNOSTIC } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Diagnostic IA BTP gratuit — Évaluez votre potentiel en 60 secondes',
@@ -15,6 +16,16 @@ export const metadata = createPageMetadata({
   ],
 });
 
+const faqSchema = getFAQSchema(FAQ_DIAGNOSTIC);
+
 export default function DiagnosticIABTPPage() {
-  return <DiagnosticIABTPWizard />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <DiagnosticIABTPWizard />
+    </>
+  );
 }

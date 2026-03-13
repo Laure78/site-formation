@@ -9,7 +9,7 @@ export function Footer() {
           {/* Colonne principale */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/logo-lo.svg" alt="Laure Olivié" className="h-12 w-auto" />
+              <img src="/logo-lo.svg" alt="Laure Olivié — Formation IA BTP, formatrice Qualiopi" className="h-12 w-auto" />
               <div>
                 <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
                 <p className="text-sm font-medium text-slate-600">
@@ -30,13 +30,13 @@ export function Footer() {
             </p>
             <div className="mt-8 space-y-4">
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:border-slate-300"
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
                   <Mail size={18} strokeWidth={1.5} />
                 </span>
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
               <a
                 href="tel:+33695661818"
@@ -181,7 +181,7 @@ export function Footer() {
               <Linkedin size={20} strokeWidth={1.5} />
             </a>
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href="mailto:contact@laureolivie.fr"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
               aria-label="Email"
             >

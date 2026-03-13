@@ -2,14 +2,19 @@
 
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import type { FAQItem } from '@/lib/faq';
 import { FAQ_ITEMS } from '@/lib/faq';
 
-export function FAQAccordion() {
+type FAQAccordionProps = {
+  items?: readonly FAQItem[];
+};
+
+export function FAQAccordion({ items = FAQ_ITEMS }: FAQAccordionProps) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
     <div className="space-y-3">
-      {FAQ_ITEMS.map((item, i) => (
+      {items.map((item, i) => (
         <div
           key={i}
           className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"

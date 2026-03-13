@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
@@ -19,7 +20,7 @@ export const metadata = createPageMetadata({
 
 const DEFINITION = {
   titre: "Qu'est-ce que ChatGPT pour les artisans du BTP ?",
-  court: "ChatGPT est un assistant conversationnel d'intelligence artificielle qui permet aux artisans du BTP (plombiers, électriciens, maçons, peintres, carreleurs…) de rédiger plus vite leurs devis, emails, comptes rendus et documents administratifs.",
+  court: "ChatGPT pour artisans BTP désigne l'utilisation de l'assistant conversationnel OpenAI pour automatiser la rédaction des devis, emails, comptes rendus et documents administratifs dans les entreprises du bâtiment (plombiers, électriciens, maçons, peintres, carreleurs…).",
   long: "Conçu par OpenAI, ChatGPT analyse votre demande en langage naturel et génère un texte structuré en quelques secondes. Pour un artisan BTP, cela signifie : coller un brief chantier et obtenir un devis détaillé, décrire une situation et recevoir un email client professionnel, ou dicter des notes de chantier et générer un compte rendu prêt à envoyer. Sans compétence technique : vous écrivez ce que vous voulez, l'IA rédige à votre place.",
 };
 
@@ -55,8 +56,8 @@ const FAQ_ITEMS = [
     a: "En moyenne 3 à 5 heures par semaine : devis (gain majeur), emails, comptes rendus. Les artisans formés rapportent un ROI positif dès la première semaine. La formation inclut des prompts prêts à l'emploi pour chaque métier.",
   },
   {
-    q: 'La formation ChatGPT pour artisans est-elle finançable ?',
-    a: "Oui. Les formations de Laure Olivié sont certifiées Qualiopi et 100 % finançables par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
+    q: 'La formation ChatGPT pour artisans BTP est-elle finançable ?',
+    a: "Oui. La formation IA Constructys est certifiée Qualiopi et 100 % finançable par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
   },
 ];
 
@@ -89,6 +90,12 @@ export default function ChatGPTArtisansBTPPage() {
           </Link>
           {' '}est certifiée Qualiopi, 100 % finançable Constructys.
         </p>
+
+        <div className="mt-8">
+          <ShortAnswerBlock>
+            L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+          </ShortAnswerBlock>
+        </div>
 
         {/* Bloc GEO : Réponse courte */}
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
@@ -248,7 +255,7 @@ export default function ChatGPTArtisansBTPPage() {
         {/* Liens internes */}
         <section className="mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-lg font-semibold text-slate-900">
-            Sur le même thème
+            ChatGPT pour artisans BTP : aller plus loin
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
@@ -256,7 +263,15 @@ export default function ChatGPTArtisansBTPPage() {
                 href="/ia-devis-batiment"
                 className="text-[var(--accent)] hover:underline"
               >
-                IA pour devis bâtiment
+                IA devis bâtiment
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/ia-conducteur-travaux"
+                className="text-[var(--accent)] hover:underline"
+              >
+                IA conducteur de travaux
               </Link>
             </li>
             <li>
@@ -273,6 +288,11 @@ export default function ChatGPTArtisansBTPPage() {
               </Link>
             </li>
             <li>
+              <Link href="/blog" className="text-[var(--accent)] hover:underline">
+                Articles et guides blog
+              </Link>
+            </li>
+            <li>
               <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
                 Prendre rendez-vous
               </Link>
@@ -282,9 +302,11 @@ export default function ChatGPTArtisansBTPPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Formation IA BTP' },
-            { href: '/ia-devis-batiment', label: 'Automatiser les devis avec l\'IA' },
-            { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+            { href: '/formations', label: 'Formation IA Constructys' },
+            { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+            { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+            { href: '/blog', label: 'Articles et guides' },
+            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

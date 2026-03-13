@@ -1,7 +1,9 @@
 import Link from 'next/link';
-import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getPersonSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_AUTEUR } from '@/lib/faq';
 import { getAllArticles } from '@/lib/blog';
 import { Award, BookOpen, Building2, FileText } from 'lucide-react';
+import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié – Formatrice en IA pour le BTP | LinkedIn Learning',
@@ -19,6 +21,7 @@ export const metadata = createPageMetadata({
 
 export default function AuteurPage() {
   const personSchema = getPersonSchema();
+  const faqSchema = getFAQSchema(FAQ_AUTEUR);
   const articles = getAllArticles().slice(0, 8);
 
   return (
@@ -26,6 +29,10 @@ export default function AuteurPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-4xl px-4 py-16">
         <nav className="mb-8 text-sm text-slate-600">
@@ -148,6 +155,14 @@ export default function AuteurPage() {
               <FileText size={18} strokeWidth={1.5} />
               Tous les articles du blog
             </Link>
+          </section>
+
+          {/* FAQ */}
+          <section className="mt-16">
+            <FAQSection
+              items={FAQ_AUTEUR}
+              title="Questions fréquentes — Laure Olivié"
+            />
           </section>
 
           {/* CTA */}

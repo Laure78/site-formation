@@ -1,14 +1,24 @@
 import Link from 'next/link';
 import { BarChart3, Building2, Shield } from 'lucide-react';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
+import { FAQSection } from '@/components/landing/FAQSection';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Formation IA BTP — FFB, GERESO, Lefebvre Dalloz',
   description: 'Nos formations IA BTP avec FFB, GERESO, Lefebvre Dalloz. Partenariat Constructys. Artisans et PME bâtiment.',
-};
+  path: '/clients-partenaires',
+});
+
+const faqSchema = getFAQSchema(FAQ_CLIENTS_PARTENAIRES);
 
 export default function ClientsPartenairesPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Header */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl text-center">
@@ -157,6 +167,16 @@ export default function ClientsPartenairesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FAQSection
+            items={FAQ_CLIENTS_PARTENAIRES}
+            title="Questions fréquentes — Clients & Partenaires"
+          />
         </div>
       </section>
 

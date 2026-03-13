@@ -4,15 +4,25 @@ import Link from 'next/link';
 import { Check, Phone, Calendar } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { getBreadcrumbSchema } from '@/lib/seo';
 import type { CityFormationConfig } from '@/lib/formation-cities';
+import type { FAQItem } from '@/lib/faq';
 
 interface FormationCityPageProps {
   config: CityFormationConfig;
   courseSchema: object;
+  faqSchema?: object;
+  faqItems?: readonly FAQItem[];
 }
 
-export function FormationCityPage({ config, courseSchema }: FormationCityPageProps) {
+export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }: FormationCityPageProps) {
   const { ville, path, zones, regionLabel } = config;
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Accueil', path: '/' },
+    { name: 'Formations', path: '/formations' },
+    { name: `Formation IA BTP à ${ville}`, path },
+  ]);
 
   return (
     <div>
@@ -20,6 +30,16 @@ export function FormationCityPage({ config, courseSchema }: FormationCityPagePro
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
@@ -205,6 +225,18 @@ export function FormationCityPage({ config, courseSchema }: FormationCityPagePro
           </div>
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqItems && faqItems.length > 0 && (
+        <section className="border-b border-slate-200 bg-white px-4 py-16">
+          <div className="mx-auto max-w-4xl">
+            <FAQSection
+              items={faqItems}
+              title={`Questions fréquentes — Formation IA BTP à ${ville}`}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Cas concrets */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

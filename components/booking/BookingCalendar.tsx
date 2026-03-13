@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 import { getBusySlots } from '@/app/actions/appointments';
 import { getAvailabilities } from '@/app/actions/availabilities';
+import { getBookingSettings } from '@/app/actions/booking-settings';
 import { QualificationForm } from './QualificationForm';
 
 const DUREE_CRENEAU_MINUTES = 30;
@@ -97,16 +98,53 @@ export function BookingCalendar() {
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [busySlots, setBusySlots] = useState<string[]>([]);
   const [availabilities, setAvailabilities] = useState<{ jour: number; heure_debut: string; heure_fin: string }[]>([]);
+  const [bookingSettings, setBookingSettings] = useState<{ booking_window_days: number; blocked_dates: string[] } | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getAvailabilities().then(setAvailabilities);
   }, []);
 
+  useEffect(() => {
+    getBookingSettings().then(setBookingSettings);
+  }, []);
+
+  const today = (() => {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
+  })();
+  const maxDate = (() => {
+    const days = bookingSettings?.booking_window_days ?? 45;
+    const d = new Date(today);
+    d.setDate(d.getDate() + days);
+    d.setHours(23, 59, 59, 999);
+    return d;
+  })();
+
+  const isDateInWindow = (d: Date) => {
+    const t = new Date(d);
+    t.setHours(0, 0, 0, 0);
+    return t >= today && t <= maxDate;
+  };
+  const isBlockedDate = (d: Date) => {
+    const iso = formatDateISO(d);
+    return (bookingSettings?.blocked_dates ?? []).includes(iso);
+  };
+
   const hasAvailabilityForDay = (jour: number) =>
     availabilities.some((a) => a.jour === jour);
 
-  const weeksToShow = 6; // Couvre un mois complet (31 j + jours avant/après)
+  const isViewMonthBeyondMax = () => {
+    const lastDayOfView = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 0);
+    return lastDayOfView > maxDate;
+  };
+  const isViewMonthBeforeCurrent = () => {
+    const firstOfView = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), 1);
+    return firstOfView < today;
+  };
+
+  const weeksToShow = 6;
   const days: Date[] = [];
   for (let w = 0; w < weeksToShow; w++) {
     for (let d = 0; d < 7; d++) {
@@ -116,8 +154,8 @@ export function BookingCalendar() {
     }
   }
 
-  const rangeStart = formatDateISO(days[0]);
-  const rangeEnd = formatDateISO(days[days.length - 1]);
+  const rangeStart = formatDateISO(today);
+  const rangeEnd = formatDateISO(maxDate);
 
   useEffect(() => {
     let cancelled = false;
@@ -150,7 +188,22 @@ export function BookingCalendar() {
   const timeSlots = selectedDate ? getTimeSlotsForDate(selectedDate, availabilities) : [];
   const availableSlots = timeSlots.filter((s) => !busySlots.includes(s));
 
+  const totalAvailableInWindow = (() => {
+    if (loading || !bookingSettings) return -1;
+    let total = 0;
+    const d = new Date(today);
+    while (d <= maxDate) {
+      if (!isBlockedDate(d) && hasAvailabilityForDay(d.getDay())) {
+        const slots = getTimeSlotsForDate(new Date(d), availabilities);
+        total += slots.filter((s) => !busySlots.includes(s)).length;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+    return total;
+  })();
+
   const goPrev = () => {
+    if (isViewMonthBeforeCurrent()) return;
     const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1);
     setViewMonth(d);
     setSelectedDate(null);
@@ -158,6 +211,7 @@ export function BookingCalendar() {
   };
 
   const goNext = () => {
+    if (isViewMonthBeyondMax()) return;
     const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1);
     setViewMonth(d);
     setSelectedDate(null);
@@ -166,6 +220,16 @@ export function BookingCalendar() {
 
   return (
     <div className="space-y-8">
+      {!loading && totalAvailableInWindow === 0 && (
+        <div className="rounded-2xl border-2 border-amber-200 bg-amber-50 p-6 text-center">
+          <p className="font-medium text-amber-900">
+            Les prochains créneaux seront ouverts prochainement.
+          </p>
+          <p className="mt-2 text-sm text-amber-800">
+            Merci de revenir consulter le calendrier.
+          </p>
+        </div>
+      )}
       {/* Calendrier */}
       <div>
         <div className="mb-4 flex items-center justify-between">
@@ -176,7 +240,8 @@ export function BookingCalendar() {
             <button
               type="button"
               onClick={goPrev}
-              className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
+              disabled={isViewMonthBeforeCurrent()}
+              className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Mois précédent"
             >
               <ChevronLeft size={20} strokeWidth={1.5} />
@@ -187,7 +252,8 @@ export function BookingCalendar() {
             <button
               type="button"
               onClick={goNext}
-              className="rounded-lg p-2 text-slate-600 hover:bg-slate-100"
+              disabled={isViewMonthBeyondMax()}
+              className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed"
               aria-label="Mois suivant"
             >
               <ChevronRight size={20} strokeWidth={1.5} />
@@ -204,8 +270,10 @@ export function BookingCalendar() {
         <div className="grid grid-cols-7 gap-1">
           {days.map((d) => {
             const isPast = isDateInPast(new Date(d));
+            const inWindow = isDateInWindow(new Date(d));
+            const blocked = isBlockedDate(new Date(d));
             const hasAvailability = hasAvailabilityForDay(d.getDay());
-            const isSelectable = !isPast && hasAvailability;
+            const isSelectable = !isPast && inWindow && !blocked && hasAvailability;
             const iso = formatDateISO(d);
             const isSelected =
               selectedDate && formatDateISO(selectedDate) === iso;
@@ -223,7 +291,7 @@ export function BookingCalendar() {
                 disabled={!isSelectable}
                 className={`rounded-lg py-2 text-sm font-medium transition-colors ${
                   !isSelectable
-                    ? 'cursor-not-allowed text-slate-300'
+                    ? 'cursor-not-allowed text-slate-300 bg-slate-50'
                     : isSelected
                       ? 'bg-[var(--accent)] text-white'
                       : isToday

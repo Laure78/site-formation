@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { FAQSection } from '@/components/landing/FAQSection';
 import {
   Download,
   Building2,
@@ -9,6 +10,8 @@ import {
   FileText,
   ExternalLink,
 } from 'lucide-react';
+import { getFAQSchema } from '@/lib/seo';
+import { FAQ_FINANCEMENT } from '@/lib/faq';
 
 export const metadata = {
   title: 'Formation IA Constructys — Financement 100% | Laure Olivié',
@@ -17,8 +20,14 @@ export const metadata = {
 };
 
 export default function FinancementConstructysPage() {
+  const faqSchema = getFAQSchema(FAQ_FINANCEMENT);
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
         <div className="mx-auto max-w-4xl text-center">
@@ -296,6 +305,12 @@ export default function FinancementConstructysPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection
+        items={FAQ_FINANCEMENT}
+        title="Questions fréquentes sur le financement Constructys"
+        subtitle="Délais, plafonds, documents : tout ce qu'il faut savoir pour monter votre dossier."
+      />
 
       {/* Faire une demande */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">

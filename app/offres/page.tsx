@@ -1,5 +1,7 @@
 import { Target, Users, TrendingUp } from 'lucide-react';
-import { createPageMetadata } from '@/lib/seo';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_OFFRES } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Nos offres de formation IA BTP',
@@ -10,8 +12,14 @@ export const metadata = createPageMetadata({
 });
 
 export default function OffresPage() {
+  const faqSchema = getFAQSchema(FAQ_OFFRES);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="text-center">
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Nos offres
@@ -51,6 +59,12 @@ export default function OffresPage() {
           </div>
         ))}
       </div>
+
+      <FAQSection
+        items={FAQ_OFFRES}
+        title="Questions fréquentes sur nos offres"
+        subtitle="Formats, espace apprenant, adaptation aux artisans : découvrez nos réponses."
+      />
     </div>
   );
 }

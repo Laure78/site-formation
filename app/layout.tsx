@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { DM_Sans, Outfit } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
@@ -82,7 +82,19 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: SITE_CONFIG.name,
   },
-  themeColor: [{ media: '(prefers-color-scheme: light)', color: '#ffffff' }, { media: '(prefers-color-scheme: dark)', color: '#1e293b' }],
+  other: {
+    'geo.region': 'FR-IDF',
+    'geo.placename': 'Guyancourt',
+  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e293b' },
+  ],
 };
 
 export default function RootLayout({

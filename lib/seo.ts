@@ -7,9 +7,9 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    'Formation IA BTP finançable Constructys. Gagnez du temps sur devis, emails et CR chantier. Artisans, PME bâtiment. 100% qualiopi. Guyancourt, Yvelines, Île-de-France.',
+    "Formation IA BTP certifiée Qualiopi 100% financée Constructys. Gagnez 3 à 5h/semaine sur devis, appels d'offres, CR et emails avec ChatGPT. Pour artisans, conducteurs de travaux et dirigeants BTP.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
-  email: 'laureolivie@yahoo.fr',
+  email: 'contact@laureolivie.fr',
   phone: '+33695661818',
   phoneDisplay: '06 95 66 18 18',
   siret: '905 244 281 00010',
@@ -344,7 +344,7 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
-/** Schéma WebSite pour moteur de recherche */
+/** Schéma WebSite pour moteur de recherche (sitelinks search box Google) */
 export function getWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
@@ -355,5 +355,10 @@ export function getWebSiteSchema() {
     url: SITE_CONFIG.url,
     publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
     inLanguage: 'fr-FR',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_CONFIG.url}/blog?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
   };
 }

@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_INSTALL_PWA } from '@/lib/faq';
 import { Smartphone, Download } from 'lucide-react';
+import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: 'Installer l\'app — Laure Olivié',
@@ -8,9 +10,15 @@ export const metadata = createPageMetadata({
   path: '/install-pwa',
 });
 
+const faqSchema = getFAQSchema(FAQ_INSTALL_PWA);
+
 export default function InstallPWAPage() {
   return (
     <div className="mx-auto max-w-xl px-4 py-16 text-center">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
         <Smartphone size={40} strokeWidth={1.5} />
       </div>
@@ -38,6 +46,13 @@ export default function InstallPWAPage() {
             <p><strong>PC :</strong> Icône d&apos;installation dans la barre d&apos;adresse du navigateur</p>
           </div>
         </div>
+      </div>
+
+      <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-left">
+        <FAQSection
+          items={FAQ_INSTALL_PWA}
+          title="Questions fréquentes — Installer l'app"
+        />
       </div>
 
       <div className="mt-10 flex flex-wrap justify-center gap-4">

@@ -1,10 +1,11 @@
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { BookOpen, Clock, Video } from 'lucide-react';
 import { BuyButton } from './BuyButton';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { FAQSection } from '@/components/landing/FAQSection';
+import { FAQ_COURS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue des cours en ligne — IA BTP',
@@ -32,8 +33,14 @@ export default async function CoursPage() {
     enrolledIds = (enrolls ?? []).map((e) => e.course_id);
   }
 
+  const faqSchema = getFAQSchema(FAQ_COURS);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Catalogue des cours en ligne
@@ -111,7 +118,7 @@ export default async function CoursPage() {
                 <Link href={enrolled ? `/espace-apprenant/cours/${c.slug}` : `/cours/${c.slug}`} className="block flex-1">
                   <div className="aspect-video w-full overflow-hidden bg-slate-200">
                     {c.image_url ? (
-                      <img src={c.image_url} alt="" className="h-full w-full object-cover" />
+                      <img src={c.image_url} alt={`Formation IA BTP : ${c.title}`} className="h-full w-full object-cover" />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-slate-400">
                         <BookOpen size={48} strokeWidth={1.5} />
@@ -159,6 +166,12 @@ export default async function CoursPage() {
           })
         )}
       </div>
+
+      <FAQSection
+        items={FAQ_COURS}
+        title="Questions fréquentes sur les cours en ligne"
+        subtitle="Formations présentielles vs en ligne, financement, accès."
+      />
 
       <div className="mt-10">
         <Link href="/formations" className="text-sm text-[var(--accent)] hover:underline">← Retour au catalogue formations</Link>

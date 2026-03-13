@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_CHECKLIST_PROMPTS } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: '10 Prompts ChatGPT artisans BTP — Devis, emails',
@@ -119,6 +121,12 @@ export default function ChecklistDocumentPage() {
             <Link href="/chatgpt-artisans-btp" className="font-medium text-[#166534] hover:underline">
               IA pour artisans et PME bâtiment
             </Link>
+          </div>
+          <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <FAQSection
+              items={FAQ_CHECKLIST_PROMPTS}
+              title="Questions fréquentes — Prompts ChatGPT BTP"
+            />
           </div>
           <div className="mt-8 text-left">
             <AllerPlusLoin variant="compact" />

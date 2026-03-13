@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Check, FileText, Calculator, Clock, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
@@ -18,8 +19,8 @@ export const metadata = createPageMetadata({
 });
 
 const DEFINITION = {
-  titre: "Qu'est-ce que l'IA pour les devis bâtiment ?",
-  court: "L'IA pour devis bâtiment désigne l'utilisation d'outils comme ChatGPT pour générer, structurer et accélérer la rédaction de devis et chiffrages dans le secteur du BTP : descriptifs techniques, quantités, prix, conditions générales.",
+  titre: "Qu'est-ce que l'IA devis bâtiment ?",
+  court: "L'IA devis bâtiment désigne l'utilisation de ChatGPT et outils similaires pour générer, structurer et accélérer la rédaction de devis et chiffrages dans le secteur du BTP : descriptifs techniques, quantités, prix, conditions générales.",
   long: "Un devis bâtiment complet comprend généralement : un descriptif détaillé des prestations, les quantités et unités, les prix unitaires et totaux HT/TTC, les conditions de validité et de paiement. L'intelligence artificielle peut produire ces éléments à partir d'un brief succinct : type de chantier, corps de métier, superficie, options. Vous conservez la maîtrise des prix et des marges ; l'IA vous fait gagner le temps de rédaction et de mise en forme.",
 };
 
@@ -56,7 +57,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "La formation IA devis bâtiment est-elle finançable ?",
-    a: "Oui. Laure Olivié est certifiée Qualiopi. La formation « L'IA au service du BTP » (modules devis et chiffrage) est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP.",
+    a: "Oui. La formation IA Constructys est certifiée Qualiopi. Le module IA devis bâtiment (« L'IA au service du BTP ») est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP.",
   },
 ];
 
@@ -92,6 +93,12 @@ export default function IADevisBatimentPage() {
           </Link>
           {' '}finançable Constructys.
         </p>
+
+        <div className="mt-8">
+          <ShortAnswerBlock>
+            L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+          </ShortAnswerBlock>
+        </div>
 
         {/* Bloc GEO : Réponse courte */}
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
@@ -206,22 +213,27 @@ export default function IADevisBatimentPage() {
         {/* Liens + Aller plus loin */}
         <section className="mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-lg font-semibold text-slate-900">
-            Sur le même thème
+            IA devis bâtiment : ressources complémentaires
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
               <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-                Formation IA pour artisans
+                ChatGPT pour artisans BTP
               </Link>
             </li>
             <li>
               <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
-                IA pour conducteur de travaux
+                IA conducteur de travaux
               </Link>
             </li>
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
                 Formation IA BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="text-[var(--accent)] hover:underline">
+                Articles et guides blog
               </Link>
             </li>
             <li>
@@ -234,9 +246,11 @@ export default function IADevisBatimentPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Formation IA BTP' },
-            { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
-            { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+            { href: '/formations', label: 'Formation IA Constructys' },
+            { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+            { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+            { href: '/blog', label: 'Articles et guides' },
+            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

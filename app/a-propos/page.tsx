@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { FAQSection } from '@/components/landing/FAQSection';
 
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { FAQ_A_PROPOS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Formatrice IA BTP | Formation bâtiment',
@@ -13,27 +15,26 @@ export const metadata = createPageMetadata({
 });
 
 export default function AProposPage() {
+  const faqSchema = getFAQSchema(FAQ_A_PROPOS);
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero — Formatrice IA pour les entreprises du BTP */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--accent)] font-bold text-white">
-                  IA
-                </div>
-                <div>
-                  <h1 className="font-display text-2xl font-bold text-slate-900">
-                    Laure Olivié
-                  </h1>
-                  <p className="text-sm text-slate-500">
-                    Formation IA pour le BTP
-                  </p>
-                </div>
-              </div>
-              <h2 className="mt-8 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+              <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
+                Laure Olivié — À propos
+              </h1>
+              <p className="mt-2 text-slate-600">
+                Formatrice IA pour le BTP
+              </p>
+              <h2 className="mt-8 font-display text-2xl font-bold text-slate-900 md:text-3xl">
                 Formatrice IA pour les{' '}
                 <span className="text-[var(--accent)]">entreprises du BTP</span>
               </h2>
@@ -157,6 +158,13 @@ export default function AProposPage() {
             >
               Prendre RDV
             </Link>
+          </div>
+          <div className="mt-16">
+            <FAQSection
+              items={FAQ_A_PROPOS}
+              title="Questions fréquentes sur Laure Olivié"
+              subtitle="Zone d'intervention, expérience, accompagnement post-formation."
+            />
           </div>
           <div className="mt-16 border-t border-slate-200 pt-12">
             <AllerPlusLoin />

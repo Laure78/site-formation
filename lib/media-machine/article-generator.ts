@@ -1,5 +1,6 @@
 /**
  * Générateur d'articles SEO/GEO — Structure complète
+ * Cible : 600-800 mots minimum (éviter articles courts 400-500 mots)
  */
 
 import type { BlogArticle } from '../blog';

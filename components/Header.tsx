@@ -70,7 +70,7 @@ export function Header() {
           href="/"
           className="flex items-center gap-3 font-display text-xl font-bold tracking-tight text-slate-900"
         >
-          <img src="/logo-lo.svg" alt="" className="h-9 w-auto" aria-hidden />
+          <img src="/logo-lo.svg" alt="Laure Olivié — Formation IA BTP" className="h-9 w-auto" />
           Laure Olivié
         </Link>
 

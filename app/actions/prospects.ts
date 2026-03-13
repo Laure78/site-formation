@@ -1,6 +1,10 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
+import { isSlotWithinBookingWindow } from '@/app/actions/booking-settings';
+import { Resend } from 'resend';
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 type Secteur = 'btp' | 'automobile' | 'industrie' | 'service' | 'autre';
 type Taille = '1-10' | '10-50' | '50-250' | '250+';
@@ -39,6 +43,10 @@ function computeLeadScore(q: QualificationFormData): number {
 
 export async function createProspectAndAppointment(data: QualificationFormData) {
   const { start_at: startAt, end_at: endAt, ...q } = data;
+  const withinWindow = await isSlotWithinBookingWindow(startAt);
+  if (!withinWindow) {
+    return { ok: false, error: 'Ce créneau n\'est plus disponible. La réservation est limitée à 45 jours. Merci de choisir une autre date.' };
+  }
   const supabase = await createClient();
   const score = computeLeadScore({ ...q, start_at: startAt, end_at: endAt });
 
@@ -83,6 +91,38 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
   if (errAppt) {
     console.error('[createAppointment]', errAppt);
     return { ok: false, error: errAppt.message };
+  }
+
+  // Envoi email de confirmation de RDV
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
+  const rdvDate = new Date(startAt).toLocaleDateString('fr-FR', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  if (resend) {
+    const questionnaireLink = `${baseUrl}/questionnaire/${questionnaireToken}`;
+    const { error: errEmail } = await resend.emails.send({
+      from: 'Laure Olivié <noreply@laureolivie.fr>',
+      to: q.email.trim().toLowerCase(),
+      subject: 'Confirmation de votre rendez-vous — Laure Olivié',
+      html: `
+        <p>Bonjour ${q.prenom},</p>
+        <p>Votre rendez-vous a bien été enregistré.</p>
+        <p><strong>Date et heure :</strong> ${rdvDate} (30 minutes)</p>
+        <p>Avant notre échange, vous pouvez compléter ce court questionnaire pour mieux préparer notre discussion :</p>
+        <p><a href="${questionnaireLink}" style="display:inline-block;background:#166534;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Remplir le questionnaire</a></p>
+        <p>Une question ? Contactez-moi au 06 95 66 18 18 ou par email à contact@laureolivie.fr.</p>
+        <p>À bientôt,<br/>Laure Olivié</p>
+      `,
+    });
+    if (errEmail) {
+      console.error('[createProspectAndAppointment] email', errEmail);
+    }
   }
 
   return { ok: true, prospectId: prospect.id, score, questionnaireToken };

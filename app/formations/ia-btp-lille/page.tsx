@@ -1,6 +1,7 @@
 import { FormationCityPage } from '@/components/formations/FormationCityPage';
 import { LILLE } from '@/lib/formation-cities';
-import { createPageMetadata, getCourseSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_FORMATION_VILLE } from '@/lib/faq';
+import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Lille | Automatiser devis, appels d\'offres et administratif',
@@ -25,6 +26,15 @@ const courseSchema = getCourseSchema({
   areaServed: LILLE.areaServed,
 });
 
+const faqSchema = getFAQSchema(FAQ_FORMATION_VILLE);
+
 export default function FormationIABTPLillePage() {
-  return <FormationCityPage config={LILLE} courseSchema={courseSchema} />;
+  return (
+    <FormationCityPage
+      config={LILLE}
+      courseSchema={courseSchema}
+      faqSchema={faqSchema}
+      faqItems={FAQ_FORMATION_VILLE}
+    />
+  );
 }
