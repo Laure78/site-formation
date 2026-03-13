@@ -6,7 +6,7 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Lille | Automatiser devis, appels d\'offres et administratif',
   description:
-    'Formation IA pour entreprises du BTP à Lille. Automatisez devis, réponses aux appels d\'offres, emails clients et gestion administrative grâce à l\'IA générative.',
+    'Formation IA BTP à Lille et Hauts-de-France. Nord, Pas-de-Calais, Somme. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys. Qualiopi.',
   path: '/formations/ia-btp-lille',
   keywords: [
     'formation IA BTP Lille',

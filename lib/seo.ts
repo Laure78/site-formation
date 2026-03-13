@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    "Formation IA BTP certifiée Qualiopi 100% financée Constructys. Gagnez 3 à 5h/semaine sur devis, appels d'offres, CR et emails avec ChatGPT. Pour artisans, conducteurs de travaux et dirigeants BTP.",
+    "Formation IA BTP certifiée Qualiopi. Gagnez 3 à 5h/semaine sur devis, appels d'offres et emails. 100% financée Constructys. Artisans, PME bâtiment.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'contact@laureolivie.fr',
   phone: '+33695661818',
@@ -156,9 +156,9 @@ export function getOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'EducationalOrganization'],
     '@id': `${SITE_CONFIG.url}/#organization`,
-    name: SITE_CONFIG.name,
+    name: SITE_CONFIG.legalName,
     legalName: SITE_CONFIG.legalName,
-    alternateName: SITE_CONFIG.legalName,
+    alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
     description: 'Formation en intelligence artificielle pour les entreprises du BTP',
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
@@ -301,6 +301,62 @@ export function getPersonSchema() {
       'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
     ],
   };
+}
+
+/** Schéma ItemList de Course — page catalogue formations */
+export function getCourseListSchema(
+  courses: Array<{ title: string; description: string; path: string }>
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${SITE_CONFIG.url}/formations#course-list`,
+    name: 'Catalogue des formations IA BTP',
+    description: 'Formations IA pour artisans et PME du BTP. Devis, appels d\'offres, ChatGPT. 100% finançable Constructys.',
+    numberOfItems: courses.length,
+    itemListElement: courses.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Course',
+        name: c.title,
+        description: c.description,
+        url: `${SITE_CONFIG.url}${c.path}`,
+        provider: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: SITE_CONFIG.name },
+        instructor: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: SITE_CONFIG.name },
+        educationalLevel: 'Professionnel',
+        inLanguage: 'fr-FR',
+      },
+    })),
+  };
+}
+
+/** Extrait un schéma HowTo depuis un article blog si les sections contiennent des listes/étapes */
+export function getHowToFromArticle(
+  article: { title: string; description: string; slug: string; sections: { type: string; content: string | string[]; title?: string }[] }
+): Record<string, unknown> | null {
+  const steps: { name: string; text: string }[] = [];
+  for (const section of article.sections) {
+    if (section.type === 'list') {
+      const items = Array.isArray(section.content) ? section.content : [section.content];
+      if (items.length < 2) continue;
+      const title = section.title ?? 'Étape';
+      for (let i = 0; i < items.length; i++) {
+        const item = String(items[i]);
+        const sep = item.indexOf(' — ');
+        const name = sep >= 0 ? item.slice(0, sep).trim() : (section.title ? `${title} ${i + 1}` : `Étape ${i + 1}`);
+        const text = sep >= 0 ? item.slice(sep + 3).trim() : item;
+        steps.push({ name, text });
+      }
+    }
+  }
+  if (steps.length < 2) return null;
+  return getHowToSchema({
+    name: article.title,
+    description: article.description,
+    path: `/blog/${article.slug}`,
+    steps,
+  });
 }
 
 /** Schéma HowTo pour guides */

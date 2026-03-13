@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { createPageMetadata, getArticleSchema, getBreadcrumbSchema } from '@/lib/seo';
+import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getHowToFromArticle } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
-import { getArticle, getAllSlugs, getAllArticles } from '@/lib/blog';
+import { getArticle, getAllSlugs, getAllArticles, getCommercialLinksForArticle } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { AuthorBlock } from '@/components/blog/AuthorBlock';
@@ -60,11 +60,15 @@ export default async function BlogArticlePage({ params }: Props) {
     { name: 'Blog', path: '/blog' },
     { name: article.title, path: `/blog/${article.slug}` },
   ]);
+  const howToSchema = getHowToFromArticle(article);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {howToSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      )}
       <nav className="mb-8">
         <Link
           href="/blog"
@@ -96,6 +100,28 @@ export default async function BlogArticlePage({ params }: Props) {
           {article.title}
         </h1>
         <p className="mt-4 text-lg text-slate-600">{article.description}</p>
+
+        {/* Bloc liens commerciaux contextuels — au moins 2-3 pages commerciales par article */}
+        <section className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+          <h2 className="font-display text-lg font-semibold text-slate-900">
+            À découvrir
+          </h2>
+          <p className="mt-1 text-sm text-slate-600">
+            Pages commerciales en lien avec cet article :
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-3">
+            {getCommercialLinksForArticle(slug).map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-blue-50"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <div className="mt-12 space-y-10">
           {article.sections.map((section, i) => (
@@ -270,6 +296,21 @@ export default async function BlogArticlePage({ params }: Props) {
                 Catalogue des formations
               </Link>
             </li>
+            <li>
+              <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">
+                Formation IA BTP Paris 2026
+              </Link>
+            </li>
+            <li>
+              <Link href="/financement-constructys-100-ia-btp" className="text-[var(--accent)] font-medium hover:underline">
+                Financement Constructys 100% IA BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/diagnostic-ia-btp" className="text-[var(--accent)] font-medium hover:underline">
+                Diagnostic IA BTP gratuit
+              </Link>
+            </li>
           </ul>
         </section>
 
@@ -308,9 +349,11 @@ export default async function BlogArticlePage({ params }: Props) {
           variant="compact"
           links={[
             { href: '/formations', label: 'Formation IA BTP' },
+            { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+            { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
             { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-            { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+            { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
             { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
             { href: '/blog', label: 'Articles et guides' },
           ]}

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Mentions légales — OFC Création d\'Entreprise',
-  description: 'Informations légales et réglementaires du site. Éditeur, hébergement, propriété intellectuelle, données personnelles.',
+  description: 'Mentions légales OFC Création d\'Entreprise. Éditeur, hébergement O2switch, propriété intellectuelle, RGPD. Organisme formation Qualiopi.',
 };
 
 export default function MentionsLegalesPage() {

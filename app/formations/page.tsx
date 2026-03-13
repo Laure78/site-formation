@@ -3,7 +3,7 @@ import { Clock, Users, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, getCourseListSchema } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
@@ -153,12 +153,23 @@ const FORMATIONS = [
 
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
+  const courseListSchema = getCourseListSchema(
+    FORMATIONS.map((f) => ({
+      title: f.title,
+      description: f.objectifs.join('. '),
+      path: f.href.startsWith('/formations') ? f.href : '/formations',
+    }))
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }}
       />
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">

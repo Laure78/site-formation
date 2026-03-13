@@ -18,7 +18,7 @@ import { FAQ_PRODUCTIVITE_CHANTIER } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP productivité chantier | Constructys',
   description:
-    'Formation IA productivité chantier. Devis, emails, CR en quelques secondes. Atelier, micro-learning ou coaching. 100% finançable Constructys. Qualiopi.',
+    'Formation IA productivité chantier. Devis, emails, CR en quelques secondes. Atelier, micro-learning ou coaching. 100% finançable Constructys. Qualiopi. Artisans.',
   path: '/formations/ia-productivite-chantier',
 });
 

@@ -28,7 +28,7 @@ import { FAQ_RH_BTP } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP RH — Recrutement, GEPP | Constructys',
   description:
-    "Formation IA fonction RH BTP. Recrutement, GEPP, tableaux de bord. 2 jours (14h). 100% finançable Constructys. DRH, chargés recrutement. Qualiopi.",
+    "Formation IA fonction RH BTP. Recrutement, GEPP, tableaux de bord. 2 jours (14h). 100% finançable Constructys. DRH, chargés recrutement. Qualiopi. Artisans et PME.",
   path: '/formations/ia-rh-btp',
 });
 

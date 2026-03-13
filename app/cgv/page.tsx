@@ -3,7 +3,7 @@ import { Mail, Phone } from 'lucide-react';
 
 export const metadata = {
   title: 'CGV — Conditions Générales de Vente — OFC Création d\'Entreprise',
-  description: 'Conditions générales de vente des formations professionnelles. Organisme certifié Qualiopi.',
+  description: 'CGV des formations OFC Création d\'Entreprise. Conditions générales de vente, délais, annulations, paiement. Organisme certifié Qualiopi. Formation IA BTP.',
 };
 
 export default function CGVPage() {

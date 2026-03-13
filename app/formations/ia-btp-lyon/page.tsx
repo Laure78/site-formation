@@ -6,7 +6,7 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Lyon | Automatiser devis, appels d\'offres et administratif',
   description:
-    'Formation IA BTP à Lyon. Rhône, Ain, Isère, Loire. Devis, appels d\'offres, emails. 4h. 100% finançable Constructys. Qualiopi. Artisans et PME bâtiment.',
+    'Formation IA BTP à Lyon et Auvergne-Rhône-Alpes. Rhône, Ain, Isère, Loire. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys. Qualiopi.',
   path: '/formations/ia-btp-lyon',
   keywords: [
     'formation IA BTP Lyon',

@@ -6,7 +6,7 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Île-de-France | Guyancourt, Yvelines, Paris',
   description:
-    'Formation IA BTP Île-de-France. Guyancourt (78), Paris, 8 départements. Devis, appels d\'offres, emails. 4h. 100% finançable Constructys. Qualiopi.',
+    'Formation IA BTP Île-de-France. Guyancourt (78), Paris, 8 départements IDF. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys. Qualiopi. Artisans et PME.',
   path: '/formations/ia-btp-ile-de-france',
   keywords: [
     'formation IA BTP Île-de-France',

@@ -87,6 +87,8 @@ export function Footer() {
                 { href: '/contact', label: 'Contact' },
                 { href: '/a-propos', label: 'À propos' },
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
+                { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+                { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
                 { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour artisans BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },

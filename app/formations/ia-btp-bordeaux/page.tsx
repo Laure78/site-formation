@@ -6,7 +6,7 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Bordeaux | Automatiser devis, appels d\'offres et administratif',
   description:
-    'Formation IA pour entreprises du BTP à Bordeaux. Automatisez devis, réponses aux appels d\'offres, emails clients et gestion administrative grâce à l\'IA générative.',
+    'Formation IA BTP à Bordeaux et Nouvelle-Aquitaine. Gironde, Charente, Dordogne, Landes. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys.',
   path: '/formations/ia-btp-bordeaux',
   keywords: [
     'formation IA BTP Bordeaux',

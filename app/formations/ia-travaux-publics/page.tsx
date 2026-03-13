@@ -26,7 +26,7 @@ import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Travaux Publics — DCE, CR | Constructys',
   description:
-    "Formation IA & Travaux Publics. DCE, CCTP, CR chantier. 2 jours (14h). 100% finançable Constructys. Qualiopi. Conducteurs, chargés d'affaires TP.",
+    "Formation IA & Travaux Publics. DCE, CCTP, CR chantier. 2 jours (14h). 100% finançable Constructys. Qualiopi. Conducteurs et chargés d'affaires TP.",
   path: '/formations/ia-travaux-publics',
 });
 

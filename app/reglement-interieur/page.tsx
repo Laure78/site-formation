@@ -3,7 +3,7 @@ import { Mail, Phone } from 'lucide-react';
 
 export const metadata = {
   title: 'Règlement intérieur — OFC Création d\'Entreprise',
-  description: 'Règlement intérieur des formations. Organisme certifié Qualiopi. Conforme Code du travail L.6352-3 et R.6352-1.',
+  description: 'Règlement intérieur des formations OFC Création d\'Entreprise. Organisme certifié Qualiopi. Conforme Code du travail L.6352-3 et R.6352-1.',
 };
 
 export default function ReglementInterieurPage() {

@@ -401,7 +401,9 @@ export default function FinancementConstructysPage() {
           <div className="mt-8">
             <AllerPlusLoin
         links={[
+          { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
           { href: '/formations', label: 'Formation IA BTP' },
+          { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
           { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },

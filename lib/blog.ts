@@ -323,6 +323,47 @@ export const BLOG_CATEGORIES = {
 
 export type BlogCategoryId = keyof typeof BLOG_CATEGORIES;
 
+/** Liens commerciaux contextuels : 3 pages par article selon la catégorie */
+export function getCommercialLinksForArticle(slug: string): { href: string; label: string }[] {
+  const cat = getArticleCategory(slug);
+  const base = [
+    { href: '/formations', label: 'Formation IA BTP' },
+    { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+  ];
+  switch (cat) {
+    case 'financement':
+      return [
+        { href: '/financement-constructys', label: 'Financement Constructys' },
+        { href: '/financement-constructys-100-ia-btp', label: 'Guide financement 100% IA BTP' },
+        { href: '/tarifs', label: 'Tarifs et financement' },
+      ];
+    case 'devis':
+      return [
+        { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+        { href: '/formations', label: 'Catalogue formations' },
+        { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
+      ];
+    case 'regions':
+      return [
+        { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+        { href: '/formations', label: 'Catalogue formations' },
+        { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+      ];
+    case 'appels-offres':
+      return [
+        { href: '/formations/ia-appels-offre-btp', label: 'Formation appels d\'offres IA' },
+        { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+        { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+      ];
+    default:
+      return [
+        { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+        { href: '/formations', label: 'Formation IA BTP' },
+        { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
+      ];
+  }
+}
+
 /** Détermine la catégorie d'un article à partir du slug */
 export function getArticleCategory(slug: string): BlogCategoryId {
   const s = slug.toLowerCase();

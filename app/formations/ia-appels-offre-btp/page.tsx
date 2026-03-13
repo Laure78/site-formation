@@ -23,7 +23,7 @@ import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: "Formation IA BTP appels d'offres | Constructys finançable",
   description:
-    "Formation IA appels d'offres BTP. Analysez DCE 5x plus vite, rédigez mémoires techniques. 7h. 100% finançable Constructys. Chargés d'affaires, bureaux d'études.",
+    "Formation IA appels d'offres BTP. Analysez DCE 5x plus vite, rédigez mémoires techniques. 7h. 100% finançable Constructys. Chargés d'affaires, bureaux d'études. Qualiopi.",
   path: '/formations/ia-appels-offre-btp',
 });
 

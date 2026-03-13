@@ -9,7 +9,7 @@ import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment Paris — Devis, ChatGPT | Constructys',
   description:
-    'Formation IA BTP à Paris (75) et Île-de-France. Devis, emails, ChatGPT. 4h pratiques. 100% finançable Constructys. Qualiopi. Réservez votre créneau.',
+    'Formation IA BTP à Paris (75) et Île-de-France. Devis, emails, ChatGPT en 4h. 100% finançable Constructys. Qualiopi. Artisans et PME bâtiment. Réservez.',
   path: '/formations/ia-btp-paris',
   keywords: [
     'formation IA Paris',
@@ -292,9 +292,11 @@ export default function FormationIABTPParisPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations', label: 'Formation IA BTP' },
-              { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
-              { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+              { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+              { href: '/formations', label: 'Catalogue formations' },
+              { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
             ]}
           />
         </div>
