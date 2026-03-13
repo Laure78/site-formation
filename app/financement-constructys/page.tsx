@@ -399,7 +399,15 @@ export default function FinancementConstructysPage() {
             ← Retour à l&apos;accueil
           </Link>
           <div className="mt-8">
-            <AllerPlusLoin />
+            <AllerPlusLoin
+        links={[
+          { href: '/formations', label: 'Formation IA BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+          { href: '/blog', label: 'Articles et guides' },
+          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+        ]}
+      />
           </div>
         </div>
       </div>

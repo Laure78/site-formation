@@ -82,12 +82,16 @@ export function Footer() {
             </h4>
             <ul className="mt-5 space-y-3">
               {[
-                { href: '/a-propos', label: 'À propos' },
                 { href: '/formations', label: 'Catalogue des formations' },
+                { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+                { href: '/contact', label: 'Contact' },
+                { href: '/a-propos', label: 'À propos' },
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
                 { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour artisans BTP' },
-                { href: '/ia-devis-batiment', label: 'IA pour devis bâtiment' },
+                { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+                { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
+                { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
                 { href: '/tarifs', label: 'Financement OPCO' },
                 { href: '/blog', label: 'Ressources & Articles' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },

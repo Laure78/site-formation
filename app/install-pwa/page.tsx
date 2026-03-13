@@ -69,6 +69,18 @@ export default function InstallPWAPage() {
         >
           Accueil
         </Link>
+        <Link
+          href="/chatgpt-artisans-btp"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-8 py-4 font-semibold text-slate-700 hover:bg-slate-50"
+        >
+          ChatGPT artisans BTP
+        </Link>
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-8 py-4 font-semibold text-slate-700 hover:bg-slate-50"
+        >
+          Articles et guides
+        </Link>
       </div>
 
       <p className="mt-8 text-xs text-slate-500">

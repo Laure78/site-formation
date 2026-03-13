@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { BookingCalendar } from '@/components/booking/BookingCalendar';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
@@ -57,6 +58,17 @@ export default function PrendreRDVPage() {
             items={FAQ_PRENDRE_RDV}
             title="Questions fréquentes sur le rendez-vous"
             subtitle="RDV gratuit, déroulement, créneaux disponibles."
+          />
+
+          <AllerPlusLoin
+            links={[
+              { href: '/formations', label: 'Catalogue des formations' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+              { href: '/blog', label: 'Articles et guides' },
+              { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
+              { href: '/tarifs', label: 'Tarifs et financement' },
+            ]}
           />
         </div>
       </section>

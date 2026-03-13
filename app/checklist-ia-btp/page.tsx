@@ -57,7 +57,25 @@ export default function ChecklistIABTPPage() {
                 href="/chatgpt-artisans-btp"
                 className="text-[#166534] font-medium hover:underline"
               >
-                IA pour artisans et PME bâtiment →
+                ChatGPT artisans BTP →
+              </Link>
+              <Link
+                href="/ia-devis-batiment"
+                className="text-[#166534] font-medium hover:underline"
+              >
+                IA devis bâtiment →
+              </Link>
+              <Link
+                href="/ia-conducteur-travaux"
+                className="text-[#166534] font-medium hover:underline"
+              >
+                IA conducteur de travaux →
+              </Link>
+              <Link
+                href="/blog"
+                className="text-[#166534] font-medium hover:underline"
+              >
+                Articles et guides →
               </Link>
               <Link
                 href="/prendre-rdv"

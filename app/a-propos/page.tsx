@@ -167,7 +167,15 @@ export default function AProposPage() {
             />
           </div>
           <div className="mt-16 border-t border-slate-200 pt-12">
-            <AllerPlusLoin />
+            <AllerPlusLoin
+        links={[
+          { href: '/formations', label: 'Formation IA BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+          { href: '/blog', label: 'Articles et guides' },
+          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+        ]}
+      />
           </div>
         </div>
       </section>

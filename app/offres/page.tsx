@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { Target, Users, TrendingUp } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_OFFRES } from '@/lib/faq';
 
@@ -64,6 +66,17 @@ export default function OffresPage() {
         items={FAQ_OFFRES}
         title="Questions fréquentes sur nos offres"
         subtitle="Formats, espace apprenant, adaptation aux artisans : découvrez nos réponses."
+      />
+
+      <AllerPlusLoin
+        links={[
+          { href: '/formations', label: 'Catalogue des formations' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+          { href: '/blog', label: 'Articles et guides' },
+          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+          { href: '/tarifs', label: 'Tarifs et financement' },
+        ]}
       />
     </div>
   );

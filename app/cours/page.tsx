@@ -5,6 +5,7 @@ import { BookOpen, Clock, Video } from 'lucide-react';
 import { BuyButton } from './BuyButton';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQ_COURS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
@@ -173,9 +174,22 @@ export default async function CoursPage() {
         subtitle="Formations présentielles vs en ligne, financement, accès."
       />
 
-      <div className="mt-10">
-        <Link href="/formations" className="text-sm text-[var(--accent)] hover:underline">← Retour au catalogue formations</Link>
+      <div className="mt-12 flex flex-wrap gap-4">
+        <Link href="/formations" className="text-sm text-[var(--accent)] hover:underline">← Catalogue formations</Link>
+        <Link href="/chatgpt-artisans-btp" className="text-sm text-[var(--accent)] hover:underline">ChatGPT artisans BTP</Link>
+        <Link href="/ia-devis-batiment" className="text-sm text-[var(--accent)] hover:underline">IA devis bâtiment</Link>
+        <Link href="/ia-conducteur-travaux" className="text-sm text-[var(--accent)] hover:underline">IA conducteur de travaux</Link>
+        <Link href="/blog" className="text-sm text-[var(--accent)] hover:underline">Articles et guides</Link>
       </div>
+
+      <AllerPlusLoin
+        variant="compact"
+        links={[
+          { href: '/formations', label: 'Formation IA BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+        ]}
+      />
     </div>
   );
 }

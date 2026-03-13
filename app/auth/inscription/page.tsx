@@ -1,58 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
 export default function InscriptionPage() {
-  const router = useRouter();
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-
   const handleGoogleSignIn = async () => {
     const supabase = createClient();
     await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/auth/callback` } });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    if (password !== confirmPassword) {
-      setError('Les mots de passe ne correspondent pas');
-      return;
-    }
-    if (password.length < 6) {
-      setError('Le mot de passe doit faire au moins 6 caractères');
-      return;
-    }
-    setLoading(true);
-    try {
-      const supabase = createClient();
-      const { error: err } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          data: {
-            first_name: firstName.trim() || undefined,
-            last_name: lastName.trim() || undefined,
-            full_name: [firstName.trim(), lastName.trim()].filter(Boolean).join(' ') || undefined,
-          },
-        },
-      });
-      if (err) throw err;
-      router.push('/espace-apprenant');
-      router.refresh();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Erreur d\'inscription');
-    } finally {
-      setLoading(false);
-    }
   };
 
   return (
@@ -73,91 +27,6 @@ export default function InscriptionPage() {
         </svg>
         Continuer avec Google
       </button>
-
-      <div className="my-6 flex items-center gap-4">
-        <div className="h-px flex-1 bg-slate-200" />
-        <span className="text-sm text-slate-500">ou</span>
-        <div className="h-px flex-1 bg-slate-200" />
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="firstName" className="block text-sm font-medium text-slate-700">
-              Prénom
-            </label>
-            <input
-              id="firstName"
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="Marie"
-              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-            />
-          </div>
-          <div>
-            <label htmlFor="lastName" className="block text-sm font-medium text-slate-700">
-              Nom
-            </label>
-            <input
-              id="lastName"
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Dupont"
-              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-            />
-          </div>
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-700">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-          />
-        </div>
-        <div>
-          <label htmlFor="password" className="block text-sm font-medium text-slate-700">
-            Mot de passe
-          </label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={6}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-          />
-        </div>
-        <div>
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-slate-700">
-            Confirmer le mot de passe
-          </label>
-          <input
-            id="confirmPassword"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
-          />
-        </div>
-        {error && <p className="text-sm text-red-600">{error}</p>}
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full rounded-xl bg-[var(--accent)] py-3 font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
-        >
-          {loading ? 'Inscription…' : 'S\'inscrire'}
-        </button>
-      </form>
 
       <p className="mt-6 text-center text-sm text-slate-600">
         Déjà un compte ?{' '}
