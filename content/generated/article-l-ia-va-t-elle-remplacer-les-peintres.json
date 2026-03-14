@@ -1,13 +1,13 @@
 {
-  "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-  "title": "Appels d'offres BTP : l'IA comme assistant",
-  "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "slug": "l-ia-va-t-elle-remplacer-les-peintres",
+  "title": "L'IA va-t-elle remplacer les peintres ?",
+  "description": "L'IA remplace-t-elle les peintres ? Non : elle assiste le métier. Formation BTP finançable.",
   "date": "2026-03-14",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "offre emploi IA",
+    "recruter artisans",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Appels d'offres BTP : l'IA comme assistant",
-  "metaDescription": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "seoTitle": "L'IA va-t-elle remplacer les peintres ?",
+  "metaDescription": "L'IA remplace-t-elle les peintres ? Non : elle assiste le métier. Formation BTP finançable.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",

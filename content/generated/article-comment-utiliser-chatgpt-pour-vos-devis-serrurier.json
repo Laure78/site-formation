@@ -1,13 +1,13 @@
 {
-  "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-  "title": "Appels d'offres BTP : l'IA comme assistant",
-  "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "slug": "comment-utiliser-chatgpt-pour-vos-devis-serrurier",
+  "title": "Comment utiliser ChatGPT pour vos devis serrurier",
+  "description": "Devis serrurier avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
   "date": "2026-03-14",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
+    "relance client IA",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -65,8 +65,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Appels d'offres BTP : l'IA comme assistant",
-  "metaDescription": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "seoTitle": "Comment utiliser ChatGPT pour vos devis serrurier",
+  "metaDescription": "Devis serrurier avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",
