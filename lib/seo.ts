@@ -340,12 +340,13 @@ export function getCourseListSchema(
 
 /** Extrait un schéma HowTo depuis un article blog si les sections contiennent des listes/étapes */
 export function getHowToFromArticle(
-  article: { title: string; description: string; slug: string; sections: { type: string; content: string | string[]; title?: string }[] }
+  article: { title: string; description: string; slug: string; sections: { type: string; content: string | string[] | Array<{ titre: string; prompt: string; usage?: string }>; title?: string }[] }
 ): Record<string, unknown> | null {
   const steps: { name: string; text: string }[] = [];
   for (const section of article.sections) {
     if (section.type === 'list') {
-      const items = Array.isArray(section.content) ? section.content : [section.content];
+      const raw = Array.isArray(section.content) ? section.content : [section.content];
+      const items = raw.filter((x): x is string => typeof x === 'string');
       if (items.length < 2) continue;
       const title = section.title ?? 'Étape';
       for (let i = 0; i < items.length; i++) {
