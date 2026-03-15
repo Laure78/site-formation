@@ -60,6 +60,22 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts carreleurs : devis et pose",
+      "content": [
+        {
+          "titre": "Devis carrelage sol",
+          "prompt": "Rédige un devis carrelage : [SURFACE] m², format [dimensions], type de pose [collée, sur plots...], préparation sol. Descriptif + quantités (carreaux, colle, joints). Format pro.",
+          "usage": "Adaptez aux spécifications du chantier."
+        },
+        {
+          "titre": "Conseil résine époxy",
+          "prompt": "Quand recommander une chape époxy vs carrelage pour [TYPE DE LOCAL : garage, cave, commerce] ? Avantages, inconvénients, ordre de prix. Réponse pour un carreleur.",
+          "usage": "Pour orienter vos clients."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }

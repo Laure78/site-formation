@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts optimisés pour éviter les erreurs",
+      "content": [
+        {
+          "titre": "Prompt avec contexte métier",
+          "prompt": "Tu es un assistant pour un [MAÇON/ÉLECTRICIEN/…] du BTP. Contexte : [DÉCRIRE BRIÈVEMENT]. Réponds de façon concise et professionnelle. [TA QUESTION]",
+          "usage": "Donner du contexte limite les réponses hors-sujet."
+        },
+        {
+          "titre": "Vérification sans données sensibles",
+          "prompt": "Réécris ce texte en enlevant toute donnée personnelle ou chiffrée. Garde le sens et la structure. Texte : [COLLER]",
+          "usage": "Pour tester un prompt avec un exemple anonymisé."
+        },
+        {
+          "titre": "Amélioration de prompt vague",
+          "prompt": "Transforme ce prompt vague en prompt précis : [VOTRE PROMPT]. Ajoute : rôle, format attendu, contraintes (longueur, ton).",
+          "usage": "Améliorez vos prompts avant de les utiliser."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

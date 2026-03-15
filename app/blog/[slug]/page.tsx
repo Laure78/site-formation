@@ -30,6 +30,35 @@ function getContentAsString(
   return typeof first === 'string' ? first : '';
 }
 
+/** Vérifie si l'élément est un ArticlePrompt (objet avec titre/prompt) */
+function isArticlePrompt(item: unknown): item is ArticlePrompt {
+  return (
+    typeof item === 'object' &&
+    item !== null &&
+    'titre' in item &&
+    'prompt' in item &&
+    typeof (item as ArticlePrompt).titre === 'string' &&
+    typeof (item as ArticlePrompt).prompt === 'string'
+  );
+}
+
+/** Extrait uniquement les chaînes d'un contenu (exclut ArticlePrompt) */
+function getStringItems(
+  content: string | string[] | ArticlePrompt[]
+): string[] {
+  if (typeof content === 'string') return [content];
+  if (!Array.isArray(content)) return [];
+  return content.filter((x): x is string => typeof x === 'string');
+}
+
+/** Extrait les prompts d'un contenu (uniquement pour sections type 'prompts') */
+function getPromptsFromContent(
+  content: string | string[] | ArticlePrompt[]
+): ArticlePrompt[] {
+  if (!Array.isArray(content)) return [];
+  return content.filter(isArticlePrompt);
+}
+
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
@@ -185,9 +214,7 @@ export default async function BlogArticlePage({ params }: Props) {
                     </h2>
                   )}
                   <ul className="mt-4 space-y-3">
-                    {(Array.isArray(section.content) ? section.content : [section.content])
-                      .filter((item): item is string => typeof item === 'string')
-                      .map((item, j) => (
+                    {getStringItems(section.content).map((item, j) => (
                         <li key={j} className="flex gap-3 text-slate-600">
                           <Check
                             size={20}
@@ -200,7 +227,7 @@ export default async function BlogArticlePage({ params }: Props) {
                   </ul>
                 </>
               )}
-              {section.type === 'prompts' && Array.isArray(section.content) && section.content.length > 0 && (
+              {section.type === 'prompts' && getPromptsFromContent(section.content).length > 0 && (
                 <>
                   {section.title && (
                     <h2 className="font-display text-xl font-bold text-slate-900">
@@ -208,7 +235,7 @@ export default async function BlogArticlePage({ params }: Props) {
                     </h2>
                   )}
                   <div className="mt-6 space-y-6">
-                    {(section.content as { titre: string; prompt: string; usage?: string }[]).map((p, j) => (
+                    {getPromptsFromContent(section.content).map((p, j) => (
                       <div
                         key={j}
                         className="rounded-xl border-l-4 border-[var(--accent)] bg-slate-50 p-5"
@@ -231,9 +258,7 @@ export default async function BlogArticlePage({ params }: Props) {
                     {section.title}
                   </h2>
                   <div className="mt-6 space-y-6">
-                    {(Array.isArray(section.content) ? section.content : [section.content])
-                      .filter((item): item is string => typeof item === 'string')
-                      .map((item, j) => {
+                    {getStringItems(section.content).map((item, j) => {
                         const sep = item.indexOf(' — ');
                         const q = sep >= 0 ? item.slice(0, sep) : item;
                         const a = sep >= 0 ? item.slice(sep + 3) : '';

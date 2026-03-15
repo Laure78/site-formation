@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour gains de temps plombier",
+      "content": [
+        {
+          "titre": "Devis plomberie salle de bain",
+          "prompt": "Rédige un devis plomberie pour rénovation salle de bain : [SURFACE m²], prestations [remplacement équipements, pose, évacuations]. Inclure descriptif technique, quantités, garanties. Format professionnel prêt à compléter.",
+          "usage": "Adaptez surface et prestations. Base pour tous vos devis salle de bain."
+        },
+        {
+          "titre": "CR chantier installation chauffage",
+          "prompt": "Rédige un compte rendu de chantier pour pose chaudière : jour, lieu, travaux réalisés, anomalies éventuelles, suite à donner. Ton neutre et factuel.",
+          "usage": "Après chaque intervention. Gain de temps sur la paperasse."
+        },
+        {
+          "titre": "Email relance client",
+          "prompt": "Rédige un email de relance client pour devis plomberie en attente depuis [X] jours. Ton courtois, rappel du projet, proposition de prise de contact. 3-4 lignes.",
+          "usage": "Personnalisez la durée. Réutilisable pour tous vos devis en souffrance."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

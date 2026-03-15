@@ -60,6 +60,22 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts peintres : devis et descriptifs",
+      "content": [
+        {
+          "titre": "Devis peinture intérieure",
+          "prompt": "Rédige un devis peinture : [SURFACE] m², type (intérieur/extérieur), préparation (à préciser), nombre de couches, qualité des produits. Descriptif + conditions. Format professionnel.",
+          "usage": "Adaptez aux caractéristiques du chantier."
+        },
+        {
+          "titre": "Conseil techniques produits",
+          "prompt": "Quels types de peinture recommander pour [SUPPORT : plâtre, bois, métal] en [CONTEXTE : humidité, pièce à vivre...] ? Critères de choix, précautions. Réponse pratique pour un peintre.",
+          "usage": "Pour conseiller vos clients."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }

@@ -57,6 +57,22 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts menuisiers : devis et fiches techniques",
+      "content": [
+        {
+          "titre": "Devis menuiserie sur mesure",
+          "prompt": "Rédige un devis menuiserie : [ÉLÉMENT : porte, placard, escalier...], essence/matériau, dimensions, finitions. Descriptif technique + conditions. Format professionnel.",
+          "usage": "Base pour vos devis sur mesure."
+        },
+        {
+          "titre": "Fiche technique produit",
+          "prompt": "Rédige une fiche technique pour [PRODUIT : portail, fenêtre bois, dressing] destinée au client. Caractéristiques, entretien, garanties. Ton clair et professionnel.",
+          "usage": "Pour vos devis ou livrables."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }

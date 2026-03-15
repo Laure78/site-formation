@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis peintre avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis peinture intérieure",
+          "prompt": "Rédige un devis peintre pour : [SURFACE m² à peindre], [NOMBRE DE COUCHES], [TYPE : acrylique, glycéro, lasure]. Inclure préparation (lessivage, enduit, sous-couche), peinture, finitions. Format professionnel.",
+          "usage": "Adaptez surfaces et produits. Gain de temps sur la structure."
+        },
+        {
+          "titre": "Chiffrage peinture",
+          "prompt": "Calcule les quantités de peinture : pièce [L]x[l]x[H] m, [NOMBRE DE COUCHES]. Donne litres à prévoir, rendement du produit, temps estimé. Format tableau + conseils application.",
+          "usage": "Pour chiffrer vite avant rédaction."
+        },
+        {
+          "titre": "Conditions devis peinture",
+          "prompt": "Rédige les conditions d'un devis peinture : délais de séchage entre couches, conditions d'accès, réserves (humidité, température). Ton professionnel, 4 points.",
+          "usage": "Réutilisable sur tous vos devis."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

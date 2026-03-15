@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour automatiser vos emails clients",
+      "content": [
+        {
+          "titre": "Relance devis en attente",
+          "prompt": "Rédige un email de relance pour un devis envoyé il y a [X] jours. Ton courtois, rappel des points forts, proposition de rappel téléphonique. Pas de pression.",
+          "usage": "Adaptez le délai. Réutilisable en trame."
+        },
+        {
+          "titre": "Réponse à une réclamation",
+          "prompt": "Rédige une réponse professionnelle à un client mécontent. Contexte : [DÉCRIRE LE PROBLÈME]. Ton empathique, proposition de solution, engagement. Éviter le jargon juridique.",
+          "usage": "Personnalisez avec les faits avant envoi."
+        },
+        {
+          "titre": "Confirmation intervention",
+          "prompt": "Rédige un email de confirmation d'intervention : date, heure, lieu, nature des travaux, contact sur place. Ton professionnel.",
+          "usage": "Envoi après prise de RDV."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

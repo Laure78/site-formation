@@ -58,6 +58,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis charpentier avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis charpente traditionnelle",
+          "prompt": "Rédige un devis charpentier pour : [SURFACE m² à couvrir], [TYPE : traditionnelle, industrielle, fermettes]. Inclure dépose si nécessaire, bois, quincaillerie, pose. Format professionnel.",
+          "usage": "Adaptez surface et type de charpente. Structure prête à compléter."
+        },
+        {
+          "titre": "Chiffrage bois charpente",
+          "prompt": "Calcule les sections et quantités de bois pour charpente : portée [X] m, entraxe [Y] m, surface [Z] m². Donne pannes, fermes, chevrons, quantités. Format tableau.",
+          "usage": "Pour chiffrer avant rédaction du devis."
+        },
+        {
+          "titre": "Descriptif technique charpente",
+          "prompt": "Rédige le descriptif technique d'une charpente [TYPE]. Inclure essence bois, traitement, assemblages, normes. 4-5 points essentiels.",
+          "usage": "Réutilisable sur tous vos devis."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

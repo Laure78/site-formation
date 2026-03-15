@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour gains de temps carreleur",
+      "content": [
+        {
+          "titre": "Devis carrelage sol et mur",
+          "prompt": "Rédige un devis carreleur pour [SOL / MUR / SOL+ MUR] : surface [X] m², format carrelage [ex. 60x60], type pose [collée, scellée], joints. Inclure quantités, sous-couches si besoin.",
+          "usage": "Adaptez surface et type de pose. Base pour tous vos devis carrelage."
+        },
+        {
+          "titre": "Descriptif technique faïence salle de bain",
+          "prompt": "Rédige le descriptif technique d'une pose de faïence salle de bain : m², format, colle, joints époxy ou non. Inclure préparation des supports, étanchéité.",
+          "usage": "Pour vos devis détaillés. Professionnel et rassurant pour le client."
+        },
+        {
+          "titre": "Email suivi après pose",
+          "prompt": "Rédige un email de suivi client après pose de carrelage : rappel des conseils d'entretien, garanties, délai avant utilisation. Ton courtois et professionnel.",
+          "usage": "Envoi en fin de chantier. Renforce la relation client."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

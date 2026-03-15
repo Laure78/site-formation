@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis menuisier avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis menuiserie sur mesure",
+          "prompt": "Rédige un devis menuisier pour : [TYPE : cuisine, dressing, portes...]. Dimensions [L x H x P] cm, essence [BOIS], finition. Inclure descriptif technique, quantités, pose. Format professionnel.",
+          "usage": "Adaptez type et dimensions. Base pour structurer votre proposition."
+        },
+        {
+          "titre": "Chiffrage placard coulissant",
+          "prompt": "Liste les postes pour un placard coulissant : dimensions [X] x [Y] cm, type glissière, nombre de portes. Quantités de bois, quincaillerie, temps. Format tableau.",
+          "usage": "Pour estimer avant de fixer vos prix."
+        },
+        {
+          "titre": "Conditions pose menuiserie",
+          "prompt": "Rédige les conditions d'un devis menuiserie : délai de fabrication, conditions de pose, garanties. Ton professionnel, 4-5 points.",
+          "usage": "Réutilisable sur tous vos devis."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

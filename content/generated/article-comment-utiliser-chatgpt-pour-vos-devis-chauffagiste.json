@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis chauffagiste avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis chauffage central",
+          "prompt": "Rédige un devis chauffagiste pour : [TYPE : chaudière gaz, pompe à chaleur, chauffage urbain...]. Contexte : [SURFACE m², NOMBRE DE RADIATEURS, MARQUE SOUHAITÉE]. Inclure descriptif technique, garanties, entretien préconisé. Format professionnel.",
+          "usage": "Adaptez au type d'installation. Base pour structurer votre proposition."
+        },
+        {
+          "titre": "Chiffrage remplacement chaudière",
+          "prompt": "Liste les postes de dépense pour remplacer une chaudière [MARQUE, MODÈLE] par une [NOUVELLE MARQUE]. Inclure : dépose, installation, mise en service, évacuation. Format tableau avec fourchettes indicatives.",
+          "usage": "Pour estimer avant de fixer vos prix."
+        },
+        {
+          "titre": "Conditions et garanties devis chauffage",
+          "prompt": "Rédige les conditions générales d'un devis chauffagiste : garanties constructeur, entretien obligatoire, DTA. Ton professionnel, 4-5 points essentiels.",
+          "usage": "Réutilisable sur tous vos devis chauffage."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

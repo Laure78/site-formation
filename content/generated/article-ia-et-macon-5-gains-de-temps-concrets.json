@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour gains de temps maçon",
+      "content": [
+        {
+          "titre": "Chiffrage terrassement et fondations",
+          "prompt": "Estime les quantités pour terrassement et fondations : surface [X] m², profondeur, nature du sol. Donne volumes, temps estimé, points de vigilance (évacuation, accès).",
+          "usage": "Pour préparer vos devis gros œuvre. Ajustez selon le chantier."
+        },
+        {
+          "titre": "Devis élévation mur parpaing",
+          "prompt": "Rédige un devis maçon pour élévation mur en parpaing : longueur [X] m, hauteur [Y] m. Inclure quantités (parpaings, mortier, ferraillage), délai, conditions.",
+          "usage": "Structure du devis prête. Complétez avec vos tarifs."
+        },
+        {
+          "titre": "CR chantier gros œuvre",
+          "prompt": "Rédige un compte rendu de chantier maçonnerie : jour, travaux réalisés, avancement (%), météo, points bloquants. Format court pour maître d'œuvre.",
+          "usage": "Traçabilité chantier. Adaptable à tous types de gros œuvre."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

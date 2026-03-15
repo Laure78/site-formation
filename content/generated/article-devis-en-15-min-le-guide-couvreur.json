@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis couvreur avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis toiture et couverture",
+          "prompt": "Rédige un devis couvreur pour : [SURFACE m² de toiture], [TYPE : ardoise, tuile, zinc, bac acier]. Inclure dépose ancienne couverture, écran sous-toiture, pose neige, évacuation eaux. Format professionnel.",
+          "usage": "Adaptez surface et matériaux. Structure du devis prête."
+        },
+        {
+          "titre": "Chiffrage quantité ardoises/tuiles",
+          "prompt": "Calcule les quantités pour toiture : surface [X] m², pente [%], type [ardoise/tuile]. Donne nombre de pièces, liteaux, écran, clous. Comptez 10% de perte. Format tableau.",
+          "usage": "Pour chiffrer avant rédaction du devis."
+        },
+        {
+          "titre": "Descriptif technique couverture",
+          "prompt": "Rédige le descriptif technique d'une intervention couverture : [TYPE D'INTERVENTION]. Inclure normes DTU, étanchéité, évacuation, garanties. 4-5 points essentiels.",
+          "usage": "Réutilisable sur vos devis toiture."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }

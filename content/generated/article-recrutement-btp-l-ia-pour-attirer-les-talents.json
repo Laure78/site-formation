@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour le recrutement BTP avec l'IA",
+      "content": [
+        {
+          "titre": "Offre d'emploi BTP",
+          "prompt": "Rédige une offre d'emploi pour un [POSTE : conducteur travaux, maçon, plombier...]. Entreprise [TAILLE], secteur [BTP/VRD/…]. Inclure missions, compétences, avantages. Ton attractif.",
+          "usage": "Adaptez poste et contexte. Publiez sur Pôle emploi, LinkedIn."
+        },
+        {
+          "titre": "Annonce courte réseaux",
+          "prompt": "Rédige une annonce courte (80 mots) pour recruter un [POSTE]. Mettre en avant : secteur, lieu, mission principale, contact. Style direct.",
+          "usage": "Pour LinkedIn, Indeed, groupes Facebook BTP."
+        },
+        {
+          "titre": "Email de relance candidat",
+          "prompt": "Rédige un email de relance courtois à un candidat pour un poste de [POSTE]. Rappel de l'étape en cours, proposition de date d'entretien si pertinent.",
+          "usage": "Garder un bon rapport candidat-recruteur."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

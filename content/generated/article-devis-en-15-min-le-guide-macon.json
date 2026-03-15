@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis maçon avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis terrassement et gros œuvre",
+          "prompt": "Rédige un devis maçon pour : [SURFACE m², NATURE DES OUVRAGES : fondations, élévation, dallage...]. Inclure descriptif technique, quantités, unités, conditions (assurance décennale, délais). Format professionnel, prêt à compléter avec mes prix.",
+          "usage": "Adaptez surface et ouvrages. Gain de temps sur la structure du document."
+        },
+        {
+          "titre": "Chiffrage mur en parpaing",
+          "prompt": "Calcule les quantités pour un mur en parpaing : longueur [X] m, hauteur [Y] m. Donne le nombre de parpaings, de sacs de mortier, temps estimé. Format tableau + recommandations (joints, ferraillage).",
+          "usage": "Pour chiffrer vite avant rédaction du devis."
+        },
+        {
+          "titre": "Conditions générales devis maçon",
+          "prompt": "Rédige les conditions générales d'un devis de maçonnerie : délais d'exécution, modalités de paiement, assurance décennale, réserves météo. Ton professionnel, 4-5 points essentiels.",
+          "usage": "Réutilisable sur tous vos devis."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

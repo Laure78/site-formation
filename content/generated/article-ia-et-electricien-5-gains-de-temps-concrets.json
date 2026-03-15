@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour gains de temps électricien",
+      "content": [
+        {
+          "titre": "Devis électricité rénovation",
+          "prompt": "Rédige un devis électricien pour [TYPE : rénovation, mise aux normes, tableau neuf...] : superficie [X] m², pièces, puissance. Inclure descriptif technique, normes NF C 15-100, garanties décennale.",
+          "usage": "Adaptez le type de prestation. Structure claire pour le client."
+        },
+        {
+          "titre": "Descriptif technique installation",
+          "prompt": "Rédige le descriptif technique d'une installation électrique : [NOMBRE DE POINTS], tableau, protections. Inclure les références des matériaux, conformité NF.",
+          "usage": "Pour compléter vos devis ou rapports de fin de chantier."
+        },
+        {
+          "titre": "CR intervention dépannage",
+          "prompt": "Rédige un compte rendu d'intervention électrique : date, lieu, diagnostic, travaux effectués, conseils au client. Format professionnel.",
+          "usage": "Traçabilité et facturation. Après chaque dépannage."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

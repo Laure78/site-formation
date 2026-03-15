@@ -78,6 +78,48 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
+        type: 'prompts',
+        title: 'Prompts pour préparer votre demande de financement',
+        content: [
+          {
+            titre: 'Email demande de devis formation',
+            prompt:
+              "Rédige un email professionnel à envoyer à [ORGANISME DE FORMATION] pour demander un devis de formation IA BTP. Contexte : entreprise du BTP, [X] salariés, formation pour [CHARGE D'AFFAIRES / DIRIGEANT / ÉQUIPE]. Mentionner : financement OPCO Constructys, certification Qualiopi recherchée.",
+            usage: "Adaptez le contexte. Idéal pour lancer votre démarche de financement.",
+          },
+          {
+            titre: 'Checklist pièces à fournir à l\'OPCO',
+            prompt:
+              "Liste les pièces habituellement demandées par Constructys pour une demande de financement de formation. Contexte : entreprise BTP, formation IA certifiée Qualiopi. Format : liste numérotée claire avec brève explication de chaque document.",
+            usage: "Pour anticiper la constitution de votre dossier.",
+          },
+        ],
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts pour préparer votre financement',
+        content: [
+          {
+            titre: 'Email demande de devis formation',
+            prompt:
+              "Rédige un email court et professionnel à mon OPCO (Constructys) pour demander un devis de formation IA BTP. Entreprise du bâtiment, [X] salariés. Je souhaite former [équipes/commerciaux/chargés d'affaires] à l'utilisation de ChatGPT pour les devis et l'administratif. Demande de prise en charge dans le cadre du plan de développement des compétences.",
+            usage: 'Adaptez le public cible et le nombre de salariés.',
+          },
+          {
+            titre: 'Checklist démarches OPCO',
+            prompt:
+              "Liste les étapes et documents à préparer pour faire financer une formation par l'OPCO Constructys (BTP). Inclus : délais, pièces à fournir, interlocuteurs. Format checklist opérationnelle.",
+            usage: "Pour ne rien oublier dans vos démarches.",
+          },
+          {
+            titre: 'Argumentaire formation IA BTP',
+            prompt:
+              "Rédige 3 arguments courts (2-3 phrases chacun) pour convaincre ma direction d'investir dans une formation IA BTP : gains productivité, ROI, financement 100% OPCO. Ton professionnel, secteur bâtiment.",
+            usage: 'Pour présenter le projet en interne.',
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: 'Demandez un devis personnalisé pour votre formation IA BTP. 100% finançable Constructys.',
       },
@@ -259,6 +301,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Laure Olivié propose des formations IA adaptées aux professionnels du BTP à Lyon, Villeurbanne, Vénissieux et dans toute la métropole. Formation 4h ou 7h, 100% pratique, finançable Constructys.",
       },
       {
+        type: 'prompts',
+        title: 'Prompts IA BTP — Lyon et Auvergne-Rhône-Alpes',
+        content: [
+          {
+            titre: 'Devis chantier BTP',
+            prompt:
+              "Rédige un devis professionnel pour [plomberie/électricité/maçonnerie] à Lyon. Projet : [TYPE DE TRAVAUX]. Prestations : [LISTER]. Quantités : [DÉTAILS]. Inclure fournitures, main d'œuvre, TVA 10%, validité 30 jours, conditions paiement BTP.",
+            usage: "Adaptez le métier et le type de chantier. Idéal pour artisans de la région.",
+          },
+          {
+            titre: 'CR de chantier structuré',
+            prompt:
+              "Rédige un compte rendu de chantier pour [DATE] sur [LIEU/PROJET]. Points abordés : [LISTER]. Suite à donner : [LISTER]. Avancement : [X]%. Format professionnel BTP.",
+            usage: 'Pour tracer les décisions et l\'avancement.',
+          },
+          {
+            titre: 'Email relance client',
+            prompt:
+              "Rédige un email de relance professionnel pour [VOTRE MÉTIER] à un client. Contexte : [relance devis / confirmation RDV / suivi chantier]. Ton courtois, adapté au BTP, 5 phrases max.",
+            usage: 'Personnalisez le contexte selon votre situation.',
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: 'Réservez votre formation IA BTP à Lyon. Devis personnalisé sous 24h.',
         formationHref: '/formations/ia-btp-lyon',
@@ -296,6 +362,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Formation IA BTP à Bordeaux, Mérignac, Pessac et dans toute la Nouvelle-Aquitaine. Méthode 100% pratique, trames et prompts prêts à l'emploi. Financement OPCO Constructys.",
       },
       {
+        type: 'prompts',
+        title: 'Prompts ChatGPT BTP — Bordeaux et Gironde',
+        content: [
+          {
+            titre: 'Synthèse DCE pour AO',
+            prompt:
+              "Analyse ce DCE et identifie : 1) les exigences techniques principales pour mon lot ; 2) les critères de sélection et leur pondération ; 3) les points de vigilance ; 4) les éléments à valoriser dans le mémoire technique. Présente une synthèse claire pour une PME du BTP.",
+            usage: 'Collez un extrait de DCE. Gain de temps considérable sur l\'analyse.',
+          },
+          {
+            titre: 'Organisation chantier',
+            prompt:
+              "Rédige un planning de chantier pour [TYPE DE PROJET]. Étapes : [LISTER]. Corps de métier concernés : [LISTER]. Délai total : [X] jours/semaines. Format tableau ou liste chronologique.",
+            usage: 'Pour coordonner les interventions sur un chantier.',
+          },
+          {
+            titre: 'Email administratif BTP',
+            prompt:
+              "Rédige un email professionnel pour [URGENCE PAIEMENT / DEMANDE DEVIS / RÉCLAMATION / CONFIRMATION]. Contexte BTP. Ton courtois, factuel, 5 phrases max.",
+            usage: 'Adaptez le type de demande selon votre besoin.',
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: 'Découvrez notre formation IA BTP à Bordeaux. 100% finançable.',
         formationHref: '/formations/ia-btp-bordeaux',
@@ -331,6 +421,24 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Formation appels d\'offres BTP à Lille',
         content:
           "Formation dédiée aux appels d'offres BTP à Lille et en Nord-Pas-de-Calais. Travail sur vos vrais DCE, prompts par métier, bonnes pratiques confidentialité. Qualiopi · Constructys.",
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts IA appels d\'offres — Lille et Hauts-de-France',
+        content: [
+          {
+            titre: 'Analyse rapide DCE',
+            prompt:
+              "Analyse ce DCE et identifie : 1) les exigences techniques principales pour mon lot ; 2) les critères de sélection et leur pondération ; 3) les délais clés ; 4) les points de vigilance. Synthèse claire pour une PME du BTP.",
+            usage: 'Collez un extrait de DCE. Gain de temps considérable.',
+          },
+          {
+            titre: 'Plan de mémoire technique',
+            prompt:
+              "Propose un plan de mémoire technique pour un projet [TYPE : VRD, rénovation, neuf]. Critères à valoriser : [LISTER]. Structure : présentation entreprise, méthodologie, moyens, planning, engagements.",
+            usage: 'Adaptez au type de chantier. Base de rédaction.',
+          },
+        ],
       },
       {
         type: 'cta',
@@ -388,6 +496,24 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
+        type: 'prompts',
+        title: 'Prompts pour prospecter en tant que formateur',
+        content: [
+          {
+            titre: 'Email candidature OF',
+            prompt:
+              "Rédige un email de candidature pour un organisme de formation. Contexte : formateur indépendant, spécialité [SUJET], publics [DIRIGEANTS / ÉQUIPES / SECTEUR]. Ton professionnel, 5-6 lignes max, proposition de valeur claire.",
+            usage: 'Adaptez sujet et publics. À envoyer avec CV et références.',
+          },
+          {
+            titre: 'Email prospection entreprise',
+            prompt:
+              "Rédige un email de prospection pour proposer une formation [SUJET] à une PME [SECTEUR]. Entreprise cible : [TYPE]. Bénéfices attendus : [2-3 POINTS]. Ton direct, pas de jargon, CTA : échange de 15 min.",
+            usage: 'Personnalisez pour chaque cible.',
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: "Rejoignez 4 200+ formateurs qui partagent leurs astuces et opportunités. Échanges, mutualisation et soutien au quotidien.",
         ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
@@ -437,6 +563,24 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Par où commencer quand on débute ? — Profil LinkedIn + 2–3 OF contactés + une page offre. Puis prospection régulière.",
           "Combien de temps pour voir des résultats ? — Les premiers signaux : 1 à 3 mois. Une activité stable : souvent 6 à 12 mois.",
           "La certification Qualiopi est-elle obligatoire ? — Pour former des salariés en plan de développement des compétences, oui. En B2B direct, c'est un atout majeur.",
+        ],
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts pour développer votre activité',
+        content: [
+          {
+            titre: 'Bio LinkedIn formateur',
+            prompt:
+              "Rédige une bio LinkedIn pour un formateur indépendant. Spécialité : [SUJET]. Publics : [CIBLE]. Bénéfices : [2-3 RÉSULTATS]. Ton professionnel, 150 mots max. Inclure un CTA vers prise de contact.",
+            usage: 'Optimisez votre profil pour attirer des missions.',
+          },
+          {
+            titre: 'Relance douce (J+7)',
+            prompt:
+              "Rédige un email de relance pour un prospect [OF / ENTREPRISE] contacté il y a 7 jours. Rappel de ma proposition : formation [SUJET]. Ton courtois, pas insistant, propose un créneau d'échange.",
+            usage: 'Les relances convertissent. À personnaliser.',
+          },
         ],
       },
       {
@@ -492,6 +636,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
+        type: 'prompts',
+        title: 'Prompts prospection formation — cold outreach et relances',
+        content: [
+          {
+            titre: 'Email OF — candidature intervenue',
+            prompt:
+              "Rédige un email de présentation pour un OF. Contexte : formateur, domaine [VOTRE EXPERTISE], références [X] formations. Propositions : interventions, co-animation, mise en relation. 5 lignes max, lien vers CV ou site. Ton professionnel.",
+            usage: "Ciblez 3-5 OF. Personnalisez le domaine selon chaque OF.",
+          },
+          {
+            titre: 'Sujet email prospection B2B',
+            prompt:
+              "Génère 5 sujets d'email pour une prospection formateur → PME [SECTEUR]. Proposition : formation [SUJET]. Objectif : taux d'ouverture. Éviter le spam, privilégier la curiosité et la pertinence.",
+            usage: "Testez les sujets. Un bon sujet = email ouvert.",
+          },
+          {
+            titre: 'Relance J+21 (dernière)',
+            prompt:
+              "Rédige une dernière relance pour un prospect contacté à J+0 et J+7. Contexte : [FORMATION PROPOSÉE]. Ton : courtois, pas insistant. Proposer de ne plus recontacter si pas d'intérêt. Une phrase d'accroche, une de rappel, une de clôture.",
+            usage: "Dernière tentative avant d'archiver le prospect.",
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: "Rejoignez la communauté pour échanger sur vos méthodes de prospection. Retours d'expérience et mutualisation au quotidien.",
         ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
@@ -539,6 +707,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: "Coller un extrait de CCTP dans ChatGPT et demander une synthèse des exigences, des critères de sélection et des points de vigilance. Vous obtenez une fiche de travail en quelques secondes. Consultez notre formation IA appels d'offres BTP pour maîtriser ces usages.",
       },
       {
+        type: 'prompts',
+        title: 'Prompts pour analyser un CCTP avec l\'IA',
+        content: [
+          {
+            titre: 'Synthèse CCTP complète',
+            prompt:
+              "Analyse ce CCTP et identifie : 1) les exigences techniques principales ; 2) les critères de sélection ; 3) les points de vigilance ; 4) les éléments à valoriser dans le mémoire technique. Présente une synthèse claire pour une PME du BTP.",
+            usage: 'Collez un extrait de CCTP. Gain de temps considérable sur la lecture.',
+          },
+          {
+            titre: 'Extraction normes et quantitatifs',
+            prompt:
+              "Liste les normes (DTU, NF) et les quantitatifs (m², ml, u.) mentionnés dans ce CCTP pour le lot [VOTRE LOT]. Format : tableau ou liste structurée. Indique les contrôles demandés.",
+            usage: 'Pour préparer votre chiffrage et vérifier la conformité.',
+          },
+          {
+            titre: 'Checklist clauses éliminatoires',
+            prompt:
+              "Identifie les clauses éliminatoires ou à ne pas manquer dans ce CCTP. Liste les éléments qui pourraient faire rejeter le dossier si non respectés. Format : liste de vigilance.",
+            usage: "Évitez les erreurs fatales à l'analyse.",
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: 'Formation IA appels d\'offres BTP — Analysez un DCE en 30 min. 100% finançable Constructys.',
       },
@@ -577,6 +769,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Erreurs fréquentes',
         content: "Mémoire trop générique, oubli de critères, texte illisible ou trop long. Les PME manquent souvent de temps pour soigner la rédaction. L'IA permet de produire des premières versions à personnaliser.",
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts pour rédiger un mémoire technique avec l\'IA',
+        content: [
+          {
+            titre: 'Plan de mémoire technique',
+            prompt:
+              "Propose un plan de mémoire technique pour un appel d'offres [TYPE DE PROJET : VRD, second œuvre, réhabilitation...]. Critères à respecter : [LISTER LES CRITÈRES DU RÈGLEMENT]. Structure : présentation entreprise, méthodologie, moyens, planification, engagements.",
+            usage: 'Adaptez au type de chantier. Base pour structurer votre rédaction.',
+          },
+          {
+            titre: 'Rédaction section méthodologie',
+            prompt:
+              "Rédige la section « Méthodologie » d'un mémoire technique pour [VOTRE LOT]. Contexte : [BRIEF DU PROJET]. Inclure : phases de travail, points de vigilance, adaptation au CCTP. Ton professionnel, 3-4 paragraphes.",
+            usage: "Fournissez vos éléments. L'IA structure et reformule.",
+          },
+          {
+            titre: 'Valorisation des références',
+            prompt:
+              "Reformule ces références chantiers en format professionnel pour un mémoire technique : [VOS RÉFÉRENCES]. Mettre en avant les chantiers similaires, les volumes, les maîtres d'ouvrage. Format bullet points ou paragraphes courts.",
+            usage: 'Transformez vos notes en argumentaire convaincant.',
+          },
+        ],
       },
       {
         type: 'cta',
@@ -619,6 +835,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: "Le mémoire technique est souvent le critère le plus important. Il valorise votre expertise et démontre votre capacité à réaliser le projet. Soignez la structure et l'argumentaire.",
       },
       {
+        type: 'prompts',
+        title: 'Prompts pour répondre à un appel d\'offre travaux',
+        content: [
+          {
+            titre: 'Checklist éligibilité',
+            prompt:
+              "À partir de ce règlement de consultation, liste : 1) les critères d'exclusion (ce qui élimine automatiquement) ; 2) les pièces obligatoires à fournir ; 3) les délais clés (dépôt, ouverture). Format checklist exploitable.",
+            usage: "Collez l'extrait pertinent. Évitez les dossiers incomplets.",
+          },
+          {
+            titre: 'Synthèse multi-sections DCE',
+            prompt:
+              "J'ai extrait les sections suivantes de mon DCE : [COLLER EXTRAITS]. Synthétise en une fiche unique : exigences techniques, critères de sélection pondérés, délais, points de vigilance pour mon lot [VOTRE LOT]. Priorise les éléments à traiter en premier.",
+            usage: 'Consolidez votre analyse. Gain de temps sur les DCE longs.',
+          },
+          {
+            titre: 'Structure dossier de candidature',
+            prompt:
+              "Propose un plan de constitution du dossier pour cet appel d'offres. Lot concerné : [VOTRE LOT]. Inclure : formulaire, pièces administratives, mémoire technique, annexes. Checklist avec statut (à faire / fait) et ordre recommandé.",
+            usage: "Pour ne rien oublier avant la date limite.",
+          },
+        ],
+      },
+      {
         type: 'cta',
         content: 'Formation IA appels d\'offres BTP — 7h opérationnelles. 100% finançable.',
       },
@@ -656,6 +896,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Synthèse des exigences',
         content: "L'IA liste les points à ne pas manquer : normes, contrôles, pièces à fournir. Vous priorisez selon votre lot et votre méthodologie. Ne partagez jamais de données confidentielles dans des outils publics.",
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts pour analyser un DCE avec l\'IA',
+        content: [
+          {
+            titre: 'Synthèse DCE par section',
+            prompt:
+              "Analyse ce DCE et identifie : 1) les exigences techniques principales pour mon lot ; 2) les critères de sélection et leur pondération ; 3) les points de vigilance ; 4) les éléments à valoriser dans le mémoire technique. Présente une synthèse claire pour une PME du BTP.",
+            usage: 'Collez un extrait de DCE. Gain de temps considérable sur l\'analyse.',
+          },
+          {
+            titre: 'Extraction délais et pièces',
+            prompt:
+              "Liste tous les délais (dépôt, ouverture, durée validité) et les pièces à fournir mentionnés dans ce document. Format : tableau avec date/élément et statut (à faire / récupéré). Contexte : réponse appel d'offres BTP.",
+            usage: "Pour planifier la constitution de votre dossier.",
+          },
+          {
+            titre: 'Comparatif critères de sélection',
+            prompt:
+              "Les critères de sélection de ce DCE sont : [COLLER]. Explique ce que le maître d'ouvrage valorise dans chaque critère. Propose des axes d'argumentation pour le mémoire technique. Adapté au lot [VOTRE LOT].",
+            usage: 'Pour aligner votre réponse sur les attentes du jury.',
+          },
+        ],
       },
       {
         type: 'cta',

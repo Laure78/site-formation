@@ -78,6 +78,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis électricien avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis mise aux normes électrique",
+          "prompt": "Rédige un devis électricien pour mise aux normes : [SURFACE m², NOMBRE DE PIÈCES]. Inclure tableau, prises, éclairage, attestation Consuel. Format professionnel.",
+          "usage": "Adaptez surface et pièces. Base pour structurer votre proposition."
+        },
+        {
+          "titre": "Chiffrage tableau électrique",
+          "prompt": "Liste les postes pour un nouveau tableau : disjoncteur général, nombre de circuits, type (NF C 15-100). Quantités de disjoncteurs, câbles, temps. Format tableau.",
+          "usage": "Pour chiffrer avant rédaction du devis."
+        },
+        {
+          "titre": "Descriptif installation domotique",
+          "prompt": "Rédige le descriptif technique d'une installation domotique : [NOMBRE DE POINTS], pilotage éclairage/chauffage. Inclure garanties et SAV. Ton professionnel.",
+          "usage": "Pour valoriser vos prestations domotique."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

@@ -57,6 +57,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis menuisier avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis pose portes et fenêtres",
+          "prompt": "Rédige un devis menuisier pour : [NOMBRE] portes/fenêtres, dimensions, type (PVC/bois/aluminium). Inclure fourniture, pose, finitions, évacuation anciennes. Descriptif technique et conditions. Prêt à compléter avec mes prix.",
+          "usage": "Adaptez quantités et matériaux."
+        },
+        {
+          "titre": "Devis cuisine sur mesure",
+          "prompt": "Rédige un devis menuisier cuisine : [nombre] m² plans, type placards (hauts/bas), matériaux souhaités. Inclure prise de cotes, fabrication, pose, finitions. Structure détaillée par poste.",
+          "usage": "Pour vos chantiers aménagement."
+        },
+        {
+          "titre": "Quantités bois et quincaillerie",
+          "prompt": "Pour [description ouvrage menuiserie], estime les quantités : m² de panneaux, ml de tasseaux, quincaillerie (charnières, poignées). Format tableau avec unités.",
+          "usage": "Chiffrage avant rédaction devis."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

@@ -78,6 +78,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour devis plombier avec ChatGPT",
+      "content": [
+        {
+          "titre": "Devis rénovation salle de bain",
+          "prompt": "Rédige un devis plombier pour rénovation salle de bain : [SURFACE m², PRESTATIONS : dépose, sanitaire, raccordements, évacuations...]. Inclure descriptif, quantités, conditions. Format professionnel, prêt à compléter avec mes prix.",
+          "usage": "Adaptez surface et prestations. Gain de temps sur la structure."
+        },
+        {
+          "titre": "Chiffrage installation WC",
+          "prompt": "Liste les postes pour installer un WC : pose, raccordement eau, évacuation, carrelage si besoin. Donne les quantités (mètres de tuyaux, colliers, etc.) et un ordre de grandeur de temps. Format tableau.",
+          "usage": "Pour chiffrer vite avant rédaction du devis."
+        },
+        {
+          "titre": "Descriptif technique chauffe-eau",
+          "prompt": "Rédige le descriptif technique pour le remplacement d'un chauffe-eau : capacité [X] L, type [gaz/électrique], pose. Inclure garanties et entretien. Ton professionnel.",
+          "usage": "Réutilisable pour vos devis chauffe-eau."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

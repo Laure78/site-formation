@@ -57,6 +57,22 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts couvreurs : devis et chiffrage",
+      "content": [
+        {
+          "titre": "Chiffrage couverture tuiles",
+          "prompt": "Calcule les quantités pour une toiture : surface [X] m², pente [Y]%, type de tuile [mécanique, terre cuite...]. Nombre de tuiles, liteaux, écran sous-toiture. Format tableau.",
+          "usage": "Pour estimer avant visite."
+        },
+        {
+          "titre": "Devis réparation toiture",
+          "prompt": "Rédige un devis pour réparation toiture : [DESCRIPTION : fuite, tuiles cassées, faîtage...]. Inclure diagnostic, prestations, garanties. Ton professionnel.",
+          "usage": "Personnalisez selon le sinistre."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }

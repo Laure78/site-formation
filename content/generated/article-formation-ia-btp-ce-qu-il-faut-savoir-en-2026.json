@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour démarrer avec l'IA en BTP",
+      "content": [
+        {
+          "titre": "Premier devis avec ChatGPT",
+          "prompt": "Rédige un devis [MÉTIER] pour : [PRESTATIONS, SURFACE/QUANTITÉ]. Inclure descriptif, unités, conditions (délais, assurance). Format professionnel, prêt à compléter mes prix.",
+          "usage": "Remplacez par votre métier et les infos du chantier."
+        },
+        {
+          "titre": "CR chantier structuré",
+          "prompt": "Génère une trame de compte rendu de chantier : date, lieu, présents, travaux réalisés, points de blocage, prochaines étapes. Format bullet points.",
+          "usage": "Complétez ensuite avec vos notes terrain."
+        },
+        {
+          "titre": "Email client professionnel",
+          "prompt": "Rédige un email [RELANCE/REPONSE RÉCLAMATION/CONFIRMATION RDV] pour un client BTP. Ton courtois et professionnel. Contexte : [DÉCRIRE BRIÈVEMENT].",
+          "usage": "Adaptez le type d'email et le contexte."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }

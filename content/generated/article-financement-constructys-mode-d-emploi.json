@@ -60,6 +60,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour le financement Constructys",
+      "content": [
+        {
+          "titre": "Lettre de motivation formation",
+          "prompt": "Rédige une lettre de motivation pour une demande de financement Constructys. Formation : [NOM/SUJET]. Entreprise : [SECTEUR BTP, EFFECTIF]. Mettre en avant : objectifs, lien avec l'activité, besoins.",
+          "usage": "Pour accompagner votre dossier de financement."
+        },
+        {
+          "titre": "Plan de développement des compétences",
+          "prompt": "Propose un plan de développement des compétences pour une TPE BTP de [X] salariés. Priorités : formation IA, productivité, transition digitale. Format synthétique pour OPCO.",
+          "usage": "Cadre pour vos demandes de formation."
+        },
+        {
+          "titre": "Synthèse coûts formation",
+          "prompt": "Liste les éléments de coût à inclure dans un devis formation BTP pour Constructys : honoraires, supports, évaluation, certification. Rappel des règles OPCO.",
+          "usage": "Pour préparer un devis conforme."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }

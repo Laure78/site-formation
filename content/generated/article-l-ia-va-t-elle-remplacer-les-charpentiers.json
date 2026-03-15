@@ -57,6 +57,22 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "Prompts pour charpentiers : devis et assistance terrain",
+      "content": [
+        {
+          "titre": "Descriptif technique charpente",
+          "prompt": "Rédige le descriptif technique d'une charpente pour un devis : [TYPE : traditionnelle, industrielle, fermette]. Surface [X] m², essence [ bois], portée. Inclure les prestations (fabrication, pose, traitement). Ton professionnel.",
+          "usage": "Base pour vos devis charpente."
+        },
+        {
+          "titre": "Aide à la prise de décision",
+          "prompt": "En tant que charpentier, je dois choisir entre [OPTION A] et [OPTION B] pour [CONTEXTE CHANTIER]. Avantages, inconvénients, critères de choix. Format synthétique.",
+          "usage": "Pour arbitrer rapidement sur un chantier."
+        }
+      ]
+    },
+    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
