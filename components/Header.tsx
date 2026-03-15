@@ -19,11 +19,6 @@ const NAV_ITEMS: {
       { href: '/#programme', label: "L'IA au service du BTP" },
       { href: '/formations/ia-travaux-publics', label: 'IA & Travaux Publics' },
       { href: '/formations/ia-appels-offre-btp', label: 'IA appels d\'offre BTP' },
-      { href: '/formations/ia-btp-ile-de-france', label: 'IA BTP - Île-de-France' },
-      { href: '/formations/ia-btp-paris', label: 'IA BTP - Paris' },
-      { href: '/formations/ia-btp-lyon', label: 'IA BTP - Lyon' },
-      { href: '/formations/ia-btp-bordeaux', label: 'IA BTP - Bordeaux' },
-      { href: '/formations/ia-btp-lille', label: 'IA BTP - Lille' },
       {
         href: '/formations/ia-productivite-chantier',
         label: 'IA : Productivité chantier',

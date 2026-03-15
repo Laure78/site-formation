@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Calendar } from 'lucide-react';
+import { Calendar, Phone, Video } from 'lucide-react';
 import { createProspectAndAppointment, type QualificationFormData } from '@/app/actions/prospects';
 
 const SECTEURS = [
@@ -57,6 +57,7 @@ export function QualificationForm({ slotIso, endAtIso }: Props) {
     setSubmitting(true);
     setError(null);
 
+    const typeRdv = (fd.get('type_rdv') as string) === 'telephone' ? 'telephone' : 'visio';
     const result = await createProspectAndAppointment({
       start_at: slotIso,
       end_at: endAtIso,
@@ -71,6 +72,7 @@ export function QualificationForm({ slotIso, endAtIso }: Props) {
       objectif: (fd.get('objectif') as string) || undefined,
       budget: (fd.get('budget') as string) || undefined,
       projet: (fd.get('projet') as string)?.trim() || undefined,
+      type_rdv: typeRdv,
     });
 
     setSubmitting(false);
@@ -94,6 +96,23 @@ export function QualificationForm({ slotIso, endAtIso }: Props) {
           {error}
         </div>
       )}
+
+      <div className="rounded-xl border border-slate-200 bg-white p-6">
+        <h3 className="font-semibold text-slate-900">Type de rendez-vous</h3>
+        <p className="mt-1 text-sm text-slate-600">Choisissez comment vous souhaitez échanger</p>
+        <div className="mt-4 flex flex-wrap gap-4">
+          <label className="flex cursor-pointer items-center gap-2 rounded-xl border-2 border-slate-200 px-4 py-3 transition-colors has-[:checked]:border-[var(--accent)] has-[:checked]:bg-[var(--accent-soft)]">
+            <input type="radio" name="type_rdv" value="visio" defaultChecked className="sr-only" />
+            <Video size={20} strokeWidth={1.5} className="text-[var(--accent)]" />
+            <span className="font-medium">Visio Google Meet</span>
+          </label>
+          <label className="flex cursor-pointer items-center gap-2 rounded-xl border-2 border-slate-200 px-4 py-3 transition-colors has-[:checked]:border-[var(--accent)] has-[:checked]:bg-[var(--accent-soft)]">
+            <input type="radio" name="type_rdv" value="telephone" className="sr-only" />
+            <Phone size={20} strokeWidth={1.5} className="text-[var(--accent)]" />
+            <span className="font-medium">Téléphone</span>
+          </label>
+        </div>
+      </div>
 
       <div className="rounded-xl border border-slate-200 bg-white p-6">
         <h3 className="font-semibold text-slate-900">Vos coordonnées</h3>

@@ -2,6 +2,7 @@
 
 import { createClient } from '@/lib/supabase/server';
 import { isSlotWithinBookingWindow } from '@/app/actions/booking-settings';
+import { createCalendarEvent } from '@/lib/google-calendar';
 import { Resend } from 'resend';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -26,6 +27,7 @@ export type QualificationFormData = {
   objectif?: Objectif | string;
   budget?: Budget | string;
   projet?: string;
+  type_rdv?: 'telephone' | 'visio';
 };
 
 function computeLeadScore(q: QualificationFormData): number {
@@ -78,14 +80,40 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
     return { ok: false, error: errProspect.message };
   }
 
+  const typeRdv = (q.type_rdv === 'telephone' ? 'telephone' : 'visio') as 'telephone' | 'visio';
+  const clientName = `${q.prenom} ${q.nom}`;
+
+  // Créer l'événement dans Google Calendar (ton agenda)
+  let googleEventId: string | null = null;
+  let meetLink: string | undefined;
+  const calResult = await createCalendarEvent({
+    title: `RDV formation IA — ${clientName}`,
+    startAt,
+    endAt,
+    clientName,
+    clientEmail: q.email.trim().toLowerCase(),
+    clientPhone: q.telephone || null,
+    clientMessage: q.projet || null,
+    typeRdv,
+  });
+  if (calResult.ok && calResult.eventId) {
+    googleEventId = calResult.eventId;
+    meetLink = calResult.meetLink;
+  } else if (calResult.error) {
+    console.error('[Google Calendar]', calResult.error);
+    // On continue malgré tout : RDV sauvegardé en base, mais pas dans l'agenda
+  }
+
   const { error: errAppt } = await supabase.from('appointments').insert({
     start_at: startAt,
     end_at: endAt,
-    client_name: `${q.prenom} ${q.nom}`,
+    client_name: clientName,
     client_email: q.email,
     client_phone: q.telephone || null,
     client_message: q.projet || null,
     prospect_id: prospect.id,
+    type_rdv: typeRdv,
+    google_event_id: googleEventId,
   });
 
   if (errAppt) {
@@ -106,6 +134,10 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
 
   if (resend) {
     const questionnaireLink = `${baseUrl}/questionnaire/${questionnaireToken}`;
+    const typeRdvBlock =
+      typeRdv === 'visio' && meetLink
+        ? `<p><strong>Lien de la visio :</strong> <a href="${meetLink}" style="color:#166534;">${meetLink}</a></p><p>Vous recevrez également une invitation Google Calendar avec le lien Meet.</p>`
+        : `<p><strong>Mode :</strong> Appel téléphonique — je vous appellerai au ${q.telephone || 'numéro indiqué'} à l'heure prévue.</p>`;
     const { error: errEmail } = await resend.emails.send({
       from: 'Laure Olivié <noreply@laureolivie.fr>',
       to: q.email.trim().toLowerCase(),
@@ -114,6 +146,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
         <p>Bonjour ${q.prenom},</p>
         <p>Votre rendez-vous a bien été enregistré.</p>
         <p><strong>Date et heure :</strong> ${rdvDate} (30 minutes)</p>
+        ${typeRdvBlock}
         <p>Avant notre échange, vous pouvez compléter ce court questionnaire pour mieux préparer notre discussion :</p>
         <p><a href="${questionnaireLink}" style="display:inline-block;background:#166534;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Remplir le questionnaire</a></p>
         <p>Une question ? Contactez-moi au 06 95 66 18 18 ou par email à contact@laureolivie.fr.</p>
