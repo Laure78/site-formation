@@ -180,7 +180,7 @@ export function Footer() {
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
             >
               <Linkedin size={20} strokeWidth={1.5} />
-            </ExternalLink>
+            </ExternalLinkAnchor>
             <a
               href="mailto:contact@laureolivie.fr"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
