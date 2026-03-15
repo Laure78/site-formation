@@ -27,8 +27,9 @@ async function enrichWithAI(article: ReturnType<typeof generateArticle>): Promis
   for (let i = 0; i < article.sections.length; i++) {
     const s = article.sections[i];
     if (s.type !== 'paragraph' && s.type !== 'definition') continue;
-    const content = typeof s.content === 'string' ? s.content : s.content[0];
-    if (!content || content.length > 200) continue;
+    const raw = typeof s.content === 'string' ? s.content : (Array.isArray(s.content) && typeof s.content[0] === 'string' ? s.content[0] : null);
+    if (!raw || raw.length > 200) continue;
+    const content = raw;
 
     try {
       const res = await openai.chat.completions.create({

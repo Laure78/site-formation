@@ -46,7 +46,10 @@ function blogToChunks(): ContentChunk[] {
     const parts: string[] = [a.description];
     for (const s of a.sections) {
       if (typeof s.content === 'string') parts.push(s.content);
-      else if (Array.isArray(s.content)) parts.push(...s.content);
+      else if (Array.isArray(s.content)) {
+        const strings = s.content.filter((x): x is string => typeof x === 'string');
+        parts.push(...strings);
+      }
     }
     const content = [a.title, a.description, ...parts].join('\n\n');
     return [{

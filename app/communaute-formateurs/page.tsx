@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Users, BookOpen, Zap, ExternalLink } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
 const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/prospectionfacile/';
 
