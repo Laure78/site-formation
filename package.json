@@ -11,7 +11,8 @@
     "media:generate": "npx tsx scripts/generate-daily.ts",
     "media:generate:ai": "npx tsx scripts/generate-daily-ai.ts",
     "media:publish": "npx tsx scripts/publish.ts",
-    "agent:index": "npx tsx scripts/index-knowledge.ts"
+    "agent:index": "npx tsx scripts/index-knowledge.ts",
+    "import:teachizy": "npx tsx scripts/import-teachizy.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.9.0",

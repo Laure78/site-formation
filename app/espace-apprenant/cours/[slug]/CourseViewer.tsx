@@ -1,11 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu } from 'lucide-react';
+import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2 } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
+
+interface LessonResource {
+  id: string;
+  title: string;
+  file_url: string;
+  file_type: string | null;
+}
 
 interface Lesson {
   id: string;
@@ -31,15 +38,27 @@ interface Props {
   enrollmentId?: string;
   userId: string;
   progressPercent: number;
+  lessonResources?: Record<string, LessonResource[]>;
 }
 
-export function CourseViewer({ course, modules, completedLessonIds, enrollmentId, userId, progressPercent }: Props) {
+export function CourseViewer({ course, modules, completedLessonIds, enrollmentId, userId, progressPercent, lessonResources = {} }: Props) {
   const router = useRouter();
   const allLessons = modules.flatMap((m) => m.lessons.map((l) => ({ ...l, moduleTitle: m.title })));
   const firstLesson = allLessons[0];
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(firstLesson?.id ?? null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [selectedPdfIndex, setSelectedPdfIndex] = useState(0);
+  const [hasAutoMarked, setHasAutoMarked] = useState(false);
   const selectedLesson = allLessons.find((l) => l.id === selectedLessonId);
+
+  const resList = selectedLessonId ? (lessonResources[selectedLessonId] ?? []) : [];
+  const pdfResources = resList.filter((r) => r.file_type === 'pdf');
+  const linkResources = resList.filter((r) => r.file_type === 'link' || (!r.file_type && r.file_url?.startsWith('http')));
+
+  useEffect(() => {
+    setSelectedPdfIndex(0);
+    setHasAutoMarked(false);
+  }, [selectedLessonId]);
 
   const markComplete = async () => {
     if (!selectedLessonId || !enrollmentId) return;
@@ -56,6 +75,18 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
   };
 
   const nextLesson = allLessons[allLessons.findIndex((l) => l.id === selectedLessonId) + 1];
+
+  // Progression auto : marquer comme terminée après 5 secondes de consultation
+  const viewedRef = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (!selectedLessonId || !enrollmentId || completedLessonIds.includes(selectedLessonId)) return;
+    if (viewedRef.current.has(selectedLessonId)) return;
+    const t = setTimeout(() => {
+      viewedRef.current.add(selectedLessonId);
+      markComplete();
+    }, 5000);
+    return () => clearTimeout(t);
+  }, [selectedLessonId, enrollmentId, completedLessonIds]);
 
   const icon = (type: string) => {
     switch (type) {
@@ -189,22 +220,45 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                   <div className="rounded-xl bg-slate-100 p-12 text-center">
                     <p className="text-slate-500">Aucun contenu texte pour cette leçon</p>
                   </div>
-                ) : selectedLesson.type === 'pdf' && selectedLesson.content_url ? (
-                  <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-                    <iframe
-                      src={`${selectedLesson.content_url}#view=FitH`}
-                      title={selectedLesson.title}
-                      className="h-[50vh] w-full md:h-[70vh]"
-                    />
-                    <a
-                      href={selectedLesson.content_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block border-t border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm font-medium text-[var(--accent)] hover:bg-slate-100"
-                    >
-                      Ouvrir le PDF dans un nouvel onglet
-                    </a>
-                  </div>
+                ) : (selectedLesson.type === 'pdf' && (selectedLesson.content_url || pdfResources.length > 0)) ? (
+                  (() => {
+                    const mainPdfUrl = selectedLesson.content_url ?? pdfResources[selectedPdfIndex]?.file_url;
+                    return (
+                      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+                        {pdfResources.length > 1 && !selectedLesson.content_url && (
+                          <div className="flex gap-2 border-b border-slate-200 bg-slate-50 p-2 overflow-x-auto">
+                            {pdfResources.map((r, i) => (
+                              <button
+                                key={r.id}
+                                type="button"
+                                onClick={() => setSelectedPdfIndex(i)}
+                                className={`shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium ${i === selectedPdfIndex ? 'bg-[var(--accent)] text-white' : 'bg-white text-slate-600 hover:bg-slate-100'}`}
+                              >
+                                {r.title}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                        {mainPdfUrl && (
+                          <>
+                            <iframe
+                              src={`${mainPdfUrl}#view=FitH`}
+                              title={selectedLesson.title}
+                              className="h-[50vh] w-full md:h-[70vh]"
+                            />
+                            <a
+                              href={mainPdfUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block border-t border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm font-medium text-[var(--accent)] hover:bg-slate-100"
+                            >
+                              Ouvrir le PDF dans un nouvel onglet
+                            </a>
+                          </>
+                        )}
+                      </div>
+                    );
+                  })()
                 ) : selectedLesson.type === 'pdf' ? (
                   <div className="rounded-xl bg-slate-100 p-12 text-center">
                     <p className="text-slate-500">Aucun PDF configuré pour cette leçon</p>
@@ -219,6 +273,30 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                   </div>
                 )}
               </div>
+
+              {linkResources.length > 0 && (
+                <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
+                  <h3 className="mb-3 flex items-center gap-2 font-semibold text-slate-800">
+                    <Link2 size={18} strokeWidth={1.5} />
+                    Ressources pédagogiques
+                  </h3>
+                  <ul className="space-y-2">
+                    {linkResources.map((r) => (
+                      <li key={r.id}>
+                        <a
+                          href={r.file_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-[var(--accent)] hover:underline"
+                        >
+                          <ExternalLink size={14} strokeWidth={1.5} />
+                          {r.title || new URL(r.file_url).hostname}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:mt-8">
                 <button

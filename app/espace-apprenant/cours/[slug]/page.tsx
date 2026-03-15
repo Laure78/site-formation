@@ -44,6 +44,27 @@ export default async function CoursPage({
     .eq('course_id', course.id)
     .order('order_index');
 
+  const lessonIds = (modules ?? []).flatMap((m) => ((m.lessons ?? []) as { id: string }[]).map((l) => l.id));
+  const { data: resources } =
+    lessonIds.length > 0
+      ? await supabase
+          .from('lesson_resources')
+          .select('id, lesson_id, title, file_url, file_type, order_index')
+          .in('lesson_id', lessonIds)
+          .order('order_index')
+      : { data: [] };
+
+  const resourcesByLesson: Record<string, { id: string; title: string; file_url: string; file_type: string | null }[]> = {};
+  for (const r of resources ?? []) {
+    if (!resourcesByLesson[r.lesson_id]) resourcesByLesson[r.lesson_id] = [];
+    resourcesByLesson[r.lesson_id].push({
+      id: r.id,
+      title: r.title,
+      file_url: r.file_url,
+      file_type: r.file_type,
+    });
+  }
+
   const { data: progress } = await supabase
     .from('lesson_progress')
     .select('lesson_id, completed')
@@ -63,6 +84,7 @@ export default async function CoursPage({
         enrollmentId={enrollment?.id}
         userId={user.id}
         progressPercent={enrollment?.progress_percent ?? 0}
+        lessonResources={resourcesByLesson}
       />
     </div>
   );
