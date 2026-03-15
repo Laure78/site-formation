@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     images: [
       {
-        url: '/images/laure-olivie-formatrice.png',
+        url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
         width: 1200,
         height: 630,
         alt: 'Laure Olivié - Formatrice IA pour le BTP',
@@ -56,6 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Formation IA BTP — Laure Olivié | Île-de-France · Yvelines',
     description: SITE_CONFIG.description,
+    images: [`${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`],
   },
   robots: {
     index: true,

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Kanban, UserPlus, Clock, FileCheck, FileText } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Kanban, UserPlus, Clock, FileCheck, FileText, ExternalLink } from 'lucide-react';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
@@ -82,7 +82,17 @@ export function AdminSidebar() {
             </Link>
           ))}
         </nav>
-        <div className="absolute bottom-4 left-4 right-4">
+        <div className="absolute bottom-4 left-4 right-4 space-y-1">
+          <a
+            href="/cours"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+            onClick={() => setOpen(false)}
+          >
+            <ExternalLink size={16} strokeWidth={1.5} />
+            Plateforme formation
+          </a>
           <Link
             href="/"
             className="block rounded-lg px-3 py-2 text-sm text-slate-500 hover:bg-slate-100"

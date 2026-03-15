@@ -48,6 +48,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "3 prompts plombier optimisés",
+      "content": [
+        {
+          "titre": "Devis rénovation salle de bain",
+          "prompt": "Rédige un devis de plomberie pour une rénovation complète de salle de bain. Surface : [X] m². Prestations : [carrelage, WC, lavabo, douche à l'italienne, etc.]. Client : [NOM]. Inclure fournitures et main d'œuvre, TVA 10%, validité 30 jours, conditions de paiement BTP.",
+          "usage": "Remplacez les crochets par vos informations. Ajustez les prix selon vos marges."
+        },
+        {
+          "titre": "Relance client après envoi de devis",
+          "prompt": "Rédige un email de relance courtoise pour un plombier. Destinataire : [NOM DU CLIENT]. Contexte : devis envoyé le [DATE] pour [TYPE DE TRAVAUX], pas de retour. Rappeler la validité du devis, proposer un échange si questions. Maximum 4 phrases.",
+          "usage": "Adaptez les dates et le type de travaux."
+        },
+        {
+          "titre": "Compte rendu d'intervention dépannage",
+          "prompt": "Rédige un compte rendu d'intervention pour un dépannage plomberie. Date : [DATE]. Lieu : [ADRESSE]. Problème : [DESCRIRE]. Travaux réalisés : [LISTER]. Pièces changées : [LISTER]. Recommandations : [SI PERTINENT]. Format professionnel.",
+          "usage": "Complétez les informations pour tracer l'intervention."
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "Questions fréquentes",
       "content": [

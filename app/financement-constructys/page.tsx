@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
 import {
@@ -323,15 +324,14 @@ export default function FinancementConstructysPage() {
             directement à Constructys
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <ExternalLinkAnchor
               href="https://www.constructys.fr"
-              target="_blank"
-              rel="noopener noreferrer"
+              title="Constructys — Plateforme eGestion pour les demandes de financement"
               className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               <ExternalLink size={20} strokeWidth={1.5} />
               Je réalise ma demande sur eGestion
-            </a>
+            </ExternalLinkAnchor>
             <Link
               href="/prendre-rdv"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 px-8 py-4 font-semibold text-slate-800 transition-colors hover:bg-slate-50"

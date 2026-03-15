@@ -5,6 +5,14 @@
 
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
+
+/** Prompt optimisé pour affichage dans les articles ressources */
+export interface ArticlePrompt {
+  titre: string;
+  prompt: string;
+  usage?: string;
+}
 
 export interface BlogArticle {
   slug: string;
@@ -13,8 +21,8 @@ export interface BlogArticle {
   date: string;
   keywords: string[];
   sections: {
-    type: 'paragraph' | 'definition' | 'list' | 'faq' | 'cta';
-    content: string | string[];
+    type: 'paragraph' | 'definition' | 'list' | 'faq' | 'cta' | 'prompts';
+    content: string | string[] | ArticlePrompt[];
     title?: string;
     formationHref?: string;
   }[];
@@ -106,6 +114,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "Vous êtes plombier et devez envoyer un devis pour une salle de bain. Vous donnez à ChatGPT : « Rédige un devis pour une rénovation complète de salle de bain : 12 m², carrelage mural et sol, WC, lavabo, douche à l'italienne. Inclus fournitures et main d'œuvre, TVA 10%, validité 30 jours. » L'IA génère une structure professionnelle. Vous ajustez les prix selon vos marges. Temps économisé : environ 1h30 par devis.",
       },
       {
+        type: 'prompts',
+        title: '3 prompts optimisés à tester',
+        content: [
+          {
+            titre: 'Devis chantier',
+            prompt:
+              "Rédige un devis professionnel pour [VOTRE MÉTIER] : [TYPE DE TRAVAUX]. Client : [NOM]. Prestations : [LISTER]. Quantités : [DÉTAILS]. Inclure fournitures et main d'œuvre, TVA 10%, validité 30 jours, conditions de paiement BTP.",
+            usage: 'Remplacez les crochets par vos informations. Ajustez les prix selon vos marges.',
+          },
+          {
+            titre: 'Email client (relance ou confirmation)',
+            prompt:
+              "Rédige un email professionnel pour [VOTRE MÉTIER] à [CLIENT]. Contexte : [RELANCE DEVIS / CONFIRMATION RDV / RÉPONSE RÉCLAMATION]. Ton courtois, adapté au BTP, maximum 5 phrases.",
+            usage: 'Adaptez le contexte. Idéal pour les relances sans être intrusif.',
+          },
+          {
+            titre: 'Compte rendu de chantier',
+            prompt:
+              "Rédige un CR de chantier pour [DATE] sur [LIEU/PROJET]. Points abordés : [LISTER]. Suite à donner : [LISTER]. Avancement : [X]%. Format structuré, professionnel.",
+            usage: 'Remplissez les points. Essentiel pour tracer les décisions.',
+          },
+        ],
+      },
+      {
         type: 'faq',
         title: 'Questions fréquentes',
         content: [
@@ -152,6 +184,30 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Par où commencer ?',
         content:
           "Une formation de 4h suffit pour maîtriser les bons prompts et les trames adaptées à votre métier. Vous apprenez à décrire votre chantier de façon efficace pour que l'IA produise un devis pertinent. Aucun code, aucun logiciel complexe. Travail sur vos vrais documents.",
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts devis et chiffrage — prêts à l\'emploi',
+        content: [
+          {
+            titre: 'Devis rénovation / construction',
+            prompt:
+              "Rédige un devis détaillé pour [TYPE DE CHANTIER : rénovation, neuf, extension]. Prestations : [LISTER LES PRESTATIONS]. Surface / quantités : [PRÉCISER]. Inclure : descriptif, prix unitaires, conditions de paiement BTP, validité 30 jours. TVA 10% ou 20% selon le cas.",
+            usage: "Adaptez le type de chantier et les prestations. L'IA structure le document, vous ajustez les prix.",
+          },
+          {
+            titre: 'Descriptif technique pour DCE',
+            prompt:
+              "Rédige un descriptif technique pour [PRESTATION : ex. pose carrelage, coffrage, VRD]. Périmètre : [DÉCRIRE]. Inclure étapes, matériaux, points de vigilance. Format professionnel pour CCTP ou mémoire technique.",
+            usage: 'Utile pour les appels d\'offres et devis détaillés. Précisez la prestation et le contexte.',
+          },
+          {
+            titre: 'Proposition commerciale',
+            prompt:
+              "Rédige une lettre d'engagement / proposition commerciale pour [CLIENT]. Prestations : [LISTER]. Délai : [X] jours/semaines. Prix : [MONTANT ou À DÉFINIR]. Conditions de paiement usuelles BTP (acompte, délais). Ton professionnel.",
+            usage: 'Structure la base de votre devis. À compléter avec vos prix et conditions.',
+          },
+        ],
       },
       {
         type: 'faq',
@@ -323,45 +379,67 @@ export const BLOG_CATEGORIES = {
 
 export type BlogCategoryId = keyof typeof BLOG_CATEGORIES;
 
-/** Liens commerciaux contextuels : 3 pages par article selon la catégorie */
+/** Liens commerciaux contextuels — 4–5 pages par article, ancres SEO variées */
 export function getCommercialLinksForArticle(slug: string): { href: string; label: string }[] {
   const cat = getArticleCategory(slug);
-  const base = [
-    { href: '/formations', label: 'Formation IA BTP' },
-    { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
-  ];
+  const links: { href: string; label: string }[] = [];
+  // Base : formations + RDV sur tous les articles
+  links.push({ href: INTERNAL_LINKS.formations.path, label: getAnchor('formations') });
+  links.push({ href: INTERNAL_LINKS.prendreRdv.path, label: getAnchor('prendreRdv') });
   switch (cat) {
     case 'financement':
-      return [
-        { href: '/financement-constructys', label: 'Financement Constructys' },
-        { href: '/financement-constructys-100-ia-btp', label: 'Guide financement 100% IA BTP' },
-        { href: '/tarifs', label: 'Tarifs et financement' },
-      ];
+      links.push(
+        { href: INTERNAL_LINKS.financementConstructys.path, label: getAnchor('financementConstructys') },
+        { href: INTERNAL_LINKS.financement100.path, label: getAnchor('financement100') },
+        { href: INTERNAL_LINKS.tarifs.path, label: getAnchor('tarifs') },
+      );
+      break;
     case 'devis':
-      return [
-        { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-        { href: '/formations', label: 'Catalogue formations' },
-        { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
-      ];
+      links.push(
+        { href: INTERNAL_LINKS.iaDevis.path, label: getAnchor('iaDevis') },
+        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
+      );
+      break;
     case 'regions':
-      return [
+      links.push(
         { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-        { href: '/formations', label: 'Catalogue formations' },
-        { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
-      ];
+        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
+      );
+      break;
     case 'appels-offres':
-      return [
-        { href: '/formations/ia-appels-offre-btp', label: 'Formation appels d\'offres IA' },
-        { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
-        { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
-      ];
+      links.push(
+        { href: INTERNAL_LINKS.appelsOffres.path, label: getAnchor('appelsOffres') },
+        { href: INTERNAL_LINKS.iaConducteur.path, label: getAnchor('iaConducteur') },
+      );
+      break;
+    case 'rh':
+      links.push(
+        { href: INTERNAL_LINKS.formations.path, label: getAnchor('formations', 1) },
+        { href: '/formations/ia-rh-btp', label: 'Formation IA RH BTP' },
+        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
+      );
+      break;
+    case 'productivite':
+      links.push(
+        { href: INTERNAL_LINKS.iaDevis.path, label: getAnchor('iaDevis', 1) },
+        { href: INTERNAL_LINKS.chatgptArtisans.path, label: getAnchor('chatgptArtisans') },
+        { href: INTERNAL_LINKS.checklist.path, label: getAnchor('checklist') },
+      );
+      break;
+    case 'metiers':
+      links.push(
+        { href: INTERNAL_LINKS.chatgptArtisans.path, label: getAnchor('chatgptArtisans') },
+        { href: INTERNAL_LINKS.iaDevis.path, label: getAnchor('iaDevis') },
+        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
+      );
+      break;
     default:
-      return [
-        { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
-        { href: '/formations', label: 'Formation IA BTP' },
-        { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
-      ];
+      links.push(
+        { href: INTERNAL_LINKS.chatgptArtisans.path, label: getAnchor('chatgptArtisans') },
+        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
+      );
   }
+  return links;
 }
 
 /** Détermine la catégorie d'un article à partir du slug */
@@ -376,6 +454,44 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';
   if (s.includes('chatgpt') || s.includes('erreurs') || s.includes('cas-usage')) return 'chatgpt';
   return 'chatgpt'; // défaut : ChatGPT & bonnes pratiques
+}
+
+/** Articles liés pour maillage interne — relatedSlugs en priorité, complété par même catégorie */
+export function getRelatedArticlesForDisplay(slug: string, limit = 6): BlogArticle[] {
+  const all = getAllArticles();
+  const current = all.find((a) => a.slug === slug);
+  if (!current) return [];
+  const cat = getArticleCategory(slug);
+  const used = new Set<string>([slug]);
+  const result: BlogArticle[] = [];
+  // Priorité : relatedSlugs
+  for (const s of current.relatedSlugs ?? []) {
+    const a = all.find((x) => x.slug === s);
+    if (a && !used.has(a.slug)) {
+      result.push(a);
+      used.add(a.slug);
+    }
+  }
+  // Compléter avec articles de la même catégorie
+  const sameCategory = all.filter((a) => getArticleCategory(a.slug) === cat && !used.has(a.slug));
+  for (const a of sameCategory) {
+    if (result.length >= limit) break;
+    result.push(a);
+    used.add(a.slug);
+  }
+  // Si encore de la place : autres catégories proches
+  const otherCategory = getArticleCategory(slug) === 'devis' ? 'chatgpt' : 'devis';
+  if (result.length < limit) {
+    const others = all.filter(
+      (a) => getArticleCategory(a.slug) === otherCategory && !used.has(a.slug)
+    );
+    for (const a of others) {
+      if (result.length >= limit) break;
+      result.push(a);
+      used.add(a.slug);
+    }
+  }
+  return result.slice(0, limit);
 }
 
 /** Articles groupés par catégorie */

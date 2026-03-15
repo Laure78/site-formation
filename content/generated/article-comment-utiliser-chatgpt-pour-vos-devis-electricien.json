@@ -48,6 +48,27 @@
       ]
     },
     {
+      "type": "prompts",
+      "title": "3 prompts électricien optimisés",
+      "content": [
+        {
+          "titre": "Devis installation électrique",
+          "prompt": "Rédige un devis d'électricité pour [TYPE DE TRAVAUX : rénovation, mise aux normes, tableau électrique, etc.]. Logement : [X] m². Prestations : [liste des travaux]. Client : [NOM]. Inclure fournitures et main d'œuvre, TVA 10%, validité 30 jours.",
+          "usage": "Adaptez le type de travaux et les prestations."
+        },
+        {
+          "titre": "Descriptif technique tableau électrique",
+          "prompt": "Rédige un descriptif technique pour un tableau électrique. Logement [X] m². Consommation estimée : [X] kW. Nombre de circuits : [X]. Inclure : ligne directe, prises, éclairage, chauffage. Format professionnel pour devis.",
+          "usage": "Précisez la surface et les besoins du client."
+        },
+        {
+          "titre": "CR d'intervention dépannage",
+          "prompt": "Rédige un compte rendu d'intervention électricité. Date : [DATE]. Adresse : [ADRESSE]. Problème : [DESCRIRE]. Vérifications effectuées : [LISTER]. Travaux réalisés : [LISTER]. Conseils au client : [SI PERTINENT].",
+          "usage": "Complétez pour tracer l'intervention et la conformité."
+        }
+      ]
+    },
+    {
       "type": "faq",
       "title": "Questions fréquentes",
       "content": [

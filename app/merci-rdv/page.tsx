@@ -4,6 +4,7 @@ import { CheckCircle, Phone, Mail, Home, Calendar, ClipboardList, BookOpen } fro
 export const metadata = {
   title: 'Rendez-vous confirmé — Laure Olivié',
   description: 'Votre rendez-vous a bien été enregistré. Confirmation par email.',
+  robots: { index: false, follow: false },
 };
 
 function formatRDVDisplay(startIso: string): string {

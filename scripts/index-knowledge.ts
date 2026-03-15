@@ -3,8 +3,11 @@
  * Indexation de la base de connaissance
  * Usage: npm run agent:index
  *
- * Nécessite: OPENAI_API_KEY, SUPABASE_SERVICE_ROLE_KEY
+ * Nécessite: OPENAI_API_KEY, SUPABASE_SERVICE_ROLE_KEY, NEXT_PUBLIC_SUPABASE_URL
  */
+
+import { config } from 'dotenv';
+config({ path: '.env.local' });
 
 import { createClient } from '@supabase/supabase-js';
 import { getAllContentChunks, splitIntoChunks, type ContentChunk } from '../lib/agent/content-sources';

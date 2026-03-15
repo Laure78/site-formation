@@ -49,14 +49,14 @@ export const BLOG_CLUSTERS = [
 /** Mapping cluster → pillar path pour internal linking */
 export function getPillarPathForCluster(clusterId: string): string {
   const cluster = BLOG_CLUSTERS.find((c) => c.id === clusterId);
-  if (!cluster) return '/formation-ia-btp';
+  if (!cluster) return '/formations';
   const pillar = PILLAR_PAGES.find((p) => p.id === cluster.pillarId);
-  return pillar?.path ?? '/formation-ia-btp';
+  return pillar?.path ?? '/formations';
 }
 
-/** Liens internes par défaut pour les articles */
+/** Liens internes par défaut pour les articles (URLs canoniques) */
 export const DEFAULT_INTERNAL_LINKS = {
-  formation: { path: '/formation-ia-btp', anchor: 'formation IA BTP' },
+  formation: { path: '/formations', anchor: 'formation IA BTP' },
   prendreRdv: { path: '/prendre-rdv', anchor: 'prendre rendez-vous' },
   chatgptArtisans: { path: '/chatgpt-artisans-btp', anchor: 'ChatGPT pour artisans' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
@@ -64,7 +64,7 @@ export const DEFAULT_INTERNAL_LINKS = {
 
 /** CTAs par bloc */
 export const CTA_BLOCKS = [
-  { label: 'Découvrir la formation IA BTP', href: '/formation-ia-btp', variant: 'primary' as const },
+  { label: 'Découvrir la formation IA BTP', href: '/formations', variant: 'primary' as const },
   { label: 'Prendre rendez-vous', href: '/prendre-rdv', variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

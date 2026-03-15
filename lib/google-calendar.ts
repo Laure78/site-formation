@@ -95,9 +95,16 @@ export async function createCalendarEvent(params: CreateCalendarEventParams): Pr
     });
 
     const eventId = res.data.id ?? undefined;
-    const meetLink = params.typeRdv === 'visio'
+    let meetLink = params.typeRdv === 'visio'
       ? (res.data.conferenceData?.entryPoints?.find((e) => e.entryPointType === 'video')?.uri as string | undefined)
       : undefined;
+
+    // Fallback : si visio mais pas de lien dans la réponse, récupérer l'événement (la conf Meet peut être créée avec un léger délai)
+    if (params.typeRdv === 'visio' && eventId && !meetLink) {
+      await new Promise((r) => setTimeout(r, 1500));
+      const ev = await client.events.get({ calendarId, eventId });
+      meetLink = ev.data.conferenceData?.entryPoints?.find((e) => e.entryPointType === 'video')?.uri as string | undefined;
+    }
 
     return { ok: true, eventId, meetLink };
   } catch (e) {

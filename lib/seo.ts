@@ -158,6 +158,8 @@ export function getOrganizationSchema() {
     '@id': `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.legalName,
     legalName: SITE_CONFIG.legalName,
+    logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
+    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
     description: 'Formation en intelligence artificielle pour les entreprises du BTP',
     url: SITE_CONFIG.url,
@@ -237,7 +239,7 @@ export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
   };
 }
 
-/** Schéma Article pour blog (GEO) */
+/** Schéma Article pour blog (GEO) — image recommandée pour rich results */
 export function getArticleSchema({
   headline,
   description,
@@ -255,6 +257,7 @@ export function getArticleSchema({
   authorName: string;
   image?: string;
 }) {
+  const imageUrl = image?.startsWith('http') ? image : image ? `${SITE_CONFIG.url}${image}` : `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -264,8 +267,11 @@ export function getArticleSchema({
     datePublished,
     dateModified: dateModified ?? datePublished,
     author: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: authorName },
-    publisher: { '@id': `${SITE_CONFIG.url}/#organization` },
-    ...(image && { image }),
+    publisher: {
+      '@id': `${SITE_CONFIG.url}/#organization`,
+      logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
+    },
+    image: { '@type': 'ImageObject', url: imageUrl, width: 1200, height: 630 },
   };
 }
 
@@ -276,6 +282,7 @@ export function getPersonSchema() {
     '@type': 'Person',
     '@id': `${SITE_CONFIG.url}/#person`,
     name: SITE_CONFIG.name,
+    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice en intelligence artificielle pour le BTP',
     description: 'Formatrice spécialisée dans l\'intégration de l\'IA générative dans les entreprises du bâtiment.',
     knowsAbout: [

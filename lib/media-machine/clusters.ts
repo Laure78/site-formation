@@ -183,6 +183,5 @@ export const METIERS = [
   'charpentier',
   'couvreur',
   'menuisier',
-  'serrurier',
   'chauffagiste',
 ];

@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getHowToFromArticle } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
-import { getArticle, getAllSlugs, getAllArticles, getCommercialLinksForArticle } from '@/lib/blog';
+import { getArticle, getAllSlugs, getAllArticles, getCommercialLinksForArticle, getRelatedArticlesForDisplay } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { AuthorBlock } from '@/components/blog/AuthorBlock';
-import { Calendar, ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, Check } from 'lucide-react';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props) {
     path: `/blog/${slug}`,
     keywords: article.keywords,
   });
+  const ogImage = `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
   return {
     ...base,
     authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
@@ -34,7 +35,9 @@ export async function generateMetadata({ params }: Props) {
       type: 'article',
       publishedTime: article.date,
       authors: [SITE_CONFIG.name],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
     },
+    twitter: { card: 'summary_large_image', title: article.title, description: article.description },
   };
 }
 
@@ -43,10 +46,7 @@ export default async function BlogArticlePage({ params }: Props) {
   const article = getArticle(slug);
   if (!article) notFound();
 
-  const allArticles = getAllArticles();
-  const related = (article.relatedSlugs ?? [])
-    .map((s) => allArticles.find((a) => a.slug === s))
-    .filter(Boolean) as typeof allArticles;
+  const related = getRelatedArticlesForDisplay(slug, 6);
 
   const articleSchema = getArticleSchema({
     headline: article.title,
@@ -123,6 +123,19 @@ export default async function BlogArticlePage({ params }: Props) {
           </ul>
         </section>
 
+        {/* CTA prise de rendez-vous — visible dès le début de l'article */}
+        <div className="mt-8">
+          <CTABlock
+            variant="compact"
+            title="Prêt à vous former à l'IA ?"
+            description="Réservez un échange de 30 minutes gratuit pour découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP."
+            primaryLabel="Prendre rendez-vous"
+            primaryHref="/prendre-rdv"
+            secondaryLabel="Découvrir les formations"
+            secondaryHref="/formations"
+          />
+        </div>
+
         <div className="mt-12 space-y-10">
           {article.sections.map((section, i) => (
             <section key={i}>
@@ -169,6 +182,31 @@ export default async function BlogArticlePage({ params }: Props) {
                       )
                     )}
                   </ul>
+                </>
+              )}
+              {section.type === 'prompts' && Array.isArray(section.content) && section.content.length > 0 && (
+                <>
+                  {section.title && (
+                    <h2 className="font-display text-xl font-bold text-slate-900">
+                      {section.title}
+                    </h2>
+                  )}
+                  <div className="mt-6 space-y-6">
+                    {(section.content as { titre: string; prompt: string; usage?: string }[]).map((p, j) => (
+                      <div
+                        key={j}
+                        className="rounded-xl border-l-4 border-[var(--accent)] bg-slate-50 p-5"
+                      >
+                        <h3 className="font-semibold text-slate-900">{p.titre}</h3>
+                        <blockquote className="mt-3 border-0 pl-0 font-mono text-sm italic text-slate-700">
+                          {p.prompt}
+                        </blockquote>
+                        {p.usage && (
+                          <p className="mt-2 text-sm text-slate-500">{p.usage}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </>
               )}
               {section.type === 'faq' && section.title && (
@@ -250,21 +288,30 @@ export default async function BlogArticlePage({ params }: Props) {
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-slate-200 pt-12">
-            <h2 className="font-display text-lg font-semibold text-slate-900">
-              Articles associés
+            <h2 className="font-display text-xl font-semibold text-slate-900">
+              Articles associés — à lire aussi
             </h2>
-            <ul className="mt-4 flex flex-wrap gap-4">
+            <p className="mt-2 text-sm text-slate-600">
+              Continuez à explorer nos ressources sur l&apos;IA pour le BTP.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((a) => (
-                <li key={a.slug}>
-                  <Link
-                    href={`/blog/${a.slug}`}
-                    className="text-[var(--accent)] hover:underline"
-                  >
+                <Link
+                  key={a.slug}
+                  href={`/blog/${a.slug}`}
+                  className="group block rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md hover:border-[var(--accent)]"
+                >
+                  <span className="font-medium text-slate-900 group-hover:text-[var(--accent)]">
                     {a.title}
-                  </Link>
-                </li>
+                  </span>
+                  {a.description && (
+                    <p className="mt-2 line-clamp-2 text-sm text-slate-600">
+                      {a.description}
+                    </p>
+                  )}
+                </Link>
               ))}
-            </ul>
+            </div>
           </section>
         )}
 
@@ -317,7 +364,12 @@ export default async function BlogArticlePage({ params }: Props) {
         <div className="mt-12">
           <CTABlock
             variant="compact"
-            description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet."
+            title="Passez à l'action"
+            description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet — 30 minutes gratuites."
+            primaryLabel="Prendre rendez-vous"
+            primaryHref="/prendre-rdv"
+            secondaryLabel="Voir les formations"
+            secondaryHref="/formations"
           />
         </div>
 

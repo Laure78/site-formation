@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
   Download,
   FileText,
@@ -94,14 +95,13 @@ export default function AnnuaireHandicapPage() {
               <li className="flex items-center gap-2">
                 <Globe size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
                 Site web :{' '}
-                <a
+                <ExternalLinkAnchor
                   href="https://www.agefiph.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  title="Agefiph — Association gestion fonds insertion handicap"
                   className="text-[var(--accent)] hover:underline"
                 >
                   www.agefiph.fr
-                </a>
+                </ExternalLinkAnchor>
               </li>
             </ul>
           </div>

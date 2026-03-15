@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Mail, Phone, Globe, Linkedin, FileText, BookOpen } from 'lucide-react';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 
 export function Footer() {
   return (
@@ -47,31 +48,28 @@ export function Footer() {
                 </span>
                 06 95 66 18 18
               </a>
-              <a
-                href="https://www.laureolivie.fr"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/"
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:border-slate-300"
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
                   <Globe size={18} strokeWidth={1.5} />
                 </span>
                 www.laureolivie.fr
-              </a>
+              </Link>
               <address className="not-italic px-4 text-xs text-slate-500">
                 France · Île-de-France · Guyancourt (Yvelines)<br />
                 SIRET 905 244 281 00010
               </address>
             </div>
-            <a
+            <ExternalLinkAnchor
               href="https://www.linkedin.com/in/laure-olivie"
-              target="_blank"
-              rel="noopener noreferrer"
+              title="Profil LinkedIn de Laure Olivié"
               className="mt-6 inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-5 py-3 text-sm font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent-soft)]"
             >
               <Linkedin size={20} strokeWidth={1.5} />
               Suivez-moi sur LinkedIn
-            </a>
+            </ExternalLinkAnchor>
           </div>
 
           {/* Formation */}
@@ -155,19 +153,17 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <a
+            <ExternalLinkAnchor
               href="https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281"
-              target="_blank"
-              rel="noopener noreferrer"
+              title="Vérifier la certification Qualiopi — Annuaire officiel data.gouv.fr"
               className="mt-6 block rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-slate-300 hover:bg-slate-100"
-              title="Vérifier la certification Qualiopi sur l'annuaire officiel"
             >
               <p className="font-semibold text-slate-900">Qualiopi</p>
               <p className="mt-1 text-xs text-slate-500">Processus certifié</p>
               <p className="mt-2 text-xs text-slate-500">
                 RÉPUBLIQUE FRANÇAISE — Action de formation
               </p>
-            </a>
+            </ExternalLinkAnchor>
           </div>
         </div>
 
@@ -177,15 +173,14 @@ export function Footer() {
             © {new Date().getFullYear()} OFC Création d&apos;Entreprise · Organisme certifié Qualiopi
           </p>
           <div className="flex gap-3">
-            <a
+            <ExternalLinkAnchor
               href="https://www.linkedin.com/in/laure-olivie"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
+              title="LinkedIn Laure Olivié"
               aria-label="LinkedIn"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
             >
               <Linkedin size={20} strokeWidth={1.5} />
-            </a>
+            </ExternalLink>
             <a
               href="mailto:contact@laureolivie.fr"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"

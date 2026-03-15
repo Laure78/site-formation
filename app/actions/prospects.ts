@@ -114,6 +114,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
     prospect_id: prospect.id,
     type_rdv: typeRdv,
     google_event_id: googleEventId,
+    meet_link: meetLink || null,
   });
 
   if (errAppt) {
@@ -137,7 +138,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
     const typeRdvBlock =
       typeRdv === 'visio'
         ? meetLink
-          ? `<p><strong>Lien de la visio :</strong> <a href="${meetLink}" style="color:#166534;">${meetLink}</a></p><p>Vous recevrez également une invitation Google Calendar avec le lien Meet.</p>`
+          ? `<p><a href="${meetLink}" style="display:inline-block;background:#166534;color:white;padding:16px 32px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:16px;">📹 Rejoindre la visio</a></p><p style="font-size:14px;color:#64748b;">Ou copiez ce lien : ${meetLink}</p><p>Vous recevrez également une invitation Google Calendar.</p>`
           : `<p><strong>Mode :</strong> RDV visio Google Meet — Vous recevrez le lien de connexion par invitation Google Calendar.</p>`
         : `<p><strong>Mode :</strong> Appel téléphonique — je vous appellerai au ${q.telephone || 'numéro indiqué'} à l'heure prévue.</p>`;
     const { error: errEmail } = await resend.emails.send({
