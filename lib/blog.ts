@@ -499,6 +499,171 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     relatedSlugs: ['comment-trouver-premiers-clients-formateur', '9-actions-developper-activite-formation'],
   },
+  // Cluster appels d'offres BTP
+  {
+    slug: 'analyse-cctp-btp',
+    title: 'Comment analyser un CCTP rapidement dans un appel d\'offre BTP',
+    description: 'Guide pratique : définition du CCTP, identification des exigences techniques, erreurs fréquentes et rôle de l\'IA pour accélérer l\'analyse.',
+    date: '2025-03-16',
+    keywords: ['analyse CCTP BTP', 'CCTP appel d\'offre', 'CCTP cahier charges', 'exigences techniques BTP'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content: 'Le CCTP (Cahier des Clauses Techniques Particulières) définit les prescriptions techniques d\'un projet. L\'analyser rapidement permet d\'identifier les exigences, les points de vigilance et les éléments à valoriser dans votre mémoire technique. L\'IA peut synthétiser un CCTP de 100 pages en quelques minutes.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Qu\'est-ce qu\'un CCTP ?',
+        content: 'Le CCTP est une pièce du DCE qui détaille les exigences techniques pour chaque lot : quantitatifs, normes (DTU, NF), contrôles, délais d\'exécution. Il complète le CCAP et les pièces écrites. Une lecture méthodique est indispensable pour éviter les non-conformités.',
+      },
+      {
+        type: 'list',
+        title: 'Comment identifier les exigences techniques',
+        content: [
+          "Repérer les quantitatifs et les unités (m², ml, u.)",
+          "Lister les normes et référentiels cités (DTU, NF)",
+          "Identifier les contrôles et essais demandés",
+          "Noter les délais et les points de vigilance",
+          "Croiser avec les critères de sélection du règlement",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Erreurs fréquentes',
+        content: "Une lecture superficielle, l'oubli d'une clause éliminatoire, une interprétation erronée des quantités. Les PME qui n'ont pas le temps d'analyser en détail prennent des risques. L'IA permet de produire une première synthèse systématique, à compléter par votre expertise.",
+      },
+      {
+        type: 'paragraph',
+        title: 'Comment l\'IA peut aider',
+        content: "Coller un extrait de CCTP dans ChatGPT et demander une synthèse des exigences, des critères de sélection et des points de vigilance. Vous obtenez une fiche de travail en quelques secondes. Consultez notre formation IA appels d'offres BTP pour maîtriser ces usages.",
+      },
+      {
+        type: 'cta',
+        content: 'Formation IA appels d\'offres BTP — Analysez un DCE en 30 min. 100% finançable Constructys.',
+      },
+    ],
+    relatedSlugs: ['memoire-technique-btp-exemple', 'repondre-appel-offre-travaux', 'ia-btp-analyse-dce'],
+  },
+  {
+    slug: 'memoire-technique-btp-exemple',
+    title: 'Exemple de mémoire technique BTP : structure et bonnes pratiques',
+    description: 'Structure d\'un mémoire technique, critères évalués, erreurs à éviter et rôle de l\'IA pour rédiger plus rapidement.',
+    date: '2025-03-16',
+    keywords: ['mémoire technique BTP', 'exemple mémoire technique', 'réponse appel d\'offre BTP', 'structure mémoire technique'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content: 'Le mémoire technique présente votre méthodologie, vos moyens et vos références pour réaliser le projet. Il est souvent le critère le plus pondéré. Une structure claire et des arguments adaptés au cahier des charges font la différence. L\'IA peut générer un plan et assister la rédaction.',
+      },
+      {
+        type: 'list',
+        title: 'Structure d\'un mémoire technique',
+        content: [
+          "Présentation de l'entreprise et références",
+          "Compréhension du projet et méthodologie",
+          "Moyens humains et matériels",
+          "Planification et organisation",
+          "Engagements et points de vigilance",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Critères évalués',
+        content: "Le jury note la clarté, l'adéquation à l'appel d'offres, la cohérence des arguments. Chaque rubrique doit répondre explicitement aux critères du règlement. Adaptez le vocabulaire au maître d'ouvrage.",
+      },
+      {
+        type: 'paragraph',
+        title: 'Erreurs fréquentes',
+        content: "Mémoire trop générique, oubli de critères, texte illisible ou trop long. Les PME manquent souvent de temps pour soigner la rédaction. L'IA permet de produire des premières versions à personnaliser.",
+      },
+      {
+        type: 'cta',
+        content: 'Formation IA pour rédiger vos mémoires techniques plus vite. Qualiopi · Constructys.',
+      },
+    ],
+    relatedSlugs: ['analyse-cctp-btp', 'repondre-appel-offre-travaux', 'ia-btp-analyse-dce'],
+  },
+  {
+    slug: 'repondre-appel-offre-travaux',
+    title: 'Comment répondre à un appel d\'offre travaux : guide pour les PME du BTP',
+    description: 'Étapes de réponse, analyse du DCE, constitution du dossier et rôle du mémoire technique. Guide opérationnel pour les entreprises du bâtiment.',
+    date: '2025-03-16',
+    keywords: ['répondre appel d\'offre travaux', 'appel d\'offre BTP', 'DCE BTP', 'constitution dossier AO'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content: "Répondre à un appel d'offre travaux implique d'analyser le DCE, constituer le dossier (formulaires, pièces, mémoire technique) et respecter les délais. Une méthodologie structurée et l'IA peuvent diviser par 5 le temps d'analyse.",
+      },
+      {
+        type: 'list',
+        title: 'Les étapes de réponse',
+        content: [
+          "Vérifier l'éligibilité (lots, critères d'exclusion)",
+          "Analyser le DCE et le CCTP pour votre lot",
+          "Identifier les critères de sélection et leur pondération",
+          "Constituer le dossier (formulaires, attestations, mémoire)",
+          "Relire et vérifier avant dépôt",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Analyse du DCE',
+        content: "Le DCE contient le règlement, le CCTP, les pièces écrites, les plans. Priorisez les sections qui concernent votre lot. L'IA peut synthétiser les exigences en quelques minutes à partir d'extraits.",
+      },
+      {
+        type: 'paragraph',
+        title: 'Rôle du mémoire technique',
+        content: "Le mémoire technique est souvent le critère le plus important. Il valorise votre expertise et démontre votre capacité à réaliser le projet. Soignez la structure et l'argumentaire.",
+      },
+      {
+        type: 'cta',
+        content: 'Formation IA appels d\'offres BTP — 7h opérationnelles. 100% finançable.',
+      },
+    ],
+    relatedSlugs: ['analyse-cctp-btp', 'memoire-technique-btp-exemple', 'ia-btp-analyse-dce'],
+  },
+  {
+    slug: 'ia-btp-analyse-dce',
+    title: 'Comment utiliser l\'IA pour analyser un DCE dans le BTP',
+    description: 'Structure d\'un DCE, analyse rapide avec l\'IA, synthèse des exigences. Guide pour chargés d\'affaires et bureaux d\'études.',
+    date: '2025-03-16',
+    keywords: ['IA analyse DCE', 'analyse DCE BTP', 'ChatGPT DCE', 'synthèse DCE IA'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content: "Le DCE (Dossier de Consultation des Entreprises) regroupe l'ensemble des documents d'un appel d'offres. L'IA générative permet d'extraire les exigences, les délais et les critères de sélection en quelques minutes au lieu de plusieurs heures.",
+      },
+      {
+        type: 'paragraph',
+        title: 'Structure d\'un DCE',
+        content: "Règlement de consultation, CCAP, CCTP, pièces écrites, plans. Chaque section impose des contraintes. L'analyse systématique est longue ; l'IA accélère la première lecture en produisant des synthèses par section.",
+      },
+      {
+        type: 'list',
+        title: 'Analyse rapide avec l\'IA',
+        content: [
+          "Coller des extraits de DCE dans ChatGPT ou un outil équivalent",
+          "Demander une synthèse des exigences, délais et critères",
+          "Obtenir une fiche de travail structurée",
+          "Compléter avec votre expertise et vos notes",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Synthèse des exigences',
+        content: "L'IA liste les points à ne pas manquer : normes, contrôles, pièces à fournir. Vous priorisez selon votre lot et votre méthodologie. Ne partagez jamais de données confidentielles dans des outils publics.",
+      },
+      {
+        type: 'cta',
+        content: 'Formation IA appels d\'offres BTP — Analyse DCE en 30 min. Qualiopi.',
+      },
+    ],
+    relatedSlugs: ['analyse-cctp-btp', 'memoire-technique-btp-exemple', 'repondre-appel-offre-travaux'],
+  },
 ];
 
 function loadGeneratedArticles(): BlogArticle[] {
@@ -615,7 +780,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
 export function getArticleCategory(slug: string): BlogCategoryId {
   const s = slug.toLowerCase();
   if (s.includes('formateur') || s.includes('premiers-clients') || s.includes('prospection-formation') || s.includes('developper-activite')) return 'formateurs';
-  if (s.includes('appels-d-offres') || s.includes('appels-offres')) return 'appels-offres';
+  if (s.includes('appels-d-offres') || s.includes('appels-offres') || s.includes('cctp') || s.includes('memoire-technique') || s.includes('repondre-appel') || s.includes('analyse-dce')) return 'appels-offres';
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
   if (s.includes('emails') || s.includes('automatiser-vos')) return 'productivite';

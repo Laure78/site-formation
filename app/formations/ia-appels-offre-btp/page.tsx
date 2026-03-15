@@ -21,10 +21,17 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: "Formation IA BTP appels d'offres | Constructys finançable",
+  title: 'IA pour répondre aux appels d\'offres BTP | Formation IA BTP',
   description:
-    "Formation IA appels d'offres BTP. Analysez DCE 5x plus vite, rédigez mémoires techniques. 7h. 100% finançable Constructys. Chargés d'affaires, bureaux d'études. Qualiopi.",
+    'Découvrez comment utiliser l\'intelligence artificielle pour analyser un CCTP, comprendre un DCE et rédiger un mémoire technique plus rapidement dans le BTP.',
   path: '/formations/ia-appels-offre-btp',
+  keywords: [
+    'IA appels d\'offres BTP',
+    'mémoire technique BTP IA',
+    'analyse CCTP IA',
+    'répondre appel d\'offre travaux',
+    'ChatGPT appels d\'offres BTP',
+  ],
 });
 
 const courseSchema = getCourseSchema({
@@ -203,8 +210,240 @@ export default function FormationIAAppelsOffreBTPPage() {
         </div>
       </section>
 
+      {/* Pourquoi les appels d'offres sont complexes */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Pourquoi les appels d&apos;offres sont complexes pour les entreprises du BTP
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Répondre à un appel d&apos;offres travaux mobilise des ressources considérables. Le DCE (Dossier de Consultation des Entreprises) peut compter plusieurs centaines de pages : CCTP, CCTG, pièces écrites, plans. Analyser l&apos;ensemble exige du temps et une méthodologie rigoureuse.
+          </p>
+          <ul className="mt-6 space-y-3 text-slate-700">
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>DCE volumineux</strong> — Les cahiers des charges techniques et les pièces contractuelles représentent souvent des dizaines de documents à croiser. Identifier les exigences et les points de vigilance demande plusieurs heures.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Analyse du CCTP</strong> — Le Cahier des Clauses Techniques Particulières impose des prescriptions précises (DTU, normes, contrôles). Une lecture superficielle expose à des non-conformités et à des pénalités.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Contraintes administratives</strong> — Délais serrés, formulaires spécifiques, justificatifs obligatoires. La constitution du dossier peut représenter 20 à 30 % du temps total.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Rédaction du mémoire technique</strong> — Le mémoire doit démontrer votre capacité à réaliser le projet. Structure, argumentaire, références : chaque mot compte pour le jury.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Délais de réponse</strong> — Les maîtres d&apos;ouvrage imposent des dates limites strictes. Impossible de tout relire à la dernière minute. L&apos;anticipation et l&apos;organisation sont décisives.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Comment l'IA peut aider */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Comment l&apos;intelligence artificielle peut aider à analyser un appel d&apos;offre BTP
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            L&apos;IA générative (ChatGPT, Claude, etc.) ne remplace pas l&apos;expertise métier. Elle accélère les tâches répétitives et structure l&apos;information. Voici les usages concrets pour répondre à un appel d&apos;offre travaux.
+          </p>
+          <ul className="mt-6 space-y-4 text-slate-700">
+            <li className="flex gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">1</span>
+              <span><strong>Analyser un DCE</strong> — Coller un extrait de DCE et demander une synthèse des exigences, des délais et des critères de sélection. L&apos;IA structure l&apos;information en quelques secondes.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">2</span>
+              <span><strong>Résumer un CCTP</strong> — Identifier les points critiques, les prescriptions techniques et les points de vigilance. Utile pour le chiffrage et le planning.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">3</span>
+              <span><strong>Identifier les exigences techniques</strong> — Lister les normes, DTU et contrôles requis. L&apos;IA extrait les références et les met en forme.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">4</span>
+              <span><strong>Structurer un mémoire technique</strong> — Générer un plan adapté au projet, rédiger des paragraphes de synthèse et reformuler vos références. Gain de temps significatif.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">5</span>
+              <span><strong>Analyser les critères de sélection</strong> — Comprendre le barème de notation et prioriser les éléments à valoriser dans votre dossier.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Exemple concret CCTP */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Exemple concret d&apos;analyse d&apos;un CCTP avec l&apos;IA
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Voici un prompt que vous pouvez utiliser directement avec ChatGPT ou un outil équivalent. Collez un extrait de votre CCTP et adaptez la demande à votre contexte.
+          </p>
+          <div className="mt-6 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+            <p className="font-semibold text-slate-900">Prompt à copier :</p>
+            <blockquote className="mt-3 whitespace-pre-wrap rounded-xl bg-white p-5 font-mono text-sm italic text-slate-700">
+              {`Analyse ce CCTP et identifie :
+1. les exigences techniques principales
+2. les critères de sélection
+3. les points de vigilance
+4. les éléments à valoriser dans le mémoire technique
+
+Présente une synthèse claire pour une PME du BTP.`}
+            </blockquote>
+          </div>
+          <p className="mt-4 text-sm text-slate-600">
+            L&apos;IA produira une synthèse structurée en quelques secondes. Vous devrez ensuite relire et compléter avec votre expertise métier. Ne partagez jamais de données confidentielles ou nominatives dans ChatGPT public.
+          </p>
+        </div>
+      </section>
+
+      {/* Mémoire technique BTP */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Comment utiliser l&apos;IA pour rédiger un mémoire technique BTP
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Le mémoire technique est l&apos;élément qui différencie votre candidature. L&apos;IA vous aide à le construire plus rapidement sans sacrifier la qualité.
+          </p>
+          <ul className="mt-6 space-y-3 text-slate-700">
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Génération de plan</strong> — Demandez à l&apos;IA de proposer une structure adaptée au type de projet (VRD, second œuvre, réhabilitation). Vous ajustez selon vos références.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Rédaction assistée</strong> — Fournissez vos éléments (chantiers similaires, équipements, méthodes) et l&apos;IA rédige les paragraphes. Vous corrigez et personnalisez.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Reformulation technique</strong> — Transformez vos notes en texte professionnel. Vocabulaire BTP, tournures adaptées aux marchés publics.</span>
+            </li>
+            <li className="flex gap-3">
+              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+              <span><strong>Amélioration de la lisibilité</strong> — Clarifiez les phrases, structurez les listes, soignez les introductions et conclusions. L&apos;IA propose des formulations plus fluides.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Limites et précautions */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Limites et précautions
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            L&apos;IA est un assistant puissant, mais elle ne remplace pas l&apos;expertise humaine. Voici les points de vigilance pour une utilisation responsable.
+          </p>
+          <ul className="mt-6 space-y-3 text-slate-700">
+            <li className="flex gap-3">
+              <span className="text-[var(--accent)]">•</span>
+              <span><strong>L&apos;IA ne remplace pas l&apos;expertise métier</strong> — Les décisions techniques, les chiffrages et la stratégie de réponse restent sous votre responsabilité.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-[var(--accent)]">•</span>
+              <span><strong>Vérifier les informations générées</strong> — L&apos;IA peut inventer des références ou des normes. Toujours croiser avec les documents officiels.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-[var(--accent)]">•</span>
+              <span><strong>Ne pas partager de données sensibles</strong> — Évitez de coller des DCE complets, des coordonnées clients ou des chiffres confidentiels dans ChatGPT public. Utilisez ChatGPT Team ou Enterprise pour les données métier.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-[var(--accent)]">•</span>
+              <span><strong>Utiliser l&apos;IA comme assistant</strong> — Elle accélère la mise en forme et la synthèse. Vous restez le garant de la pertinence et de la conformité.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Bloc conversion Laure Olivié */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8 md:p-12">
+            <h2 className="font-display text-2xl font-bold text-slate-900">
+              Formation IA pour les entreprises du BTP
+            </h2>
+            <p className="mt-4 text-slate-700">
+              <strong>Laure Olivié</strong>, formatrice spécialisée en intelligence artificielle appliquée au BTP, accompagne les chargés d&apos;affaires, bureaux d&apos;études et dirigeants dans la maîtrise de l&apos;IA pour les appels d&apos;offres.
+            </p>
+            <ul className="mt-6 space-y-2 text-slate-700">
+              <li className="flex gap-2">
+                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                Automatisation des tâches administratives
+              </li>
+              <li className="flex gap-2">
+                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                Analyse des appels d&apos;offres et des DCE
+              </li>
+              <li className="flex gap-2">
+                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                Génération de mémoires techniques et documents
+              </li>
+              <li className="flex gap-2">
+                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                Gain de temps mesurable dès la première semaine
+              </li>
+            </ul>
+            <div className="mt-8">
+              <Link
+                href="/diagnostic-ia-btp"
+                className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-600"
+              >
+                Demander un diagnostic IA pour mon entreprise
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ressources pour les entreprises du BTP */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Ressources pour les entreprises du BTP
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Complétez votre compréhension des appels d&apos;offres BTP avec nos guides pratiques.
+          </p>
+          <ul className="mt-6 space-y-3 text-slate-700">
+            <li>
+              <Link href="/blog/analyse-cctp-btp" className="text-[var(--accent)] font-medium hover:underline">
+                Comment analyser un CCTP rapidement dans un appel d&apos;offre BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/memoire-technique-btp-exemple" className="text-[var(--accent)] font-medium hover:underline">
+                Exemple de mémoire technique BTP : structure et bonnes pratiques
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/repondre-appel-offre-travaux" className="text-[var(--accent)] font-medium hover:underline">
+                Comment répondre à un appel d&apos;offre travaux : guide pour les PME du BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/ia-btp-analyse-dce" className="text-[var(--accent)] font-medium hover:underline">
+                Comment utiliser l&apos;IA pour analyser un DCE dans le BTP
+              </Link>
+            </li>
+          </ul>
+          <p className="mt-6 text-slate-600">
+            Découvrez aussi : <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">catalogue formations IA BTP</Link>, <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">formation IA BTP Paris</Link>, <Link href="/clients-partenaires" className="text-[var(--accent)] font-medium hover:underline">clients et partenaires</Link>.
+          </p>
+        </div>
+      </section>
+
       {/* Programme / Points clés */}
-      <section id="programme" className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section id="programme" className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Programme de la formation

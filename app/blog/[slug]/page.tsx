@@ -3,7 +3,14 @@ import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getHowToFromArticle } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
-import { getArticle, getAllSlugs, getAllArticles, getCommercialLinksForArticle, getRelatedArticlesForDisplay } from '@/lib/blog';
+import {
+  getArticle,
+  getAllSlugs,
+  getAllArticles,
+  getCommercialLinksForArticle,
+  getRelatedArticlesForDisplay,
+  type ArticlePrompt,
+} from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { AuthorBlock } from '@/components/blog/AuthorBlock';
@@ -11,6 +18,16 @@ import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+/** Extrait le contenu texte pour l'affichage — gère string | string[] | ArticlePrompt[] */
+function getContentAsString(
+  content: string | string[] | ArticlePrompt[]
+): string {
+  if (typeof content === 'string') return content;
+  if (!Array.isArray(content) || content.length === 0) return '';
+  const first = content[0];
+  return typeof first === 'string' ? first : '';
 }
 
 export async function generateStaticParams() {
@@ -138,38 +155,28 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         <div className="mt-12 space-y-10">
-          {article.sections.map((section, i) => (
-            <section key={i}>
-              {section.type === 'definition' && section.title && (
-                <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-                  <h2 className="font-display text-xl font-bold text-slate-900">
-                    {section.title}
-                  </h2>
-                  <p className="mt-4 text-slate-700">
-                    {typeof section.content === 'string'
-                      ? section.content
-                      : Array.isArray(section.content) && typeof section.content[0] === 'string'
-                        ? section.content[0]
-                        : ''}
-                  </p>
-                </div>
-              )}
-              {section.type === 'paragraph' && (
-                <>
-                  {section.title && (
+          {article.sections.map((section, i) => {
+            const contentStr = getContentAsString(section.content);
+            return (
+              <section key={i}>
+                {section.type === 'definition' && section.title && (
+                  <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
                     <h2 className="font-display text-xl font-bold text-slate-900">
                       {section.title}
                     </h2>
-                  )}
-                  <p className="mt-2 text-slate-600 leading-relaxed">
-                    {typeof section.content === 'string'
-                      ? section.content
-                      : Array.isArray(section.content) && typeof section.content[0] === 'string'
-                        ? section.content[0]
-                        : ''}
-                  </p>
-                </>
-              )}
+                    <p className="mt-4 text-slate-700">{contentStr}</p>
+                  </div>
+                )}
+                {section.type === 'paragraph' && (
+                  <>
+                    {section.title && (
+                      <h2 className="font-display text-xl font-bold text-slate-900">
+                        {section.title}
+                      </h2>
+                    )}
+                    <p className="mt-2 text-slate-600 leading-relaxed">{contentStr}</p>
+                  </>
+                )}
               {section.type === 'list' && (
                 <>
                   {section.title && (
@@ -246,7 +253,7 @@ export default async function BlogArticlePage({ params }: Props) {
               )}
               {section.type === 'cta' && (
                 <div className="rounded-2xl bg-[var(--accent)] p-6 text-white">
-                  <p className="font-medium">{section.content}</p>
+                  <p className="font-medium">{getContentAsString(section.content)}</p>
                   <div className="mt-4 flex flex-wrap gap-4">
                     {'ctaCommunauteHref' in section && section.ctaCommunauteHref && (
                       <ExternalLinkAnchor
@@ -300,7 +307,8 @@ export default async function BlogArticlePage({ params }: Props) {
                 </div>
               )}
             </section>
-          ))}
+          );
+        })}
         </div>
 
         <AuthorBlock className="mt-12" />
