@@ -42,3 +42,13 @@ Chaque formation contient :
 - **Modules** prêts à recevoir des leçons (vidéos, slides, texte)
 
 Rendez-vous sur **http://localhost:3000/admin/formations** pour les voir.
+
+## Mettre à jour uniquement « Répondre aux appels d'offres BTP »
+
+Si la formation existe déjà et que vous voulez uniquement mettre à jour ses modules :
+
+1. Ouvrez **Supabase** → **SQL Editor** → **New query**
+2. Copiez le contenu de `supabase/patch_appels_offres_modules.sql`
+3. Exécutez (Run)
+
+Ce patch conserve les autres formations et met à jour uniquement les modules de « Répondre aux appels d'offres BTP avec l'IA ».

@@ -122,12 +122,12 @@ const LIVRABLES = [
   },
 ];
 
-const PROGRAMME_POINTS = [
-  'Création de templates réutilisables par type de projet',
-  "Mise en place d'une bibliothèque de prompts spécialisés",
-  "Organisation du processus de réponse aux AO dans l'entreprise",
-  'Outils complémentaires et automatisations possibles',
-  'Plan d\'action personnalisé pour chaque participant',
+const PROGRAMME_MODULES = [
+  { title: 'Introduction', description: 'Contexte et enjeux des appels d\'offres BTP avec l\'IA' },
+  { title: 'MODULE 1 — Analyse DCE avec NotebookLM', description: 'Extraire les exigences techniques, identifier les critères de sélection, synthétiser un DCE en 30 min' },
+  { title: 'MODULE 2 — Décision Go/No Go + Rentabilité', description: 'Évaluer l\'opportunité, analyser la rentabilité, prioriser les réponses' },
+  { title: 'MODULE 3 — Rédaction mémoire technique et relecture', description: 'Structurer le mémoire, rédiger avec l\'IA, relecture et conformité CCTP' },
+  { title: 'MODULE 4 : Aide au chiffrage & contrôle de rentabilité', description: 'Optimiser le chiffrage avec l\'IA, contrôler les marges, automatiser les calculs' },
 ];
 
 export default function FormationIAAppelsOffreBTPPage() {

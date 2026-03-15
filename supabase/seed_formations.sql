@@ -57,20 +57,21 @@ BEGIN
   VALUES (
     'ia-appels-offre-btp',
     'Répondre aux appels d''offres BTP avec l''IA',
-    'Formation opérationnelle : analysez les DCE 5 fois plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages grâce à l''IA. Pour chargés d''affaires et bureaux d''études.',
-    'Analyser un DCE en 30 min au lieu de 3h · Structurer mémoires techniques et chiffrages · Bibliothèque de prompts + templates par métier · Assistant IA personnalisé pour vos projets',
+    'Formation opérationnelle : analysez les DCE 5 fois plus vite avec NotebookLM, prenez des décisions Go/No Go, rédigez des mémoires techniques convaincants et optimisez vos chiffrages grâce à l''IA. Pour chargés d''affaires et bureaux d''études.',
+    'Analyser un DCE en 30 min au lieu de 3h · Décision Go/No Go et rentabilité · Rédiger mémoires techniques et relecture · Aide au chiffrage et contrôle de rentabilité',
     'Connaissance du secteur BTP. Expérience en appels d''offres. Aucune compétence technique IA.',
-    'Création de templates réutilisables par type de projet · Bibliothèque de prompts spécialisés · Organisation du processus de réponse aux AO · Outils complémentaires et automatisations · Plan d''action personnalisé par participant',
+    'Introduction · Module 1 : Analyse DCE avec NotebookLM · Module 2 : Décision Go/No Go + Rentabilité · Module 3 : Rédaction mémoire technique et relecture · Module 4 : Aide au chiffrage et contrôle de rentabilité',
     0,
     true,
     7,
     'avance'
   ) RETURNING id INTO cid;
 
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Analyse DCE et extraction des exigences', 0);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Mémoires techniques et chiffrages', 1);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Bibliothèque de prompts et templates', 2);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Plan d''action et assistant IA', 3);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Introduction', 0);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 1— Analyse DCE avec NotebookLM', 1);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 2— Décision Go/No Go + Rentabilité', 2);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 3— Rédaction mémoire technique et relecture', 3);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 4: Aide au chiffrage & contrôle de rentabilité', 4);
 
   -- 3. Formation IA pour la Fonction RH dans le BTP
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
