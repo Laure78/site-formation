@@ -231,12 +231,12 @@ export default async function BlogArticlePage({ params }: Props) {
                     {section.title}
                   </h2>
                   <div className="mt-6 space-y-6">
-                    {(Array.isArray(section.content) ? section.content : [section.content]).map(
-                      (item, j) => {
-                        const str = String(item);
-                        const sep = str.indexOf(' — ');
-                        const q = sep >= 0 ? str.slice(0, sep) : str;
-                        const a = sep >= 0 ? str.slice(sep + 3) : '';
+                    {(Array.isArray(section.content) ? section.content : [section.content])
+                      .filter((item): item is string => typeof item === 'string')
+                      .map((item, j) => {
+                        const sep = item.indexOf(' — ');
+                        const q = sep >= 0 ? item.slice(0, sep) : item;
+                        const a = sep >= 0 ? item.slice(sep + 3) : '';
                         return (
                           <div
                             key={j}
@@ -246,8 +246,7 @@ export default async function BlogArticlePage({ params }: Props) {
                             <p className="mt-2 text-slate-600">{a}</p>
                           </div>
                         );
-                      }
-                    )}
+                      })}
                   </div>
                 </>
               )}
