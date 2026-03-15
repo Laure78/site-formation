@@ -67,6 +67,10 @@ export const INTERNAL_LINKS = {
     path: '/clients-partenaires',
     anchors: ['clients et partenaires', 'FFB, GERESO, Lefebvre Dalloz', 'nos partenaires'],
   },
+  communauteFormateurs: {
+    path: '/communaute-formateurs',
+    anchors: ['communauté formateurs', 'trouver clients formateur', 'groupe formateurs'],
+  },
 } as const;
 
 /** Récupère une ancre (index 0 par défaut pour cohérence) */

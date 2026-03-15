@@ -25,6 +25,8 @@ export interface BlogArticle {
     content: string | string[] | ArticlePrompt[];
     title?: string;
     formationHref?: string;
+    /** Lien externe vers la communauté formateurs (groupe Facebook) */
+    ctaCommunauteHref?: string;
   }[];
   relatedSlugs?: string[];
 }
@@ -338,6 +340,165 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     relatedSlugs: ['chatgpt-btp-bordeaux', '5-cas-usage-chatgpt-artisans-btp'],
   },
+  // Cluster formateurs — trouver clients, développer activité
+  {
+    slug: 'comment-trouver-premiers-clients-formateur',
+    title: 'Comment trouver vos premiers clients en tant que formateur',
+    description:
+      'Guide pratique pour les formateurs indépendants : identifier vos cibles, construire votre offre, prospecter efficacement et décrocher vos premiers clients.',
+    date: '2025-03-15',
+    keywords: ['trouver clients formateur', 'formateur indépendant', 'prospection formateurs', 'premiers clients formation'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          "Trouver vos premiers clients en tant que formateur repose sur une offre claire, une cible identifiée et une prospection régulière. Pas besoin d'être un commercial : méthode structurée, réseaux et bouche-à-oreille suffisent pour démarrer.",
+      },
+      {
+        type: 'paragraph',
+        title: 'Définir votre offre et votre cible',
+        content:
+          "Avant de prospecter, clarifiez ce que vous proposez et à qui. Quelle formation ? Sur quel sujet ? Pour quel profil (dirigeants, équipes, secteur d'activité) ? Une offre floue disperse vos efforts. Une offre ciblée attire les bons prospects.",
+      },
+      {
+        type: 'list',
+        title: '5 pistes pour trouver vos premiers clients',
+        content: [
+          "OPCO et organismes de formation — Demandez à être référencé en tant qu'intervenant. Beaucoup de missions sont confiées à des formateurs déjà connus des OF.",
+          "Réseau professionnel — LinkedIn, anciens collègues, partenaires. Signalez que vous cherchez des missions. Les recommandations ouvrent les portes.",
+          "Appels d'offres et marchés — Consultez les plateformes (AchatsPublics, etc.) pour les formations commandées par l'État ou les collectivités.",
+          "Entreprises directement — Proposez une formation sur-mesure à des PME de votre secteur. Un email ciblé suivi d'un appel peut suffire.",
+          "Groupes et communautés — Rejoignez des groupes de formateurs pour échanger sur les opportunités et mutualiser les retours d'expérience.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'La régularité paie',
+        content:
+          "Une prospection occasionnelle donne peu de résultats. Mieux vaut 30 minutes par jour que 3h une fois par mois. Construisez une routine : relances, contenu utile, présence sur les réseaux. La visibilité se construit dans le temps.",
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes',
+        content: [
+          "Combien de temps avant le premier client ? — Variable selon le secteur. En BTP et formation professionnelle, 2 à 6 mois est fréquent. La persévérance et l'ajustement de l'offre sont clés.",
+          "Faut-il un site internet ? — Oui, pour crédibiliser. Une page « À propos » et « Offre » suffisent au début.",
+          "Comment structurer un email de prospection ? — Court, personnalisé, proposition de valeur claire. Évitez le générique.",
+        ],
+      },
+      {
+        type: 'cta',
+        content: "Rejoignez 4 200+ formateurs qui partagent leurs astuces et opportunités. Échanges, mutualisation et soutien au quotidien.",
+        ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
+      },
+    ],
+    relatedSlugs: ['9-actions-developper-activite-formation', 'prospection-formation-methodes-qui-marchent'],
+  },
+  {
+    slug: '9-actions-developper-activite-formation',
+    title: '9 actions pour développer votre activité de formation',
+    description:
+      'Checklist opérationnelle pour développer votre activité de formateur : visibilité, prospection, partenariats et organisation.',
+    date: '2025-03-14',
+    keywords: ['développer activité formation', 'formateur indépendant', 'croissance activité formateur', 'prospection formation'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          "Développer votre activité de formation repose sur des actions simples et répétées : visibilité (LinkedIn, site), prospection ciblée, partenariats OF, qualité des prestations et bouche-à-oreille. Pas de recette magique : de la constance.",
+      },
+      {
+        type: 'list',
+        title: '9 actions concrètes',
+        content: [
+          "Optimiser votre profil LinkedIn — Titre clair, description orientée bénéfices, recommandations. Les missions trouvent souvent leurs formateurs via LinkedIn.",
+          "Créer une page offre sur votre site — Une page qui présente vos formations, publics cibles et bénéfices. Essentiel pour la crédibilité.",
+          "Identifier 3 à 5 OF partenaires — Envoyez une présentation courte. Proposez des interventions en sous-traitance pour étoffer votre portefeuille.",
+          "Prospecter 5 entreprises par semaine — Emails personnalisés, relances. La régularité compte plus que le volume ponctuel.",
+          "Publier du contenu utile — Articles, posts, vidéos courtes sur votre expertise. Cela attire des prospects en recherche.",
+          "Rejoindre une communauté de formateurs — Échanges, partage d'opportunités, soutien mutuel. Très utile quand on démarre.",
+          "Demander des recommandations — Après une formation réussie, demandez un témoignage ou une mise en relation.",
+          "Suivre vos indicateurs — Nombre de missions, CA, taux de transformation. Pour ajuster votre stratégie.",
+          "Se former en continu — Nouveaux sujets, nouvelles méthodes. Une offre à jour attire davantage.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Prioriser sans se disperser',
+        content:
+          "Inutile de tout faire en même temps. Choisissez 2 ou 3 actions et tenez-vous-y pendant 3 mois. Mieux vaut exceller sur quelques leviers que papillonner. La progression se mesure sur plusieurs trimestres.",
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes',
+        content: [
+          "Par où commencer quand on débute ? — Profil LinkedIn + 2–3 OF contactés + une page offre. Puis prospection régulière.",
+          "Combien de temps pour voir des résultats ? — Les premiers signaux : 1 à 3 mois. Une activité stable : souvent 6 à 12 mois.",
+          "La certification Qualiopi est-elle obligatoire ? — Pour former des salariés en plan de développement des compétences, oui. En B2B direct, c'est un atout majeur.",
+        ],
+      },
+      {
+        type: 'cta',
+        content: "Échangez avec des formateurs qui développent leur activité. Rejoignez la communauté pour partager vos bonnes pratiques.",
+        ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
+      },
+    ],
+    relatedSlugs: ['comment-trouver-premiers-clients-formateur', 'prospection-formation-methodes-qui-marchent'],
+  },
+  {
+    slug: 'prospection-formation-methodes-qui-marchent',
+    title: 'Prospection formation : méthodes qui marchent',
+    description:
+      'Les méthodes de prospection efficaces pour les formateurs : cold outreach, relances, partenariats OF et réseaux. Concret et actionnable.',
+    date: '2025-03-13',
+    keywords: ['prospection formation', 'prospection formateurs', 'trouver missions formation', 'développer clientèle formateur'],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          "La prospection formation qui marche combine : ciblage précis, message personnalisé, relances douces et diversification des canaux (OF, entreprises, réseaux). Pas de spam : de la pertinence et de la régularité.",
+      },
+      {
+        type: 'paragraph',
+        title: 'Prospection OF : les bonnes pratiques',
+        content:
+          "Les organismes de formation reçoivent des dizaines de candidatures. Pour vous démarquer : CV orienté formations, références concrètes, domaines et publics clairement indiqués. Un mail de présentation court (5–6 lignes) avec lien vers une présentation PDF ou votre site. Relancez une fois après 10 jours.",
+      },
+      {
+        type: 'list',
+        title: '3 méthodes qui donnent des résultats',
+        content: [
+          "Cold email B2B — Ciblez des PME de votre secteur. Sujet accrocheur, corps court, proposition de valeur. Taux d'ouverture correct si personnalisé.",
+          "Relances structurées — J+0 : premier contact. J+7 : relance douce. J+21 : dernière relance. Beaucoup abandonnent après la 1re. Les relances convertissent.",
+          "Partenariats gagnant-gagnant — Proposez à un confrère de vous mettre en relation avec ses clients sur un sujet complémentaire. La co-animation ou le référencement mutuel ouvrent des portes.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Ce qui ne marche pas',
+        content:
+          "Les messages génériques, les envois en masse non ciblés, l'absence de relance. Évitez aussi de promettre des résultats irréalistes. La confiance se construit sur la transparence.",
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes',
+        content: [
+          "Combien de prospects contacter par mois ? — Mieux vaut 20 ciblés que 200 au hasard. Qualité > quantité.",
+          "Faut-il utiliser un CRM ? — Un tableur suffit au début. Un CRM devient utile dès 50+ prospects actifs.",
+          "Comment personnaliser à grande échelle ? — Par segments : par secteur, par taille d'entreprise. Le paragraphe d'accroche peut être adapté par segment.",
+        ],
+      },
+      {
+        type: 'cta',
+        content: "Rejoignez la communauté pour échanger sur vos méthodes de prospection. Retours d'expérience et mutualisation au quotidien.",
+        ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
+      },
+    ],
+    relatedSlugs: ['comment-trouver-premiers-clients-formateur', '9-actions-developper-activite-formation'],
+  },
 ];
 
 function loadGeneratedArticles(): BlogArticle[] {
@@ -375,6 +536,7 @@ export const BLOG_CATEGORIES = {
   rh: 'RH & recrutement',
   productivite: 'Productivité & emails',
   regions: 'Formations par région',
+  formateurs: 'Formateurs & prospection',
 } as const;
 
 export type BlogCategoryId = keyof typeof BLOG_CATEGORIES;
@@ -433,6 +595,13 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;
+    case 'formateurs':
+      links.push(
+        { href: INTERNAL_LINKS.communauteFormateurs.path, label: getAnchor('communauteFormateurs') },
+        { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+        { href: INTERNAL_LINKS.financement100.path, label: getAnchor('financement100') },
+      );
+      break;
     default:
       links.push(
         { href: INTERNAL_LINKS.chatgptArtisans.path, label: getAnchor('chatgptArtisans') },
@@ -445,6 +614,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
 /** Détermine la catégorie d'un article à partir du slug */
 export function getArticleCategory(slug: string): BlogCategoryId {
   const s = slug.toLowerCase();
+  if (s.includes('formateur') || s.includes('premiers-clients') || s.includes('prospection-formation') || s.includes('developper-activite')) return 'formateurs';
   if (s.includes('appels-d-offres') || s.includes('appels-offres')) return 'appels-offres';
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
   if (s.includes('recrutement')) return 'rh';

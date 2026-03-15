@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getHowToFromArticle } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
 import { getArticle, getAllSlugs, getAllArticles, getCommercialLinksForArticle, getRelatedArticlesForDisplay } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { AuthorBlock } from '@/components/blog/AuthorBlock';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -145,7 +146,11 @@ export default async function BlogArticlePage({ params }: Props) {
                     {section.title}
                   </h2>
                   <p className="mt-4 text-slate-700">
-                    {typeof section.content === 'string' ? section.content : section.content[0]}
+                    {typeof section.content === 'string'
+                      ? section.content
+                      : Array.isArray(section.content) && typeof section.content[0] === 'string'
+                        ? section.content[0]
+                        : ''}
                   </p>
                 </div>
               )}
@@ -157,7 +162,11 @@ export default async function BlogArticlePage({ params }: Props) {
                     </h2>
                   )}
                   <p className="mt-2 text-slate-600 leading-relaxed">
-                    {typeof section.content === 'string' ? section.content : section.content[0]}
+                    {typeof section.content === 'string'
+                      ? section.content
+                      : Array.isArray(section.content) && typeof section.content[0] === 'string'
+                        ? section.content[0]
+                        : ''}
                   </p>
                 </>
               )}
@@ -169,8 +178,9 @@ export default async function BlogArticlePage({ params }: Props) {
                     </h2>
                   )}
                   <ul className="mt-4 space-y-3">
-                    {(Array.isArray(section.content) ? section.content : [section.content]).map(
-                      (item, j) => (
+                    {(Array.isArray(section.content) ? section.content : [section.content])
+                      .filter((item): item is string => typeof item === 'string')
+                      .map((item, j) => (
                         <li key={j} className="flex gap-3 text-slate-600">
                           <Check
                             size={20}
@@ -179,8 +189,7 @@ export default async function BlogArticlePage({ params }: Props) {
                           />
                           {item}
                         </li>
-                      )
-                    )}
+                      ))}
                   </ul>
                 </>
               )}
@@ -239,6 +248,16 @@ export default async function BlogArticlePage({ params }: Props) {
                 <div className="rounded-2xl bg-[var(--accent)] p-6 text-white">
                   <p className="font-medium">{section.content}</p>
                   <div className="mt-4 flex flex-wrap gap-4">
+                    {'ctaCommunauteHref' in section && section.ctaCommunauteHref && (
+                      <ExternalLinkAnchor
+                        href={section.ctaCommunauteHref}
+                        title="Rejoindre le groupe Facebook"
+                        className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50"
+                      >
+                        <ExternalLink size={16} strokeWidth={1.5} />
+                        Rejoindre la communauté
+                      </ExternalLinkAnchor>
+                    )}
                     <Link
                       href="/prendre-rdv"
                       className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50"

@@ -94,6 +94,7 @@ export function Footer() {
                 { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
                 { href: '/tarifs', label: 'Financement OPCO' },
                 { href: '/blog', label: 'Ressources & Articles' },
+                { href: '/communaute-formateurs', label: 'Communauté formateurs' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },
                 { href: '/install-pwa', label: 'Installer l\'app mobile' },
               ].map(({ href, label }) => (
