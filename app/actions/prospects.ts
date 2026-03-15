@@ -135,8 +135,10 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
   if (resend) {
     const questionnaireLink = `${baseUrl}/questionnaire/${questionnaireToken}`;
     const typeRdvBlock =
-      typeRdv === 'visio' && meetLink
-        ? `<p><strong>Lien de la visio :</strong> <a href="${meetLink}" style="color:#166534;">${meetLink}</a></p><p>Vous recevrez également une invitation Google Calendar avec le lien Meet.</p>`
+      typeRdv === 'visio'
+        ? meetLink
+          ? `<p><strong>Lien de la visio :</strong> <a href="${meetLink}" style="color:#166534;">${meetLink}</a></p><p>Vous recevrez également une invitation Google Calendar avec le lien Meet.</p>`
+          : `<p><strong>Mode :</strong> RDV visio Google Meet — Vous recevrez le lien de connexion par invitation Google Calendar.</p>`
         : `<p><strong>Mode :</strong> Appel téléphonique — je vous appellerai au ${q.telephone || 'numéro indiqué'} à l'heure prévue.</p>`;
     const { error: errEmail } = await resend.emails.send({
       from: 'Laure Olivié <noreply@laureolivie.fr>',
