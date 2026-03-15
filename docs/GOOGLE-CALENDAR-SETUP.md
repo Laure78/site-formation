@@ -1,5 +1,7 @@
 # Configuration Google Calendar — RDV dans ton agenda
 
+Guide pas à pas pour débutantes.
+
 ---
 
 ## Objectif
@@ -8,53 +10,75 @@ Quand un prospect réserve un créneau sur le site, l’événement est créé a
 
 ---
 
-## Pourquoi tu ne vois rien ?
+## Vue d’ensemble (5 étapes)
 
-Si les RDV ne s’affichent pas dans ton agenda, c’est que les variables d’environnement Google Calendar ne sont pas configurées. Suis les étapes ci‑dessous.
+1. Activer l’API Google Calendar
+2. Créer un Service Account et télécharger le JSON
+3. Partager ton calendrier avec l’email du service account
+4. Copier l’ID du calendrier
+5. Ajouter les variables dans `.env.local`
 
 ---
 
-## Étape 1 : Google Cloud Console
+## Étape 1 : Activer l’API Google Calendar
 
 1. Va sur **https://console.cloud.google.com**
-2. Crée un projet ou choisis un existant (ex. `site-formation`)
-3. Menu **APIs & Services** → **Library**
-4. Cherche **Google Calendar API** → **Enable**
+2. En haut, vérifie que le bon projet est sélectionné (ex. « My Project 11225 » ou crée-en un avec **Nouveau projet**)
+3. Dans le menu de gauche : **API et services** → **Bibliothèque**
+4. Dans la barre de recherche, tape **Google Calendar API**
+5. Clique sur **Google Calendar API**
+6. Clique sur le bouton bleu **Activer**
+7. Tu verras une page de confirmation — c’est bon.
 
 ---
 
-## Étape 2 : Créer un Service Account
+## Étape 2 : Créer un Service Account et télécharger le JSON
 
-1. **APIs & Services** → **Credentials**
-2. **Create Credentials** → **Service account**
-3. Nom : `site-formation-calendar` (ou autre)
-4. **Create and Continue** (étape 2/3 : skip)
-5. **Done**
-6. Clique sur le service account créé
-7. Onglet **Keys** → **Add Key** → **Create new key** → **JSON**
-8. Un fichier JSON est téléchargé — **garde-le en sécurité** (il contient une clé privée)
+Tu es probablement sur la page **Identifiants** (comme sur ta capture). Si tu viens de l’étape 1, clique sur **Identifiants** dans le menu de gauche.
+
+### 2.1 Créer le Service Account
+
+- Clique sur le bouton bleu **+ Créer des identifiants** (en haut)
+- Dans le menu qui s’ouvre, choisis **Compte de service**
+- **Nom du compte de service** : tape par ex. `site-formation-calendar`
+- Clique sur **Créer et continuer**
+- Étape 2/3 : tu peux ignorer (ne rien sélectionner) → **Continuer**
+- Étape 3/3 : **Terminer**
+
+Tu verras maintenant ton compte de service dans la liste « Comptes de service ».
+
+### 2.2 Créer la clé JSON
+
+1. Clique sur le **nom** du compte de service que tu viens de créer (celui qui commence par `site-formation-calendar` ou similaire)
+2. Va dans l’onglet **Clés** (ou **Keys** si l’interface est en anglais)
+3. Clique sur **Ajouter une clé** (ou **Add Key**) → **Créer une clé** (ou **Create new key**)
+4. Choisis **JSON**
+5. Clique sur **Créer**
+
+Un fichier JSON se télécharge automatiquement. **Conserve-le** : tu en auras besoin à l’étape 5. Ne le partage jamais (il contient une clé secrète).
 
 ---
 
 ## Étape 3 : Partager ton calendrier Google avec le service account
 
-1. Ouvre le fichier JSON téléchargé
+1. Ouvre le fichier JSON téléchargé (avec un éditeur de texte)
 2. Trouve le champ `"client_email"` — par exemple :  
-   `site-formation-calendar@mon-projet-123456.iam.gserviceaccount.com`
+   `site-formation-calendar@mon-projet-123456.iam.gserviceaccount.com`  
+   Copie cette adresse complète.
 3. Va sur **https://calendar.google.com**
-4. Clique sur ton calendrier (celui où tu veux les RDV) → **Settings and sharing**
-5. Section **Share with specific people** → **Add people**
+4. Dans la liste de tes calendriers (à gauche), clique sur les **3 points** (⋮) à côté du calendrier où tu veux les RDV → **Paramètres et partage** (ou « Settings and sharing » en anglais)
+5. Descends jusqu’à **Partager avec des personnes et des groupes** → **Ajouter des personnes**
 6. Colle l’adresse email du service account (celle du `client_email`)
-7. Droits : **Make changes to events**
-8. **Send**
+7. À droite du nom : choisis **Peut modifier les créneaux** (ou « Make changes to events »)
+8. Clique sur **Envoyer** (ou « Send »)
 
 ---
 
 ## Étape 4 : Récupérer l’ID de ton calendrier
 
-1. Dans **Settings** de ton calendrier Google
-2. Descends jusqu’à **Integrate calendar**
-3. Copie **Calendar ID**  
+1. Toujours dans **Paramètres** de ton calendrier Google (étape 3)
+2. Descends jusqu’à **Intégrer le calendrier** (ou « Integrate calendar »)
+3. Copie **ID du calendrier** (ou « Calendar ID »)  
    - Exemple : `laureolivie@gmail.com` (calendrier principal)  
    - Ou : `xxxxxx@group.calendar.google.com` (calendrier secondaire)
 
@@ -68,12 +92,13 @@ Si les RDV ne s’affichent pas dans ton agenda, c’est que les variables d’e
 
 ```
 # Google Calendar — RDV dans ton agenda
-GOOGLE_CALENDAR_CREDENTIALS_JSON={"type":"service_account","project_id":"...","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"...@....iam.gserviceaccount.com","client_id":"...","auth_uri":"...","token_uri":"...","auth_provider_x509_cert_url":"...","client_x509_cert_url":"..."}
+GOOGLE_CALENDAR_CREDENTIALS_JSON='{"type":"service_account","project_id":"...","private_key_id":"...","private_key":"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n","client_email":"...@....iam.gserviceaccount.com","client_id":"...","auth_uri":"...","token_uri":"...","auth_provider_x509_cert_url":"...","client_x509_cert_url":"..."}'
 GOOGLE_CALENDAR_ID=laureolivie@gmail.com
 ```
 
 **Important :**
-- `GOOGLE_CALENDAR_CREDENTIALS_JSON` = le JSON **complet** sur **une seule ligne** (sans retours à la ligne)
+- `GOOGLE_CALENDAR_CREDENTIALS_JSON` = le JSON **complet** sur **une seule ligne**, entouré de **guillemets simples** `'...'` pour éviter les erreurs de parsing. Exemple : `GOOGLE_CALENDAR_CREDENTIALS_JSON='{"type":"service_account",...}'`
+- Astuce pour la mise sur une ligne : [jsonformatter.org](https://jsonformatter.org/json-minify) → colle le JSON → Minify → copie le résultat
 - `GOOGLE_CALENDAR_ID` = l’ID du calendrier (celui que tu veux utiliser pour les RDV)
 
 ---
