@@ -104,6 +104,10 @@ export default function ConnexionClient() {
         Pas encore de compte ?{' '}
         <Link href="/auth/inscription" className="font-medium text-[var(--accent)] hover:underline">S&apos;inscrire</Link>
       </p>
+      <p className="mt-3 text-center text-sm text-slate-600">
+        Formateur ou admin ?{' '}
+        <Link href="/acces-admin" className="font-medium text-[var(--accent)] hover:underline">Accès à l&apos;espace admin</Link>
+      </p>
     </div>
   );
 }

@@ -191,7 +191,7 @@ export default function ModifierLeconPage() {
                 type="text"
                 value={contentUrl}
                 onChange={(e) => setContentUrl(e.target.value)}
-                placeholder="https://... ou cliquez sur Déposer pour uploader"
+                placeholder="https://... ou /formations/appels-offres/mon-fichier.pdf"
                 className="flex-1 rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
               />
               <FileUploadButton
@@ -199,6 +199,9 @@ export default function ModifierLeconPage() {
                 onUrl={(url) => setContentUrl(url)}
               />
             </div>
+            <p className="text-xs text-slate-500">
+              Si &quot;Déposer&quot; ne fonctionne pas : placez votre PDF dans <code className="bg-slate-100 px-1 rounded">/public/formations/appels-offres/</code> puis collez l&apos;URL : <code className="bg-slate-100 px-1 rounded">/formations/appels-offres/votre-fichier.pdf</code>
+            </p>
           </div>
         )}
         <div>

@@ -7,13 +7,17 @@ interface Props {
   onUrl: (url: string) => void;
 }
 
+const UPLOAD_ERROR_HINT = 'Alternative : placez votre PDF dans /public/formations/appels-offres/ puis utilisez l\'URL : /formations/appels-offres/nom-du-fichier.pdf';
+
 export function FileUploadButton({ accept, onUrl }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    setErrorMsg(null);
     setLoading(true);
     try {
       const formData = new FormData();
@@ -24,7 +28,8 @@ export function FileUploadButton({ accept, onUrl }: Props) {
       if (!res.ok) throw new Error(data.error ?? 'Erreur upload');
       if (data.url) onUrl(data.url);
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Erreur lors de l\'upload. Vérifiez que le bucket Supabase "formations" existe.');
+      const msg = err instanceof Error ? err.message : 'Erreur lors de l\'upload';
+      setErrorMsg(`${msg}. ${UPLOAD_ERROR_HINT}`);
     } finally {
       setLoading(false);
       e.target.value = '';

@@ -56,3 +56,19 @@ npm run import:teachizy
 - Emails et relation client
 - Comptes rendus et DOE
 - Gestion administrative
+
+---
+
+## Formation « Répondre aux Appels d'Offres BTP avec l'IA »
+
+**Dossier des slides** : `/public/formations/appels-offres/`
+
+Placez vos PDF dans ce dossier, puis via **Admin → Formations → Répondre aux appels d'offres BTP avec l'IA** :
+
+1. Module **Introduction** → Ajouter leçon → Type « Slides PDF » → URL `/formations/appels-offres/01-introduction.pdf`
+2. **MODULE 1** — Analyse DCE avec NotebookLM → idem
+3. **MODULE 2** — Décision Go/No Go + Rentabilité → idem
+4. **MODULE 3** — Rédaction mémoire technique et relecture → idem
+5. **MODULE 4** — Aide au chiffrage & contrôle de rentabilité → idem
+
+Voir `public/formations/appels-offres/README.md` pour le détail.

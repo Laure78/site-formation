@@ -122,6 +122,19 @@ const LIVRABLES = [
   },
 ];
 
+const OUTILS_IA = [
+  { name: 'ChatGPT', url: 'https://chatgpt.com/' },
+  { name: 'Claude', url: 'https://claude.ai/' },
+  { name: 'Perplexity', url: 'https://www.perplexity.ai/' },
+  { name: 'Mistral', url: 'https://mistral.ai/fr/' },
+  { name: 'Deepseek', url: 'https://chat.deepseek.com/' },
+  { name: 'Qwen', url: 'https://chat.qwen.ai/' },
+  { name: 'Grok', url: 'https://grok.com/' },
+  { name: 'Google AI Studio', url: 'https://aistudio.google.com/' },
+  { name: 'Gemini', url: 'https://gemini.google.com/app?hl=fr' },
+  { name: 'Prompt Cowboy', url: 'https://www.promptcowboy.ai/' },
+];
+
 const PROGRAMME_MODULES = [
   { title: 'Introduction', description: 'Contexte et enjeux des appels d\'offres BTP avec l\'IA' },
   { title: 'MODULE 1 — Analyse DCE avec NotebookLM', description: 'Extraire les exigences techniques, identifier les critères de sélection, synthétiser un DCE en 30 min' },
@@ -452,15 +465,36 @@ Présente une synthèse claire pour une PME du BTP.`}
             Une journée intensive pour maîtriser l&apos;IA dans vos réponses aux
             appels d&apos;offres BTP
           </p>
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <ul className="space-y-4">
-              {PROGRAMME_POINTS.map((point) => (
-                <li key={point} className="flex gap-4">
+          <div className="mt-10 space-y-6">
+            {PROGRAMME_MODULES.map((mod, i) => (
+              <div
+                key={mod.title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <div className="flex gap-4">
                   <span className="text-[var(--accent)]">►</span>
-                  <span className="text-slate-700">{point}</span>
-                </li>
-              ))}
-            </ul>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{mod.title}</h3>
+                    <p className="mt-1 text-slate-600">{mod.description}</p>
+                    {i === 0 && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {OUTILS_IA.map((outil) => (
+                          <a
+                            key={outil.name}
+                            href={outil.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-[var(--accent)] hover:bg-[var(--accent-soft)] hover:border-[var(--accent)]"
+                          >
+                            {outil.name}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
