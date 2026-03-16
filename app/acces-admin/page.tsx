@@ -41,8 +41,9 @@ export default async function AccesAdminPage() {
   }
 
   const profile = await getProfile(user.id);
+  const role = profile?.role ?? 'apprenant';
 
-  if (isAdmin(profile?.role)) {
+  if (isAdmin(role)) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-16">
         <h1 className="font-display text-2xl font-bold text-slate-900">
