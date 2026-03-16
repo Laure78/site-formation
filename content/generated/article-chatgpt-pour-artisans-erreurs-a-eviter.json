@@ -2,12 +2,12 @@
   "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
   "title": "ChatGPT pour artisans : erreurs à éviter",
   "description": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
-  "date": "2026-03-15",
+  "date": "2026-03-16",
   "keywords": [
-    "IA appels offres BTP",
-    "DCE ChatGPT",
-    "mémoire technique IA",
-    "IA BTP"
+    "devis plombier IA",
+    "devis électricien ChatGPT",
+    "chiffrage artisan IA",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -60,29 +60,8 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts optimisés pour éviter les erreurs",
-      "content": [
-        {
-          "titre": "Prompt avec contexte métier",
-          "prompt": "Tu es un assistant pour un [MAÇON/ÉLECTRICIEN/…] du BTP. Contexte : [DÉCRIRE BRIÈVEMENT]. Réponds de façon concise et professionnelle. [TA QUESTION]",
-          "usage": "Donner du contexte limite les réponses hors-sujet."
-        },
-        {
-          "titre": "Vérification sans données sensibles",
-          "prompt": "Réécris ce texte en enlevant toute donnée personnelle ou chiffrée. Garde le sens et la structure. Texte : [COLLER]",
-          "usage": "Pour tester un prompt avec un exemple anonymisé."
-        },
-        {
-          "titre": "Amélioration de prompt vague",
-          "prompt": "Transforme ce prompt vague en prompt précis : [VOTRE PROMPT]. Ajoute : rôle, format attendu, contraintes (longueur, ton).",
-          "usage": "Améliorez vos prompts avant de les utiliser."
-        }
-      ]
-    },
-    {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -95,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

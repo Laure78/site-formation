@@ -2,7 +2,7 @@
   "slug": "ia-et-chauffagiste-5-gains-de-temps-concrets",
   "title": "IA et chauffagiste : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et chauffagiste. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-03-14",
+  "date": "2026-03-16",
   "keywords": [
     "offre emploi IA",
     "recruter artisans",
@@ -60,27 +60,6 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts pour gains de temps chauffagiste",
-      "content": [
-        {
-          "titre": "Devis remplacement chaudière",
-          "prompt": "Rédige un devis chauffagiste pour remplacement chaudière : type [gaz, fioul, PAC...], puissance [X] kW, travaux associés [radiateurs, ballon...]. Inclure descriptif, garanties, entretien.",
-          "usage": "Adaptez le type d'équipement. Structure claire pour le particulier."
-        },
-        {
-          "titre": "CR pose système chauffage",
-          "prompt": "Rédige un compte rendu de pose chauffage : équipement installé, réglages effectués, notice client, prochain entretien. Format technique et lisible.",
-          "usage": "Traçabilité. Obligatoire pour les garanties constructeur."
-        },
-        {
-          "titre": "Email rappel entretien annuel",
-          "prompt": "Rédige un email de rappel entretien annuel chaudière pour un client : courtois, rappel réglementaire, proposition de RDV. Ton professionnel.",
-          "usage": "Relance saisonnière. Fidélise et sécurise les clients."
-        }
-      ]
-    },
-    {
       "type": "cta",
       "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
@@ -95,7 +74,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/tarifs",

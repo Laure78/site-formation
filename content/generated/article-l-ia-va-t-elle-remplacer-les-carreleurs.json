@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-carreleurs",
   "title": "L'IA va-t-elle remplacer les carreleurs ?",
   "description": "L'IA remplace-t-elle les carreleurs ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-03-15",
+  "date": "2026-03-16",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "offre emploi IA",
+    "recruter artisans",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -60,24 +60,8 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts carreleurs : devis et pose",
-      "content": [
-        {
-          "titre": "Devis carrelage sol",
-          "prompt": "Rédige un devis carrelage : [SURFACE] m², format [dimensions], type de pose [collée, sur plots...], préparation sol. Descriptif + quantités (carreaux, colle, joints). Format pro.",
-          "usage": "Adaptez aux spécifications du chantier."
-        },
-        {
-          "titre": "Conseil résine époxy",
-          "prompt": "Quand recommander une chape époxy vs carrelage pour [TYPE DE LOCAL : garage, cave, commerce] ? Avantages, inconvénients, ordre de prix. Réponse pour un carreleur.",
-          "usage": "Pour orienter vos clients."
-        }
-      ]
-    },
-    {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],

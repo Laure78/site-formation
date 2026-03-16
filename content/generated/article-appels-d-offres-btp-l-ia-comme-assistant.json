@@ -2,13 +2,12 @@
   "slug": "appels-d-offres-btp-l-ia-comme-assistant",
   "title": "Appels d'offres BTP : l'IA comme assistant",
   "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
-  "date": "2026-03-15",
+  "date": "2026-03-16",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT artisans"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,27 +60,6 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts pour les appels d'offres BTP avec l'IA",
-      "content": [
-        {
-          "titre": "Synthèse DCE",
-          "prompt": "Extrais de ce DCE : 1) exigences techniques pour mon lot [VOTRE LOT] ; 2) critères de sélection et pondération ; 3) délais clés. Format fiche synthétique exploitable.",
-          "usage": "Collez des extraits de DCE. Gain de temps sur l'analyse."
-        },
-        {
-          "titre": "Plan mémoire technique",
-          "prompt": "Propose un plan de mémoire technique pour un AO [TYPE : VRD, second œuvre...]. Critères à couvrir : [LISTER]. Structure : présentation, méthodologie, moyens, planning.",
-          "usage": "Base pour structurer votre réponse."
-        },
-        {
-          "titre": "Rédaction section méthodologie",
-          "prompt": "Rédige la section Méthodologie pour le lot [VOTRE LOT]. Contexte : [BRIEF]. Inclure phases, points de vigilance, adaptation CCTP. Ton professionnel.",
-          "usage": "Première version à personnaliser."
-        }
-      ]
-    },
-    {
       "type": "cta",
       "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
@@ -101,10 +79,6 @@
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

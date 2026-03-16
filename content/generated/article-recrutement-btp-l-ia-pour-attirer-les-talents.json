@@ -2,12 +2,12 @@
   "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
   "title": "Recrutement BTP : l'IA pour attirer les talents",
   "description": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
-  "date": "2026-03-15",
+  "date": "2026-03-16",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -60,29 +60,8 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts pour le recrutement BTP avec l'IA",
-      "content": [
-        {
-          "titre": "Offre d'emploi BTP",
-          "prompt": "Rédige une offre d'emploi pour un [POSTE : conducteur travaux, maçon, plombier...]. Entreprise [TAILLE], secteur [BTP/VRD/…]. Inclure missions, compétences, avantages. Ton attractif.",
-          "usage": "Adaptez poste et contexte. Publiez sur Pôle emploi, LinkedIn."
-        },
-        {
-          "titre": "Annonce courte réseaux",
-          "prompt": "Rédige une annonce courte (80 mots) pour recruter un [POSTE]. Mettre en avant : secteur, lieu, mission principale, contact. Style direct.",
-          "usage": "Pour LinkedIn, Indeed, groupes Facebook BTP."
-        },
-        {
-          "titre": "Email de relance candidat",
-          "prompt": "Rédige un email de relance courtois à un candidat pour un poste de [POSTE]. Rappel de l'étape en cours, proposition de date d'entretien si pertinent.",
-          "usage": "Garder un bon rapport candidat-recruteur."
-        }
-      ]
-    },
-    {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -95,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

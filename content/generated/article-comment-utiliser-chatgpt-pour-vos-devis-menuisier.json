@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-menuisier",
   "title": "Comment utiliser ChatGPT pour vos devis menuisier",
   "description": "Devis menuisier avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-03-15",
+  "date": "2026-03-16",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
+    "relance client IA",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -60,27 +60,6 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts pour devis menuisier avec ChatGPT",
-      "content": [
-        {
-          "titre": "Devis menuiserie sur mesure",
-          "prompt": "Rédige un devis menuisier pour : [TYPE : cuisine, dressing, portes...]. Dimensions [L x H x P] cm, essence [BOIS], finition. Inclure descriptif technique, quantités, pose. Format professionnel.",
-          "usage": "Adaptez type et dimensions. Base pour structurer votre proposition."
-        },
-        {
-          "titre": "Chiffrage placard coulissant",
-          "prompt": "Liste les postes pour un placard coulissant : dimensions [X] x [Y] cm, type glissière, nombre de portes. Quantités de bois, quincaillerie, temps. Format tableau.",
-          "usage": "Pour estimer avant de fixer vos prix."
-        },
-        {
-          "titre": "Conditions pose menuiserie",
-          "prompt": "Rédige les conditions d'un devis menuiserie : délai de fabrication, conditions de pose, garanties. Ton professionnel, 4-5 points.",
-          "usage": "Réutilisable sur tous vos devis."
-        }
-      ]
-    },
-    {
       "type": "cta",
       "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
@@ -95,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
