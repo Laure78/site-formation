@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Clock, Users, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, getCourseListSchema } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
+import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Catalogue qualiopi Constructys',
@@ -190,6 +192,49 @@ export default function FormationsPage() {
           <ShortAnswerBlock>
             L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
           </ShortAnswerBlock>
+        </div>
+      </div>
+      
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="overflow-hidden rounded-2xl shadow-lg">
+          <Image
+            src={PHOTOS.ouvrierPlan.src}
+            alt={PHOTOS.ouvrierPlan.alt}
+            width={PHOTOS.ouvrierPlan.width}
+            height={PHOTOS.ouvrierPlan.height}
+            className="h-auto w-full"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+        </div>
+        <div className="overflow-hidden rounded-2xl shadow-lg">
+          <Image
+            src={PHOTOS.architecteConcentration.src}
+            alt={PHOTOS.architecteConcentration.alt}
+            width={PHOTOS.architecteConcentration.width}
+            height={PHOTOS.architecteConcentration.height}
+            className="h-auto w-full"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+        </div>
+        <div className="overflow-hidden rounded-2xl shadow-lg">
+          <Image
+            src={PHOTOS.ouvrierConfiant.src}
+            alt={PHOTOS.ouvrierConfiant.alt}
+            width={PHOTOS.ouvrierConfiant.width}
+            height={PHOTOS.ouvrierConfiant.height}
+            className="h-auto w-full"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+        </div>
+        <div className="overflow-hidden rounded-2xl shadow-lg">
+          <Image
+            src={PHOTOS.formationEntreprise.src}
+            alt={PHOTOS.formationEntreprise.alt}
+            width={PHOTOS.formationEntreprise.width}
+            height={PHOTOS.formationEntreprise.height}
+            className="h-auto w-full"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
         </div>
       </div>
 

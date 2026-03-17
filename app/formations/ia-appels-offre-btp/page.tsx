@@ -20,6 +20,7 @@ import {
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FormationCarousel } from '@/components/formations/FormationCarousel';
+import { FormationPhotos } from '@/components/formations/FormationPhotos';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
@@ -229,14 +230,18 @@ export default function FormationIAAppelsOffreBTPPage() {
       {/* Carrousel formation IA appels d'offres */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <FormationCarousel
-            title="Formation IA BTP — Appels d'offres et DCE"
-            slides={[
-              { src: '/images/laure-olivie-ia-administratif-batiment.png', alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment — Appels d\'offres BTP' },
-              { src: '/images/btp-conducteur-plans.png', alt: 'Formation IA Laure Olivié — Conducteur travaux BTP plans chantier — Appels d\'offres DCE' },
-              { src: '/images/btp-architecte-plans.png', alt: 'Formation IA Laure Olivié — Bureau d\'études BTP — Réponse appels d\'offres IA' },
-            ]}
-          />
+          <FormationPhotos variant="default" />
+          
+          <div className="mt-12">
+            <FormationCarousel
+              title="Formation IA BTP — Appels d'offres et DCE"
+              slides={[
+                { src: '/images/laure-olivie-ia-administratif-batiment.png', alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment — Appels d\'offres BTP' },
+                { src: '/images/btp-conducteur-plans.png', alt: 'Formation IA Laure Olivié — Conducteur travaux BTP plans chantier — Appels d\'offres DCE' },
+                { src: '/images/btp-architecte-plans.png', alt: 'Formation IA Laure Olivié — Bureau d\'études BTP — Réponse appels d\'offres IA' },
+              ]}
+            />
+          </div>
         </div>
       </section>
 

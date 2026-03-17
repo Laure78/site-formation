@@ -24,6 +24,7 @@ import { ProgrammeAccordion } from '@/components/formations/ProgrammeAccordion';
 import { FormationCarousel } from '@/components/formations/FormationCarousel';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { FormationPhotos } from '@/components/formations/FormationPhotos';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_RH_BTP } from '@/lib/faq';
 
@@ -243,37 +244,32 @@ export default function FormationIARHBTPPage() {
       {/* Objectifs pédagogiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src="/images/btp-femme-cheffe-projet.png"
-              alt="formation IA Laure Olivié — Cheffe de projet BTP consultant des plans — Formation RH bâtiment"
-              width={1200}
-              height={630}
-              className="h-auto w-full object-cover"
-            />
-          </div>
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Objectifs pédagogiques de la formation
-          </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Une formation opérationnelle en 2 jours pour maîtriser l&apos;IA dans
-            tous les aspects de la fonction RH du BTP
-          </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {OBJECTIFS.map((obj) => (
-              <div
-                key={obj.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] ${obj.color}`}>
-                  <obj.icon size={24} strokeWidth={1.5} />
+          <FormationPhotos variant="recrutement" />
+          
+          <div className="mt-12">
+            <h2 className="font-display text-3xl font-bold text-slate-900">
+              Objectifs pédagogiques de la formation
+            </h2>
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Une formation opérationnelle en 2 jours pour maîtriser l&apos;IA dans
+              tous les aspects de la fonction RH du BTP
+            </p>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {OBJECTIFS.map((obj) => (
+                <div
+                  key={obj.title}
+                  className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                >
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] ${obj.color}`}>
+                    <obj.icon size={24} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{obj.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{obj.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{obj.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{obj.desc}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

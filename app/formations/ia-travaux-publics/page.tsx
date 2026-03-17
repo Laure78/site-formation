@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { FormationPhotos } from '@/components/formations/FormationPhotos';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 
@@ -225,14 +226,17 @@ export default function FormationIATravauxPublicsPage() {
       {/* Objectifs pédagogiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Objectifs pédagogiques de la formation
-          </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Une formation opérationnelle en 2 jours pour maîtriser l&apos;IA dans
-            tous les aspects des métiers des Travaux Publics
-          </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <FormationPhotos variant="travaux-publics" />
+          
+          <div className="mt-12">
+            <h2 className="font-display text-3xl font-bold text-slate-900">
+              Objectifs pédagogiques de la formation
+            </h2>
+            <p className="mt-3 max-w-2xl text-slate-600">
+              Une formation opérationnelle en 2 jours pour maîtriser l&apos;IA dans
+              tous les aspects des métiers des Travaux Publics
+            </p>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {OBJECTIFS.map((obj) => (
               <div
                 key={obj.title}
@@ -247,6 +251,7 @@ export default function FormationIATravauxPublicsPage() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>

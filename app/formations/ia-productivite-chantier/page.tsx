@@ -14,6 +14,7 @@ import {
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { FormationCarousel } from '@/components/formations/FormationCarousel';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { FormationPhotos } from '@/components/formations/FormationPhotos';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_PRODUCTIVITE_CHANTIER } from '@/lib/faq';
 
@@ -123,27 +124,31 @@ export default function FormationIAProductiviteChantierPage() {
       />
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-6">
-          <FormationCarousel
-            title="Formation IA productivité chantier — Laure Olivié"
-            slides={[
-              {
-                src: '/images/laure-olivie-ia-rentabilite-chantier.png',
-                alt: 'Formation IA Laure Olivié — IA pour améliorer la rentabilité chantier BTP',
-              },
-              {
-                src: '/images/laure-olivie-ia-administratif-batiment.png',
-                alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment',
-              },
-              {
-                src: '/images/rencontres-artisans-ia-ffb-btp.png',
-                alt: 'Formation IA Laure Olivié — Rencontres des Artisans FFB BTP',
-              },
-              {
-                src: '/images/laure-olivie-portrait-pro.png',
-                alt: 'Formation IA Laure Olivié — Formatrice IA spécialisée BTP',
-              },
-            ]}
-          />
+          <FormationPhotos variant="productivite" />
+          
+          <div className="mt-12">
+            <FormationCarousel
+              title="Formation IA productivité chantier — Laure Olivié"
+              slides={[
+                {
+                  src: '/images/laure-olivie-ia-rentabilite-chantier.png',
+                  alt: 'Formation IA Laure Olivié — IA pour améliorer la rentabilité chantier BTP',
+                },
+                {
+                  src: '/images/laure-olivie-ia-administratif-batiment.png',
+                  alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment',
+                },
+                {
+                  src: '/images/rencontres-artisans-ia-ffb-btp.png',
+                  alt: 'Formation IA Laure Olivié — Rencontres des Artisans FFB BTP',
+                },
+                {
+                  src: '/images/laure-olivie-portrait-pro.png',
+                  alt: 'Formation IA Laure Olivié — Formatrice IA spécialisée BTP',
+                },
+              ]}
+            />
+          </div>
         </div>
       </section>
       {/* Hero */}

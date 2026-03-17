@@ -16,12 +16,13 @@ export function ProfilePhoto() {
   }
 
   return (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-200 shadow-lg">
+    <div className="overflow-hidden rounded-2xl shadow-lg">
       <Image
         src="/images/laure-olivie.png"
         alt="Laure Olivié - Formatrice IA pour les entreprises du BTP"
-        fill
-        className="object-cover"
+        width={912}
+        height={1024}
+        className="w-full h-auto"
         sizes="(max-width: 768px) 100vw, 384px"
         priority
         onError={() => setError(true)}

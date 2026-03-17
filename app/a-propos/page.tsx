@@ -4,6 +4,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { PHOTOS } from '@/lib/photos';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS } from '@/lib/faq';
@@ -74,23 +75,65 @@ export default function AProposPage() {
       {/* 4 cartes caractéristiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-12 grid gap-6 sm:grid-cols-2">
+          <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/btp-collaboration-chantier.png"
                 alt="Partenariat et collaboration sur chantier BTP — Laure Olivié formation IA bâtiment — Appel d'offre BTP"
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover"
+                width={1024}
+                height={711}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-portrait-pro.png"
                 alt="Laure Olivié formatrice IA spécialisée BTP — Formation IA bâtiment — Appel d'offre BTP"
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover"
+                width={1024}
+                height={747}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.linkedinPanel.src}
+                alt={PHOTOS.linkedinPanel.alt}
+                width={PHOTOS.linkedinPanel.width}
+                height={PHOTOS.linkedinPanel.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.formationEntreprise.src}
+                alt={PHOTOS.formationEntreprise.alt}
+                width={PHOTOS.formationEntreprise.width}
+                height={PHOTOS.formationEntreprise.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.bannerRecrutementDifficile.src}
+                alt={PHOTOS.bannerRecrutementDifficile.alt}
+                width={PHOTOS.bannerRecrutementDifficile.width}
+                height={PHOTOS.bannerRecrutementDifficile.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.linkedinPortrait.src}
+                alt={PHOTOS.linkedinPortrait.alt}
+                width={PHOTOS.linkedinPortrait.width}
+                height={PHOTOS.linkedinPortrait.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           </div>
