@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { FormationCarousel } from '@/components/formations/FormationCarousel';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
@@ -225,6 +226,20 @@ export default function FormationIAAppelsOffreBTPPage() {
         </div>
       </section>
 
+      {/* Carrousel formation IA appels d'offres */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <FormationCarousel
+            title="Formation IA BTP — Appels d'offres et DCE"
+            slides={[
+              { src: '/images/laure-olivie-ia-administratif-batiment.png', alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment — Appels d\'offres BTP' },
+              { src: '/images/btp-conducteur-plans.png', alt: 'Formation IA Laure Olivié — Conducteur travaux BTP plans chantier — Appels d\'offres DCE' },
+              { src: '/images/btp-architecte-plans.png', alt: 'Formation IA Laure Olivié — Bureau d\'études BTP — Réponse appels d\'offres IA' },
+            ]}
+          />
+        </div>
+      </section>
+
       {/* Pourquoi les appels d'offres sont complexes */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
@@ -262,6 +277,15 @@ export default function FormationIAAppelsOffreBTPPage() {
       {/* Comment l'IA peut aider */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
+          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/laure-olivie-ia-administratif-batiment.png"
+              alt="formation IA Laure Olivié — Automatiser l&apos;administratif bâtiment — Appel d&apos;offre BTP DCE"
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+            />
+          </div>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Comment l&apos;intelligence artificielle peut aider à analyser un appel d&apos;offre BTP
           </h2>
@@ -326,7 +350,7 @@ Présente une synthèse claire pour une PME du BTP.`}
           <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="/images/btp-conducteur-plans.png"
-              alt="Conducteur de travaux BTP consultant des plans sur chantier — Laure Olivié formation IA appels d'offres DCE"
+              alt="formation IA Laure Olivié — Conducteur travaux BTP consultant des plans — Appels d&apos;offres DCE"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"
@@ -396,38 +420,39 @@ Présente une synthèse claire pour une PME du BTP.`}
             <div className="shrink-0 sm:w-48">
               <ProfilePhoto />
             </div>
-            <div>
-            <h2 className="font-display text-2xl font-bold text-slate-900">
-              Formation IA pour les entreprises du BTP
-            </h2>
-            <p className="mt-4 text-slate-700">
-              <strong>Laure Olivié</strong>, formatrice spécialisée en intelligence artificielle appliquée au BTP, accompagne les chargés d&apos;affaires, bureaux d&apos;études et dirigeants dans la maîtrise de l&apos;IA pour les appels d&apos;offres.
-            </p>
-            <ul className="mt-6 space-y-2 text-slate-700">
-              <li className="flex gap-2">
-                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                Automatisation des tâches administratives
-              </li>
-              <li className="flex gap-2">
-                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                Analyse des appels d&apos;offres et des DCE
-              </li>
-              <li className="flex gap-2">
-                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                Génération de mémoires techniques et documents
-              </li>
-              <li className="flex gap-2">
-                <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                Gain de temps mesurable dès la première semaine
-              </li>
-            </ul>
-            <div className="mt-8">
-              <Link
-                href="/diagnostic-ia-btp"
-                className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-600"
-              >
-                Demander un diagnostic IA pour mon entreprise
-              </Link>
+            <div className="flex-1">
+              <h2 className="font-display text-2xl font-bold text-slate-900">
+                Formation IA pour les entreprises du BTP
+              </h2>
+              <p className="mt-4 text-slate-700">
+                <strong>Laure Olivié</strong>, formatrice spécialisée en intelligence artificielle appliquée au BTP, accompagne les chargés d&apos;affaires, bureaux d&apos;études et dirigeants dans la maîtrise de l&apos;IA pour les appels d&apos;offres.
+              </p>
+              <ul className="mt-6 space-y-2 text-slate-700">
+                <li className="flex gap-2">
+                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                  Automatisation des tâches administratives
+                </li>
+                <li className="flex gap-2">
+                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                  Analyse des appels d&apos;offres et des DCE
+                </li>
+                <li className="flex gap-2">
+                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                  Génération de mémoires techniques et documents
+                </li>
+                <li className="flex gap-2">
+                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                  Gain de temps mesurable dès la première semaine
+                </li>
+              </ul>
+              <div className="mt-8">
+                <Link
+                  href="/diagnostic-ia-btp"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-600"
+                >
+                  Demander un diagnostic IA pour mon entreprise
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BarChart3, Building2, Shield } from 'lucide-react';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
@@ -74,6 +75,15 @@ export default function ClientsPartenairesPage() {
       {/* Partenariat FFB Grand Paris */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
+          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/rencontres-artisans-ia-ffb-btp.png"
+              alt="Rencontres des Artisans FFB — L'IA au service des Artisans du Bâtiment — Laure Olivié formation IA BTP — Appel d'offre BTP"
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+            />
+          </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
             <div className="flex gap-6">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)] text-white">

@@ -21,6 +21,7 @@ import {
   Monitor,
 } from 'lucide-react';
 import { ProgrammeAccordion } from '@/components/formations/ProgrammeAccordion';
+import { FormationCarousel } from '@/components/formations/FormationCarousel';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
@@ -245,7 +246,7 @@ export default function FormationIARHBTPPage() {
           <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="/images/btp-femme-cheffe-projet.png"
-              alt="Cheffe de projet BTP en tenue de chantier consultant des plans — Laure Olivié formation IA RH bâtiment"
+              alt="formation IA Laure Olivié — Cheffe de projet BTP consultant des plans — Formation RH bâtiment"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"
@@ -284,7 +285,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-md">
               <Image
                 src="/images/btp-equipe-chantier.png"
-                alt="Équipe dirigeants et ouvriers BTP sur chantier — Formation IA RH construction"
+                alt="formation IA Laure Olivié — Équipe dirigeants et ouvriers BTP sur chantier — Formation RH"
                 width={600}
                 height={400}
                 className="h-56 w-full object-cover"
@@ -293,7 +294,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-md">
               <Image
                 src="/images/btp-collaboration-chantier.png"
-                alt="Collaboration et partenariat sur chantier BTP — Laure Olivié formation IA bâtiment"
+                alt="formation IA Laure Olivié — Collaboration et partenariat sur chantier BTP"
                 width={600}
                 height={400}
                 className="h-56 w-full object-cover"
@@ -378,6 +379,44 @@ export default function FormationIARHBTPPage() {
       {/* Formation LinkedIn — recrutement BTP */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
+          <div className="mb-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/laure-olivie-formation-recrutement-btp.png"
+                alt="formation IA Laure Olivié — Recruter main-d'œuvre avec l'IA — Formation RH BTP"
+                width={400}
+                height={300}
+                className="h-48 w-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/laure-olivie-formation-ia-rh-linkedin.png"
+                alt="Laure Olivié formatrice IA spécialisée BTP — Formation recrutement LinkedIn Learning — Appel d'offre BTP"
+                width={400}
+                height={300}
+                className="h-48 w-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/laure-olivie-formatrice-ia-btp.png"
+                alt="formation IA Laure Olivié — Formatrice IA spécialisée BTP — Formation recrutement"
+                width={400}
+                height={300}
+                className="h-48 w-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/laure-olivie-formation-ia-recrutement.png"
+                alt="formation IA Laure Olivié — Recruter main-d'œuvre efficacement — Formation IA RH BTP"
+                width={400}
+                height={300}
+                className="h-48 w-full object-cover"
+              />
+            </div>
+          </div>
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Ma formation LinkedIn Learning sur le recrutement
           </h2>
