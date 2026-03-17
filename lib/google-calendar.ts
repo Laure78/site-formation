@@ -113,3 +113,69 @@ export async function createCalendarEvent(params: CreateCalendarEventParams): Pr
     return { ok: false, error: msg };
   }
 }
+
+/**
+ * Teste la connexion Google Calendar — pour diagnostic admin.
+ * Vérifie que les variables sont définies et que l'accès au calendrier fonctionne.
+ */
+export async function testGoogleCalendarConnection(): Promise<{
+  ok: boolean;
+  message: string;
+  details?: { calendarId?: string; serviceAccountEmail?: string };
+}> {
+  const credsJson = process.env.GOOGLE_CALENDAR_CREDENTIALS_JSON;
+  const calendarId = process.env.GOOGLE_CALENDAR_ID;
+
+  if (!credsJson || !calendarId) {
+    const missing: string[] = [];
+    if (!credsJson) missing.push('GOOGLE_CALENDAR_CREDENTIALS_JSON');
+    if (!calendarId) missing.push('GOOGLE_CALENDAR_ID');
+    return { ok: false, message: `Variables manquantes sur le serveur : ${missing.join(', ')}. Ajoutez-les dans Railway (Variables) puis redéployez.` };
+  }
+
+  let serviceAccountEmail: string | undefined;
+  try {
+    const credentials = JSON.parse(credsJson);
+    serviceAccountEmail = credentials.client_email;
+  } catch {
+    return { ok: false, message: 'GOOGLE_CALENDAR_CREDENTIALS_JSON invalide (JSON mal formé). Vérifiez que le JSON est complet et sur une seule ligne.' };
+  }
+
+  try {
+    const auth = new google.auth.GoogleAuth({
+      credentials: JSON.parse(credsJson),
+      scopes: ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.events'],
+    });
+    const calendar = google.calendar({ version: 'v3', auth });
+
+    // Test 1 : récupérer les infos du calendrier (vérifie le partage)
+    await calendar.calendars.get({ calendarId });
+  } catch (e: unknown) {
+    const err = e as { code?: number; message?: string };
+    if (err.code === 404 || err.message?.includes('404')) {
+      return {
+        ok: false,
+        message: `Calendrier introuvable (404). Vérifiez que GOOGLE_CALENDAR_ID est correct (ex. laureolivie@gmail.com). Valeur actuelle : "${calendarId}"`,
+        details: { calendarId, serviceAccountEmail },
+      };
+    }
+    if (err.code === 403 || err.message?.includes('403') || err.message?.includes('Access denied')) {
+      return {
+        ok: false,
+        message: `Accès refusé. Le calendrier doit être partagé avec le compte de service. Allez sur calendar.google.com → Paramètres du calendrier → Partager avec des personnes → Ajoutez "${serviceAccountEmail}" avec le droit "Peut modifier les créneaux".`,
+        details: { calendarId, serviceAccountEmail },
+      };
+    }
+    return {
+      ok: false,
+      message: err.message ?? 'Erreur inconnue',
+      details: { calendarId, serviceAccountEmail },
+    };
+  }
+
+  return {
+    ok: true,
+    message: 'Connexion OK. Le calendrier est accessible. Les événements devraient apparaître dans ton agenda.',
+    details: { calendarId, serviceAccountEmail },
+  };
+}
