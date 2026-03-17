@@ -22,9 +22,11 @@ import { DevisForm } from '@/components/landing/DevisForm';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import Image from 'next/image';
 import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
+import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Gagnez 3 à 5h/semaine | Laure Olivié',
@@ -48,7 +50,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
         <div className="relative mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
-            <div>
+            <div className="flex-1">
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <Check size={16} strokeWidth={1.5} />
                 <span>CERTIFIÉE QUALIOPI · FINANCEMENT CONSTRUCTYS 100%</span>
@@ -92,6 +94,19 @@ export default function HomePage() {
                     <p className="mt-1 text-xs text-slate-600">{stat.label}</p>
                   </div>
                 ))}
+              </div>
+            </div>
+            <div className="shrink-0 lg:w-80">
+              <div className="overflow-hidden rounded-2xl shadow-2xl">
+                <Image
+                  src={PHOTOS.profileBlue.src}
+                  alt={PHOTOS.profileBlue.alt}
+                  width={PHOTOS.profileBlue.width}
+                  height={PHOTOS.profileBlue.height}
+                  className="h-auto w-full"
+                  sizes="(max-width: 1024px) 100vw, 320px"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -477,7 +492,7 @@ export default function HomePage() {
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
-            <div className="shrink-0 lg:w-80">
+            <div className="shrink-0 w-full sm:w-80 lg:w-96">
               <ProfilePhoto />
             </div>
             <div>
@@ -530,70 +545,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Avis clients */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src="/images/btp-equipe-chantier.png"
-              alt="Équipe BTP sur chantier — Dirigeants et ouvriers — Laure Olivié formation IA bâtiment"
-              width={1200}
-              height={630}
-              className="h-64 w-full object-cover md:h-80"
-            />
-          </div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <Award size={16} strokeWidth={1.5} />
-            <span>AVIS CLIENTS</span>
-          </div>
-          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            Cas concrets d&apos;entreprises du BTP formées
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Découvrez comment des entreprises du BTP comme la vôtre utilisent
-            l&apos;IA au quotidien.
-          </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                quote: "Depuis la formation, je génère mes devis 10 fois plus vite. Le retour sur investissement est immédiat. Mes équipes ont gagné en productivité.",
-                name: "Marc DUBOIS",
-                role: "Dirigeant",
-                company: "DUBOIS Travaux Publics - 25 salariés",
-              },
-              {
-                quote: "Formation 100 % terrain, zéro théorie inutile. On travaille directement sur nos vrais documents. Les gains de temps sont concrets dès le lendemain.",
-                name: "Sophie MARTIN",
-                role: "Assistante de direction",
-                company: "BTP Construction - 45 salariés",
-              },
-              {
-                quote: "J'ai automatisé tous mes comptes rendus de chantier. Je gagne minimum 2h par jour. La formation est parfaitement adaptée à notre métier.",
-                name: "Pierre LEFEBVRE",
-                role: "Conducteur de travaux",
-                company: "Groupe Construction",
-              },
-            ].map((t) => (
-              <div
-                key={t.name}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex gap-1 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i}>★</span>
-                  ))}
-                </div>
-                <p className="mt-4 italic text-slate-700">« {t.quote} »</p>
-                <div className="mt-6 border-t border-slate-100 pt-4">
-                  <p className="font-semibold text-slate-900">{t.name}</p>
-                  <p className="text-sm text-slate-600">{t.role}</p>
-                  <p className="text-sm text-slate-500">{t.company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Avis clients Google */}
+      <GoogleReviewsSection />
 
       {/* Formations LinkedIn — expertise */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
@@ -608,6 +561,40 @@ export default function HomePage() {
           <p className="mt-3 max-w-2xl text-slate-600">
             Formatrice LinkedIn Learning : solutions concrètes pour vos chantiers et recrutement.
           </p>
+          
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.linkedinGraz.src}
+                alt={PHOTOS.linkedinGraz.alt}
+                width={PHOTOS.linkedinGraz.width}
+                height={PHOTOS.linkedinGraz.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.studioDark.src}
+                alt={PHOTOS.studioDark.alt}
+                width={PHOTOS.studioDark.width}
+                height={PHOTOS.studioDark.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={PHOTOS.bannerSolutionsConcretres.src}
+                alt={PHOTOS.bannerSolutionsConcretres.alt}
+                width={PHOTOS.bannerSolutionsConcretres.width}
+                height={PHOTOS.bannerSolutionsConcretres.height}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+          </div>
+          
           <div className="mt-8 space-y-12">
             <div>
               <h3 className="font-display text-xl font-semibold text-slate-900">
