@@ -25,9 +25,9 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'IA pour répondre aux appels d\'offres BTP | Formation IA BTP',
+  title: 'IA Appels d\'offres BTP : Gagnez 5x en rapidité',
   description:
-    'Découvrez comment utiliser l\'intelligence artificielle pour analyser un CCTP, comprendre un DCE et rédiger un mémoire technique plus rapidement dans le BTP.',
+    'Analysez DCE et CCTP 5x plus vite avec l\'IA. Rédigez mémoires techniques convaincants. Formation 100% finançable OPCO. Note 4,85/5.',
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appels d\'offres BTP',
@@ -35,6 +35,9 @@ export const metadata = createPageMetadata({
     'analyse CCTP IA',
     'répondre appel d\'offre travaux',
     'ChatGPT appels d\'offres BTP',
+    'DCE IA',
+    'analyse DCE IA',
+    'IA marchés publics BTP',
   ],
 });
 

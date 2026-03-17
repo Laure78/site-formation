@@ -4,17 +4,18 @@ import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Lille | Automatiser devis, appels d\'offres et administratif',
+  title: 'Formation IA BTP Lille : Automatiser devis & appels d\'offres',
   description:
-    'Formation IA BTP à Lille et Hauts-de-France. Nord, Pas-de-Calais, Somme. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys. Qualiopi.',
+    'Formation IA BTP Lille et Hauts-de-France. Automatisez devis, appels d\'offres. 4h. 100% finançable. Nord, Pas-de-Calais.',
   path: '/formations/ia-btp-lille',
   keywords: [
     'formation IA BTP Lille',
-    'formation ChatGPT BTP',
+    'formation ChatGPT BTP Lille',
     'IA bâtiment Lille',
-    'formation intelligence artificielle BTP',
-    'automatisation appels d\'offres BTP',
-    'IA pour entreprises du bâtiment',
+    'formation IA Nord',
+    'formation IA Hauts-de-France',
+    'automatisation BTP Lille',
+    'OPCO Constructys Lille',
   ],
 });
 

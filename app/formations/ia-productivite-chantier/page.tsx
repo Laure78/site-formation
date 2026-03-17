@@ -19,10 +19,20 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 import { FAQ_PRODUCTIVITE_CHANTIER } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP productivité chantier | Constructys',
+  title: 'Formation IA Productivité Chantier : Gagnez 5h/semaine',
   description:
-    'Formation IA productivité chantier. Devis, emails, CR en quelques secondes. Atelier, micro-learning ou coaching. 100% finançable Constructys. Qualiopi. Artisans.',
+    'IA pour chantier : devis, emails, CR automatisés. Formats flexibles. 100% finançable. Pour artisans BTP. Certification Qualiopi.',
   path: '/formations/ia-productivite-chantier',
+  keywords: [
+    'productivité chantier IA',
+    'IA chantier BTP',
+    'automatisation chantier',
+    'devis automatique IA',
+    'compte rendu chantier IA',
+    'formation IA artisan',
+    'ChatGPT chantier',
+    'gain temps chantier IA',
+  ],
 });
 
 const courseSchema = getCourseSchema({

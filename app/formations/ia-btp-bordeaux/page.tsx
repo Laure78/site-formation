@@ -4,17 +4,18 @@ import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Bordeaux | Automatiser devis, appels d\'offres et administratif',
+  title: 'Formation IA BTP Bordeaux : Devis & appels d\'offres automatisés',
   description:
-    'Formation IA BTP à Bordeaux et Nouvelle-Aquitaine. Gironde, Charente, Dordogne, Landes. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys.',
+    'Formation IA BTP Bordeaux et Nouvelle-Aquitaine. Automatisez devis, appels d\'offres. 4h. 100% finançable. Gironde, Charente.',
   path: '/formations/ia-btp-bordeaux',
   keywords: [
     'formation IA BTP Bordeaux',
-    'formation ChatGPT BTP',
+    'formation ChatGPT BTP Bordeaux',
     'IA bâtiment Bordeaux',
-    'formation intelligence artificielle BTP',
-    'automatisation appels d\'offres BTP',
-    'IA pour entreprises du bâtiment',
+    'formation IA Gironde',
+    'formation IA Nouvelle-Aquitaine',
+    'automatisation BTP Bordeaux',
+    'OPCO Constructys Bordeaux',
   ],
 });
 

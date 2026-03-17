@@ -5,9 +5,9 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT artisans BTP — Devis, emails, formation finançable',
+  title: 'ChatGPT Artisans BTP : Devis & emails automatisés',
   description:
-    'ChatGPT artisans BTP : automatiser devis bâtiment et emails. Formation finançable Constructys. Gagnez 3 à 5h/semaine. Qualiopi.',
+    'ChatGPT pour artisans : automatisez devis, emails, CR. Formation 100% finançable Constructys. Gagnez 3-5h/semaine. Certifié Qualiopi.',
   path: '/chatgpt-artisans-btp',
   keywords: [
     'ChatGPT artisans BTP',
@@ -15,6 +15,9 @@ export const metadata = createPageMetadata({
     'IA artisan bâtiment',
     'ChatGPT devis BTP',
     'intelligence artificielle artisans',
+    'formation IA artisan',
+    'automatisation artisan',
+    'ChatGPT TPE bâtiment',
   ],
 });
 

@@ -4,17 +4,18 @@ import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Lyon | Automatiser devis, appels d\'offres et administratif',
+  title: 'Formation IA BTP Lyon : Automatiser devis & appels d\'offres',
   description:
-    'Formation IA BTP à Lyon et Auvergne-Rhône-Alpes. Rhône, Ain, Isère, Loire. Devis, appels d\'offres, emails en 4h. 100% finançable Constructys. Qualiopi.',
+    'Formation IA BTP Lyon et Auvergne-Rhône-Alpes. Devis, appels d\'offres automatisés. 4h. 100% finançable. Rhône, Ain, Isère.',
   path: '/formations/ia-btp-lyon',
   keywords: [
     'formation IA BTP Lyon',
-    'formation ChatGPT BTP',
+    'formation ChatGPT BTP Lyon',
     'IA bâtiment Lyon',
-    'formation intelligence artificielle BTP',
-    'automatisation appels d\'offres BTP',
-    'IA pour entreprises du bâtiment',
+    'formation IA Rhône',
+    'formation IA Auvergne Rhône-Alpes',
+    'automatisation BTP Lyon',
+    'OPCO Constructys Lyon',
   ],
 });
 

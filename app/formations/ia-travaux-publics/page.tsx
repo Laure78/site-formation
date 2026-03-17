@@ -25,10 +25,20 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Travaux Publics — DCE, CR | Constructys',
+  title: 'Formation IA Travaux Publics : DCE, CCTP & rapports',
   description:
-    "Formation IA & Travaux Publics. DCE, CCTP, CR chantier. 2 jours (14h). 100% finançable Constructys. Qualiopi. Conducteurs et chargés d'affaires TP.",
+    'Formation IA Travaux Publics : analysez DCE/CCTP, automatisez rapports chantier. 2 jours. 100% finançable. Conducteurs TP. Note 4,85/5.',
   path: '/formations/ia-travaux-publics',
+  keywords: [
+    'formation IA travaux publics',
+    'IA TP',
+    'IA génie civil',
+    'DCE travaux publics IA',
+    'conducteur travaux IA',
+    'rapport chantier IA',
+    'ChatGPT travaux publics',
+    'formation IA infrastructures',
+  ],
 });
 
 const courseSchema = getCourseSchema({

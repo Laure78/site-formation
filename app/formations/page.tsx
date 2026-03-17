@@ -9,10 +9,19 @@ import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Catalogue qualiopi Constructys',
+  title: 'Formations IA BTP : Catalogue Qualiopi 100% finançable',
   description:
-    'Catalogue formations IA BTP : devis, appels d\'offres, productivité chantier. De 4h à 14h. 100% finançable Constructys. Qualiopi. Paris, Lyon, Bordeaux, Lille.',
+    'Catalogue formations IA : devis, appels d\'offres, RH, TP. 4h à 2 jours. 100% Constructys. Paris, Lyon, Bordeaux. Certifié Qualiopi.',
   path: '/formations',
+  keywords: [
+    'catalogue formation IA BTP',
+    'formations IA bâtiment',
+    'formation ChatGPT entreprise',
+    'formation IA Qualiopi',
+    'OPCO Constructys',
+    'formation IA artisan',
+    'formation IA PME BTP',
+  ],
 });
 
 const FORMATIONS = [
