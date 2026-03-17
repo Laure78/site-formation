@@ -87,7 +87,7 @@ export default function AProposPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/btp-collaboration-chantier.png"
-                alt="Partenariat et collaboration sur chantier BTP — Laure Olivié formation IA bâtiment — Appel d'offre BTP"
+                alt="Partenariat et collaboration réussie sur chantier BTP grâce aux formations IA de Laure Olivié"
                 width={1024}
                 height={711}
                 className="h-auto w-full"
@@ -97,7 +97,7 @@ export default function AProposPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-portrait-pro.png"
-                alt="Laure Olivié formatrice IA spécialisée BTP — Formation IA bâtiment — Appel d'offre BTP"
+                alt="Laure Olivié formatrice en intelligence artificielle spécialisée dans les formations pour entreprises du BTP"
                 width={1024}
                 height={747}
                 className="h-auto w-full"

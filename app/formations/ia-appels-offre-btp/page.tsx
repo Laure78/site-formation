@@ -239,9 +239,9 @@ export default function FormationIAAppelsOffreBTPPage() {
             <FormationCarousel
               title="Formation IA BTP — Appels d'offres et DCE"
               slides={[
-                { src: '/images/laure-olivie-ia-administratif-batiment.png', alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment — Appels d\'offres BTP' },
-                { src: '/images/btp-conducteur-plans.png', alt: 'Formation IA Laure Olivié — Conducteur travaux BTP plans chantier — Appels d\'offres DCE' },
-                { src: '/images/btp-architecte-plans.png', alt: 'Formation IA Laure Olivié — Bureau d\'études BTP — Réponse appels d\'offres IA' },
+                { src: '/images/laure-olivie-ia-administratif-batiment.png', alt: 'Formation appel d\'offre BTP avec Laure Olivié pour automatiser l\'analyse des DCE et réponses aux marchés publics' },
+                { src: '/images/btp-conducteur-plans.png', alt: 'Conducteur de travaux BTP analysant des plans lors d\'une formation IA pour optimiser les appels d\'offres' },
+                { src: '/images/btp-architecte-plans.png', alt: 'Bureau d\'études BTP utilisant l\'intelligence artificielle pour répondre efficacement aux appels d\'offres publics' },
               ]}
             />
           </div>
@@ -288,7 +288,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="/images/laure-olivie-ia-administratif-batiment.png"
-              alt="formation IA Laure Olivié — Automatiser l&apos;administratif bâtiment — Appel d&apos;offre BTP DCE"
+              alt="Formation appel d'offre BTP avec IA pour optimiser l'analyse des DCE et CCTP par Laure Olivié"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"
@@ -358,7 +358,7 @@ Présente une synthèse claire pour une PME du BTP.`}
           <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="/images/btp-conducteur-plans.png"
-              alt="formation IA Laure Olivié — Conducteur travaux BTP consultant des plans — Appels d&apos;offres DCE"
+              alt="Conducteur de travaux BTP analysant des plans lors d'une formation appel d'offre avec intelligence artificielle"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"

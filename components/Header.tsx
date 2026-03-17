@@ -65,7 +65,7 @@ export function Header() {
           href="/"
           className="flex items-center gap-3 font-display text-xl font-bold tracking-tight text-slate-900"
         >
-          <img src="/logo-lo.svg" alt="Laure Olivié — Formation IA BTP" className="h-9 w-auto" />
+          <img src="/logo-lo.svg" alt="Laure Olivié formation intelligence artificielle pour entreprises du BTP" className="h-9 w-auto" />
           Laure Olivié
         </Link>
 

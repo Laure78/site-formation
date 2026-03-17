@@ -182,7 +182,7 @@ export default function FormationIARHBTPPage() {
           <div className="mb-12 overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="/images/formation-ia-rh-btp-banner.png"
-              alt="Laure Olivié — Formatrice IA spécialisée BTP"
+              alt="Laure Olivié formatrice en intelligence artificielle spécialisée formation IA RH pour entreprises du BTP"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"
@@ -290,7 +290,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-md">
               <Image
                 src="/images/btp-equipe-chantier.png"
-                alt="formation IA Laure Olivié — Équipe dirigeants et ouvriers BTP sur chantier — Formation RH"
+                alt="Équipe dirigeants et ouvriers BTP sur chantier bénéficiant d'une formation IA RH pour optimiser le recrutement"
                 width={600}
                 height={400}
                 className="h-56 w-full object-cover"
@@ -299,7 +299,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-md">
               <Image
                 src="/images/btp-collaboration-chantier.png"
-                alt="formation IA Laure Olivié — Collaboration et partenariat sur chantier BTP"
+                alt="Collaboration et partenariat efficace sur chantier BTP grâce à formation IA RH pour mieux recruter"
                 width={600}
                 height={400}
                 className="h-56 w-full object-cover"
@@ -388,7 +388,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-formation-recrutement-btp.png"
-                alt="formation IA Laure Olivié — Recruter main-d'œuvre avec l'IA — Formation RH BTP"
+                alt="Formation IA RH animée par Laure Olivié pour artisans et PME BTP : recruter efficacement avec ChatGPT"
                 width={400}
                 height={300}
                 className="h-48 w-full object-cover"
@@ -397,7 +397,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-formation-ia-rh-linkedin.png"
-                alt="Laure Olivié formatrice IA spécialisée BTP — Formation recrutement LinkedIn Learning — Appel d'offre BTP"
+                alt="Laure Olivié instructrice LinkedIn Learning pour formation IA RH appliquée au recrutement dans le BTP"
                 width={400}
                 height={300}
                 className="h-48 w-full object-cover"
@@ -406,7 +406,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-formatrice-ia-btp.png"
-                alt="formation IA Laure Olivié — Formatrice IA spécialisée BTP — Formation recrutement"
+                alt="Atelier pratique formation IA RH pour entreprises du bâtiment animé par Laure Olivié experte ChatGPT"
                 width={400}
                 height={300}
                 className="h-48 w-full object-cover"
@@ -415,7 +415,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-formation-ia-recrutement.png"
-                alt="formation IA Laure Olivié — Recruter main-d'œuvre efficacement — Formation IA RH BTP"
+                alt="Formation intelligence artificielle pour artisans du BTP : recruter de la main-d'œuvre qualifiée avec l'IA"
                 width={400}
                 height={300}
                 className="h-48 w-full object-cover"

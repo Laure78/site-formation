@@ -142,19 +142,19 @@ export default function FormationIAProductiviteChantierPage() {
               slides={[
                 {
                   src: '/images/laure-olivie-ia-rentabilite-chantier.png',
-                  alt: 'Formation IA Laure Olivié — IA pour améliorer la rentabilité chantier BTP',
+                  alt: 'Formation IA BTP animée par Laure Olivié pour améliorer la rentabilité et productivité des chantiers',
                 },
                 {
                   src: '/images/laure-olivie-ia-administratif-batiment.png',
-                  alt: 'Formation IA Laure Olivié — Automatiser l\'administratif bâtiment',
+                  alt: 'Formation ChatGPT entreprise pour automatiser l\'administratif et gagner du temps dans le bâtiment',
                 },
                 {
                   src: '/images/rencontres-artisans-ia-ffb-btp.png',
-                  alt: 'Formation IA Laure Olivié — Rencontres des Artisans FFB BTP',
+                  alt: 'Formation IA pour artisans lors des Rencontres FFB : utiliser l\'intelligence artificielle dans le BTP',
                 },
                 {
                   src: '/images/laure-olivie-portrait-pro.png',
-                  alt: 'Formation IA Laure Olivié — Formatrice IA spécialisée BTP',
+                  alt: 'Laure Olivié experte en formation intelligence artificielle appliquée aux entreprises du bâtiment',
                 },
               ]}
             />

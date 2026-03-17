@@ -19,7 +19,7 @@ export function ProfilePhoto() {
     <div className="overflow-hidden rounded-2xl shadow-lg">
       <Image
         src="/images/laure-olivie.png"
-        alt="Laure Olivié - Formatrice IA pour les entreprises du BTP"
+        alt="Laure Olivié formatrice en intelligence artificielle spécialisée dans les formations pour entreprises du BTP"
         width={912}
         height={1024}
         className="w-full h-auto"

@@ -2,7 +2,7 @@ export const PHOTOS = {
   // Photo profil rond fond bleu
   profileBlue: {
     src: '/images/laure-olivie-circle.png',
-    alt: 'Laure Olivié - Formatrice IA BTP',
+    alt: 'Laure Olivié formatrice en intelligence artificielle pour les entreprises du BTP et artisans',
     width: 547,
     height: 456,
   },
@@ -10,7 +10,7 @@ export const PHOTOS = {
   // Photo profil LinkedIn In Graz
   linkedinGraz: {
     src: '/images/laure-linkedin-graz.png',
-    alt: 'Laure Olivié au LinkedIn In Graz',
+    alt: 'Laure Olivié au LinkedIn In Graz pour partager son expertise en formation IA BTP avec la communauté',
     width: 1024,
     height: 770,
   },
@@ -18,7 +18,7 @@ export const PHOTOS = {
   // Photo avec panneau LinkedIn (portrait)
   linkedinPanel: {
     src: '/images/laure-linkedin-panel.png',
-    alt: 'Laure Olivié avec panneau LinkedIn',
+    alt: 'Laure Olivié instructrice LinkedIn Learning pour les formations IA appliquées au BTP et artisanat',
     width: 770,
     height: 1024,
   },
@@ -26,7 +26,7 @@ export const PHOTOS = {
   // Photo LinkedIn Learning portrait
   linkedinPortrait: {
     src: '/images/laure-linkedin-portrait.png',
-    alt: 'Laure Olivié - Formatrice IA spécialisée BTP',
+    alt: 'Laure Olivié formatrice spécialisée en intelligence artificielle pour entreprises du bâtiment',
     width: 770,
     height: 1024,
   },
@@ -34,7 +34,7 @@ export const PHOTOS = {
   // Photo studio fond clair (portrait)
   studioLight: {
     src: '/images/laure-studio-light.png',
-    alt: 'Laure Olivié - Formation IA BTP',
+    alt: 'Formation IA BTP animée par Laure Olivié pour automatiser les tâches administratives du bâtiment',
     width: 912,
     height: 1024,
   },
@@ -42,7 +42,7 @@ export const PHOTOS = {
   // Photo studio fond sombre
   studioDark: {
     src: '/images/laure-studio-dark.png',
-    alt: 'Laure Olivié en studio - LinkedIn Learning',
+    alt: 'Laure Olivié instructrice LinkedIn Learning pour formations ChatGPT et IA appliquées aux entreprises',
     width: 1024,
     height: 682,
   },
@@ -50,7 +50,7 @@ export const PHOTOS = {
   // Photo formation en entreprise
   formationEntreprise: {
     src: '/images/formation-ia-btp-entreprise.png',
-    alt: 'Formation IA au service du BTP en entreprise',
+    alt: 'Atelier pratique formation IA BTP avec Laure Olivié pour optimiser la gestion des appels d\'offre',
     width: 1024,
     height: 571,
   },
@@ -58,7 +58,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Recrutement
   bannerRecrutement: {
     src: '/images/linkedin-learning-recrutement-btp.png',
-    alt: 'Formation LinkedIn Learning - Recrutement BTP avec IA',
+    alt: 'Formation IA RH pour artisans et PME du BTP avec Laure Olivié sur LinkedIn Learning',
     width: 1024,
     height: 747,
   },
@@ -66,7 +66,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Difficulté recrutement
   bannerRecrutementDifficile: {
     src: '/images/linkedin-learning-recrutement-difficile.png',
-    alt: 'Artisans et dirigeants BTP - Vous ne trouvez plus d\'ouvriers qualifiés ? L\'IA peut vous aider',
+    alt: 'Formation IA pour artisans du BTP : recruter efficacement avec l\'intelligence artificielle par Laure Olivié',
     width: 1024,
     height: 682,
   },
@@ -74,7 +74,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Solutions concrètes
   bannerSolutionsConcretres: {
     src: '/images/linkedin-learning-solutions-concretes.png',
-    alt: 'L\'IA pour le BTP - Des solutions concrètes pour vos chantiers',
+    alt: 'Formation intelligence artificielle pour le BTP avec cas pratiques et solutions concrètes pour chantiers',
     width: 1024,
     height: 682,
   },
@@ -82,7 +82,7 @@ export const PHOTOS = {
   // Ouvrier avec plan
   ouvrierPlan: {
     src: '/images/ouvrier-plan-chantier.png',
-    alt: 'Ouvrier BTP consultant un plan de chantier',
+    alt: 'Professionnel du BTP consultant des plans de chantier lors d\'une formation IA pour optimiser son travail',
     width: 1024,
     height: 682,
   },
@@ -90,7 +90,7 @@ export const PHOTOS = {
   // Architecte concentration (portrait)
   architecteConcentration: {
     src: '/images/architecte-concentration.png',
-    alt: 'Architecte en concentration sur plans',
+    alt: 'Architecte BTP analysant des plans techniques avec méthodes optimisées par intelligence artificielle',
     width: 764,
     height: 1024,
   },
@@ -98,7 +98,7 @@ export const PHOTOS = {
   // Ouvrier chantier confiant (carré)
   ouvrierConfiant: {
     src: '/images/ouvrier-chantier-confiant.png',
-    alt: 'Ouvrier de chantier confiant',
+    alt: 'Ouvrier qualifié du bâtiment ayant suivi une formation IA BTP pour améliorer sa productivité',
     width: 1024,
     height: 1024,
   },

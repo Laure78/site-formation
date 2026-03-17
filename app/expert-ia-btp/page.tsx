@@ -63,7 +63,7 @@ export default function ExpertIABTPPage() {
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/images/laure-olivie.png"
-                  alt="Laure Olivié - Formatrice experte en IA pour le BTP"
+                  alt="Laure Olivié experte en formation intelligence artificielle pour entreprises du BTP et artisanat"
                   width={912}
                   height={1024}
                   className="h-auto w-full"

@@ -10,7 +10,7 @@ export function Footer() {
           {/* Colonne principale */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/logo-lo.svg" alt="Laure Olivié — Formation IA BTP, formatrice Qualiopi" className="h-12 w-auto" />
+              <img src="/logo-lo.svg" alt="Laure Olivié formation IA BTP certifiée Qualiopi pour artisans et entreprises du bâtiment" className="h-12 w-auto" />
               <div>
                 <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
                 <p className="text-sm font-medium text-slate-600">

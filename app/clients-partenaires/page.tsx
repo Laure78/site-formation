@@ -78,7 +78,7 @@ export default function ClientsPartenairesPage() {
           <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
             <Image
               src="/images/rencontres-artisans-ia-ffb-btp.png"
-              alt="Rencontres des Artisans FFB — L'IA au service des Artisans du Bâtiment — Laure Olivié formation IA BTP — Appel d'offre BTP"
+              alt="Rencontres des Artisans FFB avec Laure Olivié : formation intelligence artificielle au service des artisans du bâtiment"
               width={1200}
               height={630}
               className="h-auto w-full object-cover"

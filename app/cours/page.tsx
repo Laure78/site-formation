@@ -119,7 +119,7 @@ export default async function CoursPage() {
                 <Link href={enrolled ? `/espace-apprenant/cours/${c.slug}` : `/cours/${c.slug}`} className="block flex-1">
                   <div className="aspect-video w-full overflow-hidden bg-slate-200">
                     {c.image_url ? (
-                      <img src={c.image_url} alt={`Formation IA BTP : ${c.title}`} className="h-full w-full object-cover" />
+                      <img src={c.image_url} alt={`Formation intelligence artificielle BTP : ${c.title} - Laure Olivié`} className="h-full w-full object-cover" />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-slate-400">
                         <BookOpen size={48} strokeWidth={1.5} />
