@@ -31,11 +31,11 @@ export default async function DisponibilitesPage() {
         Définissez les jours et horaires disponibles pour les rendez-vous. Les créneaux sont générés automatiquement (30 min).
       </p>
 
+      <TestGoogleCalendar />
+
       <DisponibilitesForm availabilities={availabilities ?? []} />
 
       <BookingSettingsForm />
-
-      <TestGoogleCalendar />
 
       <div className="mt-10">
         <h2 className="font-display text-lg font-semibold text-slate-900">Plages actuelles</h2>
