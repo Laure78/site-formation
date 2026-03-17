@@ -21,6 +21,8 @@ import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { DevisForm } from '@/components/landing/DevisForm';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
+import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import Image from 'next/image';
 import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 
@@ -476,11 +478,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 lg:w-80">
-              <div className="aspect-square max-w-sm overflow-hidden rounded-3xl bg-slate-200 shadow-lg">
-                <div className="flex h-full w-full items-center justify-center text-slate-400">
-                  <Users size={80} strokeWidth={1} />
-                </div>
-              </div>
+              <ProfilePhoto />
             </div>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -535,6 +533,15 @@ export default function HomePage() {
       {/* Avis clients */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/btp-equipe-chantier.png"
+              alt="Équipe BTP sur chantier — Dirigeants et ouvriers — Laure Olivié formation IA bâtiment"
+              width={1200}
+              height={630}
+              className="h-64 w-full object-cover md:h-80"
+            />
+          </div>
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <Award size={16} strokeWidth={1.5} />
             <span>AVIS CLIENTS</span>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
@@ -73,6 +74,15 @@ export default function AProposPage() {
       {/* 4 cartes caractéristiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-12 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/btp-collaboration-chantier.png"
+              alt="Partenariat et collaboration sur chantier BTP — Laure Olivié formation IA bâtiment"
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+            />
+          </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {

@@ -4,6 +4,7 @@ import { FAQ_AUTEUR } from '@/lib/faq';
 import { getAllArticles } from '@/lib/blog';
 import { Award, BookOpen, Building2, FileText } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié – Formatrice en IA pour le BTP | LinkedIn Learning',
@@ -44,9 +45,16 @@ export default function AuteurPage() {
         </nav>
 
         <article>
-          <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-            Laure Olivié – Formatrice en intelligence artificielle pour les entreprises du BTP
-          </h1>
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-12">
+            <div className="shrink-0 sm:w-64">
+              <ProfilePhoto />
+            </div>
+            <div>
+              <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                Laure Olivié – Formatrice en intelligence artificielle pour les entreprises du BTP
+              </h1>
+            </div>
+          </div>
 
           {/* Présentation */}
           <section className="mt-12">

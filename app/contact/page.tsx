@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactForm } from '@/components/landing/ContactForm';
 import { FAQSection } from '@/components/landing/FAQSection';
 
@@ -30,7 +31,9 @@ export default async function ContactPage({
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+            <div>
           <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Contact
           </h1>
@@ -77,6 +80,11 @@ export default async function ContactPage({
             >
               Prendre rendez-vous
             </Link>
+          </div>
+            </div>
+            <div className="shrink-0 lg:w-96">
+              <ProfilePhoto />
+            </div>
           </div>
         </div>
       </section>

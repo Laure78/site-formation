@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Check,
   Phone,
@@ -17,6 +18,7 @@ import {
   LayoutTemplate,
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
@@ -321,6 +323,15 @@ Présente une synthèse claire pour une PME du BTP.`}
       {/* Mémoire technique BTP */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
+          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/btp-conducteur-plans.png"
+              alt="Conducteur de travaux BTP consultant des plans sur chantier — Laure Olivié formation IA appels d'offres DCE"
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+            />
+          </div>
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Comment utiliser l&apos;IA pour rédiger un mémoire technique BTP
           </h2>
@@ -381,7 +392,11 @@ Présente une synthèse claire pour une PME du BTP.`}
       {/* Bloc conversion Laure Olivié */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8 md:p-12">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-8 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8 md:p-12">
+            <div className="shrink-0 sm:w-48">
+              <ProfilePhoto />
+            </div>
+            <div>
             <h2 className="font-display text-2xl font-bold text-slate-900">
               Formation IA pour les entreprises du BTP
             </h2>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Check,
   Phone,
@@ -164,9 +165,19 @@ export default function FormationIARHBTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* Hero — 2 colonnes */}
+      {/* Hero — Bannière + 2 colonnes */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-12 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/formation-ia-rh-btp-banner.png"
+              alt="Laure Olivié — Formatrice IA spécialisée BTP"
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+              priority
+            />
+          </div>
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex-1">
               <Link
@@ -231,6 +242,15 @@ export default function FormationIARHBTPPage() {
       {/* Objectifs pédagogiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+            <Image
+              src="/images/btp-femme-cheffe-projet.png"
+              alt="Cheffe de projet BTP en tenue de chantier consultant des plans — Laure Olivié formation IA RH bâtiment"
+              width={1200}
+              height={630}
+              className="h-auto w-full object-cover"
+            />
+          </div>
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Objectifs pédagogiques de la formation
           </h2>
@@ -260,6 +280,26 @@ export default function FormationIARHBTPPage() {
       {/* Modalités pratiques */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-10 grid gap-6 sm:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl shadow-md">
+              <Image
+                src="/images/btp-equipe-chantier.png"
+                alt="Équipe dirigeants et ouvriers BTP sur chantier — Formation IA RH construction"
+                width={600}
+                height={400}
+                className="h-56 w-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow-md">
+              <Image
+                src="/images/btp-collaboration-chantier.png"
+                alt="Collaboration et partenariat sur chantier BTP — Laure Olivié formation IA bâtiment"
+                width={600}
+                height={400}
+                className="h-56 w-full object-cover"
+              />
+            </div>
+          </div>
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Modalités pratiques
           </h2>
