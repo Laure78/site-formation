@@ -26,20 +26,56 @@ export const SITE_CONFIG = {
     longitude: 2.0739,
   },
   keywords: [
+    // Mots-clés principaux BTP
     'formation IA BTP',
     'formation intelligence artificielle bâtiment',
-    'IA travaux publics',
     'formation ChatGPT BTP',
-    'devis IA BTP',
-    'OPCO Constructys',
-    'formation Qualiopi BTP',
+    'IA pour le BTP',
+    'IA travaux publics',
+    'IA construction',
+    'IA génie civil',
+    
+    // Usages métiers
+    'IA devis bâtiment',
+    'IA appels d\'offres BTP',
+    'IA conducteur de travaux',
+    'IA gestion de chantier',
+    'IA compte rendu chantier',
+    'IA mémoire technique',
+    
+    // Artisanat
+    'formation IA artisan',
+    'formation ChatGPT artisan',
+    'IA pour artisans',
+    'IA entreprise artisanale',
+    'IA TPE bâtiment',
+    
+    // Automobile (nouveau)
+    'formation IA garage automobile',
+    'formation ChatGPT garage',
+    'IA pour garages',
+    'IA réparation automobile',
+    'IA atelier mécanique',
+    
+    // PME
+    'formation IA PME BTP',
+    'formation IA entreprise bâtiment',
+    'IA pour dirigeants BTP',
+    
+    // Géographie
     'formation IA Guyancourt',
     'formation IA Île-de-France',
     'formation IA Yvelines',
-    'formation IA Seine-et-Marne',
-    'conducteur de travaux IA',
-    'IA chantier',
-    'formation PME BTP',
+    'formation IA Paris',
+    'formation IA Lyon',
+    'formation IA Bordeaux',
+    'formation IA Lille',
+    
+    // Financement
+    'OPCO Constructys',
+    'formation Qualiopi BTP',
+    'formation finançable OPCO',
+    '100% finançable',
   ],
   sameAs: [
     'https://www.linkedin.com/in/laure-olivie',
@@ -284,21 +320,61 @@ export function getPersonSchema() {
     name: SITE_CONFIG.name,
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice en intelligence artificielle pour le BTP',
-    description: 'Formatrice spécialisée dans l\'intégration de l\'IA générative dans les entreprises du bâtiment.',
+    alternateName: ['Laure Olivié', 'Laure Olivie'],
+    description: 'Formatrice spécialisée dans l\'intégration de l\'IA générative (ChatGPT, Claude) dans les entreprises du bâtiment, de l\'artisanat et de l\'automobile. +10 ans d\'expérience. LinkedIn Learning Instructor. Certification Qualiopi.',
     knowsAbout: [
       'Intelligence artificielle',
       'IA générative',
       'ChatGPT',
+      'ChatGPT en entreprise',
       'IA pour le BTP',
+      'IA pour artisans',
+      'IA pour garages automobiles',
       'Automatisation administrative BTP',
       'Analyse d\'appels d\'offres',
+      'Devis avec IA',
+      'Mémoire technique IA',
+      'Gestion de chantier avec IA',
+      'Formation professionnelle',
+      'OPCO Constructys',
+    ],
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Certification Qualiopi',
+        description: 'Organisme de formation certifié Qualiopi pour les actions de formation',
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'LinkedIn Learning Instructor',
+        description: 'Formatrice officielle LinkedIn Learning sur l\'IA pour le BTP',
+      },
     ],
     worksFor: { '@id': `${SITE_CONFIG.url}/#organization` },
-    affiliation: {
-      '@type': 'Organization',
-      name: 'LinkedIn Learning',
-      url: 'https://www.linkedin.com/learning/',
+    affiliation: [
+      {
+        '@type': 'Organization',
+        name: 'LinkedIn Learning',
+        url: 'https://www.linkedin.com/learning/',
+      },
+      {
+        '@type': 'Organization',
+        name: 'FFB - Fédération Française du Bâtiment',
+      },
+      {
+        '@type': 'Organization',
+        name: 'CAPEB',
+      },
+    ],
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: 'Formation professionnelle BTP',
     },
+    award: [
+      'Formatrice LinkedIn Learning 2024',
+      '+1500 professionnels formés',
+      'Note moyenne 4,85/5',
+    ],
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
     telephone: SITE_CONFIG.phone,

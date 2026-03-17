@@ -40,7 +40,7 @@ Les fichiers créés :
    - Cocher uniquement "Places API"
    - Cliquer "Enregistrer"
 
-### ÉTAPE 2 : Trouver votre Place ID (5 minutes)
+
 
 **Option A : Avec le script automatique (recommandé)**
 

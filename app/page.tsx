@@ -29,9 +29,9 @@ import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Gagnez 3 à 5h/semaine | Laure Olivié',
+  title: 'Formation IA BTP : Gagnez 3-5h/semaine | Laure Olivié',
   description:
-    "Formation IA BTP certifiée Qualiopi 100% financée Constructys. Gagnez 3 à 5h/semaine sur devis, appels d'offres, CR et emails avec ChatGPT. Pour artisans, conducteurs de travaux et dirigeants BTP.",
+    'Formation IA BTP certifiée Qualiopi 100% financée. Gagnez 3-5h/semaine sur devis, appels d\'offres, emails. Pour artisans, PME bâtiment. Note 4,85/5.',
   path: '/',
 });
 
