@@ -1,13 +1,13 @@
 {
-  "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
-  "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "slug": "comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+  "title": "Comment utiliser ChatGPT pour vos devis couvreur",
+  "description": "Devis couvreur avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
   "date": "2026-03-17",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "seoTitle": "Comment utiliser ChatGPT pour vos devis couvreur",
+  "metaDescription": "Devis couvreur avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

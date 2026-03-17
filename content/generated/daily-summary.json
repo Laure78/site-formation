@@ -1,14 +1,6 @@
 {
-  "date": "2026-03-16",
+  "date": "2026-03-17",
   "articles": [
-    {
-      "slug": "l-ia-va-t-elle-remplacer-les-carreleurs",
-      "title": "L'IA va-t-elle remplacer les carreleurs ?"
-    },
-    {
-      "slug": "automatiser-vos-emails-clients-avec-l-ia",
-      "title": "Automatiser vos emails clients avec l'IA"
-    },
     {
       "slug": "appels-d-offres-btp-l-ia-comme-assistant",
       "title": "Appels d'offres BTP : l'IA comme assistant"
@@ -18,28 +10,36 @@
       "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-menuisier",
-      "title": "Comment utiliser ChatGPT pour vos devis menuisier"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-couvreur",
+      "title": "Comment utiliser ChatGPT pour vos devis couvreur"
     },
     {
-      "slug": "ia-et-chauffagiste-5-gains-de-temps-concrets",
-      "title": "IA et chauffagiste : 5 gains de temps concrets"
+      "slug": "ia-et-menuisier-5-gains-de-temps-concrets",
+      "title": "IA et menuisier : 5 gains de temps concrets"
     },
     {
-      "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
-      "title": "ChatGPT pour artisans : erreurs à éviter"
+      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
+      "title": "Formation IA BTP : ce qu'il faut savoir en 2026"
     },
     {
-      "slug": "devis-en-15-min-le-guide-electricien",
-      "title": "Devis en 15 min : le guide électricien"
+      "slug": "devis-en-15-min-le-guide-plombier",
+      "title": "Devis en 15 min : le guide plombier"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-macons",
-      "title": "L'IA va-t-elle remplacer les maçons ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
+      "title": "L'IA va-t-elle remplacer les électriciens ?"
     },
     {
-      "slug": "automatiser-vos-emails-clients-avec-l-ia-741594-9",
+      "slug": "automatiser-vos-emails-clients-avec-l-ia",
       "title": "Automatiser vos emails clients avec l'IA"
+    },
+    {
+      "slug": "appels-d-offres-btp-l-ia-comme-assistant-741595-8",
+      "title": "Appels d'offres BTP : l'IA comme assistant"
+    },
+    {
+      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents-741595-9",
+      "title": "Recrutement BTP : l'IA pour attirer les talents"
     }
   ],
   "linkedinCount": 10

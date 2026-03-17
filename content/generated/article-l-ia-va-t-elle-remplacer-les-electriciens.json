@@ -1,13 +1,13 @@
 {
-  "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
-  "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
+  "title": "L'IA va-t-elle remplacer les électriciens ?",
+  "description": "L'IA remplace-t-elle les électriciens ? Non : elle assiste le métier. Formation BTP finançable.",
   "date": "2026-03-17",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "seoTitle": "L'IA va-t-elle remplacer les électriciens ?",
+  "metaDescription": "L'IA remplace-t-elle les électriciens ? Non : elle assiste le métier. Formation BTP finançable.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/tarifs",
