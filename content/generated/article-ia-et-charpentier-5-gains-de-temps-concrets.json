@@ -1,13 +1,14 @@
 {
-  "slug": "financement-constructys-mode-d-emploi",
-  "title": "Financement Constructys : mode d'emploi",
-  "description": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
+  "slug": "ia-et-charpentier-5-gains-de-temps-concrets",
+  "title": "IA et charpentier : 5 gains de temps concrets",
+  "description": "5 gains de temps : IA et charpentier. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
   "date": "2026-03-18",
   "keywords": [
-    "offre emploi IA",
-    "recruter artisans",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -61,12 +62,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Financement Constructys : mode d'emploi",
-  "metaDescription": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
+  "seoTitle": "IA et charpentier : 5 gains de temps concrets",
+  "metaDescription": "5 gains de temps : IA et charpentier. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,6 +80,10 @@
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

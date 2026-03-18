@@ -1,13 +1,13 @@
 {
-  "slug": "financement-constructys-mode-d-emploi",
-  "title": "Financement Constructys : mode d'emploi",
-  "description": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
+  "slug": "l-ia-va-t-elle-remplacer-les-plombiers",
+  "title": "L'IA va-t-elle remplacer les plombiers ?",
+  "description": "L'IA remplace-t-elle les plombiers ? Non : elle assiste le métier. Formation BTP finançable.",
   "date": "2026-03-18",
   "keywords": [
-    "offre emploi IA",
-    "recruter artisans",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "emails artisans",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Financement Constructys : mode d'emploi",
-  "metaDescription": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
+  "seoTitle": "L'IA va-t-elle remplacer les plombiers ?",
+  "metaDescription": "L'IA remplace-t-elle les plombiers ? Non : elle assiste le métier. Formation BTP finançable.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",
