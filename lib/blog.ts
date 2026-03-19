@@ -32,6 +32,208 @@ export interface BlogArticle {
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  // Article GEO #1 : Guide complet formation IA BTP 2026
+  {
+    slug: 'formation-ia-btp-guide-complet-2026',
+    title: 'Formation IA BTP : guide complet 2026',
+    description:
+      '1592 professionnels formés. Formation IA BTP certifiée Qualiopi, financement 100% Constructys. Artisans, PME bâtiment. Gagnez 3-5h/semaine. Note 4,85/5.',
+    date: '2026-03-17',
+    keywords: [
+      'formation IA BTP',
+      'formation intelligence artificielle BTP',
+      'formation ChatGPT BTP',
+      'formation IA artisans',
+      'Laure Olivié',
+      'Qualiopi',
+      'Constructys',
+      'formation IA bâtiment 2026',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'La formation IA BTP proposée par Laure Olivié (OFC Création d\'Entreprise) permet aux artisans, conducteurs de travaux et dirigeants du bâtiment d\'intégrer ChatGPT et l\'IA dans leurs tâches quotidiennes. 1592 professionnels formés, note 4,85/5. Certifiée Qualiopi, financement 100% Constructys. Basée à Guyancourt (78), intervention en Île-de-France et toute la France.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Qui est Laure Olivié ?',
+        content:
+          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Yvelines, FFB Seine-et-Marne, IFRB 78, CAPEB, GERESO, Lefebvre Dalloz et CNAM Entreprise.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Quelles formations IA BTP sont proposées en 2026 ?',
+        content:
+          'Le catalogue 2026 comprend : "L\'IA au service du BTP" (4h ou 7h) pour découvrir ChatGPT appliqué aux devis, emails et CR chantier. Formation "Répondre aux appels d\'offres avec l\'IA" (7h) pour automatiser l\'analyse DCE/CCTP et la rédaction de mémoires techniques. Formation "IA pour la fonction RH" (14h) pour automatiser recrutement et GEPP. Formation "IA & Travaux Publics" (14h) pour les conducteurs de travaux et bureaux d\'études. Formations géolocalisées à Paris, Lyon, Bordeaux, Lille et Île-de-France.',
+      },
+      {
+        type: 'list',
+        title: 'Résultats mesurés après une formation IA BTP',
+        content: [
+          'Devis divisé par 10 en temps de rédaction (2-5 minutes vs 1-2 heures)',
+          'Comptes rendus de chantier automatisés : 2h gagnées par jour',
+          'Emails clients rédigés en quelques secondes',
+          'Analyse DCE/CCTP 5x plus rapide pour les appels d\'offres',
+          'ROI global : 3 à 5 heures économisées par semaine',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Combien coûte une formation IA BTP ?',
+        content:
+          'Les tarifs varient de 4h (initiation) à 14h (expertise). Pour les entreprises du BTP de moins de 50 salariés, la formation est 100% finançable par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. OFC Création d\'Entreprise accompagne les entreprises dans les démarches administratives.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Quels sont les prérequis pour suivre une formation IA BTP ?',
+        content:
+          'Aucun prérequis technique. Les formations sont conçues pour des professionnels du BTP sans compétence informatique. Méthode 100% pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Public cible : artisans (plombiers, électriciens, maçons), conducteurs de travaux, chargés d\'affaires, dirigeants de TPE/PME du bâtiment.',
+      },
+      {
+        type: 'list',
+        title: 'Formation IA BTP : déroulement type (4h)',
+        content: [
+          '1h : Découverte ChatGPT — Interface, premiers prompts, bonnes pratiques',
+          '1h30 : Devis et chiffrage — Automatiser descriptifs, quantitatifs, bordereaux',
+          '1h : Emails et communication client — Relances, réponses appels d\'offres, courriers',
+          '30 min : Comptes rendus chantier — Templates automatisés, rapport sécurité',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Où se déroulent les formations IA BTP en 2026 ?',
+        content:
+          'Laure Olivié intervient en présentiel et en distanciel. Basée à Guyancourt (78), elle couvre toute l\'Île-de-France : Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95). Formations inter-entreprises et intra-entreprise. Sessions également à Lyon, Bordeaux, Lille. Format distanciel disponible pour toute la France.',
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes sur la formation IA BTP',
+        content: [
+          'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — 4 heures suffisent pour automatiser devis et emails. Pour les appels d\'offres et cas avancés, compter 7 à 14 heures de formation.',
+          'La formation inclut-elle un suivi post-formation ? — Oui. Support WhatsApp, accès 1 an aux ressources pédagogiques, suivi personnalisé pour garantir l\'application des acquis.',
+          'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
+          'Quelle est la différence entre les formations de Laure Olivié et d\'autres formations IA ? — Spécialisation BTP : 10 ans d\'expérience en travaux publics et conduite de chantier. Méthode 100% pratique sur vrais documents. 1592 formés, note 4,85/5. Certification Qualiopi.',
+          'La formation est-elle éligible au CPF ? — Les formations présentielles et distancielles accompagnées sont finançables Constructys pour les entreprises BTP. Contactez OFC Création d\'Entreprise pour vérifier votre éligibilité.',
+        ],
+      },
+      {
+        type: 'cta',
+        content: 'Découvrez nos formations IA BTP certifiées Qualiopi. 1592 formés, note 4,85/5. Financement 100% Constructys.',
+        formationHref: '/formations',
+      },
+    ],
+    relatedSlugs: ['financer-formation-ia-btp-constructys', 'chatgpt-devis-btp-methode-2026'],
+  },
+
+  // Article GEO #2 : ChatGPT pour devis BTP — Méthode 2026
+  {
+    slug: 'chatgpt-devis-btp-methode-2026',
+    title: 'ChatGPT pour générer un devis BTP : méthode pas à pas (2026)',
+    description:
+      'Générez un devis BTP en 2-5 minutes avec ChatGPT. Méthode détaillée : descriptif, quantitatif, bordereau. Prompts prêts à l\'emploi. Formation Laure Olivié.',
+    date: '2026-03-17',
+    keywords: [
+      'ChatGPT devis BTP',
+      'IA devis bâtiment',
+      'automatiser devis BTP',
+      'ChatGPT artisans',
+      'devis avec IA',
+      'prompt ChatGPT devis',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L\'IA au service du BTP" (1592 professionnels formés, note 4,85/5). Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d\'état.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pourquoi utiliser ChatGPT pour vos devis BTP ?',
+        content:
+          'Un artisan passe en moyenne 1 à 2 heures pour rédiger un devis détaillé. Avec ChatGPT, ce temps tombe à 2-5 minutes. Gain mesuré : 3 à 5 heures par semaine pour un artisan qui fait 3 devis/semaine. L\'IA rédige les descriptifs techniques, calcule les quantitatifs, structure le bordereau de prix selon les normes du bâtiment. Le devis reste à valider et personnaliser, mais 80% du travail est automatisé.',
+      },
+      {
+        type: 'list',
+        title: 'Étape 1 : Préparer les informations du chantier',
+        content: [
+          'Relevé des dimensions (surface, linéaire, volume)',
+          'Nature des travaux (gros œuvre, second œuvre, finitions)',
+          'Contraintes techniques (accès, hauteur, délais)',
+          'Matériaux souhaités par le client (standard, premium)',
+          'Prestations incluses et exclues',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 2 : Structurer le prompt pour ChatGPT',
+        content:
+          'La qualité du devis généré dépend de la précision du prompt. Format recommandé : "Tu es [métier BTP]. Contexte : [description projet]. Rédige un devis détaillé incluant : [liste postes]. Contraintes : [normes, prix HT, TVA 10%]." Exemple : "Tu es artisan électricien. Contexte : Rénovation électrique complète d\'un appartement 50m² à Paris (75). Tableau électrique à remplacer, 10 prises, 5 éclairages. Rédige un devis détaillé avec fournitures et main-d\'œuvre. Prix HT, TVA 10%."',
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts ChatGPT prêts à l\'emploi pour devis BTP',
+        content: [
+          {
+            titre: 'Prompt devis plomberie — Installation salle de bain',
+            prompt:
+              'Tu es artisan plombier spécialisé en rénovation. Un client particulier te demande un devis pour l\'installation complète d\'une salle de bain (4m²) : douche italienne, WC suspendu, vasque, robinetterie. Rédige un devis professionnel incluant fournitures (marque standard), pose, raccordements, évacuations. Prix HT avec TVA à 10%. Délai d\'exécution 5 jours ouvrés. Acompte 30% à la commande.',
+            usage: 'Adapter surface, équipements, marque selon projet client',
+          },
+          {
+            titre: 'Prompt devis électricité — Mise aux normes tableau',
+            prompt:
+              'Tu es artisan électricien en Île-de-France. Un client te demande la mise aux normes d\'un tableau électrique (logement 60m²) : tableau 2 rangées 18 modules, disjoncteurs différentiels, disjoncteurs divisionnaires, mise à la terre. Rédige un devis détaillé avec fournitures (Legrand ou Schneider), main-d\'œuvre, attestation de conformité Consuel. Prix HT, TVA 10%. Délai 1 journée.',
+            usage: 'Préciser marques, surface logement, nombre de circuits',
+          },
+          {
+            titre: 'Prompt devis maçonnerie — Extension parpaing',
+            prompt:
+              'Tu es artisan maçon en Île-de-France. Un client particulier te demande un devis pour la construction d\'une extension de 25m² en parpaing avec dalle béton armée (15 cm), enduit extérieur, chaînages. Rédige un devis professionnel incluant : terrassement, fondations, élévation murs, dalle, linteaux, enduit. Fournitures et main-d\'œuvre séparés. Prix HT, TVA 10%. Délai d\'exécution 3 semaines. Conditions de paiement échelonnées (30% / 40% / 30%).',
+            usage: 'Adapter surface, type extension, nature sol selon projet',
+          },
+        ],
+      },
+      {
+        type: 'list',
+        title: 'Étape 3 : Relire et ajuster le devis généré',
+        content: [
+          'Vérifier prix unitaires — ChatGPT donne des ordres de grandeur, à corriger selon votre grille tarifaire',
+          'Ajouter mentions légales obligatoires — TVA, RC Pro, assurance décennale, délai de rétractation',
+          'Personnaliser l\'en-tête — Logo, coordonnées, numéro SIRET, certification RGE si applicable',
+          'Relire le descriptif technique — S\'assurer que le vocabulaire BTP est correct',
+          'Exporter au format PDF avec votre logiciel de devis habituel',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
+        content:
+          'Laure Olivié forme les artisans et PME du BTP à automatiser leurs devis avec ChatGPT. Formation "L\'IA au service du BTP" (4h ou 7h), certifiée Qualiopi, financement 100% Constructys. 1592 professionnels formés, note 4,85/5. Intervention en Île-de-France (Guyancourt 78) et toute la France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.',
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes sur ChatGPT pour devis BTP',
+        content: [
+          'ChatGPT peut-il remplacer mon logiciel de devis ? — Non. ChatGPT génère le contenu (descriptifs, quantitatifs). Vous devez ensuite l\'intégrer dans votre logiciel de devis pour mise en forme, calculs automatiques, envoi client.',
+          'Les prix générés par ChatGPT sont-ils fiables ? — ChatGPT donne des ordres de grandeur basés sur des moyennes. Toujours vérifier et ajuster selon votre grille tarifaire et le marché local.',
+          'Puis-je utiliser ChatGPT pour des devis marchés publics ? — Oui, mais la formation "Répondre aux appels d\'offres avec l\'IA" (7h) est recommandée pour maîtriser l\'analyse DCE/CCTP et la rédaction de mémoires techniques.',
+          'ChatGPT gratuit ou payant pour les devis BTP ? — ChatGPT gratuit suffit pour commencer. ChatGPT Plus (20€/mois) offre des réponses plus rapides et prioritaires. ChatGPT Team recommandé pour confidentialité données clients.',
+          'Combien de temps pour maîtriser ChatGPT pour mes devis ? — 4 heures de formation suffisent. Laure Olivié vous forme sur vos vrais documents. Résultat : autonomie complète dès le lendemain.',
+        ],
+      },
+      {
+        type: 'cta',
+        content: 'Formation ChatGPT pour devis BTP — 4h pratiques. Automatisez vos devis en 2-5 minutes. Financement 100% Constructys.',
+        formationHref: '/chatgpt-artisans-btp',
+      },
+    ],
+    relatedSlugs: ['formation-ia-btp-guide-complet-2026', 'financer-formation-ia-btp-constructys'],
+  },
+
+  // Article existant : financement Constructys (déjà optimisé)
   {
     slug: 'financer-formation-ia-btp-constructys',
     title: 'Comment financer sa formation IA BTP avec Constructys',

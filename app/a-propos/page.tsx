@@ -10,9 +10,9 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Laure Olivié : Formatrice IA BTP | +10 ans expérience',
+  title: 'Laure Olivié : Formatrice IA BTP | 1592 formés, note 4,85/5',
   description:
-    'Laure Olivié, experte IA BTP. +10 ans expérience, +1500 formés. LinkedIn Learning Instructor. Méthode pratique. Certifié Qualiopi.',
+    'Laure Olivié forme 1592 professionnels BTP à l\'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. Note 4,85/5. Clients : FFB, CAPEB, GERESO.',
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
