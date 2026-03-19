@@ -2,12 +2,12 @@
   "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
   "title": "Recrutement BTP : l'IA pour attirer les talents",
   "description": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
-  "date": "2026-03-18",
+  "date": "2026-03-19",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -74,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
