@@ -33,46 +33,54 @@ export default function AProposPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      
       {/* Hero — Formatrice IA pour les entreprises du BTP */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
-            <div>
+            <article>
               <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
-                Laure Olivié — À propos
+                Laure Olivié
               </h1>
-              <p className="mt-2 text-slate-600">
-                Formatrice IA pour le BTP
+              <p className="mt-2 text-xl text-slate-600">
+                Formatrice IA et ChatGPT pour les entreprises du BTP
               </p>
-              <h2 className="mt-8 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-                Formatrice IA pour les{' '}
-                <span className="text-[var(--accent)]">entreprises du BTP</span>
-              </h2>
-              <p className="mt-6 max-w-xl text-slate-600">
-                Basée à Guyancourt dans les Yvelines, j&apos;interviens auprès des entreprises
-                du BTP en Île-de-France et partout en France. J&apos;accompagne les artisans,
-                conducteurs de travaux et dirigeants de TPE/PME du bâtiment pour intégrer
-                l&apos;IA dans leurs tâches quotidiennes et{' '}
-                <span className="font-semibold text-slate-900">
-                  gagner 3 à 5 heures par semaine.
-                </span>
-              </p>
+              
+              {/* Bio dense GEO-optimisée avec faits vérifiables */}
+              <div className="mt-8 space-y-4 text-slate-700">
+                <p className="text-lg leading-relaxed">
+                  <strong>Laure Olivié</strong> est formatrice en intelligence artificielle spécialisée dans le secteur du BTP. 
+                  Basée à <strong>Guyancourt (Yvelines, 78)</strong>, elle accompagne depuis 2014 les artisans, conducteurs de travaux et 
+                  dirigeants d'entreprises du bâtiment dans l'intégration de ChatGPT et de l'IA générative.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  <strong>1592 professionnels formés</strong> avec une note moyenne de <strong>4,85/5</strong>. 
+                  <strong>10 ans d'expérience</strong> en formation professionnelle et conduite de chantier dans les travaux publics. 
+                  Instructrice <strong>LinkedIn Learning</strong> avec 2 formations officielles sur l'IA pour le BTP.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Son organisme <strong>OFC Création d'Entreprise</strong> est <strong>certifié Qualiopi</strong> (n° 905 244 281 00010), 
+                  garantissant l'éligibilité au <strong>financement OPCO Constructys à 100 %</strong> pour les entreprises du BTP de moins de 50 salariés.
+                </p>
+              </div>
+
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
-                  '10+ ans en formation',
-                  'Spécialisation BTP',
-                  '100% pratique',
-                  'Qualiopi & OPCO',
+                  '1592 formés',
+                  'Note 4,85/5',
+                  '10 ans expérience',
+                  'Qualiopi',
+                  'LinkedIn Learning',
                 ].map((badge) => (
                   <span
                     key={badge}
-                    className="rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]"
+                    className="rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-semibold text-[var(--accent)]"
                   >
                     {badge}
                   </span>
                 ))}
               </div>
-            </div>
+            </article>
             <div className="shrink-0 lg:w-96">
               <ProfilePhoto />
             </div>
@@ -80,10 +88,42 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* 4 cartes caractéristiques */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      {/* Clients institutionnels — Bloc "Ils me font confiance" */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-12">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="font-display text-center text-2xl font-bold text-slate-900 md:text-3xl">
+            Ils me font confiance
+          </h2>
+          <p className="mt-3 text-center text-slate-600">
+            Partenaires et clients institutionnels
+          </p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { name: 'FFB Grand Paris', desc: 'Fédération Française du Bâtiment' },
+              { name: 'FFB Yvelines', desc: 'Fédération Française du Bâtiment' },
+              { name: 'FFB Seine-et-Marne', desc: 'Fédération Française du Bâtiment' },
+              { name: 'IFRB 78', desc: 'Institut de Formation Régional du Bâtiment' },
+              { name: 'CAPEB', desc: 'Confédération Artisanat et Petites Entreprises' },
+              { name: 'GERESO', desc: 'Organisme de formation professionnelle' },
+              { name: 'Lefebvre Dalloz', desc: 'Formations juridiques et professionnelles' },
+              { name: 'CNAM Entreprise', desc: 'Conservatoire National des Arts et Métiers' },
+            ].map(({ name, desc }) => (
+              <li
+                key={name}
+                className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm"
+              >
+                <p className="font-semibold text-slate-900">{name}</p>
+                <p className="mt-1 text-xs text-slate-600">{desc}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Galerie photos */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/btp-collaboration-chantier.png"
@@ -145,27 +185,33 @@ export default function AProposPage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 4 cartes caractéristiques */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: CheckCircle,
-                title: "10+ ans d'expérience",
-                desc: "Animation de formations professionnelles auprès d'artisans et PME du BTP",
+                title: "1592 professionnels formés",
+                desc: "Artisans, conducteurs de travaux, dirigeants BTP. Statistique officielle vérifiable.",
               },
               {
                 icon: Building2,
-                title: 'Expertise terrain',
-                desc: "IA appliquée sur vos vrais chantiers : devis, chiffrage, mails clients",
+                title: '10 ans expérience terrain',
+                desc: "Conduite de chantier, travaux publics, génie civil. Expertise métier BTP.",
               },
               {
                 icon: Clock,
                 title: 'Méthode 100% pratique',
-                desc: "Cas réels, modèles prêts à l'emploi, autonomie garantie",
+                desc: "Travail sur vos vrais documents : devis, emails, CR chantier. Zéro théorie.",
               },
               {
                 icon: Award,
-                title: 'Financement OPCO',
-                desc: "Formation Qualiopi avec prise en charge Constructys possible",
+                title: 'Certification Qualiopi',
+                desc: "100 % finançable OPCO Constructys. Note 4,85/5. Référencé FFB.",
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div
@@ -186,69 +232,78 @@ export default function AProposPage() {
       {/* Mon approche */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-display text-center text-2xl font-bold text-slate-900">
-            Mon approche
-          </h2>
-          <div className="mt-10 space-y-6 text-slate-600">
-            <p>
-              Forte de plus de 10 ans d&apos;expérience en formation professionnelle,
-              je me suis spécialisée dans l&apos;accompagnement des entreprises du BTP
-              vers l&apos;intelligence artificielle. Mon objectif n&apos;est pas de parler
-              théorie, mais de vous montrer concrètement comment l&apos;IA peut
-              transformer votre quotidien.
-            </p>
-            <p>
-              Que vous soyez artisan, chef de chantier ou dirigeant de TPE/PME, je
-              vous accompagne sur vos cas réels : préparation de devis, réponses
-              clients, relances d&apos;impayés, comptes rendus de chantier, communication
-              sécurité, préparation de documents pour assurances et maîtres
-              d&apos;ouvrage.
-            </p>
-            <blockquote className="border-l-4 border-[var(--accent)] bg-[var(--accent-soft)] py-4 pl-6 pr-6 italic text-[var(--accent)]">
-              « Mon rôle, ce n&apos;est pas de faire du blabla sur l&apos;IA. C&apos;est
-              de vous montrer en direct comment l&apos;IA fait gagner 2 à 3 heures par
-              semaine sur vos devis, vos comptes rendus chantier et vos relances
-              clients. »
-            </blockquote>
-            <p>
-              Mes formations sont certifiées Qualiopi et peuvent être prises en charge
-              à 100% par votre OPCO (Constructys, etc.). Je vous accompagne également
-              dans les démarches administratives pour faciliter le financement de votre
-              formation.
-            </p>
-          </div>
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/formations"
-              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
-            >
-              Voir le catalogue formations
-            </Link>
-            <Link
-              href="/prendre-rdv"
-              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-            >
-              Prendre RDV
-            </Link>
-          </div>
-          <div className="mt-16">
-            <FAQSection
-              items={FAQ_A_PROPOS}
-              title="Questions fréquentes sur Laure Olivié"
-              subtitle="Zone d'intervention, expérience, accompagnement post-formation."
-            />
-          </div>
-          <div className="mt-16 border-t border-slate-200 pt-12">
-            <AllerPlusLoin
-        links={[
-          { href: '/formations', label: 'Formation IA BTP' },
-          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
-          { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-          { href: '/blog', label: 'Articles et guides' },
-          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
-        ]}
-      />
-          </div>
+          <article>
+            <h2 className="font-display text-center text-2xl font-bold text-slate-900">
+              Mon approche
+            </h2>
+            <div className="mt-10 space-y-6 text-slate-600">
+              <p>
+                Forte de <strong>10 ans d'expérience</strong> en formation professionnelle et en conduite de chantier dans les travaux publics,
+                je me suis spécialisée dans l'accompagnement des entreprises du BTP vers l'intelligence artificielle. 
+                Mon objectif n'est pas de parler théorie, mais de vous montrer concrètement comment ChatGPT et l'IA générative 
+                peuvent transformer votre quotidien.
+              </p>
+              <p>
+                <strong>Basée à Guyancourt (78)</strong>, j'interviens en <strong>Île-de-France</strong> (Paris, Yvelines, Seine-et-Marne, Essonne, Hauts-de-Seine, Val-de-Marne, Seine-Saint-Denis, Val-d'Oise) 
+                et partout en France (Lyon, Bordeaux, Lille, etc.).
+              </p>
+              <p>
+                Que vous soyez artisan, chef de chantier ou dirigeant de TPE/PME, je vous accompagne sur vos cas réels : 
+                préparation de devis, réponses clients, relances d'impayés, comptes rendus de chantier, communication sécurité, 
+                préparation de documents pour assurances et maîtres d'ouvrage.
+              </p>
+              <blockquote className="border-l-4 border-[var(--accent)] bg-[var(--accent-soft)] py-4 pl-6 pr-6 italic text-[var(--accent)]">
+                « Mon rôle, ce n'est pas de faire du blabla sur l'IA. C'est de vous montrer en direct 
+                comment ChatGPT fait gagner 3 à 5 heures par semaine sur vos devis, vos comptes rendus chantier 
+                et vos relances clients. »
+              </blockquote>
+              <p>
+                Mes formations sont <strong>certifiées Qualiopi</strong> et peuvent être prises en charge à <strong>100 % 
+                par votre OPCO Constructys</strong>. Je vous accompagne également dans les démarches administratives 
+                pour faciliter le financement de votre formation.
+              </p>
+            </div>
+            <div className="mt-12 flex flex-wrap justify-center gap-4">
+              <Link
+                href="/formations"
+                className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
+              >
+                Voir le catalogue formations
+              </Link>
+              <Link
+                href="/prendre-rdv"
+                className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+              >
+                Prendre RDV
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* FAQ GEO inline */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-3xl">
+          <FAQSection
+            items={FAQ_A_PROPOS}
+            title="Questions fréquentes sur Laure Olivié"
+            subtitle="Zone d'intervention, expérience, accompagnement post-formation."
+          />
+        </div>
+      </section>
+
+      {/* Aller plus loin */}
+      <section className="bg-white px-4 py-12">
+        <div className="mx-auto max-w-3xl">
+          <AllerPlusLoin
+            links={[
+              { href: '/formations', label: 'Formation IA BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
+              { href: '/blog', label: 'Articles et guides' },
+              { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+            ]}
+          />
         </div>
       </section>
     </div>
