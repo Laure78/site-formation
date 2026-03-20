@@ -1,14 +1,13 @@
 {
-  "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-  "title": "Appels d'offres BTP : l'IA comme assistant",
-  "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "slug": "chatgpt-pour-artisans-erreurs-a-eviter-741598-8",
+  "title": "ChatGPT pour artisans : erreurs à éviter",
+  "description": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "date": "2026-03-20",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT artisans"
+    "IA PME bâtiment",
+    "productivité BTP",
+    "automatisation TPE",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -62,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Appels d'offres BTP : l'IA comme assistant",
-  "metaDescription": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "seoTitle": "ChatGPT pour artisans : erreurs à éviter",
+  "metaDescription": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -75,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",
