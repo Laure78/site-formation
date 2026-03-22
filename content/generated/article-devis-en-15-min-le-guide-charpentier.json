@@ -1,91 +1,72 @@
 {
   "slug": "devis-en-15-min-le-guide-charpentier",
   "title": "Devis en 15 min : le guide charpentier",
-  "description": "Devis charpentier en 15 min avec ChatGPT : prompts et trames. Guide pratique pour artisans BTP. Formation finançable Constructys.",
-  "date": "2025-03-12",
+  "description": "Devis charpentier en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
+  "date": "2026-03-22",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
+    "emails artisans",
+    "relance client IA",
+    "email professionnel ChatGPT",
     "ChatGPT artisans"
   ],
   "sections": [
     {
       "type": "definition",
       "title": "En bref",
-      "content": "L'IA et ChatGPT permettent aux professionnels du BTP de gagner du temps sur les devis, emails et documents administratifs. Une formation courte suffit pour des résultats concrets."
+      "content": "L'IA et ChatGPT permettent aux professionnels du BTP de gagner du temps sur les devis, emails et documents administratifs. Une formation courte de 4h à 7h suffit pour des résultats concrets. La formation IA Constructys est 100% finançable par l'OPCO."
     },
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les artisans et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
       "title": "Points clés à retenir",
       "content": [
-        "Gain de temps moyen : 3 à 5h par semaine",
-        "Formation 4h à 7h suffisante pour démarrer",
-        "100% finançable par l'OPCO Constructys",
-        "Travail sur vos vrais documents",
-        "Aucune compétence technique requise"
+        "Gain de temps moyen : 3 à 5h par semaine sur devis, emails et CR",
+        "Formation 4h à 7h suffisante pour démarrer et être opérationnel",
+        "100% finançable par l'OPCO Constructys pour les entreprises du BTP",
+        "Travail sur vos vrais documents : devis, emails, comptes rendus chantier",
+        "Aucune compétence technique requise : méthode 100% pratique",
+        "Tarifs et financement : devis personnalisé sous 24h sur demande"
       ]
     },
     {
       "type": "paragraph",
       "title": "Exemple pratique",
-      "content": "Exemple : un plombier qui rédige un devis de rénovation salle de bain en 15 min au lieu de 2h. Il donne un brief à ChatGPT (surface, prestations, options), l'IA structure le document, il ajuste les prix et envoie."
+      "content": "Exemple concret : un plombier qui rédige un devis de rénovation salle de bain complète en 15 min au lieu de 2h. Il donne un brief détaillé à ChatGPT (surface, prestations, options, matériaux), l'IA structure le document avec descriptif technique et conditions, il ajuste les prix selon ses marges et envoie au client. Le gain est immédiat et reproductible sur chaque nouveau chantier. Pour aller plus loin, il peut prendre rendez-vous pour une formation sur-mesure."
     },
     {
       "type": "list",
       "title": "Guide étape par étape",
       "content": [
-        "Identifier vos tâches chronophages (devis, emails, CR)",
-        "Choisir un outil IA adapté (ChatGPT Team pour les données sensibles)",
-        "Suivre une formation pratique sur vos vrais documents",
-        "Mettre en place des trames et prompts réutilisables",
-        "Mesurer les gains dès la première semaine"
+        "Identifier vos tâches chronophages : devis, emails clients, comptes rendus de chantier",
+        "Choisir un outil IA adapté (ChatGPT Team ou Enterprise pour les données sensibles)",
+        "Suivre une formation pratique sur vos vrais documents — Prendre RDV pour un diagnostic",
+        "Mettre en place des trames et prompts réutilisables par type de document",
+        "Mesurer les gains dès la première semaine et ajuster si besoin",
+        "Consulter nos tarifs et le financement Constructys pour former toute l'équipe"
       ]
     },
     {
       "type": "faq",
       "title": "Questions fréquentes",
       "content": [
-        "Faut-il des compétences techniques ? — Non. Une formation de 4h suffit. On travaille sur vos vrais documents, sans code.",
-        "La formation est-elle finançable ? — Oui, 100% par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés.",
-        "Combien de temps je gagne ? — En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus."
-      ]
-    },
-    {
-      "type": "prompts",
-      "title": "Prompts pour devis charpentier avec ChatGPT",
-      "content": [
-        {
-          "titre": "Devis charpente traditionnelle",
-          "prompt": "Rédige un devis charpentier pour : [SURFACE m² à couvrir], [TYPE : traditionnelle, industrielle, fermettes]. Inclure dépose si nécessaire, bois, quincaillerie, pose. Format professionnel.",
-          "usage": "Adaptez surface et type de charpente. Structure prête à compléter."
-        },
-        {
-          "titre": "Chiffrage bois charpente",
-          "prompt": "Calcule les sections et quantités de bois pour charpente : portée [X] m, entraxe [Y] m, surface [Z] m². Donne pannes, fermes, chevrons, quantités. Format tableau.",
-          "usage": "Pour chiffrer avant rédaction du devis."
-        },
-        {
-          "titre": "Descriptif technique charpente",
-          "prompt": "Rédige le descriptif technique d'une charpente [TYPE]. Inclure essence bois, traitement, assemblages, normes. 4-5 points essentiels.",
-          "usage": "Réutilisable sur tous vos devis."
-        }
+        "Faut-il des compétences techniques pour utiliser l'IA en BTP ? — Non. Une formation de 4h à 7h suffit. On travaille sur vos vrais documents (devis, emails, CR), sans code ni logiciel complexe. Méthode 100% pratique.",
+        "La formation IA BTP est-elle finançable ? — Oui, 100% par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.",
+        "Combien de temps un artisan gagne-t-il avec l'IA ? — En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus. Les gains sont mesurables dès la première semaine.",
+        "Comment prendre rendez-vous pour une formation ? — Réservez un créneau de 30 minutes gratuit sur notre page Prendre RDV. Vous recevrez un devis personnalisé sous 24h."
       ]
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
   "seoTitle": "Devis en 15 min : le guide charpentier",
-  "metaDescription": "Devis en 15 min : le guide charpentier. Découvrez comment l'IA et ChatGPT optimisent le quotidien des artisans et entreprises du BTP. Formation finançable Con",
+  "metaDescription": "Devis charpentier en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -93,7 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
+    },
+    {
+      "path": "/tarifs",
+      "anchor": "financement Constructys"
     },
     {
       "path": "/chatgpt-artisans-btp",
