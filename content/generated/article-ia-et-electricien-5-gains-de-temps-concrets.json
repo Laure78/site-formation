@@ -2,12 +2,12 @@
   "slug": "ia-et-electricien-5-gains-de-temps-concrets",
   "title": "IA et électricien : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et électricien. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-03-22",
+  "date": "2026-03-23",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "emails artisans",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",
