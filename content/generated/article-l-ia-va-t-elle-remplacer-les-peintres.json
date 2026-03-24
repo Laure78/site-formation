@@ -2,7 +2,7 @@
   "slug": "l-ia-va-t-elle-remplacer-les-peintres",
   "title": "L'IA va-t-elle remplacer les peintres ?",
   "description": "L'IA remplace-t-elle les peintres ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-03-14",
+  "date": "2026-03-24",
   "keywords": [
     "offre emploi IA",
     "recruter artisans",
@@ -57,22 +57,6 @@
         "La formation IA BTP est-elle finançable ? — Oui, 100% par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.",
         "Combien de temps un artisan gagne-t-il avec l'IA ? — En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus. Les gains sont mesurables dès la première semaine.",
         "Comment prendre rendez-vous pour une formation ? — Réservez un créneau de 30 minutes gratuit sur notre page Prendre RDV. Vous recevrez un devis personnalisé sous 24h."
-      ]
-    },
-    {
-      "type": "prompts",
-      "title": "Prompts peintres : devis et descriptifs",
-      "content": [
-        {
-          "titre": "Devis peinture intérieure",
-          "prompt": "Rédige un devis peinture : [SURFACE] m², type (intérieur/extérieur), préparation (à préciser), nombre de couches, qualité des produits. Descriptif + conditions. Format professionnel.",
-          "usage": "Adaptez aux caractéristiques du chantier."
-        },
-        {
-          "titre": "Conseil techniques produits",
-          "prompt": "Quels types de peinture recommander pour [SUPPORT : plâtre, bois, métal] en [CONTEXTE : humidité, pièce à vivre...] ? Critères de choix, précautions. Réponse pratique pour un peintre.",
-          "usage": "Pour conseiller vos clients."
-        }
       ]
     },
     {
