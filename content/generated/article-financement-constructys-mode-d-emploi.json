@@ -2,13 +2,12 @@
   "slug": "financement-constructys-mode-d-emploi",
   "title": "Financement Constructys : mode d'emploi",
   "description": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
-  "date": "2026-03-25",
+  "date": "2026-03-26",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT artisans"
+    "offre emploi IA",
+    "recruter artisans",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -62,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -75,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-macon",
   "title": "Devis en 15 min : le guide maçon",
   "description": "Devis maçon en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
-  "date": "2026-03-15",
+  "date": "2026-03-26",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -60,29 +60,8 @@
       ]
     },
     {
-      "type": "prompts",
-      "title": "Prompts pour devis maçon avec ChatGPT",
-      "content": [
-        {
-          "titre": "Devis terrassement et gros œuvre",
-          "prompt": "Rédige un devis maçon pour : [SURFACE m², NATURE DES OUVRAGES : fondations, élévation, dallage...]. Inclure descriptif technique, quantités, unités, conditions (assurance décennale, délais). Format professionnel, prêt à compléter avec mes prix.",
-          "usage": "Adaptez surface et ouvrages. Gain de temps sur la structure du document."
-        },
-        {
-          "titre": "Chiffrage mur en parpaing",
-          "prompt": "Calcule les quantités pour un mur en parpaing : longueur [X] m, hauteur [Y] m. Donne le nombre de parpaings, de sacs de mortier, temps estimé. Format tableau + recommandations (joints, ferraillage).",
-          "usage": "Pour chiffrer vite avant rédaction du devis."
-        },
-        {
-          "titre": "Conditions générales devis maçon",
-          "prompt": "Rédige les conditions générales d'un devis de maçonnerie : délais d'exécution, modalités de paiement, assurance décennale, réserves météo. Ton professionnel, 4-5 points essentiels.",
-          "usage": "Réutilisable sur tous vos devis."
-        }
-      ]
-    },
-    {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -95,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

@@ -2,12 +2,12 @@
   "slug": "ia-et-menuisier-5-gains-de-temps-concrets",
   "title": "IA et menuisier : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et menuisier. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-03-17",
+  "date": "2026-03-26",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -74,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
