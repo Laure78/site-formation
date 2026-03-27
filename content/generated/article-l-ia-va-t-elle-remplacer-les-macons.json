@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-macons",
   "title": "L'IA va-t-elle remplacer les maçons ?",
   "description": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-03-16",
+  "date": "2026-03-27",
   "keywords": [
-    "gain temps devis",
-    "automatisation administrative",
-    "IA bureau",
-    "productivité IA"
+    "IA PME bâtiment",
+    "productivité BTP",
+    "automatisation TPE",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -74,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
