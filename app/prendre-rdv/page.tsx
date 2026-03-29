@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { CalendlyBooking } from '@/components/booking/CalendlyBooking';
+import { ExternalLink } from 'lucide-react';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
@@ -36,8 +37,9 @@ export default function PrendreRDVPage() {
           </h1>
           <p className="mt-4 max-w-xl text-slate-600">
             Réservez un créneau d&apos;environ 30 minutes pour discuter de votre projet de
-            formation IA et obtenir un devis personnalisé. Le planning ci-dessous est
-            géré via Calendly : choisissez le jour et l&apos;heure qui vous conviennent.
+            formation IA et obtenir un devis personnalisé. Cliquez sur le bouton
+            ci-dessous pour ouvrir l&apos;agenda en ligne (Calendly) et choisir votre
+            créneau.
           </p>
           <p className="mt-4">
             <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
@@ -45,8 +47,24 @@ export default function PrendreRDVPage() {
             </Link>
           </p>
 
-          <div className="mt-10">
-            <CalendlyBooking />
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-8">
+            <p className="text-center text-sm font-medium text-slate-700">
+              Prise de rendez-vous en ligne
+            </p>
+            <div className="mt-6 flex justify-center">
+              <a
+                href={CALENDLY_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 transition-colors hover:bg-blue-600"
+              >
+                <ExternalLink size={20} strokeWidth={1.5} aria-hidden />
+                Réserver sur Calendly
+              </a>
+            </div>
+            <p className="mt-4 text-center text-xs text-slate-500">
+              Le lien s&apos;ouvre dans un nouvel onglet — service sécurisé Calendly.
+            </p>
           </div>
 
           {/* Backup : devis gratuit en 1 clic si pas de créneau */}
