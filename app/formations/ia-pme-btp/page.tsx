@@ -8,7 +8,7 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment PME — Devis, productivité | Constructys',
   description:
-    "Formation IA pour PME du BTP. Devis, emails, CR : productivité sans embaucher. 4h à 7h. 100% finançable Constructys. Qualiopi. Artisans et dirigeants bâtiment.",
+    "PME du bâtiment : devis, emails et administratif avec l'IA sans surcharger les équipes. Formations 4 h à 7 h. Qualiopi, Constructys. Planifiez un diagnostic.",
   path: '/formations/ia-pme-btp',
   keywords: ['formation IA PME BTP', 'IA devis bâtiment', 'formation IA Constructys'],
 });

@@ -9,7 +9,7 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 export const metadata = createPageMetadata({
   title: 'Laure Olivié – Formatrice en IA pour le BTP | LinkedIn Learning',
   description:
-    'Formatrice en intelligence artificielle pour les entreprises du BTP. Formatrice LinkedIn Learning. Spécialiste de l\'IA générative appliquée au bâtiment.',
+    "Portrait Laure Olivié : formatrice IA BTP, LinkedIn Learning, méthode terrain. Chiffres et publications. Comprenez qui anime vos formations avant de réserver.",
   path: '/auteur/laure-olivie',
   keywords: [
     'Laure Olivié',

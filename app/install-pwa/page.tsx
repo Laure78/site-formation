@@ -6,7 +6,8 @@ import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: 'Installer l\'app — Laure Olivié',
-  description: 'Installez la plateforme de formation IA BTP sur votre téléphone. Gratuit, sans app store.',
+  description:
+    "Installez l'application formation Laure Olivié sur mobile : cours et messages sans App Store. Léger et rapide. Suivez vos modules IA BTP depuis le terrain.",
   path: '/install-pwa',
 });
 

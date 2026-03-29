@@ -6,7 +6,7 @@ import { FAQ_DIAGNOSTIC } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Diagnostic IA BTP gratuit — Évaluez votre potentiel en 60 secondes',
   description:
-    'Diagnostic IA BTP gratuit. Découvrez comment l\'intelligence artificielle peut vous faire gagner du temps sur devis, appels d\'offres et gestion administrative. 5 questions, résultat personnalisé.',
+    "Évaluez en quelques questions où l'IA peut vous faire gagner du temps sur devis et administratif. Diagnostic BTP gratuit. Résultat personnalisé. Lancez le test.",
   path: '/diagnostic-ia-btp',
   keywords: [
     'diagnostic IA BTP',

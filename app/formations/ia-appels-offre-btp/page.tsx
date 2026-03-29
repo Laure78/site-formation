@@ -27,7 +27,7 @@ import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'IA Appels d\'offres BTP : Gagnez 5x en rapidité',
   description:
-    'Analysez DCE et CCTP 5x plus vite avec l\'IA. Rédigez mémoires techniques convaincants. Formation 100% finançable OPCO. Note 4,85/5.',
+    "Formation appels d'offres BTP avec l'IA : DCE, mémoires techniques, chiffrage. Chargés d'affaires. Constructys. Multipliez vos réponses gagnantes.",
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appels d\'offres BTP',

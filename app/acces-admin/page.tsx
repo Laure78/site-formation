@@ -5,7 +5,8 @@ import { AlertCircle, CheckCircle, ExternalLink } from 'lucide-react';
 
 export const metadata = {
   title: 'Accès espace admin',
-  description: 'Guide pour accéder à l\'espace d\'administration de la plateforme.',
+  description:
+    "Accès réservé administrateurs plateforme formation IA BTP. Connexion requise pour gérer cours, apprenants, contenus pédagogiques et paramètres.",
   robots: 'noindex',
 };
 

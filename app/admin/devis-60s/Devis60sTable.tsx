@@ -50,7 +50,7 @@ export function Devis60sTable({
       <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center">
         <p className="text-slate-500">
           Aucune demande pour l&apos;instant. Les leads apparaissent ici lorsqu&apos;un visiteur
-          remplit le formulaire « Devis gratuit en 60 secondes ».
+          remplit le formulaire « Demande de devis en 60 secondes ».
         </p>
         <Link href="/#devis-60s" className="mt-4 inline-block text-[var(--accent)] hover:underline">
           Voir le module sur la homepage →

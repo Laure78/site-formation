@@ -62,7 +62,7 @@ BEGIN
     0,
     true,
     7,
-    'avance'
+    'intermediaire'
   ) RETURNING id INTO cid;
 
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Introduction', 0);

@@ -14,7 +14,8 @@ import {
 
 export const metadata = {
   title: 'Annuaire national des partenaires handicap — OFC Création d\'Entreprise',
-  description: 'Annuaire national des partenaires handicap. AGEFIPH, MDPH, contacts pour accompagner les personnes en situation de handicap. OFC Création d\'Entreprise.',
+  description:
+    "Annuaire handicap : AGEFIPH, MDPH, accompagnement. Contacts utiles pour stagiaires en situation de handicap en formation IA BTP organisée par OFC.",
 };
 
 export default function AnnuaireHandicapPage() {

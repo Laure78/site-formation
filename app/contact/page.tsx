@@ -9,9 +9,9 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Contact, devis gratuit | Laure Olivié',
+  title: 'Formation IA BTP — Contact et devis | Laure Olivié',
   description:
-    'Contactez Laure Olivié pour votre formation IA BTP. Devis personnalisé sous 24h. Basée à Guyancourt (78), interventions en Île-de-France. Formation finançable Constructys.',
+    "Écrivez à Laure Olivié pour une formation IA BTP sur mesure. Réponse structurée, devis personnalisé. Île-de-France et France. Financement Constructys pour PME.",
   path: '/contact',
 });
 

@@ -11,7 +11,7 @@ import { PHOTOS } from '@/lib/photos';
 export const metadata = createPageMetadata({
   title: 'Formations IA BTP & ChatGPT entreprise | Catalogue Qualiopi',
   description:
-    "Catalogue : formation IA BTP, ChatGPT entreprise, IA devis bâtiment, IA gestion chantier, admin. 4h à 2 jours. Constructys 100%. Présentiel ou distanciel.",
+    "Catalogue formation IA BTP : ChatGPT, devis, appels d'offres, RH, TP. Sessions 4 h à 2 jours. Qualiopi, OPCO Constructys. Choisissez votre parcours.",
   path: '/formations',
   keywords: [
     'formation IA BTP',
@@ -29,10 +29,13 @@ export const metadata = createPageMetadata({
   ],
 });
 
-const FORMATIONS = [
+/** Niveaux affichés : débutant et intermédiaire uniquement (pas de niveau avancé). */
+const LEVEL_RANK: Record<string, number> = { DÉBUTANT: 0, INTERMÉDIAIRE: 1 };
+
+const FORMATIONS_UNSORTED = [
   {
     ref: 'BTP-01',
-    level: 'DÉBUTANT',
+    level: 'DÉBUTANT' as const,
     title: "L'IA au service du bâtiment",
     href: '/#programme',
     duree: '4h ou 7h',
@@ -46,7 +49,7 @@ const FORMATIONS = [
   },
   {
     ref: 'BTP-02',
-    level: 'AVANCÉ',
+    level: 'INTERMÉDIAIRE' as const,
     title: "Répondre aux appels d'offres BTP avec l'IA",
     href: '/formations/ia-appels-offre-btp',
     duree: '1 jour (7h)',
@@ -60,7 +63,7 @@ const FORMATIONS = [
   },
   {
     ref: 'BTP-03',
-    level: 'INTERMÉDIAIRE',
+    level: 'INTERMÉDIAIRE' as const,
     title: "Formation IA pour la Fonction RH dans le BTP",
     href: '/formations/ia-rh-btp',
     duree: '2 jours (14h)',
@@ -74,7 +77,7 @@ const FORMATIONS = [
   },
   {
     ref: 'BTP-04',
-    level: 'DÉBUTANT',
+    level: 'DÉBUTANT' as const,
     title: "L'IA au service de travaux publics",
     href: '/formations/ia-travaux-publics',
     duree: '2 jours (14h)',
@@ -87,7 +90,7 @@ const FORMATIONS = [
   },
   {
     ref: 'BTP-05',
-    level: 'INTERMÉDIAIRE',
+    level: 'INTERMÉDIAIRE' as const,
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     href: '/formations/sensibilisation-ia-assistants-personnalises',
     duree: '8h (parcours LMS)',
@@ -100,6 +103,24 @@ const FORMATIONS = [
     ],
   },
 ];
+
+function refNum(ref: string) {
+  return parseInt(ref.replace(/\D/g, ''), 10);
+}
+
+const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
+  const lr = LEVEL_RANK[a.level] - LEVEL_RANK[b.level];
+  if (lr !== 0) return lr;
+  return refNum(a.ref) - refNum(b.ref);
+});
+
+/** Miniatures catalogue — même ratio 4:3 pour toutes les images */
+const FORMATIONS_PAGE_PHOTOS = [
+  PHOTOS.ouvrierPlan,
+  PHOTOS.architecteConcentration,
+  PHOTOS.ouvrierConfiant,
+  PHOTOS.formationEntreprise,
+] as const;
 
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
@@ -143,46 +164,22 @@ export default function FormationsPage() {
         </div>
       </div>
       
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="overflow-hidden rounded-2xl shadow-lg">
-          <Image
-            src={PHOTOS.ouvrierPlan.src}
-            alt={PHOTOS.ouvrierPlan.alt}
-            width={PHOTOS.ouvrierPlan.width}
-            height={PHOTOS.ouvrierPlan.height}
-            className="h-auto w-full"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          />
-        </div>
-        <div className="overflow-hidden rounded-2xl shadow-lg">
-          <Image
-            src={PHOTOS.architecteConcentration.src}
-            alt={PHOTOS.architecteConcentration.alt}
-            width={PHOTOS.architecteConcentration.width}
-            height={PHOTOS.architecteConcentration.height}
-            className="h-auto w-full"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          />
-        </div>
-        <div className="overflow-hidden rounded-2xl shadow-lg">
-          <Image
-            src={PHOTOS.ouvrierConfiant.src}
-            alt={PHOTOS.ouvrierConfiant.alt}
-            width={PHOTOS.ouvrierConfiant.width}
-            height={PHOTOS.ouvrierConfiant.height}
-            className="h-auto w-full"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          />
-        </div>
-        <div className="overflow-hidden rounded-2xl shadow-lg">
-          <Image
-            src={PHOTOS.formationEntreprise.src}
-            alt={PHOTOS.formationEntreprise.alt}
-            width={PHOTOS.formationEntreprise.width}
-            height={PHOTOS.formationEntreprise.height}
-            className="h-auto w-full"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          />
+      <div className="mx-auto mt-12 max-w-4xl">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          {FORMATIONS_PAGE_PHOTOS.map((photo) => (
+            <div
+              key={photo.src}
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 200px"
+              />
+            </div>
+          ))}
         </div>
       </div>
 

@@ -8,7 +8,7 @@ import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Paris 2026 — Devis, ChatGPT, 100 % Constructys',
   description:
-    'Formation IA BTP Paris 2026 : programmes, dates, tarifs. ChatGPT pour devis et emails. 100 % finançable OPCO Constructys. Île-de-France. Qualiopi.',
+    "Formation IA BTP Paris 2026 : programmes, dates, financement Constructys en Île-de-France. ChatGPT entreprise. Qualiopi. Anticipez votre montée en compétence.",
   path: '/formation-ia-btp-paris-2026',
   keywords: [
     'formation IA BTP Paris 2026',

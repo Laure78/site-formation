@@ -23,7 +23,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: "La formation est modulaire : de 4h à 14h selon vos objectifs. Le format standard « L'IA au service du bâtiment » dure 4h ou 7h. Les formations avancées (appels d'offres, RH) peuvent aller jusqu'à 7h ou plus.",
+    a: "La formation est modulaire : de 4h à 14h selon vos objectifs. Le format standard « L'IA au service du bâtiment » dure 4h ou 7h. Les parcours spécialisés (appels d'offres, RH) peuvent aller jusqu'à 7h ou plus.",
   },
   {
     q: "La formation se fait-elle en présentiel ou en distanciel ?",
@@ -91,7 +91,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: "Comment choisir ma formation IA BTP ?",
-    a: "Prenez rendez-vous pour un diagnostic personnalisé de 30 minutes. Nous identifions ensemble vos besoins (devis, appels d'offres, CR chantier, RH) et vous proposons le programme adapté. Devis gratuit sous 24h.",
+    a: "Prenez rendez-vous pour un diagnostic personnalisé de 30 minutes. Nous identifions ensemble vos besoins (devis, appels d'offres, CR chantier, RH) et vous proposons le programme adapté. Devis personnalisé sous 24h.",
   },
   {
     q: "Les formations sont-elles certifiées Qualiopi ?",
@@ -170,7 +170,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
-    a: "Laissez vos coordonnées via le formulaire « Devis gratuit en 1 clic » sur la page. Nous vous recontactons rapidement pour convenir d'un rendez-vous.",
+    a: "Laissez vos coordonnées via le formulaire de demande de devis sur la page d'accueil. Nous vous recontactons rapidement pour convenir d'un rendez-vous.",
   },
 ];
 
@@ -277,7 +277,7 @@ export const FAQ_CHECKLIST_IA_BTP: FAQItem[] = [
   },
   {
     q: "La formation IA BTP est-elle finançable ?",
-    a: "Oui, 100 % finançable par l'OPCO Constructys pour les entreprises du BTP. Formation Qualiopi, devis gratuit sous 24h.",
+    a: "Oui, 100 % finançable par l'OPCO Constructys pour les entreprises du BTP. Formation Qualiopi, devis personnalisé sous 24h.",
   },
   {
     q: "Puis-je personnaliser ces prompts ?",
@@ -345,7 +345,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Comment accéder aux formations IA BTP ?",
-    a: "Catalogue des formations sur laureolivie.fr. Formations en présentiel (Paris, Lyon, Bordeaux, Lille) ou distanciel. Devis gratuit sous 24h.",
+    a: "Catalogue des formations sur laureolivie.fr. Formations en présentiel (Paris, Lyon, Bordeaux, Lille) ou distanciel. Devis personnalisé sur demande.",
   },
 ];
 

@@ -10,7 +10,8 @@ import { FAQ_COURS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue des cours en ligne — IA BTP',
-  description: 'Formations IA en ligne pour entrepreneurs et professionnels du BTP.',
+  description:
+    "Catalogue de cours en ligne IA BTP : modules, PDF, progression. Pour apprenants et équipes. Connectez-vous et suivez votre formation où que vous soyez.",
   path: '/cours',
 });
 

@@ -31,7 +31,7 @@ import { FAQ_RH_BTP } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA RH BTP : Recrutement & GEPP efficaces',
   description:
-    'Formation IA fonction RH BTP : recrutement, GEPP, tableaux de bord. 2 jours. 100% finançable Constructys. Certifié Qualiopi. Note 4,85/5.',
+    "IA pour la fonction RH dans le BTP : recrutement, GEPP, tableaux de bord. Deux jours, Qualiopi. DRH et responsables RH : financez via Constructys sans attendre.",
   path: '/formations/ia-rh-btp',
   keywords: [
     'formation IA RH BTP',

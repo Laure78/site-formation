@@ -26,12 +26,13 @@ BEGIN
       0,
       true,
       7,
-      'avance'
+      'intermediaire'
     ) RETURNING id INTO cid;
   ELSE
-    -- Mettre à jour le programme si la formation existe
+    -- Mettre à jour le programme et le niveau si la formation existe
     UPDATE courses SET
-      programme = 'Introduction — Analyse DCE avec NotebookLM — Décision Go/No Go + Rentabilité — Rédaction mémoire technique et relecture — Aide au chiffrage & contrôle de rentabilité'
+      programme = 'Introduction — Analyse DCE avec NotebookLM — Décision Go/No Go + Rentabilité — Rédaction mémoire technique et relecture — Aide au chiffrage & contrôle de rentabilité',
+      level = 'intermediaire'
     WHERE id = cid;
   END IF;
 

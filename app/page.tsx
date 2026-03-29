@@ -31,7 +31,7 @@ import { PHOTOS } from '@/lib/photos';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin',
   description:
-    "Formation IA BTP et ChatGPT entreprise : IA devis bâtiment, gestion chantier, automatisation admin. Artisans, PME bâtiment, garages. Qualiopi, Constructys. Guyancourt, 78.",
+    "Formation IA BTP pratique : devis, comptes rendus, relances. Dirigeants et artisans du bâtiment. Qualiopi, financement Constructys. Réservez un échange.",
   path: '/',
 });
 
@@ -348,19 +348,6 @@ export default function HomePage() {
                 ],
               },
               {
-                ref: 'BTP-02',
-                level: 'AVANCÉ',
-                title: "Répondre à un appel d'offre BTP avec l'IA",
-                duree: '7h (à adapter)',
-                effectif: '12 max',
-                objectifs: [
-                  "Analyser un DCE et extraire les exigences",
-                  "Structurer une réponse (mémoire technique, trames)",
-                  "Sécuriser le process : confidentialité + relecture",
-                  "Gagner du temps sans perdre la qualité",
-                ],
-              },
-              {
                 ref: 'BTP-03',
                 level: 'INTERMÉDIAIRE',
                 title: "L'IA au service de la fonction RH du BTP",
@@ -371,6 +358,19 @@ export default function HomePage() {
                   "Créer grilles de pré-qualification et scoring",
                   "Standardiser l'onboarding et les procédures",
                   "Gagner du temps sur les documents RH",
+                ],
+              },
+              {
+                ref: 'BTP-02',
+                level: 'INTERMÉDIAIRE',
+                title: "Répondre à un appel d'offre BTP avec l'IA",
+                duree: '7h (à adapter)',
+                effectif: '12 max',
+                objectifs: [
+                  "Analyser un DCE et extraire les exigences",
+                  "Structurer une réponse (mémoire technique, trames)",
+                  "Sécuriser le process : confidentialité + relecture",
+                  "Gagner du temps sans perdre la qualité",
                 ],
               },
             ].map((cours) => (
@@ -428,8 +428,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Devis gratuit en 60 secondes */}
-      <Devis60sBlock placement="homepage" />
+      {/* Demande de devis en 60 secondes */}
+      <Devis60sBlock />
 
       {/* Financement Constructys */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

@@ -6,7 +6,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 export const metadata = createPageMetadata({
   title: 'Financement Constructys 100% IA BTP — Guide complet 2026',
   description:
-    'Financement Constructys 100% pour formation IA BTP : modalités 2026, eGestion, plafonds. Artisans et PME bâtiment. Devis Qualiopi éligible.',
+    "Guide financement Constructys 2026 pour formation IA BTP : modalités, eGestion, plafonds. Artisans et PME. Téléchargez les repères et lancez votre dossier.",
   path: '/financement-constructys-100-ia-btp',
   keywords: [
     'financement Constructys 100% IA BTP',

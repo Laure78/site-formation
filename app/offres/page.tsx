@@ -8,7 +8,7 @@ import { FAQ_OFFRES } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Nos offres de formation IA BTP',
   description:
-    'Formations IA ciblées pour le BTP : parcours personnalisés, suivi de progression, certificats. Formations en présentiel et en ligne. 100% finançable Constructys.',
+    "Formations IA ciblées BTP : parcours personnalisés, suivi et certificats. Présentiel ou ligne. Qualiopi, Constructys. Choisissez l'offre adaptée à vos enjeux.",
   path: '/offres',
   keywords: ['formation IA BTP', 'formation intelligence artificielle bâtiment', 'formation ChatGPT artisans'],
 });

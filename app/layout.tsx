@@ -78,7 +78,11 @@ export const metadata: Metadata = {
     canonical: SITE_CONFIG.url,
   },
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    shortcut: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
     apple: [{ url: '/icon-192.png', sizes: '192x192', type: 'image/png' }],
   },
   appleWebApp: {

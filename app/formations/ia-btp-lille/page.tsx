@@ -6,7 +6,7 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Lille : Automatiser devis & appels d\'offres',
   description:
-    'Formation IA BTP Lille et Hauts-de-France. Automatisez devis, appels d\'offres. 4h. 100% finançable. Nord, Pas-de-Calais.',
+    "Formation IA BTP Lille et Hauts-de-France : devis, appels d'offres, productivité. Nord, Pas-de-Calais, Somme. Qualiopi, Constructys. Échangez avec un expert.",
   path: '/formations/ia-btp-lille',
   keywords: [
     'formation IA BTP Lille',

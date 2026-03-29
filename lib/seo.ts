@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    "Formation IA BTP et ChatGPT entreprise : IA devis bâtiment, gestion chantier, admin. PME bâtiment, artisans, garages. Qualiopi, Constructys 100%. Guyancourt, Île-de-France.",
+    "Formation IA BTP pratique : devis, comptes rendus, relances. Dirigeants et artisans du bâtiment. Qualiopi, financement Constructys. Réservez un échange.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',

@@ -9,10 +9,37 @@ import { PHOTOS } from '@/lib/photos';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS } from '@/lib/faq';
 
+const GALERIE_A_PROPOS = [
+  {
+    src: '/images/btp-collaboration-chantier.png',
+    alt: 'Partenariat et collaboration réussie sur chantier BTP grâce aux formations IA de Laure Olivié',
+  },
+  {
+    src: '/images/laure-olivie-portrait-pro.png',
+    alt: 'Laure Olivié formatrice en intelligence artificielle spécialisée dans les formations pour entreprises du BTP',
+  },
+  {
+    src: PHOTOS.linkedinPanel.src,
+    alt: PHOTOS.linkedinPanel.alt,
+  },
+  {
+    src: PHOTOS.formationEntreprise.src,
+    alt: PHOTOS.formationEntreprise.alt,
+  },
+  {
+    src: PHOTOS.bannerRecrutementDifficile.src,
+    alt: PHOTOS.bannerRecrutementDifficile.alt,
+  },
+  {
+    src: PHOTOS.linkedinPortrait.src,
+    alt: PHOTOS.linkedinPortrait.alt,
+  },
+] as const;
+
 export const metadata = createPageMetadata({
   title: 'Laure Olivié : Formatrice IA BTP | 1592 formés, note 4,85/5',
   description:
-    'Laure Olivié forme 1592 professionnels BTP à l\'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. Note 4,85/5. Clients : FFB, CAPEB, GERESO.',
+    "Laure Olivié forme dirigeants et équipes BTP à l'IA et ChatGPT. 1592 professionnels, note 4,85 sur 5. Qualiopi, Guyancourt. Découvrez son expertise terrain.",
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
@@ -120,70 +147,24 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Galerie photos */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/btp-collaboration-chantier.png"
-                alt="Partenariat et collaboration réussie sur chantier BTP grâce aux formations IA de Laure Olivié"
-                width={1024}
-                height={711}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/laure-olivie-portrait-pro.png"
-                alt="Laure Olivié formatrice en intelligence artificielle spécialisée dans les formations pour entreprises du BTP"
-                width={1024}
-                height={747}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.linkedinPanel.src}
-                alt={PHOTOS.linkedinPanel.alt}
-                width={PHOTOS.linkedinPanel.width}
-                height={PHOTOS.linkedinPanel.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.formationEntreprise.src}
-                alt={PHOTOS.formationEntreprise.alt}
-                width={PHOTOS.formationEntreprise.width}
-                height={PHOTOS.formationEntreprise.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.bannerRecrutementDifficile.src}
-                alt={PHOTOS.bannerRecrutementDifficile.alt}
-                width={PHOTOS.bannerRecrutementDifficile.width}
-                height={PHOTOS.bannerRecrutementDifficile.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.linkedinPortrait.src}
-                alt={PHOTOS.linkedinPortrait.alt}
-                width={PHOTOS.linkedinPortrait.width}
-                height={PHOTOS.linkedinPortrait.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
+      {/* Galerie photos — miniatures format uniforme 4:3 */}
+      <section className="border-b border-slate-200 bg-white px-4 py-12">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+            {GALERIE_A_PROPOS.map(({ src, alt }) => (
+              <div
+                key={src}
+                className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm"
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

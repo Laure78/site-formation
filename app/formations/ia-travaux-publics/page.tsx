@@ -27,7 +27,7 @@ import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: "L'IA au service de travaux publics : DCE, CCTP & rapports",
   description:
-    "L'IA au service de travaux publics : analysez DCE/CCTP, automatisez rapports chantier. 2 jours. 100% finançable. Conducteurs TP. Note 4,85/5.",
+    "Formation IA travaux publics : DCE, CCTP, rapports chantier en deux jours. Conducteurs TP. Finançable OPCO, note 4,85. Inscrivez votre équipe.",
   path: '/formations/ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',

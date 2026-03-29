@@ -4,7 +4,8 @@ import { MessagesClient } from './MessagesClient';
 
 export const metadata = {
   title: 'Messages',
-  description: 'Messagerie entre apprenants et formateurs',
+  description:
+    "Échangez en messagerie avec votre formateur sur les modules IA BTP. Questions de parcours et ressources. Espace connecté réservé aux apprenants inscrits.",
 };
 
 export default async function MessagesPage() {

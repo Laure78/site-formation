@@ -644,7 +644,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'cta',
-        content: 'Réservez votre formation appels d\'offres BTP à Lille. Devis gratuit.',
+        content: 'Réservez votre formation appels d\'offres BTP à Lille. Devis sur demande.',
         formationHref: '/formations/ia-btp-lille',
       },
     ],

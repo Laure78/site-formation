@@ -7,7 +7,8 @@ import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — FFB, GERESO, Lefebvre Dalloz',
-  description: 'Nos formations IA BTP avec FFB, GERESO, Lefebvre Dalloz. Partenariat Constructys. Artisans et PME bâtiment.',
+  description:
+    "FFB, CAPEB, GERESO, Lefebvre Dalloz : nos partenaires formation IA BTP. Confiance institutionnelle. PME bâtiment : rejoignez un réseau exigeant sur la qualité.",
   path: '/clients-partenaires',
 });
 

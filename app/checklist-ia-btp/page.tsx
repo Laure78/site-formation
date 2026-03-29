@@ -8,7 +8,7 @@ import { FAQSection } from '@/components/landing/FAQSection';
 export const metadata = createPageMetadata({
   title: 'ChatGPT artisans BTP — 10 prompts gratuits',
   description:
-    '10 prompts ChatGPT pour artisans BTP. Devis, emails, CR chantier. Checklist gratuite. Formation IA BTP finançable Constructys. Qualiopi.',
+    "Dix prompts ChatGPT pour artisans BTP : devis, emails, CR. Checklist opérationnelle. Complétez avec une formation IA finançable Constructys. Téléchargez.",
   path: '/checklist-ia-btp',
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT artisans'],
 });

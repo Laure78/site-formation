@@ -7,7 +7,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'IA devis BTP — Automatiser devis bâtiment | Formation finançable',
   description:
-    'IA devis BTP : automatiser devis bâtiment 10x plus vite. Formation finançable Constructys. Artisans, PME bâtiment. Gain de temps garanti. Qualiopi.',
+    "Automatisez vos devis bâtiment avec l'IA : formation terrain pour artisans et PME. Gain de temps mesurable. Qualiopi, Constructys. Demandez votre programme.",
   path: '/ia-devis-batiment',
   keywords: [
     'IA devis bâtiment',

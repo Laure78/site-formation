@@ -13,7 +13,7 @@ import { CTABlock } from '@/components/CTABlock';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Articles, guides pratiques',
   description:
-    'Articles et guides sur la formation IA BTP : ChatGPT artisans, financement Constructys, automatiser devis bâtiment. Qualiopi.',
+    "Articles et guides formation IA BTP : ChatGPT, devis, financement, cas terrain. Pour dirigeants et chefs d'entreprise. Lisez les analyses et passez à l'action.",
   path: '/blog',
   keywords: ['blog formation IA BTP', 'ressources IA bâtiment', 'articles ChatGPT BTP'],
 });

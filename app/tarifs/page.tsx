@@ -8,7 +8,7 @@ import { FAQ_TARIFS } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Tarifs, financement Constructys',
   description:
-    'Formation IA BTP : tarifs et financement Constructys. 100% finançable pour artisans et PME bâtiment. Gagnez du temps sur devis. Qualiopi.',
+    "Tarifs formation IA BTP et Qualiopi. Constructys pour entreprises du bâtiment. Comparez les formats et demandez un devis adapté à vos équipes et objectifs.",
   path: '/tarifs',
   keywords: ['tarifs formation IA BTP', 'financement Constructys', 'formation Qualiopi', 'formation IA Paris'],
 });

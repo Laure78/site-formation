@@ -6,7 +6,7 @@ import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getFAQSchema
 export const metadata = createPageMetadata({
   title: 'IA dans le BTP : 10 cas d\'usage concrets (2026)',
   description:
-    'Découvrez 10 applications concrètes de l\'IA dans le BTP : devis automatisés, appels d\'offres, gestion chantier. Exemples réels + ROI. Guide 2026.',
+    "Dix cas d'usage IA dans le BTP avec exemples et ROI : devis, appels d'offres, chantier. Guide 2026 pour décideurs. Lisez et priorisez vos actions.",
   path: '/ressources/ia-btp/10-cas-usage-concrets',
   keywords: [
     'IA dans le BTP',

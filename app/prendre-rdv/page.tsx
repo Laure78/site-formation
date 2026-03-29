@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
-import { Devis60sBlock } from '@/components/Devis60sBlock';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -11,7 +10,7 @@ import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Réserver un RDV gratuit',
   description:
-    'Réservez un RDV de 30 min pour votre formation IA BTP. Devis personnalisé. Basée à Guyancourt (78), j\'interviens en Île-de-France et partout en France. Formation finançable Constructys.',
+    "Réservez 30 minutes en ligne pour discuter formation IA BTP. Calendly sécurisé, puis proposition chiffrée. Qualiopi, Constructys. Ouvrez l'agenda maintenant.",
   path: '/prendre-rdv',
 });
 
@@ -65,11 +64,6 @@ export default function PrendreRDVPage() {
             <p className="mt-4 text-center text-xs text-slate-500">
               Le lien s&apos;ouvre dans un nouvel onglet — service sécurisé Calendly.
             </p>
-          </div>
-
-          {/* Backup : devis gratuit en 1 clic si pas de créneau */}
-          <div className="mt-16">
-            <Devis60sBlock placement="backup" />
           </div>
 
           <FAQSection

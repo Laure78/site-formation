@@ -17,7 +17,7 @@ import { FAQ_FINANCEMENT } from '@/lib/faq';
 export const metadata = {
   title: 'Formation IA Constructys — Financement 100% | Laure Olivié',
   description:
-    'Formation IA Constructys : 100% finançable. Modalités 2026, eGestion. Gagnez du temps sur devis et emails. Artisans, PME BTP.',
+    "Financement formation IA via Constructys : conditions pour artisans et PME BTP. Réduisez le reste à charge. Éclaircissez votre budget avant de vous engager.",
 };
 
 export default function FinancementConstructysPage() {

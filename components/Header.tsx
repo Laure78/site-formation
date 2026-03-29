@@ -18,13 +18,18 @@ const NAV_ITEMS: {
       { href: '/cours', label: 'Cours en ligne (LMS)' },
       { href: '/#programme', label: "L'IA au service du bâtiment" },
       { href: '/formations/ia-travaux-publics', label: "L'IA au service de travaux publics" },
-      { href: '/formations/ia-appels-offre-btp', label: 'IA appels d\'offre BTP' },
-      { href: '/formations/ia-pme-btp', label: 'IA pour PME du BTP' },
+      {
+        href: '/formations/ia-appels-offre-btp',
+        label: "Répondre aux appels d'offres BTP avec l'IA",
+      },
+      {
+        href: '/formations/ia-rh-btp',
+        label: 'Formation IA pour la Fonction RH dans le BTP',
+      },
       {
         href: '/formations/sensibilisation-ia-assistants-personnalises',
-        label: "Sensibilisation IA & assistants",
+        label: "Sensibilisation à l'IA & Assistants IA personnalisés",
       },
-      { href: '/formations/ia-rh-btp', label: 'IA RH BTP' },
     ],
   },
   {

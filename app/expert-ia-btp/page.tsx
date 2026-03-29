@@ -6,7 +6,7 @@ import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
   description:
-    'Laure Olivié, experte en IA pour le BTP. +10 ans d\'expérience, +1500 professionnels formés. Formatrice LinkedIn Learning. Spécialiste IA bâtiment, artisanat, automobile. Certification Qualiopi.',
+    "Expert IA BTP : Laure Olivié accompagne PME et artisans. Plus de dix ans terrain, LinkedIn Learning. Qualiopi. Demandez une session stratégique personnalisée.",
   path: '/expert-ia-btp',
   keywords: [
     'expert IA BTP',
@@ -198,7 +198,7 @@ export default function ExpertIABTPPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               { title: 'Formation IA BTP', href: '/formations', desc: '4h à 2 jours — Tous niveaux' },
-              { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '1 jour — Niveau avancé' },
+              { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '1 jour — Intermédiaire' },
               { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '2 jours — Recrutement & GEPP' },
               { title: "L'IA au service de travaux publics", href: '/formations/ia-travaux-publics', desc: '2 jours — Spécialisation TP' },
               { title: 'Formation IA artisans', href: '/chatgpt-artisans-btp', desc: '4h — TPE & artisanat' },

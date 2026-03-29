@@ -9,7 +9,7 @@ const LMS_SLUG = 'formation-ia-sensibilisation-prompt-engineering-assistants';
 export const metadata = createPageMetadata({
   title: "Sensibilisation à l'IA & assistants personnalisés — Formation LMS BTP",
   description:
-    "Parcours en ligne : sensibilisation à l'IA, banque de prompts par métier (Excel), conception d'assistants IA sur mesure. 8h, niveau intermédiaire. Qualiopi, OPCO Constructys.",
+    "Parcours LMS sensibilisation IA, prompts par métier et assistants personnalisés. Huit heures, niveau intermédiaire. Qualiopi, Constructys. Accédez au cours.",
   path: '/formations/sensibilisation-ia-assistants-personnalises',
   keywords: [
     'sensibilisation IA BTP',

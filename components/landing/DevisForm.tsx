@@ -127,7 +127,7 @@ export function DevisForm() {
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
       >
         <Send size={20} strokeWidth={1.5} />
-        Recevoir mon devis gratuit
+        Recevoir mon devis
       </button>
       <p className="flex items-center gap-2 text-xs text-slate-500">
         <Lock size={14} strokeWidth={1.5} />

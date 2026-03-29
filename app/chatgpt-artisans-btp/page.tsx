@@ -7,7 +7,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'ChatGPT Artisans BTP : Devis & emails automatisés',
   description:
-    'ChatGPT pour artisans : automatisez devis, emails, CR. Formation 100% finançable Constructys. Gagnez 3-5h/semaine. Certifié Qualiopi.',
+    "Maîtrisez ChatGPT dans votre entreprise artisanale : devis, emails, CR. Formation finançable Constructys. Gagnez plusieurs heures chaque semaine. Lancez-vous.",
   path: '/chatgpt-artisans-btp',
   keywords: [
     'ChatGPT artisans BTP',

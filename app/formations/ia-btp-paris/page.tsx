@@ -9,7 +9,7 @@ import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Paris : Devis & ChatGPT en 4h',
   description:
-    'Formation IA BTP Paris et Île-de-France. Devis, emails automatisés. 4h. 100% finançable Constructys. Pour artisans et PME. Note 4,85/5.',
+    "Formation IA BTP Paris et Île-de-France : devis, emails, ChatGPT en 4 h. Artisans et PME. Qualiopi, Constructys. Réservez une session près de Paris.",
   path: '/formations/ia-btp-paris',
   keywords: [
     'formation IA Paris',

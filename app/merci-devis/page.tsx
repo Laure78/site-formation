@@ -3,7 +3,8 @@ import { CheckCircle, Pencil, Phone, Mail, Home, BookOpen } from 'lucide-react';
 
 export const metadata = {
   title: 'Demande reçue — Merci',
-  description: 'Votre demande de devis a bien été envoyée. Réponse sous 24h.',
+  description:
+    "Demande de devis bien reçue pour votre formation IA BTP. Réponse sous vingt-quatre heures avec proposition personnalisée et prochaines étapes.",
   robots: { index: false, follow: false },
 };
 

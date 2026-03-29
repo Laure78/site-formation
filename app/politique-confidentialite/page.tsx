@@ -2,7 +2,8 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Politique de confidentialité — OFC Création d\'Entreprise',
-  description: 'Politique de confidentialité et protection des données personnelles. RGPD, CNIL, droits d\'accès. OFC Création d\'Entreprise, formations IA BTP.',
+  description:
+    "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA BTP.",
 };
 
 export default function PolitiqueConfidentialitePage() {

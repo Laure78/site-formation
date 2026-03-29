@@ -7,7 +7,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Formation IA conducteur travaux — CR chantier | BTP',
   description:
-    "Formation IA BTP pour conducteurs de travaux. Automatiser CR chantier, rapports. Gagnez 2h/jour. Formation finançable Constructys. Qualiopi.",
+    "Formation IA conducteur de travaux : CR, rapports et coordination plus rapides. Méthode terrain. Constructys, Qualiopi. Obtenez une proposition adaptée.",
   path: '/ia-conducteur-travaux',
   keywords: [
     'IA conducteur de travaux',
