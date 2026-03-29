@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      { source: '/cours', destination: '/formations', permanent: true },
+      {
+        source: '/clients-partenaires',
+        destination: '/a-propos',
+        permanent: true,
+      },
+      { source: '/tarifs', destination: '/financement-constructys', permanent: true },
+      { source: '/merci-devis', destination: '/contact', permanent: true },
       { source: '/formation-ia-btp', destination: '/formations', permanent: false },
       {
         source: '/documents/checklist-10-prompts-chatgpt-btp',

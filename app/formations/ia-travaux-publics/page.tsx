@@ -25,7 +25,7 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: "L'IA au service de travaux publics : DCE, CCTP & rapports",
+  title: "L'IA au service des Travaux Publics : DCE, CCTP & rapports",
   description:
     "Formation IA travaux publics : DCE, CCTP, rapports chantier en deux jours. Conducteurs TP. Finançable OPCO, note 4,85. Inscrivez votre équipe.",
   path: '/formations/ia-travaux-publics',
@@ -42,7 +42,7 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = getCourseSchema({
-  name: "L'IA au service de travaux publics",
+  name: "L'IA au service des Travaux Publics",
   description: "Formation immersive 2 jours : maîtriser l'IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier, créer votre assistant IA métier. 100% finançable OPCO.",
   path: '/formations/ia-travaux-publics',
   providerName: SITE_CONFIG.legalName,
@@ -52,7 +52,7 @@ const courseSchema = getCourseSchema({
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
   { name: 'Formations', path: '/formations' },
-  { name: "L'IA au service de travaux publics", path: '/formations/ia-travaux-publics' },
+  { name: "L'IA au service des Travaux Publics", path: '/formations/ia-travaux-publics' },
 ]);
 
 const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
@@ -178,7 +178,7 @@ export default function FormationIATravauxPublicsPage() {
                 ← Retour au catalogue
               </Link>
               <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                <span className="text-[var(--accent)]">L&apos;IA au service de travaux publics</span>
+                <span className="text-[var(--accent)]">L&apos;IA au service des Travaux Publics</span>
                 {' '}: maîtriser les fondamentaux et créer son assistant IA métier
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
@@ -371,7 +371,7 @@ export default function FormationIATravauxPublicsPage() {
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_TRAVAUX_PUBLICS}
-            title="Questions fréquentes — L'IA au service de travaux publics"
+            title="Questions fréquentes — L'IA au service des Travaux Publics"
           />
         </div>
       </section>

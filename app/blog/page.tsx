@@ -204,8 +204,8 @@ export default async function BlogPage({
           description="Réservez un échange de 30 minutes gratuit. Devis personnalisé sous 24h. Formation 100% finançable Constructys."
           primaryLabel="Prendre rendez-vous"
           primaryHref="/prendre-rdv"
-          secondaryLabel="Voir les tarifs"
-          secondaryHref="/tarifs"
+          secondaryLabel="Voir le financement"
+          secondaryHref="/financement-constructys"
         />
       </div>
     </div>

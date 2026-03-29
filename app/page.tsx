@@ -18,9 +18,8 @@ import {
   GraduationCap,
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
-import { DevisForm } from '@/components/landing/DevisForm';
+import { ContactDirect } from '@/components/landing/ContactDirect';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
-import { Devis60sBlock } from '@/components/Devis60sBlock';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import Image from 'next/image';
@@ -320,6 +319,33 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          <div className="mt-16 max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+              <Video size={16} strokeWidth={1.5} />
+              <span>LINKEDIN LEARNING</span>
+            </div>
+            <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              L&apos;IA au service du bâtiment — complément en ligne
+            </h3>
+            <p className="mt-3 text-slate-600">
+              Le parcours présentiel «&nbsp;L&apos;IA au service du bâtiment&nbsp;» s&apos;appuie sur les mêmes enjeux que la formation LinkedIn Learning{' '}
+              <strong>L&apos;IA pour le BTP&nbsp;: des solutions concrètes pour vos chantiers</strong>
+              &nbsp;: devis, emails, automatisation administrative. Visionnez l&apos;introduction ci-dessous ou suivez le cours complet sur{' '}
+              <a
+                href="https://fr.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers/bienvenue-dans-l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[var(--accent)] hover:underline"
+              >
+                LinkedIn Learning
+              </a>
+              .
+            </p>
+            <div className="mt-6">
+              <LinkedInLearningEmbed course="chantiers" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -428,9 +454,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Demande de devis en 60 secondes */}
-      <Devis60sBlock />
-
       {/* Financement Constructys */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
@@ -480,7 +503,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <Link
-              href="/tarifs"
+              href="/financement-constructys"
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               Tout savoir sur le financement Constructys
@@ -560,7 +583,7 @@ export default function HomePage() {
             Découvrez mes formations sur l&apos;IA pour le BTP
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Formatrice LinkedIn Learning : solutions concrètes pour vos chantiers et recrutement.
+            Formatrice LinkedIn Learning : le cours sur les chantiers est présenté dans le programme «&nbsp;L&apos;IA au service du bâtiment&nbsp;» ci-dessus ; découvrez aussi la formation au recrutement.
           </p>
           
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -599,14 +622,6 @@ export default function HomePage() {
           <div className="mt-8 space-y-12">
             <div>
               <h3 className="font-display text-xl font-semibold text-slate-900">
-                L&apos;IA pour le BTP : Des solutions concrètes pour vos chantiers
-              </h3>
-              <div className="mt-4">
-                <LinkedInLearningEmbed course="chantiers" />
-              </div>
-            </div>
-            <div>
-              <h3 className="font-display text-xl font-semibold text-slate-900">
                 L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement
               </h3>
               <div className="mt-4">
@@ -641,7 +656,7 @@ export default function HomePage() {
                 cadre du plan de développement des compétences de votre entreprise.
               </p>
               <Link
-                href="/tarifs"
+                href="/financement-constructys"
                 className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
               >
                 En savoir plus sur les financements →
@@ -725,7 +740,7 @@ export default function HomePage() {
                 Voir le calendrier
               </Link>
               <p className="mt-6 text-sm text-slate-500">
-                Ou laissez vos coordonnées ci-contre pour être recontacté.
+                Ou écrivez-moi ou appelez-moi — coordonnées à droite.
               </p>
               <div className="mt-8 space-y-6">
                 {[
@@ -758,7 +773,10 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <DevisForm />
+              <h3 className="font-display text-lg font-semibold text-slate-900">Me contacter</h3>
+              <div className="mt-4">
+                <ContactDirect />
+              </div>
             </div>
           </div>
         </div>

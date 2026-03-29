@@ -92,7 +92,7 @@ export function Footer() {
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
                 { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
                 { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
-                { href: '/tarifs', label: 'Financement OPCO' },
+                { href: '/financement-constructys', label: 'Financement OPCO' },
                 { href: '/blog', label: 'Ressources & Articles' },
                 { href: '/communaute-formateurs', label: 'Communauté formateurs' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },

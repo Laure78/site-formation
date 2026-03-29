@@ -35,10 +35,6 @@ export const INTERNAL_LINKS = {
     path: '/financement-constructys-100-ia-btp',
     anchors: ['financement 100% IA BTP', 'formation IA Constructys 100%', 'prise en charge totale'],
   },
-  tarifs: {
-    path: '/tarifs',
-    anchors: ['tarifs formation IA BTP', 'financement OPCO', 'coût formation IA'],
-  },
   diagnostic: {
     path: '/diagnostic-ia-btp',
     anchors: ['diagnostic IA BTP gratuit', 'audit IA BTP', 'diagnostic gratuit'],
@@ -64,7 +60,7 @@ export const INTERNAL_LINKS = {
     anchors: ['checklist prompts ChatGPT', '10 prompts ChatGPT BTP', 'prompts gratuits'],
   },
   clientsPartenaires: {
-    path: '/clients-partenaires',
+    path: '/a-propos#clients-partenaires',
     anchors: ['clients et partenaires', 'FFB, GERESO, Lefebvre Dalloz', 'nos partenaires'],
   },
   communauteFormateurs: {

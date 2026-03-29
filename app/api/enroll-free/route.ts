@@ -8,13 +8,13 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const courseId = searchParams.get('courseId');
-  if (!courseId) return NextResponse.redirect(new URL('/cours', request.url));
+  if (!courseId) return NextResponse.redirect(new URL('/formations', request.url));
 
   const { data: course } = await supabase.from('courses').select('id, price').eq('id', courseId).single();
-  if (!course) return NextResponse.redirect(new URL('/cours', request.url));
+  if (!course) return NextResponse.redirect(new URL('/formations', request.url));
 
   const price = Number(course.price ?? 0);
-  if (price > 0) return NextResponse.redirect(new URL('/cours', request.url));
+  if (price > 0) return NextResponse.redirect(new URL('/formations', request.url));
 
   await supabase.from('enrollments').upsert(
     { user_id: user.id, course_id: courseId, progress_percent: 0 },

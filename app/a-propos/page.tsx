@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
+import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { PHOTOS } from '@/lib/photos';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
-import { FAQ_A_PROPOS } from '@/lib/faq';
+import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
+
+const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
 const GALERIE_A_PROPOS = [
   {
@@ -39,7 +41,7 @@ const GALERIE_A_PROPOS = [
 export const metadata = createPageMetadata({
   title: 'Laure Olivié : Formatrice IA BTP | 1592 formés, note 4,85/5',
   description:
-    "Laure Olivié forme dirigeants et équipes BTP à l'IA et ChatGPT. 1592 professionnels, note 4,85 sur 5. Qualiopi, Guyancourt. Découvrez son expertise terrain.",
+    "Laure Olivié forme dirigeants et équipes BTP à l'IA et ChatGPT. Réseau FFB, CAPEB, GERESO, Lefebvre Dalloz. 1592 professionnels, note 4,85/5. Qualiopi, Guyancourt.",
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
@@ -52,7 +54,7 @@ export const metadata = createPageMetadata({
 });
 
 export default function AProposPage() {
-  const faqSchema = getFAQSchema(FAQ_A_PROPOS);
+  const faqSchema = getFAQSchema(FAQ_A_PROPOS_COMPLET);
 
   return (
     <div>
@@ -115,8 +117,11 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Clients institutionnels — Bloc "Ils me font confiance" */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-12">
+      {/* Clients & partenaires — réseau institutionnel + partenariat FFB + cas d'usage */}
+      <section
+        id="clients-partenaires"
+        className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-12"
+      >
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-center text-2xl font-bold text-slate-900 md:text-3xl">
             Ils me font confiance
@@ -144,6 +149,110 @@ export default function AProposPage() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/rencontres-artisans-ia-ffb-btp.png"
+                alt="Rencontres des Artisans FFB avec Laure Olivié : formation intelligence artificielle au service des artisans du bâtiment"
+                width={1200}
+                height={630}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+              <div className="flex gap-6">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)] text-white">
+                  <Shield size={28} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-slate-900">
+                    Partenariat FFB Grand Paris
+                  </h3>
+                  <p className="mt-1 text-sm font-medium text-[var(--accent)]">
+                    Organisme de formation référencé
+                  </p>
+                  <p className="mt-4 text-slate-600">
+                    En tant qu&apos;organisme de formation référencé par la Fédération
+                    Française du Bâtiment Grand Paris, nous accompagnons les entreprises
+                    du BTP dans leur transformation numérique grâce à
+                    l&apos;intelligence artificielle.
+                  </p>
+                  <p className="mt-4 text-slate-600">
+                    Ce partenariat stratégique nous permet d&apos;offrir des{' '}
+                    <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">
+                      formations
+                    </Link>{' '}
+                    100% adaptées aux réalités du secteur du bâtiment, avec un
+                    financement facilité via Constructys pour les adhérents FFB.
+                  </p>
+                  <p className="mt-6 font-semibold text-slate-900">
+                    Avantages du partenariat
+                  </p>
+                  <ul className="mt-2 space-y-1 text-slate-600">
+                    {[
+                      'Formations certifiantes',
+                      'Prise en charge OPCO à 100%',
+                      'Supports pédagogiques adaptés au BTP',
+                      'Suivi personnalisé post-formation',
+                      'Cas pratiques sectoriels',
+                    ].map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-[var(--accent)]">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h3 className="text-center text-2xl font-bold text-slate-900">
+              Cas d&apos;usage & formations réalisées
+            </h3>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto">
+              {[
+                {
+                  icon: BarChart3,
+                  title: 'PME du BTP - Île-de-France',
+                  values: ['12', '5h'],
+                  labels: ['stagiaires formés', 'gain hebdomadaire'],
+                },
+                {
+                  icon: Building2,
+                  title: "Bureau d'études structure",
+                  values: ['8', '30%'],
+                  labels: ['collaborateurs', 'gain de productivité'],
+                },
+              ].map(({ icon: Icon, ...cas }) => (
+                <div
+                  key={cas.title}
+                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent)] text-white">
+                    <Icon size={24} strokeWidth={1.5} />
+                  </div>
+                  <h4 className="mt-4 font-semibold text-slate-900">{cas.title}</h4>
+                  <div className="mt-6 flex gap-8">
+                    <div>
+                      <p className="text-3xl font-bold text-[var(--accent)]">
+                        {cas.values[0]}
+                      </p>
+                      <p className="text-sm text-slate-600">{cas.labels[0]}</p>
+                    </div>
+                    <div>
+                      <p className="text-3xl font-bold text-[var(--accent)]">
+                        {cas.values[1]}
+                      </p>
+                      <p className="text-sm text-slate-600">{cas.labels[1]}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -266,9 +375,9 @@ export default function AProposPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <FAQSection
-            items={FAQ_A_PROPOS}
-            title="Questions fréquentes sur Laure Olivié"
-            subtitle="Zone d'intervention, expérience, accompagnement post-formation."
+            items={FAQ_A_PROPOS_COMPLET}
+            title="Questions fréquentes"
+            subtitle="Partenariats, Qualiopi, parcours professionnel — zone d'intervention et accompagnement."
           />
         </div>
       </section>
@@ -283,6 +392,7 @@ export default function AProposPage() {
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
               { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+              { href: '/a-propos#clients-partenaires', label: 'Clients & partenaires' },
             ]}
           />
         </div>

@@ -135,7 +135,7 @@ export default async function CoursDetailPage({ params }: PageProps) {
       </div>
 
       <div className="mt-8">
-        <Link href="/cours" className="text-sm text-[var(--accent)] hover:underline">← Retour au catalogue</Link>
+        <Link href="/formations" className="text-sm text-[var(--accent)] hover:underline">← Retour aux formations</Link>
       </div>
     </div>
   );

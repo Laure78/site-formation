@@ -4,6 +4,30 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { SUGGESTED_QUESTIONS } from '@/lib/agent/suggestions';
+import { SITE_CONFIG } from '@/lib/seo';
+
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/** Rend l'email professionnel cliquable (mailto) dans les réponses de l'assistant */
+function formatAssistantContent(text: string) {
+  const email = SITE_CONFIG.email;
+  const parts = text.split(new RegExp(`(${escapeRegExp(email)})`, 'gi'));
+  return parts.map((part, i) =>
+    part.toLowerCase() === email.toLowerCase() ? (
+      <a
+        key={i}
+        href={`mailto:${email}`}
+        className="font-medium text-[var(--accent)] underline underline-offset-2 hover:text-blue-800"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
 
 interface Message {
   role: 'user' | 'assistant';
@@ -79,7 +103,7 @@ export function ChatWidget() {
         ...m,
         {
           role: 'assistant',
-          content: 'Désolé, une erreur est survenue. Réessayez ou contactez-nous directement.',
+          content: `Désolé, une erreur est survenue. Réessayez ou écrivez à ${SITE_CONFIG.email}.`,
         },
       ]);
     } finally {
@@ -144,6 +168,15 @@ export function ChatWidget() {
                 <p className="text-sm text-slate-600">
                   Bonjour ! Je suis l&apos;assistant de Laure Olivié. Posez-moi vos questions sur les formations IA pour le BTP.
                 </p>
+                <p className="text-sm text-slate-600">
+                  Pour l&apos;écrire directement :{' '}
+                  <a
+                    href={`mailto:${SITE_CONFIG.email}`}
+                    className="font-medium text-[var(--accent)] underline underline-offset-2 hover:text-blue-800"
+                  >
+                    {SITE_CONFIG.email}
+                  </a>
+                </p>
                 <p className="text-xs font-medium text-slate-500">Questions fréquentes :</p>
                 <div className="flex flex-wrap gap-2">
                   {SUGGESTED_QUESTIONS.slice(0, 6).map((q) => (
@@ -171,7 +204,9 @@ export function ChatWidget() {
                       : 'bg-slate-100 text-slate-800'
                   }`}
                 >
-                  <p className="whitespace-pre-wrap text-sm">{m.content}</p>
+                  <p className="whitespace-pre-wrap text-sm">
+                    {m.role === 'assistant' ? formatAssistantContent(m.content) : m.content}
+                  </p>
                   {m.sources && m.sources.length > 0 && (
                     <div className="mt-2 space-y-1 border-t border-slate-200/50 pt-2">
                       {m.sources.map((s) => (

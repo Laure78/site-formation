@@ -75,7 +75,7 @@ export default function OffresPage() {
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },
           { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
-          { href: '/tarifs', label: 'Tarifs et financement' },
+          { href: '/financement-constructys', label: 'Financement Constructys' },
         ]}
       />
     </div>

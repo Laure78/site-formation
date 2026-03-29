@@ -2,16 +2,16 @@ import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
-import { ContactForm } from '@/components/landing/ContactForm';
+import { ContactDirect } from '@/components/landing/ContactDirect';
 import { FAQSection } from '@/components/landing/FAQSection';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Contact et devis | Laure Olivié',
+  title: 'Formation IA BTP — Contact | Laure Olivié',
   description:
-    "Écrivez à Laure Olivié pour une formation IA BTP sur mesure. Réponse structurée, devis personnalisé. Île-de-France et France. Financement Constructys pour PME.",
+    "Écrivez à Laure Olivié ou prenez rendez-vous pour une formation IA BTP sur mesure. Île-de-France et France. Financement Constructys pour PME.",
   path: '/contact',
 });
 
@@ -38,7 +38,7 @@ export default async function ContactPage({
             Contact
           </h1>
           <p className="mt-2 text-slate-600">
-            Formation IA pour le BTP — Devis personnalisé sous 24h
+            Formation IA pour le BTP — Réponse sous 24h
           </p>
           <h2 className="mt-8 font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Formatrice IA pour les{' '}
@@ -69,7 +69,7 @@ export default async function ContactPage({
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="#formulaire"
+              href="#contact"
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               Me contacter
@@ -89,24 +89,18 @@ export default async function ContactPage({
         </div>
       </section>
 
-      {/* Formulaire de contact — Section dédiée, accès rapide */}
-      <section id="formulaire" className="border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-16">
+      {/* Contact — sans formulaire : email, téléphone, RDV */}
+      <section id="contact" className="scroll-mt-24 border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-16">
         <div className="mx-auto max-w-2xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Discutons de votre projet de formation IA pour le BTP
           </h2>
           <p className="mt-3 text-slate-600">
-            Réservez un créneau ou laissez vos coordonnées — je vous réponds sous 24h.
+            Écrivez-moi, appelez-moi ou réservez un créneau — je vous réponds sous 24h.
           </p>
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <ContactForm formationDefault={formation} />
+            <ContactDirect formationHint={formation} />
           </div>
-          <p className="mt-6 text-center text-sm text-slate-600">
-            Préférez-vous choisir votre créneau directement ?{' '}
-            <Link href="/prendre-rdv" className="font-medium text-[var(--accent)] hover:underline">
-              Prendre rendez-vous →
-            </Link>
-          </p>
         </div>
       </section>
 
@@ -240,26 +234,11 @@ export default async function ContactPage({
               Voir le catalogue formations
             </Link>
             <Link
-              href="#formulaire"
+              href="/prendre-rdv"
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               Prendre rendez-vous
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Formulaire de contact */}
-      <section id="formulaire" className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-2xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Discutons de votre projet de formation IA pour le BTP
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Je vous réponds sous 24h.
-          </p>
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8">
-            <ContactForm formationDefault={formation} />
           </div>
         </div>
       </section>
@@ -281,8 +260,8 @@ export default async function ContactPage({
             Prêt à gagner 3 à 5 heures par semaine ?
           </h2>
           <p className="mt-4 text-blue-100">
-            Contactez-moi pour discuter de votre projet de formation et obtenir un
-            devis personnalisé.
+            Contactez-moi pour discuter de votre projet de formation IA BTP et des
+            modalités de financement.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
             <Link

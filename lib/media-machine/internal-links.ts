@@ -12,7 +12,7 @@ export interface InternalLink {
 export function getInternalLinksForArticle(clusterId: string): InternalLink[] {
   const links: InternalLink[] = [];
 
-  // Toujours inclure formation, RDV et tarifs (pages de conversion)
+  // Toujours inclure formation, RDV et financement (pages de conversion)
   links.push({
     path: MEDIA_CONFIG.internalLinks.formations.path,
     anchor: MEDIA_CONFIG.internalLinks.formations.anchors[0],
@@ -22,8 +22,8 @@ export function getInternalLinksForArticle(clusterId: string): InternalLink[] {
     anchor: MEDIA_CONFIG.internalLinks.prendreRdv.anchors[Math.floor(Math.random() * 3)],
   });
   links.push({
-    path: MEDIA_CONFIG.internalLinks.tarifs.path,
-    anchor: MEDIA_CONFIG.internalLinks.tarifs.anchors[0],
+    path: MEDIA_CONFIG.internalLinks.financement.path,
+    anchor: MEDIA_CONFIG.internalLinks.financement.anchors[0],
   });
 
   // Selon le cluster, ajouter des liens ciblés

@@ -327,7 +327,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       IA devis bâtiment
                     </Link>
                     <Link
-                      href="/tarifs"
+                      href="/financement-constructys"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
                     >
                       Tarifs et financement
@@ -453,7 +453,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous
           </Link>
-          <Link href="/tarifs" className="text-[var(--accent)] hover:underline">
+          <Link href="/financement-constructys" className="text-[var(--accent)] hover:underline">
             Tarifs et financement
           </Link>
           <Link href="/blog" className="text-[var(--accent)] hover:underline">

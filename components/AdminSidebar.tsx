@@ -3,14 +3,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Kanban, UserPlus, Clock, FileCheck, FileText, ExternalLink } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Kanban, UserPlus, Clock, FileCheck, ExternalLink } from 'lucide-react';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/pipeline', label: 'Pipeline', icon: Kanban },
   { href: '/admin/prospects', label: 'Prospects', icon: UserPlus },
   { href: '/admin/leads', label: 'Leads Checklist', icon: FileCheck },
-  { href: '/admin/devis-60s', label: 'Devis 60s', icon: FileText },
   { href: '/admin/disponibilites', label: 'Disponibilités', icon: Clock },
   { href: '/admin/formations', label: 'Formations', icon: BookOpen },
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },
@@ -84,7 +83,7 @@ export function AdminSidebar() {
         </nav>
         <div className="absolute bottom-4 left-4 right-4 space-y-1">
           <a
-            href="/cours"
+            href="/formations"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-500 hover:bg-slate-100 hover:text-slate-700"

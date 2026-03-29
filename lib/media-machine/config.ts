@@ -21,7 +21,7 @@ export const MEDIA_CONFIG = {
     iaDevis: { path: '/ia-devis-batiment', anchors: ['IA devis bâtiment', 'automatiser devis BTP'] },
     prendreRdv: { path: '/prendre-rdv', anchors: ['réserver formation', 'prendre rendez-vous', 'devis formation'] },
     blog: { path: '/blog', anchors: ['ressources IA BTP', 'articles formation'] },
-    tarifs: { path: '/tarifs', anchors: ['financement Constructys', 'tarifs formation'] },
+    financement: { path: '/financement-constructys', anchors: ['financement Constructys', 'tarifs formation'] },
   },
   ctaPhrases: [
     'Découvrez notre formation IA BTP — 100% finançable Constructys.',

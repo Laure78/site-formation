@@ -15,9 +15,8 @@ const NAV_ITEMS: {
     href: '/formations',
     label: 'Formations',
     children: [
-      { href: '/cours', label: 'Cours en ligne (LMS)' },
       { href: '/#programme', label: "L'IA au service du bâtiment" },
-      { href: '/formations/ia-travaux-publics', label: "L'IA au service de travaux publics" },
+      { href: '/formations/ia-travaux-publics', label: "L'IA au service des Travaux Publics" },
       {
         href: '/formations/ia-appels-offre-btp',
         label: "Répondre aux appels d'offres BTP avec l'IA",
@@ -32,14 +31,8 @@ const NAV_ITEMS: {
       },
     ],
   },
-  {
-    label: 'Entreprise',
-    children: [
-      { href: '/clients-partenaires', label: 'Nos Clients & Partenaires' },
-      { href: '/contact', label: 'Contact Laure Olivié' },
-    ],
-  },
   { href: '/a-propos', label: 'À propos' },
+  { href: '/contact', label: 'Contact' },
   { href: '/financement-constructys', label: 'Financement' },
   { href: '/blog', label: 'Ressources' },
   { href: '/prendre-rdv', label: 'Prendre RDV' },

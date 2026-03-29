@@ -19,7 +19,7 @@ const BASE_URL = SITE_CONFIG.url;
 const FORMATIONS_DATA = [
   { path: '/formations', title: 'Catalogue formations IA BTP', desc: "Formations IA pour le BTP : devis, appels d'offres, RH, travaux publics. Guyancourt, Île-de-France. Qualiopi, 100% finançable Constructys." },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: '4h pratiques. Devis en 15 min, emails automatisés. Paris + Île-de-France. 100% finançable OPCO.' },
-  { path: '/formations/ia-travaux-publics', title: "L'IA au service de travaux publics", desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
+  { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
   { path: '/formations/ia-appels-offre-btp', title: 'Appels d\'offres BTP avec l\'IA', desc: '1 jour. Analyser un DCE en 30 min, mémoires techniques, prompts par métier.' },
   { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: '2 jours. Recrutement, GEPP, tableaux de bord RH, assistant IA.' },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Démarrage rapide.' },
@@ -36,7 +36,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CAPEB, GERESO, CNAM, FNTP.' },
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email} — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
-  { path: '/tarifs', title: 'Tarifs', content: 'Tarif journalier 2026 : 1000€ HT. formations 100% finançables OPCO Constructys. Qualiopi.' },
+  { path: '/financement-constructys', title: 'Financement Constructys', content: 'Tarif journalier 2026 : 1000€ HT. Formations 100% finançables OPCO Constructys. Qualiopi.' },
   { path: '/financement-constructys', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
   { path: '/chatgpt-artisans-btp', title: 'ChatGPT pour artisans BTP', content: 'Formation ChatGPT pour plombiers, électriciens, maçons. Devis, emails, CR chantier. 4h pratiques.' },
   { path: '/ia-devis-batiment', title: 'IA devis bâtiment', content: 'Automatiser les devis bâtiment avec l\'IA. Gain de temps, trames réutilisables.' },

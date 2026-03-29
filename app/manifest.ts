@@ -36,7 +36,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       { name: 'Mes formations', short_name: 'Formations', url: '/espace-apprenant/mes-formations', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] },
-      { name: 'Catalogue', short_name: 'Catalogue', url: '/cours', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] },
+      { name: 'Catalogue', short_name: 'Catalogue', url: '/formations', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] },
       { name: 'Prendre RDV', short_name: 'RDV', url: '/prendre-rdv', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png' }] },
     ],
   };

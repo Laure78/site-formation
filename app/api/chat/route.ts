@@ -6,13 +6,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
 import { embedText } from '@/lib/agent/embeddings';
+import { SITE_CONFIG } from '@/lib/seo';
 
 function getOpenAI() {
   const key = process.env.OPENAI_API_KEY;
   if (!key) throw new Error('OpenAI non configuré');
   return new OpenAI({ apiKey: key });
 }
-import { SITE_CONFIG } from '@/lib/seo';
 
 function getSupabase() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -23,6 +23,13 @@ function getSupabase() {
 
 const SYSTEM_PROMPT = `Tu es l'assistant de Laure Olivié, formatrice IA spécialisée BTP (OFC Création d'Entreprise).
 Tu réponds aux visiteurs du site laureolivie.fr.
+
+COORDONNÉES OFFICIELLES (à rappeler dès qu'on parle de contact, financement OPCO, devis, ou pour joindre Laure) :
+- Email : ${SITE_CONFIG.email}
+- Téléphone : ${SITE_CONFIG.phoneDisplay}
+- Page contact : ${SITE_CONFIG.url}/contact
+- Prendre rendez-vous : ${SITE_CONFIG.url}/prendre-rdv
+Ne renvoie jamais uniquement vers le formulaire de contact : mentionne toujours aussi l'email ${SITE_CONFIG.email} pour écrire directement à Laure.
 
 RÈGLES :
 - Réponds en français, de manière claire et professionnelle.

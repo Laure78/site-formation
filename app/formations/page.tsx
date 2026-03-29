@@ -78,7 +78,7 @@ const FORMATIONS_UNSORTED = [
   {
     ref: 'BTP-04',
     level: 'DÉBUTANT' as const,
-    title: "L'IA au service de travaux publics",
+    title: "L'IA au service des Travaux Publics",
     href: '/formations/ia-travaux-publics',
     duree: '2 jours (14h)',
     effectif: '12 max',

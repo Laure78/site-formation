@@ -93,11 +93,11 @@ BEGIN
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Construire ses KPI RH avec l''IA', 4);
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Création d''un assistant IA RH', 5);
 
-  -- 4. L'IA au service de travaux publics
+  -- 4. L'IA au service des Travaux Publics
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
   VALUES (
     'ia-travaux-publics',
-    'L''IA au service de travaux publics',
+    'L''IA au service des Travaux Publics',
     'Formation immersive en 2 jours : maîtriser l''IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier et créer votre assistant IA métier. Pour dirigeants et conducteurs de travaux TP.',
     'Analyser DCE, CCTP et comptes rendus chantier · Rédiger rapports et réponses appels d''offres · Créer votre assistant IA métier TP',
     'Aucune compétence technique. Abonnement ChatGPT Teams recommandé.',

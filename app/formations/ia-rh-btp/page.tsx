@@ -381,7 +381,7 @@ export default function FormationIARHBTPPage() {
         </div>
       </section>
 
-      {/* Formation LinkedIn — recrutement BTP */}
+      {/* Formation LinkedIn — recrutement BTP (complément à la formation RH présentielle) */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -423,14 +423,30 @@ export default function FormationIARHBTPPage() {
             </div>
           </div>
           <h2 className="font-display text-3xl font-bold text-slate-900">
-            Ma formation LinkedIn Learning sur le recrutement
+            L&apos;IA au service de la fonction RH du BTP — complément LinkedIn Learning
           </h2>
+          <p className="mt-4 text-lg text-slate-700">
+            Découvrez ma formation sur le recrutement BTP avec l&apos;IA —{' '}
+            <span className="font-medium text-slate-900">Laure Olivié</span>, formatrice LinkedIn Learning.
+          </p>
           <p className="mt-3 text-slate-600">
-            « L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement » —
-            une formation complémentaire pour automatiser vos process RH.
+            Le parcours présentiel «&nbsp;Formation IA pour la fonction RH dans le BTP&nbsp;» s&apos;appuie sur les mêmes enjeux que le cours en ligne{' '}
+            <strong>
+              L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
+            </strong>
+            &nbsp;: annonces, tri de CV, pré-qualification. Visionnez l&apos;introduction ci-dessous ou suivez le cours complet sur{' '}
+            <a
+              href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              LinkedIn Learning
+            </a>
+            .
           </p>
           <div className="mt-8">
-            <LinkedInLearningEmbed />
+            <LinkedInLearningEmbed course="recrutement" />
           </div>
         </div>
       </section>

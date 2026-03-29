@@ -498,7 +498,7 @@ Présente une synthèse claire pour une PME du BTP.`}
             </li>
           </ul>
           <p className="mt-6 text-slate-600">
-            Découvrez aussi : <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">catalogue formations IA BTP</Link>, <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">formation IA BTP Paris</Link>, <Link href="/clients-partenaires" className="text-[var(--accent)] font-medium hover:underline">clients et partenaires</Link>.
+            Découvrez aussi : <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">catalogue formations IA BTP</Link>, <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">formation IA BTP Paris</Link>, <Link href="/a-propos#clients-partenaires" className="text-[var(--accent)] font-medium hover:underline">clients et partenaires</Link>.
           </p>
         </div>
       </section>

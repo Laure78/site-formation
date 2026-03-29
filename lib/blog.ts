@@ -66,7 +66,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Quelles formations IA BTP sont proposées en 2026 ?',
         content:
-          'Le catalogue 2026 comprend : "L\'IA au service du bâtiment" (4h ou 7h) pour découvrir ChatGPT appliqué aux devis, emails et CR chantier. Formation "Répondre aux appels d\'offres avec l\'IA" (7h) pour automatiser l\'analyse DCE/CCTP et la rédaction de mémoires techniques. Formation "IA pour la fonction RH" (14h) pour automatiser recrutement et GEPP. Formation « L\'IA au service de travaux publics » (14h) pour les conducteurs de travaux et bureaux d\'études. Formations géolocalisées à Paris, Lyon, Bordeaux, Lille et Île-de-France.',
+          'Le catalogue 2026 comprend : "L\'IA au service du bâtiment" (4h ou 7h) pour découvrir ChatGPT appliqué aux devis, emails et CR chantier. Formation "Répondre aux appels d\'offres avec l\'IA" (7h) pour automatiser l\'analyse DCE/CCTP et la rédaction de mémoires techniques. Formation "IA pour la fonction RH" (14h) pour automatiser recrutement et GEPP. Formation « L\'IA au service des Travaux Publics » (14h) pour les conducteurs de travaux et bureaux d\'études. Formations géolocalisées à Paris, Lyon, Bordeaux, Lille et Île-de-France.',
       },
       {
         type: 'list',
@@ -257,7 +257,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Quelles formations sont éligibles ?',
         content:
-          "Toutes les formations IA pour le BTP de Laure Olivié sont certifiées Qualiopi et éligibles au financement Constructys : « L'IA au service du bâtiment », formation appels d'offres, IA pour la fonction RH, L'IA au service de travaux publics. Le coût pédagogique est pris en charge à hauteur de 24€ HT/heure/stagiaire.",
+          "Toutes les formations IA pour le BTP de Laure Olivié sont certifiées Qualiopi et éligibles au financement Constructys : « L'IA au service du bâtiment », formation appels d'offres, IA pour la fonction RH, L'IA au service des Travaux Publics. Le coût pédagogique est pris en charge à hauteur de 24€ HT/heure/stagiaire.",
       },
       {
         type: 'list',
@@ -1184,7 +1184,6 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       links.push(
         { href: INTERNAL_LINKS.financementConstructys.path, label: getAnchor('financementConstructys') },
         { href: INTERNAL_LINKS.financement100.path, label: getAnchor('financement100') },
-        { href: INTERNAL_LINKS.tarifs.path, label: getAnchor('tarifs') },
       );
       break;
     case 'devis':

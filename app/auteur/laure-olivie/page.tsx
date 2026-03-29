@@ -102,7 +102,7 @@ export default function AuteurPage() {
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
               Programme phare « L&apos;IA au service du bâtiment » (4h ou 7h), formation
-              appels d&apos;offres, IA pour la fonction RH, L&apos;IA au service de travaux publics.
+              appels d&apos;offres, IA pour la fonction RH, L&apos;IA au service des Travaux Publics.
               Certifié Qualiopi. 100 % finançable OPCO Constructys.
             </p>
             <Link

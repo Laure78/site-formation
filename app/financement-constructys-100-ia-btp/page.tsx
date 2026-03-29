@@ -117,7 +117,7 @@ export default function FinancementConstructys100IABTPPage() {
               href="/formations/ia-travaux-publics"
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service de travaux publics</h3>
+              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service des Travaux Publics</h3>
               <p className="mt-1 text-sm text-slate-600">14h · Métiers TP</p>
             </Link>
           </div>
@@ -186,7 +186,7 @@ export default function FinancementConstructys100IABTPPage() {
             links={[
               { href: '/financement-constructys', label: 'Modalités Constructys' },
               { href: '/formations', label: 'Catalogue formations IA BTP' },
-              { href: '/tarifs', label: 'Tarifs et financement' },
+              { href: '/financement-constructys', label: 'Financement Constructys' },
               { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
               { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },

@@ -121,7 +121,7 @@ export default function FormationIABTPParis2026Page() {
                 Catalogue complet
               </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Appels d&apos;offres, RH, L&apos;IA au service de travaux publics, IA pour PME du BTP.
+                Appels d&apos;offres, RH, L&apos;IA au service des Travaux Publics, IA pour PME du BTP.
               </p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)]">
                 Voir le catalogue →
@@ -155,7 +155,7 @@ export default function FormationIABTPParis2026Page() {
               Guide financement IA BTP →
             </Link>
             <Link
-              href="/tarifs"
+              href="/financement-constructys"
               className="inline-flex items-center gap-2 rounded-xl bg-slate-100 px-6 py-3 font-medium text-slate-700 hover:bg-slate-200"
             >
               Tarifs formations →

@@ -79,7 +79,7 @@ export default function PrendreRDVPage() {
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
-              { href: '/tarifs', label: 'Tarifs et financement' },
+              { href: '/financement-constructys', label: 'Financement Constructys' },
             ]}
           />
         </div>

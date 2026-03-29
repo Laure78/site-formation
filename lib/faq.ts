@@ -87,7 +87,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: "Quelles formations IA BTP sont proposées ?",
-    a: "Notre catalogue inclut : L'IA au service du bâtiment (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), L'IA au service de travaux publics (14h), IA pour PME du BTP, Sensibilisation à l'IA & Assistants IA personnalisés (parcours LMS). Interventions en présentiel ou distanciel partout en France, et formations en ligne sur la plateforme. Toutes sont finançables Constructys.",
+    a: "Notre catalogue inclut : L'IA au service du bâtiment (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), L'IA au service des Travaux Publics (14h), IA pour PME du BTP, Sensibilisation à l'IA & Assistants IA personnalisés (parcours LMS). Interventions en présentiel ou distanciel partout en France, et formations en ligne sur la plateforme. Toutes sont finançables Constructys.",
   },
   {
     q: "Comment choisir ma formation IA BTP ?",
@@ -174,21 +174,6 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
 ];
 
-export const FAQ_COURS: FAQItem[] = [
-  {
-    q: "Quelle est la différence entre formations présentielles et cours en ligne ?",
-    a: "Les formations présentielles (inter/intra) sont sur mesure, avec travail sur vos documents réels. Les cours en ligne (LinkedIn Learning, catalogue) permettent d'apprendre à votre rythme. Les deux sont complémentaires.",
-  },
-  {
-    q: "Les formations LinkedIn Learning sont-elles finançables ?",
-    a: "Les formations en présentiel ou distanciel avec accompagnement personnalisé sont finançables Constructys. Pour les abonnements LinkedIn Learning, renseignez-vous auprès de votre OPCO selon votre situation.",
-  },
-  {
-    q: "Comment accéder aux formations en ligne ?",
-    a: "Les formations LinkedIn Learning sont accessibles via abonnement LinkedIn. Notre catalogue de cours sur la plateforme est accessible après inscription ou achat. Accès 24/7 à l'espace apprenant.",
-  },
-];
-
 /** FAQ Formation IA BTP Paris / Île-de-France */
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
@@ -237,10 +222,10 @@ export const FAQ_RH_BTP: FAQItem[] = [
   },
 ];
 
-/** FAQ — formation L'IA au service de travaux publics */
+/** FAQ — formation L'IA au service des Travaux Publics */
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
-    q: "Qui peut suivre la formation « L'IA au service de travaux publics » ?",
+    q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",
     a: "Dirigeants, conducteurs de travaux, bureaux d'études, responsables QSE et fonctions support des entreprises de Travaux Publics. Aucun prérequis technique.",
   },
   {
@@ -304,8 +289,8 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
 /** FAQ Contact */
 export const FAQ_CONTACT: FAQItem[] = [
   {
-    q: "Quel délai pour obtenir un devis ?",
-    a: "Devis personnalisé sous 24h. Indiquez votre formation souhaitée et vos contraintes, nous vous envoyons une proposition détaillée avec les possibilités de financement Constructys.",
+    q: "Quel délai pour une proposition ou un chiffrage ?",
+    a: "Après votre message par email ou votre prise de rendez-vous, nous vous répondons sous 24h avec une proposition détaillée et les possibilités de financement Constructys.",
   },
   {
     q: "Où intervenez-vous pour les formations ?",
