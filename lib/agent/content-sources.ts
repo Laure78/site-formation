@@ -31,7 +31,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/', title: 'Accueil — Laure Olivié', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CAPEB, GERESO, CNAM, FNTP.' },
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email} — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
-  { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange de 30 minutes pour une formation sur-mesure. Formulaire de prise de rendez-vous.' },
+  { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
   { path: '/tarifs', title: 'Tarifs', content: 'Tarif journalier 2026 : 1000€ HT. formations 100% finançables OPCO Constructys. Qualiopi.' },
   { path: '/financement-constructys', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
   { path: '/chatgpt-artisans-btp', title: 'ChatGPT pour artisans BTP', content: 'Formation ChatGPT pour plombiers, électriciens, maçons. Devis, emails, CR chantier. 4h pratiques.' },

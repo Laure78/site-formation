@@ -150,7 +150,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Comment se déroule le RDV ?",
-    a: "En visioconférence ou par téléphone. Vous choisissez le créneau qui vous convient. À l'issue, vous recevez un devis détaillé avec les possibilités de financement Constructys.",
+    a: "Vous réservez un créneau via Calendly (agenda en ligne). L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement Constructys.",
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",

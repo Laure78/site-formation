@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookingCalendar } from '@/components/booking/BookingCalendar';
+import { CalendlyBooking } from '@/components/booking/CalendlyBooking';
 import { Devis60sBlock } from '@/components/Devis60sBlock';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -35,9 +35,9 @@ export default function PrendreRDVPage() {
             Prendre rendez-vous
           </h1>
           <p className="mt-4 max-w-xl text-slate-600">
-            Réservez un créneau de 30 minutes pour discuter de votre projet de
-            formation IA et obtenir un devis personnalisé. Choisissez le jour et
-            l&apos;heure qui vous conviennent.
+            Réservez un créneau d&apos;environ 30 minutes pour discuter de votre projet de
+            formation IA et obtenir un devis personnalisé. Le planning ci-dessous est
+            géré via Calendly : choisissez le jour et l&apos;heure qui vous conviennent.
           </p>
           <p className="mt-4">
             <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
@@ -46,7 +46,7 @@ export default function PrendreRDVPage() {
           </p>
 
           <div className="mt-10">
-            <BookingCalendar />
+            <CalendlyBooking />
           </div>
 
           {/* Backup : devis gratuit en 1 clic si pas de créneau */}
