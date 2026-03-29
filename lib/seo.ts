@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   description:
     "Formation IA BTP certifiée Qualiopi. Gagnez 3 à 5h/semaine sur devis, appels d'offres et emails. 100% financée Constructys. Artisans, PME bâtiment.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
-  email: 'contact@laureolivie.fr',
+  email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
   phoneDisplay: '06 95 66 18 18',
   siret: '905 244 281 00010',

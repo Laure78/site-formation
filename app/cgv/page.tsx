@@ -31,11 +31,11 @@ export default function CGVPage() {
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-x-6 text-sm">
             <a
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
             >
               <Mail size={16} strokeWidth={1.5} />
-              contact@laureolivie.fr
+              laureolivie@yahoo.fr
             </a>
             <a
               href="tel:+33695661818"
@@ -118,7 +118,7 @@ export default function CGVPage() {
           </h3>
           <p className="mt-2">
             Par formulaire en ligne sur www.laureolivie.fr ; par email à
-            contact@laureolivie.fr ; par téléphone au 06 95 66 18 18 ; par voie
+            laureolivie@yahoo.fr ; par téléphone au 06 95 66 18 18 ; par voie
             postale.
           </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
@@ -288,7 +288,7 @@ export default function CGVPage() {
           <p className="mt-4">
             Traitement pour gestion administrative, documents obligatoires,
             déclarations financeurs. Droits RGPD : accès, rectification,
-            opposition, limitation, portabilité. Contact : contact@laureolivie.fr.
+            opposition, limitation, portabilité. Contact : laureolivie@yahoo.fr.
             Voir Politique de confidentialité sur www.laureolivie.fr.
           </p>
         </section>
@@ -344,7 +344,7 @@ export default function CGVPage() {
             ARTICLE 17 — RÉFÉRENT HANDICAP
           </h2>
           <p className="mt-4">
-            Référent : Laure OLIVIÉ — contact@laureolivie.fr — 06 95 66 18 18.
+            Référent : Laure OLIVIÉ — laureolivie@yahoo.fr — 06 95 66 18 18.
             Contact au moins 15 jours avant le début pour adaptation. Annuaire
             partenaires handicap disponible sur demande.
           </p>
@@ -374,10 +374,10 @@ export default function CGVPage() {
           <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
           <p>
             <a
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              contact@laureolivie.fr
+              laureolivie@yahoo.fr
             </a>
             {' · '}
             <a

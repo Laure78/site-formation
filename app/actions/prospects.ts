@@ -3,6 +3,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { isSlotWithinBookingWindow } from '@/app/actions/booking-settings';
 import { createCalendarEvent } from '@/lib/google-calendar';
+import { SITE_CONFIG } from '@/lib/seo';
 import { Resend } from 'resend';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -143,6 +144,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
         : `<p><strong>Mode :</strong> Appel téléphonique — je vous appellerai au ${q.telephone || 'numéro indiqué'} à l'heure prévue.</p>`;
     const { error: errEmail } = await resend.emails.send({
       from: 'Laure Olivié <noreply@laureolivie.fr>',
+      replyTo: SITE_CONFIG.email,
       to: q.email.trim().toLowerCase(),
       subject: 'Confirmation de votre rendez-vous — Laure Olivié',
       html: `
@@ -152,7 +154,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
         ${typeRdvBlock}
         <p>Avant notre échange, vous pouvez compléter ce court questionnaire pour mieux préparer notre discussion :</p>
         <p><a href="${questionnaireLink}" style="display:inline-block;background:#166534;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Remplir le questionnaire</a></p>
-        <p>Une question ? Contactez-moi au 06 95 66 18 18 ou par email à contact@laureolivie.fr.</p>
+        <p>Une question ? Contactez-moi au 06 95 66 18 18 ou par email à laureolivie@yahoo.fr.</p>
         <p>À bientôt,<br/>Laure Olivié</p>
       `,
     });

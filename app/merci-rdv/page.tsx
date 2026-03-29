@@ -94,11 +94,11 @@ export default async function MerciRDVPage({
                 06 95 66 18 18
               </a>
               <a
-                href="mailto:contact@laureolivie.fr"
+                href="mailto:laureolivie@yahoo.fr"
                 className="flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
               >
                 <Mail size={20} strokeWidth={1.5} />
-                contact@laureolivie.fr
+                laureolivie@yahoo.fr
               </a>
             </div>
           </div>

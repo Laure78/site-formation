@@ -31,13 +31,13 @@ export function Footer() {
             </p>
             <div className="mt-8 space-y-4">
               <a
-                href="mailto:contact@laureolivie.fr"
+                href="mailto:laureolivie@yahoo.fr"
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:border-slate-300"
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
                   <Mail size={18} strokeWidth={1.5} />
                 </span>
-                contact@laureolivie.fr
+                laureolivie@yahoo.fr
               </a>
               <a
                 href="tel:+33695661818"
@@ -183,7 +183,7 @@ export function Footer() {
               <Linkedin size={20} strokeWidth={1.5} />
             </ExternalLinkAnchor>
             <ExternalLinkAnchor
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               title="Envoyer un email"
               aria-label="Email"
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"

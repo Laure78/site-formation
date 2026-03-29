@@ -1,6 +1,7 @@
 'use server';
 
 import { createClient } from '@/lib/supabase/server';
+import { SITE_CONFIG } from '@/lib/seo';
 import { Resend } from 'resend';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -53,6 +54,7 @@ export async function submitLeadChecklistAction(
   if (resend) {
     const { error: errEmail } = await resend.emails.send({
       from: 'Laure Olivié <noreply@laureolivie.fr>',
+      replyTo: SITE_CONFIG.email,
       to: email,
       subject: 'Votre checklist IA pour le BTP',
       html: `

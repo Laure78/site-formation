@@ -304,10 +304,10 @@ export default async function ContactPage({
               <span>06 95 66 18 18</span>
             </a>
             <a
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
-              contact@laureolivie.fr
+              laureolivie@yahoo.fr
             </a>
           </div>
           <div className="mt-12 border-t border-white/30 pt-8">

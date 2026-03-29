@@ -741,7 +741,7 @@ export default function HomePage() {
                   {
                     icon: Phone,
                     title: 'Besoin d\'échanger ?',
-                    desc: '06 95 66 18 18 · contact@laureolivie.fr',
+                    desc: '06 95 66 18 18 · laureolivie@yahoo.fr',
                   },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-4">
