@@ -318,7 +318,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       href="/chatgpt-artisans-btp"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
                     >
-                      ChatGPT artisans BTP
+                      ChatGPT pour entreprises BTP
                     </Link>
                     <Link
                       href="/ia-devis-batiment"
@@ -389,7 +389,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
               <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
-                ChatGPT pour artisans BTP
+                ChatGPT pour entreprises BTP
               </Link>
             </li>
             <li>
@@ -442,7 +442,7 @@ export default async function BlogArticlePage({ params }: Props) {
             Formation IA BTP
           </Link>
           <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-            ChatGPT artisans BTP
+            ChatGPT pour entreprises BTP
           </Link>
           <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
             IA devis bâtiment
@@ -467,7 +467,7 @@ export default async function BlogArticlePage({ params }: Props) {
             { href: '/formations', label: 'Formation IA BTP' },
             { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
             { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
             { href: '/prendre-rdv', label: 'Prendre rendez-vous' },

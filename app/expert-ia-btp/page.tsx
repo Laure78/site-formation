@@ -6,7 +6,7 @@ import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
   description:
-    "Expert IA BTP : Laure Olivié accompagne PME et artisans. Plus de dix ans terrain, LinkedIn Learning. Qualiopi. Demandez une session stratégique personnalisée.",
+    "Expert IA BTP : Laure Olivié accompagne les dirigeants de TPE et PME du bâtiment et des travaux publics. Plus de dix ans terrain, LinkedIn Learning. Qualiopi. Demandez une session stratégique personnalisée.",
   path: '/expert-ia-btp',
   keywords: [
     'expert IA BTP',
@@ -37,12 +37,12 @@ export default function ExpertIABTPPage() {
                 Laure Olivié
               </h1>
               <p className="mt-4 text-2xl font-semibold text-blue-100">
-                Expert IA pour le BTP, l'artisanat et l'automobile
+                Expert IA pour le bâtiment et les travaux publics
               </p>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-blue-50">
-                Formatrice spécialisée dans l'intégration de l'intelligence artificielle générative (ChatGPT, Claude) 
-                dans les entreprises du bâtiment, de l'artisanat et de l'automobile. 
-                +10 ans d'expérience en formation professionnelle. LinkedIn Learning Instructor officielle.
+                Formatrice spécialisée dans l&apos;intégration de l&apos;intelligence artificielle générative (ChatGPT, Claude)
+                dans les entreprises du bâtiment et des travaux publics.
+                +10 ans d&apos;expérience en formation professionnelle. LinkedIn Learning Instructor officielle.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
@@ -63,7 +63,7 @@ export default function ExpertIABTPPage() {
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/images/laure-olivie.png"
-                  alt="Laure Olivié experte en formation intelligence artificielle pour entreprises du BTP et artisanat"
+                  alt="Laure Olivié experte en formation intelligence artificielle pour entreprises du BTP et des travaux publics"
                   width={912}
                   height={1024}
                   className="h-auto w-full"
@@ -148,22 +148,28 @@ export default function ExpertIABTPPage() {
             Secteurs accompagnés
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            J'accompagne les professionnels de différents secteurs dans leur transformation digitale via l'IA
+            J&apos;accompagne les dirigeants et équipes du bâtiment et des travaux publics dans leur transformation digitale via l&apos;IA
           </p>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {[
               {
-                title: 'BTP & Construction',
-                items: ['Entreprises de bâtiment', 'Travaux publics', 'Génie civil', 'Conducteurs de travaux'],
+                title: 'Bâtiment & travaux publics',
+                items: [
+                  'Dirigeants de TPE et PME',
+                  'Entreprises de bâtiment et de génie civil',
+                  'Travaux publics et voirie',
+                  "Conducteurs de travaux et chargés d'affaires",
+                ],
               },
               {
-                title: 'Artisanat',
-                items: ['Artisans du bâtiment', 'TPE', 'Entreprises artisanales', 'Second œuvre'],
-              },
-              {
-                title: 'Automobile',
-                items: ['Garages automobiles', 'Ateliers mécaniques', 'Carrossiers', 'Concessionnaires'],
+                title: 'Enjeux couverts',
+                items: [
+                  "Devis, chiffrage et appels d'offres",
+                  'Comptes rendus et DOE',
+                  'Administratif et relation client',
+                  'Recrutement et fonctions support',
+                ],
               },
             ].map((secteur) => (
               <div
@@ -201,7 +207,7 @@ export default function ExpertIABTPPage() {
               { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '1 jour — Intermédiaire' },
               { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '2 jours — Recrutement & GEPP' },
               { title: "L'IA au service des Travaux Publics", href: '/formations/ia-travaux-publics', desc: '2 jours — Spécialisation TP' },
-              { title: 'Formation IA artisans', href: '/chatgpt-artisans-btp', desc: '4h — TPE & artisanat' },
+              { title: 'ChatGPT & IA pour entreprises BTP', href: '/chatgpt-artisans-btp', desc: '4h — TPE & PME' },
               {
                 title: "Sensibilisation IA & assistants",
                 href: '/formations/sensibilisation-ia-assistants-personnalises',

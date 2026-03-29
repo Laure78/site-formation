@@ -334,9 +334,7 @@ export function getPersonSchema() {
       'Formation ChatGPT entreprise BTP',
       'Comment utiliser ChatGPT dans une entreprise du bâtiment',
       'IA pour PME bâtiment',
-      'IA pour PME artisanale',
-      'IA pour garage automobile',
-      'Formation IA artisan',
+      'IA pour TPE et PME du bâtiment et des travaux publics',
       'Automatisation tâches administratives BTP',
       'Gagner du temps administratif BTP IA',
       'IA devis bâtiment',
@@ -347,7 +345,6 @@ export function getPersonSchema() {
       'ChatGPT',
       'ChatGPT pour entreprises',
       'IA pour le bâtiment',
-      'IA pour artisans',
       'IA pour travaux publics',
       'Analyse d\'appels d\'offres',
       'Génération de devis avec IA',
@@ -455,7 +452,8 @@ export function getCourseListSchema(
     '@type': 'ItemList',
     '@id': `${SITE_CONFIG.url}/formations#course-list`,
     name: 'Catalogue des formations IA BTP',
-    description: 'Formations IA pour artisans et PME du BTP. Devis, appels d\'offres, ChatGPT. 100% finançable Constructys.',
+    description:
+      'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d\'offres, ChatGPT. 100% finançable Constructys.',
     numberOfItems: courses.length,
     itemListElement: courses.map((c, i) => ({
       '@type': 'ListItem',

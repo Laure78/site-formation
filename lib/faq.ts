@@ -50,8 +50,8 @@ export const FAQ_GEO: FAQItem[] = [
     a: "Accélérer les comptes rendus chantier, les synthèses de réunion, la coordination écrite et la préparation de dossiers — sans remplacer le jugement terrain. La formation couvre l'IA gestion chantier et l'automatisation des tâches administratives BTP, avec financement possible Constructys.",
   },
   {
-    q: "IA pour PME artisanale du bâtiment : par où commencer ?",
-    a: "Par un diagnostic des tâches répétitives (devis, relances, modèles) et une formation ChatGPT entreprise BTP courte, certifiée Qualiopi. L'objectif : IA devis bâtiment et gain de temps administratif mesurable, adapté aux PME bâtiment et aux équipes sur le terrain.",
+    q: "IA pour PME du bâtiment et des travaux publics : par où commencer ?",
+    a: "Par un diagnostic des tâches répétitives (devis, relances, modèles) et une formation ChatGPT entreprise BTP courte, certifiée Qualiopi. L'objectif : IA devis bâtiment et gain de temps administratif mesurable, adapté aux dirigeants de TPE/PME et aux équipes sur le terrain.",
   },
   {
     q: "Comment financer une formation IA avec OPCO Constructys ?",
@@ -62,12 +62,12 @@ export const FAQ_GEO: FAQItem[] = [
     a: "Laure Olivié (OFC Création d'Entreprise) forme les entreprises BTP à ChatGPT en Île-de-France depuis Guyancourt (78). Programme 'L'IA au service du bâtiment' : 4h ou 7h. Intervention Paris, Yvelines (78), Seine-et-Marne (77), Essonne (91), Val-d'Oise (95). Financement 100 % Constructys.",
   },
   {
-    q: "Formation IA pour artisans BTP : quelle durée et quel prix ?",
-    a: "Formation IA pour artisans BTP : de 4h (initiation) à 14h (expertise appels d'offres, RH). Format modulaire. 100 % finançable OPCO Constructys (24€ HT/h/stagiaire). Zéro prérequis technique. Travail sur documents réels (devis, emails, CR chantier). Note 4,85/5.",
+    q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
+    a: "De 4h (initiation) à 14h (expertise appels d'offres, RH). Format modulaire. 100 % finançable OPCO Constructys (24€ HT/h/stagiaire). Zéro prérequis technique. Travail sur documents réels (devis, emails, CR chantier). Note 4,85/5.",
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
-    a: "Aucun prérequis technique pour suivre une formation ChatGPT BTP. Conçue pour artisans, conducteurs de travaux et dirigeants sans compétence informatique. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Formation certifiée Qualiopi.",
+    a: "Aucun prérequis technique pour suivre une formation ChatGPT BTP. Conçue pour dirigeants de TPE/PME, conducteurs de travaux et équipes support sans compétence informatique. Méthode 100 % pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Formation certifiée Qualiopi.",
   },
   {
     q: "Combien de temps pour automatiser des devis BTP avec l'IA ?",
@@ -124,7 +124,7 @@ export const FAQ_OFFRES: FAQItem[] = [
     a: "Après inscription ou achat d'une formation, vous recevez un accès à l'espace apprenant. Vous y retrouvez vos cours, votre progression, les quiz et les certificats. Accès 24/7.",
   },
   {
-    q: "Les formations sont-elles adaptées aux artisans ?",
+    q: "Les formations sont-elles adaptées aux dirigeants et équipes du BTP ?",
     a: "Oui. Nos formations sont conçues pour des professionnels du BTP sans prérequis technique. On travaille sur vos vrais documents : devis, emails, comptes rendus. Méthode 100 % pratique.",
   },
 ];
@@ -151,7 +151,7 @@ export const FAQ_A_PROPOS: FAQItem[] = [
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
-    a: "Plus de 10 ans d'expérience en formation professionnelle auprès d'artisans et PME du BTP. Spécialisation métiers du bâtiment, travaux publics et génie civil. Méthode 100 % opérationnelle.",
+    a: "Plus de 10 ans d'expérience en formation professionnelle auprès de TPE, PME et équipes du BTP. Spécialisation métiers du bâtiment, travaux publics et génie civil. Méthode 100 % opérationnelle.",
   },
   {
     q: "Proposez-vous un accompagnement post-formation ?",
@@ -322,7 +322,7 @@ export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
 export const FAQ_BLOG: FAQItem[] = [
   {
     q: "Quels sujets sont couverts dans les articles ?",
-    a: "ChatGPT artisans BTP, IA devis bâtiment, financement Constructys, automatisation administrative, appels d'offres, gestion de chantier. Guides pratiques et cas d'usage.",
+    a: "ChatGPT et IA pour entreprises BTP, IA devis bâtiment, financement Constructys, automatisation administrative, appels d'offres, gestion de chantier. Guides pratiques et cas d'usage.",
   },
   {
     q: "Les formations sont-elles finançables ?",
@@ -338,7 +338,7 @@ export const FAQ_BLOG: FAQItem[] = [
 export const FAQ_AUTEUR: FAQItem[] = [
   {
     q: "Quelle est votre expérience dans le BTP ?",
-    a: "Plus de 10 ans d'expérience en formation professionnelle auprès d'artisans et PME du BTP. Spécialisation métiers du bâtiment, travaux publics et génie civil.",
+    a: "Plus de 10 ans d'expérience en formation professionnelle auprès de TPE, PME et équipes du BTP. Spécialisation métiers du bâtiment, travaux publics et génie civil.",
   },
   {
     q: "Où intervenez-vous pour les formations ?",
@@ -346,7 +346,7 @@ export const FAQ_AUTEUR: FAQItem[] = [
   },
   {
     q: "Proposez-vous des formations LinkedIn Learning ?",
-    a: "Oui. Intervenante LinkedIn Learning : « L'IA pour le BTP » et « L'IA pour Recruter sa main-d'œuvre ». Formations complémentaires au catalogue.",
+    a: "Oui. Intervenante LinkedIn Learning : « L'IA pour le BTP, des solutions concrètes pour vos chantiers » et « L'IA pour les artisans et TPE : Recruter sa main-d'œuvre efficacement ». Formations complémentaires au catalogue.",
   },
 ];
 

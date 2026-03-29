@@ -5,11 +5,11 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
-  title: '10 Prompts ChatGPT artisans BTP — Devis, emails',
+  title: '10 Prompts ChatGPT BTP — Devis, emails',
   description:
-    "Dix prompts ChatGPT pour artisans BTP : devis bâtiment, emails, comptes rendus. Gagnez du temps tout de suite. Enchaînez avec une formation Constructys.",
+    "Dix prompts ChatGPT pour entreprises du BTP : devis bâtiment, emails, comptes rendus. Gagnez du temps tout de suite. Enchaînez avec une formation Constructys.",
   path: '/checklist-prompts-btp',
-  keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'ChatGPT artisans'],
+  keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'ChatGPT entreprises BTP'],
 });
 
 const PROMPTS = [
@@ -119,7 +119,7 @@ export default function ChecklistDocumentPage() {
               Prendre rendez-vous
             </Link>
             <Link href="/chatgpt-artisans-btp" className="font-medium text-[#166534] hover:underline">
-              IA pour artisans et PME bâtiment
+              IA pour entreprises du bâtiment
             </Link>
           </div>
           <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-6">

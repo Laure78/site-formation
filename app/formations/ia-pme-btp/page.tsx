@@ -125,7 +125,7 @@ export default function FormationIAPMEBTPPage() {
             { href: '/formations', label: 'Catalogue formations IA BTP' },
             { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
             { href: '/financement-constructys', label: 'Financement Constructys' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour artisans BTP' },
+            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           ]}
         />
       </div>

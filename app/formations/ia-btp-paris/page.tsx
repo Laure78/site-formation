@@ -115,7 +115,7 @@ export default function FormationIABTPParisPage() {
                 <span className="text-[var(--accent)]">Paris</span> et Île-de-France
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
-                Formation IA bâtiment adaptée aux artisans et PME du BTP en Île-de-France.
+                Formation IA bâtiment adaptée aux TPE, PME et équipes du BTP en Île-de-France.
                 Productivité entreprise bâtiment : ChatGPT pour devis, emails, relances clients.
                 Intervention à Paris (75) et dans les 8 départements.
               </p>
@@ -296,7 +296,7 @@ export default function FormationIABTPParisPage() {
               { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
             ]}
           />

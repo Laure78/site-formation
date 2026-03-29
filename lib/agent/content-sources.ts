@@ -38,7 +38,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
   { path: '/financement-constructys', title: 'Financement Constructys', content: 'Tarif journalier 2026 : 1000€ HT. Formations 100% finançables OPCO Constructys. Qualiopi.' },
   { path: '/financement-constructys', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
-  { path: '/chatgpt-artisans-btp', title: 'ChatGPT pour artisans BTP', content: 'Formation ChatGPT pour plombiers, électriciens, maçons. Devis, emails, CR chantier. 4h pratiques.' },
+  { path: '/chatgpt-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
   { path: '/ia-devis-batiment', title: 'IA devis bâtiment', content: 'Automatiser les devis bâtiment avec l\'IA. Gain de temps, trames réutilisables.' },
   { path: '/ia-conducteur-travaux', title: 'IA conducteur de travaux', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE.' },
   { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIRET 905 244 281 00010. Hébergement O2switch.' },

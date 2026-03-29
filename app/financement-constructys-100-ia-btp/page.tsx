@@ -6,7 +6,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 export const metadata = createPageMetadata({
   title: 'Financement Constructys 100% IA BTP — Guide complet 2026',
   description:
-    "Guide financement Constructys 2026 pour formation IA BTP : modalités, eGestion, plafonds. Artisans et PME. Téléchargez les repères et lancez votre dossier.",
+    "Guide financement Constructys 2026 pour formation IA BTP : modalités, eGestion, plafonds. TPE et PME du bâtiment et des travaux publics. Téléchargez les repères et lancez votre dossier.",
   path: '/financement-constructys-100-ia-btp',
   keywords: [
     'financement Constructys 100% IA BTP',
@@ -188,7 +188,7 @@ export default function FinancementConstructys100IABTPPage() {
               { href: '/formations', label: 'Catalogue formations IA BTP' },
               { href: '/financement-constructys', label: 'Financement Constructys' },
               { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
               { href: '/blog', label: 'Articles sur le financement' },

@@ -45,8 +45,8 @@ export default async function ContactPage({
             <span className="text-[var(--accent)]">entreprises du BTP</span>
           </h2>
           <p className="mt-6 max-w-xl text-slate-600">
-            J&apos;accompagne les artisans, conducteurs de travaux et dirigeants
-            de TPE/PME du bâtiment pour intégrer l&apos;IA dans leurs tâches
+            J&apos;accompagne les dirigeants de TPE et PME du bâtiment et des travaux publics,
+            ainsi que les conducteurs de travaux et équipes support, pour intégrer l&apos;IA dans leurs tâches
             quotidiennes et{' '}
             <span className="font-semibold text-slate-900">
               gagner 3 à 5 heures par semaine.
@@ -113,7 +113,7 @@ export default async function ContactPage({
               {
                 icon: CheckCircle,
                 title: "10+ ans d'expérience",
-                desc: "Animation de formations professionnelles auprès d'artisans et PME du BTP",
+                desc: "Animation de formations professionnelles auprès de TPE, PME et équipes du BTP",
               },
               {
                 icon: Building2,
@@ -161,7 +161,7 @@ export default async function ContactPage({
               concrètement comment l&apos;IA peut transformer votre quotidien.
             </p>
             <p>
-              Que vous soyez artisan, chef de chantier ou dirigeant de TPE/PME, je
+              Que vous soyez dirigeant, chef de chantier ou responsable administratif, je
               vous accompagne sur vos cas réels : préparation de devis, réponses
               clients, relances d&apos;impayés, comptes rendus de chantier,
               communication sécurité, préparation de documents pour assurances et
@@ -294,7 +294,7 @@ export default async function ContactPage({
               <AllerPlusLoin
                 links={[
                   { href: '/formations', label: 'Formation IA BTP' },
-                  { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+                  { href: '/chatgpt-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
                   { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
                 ]}
               />

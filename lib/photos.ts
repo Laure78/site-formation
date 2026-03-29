@@ -2,7 +2,7 @@ export const PHOTOS = {
   // Photo profil rond fond bleu
   profileBlue: {
     src: '/images/laure-olivie-circle.png',
-    alt: 'Laure Olivié formatrice en intelligence artificielle pour les entreprises du BTP et artisans',
+    alt: 'Laure Olivié formatrice en intelligence artificielle pour les entreprises du bâtiment et des travaux publics',
     width: 547,
     height: 456,
   },
@@ -18,7 +18,7 @@ export const PHOTOS = {
   // Photo avec panneau LinkedIn (portrait)
   linkedinPanel: {
     src: '/images/laure-linkedin-panel.png',
-    alt: 'Laure Olivié instructrice LinkedIn Learning pour les formations IA appliquées au BTP et artisanat',
+    alt: 'Laure Olivié instructrice LinkedIn Learning pour les formations IA appliquées au BTP',
     width: 770,
     height: 1024,
   },
@@ -58,7 +58,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Recrutement
   bannerRecrutement: {
     src: '/images/linkedin-learning-recrutement-btp.png',
-    alt: 'Formation IA RH pour artisans et PME du BTP avec Laure Olivié sur LinkedIn Learning',
+    alt: 'Formation IA RH pour PME du BTP avec Laure Olivié sur LinkedIn Learning',
     width: 1024,
     height: 747,
   },
@@ -66,7 +66,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Difficulté recrutement
   bannerRecrutementDifficile: {
     src: '/images/linkedin-learning-recrutement-difficile.png',
-    alt: 'Formation IA pour artisans du BTP : recruter efficacement avec l\'intelligence artificielle par Laure Olivié',
+    alt: 'Formation IA BTP : recruter efficacement avec l\'intelligence artificielle par Laure Olivié',
     width: 1024,
     height: 682,
   },

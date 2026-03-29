@@ -91,7 +91,7 @@ export default function CommunauteFormateursPage() {
               <p className="mt-3 text-slate-600">
                 Formatrice spécialisée en intelligence artificielle pour le BTP.
                 Devis, chiffrages, emails, comptes rendus chantier : je forme les
-                artisans et PME à gagner 3 à 5h par semaine avec ChatGPT et l&apos;IA.
+                TPE et PME du BTP à gagner 3 à 5h par semaine avec ChatGPT et l&apos;IA.
                 Qualiopi · 100% finançable Constructys.
               </p>
               <Link

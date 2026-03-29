@@ -10,7 +10,7 @@ export function Footer() {
           {/* Colonne principale */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/logo-lo.svg" alt="Laure Olivié formation IA BTP certifiée Qualiopi pour artisans et entreprises du bâtiment" className="h-12 w-auto" />
+              <img src="/logo-lo.svg" alt="Laure Olivié formation IA BTP certifiée Qualiopi pour TPE, PME et entreprises du bâtiment et des travaux publics" className="h-12 w-auto" />
               <div>
                 <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
                 <p className="text-sm font-medium text-slate-600">
@@ -87,7 +87,7 @@ export function Footer() {
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
                 { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
                 { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
-                { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour artisans BTP' },
+                { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
                 { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },

@@ -37,13 +37,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'formation-ia-btp-guide-complet-2026',
     title: 'Formation IA BTP : guide complet 2026',
     description:
-      '1592 professionnels formés. Formation IA BTP certifiée Qualiopi, financement 100% Constructys. Artisans, PME bâtiment. Gagnez 3-5h/semaine. Note 4,85/5.',
+      '1592 professionnels formés. Formation IA BTP certifiée Qualiopi, financement 100% Constructys. TPE et PME du bâtiment et des travaux publics. Gagnez 3-5h/semaine. Note 4,85/5.',
     date: '2026-03-17',
     keywords: [
       'formation IA BTP',
       'formation intelligence artificielle BTP',
       'formation ChatGPT BTP',
-      'formation IA artisans',
+      'formation IA TPE PME BTP',
       'Laure Olivié',
       'Qualiopi',
       'Constructys',
@@ -54,7 +54,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          'La formation IA BTP proposée par Laure Olivié (OFC Création d\'Entreprise) permet aux artisans, conducteurs de travaux et dirigeants du bâtiment d\'intégrer ChatGPT et l\'IA dans leurs tâches quotidiennes. 1592 professionnels formés, note 4,85/5. Certifiée Qualiopi, financement 100% Constructys. Basée à Guyancourt (78), intervention en Île-de-France et toute la France.',
+          'La formation IA BTP proposée par Laure Olivié (OFC Création d\'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu\'aux conducteurs de travaux et équipes support, d\'intégrer ChatGPT et l\'IA dans leurs tâches quotidiennes. 1592 professionnels formés, note 4,85/5. Certifiée Qualiopi, financement 100% Constructys. Basée à Guyancourt (78), intervention en Île-de-France et toute la France.',
       },
       {
         type: 'paragraph',
@@ -89,7 +89,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Quels sont les prérequis pour suivre une formation IA BTP ?',
         content:
-          'Aucun prérequis technique. Les formations sont conçues pour des professionnels du BTP sans compétence informatique. Méthode 100% pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Public cible : artisans (plombiers, électriciens, maçons), conducteurs de travaux, chargés d\'affaires, dirigeants de TPE/PME du bâtiment.',
+          'Aucun prérequis technique. Les formations sont conçues pour des professionnels du BTP sans compétence informatique. Méthode 100% pratique : travail sur vos vrais documents (devis, emails, comptes rendus chantier). Public cible : dirigeants de TPE/PME, conducteurs de travaux, chargés d\'affaires, fonctions support et administratif.',
       },
       {
         type: 'list',
@@ -138,7 +138,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'ChatGPT devis BTP',
       'IA devis bâtiment',
       'automatiser devis BTP',
-      'ChatGPT artisans',
+      'ChatGPT entreprises BTP',
       'devis avec IA',
       'prompt ChatGPT devis',
     ],
@@ -153,7 +153,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pourquoi utiliser ChatGPT pour vos devis BTP ?',
         content:
-          'Un artisan passe en moyenne 1 à 2 heures pour rédiger un devis détaillé. Avec ChatGPT, ce temps tombe à 2-5 minutes. Gain mesuré : 3 à 5 heures par semaine pour un artisan qui fait 3 devis/semaine. L\'IA rédige les descriptifs techniques, calcule les quantitatifs, structure le bordereau de prix selon les normes du bâtiment. Le devis reste à valider et personnaliser, mais 80% du travail est automatisé.',
+          'Une entreprise du BTP passe en moyenne 1 à 2 heures pour rédiger un devis détaillé. Avec ChatGPT, ce temps tombe à 2-5 minutes. Gain mesuré : 3 à 5 heures par semaine pour une structure qui réalise plusieurs devis par semaine. L\'IA rédige les descriptifs techniques, calcule les quantitatifs, structure le bordereau de prix selon les normes du bâtiment. Le devis reste à valider et personnaliser, mais 80% du travail est automatisé.',
       },
       {
         type: 'list',
@@ -211,7 +211,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
         content:
-          'Laure Olivié forme les artisans et PME du BTP à automatiser leurs devis avec ChatGPT. Formation "L\'IA au service du bâtiment" (4h ou 7h), certifiée Qualiopi, financement 100% Constructys. 1592 professionnels formés, note 4,85/5. Intervention en Île-de-France (Guyancourt 78) et toute la France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.',
+          'Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. Formation "L\'IA au service du bâtiment" (4h ou 7h), certifiée Qualiopi, financement 100% Constructys. 1592 professionnels formés, note 4,85/5. Intervention en Île-de-France (Guyancourt 78) et toute la France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.',
       },
       {
         type: 'faq',
@@ -330,17 +330,17 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: '5-cas-usage-chatgpt-artisans-btp',
-    title: '5 cas d\'usage de ChatGPT pour les artisans du bâtiment',
+    title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
-      'Découvrez 5 usages concrets de ChatGPT pour les artisans BTP : devis, emails, CR chantier, relances, descriptifs techniques.',
+      'Découvrez 5 usages concrets de ChatGPT pour les entreprises du BTP : devis, emails, CR chantier, relances, descriptifs techniques.',
     date: '2025-02-20',
-    keywords: ['ChatGPT artisans', 'IA BTP', 'ChatGPT bâtiment', 'artisan intelligence artificielle'],
+    keywords: ['ChatGPT entreprises BTP', 'IA BTP', 'ChatGPT bâtiment', 'intelligence artificielle construction'],
     sections: [
       {
         type: 'definition',
         title: 'En bref',
         content:
-          "ChatGPT permet aux artisans du BTP (plombiers, électriciens, maçons, carreleurs, peintres) de rédiger plus vite leurs devis, emails clients, comptes rendus et descriptifs techniques. Sans compétence informatique : vous décrivez ce que vous voulez, l'IA génère le texte.",
+          "ChatGPT permet aux entreprises du BTP de rédiger plus vite leurs devis, emails clients, comptes rendus et descriptifs techniques. Sans compétence informatique : vous décrivez ce que vous voulez, l'IA génère le texte.",
       },
       {
         type: 'list',
@@ -389,12 +389,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           "Faut-il une formation pour utiliser ChatGPT ? — Pour des usages basiques, non. Pour les devis et documents techniques, une formation courte (4h) permet d'éviter les erreurs et d'obtenir des trames réutilisables.",
           "Mes données sont-elles sécurisées ? — Ne collez jamais de données clients réelles dans ChatGPT public. Utilisez ChatGPT Team ou Enterprise pour les données sensibles. La formation IA BTP vous apprend les bonnes pratiques.",
-          "Combien de temps je gagne ? — En moyenne 3 à 5 heures par semaine sur les devis, emails et comptes rendus. Les artisans formés rapportent un ROI positif dès la première semaine.",
+          "Combien de temps je gagne ? — En moyenne 3 à 5 heures par semaine sur les devis, emails et comptes rendus. Les équipes formées rapportent un ROI positif dès la première semaine.",
         ],
       },
       {
         type: 'cta',
-        content: 'Formation ChatGPT pour artisans BTP — 4h pratiques, 100% finançable Constructys.',
+        content: 'Formation ChatGPT pour entreprises BTP — 4h pratiques, 100% finançable Constructys.',
       },
     ],
     relatedSlugs: ['financer-formation-ia-btp-constructys', 'ia-devis-gain-temps-pme-btp'],
@@ -476,9 +476,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'ia-btp-lyon',
     title: 'IA pour les entreprises du BTP à Lyon : cas d\'usage concrets',
     description:
-      'Cas pratiques d\'utilisation de l\'IA pour artisans et PME du bâtiment à Lyon : automatisation devis, appels d\'offres, emails et administratif.',
+      'Cas pratiques d\'utilisation de l\'IA pour les entreprises du bâtiment à Lyon : automatisation devis, appels d\'offres, emails et administratif.',
     date: '2025-03-08',
-    keywords: ['formation IA BTP Lyon', 'IA bâtiment Lyon', 'ChatGPT BTP', 'IA artisans Lyon'],
+    keywords: ['formation IA BTP Lyon', 'IA bâtiment Lyon', 'ChatGPT BTP', 'IA entreprises Lyon'],
     sections: [
       {
         type: 'definition',
@@ -488,7 +488,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'list',
-        title: 'Cas pratiques pour artisans à Lyon',
+        title: 'Cas pratiques pour entreprises à Lyon',
         content: [
           "Automatisation des devis — Gérez vos chiffrages plomberie, électricité, maçonnerie en 15 minutes avec ChatGPT.",
           "Analyse d'appels d'offres — Extrayez les exigences d'un DCE en 30 min au lieu de 3h.",
@@ -510,7 +510,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
             titre: 'Devis chantier BTP',
             prompt:
               "Rédige un devis professionnel pour [plomberie/électricité/maçonnerie] à Lyon. Projet : [TYPE DE TRAVAUX]. Prestations : [LISTER]. Quantités : [DÉTAILS]. Inclure fournitures, main d'œuvre, TVA 10%, validité 30 jours, conditions paiement BTP.",
-            usage: "Adaptez le métier et le type de chantier. Idéal pour artisans de la région.",
+            usage: "Adaptez le métier et le type de chantier. Idéal pour les entreprises de la région.",
           },
           {
             titre: 'CR de chantier structuré',

@@ -5,26 +5,26 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT Artisans BTP : Devis & emails automatisés',
+  title: 'ChatGPT pour entreprises BTP : devis, emails, comptes rendus',
   description:
-    "Maîtrisez ChatGPT dans votre entreprise artisanale : devis, emails, CR. Formation finançable Constructys. Gagnez plusieurs heures chaque semaine. Lancez-vous.",
+    "Maîtrisez ChatGPT dans votre entreprise du bâtiment ou des travaux publics : devis, emails, CR. Formation finançable Constructys. Gagnez plusieurs heures chaque semaine.",
   path: '/chatgpt-artisans-btp',
   keywords: [
-    'ChatGPT artisans BTP',
-    'ChatGPT pour artisans',
-    'IA artisan bâtiment',
-    'ChatGPT devis BTP',
-    'intelligence artificielle artisans',
-    'formation IA artisan',
-    'automatisation artisan',
-    'ChatGPT TPE bâtiment',
+    'ChatGPT entreprises BTP',
+    'ChatGPT TPE PME bâtiment',
+    'IA devis BTP',
+    'ChatGPT travaux publics',
+    'intelligence artificielle bâtiment',
+    'formation IA PME BTP',
+    'automatisation administrative BTP',
+    'ChatGPT conducteur de travaux',
   ],
 });
 
 const DEFINITION = {
-  titre: "Qu'est-ce que ChatGPT pour les artisans du BTP ?",
-  court: "ChatGPT pour artisans BTP désigne l'utilisation de l'assistant conversationnel OpenAI pour automatiser la rédaction des devis, emails, comptes rendus et documents administratifs dans les entreprises du bâtiment (plombiers, électriciens, maçons, peintres, carreleurs…).",
-  long: "Conçu par OpenAI, ChatGPT analyse votre demande en langage naturel et génère un texte structuré en quelques secondes. Pour un artisan BTP, cela signifie : coller un brief chantier et obtenir un devis détaillé, décrire une situation et recevoir un email client professionnel, ou dicter des notes de chantier et générer un compte rendu prêt à envoyer. Sans compétence technique : vous écrivez ce que vous voulez, l'IA rédige à votre place.",
+  titre: "Qu'est-ce que ChatGPT pour les entreprises du BTP ?",
+  court: "ChatGPT pour entreprises BTP désigne l'utilisation de l'assistant conversationnel OpenAI pour automatiser la rédaction des devis, emails, comptes rendus et documents administratifs dans les structures du bâtiment et des travaux publics (TPE, PME, équipes de chiffrage et de chantier).",
+  long: "Conçu par OpenAI, ChatGPT analyse votre demande en langage naturel et génère un texte structuré en quelques secondes. Pour une entreprise du BTP, cela signifie : coller un brief chantier et obtenir un devis détaillé, décrire une situation et recevoir un email client professionnel, ou dicter des notes de chantier et générer un compte rendu prêt à envoyer. Sans compétence technique : vous écrivez ce que vous voulez, l'IA rédige à votre place.",
 };
 
 const CAS_USAGE = [
@@ -47,19 +47,19 @@ const CAS_USAGE = [
 
 const FAQ_ITEMS = [
   {
-    q: 'Un artisan du BTP peut-il vraiment utiliser ChatGPT sans formation ?',
-    a: "Oui pour des usages basiques (emails, idées de formulations). Pour les devis et documents techniques, une formation courte (4h) permet d'éviter les erreurs et d'obtenir des trames réutilisables. Laure Olivié forme spécifiquement les artisans BTP avec des cas concrets (plomberie, électricité, maçonnerie, etc.).",
+    q: 'Une entreprise du BTP peut-elle vraiment utiliser ChatGPT sans formation ?',
+    a: "Oui pour des usages basiques (emails, idées de formulations). Pour les devis et documents techniques, une formation courte (4h) permet d'éviter les erreurs et d'obtenir des trames réutilisables. Laure Olivié forme les équipes avec des cas concrets adaptés au bâtiment et aux travaux publics.",
   },
   {
     q: 'ChatGPT est-il sécurisé pour les données de mon entreprise ?',
     a: "La version gratuite de ChatGPT ne garantit pas la confidentialité des données. Pour des informations clients ou chantier, utilisez ChatGPT Team ou Enterprise, ou ne collez jamais de données sensibles. La formation IA BTP vous apprend les bonnes pratiques (anonymisation, relecture, process interne).",
   },
   {
-    q: 'Combien de temps économise un artisan avec ChatGPT ?',
-    a: "En moyenne 3 à 5 heures par semaine : devis (gain majeur), emails, comptes rendus. Les artisans formés rapportent un ROI positif dès la première semaine. La formation inclut des prompts prêts à l'emploi pour chaque métier.",
+    q: 'Combien de temps économise-t-on avec ChatGPT dans le BTP ?',
+    a: "En moyenne 3 à 5 heures par semaine : devis (gain majeur), emails, comptes rendus. Les équipes formées rapportent un ROI positif dès la première semaine. La formation inclut des prompts prêts à l'emploi par type de besoin.",
   },
   {
-    q: 'La formation ChatGPT pour artisans BTP est-elle finançable ?',
+    q: 'La formation ChatGPT pour entreprises BTP est-elle finançable ?',
     a: "Oui. La formation IA Constructys est certifiée Qualiopi et 100 % finançable par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
   },
 ];
@@ -78,16 +78,16 @@ export default function ChatGPTArtisansBTPPage() {
           Accueil
         </Link>
         {' / '}
-        <span className="text-slate-900">ChatGPT pour artisans BTP</span>
+        <span className="text-slate-900">ChatGPT pour entreprises BTP</span>
       </nav>
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          ChatGPT pour <span className="text-[var(--accent)]">artisans BTP</span> : automatiser devis et emails
+          ChatGPT pour <span className="text-[var(--accent)]">entreprises du BTP</span> : automatiser devis et emails
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Guide pratique pour utiliser l&apos;intelligence artificielle dans votre
-          métier d&apos;artisan : devis, emails, comptes rendus. Notre{' '}
+          entreprise du bâtiment ou des travaux publics : devis, emails, comptes rendus. Notre{' '}
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>
@@ -96,14 +96,14 @@ export default function ChatGPTArtisansBTPPage() {
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
           </ShortAnswerBlock>
         </div>
 
         {/* Bloc GEO : Réponse courte */}
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">
-            En bref : ChatGPT pour artisans BTP
+            En bref : ChatGPT pour entreprises BTP
           </h2>
           <p className="mt-4 text-slate-700">{DEFINITION.court}</p>
         </section>
@@ -119,10 +119,10 @@ export default function ChatGPTArtisansBTPPage() {
         {/* Cas d&apos;usage concrets */}
         <section className="mt-16">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Cas d&apos;usage concrets de ChatGPT pour artisans
+            Cas d&apos;usage concrets de ChatGPT dans le BTP
           </h2>
           <p className="mt-3 text-slate-600">
-            Les artisans du BTP utilisent ChatGPT principalement pour trois types
+            Les dirigeants et équipes utilisent ChatGPT principalement pour trois types
             de tâches. Voici des exemples concrets.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -147,13 +147,13 @@ export default function ChatGPTArtisansBTPPage() {
             Exemple pratique : générer un devis plomberie avec ChatGPT
           </h2>
           <p className="mt-4 text-slate-600">
-            Vous êtes plombier et devez envoyer un devis pour une salle de bain.
+            Votre entreprise doit envoyer un devis pour une salle de bain.
             Au lieu de repartir d&apos;un ancien document, vous donnez à ChatGPT :
           </p>
           <blockquote className="mt-4 rounded-xl border-l-4 border-[var(--accent)] bg-white p-4 text-slate-700 italic">
             « Rédige un devis pour une rénovation complète de salle de bain : 12
             m², carrelage mural et sol, WC, lavabo, douche à l&apos;italienne,
-            miroir. Je suis plombier-chauffagiste en Île-de-France. Inclus
+            miroir. Entreprise de plomberie-chauffage en Île-de-France. Inclus
             fournitures et main d&apos;œuvre, TVA 10 %, validité 30 jours. »
           </blockquote>
           <p className="mt-4 text-slate-600">
@@ -192,17 +192,17 @@ export default function ChatGPTArtisansBTPPage() {
         {/* Formation CTA */}
         <section className="mt-16 rounded-2xl bg-[var(--accent)] p-8 md:p-10 text-white">
           <h2 className="font-display text-2xl font-bold">
-            Formation ChatGPT pour artisans BTP
+            Formation ChatGPT pour entreprises BTP
           </h2>
           <p className="mt-4 text-blue-100">
-            Laure Olivié forme les artisans et TPE du BTP à ChatGPT depuis 2024.
+            Laure Olivié forme les dirigeants et équipes du bâtiment et des travaux publics à ChatGPT depuis 2024.
             Formation 4h ou 7h, 100 % pratique : vous repartez avec des trames et
             des prompts prêts à l&apos;emploi. 100 % finançable OPCO Constructys.
           </p>
           <ul className="mt-6 space-y-2">
             {[
               'Travail sur vos vrais devis, emails et CR',
-              'Prompts par métier (plomberie, électricité, maçonnerie…)',
+              'Prompts adaptés à vos métiers et chantiers',
               'Bonnes pratiques sécurité et confidentialité',
             ].map((item) => (
               <li key={item} className="flex items-center gap-2">
@@ -240,7 +240,7 @@ export default function ChatGPTArtisansBTPPage() {
         {/* FAQ */}
         <section className="mt-20">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Questions fréquentes sur ChatGPT pour artisans BTP
+            Questions fréquentes sur ChatGPT pour entreprises BTP
           </h2>
           <div className="mt-8 space-y-6">
             {FAQ_ITEMS.map(({ q, a }) => (
@@ -258,7 +258,7 @@ export default function ChatGPTArtisansBTPPage() {
         {/* Liens internes */}
         <section className="mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-lg font-semibold text-slate-900">
-            ChatGPT pour artisans BTP : aller plus loin
+            ChatGPT pour entreprises BTP : aller plus loin
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>

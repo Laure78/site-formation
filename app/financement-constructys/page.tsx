@@ -17,7 +17,7 @@ import { FAQ_FINANCEMENT } from '@/lib/faq';
 export const metadata = {
   title: 'Formation IA Constructys — Financement 100% | Laure Olivié',
   description:
-    "Financement formation IA via Constructys : conditions pour artisans et PME BTP. Réduisez le reste à charge. Éclaircissez votre budget avant de vous engager.",
+    "Financement formation IA via Constructys : conditions pour TPE et PME du BTP. Réduisez le reste à charge. Éclaircissez votre budget avant de vous engager.",
 };
 
 export default function FinancementConstructysPage() {
@@ -404,7 +404,7 @@ export default function FinancementConstructysPage() {
           { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
           { href: '/formations', label: 'Formation IA BTP' },
           { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },
           { href: '/prendre-rdv', label: 'Prendre rendez-vous' },

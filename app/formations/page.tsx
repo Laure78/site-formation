@@ -21,7 +21,7 @@ export const metadata = createPageMetadata({
     'IA devis bâtiment',
     'IA gestion chantier',
     'automatisation tâches administratives BTP',
-    'formation IA artisan',
+    'formation IA TPE PME BTP',
     'IA pour PME bâtiment',
     'formation IA Qualiopi',
     'OPCO Constructys',
@@ -147,7 +147,7 @@ export default function FormationsPage() {
           Formation IA BTP : programmes certifiés et finançables
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600">
-          Formations IA finançables pour artisans et PME du bâtiment. Apprenez à{' '}
+          Formations IA finançables pour les dirigeants et équipes du bâtiment et des travaux publics. Apprenez à{' '}
           <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
             utiliser ChatGPT dans le BTP
           </Link>
@@ -159,7 +159,7 @@ export default function FormationsPage() {
         </p>
         <div className="mt-8">
           <ShortAnswerBlock>
-            L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
           </ShortAnswerBlock>
         </div>
       </div>
@@ -255,7 +255,7 @@ export default function FormationsPage() {
         <ul className="mt-4 flex flex-wrap gap-4">
           <li>
             <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-              ChatGPT pour artisans BTP
+              ChatGPT pour entreprises BTP
             </Link>
           </li>
           <li>
@@ -278,7 +278,7 @@ export default function FormationsPage() {
 
       <AllerPlusLoin
         links={[
-          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
           { href: '/blog', label: 'Articles et guides' },

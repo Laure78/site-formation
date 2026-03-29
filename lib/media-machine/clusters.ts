@@ -20,8 +20,8 @@ export interface SubTopic {
 export const TOPIC_CLUSTERS: TopicCluster[] = [
   {
     id: 'ia-artisans',
-    name: 'IA pour artisans',
-    pillarKeyword: 'ChatGPT artisans',
+    name: 'IA pour entreprises BTP',
+    pillarKeyword: 'ChatGPT entreprises BTP',
     targetCount: 80,
     subTopics: [
       {
@@ -114,7 +114,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
         keywords: ['ChatGPT entreprise', 'outils IA BTP', 'logiciels IA'],
         articleTemplates: [
           'ChatGPT vs alternatives : quel outil pour le BTP ?',
-          'Les outils IA indispensables aux artisans',
+          'Les outils IA indispensables aux entreprises du BTP',
         ],
       },
     ],
@@ -137,9 +137,9 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       {
         id: 'reseau',
         name: 'Réseaux sociaux',
-        keywords: ['LinkedIn BTP', 'post IA', 'contenu réseaux artisans'],
+        keywords: ['LinkedIn BTP', 'post IA', 'contenu réseaux BTP'],
         articleTemplates: [
-          'LinkedIn pour les artisans du BTP',
+          'LinkedIn pour les entreprises du BTP',
           'Créer des posts avec ChatGPT',
         ],
       },
@@ -154,10 +154,10 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       {
         id: 'offres-emploi',
         name: 'Offres d\'emploi',
-        keywords: ['offre emploi IA', 'recruter artisans', 'annonce BTP ChatGPT'],
+        keywords: ['offre emploi IA', 'recruter BTP', 'annonce BTP ChatGPT'],
         articleTemplates: [
           'Rédiger des offres d\'emploi attractives avec l\'IA',
-          'Recruter des artisans : l\'IA au service du RH',
+          'Recruter dans le BTP : l\'IA au service du RH',
         ],
       },
       {

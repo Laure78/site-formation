@@ -9,15 +9,18 @@ export const MEDIA_CONFIG = {
   targetKeywords: [
     'formation IA BTP',
     'IA pour le BTP',
-    'ChatGPT pour artisans',
+    'ChatGPT entreprises BTP',
     'intelligence artificielle bâtiment',
     'formation ChatGPT BTP',
-    'IA artisans',
+    'IA TPE PME travaux publics',
     'automatisation BTP',
   ],
   internalLinks: {
     formations: { path: '/formations', anchors: ['formation IA BTP', 'formations IA bâtiment'] },
-    chatgptArtisans: { path: '/chatgpt-artisans-btp', anchors: ['ChatGPT pour artisans', 'IA artisans BTP'] },
+    chatgptArtisans: {
+      path: '/chatgpt-artisans-btp',
+      anchors: ['ChatGPT pour entreprises BTP', 'IA bâtiment et travaux publics'],
+    },
     iaDevis: { path: '/ia-devis-batiment', anchors: ['IA devis bâtiment', 'automatiser devis BTP'] },
     prendreRdv: { path: '/prendre-rdv', anchors: ['réserver formation', 'prendre rendez-vous', 'devis formation'] },
     blog: { path: '/blog', anchors: ['ressources IA BTP', 'articles formation'] },

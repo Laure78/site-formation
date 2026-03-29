@@ -115,7 +115,7 @@ export default async function BlogPage({
           </p>
           <div className="mt-3 flex flex-wrap gap-3">
             <Link href="/chatgpt-artisans-btp" className="text-sm font-medium text-[var(--accent)] hover:underline">
-              ChatGPT artisans BTP
+              ChatGPT pour entreprises BTP
             </Link>
             <Link href="/ia-devis-batiment" className="text-sm font-medium text-[var(--accent)] hover:underline">
               IA devis bâtiment

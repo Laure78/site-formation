@@ -37,7 +37,7 @@ RÈGLES :
 - Cite les sources quand tu donnes une info : indique le lien (ex: "Selon notre page Formation IA BTP...")
 - Si le visiteur montre un intérêt pour les formations (questions sur tarifs, financement, durée, contenu), passe en mode commercial : qualifie le besoin, propose la formation adaptée, suggère de prendre rendez-vous ou de recevoir le programme.
 - Propose les CTAs : Prendre rendez-vous, Recevoir le programme, Être recontacté.
-- Reste chaleureux mais professionnel. S'adresse à des artisans et chefs d'entreprise BTP.`;
+- Reste chaleureux mais professionnel. S'adresse aux dirigeants et équipes du BTP (bâtiment et travaux publics).`;
 
 function buildContext(chunks: { content: string; source_url: string; source_title: string }[]): string {
   return chunks

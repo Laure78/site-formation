@@ -30,7 +30,7 @@ import { PHOTOS } from '@/lib/photos';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin',
   description:
-    "Formation IA BTP pratique : devis, comptes rendus, relances. Dirigeants et artisans du bâtiment. Qualiopi, financement Constructys. Réservez un échange.",
+    "Formation IA BTP pratique : devis, comptes rendus, relances. Dirigeants de TPE et PME du bâtiment et des travaux publics. Qualiopi, financement Constructys. Réservez un échange.",
   path: '/',
 });
 
@@ -58,8 +58,8 @@ export default function HomePage() {
                 Formation IA BTP & ChatGPT entreprise : admin, devis et gestion chantier
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-                Formation ChatGPT entreprise BTP finançable par Constructys — pour PME
-                bâtiment, artisans et garages automobile. Gagnez{' '}
+                Formation ChatGPT entreprise BTP finançable par Constructys — pour les
+                dirigeants de TPE et PME du bâtiment et des travaux publics. Gagnez{' '}
                 <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
                 sur l&apos;automatisation des tâches administratives, l&apos;IA devis
                 bâtiment et l&apos;IA gestion chantier (emails, chiffrages, comptes rendus).
@@ -180,8 +180,8 @@ export default function HomePage() {
             {[
               {
                 icon: Briefcase,
-                title: 'Dirigeants d\'entreprise BTP',
-                desc: "Vous dirigez une PME ou ETI du bâtiment et souhaitez optimiser la productivité de vos équipes. Gagnez du temps sur le chiffrage et la gestion administrative.",
+                title: 'Dirigeants de TPE et PME (bâtiment et TP)',
+                desc: "Vous pilotez une entreprise du bâtiment ou des travaux publics et souhaitez optimiser la productivité de vos équipes. Gagnez du temps sur le chiffrage et la gestion administrative.",
               },
               {
                 icon: Target,
@@ -622,7 +622,7 @@ export default function HomePage() {
           <div className="mt-8 space-y-12">
             <div>
               <h3 className="font-display text-xl font-semibold text-slate-900">
-                L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement
+                L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
               </h3>
               <div className="mt-4">
                 <LinkedInLearningEmbed course="recrutement" />

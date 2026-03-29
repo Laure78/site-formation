@@ -39,7 +39,7 @@ export const PILLAR_PAGES = [
 ] as const;
 
 export const BLOG_CLUSTERS = [
-  { id: 'ia-artisans', path: '/blog/ia-artisans', name: 'IA pour artisans', pillarId: 'chatgpt-artisans' },
+  { id: 'ia-artisans', path: '/blog/ia-artisans', name: 'IA pour entreprises BTP', pillarId: 'chatgpt-artisans' },
   { id: 'ia-btp', path: '/blog/ia-btp', name: 'IA BTP', pillarId: 'intelligence-artificielle-batiment' },
   { id: 'chatgpt-btp', path: '/blog/chatgpt-btp', name: 'ChatGPT BTP', pillarId: 'chatgpt-artisans' },
   { id: 'automatisation-entreprises', path: '/blog/automatisation-entreprises', name: 'Automatisation entreprises', pillarId: 'ia-entreprises-btp' },

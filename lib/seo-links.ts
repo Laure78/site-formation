@@ -17,7 +17,11 @@ export const INTERNAL_LINKS = {
   },
   chatgptArtisans: {
     path: '/chatgpt-artisans-btp',
-    anchors: ['ChatGPT artisans BTP', 'ChatGPT pour artisans du bâtiment', 'formation ChatGPT artisans'],
+    anchors: [
+      'ChatGPT pour entreprises BTP',
+      'IA et ChatGPT bâtiment et travaux publics',
+      'formation ChatGPT TPE et PME BTP',
+    ],
   },
   iaDevis: {
     path: '/ia-devis-batiment',
@@ -118,7 +122,8 @@ export const EXTERNAL_AUTHORITY_LINKS = {
   },
   linkedinLearningRh: {
     href: 'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
-    label: 'IA pour recruter sa main d\'œuvre (LinkedIn Learning)',
-    title: 'Formation LinkedIn Learning — IA et recrutement artisans',
+    label: 'L\'IA pour les artisans et TPE : Recruter sa main-d\'œuvre efficacement',
+    title:
+      "Formation LinkedIn Learning — L'IA pour les artisans et TPE : Recruter sa main-d'œuvre efficacement",
   },
 } as const;

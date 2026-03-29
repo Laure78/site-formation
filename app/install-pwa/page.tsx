@@ -74,7 +74,7 @@ export default function InstallPWAPage() {
           href="/chatgpt-artisans-btp"
           className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-8 py-4 font-semibold text-slate-700 hover:bg-slate-50"
         >
-          ChatGPT artisans BTP
+          ChatGPT pour entreprises BTP
         </Link>
         <Link
           href="/blog"

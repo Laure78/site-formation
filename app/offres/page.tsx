@@ -10,7 +10,7 @@ export const metadata = createPageMetadata({
   description:
     "Formations IA ciblées BTP : parcours personnalisés, suivi et certificats. Présentiel ou ligne. Qualiopi, Constructys. Choisissez l'offre adaptée à vos enjeux.",
   path: '/offres',
-  keywords: ['formation IA BTP', 'formation intelligence artificielle bâtiment', 'formation ChatGPT artisans'],
+  keywords: ['formation IA BTP', 'formation intelligence artificielle bâtiment', 'formation ChatGPT entreprises BTP'],
 });
 
 export default function OffresPage() {
@@ -65,13 +65,13 @@ export default function OffresPage() {
       <FAQSection
         items={FAQ_OFFRES}
         title="Questions fréquentes sur nos offres"
-        subtitle="Formats, espace apprenant, adaptation aux artisans : découvrez nos réponses."
+        subtitle="Formats, espace apprenant, adaptation aux dirigeants et équipes BTP : découvrez nos réponses."
       />
 
       <AllerPlusLoin
         links={[
           { href: '/formations', label: 'Catalogue des formations' },
-          { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+          { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },
           { href: '/prendre-rdv', label: 'Prendre rendez-vous' },

@@ -177,7 +177,7 @@ export default function FormationIABTPParis2026Page() {
           <ul className="mt-8 flex flex-wrap gap-4">
             <li>
               <Link href="/chatgpt-artisans-btp" className="font-medium text-[var(--accent)] hover:underline">
-                ChatGPT artisans BTP
+                ChatGPT pour entreprises BTP
               </Link>
             </li>
             <li>

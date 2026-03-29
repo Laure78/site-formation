@@ -62,8 +62,8 @@ export default function AuteurPage() {
               Présentation
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
-              Laure Olivié accompagne les artisans, conducteurs de travaux et dirigeants
-              de TPE/PME du bâtiment pour intégrer l&apos;intelligence artificielle dans
+              Laure Olivié accompagne les dirigeants de TPE et PME du bâtiment et des travaux publics,
+              ainsi que les conducteurs de travaux et équipes support, pour intégrer l&apos;intelligence artificielle dans
               leurs tâches quotidiennes. Son objectif : zéro théorie, 100 % pratique.
               Vous repartez avec des outils opérationnels dès le lendemain.
             </p>
@@ -89,7 +89,7 @@ export default function AuteurPage() {
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
               Intervenante et créatrice de contenus pédagogiques sur l&apos;IA pour
-              artisans et PME. Formations en présentiel (Paris, Lyon, Bordeaux, Lille,
+              TPE et PME du BTP. Formations en présentiel (Paris, Lyon, Bordeaux, Lille,
               Île-de-France) ou en distanciel. Partenaire FFB, CAPEB, GERESO, Lefebvre
               Dalloz, CNAM, FNTP.
             </p>

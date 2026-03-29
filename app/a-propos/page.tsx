@@ -79,8 +79,8 @@ export default function AProposPage() {
               <div className="mt-8 space-y-4 text-slate-700">
                 <p className="text-lg leading-relaxed">
                   <strong>Laure Olivié</strong> est formatrice en intelligence artificielle spécialisée dans le secteur du BTP. 
-                  Basée à <strong>Guyancourt (Yvelines, 78)</strong>, elle accompagne depuis 2014 les artisans, conducteurs de travaux et 
-                  dirigeants d'entreprises du bâtiment dans l'intégration de ChatGPT et de l'IA générative.
+                  Basée à <strong>Guyancourt (Yvelines, 78)</strong>, elle accompagne depuis 2014 les dirigeants de TPE et PME du bâtiment et des travaux publics,
+                  ainsi que les conducteurs de travaux et équipes support, dans l&apos;intégration de ChatGPT et de l&apos;IA générative.
                 </p>
                 <p className="text-lg leading-relaxed">
                   <strong>1592 professionnels formés</strong> avec une note moyenne de <strong>4,85/5</strong>. 
@@ -154,7 +154,7 @@ export default function AProposPage() {
             <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/rencontres-artisans-ia-ffb-btp.png"
-                alt="Rencontres des Artisans FFB avec Laure Olivié : formation intelligence artificielle au service des artisans du bâtiment"
+                alt="Rencontres FFB avec Laure Olivié : formation intelligence artificielle au service des entreprises du bâtiment"
                 width={1200}
                 height={630}
                 className="h-auto w-full object-cover"
@@ -286,7 +286,7 @@ export default function AProposPage() {
               {
                 icon: CheckCircle,
                 title: "1592 professionnels formés",
-                desc: "Artisans, conducteurs de travaux, dirigeants BTP. Statistique officielle vérifiable.",
+                desc: "Dirigeants, conducteurs de travaux, équipes BTP. Statistique officielle vérifiable.",
               },
               {
                 icon: Building2,
@@ -338,7 +338,7 @@ export default function AProposPage() {
                 et partout en France (Lyon, Bordeaux, Lille, etc.).
               </p>
               <p>
-                Que vous soyez artisan, chef de chantier ou dirigeant de TPE/PME, je vous accompagne sur vos cas réels : 
+                Que vous soyez dirigeant, chef de chantier ou responsable administratif, je vous accompagne sur vos cas réels : 
                 préparation de devis, réponses clients, relances d'impayés, comptes rendus de chantier, communication sécurité, 
                 préparation de documents pour assurances et maîtres d'ouvrage.
               </p>
@@ -388,7 +388,7 @@ export default function AProposPage() {
           <AllerPlusLoin
             links={[
               { href: '/formations', label: 'Formation IA BTP' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
               { href: '/prendre-rdv', label: 'Prendre rendez-vous' },

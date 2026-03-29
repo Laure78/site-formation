@@ -93,7 +93,7 @@ export default function IAConducteurTravauxPage() {
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L&apos;IA permet aux artisans du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
           </ShortAnswerBlock>
         </div>
 
@@ -201,7 +201,7 @@ export default function IAConducteurTravauxPage() {
             </li>
             <li>
               <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
-                ChatGPT pour artisans BTP
+                ChatGPT pour entreprises BTP
               </Link>
             </li>
             <li>
@@ -230,7 +230,7 @@ export default function IAConducteurTravauxPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/blog', label: 'Articles et guides' },
             { href: '/prendre-rdv', label: 'Prendre rendez-vous' },

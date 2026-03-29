@@ -6,11 +6,11 @@ import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet'
 import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT artisans BTP — 10 prompts gratuits',
+  title: 'ChatGPT BTP — 10 prompts gratuits pour entreprises',
   description:
-    "Dix prompts ChatGPT pour artisans BTP : devis, emails, CR. Checklist opérationnelle. Complétez avec une formation IA finançable Constructys. Téléchargez.",
+    "Dix prompts ChatGPT pour entreprises du BTP : devis, emails, CR. Checklist opérationnelle. Complétez avec une formation IA finançable Constructys. Téléchargez.",
   path: '/checklist-ia-btp',
-  keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT artisans'],
+  keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT TPE PME'],
 });
 
 const faqSchema = getFAQSchema(FAQ_CHECKLIST_IA_BTP);
@@ -40,7 +40,7 @@ export default function ChecklistIABTPPage() {
               Pourquoi cette checklist ?
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
-              Les dirigeants de PME du BTP, artisans, conducteurs de travaux et responsables
+              Les dirigeants de TPE et PME du BTP, conducteurs de travaux et responsables
               administratifs passent des heures sur des tâches répétitives : emails clients, avis
               Google, devis, publications LinkedIn… L&apos;intelligence artificielle permet
               d&apos;automatiser une grande partie de ce travail. Cette checklist vous donne
@@ -57,7 +57,7 @@ export default function ChecklistIABTPPage() {
                 href="/chatgpt-artisans-btp"
                 className="text-[#166534] font-medium hover:underline"
               >
-                ChatGPT artisans BTP →
+                ChatGPT pour entreprises BTP →
               </Link>
               <Link
                 href="/ia-devis-batiment"

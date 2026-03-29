@@ -75,7 +75,7 @@ export default function PrendreRDVPage() {
           <AllerPlusLoin
             links={[
               { href: '/formations', label: 'Catalogue des formations' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT artisans BTP' },
+              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },

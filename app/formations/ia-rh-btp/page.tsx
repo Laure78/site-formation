@@ -388,7 +388,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-formation-recrutement-btp.png"
-                alt="Formation IA RH animée par Laure Olivié pour artisans et PME BTP : recruter efficacement avec ChatGPT"
+                alt="Formation IA RH animée par Laure Olivié pour PME du BTP : recruter efficacement avec ChatGPT"
                 width={400}
                 height={300}
                 className="h-48 w-full object-cover"
@@ -415,7 +415,7 @@ export default function FormationIARHBTPPage() {
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src="/images/laure-olivie-formation-ia-recrutement.png"
-                alt="Formation intelligence artificielle pour artisans du BTP : recruter de la main-d'œuvre qualifiée avec l'IA"
+                alt="Formation intelligence artificielle pour le recrutement dans le BTP : attirer la main-d'œuvre qualifiée avec l'IA"
                 width={400}
                 height={300}
                 className="h-48 w-full object-cover"

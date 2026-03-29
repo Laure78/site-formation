@@ -55,7 +55,7 @@ const FAQ = [
   },
   {
     q: "Quels sont les secteurs BTP qui bénéficient le plus de l'IA ?",
-    a: "Tous les métiers du BTP bénéficient de l'IA, mais particulièrement : les entreprises générales du bâtiment (devis, chiffrage), les conducteurs de travaux (rapports, CR), les chargés d'affaires (appels d'offres), les artisans (gestion administrative), et les fonctions RH (recrutement, annonces).",
+    a: "Tous les métiers du BTP bénéficient de l'IA, mais particulièrement : les entreprises générales du bâtiment (devis, chiffrage), les conducteurs de travaux (rapports, CR), les chargés d'affaires (appels d'offres), les TPE et PME (gestion administrative), et les fonctions RH (recrutement, annonces).",
   },
 ];
 
@@ -68,7 +68,7 @@ const CAS_USAGE = [
     description: 'Générez des devis professionnels en 15 minutes au lieu de 2 heures.',
     exemple: 'Un électricien dicte les prestations (installation électrique complète maison 120m²). ChatGPT structure le descriptif technique, calcule les quantités de matériel, et génère un devis professionnel avec conditions générales.',
     gain: '80% de temps économisé',
-    secteurs: ['Tous corps d\'état', 'Artisans', 'PME bâtiment'],
+    secteurs: ['Tous corps d\'état', 'TPE et PME bâtiment'],
   },
   {
     numero: '2',
@@ -98,9 +98,9 @@ const CAS_USAGE = [
     numero: '5',
     titre: 'Gestion des emails clients et fournisseurs',
     description: 'Répondez aux emails 3x plus vite avec un ton professionnel adapté.',
-    exemple: 'Un artisan reçoit une réclamation client. Il indique la situation à ChatGPT qui génère une réponse professionnelle, empathique, avec proposition de solution. L\'artisan corrige éventuellement et envoie.',
+    exemple: 'Une entreprise reçoit une réclamation client. Elle indique la situation à ChatGPT qui génère une réponse professionnelle, empathique, avec proposition de solution. L\'équipe corrige éventuellement et envoie.',
     gain: '70% de temps économisé',
-    secteurs: ['Artisans', 'Petites entreprises'],
+    secteurs: ['TPE et PME', 'Entreprises de taille intermédiaire'],
   },
   {
     numero: '6',
@@ -176,7 +176,7 @@ export default function CasUsageIABTPPage() {
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-blue-50">
             Découvrez 10 applications pratiques et rentables de l'intelligence artificielle 
-            dans les entreprises du bâtiment, de l'artisanat et des travaux publics. 
+            dans les entreprises du bâtiment et des travaux publics. 
             Exemples réels, gains de temps mesurés, ROI immédiat.
           </p>
         </div>
@@ -213,7 +213,7 @@ export default function CasUsageIABTPPage() {
           </div>
 
           <p className="text-slate-700">
-            Pourtant, <strong>78% des artisans et PME du BTP</strong> n'ont jamais testé l'IA, 
+            Pourtant, <strong>78% des TPE et PME du BTP</strong> n'ont jamais testé l'IA, 
             par manque de temps ou par méconnaissance des usages concrets.
           </p>
           <p className="text-slate-700">
@@ -363,10 +363,10 @@ export default function CasUsageIABTPPage() {
               className="group rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-[var(--accent)] hover:shadow-md"
             >
               <h3 className="font-semibold text-slate-900 group-hover:text-[var(--accent)]">
-                ChatGPT pour artisans
+                ChatGPT pour entreprises BTP
               </h3>
               <p className="mt-2 text-sm text-slate-600">
-                Guide complet ChatGPT pour artisans du BTP
+                Guide complet ChatGPT pour le bâtiment et les travaux publics
               </p>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)]">
                 Lire le guide <ArrowRight size={16} />

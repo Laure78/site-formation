@@ -5,7 +5,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Ressources IA BTP : Guides & Articles pratiques',
   description:
-    "Guides et ressources IA BTP : cas d'usage, ChatGPT, devis automatisés. Contenus pour dirigeants et artisans. Téléchargez les repères et avancez sereinement.",
+    "Guides et ressources IA BTP : cas d'usage, ChatGPT, devis automatisés. Contenus pour dirigeants et équipes du BTP. Téléchargez les repères et avancez sereinement.",
   path: '/ressources/ia-btp',
   keywords: [
     'ressources IA BTP',
@@ -38,7 +38,7 @@ export default function RessourcesIABTPPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-xl leading-relaxed text-blue-50">
             Guides pratiques, cas d'usage, et articles pour maîtriser l'intelligence artificielle 
-            dans le bâtiment, l'artisanat et les travaux publics.
+            dans le bâtiment et les travaux publics.
           </p>
         </div>
       </section>
