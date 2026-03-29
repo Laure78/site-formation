@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { InvitationAcceptForm } from './InvitationAcceptForm';
+import { getInvitationByToken } from '@/lib/invitation';
 
 export default async function InvitationPage({
   params,
@@ -10,11 +11,7 @@ export default async function InvitationPage({
   const { token } = await params;
   const supabase = await createClient();
 
-  const { data: invitation } = await supabase
-    .from('invitations')
-    .select('id, email, course_id, expires_at, accepted_at')
-    .eq('token', token)
-    .single();
+  const invitation = await getInvitationByToken(supabase, token);
 
   if (!invitation) notFound();
   if (invitation.accepted_at) {

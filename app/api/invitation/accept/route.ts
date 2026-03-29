@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { getInvitationByToken } from '@/lib/invitation';
 import { NextRequest } from 'next/server';
 
 export async function POST(request: NextRequest) {
@@ -10,11 +11,7 @@ export async function POST(request: NextRequest) {
 
   const supabase = await createClient();
 
-  const { data: invitation } = await supabase
-    .from('invitations')
-    .select('id, email, course_id, expires_at, accepted_at')
-    .eq('token', token)
-    .single();
+  const invitation = await getInvitationByToken(supabase, token);
 
   if (!invitation || invitation.email.toLowerCase() !== email.toLowerCase()) {
     return Response.json({ error: 'Invitation invalide' }, { status: 400 });
