@@ -2,12 +2,13 @@
   "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
   "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
-  "date": "2026-03-28",
+  "date": "2026-03-29",
   "keywords": [
-    "IA appels offres BTP",
-    "DCE ChatGPT",
-    "mémoire technique IA",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT artisans"
   ],
   "sections": [
     {
@@ -79,6 +80,10 @@
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",

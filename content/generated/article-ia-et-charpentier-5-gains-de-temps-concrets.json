@@ -2,13 +2,12 @@
   "slug": "ia-et-charpentier-5-gains-de-temps-concrets",
   "title": "IA et charpentier : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et charpentier. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-03-18",
+  "date": "2026-03-29",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT artisans"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -75,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/tarifs",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour artisans"
     },
     {
       "path": "/blog",
