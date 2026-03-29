@@ -24,3 +24,39 @@
 .icon-modern-sm {
   @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-xl;
 }
+
+/* Contenu blog — sections type « html » (SEO, sémantique) */
+.article-html h2 {
+  @apply mt-8 font-display text-xl font-bold text-slate-900 first:mt-0;
+}
+.article-html h3 {
+  @apply mt-6 font-semibold text-slate-900;
+}
+.article-html p {
+  @apply mt-3 text-slate-600 leading-relaxed;
+}
+.article-html ul,
+.article-html ol {
+  @apply mt-4 space-y-2 pl-6 text-slate-600;
+}
+.article-html ul {
+  @apply list-disc;
+}
+.article-html ol {
+  @apply list-decimal;
+}
+.article-html li {
+  @apply leading-relaxed;
+}
+.article-html strong {
+  @apply font-semibold text-slate-800;
+}
+.article-html em {
+  @apply italic text-slate-700;
+}
+.article-html aside {
+  @apply mt-8 rounded-xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 text-sm text-slate-700;
+}
+.article-html a {
+  @apply font-medium text-[var(--accent)] underline underline-offset-2 hover:text-blue-700;
+}

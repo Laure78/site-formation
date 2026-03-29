@@ -9,17 +9,22 @@ import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
-  title: 'Formations IA BTP : Catalogue Qualiopi 100% finançable',
+  title: 'Formations IA BTP & ChatGPT entreprise | Catalogue Qualiopi',
   description:
-    'Catalogue formations IA : devis, appels d\'offres, RH, TP. 4h à 2 jours. 100% Constructys. Paris, Lyon, Bordeaux. Certifié Qualiopi.',
+    "Catalogue : formation IA BTP, ChatGPT entreprise, IA devis bâtiment, IA gestion chantier, admin. 4h à 2 jours. Constructys 100%. Présentiel ou distanciel.",
   path: '/formations',
   keywords: [
+    'formation IA BTP',
+    'formation ChatGPT entreprise BTP',
     'catalogue formation IA BTP',
     'formations IA bâtiment',
-    'formation ChatGPT entreprise',
+    'IA devis bâtiment',
+    'IA gestion chantier',
+    'automatisation tâches administratives BTP',
+    'formation IA artisan',
+    'IA pour PME bâtiment',
     'formation IA Qualiopi',
     'OPCO Constructys',
-    'formation IA artisan',
     'formation IA PME BTP',
   ],
 });
@@ -81,20 +86,6 @@ const FORMATIONS = [
     ],
   },
   {
-    ref: 'BTP-05',
-    level: 'DÉBUTANT',
-    title: 'Formation IA BTP à Paris',
-    href: '/formations/ia-btp-paris',
-    duree: '4h',
-    effectif: '12 max',
-    objectifs: [
-      "Devis en 15 min avec ChatGPT",
-      "Emails et relances clients automatisés",
-      "Paris + 8 départements Île-de-France",
-      "100% finançable OPCO",
-    ],
-  },
-  {
     ref: 'BTP-06',
     level: 'INTERMÉDIAIRE',
     title: 'Formation IA BTP : Productivité chantier',
@@ -106,58 +97,6 @@ const FORMATIONS = [
       "Emails et relances clients automatisés",
       "3 formats : Atelier, Micro-learning, Coaching",
       "0 € à avancer — Financement OPCO",
-    ],
-  },
-  {
-    ref: 'BTP-07',
-    level: 'DÉBUTANT',
-    title: 'IA pour PME du BTP',
-    href: '/formations/ia-pme-btp',
-    duree: '4h à 7h',
-    effectif: '12 max',
-    objectifs: [
-      "Devis et chiffrages optimisés",
-      "Emails et administratif simplifié",
-      "Productivité sans embaucher",
-    ],
-  },
-  {
-    ref: 'BTP-08',
-    level: 'DÉBUTANT',
-    title: 'Formation IA BTP à Lyon',
-    href: '/formations/ia-btp-lyon',
-    duree: '4h',
-    effectif: '12 max',
-    objectifs: [
-      "Devis, appels d'offres et emails avec l'IA",
-      "Rhône, Ain, Isère, Loire",
-      "100% finançable Constructys",
-    ],
-  },
-  {
-    ref: 'BTP-09',
-    level: 'DÉBUTANT',
-    title: 'Formation IA BTP à Bordeaux',
-    href: '/formations/ia-btp-bordeaux',
-    duree: '4h',
-    effectif: '12 max',
-    objectifs: [
-      "ChatGPT pour le BTP en Gironde",
-      "Gironde, Charente, Dordogne, Landes",
-      "100% finançable Constructys",
-    ],
-  },
-  {
-    ref: 'BTP-10',
-    level: 'DÉBUTANT',
-    title: 'Formation IA BTP à Lille',
-    href: '/formations/ia-btp-lille',
-    duree: '4h',
-    effectif: '12 max',
-    objectifs: [
-      "Appels d'offres et administratif avec l'IA",
-      "Nord, Pas-de-Calais, Somme",
-      "100% finançable Constructys",
     ],
   },
 ];
@@ -188,7 +127,7 @@ export default function FormationsPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600">
           Formations IA finançables pour artisans et PME du bâtiment. Apprenez à{' '}
-          <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+          <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
             utiliser ChatGPT dans le BTP
           </Link>
           , automatisez devis bâtiment, emails et comptes rendus chantier. De 4h à 14h selon vos objectifs. Méthode 100% pratique.{' '}

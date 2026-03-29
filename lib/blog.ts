@@ -21,7 +21,7 @@ export interface BlogArticle {
   date: string;
   keywords: string[];
   sections: {
-    type: 'paragraph' | 'definition' | 'list' | 'faq' | 'cta' | 'prompts';
+    type: 'paragraph' | 'definition' | 'list' | 'faq' | 'cta' | 'prompts' | 'html';
     content: string | string[] | ArticlePrompt[];
     title?: string;
     formationHref?: string;
@@ -1249,7 +1249,11 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('appels-d-offres') || s.includes('appels-offres') || s.includes('cctp') || s.includes('memoire-technique') || s.includes('repondre-appel') || s.includes('analyse-dce')) return 'appels-offres';
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
-  if (s.includes('emails') || s.includes('automatiser-vos')) return 'productivite';
+  if (s.includes('conducteur-travaux')) return 'appels-offres';
+  if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
+  if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';
+  if (s.includes('avis-google') || s.includes('organisation-chantier')) return 'productivite';
+  if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
   if (s.includes('lyon') || s.includes('bordeaux') || s.includes('lille')) return 'regions';
   if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';

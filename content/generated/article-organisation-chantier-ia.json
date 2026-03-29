@@ -1,0 +1,43 @@
+{
+  "slug": "organisation-chantier-ia",
+  "title": "Organisation chantier avec IA : planning, synthèses, coordination",
+  "description": "IA gestion chantier : modèles de planning, synthèses de réunions, listes de tâches, coordination écrite. Méthode pour conducteurs de travaux et chefs d’entreprise BTP.",
+  "date": "2026-03-29",
+  "keywords": [
+    "IA gestion chantier",
+    "organisation chantier IA",
+    "planning chantier BTP",
+    "conducteur de travaux IA",
+    "automatisation administrative BTP"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Bien organiser un chantier, c’est aligner planning, ressources et informations. L’IA aide à structurer des documents, des synthèses et des mails de coordination — elle ne remplace ni le carnet de chantier ni les obligations réglementaires."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Ce que l’IA peut structurer</h2><ul><li><strong>Ordres du jour</strong> et comptes rendus de réunion de coordination</li><li><strong>Listes de points</strong> à contrôler avant réception ou livraison</li><li><strong>Emails</strong> de synthèse entre corps de métier</li><li><strong>Frises chronologiques</strong> textuelles (jalons, dépendances)</li></ul><h2>Limites à connaître</h2><p>L’IA ne « voit » pas votre chantier. Elle travaille sur les <strong>informations que vous fournissez</strong>. Les imprévus, la météo et les aléas humains restent votre terrain.</p><h3>Lien avec l’IA gestion chantier</h3><p>En combinant <strong>trames réutilisables</strong> et <strong>briefs précis</strong>, les équipes réduisent le temps passé sur l’écriture répétitive.</p>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "Remplace-t-elle un outil de planning Gantt ? — Non. Elle peut aider à rédiger ou expliquer un planning ; les outils de pilotage restent dédiés.",
+        "Peut-on l’utiliser sur les réunions de chantier ? — Oui pour synthétiser des notes ; enregistrez et respectez le RGPD si des personnes sont identifiables.",
+        "Formation recommandée ? — Parcours productivité chantier et « L’IA au service du BTP »."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Découvrez la formation IA productivité chantier.",
+      "formationHref": "/formations/ia-productivite-chantier"
+    }
+  ],
+  "relatedSlugs": [
+    "ia-conducteur-travaux-chatgpt",
+    "7-taches-ia-automatiser-batiment",
+    "chatgpt-btp-guide-complet"
+  ]
+}

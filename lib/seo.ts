@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    "Formation IA BTP certifiée Qualiopi. Gagnez 3 à 5h/semaine sur devis, appels d'offres et emails. 100% financée Constructys. Artisans, PME bâtiment.",
+    "Formation IA BTP et ChatGPT entreprise : IA devis bâtiment, gestion chantier, admin. PME bâtiment, artisans, garages. Qualiopi, Constructys 100%. Guyancourt, Île-de-France.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
@@ -26,43 +26,45 @@ export const SITE_CONFIG = {
     longitude: 2.0739,
   },
   keywords: [
-    // Mots-clés principaux BTP
+    // Priorité haute — requêtes stratégiques
     'formation IA BTP',
+    'formation ChatGPT entreprise BTP',
+    'IA pour PME bâtiment',
+    'IA pour garage automobile',
+    'formation IA artisan',
+    'automatisation tâches administratives BTP',
+    'IA devis bâtiment',
+    'IA gestion chantier',
+    // Compléments sémantiques
     'formation intelligence artificielle bâtiment',
     'formation ChatGPT BTP',
     'IA pour le BTP',
     'IA travaux publics',
     'IA construction',
     'IA génie civil',
-    
-    // Usages métiers
-    'IA devis bâtiment',
     'IA appels d\'offres BTP',
     'IA conducteur de travaux',
-    'IA gestion de chantier',
     'IA compte rendu chantier',
     'IA mémoire technique',
-    
-    // Artisanat
-    'formation IA artisan',
     'formation ChatGPT artisan',
     'IA pour artisans',
     'IA entreprise artisanale',
+    'IA PME artisanale',
     'IA TPE bâtiment',
-    
-    // Automobile (nouveau)
     'formation IA garage automobile',
     'formation ChatGPT garage',
     'IA pour garages',
     'IA réparation automobile',
     'IA atelier mécanique',
-    
-    // PME
     'formation IA PME BTP',
     'formation IA entreprise bâtiment',
     'IA pour dirigeants BTP',
-    
-    // Géographie
+    // Longue traîne
+    'comment utiliser ChatGPT dans une entreprise du bâtiment',
+    'gagner du temps administratif BTP IA',
+    'IA pour conducteur de travaux',
+    'IA pour PME artisanale',
+    // Géographie (SEO local / GEO)
     'formation IA Guyancourt',
     'formation IA Île-de-France',
     'formation IA Yvelines',
@@ -70,7 +72,6 @@ export const SITE_CONFIG = {
     'formation IA Lyon',
     'formation IA Bordeaux',
     'formation IA Lille',
-    
     // Financement
     'OPCO Constructys',
     'formation Qualiopi BTP',
@@ -121,7 +122,7 @@ export function getMainCourseSchema() {
     '@id': `${SITE_CONFIG.url}/#course`,
     name: 'Formation IA BTP',
     description:
-      "Formation pour apprendre à utiliser ChatGPT et l'IA dans les entreprises du bâtiment afin de gagner du temps et automatiser certaines tâches.",
+      "Formation ChatGPT entreprise BTP : comment utiliser l'IA pour devis bâtiment, gestion chantier et automatisation des tâches administratives. Public : PME bâtiment, artisans, conducteurs de travaux.",
     url: `${SITE_CONFIG.url}/formations`,
     provider: {
       '@type': 'Person',
@@ -130,9 +131,11 @@ export function getMainCourseSchema() {
       sameAs: SITE_CONFIG.url,
     },
     teaches: [
-      'Automatisation administrative',
-      'Génération de devis',
-      'Utilisation de ChatGPT en entreprise',
+      'Formation ChatGPT entreprise BTP',
+      'IA devis bâtiment',
+      'IA gestion chantier',
+      'Automatisation tâches administratives BTP',
+      'IA pour PME artisanale',
     ],
     educationalLevel: 'Professionnel',
     inLanguage: 'fr-FR',
@@ -197,7 +200,8 @@ export function getOrganizationSchema() {
     logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
-    description: 'Formation en intelligence artificielle pour les entreprises du BTP',
+    description:
+      "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment, artisans et garages. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
     telephone: SITE_CONFIG.phone,
@@ -232,7 +236,8 @@ export function getLocalBusinessSchema() {
     '@type': ['ProfessionalService', 'LocalBusiness'],
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: 'Laure Olivié — Formation IA BTP',
-    description: 'Formation en intelligence artificielle pour les entreprises du BTP. Formatrice IA générative pour artisans, PME bâtiment, conducteurs de travaux.',
+    description:
+      "Formation IA BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Artisans, PME bâtiment, garages automobile, conducteurs de travaux. Guyancourt (78), Île-de-France et France.",
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
@@ -325,6 +330,18 @@ export function getPersonSchema() {
     alternateName: ['Laure Olivié', 'Laure Olivie'],
     description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise.',
     knowsAbout: [
+      'Formation IA BTP',
+      'Formation ChatGPT entreprise BTP',
+      'Comment utiliser ChatGPT dans une entreprise du bâtiment',
+      'IA pour PME bâtiment',
+      'IA pour PME artisanale',
+      'IA pour garage automobile',
+      'Formation IA artisan',
+      'Automatisation tâches administratives BTP',
+      'Gagner du temps administratif BTP IA',
+      'IA devis bâtiment',
+      'IA gestion chantier',
+      'IA pour conducteur de travaux',
       'Intelligence artificielle pour le BTP',
       'IA générative',
       'ChatGPT',
@@ -332,11 +349,9 @@ export function getPersonSchema() {
       'IA pour le bâtiment',
       'IA pour artisans',
       'IA pour travaux publics',
-      'Automatisation administrative BTP',
       'Analyse d\'appels d\'offres',
       'Génération de devis avec IA',
       'Mémoire technique IA',
-      'Gestion de chantier avec IA',
       'Formation professionnelle BTP',
       'OPCO Constructys',
       'Financement formation OPCO',

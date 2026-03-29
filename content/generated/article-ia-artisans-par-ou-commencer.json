@@ -1,0 +1,44 @@
+{
+  "slug": "ia-artisans-par-ou-commencer",
+  "title": "IA pour artisans : par où commencer ?",
+  "description": "Formation IA artisan : par où commencer (devis, emails, modèles), outils, confidentialité, financement Constructys. Guide pratique PME et TPE du bâtiment.",
+  "date": "2026-03-29",
+  "keywords": [
+    "formation IA artisan",
+    "IA pour PME artisanale",
+    "par où commencer IA ChatGPT",
+    "IA pour artisans",
+    "PME bâtiment",
+    "comment utiliser ChatGPT dans une entreprise du bâtiment"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Commencer avec l’IA quand on est artisan, c’est choisir une ou deux tâches répétitives (souvent devis et emails), tester une semaine avec relecture systématique, puis élargir. Pas besoin de matériel coûteux : un compte outil, une méthode, une formation courte."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Étape 1 : choisir un premier cas d’usage</h2><p>Le plus rentable est souvent le <strong>devis</strong> ou la <strong>relance client</strong>, car ils reviennent chaque semaine. Notez le temps passé avant/après pour mesurer le gain.</p><h2>Étape 2 : fixer des règles</h2><ul><li>Pas de données sensibles dans un chat public non validé</li><li>Relecture humaine obligatoire pour chiffres et engagements</li><li>Trames communes pour votre équipe (même ton, même structure)</li></ul><h2>Étape 3 : vous former</h2><p>Une <strong>formation IA BTP</strong> de quelques heures sur vos documents réels évite les erreurs de début et donne des prompts réutilisables. Les parcours <strong>certifiés Qualiopi</strong> peuvent être financés par l’OPCO Constructys selon les conditions en vigueur.</p><h3>IA pour PME artisanale</h3><p>Les petites structures gagnent vite lorsque le dirigeant ou l’administratif <strong>standardise</strong> trois à quatre types de documents.</p><aside><p><strong>Conseil :</strong> commencez petit, mesurez, puis dupliquez la méthode sur un autre type de tâche (comptes rendus, courriers).</p></aside>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "Faut-il être à l’aise avec l’informatique ? — Non. Il faut savoir copier-coller et reformuler ; le reste s’apprend en formation.",
+        "Combien de temps avant un résultat ? — Souvent dès la première semaine si vous appliquez une trame sur un cas réel.",
+        "Où trouver une formation ? — Catalogue des formations, rendez-vous diagnostic gratuit."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Prenez rendez-vous pour un diagnostic gratuit et un programme adapté à votre métier.",
+      "formationHref": "/prendre-rdv"
+    }
+  ],
+  "relatedSlugs": [
+    "chatgpt-btp-guide-complet",
+    "gagner-temps-devis-ia-btp",
+    "7-taches-ia-automatiser-batiment"
+  ]
+}

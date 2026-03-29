@@ -29,9 +29,9 @@ import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP : Gagnez 3-5h/semaine | Laure Olivié',
+  title: 'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin',
   description:
-    'Formation IA BTP certifiée Qualiopi 100% financée. Gagnez 3-5h/semaine sur devis, appels d\'offres, emails. Pour artisans, PME bâtiment. Note 4,85/5.',
+    "Formation IA BTP et ChatGPT entreprise : IA devis bâtiment, gestion chantier, automatisation admin. Artisans, PME bâtiment, garages. Qualiopi, Constructys. Guyancourt, 78.",
   path: '/',
 });
 
@@ -56,13 +56,14 @@ export default function HomePage() {
                 <span>CERTIFIÉE QUALIOPI · FINANCEMENT CONSTRUCTYS 100%</span>
               </div>
               <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-                Formation IA BTP : gagnez du temps sur vos tâches administratives
+                Formation IA BTP & ChatGPT entreprise : admin, devis et gestion chantier
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-                Formation IA BTP finançable par Constructys. Gagnez{' '}
+                Formation ChatGPT entreprise BTP finançable par Constructys — pour PME
+                bâtiment, artisans et garages automobile. Gagnez{' '}
                 <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
-                sur vos devis, chiffrages, emails et comptes rendus chantier grâce à
-                l&apos;intelligence artificielle.
+                sur l&apos;automatisation des tâches administratives, l&apos;IA devis
+                bâtiment et l&apos;IA gestion chantier (emails, chiffrages, comptes rendus).
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link

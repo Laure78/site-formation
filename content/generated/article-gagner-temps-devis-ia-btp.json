@@ -1,0 +1,44 @@
+{
+  "slug": "gagner-temps-devis-ia-btp",
+  "title": "Gagner du temps sur ses devis avec l’IA",
+  "description": "IA devis bâtiment : méthode pour réduire le temps de rédaction, prompts utiles, relecture et conformité. Formation IA BTP finançable Constructys.",
+  "date": "2026-03-29",
+  "keywords": [
+    "IA devis bâtiment",
+    "devis BTP IA",
+    "ChatGPT devis",
+    "gagner du temps devis",
+    "formation IA BTP",
+    "PME bâtiment"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Un devis détaillé peut prendre une à plusieurs heures. L’IA aide à produire rapidement une première version structurée (descriptifs, listes de postes, conditions types) que vous ajustez avec vos prix et votre assurance décennale."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Étapes pour un devis plus rapide</h2><ul><li><strong>Rassembler le brief</strong> : nature des travaux, surfaces, contraintes d’accès, délais souhaités</li><li><strong>Demander une structure</strong> de devis avec postes, sous-totaux et mentions légales types</li><li><strong>Injecter votre grille tarifaire</strong> : l’IA ne remplace pas votre chiffrage ; elle accélère la mise en forme</li><li><strong>Relire</strong> TVA, délais de validité, clauses de paiement et mentions RC Pro / décennale</li></ul><h3>Erreurs à éviter</h3><p>Ne pas reprendre aveuglément des prix « moyens » proposés par un modèle généraliste. Utilisez l’IA pour le <em>texte</em> et le <em>plan</em>, pas pour substituer à votre expertise locale.</p><aside><p><strong>SEO &amp; pratique :</strong> cherchez « <strong>IA devis bâtiment</strong> » comme aide à la rédaction, pas comme automatisation complète sans contrôle.</p></aside>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "L’IA suffit-elle pour un marché public ? — Pour un simple devis client, souvent oui en brouillon. Pour un dossier d’offre complet, prévoyez une analyse DCE et un mémoire technique — voir nos formations appels d’offres.",
+        "Mes données sont-elles protégées ? — Évitez de coller des plans nominatifs ou des données sensibles dans un chat public. Préférez les offres entreprise ou anonymisez.",
+        "Existe-t-il une formation dédiée ? — Oui : parcours « L’IA au service du BTP » avec travail sur vos modèles réels."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Accélérez vos devis avec une formation pratique — devis personnalisé sous 24 h.",
+      "formationHref": "/chatgpt-artisans-btp"
+    }
+  ],
+  "relatedSlugs": [
+    "chatgpt-btp-guide-complet",
+    "ia-devis-gain-temps-pme-btp",
+    "7-taches-ia-automatiser-batiment"
+  ]
+}

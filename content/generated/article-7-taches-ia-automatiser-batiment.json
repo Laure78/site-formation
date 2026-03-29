@@ -1,0 +1,44 @@
+{
+  "slug": "7-taches-ia-automatiser-batiment",
+  "title": "7 tâches que l’IA peut automatiser dans le bâtiment",
+  "description": "Devis, emails, CR chantier, relances, synthèses DCE, modèles administratifs : 7 tâches à automatiser avec l’IA dans le bâtiment. Gain de temps et bonnes pratiques BTP.",
+  "date": "2026-03-29",
+  "keywords": [
+    "automatisation tâches administratives BTP",
+    "IA bâtiment",
+    "ChatGPT entreprise BTP",
+    "gagner du temps administratif BTP IA",
+    "IA devis bâtiment",
+    "IA gestion chantier"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "L’intelligence artificielle ne remplace pas le chantier : elle réduit le temps passé sur des tâches répétitives d’écriture et d’organisation. Voici sept cas d’usage concrets pour les entreprises du bâtiment et les artisans."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Les 7 tâches à traiter en priorité</h2><ol><li><strong>Brouillons de devis et descriptifs</strong> à partir de vos contraintes et quantités</li><li><strong>Emails</strong> de relance, confirmation de rendez-vous et réponses courtes aux clients</li><li><strong>Comptes rendus de chantier</strong> structurés à partir de notes vocales ou manuscrites retranscrites</li><li><strong>Modèles de courriers</strong> (mise en demeure, acompte, suivi de dossier) à adapter</li><li><strong>Synthèses d’extraits</strong> de pièces (DCE, courriers) pour préparer une réponse ou un chiffrage</li><li><strong>Listes de contrôle</strong> (livraison, réception, sécurité) à générer et réutiliser</li><li><strong>Reformulation</strong> de textes pour un ton plus professionnel ou plus simple</li></ol><h3>Comment ne pas se tromper</h3><p>Automatiser ne veut pas dire envoyer sans relecture. Gardez une <strong>étape de validation humaine</strong> pour les montants, les délais et les engagements contractuels.</p>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "Combien de temps peut-on gagner ? — Souvent plusieurs heures par semaine lorsque les mêmes types de documents reviennent (devis, relances, CR). Le gain dépend de votre volume et de la qualité de vos briefs.",
+        "Quel outil choisir ? — ChatGPT est le plus répandu ; d’autres modèles conviennent. L’important est le cadre confidentialité et la formation des équipes.",
+        "C’est adapté aux PME ? — Oui, y compris les petites structures : l’enjeu est de standardiser quelques trames plutôt que de multiplier les outils."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Formez vos équipes à l’IA au service du BTP — programmes certifiés Qualiopi, financement Constructys possible.",
+      "formationHref": "/formations"
+    }
+  ],
+  "relatedSlugs": [
+    "chatgpt-btp-guide-complet",
+    "organisation-chantier-ia",
+    "automatiser-emails-clients-btp-ia"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "slug": "ia-recrutement-pme-btp",
+  "title": "IA et recrutement dans les PME (artisanat et bâtiment)",
+  "description": "IA pour PME artisanale : offres d’emploi, présélection, entretiens, onboarding. Bonnes pratiques RH BTP et formation IA RH certifiée Qualiopi.",
+  "date": "2026-03-29",
+  "keywords": [
+    "IA recrutement PME",
+    "IA pour PME artisanale",
+    "recrutement BTP",
+    "ChatGPT RH",
+    "formation IA RH BTP"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Les PME du bâtiment recrutent dans un contexte de pénurie de main-d’œuvre. L’IA aide à rédiger des annonces attractives, structurer les entretiens et documenter les étapes — sans se substituer au jugement du dirigeant ou du responsable RH."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Où l’IA apporte le plus de valeur en recrutement</h2><ul><li><strong>Annonces</strong> mises en page et reformulées pour mieux cibler métiers et chantiers</li><li><strong>Grilles d’entretien</strong> et critères de compétences adaptés au BTP</li><li><strong>Emails de réponse</strong> aux candidatures (accusés de réception, refus courtois)</li><li><strong>Documentation</strong> de process (intégration, sécurité, formation interne)</li></ul><h2>RGPD et confidentialité</h2><p>Les <strong>CV</strong> et <strong>données personnelles</strong> ne doivent pas être traités dans des outils non conformes. Utilisez des environnements professionnels et des flux validés par votre organisation.</p><h3>IA pour PME bâtiment vs ETI</h3><p>Les petites structures gagnent surtout à <strong>standardiser</strong> quelques documents ; les plus grandes peuvent intégrer l’IA dans des workflows RH plus avancés, toujours avec validation humaine.</p>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "L’IA peut-elle choisir à ma place ? — Non. Elle peut trier des idées et proposer des formulations ; la décision de recrutement reste humaine et doit respecter la non-discrimination.",
+        "Existe-t-il une formation dédiée ? — Oui : parcours IA pour la fonction RH dans le BTP (durée et programme sur demande).",
+        "C’est finançable ? — Les formations certifiées Qualiopi peuvent être éligibles au financement OPCO selon votre situation."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Découvrez la formation IA pour la fonction RH dans le BTP.",
+      "formationHref": "/formations/ia-rh-btp"
+    }
+  ],
+  "relatedSlugs": [
+    "ia-artisans-par-ou-commencer",
+    "chatgpt-garage-automobile-btp",
+    "chatgpt-btp-guide-complet"
+  ]
+}

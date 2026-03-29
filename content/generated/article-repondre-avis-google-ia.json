@@ -1,0 +1,43 @@
+{
+  "slug": "repondre-avis-google-ia",
+  "title": "Répondre aux avis Google avec l’IA (sans perdre en authenticité)",
+  "description": "Réponses aux avis Google Business : brouillons avec ChatGPT, ton pro, gestion des avis négatifs. Bonnes pratiques pour artisans et PME du BTP.",
+  "date": "2026-03-29",
+  "keywords": [
+    "avis Google IA",
+    "répondre avis clients",
+    "ChatGPT avis Google",
+    "e-réputation artisan",
+    "PME bâtiment"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Répondre aux avis Google influence la confiance et le référencement local. L’IA aide à rédiger des réponses courtes, professionnelles et adaptées au sentiment (positif ou négatif), mais la voix de l’entreprise doit rester authentique."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Pourquoi utiliser l’IA pour les réponses aux avis ?</h2><p>Le volume d’avis peut être élevé ; l’IA propose des <strong>brouillons</strong> que vous personnalisez. Cela évite les réponses trop sèches ou les oublis de remerciement.</p><h3>Structure d’une bonne réponse</h3><ul><li><strong>Remercier</strong> le client pour le retour</li><li><strong>Reprendre</strong> un élément concret du commentaire (chantier, délai, équipe)</li><li><strong>Proposer la suite</strong> en privé si le sujet est sensible</li><li><strong>Signer</strong> ou mentionner l’entreprise de façon cohérente</li></ul><h2>Avis négatifs</h2><p>Restez <em>factuel</em> et <em>calme</em>. L’IA peut proposer une formulation neutre ; évitez l’affrontement public. Pour les litiges sérieux, la médiation ou l’échange hors ligne prime.</p><aside><p>Ne copiez-collez jamais une réponse générique identique à tous les avis : Google et les lecteurs repèrent la <strong>répétition</strong>.</p></aside>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "Faut-il répondre à tous les avis ? — Idéalement oui, au moins les récents et les négatifs, avec un délai raisonnable.",
+        "L’IA remplace-t-elle le dirigeant ? — Non. Elle accélère la rédaction ; le ton final doit vous ressembler.",
+        "Cela améliore le SEO local ? — Des réponses régulières et de qualité participent à l’image de votre fiche établissement."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Renforcez votre communication client avec une formation IA BTP et administratif.",
+      "formationHref": "/formations"
+    }
+  ],
+  "relatedSlugs": [
+    "automatiser-emails-clients-btp-ia",
+    "chatgpt-btp-guide-complet",
+    "ia-artisans-par-ou-commencer"
+  ]
+}

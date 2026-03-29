@@ -6,6 +6,14 @@ export type FAQItem = { q: string; a: string };
 
 export const FAQ_ITEMS: readonly FAQItem[] = [
   {
+    q: "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",
+    a: "On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. La formation IA BTP et ChatGPT entreprise vous donne des trames pour l'IA devis bâtiment, l'IA gestion chantier et l'automatisation des tâches administratives — sans prérequis technique.",
+  },
+  {
+    q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
+    a: "En automatisant relances, modèles et brouillons (devis, courriers, synthèses) avec ChatGPT ou un outil équivalent, sous votre contrôle. Les stagiaires constatent souvent 3 à 5 h gagnées par semaine sur l'administratif — utile pour dirigeants, conducteurs de travaux et équipes support.",
+  },
+  {
     q: "La formation est-elle vraiment prise en charge à 100 % ?",
     a: "Oui, pour les entreprises de moins de 50 salariés, la formation peut être prise en charge à 100 % par Constructys dans le cadre du Plan de Développement des Compétences. Le coût pédagogique est couvert jusqu'à 24€ HT/heure/stagiaire.",
   },
@@ -36,6 +44,14 @@ export const FAQ_GEO: FAQItem[] = [
   {
     q: "Quelle formatrice IA spécialisée BTP en France ?",
     a: "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). 1592 professionnels formés, note 4,85/5. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise. 10 ans d'expérience en travaux publics et conduite de chantier.",
+  },
+  {
+    q: "Formation IA pour conducteur de travaux : à quoi ça sert ?",
+    a: "Accélérer les comptes rendus chantier, les synthèses de réunion, la coordination écrite et la préparation de dossiers — sans remplacer le jugement terrain. La formation couvre l'IA gestion chantier et l'automatisation des tâches administratives BTP, avec financement possible Constructys.",
+  },
+  {
+    q: "IA pour PME artisanale du bâtiment : par où commencer ?",
+    a: "Par un diagnostic des tâches répétitives (devis, relances, modèles) et une formation ChatGPT entreprise BTP courte, certifiée Qualiopi. L'objectif : IA devis bâtiment et gain de temps administratif mesurable, adapté aux PME bâtiment et aux équipes sur le terrain.",
   },
   {
     q: "Comment financer une formation IA avec OPCO Constructys ?",
@@ -71,7 +87,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: "Quelles formations IA BTP sont proposées ?",
-    a: "Notre catalogue inclut : L'IA au service du BTP (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), IA & Travaux Publics (14h), ainsi que des formations géolocalisées (Paris, Lyon, Bordeaux, Lille). Toutes sont finançables Constructys.",
+    a: "Notre catalogue inclut : L'IA au service du BTP (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), IA & Travaux Publics (14h), ainsi que la productivité chantier. Interventions en présentiel ou distanciel partout en France. Toutes sont finançables Constructys.",
   },
   {
     q: "Comment choisir ma formation IA BTP ?",

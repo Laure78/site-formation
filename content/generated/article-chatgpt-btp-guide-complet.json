@@ -1,0 +1,46 @@
+{
+  "slug": "chatgpt-btp-guide-complet",
+  "title": "ChatGPT pour le BTP : guide complet",
+  "description": "Guide ChatGPT BTP : usages (devis, CR, emails), bonnes pratiques, confidentialité et financement formation Qualiopi Constructys. Par Laure Olivié, formatrice IA BTP.",
+  "date": "2026-03-29",
+  "keywords": [
+    "ChatGPT BTP",
+    "formation ChatGPT entreprise BTP",
+    "IA pour le bâtiment",
+    "comment utiliser ChatGPT dans une entreprise du bâtiment",
+    "automatisation tâches administratives BTP",
+    "Laure Olivié",
+    "Qualiopi",
+    "Constructys"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Ce guide présente comment utiliser ChatGPT dans une entreprise du bâtiment : devis, comptes rendus, emails et préparation de dossiers, sans remplacer votre expertise. Laure Olivié forme les équipes du BTP depuis plus de dix ans ; les formations sont certifiées Qualiopi et éligibles au financement OPCO Constructys."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Pourquoi intégrer ChatGPT dans le BTP&nbsp;?</h2><p>Les <strong>entreprises du bâtiment</strong> perdent souvent plusieurs heures par semaine sur la rédaction et la reformulation de documents répétitifs. <em>ChatGPT</em> sert d’assistant de rédaction&nbsp;: il structure vos idées, propose des formulations professionnelles et accélère les premières versions de textes que vous validez toujours avant envoi.</p><h3>Usages les plus rentables</h3><ul><li><strong>Devis et descriptifs</strong> à partir d’un brief chantier</li><li><strong>Emails clients</strong>, relances et réponses aux demandes</li><li><strong>Comptes rendus</strong> de réunion ou de chantier à partir de notes</li><li><strong>Synthèses</strong> de documents longs (extraits de DCE, courriers)</li></ul><h2>Bonnes pratiques et limites</h2><p>Ne collez pas de données personnelles ou de secrets d’affaires dans un outil grand public sans cadre&nbsp;: préférez des <strong>versions Team / Entreprise</strong> ou des flux anonymisés. Relisez systématiquement les chiffres, les normes (DTU, référentiels) et les engagements contractuels — l’IA ne se substitue pas à votre responsabilité technique.</p><aside><p><strong>À retenir&nbsp;:</strong> l’objectif est de <strong>gagner du temps administratif</strong> sur le BTP tout en gardant le contrôle qualité sur chaque livrable.</p></aside>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "Faut-il savoir coder pour utiliser ChatGPT dans le BTP ? — Non. L’usage courant repose sur la conversation et des consignes claires (prompts). Une formation courte sur vos cas réels accélère l’adoption.",
+        "ChatGPT remplace-t-il un logiciel de devis ? — Non. Il aide à rédiger des textes et des structures ; les prix, marges et mise en forme métier restent dans vos outils habituels.",
+        "Les formations sont-elles finançables ? — Oui, pour les entreprises du BTP, les parcours certifiés Qualiopi peuvent être pris en charge dans le cadre du plan de développement des compétences via l’OPCO Constructys, sous conditions."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Découvrez le catalogue des formations IA BTP et réservez un échange gratuit de 30 minutes.",
+      "formationHref": "/formations"
+    }
+  ],
+  "relatedSlugs": [
+    "ia-artisans-par-ou-commencer",
+    "7-taches-ia-automatiser-batiment",
+    "gagner-temps-devis-ia-btp"
+  ]
+}

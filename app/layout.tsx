@@ -27,7 +27,8 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'Formation IA BTP — Gagnez 3 à 5h/semaine | Laure Olivié | Île-de-France',
+    default:
+      'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin | Laure Olivié',
     template: '%s | Laure Olivié',
   },
   description: SITE_CONFIG.description,
@@ -41,7 +42,8 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: 'Formation IA BTP — Laure Olivié | Île-de-France · Yvelines · Qualiopi',
+    title:
+      'Formation IA BTP & ChatGPT entreprise | Laure Olivié | Île-de-France · Yvelines · Qualiopi',
     description: SITE_CONFIG.description,
     images: [
       {
@@ -54,7 +56,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Formation IA BTP — Laure Olivié | Île-de-France · Yvelines',
+    title:
+      'Formation IA BTP & ChatGPT entreprise | Laure Olivié | Île-de-France · Yvelines',
     description: SITE_CONFIG.description,
     images: [`${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`],
   },
@@ -86,6 +89,8 @@ export const metadata: Metadata = {
   other: {
     'geo.region': 'FR-IDF',
     'geo.placename': 'Guyancourt',
+    'geo.position': `${SITE_CONFIG.geo.latitude};${SITE_CONFIG.geo.longitude}`,
+    ICBM: `${SITE_CONFIG.geo.latitude}, ${SITE_CONFIG.geo.longitude}`,
   },
 };
 

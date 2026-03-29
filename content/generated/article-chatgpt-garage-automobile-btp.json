@@ -1,0 +1,43 @@
+{
+  "slug": "chatgpt-garage-automobile-btp",
+  "title": "ChatGPT pour garage automobile : usages et prudence",
+  "description": "IA pour garage automobile : devis réparation, comptes rendus atelier, emails clients, fiches véhicule. Formation IA adaptée aux PME de l’auto.",
+  "date": "2026-03-29",
+  "keywords": [
+    "ChatGPT garage automobile",
+    "IA pour garage automobile",
+    "IA atelier mécanique",
+    "réparation automobile IA",
+    "formation IA entreprise"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Les garages et ateliers mécaniques partagent avec le BTP le même enjeu : gagner du temps sur l’écrit sans sacrifier la sécurité et la conformité. ChatGPT peut aider à rédiger des explications clients et des comptes rendus, sous réserve de validation par le professionnel."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Usages pertinents pour un garage</h2><ul><li><strong>Explications claires</strong> pour le client sur les travaux réalisés ou préconisés</li><li><strong>Emails</strong> de devis, de rendez-vous et de suivi</li><li><strong>Modèles</strong> de fiches de réception ou de check-lists atelier</li><li><strong>Synthèses</strong> de notes techniques pour le dossier véhicule</li></ul><h2>Précautions</h2><p>Ne jamais laisser un modèle généraliste <strong>diagnostiquer</strong> à la place du professionnel. Les <strong>garanties constructeur</strong>, <strong>rappels</strong> et <strong>réglementations</strong> (sécurité, pollution) doivent être vérifiées par des sources fiables et le métier.</p><aside><p>Laure Olivié accompagne aussi les <strong>structures proches du terrain</strong> (BTP, artisanat, automobile) sur la méthode d’usage de l’IA, pas sur le diagnostic technique véhicule.</p></aside>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "ChatGPT peut-il rédiger un devis mécanique ? — Il peut en proposer la structure et les formulations ; les prix, marges et références pièces restent à votre charge.",
+        "Mes données clients sont-elles protégées ? — Évitez les données nominatives dans les chats publics ; préférez des offres entreprise ou anonymisez.",
+        "Existe-t-il une formation spécifique garage ? — Contactez-nous pour un intra-entreprise adapté à votre équipe."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Demandez un devis personnalisé pour votre équipe (atelier, BTP, artisanat).",
+      "formationHref": "/prendre-rdv"
+    }
+  ],
+  "relatedSlugs": [
+    "ia-artisans-par-ou-commencer",
+    "chatgpt-btp-guide-complet",
+    "7-taches-ia-automatiser-batiment"
+  ]
+}

@@ -206,6 +206,19 @@ export default async function BlogArticlePage({ params }: Props) {
                     <p className="mt-2 text-slate-600 leading-relaxed">{contentStr}</p>
                   </>
                 )}
+                {section.type === 'html' && typeof section.content === 'string' && (
+                  <>
+                    {section.title && (
+                      <h2 className="font-display text-xl font-bold text-slate-900">
+                        {section.title}
+                      </h2>
+                    )}
+                    <div
+                      className={`article-html text-slate-700 ${section.title ? 'mt-4' : ''}`}
+                      dangerouslySetInnerHTML={{ __html: section.content }}
+                    />
+                  </>
+                )}
               {section.type === 'list' && (
                 <>
                   {section.title && (

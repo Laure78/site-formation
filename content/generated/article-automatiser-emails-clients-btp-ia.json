@@ -1,0 +1,43 @@
+{
+  "slug": "automatiser-emails-clients-btp-ia",
+  "title": "Automatiser ses emails clients avec l’IA (BTP)",
+  "description": "Automatisez relances, confirmations et réponses clients BTP avec ChatGPT. Modèles, ton professionnel, gain de temps. Formation Laure Olivié, Qualiopi.",
+  "date": "2026-03-29",
+  "keywords": [
+    "automatiser emails clients",
+    "ChatGPT emails BTP",
+    "relance client IA",
+    "automatisation administrative BTP",
+    "formation IA artisan"
+  ],
+  "sections": [
+    {
+      "type": "definition",
+      "title": "En bref",
+      "content": "Les emails clients (relances de devis, confirmations de rendez-vous, suivi de chantier) peuvent être préparés beaucoup plus vite avec un assistant IA. Vous gardez la validation finale avant envoi."
+    },
+    {
+      "type": "html",
+      "content": "<h2>Pourquoi automatiser les emails ?</h2><p>Dans le <strong>bâtiment et les travaux publics</strong>, la relation client passe par beaucoup d’échanges écrits. L’IA propose des <strong>brouillons</strong> adaptés au ton (ferme, courtois, technique) et vous fait gagner du temps sur la formulation.</p><h3>Types d’emails concernés</h3><ul><li>Relance après envoi de devis</li><li>Confirmation de RDV ou de visite technique</li><li>Réponse à une réclamation (premier jet à valider)</li><li>Suivi de planning et coordination avec le client</li></ul><h2>Méthode en 4 pas</h2><ol><li><strong>Définir l’objectif</strong> de l’email (informer, relancer, apaiser)</li><li><strong>Fournir le contexte</strong> : nom du chantier, date, montant, historique</li><li><strong>Générer 2 variantes</strong> (courte / détaillée) et choisir</li><li><strong>Relire</strong> chiffres, engagements et pièces jointes</li></ol><aside><p>Évitez les envois automatiques sans relecture sur les <strong>litiges</strong> ou les <strong>délais contractuels</strong>.</p></aside>"
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "Le client verra-t-il que c’est de l’IA ? — Non si vous personnalisez. Le texte doit refléter votre entreprise et votre situation réelle.",
+        "Faut-il ChatGPT payant ? — Non pour démarrer ; les offres payantes apportent plus de confort et parfois les prérequis entreprise pour la confidentialité.",
+        "Une formation existe-t-elle ? — Oui, dans le cadre « L’IA au service du BTP » et modules communication."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Découvrez la formation ChatGPT pour artisans et PME du BTP.",
+      "formationHref": "/chatgpt-artisans-btp"
+    }
+  ],
+  "relatedSlugs": [
+    "7-taches-ia-automatiser-batiment",
+    "gagner-temps-devis-ia-btp",
+    "repondre-avis-google-ia"
+  ]
+}
