@@ -337,7 +337,7 @@ export default function HomePage() {
               {
                 ref: 'BTP-01',
                 level: 'DÉBUTANT',
-                title: "L'IA au service du BTP",
+                title: "L'IA au service du bâtiment",
                 duree: '4h ou 7h',
                 effectif: '12 max',
                 objectifs: [

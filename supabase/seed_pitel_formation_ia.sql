@@ -1,5 +1,5 @@
 -- ============================================================
--- SEED : Formation IA — Sensibilisation, Prompt Engineering &
+-- SEED : Formation IA — Sensibilisation à l'IA &
 --        Assistants IA personnalisés (PITEL)
 -- ============================================================
 -- Prérequis : migrations LMS appliquées (courses, modules, lessons)
@@ -33,11 +33,11 @@ BEGIN
   )
   VALUES (
     'formation-ia-sensibilisation-prompt-engineering-assistants',
-    'Formation IA : Sensibilisation, Prompt Engineering & Assistants IA Personnalisés',
-    'Parcours en trois volets : sensibilisation à l''IA et au prompt engineering (supports modules 1 et 2), ressource opérationnelle « prompts par métier » au format Excel, puis conception d''assistants IA personnalisés (module 3).',
-    'Comprendre les fondamentaux de l''IA générative appliquée au terrain · Maîtriser le prompt engineering · Disposer d''une banque de prompts par métier · Concevoir et paramétrer des assistants IA sur mesure',
+    'Formation IA : Sensibilisation à l''IA & Assistants IA Personnalisés',
+    'Parcours en trois volets : sensibilisation à l''IA (supports modules 1 et 2), ressource opérationnelle « prompts par métier » au format Excel, puis conception d''assistants IA personnalisés (module 3).',
+    'Comprendre les fondamentaux de l''IA générative appliquée au terrain · Savoir formuler des prompts efficaces · Disposer d''une banque de prompts par métier · Concevoir et paramétrer des assistants IA sur mesure',
     'Ordinateur avec connexion internet. Compte ChatGPT (ou équivalent) recommandé. Aucune compétence technique préalable requise.',
-    'Partie 1 — Slides : modules 1 et 2 (sensibilisation, prompt engineering). Partie 2 — Ressource Excel : prompts par métier (v4). Partie 3 — Slides : module 3 (assistants IA personnalisés).',
+    'Partie 1 — Slides : modules 1 et 2 (sensibilisation à l''IA). Partie 2 — Ressource Excel : prompts par métier (v4). Partie 3 — Slides : module 3 (assistants IA personnalisés).',
     0,
     true,
     8,
@@ -47,7 +47,7 @@ BEGIN
   RETURNING id INTO cid;
 
   INSERT INTO modules (course_id, title, order_index)
-  VALUES (cid, 'Partie 1 — Modules 1 et 2 : sensibilisation & prompt engineering', 0)
+  VALUES (cid, 'Partie 1 — Modules 1 et 2 : sensibilisation à l''IA', 0)
   RETURNING id INTO mid1;
 
   INSERT INTO modules (course_id, title, order_index)

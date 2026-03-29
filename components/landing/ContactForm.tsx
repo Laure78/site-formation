@@ -79,10 +79,10 @@ export function ContactForm({ formationDefault }: Props = {}) {
           className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
         >
           <option value="">Sélectionnez une option</option>
-          <option value="ia-btp">L&apos;IA au service du BTP</option>
+          <option value="ia-btp">L&apos;IA au service du bâtiment</option>
           <option value="appels-offres">Répondre à un appel d&apos;offre avec l&apos;IA</option>
           <option value="ia-rh">L&apos;IA au service de la fonction RH</option>
-          <option value="ia-tp">IA & Travaux Publics</option>
+          <option value="ia-tp">L&apos;IA au service de travaux publics</option>
           <option value="autre">Autre</option>
         </select>
       </div>

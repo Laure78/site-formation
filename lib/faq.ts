@@ -23,7 +23,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: "La formation est modulaire : de 4h à 14h selon vos objectifs. Le format standard « L'IA au service du BTP » dure 4h ou 7h. Les formations avancées (appels d'offres, RH) peuvent aller jusqu'à 7h ou plus.",
+    a: "La formation est modulaire : de 4h à 14h selon vos objectifs. Le format standard « L'IA au service du bâtiment » dure 4h ou 7h. Les formations avancées (appels d'offres, RH) peuvent aller jusqu'à 7h ou plus.",
   },
   {
     q: "La formation se fait-elle en présentiel ou en distanciel ?",
@@ -59,7 +59,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
-    a: "Laure Olivié (OFC Création d'Entreprise) forme les entreprises BTP à ChatGPT en Île-de-France depuis Guyancourt (78). Programme 'L'IA au service du BTP' : 4h ou 7h. Intervention Paris, Yvelines (78), Seine-et-Marne (77), Essonne (91), Val-d'Oise (95). Financement 100 % Constructys.",
+    a: "Laure Olivié (OFC Création d'Entreprise) forme les entreprises BTP à ChatGPT en Île-de-France depuis Guyancourt (78). Programme 'L'IA au service du bâtiment' : 4h ou 7h. Intervention Paris, Yvelines (78), Seine-et-Marne (77), Essonne (91), Val-d'Oise (95). Financement 100 % Constructys.",
   },
   {
     q: "Formation IA pour artisans BTP : quelle durée et quel prix ?",
@@ -87,7 +87,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: "Quelles formations IA BTP sont proposées ?",
-    a: "Notre catalogue inclut : L'IA au service du BTP (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), IA & Travaux Publics (14h), ainsi que la productivité chantier. Interventions en présentiel ou distanciel partout en France. Toutes sont finançables Constructys.",
+    a: "Notre catalogue inclut : L'IA au service du bâtiment (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), L'IA au service de travaux publics (14h), IA pour PME du BTP, Sensibilisation à l'IA & Assistants IA personnalisés (parcours LMS). Interventions en présentiel ou distanciel partout en France, et formations en ligne sur la plateforme. Toutes sont finançables Constructys.",
   },
   {
     q: "Comment choisir ma formation IA BTP ?",
@@ -237,10 +237,10 @@ export const FAQ_RH_BTP: FAQItem[] = [
   },
 ];
 
-/** FAQ Formation IA Travaux Publics */
+/** FAQ — formation L'IA au service de travaux publics */
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
-    q: "Qui peut suivre la formation IA Travaux Publics ?",
+    q: "Qui peut suivre la formation « L'IA au service de travaux publics » ?",
     a: "Dirigeants, conducteurs de travaux, bureaux d'études, responsables QSE et fonctions support des entreprises de Travaux Publics. Aucun prérequis technique.",
   },
   {
@@ -250,26 +250,6 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
     q: "La formation est-elle finançable ?",
     a: "Oui, 100 % finançable OPCO Constructys, AKTO, OPCO EP. 2 jours (14h), attestation Qualiopi.",
-  },
-];
-
-/** FAQ Formation productivité chantier (checklist de sélection) */
-export const FAQ_PRODUCTIVITE_CHANTIER: FAQItem[] = [
-  {
-    q: "Le formateur connaît-il les spécificités du bâtiment ?",
-    a: "DTU, assurances (RC Pro, décennale), sous-traitance, marchés publics... Un formateur généraliste ne comprendra pas vos vrais besoins terrain.",
-  },
-  {
-    q: "La formation inclut-elle des prompts prêts à l'emploi ?",
-    a: "Des commandes ChatGPT adaptées à votre métier : devis plomberie, descriptif maçonnerie, mail de relance client... Utilisables dès le lendemain.",
-  },
-  {
-    q: "Est-elle finançable par les OPCO ou le CPF ?",
-    a: "Constructys, Atlas ou Mon Compte Formation — une formation de qualité doit pouvoir être prise en charge. Exigez un devis clair avec code formation.",
-  },
-  {
-    q: "Y a-t-il un suivi après la formation ?",
-    a: "L'adoption des outils IA prend du temps. Un accompagnement post-formation garantit que les nouvelles habitudes s'installent.",
   },
 ];
 
@@ -357,7 +337,7 @@ export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
 export const FAQ_BLOG: FAQItem[] = [
   {
     q: "Quels sujets sont couverts dans les articles ?",
-    a: "ChatGPT artisans BTP, IA devis bâtiment, financement Constructys, automatisation administrative, appels d'offres, productivité chantier. Guides pratiques et cas d'usage.",
+    a: "ChatGPT artisans BTP, IA devis bâtiment, financement Constructys, automatisation administrative, appels d'offres, gestion de chantier. Guides pratiques et cas d'usage.",
   },
   {
     q: "Les formations sont-elles finançables ?",

@@ -16,14 +16,14 @@ const NAV_ITEMS: {
     label: 'Formations',
     children: [
       { href: '/cours', label: 'Cours en ligne (LMS)' },
-      { href: '/#programme', label: "L'IA au service du BTP" },
-      { href: '/formations/ia-travaux-publics', label: 'IA & Travaux Publics' },
+      { href: '/#programme', label: "L'IA au service du bâtiment" },
+      { href: '/formations/ia-travaux-publics', label: "L'IA au service de travaux publics" },
       { href: '/formations/ia-appels-offre-btp', label: 'IA appels d\'offre BTP' },
-      {
-        href: '/formations/ia-productivite-chantier',
-        label: 'IA : Productivité chantier',
-      },
       { href: '/formations/ia-pme-btp', label: 'IA pour PME du BTP' },
+      {
+        href: '/formations/sensibilisation-ia-assistants-personnalises',
+        label: "Sensibilisation IA & assistants",
+      },
       { href: '/formations/ia-rh-btp', label: 'IA RH BTP' },
     ],
   },

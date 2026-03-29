@@ -57,7 +57,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "La formation IA devis bâtiment est-elle finançable ?",
-    a: "Oui. La formation IA Constructys est certifiée Qualiopi. Le module IA devis bâtiment (« L'IA au service du BTP ») est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP.",
+    a: "Oui. La formation IA Constructys est certifiée Qualiopi. Le module IA devis bâtiment (« L'IA au service du bâtiment ») est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP.",
   },
 ];
 
@@ -180,7 +180,7 @@ export default function IADevisBatimentPage() {
             Formation IA devis et chiffrage BTP
           </h2>
           <p className="mt-4 text-blue-100">
-            Module dédié dans la formation « L&apos;IA au service du BTP ». 4h ou
+            Module dédié dans la formation « L&apos;IA au service du bâtiment ». 4h ou
             7h de pratique sur vos vrais devis. 100 % finançable Constructys.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">

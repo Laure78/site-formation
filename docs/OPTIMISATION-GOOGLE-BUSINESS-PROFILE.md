@@ -36,7 +36,7 @@ Centre de formation
 > 
 > Basée à Guyancourt dans les Yvelines, j'interviens auprès des artisans, conducteurs de travaux et PME du bâtiment en Île-de-France et partout en France.
 > 
-> Formation « L'IA au service du BTP » : ChatGPT pour devis, emails, appels d'offres et comptes rendus chantier. Méthode 100 % pratique, travail sur vos vrais documents.
+> Formation « L'IA au service du bâtiment » : ChatGPT pour devis, emails, appels d'offres et comptes rendus chantier. Méthode 100 % pratique, travail sur vos vrais documents.
 > 
 > Certifiée Qualiopi. 100 % finançable OPCO Constructys. Intervenante LinkedIn Learning.
 > 

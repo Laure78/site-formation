@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: '/checklist-prompts-btp',
         permanent: true,
       },
+      {
+        source: '/formations/ia-productivite-chantier',
+        destination: '/formations',
+        permanent: true,
+      },
     ];
   },
 };

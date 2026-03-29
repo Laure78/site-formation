@@ -96,7 +96,7 @@ export default function FinancementConstructys100IABTPPage() {
               href="/formations"
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service du BTP</h3>
+              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service du bâtiment</h3>
               <p className="mt-1 text-sm text-slate-600">4h ou 7h · Devis, emails, CR</p>
             </Link>
             <Link
@@ -117,7 +117,7 @@ export default function FinancementConstructys100IABTPPage() {
               href="/formations/ia-travaux-publics"
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--accent)]">IA & Travaux Publics</h3>
+              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service de travaux publics</h3>
               <p className="mt-1 text-sm text-slate-600">14h · Métiers TP</p>
             </Link>
           </div>

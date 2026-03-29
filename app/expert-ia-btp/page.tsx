@@ -200,9 +200,13 @@ export default function ExpertIABTPPage() {
               { title: 'Formation IA BTP', href: '/formations', desc: '4h à 2 jours — Tous niveaux' },
               { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '1 jour — Niveau avancé' },
               { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '2 jours — Recrutement & GEPP' },
-              { title: 'IA Travaux Publics', href: '/formations/ia-travaux-publics', desc: '2 jours — Spécialisation TP' },
+              { title: "L'IA au service de travaux publics", href: '/formations/ia-travaux-publics', desc: '2 jours — Spécialisation TP' },
               { title: 'Formation IA artisans', href: '/chatgpt-artisans-btp', desc: '4h — TPE & artisanat' },
-              { title: 'Productivité chantier', href: '/formations/ia-productivite-chantier', desc: 'Formats flexibles' },
+              {
+                title: "Sensibilisation IA & assistants",
+                href: '/formations/sensibilisation-ia-assistants-personnalises',
+                desc: '8h — Parcours LMS',
+              },
             ].map((formation) => (
               <Link
                 key={formation.href}

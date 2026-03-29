@@ -57,7 +57,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation est-elle finançable ?',
-    a: "Oui. La formation IA Constructys est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP. Le module « L'IA au service du BTP » inclut un volet dédié aux CR et rapports chantier.",
+    a: "Oui. La formation IA Constructys est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP. Le module « L'IA au service du bâtiment » inclut un volet dédié aux CR et rapports chantier.",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function IAConducteurTravauxPage() {
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
             {DEFINITION.long} Pour apprendre à{' '}
-            <Link href="/formations/ia-productivite-chantier" className="text-[var(--accent)] font-medium hover:underline">
+            <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
               utiliser ChatGPT dans le BTP
             </Link>
             , une formation courte suffit.
@@ -160,7 +160,7 @@ export default function IAConducteurTravauxPage() {
             Formation IA pour conducteurs de travaux
           </h2>
           <p className="mt-4 text-blue-100">
-            Module CR et rapports dans la formation « L&apos;IA au service du BTP ».
+            Module CR et rapports dans la formation « L&apos;IA au service du bâtiment ».
             Travail sur vos vrais documents. 100 % finançable Constructys.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
@@ -195,8 +195,8 @@ export default function IAConducteurTravauxPage() {
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
-              <Link href="/formations/ia-productivite-chantier" className="text-[var(--accent)] hover:underline">
-                Formation IA productivité chantier
+              <Link href="/formations" className="text-[var(--accent)] hover:underline">
+                Catalogue des formations IA BTP
               </Link>
             </li>
             <li>

@@ -218,7 +218,7 @@ Oui, remplacez simplement "maçon" par votre métier...
 ## Aller plus loin
 
 Vous souhaitez maîtriser ChatGPT pour toutes vos tâches administratives ?
-👉 [Découvrez la formation IA BTP](/formations/ia-productivite-chantier)
+👉 [Découvrez le catalogue des formations IA BTP](/formations)
 ```
 
 ---

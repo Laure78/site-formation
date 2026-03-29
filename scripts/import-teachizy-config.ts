@@ -1,6 +1,6 @@
 /**
  * Configuration des contenus Teachizy à importer
- * Formation : L'IA au service du BTP
+ * Formation : L'IA au service du bâtiment
  *
  * Les PDF doivent être placés dans /public/formations/btp/
  * Les chemins sont relatifs à ce dossier (ex: prompting-devis-btp.pdf)

@@ -26,13 +26,13 @@
       "content": [
         "Remplace-t-elle un outil de planning Gantt ? — Non. Elle peut aider à rédiger ou expliquer un planning ; les outils de pilotage restent dédiés.",
         "Peut-on l’utiliser sur les réunions de chantier ? — Oui pour synthétiser des notes ; enregistrez et respectez le RGPD si des personnes sont identifiables.",
-        "Formation recommandée ? — Parcours productivité chantier et « L’IA au service du BTP »."
+        "Formation recommandée ? — « L’IA au service du bâtiment » et le catalogue des formations IA BTP."
       ]
     },
     {
       "type": "cta",
-      "content": "Découvrez la formation IA productivité chantier.",
-      "formationHref": "/formations/ia-productivite-chantier"
+      "content": "Découvrez le catalogue des formations IA BTP.",
+      "formationHref": "/formations"
     }
   ],
   "relatedSlugs": [

@@ -235,7 +235,7 @@
 **URL :** https://www.laureolivie.fr/formations/ia-travaux-publics  
 **Mot-clé principal :** formation IA BTP  
 
-**Title SEO actuel :** Formation IA & Travaux Publics — Laure Olivié (42 car.)  
+**Title SEO actuel :** L'IA au service de travaux publics — Laure Olivié (42 car.)  
 **Title SEO proposé :** Formation IA BTP Travaux Publics — DCE, CR | Constructys  
 
 **Meta description proposée :** Formation IA BTP travaux publics. DCE, CCTP, CR chantier. Gagnez du temps. Formation finançable Constructys. (133 car.)  

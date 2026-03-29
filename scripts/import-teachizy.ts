@@ -7,7 +7,7 @@
  * Prérequis:
  * - SUPABASE_SERVICE_ROLE_KEY et NEXT_PUBLIC_SUPABASE_URL dans .env.local
  * - PDFs placés dans /public/formations/btp/
- * - Formation "L'IA au service du BTP" (slug: ia-au-service-du-btp) avec ses modules
+ * - Formation "L'IA au service du bâtiment" (slug: ia-au-service-du-btp) avec ses modules
  */
 
 import { config } from 'dotenv';
@@ -34,7 +34,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('Import Teachizy — Formation L\'IA au service du BTP\n');
+  console.log('Import Teachizy — Formation L\'IA au service du bâtiment\n');
 
   const { data: course, error: courseErr } = await supabase
     .from('courses')

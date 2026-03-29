@@ -83,7 +83,7 @@ export default function NouvelleFormationPage() {
             value={title}
             onChange={(e) => handleTitleChange(e.target.value)}
             required
-            placeholder="Ex : L'IA au service du BTP"
+            placeholder="Ex : L'IA au service du bâtiment"
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
         </div>

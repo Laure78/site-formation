@@ -13,7 +13,6 @@ DELETE FROM modules WHERE course_id IN (SELECT id FROM courses WHERE slug IN (
   'ia-rh-btp',
   'ia-travaux-publics',
   'ia-btp-paris',
-  'ia-productivite-chantier',
   'ia-pme-btp'
 ));
 DELETE FROM courses WHERE slug IN (
@@ -22,7 +21,6 @@ DELETE FROM courses WHERE slug IN (
   'ia-rh-btp',
   'ia-travaux-publics',
   'ia-btp-paris',
-  'ia-productivite-chantier',
   'ia-pme-btp'
 );
 
@@ -32,11 +30,11 @@ DECLARE
   cid uuid;
   mid uuid;
 BEGIN
-  -- 1. L'IA au service du BTP
+  -- 1. L'IA au service du bâtiment
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
   VALUES (
     'ia-au-service-du-btp',
-    'L''IA au service du BTP',
+    'L''IA au service du bâtiment',
     'Formation pratique pour identifier les usages IA utiles dans le BTP, accélérer la rédaction de devis et messages clients, structurer l''administratif (CR, relances, modèles) et repartir avec des trames et prompts prêts à l''emploi.',
     'Identifier les usages IA utiles dans le BTP · Accélérer la rédaction de devis et messages clients · Structurer l''administratif (CR, relances, modèles) · Repartir avec des trames et prompts prêts à l''emploi',
     'Aucune compétence technique requise. Ordinateur avec connexion internet. Abonnement ChatGPT recommandé.',
@@ -95,11 +93,11 @@ BEGIN
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Construire ses KPI RH avec l''IA', 4);
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Création d''un assistant IA RH', 5);
 
-  -- 4. IA & Travaux Publics
+  -- 4. L'IA au service de travaux publics
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
   VALUES (
     'ia-travaux-publics',
-    'IA & Travaux Publics',
+    'L''IA au service de travaux publics',
     'Formation immersive en 2 jours : maîtriser l''IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier et créer votre assistant IA métier. Pour dirigeants et conducteurs de travaux TP.',
     'Analyser DCE, CCTP et comptes rendus chantier · Rédiger rapports et réponses appels d''offres · Créer votre assistant IA métier TP',
     'Aucune compétence technique. Abonnement ChatGPT Teams recommandé.',
@@ -136,26 +134,7 @@ BEGIN
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Emails et relances clients', 1);
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Administratif et productivité', 2);
 
-  -- 6. Formation IA BTP : Productivité chantier
-  INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
-  VALUES (
-    'ia-productivite-chantier',
-    'Formation IA BTP : Productivité chantier',
-    'Programme opérationnel pour automatiser devis, factures et emails avec ChatGPT. Atelier Action, micro-learning ou coaching. Résultats dès la première semaine.',
-    'Devis et descriptifs en quelques secondes · Emails et relances clients automatisés · 3 formats : Atelier, Micro-learning, Coaching · 0 € à avancer — Financement OPCO',
-    'Aucun prérequis. Idéal pour chefs de chantier et artisans.',
-    'Format Atelier Action (1 jour) : mise en pratique sur devis, emails, CR. Format Micro-learning : 10 min/jour sur smartphone. Format Coaching : 4 x 2h accompagnement sur-mesure.',
-    0,
-    true,
-    4,
-    'intermediaire'
-  ) RETURNING id INTO cid;
-
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Atelier Action : Devis et descriptifs', 0);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Emails et relation client', 1);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Productivité et automatisation', 2);
-
-  -- 7. IA pour PME du BTP
+  -- 6. IA pour PME du BTP
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
   VALUES (
     'ia-pme-btp',

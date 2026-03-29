@@ -28,10 +28,10 @@ Ce guide permet de pré-remplir la plateforme avec les 7 formations IA BTP (obje
 
 Après exécution, 7 formations apparaissent dans l'admin :
 
-- L'IA au service du BTP
+- L'IA au service du bâtiment
 - Répondre aux appels d'offres BTP avec l'IA
 - Formation IA pour la Fonction RH dans le BTP
-- IA & Travaux Publics
+- L'IA au service de travaux publics
 - Formation IA BTP à Paris
 - Formation IA BTP : Productivité chantier
 - IA pour PME du BTP

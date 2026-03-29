@@ -101,8 +101,8 @@ export default function AuteurPage() {
               Formations IA BTP
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
-              Programme phare « L&apos;IA au service du BTP » (4h ou 7h), formation
-              appels d&apos;offres, IA pour la fonction RH, IA & Travaux Publics.
+              Programme phare « L&apos;IA au service du bâtiment » (4h ou 7h), formation
+              appels d&apos;offres, IA pour la fonction RH, L&apos;IA au service de travaux publics.
               Certifié Qualiopi. 100 % finançable OPCO Constructys.
             </p>
             <Link

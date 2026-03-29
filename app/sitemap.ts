@@ -43,7 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/formations/ia-appels-offre-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/formations/ia-rh-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/formations/ia-pme-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${baseUrl}/formations/ia-productivite-chantier`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+    {
+      url: `${baseUrl}/formations/sensibilisation-ia-assistants-personnalises`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
     { url: `${baseUrl}/chatgpt-artisans-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/ia-devis-batiment`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/ia-conducteur-travaux`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

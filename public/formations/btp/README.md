@@ -1,4 +1,4 @@
-# PDFs formation « L'IA au service du BTP »
+# PDFs formation « L'IA au service du bâtiment »
 
 Placez ici les fichiers PDF issus de Teachizy.
 

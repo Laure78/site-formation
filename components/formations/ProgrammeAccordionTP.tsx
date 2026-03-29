@@ -6,7 +6,7 @@ import { ChevronRight, Plus, Minus } from 'lucide-react';
 const PROGRAMME_SECTIONS = [
   {
     id: 'section-1',
-    label: 'IA & Travaux Publics : comprendre, pratiquer, appliquer',
+    label: "L'IA au service de travaux publics : comprendre, pratiquer, appliquer",
     public: 'Dirigeants, encadrants, conducteurs de travaux, bureaux d\'études, fonctions support TP',
     modules: [
       {

@@ -278,14 +278,6 @@ export default function ChatGPTArtisansBTPPage() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/formations/ia-productivite-chantier"
-                className="text-[var(--accent)] hover:underline"
-              >
-                IA pour productivité chantier
-              </Link>
-            </li>
-            <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
                 Catalogue des formations IA BTP
               </Link>

@@ -75,7 +75,7 @@
 | `/formations` | Formations IA BTP : Catalogue Qualiopi 100% finançable | 138 |
 | `/formations/ia-appels-offre-btp` | IA Appels d'offres BTP : Gagnez 5x en rapidité | 143 |
 | `/formations/ia-rh-btp` | Formation IA RH BTP : Recrutement & GEPP efficaces | 149 |
-| `/formations/ia-travaux-publics` | Formation IA Travaux Publics : DCE, CCTP & rapports | 144 |
+| `/formations/ia-travaux-publics` | L'IA au service de travaux publics : DCE, CCTP & rapports | 144 |
 | `/formations/ia-productivite-chantier` | Formation IA Productivité Chantier : Gagnez 5h/semaine | 127 |
 | `/formations/ia-btp-paris` | Formation IA BTP Paris : Devis & ChatGPT en 4h | 139 |
 | `/formations/ia-btp-lyon` | Formation IA BTP Lyon : Automatiser devis & appels d'offres | 135 |

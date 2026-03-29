@@ -60,7 +60,7 @@
 
 | Image | Ancien ALT | Nouveau ALT (optimisé) | Longueur |
 |-------|-----------|------------------------|----------|
-| `formation-ia-btp-entreprise.png` | Formation IA au service du BTP en entreprise | Atelier pratique formation IA BTP avec Laure Olivié pour optimiser la gestion des appels d'offre | 105 car. |
+| `formation-ia-btp-entreprise.png` | Formation IA au service du bâtiment en entreprise | Atelier pratique formation IA BTP avec Laure Olivié pour optimiser la gestion des appels d'offre | 105 car. |
 | `laure-olivie-ia-administratif-batiment.png` | Formation IA Laure Olivié — Automatiser l'administratif bâtiment | Formation appel d'offre BTP avec Laure Olivié pour automatiser l'analyse des DCE et réponses aux marchés publics | 130 car. |
 | `laure-olivie-ia-rentabilite-chantier.png` | Formation IA Laure Olivié — IA pour améliorer la rentabilité chantier BTP | Formation IA BTP animée par Laure Olivié pour améliorer la rentabilité et productivité des chantiers | 109 car. |
 | `rencontres-artisans-ia-ffb-btp.png` | Rencontres des Artisans FFB — L'IA au service des Artisans du Bâtiment | Formation IA pour artisans lors des Rencontres FFB : utiliser l'intelligence artificielle dans le BTP | 107 car. |

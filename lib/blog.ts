@@ -66,7 +66,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Quelles formations IA BTP sont proposées en 2026 ?',
         content:
-          'Le catalogue 2026 comprend : "L\'IA au service du BTP" (4h ou 7h) pour découvrir ChatGPT appliqué aux devis, emails et CR chantier. Formation "Répondre aux appels d\'offres avec l\'IA" (7h) pour automatiser l\'analyse DCE/CCTP et la rédaction de mémoires techniques. Formation "IA pour la fonction RH" (14h) pour automatiser recrutement et GEPP. Formation "IA & Travaux Publics" (14h) pour les conducteurs de travaux et bureaux d\'études. Formations géolocalisées à Paris, Lyon, Bordeaux, Lille et Île-de-France.',
+          'Le catalogue 2026 comprend : "L\'IA au service du bâtiment" (4h ou 7h) pour découvrir ChatGPT appliqué aux devis, emails et CR chantier. Formation "Répondre aux appels d\'offres avec l\'IA" (7h) pour automatiser l\'analyse DCE/CCTP et la rédaction de mémoires techniques. Formation "IA pour la fonction RH" (14h) pour automatiser recrutement et GEPP. Formation « L\'IA au service de travaux publics » (14h) pour les conducteurs de travaux et bureaux d\'études. Formations géolocalisées à Paris, Lyon, Bordeaux, Lille et Île-de-France.',
       },
       {
         type: 'list',
@@ -147,7 +147,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          'ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L\'IA au service du BTP" (1592 professionnels formés, note 4,85/5). Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d\'état.',
+          'ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L\'IA au service du bâtiment" (1592 professionnels formés, note 4,85/5). Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d\'état.',
       },
       {
         type: 'paragraph',
@@ -211,7 +211,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
         content:
-          'Laure Olivié forme les artisans et PME du BTP à automatiser leurs devis avec ChatGPT. Formation "L\'IA au service du BTP" (4h ou 7h), certifiée Qualiopi, financement 100% Constructys. 1592 professionnels formés, note 4,85/5. Intervention en Île-de-France (Guyancourt 78) et toute la France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.',
+          'Laure Olivié forme les artisans et PME du BTP à automatiser leurs devis avec ChatGPT. Formation "L\'IA au service du bâtiment" (4h ou 7h), certifiée Qualiopi, financement 100% Constructys. 1592 professionnels formés, note 4,85/5. Intervention en Île-de-France (Guyancourt 78) et toute la France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.',
       },
       {
         type: 'faq',
@@ -257,7 +257,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Quelles formations sont éligibles ?',
         content:
-          "Toutes les formations IA pour le BTP de Laure Olivié sont certifiées Qualiopi et éligibles au financement Constructys : « L'IA au service du BTP », formation appels d'offres, IA pour la fonction RH, IA & Travaux Publics. Le coût pédagogique est pris en charge à hauteur de 24€ HT/heure/stagiaire.",
+          "Toutes les formations IA pour le BTP de Laure Olivié sont certifiées Qualiopi et éligibles au financement Constructys : « L'IA au service du bâtiment », formation appels d'offres, IA pour la fonction RH, L'IA au service de travaux publics. Le coût pédagogique est pris en charge à hauteur de 24€ HT/heure/stagiaire.",
       },
       {
         type: 'list',
@@ -466,7 +466,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'cta',
-        content: 'Formation IA devis et chiffrage BTP — Module dédié dans « L\'IA au service du BTP ».',
+        content: 'Formation IA devis et chiffrage BTP — Module dédié dans « L\'IA au service du bâtiment ».',
       },
     ],
     relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'financer-formation-ia-btp-constructys'],

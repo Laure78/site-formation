@@ -92,7 +92,7 @@ export function DevisForm() {
           className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
         >
           <option value="">Sélectionnez</option>
-          <option value="ia-btp">L'IA au service du BTP</option>
+          <option value="ia-btp">L'IA au service du bâtiment</option>
           <option value="appels-offres">Répondre à un appel d'offre avec l'IA</option>
           <option value="ia-rh">L'IA au service de la fonction RH</option>
         </select>

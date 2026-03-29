@@ -31,8 +31,8 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez les formations IA gestion de chantier et productivité BTP.",
-      "formationHref": "/formations/ia-productivite-chantier"
+      "content": "Découvrez le catalogue des formations IA BTP.",
+      "formationHref": "/formations"
     }
   ],
   "relatedSlugs": [

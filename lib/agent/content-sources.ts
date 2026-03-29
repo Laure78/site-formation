@@ -19,11 +19,15 @@ const BASE_URL = SITE_CONFIG.url;
 const FORMATIONS_DATA = [
   { path: '/formations', title: 'Catalogue formations IA BTP', desc: "Formations IA pour le BTP : devis, appels d'offres, RH, travaux publics. Guyancourt, Île-de-France. Qualiopi, 100% finançable Constructys." },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: '4h pratiques. Devis en 15 min, emails automatisés. Paris + Île-de-France. 100% finançable OPCO.' },
-  { path: '/formations/ia-travaux-publics', title: 'IA & Travaux Publics', desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
+  { path: '/formations/ia-travaux-publics', title: "L'IA au service de travaux publics", desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
   { path: '/formations/ia-appels-offre-btp', title: 'Appels d\'offres BTP avec l\'IA', desc: '1 jour. Analyser un DCE en 30 min, mémoires techniques, prompts par métier.' },
   { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: '2 jours. Recrutement, GEPP, tableaux de bord RH, assistant IA.' },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Démarrage rapide.' },
-  { path: '/formations/ia-productivite-chantier', title: 'Productivité chantier avec l\'IA', desc: '4h à 1 jour. Devis, descriptifs, emails. Financement OPCO.' },
+  {
+    path: '/formations/sensibilisation-ia-assistants-personnalises',
+    title: "Sensibilisation à l'IA & Assistants IA personnalisés",
+    desc: 'Parcours LMS 8h : sensibilisation IA, prompts par métier, assistants sur mesure. Qualiopi, Constructys.',
+  },
 ];
 
 // Pages clés + contenu synthétique
