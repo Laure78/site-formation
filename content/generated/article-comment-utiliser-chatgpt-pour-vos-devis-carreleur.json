@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-carreleur",
   "title": "Comment utiliser ChatGPT pour vos devis carreleur",
   "description": "Devis carreleur avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-03-19",
+  "date": "2026-03-30",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux artisans",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
