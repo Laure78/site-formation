@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-macon",
   "title": "Comment utiliser ChatGPT pour vos devis maçon",
   "description": "Devis maçon avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-03-20",
+  "date": "2026-03-31",
   "keywords": [
-    "gain temps devis",
-    "automatisation administrative",
-    "IA bureau",
-    "productivité IA"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -74,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

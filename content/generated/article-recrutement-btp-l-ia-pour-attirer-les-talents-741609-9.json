@@ -1,13 +1,13 @@
 {
-  "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-  "title": "Appels d'offres BTP : l'IA comme assistant",
-  "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "slug": "recrutement-btp-l-ia-pour-attirer-les-talents-741609-9",
+  "title": "Recrutement BTP : l'IA pour attirer les talents",
+  "description": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
   "date": "2026-03-31",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "LinkedIn BTP",
+    "post IA",
+    "contenu réseaux BTP",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Appels d'offres BTP : l'IA comme assistant",
-  "metaDescription": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "seoTitle": "Recrutement BTP : l'IA pour attirer les talents",
+  "metaDescription": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys",
