@@ -166,12 +166,6 @@ export function Header() {
           >
             Connexion
           </Link>
-          <Link
-            href="/auth/inscription"
-            className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-          >
-            S&apos;inscrire
-          </Link>
         </div>
 
         <button
@@ -263,13 +257,6 @@ export function Header() {
                 className="rounded-lg px-3 py-2 text-sm"
               >
                 Connexion
-              </Link>
-              <Link
-                href="/auth/inscription"
-                onClick={() => setOpen(false)}
-                className="rounded-lg bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white"
-              >
-                S&apos;inscrire
               </Link>
             </div>
           </nav>
