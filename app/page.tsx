@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
 import {
   Video,
   FileText,
@@ -65,12 +66,9 @@ export default function HomePage() {
                 bâtiment et l&apos;IA gestion chantier (emails, chiffrages, comptes rendus).
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/prendre-rdv"
-                  className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
-                >
+                <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                   Organiser une formation
-                </Link>
+                </RdvLink>
                 <Link
                   href="#programme"
                   className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
@@ -434,12 +432,9 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/prendre-rdv"
-                  className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700"
-                >
+                <RdvLink className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700">
                   Prendre rendez-vous
-                </Link>
+                </RdvLink>
               </div>
             ))}
           </div>
@@ -583,26 +578,16 @@ export default function HomePage() {
             Découvrez mes formations sur l&apos;IA pour le BTP
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Formatrice LinkedIn Learning : le cours sur les chantiers est présenté dans le programme «&nbsp;L&apos;IA au service du bâtiment&nbsp;» ci-dessus ; découvrez aussi la formation au recrutement.
+            Formatrice LinkedIn Learning : le cours sur les chantiers est présenté dans le programme «&nbsp;L&apos;IA au service du bâtiment&nbsp;» ci-dessus.
           </p>
-          
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
             <div className="overflow-hidden rounded-2xl shadow-lg">
               <Image
                 src={PHOTOS.linkedinGraz.src}
                 alt={PHOTOS.linkedinGraz.alt}
                 width={PHOTOS.linkedinGraz.width}
                 height={PHOTOS.linkedinGraz.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.studioDark.src}
-                alt={PHOTOS.studioDark.alt}
-                width={PHOTOS.studioDark.width}
-                height={PHOTOS.studioDark.height}
                 className="h-auto w-full"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
@@ -616,17 +601,6 @@ export default function HomePage() {
                 className="h-auto w-full"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-            </div>
-          </div>
-          
-          <div className="mt-8 space-y-12">
-            <div>
-              <h3 className="font-display text-xl font-semibold text-slate-900">
-                L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
-              </h3>
-              <div className="mt-4">
-                <LinkedInLearningEmbed course="recrutement" />
-              </div>
             </div>
           </div>
         </div>
@@ -704,13 +678,10 @@ export default function HomePage() {
                 <Phone size={20} strokeWidth={1.5} />
                 06 95 66 18 18
               </a>
-              <Link
-                href="/prendre-rdv"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
-              >
+              <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50">
                 <Calendar size={20} strokeWidth={1.5} />
                 Prendre RDV
-              </Link>
+              </RdvLink>
             </div>
           </div>
         </div>
@@ -732,13 +703,10 @@ export default function HomePage() {
                 Choisissez le jour et l&apos;heure qui vous conviennent pour un échange
                 de 30 minutes. Devis personnalisé sous 24h après notre rendez-vous.
               </p>
-              <Link
-                href="/prendre-rdv"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600"
-              >
+              <RdvLink className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
                 <Calendar size={20} strokeWidth={1.5} />
                 Voir le calendrier
-              </Link>
+              </RdvLink>
               <p className="mt-6 text-sm text-slate-500">
                 Ou écrivez-moi ou appelez-moi — coordonnées à droite.
               </p>
@@ -806,13 +774,10 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/prendre-rdv"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
-            </Link>
+            </RdvLink>
             <a
               href="tel:+33695661818"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10"

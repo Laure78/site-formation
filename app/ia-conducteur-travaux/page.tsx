@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Check, FileText, Calendar, ClipboardList, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
@@ -171,21 +173,18 @@ export default function IAConducteurTravauxPage() {
               Voir le programme
               <ArrowRight size={20} strokeWidth={1.5} />
             </Link>
-            <Link
-              href="/prendre-rdv"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10">
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
           </div>
         </section>
 
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <p className="text-slate-800">
             Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
-            <Link href="/prendre-rdv" className="font-semibold text-[var(--accent)] hover:underline">
+            <RdvLink className="font-semibold text-[var(--accent)] hover:underline">
               Prenez rendez-vous pour échanger sur votre projet.
-            </Link>
+            </RdvLink>
           </p>
         </section>
 
@@ -220,9 +219,9 @@ export default function IAConducteurTravauxPage() {
               </Link>
             </li>
             <li>
-              <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
+              <RdvLink className="text-[var(--accent)] hover:underline">
                 Prendre rendez-vous
-              </Link>
+              </RdvLink>
             </li>
           </ul>
         </section>
@@ -233,7 +232,7 @@ export default function IAConducteurTravauxPage() {
             { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/blog', label: 'Articles et guides' },
-            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

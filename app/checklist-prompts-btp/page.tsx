@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CHECKLIST_PROMPTS } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 
 export const metadata = createPageMetadata({
@@ -115,9 +116,9 @@ export default function ChecklistDocumentPage() {
             <Link href="/formations" className="font-medium text-[#166534] hover:underline">
               Formation IA BTP
             </Link>
-            <Link href="/prendre-rdv" className="font-medium text-[#166534] hover:underline">
+            <RdvLink className="font-medium text-[#166534] hover:underline">
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
             <Link href="/chatgpt-artisans-btp" className="font-medium text-[#166534] hover:underline">
               IA pour entreprises du bâtiment
             </Link>

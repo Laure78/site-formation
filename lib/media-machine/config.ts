@@ -2,6 +2,8 @@
  * Configuration Media Machine
  */
 
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+
 export const MEDIA_CONFIG = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   brandName: 'Laure Olivié',
@@ -22,7 +24,10 @@ export const MEDIA_CONFIG = {
       anchors: ['ChatGPT pour entreprises BTP', 'IA bâtiment et travaux publics'],
     },
     iaDevis: { path: '/ia-devis-batiment', anchors: ['IA devis bâtiment', 'automatiser devis BTP'] },
-    prendreRdv: { path: '/prendre-rdv', anchors: ['réserver formation', 'prendre rendez-vous', 'devis formation'] },
+    prendreRdv: {
+      path: CALENDLY_BOOKING_URL,
+      anchors: ['réserver formation', 'prendre rendez-vous', 'devis formation'],
+    },
     blog: { path: '/blog', anchors: ['ressources IA BTP', 'articles formation'] },
     financement: { path: '/financement-constructys', anchors: ['financement Constructys', 'tarifs formation'] },
   },

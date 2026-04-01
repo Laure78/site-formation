@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 const NAV_ITEMS: {
   href?: string;
   label: string;
   children?: { href: string; label: string }[];
+  /** Bouton bleu (même style que S'inscrire) */
+  cta?: boolean;
 }[] = [
   { href: '/', label: 'Accueil' },
   {
@@ -35,7 +38,7 @@ const NAV_ITEMS: {
   { href: '/contact', label: 'Contact' },
   { href: '/financement-constructys', label: 'Financement' },
   { href: '/blog', label: 'Ressources' },
-  { href: '/prendre-rdv', label: 'Prendre RDV' },
+  { href: CALENDLY_BOOKING_URL, label: 'Prendre RDV', cta: true },
 ];
 
 function isActive(href: string, pathname: string) {
@@ -120,6 +123,26 @@ export function Header() {
                   </div>
                 )}
               </div>
+            ) : item.cta ? (
+              item.href!.startsWith('http') ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href!}
+                  className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                >
+                  {item.label}
+                </Link>
+              )
             ) : (
               <Link
                 key={item.href}
@@ -196,6 +219,28 @@ export function Header() {
                     </Link>
                   ))}
                 </div>
+              ) : item.cta ? (
+                item.href!.startsWith('http') ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg bg-[var(--accent)] px-3 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href!}
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg bg-[var(--accent)] px-3 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ) : (
                 <Link
                   key={item.href}

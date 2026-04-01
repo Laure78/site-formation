@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Users, BookOpen, Zap, ExternalLink } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/prospectionfacile/';
 
@@ -63,12 +65,9 @@ export default function CommunauteFormateursPage() {
                 <ExternalLink size={20} strokeWidth={1.5} />
                 Rejoindre le groupe Facebook
               </a>
-              <Link
-                href="/prendre-rdv"
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-              >
+              <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]">
                 Prendre rendez-vous
-              </Link>
+              </RdvLink>
             </div>
           </div>
         </div>
@@ -169,9 +168,9 @@ export default function CommunauteFormateursPage() {
               </Link>
             </li>
             <li>
-              <Link href="/prendre-rdv" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
+              <RdvLink className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
                 Prendre rendez-vous
-              </Link>
+              </RdvLink>
             </li>
             <li>
               <Link href="/formation-ia-btp-paris-2026" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
@@ -198,7 +197,7 @@ export default function CommunauteFormateursPage() {
           variant="compact"
           links={[
             { href: '/formations', label: 'Formation IA BTP' },
-            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
             { href: '/financement-constructys-100-ia-btp', label: 'Financement OPCO' },
             { href: '/blog', label: 'Articles et guides' },

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Calendar, X } from 'lucide-react';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 /** CTA sticky au scroll — accès rapide à la prise de RDV / formulaire contact */
 export function StickyRDVCTA() {
@@ -48,13 +49,15 @@ export function StickyRDVCTA() {
               Formulaire de contact
             </Link>
           )}
-          <Link
-            href="/prendre-rdv"
+          <a
+            href={CALENDLY_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
           >
             <Calendar size={18} strokeWidth={1.5} />
             Prendre RDV gratuit
-          </Link>
+          </a>
           <button
             type="button"
             onClick={() => setDismissed(true)}

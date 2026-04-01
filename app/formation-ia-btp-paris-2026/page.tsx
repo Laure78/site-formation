@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -54,13 +56,10 @@ export default function FormationIABTPParis2026Page() {
               Voir la formation Paris
               <ArrowRight size={20} strokeWidth={1.5} />
             </Link>
-            <Link
-              href="/prendre-rdv"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
-            >
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-4 font-semibold text-slate-900 hover:bg-[var(--accent-soft)]">
               <Calendar size={20} strokeWidth={1.5} />
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
           </div>
         </div>
       </section>
@@ -224,13 +223,10 @@ export default function FormationIABTPParis2026Page() {
             Réservez un créneau ou demandez un devis personnalisé.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/prendre-rdv"
-              className="flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
+            <RdvLink className="flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
             <Link
               href="/contact"
               className="flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10"
@@ -250,7 +246,7 @@ export default function FormationIABTPParis2026Page() {
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys', label: 'Financement Constructys' },
               { href: '/financement-constructys-100-ia-btp', label: 'Guide financement 100 % IA BTP' },
-              { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic gratuit' },
               { href: '/blog', label: 'Articles et guides' },
             ]}

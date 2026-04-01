@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
 import { BookOpen, Sparkles, Layers, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -120,12 +121,9 @@ export default function SensibilisationIAAssistantsPage() {
           Voir le cours sur la plateforme
           <ArrowRight size={20} strokeWidth={1.5} />
         </Link>
-        <Link
-          href="/prendre-rdv"
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]"
-        >
+        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
           Prendre rendez-vous
-        </Link>
+        </RdvLink>
       </div>
 
       <section className="mt-14">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Mail, Phone, Globe, Linkedin, FileText, BookOpen } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 export function Footer() {
   return (
@@ -81,7 +82,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {[
                 { href: '/formations', label: 'Catalogue des formations' },
-                { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+                { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
                 { href: '/contact', label: 'Contact' },
                 { href: '/a-propos', label: 'À propos' },
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
@@ -99,12 +100,23 @@ export function Footer() {
                 { href: '/install-pwa', label: 'Installer l\'app mobile' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link
-                    href={href}
-                    className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                  >
-                    {label}
-                  </Link>
+                  {href.startsWith('http') ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
+                    >
+                      {label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={href}
+                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
+                    >
+                      {label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Clock, Users, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, getCourseListSchema } from '@/lib/seo';
@@ -152,9 +154,9 @@ export default function FormationsPage() {
             utiliser ChatGPT dans le BTP
           </Link>
           , automatisez devis bâtiment, emails et comptes rendus chantier. De 4h à 14h selon vos objectifs. Méthode 100% pratique.{' '}
-          <Link href="/prendre-rdv" className="text-[var(--accent)] font-medium hover:underline">
+          <RdvLink className="text-[var(--accent)] font-medium hover:underline">
             Prenez rendez-vous
-          </Link>
+          </RdvLink>
           {' '}pour un diagnostic personnalisé.
         </p>
         <div className="mt-8">
@@ -234,12 +236,9 @@ export default function FormationsPage() {
         <p className="mt-3 text-slate-700">
           Prenez rendez-vous pour échanger sur votre projet et recevoir un devis personnalisé.
         </p>
-        <Link
-          href="/prendre-rdv"
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-        >
+        <RdvLink className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700">
           Prendre rendez-vous pour un diagnostic
-        </Link>
+        </RdvLink>
       </section>
 
       <FAQSection
@@ -282,7 +281,7 @@ export default function FormationsPage() {
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
           { href: '/blog', label: 'Articles et guides' },
-          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+          { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
         ]}
       />
     </div>

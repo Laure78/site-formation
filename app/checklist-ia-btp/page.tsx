@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CHECKLIST_IA_BTP } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
 import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet';
 import { FAQSection } from '@/components/landing/FAQSection';
 
@@ -77,12 +78,9 @@ export default function ChecklistIABTPPage() {
               >
                 Articles et guides →
               </Link>
-              <Link
-                href="/prendre-rdv"
-                className="text-[#166534] font-medium hover:underline"
-              >
+              <RdvLink className="text-[#166534] font-medium hover:underline">
                 Prendre rendez-vous →
-              </Link>
+              </RdvLink>
             </div>
             <div className="mt-12 pt-8 border-t border-slate-200">
               <FAQSection

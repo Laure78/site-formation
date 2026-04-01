@@ -13,6 +13,8 @@ import {
 } from '@/lib/blog';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { AuthorBlock } from '@/components/blog/AuthorBlock';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 
@@ -158,13 +160,24 @@ export default async function BlogArticlePage({ params }: Props) {
           </p>
           <ul className="mt-4 flex flex-wrap gap-3">
             {getCommercialLinksForArticle(slug).map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-blue-50"
-                >
-                  {label}
-                </Link>
+              <li key={href + label}>
+                {href.startsWith('http') ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-blue-50"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link
+                    href={href}
+                    className="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-blue-50"
+                  >
+                    {label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -177,7 +190,7 @@ export default async function BlogArticlePage({ params }: Props) {
             title="Prêt à vous former à l'IA ?"
             description="Réservez un échange de 30 minutes gratuit pour découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP."
             primaryLabel="Prendre rendez-vous"
-            primaryHref="/prendre-rdv"
+            primaryHref={CALENDLY_BOOKING_URL}
             secondaryLabel="Découvrir les formations"
             secondaryHref="/formations"
           />
@@ -302,12 +315,9 @@ export default async function BlogArticlePage({ params }: Props) {
                         Rejoindre la communauté
                       </ExternalLinkAnchor>
                     )}
-                    <Link
-                      href="/prendre-rdv"
-                      className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50"
-                    >
+                    <RdvLink className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50">
                       Prendre rendez-vous
-                    </Link>
+                    </RdvLink>
                     <Link
                       href="/formations"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
@@ -431,7 +441,7 @@ export default async function BlogArticlePage({ params }: Props) {
             title="Passez à l'action"
             description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet — 30 minutes gratuites."
             primaryLabel="Prendre rendez-vous"
-            primaryHref="/prendre-rdv"
+            primaryHref={CALENDLY_BOOKING_URL}
             secondaryLabel="Voir les formations"
             secondaryHref="/formations"
           />
@@ -450,9 +460,9 @@ export default async function BlogArticlePage({ params }: Props) {
           <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
             IA conducteur de travaux
           </Link>
-          <Link href="/prendre-rdv" className="text-[var(--accent)] hover:underline">
+          <RdvLink className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous
-          </Link>
+          </RdvLink>
           <Link href="/financement-constructys" className="text-[var(--accent)] hover:underline">
             Tarifs et financement
           </Link>
@@ -470,7 +480,7 @@ export default async function BlogArticlePage({ params }: Props) {
             { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
-            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             { href: '/blog', label: 'Articles et guides' },
           ]}
         />

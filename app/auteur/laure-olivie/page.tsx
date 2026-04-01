@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
 import { createPageMetadata, getPersonSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_AUTEUR } from '@/lib/faq';
 import { getAllArticles } from '@/lib/blog';
@@ -183,12 +184,9 @@ export default function AuteurPage() {
               l&apos;IA peut faire gagner du temps à votre entreprise du BTP.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
-              <Link
-                href="/prendre-rdv"
-                className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-              >
+              <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
                 Prendre rendez-vous
-              </Link>
+              </RdvLink>
               <Link
                 href="/formations"
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"

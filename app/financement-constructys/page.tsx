@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -332,12 +334,9 @@ export default function FinancementConstructysPage() {
               <ExternalLink size={20} strokeWidth={1.5} />
               Je réalise ma demande sur eGestion
             </ExternalLinkAnchor>
-            <Link
-              href="/prendre-rdv"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 px-8 py-4 font-semibold text-slate-800 transition-colors hover:bg-slate-50"
-            >
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 px-8 py-4 font-semibold text-slate-800 transition-colors hover:bg-slate-50">
               Je me fais accompagner
-            </Link>
+            </RdvLink>
           </div>
         </div>
       </section>
@@ -379,12 +378,9 @@ export default function FinancementConstructysPage() {
               <p className="mt-1 text-sm text-blue-100">
                 Je vous aide à monter votre dossier
               </p>
-              <Link
-                href="/prendre-rdv"
-                className="mt-4 inline-block rounded-lg bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50"
-              >
+              <RdvLink className="mt-4 inline-block rounded-lg bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50">
                 Prendre RDV
-              </Link>
+              </RdvLink>
             </div>
           </div>
         </div>
@@ -407,7 +403,7 @@ export default function FinancementConstructysPage() {
           { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },
-          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+          { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
         ]}
       />
           </div>

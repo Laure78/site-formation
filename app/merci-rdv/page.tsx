@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
 import { CheckCircle, Phone, Mail, Home, Calendar, ClipboardList, BookOpen } from 'lucide-react';
 
 export const metadata = {
@@ -120,13 +121,10 @@ export default async function MerciRDVPage({
             <Home size={20} strokeWidth={1.5} />
             Retour à l&apos;accueil
           </Link>
-          <Link
-            href="/prendre-rdv"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto"
-          >
+          <RdvLink className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)] sm:w-auto">
             <Calendar size={20} strokeWidth={1.5} />
             Prendre un autre rendez-vous
-          </Link>
+          </RdvLink>
         </div>
       </div>
     </div>

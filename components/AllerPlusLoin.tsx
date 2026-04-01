@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 export interface AllerPlusLoinLink {
   href: string;
@@ -13,7 +14,7 @@ const DEFAULT_LINKS: AllerPlusLoinLink[] = [
   { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
   { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
   { href: '/blog', label: 'Articles et guides' },
-  { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+  { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
   { href: '/financement-constructys', label: 'Financement Constructys' },
 ];
 
@@ -41,13 +42,25 @@ export function AllerPlusLoin({ links = DEFAULT_LINKS, variant = 'default' }: Al
       <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
         {linkList.map(({ href, label }) => (
           <li key={href}>
-            <Link
-              href={href}
-              className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
-            >
-              {label}
-              <ArrowRight size={16} strokeWidth={1.5} className="shrink-0" />
-            </Link>
+            {href.startsWith('http') ? (
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
+              >
+                {label}
+                <ArrowRight size={16} strokeWidth={1.5} className="shrink-0" />
+              </a>
+            ) : (
+              <Link
+                href={href}
+                className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
+              >
+                {label}
+                <ArrowRight size={16} strokeWidth={1.5} className="shrink-0" />
+              </Link>
+            )}
           </li>
         ))}
       </ul>

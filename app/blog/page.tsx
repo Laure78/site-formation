@@ -9,6 +9,7 @@ import type { BlogCategoryId } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { CTABlock } from '@/components/CTABlock';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Articles, guides pratiques',
@@ -90,7 +91,7 @@ export default async function BlogPage({
           title="Prêt à vous former à l'IA ?"
           description="Réservez un échange de 30 minutes gratuit pour discuter de votre projet. Formation certifiée Qualiopi · 100% finançable Constructys."
           primaryLabel="Prendre rendez-vous"
-          primaryHref="/prendre-rdv"
+          primaryHref={CALENDLY_BOOKING_URL}
           secondaryLabel="Découvrir les formations"
           secondaryHref="/formations"
         />
@@ -203,7 +204,7 @@ export default async function BlogPage({
           title="Prêt à vous former à l'IA ?"
           description="Réservez un échange de 30 minutes gratuit. Devis personnalisé sous 24h. Formation 100% finançable Constructys."
           primaryLabel="Prendre rendez-vous"
-          primaryHref="/prendre-rdv"
+          primaryHref={CALENDLY_BOOKING_URL}
           secondaryLabel="Voir le financement"
           secondaryHref="/financement-constructys"
         />

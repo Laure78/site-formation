@@ -3,6 +3,8 @@
  * Anchors optimisés par mot-clé cible
  */
 
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
 
 /** Pages clés avec ancres SEO variées (éviter répétition) */
@@ -11,8 +13,9 @@ export const INTERNAL_LINKS = {
     path: '/formations',
     anchors: ['formation IA BTP', 'catalogue formations IA', 'formations IA bâtiment'],
   },
+  /** Prise de RDV — lien direct Calendly (nouvel onglet côté UI) */
   prendreRdv: {
-    path: '/prendre-rdv',
+    path: CALENDLY_BOOKING_URL,
     anchors: ['prendre rendez-vous', 'réserver un RDV gratuit', 'devis personnalisé formation'],
   },
   chatgptArtisans: {

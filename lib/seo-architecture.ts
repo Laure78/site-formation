@@ -3,6 +3,8 @@
  * Pillar pages, clusters, internal linking, schema
  */
 
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+
 export const PILLAR_PAGES = [
   {
     id: 'formation-ia-btp',
@@ -57,7 +59,7 @@ export function getPillarPathForCluster(clusterId: string): string {
 /** Liens internes par défaut pour les articles (URLs canoniques) */
 export const DEFAULT_INTERNAL_LINKS = {
   formation: { path: '/formations', anchor: 'formation IA BTP' },
-  prendreRdv: { path: '/prendre-rdv', anchor: 'prendre rendez-vous' },
+  prendreRdv: { path: CALENDLY_BOOKING_URL, anchor: 'prendre rendez-vous' },
   chatgptArtisans: { path: '/chatgpt-artisans-btp', anchor: 'ChatGPT pour artisans' },
   iaDevis: { path: '/ia-devis-batiment', anchor: 'IA devis bâtiment' },
 } as const;
@@ -65,6 +67,6 @@ export const DEFAULT_INTERNAL_LINKS = {
 /** CTAs par bloc */
 export const CTA_BLOCKS = [
   { label: 'Découvrir la formation IA BTP', href: '/formations', variant: 'primary' as const },
-  { label: 'Prendre rendez-vous', href: '/prendre-rdv', variant: 'secondary' as const },
+  { label: 'Prendre rendez-vous', href: CALENDLY_BOOKING_URL, variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

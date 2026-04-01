@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
 import { embedText } from '@/lib/agent/embeddings';
 import { SITE_CONFIG } from '@/lib/seo';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 function getOpenAI() {
   const key = process.env.OPENAI_API_KEY;
@@ -28,7 +29,7 @@ COORDONNÉES OFFICIELLES (à rappeler dès qu'on parle de contact, financement O
 - Email : ${SITE_CONFIG.email}
 - Téléphone : ${SITE_CONFIG.phoneDisplay}
 - Page contact : ${SITE_CONFIG.url}/contact
-- Prendre rendez-vous : ${SITE_CONFIG.url}/prendre-rdv
+- Prendre rendez-vous (Calendly) : ${CALENDLY_BOOKING_URL} — page d'information : ${SITE_CONFIG.url}/prendre-rdv
 Ne renvoie jamais uniquement vers le formulaire de contact : mentionne toujours aussi l'email ${SITE_CONFIG.email} pour écrire directement à Laure.
 
 RÈGLES :

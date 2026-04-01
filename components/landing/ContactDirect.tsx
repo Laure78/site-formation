@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { Calendar, Mail, Phone } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/seo';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 interface ContactDirectProps {
   /** Ex. paramètre d’URL ?formation=… (slug ou libellé) */
@@ -35,13 +35,15 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         <Phone className="h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
         <span className="font-medium">{SITE_CONFIG.phoneDisplay}</span>
       </a>
-      <Link
-        href="/prendre-rdv"
+      <a
+        href={CALENDLY_BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
       >
         <Calendar className="h-5 w-5" strokeWidth={1.5} />
         Prendre rendez-vous en ligne
-      </Link>
+      </a>
     </div>
   );
 }

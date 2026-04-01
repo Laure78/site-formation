@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { SUGGESTED_QUESTIONS } from '@/lib/agent/suggestions';
 import { SITE_CONFIG } from '@/lib/seo';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -36,7 +36,7 @@ interface Message {
 }
 
 const CTAS = [
-  { label: 'Prendre rendez-vous', href: '/prendre-rdv', intent: 'rdv' as const },
+  { label: 'Prendre rendez-vous', href: CALENDLY_BOOKING_URL, intent: 'rdv' as const },
   { label: 'Recevoir le programme', intent: 'programme' as const },
   { label: 'Être recontacté', intent: 'recontact' as const },
 ];
@@ -127,7 +127,8 @@ export function ChatWidget() {
         visitorId: getVisitorId(),
       }),
     });
-    window.location.href = cta.intent === 'programme' ? '/contact' : '/prendre-rdv';
+    window.location.href =
+      cta.intent === 'programme' ? '/contact' : CALENDLY_BOOKING_URL;
   };
 
   return (
@@ -242,13 +243,15 @@ export function ChatWidget() {
               <div className="flex flex-wrap gap-2">
                 {CTAS.map((cta) =>
                   cta.href ? (
-                    <Link
+                    <a
                       key={cta.intent}
                       href={cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="rounded-lg bg-[var(--accent-soft)] px-3 py-1.5 text-xs font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white"
                     >
                       {cta.label}
-                    </Link>
+                    </a>
                   ) : (
                     <button
                       key={cta.intent}

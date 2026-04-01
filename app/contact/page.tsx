@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -74,12 +76,9 @@ export default async function ContactPage({
             >
               Me contacter
             </Link>
-            <Link
-              href="/prendre-rdv"
-              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
-            >
+            <RdvLink className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]">
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
           </div>
             </div>
             <div className="shrink-0 lg:w-96">
@@ -233,12 +232,9 @@ export default async function ContactPage({
             >
               Voir le catalogue formations
             </Link>
-            <Link
-              href="/prendre-rdv"
-              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-            >
+            <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700">
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
           </div>
         </div>
       </section>
@@ -270,12 +266,9 @@ export default async function ContactPage({
             >
               Formation IA BTP
             </Link>
-            <Link
-              href="/prendre-rdv"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
             <a
               href="tel:+33695661818"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
@@ -295,7 +288,7 @@ export default async function ContactPage({
                 links={[
                   { href: '/formations', label: 'Formation IA BTP' },
                   { href: '/chatgpt-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
-                  { href: '/prendre-rdv', label: 'Prendre rendez-vous pour un diagnostic' },
+                  { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous pour un diagnostic' },
                 ]}
               />
             </div>

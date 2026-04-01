@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
 import Image from 'next/image';
 import {
   Check,
@@ -472,13 +473,10 @@ export default function FormationIARHBTPPage() {
               <Phone size={20} strokeWidth={1.5} />
               Appeler maintenant
             </a>
-            <Link
-              href="/prendre-rdv"
-              className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10"
-            >
+            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10">
               <Mail size={20} strokeWidth={1.5} />
               Prendre RDV
-            </Link>
+            </RdvLink>
           </div>
         </div>
       </section>

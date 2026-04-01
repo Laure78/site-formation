@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Check, Calendar, Download, FileText } from 'lucide-react';
 import { createPageMetadata, getBreadcrumbSchema } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -49,12 +51,9 @@ export default function FinancementConstructys100IABTPPage() {
             >
               Modalités détaillées
             </Link>
-            <Link
-              href="/prendre-rdv"
-              className="rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10"
-            >
+            <RdvLink className="rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10">
               Se faire accompagner
-            </Link>
+            </RdvLink>
           </div>
         </div>
       </section>
@@ -139,13 +138,10 @@ export default function FinancementConstructys100IABTPPage() {
               <Download size={20} />
               Conditions Constructys 2026
             </a>
-            <Link
-              href="/prendre-rdv"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 px-6 py-4 font-semibold text-slate-800 hover:bg-slate-50"
-            >
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 px-6 py-4 font-semibold text-slate-800 hover:bg-slate-50">
               <FileText size={20} />
               Accompagnement montage dossier
-            </Link>
+            </RdvLink>
           </div>
           <p className="mt-4 text-sm text-slate-600">
             Devis, convention, programme détaillé : nous vous fournissons les documents nécessaires pour votre demande eGestion.
@@ -163,13 +159,10 @@ export default function FinancementConstructys100IABTPPage() {
             Devis personnalisé sous 24h. Accompagnement financement Constructys.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link
-              href="/prendre-rdv"
-              className="flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
+            <RdvLink className="flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
               Prendre rendez-vous
-            </Link>
+            </RdvLink>
             <Link
               href="/formations"
               className="rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10"
@@ -190,7 +183,7 @@ export default function FinancementConstructys100IABTPPage() {
               { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
               { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-              { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/blog', label: 'Articles sur le financement' },
             ]}
           />

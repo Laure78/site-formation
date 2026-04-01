@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Check, Phone, Calendar } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -120,12 +122,9 @@ export default function FormationIABTPParisPage() {
                 Intervention à Paris (75) et dans les 8 départements.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/prendre-rdv"
-                  className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
-                >
+                <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                   Réserver ma formation
-                </Link>
+                </RdvLink>
                 <a
                   href="#zones"
                   className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
@@ -236,13 +235,10 @@ export default function FormationIABTPParisPage() {
               disponibilité dans votre secteur.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/prendre-rdv"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600"
-              >
+              <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
                 <Calendar size={20} strokeWidth={1.5} />
                 Prendre rendez-vous
-              </Link>
+              </RdvLink>
               <a
                 href="tel:+33695661818"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
@@ -297,7 +293,7 @@ export default function FormationIABTPParisPage() {
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
               { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-              { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             ]}
           />
         </div>
@@ -314,13 +310,10 @@ export default function FormationIABTPParisPage() {
             personnalisé sous 24h. Financement OPCO Constructys 100% possible.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/prendre-rdv"
-              className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
+            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
-            </Link>
+            </RdvLink>
             <a
               href="tel:+33695661818"
               className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10"

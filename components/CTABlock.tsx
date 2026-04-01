@@ -1,6 +1,36 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import Link from 'next/link';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+
+function CtaHref({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className: string;
+  children: ReactNode;
+}) {
+  if (href.startsWith('http://') || href.startsWith('https://')) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
 
 interface CTABlockProps {
   title?: string;
@@ -19,7 +49,7 @@ export function CTABlock({
   primaryLabel = 'Découvrir la formation IA BTP',
   primaryHref = '/formations',
   secondaryLabel = 'Prendre rendez-vous',
-  secondaryHref = '/prendre-rdv',
+  secondaryHref = CALENDLY_BOOKING_URL,
   variant = 'default',
 }: CTABlockProps) {
   return (
@@ -33,18 +63,18 @@ export function CTABlock({
         {description ?? 'Formation certifiée Qualiopi · 100% finançable Constructys'}
       </p>
       <div className="mt-6 flex flex-wrap gap-4">
-        <Link
+        <CtaHref
           href={primaryHref}
           className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-slate-50"
         >
           {primaryLabel}
-        </Link>
-        <Link
+        </CtaHref>
+        <CtaHref
           href={secondaryHref}
           className="inline-flex items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
         >
           {secondaryLabel}
-        </Link>
+        </CtaHref>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { FileText, Mail, Calculator, Users } from 'lucide-react';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
@@ -111,19 +113,16 @@ export default function FormationIAPMEBTPPage() {
       />
 
       <div className="mt-10">
-        <Link
-          href="/prendre-rdv"
-          className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
-        >
+        <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700">
           Prendre RDV pour un devis personnalisé
-        </Link>
+        </RdvLink>
       </div>
 
       <div className="mt-12">
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
-            { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             { href: '/financement-constructys', label: 'Financement Constructys' },
             { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           ]}

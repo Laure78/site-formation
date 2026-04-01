@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RdvLink } from '@/components/RdvLink';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -360,12 +362,9 @@ export default function AProposPage() {
               >
                 Voir le catalogue formations
               </Link>
-              <Link
-                href="/prendre-rdv"
-                className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-              >
+              <RdvLink className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]">
                 Prendre RDV
-              </Link>
+              </RdvLink>
             </div>
           </article>
         </div>
@@ -391,7 +390,7 @@ export default function AProposPage() {
               { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
-              { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/a-propos#clients-partenaires', label: 'Clients & partenaires' },
             ]}
           />

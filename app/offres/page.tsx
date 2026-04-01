@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Target, Users, TrendingUp } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_OFFRES } from '@/lib/faq';
 
@@ -74,7 +75,7 @@ export default function OffresPage() {
           { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },
-          { href: '/prendre-rdv', label: 'Prendre rendez-vous' },
+          { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
           { href: '/financement-constructys', label: 'Financement Constructys' },
         ]}
       />
