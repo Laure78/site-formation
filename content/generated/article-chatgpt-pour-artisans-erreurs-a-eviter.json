@@ -2,12 +2,12 @@
   "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
   "title": "ChatGPT pour artisans : erreurs à éviter",
   "description": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
-  "date": "2026-03-31",
+  "date": "2026-04-01",
   "keywords": [
-    "devis plombier IA",
-    "devis électricien ChatGPT",
-    "chiffrage artisan IA",
-    "ChatGPT entreprises BTP"
+    "offre emploi IA",
+    "recruter BTP",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -74,15 +74,11 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

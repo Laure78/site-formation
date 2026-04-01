@@ -2,12 +2,12 @@
   "slug": "ia-et-macon-5-gains-de-temps-concrets",
   "title": "IA et maçon : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et maçon. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-03-21",
+  "date": "2026-04-01",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -79,10 +79,6 @@
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

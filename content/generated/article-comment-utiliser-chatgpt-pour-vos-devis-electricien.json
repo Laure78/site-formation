@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-electricien",
   "title": "Comment utiliser ChatGPT pour vos devis électricien",
   "description": "Devis électricien avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-03-21",
+  "date": "2026-04-01",
   "keywords": [
-    "IA appels offres BTP",
-    "DCE ChatGPT",
-    "mémoire technique IA",
-    "IA BTP"
+    "emails artisans",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +74,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

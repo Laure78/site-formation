@@ -2,12 +2,13 @@
   "slug": "devis-en-15-min-le-guide-couvreur",
   "title": "Devis en 15 min : le guide couvreur",
   "description": "Devis couvreur en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
-  "date": "2026-03-21",
+  "date": "2026-04-01",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,7 +62,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +75,15 @@
     },
     {
       "path": "/prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
