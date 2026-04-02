@@ -106,7 +106,7 @@ const FORMATIONS_UNSORTED = [
   },
   {
     ref: 'BTP-06',
-    level: 'DÉBUTANT' as const,
+    level: 'INTERMÉDIAIRE' as const,
     title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
     href: '/formations/ia-architecture-claude-dpgf',
     duree: '4h (visioconférence)',

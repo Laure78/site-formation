@@ -41,7 +41,7 @@ BEGIN
     800,
     true,
     4,
-    'débutant',
+    'intermediaire',
     'Architecture'
   )
   RETURNING id INTO cid;
