@@ -87,7 +87,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: "Quelles formations IA BTP sont proposées ?",
-    a: "Notre catalogue inclut : L'IA au service du bâtiment (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), Formation IA pour la fonction RH (14h), L'IA au service des Travaux Publics (14h), IA pour PME du BTP, Sensibilisation à l'IA & Assistants IA personnalisés (parcours LMS). Interventions en présentiel ou distanciel partout en France, et formations en ligne sur la plateforme. Toutes sont finançables Constructys.",
+    a: "Notre catalogue inclut : L'IA au service du bâtiment (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), NIVEAU 2 — assistant IA pour DCE et mémoire technique (parcours LMS), Formation IA pour la fonction RH (14h), L'IA au service des Travaux Publics (14h), IA pour PME du BTP, Sensibilisation à l'IA & Assistants IA personnalisés (parcours LMS). Interventions en présentiel ou distanciel partout en France, et formations en ligne sur la plateforme. Toutes sont finançables Constructys.",
   },
   {
     q: "Comment choisir ma formation IA BTP ?",

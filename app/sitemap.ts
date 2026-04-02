@@ -53,6 +53,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.88,
     },
+    {
+      url: `${baseUrl}/formations/ia-niveau2-assistant-ao-dce-memoire`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.87,
+    },
     { url: `${baseUrl}/chatgpt-artisans-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/ia-devis-batiment`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/ia-conducteur-travaux`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

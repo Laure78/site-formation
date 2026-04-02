@@ -25,6 +25,10 @@ const NAV_ITEMS: {
         label: "Répondre aux appels d'offres BTP avec l'IA",
       },
       {
+        href: '/formations/ia-niveau2-assistant-ao-dce-memoire',
+        label: 'IA AO — Assistant DCE & mémoire (niveau 2)',
+      },
+      {
         href: '/formations/ia-rh-btp',
         label: 'Formation IA pour la Fonction RH dans le BTP',
       },

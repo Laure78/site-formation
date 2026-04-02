@@ -118,6 +118,20 @@ const FORMATIONS_UNSORTED = [
       'Bibliothèque de prompts et flux opérationnels pour le cabinet',
     ],
   },
+  {
+    ref: 'BTP-07',
+    level: 'INTERMÉDIAIRE' as const,
+    title: "L'IA appliquée aux AO — Assistant IA DCE & mémoire technique (niveau 2)",
+    href: '/formations/ia-niveau2-assistant-ao-dce-memoire',
+    duree: '7h (parcours LMS)',
+    effectif: 'Selon session',
+    objectifs: [
+      'Créer et paramétrer un assistant IA pour DCE et mémoires techniques',
+      "Structurer l'analyse de DCE et les critères d'évaluation",
+      'Accélérer la rédaction de mémoires techniques alignées marchés BTP',
+      'Parcours sur la plateforme — Qualiopi, OPCO Constructys',
+    ],
+  },
 ];
 
 function refNum(ref: string) {

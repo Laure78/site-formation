@@ -33,6 +33,11 @@ const FORMATIONS_DATA = [
     title: 'Architecte augmenté — Claude AI, DPGF, chantier et documents',
     desc: "Formation intra 4h visio : cabinets d'architecture, DPGF, métrés, GANTT, CR, PV, courriers. Claude AI + Google Workspace. 800 € HT.",
   },
+  {
+    path: '/formations/ia-niveau2-assistant-ao-dce-memoire',
+    title: "IA appliquée aux AO — Assistant DCE & mémoire technique (niveau 2)",
+    desc: "Parcours LMS 7h intermédiaire : assistant IA pour DCE et mémoires techniques. Complément aux formations AO. Qualiopi, Constructys.",
+  },
 ];
 
 // Pages clés + contenu synthétique
