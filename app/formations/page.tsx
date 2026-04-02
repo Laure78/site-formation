@@ -92,7 +92,7 @@ const FORMATIONS_UNSORTED = [
   },
   {
     ref: 'BTP-05',
-    level: 'INTERMÉDIAIRE' as const,
+    level: 'DÉBUTANT' as const,
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     href: '/formations/sensibilisation-ia-assistants-personnalises',
     duree: '8h (parcours LMS)',

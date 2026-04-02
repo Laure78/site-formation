@@ -41,7 +41,7 @@ BEGIN
     0,
     true,
     8,
-    'intermediaire',
+    'débutant',
     'BTP'
   )
   RETURNING id INTO cid;
