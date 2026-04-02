@@ -2,12 +2,12 @@
   "slug": "appels-d-offres-btp-l-ia-comme-assistant",
   "title": "Appels d'offres BTP : l'IA comme assistant",
   "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
-  "date": "2026-03-31",
+  "date": "2026-04-02",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -73,12 +73,16 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

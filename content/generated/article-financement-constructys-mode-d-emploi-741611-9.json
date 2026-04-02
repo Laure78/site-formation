@@ -1,13 +1,14 @@
 {
-  "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
-  "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "slug": "financement-constructys-mode-d-emploi-741611-9",
+  "title": "Financement Constructys : mode d'emploi",
+  "description": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
   "date": "2026-04-02",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,12 +62,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "seoTitle": "Financement Constructys : mode d'emploi",
+  "metaDescription": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,6 +80,10 @@
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
