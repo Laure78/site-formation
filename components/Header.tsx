@@ -32,6 +32,10 @@ const NAV_ITEMS: {
         href: '/formations/sensibilisation-ia-assistants-personnalises',
         label: "Sensibilisation à l'IA & Assistants IA personnalisés",
       },
+      {
+        href: '/formations/ia-architecture-claude-dpgf',
+        label: 'IA architecture — Claude AI & DPGF',
+      },
     ],
   },
   { href: '/a-propos', label: 'À propos' },

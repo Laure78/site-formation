@@ -91,6 +91,7 @@ export function Footer() {
                 { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+                { href: '/formations/ia-architecture-claude-dpgf', label: 'IA architecture — Claude AI & DPGF' },
                 { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
                 { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
                 { href: '/financement-constructys', label: 'Financement OPCO' },

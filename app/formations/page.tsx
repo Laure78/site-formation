@@ -104,6 +104,20 @@ const FORMATIONS_UNSORTED = [
       "Parcours sur la plateforme de formation — Qualiopi, OPCO Constructys",
     ],
   },
+  {
+    ref: 'BTP-06',
+    level: 'DÉBUTANT' as const,
+    title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
+    href: '/formations/ia-architecture-claude-dpgf',
+    duree: '4h (visioconférence)',
+    effectif: '1 à 10 (intra)',
+    objectifs: [
+      'DPGF, métrés et planning GANTT avec Claude AI et Google Sheets',
+      'CR de chantier, situations de travaux, PV de réception (Google Docs)',
+      'Courriers et actes de marché via connecteur Google Drive',
+      'Bibliothèque de prompts et flux opérationnels pour le cabinet',
+    ],
+  },
 ];
 
 function refNum(ref: string) {

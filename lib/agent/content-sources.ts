@@ -28,6 +28,11 @@ const FORMATIONS_DATA = [
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     desc: 'Parcours LMS 8h : sensibilisation IA, prompts par métier, assistants sur mesure. Qualiopi, Constructys.',
   },
+  {
+    path: '/formations/ia-architecture-claude-dpgf',
+    title: 'Architecte augmenté — Claude AI, DPGF, chantier et documents',
+    desc: "Formation intra 4h visio : cabinets d'architecture, DPGF, métrés, GANTT, CR, PV, courriers. Claude AI + Google Workspace. 800 € HT.",
+  },
 ];
 
 // Pages clés + contenu synthétique
