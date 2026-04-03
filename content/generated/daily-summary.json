@@ -1,25 +1,17 @@
 {
-  "date": "2026-04-02",
+  "date": "2026-04-03",
   "articles": [
-    {
-      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
-      "title": "Formation IA BTP : ce qu'il faut savoir en 2026"
-    },
-    {
-      "slug": "financement-constructys-mode-d-emploi",
-      "title": "Financement Constructys : mode d'emploi"
-    },
     {
       "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
       "title": "ChatGPT pour artisans : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-charpentier",
-      "title": "Devis en 15 min : le guide charpentier"
+      "slug": "devis-en-15-min-le-guide-peintre",
+      "title": "Devis en 15 min : le guide peintre"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-couvreurs",
-      "title": "L'IA va-t-elle remplacer les couvreurs ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
+      "title": "L'IA va-t-elle remplacer les charpentiers ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
@@ -30,16 +22,24 @@
       "title": "Appels d'offres BTP : l'IA comme assistant"
     },
     {
-      "slug": "ia-et-plombier-5-gains-de-temps-concrets",
-      "title": "IA et plombier : 5 gains de temps concrets"
+      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
+      "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026-741611-8",
+      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
       "title": "Formation IA BTP : ce qu'il faut savoir en 2026"
     },
     {
-      "slug": "financement-constructys-mode-d-emploi-741611-9",
+      "slug": "financement-constructys-mode-d-emploi",
       "title": "Financement Constructys : mode d'emploi"
+    },
+    {
+      "slug": "chatgpt-pour-artisans-erreurs-a-eviter-741612-8",
+      "title": "ChatGPT pour artisans : erreurs à éviter"
+    },
+    {
+      "slug": "devis-en-15-min-le-guide-carreleur",
+      "title": "Devis en 15 min : le guide carreleur"
     }
   ],
   "linkedinCount": 10

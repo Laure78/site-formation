@@ -1,13 +1,13 @@
 {
-  "slug": "devis-en-15-min-le-guide-carreleur",
-  "title": "Devis en 15 min : le guide carreleur",
-  "description": "Devis carreleur en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
+  "slug": "chatgpt-pour-artisans-erreurs-a-eviter-741612-8",
+  "title": "ChatGPT pour artisans : erreurs à éviter",
+  "description": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "date": "2026-04-03",
   "keywords": [
-    "IA appels offres BTP",
-    "DCE ChatGPT",
-    "mémoire technique IA",
-    "IA BTP"
+    "emails artisans",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Devis en 15 min : le guide carreleur",
-  "metaDescription": "Devis carreleur en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
+  "seoTitle": "ChatGPT pour artisans : erreurs à éviter",
+  "metaDescription": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/chatgpt-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
