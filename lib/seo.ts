@@ -86,17 +86,27 @@ export const SITE_CONFIG = {
   statsPersonnesFormees: '1592',
 } as const;
 
-/** Helper pour métadonnées de page avec Open Graph */
+const DEFAULT_OG_IMAGE = {
+  url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
+  width: 1200,
+  height: 630,
+  alt: 'Laure Olivié — Formatrice IA pour le BTP, Qualiopi',
+} as const;
+
+/** Helper pour métadonnées de page avec Open Graph + Twitter (partages & GEO) */
 export function createPageMetadata({
   title,
   description,
   path = '',
   keywords,
+  openGraphType = 'website',
 }: {
   title: string;
   description: string;
   path?: string;
   keywords?: string[];
+  /** article = pages formation / blog (meilleure sémantique pour les moteurs) */
+  openGraphType?: 'website' | 'article';
 }) {
   const url = path ? `${SITE_CONFIG.url}${path}` : SITE_CONFIG.url;
   return {
@@ -104,11 +114,19 @@ export function createPageMetadata({
     description,
     keywords: keywords ?? SITE_CONFIG.keywords,
     openGraph: {
+      type: openGraphType,
       title,
       description,
       url,
       siteName: SITE_CONFIG.name,
       locale: 'fr_FR',
+      images: [DEFAULT_OG_IMAGE],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [DEFAULT_OG_IMAGE.url],
     },
     alternates: path ? { canonical: url } : undefined,
   };
@@ -154,6 +172,10 @@ export function getCourseSchema({
   providerName,
   areaServed,
   instructorName,
+  teaches,
+  courseCode,
+  educationalLevel,
+  timeRequired,
 }: {
   name: string;
   description: string;
@@ -161,6 +183,14 @@ export function getCourseSchema({
   providerName: string;
   areaServed?: string[];
   instructorName?: string;
+  /** Compétences couvertes — utile pour réponses IA (Perplexity, SGE) */
+  teaches?: string[];
+  /** Ex. réf. catalogue BTP-07 */
+  courseCode?: string;
+  /** Ex. « Intermédiaire », « Professionnel » */
+  educationalLevel?: string;
+  /** Durée ISO 8601, ex. PT7H pour 7 h */
+  timeRequired?: string;
 }) {
   const instructor = instructorName ?? SITE_CONFIG.name;
   return {
@@ -168,10 +198,11 @@ export function getCourseSchema({
     '@type': 'Course',
     name,
     description,
+    inLanguage: 'fr-FR',
     provider: {
-      '@type': 'Person',
-      '@id': `${SITE_CONFIG.url}/#person`,
-      name: instructor,
+      '@type': 'Organization',
+      '@id': `${SITE_CONFIG.url}/#organization`,
+      name: providerName,
     },
     instructor: {
       '@type': 'Person',
@@ -180,9 +211,14 @@ export function getCourseSchema({
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      name: 'Formation IA pour entreprises du BTP',
+      name,
+      courseMode: 'online',
     },
     url: `${SITE_CONFIG.url}${path}`,
+    ...(courseCode && { courseCode }),
+    ...(educationalLevel && { educationalLevel }),
+    ...(timeRequired && { timeRequired }),
+    ...(teaches?.length && { teaches }),
     ...(areaServed?.length && {
       areaServed: areaServed.map((a) => ({ '@type': 'Place', name: a })),
     }),
@@ -349,6 +385,8 @@ export function getPersonSchema() {
       'Analyse d\'appels d\'offres',
       'Génération de devis avec IA',
       'Mémoire technique IA',
+      'Assistant IA pour analyse DCE',
+      'Formation appels d\'offres niveau 2 BTP',
       'Formation professionnelle BTP',
       'OPCO Constructys',
       'Financement formation OPCO',

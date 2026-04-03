@@ -16,27 +16,45 @@ const PDF_HREF =
   '/formations/ia-niveau2-assistant-ao-dce-memoire/Programme_Niveau2_IA_AO_Assistant_DCE_Memoire_Technique.pdf';
 
 export const metadata = createPageMetadata({
-  title:
-    "NIVEAU 2 — IA & appels d'offres : assistant IA pour DCE et mémoire technique | Qualiopi",
+  title: 'Assistant IA DCE & mémoire technique BTP — Niveau 2 (BTP-07)',
   description:
-    "Parcours LMS intermédiaire : créer son assistant IA pour analyser les DCE et rédiger des mémoires techniques. BTP, marchés publics. Qualiopi, OPCO Constructys.",
+    "IA appliquée aux appels d'offres BTP : parcours LMS 7 h, niveau intermédiaire. Créer un assistant IA pour DCE, critères et mémoires techniques. Marchés publics & privés. OPCO Constructys.",
   path: '/formations/ia-niveau2-assistant-ao-dce-memoire',
+  openGraphType: 'article',
   keywords: [
     'assistant IA DCE',
     'mémoire technique IA BTP',
     'formation IA appels offres niveau 2',
     'DCE intelligence artificielle',
+    'analyse DCE IA',
+    'réponse marché public BTP',
+    'CCTP mémoire technique',
+    'chargé affaires IA',
+    'bureau études marchés publics',
+    'parcours LMS BTP',
+    'formation intermédiaire IA BTP',
     'Constructys',
+    'Qualiopi',
+    'BTP-07',
   ],
 });
 
 const courseSchema = getCourseSchema({
   name: "NIVEAU 2 — L'IA appliquée aux AO : créer son assistant IA pour DCE et mémoire technique",
   description:
-    "Parcours en ligne : assistant IA pour dossiers de consultation, mémoires techniques et réponses marchés BTP. Niveau intermédiaire. Finançable OPCO Constructys.",
+    "Parcours en ligne (7 h) : conception d'un assistant IA pour dossiers de consultation (DCE), structuration des réponses et rédaction de mémoires techniques pour marchés BTP. Niveau intermédiaire. Organisme certifié Qualiopi — financement type OPCO Constructys selon éligibilité.",
   path: '/formations/ia-niveau2-assistant-ao-dce-memoire',
   providerName: SITE_CONFIG.legalName,
-  areaServed: ['France'],
+  areaServed: ['France', 'Île-de-France'],
+  courseCode: 'BTP-07',
+  educationalLevel: 'Intermédiaire — professionnels BTP',
+  timeRequired: 'PT7H',
+  teaches: [
+    'Création et paramétrage d’un assistant IA métier pour appels d’offres',
+    'Analyse de DCE et identification des critères de notation',
+    'Structuration et rédaction de mémoires techniques avec l’IA',
+    'Bonnes pratiques de confidentialité et validation humaine des livrables',
+  ],
 });
 
 const breadcrumbSchema = getBreadcrumbSchema([
@@ -78,6 +96,18 @@ const FAQ_N2 = [
   {
     q: 'Financement et Qualiopi ?',
     a: "La formation est éligible aux dispositifs habituels (notamment OPCO Constructys pour le BTP), sous réserve des règles applicables à votre entreprise. Organisme certifié Qualiopi.",
+  },
+  {
+    q: 'Comment utiliser l’IA pour un mémoire technique sans plagiat ni erreurs ?',
+    a: "L'IA sert à structurer, reformuler et gagner du temps : la validation par un expert reste obligatoire avant envoi. Le parcours insiste sur la relecture humaine, la traçabilité des sources et le respect du RGPD.",
+  },
+  {
+    q: 'Ce parcours est-il adapté aux marchés publics uniquement ?',
+    a: "Les méthodes s'appliquent aux dossiers de consultation type DCE / critères d'évaluation, courants sur les marchés publics et dans de nombreux appels d'offres privés structurés du BTP.",
+  },
+  {
+    q: 'Où suivre la formation « journée » appels d’offres avant ce niveau 2 ?',
+    a: "La formation présentielle ou distancielle « Répondre aux appels d'offres BTP avec l'IA » est listée sur le même catalogue (réf. BTP-02). Elle complète idéalement ce parcours LMS.",
   },
 ];
 
@@ -143,6 +173,31 @@ export default function FormationIANiveau2AOAssistantPage() {
           Prendre rendez-vous
         </RdvLink>
       </div>
+
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 md:p-8">
+        <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+          Public, prérequis et lien avec vos autres formations
+        </h2>
+        <p className="mt-4 text-slate-700">
+          Ce parcours s&apos;adresse aux <strong>chargés d&apos;affaires</strong>,{' '}
+          <strong>bureaux d&apos;études</strong> et équipes réponses marchés qui veulent passer de la simple
+          sensibilisation à un <strong>assistant IA opérationnel</strong> sur les{' '}
+          <strong>DCE</strong>, critères et <strong>mémoires techniques</strong>. Il prolonge la logique de la
+          formation <Link href="/formations/ia-appels-offre-btp" className="font-medium text-[var(--accent)] hover:underline">Répondre aux appels d&apos;offres BTP avec l&apos;IA</Link> (1 jour, réf. BTP-02) sans la remplacer : ici, l&apos;accent est mis sur le{' '}
+          <strong>parcours LMS</strong> et la <strong>mise en œuvre autonome</strong> sur la plateforme.
+        </p>
+        <p className="mt-3 text-slate-700">
+          Retrouvez l&apos;ensemble des programmes sur le{' '}
+          <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">
+            catalogue des formations IA BTP
+          </Link>{' '}
+          (Qualiopi, financement possible via{' '}
+          <Link href="/financement-constructys" className="font-medium text-[var(--accent)] hover:underline">
+            OPCO Constructys
+          </Link>
+          ).
+        </p>
+      </section>
 
       <section className="mt-14">
         <h2 className="font-display text-2xl font-bold text-slate-900">Ce que vous allez traiter</h2>

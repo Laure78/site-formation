@@ -62,6 +62,15 @@ export const INTERNAL_LINKS = {
     path: '/formations/ia-appels-offre-btp',
     anchors: ['formation appels d\'offres IA', 'IA appels d\'offres BTP', 'formation DCE'],
   },
+  /** Suite logique après AO jour 1 — parcours LMS assistant DCE / mémoire */
+  appelsOffresNiveau2: {
+    path: '/formations/ia-niveau2-assistant-ao-dce-memoire',
+    anchors: [
+      'assistant IA mémoire technique BTP',
+      'formation IA DCE marchés publics',
+      'parcours LMS appels d\'offres niveau 2',
+    ],
+  },
   checklist: {
     path: '/checklist-ia-btp',
     anchors: ['checklist prompts ChatGPT', '10 prompts ChatGPT BTP', 'prompts gratuits'],
