@@ -1,13 +1,23 @@
 import Link from 'next/link';
-import { User, Award } from 'lucide-react';
+import Image from 'next/image';
+import { Award } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/seo';
+
+const AUTHOR_PHOTO = '/images/laure-olivie.png';
 
 export function AuthorBlock({ className }: { className?: string }) {
   return (
     <div className={`rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 ${className ?? ''}`}>
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)] text-white">
-          <User size={32} strokeWidth={1.5} />
+        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md">
+          <Image
+            src={AUTHOR_PHOTO}
+            alt={`${SITE_CONFIG.name} — formatrice IA pour le BTP`}
+            width={64}
+            height={64}
+            className="h-full w-full object-cover object-top"
+            sizes="64px"
+          />
         </div>
         <div className="flex-1">
           <h3 className="font-display text-lg font-semibold text-slate-900">
