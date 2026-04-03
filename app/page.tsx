@@ -17,6 +17,12 @@ import {
   Calendar,
   Mail,
   GraduationCap,
+  CircleDollarSign,
+  Rocket,
+  HeartHandshake,
+  LineChart,
+  Sparkles,
+  ShieldCheck,
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
@@ -220,19 +226,46 @@ export default function HomePage() {
           </h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: Award, title: 'Augmentez votre rentabilité', desc: "Réduisez vos coûts administratifs de 30 à 40 %. Répondez à plus d'appels d'offres avec les mêmes ressources." },
-              { icon: Zap, title: 'Gagnez en réactivité commerciale', desc: "Répondez aux devis en 15 minutes au lieu de 2 jours. Augmentez votre taux de transformation de 25 %." },
-              { icon: Users, title: 'Fidélisez vos équipes', desc: "Libérez vos collaborateurs des tâches répétitives. Réduisez le turnover grâce à des conditions modernisées." },
-              { icon: TrendingUp, title: 'Développez votre CA sans embaucher', desc: "Traitez 50 % de chantiers supplémentaires avec les mêmes effectifs. Optimisez vos marges." },
-              { icon: Target, title: 'Professionnalisez votre image', desc: "Démarquez-vous par votre rapidité. Proposez des documents ultra-professionnels." },
-              { icon: Shield, title: 'Sécurisez vos process', desc: "Standardisez vos documents. Assurez la traçabilité complète. Réduisez les litiges." },
+              {
+                icon: CircleDollarSign,
+                title: 'Augmentez votre rentabilité',
+                desc: "Réduisez vos coûts administratifs de 30 à 40 %. Répondez à plus d'appels d'offres avec les mêmes ressources.",
+              },
+              {
+                icon: Rocket,
+                title: 'Gagnez en réactivité commerciale',
+                desc: "Répondez aux devis en 15 minutes au lieu de 2 jours. Augmentez votre taux de transformation de 25 %.",
+              },
+              {
+                icon: HeartHandshake,
+                title: 'Fidélisez vos équipes',
+                desc: "Libérez vos collaborateurs des tâches répétitives. Réduisez le turnover grâce à des conditions modernisées.",
+              },
+              {
+                icon: LineChart,
+                title: 'Développez votre CA sans embaucher',
+                desc: "Traitez 50 % de chantiers supplémentaires avec les mêmes effectifs. Optimisez vos marges.",
+              },
+              {
+                icon: Sparkles,
+                title: 'Professionnalisez votre image',
+                desc: "Démarquez-vous par votre rapidité. Proposez des documents ultra-professionnels.",
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Sécurisez vos process',
+                desc: "Standardisez vos documents. Assurez la traçabilité complète. Réduisez les litiges.",
+              },
             ].map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
                 className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-colors hover:bg-white/15"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-400/20 text-amber-300">
-                  <Icon size={24} strokeWidth={1.5} />
+                <div
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-200/20 to-white/10 text-amber-100 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] ring-1 ring-white/20"
+                  aria-hidden
+                >
+                  <Icon size={26} strokeWidth={1.75} className="drop-shadow-[0_0_8px_rgba(253,230,138,0.35)]" />
                 </div>
                 <h3 className="mt-4 font-semibold text-white">{title}</h3>
                 <p className="mt-2 text-sm text-blue-100">{desc}</p>
@@ -324,14 +357,17 @@ export default function HomePage() {
               <span>LINKEDIN LEARNING</span>
             </div>
             <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              L&apos;IA au service du bâtiment — complément en ligne
+              L&apos;IA pour recruter dans le BTP — aperçu LinkedIn Learning
             </h3>
             <p className="mt-3 text-slate-600">
-              Le parcours présentiel «&nbsp;L&apos;IA au service du bâtiment&nbsp;» s&apos;appuie sur les mêmes enjeux que la formation LinkedIn Learning{' '}
-              <strong>L&apos;IA pour le BTP&nbsp;: des solutions concrètes pour vos chantiers</strong>
-              &nbsp;: devis, emails, automatisation administrative. Visionnez l&apos;introduction ci-dessous ou suivez le cours complet sur{' '}
+              Pour les <strong>artisans et TPE</strong> du bâtiment : annonces, tri de CV, entretiens, fidélisation.
+              Visionnez l&apos;introduction du cours{' '}
+              <strong>
+                L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
+              </strong>{' '}
+              ci-dessous, ou suivez-le en intégralité sur{' '}
               <a
-                href="https://fr.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers/bienvenue-dans-l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers"
+                href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-[var(--accent)] hover:underline"
@@ -341,7 +377,7 @@ export default function HomePage() {
               .
             </p>
             <div className="mt-6">
-              <LinkedInLearningEmbed course="chantiers" />
+              <LinkedInLearningEmbed course="recrutement" />
             </div>
           </div>
         </div>
@@ -566,45 +602,6 @@ export default function HomePage() {
 
       {/* Avis clients Google */}
       <GoogleReviewsSection />
-
-      {/* Formations LinkedIn — expertise */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <Video size={16} strokeWidth={1.5} />
-            <span>FORMATIONS LINKEDIN LEARNING</span>
-          </div>
-          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            Découvrez mes formations sur l&apos;IA pour le BTP
-          </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Formatrice LinkedIn Learning : le cours sur les chantiers est présenté dans le programme «&nbsp;L&apos;IA au service du bâtiment&nbsp;» ci-dessus.
-          </p>
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.linkedinGraz.src}
-                alt={PHOTOS.linkedinGraz.alt}
-                width={PHOTOS.linkedinGraz.width}
-                height={PHOTOS.linkedinGraz.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={PHOTOS.bannerSolutionsConcretres.src}
-                alt={PHOTOS.bannerSolutionsConcretres.alt}
-                width={PHOTOS.bannerSolutionsConcretres.width}
-                height={PHOTOS.bannerSolutionsConcretres.height}
-                className="h-auto w-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Qualiopi certification */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
