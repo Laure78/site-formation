@@ -10,8 +10,6 @@ const NAV_ITEMS: {
   href?: string;
   label: string;
   children?: { href: string; label: string }[];
-  /** Bouton bleu (même style que S'inscrire) */
-  cta?: boolean;
 }[] = [
   { href: '/', label: 'Accueil' },
   {
@@ -43,11 +41,13 @@ const NAV_ITEMS: {
     ],
   },
   { href: '/a-propos', label: 'À propos' },
-  { href: '/contact', label: 'Contact' },
   { href: '/financement-constructys', label: 'Financement' },
   { href: '/blog', label: 'Ressources' },
-  { href: CALENDLY_BOOKING_URL, label: 'Prendre RDV', cta: true },
 ];
+
+/** Contact à côté du CTA Calendly (desktop + mobile) */
+const CONTACT_ITEM = { href: '/contact', label: 'Contact' as const };
+const RDV_CTA = { href: CALENDLY_BOOKING_URL, label: 'Prendre RDV' as const };
 
 function isActive(href: string, pathname: string) {
   if (href === '/') return pathname === '/';
@@ -131,26 +131,6 @@ export function Header() {
                   </div>
                 )}
               </div>
-            ) : item.cta ? (
-              item.href!.startsWith('http') ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href!}
-                  className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-                >
-                  {item.label}
-                </Link>
-              )
             ) : (
               <Link
                 key={item.href}
@@ -165,6 +145,26 @@ export function Header() {
               </Link>
             )
           )}
+          <div className="ml-1 flex items-center gap-2 border-l border-slate-200 pl-3">
+            <Link
+              href={CONTACT_ITEM.href}
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                isActive(CONTACT_ITEM.href, pathname)
+                  ? 'text-[var(--accent)]'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              {CONTACT_ITEM.label}
+            </Link>
+            <a
+              href={RDV_CTA.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+            >
+              {RDV_CTA.label}
+            </a>
+          </div>
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
@@ -221,28 +221,6 @@ export function Header() {
                     </Link>
                   ))}
                 </div>
-              ) : item.cta ? (
-                item.href!.startsWith('http') ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setOpen(false)}
-                    className="rounded-lg bg-[var(--accent)] px-3 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href!}
-                    onClick={() => setOpen(false)}
-                    className="rounded-lg bg-[var(--accent)] px-3 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700"
-                  >
-                    {item.label}
-                  </Link>
-                )
               ) : (
                 <Link
                   key={item.href}
@@ -258,6 +236,28 @@ export function Header() {
                 </Link>
               )
             )}
+            <div className="mt-2 flex flex-row gap-2 border-t border-slate-200 pt-4">
+              <Link
+                href={CONTACT_ITEM.href}
+                onClick={() => setOpen(false)}
+                className={`flex-1 rounded-lg border-2 border-slate-200 px-2 py-2.5 text-center text-sm font-medium ${
+                  isActive(CONTACT_ITEM.href, pathname)
+                    ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]'
+                    : 'text-slate-700'
+                }`}
+              >
+                {CONTACT_ITEM.label}
+              </Link>
+              <a
+                href={RDV_CTA.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex-1 rounded-lg bg-[var(--accent)] px-2 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-blue-700"
+              >
+                {RDV_CTA.label}
+              </a>
+            </div>
             <div className="mt-4 flex flex-col gap-2 border-t border-slate-200 pt-4">
               <Link
                 href="/auth/connexion"
