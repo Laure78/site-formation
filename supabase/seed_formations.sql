@@ -11,17 +11,13 @@ DELETE FROM modules WHERE course_id IN (SELECT id FROM courses WHERE slug IN (
   'ia-au-service-du-btp',
   'ia-appels-offre-btp',
   'ia-rh-btp',
-  'ia-travaux-publics',
-  'ia-btp-paris',
-  'ia-pme-btp'
+  'ia-travaux-publics'
 ));
 DELETE FROM courses WHERE slug IN (
   'ia-au-service-du-btp',
   'ia-appels-offre-btp',
   'ia-rh-btp',
-  'ia-travaux-publics',
-  'ia-btp-paris',
-  'ia-pme-btp'
+  'ia-travaux-publics'
 );
 
 -- Fonction pour insérer une formation avec ses modules
@@ -114,43 +110,5 @@ BEGIN
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Comprendre et concevoir un assistant IA', 3);
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Créer et configurer votre assistant IA', 4);
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Atelier final et plan d''action IA TP', 5);
-
-  -- 5. Formation IA BTP à Paris
-  INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
-  VALUES (
-    'ia-btp-paris',
-    'Formation IA BTP à Paris',
-    'Formation ultra-pratique de 4h pour les professionnels du BTP en Île-de-France. Automatisez vos devis, chiffrages et communication avec ChatGPT. Paris et 8 départements.',
-    'Devis en 15 min avec ChatGPT · Emails et relances clients automatisés · Paris et 8 départements Île-de-France · 100% finançable OPCO',
-    'Aucun prérequis. Ordinateur et connexion internet.',
-    'Devis professionnels en 15 min · Automatisation emails et relances · Contenu réseaux sociaux · Chiffrage et marges · Gestion administrative accélérée.',
-    0,
-    true,
-    4,
-    'débutant'
-  ) RETURNING id INTO cid;
-
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Devis et chiffrages avec ChatGPT', 0);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Emails et relances clients', 1);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Administratif et productivité', 2);
-
-  -- 6. IA pour PME du BTP
-  INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
-  VALUES (
-    'ia-pme-btp',
-    'IA pour PME du BTP',
-    'Programme sur-mesure pour les PME du bâtiment. Devis, chiffrages, emails, comptes rendus : optimisez votre temps avec l''IA sans embaucher.',
-    'Devis et chiffrages optimisés · Emails et administratif simplifié · Productivité sans embaucher',
-    'Aucun prérequis. Dirigeants et équipes TPE/PME BTP.',
-    'Module 1 : Devis et chiffrages — optimiser vos devis avec l''IA. Module 2 : Gestion administrative — emails, relances, CR. Module 3 : Productivité et gains de temps.',
-    0,
-    true,
-    7,
-    'débutant'
-  ) RETURNING id INTO cid;
-
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Devis et chiffrages optimisés', 0);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Gestion administrative simplifiée', 1);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Productivité et gains de temps', 2);
 
 END $$;
