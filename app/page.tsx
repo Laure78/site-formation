@@ -8,8 +8,6 @@ import {
   Zap,
   Target,
   Users,
-  Briefcase,
-  BarChart3,
   Check,
   Phone,
   Calendar,
@@ -37,6 +35,10 @@ import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
 import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
+import { ProgrammesBTP } from '@/components/landing/ProgrammesBTP';
+import { PourQuiSection } from '@/components/landing/PourQuiSection';
+import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
+import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
@@ -46,7 +48,7 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin',
   description:
-    "Formation IA BTP pratique : devis, comptes rendus, relances. Dirigeants de TPE et PME du bâtiment et des travaux publics. Qualiopi, financement Constructys. Réservez un échange.",
+    "Formation IA BTP & ChatGPT : devis, chantier, mémoires techniques. Référence FFB & CSFE, Qualiopi, financement Constructys. Laure Olivié — +1592 professionnels formés. Réservez un échange gratuit.",
   path: '/',
 });
 
@@ -208,7 +210,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-start justify-center gap-3 text-left">
                   <span
-                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"
+                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white"
                     aria-hidden
                   >
                     <Check size={14} strokeWidth={2.5} />
@@ -279,7 +281,7 @@ export default function HomePage() {
       {/* Référence clients — bande sombre */}
       <section className="border-b border-slate-200 bg-slate-900 px-4 py-16 text-white">
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-xl">
               <p className="inline-flex rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-blue-200">
                 Référence & partenaires
@@ -300,24 +302,37 @@ export default function HomePage() {
                 Voir les clients & partenaires
               </Link>
             </div>
-            <div className="grid shrink-0 grid-cols-1 gap-4 sm:grid-cols-3">
-              {[
-                { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'personnes formées' },
-                { val: '4,85/5', label: 'note moyenne' },
-                { val: '100%', label: 'finançable OPCO' },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-2xl border border-white/10 bg-slate-800/80 px-6 py-5 text-center"
-                >
-                  <p className="text-2xl font-bold text-cyan-300 md:text-3xl">{s.val}</p>
-                  <p className="mt-1 text-xs text-slate-400">{s.label}</p>
-                </div>
-              ))}
+            <div className="flex w-full flex-col gap-6 lg:max-w-md">
+              <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-800 sm:h-52">
+                <Image
+                  src="/images/ffb-espaces-accueil.png"
+                  alt="Espaces d’accueil FFB — environnement professionnel formation et réseau bâtiment"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                />
+              </div>
+              <div className="grid shrink-0 grid-cols-3 gap-3 sm:gap-4">
+                {[
+                  { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'personnes formées' },
+                  { val: '4,85/5', label: 'note moyenne' },
+                  { val: '100%', label: 'finançable OPCO' },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-2xl border border-white/10 bg-slate-800/80 px-3 py-4 text-center sm:px-5 sm:py-5"
+                  >
+                    <p className="text-xl font-bold text-cyan-300 sm:text-2xl md:text-3xl">{s.val}</p>
+                    <p className="mt-1 text-[0.65rem] text-slate-400 sm:text-xs">{s.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <FFBIAAccrocheSection />
 
       {/* Étude de cas clients — FFB / CSFE (preuve B2B) */}
       <EtudeCasClientsSection />
@@ -375,53 +390,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Public visé */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <Users size={16} strokeWidth={1.5} />
-            <span>PUBLIC VISÉ</span>
-          </div>
-          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            À qui s&apos;adresse cette formation IA BTP
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: Briefcase,
-                title: 'Dirigeants de TPE et PME (bâtiment et TP)',
-                desc: "Vous pilotez une entreprise du bâtiment ou des travaux publics et souhaitez optimiser la productivité de vos équipes. Gagnez du temps sur le chiffrage et la gestion administrative.",
-              },
-              {
-                icon: Target,
-                title: 'Conducteurs de travaux',
-                desc: "Automatisez vos comptes rendus chantier, rapports d'avancement et coordination entre équipes. Moins de temps sur l'administratif, plus sur le terrain.",
-              },
-              {
-                icon: Briefcase,
-                title: 'Assistantes administratives BTP',
-                desc: "Gérez plus efficacement les emails, relances clients, modèles de documents et suivi administratif grâce à l'IA. Améliorez votre productivité quotidienne.",
-              },
-              {
-                icon: BarChart3,
-                title: 'Chargés d\'affaires et métreurs',
-                desc: "Accélérez la préparation de vos chiffrages, devis détaillés et réponses techniques. L'IA vous aide à être plus réactif face à la concurrence.",
-              },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <Icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="mt-4 font-semibold text-slate-900">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PourQuiSection />
+
+      <ArticlesFormationLies />
 
       {/* Bénéfices — fond bleu */}
       <section className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-20">
@@ -610,50 +581,55 @@ export default function HomePage() {
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <span>CATALOGUE</span>
+            <span>FORMATIONS IA BTP</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Nos formations IA spécialisées BTP
           </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Formations IA finançables Qualiopi / OPCO — présentiel et distanciel.
+          </p>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {[
               {
                 ref: 'BTP-01',
                 level: 'DÉBUTANT',
                 title: "L'IA au service du bâtiment",
+                href: '/#programme',
                 duree: '4h ou 7h',
                 effectif: '12 max',
                 objectifs: [
-                  "Identifier les usages IA utiles dans le BTP",
-                  "Accélérer la rédaction de devis et messages clients",
+                  'Identifier les usages IA utiles dans le BTP',
+                  'Accélérer la rédaction de devis et messages clients',
                   "Structurer l'administratif (CR, relances, modèles)",
                   "Repartir avec des trames et prompts prêts à l'emploi",
                 ],
               },
               {
                 ref: 'BTP-04',
-                level: 'INTERMÉDIAIRE',
+                level: 'DÉBUTANT',
                 title: "L'IA au service des Travaux Publics",
-                duree: '2 jours',
+                href: '/formations/ia-travaux-publics',
+                duree: '2 jours (14h)',
                 effectif: '12 max',
                 objectifs: [
-                  "Analyser DCE, CCTP et comptes rendus de chantier avec l'IA",
-                  "Rédiger rapports, emails et réponses aux appels d'offres plus vite",
-                  "Créer et configurer un assistant IA métier TP",
-                  "Repartir avec un plan d'action adapté à vos chantiers",
+                  'Analyser DCE, CCTP et comptes rendus chantier',
+                  "Rédiger rapports et réponses appels d'offres",
+                  'Créer votre assistant IA métier TP',
                 ],
               },
               {
-                ref: 'BTP-02',
-                level: 'INTERMÉDIAIRE',
-                title: "Répondre aux appels d'offre avec l'IA",
-                duree: '1 jour (7h) ou LMS 7h',
-                effectif: '12 max · LMS selon session',
+                ref: 'BTP-05',
+                level: 'DÉBUTANT',
+                title: "Sensibilisation à l'IA & Assistants IA personnalisés",
+                href: '/formations/sensibilisation-ia-assistants-personnalises',
+                duree: '8h (parcours LMS)',
+                effectif: 'Selon session',
                 objectifs: [
-                  "Analyser un DCE et structurer les critères d'évaluation",
-                  "Mémoires techniques, chiffrages et assistant IA métier",
-                  "Prompts et templates par métier — Qualiopi, Constructys",
-                  "Formats : journée présentielle ou parcours sur plateforme",
+                  "Sensibilisation à l'IA et usages terrain (supports PDF)",
+                  'Banque de prompts par métier (Excel)',
+                  'Concevoir des assistants IA personnalisés',
+                  'Parcours sur la plateforme de formation — Qualiopi, OPCO Constructys',
                 ],
               },
             ].map((cours) => (
@@ -691,9 +667,12 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <RdvLink className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700">
-                  Prendre rendez-vous
-                </RdvLink>
+                <Link
+                  href={cours.href}
+                  className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700"
+                >
+                  Voir le programme
+                </Link>
               </div>
             ))}
           </div>
@@ -707,6 +686,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ProgrammesBTP />
 
       {/* Financement Constructys */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
@@ -770,8 +751,31 @@ export default function HomePage() {
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
-            <div className="shrink-0 w-full sm:w-80 lg:w-96">
+            <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
               <ProfilePhoto />
+              <div className="grid grid-cols-2 gap-2">
+                <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                  <Image
+                    src="/images/laure-olivie-linkedin-graz.png"
+                    alt="Laure Olivié — événement LinkedIn Graz, formatrice IA BTP"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 1024px) 45vw, 180px"
+                  />
+                </div>
+                <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                  <Image
+                    src="/images/laure-olivie-linkedin-studio.png"
+                    alt="Laure Olivié — tournage LinkedIn Learning, formation IA pour le BTP"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 1024px) 45vw, 180px"
+                  />
+                </div>
+              </div>
+              <p className="text-center text-xs text-slate-500">
+                LinkedIn Learning &amp; événements professionnels
+              </p>
             </div>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">

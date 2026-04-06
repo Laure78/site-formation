@@ -21,7 +21,6 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { FormationPhotos } from '@/components/formations/FormationPhotos';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 
@@ -236,9 +235,7 @@ export default function FormationIATravauxPublicsPage() {
       {/* Objectifs pédagogiques */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <FormationPhotos variant="travaux-publics" />
-          
-          <div className="mt-12">
+          <div>
             <h2 className="font-display text-3xl font-bold text-slate-900">
               Objectifs pédagogiques de la formation
             </h2>

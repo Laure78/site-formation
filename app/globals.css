@@ -10,9 +10,9 @@
     --accent: #2563eb;
     --accent-soft: #eff6ff;
     --muted: #64748b;
-    /* Style type agence (proche Stema) : CTA header */
-    --nav-cta-bg: #0f172a;
-    --nav-cta-hover: #1e293b;
+    /* CTA header « Prendre RDV » — même bleu que les boutons primaires (sticky RDV, etc.) */
+    --nav-cta-bg: var(--accent);
+    --nav-cta-hover: #1d4ed8;
     --header-border: rgba(15, 23, 42, 0.08);
   }
 }

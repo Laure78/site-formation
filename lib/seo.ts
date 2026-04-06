@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    "Formation IA BTP pratique : devis, comptes rendus, relances. Dirigeants et artisans du bâtiment. Qualiopi, financement Constructys. Réservez un échange.",
+    "Formation IA BTP & ChatGPT : devis, chantier, mémoires techniques et administratif. Réseau FFB & CSFE, Qualiopi, financement OPCO Constructys. Laure Olivié — +1592 pros formés. Île-de-France & France.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
@@ -77,6 +77,10 @@ export const SITE_CONFIG = {
     'formation Qualiopi BTP',
     'formation finançable OPCO',
     '100% finançable',
+    'FFB formation IA',
+    'IA acte de construire',
+    'formation professionnels étanchéité BTP',
+    'CSFE formation IA',
   ],
   /** Fiche Google Business Profile (avis, horaires, local SEO) */
   googleBusinessProfileUrl:
@@ -144,7 +148,7 @@ export function getMainCourseSchema() {
     '@id': `${SITE_CONFIG.url}/#course`,
     name: 'Formation IA BTP',
     description:
-      "Formation ChatGPT entreprise BTP : comment utiliser l'IA pour devis bâtiment, gestion chantier et automatisation des tâches administratives. Public : PME bâtiment, artisans, conducteurs de travaux.",
+      "Formation ChatGPT entreprise BTP : IA pour devis, chantier, mémoires techniques et administratif. Public : PME bâtiment, artisans, conducteurs de travaux, fédérations (FFB). Qualiopi, OPCO Constructys.",
     url: `${SITE_CONFIG.url}/formations`,
     provider: {
       '@type': 'Person',

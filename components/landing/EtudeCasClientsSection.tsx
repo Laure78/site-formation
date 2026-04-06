@@ -18,13 +18,13 @@ export function EtudeCasClientsSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
-          <div className="relative min-h-[220px] flex-1 overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-lg lg:max-w-xl">
+          <div className="relative min-h-[260px] flex-1 overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-lg lg:max-w-xl">
             <Image
-              src="/images/rencontres-artisans-ia-ffb-atelier.jpg"
-              alt="Atelier FFB « Les Rencontres des Artisans » — formation IA au service des métiers du bâtiment"
+              src="/images/laure-csfe-visite.png"
+              alt="Laure Olivié, formatrice IA BTP, en visite professionnelle auprès de la Chambre syndicale française de l’étanchéité (CSFE)"
               width={1024}
-              height={764}
-              className="h-full w-full object-cover object-center"
+              height={1280}
+              className="h-full min-h-[260px] w-full object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 480px"
               priority={false}
             />
@@ -33,7 +33,7 @@ export function EtudeCasClientsSection() {
                 Preuve terrain
               </p>
               <p className="mt-1 text-sm font-semibold text-white">
-                Interventions réseau FFB &amp; {CSFE_NOM_LIBRE}
+                Réseau FFB &amp; {CSFE_NOM_LIBRE} — terrain &amp; transmission
               </p>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function EtudeCasClientsSection() {
               ].map((line) => (
                 <li key={line} className="flex gap-3">
                   <CheckCircle2
-                    className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
                     strokeWidth={2}
                     aria-hidden
                   />
