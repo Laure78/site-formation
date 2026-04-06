@@ -11,7 +11,7 @@ export type CatalogueFormationNavLink = {
 
 export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   {
-    href: '/#programme',
+    href: '/formations/ia-au-service-du-batiment',
     label: "L'IA au service du bâtiment",
     description: '4 h ou 7 h · Devis, administratif, prompts — BTP-01.',
     icon: Building2,

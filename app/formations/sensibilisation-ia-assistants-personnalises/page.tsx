@@ -140,7 +140,10 @@ export default function SensibilisationIAAssistantsPage() {
         Parcours en ligne sur la plateforme de formation : sensibilisation à l&apos;IA, prompts par métier
         (Excel), puis conception d&apos;assistants IA sur mesure. Pensé pour les professionnels du BTP qui
         veulent des contenus opérationnels, pas de la théorie creuse — sur la même logique que{' '}
-        <Link href="/#programme" className="font-medium text-[var(--accent)] hover:underline">
+        <Link
+          href="/formations/ia-au-service-du-batiment"
+          className="font-medium text-[var(--accent)] hover:underline"
+        >
           L&apos;IA au service du bâtiment
         </Link>{' '}
         (parcours présentiel 4 h / 7 h), mais ici en autonomie sur le LMS.

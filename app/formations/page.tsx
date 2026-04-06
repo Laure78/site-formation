@@ -39,7 +39,7 @@ const FORMATIONS_UNSORTED = [
     ref: 'BTP-01',
     level: 'DÉBUTANT' as const,
     title: "L'IA au service du bâtiment",
-    href: '/#programme',
+    href: '/formations/ia-au-service-du-batiment',
     duree: '4h ou 7h',
     effectif: '12 max',
     objectifs: [

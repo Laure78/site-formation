@@ -222,6 +222,22 @@ export const FAQ_RH_BTP: FAQItem[] = [
   },
 ];
 
+/** FAQ — formation L'IA au service du bâtiment (BTP-01) */
+export const FAQ_BATIMENT: FAQItem[] = [
+  {
+    q: "Qui peut suivre la formation « L'IA au service du bâtiment » ?",
+    a: "Artisans, dirigeants et équipes de PME du bâtiment, conducteurs et chargés d'affaires, assistants administratifs. Aucun prérequis technique — nous partons de vos cas réels (devis, emails, CR).",
+  },
+  {
+    q: "Quelle différence entre le format 4 h et 7 h ?",
+    a: "Même socle pédagogique (4 modules). Le format 7 h permet d'approfondir chaque thème, d'ajouter plus d'ateliers pratiques sur vos documents et de consolider votre bibliothèque de prompts.",
+  },
+  {
+    q: "La formation est-elle finançable ?",
+    a: "Oui, 100 % finançable par l'OPCO Constructys (et autres OPCO selon éligibilité) pour les entreprises du BTP. Formation certifiée Qualiopi — attestation en fin de parcours.",
+  },
+];
+
 /** FAQ — formation L'IA au service des Travaux Publics */
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {

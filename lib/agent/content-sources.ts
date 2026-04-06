@@ -19,6 +19,11 @@ const BASE_URL = SITE_CONFIG.url;
 // Formations (données statiques du site)
 const FORMATIONS_DATA = [
   { path: '/formations', title: 'Catalogue formations IA BTP', desc: "Formations IA pour le BTP : devis, appels d'offres, RH, travaux publics. Guyancourt, Île-de-France. Qualiopi, 100% finançable Constructys." },
+  {
+    path: '/formations/ia-au-service-du-batiment',
+    title: "L'IA au service du bâtiment",
+    desc: 'Formation BTP-01 : 4h ou 7h. Devis, emails, CR, administratif, prompts. Qualiopi, Constructys.',
+  },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: '4h pratiques. Devis en 15 min, emails automatisés. Paris + Île-de-France. 100% finançable OPCO.' },
   { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
   { path: '/formations/ia-appels-offre-btp', title: 'Répondre aux appels d\'offre avec l\'IA', desc: 'Journée 7h ou parcours LMS 7h. DCE, mémoires techniques, assistant IA, prompts par métier. Qualiopi, Constructys.' },

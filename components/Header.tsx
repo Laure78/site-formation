@@ -413,8 +413,8 @@ export function Header() {
           className="absolute left-0 right-0 top-full hidden border-t border-slate-100 bg-white shadow-[0_28px_56px_-16px_rgba(15,23,42,0.14)] lg:block"
           onMouseEnter={() => handleEnterMega(activeMega.id)}
         >
-          <div className="mx-auto max-w-[1400px] px-5 pb-8 pt-6 sm:px-8">
-            <div className="grid grid-cols-12 gap-x-6 gap-y-4 border-b border-slate-100 pb-3">
+          <div className="mx-auto max-w-[1400px] px-5 pb-6 pt-4 sm:px-8">
+            <div className="grid grid-cols-12 gap-x-6 gap-y-3 border-b border-slate-100 pb-2">
               <div className="col-span-12 lg:col-span-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
                   {activeMega.label}
@@ -448,11 +448,11 @@ export function Header() {
               const n = col.links.length;
               const colClass = megaLinkColClass(n);
               return (
-                <div key={col.title} className="mt-3">
+                <div key={col.title} className="mt-1.5">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
                     {col.title}
                   </p>
-                  <ul className="mt-4 grid grid-cols-12 gap-4">
+                  <ul className="mt-2.5 grid grid-cols-12 gap-4">
                     {col.links.map((link) => {
                       const Icon = link.icon;
                       return (
