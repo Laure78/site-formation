@@ -6,7 +6,6 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
@@ -253,22 +252,6 @@ export default function AProposPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Galerie — visuels homogènes (formatrice + cours LinkedIn Learning) */}
-      <section className="border-b border-slate-200 bg-white px-4 py-12">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-center font-display text-xl font-bold text-slate-900 md:text-2xl">
-            Cours en ligne &amp; prise de vue pro
-          </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-slate-600">
-            Extraits du parcours LinkedIn Learning et portraits d&apos;intervention — même
-            ligne éditoriale que sur le terrain (clarté, BTP, pédagogie).
-          </p>
-          <div className="mt-8">
-            <LinkedInFormationGallery />
           </div>
         </div>
       </section>

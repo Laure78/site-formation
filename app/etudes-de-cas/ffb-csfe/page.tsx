@@ -226,25 +226,6 @@ export default function EtudeDeCasFfbCsfePage() {
         </div>
       </section>
 
-      {/* Galerie visuelle — IA BTP, OFC, LinkedIn Learning (rangée inférieure uniquement) */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-10">
-        <div className="mx-auto max-w-5xl">
-          <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <Image
-              src="/images/ffb-btp-linkedin-galerie.png"
-              alt="Trois visuels : intervention « L'IA au service du BTP » avec logo OFC ; visuel LinkedIn Learning sur le recrutement dans le BTP ; tournage studio avec logo LinkedIn."
-              width={1024}
-              height={277}
-              className="h-auto w-full object-cover"
-              sizes="(max-width: 1280px) 100vw, 1024px"
-            />
-            <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-6">
-              Formation « L&apos;IA au service du BTP », contenus OFC et visuels LinkedIn Learning.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
       {/* Études de cas — FFB */}
       <section
         id="etudes-de-cas"

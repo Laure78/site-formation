@@ -33,7 +33,6 @@ import Image from 'next/image';
 import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
-import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
 import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
@@ -556,21 +555,6 @@ export default function HomePage() {
             </p>
             <div className="mt-6">
               <LinkedInLearningEmbed course="recrutement" />
-            </div>
-            <div className="mt-10">
-              <p className="text-sm font-medium text-slate-700">
-                Aperçus du cours (LinkedIn Learning) — même esthétique pro que les
-                sessions en entreprise
-              </p>
-              <div className="mt-4">
-                <LinkedInFormationGallery
-                  keys={[
-                    'formatriceLowerThird',
-                    'linkedinPlayerRecrutement',
-                    'linkedinSommaireCours',
-                  ]}
-                />
-              </div>
             </div>
           </div>
         </div>
