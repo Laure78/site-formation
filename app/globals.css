@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  /* Corps : --font-body (Next font Plus Jakarta sur <html>) */
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -10,6 +10,10 @@
     --accent: #2563eb;
     --accent-soft: #eff6ff;
     --muted: #64748b;
+    /* Style type agence (proche Stema) : CTA header */
+    --nav-cta-bg: #0f172a;
+    --nav-cta-hover: #1e293b;
+    --header-border: rgba(15, 23, 42, 0.08);
   }
 }
 
@@ -53,7 +57,8 @@
 
 /* Contenu blog — sections type « html » (SEO, sémantique) */
 .article-html h2 {
-  @apply mt-8 font-display text-xl font-bold text-slate-900 first:mt-0;
+  @apply mt-8 text-xl font-bold text-slate-900 first:mt-0;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 .article-html h3 {
   @apply mt-6 font-semibold text-slate-900;

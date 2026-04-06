@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { DM_Sans, Outfit } from 'next/font/google';
+import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -14,14 +14,17 @@ import {
   getMainCourseSchema,
 } from '@/lib/seo';
 
-const dmSans = DM_Sans({
-  variable: '--font-sans',
+const inter = Inter({
+  variable: '--font-body',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
 });
 
 const outfit = Outfit({
   variable: '--font-display',
   subsets: ['latin'],
+  weight: ['600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -127,7 +130,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <head>
         {/* Données structurées Schema.org JSON-LD — Rich Results Google */}
         {jsonLdScripts.map((schema, i) => (
@@ -138,9 +141,13 @@ export default function RootLayout({
           />
         ))}
       </head>
-      <body
-        className={`${dmSans.variable} ${outfit.variable} font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900`}
-      >
+      <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
+        >
+          Aller au contenu principal
+        </a>
         <Header />
         <main className="flex-1" id="main-content">
           {children}

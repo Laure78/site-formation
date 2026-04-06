@@ -102,6 +102,72 @@ export const PHOTOS = {
     width: 1024,
     height: 1024,
   },
+
+  /** Intervention — carte experte IA & BTP (studio) */
+  interventionClaude: {
+    src: '/images/laure-intervention-claude-experte-ia-btp.png',
+    alt: 'Laure Olivié, formatrice experte en intelligence artificielle appliquée au BTP et aux travaux publics',
+    width: 552,
+    height: 614,
+  },
+
+  /** Portrait pro avec bandeau « Formatrice IA spécialisée BTP » */
+  formatriceLowerThird: {
+    src: '/images/laure-formatrice-ia-btp-lower-third.png',
+    alt: 'Laure Olivié, formatrice IA spécialisée BTP, en intervention pédagogique',
+    width: 1024,
+    height: 790,
+  },
+
+  /** Cours LinkedIn Learning — extrait vidéo (recrutement artisans & TPE) */
+  coursRecrutementVideo1: {
+    src: '/images/laure-cours-ia-artisans-tpe-video-1.png',
+    alt: 'Extrait du cours LinkedIn Learning « L’IA pour les artisans et TPE : recruter sa main-d’œuvre efficacement », animé par Laure Olivié',
+    width: 1024,
+    height: 670,
+  },
+
+  coursRecrutementVideo2: {
+    src: '/images/laure-cours-ia-artisans-tpe-video-2.png',
+    alt: 'Laure Olivié présente des cas d’usage IA pour le recrutement dans le BTP — cours en ligne LinkedIn Learning',
+    width: 1024,
+    height: 593,
+  },
+
+  /** Lecteur vidéo — cours recrutement BTP */
+  linkedinPlayerRecrutement: {
+    src: '/images/laure-linkedin-learning-recrutement-player.png',
+    alt: 'Cours LinkedIn Learning IA et recrutement BTP — lecteur vidéo avec Laure Olivié formatrice',
+    width: 1024,
+    height: 714,
+  },
+
+  /** Interface cours — sommaire des leçons */
+  linkedinSommaireCours: {
+    src: '/images/laure-linkedin-learning-sommaire-cours.png',
+    alt: 'Sommaire du cours LinkedIn Learning IA pour artisans et TPE du BTP — leçons vidéo par Laure Olivié',
+    width: 1024,
+    height: 621,
+  },
+
+  /** Leçon « Fidéliser dès le premier jour » */
+  linkedinLeconFideliser: {
+    src: '/images/laure-linkedin-learning-lecon-fideliser.png',
+    alt: 'Leçon « Fidéliser dès le premier jour » — formation IA RH BTP sur LinkedIn Learning',
+    width: 1024,
+    height: 718,
+  },
 };
 
 export type PhotoKey = keyof typeof PHOTOS;
+
+/** Galerie cohérente (parcours visuel formation en ligne + formatrice) */
+export const GALERIE_LINKEDIN_FORMATION: PhotoKey[] = [
+  'interventionClaude',
+  'formatriceLowerThird',
+  'coursRecrutementVideo1',
+  'linkedinPlayerRecrutement',
+  'linkedinSommaireCours',
+  'linkedinLeconFideliser',
+  'coursRecrutementVideo2',
+];

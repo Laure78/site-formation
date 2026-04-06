@@ -2,8 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Award } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
 
-const AUTHOR_PHOTO = '/images/laure-olivie.png';
+const AUTHOR_PHOTO = PHOTOS.interventionClaude;
 
 export function AuthorBlock({ className }: { className?: string }) {
   return (
@@ -11,8 +12,8 @@ export function AuthorBlock({ className }: { className?: string }) {
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md">
           <Image
-            src={AUTHOR_PHOTO}
-            alt={`${SITE_CONFIG.name} — formatrice IA pour le BTP`}
+            src={AUTHOR_PHOTO.src}
+            alt={AUTHOR_PHOTO.alt}
             width={64}
             height={64}
             className="h-full w-full object-cover object-top"

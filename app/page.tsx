@@ -35,6 +35,7 @@ import Image from 'next/image';
 import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
+import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
@@ -152,10 +153,10 @@ export default function HomePage() {
             <div className="shrink-0 lg:w-80">
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <Image
-                  src={PHOTOS.profileBlue.src}
-                  alt={PHOTOS.profileBlue.alt}
-                  width={PHOTOS.profileBlue.width}
-                  height={PHOTOS.profileBlue.height}
+                  src={PHOTOS.interventionClaude.src}
+                  alt={PHOTOS.interventionClaude.alt}
+                  width={PHOTOS.interventionClaude.width}
+                  height={PHOTOS.interventionClaude.height}
                   className="h-auto w-full"
                   sizes="(max-width: 1024px) 100vw, 320px"
                   priority
@@ -581,6 +582,21 @@ export default function HomePage() {
             </p>
             <div className="mt-6">
               <LinkedInLearningEmbed course="recrutement" />
+            </div>
+            <div className="mt-10">
+              <p className="text-sm font-medium text-slate-700">
+                Aperçus du cours (LinkedIn Learning) — même esthétique pro que les
+                sessions en entreprise
+              </p>
+              <div className="mt-4">
+                <LinkedInFormationGallery
+                  keys={[
+                    'formatriceLowerThird',
+                    'linkedinPlayerRecrutement',
+                    'linkedinSommaireCours',
+                  ]}
+                />
+              </div>
             </div>
           </div>
         </div>

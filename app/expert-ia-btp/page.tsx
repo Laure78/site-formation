@@ -3,6 +3,7 @@ import { RdvLink } from '@/components/RdvLink';
 import Image from 'next/image';
 import { Award, Briefcase, Users, GraduationCap, CheckCircle, TrendingUp, Star } from 'lucide-react';
 import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
@@ -63,10 +64,10 @@ export default function ExpertIABTPPage() {
             <div className="w-full shrink-0 lg:w-96">
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <Image
-                  src="/images/laure-olivie.png"
-                  alt="Laure Olivié experte en formation intelligence artificielle pour entreprises du BTP et des travaux publics"
-                  width={912}
-                  height={1024}
+                  src={PHOTOS.formatriceLowerThird.src}
+                  alt={PHOTOS.formatriceLowerThird.alt}
+                  width={PHOTOS.formatriceLowerThird.width}
+                  height={PHOTOS.formatriceLowerThird.height}
                   className="h-auto w-full"
                   sizes="(max-width: 1024px) 100vw, 384px"
                   priority

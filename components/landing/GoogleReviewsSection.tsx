@@ -8,7 +8,10 @@ export async function GoogleReviewsSection() {
   // Si pas de données, afficher les avis statiques existants
   if (!data || data.reviews.length === 0) {
     return (
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section
+        id="temoignages"
+        className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <Award size={16} strokeWidth={1.5} />
@@ -74,7 +77,10 @@ export async function GoogleReviewsSection() {
   const displayedReviews = data.reviews.slice(0, 6);
 
   return (
-    <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+    <section
+      id="temoignages"
+      className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>

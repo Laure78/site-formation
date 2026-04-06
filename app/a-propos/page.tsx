@@ -6,7 +6,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { PHOTOS } from '@/lib/photos';
+import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
@@ -15,33 +15,6 @@ import { PARTENAIRES_INSTITUTIONNELS } from '@/lib/partenaires-institutionnels';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
-
-const GALERIE_A_PROPOS = [
-  {
-    src: '/images/btp-collaboration-chantier.png',
-    alt: 'Partenariat et collaboration réussie sur chantier BTP grâce aux formations IA de Laure Olivié',
-  },
-  {
-    src: '/images/laure-olivie-portrait-pro.png',
-    alt: 'Laure Olivié formatrice en intelligence artificielle spécialisée dans les formations pour entreprises du BTP',
-  },
-  {
-    src: PHOTOS.linkedinPanel.src,
-    alt: PHOTOS.linkedinPanel.alt,
-  },
-  {
-    src: PHOTOS.formationEntreprise.src,
-    alt: PHOTOS.formationEntreprise.alt,
-  },
-  {
-    src: PHOTOS.bannerRecrutementDifficile.src,
-    alt: PHOTOS.bannerRecrutementDifficile.alt,
-  },
-  {
-    src: PHOTOS.linkedinPortrait.src,
-    alt: PHOTOS.linkedinPortrait.alt,
-  },
-] as const;
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié : Formatrice IA BTP | 1592 formés, note 4,85/5',
@@ -284,24 +257,18 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Galerie photos — miniatures format uniforme 4:3 */}
+      {/* Galerie — visuels homogènes (formatrice + cours LinkedIn Learning) */}
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-            {GALERIE_A_PROPOS.map(({ src, alt }) => (
-              <div
-                key={src}
-                className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm"
-              >
-                <Image
-                  src={src}
-                  alt={alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
-                />
-              </div>
-            ))}
+          <h2 className="text-center font-display text-xl font-bold text-slate-900 md:text-2xl">
+            Cours en ligne &amp; prise de vue pro
+          </h2>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-slate-600">
+            Extraits du parcours LinkedIn Learning et portraits d&apos;intervention — même
+            ligne éditoriale que sur le terrain (clarté, BTP, pédagogie).
+          </p>
+          <div className="mt-8">
+            <LinkedInFormationGallery />
           </div>
         </div>
       </section>
@@ -348,7 +315,10 @@ export default function AProposPage() {
       </section>
 
       {/* Mon approche */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section
+        id="approche"
+        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16"
+      >
         <div className="mx-auto max-w-3xl">
           <article>
             <h2 className="font-display text-center text-2xl font-bold text-slate-900">
