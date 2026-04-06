@@ -131,6 +131,15 @@ export default function AProposPage() {
           <p className="mt-3 text-center text-slate-600">
             Partenaires et clients institutionnels
           </p>
+          <p className="mt-4 text-center">
+            <Link
+              href="/etudes-de-cas/ffb-csfe"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline"
+            >
+              Étude de cas FFB &amp; CSFE — modules, objectifs et bénéfices
+              <span aria-hidden>→</span>
+            </Link>
+          </p>
           <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { name: 'FFB Grand Paris', desc: 'Fédération Française du Bâtiment' },
@@ -205,6 +214,15 @@ export default function AProposPage() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-6">
+                    <Link
+                      href="/etudes-de-cas/ffb-csfe"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-5 py-3 text-center text-sm font-semibold text-[var(--accent)] transition-colors hover:bg-blue-100 sm:w-auto"
+                    >
+                      Voir l&apos;étude de cas FFB &amp; CSFE (détail des modules)
+                      <span aria-hidden>→</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

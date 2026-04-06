@@ -42,7 +42,15 @@ const NAV_ITEMS: {
   },
   { href: '/a-propos', label: 'À propos' },
   { href: '/financement-constructys', label: 'Financement' },
-  { href: '/blog', label: 'Ressources' },
+  {
+    href: '/blog',
+    label: 'Ressources',
+    children: [
+      { href: '/blog', label: 'Blog & articles' },
+      { href: '/ressources/ia-btp', label: 'Guide IA BTP' },
+      { href: '/etudes-de-cas/ffb-csfe', label: 'Étude de cas FFB & CSFE' },
+    ],
+  },
 ];
 
 /** Contact à côté du CTA Calendly (desktop + mobile) */

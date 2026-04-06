@@ -7,9 +7,7 @@ import {
   Clock,
   Zap,
   Target,
-  Shield,
   Users,
-  TrendingUp,
   Briefcase,
   BarChart3,
   Check,
@@ -23,6 +21,8 @@ import {
   LineChart,
   Sparkles,
   ShieldCheck,
+  ArrowDown,
+  X,
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
@@ -52,19 +52,61 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero — Formation IA BTP */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-white px-4 py-24 md:py-32">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-24 md:py-32">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
+        {/* Réseau léger type « constellation » (inspiration landing pro) */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.14]"
+          aria-hidden
+        >
+          <svg className="absolute left-1/2 top-0 h-[min(520px,75vh)] w-[min(900px,100%)] -translate-x-1/2" viewBox="0 0 400 280" fill="none">
+            <defs>
+              <linearGradient id="heroMesh" x1="200" y1="0" x2="200" y2="280" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#2563eb" stopOpacity="0.5" />
+                <stop offset="1" stopColor="#2563eb" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M40 120 L120 60 L200 100 L280 40 L360 90 M120 60 L120 180 M200 100 L200 220 M280 40 L280 160 M40 120 L80 200 M360 90 L320 200"
+              stroke="url(#heroMesh)"
+              strokeWidth="0.75"
+            />
+            {[
+              [120, 60],
+              [200, 100],
+              [280, 40],
+              [40, 120],
+              [360, 90],
+              [120, 180],
+              [200, 220],
+              [280, 160],
+            ].map(([cx, cy], i) => (
+              <circle key={i} cx={cx} cy={cy} r="2.5" fill="#2563eb" fillOpacity="0.35" />
+            ))}
+          </svg>
+        </div>
         <div className="relative mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-                <Check size={16} strokeWidth={1.5} />
-                <span>CERTIFIÉE QUALIOPI · FINANCEMENT CONSTRUCTYS 100%</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
+                <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
+                <span>Formation IA × BTP</span>
+                <span className="hidden text-slate-300 sm:inline">·</span>
+                <span className="hidden sm:inline">Qualiopi · Constructys</span>
               </div>
               <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-                Formation IA BTP & ChatGPT entreprise : admin, devis et gestion chantier
+                Formez vos équipes{' '}
+                <span className="font-serif italic text-slate-800">BTP</span> à{' '}
+                <span className="font-serif italic text-[var(--accent)]">l&apos;IA</span>
+                <span className="mt-3 block text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem] lg:leading-tight">
+                  Devis, chantier &amp; administratif avec ChatGPT
+                </span>
               </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
+              <p className="mt-4 text-base font-medium text-slate-700">
+                {SITE_CONFIG.statsPersonnesFormees}+ professionnels accompagnés · Note 4,85/5 ·
+                Financement OPCO
+              </p>
+              <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
                 Formation ChatGPT entreprise BTP finançable par Constructys — pour les
                 dirigeants de TPE et PME du bâtiment et des travaux publics. Gagnez{' '}
                 <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
@@ -112,6 +154,157 @@ export default function HomePage() {
                   priority
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problème → solution (scan rapide) */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-center text-3xl font-bold text-slate-900 md:text-4xl">
+            Le BTP perd des heures sur des tâches que l&apos;IA{' '}
+            <span className="font-serif italic text-[var(--accent)]">automatise</span>
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                problem: 'Mémoires techniques et dossiers chronophages',
+                solution: 'Trames et IA : rédigez l’essentiel en minutes, vous validez.',
+              },
+              {
+                problem: 'Analyse de CCTP / DCE fastidieuse',
+                solution: 'L’IA extrait critères et points clés pour structurer votre réponse.',
+              },
+              {
+                problem: 'Comptes rendus et emails répétitifs',
+                solution: 'Dictez ou notez : l’IA structure un CR ou un mail pro.',
+              },
+            ].map(({ problem, solution }) => (
+              <div
+                key={problem}
+                className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50/80 p-6 text-center shadow-sm"
+              >
+                <div className="flex items-start justify-center gap-3 text-left">
+                  <span
+                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-500 text-white"
+                    aria-hidden
+                  >
+                    <X size={14} strokeWidth={2.5} />
+                  </span>
+                  <p className="text-sm font-medium text-slate-800">{problem}</p>
+                </div>
+                <div className="my-4 flex justify-center text-[var(--accent)]">
+                  <ArrowDown size={22} strokeWidth={1.75} aria-hidden />
+                </div>
+                <div className="flex items-start justify-center gap-3 text-left">
+                  <span
+                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white"
+                    aria-hidden
+                  >
+                    <Check size={14} strokeWidth={2.5} />
+                  </span>
+                  <p className="text-sm text-slate-600">{solution}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5 cas d'usage — fond lavande */}
+      <section className="border-b border-slate-200 bg-[#eef2ff] px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            5 cas d&apos;usage concrets de l&apos;IA dans le{' '}
+            <span className="font-serif italic">BTP</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+            Approches testées en formation avec des professionnels du bâtiment et des travaux
+            publics — devis, chantier, réponses marchés.
+          </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: 'Mémoires techniques & dossiers',
+                desc: "Structurer et rédiger plus vite tout en gardant la validation métier.",
+              },
+              {
+                title: 'Analyse CCTP / DCE',
+                desc: 'Synthétiser des pièces longues et repérer les exigences clés.',
+              },
+              {
+                title: 'Comptes rendus de chantier',
+                desc: 'À partir de notes ou dictée : CR clair et professionnel.',
+              },
+              {
+                title: 'Devis et chiffrage',
+                desc: 'Mise en forme, variantes et relecture pour gagner du temps.',
+              },
+              {
+                title: 'Emails & administratif',
+                desc: 'Relances, courriers et priorités pour souffler sur la boîte mail.',
+              },
+            ].map((c) => (
+              <div
+                key={c.title}
+                className="rounded-2xl border border-white/80 bg-white p-6 shadow-sm"
+              >
+                <h3 className="font-semibold text-slate-900">{c.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/ressources/ia-btp/10-cas-usage-concrets"
+              className="inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
+            >
+              Voir le détail des 10 cas d&apos;usage
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Référence clients — bande sombre */}
+      <section className="border-b border-slate-200 bg-slate-900 px-4 py-16 text-white">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-xl">
+              <p className="inline-flex rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-blue-200">
+                Référence & partenaires
+              </p>
+              <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
+                FFB, CAPEB, GERESO, FNTP… des acteurs du BTP qui font confiance à une
+                formation terrain
+              </h2>
+              <p className="mt-4 text-slate-300">
+                Interventions auprès de fédérations, organismes et entreprises du bâtiment et
+                des travaux publics : toujours des cas d&apos;usage concrets (devis, chantier,
+                marchés), pas de gadget.
+              </p>
+              <Link
+                href="/a-propos#clients-partenaires"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+              >
+                Voir les clients & partenaires
+              </Link>
+            </div>
+            <div className="grid shrink-0 grid-cols-1 gap-4 sm:grid-cols-3">
+              {[
+                { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'personnes formées' },
+                { val: '4,85/5', label: 'note moyenne' },
+                { val: '100%', label: 'finançable OPCO' },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl border border-white/10 bg-slate-800/80 px-6 py-5 text-center"
+                >
+                  <p className="text-2xl font-bold text-cyan-300 md:text-3xl">{s.val}</p>
+                  <p className="mt-1 text-xs text-slate-400">{s.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
