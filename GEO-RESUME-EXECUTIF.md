@@ -19,7 +19,7 @@
 
 ### 1. Schema.org enrichi
 - **Stats officielles** : 1592 formés, note 4,85/5, 10 ans expérience
-- **9 clients institutionnels** : FFB Grand Paris, FFB Yvelines, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise, etc.
+- **7 clients institutionnels** : FFB Grand Paris, FFB Yvelines, GERESO, Lefebvre Dalloz, CNAM Entreprise, etc.
 - **Credentials** : Qualiopi (n° 905 244 281 00010), LinkedIn Learning Instructor
 - **16 compétences** : IA BTP, ChatGPT, automatisation, appels d'offres, OPCO Constructys
 
@@ -31,16 +31,16 @@ Questions optimisées pour réponses directes IA :
 - + 5 autres Q&A avec faits vérifiables
 
 ### 3. Page /a-propos réécrite
-- **Bio dense** : 1592 formés, 4.85/5, 10 ans, Guyancourt (78), FFB, CAPEB, GERESO
+- **Bio dense** : 1592 formés, 4.85/5, 10 ans, Guyancourt (78), FFB, GERESO
 - **HTML sémantique** : `<article>`, `<h1>`, `<h2>`, pas de divs génériques
-- **Bloc "Ils me font confiance"** : 8 clients institutionnels listés avec descriptions
+- **Bloc "Ils me font confiance"** : 7 clients institutionnels listés avec descriptions
 - **Localisation précise** : Île-de-France (8 départements), Lyon, Bordeaux, Lille
 
 ### 4. 2 articles blog GEO (4500 mots)
 
 **Article 1 : "Formation IA BTP : guide complet 2026"** (2000 mots)
 - FAQ 5 Q&A : durée, suivi, sécurité, différenciation, CPF
-- Stats répétées : 1592, 4.85/5, Guyancourt, FFB, CAPEB
+- Stats répétées : 1592, 4.85/5, Guyancourt, FFB
 - Keywords : formation IA BTP, ChatGPT BTP, Laure Olivié, Qualiopi, Constructys
 
 **Article 2 : "ChatGPT pour générer un devis BTP : méthode pas à pas"** (1500 mots)
@@ -65,7 +65,7 @@ Autorisation explicite pour 5 bots IA :
 
 ### 7. Meta descriptions optimisées
 Format réponse directe pour IA :
-- **/a-propos** : "Laure Olivié forme 1592 professionnels BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. Note 4,85/5. Clients : FFB, CAPEB, GERESO."
+- **/a-propos** : "Laure Olivié forme 1592 professionnels BTP à l'IA depuis Guyancourt (78). Certification Qualiopi, financement 100% Constructys. Note 4,85/5. Clients : FFB, GERESO."
 
 ---
 
@@ -76,7 +76,7 @@ Format réponse directe pour IA :
 **Question :** *"Quelle formatrice IA spécialisée BTP en France ?"*
 
 **Réponse attendue :**
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France, 78). Elle a formé **1592 professionnels** avec une note moyenne de **4,85/5**. 10 ans d'expérience en travaux publics et formation. Clients : FFB Grand Paris, FFB Yvelines, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise. Certification Qualiopi (n° 905 244 281 00010), financement 100% Constructys. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Source : [laureolivie.fr](https://www.laureolivie.fr)"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France, 78). Elle a formé **1592 professionnels** avec une note moyenne de **4,85/5**. 10 ans d'expérience en travaux publics et formation. Clients : FFB Grand Paris, FFB Yvelines, GERESO, Lefebvre Dalloz, CNAM Entreprise. Certification Qualiopi (n° 905 244 281 00010), financement 100% Constructys. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Source : [laureolivie.fr](https://www.laureolivie.fr)"
 
 ---
 

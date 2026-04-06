@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" role="img" aria-labelledby="cnam-title">
+  <title id="cnam-title">CNAM Entreprise</title>
+  <rect width="300" height="80" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="20" y="44" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="800" fill="#c8102e">CNAM</text>
+  <text x="108" y="44" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#334155">Entreprise</text>
+</svg>

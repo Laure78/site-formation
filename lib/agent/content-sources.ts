@@ -5,6 +5,7 @@
 
 import { SITE_CONFIG } from '@/lib/seo';
 import { BLOG_ARTICLES } from '@/lib/blog';
+import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 
 export interface ContentChunk {
   url: string;
@@ -20,7 +21,7 @@ const FORMATIONS_DATA = [
   { path: '/formations', title: 'Catalogue formations IA BTP', desc: "Formations IA pour le BTP : devis, appels d'offres, RH, travaux publics. Guyancourt, Île-de-France. Qualiopi, 100% finançable Constructys." },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: '4h pratiques. Devis en 15 min, emails automatisés. Paris + Île-de-France. 100% finançable OPCO.' },
   { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
-  { path: '/formations/ia-appels-offre-btp', title: 'Appels d\'offres BTP avec l\'IA', desc: '1 jour. Analyser un DCE en 30 min, mémoires techniques, prompts par métier.' },
+  { path: '/formations/ia-appels-offre-btp', title: 'Répondre aux appels d\'offre avec l\'IA', desc: 'Journée 7h ou parcours LMS 7h. DCE, mémoires techniques, assistant IA, prompts par métier. Qualiopi, Constructys.' },
   { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: '2 jours. Recrutement, GEPP, tableaux de bord RH, assistant IA.' },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Démarrage rapide.' },
   {
@@ -33,22 +34,16 @@ const FORMATIONS_DATA = [
     title: 'Architecte augmenté — Claude AI, DPGF, chantier et documents',
     desc: "Formation intra 4h visio : cabinets d'architecture, DPGF, métrés, GANTT, CR, PV, courriers. Claude AI + Google Workspace. 800 € HT.",
   },
-  {
-    path: '/formations/ia-niveau2-assistant-ao-dce-memoire',
-    title: "IA appliquée aux AO — Assistant DCE & mémoire technique (niveau 2)",
-    desc: "Parcours LMS 7h intermédiaire : assistant IA pour DCE et mémoires techniques. Complément aux formations AO. Qualiopi, Constructys.",
-  },
 ];
 
 // Pages clés + contenu synthétique
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/', title: 'Accueil — Laure Olivié', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
-  { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CAPEB, GERESO, CNAM, FNTP.' },
+  { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, GERESO, CNAM, FNTP.' },
   {
     path: '/etudes-de-cas/ffb-csfe',
-    title: 'Étude de cas FFB & CSFE',
-    content:
-      'Interventions réseau FFB (Grand Paris, Yvelines, Seine-et-Marne) et CSFE — centres de formation et services pour les entreprises du bâtiment. Modules : prompts métier, mémoires techniques, CCTP/DCE, comptes rendus chantier, devis et mails. Objectifs : autonomie sur les prompts, RGPD, validation métier. Bénéfices : gain de temps, Constructys, Qualiopi.',
+    title: 'Étude de cas FFB & CSFE — Étanchéité',
+    content: `Interventions réseau FFB (Grand Paris, Île-de-France Est et Ouest) et ${CSFE_NOM_LIBRE}. Modules : prompts métier, mémoires techniques, CCTP/DCE, comptes rendus chantier, devis et mails. Objectifs : autonomie sur les prompts, RGPD, validation métier. Bénéfices : gain de temps, Constructys, Qualiopi.`,
   },
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email} — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },

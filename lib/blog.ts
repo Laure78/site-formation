@@ -32,6 +32,116 @@ export interface BlogArticle {
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
+  {
+    slug: 'adoption-ia-btp-2026-chiffres-freins-leviers',
+    title: 'Adoption de l\'IA dans le BTP en 2026 : chiffres clés, freins et leviers',
+    description:
+      'Moins de 10 % des entreprises BTP utilisent l\'IA aujourd\'hui : étude 2026 (621 professionnels), marché européen, 5 usages qui font gagner du temps, freins et recommandations. Par Laure Olivié, formatrice IA BTP.',
+    date: '2026-04-06',
+    keywords: [
+      'IA BTP',
+      'adoption intelligence artificielle bâtiment',
+      'entreprises BTP IA',
+      'Observatoire métiers BTP',
+      'formation IA BTP',
+      'ChatGPT entreprises BTP',
+      'marché IA construction',
+      'France TPE PME BTP',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'En 2026, l\'intelligence artificielle reste marginale dans les entreprises du bâtiment et des travaux publics : moins de 10 % des structures l\'utilisent déjà, alors que plus d\'un tiers des dirigeants se disent prêts à adopter. Cet article synthétise les chiffres d\'études récentes (Observatoire des métiers du BTP — 621 répondants, cabinet Plein Sens), le dynamisme du marché européen de l\'IA en construction, les usages qui rapportent le plus, les freins à lever — et les leviers alignés avec une formation courte, pratique et finançable par OPCO Constructys.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Les chiffres clés de l\'adoption de l\'IA dans le BTP en France',
+        content:
+          'L\'étude « Observatoire des métiers du BTP » (2026), menée auprès de 621 professionnels du secteur en France par le cabinet Plein Sens, dresse un état des lieux clair. Côté terrain : moins de 10 % des entreprises BTP utilisent l\'IA aujourd\'hui ; seulement 3 % déclarent un déploiement effectif et 5 % un déploiement en cours. Pourtant la demande existe : 36 % des dirigeants se disent prêts à adopter. Le fossé se comprend : 43,5 % n\'ont jamais essayé ChatGPT et 16 % ne savent pas ce qu\'est l\'IA. Une étude Orisha Construction / InfoPro Digital (2025) souligne en parallèle une progression de +15 points en un an sur l\'intention d\'adoption. Autre lecture : 40 % des dirigeants « n\'y pensent pas du tout », tandis que 70 % utilisent déjà ou envisagent l\'IA — ce qui montre une polarisation entre curieux et distants.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Contexte France et marché de l\'IA dans la construction en Europe',
+        content:
+          'À l\'échelle nationale, tous secteurs confondus, le taux d\'adoption de l\'IA en France s\'établit à environ 10 % (contre 6 % en 2023), en dessous de la moyenne européenne (13 %). Les TPE et PME utilisent l\'IA générative à hauteur d\'environ 31 %, dont 8 % de façon régulière (sources Bpifrance Le Lab, Baromètre France Num 2025). Le marché français de l\'IA croît d\'environ +28,9 % par an ; l\'objectif de 20 milliards d\'euros pour 2030 est souvent cité dans les projections sectorielles. Pour le bâtiment en Europe, les analystes (MarketDataForecast, etc.) estiment le marché de l\'IA appliquée à la construction à environ 1,52 milliard USD en 2025, 1,80 milliard USD en 2026, avec une projection vers 11,38 milliards USD en 2034 — soit un CAGR d\'environ +25,9 % entre 2026 et 2034. L\'Europe représenterait environ 31,2 % du marché mondial en 2025.',
+      },
+      {
+        type: 'list',
+        title: 'Taille d\'entreprise : qui adopte, qui résiste ?',
+        content: [
+          'Micro-entreprises (moins de 10 salariés) : moins de 30 % d\'intention d\'adoption. Frein principal : méconnaissance de l\'IA et des outils accessibles.',
+          'PME (10 à 49 salariés) : environ 50 % d\'intention. Souvent déjà convaincues, elles cherchent des formations concrètes et un retour sur investissement lisible.',
+          'ETI et grandes entreprises (plus de 50 salariés) : plus de 50 % d\'intention. Déploiements en cours, ROI mesuré sur des pilotes.',
+        ],
+      },
+      {
+        type: 'list',
+        title: 'Cinq usages déjà observés sur le terrain (2026)',
+        content: [
+          'Comptes rendus de réunion ou de chantier par dictée vocale : gain typique de l\'ordre de 45 minutes à 5 minutes (environ −89 % du temps) — outils : ChatGPT, Claude.',
+          'Analyse de DCE et rédaction de mémoire technique : passage de quelques jours à une vingtaine de minutes sur les premiers jets — Claude, Copilot.',
+          'Génération de devis assistée (commande vocale ou texte) : exemples documentés autour de 45 secondes pour un premier jet — solutions IA métiers BTP.',
+          'Emails, courriers et relances clients : −20 à 30 % du temps administratif — ChatGPT, Claude.',
+          'Comparaison de pièces contractuelles (jusqu\'à plusieurs centaines de pages) : quelques heures au lieu de plusieurs jours grâce aux modèles à contexte étendu (ex. Claude, fenêtres 1M tokens).',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Pourquoi ça bloque encore ? Cinq freins majeurs',
+        content:
+          'L\'Observatoire des métiers du BTP identifie des obstacles récurrents. Premièrement, la méconnaissance : le mot « IA » reste abstrait ou réservé aux grandes entreprises tech. Deuxièmement, une résistance culturelle : le secteur valorise le savoir-faire manuel et la transmission ; l\'idée qu\'un algorithme « aide » à la décision peut heurter des habitudes. Troisièmement, la qualité des données : les informations sont souvent éparpillées, peu structurées — l\'IA ne produit de bonnes sorties qu\'avec des entrées fiables. Quatrièmement, le coût et le ROI : selon des benchmarks internationaux, une très large part des expérimentations ne passe pas en production ; pour un artisan, justifier l\'investissement reste difficile. Cinquièmement, l\'âge des dirigeants : une partie des patrons proches de la retraite hésite à investir dans une technologie dont le retour complet se jouera sur le long terme.',
+      },
+      {
+        type: 'list',
+        title: 'Cinq leviers recommandés par l\'Observatoire (et ce qu\'ils impliquent pour vous)',
+        content: [
+          'Développer la culture numérique : former d\'abord dirigeants et encadrants, avec des cas d\'usage BTP concrets — pas du jargon.',
+          'Fiabiliser la donnée : structurer les données internes et les logiciels métiers avant d\'industrialiser l\'IA.',
+          'Sécuriser les usages : confidentialité, vérification des réponses, limites de l\'IA générative — thématiques centrales dans une formation sérieuse.',
+          'Structurer l\'offre de formation : privilégier des formats courts (par exemple 7h), ancrés dans les métiers, éligibles au financement via Constructys pour les entreprises du BTP concernées.',
+          'Renforcer la coordination sectorielle : fédérations, organismes de formation, OPPBTP, OPCO — pour éviter la dispersion des messages et des ressources.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Ce que ces chiffres changent pour votre formation (ou votre décision de vous former)',
+        content:
+          'Le constat est le même sur le terrain que dans les enquêtes : le potentiel est immense, mais l\'adoption est surtout freinée par la méconnaissance — pas par le manque d\'intérêt. Les entreprises qui montent en compétence sur une IA appliquée au BTP (devis, mémoires, DCE, comptes rendus, relances) prennent de l\'avance sur une majorité de concurrents qui n\'ont pas encore franchi le pas. Le premier usage spontané reste souvent la dictée vocale pour les comptes rendus de chantier : c\'est exactement le type de geste que l\'on peut verrouiller dès les premiers modules d\'une formation courte, certifiée Qualiopi et éligible au financement OPCO Constructys dans les conditions en vigueur (plafonds, délais de dossier).',
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes',
+        content: [
+          'Les chiffres de cet article sont-ils fiables ? — Ils sont issus d\'études citées en fin d\'article (Observatoire des métiers du BTP 2026, Orisha, sources marché européen). Les pourcentages sont des ordres de grandeur ; les résultats varient selon la taille d\'entreprise et le métier.',
+          'Pourquoi si peu d\'entreprises BTP utilisent l\'IA si les dirigeants sont « prêts » ? — Le passage de l\'intention à la pratique quotidienne demande du temps, méthode et souvent une formation. Sans accompagnement, l\'outil reste expérimental.',
+          'Quel est le premier levier pour une PME du bâtiment ? — Commencer par un cas d\'usage à forte valeur (souvent compte rendu ou devis), puis standardiser. Les formations courtes sur documents réels accélèrent ce passage.',
+          'La formation IA BTP est-elle finançable ? — Les formations certifiées Qualiopi proposées par OFC Création d\'Entreprise peuvent être financées par OPCO Constructys selon les règles applicables à votre entreprise (effectif, plan de développement des compétences, délais de dossier).',
+          'L\'IA va-t-elle remplacer les métiers du BTP ? — Non dans les usages réalistes : l\'IA assiste l\'écriture, la synthèse et la préparation ; la validation humaine, la responsabilité technique et la relation client restent centrales.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Sources et références',
+        content:
+          'Observatoire des métiers du BTP — étude sur la perception et l\'intégration de l\'IA (2026), 621 professionnels, cabinet Plein Sens · Orisha Construction / InfoPro Digital (2025) · FNTP — travaux sur la perception de l\'IA dans le BTP · Bpifrance Le Lab — adoption de l\'IA générative en TPE-PME · Baromètre France Num 2025 · MarketDataForecast — Artificial Intelligence in Construction (Europe) · FrenchWeb, analyses sectorielles BTP 2025-2026 — ainsi que synthèses sectorielles (Graneet, HEXABIM, batiweb, etc.). Les projections de marché sont des estimations ; elles évoluent avec les données publiées.',
+      },
+      {
+        type: 'cta',
+        content:
+          'Vous voulez passer de l\'intention à la pratique ? Découvrez les formations IA BTP (Qualiopi, financement Constructys selon éligibilité) animées par Laure Olivié — cas réels : devis, DCE, mémoires, chantier.',
+        formationHref: '/formations',
+      },
+    ],
+    relatedSlugs: [
+      'formation-ia-btp-guide-complet-2026',
+      'financer-formation-ia-btp-constructys',
+      'chatgpt-devis-btp-methode-2026',
+    ],
+  },
+
   // Article GEO #1 : Guide complet formation IA BTP 2026
   {
     slug: 'formation-ia-btp-guide-complet-2026',
@@ -60,7 +170,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Yvelines, FFB Seine-et-Marne, IFRB 78, CAPEB, GERESO, Lefebvre Dalloz et CNAM Entreprise.',
+          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, GERESO, Lefebvre Dalloz, CNAM Entreprise et ARFAB.',
       },
       {
         type: 'paragraph',
@@ -1249,6 +1359,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
   if (s.includes('conducteur-travaux')) return 'appels-offres';
+  if (s.includes('adoption-ia-btp')) return 'metiers';
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
   if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';
   if (s.includes('avis-google') || s.includes('organisation-chantier')) return 'productivite';

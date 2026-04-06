@@ -1,17 +1,19 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import { Check, Building2, GraduationCap, TrendingUp } from 'lucide-react';
 import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
 
 export const metadata = createPageMetadata({
-  title: 'Étude de cas FFB & CSFE — Formation IA BTP | Résultats concrets',
-  description:
-    "Retour d'expérience : interventions auprès de la FFB et du réseau CSFE (centres de formation du bâtiment). Modules, objectifs pédagogiques et bénéfices pour les entreprises.",
+  title: 'Étude de cas FFB & CSFE — Étanchéité | Formation IA BTP | Résultats concrets',
+  description: `Retour d'expérience : interventions auprès de la FFB et de la ${CSFE_NOM_LIBRE}. Modules, objectifs pédagogiques et bénéfices pour les entreprises.`,
   path: '/etudes-de-cas/ffb-csfe',
   keywords: [
     'formation IA FFB',
     'FFB formation IA',
-    'CSFE bâtiment',
+    'CSFE étanchéité',
+    'Chambre syndicale française étanchéité',
     'étude de cas formation BTP',
     'Laure Olivié FFB',
   ],
@@ -19,10 +21,10 @@ export const metadata = createPageMetadata({
 
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
-  { name: 'Étude de cas FFB & CSFE', path: '/etudes-de-cas/ffb-csfe' },
+  { name: `Étude de cas ${CSFE_TITRE_PAGE}`, path: '/etudes-de-cas/ffb-csfe' },
 ]);
 
-/** Modules communs aux parcours réseau FFB / CSFE (métier BTP) */
+/** Modules communs aux parcours réseau FFB / CSFE — étanchéité (métier BTP) */
 const MODULES = [
   {
     n: 1,
@@ -113,9 +115,9 @@ export default function EtudeDeCasFfbCsfePage() {
           </h1>
           <p className="mt-5 text-lg text-slate-600">
             Découvrez comment nous avons accompagné des entreprises du bâtiment — via la{' '}
-            <strong>Fédération Française du Bâtiment</strong> et le réseau{' '}
-            <strong>CSFE</strong> (centres de formation et services pour les entreprises du
-            bâtiment) — dans leur montée en compétences sur l&apos;IA appliquée au terrain.
+            <strong>Fédération Française du Bâtiment</strong> et la{' '}
+            <strong>Chambre Syndicale Française de l&apos;étanchéité</strong> (CSFE) — dans leur
+            montée en compétences sur l&apos;IA appliquée au terrain.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-slate-500">
             <span className="rounded-full bg-slate-100 px-3 py-1">OFC Création d&apos;Entreprise</span>
@@ -130,10 +132,29 @@ export default function EtudeDeCasFfbCsfePage() {
         <div className="mx-auto max-w-3xl text-center text-slate-600">
           <p>
             Laure Olivié intervient depuis plusieurs années auprès du réseau FFB (dont Grand
-            Paris, Yvelines, Seine-et-Marne) et des structures de formation du bâtiment
-            (dont CSFE) pour des sessions courtes, opérationnelles, sans jargon inutile — avec
+            Paris, Île-de-France Est et Ouest) et des structures du secteur (dont la{' '}
+            {CSFE_NOM_LIBRE}) pour des sessions courtes, opérationnelles, sans jargon inutile — avec
             des cas d&apos;usage directement transposables sur vos chantiers et dossiers.
           </p>
+        </div>
+      </section>
+
+      {/* Galerie visuelle — IA BTP, OFC, LinkedIn Learning (rangée inférieure uniquement) */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-10">
+        <div className="mx-auto max-w-5xl">
+          <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <Image
+              src="/images/ffb-btp-linkedin-galerie.png"
+              alt="Trois visuels : intervention « L'IA au service du BTP » avec logo OFC ; visuel LinkedIn Learning sur le recrutement dans le BTP ; tournage studio avec logo LinkedIn."
+              width={1024}
+              height={277}
+              className="h-auto w-full object-cover"
+              sizes="(max-width: 1280px) 100vw, 1024px"
+            />
+            <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-6">
+              Formation « L&apos;IA au service du BTP », contenus OFC et visuels LinkedIn Learning.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -157,6 +178,21 @@ export default function EtudeDeCasFfbCsfePage() {
                 FFB — Fédération Française du Bâtiment
               </h3>
             </header>
+            <figure className="border-b border-slate-200 bg-slate-100">
+              <Image
+                src="/images/rencontres-artisans-ia-ffb-atelier.jpg"
+                alt="Atelier « Les Rencontres des Artisans » — L'IA au service des artisans du bâtiment : participants en salle de formation avec ordinateurs portables, sous le bandeau FFB."
+                width={1024}
+                height={764}
+                className="h-auto w-full object-cover"
+                sizes="(max-width: 1280px) 100vw, 1024px"
+                priority
+              />
+              <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-10">
+                « Les Rencontres des Artisans » — L&apos;IA au service des artisans du bâtiment
+                (intervention réseau FFB).
+              </figcaption>
+            </figure>
             <div className="grid gap-10 px-6 py-10 md:grid-cols-2 md:px-10">
               <div className="space-y-8">
                 <div>
@@ -229,14 +265,17 @@ export default function EtudeDeCasFfbCsfePage() {
             </div>
           </article>
 
-          {/* CSFE */}
+          {/* CSFE — Chambre syndicale française de l'étanchéité */}
           <article className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <header className="bg-slate-900 px-6 py-6 text-white md:px-10">
               <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
                 Formation entreprises
               </span>
-              <h3 className="mt-3 font-display text-xl font-bold md:text-2xl">
-                CSFE — Centres de formation et services pour les entreprises du bâtiment
+              <h3 className="mt-3 font-display text-xl font-bold leading-tight md:text-2xl">
+                <span className="block text-base font-semibold text-blue-200/95 md:text-lg">
+                  Chambre Syndicale Française de l&apos;étanchéité
+                </span>
+                <span className="mt-1 block text-2xl md:text-3xl">CSFE</span>
               </h3>
             </header>
             <div className="grid gap-10 px-6 py-10 md:grid-cols-2 md:px-10">
@@ -258,7 +297,7 @@ export default function EtudeDeCasFfbCsfePage() {
                   <p className="mt-2 text-slate-700">
                     Sessions sur mesure : même socle de cas d&apos;usage que pour la FFB,
                     ajusté aux publics artisans, dirigeants et équipes support selon le
-                    dispositif CSFE local.
+                    dispositif local de la CSFE.
                   </p>
                 </div>
                 <div>
@@ -291,7 +330,7 @@ export default function EtudeDeCasFfbCsfePage() {
           <div className="flex items-center gap-3">
             <GraduationCap className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              Modules de formation (socle commun FFB / CSFE)
+              Modules de formation (socle commun FFB / CSFE — étanchéité)
             </h2>
           </div>
           <p className="mt-3 text-slate-600">

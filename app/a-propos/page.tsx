@@ -10,6 +10,9 @@ import { PHOTOS } from '@/lib/photos';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { PARTENAIRES_INSTITUTIONNELS } from '@/lib/partenaires-institutionnels';
+import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
@@ -43,7 +46,7 @@ const GALERIE_A_PROPOS = [
 export const metadata = createPageMetadata({
   title: 'Laure Olivié : Formatrice IA BTP | 1592 formés, note 4,85/5',
   description:
-    "Laure Olivié forme dirigeants et équipes BTP à l'IA et ChatGPT. Réseau FFB, CAPEB, GERESO, Lefebvre Dalloz. 1592 professionnels, note 4,85/5. Qualiopi, Guyancourt.",
+    "Laure Olivié forme dirigeants et équipes BTP à l'IA et ChatGPT. Réseau FFB, GERESO, Lefebvre Dalloz. 1592 professionnels, note 4,85/5. Qualiopi, Guyancourt.",
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
@@ -134,29 +137,34 @@ export default function AProposPage() {
           <p className="mt-4 text-center">
             <Link
               href="/etudes-de-cas/ffb-csfe"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] hover:underline"
+              className="inline-flex max-w-2xl flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm font-semibold text-[var(--accent)] hover:underline"
             >
-              Étude de cas FFB &amp; CSFE — modules, objectifs et bénéfices
+              Étude de cas FFB &amp; {CSFE_NOM_COMPLET} — modules, objectifs et bénéfices
               <span aria-hidden>→</span>
             </Link>
           </p>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { name: 'FFB Grand Paris', desc: 'Fédération Française du Bâtiment' },
-              { name: 'FFB Yvelines', desc: 'Fédération Française du Bâtiment' },
-              { name: 'FFB Seine-et-Marne', desc: 'Fédération Française du Bâtiment' },
-              { name: 'IFRB 78', desc: 'Institut de Formation Régional du Bâtiment' },
-              { name: 'CAPEB', desc: 'Confédération Artisanat et Petites Entreprises' },
-              { name: 'GERESO', desc: 'Organisme de formation professionnelle' },
-              { name: 'Lefebvre Dalloz', desc: 'Formations juridiques et professionnelles' },
-              { name: 'CNAM Entreprise', desc: 'Conservatoire National des Arts et Métiers' },
-            ].map(({ name, desc }) => (
-              <li
-                key={name}
-                className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm"
-              >
-                <p className="font-semibold text-slate-900">{name}</p>
-                <p className="mt-1 text-xs text-slate-600">{desc}</p>
+          <ul className="mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-4">
+            {PARTENAIRES_INSTITUTIONNELS.map((p) => (
+              <li key={p.name}>
+                <ExternalLinkAnchor
+                  href={p.href}
+                  title={`Site officiel ${p.name}`}
+                  className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md focus-visible:outline focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2"
+                >
+                  <div className="mx-auto mb-4 flex min-h-[3.5rem] w-full max-w-[220px] items-center justify-center">
+                    <Image
+                      src={p.logo}
+                      alt=""
+                      width={220}
+                      height={64}
+                      className="max-h-14 w-auto max-w-full object-contain object-center"
+                      loading="lazy"
+                      unoptimized={p.logo.endsWith('.svg')}
+                    />
+                  </div>
+                  <p className="font-semibold text-slate-900">{p.name}</p>
+                  <p className="mt-1 text-xs text-slate-600">{p.desc}</p>
+                </ExternalLinkAnchor>
               </li>
             ))}
           </ul>
@@ -219,7 +227,7 @@ export default function AProposPage() {
                       href="/etudes-de-cas/ffb-csfe"
                       className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-5 py-3 text-center text-sm font-semibold text-[var(--accent)] transition-colors hover:bg-blue-100 sm:w-auto"
                     >
-                      Voir l&apos;étude de cas FFB &amp; CSFE (détail des modules)
+                      Voir l&apos;étude de cas FFB &amp; CSFE — étanchéité (détail des modules)
                       <span aria-hidden>→</span>
                     </Link>
                   </div>

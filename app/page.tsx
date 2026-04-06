@@ -23,16 +23,23 @@ import {
   ShieldCheck,
   ArrowDown,
   X,
+  Building2,
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
 import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
+import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
+
+/** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
+const ANNUAIRE_ENTREPRISES_OFC_URL =
+  'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin',
@@ -276,7 +283,7 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, CAPEB, GERESO, FNTP… des acteurs du BTP qui font confiance à une
+                FFB, GERESO, FNTP… des acteurs du BTP qui font confiance à une
                 formation terrain
               </h2>
               <p className="mt-4 text-slate-300">
@@ -452,16 +459,19 @@ export default function HomePage() {
             ].map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="rounded-2xl bg-white/10 p-6 backdrop-blur-sm transition-colors hover:bg-white/15"
+                className="group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30"
               >
-                <div
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-200/20 to-white/10 text-amber-100 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15)] ring-1 ring-white/20"
-                  aria-hidden
-                >
-                  <Icon size={26} strokeWidth={1.75} className="drop-shadow-[0_0_8px_rgba(253,230,138,0.35)]" />
+                <div className="relative flex h-[3.75rem] w-[3.75rem] items-center justify-center" aria-hidden>
+                  <span className="benefit-icon-halo absolute -inset-1 z-0 rounded-2xl opacity-90 transition-opacity duration-300 group-hover/card:opacity-100" />
+                  <span className="benefit-icon-plate absolute inset-0 z-[1] rounded-2xl ring-1 ring-white/25" />
+                  <Icon
+                    size={26}
+                    strokeWidth={1.6}
+                    className="relative z-10 text-white drop-shadow-[0_2px_10px_rgba(56,189,248,0.45)] transition-transform duration-300 group-hover/card:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-sm text-blue-100">{desc}</p>
+                <h3 className="mt-5 font-semibold tracking-tight text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-blue-100/95">{desc}</p>
               </div>
             ))}
           </div>
@@ -601,29 +611,29 @@ export default function HomePage() {
                 ],
               },
               {
-                ref: 'BTP-03',
+                ref: 'BTP-04',
                 level: 'INTERMÉDIAIRE',
-                title: "L'IA au service de la fonction RH du BTP",
-                duree: '7h (à définir)',
+                title: "L'IA au service des Travaux Publics",
+                duree: '2 jours',
                 effectif: '12 max',
                 objectifs: [
-                  "Rédiger des offres d'emploi plus attractives",
-                  "Créer grilles de pré-qualification et scoring",
-                  "Standardiser l'onboarding et les procédures",
-                  "Gagner du temps sur les documents RH",
+                  "Analyser DCE, CCTP et comptes rendus de chantier avec l'IA",
+                  "Rédiger rapports, emails et réponses aux appels d'offres plus vite",
+                  "Créer et configurer un assistant IA métier TP",
+                  "Repartir avec un plan d'action adapté à vos chantiers",
                 ],
               },
               {
                 ref: 'BTP-02',
                 level: 'INTERMÉDIAIRE',
-                title: "Répondre à un appel d'offre BTP avec l'IA",
-                duree: '7h (à adapter)',
-                effectif: '12 max',
+                title: "Répondre aux appels d'offre avec l'IA",
+                duree: '1 jour (7h) ou LMS 7h',
+                effectif: '12 max · LMS selon session',
                 objectifs: [
-                  "Analyser un DCE et extraire les exigences",
-                  "Structurer une réponse (mémoire technique, trames)",
-                  "Sécuriser le process : confidentialité + relecture",
-                  "Gagner du temps sans perdre la qualité",
+                  "Analyser un DCE et structurer les critères d'évaluation",
+                  "Mémoires techniques, chiffrages et assistant IA métier",
+                  "Prompts et templates par métier — Qualiopi, Constructys",
+                  "Formats : journée présentielle ou parcours sur plateforme",
                 ],
               },
             ].map((cours) => (
@@ -788,6 +798,46 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-[var(--accent-soft)] p-6 shadow-sm">
+                <div className="flex items-center gap-2 font-semibold text-slate-900">
+                  <Building2 className="h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} aria-hidden />
+                  Partenaires
+                </div>
+                <p className="mt-2 text-sm text-slate-600">
+                  Interventions et actions de formation avec la FFB (Artisans, Île-de-France) et
+                  la {CSFE_NOM_LIBRE}.
+                </p>
+                <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  {[
+                    { label: 'FFB Artisans' },
+                    { label: 'FFB Île-de-France' },
+                    { label: 'CSFE', title: CSFE_NOM_COMPLET },
+                  ].map(({ label, title }) => (
+                    <li key={label}>
+                      <span
+                        title={title}
+                        className="inline-flex rounded-xl border border-[var(--accent)]/25 bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm"
+                      >
+                        {label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs text-slate-500">
+                  <Link
+                    href="/etudes-de-cas/ffb-csfe"
+                    className="font-medium text-[var(--accent)] hover:underline"
+                    title={CSFE_NOM_COMPLET}
+                  >
+                    Étude de cas FFB &amp; {CSFE_NOM_COMPLET}
+                  </Link>
+                  {' · '}
+                  <Link href="/a-propos#clients-partenaires" className="hover:underline">
+                    Tous les partenaires
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -809,6 +859,13 @@ export default function HomePage() {
                 La certification a été délivrée au titre de la catégorie d&apos;action
                 suivante : Action de formation
               </p>
+              <ExternalLinkAnchor
+                href={ANNUAIRE_ENTREPRISES_OFC_URL}
+                title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"
+                className="mt-4 inline-flex text-xs font-medium text-[var(--accent)] hover:underline"
+              >
+                Vérifier l&apos;organisme sur annuaire-entreprises.data.gouv.fr →
+              </ExternalLinkAnchor>
             </div>
             <div className="flex-1">
               <h2 className="font-display text-2xl font-bold text-slate-900">
@@ -819,12 +876,21 @@ export default function HomePage() {
                 est éligible aux financements OPCO et peut être prise en charge dans le
                 cadre du plan de développement des compétences de votre entreprise.
               </p>
-              <Link
-                href="/financement-constructys"
-                className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
-              >
-                En savoir plus sur les financements →
-              </Link>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link
+                  href="/financement-constructys"
+                  className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
+                >
+                  En savoir plus sur les financements →
+                </Link>
+                <ExternalLinkAnchor
+                  href={ANNUAIRE_ENTREPRISES_OFC_URL}
+                  title="Vérifier la certification Qualiopi — fiche entreprise officielle"
+                  className="inline-flex items-center gap-2 rounded-lg border border-[var(--accent)] bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)] hover:bg-blue-100"
+                >
+                  Vérifier la certification (annuaire des entreprises) →
+                </ExternalLinkAnchor>
+              </div>
             </div>
           </div>
         </div>

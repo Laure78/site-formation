@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
         destination: '/formations',
         permanent: true,
       },
+      {
+        source: '/formations/ia-niveau2-assistant-ao-dce-memoire',
+        destination: '/formations/ia-appels-offre-btp#parcours-lms',
+        permanent: true,
+      },
     ];
   },
 };

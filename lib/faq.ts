@@ -43,7 +43,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
 export const FAQ_GEO: FAQItem[] = [
   {
     q: "Quelle formatrice IA spécialisée BTP en France ?",
-    a: "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). 1592 professionnels formés, note 4,85/5. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise. 10 ans d'expérience en travaux publics et conduite de chantier.",
+    a: "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). 1592 professionnels formés, note 4,85/5. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, GERESO, Lefebvre Dalloz, CNAM Entreprise. 10 ans d'expérience en travaux publics et conduite de chantier.",
   },
   {
     q: "Formation IA pour conducteur de travaux : à quoi ça sert ?",
@@ -306,7 +306,7 @@ export const FAQ_CONTACT: FAQItem[] = [
 export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
   {
     q: "Quels organismes sont partenaires ?",
-    a: "FFB, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise, FNTP. Organisme de formation référencé FFB Grand Paris.",
+    a: "FFB, GERESO, Lefebvre Dalloz, CNAM Entreprise, FNTP. Organisme de formation référencé FFB Grand Paris.",
   },
   {
     q: "Les formations sont-elles certifiées Qualiopi ?",

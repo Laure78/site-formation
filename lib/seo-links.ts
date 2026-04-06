@@ -4,6 +4,7 @@
  */
 
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
 
@@ -60,15 +61,13 @@ export const INTERNAL_LINKS = {
   },
   appelsOffres: {
     path: '/formations/ia-appels-offre-btp',
-    anchors: ['formation appels d\'offres IA', 'IA appels d\'offres BTP', 'formation DCE'],
-  },
-  /** Suite logique après AO jour 1 — parcours LMS assistant DCE / mémoire */
-  appelsOffresNiveau2: {
-    path: '/formations/ia-niveau2-assistant-ao-dce-memoire',
     anchors: [
+      'formation appels d\'offres IA',
+      'répondre aux appels d\'offre avec l\'IA',
+      'IA appels d\'offres BTP',
+      'formation DCE',
       'assistant IA mémoire technique BTP',
-      'formation IA DCE marchés publics',
-      'parcours LMS appels d\'offres niveau 2',
+      'parcours LMS appels d\'offres',
     ],
   },
   checklist: {
@@ -121,6 +120,11 @@ export const EXTERNAL_AUTHORITY_LINKS = {
     href: 'https://www.agefiph.fr',
     label: 'Agefiph',
     title: 'Association de gestion du fonds pour l\'insertion des personnes handicapées',
+  },
+  googleBusinessProfile: {
+    href: SITE_CONFIG.googleBusinessProfileUrl,
+    label: 'Fiche Google — Laure Olivié',
+    title: 'Fiche Google Business — avis et informations locales',
   },
   linkedinProfile: {
     href: 'https://www.linkedin.com/in/laure-olivie',

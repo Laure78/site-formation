@@ -78,9 +78,13 @@ export const SITE_CONFIG = {
     'formation finançable OPCO',
     '100% finançable',
   ],
+  /** Fiche Google Business Profile (avis, horaires, local SEO) */
+  googleBusinessProfileUrl:
+    'https://share.google/4ILaucOrmSyE55gkx',
   sameAs: [
     'https://www.linkedin.com/in/laure-olivie',
     'https://www.laureolivie.fr',
+    'https://share.google/4ILaucOrmSyE55gkx',
   ],
   /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
   statsPersonnesFormees: '1592',
@@ -185,7 +189,7 @@ export function getCourseSchema({
   instructorName?: string;
   /** Compétences couvertes — utile pour réponses IA (Perplexity, SGE) */
   teaches?: string[];
-  /** Ex. réf. catalogue BTP-07 */
+  /** Ex. réf. catalogue BTP-02 */
   courseCode?: string;
   /** Ex. « Intermédiaire », « Professionnel » */
   educationalLevel?: string;
@@ -364,7 +368,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise.',
+    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB, GERESO, Lefebvre Dalloz, CNAM Entreprise.',
     knowsAbout: [
       'Formation IA BTP',
       'Formation ChatGPT entreprise BTP',
@@ -420,18 +424,13 @@ export function getPersonSchema() {
       },
       {
         '@type': 'Organization',
-        name: 'FFB Yvelines',
-        description: 'Fédération Française du Bâtiment - Yvelines',
+        name: 'FFB Île-de-France Est',
+        description: 'Fédération Française du Bâtiment - Île-de-France Est',
       },
       {
         '@type': 'Organization',
-        name: 'FFB Seine-et-Marne',
-        description: 'Fédération Française du Bâtiment - Seine-et-Marne',
-      },
-      {
-        '@type': 'Organization',
-        name: 'CAPEB',
-        description: 'Confédération de l\'Artisanat et des Petites Entreprises du Bâtiment',
+        name: 'FFB Île-de-France Ouest',
+        description: 'Fédération Française du Bâtiment - Région Île-de-France (78-91-95)',
       },
       {
         '@type': 'Organization',
@@ -452,6 +451,12 @@ export function getPersonSchema() {
         '@type': 'Organization',
         name: 'IFRB 78',
         description: 'Institut de Formation Régional du Bâtiment Yvelines',
+      },
+      {
+        '@type': 'Organization',
+        name: 'ARFAB',
+        url: 'https://www.arfab-formation.fr/',
+        description: 'Association de formation pour les artisans du bâtiment',
       },
     ],
     alumniOf: {

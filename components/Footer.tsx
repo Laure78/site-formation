@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { Mail, Phone, Globe, Linkedin, FileText, BookOpen } from 'lucide-react';
+import { Mail, Phone, Globe, Linkedin, FileText, BookOpen, MapPin } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export function Footer() {
   return (
@@ -71,6 +72,14 @@ export function Footer() {
               <Linkedin size={20} strokeWidth={1.5} />
               Suivez-moi sur LinkedIn
             </ExternalLinkAnchor>
+            <ExternalLinkAnchor
+              href={SITE_CONFIG.googleBusinessProfileUrl}
+              title="Fiche Google — Laure Olivié, formation IA BTP (avis et informations)"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-800 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
+            >
+              <MapPin size={20} strokeWidth={1.5} className="shrink-0" aria-hidden />
+              Fiche Google (avis &amp; localisation)
+            </ExternalLinkAnchor>
           </div>
 
           {/* Formation */}
@@ -93,8 +102,8 @@ export function Footer() {
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
                 { href: '/formations/ia-architecture-claude-dpgf', label: 'IA architecture — Claude AI & DPGF' },
                 {
-                  href: '/formations/ia-niveau2-assistant-ao-dce-memoire',
-                  label: 'IA AO — Assistant DCE & mémoire (niveau 2)',
+                  href: '/formations/ia-appels-offre-btp',
+                  label: "Répondre aux appels d'offre avec l'IA",
                 },
                 { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
                 { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
@@ -191,6 +200,14 @@ export function Footer() {
             © {new Date().getFullYear()} OFC Création d&apos;Entreprise · Organisme certifié Qualiopi
           </p>
           <div className="flex gap-3">
+            <ExternalLinkAnchor
+              href={SITE_CONFIG.googleBusinessProfileUrl}
+              title="Fiche Google — Laure Olivié"
+              aria-label="Fiche Google Business"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
+            >
+              <MapPin size={20} strokeWidth={1.5} />
+            </ExternalLinkAnchor>
             <ExternalLinkAnchor
               href="https://www.linkedin.com/in/laure-olivie"
               title="LinkedIn Laure Olivié"

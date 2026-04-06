@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CSFE_TITRE_PAGE } from '@/lib/csfe';
 
 const NAV_ITEMS: {
   href?: string;
@@ -20,11 +21,7 @@ const NAV_ITEMS: {
       { href: '/formations/ia-travaux-publics', label: "L'IA au service des Travaux Publics" },
       {
         href: '/formations/ia-appels-offre-btp',
-        label: "Répondre aux appels d'offres BTP avec l'IA",
-      },
-      {
-        href: '/formations/ia-niveau2-assistant-ao-dce-memoire',
-        label: 'IA AO — Assistant DCE & mémoire (niveau 2)',
+        label: "Répondre aux appels d'offre avec l'IA",
       },
       {
         href: '/formations/ia-rh-btp',
@@ -48,7 +45,7 @@ const NAV_ITEMS: {
     children: [
       { href: '/blog', label: 'Blog & articles' },
       { href: '/ressources/ia-btp', label: 'Guide IA BTP' },
-      { href: '/etudes-de-cas/ffb-csfe', label: 'Étude de cas FFB & CSFE' },
+      { href: '/etudes-de-cas/ffb-csfe', label: `Étude de cas ${CSFE_TITRE_PAGE}` },
     ],
   },
 ];

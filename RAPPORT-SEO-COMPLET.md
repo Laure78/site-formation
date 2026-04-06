@@ -46,7 +46,7 @@
 
 2. **Schema Person enrichi (E-E-A-T)** :
    - Credentials : Qualiopi, LinkedIn Learning Instructor
-   - Affiliations : FFB, CAPEB, LinkedIn Learning
+   - Affiliations : FFB, LinkedIn Learning
    - Awards : +1500 formés, Note 4,85/5
    - knowsAbout : 14 domaines d'expertise
 
@@ -54,7 +54,7 @@
    - Présentation complète Laure Olivié
    - Expertise & parcours professionnel
    - Secteurs accompagnés (BTP, Artisanat, Automobile)
-   - Partenaires (FFB, CAPEB, GERESO, Lefebvre Dalloz, CNAM, FNTP)
+   - Partenaires (FFB, GERESO, Lefebvre Dalloz, CNAM, FNTP)
    - Schema Person complet
    - CTAs conversion (RDV + Diagnostic)
 

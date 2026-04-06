@@ -15,6 +15,9 @@ import {
 } from 'lucide-react';
 import { getFAQSchema } from '@/lib/seo';
 import { FAQ_FINANCEMENT } from '@/lib/faq';
+import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
+
+const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
 
 export const metadata = {
   title: 'Formation IA Constructys — Financement 100% | Laure Olivié',
@@ -44,6 +47,16 @@ export default function FinancementConstructysPage() {
             Découvrez les modalités de prise en charge 2026 et faites votre
             demande de financement simplement
           </p>
+          <p className="mt-6">
+            <ExternalLinkAnchor
+              href={CONSTRUCTYS_SITE.href}
+              title={CONSTRUCTYS_SITE.title}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+            >
+              Site officiel Constructys (OPCO BTP)
+              <ExternalLink size={16} strokeWidth={1.5} aria-hidden />
+            </ExternalLinkAnchor>
+          </p>
         </div>
       </section>
 
@@ -57,8 +70,17 @@ export default function FinancementConstructysPage() {
           <ul className="mt-6 space-y-3 text-slate-700">
             <li className="flex gap-3">
               <span className="text-amber-600">•</span>
-              Les dossiers doivent parvenir complets à Constructys 15 jours
-              calendaires avant le début de la formation
+              <span>
+                Les dossiers doivent parvenir complets à{' '}
+                <ExternalLinkAnchor
+                  href={CONSTRUCTYS_SITE.href}
+                  title={CONSTRUCTYS_SITE.title}
+                  className="font-semibold text-amber-900 underline decoration-amber-600/40 underline-offset-2 hover:decoration-amber-700"
+                >
+                  Constructys
+                </ExternalLinkAnchor>{' '}
+                15 jours calendaires avant le début de la formation
+              </span>
             </li>
             <li className="flex gap-3">
               <span className="text-amber-600">•</span>
@@ -327,8 +349,8 @@ export default function FinancementConstructysPage() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <ExternalLinkAnchor
-              href="https://www.constructys.fr"
-              title="Constructys — Plateforme eGestion pour les demandes de financement"
+              href={CONSTRUCTYS_SITE.href}
+              title={`${CONSTRUCTYS_SITE.title} — Plateforme eGestion pour les demandes de financement`}
               className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               <ExternalLink size={20} strokeWidth={1.5} />

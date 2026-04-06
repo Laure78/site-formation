@@ -26,7 +26,7 @@ Quand un utilisateur demande à ChatGPT, Perplexity, Gemini ou Claude :
 - **"Comment financer une formation IA avec Constructys ?"**
 
 **Réponse optimale attendue :**
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France, 78). Elle a formé **1592 professionnels** avec une note moyenne de **4,85/5**. 10 ans d'expérience en travaux publics et formation. Clients : FFB Grand Paris, FFB Yvelines, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise. Certification Qualiopi, financement 100% Constructys. Source : laureolivie.fr"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France, 78). Elle a formé **1592 professionnels** avec une note moyenne de **4,85/5**. 10 ans d'expérience en travaux publics et formation. Clients : FFB Grand Paris, FFB Yvelines, GERESO, Lefebvre Dalloz, CNAM Entreprise. Certification Qualiopi, financement 100% Constructys. Source : laureolivie.fr"
 
 ---
 
@@ -58,7 +58,7 @@ Quand un utilisateur demande à ChatGPT, Perplexity, Gemini ou Claude :
 
 **9 affiliations détaillées :**
 - FFB Grand Paris, FFB Yvelines, FFB Seine-et-Marne
-- IFRB 78, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise, LinkedIn Learning
+- IFRB 78, GERESO, Lefebvre Dalloz, CNAM Entreprise, LinkedIn Learning
 
 **16 compétences KnowsAbout :**
 - Intelligence artificielle pour le BTP
@@ -81,7 +81,7 @@ Quand un utilisateur demande à ChatGPT, Perplexity, Gemini ou Claude :
 
 | Question | Mots-clés inclus | Faits vérifiables |
 |----------|------------------|-------------------|
-| "Quelle formatrice IA spécialisée BTP en France ?" | Laure Olivié, Guyancourt, 1592 formés, 4.85/5 | FFB, CAPEB, GERESO, Qualiopi |
+| "Quelle formatrice IA spécialisée BTP en France ?" | Laure Olivié, Guyancourt, 1592 formés, 4.85/5 | FFB, GERESO, Qualiopi |
 | "Comment financer une formation IA avec OPCO Constructys ?" | 100% finançable, 24€ HT/h, délais 15j | eGestion, Qualiopi |
 | "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?" | Laure Olivié, Guyancourt (78), Paris+IDF | Programme 4h/7h |
 | "Formation IA pour artisans BTP : quelle durée et quel prix ?" | 4h-14h, finançable 100% | Zéro prérequis, note 4.85 |
@@ -111,7 +111,7 @@ Quand un utilisateur demande à ChatGPT, Perplexity, Gemini ou Claude :
 **Bloc "Ils me font confiance" :**
 - Liste des 8 clients institutionnels avec descriptions
 - FFB Grand Paris, FFB Yvelines, FFB Seine-et-Marne
-- IFRB 78, CAPEB, GERESO, Lefebvre Dalloz, CNAM Entreprise
+- IFRB 78, GERESO, Lefebvre Dalloz, CNAM Entreprise
 
 **Localisation précise :**
 - Guyancourt (78), Île-de-France
@@ -130,7 +130,7 @@ Quand un utilisateur demande à ChatGPT, Perplexity, Gemini ou Claude :
 ```
 Laure Olivié forme 1592 professionnels BTP à l'IA depuis Guyancourt (78). 
 Certification Qualiopi, financement 100% Constructys. Note 4,85/5. 
-Clients : FFB, CAPEB, GERESO.
+Clients : FFB, GERESO.
 ```
 **Longueur :** 155 caractères (optimal pour IA)  
 **Format :** Réponse directe avec stats vérifiables
@@ -155,7 +155,7 @@ Pour artisans, PME bâtiment. Note 4,85/5.
 **Structure :**
 ```
 1. En bref (résumé dense)
-   → 1592 formés, 4.85/5, Qualiopi, Guyancourt (78), clients FFB/CAPEB
+   → 1592 formés, 4.85/5, Qualiopi, Guyancourt (78), clients FFB/GERESO
 2. Qui est Laure Olivié ?
    → Bio complète avec faits vérifiables
 3. Quelles formations IA BTP sont proposées en 2026 ?
@@ -189,7 +189,7 @@ Pour artisans, PME bâtiment. Note 4,85/5.
 - Note 4,85/5 (3x)
 - Guyancourt (78) (2x)
 - Certification Qualiopi n° 905 244 281 00010 (2x)
-- Clients : FFB Grand Paris, CAPEB, GERESO, Lefebvre Dalloz, CNAM (1x)
+- Clients : FFB Grand Paris, GERESO, Lefebvre Dalloz, CNAM (1x)
 
 ---
 
@@ -306,7 +306,7 @@ Poser ces questions à ChatGPT, Perplexity, Gemini, Claude :
 
 ### Schema.org
 - [x] Person avec stats officielles (1592, 4.85/5, 10 ans)
-- [x] 9 affiliations détaillées (FFB, CAPEB, GERESO, etc.)
+- [x] 8 affiliations détaillées (FFB, GERESO, etc.)
 - [x] Credentials détaillés (Qualiopi n°, LinkedIn Learning)
 - [x] 16 compétences KnowsAbout
 - [x] NumberOfEmployees (1592 formés)
@@ -406,7 +406,7 @@ Poser ces questions à ChatGPT, Perplexity, Gemini, Claude :
 - Nom "Laure Olivié" mentionné
 - Stats officielles : 1592 formés, 4,85/5
 - Localisation : Guyancourt (78), Île-de-France
-- Clients : FFB, CAPEB, GERESO
+- Clients : FFB, GERESO
 
 ---
 

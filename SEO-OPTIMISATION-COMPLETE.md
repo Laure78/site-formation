@@ -12,7 +12,7 @@
 
 **Schema.org Person enrichi (E-E-A-T) :**
 - ✅ Crédentials ajoutés (Qualiopi, LinkedIn Learning)
-- ✅ Affiliations (FFB, CAPEB, LinkedIn Learning)
+- ✅ Affiliations (FFB, LinkedIn Learning)
 - ✅ Awards (+1500 formés, Note 4,85/5)
 - ✅ knowsAbout étendu (14 domaines)
 

@@ -66,7 +66,7 @@ Les backlinks ne se contrôlent pas directement, mais le site peut être rendu p
 
 ### Actions pour attirer des liens
 
-1. **Partenariats** : FFB, CAPEB, GERESO, Lefebvre Dalloz — proposer une page partenaire ou un article invité
+1. **Partenariats** : FFB, GERESO, Lefebvre Dalloz — proposer une page partenaire ou un article invité
 2. **Médias / presse** : Communiqués sur l’IA au BTP, formations, qualification Qualiopi
 3. **Réseaux** : LinkedIn, publications régulières avec lien vers le site
 4. **Annuaire / citations** : Annuaire des organismes de formation, annuaire Qualiopi
@@ -85,7 +85,7 @@ Les backlinks ne se contrôlent pas directement, mais le site peut être rendu p
 
 | Partenaire | Type de lien possible |
 |------------|------------------------|
-| FFB / CAPEB | Page partenaire, article invité |
+| FFB | Page partenaire, article invité |
 | GERESO | Page partenaire, formation |
 | Lefebvre Dalloz | Référence formation |
 | CNAM Entreprise | Référence formation |

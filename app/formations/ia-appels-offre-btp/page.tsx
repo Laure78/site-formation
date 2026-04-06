@@ -26,9 +26,9 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'IA Appels d\'offres BTP : Gagnez 5x en rapidité',
+  title: "Répondre aux appels d'offre avec l'IA — DCE, mémoires, assistant",
   description:
-    "Formation appels d'offres BTP avec l'IA : DCE, mémoires techniques, chiffrage. Chargés d'affaires. Constructys. Multipliez vos réponses gagnantes.",
+    "Formation appels d'offre avec l'IA : DCE, mémoires techniques, assistant IA, chiffrage. Journée 7h ou parcours LMS 7h. Chargés d'affaires BTP. Qualiopi, Constructys.",
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appels d\'offres BTP',
@@ -43,8 +43,9 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = getCourseSchema({
-  name: "Répondre aux Appels d'Offres BTP avec l'IA",
-  description: "Formation opérationnelle : analysez les DCE 5 fois plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages avec l'IA. 100% finançable OPCO.",
+  name: "Répondre aux appels d'offre avec l'IA",
+  description:
+    "Formation opérationnelle : analysez les DCE plus vite, rédigez des mémoires techniques et configurez un assistant IA pour vos réponses marchés. Formats : journée présentielle (7h) ou parcours LMS (7h). 100% finançable OPCO selon éligibilité.",
   path: '/formations/ia-appels-offre-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -53,7 +54,7 @@ const courseSchema = getCourseSchema({
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
   { name: 'Formations', path: '/formations' },
-  { name: "Répondre aux appels d'offres BTP avec l'IA", path: '/formations/ia-appels-offre-btp' },
+  { name: "Répondre aux appels d'offre avec l'IA", path: '/formations/ia-appels-offre-btp' },
 ]);
 
 const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
@@ -62,8 +63,9 @@ const MODALITES = [
   {
     icon: Clock,
     title: 'Durée',
-    primary: '1 journée (7 heures)',
-    secondary: 'Format intensif et opérationnel — Adaptable selon vos besoins',
+    primary: '1 journée (7 h) ou parcours LMS 7 h',
+    secondary:
+      'Présentiel / distanciel / plateforme — même socle pédagogique, selon la formule retenue',
   },
   {
     icon: MapPin,
@@ -178,8 +180,8 @@ export default function FormationIAAppelsOffreBTPPage() {
                 ← Retour au catalogue
               </Link>
               <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Formation IA BTP : répondre aux{' '}
-                <span className="text-[var(--accent)]">appels d&apos;offres</span>
+                Répondre aux appels d&apos;offre avec{' '}
+                <span className="text-[var(--accent)]">l&apos;IA</span>
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
                 Analysez les DCE 5 fois plus vite, rédigez des mémoires techniques
@@ -500,6 +502,27 @@ Présente une synthèse claire pour une PME du BTP.`}
           </ul>
           <p className="mt-6 text-slate-600">
             Découvrez aussi : <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">catalogue formations IA BTP</Link>, <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">formation IA BTP Paris</Link>, <Link href="/a-propos#clients-partenaires" className="text-[var(--accent)] font-medium hover:underline">clients et partenaires</Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* Parcours LMS 7 h (même offre catalogue BTP-02) */}
+      <section
+        id="parcours-lms"
+        className="scroll-mt-24 border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-12"
+      >
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Parcours LMS 7 h — assistant IA DCE &amp; mémoire technique
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            La même formation « répondre aux appels d&apos;offre avec l&apos;IA » est aussi
+            disponible en <strong>parcours en ligne sur 7 h</strong> sur la plateforme :
+            approfondissement sur la création et le paramétrage d&apos;un assistant IA pour
+            analyser les DCE et accélérer vos mémoires techniques.{' '}
+            <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
+            éligibilité — même référence catalogue <strong>BTP-02</strong> que la journée
+            présentielle.
           </p>
         </div>
       </section>

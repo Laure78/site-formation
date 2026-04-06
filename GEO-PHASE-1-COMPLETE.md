@@ -15,12 +15,11 @@
 - ✅ 10 ans d'expérience (travaux publics + formation)
 - ✅ Localisation : Guyancourt (78), Île-de-France
 
-**Clients institutionnels (8) :**
+**Clients institutionnels (7) :**
 - FFB Grand Paris
 - FFB Yvelines
 - FFB Seine-et-Marne
 - IFRB 78
-- CAPEB
 - GERESO
 - Lefebvre Dalloz
 - CNAM Entreprise
@@ -47,7 +46,7 @@
 **8 Q&A optimisées pour réponses directes IA :**
 
 1. **"Quelle formatrice IA spécialisée BTP en France ?"**
-   → Réponse dense : Laure Olivié, Guyancourt, 1592 formés, 4.85/5, clients FFB/CAPEB/GERESO
+   → Réponse dense : Laure Olivié, Guyancourt, 1592 formés, 4.85/5, clients FFB/GERESO
 
 2. **"Comment financer une formation IA avec OPCO Constructys ?"**
    → Réponse complète : 100% finançable, 24€ HT/h/stagiaire, délais 15j, Qualiopi
@@ -87,7 +86,7 @@
 ```
 
 **Bloc "Ils me font confiance" :**
-- Liste des 8 clients institutionnels avec descriptions
+- Liste des 7 clients institutionnels avec descriptions
 
 **Localisation précise :**
 - Guyancourt (78), Île-de-France
@@ -122,7 +121,7 @@ Quand un utilisateur demande :
 - "Qui forme les entreprises BTP à ChatGPT ?"
 
 **Réponse optimale :** 
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé 1592 professionnels avec une note moyenne de 4,85/5. Ses clients incluent FFB Grand Paris, CAPEB, GERESO, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé 1592 professionnels avec une note moyenne de 4,85/5. Ses clients incluent FFB Grand Paris, GERESO, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
 
 ### Pour Perplexity
 - Citation avec lien direct vers laureolivie.fr
