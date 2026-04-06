@@ -1,29 +1,21 @@
 import Link from 'next/link';
+import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import Image from 'next/image';
-import {
-  Check,
-  Phone,
-  Mail,
-  Clock,
-  MapPin,
-  Users,
-  FileText,
-  Award,
-  DollarSign,
-  FolderOpen,
-  Bot,
-  Monitor,
-  Lock,
-  Settings,
-  LayoutTemplate,
-} from 'lucide-react';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
-import { FormationCarousel } from '@/components/formations/FormationCarousel';
-import { FormationPhotos } from '@/components/formations/FormationPhotos';
-import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import {
+  createPageMetadata,
+  getCourseSchema,
+  getBreadcrumbSchema,
+  getFAQSchema,
+  SITE_CONFIG,
+} from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
+
+const LMS_SLUG = 'ia-appels-offre-btp';
+/** Programme officiel — aligné seed SQL supports */
+const PDF_HREF = '/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP_2026.pdf';
 
 export const metadata = createPageMetadata({
   title: "Répondre aux appels d'offre avec l'IA — DCE, mémoires, assistant",
@@ -45,7 +37,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: "Répondre aux appels d'offre avec l'IA",
   description:
-    "Formation opérationnelle : analysez les DCE plus vite, rédigez des mémoires techniques et configurez un assistant IA pour vos réponses marchés. Formats : journée présentielle (7h) ou parcours LMS (7h). 100% finançable OPCO selon éligibilité.",
+    "Formation opérationnelle : analysez les DCE plus vite, rédigez des mémoires techniques et configurez un assistant IA pour vos réponses marchés. Journée 7 h ou parcours LMS 7 h. 100% finançable OPCO selon éligibilité.",
   path: '/formations/ia-appels-offre-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -57,105 +49,72 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Répondre aux appels d'offre avec l'IA", path: '/formations/ia-appels-offre-btp' },
 ]);
 
-const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
+const OUTILS_IA_LINE =
+  'ChatGPT, Claude, Perplexity, Mistral, Gemini, NotebookLM — selon modules.';
 
-const MODALITES = [
+const MODULES = [
   {
-    icon: Clock,
-    title: 'Durée',
-    primary: '1 journée (7 h) ou parcours LMS 7 h',
-    secondary:
-      'Présentiel / distanciel / plateforme — même socle pédagogique, selon la formule retenue',
+    duree: '30 min',
+    outils: 'Contexte marchés publics',
+    titre: 'Introduction',
+    objectifs: [
+      'Cadrer les enjeux des appels d’offres BTP avec l’IA',
+      'Présenter le déroulé de la journée et les livrables',
+      'Rappeler les règles de confidentialité des données',
+    ],
+    livrable: 'Feuille de route personnelle pour la journée',
   },
   {
-    icon: MapPin,
-    title: 'Format',
-    primary: 'Présentiel ou distanciel',
-    secondary: 'Dans vos locaux ou en visio — Groupe jusqu\'à 12 personnes',
+    duree: '2 h',
+    outils: 'NotebookLM · DCE / pièces',
+    titre: 'Analyse DCE avec NotebookLM',
+    objectifs: [
+      'Extraire les exigences techniques et les critères de sélection',
+      'Synthétiser un DCE volumineux en temps court',
+      'Préparer une checklist de réponse',
+    ],
+    livrable: 'Méthode d’analyse DCE réutilisable + prompts',
   },
   {
-    icon: Users,
-    title: 'Public cible',
-    primary: 'Chargés d\'affaires BTP',
-    secondary: 'Bureaux d\'études, Dirigeants d\'entreprises',
+    duree: '1 h 30',
+    outils: 'IA générative · tableaux',
+    titre: 'Décision Go / No Go et rentabilité',
+    objectifs: [
+      'Évaluer si le dossier vaut l’investissement temps',
+      'Analyser la rentabilité et les risques',
+      'Prioriser les réponses aux marchés',
+    ],
+    livrable: 'Grille Go/No Go + synthèse rentabilité',
   },
   {
-    icon: FileText,
-    title: 'Pré-requis',
-    primary: 'Connaissance du secteur BTP',
-    secondary: 'Expérience en appels d\'offres — Aucune compétence technique IA',
+    duree: '1 h 30',
+    outils: 'Rédaction assistée · CCTP',
+    titre: 'Rédaction mémoire technique et relecture',
+    objectifs: [
+      'Structurer un mémoire adapté au projet',
+      'Rédiger avec l’IA puis sécuriser la conformité CCTP',
+      'Contrôler la cohérence et la relecture finale',
+    ],
+    livrable: 'Trame de mémoire + prompts de relecture',
   },
   {
-    icon: Award,
-    title: 'Certification',
-    primary: 'Formation Qualiopi',
-    secondary: 'Attestation de fin de formation — Supports pédagogiques inclus',
+    duree: '1 h 30',
+    outils: 'Chiffrage · IA',
+    titre: 'Aide au chiffrage et contrôle de rentabilité',
+    objectifs: [
+      'Optimiser le chiffrage avec l’IA comme assistant',
+      'Contrôler marges et points sensibles',
+      'Préparer la relecture avant remise',
+    ],
+    livrable: 'Check-list chiffrage et contrôle de marge',
   },
-  {
-    icon: DollarSign,
-    title: 'Financement',
-    primary: '100% finançable OPCO',
-    secondary: 'Constructys, AKTO, OPCO EP — Démarches simplifiées',
-  },
-];
-
-const LIVRABLES = [
-  {
-    icon: FolderOpen,
-    title: 'Bibliothèque de prompts spécialisés',
-    desc: "Prompts optimisés pour l'analyse DCE, la rédaction de mémoires techniques, le chiffrage et les réponses aux critères d'évaluation",
-  },
-  {
-    icon: LayoutTemplate,
-    title: 'Templates de mémoires techniques',
-    desc: 'Structures types par corps de métier (gros œuvre, second œuvre, CVC, électricité, plomberie, VRD)',
-  },
-  {
-    icon: Settings,
-    title: 'Workflows de traitement',
-    desc: "Processus pas à pas pour analyser un DCE, structurer la réponse et finaliser le dossier de candidature",
-  },
-  {
-    icon: Lock,
-    title: 'Guide de sécurité RGPD',
-    desc: "Documentation complète des bonnes pratiques pour protéger vos données confidentielles lors de l'utilisation de l'IA",
-  },
-  {
-    icon: Bot,
-    title: 'Assistant IA personnalisé',
-    desc: 'GPT configuré spécifiquement pour vos types de projets BTP et vos méthodes de travail',
-  },
-  {
-    icon: Monitor,
-    title: 'Accès plateforme en ligne',
-    desc: 'Replays de la formation + ressources téléchargeables + mises à jour régulières pendant 1 an',
-  },
-];
-
-const OUTILS_IA = [
-  { name: 'ChatGPT', url: 'https://chatgpt.com/' },
-  { name: 'Claude', url: 'https://claude.ai/' },
-  { name: 'Perplexity', url: 'https://www.perplexity.ai/' },
-  { name: 'Mistral', url: 'https://mistral.ai/fr/' },
-  { name: 'Deepseek', url: 'https://chat.deepseek.com/' },
-  { name: 'Qwen', url: 'https://chat.qwen.ai/' },
-  { name: 'Grok', url: 'https://grok.com/' },
-  { name: 'Google AI Studio', url: 'https://aistudio.google.com/' },
-  { name: 'Gemini', url: 'https://gemini.google.com/app?hl=fr' },
-  { name: 'Prompt Cowboy', url: 'https://www.promptcowboy.ai/' },
-];
-
-const PROGRAMME_MODULES = [
-  { title: 'Introduction', description: 'Contexte et enjeux des appels d\'offres BTP avec l\'IA' },
-  { title: 'MODULE 1 — Analyse DCE avec NotebookLM', description: 'Extraire les exigences techniques, identifier les critères de sélection, synthétiser un DCE en 30 min' },
-  { title: 'MODULE 2 — Décision Go/No Go + Rentabilité', description: 'Évaluer l\'opportunité, analyser la rentabilité, prioriser les réponses' },
-  { title: 'MODULE 3 — Rédaction mémoire technique et relecture', description: 'Structurer le mémoire, rédiger avec l\'IA, relecture et conformité CCTP' },
-  { title: 'MODULE 4 : Aide au chiffrage & contrôle de rentabilité', description: 'Optimiser le chiffrage avec l\'IA, contrôler les marges, automatiser les calculs' },
 ];
 
 export default function FormationIAAppelsOffreBTPPage() {
+  const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
+
   return (
-    <div>
+    <div className="mx-auto max-w-4xl px-4 py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -168,502 +127,208 @@ export default function FormationIAAppelsOffreBTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex-1">
-              <Link
-                href="/formations"
-                className="text-sm text-[var(--accent)] hover:underline"
-              >
-                ← Retour au catalogue
-              </Link>
-              <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Répondre aux appels d&apos;offre avec{' '}
-                <span className="text-[var(--accent)]">l&apos;IA</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-slate-600">
-                Analysez les DCE 5 fois plus vite, rédigez des mémoires techniques
-                convaincants et optimisez vos chiffrages grâce à l&apos;IA.
-                Formation opérationnelle pour entreprises du bâtiment, chargés
-                d&apos;affaires et bureaux d&apos;études. Augmentez votre taux de
-                réussite aux appels d&apos;offres.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="#programme"
-                  className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
-                >
-                  Voir le programme complet
-                </a>
-                <a
-                  href="tel:+33695661818"
-                  className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
-                >
-                  Nous appeler
-                </a>
+
+      <nav className="mb-6 text-sm text-slate-600">
+        <Link href="/" className="text-[var(--accent)] hover:underline">
+          Accueil
+        </Link>
+        {' / '}
+        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+          Formations
+        </Link>
+        {' / '}
+        <span className="text-slate-900">Répondre aux appels d&apos;offre avec l&apos;IA</span>
+      </nav>
+
+      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+        Présentiel ou distanciel · 7 h ou LMS 7 h · Intermédiaire · BTP-02
+      </p>
+      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+        Répondre aux appels d&apos;offre avec l&apos;IA
+      </h1>
+      <p className="mt-6 text-lg text-slate-600">
+        Analysez les DCE plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages
+        grâce à l&apos;IA. Formation opérationnelle pour entreprises du bâtiment, chargés d&apos;affaires et
+        bureaux d&apos;études — même exigence de clarté que sur une fiche type{' '}
+        <Link
+          href="/formations/ia-architecture-claude-dpgf"
+          className="font-medium text-[var(--accent)] hover:underline"
+        >
+          programme détaillé par modules
+        </Link>
+        . Outils : {OUTILS_IA_LINE}
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-4">
+        <a
+          href={PDF_HREF}
+          download
+          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+        >
+          <Download size={20} strokeWidth={1.5} />
+          Télécharger le programme (PDF)
+        </a>
+        <Link
+          href={`/cours/${LMS_SLUG}`}
+          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+        >
+          <ExternalLink size={20} strokeWidth={1.5} />
+          Voir sur la plateforme
+        </Link>
+        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
+          Prendre rendez-vous
+        </RdvLink>
+      </div>
+
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+        <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li className="flex gap-2">
+            <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Public :</strong> chargés d&apos;affaires, bureaux d&apos;études, dirigeants du BTP.
+              Aucune compétence technique IA requise — expérience des appels d&apos;offres recommandée.
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Formats :</strong> journée <strong>7 h</strong> (présentiel ou visio, jusqu&apos;à 12
+              personnes) ou <strong>parcours LMS 7 h</strong> sur la plateforme — même référence catalogue{' '}
+              <strong>BTP-02</strong>.
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Prérequis :</strong> connaissance du secteur BTP et des dossiers DCE / CCTP. Pour les
+              données sensibles : privilégier des environnements professionnels (ex. offres Team) — rappels
+              RGPD en session.
+            </span>
+          </li>
+        </ul>
+        <p className="mt-4 text-sm text-slate-600">
+          Devis et convention :{' '}
+          <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
+            laureolivie@yahoo.fr
+          </a>{' '}
+          ·{' '}
+          <a href="tel:+33695661818" className="font-medium text-[var(--accent)] hover:underline">
+            06 95 66 18 18
+          </a>
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          {[
+            'Analyser un DCE et en extraire les exigences opérationnelles rapidement',
+            'Structurer un mémoire technique aligné sur le CCTP et les critères',
+            'Utiliser l’IA pour le chiffrage et le contrôle de rentabilité',
+            'Paramétrer une démarche d’assistant IA pour vos prochains dossiers',
+          ].map((o) => (
+            <li key={o} className="flex gap-2">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+              {o}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Répartition indicative sur une journée — ajustements possibles selon le groupe.
+        </p>
+        <div className="mt-8 space-y-8">
+          {MODULES.map((m, i) => (
+            <div
+              key={m.titre}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-display text-lg font-semibold text-slate-900">
+                  {i === 0 ? m.titre : `Module ${i} — ${m.titre}`}
+                </h3>
+                <span className="text-sm font-medium text-[var(--accent)]">
+                  {m.duree} · {m.outils}
+                </span>
               </div>
-            </div>
-            <div className="w-full shrink-0 lg:w-[380px]">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="h-1 w-16 rounded-full bg-[var(--accent)]" />
-                <h2 className="mt-4 font-display text-xl font-bold text-slate-900">
-                  Ce que vous allez maîtriser
-                </h2>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    "Analyser un DCE complet en 30 minutes au lieu de 3 heures",
-                    "Extraire automatiquement toutes les exigences techniques",
-                    "Structurer un mémoire technique convaincant",
-                    "Générer des réponses aux critères d'évaluation",
-                    "Optimiser le chiffrage avec l'IA",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]">
-                        <Check size={14} strokeWidth={1.5} className="text-white" />
-                      </span>
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Carrousel formation IA appels d'offres */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <FormationPhotos variant="default" />
-          
-          <div className="mt-12">
-            <FormationCarousel
-              title="Formation IA BTP — Appels d'offres et DCE"
-              slides={[
-                { src: '/images/laure-olivie-ia-administratif-batiment.png', alt: 'Formation appel d\'offre BTP avec Laure Olivié pour automatiser l\'analyse des DCE et réponses aux marchés publics' },
-                { src: '/images/btp-conducteur-plans.png', alt: 'Conducteur de travaux BTP analysant des plans lors d\'une formation IA pour optimiser les appels d\'offres' },
-                { src: '/images/btp-architecte-plans.png', alt: 'Bureau d\'études BTP utilisant l\'intelligence artificielle pour répondre efficacement aux appels d\'offres publics' },
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Pourquoi les appels d'offres sont complexes */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Pourquoi les appels d&apos;offres sont complexes pour les entreprises du BTP
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Répondre à un appel d&apos;offres travaux mobilise des ressources considérables. Le DCE (Dossier de Consultation des Entreprises) peut compter plusieurs centaines de pages : CCTP, CCTG, pièces écrites, plans. Analyser l&apos;ensemble exige du temps et une méthodologie rigoureuse.
-          </p>
-          <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>DCE volumineux</strong> — Les cahiers des charges techniques et les pièces contractuelles représentent souvent des dizaines de documents à croiser. Identifier les exigences et les points de vigilance demande plusieurs heures.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Analyse du CCTP</strong> — Le Cahier des Clauses Techniques Particulières impose des prescriptions précises (DTU, normes, contrôles). Une lecture superficielle expose à des non-conformités et à des pénalités.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Contraintes administratives</strong> — Délais serrés, formulaires spécifiques, justificatifs obligatoires. La constitution du dossier peut représenter 20 à 30 % du temps total.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Rédaction du mémoire technique</strong> — Le mémoire doit démontrer votre capacité à réaliser le projet. Structure, argumentaire, références : chaque mot compte pour le jury.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Délais de réponse</strong> — Les maîtres d&apos;ouvrage imposent des dates limites strictes. Impossible de tout relire à la dernière minute. L&apos;anticipation et l&apos;organisation sont décisives.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Comment l'IA peut aider */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src="/images/laure-olivie-ia-administratif-batiment.png"
-              alt="Formation appel d'offre BTP avec IA pour optimiser l'analyse des DCE et CCTP par Laure Olivié"
-              width={1200}
-              height={630}
-              className="h-auto w-full object-cover"
-            />
-          </div>
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Comment l&apos;intelligence artificielle peut aider à analyser un appel d&apos;offre BTP
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            L&apos;IA générative (ChatGPT, Claude, etc.) ne remplace pas l&apos;expertise métier. Elle accélère les tâches répétitives et structure l&apos;information. Voici les usages concrets pour répondre à un appel d&apos;offre travaux.
-          </p>
-          <ul className="mt-6 space-y-4 text-slate-700">
-            <li className="flex gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">1</span>
-              <span><strong>Analyser un DCE</strong> — Coller un extrait de DCE et demander une synthèse des exigences, des délais et des critères de sélection. L&apos;IA structure l&apos;information en quelques secondes.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">2</span>
-              <span><strong>Résumer un CCTP</strong> — Identifier les points critiques, les prescriptions techniques et les points de vigilance. Utile pour le chiffrage et le planning.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">3</span>
-              <span><strong>Identifier les exigences techniques</strong> — Lister les normes, DTU et contrôles requis. L&apos;IA extrait les références et les met en forme.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">4</span>
-              <span><strong>Structurer un mémoire technique</strong> — Générer un plan adapté au projet, rédiger des paragraphes de synthèse et reformuler vos références. Gain de temps significatif.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent)]">5</span>
-              <span><strong>Analyser les critères de sélection</strong> — Comprendre le barème de notation et prioriser les éléments à valoriser dans votre dossier.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Exemple concret CCTP */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Exemple concret d&apos;analyse d&apos;un CCTP avec l&apos;IA
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Voici un prompt que vous pouvez utiliser directement avec ChatGPT ou un outil équivalent. Collez un extrait de votre CCTP et adaptez la demande à votre contexte.
-          </p>
-          <div className="mt-6 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-            <p className="font-semibold text-slate-900">Prompt à copier :</p>
-            <blockquote className="mt-3 whitespace-pre-wrap rounded-xl bg-white p-5 font-mono text-sm italic text-slate-700">
-              {`Analyse ce CCTP et identifie :
-1. les exigences techniques principales
-2. les critères de sélection
-3. les points de vigilance
-4. les éléments à valoriser dans le mémoire technique
-
-Présente une synthèse claire pour une PME du BTP.`}
-            </blockquote>
-          </div>
-          <p className="mt-4 text-sm text-slate-600">
-            L&apos;IA produira une synthèse structurée en quelques secondes. Vous devrez ensuite relire et compléter avec votre expertise métier. Ne partagez jamais de données confidentielles ou nominatives dans ChatGPT public.
-          </p>
-        </div>
-      </section>
-
-      {/* Mémoire technique BTP */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src="/images/btp-conducteur-plans.png"
-              alt="Conducteur de travaux BTP analysant des plans lors d'une formation appel d'offre avec intelligence artificielle"
-              width={1200}
-              height={630}
-              className="h-auto w-full object-cover"
-            />
-          </div>
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Comment utiliser l&apos;IA pour rédiger un mémoire technique BTP
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Le mémoire technique est l&apos;élément qui différencie votre candidature. L&apos;IA vous aide à le construire plus rapidement sans sacrifier la qualité.
-          </p>
-          <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Génération de plan</strong> — Demandez à l&apos;IA de proposer une structure adaptée au type de projet (VRD, second œuvre, réhabilitation). Vous ajustez selon vos références.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Rédaction assistée</strong> — Fournissez vos éléments (chantiers similaires, équipements, méthodes) et l&apos;IA rédige les paragraphes. Vous corrigez et personnalisez.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Reformulation technique</strong> — Transformez vos notes en texte professionnel. Vocabulaire BTP, tournures adaptées aux marchés publics.</span>
-            </li>
-            <li className="flex gap-3">
-              <Check size={20} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-              <span><strong>Amélioration de la lisibilité</strong> — Clarifiez les phrases, structurez les listes, soignez les introductions et conclusions. L&apos;IA propose des formulations plus fluides.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Limites et précautions */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Limites et précautions
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            L&apos;IA est un assistant puissant, mais elle ne remplace pas l&apos;expertise humaine. Voici les points de vigilance pour une utilisation responsable.
-          </p>
-          <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex gap-3">
-              <span className="text-[var(--accent)]">•</span>
-              <span><strong>L&apos;IA ne remplace pas l&apos;expertise métier</strong> — Les décisions techniques, les chiffrages et la stratégie de réponse restent sous votre responsabilité.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-[var(--accent)]">•</span>
-              <span><strong>Vérifier les informations générées</strong> — L&apos;IA peut inventer des références ou des normes. Toujours croiser avec les documents officiels.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-[var(--accent)]">•</span>
-              <span><strong>Ne pas partager de données sensibles</strong> — Évitez de coller des DCE complets, des coordonnées clients ou des chiffres confidentiels dans ChatGPT public. Utilisez ChatGPT Team ou Enterprise pour les données métier.</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="text-[var(--accent)]">•</span>
-              <span><strong>Utiliser l&apos;IA comme assistant</strong> — Elle accélère la mise en forme et la synthèse. Vous restez le garant de la pertinence et de la conformité.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Bloc conversion Laure Olivié */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-8 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8 md:p-12">
-            <div className="shrink-0 sm:w-48">
-              <ProfilePhoto />
-            </div>
-            <div className="flex-1">
-              <h2 className="font-display text-2xl font-bold text-slate-900">
-                Formation IA pour les entreprises du BTP
-              </h2>
-              <p className="mt-4 text-slate-700">
-                <strong>Laure Olivié</strong>, formatrice spécialisée en intelligence artificielle appliquée au BTP, accompagne les chargés d&apos;affaires, bureaux d&apos;études et dirigeants dans la maîtrise de l&apos;IA pour les appels d&apos;offres.
-              </p>
-              <ul className="mt-6 space-y-2 text-slate-700">
-                <li className="flex gap-2">
-                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                  Automatisation des tâches administratives
-                </li>
-                <li className="flex gap-2">
-                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                  Analyse des appels d&apos;offres et des DCE
-                </li>
-                <li className="flex gap-2">
-                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                  Génération de mémoires techniques et documents
-                </li>
-                <li className="flex gap-2">
-                  <Check size={18} strokeWidth={1.5} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                  Gain de temps mesurable dès la première semaine
-                </li>
+              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Objectifs</p>
+              <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                {m.objectifs.map((o) => (
+                  <li key={o}>▸ {o}</li>
+                ))}
               </ul>
-              <div className="mt-8">
-                <Link
-                  href="/diagnostic-ia-btp"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-600"
-                >
-                  Demander un diagnostic IA pour mon entreprise
-                </Link>
-              </div>
+              <p className="mt-4 text-sm text-slate-700">
+                <span className="font-semibold text-slate-900">Livrable :</span> {m.livrable}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Ressources pour les entreprises du BTP */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Ressources pour les entreprises du BTP
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Complétez votre compréhension des appels d&apos;offres BTP avec nos guides pratiques.
-          </p>
-          <ul className="mt-6 space-y-3 text-slate-700">
-            <li>
-              <Link href="/blog/analyse-cctp-btp" className="text-[var(--accent)] font-medium hover:underline">
-                Comment analyser un CCTP rapidement dans un appel d&apos;offre BTP
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/memoire-technique-btp-exemple" className="text-[var(--accent)] font-medium hover:underline">
-                Exemple de mémoire technique BTP : structure et bonnes pratiques
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/repondre-appel-offre-travaux" className="text-[var(--accent)] font-medium hover:underline">
-                Comment répondre à un appel d&apos;offre travaux : guide pour les PME du BTP
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/ia-btp-analyse-dce" className="text-[var(--accent)] font-medium hover:underline">
-                Comment utiliser l&apos;IA pour analyser un DCE dans le BTP
-              </Link>
-            </li>
-          </ul>
-          <p className="mt-6 text-slate-600">
-            Découvrez aussi : <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">catalogue formations IA BTP</Link>, <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">formation IA BTP Paris</Link>, <Link href="/a-propos#clients-partenaires" className="text-[var(--accent)] font-medium hover:underline">clients et partenaires</Link>.
-          </p>
-        </div>
-      </section>
-
-      {/* Parcours LMS 7 h (même offre catalogue BTP-02) */}
       <section
         id="parcours-lms"
-        className="scroll-mt-24 border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-12"
+        className="mt-12 scroll-mt-24 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-6"
       >
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Parcours LMS 7 h — assistant IA DCE &amp; mémoire technique
-          </h2>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            La même formation « répondre aux appels d&apos;offre avec l&apos;IA » est aussi
-            disponible en <strong>parcours en ligne sur 7 h</strong> sur la plateforme :
-            approfondissement sur la création et le paramétrage d&apos;un assistant IA pour
-            analyser les DCE et accélérer vos mémoires techniques.{' '}
-            <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
-            éligibilité — même référence catalogue <strong>BTP-02</strong> que la journée
-            présentielle.
-          </p>
-        </div>
+        <h2 className="font-display text-xl font-bold text-slate-900">
+          Parcours LMS 7 h — assistant IA DCE &amp; mémoire technique
+        </h2>
+        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+          La même formation « répondre aux appels d&apos;offre avec l&apos;IA » est aussi disponible en{' '}
+          <strong>parcours en ligne 7 h</strong> sur la plateforme : approfondissement sur la création et le
+          paramétrage d&apos;un assistant IA pour analyser les DCE et accélérer vos mémoires techniques.{' '}
+          <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon éligibilité — même
+          référence <strong>BTP-02</strong> que la journée présentielle.
+        </p>
+        <p className="mt-4">
+          <Link
+            href={`/cours/${LMS_SLUG}`}
+            className="text-sm font-semibold text-[var(--accent)] hover:underline"
+          >
+            Ouvrir la fiche cours sur la plateforme →
+          </Link>
+        </p>
       </section>
 
-      {/* Programme / Points clés */}
-      <section id="programme" className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Programme de la formation
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Une journée intensive pour maîtriser l&apos;IA dans vos réponses aux
-            appels d&apos;offres BTP
-          </p>
-          <div className="mt-10 space-y-6">
-            {PROGRAMME_MODULES.map((mod, i) => (
-              <div
-                key={mod.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex gap-4">
-                  <span className="text-[var(--accent)]">►</span>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">{mod.title}</h3>
-                    <p className="mt-1 text-slate-600">{mod.description}</p>
-                    {i === 0 && (
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {OUTILS_IA.map((outil) => (
-                          <a
-                            key={outil.name}
-                            href={outil.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm text-[var(--accent)] hover:bg-[var(--accent-soft)] hover:border-[var(--accent)]"
-                          >
-                            {outil.name}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+        <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
+        <ul className="mt-4 space-y-2 text-sm text-slate-700">
+          <li>
+            <strong>Durée :</strong> 7 h (journée) ou 7 h (LMS) · <strong>Tarif :</strong> sur devis selon
+            effectif et modalité (intra / inter) · <strong>Financement :</strong> OPCO (Constructys, AKTO,
+            etc.) selon éligibilité.
+          </li>
+          <li>
+            <strong>Livrables :</strong> bibliothèque de prompts, trames de mémoires, workflows DCE, repères
+            RGPD, accès ressources selon convention.
+          </li>
+          <li>
+            <strong>Évaluation :</strong> mise en situation sur fichiers réels, attestation de fin de
+            formation.
+          </li>
+        </ul>
       </section>
 
-      {/* Modalités pratiques */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Modalités pratiques
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {MODALITES.map((mod) => (
-              <div
-                key={mod.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <mod.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{mod.title}</h3>
-                  <p className="mt-1 font-medium text-slate-800">{mod.primary}</p>
-                  <p className="mt-1 text-sm text-slate-600">{mod.secondary}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection
+        items={FAQ_APPELS_OFFRE}
+        title="Questions fréquentes"
+        subtitle="Public, durée, livrables."
+      />
 
-      {/* Livrables & Ressources */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Livrables & Ressources
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Vous repartez avec des outils opérationnels immédiatement utilisables
-          </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {LIVRABLES.map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <item.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <FAQSection
-            items={FAQ_APPELS_OFFRE}
-            title="Questions fréquentes — Formation IA appels d'offres BTP"
-          />
-        </div>
-      </section>
-
-      {/* CTA final */}
-      <section className="bg-[var(--accent)] px-4 py-16 text-white">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold">
-            Prêt à transformer votre approche des appels d&apos;offres ?
-          </h2>
-          <p className="mt-4 text-lg text-blue-100">
-            Contactez-nous pour organiser cette formation dans votre entreprise
-            BTP.
-          </p>
-          <p className="mt-2 text-blue-100">
-            Financement OPCO à 100% possible. Gagnez 5 heures sur chaque réponse
-            aux appels d&apos;offres.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="tel:+33695661818"
-              className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler maintenant
-            </a>
-            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10">
-              <Mail size={20} strokeWidth={1.5} />
-              Prendre RDV
-            </RdvLink>
-          </div>
-        </div>
-      </section>
+      <div className="mt-10">
+        <AllerPlusLoin
+          links={[
+            { href: '/formations', label: 'Catalogue formations' },
+            { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: '/financement-constructys', label: 'Financement Constructys' },
+            { href: '/blog/ia-btp-analyse-dce', label: 'Article : analyser un DCE avec l’IA' },
+          ]}
+        />
+      </div>
     </div>
   );
 }

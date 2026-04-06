@@ -21,12 +21,12 @@ import {
   Users,
   Building2,
   MessageSquareQuote,
-  Sparkles,
   BarChart3,
   FileStack,
   Mail,
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 
 type MegaLink = {
   href: string;
@@ -72,46 +72,8 @@ const NAV_ITEMS: NavItem[] = [
     navIcon: GraduationCap,
     columns: [
       {
-        title: 'Parcours',
-        links: [
-          {
-            href: '/formations/ia-travaux-publics',
-            label: "L'IA au service des Travaux Publics",
-            description: '3 jours (21 h) · Consultations, chantier, industrialisation — BTP-04.',
-            icon: HardHat,
-          },
-          {
-            href: '/#programme',
-            label: "L'IA au service du bâtiment",
-            description: '4 h ou 7 h · Devis, administratif, prompts — BTP-01.',
-            icon: Building2,
-          },
-          {
-            href: '/formations/sensibilisation-ia-assistants-personnalises',
-            label: "Sensibilisation à l'IA & Assistants IA personnalisés",
-            description: '8 h (parcours LMS) · Assistants sur mesure — BTP-05.',
-            icon: Sparkles,
-          },
-          {
-            href: '/formations/ia-appels-offre-btp',
-            label: "Répondre aux appels d'offre BTP avec l'IA",
-            description: '1 jour (7 h) ou LMS 7 h · DCE, mémoires, marchés — BTP-02.',
-            icon: FileText,
-          },
-          {
-            href: '/formations/ia-rh-btp',
-            label: 'Formation IA pour la Fonction RH dans le BTP',
-            description: '2 jours (14 h) · Recrutement, GEPP — BTP-03.',
-            icon: Users,
-          },
-          {
-            href: '/formations/ia-architecture-claude-dpgf',
-            label:
-              'Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI',
-            description: '4 h visio · DPGF, métrés, documents — BTP-06.',
-            icon: Layers,
-          },
-        ],
+        title: 'Catalogue',
+        links: CATALOGUE_FORMATIONS_NAV_LINKS,
       },
     ],
   },
@@ -451,8 +413,8 @@ export function Header() {
           className="absolute left-0 right-0 top-full hidden border-t border-slate-100 bg-white shadow-[0_28px_56px_-16px_rgba(15,23,42,0.14)] lg:block"
           onMouseEnter={() => handleEnterMega(activeMega.id)}
         >
-          <div className="mx-auto max-w-[1400px] px-5 pb-12 pt-8 sm:px-8">
-            <div className="grid grid-cols-12 gap-x-6 gap-y-6 border-b border-slate-100 pb-8">
+          <div className="mx-auto max-w-[1400px] px-5 pb-8 pt-6 sm:px-8">
+            <div className="grid grid-cols-12 gap-x-6 gap-y-4 border-b border-slate-100 pb-3">
               <div className="col-span-12 lg:col-span-8">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
                   {activeMega.label}
@@ -486,11 +448,11 @@ export function Header() {
               const n = col.links.length;
               const colClass = megaLinkColClass(n);
               return (
-                <div key={col.title} className="mt-8">
+                <div key={col.title} className="mt-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
                     {col.title}
                   </p>
-                  <ul className="mt-5 grid grid-cols-12 gap-4">
+                  <ul className="mt-4 grid grid-cols-12 gap-4">
                     {col.links.map((link) => {
                       const Icon = link.icon;
                       return (

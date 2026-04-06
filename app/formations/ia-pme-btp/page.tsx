@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { FileText, Mail, Calculator, Users } from 'lucide-react';
-import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
@@ -129,26 +128,6 @@ export default function FormationIAPMEBTPPage() {
         />
       </div>
 
-      {/* Formation LinkedIn — solutions chantiers */}
-      <section className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-        <h2 className="font-display text-2xl font-bold text-slate-900">
-          Ma formation LinkedIn : L&apos;IA pour le BTP, des solutions concrètes pour vos chantiers
-        </h2>
-        <p className="mt-2 text-slate-600">
-          Découvrez mon approche terrain en vidéo — Laure Olivié, formatrice LinkedIn Learning.
-        </p>
-        <div className="mt-6">
-          <LinkedInLearningEmbed course="chantiers" />
-        </div>
-        <a
-          href="https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block text-sm font-medium text-[var(--accent)] hover:underline"
-        >
-          Voir la formation complète sur LinkedIn Learning →
-        </a>
-      </section>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import {
-  Video,
   FileText,
   Award,
   Clock,
@@ -25,7 +24,6 @@ import {
 } from 'lucide-react';
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
-import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -528,21 +526,20 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-16 max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-              <Video size={16} strokeWidth={1.5} />
-              <span>LINKEDIN LEARNING</span>
-            </div>
-            <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              L&apos;IA pour recruter dans le BTP — aperçu LinkedIn Learning
+          <div className="mt-16 max-w-4xl rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+            <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+              LinkedIn Learning
+            </p>
+            <h3 className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl">
+              L&apos;IA pour recruter dans le BTP
             </h3>
             <p className="mt-3 text-slate-600">
-              Pour les <strong>artisans et TPE</strong> du bâtiment : annonces, tri de CV, entretiens, fidélisation.
-              Visionnez l&apos;introduction du cours{' '}
+              Pour les <strong>artisans et TPE</strong> du bâtiment : annonces, tri de CV, entretiens,
+              fidélisation. Cours{' '}
               <strong>
                 L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
               </strong>{' '}
-              ci-dessous, ou suivez-le en intégralité sur{' '}
+              — accédez à la vidéo et au programme sur{' '}
               <a
                 href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
                 target="_blank"
@@ -553,9 +550,6 @@ export default function HomePage() {
               </a>
               .
             </p>
-            <div className="mt-6">
-              <LinkedInLearningEmbed course="recrutement" />
-            </div>
           </div>
         </div>
       </section>

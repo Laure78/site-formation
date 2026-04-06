@@ -1,33 +1,21 @@
 import Link from 'next/link';
+import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
+import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import Image from 'next/image';
-import {
-  Check,
-  Phone,
-  Mail,
-  Clock,
-  MapPin,
-  Users,
-  FileText,
-  Award,
-  DollarSign,
-  Layers,
-  Zap,
-  Shield,
-  BarChart3,
-  Target,
-  Bot,
-  FolderOpen,
-  Lock,
-  Monitor,
-} from 'lucide-react';
-import { ProgrammeAccordion } from '@/components/formations/ProgrammeAccordion';
-import { FormationCarousel } from '@/components/formations/FormationCarousel';
-import { LinkedInLearningEmbed } from '@/components/LinkedInLearningEmbed';
+import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { FormationPhotos } from '@/components/formations/FormationPhotos';
-import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import {
+  createPageMetadata,
+  getCourseSchema,
+  getBreadcrumbSchema,
+  getFAQSchema,
+  SITE_CONFIG,
+} from '@/lib/seo';
 import { FAQ_RH_BTP } from '@/lib/faq';
+
+const LMS_SLUG = 'ia-rh-btp';
+/** À déposer dans public/formations/ia-rh-btp/ si besoin */
+const PDF_HREF = '/formations/ia-rh-btp/Programme_Formation_IA_RH_BTP.pdf';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA RH BTP : Recrutement & GEPP efficaces',
@@ -46,8 +34,9 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = getCourseSchema({
-  name: "Formation IA pour la Fonction RH dans le BTP",
-  description: "Formation opérationnelle 2 jours : automatiser le recrutement, optimiser la GEPP, créer des tableaux de bord RH et votre assistant IA. 100% finançable OPCO.",
+  name: 'Formation IA pour la Fonction RH dans le BTP',
+  description:
+    'Formation opérationnelle 2 jours : automatiser le recrutement, optimiser la GEPP, créer des tableaux de bord RH et votre assistant IA. 100% finançable OPCO selon éligibilité.',
   path: '/formations/ia-rh-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -59,112 +48,81 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Formation IA pour la fonction RH BTP', path: '/formations/ia-rh-btp' },
 ]);
 
-const faqSchema = getFAQSchema(FAQ_RH_BTP);
-
-const OBJECTIFS = [
+const MODULES = [
   {
-    icon: Layers,
-    title: 'Sélectionner les bons outils d\'IA',
-    desc: 'Choisir les solutions d\'IA générative et analytique adaptées à vos besoins RH spécifiques dans le BTP',
-    color: 'text-blue-600',
+    duree: '2 h',
+    outils: 'Éthique · RGPD · panorama outils',
+    titre: 'Comprendre l’IA et ses applications RH dans le BTP',
+    objectifs: [
+      'Cadre de vigilance : éthique, RGPD, confidentialité des données RH',
+      'Risques : biais, hallucinations, discrimination en recrutement',
+      'Panorama des outils : ChatGPT, Mistral AI, Gemini, Perplexity',
+      'Cas pratique : besoins IA du service RH',
+    ],
+    livrable: 'Matrice de vigilance + premiers cas d’usage',
   },
   {
-    icon: Zap,
-    title: 'Automatiser les tâches RH stratégiques',
-    desc: 'Gagner du temps sur le recrutement, la formation, le reporting RH et l\'administration du personnel',
-    color: 'text-amber-600',
+    duree: '2 h',
+    outils: 'Prompt engineering',
+    titre: 'Maîtrise du prompt engineering RH',
+    objectifs: [
+      'Structure d’un prompt RH : contexte, rôle, tâche, format',
+      'Bibliothèque de prompts BTP (entretiens, e-mails, bilans)',
+      'Exercice : génération de contenus RH professionnels',
+    ],
+    livrable: 'Bibliothèque de prompts personnalisés (brouillon)',
   },
   {
-    icon: Shield,
-    title: 'Identifier les risques éthiques et juridiques',
-    desc: 'Maîtriser les enjeux RGPD, biais algorithmiques et conformité légale de l\'IA en RH',
-    color: 'text-violet-600',
+    duree: '3 h',
+    outils: 'Formation · contenus pédagogiques',
+    titre: 'IA au service de la formation dans le BTP',
+    objectifs: [
+      'Créer contenus pédagogiques et quiz',
+      'Plans de formation par métier (maçon, conducteur de travaux, etc.)',
+      'Cas pratique : module sécurité chantier avec l’IA',
+    ],
+    livrable: 'Ébauche de module pédagogique',
   },
   {
-    icon: BarChart3,
-    title: 'Créer des tableaux de bord RH',
-    desc: 'Piloter vos activités RH avec des indicateurs clés : recrutement, turnover, formation, absentéisme',
-    color: 'text-emerald-600',
+    duree: '2 h 30',
+    outils: 'GEPP · entretiens',
+    titre: 'GEPP et anticiper les compétences BTP',
+    objectifs: [
+      'Cartographier compétences actuelles et futures',
+      'Identifier écarts par métier',
+      'Simulation de parcours et entretiens professionnels',
+    ],
+    livrable: 'Trame GEPP + synthèse entretiens',
   },
   {
-    icon: Target,
-    title: 'Intégrer l\'IA dans la GEPP',
-    desc: 'Anticiper les compétences futures, cartographier les talents et piloter la gestion prévisionnelle',
-    color: 'text-rose-600',
+    duree: '2 h',
+    outils: 'Données · indicateurs',
+    titre: 'Construire ses KPI RH avec l’IA',
+    objectifs: [
+      'Données RH exploitables (SIRH, enquêtes, entretiens de sortie)',
+      'Tableaux de bord : recrutement, absentéisme, formation, climat',
+      'Cas pratique : tableau de bord BTP',
+    ],
+    livrable: 'Modèle de tableau de bord RH',
   },
   {
-    icon: Bot,
-    title: 'Construire un assistant IA RH',
-    desc: 'Créer des GPTs personnalisés pour le recrutement, la formation et le pilotage RH',
-    color: 'text-blue-700',
-  },
-];
-
-const MODALITES = [
-  {
-    icon: Clock,
-    title: 'Durée',
-    primary: '2 jours (14 heures)',
-    secondary: 'Formation intensive et opérationnelle',
-  },
-  {
-    icon: MapPin,
-    title: 'Format',
-    primary: 'Présentiel ou distanciel',
-    secondary: 'Dans vos locaux ou en visio',
-  },
-  {
-    icon: Users,
-    title: 'Public cible',
-    primary: 'DRH, Chargés de recrutement',
-    secondary: 'Responsables RH, Assistants RH · BTP',
-  },
-  {
-    icon: FileText,
-    title: 'Pré-requis',
-    primary: 'Aucune compétence technique',
-    secondary: 'Abonnement ChatGPT Teams recommandé',
-  },
-  {
-    icon: Award,
-    title: 'Certification',
-    primary: 'Formation Qualiopi',
-    secondary: 'Attestation de fin de formation',
-  },
-  {
-    icon: DollarSign,
-    title: 'Financement',
-    primary: '100% finançable OPCO',
-    secondary: 'Constructys, AKTO, OPCO',
-  },
-];
-
-const LIVRABLES = [
-  {
-    icon: FolderOpen,
-    title: 'Bibliothèque de prompts RH BTP',
-    desc: 'Prompts optimisés pour la GEPP, le recrutement BTP, les entretiens professionnels, la communication interne et les KPI RH',
-  },
-  {
-    icon: Bot,
-    title: 'GPTs personnalisés',
-    desc: 'Assistant recrutement BTP, assistant manager, assistant formation, assistant rédacteur, assistant community manager',
-  },
-  {
-    icon: Lock,
-    title: 'ChatGPT Teams recommandé',
-    desc: 'Sécurité renforcée pour la confidentialité des données RH et la conformité RGPD',
-  },
-  {
-    icon: Monitor,
-    title: 'Accès plateforme en ligne',
-    desc: 'Replays de la formation + ressources téléchargeables + mises à jour régulières',
+    duree: '2 h 30',
+    outils: 'GPTs · plan d’action',
+    titre: 'Création d’un assistant IA RH et plan d’action',
+    objectifs: [
+      'Configurer des GPTs pour recrutement, manager, formation',
+      'Assistants : pré-sélection, newsletter, présentations',
+      'Formaliser un plan d’action IA RH pour chaque participant',
+    ],
+    livrable: 'Plan d’action IA RH + configuration assistants',
   },
 ];
 
 export default function FormationIARHBTPPage() {
+  const faqSchema = getFAQSchema(FAQ_RH_BTP);
+
   return (
-    <div>
+    <div className="mx-auto max-w-4xl px-4 py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -177,309 +135,197 @@ export default function FormationIARHBTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* Hero — Bannière + 2 colonnes */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-12 overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src="/images/formation-ia-rh-btp-banner.png"
-              alt="Laure Olivié formatrice en intelligence artificielle spécialisée formation IA RH pour entreprises du BTP"
-              width={1200}
-              height={630}
-              className="h-auto w-full object-cover"
-              priority
-            />
-          </div>
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex-1">
-              <Link
-                href="/formations"
-                className="text-sm text-[var(--accent)] hover:underline"
-              >
-                ← Retour au catalogue
-              </Link>
-              <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Formation IA pour la{' '}
-                <span className="text-[var(--accent)]">Fonction RH</span> dans le
-                BTP
-              </h1>
-              <p className="mt-6 max-w-xl text-slate-600">
-                Transformez votre fonction RH avec l&apos;intelligence artificielle.
-                Automatisez le recrutement, optimisez la GEPP, générez vos
-                tableaux de bord RH et créez votre assistant IA personnalisé.
-                Formation sur-mesure pour les DRH, chargés de recrutement et
-                responsables RH du secteur BTP.
+
+      <nav className="mb-6 text-sm text-slate-600">
+        <Link href="/" className="text-[var(--accent)] hover:underline">
+          Accueil
+        </Link>
+        {' / '}
+        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+          Formations
+        </Link>
+        {' / '}
+        <span className="text-slate-900">Formation IA — fonction RH BTP</span>
+      </nav>
+
+      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+        Présentiel ou distanciel · 2 jours (14 h) · Intermédiaire · BTP-03
+      </p>
+      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+        Formation IA pour la fonction RH dans le BTP
+      </h1>
+      <p className="mt-6 text-lg text-slate-600">
+        Automatisez le recrutement, optimisez la GEPP, générez des tableaux de bord RH et créez votre
+        assistant IA personnalisé. Formation opérationnelle pour DRH, chargés de recrutement et
+        responsables RH du secteur BTP — présentation alignée sur la fiche{' '}
+        <Link
+          href="/formations/ia-architecture-claude-dpgf"
+          className="font-medium text-[var(--accent)] hover:underline"
+        >
+          type « programme détaillé + modalités »
+        </Link>
+        .
+      </p>
+
+      <div className="mt-8 flex flex-wrap gap-4">
+        <a
+          href={PDF_HREF}
+          download
+          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+        >
+          <Download size={20} strokeWidth={1.5} />
+          Télécharger le programme (PDF)
+        </a>
+        <Link
+          href={`/cours/${LMS_SLUG}`}
+          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+        >
+          <ExternalLink size={20} strokeWidth={1.5} />
+          Voir sur la plateforme
+        </Link>
+        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
+          Prendre rendez-vous
+        </RdvLink>
+      </div>
+
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+        <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          <li className="flex gap-2">
+            <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Public :</strong> DRH, chargés de recrutement, responsables RH et assistants RH du BTP.
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Durée :</strong> 2 jours (<strong>14 h</strong>) · <strong>Format :</strong> présentiel
+              ou visio, dans vos locaux ou à distance — groupe selon devis.
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Prérequis :</strong> aucune compétence technique IA.{' '}
+              <strong>ChatGPT Teams</strong> recommandé pour la confidentialité des données RH.
+            </span>
+          </li>
+        </ul>
+        <p className="mt-4 text-sm text-slate-600">
+          Contact :{' '}
+          <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
+            laureolivie@yahoo.fr
+          </a>{' '}
+          ·{' '}
+          <a href="tel:+33695661818" className="font-medium text-[var(--accent)] hover:underline">
+            06 95 66 18 18
+          </a>
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
+        <ul className="mt-4 space-y-2 text-slate-700">
+          {[
+            'Automatiser le recrutement et la sélection de candidats',
+            'Piloter la GEPP et anticiper les compétences',
+            'Créer des tableaux de bord RH opérationnels',
+            'Construire un assistant IA RH sur mesure',
+            'Maîtriser les risques éthiques et RGPD',
+          ].map((o) => (
+            <li key={o} className="flex gap-2">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+              {o}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Jour 1 — usages RH &amp; formation · Jour 2 — GEPP, données &amp; assistants IA.
+        </p>
+        <div className="mt-8 space-y-8">
+          {MODULES.map((m, i) => (
+            <div
+              key={m.titre}
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-display text-lg font-semibold text-slate-900">
+                  Module {i + 1} — {m.titre}
+                </h3>
+                <span className="text-sm font-medium text-[var(--accent)]">
+                  {m.duree} · {m.outils}
+                </span>
+              </div>
+              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Objectifs</p>
+              <ul className="mt-2 space-y-1 text-sm text-slate-600">
+                {m.objectifs.map((o) => (
+                  <li key={o}>▸ {o}</li>
+                ))}
+              </ul>
+              <p className="mt-4 text-sm text-slate-700">
+                <span className="font-semibold text-slate-900">Livrable :</span> {m.livrable}
               </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <a href="#programme" className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
-                  Voir le programme complet
-                </a>
-                <a
-                  href="tel:+33695661818"
-                  className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
-                >
-                  Nous appeler
-                </a>
-              </div>
             </div>
-            <div className="w-full shrink-0 lg:w-[380px]">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="h-1 w-16 rounded-full bg-[var(--accent)]" />
-                <h2 className="mt-4 font-display text-xl font-bold text-slate-900">
-                  Ce que vous allez maîtriser
-                </h2>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    'Automatiser le recrutement et la sélection de candidats',
-                    'Créer des plans de formation personnalisés avec l\'IA',
-                    'Piloter la GEPP et anticiper les compétences',
-                    'Générer des tableaux de bord RH opérationnels',
-                    'Construire un assistant IA RH sur-mesure',
-                    'Optimiser la communication interne RH',
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]">
-                        <Check size={14} strokeWidth={1.5} className="text-white" />
-                      </span>
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Objectifs pédagogiques */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <FormationPhotos variant="recrutement" />
-          
-          <div className="mt-12">
-            <h2 className="font-display text-3xl font-bold text-slate-900">
-              Objectifs pédagogiques de la formation
-            </h2>
-            <p className="mt-3 max-w-2xl text-slate-600">
-              Une formation opérationnelle en 2 jours pour maîtriser l&apos;IA dans
-              tous les aspects de la fonction RH du BTP
-            </p>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {OBJECTIFS.map((obj) => (
-                <div
-                  key={obj.title}
-                  className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-                >
-                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] ${obj.color}`}>
-                    <obj.icon size={24} strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">{obj.title}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{obj.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
+        <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
+        <ul className="mt-4 space-y-2 text-sm text-slate-700">
+          <li>
+            <strong>Durée :</strong> 14 h sur 2 jours · <strong>Tarif :</strong> sur devis (intra / inter) ·{' '}
+            <strong>Financement :</strong> OPCO (Constructys, AKTO, etc.) selon éligibilité.
+          </li>
+          <li>
+            <strong>Livrables :</strong> bibliothèque de prompts RH BTP, modèles de GPTs, repères sécurité et
+            RGPD, ressources selon convention.
+          </li>
+          <li>
+            <strong>Évaluation :</strong> cas pratiques, attestation de fin de formation Qualiopi.
+          </li>
+        </ul>
       </section>
 
-      {/* Modalités pratiques */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-10 grid gap-6 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-2xl shadow-md">
-              <Image
-                src="/images/btp-equipe-chantier.png"
-                alt="Équipe dirigeants et ouvriers BTP sur chantier bénéficiant d'une formation IA RH pour optimiser le recrutement"
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-md">
-              <Image
-                src="/images/btp-collaboration-chantier.png"
-                alt="Collaboration et partenariat efficace sur chantier BTP grâce à formation IA RH pour mieux recruter"
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover"
-              />
-            </div>
-          </div>
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Modalités pratiques
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {MODALITES.map((mod) => (
-              <div
-                key={mod.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <mod.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{mod.title}</h3>
-                  <p className="mt-1 font-medium text-slate-800">{mod.primary}</p>
-                  <p className="mt-1 text-sm text-slate-600">{mod.secondary}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <FAQSection
+        items={FAQ_RH_BTP}
+        title="Questions fréquentes"
+        subtitle="Public, durée, données RH."
+      />
+
+      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+        <h2 className="font-display text-xl font-bold text-slate-900">
+          Complément LinkedIn Learning — recrutement dans le BTP
+        </h2>
+        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+          Le parcours présentiel s&apos;appuie sur les mêmes enjeux que le cours en ligne{' '}
+          <a
+            href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[var(--accent)] hover:underline"
+          >
+            L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement
+          </a>{' '}
+          (annonces, tri de CV, pré-qualification). Visionnez les leçons sur LinkedIn Learning.
+        </p>
       </section>
 
-      {/* Programme détaillé */}
-      <section id="programme" className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Programme détaillé de la formation
-          </h2>
-          <p className="mt-3 text-slate-600">
-            2 jours (14 heures) de formation intensive en présentiel ou distanciel
-          </p>
-
-          <ProgrammeAccordion />
-        </div>
-      </section>
-
-      {/* Livrables & Ressources */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Livrables & Ressources
-          </h2>
-          <p className="mt-3 text-slate-600">
-            Vous repartez avec des outils opérationnels immédiatement utilisables
-          </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {LIVRABLES.map((item) => (
-              <div
-                key={item.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <item.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-slate-600">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <FAQSection
-            items={FAQ_RH_BTP}
-            title="Questions fréquentes — Formation IA fonction RH BTP"
-          />
-        </div>
-      </section>
-
-      {/* Formation LinkedIn — recrutement BTP (complément à la formation RH présentielle) */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/laure-olivie-formation-recrutement-btp.png"
-                alt="Formation IA RH animée par Laure Olivié pour PME du BTP : recruter efficacement avec ChatGPT"
-                width={400}
-                height={300}
-                className="h-48 w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/laure-olivie-formation-ia-rh-linkedin.png"
-                alt="Laure Olivié instructrice LinkedIn Learning pour formation IA RH appliquée au recrutement dans le BTP"
-                width={400}
-                height={300}
-                className="h-48 w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/laure-olivie-formatrice-ia-btp.png"
-                alt="Atelier pratique formation IA RH pour entreprises du bâtiment animé par Laure Olivié experte ChatGPT"
-                width={400}
-                height={300}
-                className="h-48 w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src="/images/laure-olivie-formation-ia-recrutement.png"
-                alt="Formation intelligence artificielle pour le recrutement dans le BTP : attirer la main-d'œuvre qualifiée avec l'IA"
-                width={400}
-                height={300}
-                className="h-48 w-full object-cover"
-              />
-            </div>
-          </div>
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            L&apos;IA au service de la fonction RH du BTP — complément LinkedIn Learning
-          </h2>
-          <p className="mt-4 text-lg text-slate-700">
-            Découvrez ma formation sur le recrutement BTP avec l&apos;IA —{' '}
-            <span className="font-medium text-slate-900">Laure Olivié</span>, formatrice LinkedIn Learning.
-          </p>
-          <p className="mt-3 text-slate-600">
-            Le parcours présentiel «&nbsp;Formation IA pour la fonction RH dans le BTP&nbsp;» s&apos;appuie sur les mêmes enjeux que le cours en ligne{' '}
-            <strong>
-              L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
-            </strong>
-            &nbsp;: annonces, tri de CV, pré-qualification. Visionnez l&apos;introduction ci-dessous ou suivez le cours complet sur{' '}
-            <a
-              href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-[var(--accent)] hover:underline"
-            >
-              LinkedIn Learning
-            </a>
-            .
-          </p>
-          <div className="mt-8">
-            <LinkedInLearningEmbed course="recrutement" />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA final */}
-      <section className="bg-[var(--accent)] px-4 py-16 text-white">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-bold">
-            Prêt à transformer votre fonction RH avec l&apos;IA ?
-          </h2>
-          <p className="mt-4 text-lg text-blue-100">
-            Contactez-nous pour organiser cette formation dans votre entreprise
-            BTP.
-          </p>
-          <p className="mt-2 text-blue-100">
-            Financement OPCO à 100% possible.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="tel:+33695661818"
-              className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler maintenant
-            </a>
-            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10">
-              <Mail size={20} strokeWidth={1.5} />
-              Prendre RDV
-            </RdvLink>
-          </div>
-        </div>
-      </section>
+      <div className="mt-10">
+        <AllerPlusLoin
+          links={[
+            { href: '/formations', label: 'Catalogue formations' },
+            { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: '/financement-constructys', label: 'Financement Constructys' },
+          ]}
+        />
+      </div>
     </div>
   );
 }
