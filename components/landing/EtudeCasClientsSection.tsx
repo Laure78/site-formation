@@ -18,21 +18,29 @@ export function EtudeCasClientsSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
-          <div className="relative min-h-[260px] flex-1 overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-lg lg:max-w-xl">
+          <div className="relative aspect-video w-full flex-1 overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-900 shadow-lg lg:max-w-xl">
             <Image
               src="/images/laure-csfe-visite.png"
               alt="Laure Olivié, formatrice IA BTP, en visite professionnelle auprès de la Chambre syndicale française de l’étanchéité (CSFE)"
-              width={1024}
-              height={1280}
-              className="h-full min-h-[260px] w-full object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 480px"
+              fill
+              className="object-cover object-[center_32%] brightness-[0.93] contrast-[1.08] saturate-[0.86]"
+              sizes="(max-width: 1024px) 100vw, min(512px, 42vw)"
               priority={false}
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/85 to-transparent px-4 py-4 pt-16">
+            {/* Voile colorimétrique (filtre type miniature pro / charte bleue) */}
+            <div
+              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-br from-blue-950/25 via-transparent to-slate-900/20 mix-blend-multiply"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_120%_80%_at_50%_40%,transparent_20%,rgba(15,23,42,0.18)_100%)]"
+              aria-hidden
+            />
+            <div className="absolute inset-x-0 bottom-0 z-[2] bg-gradient-to-t from-slate-900/90 via-slate-900/35 to-transparent px-4 py-4 pt-20">
               <p className="text-xs font-medium uppercase tracking-wide text-blue-200/95">
                 Preuve terrain
               </p>
-              <p className="mt-1 text-sm font-semibold text-white">
+              <p className="mt-1 text-sm font-semibold text-white drop-shadow-sm">
                 Réseau FFB &amp; {CSFE_NOM_LIBRE} — terrain &amp; transmission
               </p>
             </div>

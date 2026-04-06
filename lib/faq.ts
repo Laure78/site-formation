@@ -226,15 +226,15 @@ export const FAQ_RH_BTP: FAQItem[] = [
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
     q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",
-    a: "Dirigeants, conducteurs de travaux, bureaux d'études, responsables QSE et fonctions support des entreprises de Travaux Publics. Aucun prérequis technique.",
+    a: "Conducteurs et chefs de travaux, bureaux d'études et méthodes, QSE, assistants travaux, achats, dirigeants et managers TP. Aucun prérequis technique.",
   },
   {
     q: "Quels cas d'usage IA sont couverts ?",
-    a: "Analyse DCE/CCTP, rédaction de rapports chantier, réponses aux appels d'offres, gestion QSE. Création d'un assistant IA métier personnalisé.",
+    a: "Consultations et appels d'offres (DCE, trames, synthèses), documents de chantier et reporting, QSE, puis industrialisation : templates TP, assistants par rôle, charte et validation « anti-erreurs ».",
   },
   {
     q: "La formation est-elle finançable ?",
-    a: "Oui, 100 % finançable OPCO Constructys, AKTO, OPCO EP. 2 jours (14h), attestation Qualiopi.",
+    a: "Oui, 100 % finançable OPCO Constructys, AKTO, OPCO EP. Parcours 3 jours (21 h), attestation Qualiopi.",
   },
 ];
 
@@ -306,7 +306,7 @@ export const FAQ_CONTACT: FAQItem[] = [
 export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
   {
     q: "Quels organismes sont partenaires ?",
-    a: "FFB, GERESO, Lefebvre Dalloz, CNAM Entreprise, FNTP. Organisme de formation référencé FFB Grand Paris.",
+    a: "FFB, GERESO, Lefebvre Dalloz, CNAM Entreprise, LinkedIn Learning, OPCO Constructys. Organisme de formation référencé FFB Grand Paris.",
   },
   {
     q: "Les formations sont-elles certifiées Qualiopi ?",

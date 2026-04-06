@@ -9,6 +9,24 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
+import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutubeThumbnails';
+
+const ETUDE_CAS_THUMBNAILS = [
+  {
+    src: '/images/ffb-logo-moss-mur.png',
+    alt: 'Logo FFB — Fédération Française du Bâtiment, présentation sur support végétalisé',
+    title: 'FFB — référence fédération BTP',
+    subtitle: 'Réseau professionnel & formation IA',
+    href: '#ffb',
+  },
+  {
+    src: '/images/csfe-signaletique.png',
+    alt: 'Signalétique CSFE — Professionnels de l’étanchéité, Chambre syndicale française de l’étanchéité',
+    title: 'CSFE — filière étanchéité & BTP',
+    subtitle: 'APME-PROMETHEE — promotion des métiers de l’étanchéité',
+    href: '#csfe',
+  },
+] as const;
 
 export const metadata = createPageMetadata({
   title: 'Étude de cas FFB & CSFE — Étanchéité | Formation IA BTP | Résultats concrets',
@@ -240,6 +258,10 @@ export default function EtudeDeCasFfbCsfePage() {
             Projets ambitieux, approche pédagogique terrain, résultats suivis sur la
             satisfaction des participants.
           </p>
+
+          <div className="mt-10">
+            <CaseStudyYoutubeThumbnails items={ETUDE_CAS_THUMBNAILS} />
+          </div>
 
           <article
             id="ffb"

@@ -10,29 +10,34 @@ import {
   FileText,
   Award,
   DollarSign,
-  Layers,
-  FileSearch,
-  PenLine,
-  Bot,
   FolderOpen,
+  Bot,
   Map,
   Monitor,
-  Shield,
+  ClipboardList,
+  Laptop,
+  Sparkles,
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import {
+  createPageMetadata,
+  getCourseSchema,
+  getBreadcrumbSchema,
+  getFAQSchema,
+  SITE_CONFIG,
+} from '@/lib/seo';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: "L'IA au service des Travaux Publics : DCE, CCTP & rapports",
+  title: "L'IA au service des Travaux Publics : DCE, AO, chantier & industrialisation",
   description:
-    "Formation IA travaux publics : DCE, CCTP, rapports chantier en deux jours. Conducteurs TP. Finançable OPCO, note 4,85. Inscrivez votre équipe.",
+    "Formation IA TP 21 h (3 jours) : appels d'offres, DCE/CCTP, comptes rendus, reporting QSE, templates et assistants par rôle. Présentiel ou distanciel. Qualiopi, OPCO.",
   path: '/formations/ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',
     'IA TP',
-    'IA génie civil',
+    'formation IA appels d offres TP',
     'DCE travaux publics IA',
     'conducteur travaux IA',
     'rapport chantier IA',
@@ -43,7 +48,8 @@ export const metadata = createPageMetadata({
 
 const courseSchema = getCourseSchema({
   name: "L'IA au service des Travaux Publics",
-  description: "Formation immersive 2 jours : maîtriser l'IA pour les Travaux Publics, analyser DCE/CCTP, rédiger rapports chantier, créer votre assistant IA métier. 100% finançable OPCO.",
+  description:
+    "Formation 3 jours (21 h) : IA générative pour les TP — consultations, DCE/CCTP, documents de chantier, reporting, QSE, templates et assistants métier. Finançable OPCO.",
   path: '/formations/ia-travaux-publics',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -57,48 +63,56 @@ const breadcrumbSchema = getBreadcrumbSchema([
 
 const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 
-const OBJECTIFS = [
-  {
-    icon: Layers,
-    title: "Comprendre les fondamentaux de l'IA",
-    desc: "Maîtriser les principes de l'IA générative et leurs impacts concrets sur les activités des Travaux Publics",
-  },
-  {
-    icon: FileSearch,
-    title: 'Analyser vos documents techniques',
-    desc: "Automatiser l'analyse de DCE, CCTP, comptes rendus de chantier et dossiers techniques TP",
-  },
-  {
-    icon: PenLine,
-    title: 'Rédiger plus vite et mieux',
-    desc: 'Produire des emails, notes, rapports techniques et réponses aux appels d\'offres avec l\'IA',
-  },
-  {
-    icon: Bot,
-    title: "Créer votre assistant IA métier",
-    desc: 'Configurer et déployer un GPT personnalisé adapté à vos besoins TP : chantier, QSE, appels d\'offres',
-  },
+const POINTS_MARQUANTS = [
+  'Parcours 21 h orienté TP : consultations / DCE, documents opérationnels, puis industrialisation (templates + assistants).',
+  '« Boîte à prompts TP » : CR de chantier, situations, relances, demandes d’info, REX, QSE, trames AO.',
+  'Focus maîtrise : standardisation, versioning, check-list anti-erreurs et charte d’usage IA en entreprise.',
 ];
 
-const BENEFITS = [
-  {
-    icon: Shield,
-    title: "Maîtriser les enjeux éthiques et sécurité",
-    desc: "Identifier les risques RGPD, biais algorithmiques et garantir la confidentialité des données chantier",
-  },
-  {
-    icon: Map,
-    title: "Cartographier vos opportunités IA",
-    desc: "Identifier et prioriser les cas d'usage IA les plus pertinents pour votre entreprise de Travaux Publics",
-  },
+const OBJECTIFS_FORMATION = [
+  'Répondre aux appels d’offres : comprendre comment l’IA générative transforme les métiers des Travaux Publics (études / prépa, conduite de travaux, QSE, achats, administratif, relation MOA / MOE).',
+  'Accélérer la réponse aux consultations (marchés publics et privés) : lecture DCE, questions, trames, synthèses et check-lists.',
+  'Gagner du temps sur les documents de chantier : comptes rendus, rapports, courriers, relances, situations, DOE / DIUO selon contexte.',
+  'Structurer le pilotage : planning, avancement, risques, actions, reporting et capitalisation REX.',
+  'Industrialiser l’usage : templates TP, assistants par rôle (conduite, BE, QSE) et protocole de validation « anti-erreurs ».',
+  'Maîtriser les bonnes pratiques : confidentialité, traçabilité, conformité et contrôle humain.',
+];
+
+const PROFIL_APPRENANTS = [
+  'Conducteurs de travaux, chefs de chantier, chefs d’équipe',
+  'Bureaux d’études / méthodes / préparation de chantier',
+  'QSE / prévention / qualité',
+  'Assistants travaux / administratif / facturation',
+  'Acheteurs / approvisionneurs / exploitation',
+  'Dirigeants et managers d’entreprises de Travaux Publics',
+];
+
+const MOYENS_PEDAGOGIQUES = [
+  'Formation animée par une formatrice experte en IA appliquée au BTP et aux TP, en présentiel (dans vos locaux) ou à distance.',
+  'Exercices guidés, cas concrets et templates réutilisables (prompts, trames, check-lists).',
+  'Atelier mise en situation sur vos documents (anonymisés si nécessaire) et vos scénarios TP.',
+  'Digital learning en option selon la formule retenue.',
+];
+
+const MOYENS_TECHNIQUES = [
+  'À distance : visioconférence (ex. Microsoft Teams) ; connexion stable et poste par participant recommandé.',
+  'En présentiel : salle équipée, connexion internet, poste par apprenant si possible.',
+  'Utiliser des données non sensibles ou anonymisées ; définir en amont un protocole de validation interne.',
+];
+
+const MODALITES_EVALUATION = [
+  'Questionnaire de positionnement en amont.',
+  'Évaluation continue via cas pratiques : livrables (trames AO, CR, check-lists, reporting, procédures).',
+  'Questionnaire de fin de formation + plan d’actions « 30 jours » pour le déploiement en équipe.',
+  'Questionnaire de satisfaction et attestation de formation.',
 ];
 
 const MODALITES = [
   {
     icon: Clock,
     title: 'Durée',
-    primary: '2 jours (14 heures)',
-    secondary: 'Modules cumulables ou indépendants',
+    primary: '3 jours (21 heures)',
+    secondary: 'Trois journées complémentaires (voir programme détaillé)',
   },
   {
     icon: MapPin,
@@ -109,14 +123,14 @@ const MODALITES = [
   {
     icon: Users,
     title: 'Public cible',
-    primary: 'Dirigeants, conducteurs de travaux',
-    secondary: 'Bureaux d\'études, responsables QSE, fonctions support TP',
+    primary: 'Encadrement, méthodes, QSE, support',
+    secondary: 'Voir encadré « Profil des apprenants » ci-dessous',
   },
   {
     icon: FileText,
     title: 'Pré-requis',
     primary: 'Aucune compétence technique',
-    secondary: 'Abonnement ChatGPT Teams recommandé',
+    secondary: 'Abonnement ChatGPT Teams recommandé pour industrialiser',
   },
   {
     icon: Award,
@@ -135,23 +149,23 @@ const MODALITES = [
 const LIVRABLES = [
   {
     icon: FolderOpen,
-    title: 'Bibliothèque de prompts TP',
-    desc: "Prompts optimisés pour l'analyse de DCE, la rédaction de rapports chantier, les réponses aux appels d'offres et la gestion QSE",
+    title: 'Pack templates & prompts TP',
+    desc: 'Trames prêtes à l’emploi (AO, CR, reporting, REX) alignées sur le programme 21 h.',
   },
   {
     icon: Bot,
-    title: 'Assistant IA personnalisé opérationnel',
-    desc: 'Votre GPT métier configuré et testé : assistant chantier, assistant QSE, assistant appels d\'offres ou assistant documentaire',
+    title: 'Assistants IA par rôle',
+    desc: 'Schémas de configuration (conduite, méthodes/BE, QSE) et règles de validation humaine.',
   },
   {
     icon: Map,
-    title: 'Cartographie des opportunités IA',
-    desc: "Analyse personnalisée de vos processus TP et identification des cas d'usage IA à fort impact pour votre entreprise",
+    title: 'Charte et plan de déploiement',
+    desc: 'Cadre d’usage, checklist anti-erreurs et pistes pour un déploiement sur 30 jours.',
   },
   {
     icon: Monitor,
-    title: 'Accès plateforme en ligne',
-    desc: 'Replays de la formation + ressources téléchargeables + mises à jour régulières des outils et pratiques IA',
+    title: 'Ressources de suivi',
+    desc: 'Supports de formation et ressources téléchargeables selon modalités convenues avec l’organisme.',
   },
 ];
 
@@ -166,6 +180,11 @@ export default function FormationIATravauxPublicsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
@@ -179,21 +198,21 @@ export default function FormationIATravauxPublicsPage() {
               </Link>
               <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
                 <span className="text-[var(--accent)]">L&apos;IA au service des Travaux Publics</span>
-                {' '}: maîtriser les fondamentaux et créer son assistant IA métier
+                {' '}
+                : consultations, chantier et industrialisation de l&apos;usage
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
-                Une formation immersive en 2 jours pour comprendre les usages de
-                l&apos;intelligence artificielle dans les Travaux Publics et
-                créer un assistant personnalisé adapté à vos besoins opérationnels
-                : analyse documentaire, suivi chantier, QSE, appels d&apos;offres
-                et communication.
+                Parcours de <strong>3 jours (21 h)</strong> pour maîtriser l&apos;IA générative sur
+                les enjeux TP : <strong>appels d&apos;offres et DCE</strong>, documents de chantier et
+                reporting, puis <strong>templates, assistants par rôle</strong> et charte d&apos;usage
+                avec validation « anti-erreurs ».
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#programme"
                   className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
                 >
-                  Voir le programme complet
+                  Voir le programme détaillé
                 </a>
                 <a
                   href="tel:+33695661818"
@@ -204,25 +223,16 @@ export default function FormationIATravauxPublicsPage() {
               </div>
             </div>
             <div className="w-full shrink-0 lg:w-[380px]">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="h-1 w-16 rounded-full bg-[var(--accent)]" />
-                <h2 className="mt-4 font-display text-xl font-bold text-slate-900">
-                  Ce que vous allez maîtriser
-                </h2>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    "Analyser automatiquement vos DCE, CCTP et comptes rendus de chantier",
-                    "Rédiger emails, notes et rapports techniques avec l'IA",
-                    "Créer votre assistant IA personnalisé pour les métiers TP",
-                    "Optimiser la gestion QSE et le suivi de chantier",
-                    "Générer et analyser vos appels d'offres plus efficacement",
-                    "Maîtriser le prompt engineering appliqué aux Travaux Publics",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]">
-                        <Check size={14} strokeWidth={1.5} className="text-white" />
-                      </span>
-                      <span className="text-slate-700">{item}</span>
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <div className="flex items-center gap-2 text-[var(--accent)]">
+                  <Sparkles size={20} strokeWidth={1.5} aria-hidden />
+                  <h2 className="font-display text-lg font-bold text-slate-900">Points marquants</h2>
+                </div>
+                <ul className="mt-4 space-y-3 text-sm text-slate-700">
+                  {POINTS_MARQUANTS.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -232,56 +242,42 @@ export default function FormationIATravauxPublicsPage() {
         </div>
       </section>
 
-      {/* Objectifs pédagogiques */}
+      {/* Objectifs */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <div>
-            <h2 className="font-display text-3xl font-bold text-slate-900">
-              Objectifs pédagogiques de la formation
-            </h2>
-            <p className="mt-3 max-w-2xl text-slate-600">
-              Une formation opérationnelle en 2 jours pour maîtriser l&apos;IA dans
-              tous les aspects des métiers des Travaux Publics
-            </p>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {OBJECTIFS.map((obj) => (
-              <div
-                key={obj.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          <h2 className="font-display text-3xl font-bold text-slate-900">Objectifs</h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            À l&apos;issue du parcours, vous êtes en mesure de :
+          </p>
+          <ul className="mt-8 space-y-4">
+            {OBJECTIFS_FORMATION.map((obj) => (
+              <li
+                key={obj}
+                className="flex gap-3 rounded-xl border border-slate-200 bg-white p-4 text-slate-700 shadow-sm"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <obj.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{obj.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{obj.desc}</p>
-                </div>
-              </div>
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={2} />
+                <span>{obj}</span>
+              </li>
             ))}
-            </div>
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* Bénéfices clés */}
-      <section className="border-b border-slate-200 bg-white px-4 py-12">
+      {/* Profil des apprenants */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <div className="grid gap-6 sm:grid-cols-2">
-            {BENEFITS.map((item) => (
-              <div
-                key={item.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
+          <h2 className="font-display text-3xl font-bold text-slate-900">Profil des apprenants</h2>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {PROFIL_APPRENANTS.map((line) => (
+              <li
+                key={line}
+                className="flex gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-800"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <item.icon size={24} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-slate-600">{item.desc}</p>
-                </div>
-              </div>
+                <Users className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={2} />
+                {line}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -292,19 +288,10 @@ export default function FormationIATravauxPublicsPage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
-            2 jours (14 heures) de formation intensive — modules combinables ou
-            suivis séparément
+            <strong>21 heures sur 3 jours</strong> — progression : réponse aux consultations et
+            préparation opérationnelle, documents de chantier / reporting / QSE, puis
+            industrialisation (templates, assistants, charte).
           </p>
-          <div className="mt-8 rounded-2xl border-2 border-[var(--accent-soft)] bg-white p-6">
-            <h3 className="font-display text-lg font-semibold text-slate-900">
-              Un parcours en 2 modules complémentaires
-            </h3>
-            <p className="mt-3 text-slate-600">
-              Les deux journées peuvent être suivies ensemble pour un parcours
-              complet, ou de façon indépendante selon vos besoins et votre niveau.
-              Chaque module est opérationnel dès le 1er jour.
-            </p>
-          </div>
           <ProgrammeAccordionTP />
         </div>
       </section>
@@ -312,9 +299,7 @@ export default function FormationIATravauxPublicsPage() {
       {/* Modalités pratiques */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Modalités pratiques
-          </h2>
+          <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MODALITES.map((mod) => (
               <div
@@ -335,15 +320,73 @@ export default function FormationIATravauxPublicsPage() {
         </div>
       </section>
 
+      {/* Moyens pédagogiques & techniques */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <div className="flex items-center gap-2 text-[var(--accent)]">
+                <Laptop size={22} strokeWidth={1.5} aria-hidden />
+                <h2 className="font-display text-xl font-bold text-slate-900">
+                  Moyens pédagogiques
+                </h2>
+              </div>
+              <ul className="mt-6 space-y-3 text-slate-700">
+                {MOYENS_PEDAGOGIQUES.map((line) => (
+                  <li key={line} className="flex gap-2">
+                    <span className="text-[var(--accent)]">•</span>
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="flex items-center gap-2 text-[var(--accent)]">
+                <Monitor size={22} strokeWidth={1.5} aria-hidden />
+                <h2 className="font-display text-xl font-bold text-slate-900">
+                  Moyens techniques
+                </h2>
+              </div>
+              <ul className="mt-6 space-y-3 text-slate-700">
+                {MOYENS_TECHNIQUES.map((line) => (
+                  <li key={line} className="flex gap-2">
+                    <span className="text-[var(--accent)]">•</span>
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modalités d'évaluation */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-3xl">
+          <div className="flex items-center gap-2 text-[var(--accent)]">
+            <ClipboardList size={24} strokeWidth={1.5} aria-hidden />
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Modalités d&apos;évaluation
+            </h2>
+          </div>
+          <ul className="mt-8 space-y-3 text-slate-700">
+            {MODALITES_EVALUATION.map((line) => (
+              <li key={line} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" strokeWidth={2} />
+                {line}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Livrables & Ressources */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Livrables & Ressources
-          </h2>
+          <h2 className="font-display text-3xl font-bold text-slate-900">Livrables & ressources</h2>
           <p className="mt-3 text-slate-600">
-            Vous repartez avec des outils opérationnels immédiatement utilisables
-            sur vos chantiers
+            Ce que vous repartez pour capitaliser après les 21 h — angle livrables et déploiement en
+            entreprise.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {LIVRABLES.map((item) => (
@@ -356,7 +399,7 @@ export default function FormationIATravauxPublicsPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-slate-600">{item.desc}</p>
+                  <p className="mt-2 text-sm text-slate-600">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -381,12 +424,10 @@ export default function FormationIATravauxPublicsPage() {
             Prêt à intégrer l&apos;IA dans vos Travaux Publics ?
           </h2>
           <p className="mt-4 text-lg text-blue-100">
-            Contactez-nous pour organiser cette formation dans votre entreprise
-            TP.
+            Contactez-nous pour organiser cette formation dans votre entreprise TP.
           </p>
           <p className="mt-2 text-blue-100">
-            Financement OPCO à 100% possible. Formation sur-mesure adaptée à
-            vos projets et vos métiers.
+            Financement OPCO selon éligibilité. Parcours adapté à vos enjeux et à vos métiers.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a

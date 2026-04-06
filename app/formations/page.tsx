@@ -83,12 +83,12 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "L'IA au service des Travaux Publics",
     href: '/formations/ia-travaux-publics',
-    duree: '2 jours (14h)',
+    duree: '3 jours (21h)',
     effectif: '12 max',
     objectifs: [
-      "Analyser DCE, CCTP et comptes rendus chantier",
-      "Rédiger rapports et réponses appels d'offres",
-      "Créer votre assistant IA métier TP",
+      "Réponse aux consultations : DCE, trames, synthèses et check-lists",
+      "Documents de chantier et reporting avec protocole de validation",
+      "Templates TP, assistants par rôle et charte d'usage IA en entreprise",
     ],
   },
   {

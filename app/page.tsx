@@ -35,7 +35,6 @@ import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
 import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
-import { ProgrammesBTP } from '@/components/landing/ProgrammesBTP';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
@@ -287,7 +286,7 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, GERESO, FNTP… des acteurs du BTP qui font confiance à une
+                FFB, GERESO… des acteurs du BTP qui font confiance à une
                 formation terrain
               </h2>
               <p className="mt-4 text-slate-300">
@@ -686,8 +685,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <ProgrammesBTP />
 
       {/* Financement Constructys */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

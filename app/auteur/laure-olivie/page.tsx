@@ -92,7 +92,7 @@ export default function AuteurPage() {
               Intervenante et créatrice de contenus pédagogiques sur l&apos;IA pour
               TPE et PME du BTP. Formations en présentiel (Paris, Lyon, Bordeaux, Lille,
               Île-de-France) ou en distanciel. Partenaire FFB, GERESO, Lefebvre
-              Dalloz, CNAM, FNTP.
+              Dalloz, CNAM, LinkedIn Learning, OPCO Constructys.
             </p>
           </section>
 

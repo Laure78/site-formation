@@ -23,7 +23,7 @@ import {
   MessageSquareQuote,
   Sparkles,
   BarChart3,
-  Target,
+  FileStack,
   Mail,
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
@@ -76,27 +76,40 @@ const NAV_ITEMS: NavItem[] = [
         links: [
           {
             href: '/formations/ia-travaux-publics',
-            label: 'Équipes terrain & TP',
-            description: 'Chantier, travaux publics, productivité sur le terrain.',
+            label: "L'IA au service des Travaux Publics",
+            description: '3 jours (21 h) · Consultations, chantier, industrialisation — BTP-04.',
             icon: HardHat,
           },
           {
-            href: '/formations/ia-pme-btp',
-            label: 'Administratif & PME BTP',
-            description: 'Devis, emails, suivi : gagner du temps sans surcharger les équipes.',
-            icon: FileText,
+            href: '/#programme',
+            label: "L'IA au service du bâtiment",
+            description: '4 h ou 7 h · Devis, administratif, prompts — BTP-01.',
+            icon: Building2,
           },
           {
-            href: '/chatgpt-artisans-btp',
-            label: 'ChatGPT pour le BTP',
-            description: 'Cas pratiques métiers du bâtiment et des travaux publics.',
+            href: '/formations/sensibilisation-ia-assistants-personnalises',
+            label: "Sensibilisation à l'IA & Assistants IA personnalisés",
+            description: '8 h (parcours LMS) · Assistants sur mesure — BTP-05.',
             icon: Sparkles,
           },
           {
-            href: '/offres',
-            label: 'Programme sur mesure',
-            description: 'Parcours adapté à vos enjeux et à votre calendrier.',
-            icon: Target,
+            href: '/formations/ia-appels-offre-btp',
+            label: "Répondre aux appels d'offre BTP avec l'IA",
+            description: '1 jour (7 h) ou LMS 7 h · DCE, mémoires, marchés — BTP-02.',
+            icon: FileText,
+          },
+          {
+            href: '/formations/ia-rh-btp',
+            label: 'Formation IA pour la Fonction RH dans le BTP',
+            description: '2 jours (14 h) · Recrutement, GEPP — BTP-03.',
+            icon: Users,
+          },
+          {
+            href: '/formations/ia-architecture-claude-dpgf',
+            label:
+              'Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI',
+            description: '4 h visio · DPGF, métrés, documents — BTP-06.',
+            icon: Layers,
           },
         ],
       },
@@ -198,6 +211,12 @@ const NAV_ITEMS: NavItem[] = [
             icon: Building2,
           },
           {
+            href: '/etudes-de-cas/ffb-csfe',
+            label: 'Étude de cas',
+            description: 'FFB & CSFE : modules, objectifs terrain et résultats mesurables.',
+            icon: FileStack,
+          },
+          {
             href: '/#temoignages',
             label: 'Témoignages',
             description: 'Avis et retours de professionnels du BTP.',
@@ -240,6 +259,7 @@ function megaHasActivePath(m: NavMega, pathname: string): boolean {
   if (isActive(m.allHref, pathname)) return true;
   if (m.id === 'formations' && pathname.startsWith('/formations')) return true;
   if (m.id === 'cas-usage' && pathname.startsWith('/ressources/ia-btp')) return true;
+  if (m.id === 'a-propos' && pathname.startsWith('/etudes-de-cas')) return true;
   return m.columns.some((col) => col.links.some((l) => isActive(l.href, pathname)));
 }
 

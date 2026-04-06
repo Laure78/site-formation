@@ -3,77 +3,122 @@
 import { useState } from 'react';
 import { ChevronRight, Plus, Minus } from 'lucide-react';
 
+/** Programme 21 h — 3 jours : AO/DCE, documents chantier & QSE, industrialisation (templates + assistants). */
 const PROGRAMME_SECTIONS = [
   {
-    id: 'section-1',
-    label: "L'IA au service des Travaux Publics : comprendre, pratiquer, appliquer",
-    public: 'Dirigeants, encadrants, conducteurs de travaux, bureaux d\'études, fonctions support TP',
+    id: 'jour-1',
+    label: 'Jour 1 — AO / DCE et préparation opérationnelle (Travaux Publics)',
+    public:
+      'Introduction, lecture DCE/CCTP, préparation chantier et cas pratiques orientés réponse aux consultations',
     modules: [
       {
-        title: 'Module 1 : Introduction à l\'IA dans les Travaux Publics',
+        title: 'Introduction à la formation',
         points: [
-          'Introduction aux usages de l\'IA dans les Travaux Publics : enjeux, bénéfices et limites',
-          'Cadre de vigilance : éthique, RGPD, confidentialité des données chantier',
-          'Risques potentiels : hallucinations IA, biais algorithmiques, erreurs de données techniques',
-          'Panorama des outils : ChatGPT, Mistral AI, Gemini, Perplexity, outils métier TP',
-          'Cartographie des usages IA dans les TP : recrutement, suivi chantier, QSE, appels d\'offres, communication',
-          'Cas pratique : identifier les besoins IA de votre entreprise TP',
+          'Objectifs, déroulement, règles de sécurité des données (confidentialité, RGPD)',
+          "Comprendre l'IA générative : limites, hallucinations, méthode de validation humaine",
+          'Panorama des usages TP : études, méthode, travaux, QSE, administratif, relation MOA / MOE',
         ],
       },
       {
-        title: 'Module 2 : Analyse automatisée de documents techniques TP',
+        title: 'Lire un DCE / CCTP plus vite et sans oublier l’essentiel',
         points: [
-          'Analyse de DCE et CCTP avec l\'IA : extraction automatique des exigences clés',
-          'Traitement des comptes rendus de chantier et rapports d\'avancement',
-          'Synthèse de dossiers techniques volumineux en quelques minutes',
-          'Extraction d\'informations pertinentes pour les réponses aux appels d\'offres',
-          'Cas pratique : analyser un DCE réel avec l\'IA',
+          'Extraction des exigences : techniques, délais, contraintes, pièces, pénalités, livrables',
+          'Liste de questions pour clarifications, hypothèses, variantes',
+          'Trame de réponse : plan, preuves, éléments différenciants (sans promesses non maîtrisées)',
         ],
       },
       {
-        title: 'Module 3 : Rédaction assistée et prompt engineering TP',
+        title: 'Préparation chantier : anticiper risques et dépendances',
         points: [
-          'Structure d\'un bon prompt TP : contexte, rôle, tâche, format, contraintes techniques',
-          'Exercices de prompting : synthèse, extraction d\'informations, rédaction professionnelle',
-          'Rédaction assistée : emails, notes techniques, rapports de chantier, PV de réunion',
-          'Création d\'une bibliothèque de prompts personnalisés pour les métiers TP',
-          'Atelier pratique : application sur documents réels et cartographie d\'opportunités IA',
+          'Checklists démarrage : interfaces, DICT/DT, phasage, accès, approvisionnement, matériel, sous-traitance',
+          'Planning : jalons, dépendances, points de contrôle, risques et actions',
+          'Réunion de lancement : ordre du jour, relevé de décisions et suivi',
+        ],
+      },
+      {
+        title: 'Cas d’usage Travaux Publics (atelier)',
+        points: [
+          'DCE : synthèse « exigences / risques / questions » + checklist de conformité',
+          'Prépa : passer d’un CCTP ou de notes à un plan « phasage / risques / actions »',
+          'Lancement : ordre du jour + compte rendu + tableau d’actions (responsables / échéances)',
         ],
       },
     ],
   },
   {
-    id: 'section-2',
-    label: 'Créer votre assistant IA personnalisé (GPTs)',
-    public: 'Chefs de projet, responsables QSE, RH, communication, encadrants, bureaux d\'études',
+    id: 'jour-2',
+    label: 'Jour 2 — Documents de chantier, reporting et QSE (rigueur & traçabilité)',
+    public: 'CR, courriers, reporting, QSE et prévention — toujours avec protocole de validation',
     modules: [
       {
-        title: 'Module 4 : Comprendre et concevoir un assistant IA métier',
+        title: 'Écrits chantier : gagner du temps sans perdre la rigueur',
         points: [
-          'Introduction aux modèles de langage et principes des assistants IA',
-          'Définition du périmètre et des usages de l\'assistant IA selon les besoins TP',
-          'Définir les cas d\'usage pertinents pour les métiers des Travaux Publics',
-          'Architecture d\'un GPT personnalisé : instructions système, base de connaissances, comportements',
-          'Cas pratique : concevoir le cahier des charges de votre assistant IA TP',
+          'Comptes rendus : décisions, faits marquants, points bloquants, actions',
+          'Courriers et relances : demandes d’info, constats, retards, aléas, réserves',
+          'Rapports : avancement, moyens, incidents, synthèses à partir de notes ou photos décrites',
         ],
       },
       {
-        title: 'Module 5 : Créer et configurer votre assistant IA',
+        title: 'Reporting et pilotage',
         points: [
-          'Apprentissage pas à pas de la création d\'un assistant IA personnalisé (GPT)',
-          'Intégration de votre base documentaire TP (CCTP types, procédures QSE, référentiels)',
-          'Supervision et optimisation : cohérence des réponses, sécurité, qualité',
+          'Tableaux de suivi : avancement, écarts, risques, actions correctives',
+          'Reporting hebdomadaire : format direction et format MOA / MOE',
+          'Capitalisation : retours d’expérience, bonnes pratiques, base « cas & solutions »',
         ],
       },
       {
-        title: 'Module 6 : Atelier final & plan d\'action IA TP',
+        title: 'QSE / prévention (selon contexte)',
         points: [
-          'Mise en place de garde-fous pour la confidentialité des données chantier',
-          'Atelier final : création d\'un assistant opérationnel adapté à un cas réel TP',
-          'Cas au choix : suivi de chantier, QSE, analyse documentaire ou réponse à appel d\'offres',
-          'Démonstration et partage entre participants',
-          'Évaluation des performances de l\'assistant et pistes d\'amélioration',
-          'Formalisation du plan d\'action IA pour chaque participant et son entreprise',
+          'Briefings sécurité : messages clairs, quarts d’heure sécurité',
+          'Checklists prévention : co-activité, signalisation, EPI, points de vigilance',
+          'Procédures et modes opératoires : structure, clarté, contrôles',
+        ],
+      },
+      {
+        title: 'Cas d’usage Travaux Publics (atelier)',
+        points: [
+          'Compte rendu chantier : livrable « prêt à envoyer » + tableau d’actions',
+          'Reporting : reporting hebdo (avancement / risques / actions) à partir de notes',
+          'QSE : fiche briefing sécurité 5 minutes + checklist de contrôle',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'jour-3',
+    label: 'Jour 3 — Industrialisation (templates, assistants et méthode de validation)',
+    public: 'Templates TP, assistants par rôle, charte d’usage et plan de déploiement',
+    modules: [
+      {
+        title: 'Bibliothèque de templates TP',
+        points: [
+          'Pack documents : CR, courriers, relances, constats, reporting, REX, trames appels d’offres',
+          'Règles de rédaction : structure, vocabulaire, niveaux de détail',
+          'Workflow : collecte → production IA → relecture → validation → diffusion',
+        ],
+      },
+      {
+        title: 'Assistants IA par rôle (Travaux Publics)',
+        points: [
+          'Assistant « Conduite de travaux » : CR, actions, relances, reporting',
+          'Assistant « Méthodes / BE » : DCE, synthèses, questions, trames',
+          'Assistant « QSE » : procédures, checklists, REX, plans d’actions',
+        ],
+      },
+      {
+        title: 'Maîtrise des risques : fiabilité et responsabilité',
+        points: [
+          'Checklist anti-erreurs : faits, sources, versions, cohérence',
+          "Cadre d'usage : ce que l'IA prépare vs ce que l'humain valide",
+          'Charte IA en entreprise : règles, limites, confidentialité, responsabilités',
+        ],
+      },
+      {
+        title: 'Cas d’usage Travaux Publics (atelier)',
+        points: [
+          'Industrialisation : enchaînement réunion → CR → actions → relances → reporting',
+          'QSE : pack de checklists par type d’opération + protocole de contrôle',
+          'Déploiement : plan d’actions 30 jours (équipe, templates, règles, indicateurs temps gagné)',
         ],
       },
     ],
@@ -81,7 +126,7 @@ const PROGRAMME_SECTIONS = [
 ];
 
 export function ProgrammeAccordionTP() {
-  const [openSection, setOpenSection] = useState<string | null>('section-1');
+  const [openSection, setOpenSection] = useState<string | null>('jour-1');
 
   return (
     <div className="mt-12 space-y-4">
@@ -105,7 +150,7 @@ export function ProgrammeAccordionTP() {
                 {section.label}
               </span>
               <span className="mt-1 block text-sm text-slate-600">
-                Public : {section.public}
+                {section.public}
               </span>
             </div>
             {openSection === section.id ? (

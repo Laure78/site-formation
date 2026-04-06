@@ -12,14 +12,25 @@ export function FFBIAAccrocheSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="mx-auto w-full max-w-[min(100%,380px)] lg:mx-0">
-            <div className="relative aspect-[2/3] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-lg">
+          <div className="mx-auto w-full max-w-[min(100%,640px)] lg:mx-0">
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-900 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.35)] ring-1 ring-black/8">
               <Image
                 src="/images/ffb-affiche-ia-tous-concernes.png"
                 alt="Affiche FFB : Intelligence artificielle, tous concernés — cas concrets sur tout le cycle de l’acte de construire."
                 fill
-                className="object-cover object-top"
-                sizes="(max-width: 1024px) 90vw, 380px"
+                quality={88}
+                priority={false}
+                className="object-cover object-[center_38%] contrast-[1.09] brightness-[1.05] saturate-[1.08]"
+                sizes="(max-width: 1024px) 92vw, 640px"
+              />
+              {/* Atténue les reflets / aplati le rendu pour un rendu plus net à l’écran */}
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/10 via-transparent to-slate-950/15 mix-blend-soft-light"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_45%,transparent_0%,rgba(15,23,42,0.08)_100%)]"
+                aria-hidden
               />
             </div>
             <p className="mt-3 text-center text-xs text-slate-500 lg:text-left">
@@ -89,21 +100,6 @@ export function FFBIAAccrocheSection() {
             </figcaption>
           </figure>
         </div>
-
-        <figure className="mx-auto mt-10 max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-          <div className="relative aspect-[3/4] w-full max-h-[420px]">
-            <Image
-              src="/images/ffb-logo-moss-panneau.png"
-              alt="Logo FFB sur panneau végétalisé — Fédération Française du Bâtiment"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 448px"
-            />
-          </div>
-          <figcaption className="px-4 py-3 text-center text-xs text-slate-600">
-            FFB — présence institutionnelle &amp; réseau national
-          </figcaption>
-        </figure>
       </div>
     </section>
   );
