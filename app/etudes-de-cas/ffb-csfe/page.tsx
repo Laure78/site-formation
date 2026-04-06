@@ -1,8 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
-import { Check, Building2, GraduationCap, TrendingUp } from 'lucide-react';
-import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { Check, Building2, GraduationCap, TrendingUp, Landmark, ShieldCheck, Timer } from 'lucide-react';
+import {
+  createPageMetadata,
+  getArticleSchema,
+  getBreadcrumbSchema,
+  SITE_CONFIG,
+} from '@/lib/seo';
 import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
 
 export const metadata = createPageMetadata({
@@ -23,6 +28,16 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
   { name: `Étude de cas ${CSFE_TITRE_PAGE}`, path: '/etudes-de-cas/ffb-csfe' },
 ]);
+
+const articleSchema = getArticleSchema({
+  headline: `Étude de cas — FFB & CSFE (étanchéité) | ${SITE_CONFIG.name}`,
+  description: `Retour d'expérience : interventions FFB et ${CSFE_NOM_LIBRE}. Modules, objectifs et résultats pour entreprises du BTP.`,
+  path: '/etudes-de-cas/ffb-csfe',
+  datePublished: '2024-06-01T09:00:00+02:00',
+  dateModified: '2026-04-06T12:00:00+02:00',
+  authorName: SITE_CONFIG.name,
+  image: '/images/rencontres-artisans-ia-ffb-atelier.jpg',
+});
 
 /** Modules communs aux parcours réseau FFB / CSFE — étanchéité (métier BTP) */
 const MODULES = [
@@ -80,6 +95,10 @@ export default function EtudeDeCasFfbCsfePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
 
       {/* Hero — Références */}
       <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-20 md:py-28">
@@ -110,14 +129,14 @@ export default function EtudeDeCasFfbCsfePage() {
             Références
           </p>
           <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-            Des résultats{' '}
-            <span className="font-serif italic text-slate-800">concrets</span>
+            Étude de cas clients —{' '}
+            <span className="font-serif italic text-slate-800">FFB &amp; CSFE</span>
           </h1>
           <p className="mt-5 text-lg text-slate-600">
-            Découvrez comment nous avons accompagné des entreprises du bâtiment — via la{' '}
+            Comment des structures du bâtiment et de l&apos;étanchéité ont structuré une montée
+            en compétences sur l&apos;IA : périmètre, modules, résultats — avec la{' '}
             <strong>Fédération Française du Bâtiment</strong> et la{' '}
-            <strong>Chambre Syndicale Française de l&apos;étanchéité</strong> (CSFE) — dans leur
-            montée en compétences sur l&apos;IA appliquée au terrain.
+            <strong>Chambre Syndicale Française de l&apos;étanchéité</strong> (CSFE).
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-slate-500">
             <span className="rounded-full bg-slate-100 px-3 py-1">OFC Création d&apos;Entreprise</span>
@@ -130,12 +149,62 @@ export default function EtudeDeCasFfbCsfePage() {
       {/* Intro */}
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-3xl text-center text-slate-600">
-          <p>
+          <p className="text-lg leading-relaxed text-slate-700">
             Laure Olivié intervient depuis plusieurs années auprès du réseau FFB (dont Grand
             Paris, Île-de-France Est et Ouest) et des structures du secteur (dont la{' '}
             {CSFE_NOM_LIBRE}) pour des sessions courtes, opérationnelles, sans jargon inutile — avec
             des cas d&apos;usage directement transposables sur vos chantiers et dossiers.
           </p>
+        </div>
+      </section>
+
+      {/* Résumé exécutif — chiffres & périmètre */}
+      <section
+        id="resume"
+        className="scroll-mt-24 border-b border-slate-200 bg-[#eef2ff] px-4 py-12"
+        aria-label="Résumé exécutif"
+      >
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center font-display text-xl font-bold text-slate-900 md:text-2xl">
+            Résumé exécutif
+          </h2>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-slate-600">
+            Périmètre institutionnel, exigence pédagogique et indicateurs suivis (OFC /{' '}
+            {SITE_CONFIG.name}).
+          </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Landmark,
+                title: 'Réseau FFB',
+                desc: 'Grand Paris, Île-de-France Est & Ouest — interventions terrain.',
+              },
+              {
+                icon: Building2,
+                title: 'CSFE',
+                desc: `Même socle métier étanchéité avec la ${CSFE_NOM_LIBRE}.`,
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Qualiopi & OPCO',
+                desc: 'Dispositif éligible financement lorsque l’entreprise est concernée.',
+              },
+              {
+                icon: Timer,
+                title: 'Impact temps',
+                desc: 'Ordre de grandeur : 3 à 5 h / semaine récupérables sur l’administratif.',
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-white/80 bg-white p-6 shadow-sm"
+              >
+                <Icon className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} aria-hidden />
+                <p className="mt-3 font-semibold text-slate-900">{title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -159,7 +228,10 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Études de cas — FFB */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section
+        id="etudes-de-cas"
+        className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16"
+      >
         <div className="mx-auto max-w-5xl">
           <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Études de cas
@@ -169,7 +241,10 @@ export default function EtudeDeCasFfbCsfePage() {
             satisfaction des participants.
           </p>
 
-          <article className="mt-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <article
+            id="ffb"
+            className="mt-12 scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          >
             <header className="bg-slate-900 px-6 py-6 text-white md:px-10">
               <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
                 BTP
@@ -266,7 +341,10 @@ export default function EtudeDeCasFfbCsfePage() {
           </article>
 
           {/* CSFE — Chambre syndicale française de l'étanchéité */}
-          <article className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <article
+            id="csfe"
+            className="mt-10 scroll-mt-24 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          >
             <header className="bg-slate-900 px-6 py-6 text-white md:px-10">
               <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-200">
                 Formation entreprises
@@ -325,7 +403,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Modules détaillés */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section id="modules" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-3">
             <GraduationCap className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />
@@ -354,7 +432,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Objectifs */}
-      <section className="border-b border-slate-200 bg-[#eef2ff] px-4 py-16">
+      <section id="objectifs" className="scroll-mt-24 border-b border-slate-200 bg-[#eef2ff] px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Objectifs pédagogiques
@@ -374,7 +452,7 @@ export default function EtudeDeCasFfbCsfePage() {
       </section>
 
       {/* Bénéfices */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section id="benefices" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <div className="flex items-center gap-3">
             <TrendingUp className="h-8 w-8 text-[var(--accent)]" strokeWidth={1.5} />

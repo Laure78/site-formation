@@ -36,6 +36,7 @@ import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_ITEMS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LinkedInFormationGallery } from '@/components/landing/LinkedInFormationGallery';
+import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
@@ -317,6 +318,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Étude de cas clients — FFB / CSFE (preuve B2B) */}
+      <EtudeCasClientsSection />
 
       {/* Gains concrets — Pourquoi l'IA change le quotidien */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">

@@ -129,7 +129,7 @@ export default function AProposPage() {
                       src={p.logo}
                       alt=""
                       width={220}
-                      height={64}
+                      height={130}
                       className="max-h-14 w-auto max-w-full object-contain object-center"
                       loading="lazy"
                       unoptimized={p.logo.endsWith('.svg')}

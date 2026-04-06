@@ -15,19 +15,19 @@ export const PARTENAIRES_INSTITUTIONNELS: PartenaireInstitutionnel[] = [
     name: 'FFB Grand Paris',
     desc: 'Fédération Française du Bâtiment',
     href: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/grand-paris-idf',
-    logo: '/images/partenaires/ffb-grand-paris.svg',
+    logo: '/images/partenaires/ffb-logo-officiel.png',
   },
   {
     name: 'FFB Île-de-France Est',
     desc: 'Fédération Française du Bâtiment',
     href: 'https://www.ffbatiment.fr/organisation-ffb/federations-departementales-chambres-syndicales/ile-de-france-est',
-    logo: '/images/partenaires/ffb-idf-est.svg',
+    logo: '/images/partenaires/ffb-logo-officiel.png',
   },
   {
     name: 'FFB Île-de-France Ouest',
     desc: 'Fédération Française du Bâtiment (78-91-95)',
     href: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/ile-de-france-78-91-95',
-    logo: '/images/partenaires/ffb-idf-ouest.svg',
+    logo: '/images/partenaires/ffb-logo-officiel.png',
   },
   {
     name: 'IFRB 78',
