@@ -279,6 +279,7 @@ export function Header() {
   );
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur-md transition-[box-shadow,border-color] duration-300 supports-[backdrop-filter]:bg-white/88 ${
         scrolled
@@ -499,10 +500,16 @@ export function Header() {
           </div>
         </div>
       )}
+    </header>
 
-      {/* Mobile */}
+      {/* Mobile : rendu hors du <header> pour éviter que backdrop-blur ne casse position:fixed (viewport) */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[100] flex flex-col bg-white lg:hidden">
+        <div
+          className="fixed inset-0 z-[100] flex flex-col bg-white lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu de navigation"
+        >
           <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
             <span className="font-display text-lg font-bold text-slate-900">Menu</span>
             <button
@@ -629,6 +636,6 @@ export function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

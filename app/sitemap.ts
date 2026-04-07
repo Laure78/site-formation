@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/seo';
 import { getAllSlugs } from '@/lib/blog';
+import { FORMATION_IA_ALL_SLUGS } from '@/lib/seo-formation-ia-hub-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
@@ -72,6 +73,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
     { url: `${baseUrl}/formation-ia-artisans-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/formation-ia`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.92 },
+    { url: `${baseUrl}/formation-ia/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.88 },
+    ...FORMATION_IA_ALL_SLUGS.map((slug) => ({
+      url: `${baseUrl}/formation-ia/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: slug === 'btp-paris' ? (0.93 as const) : (0.86 as const),
+    })),
     { url: `${baseUrl}/ia-devis-batiment`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     {
       url: `${baseUrl}/formation-chatgpt-artisan-electricien`,

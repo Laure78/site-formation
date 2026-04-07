@@ -42,10 +42,19 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin',
+  title: 'Formation IA BTP — ChatGPT & Claude AI | Paris, Île-de-France',
   description:
-    "Formation IA BTP & ChatGPT : devis, chantier, mémoires techniques. Référence FFB & CSFE, Qualiopi, financement Constructys. Laure Olivié — +1592 professionnels formés. Réservez un échange gratuit.",
+    "Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France : devis, chantier, mémoires. Qualiopi, financement Constructys. Laure Olivié — OFC. +1592 professionnels formés.",
   path: '/',
+  keywords: [
+    'formation IA BTP',
+    'formation ChatGPT BTP',
+    'formation Claude AI bâtiment',
+    'formation IA Paris',
+    'formation IA Île-de-France',
+    'Qualiopi',
+    'OPCO Constructys',
+  ],
 });
 
 export default function HomePage() {
@@ -106,7 +115,7 @@ export default function HomePage() {
                 <span className="font-serif italic text-slate-800">BTP</span> à{' '}
                 <span className="font-serif italic text-[var(--accent)]">l&apos;IA</span>
                 <span className="mt-3 block text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem] lg:leading-tight">
-                  Devis, chantier &amp; administratif avec ChatGPT
+                  Devis, chantier &amp; administratif avec ChatGPT et Claude AI
                 </span>
               </h1>
               <p className="mt-4 text-base font-medium text-slate-700">
@@ -114,11 +123,17 @@ export default function HomePage() {
                 Financement OPCO
               </p>
               <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
-                Formation ChatGPT entreprise BTP finançable par Constructys — pour les
-                dirigeants de TPE et PME du bâtiment et des travaux publics. Gagnez{' '}
+                <strong>Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France</strong>{' '}
+                — finançable par Constructys pour les dirigeants de TPE et PME du bâtiment et des
+                travaux publics. Gagnez{' '}
                 <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
-                sur l&apos;automatisation des tâches administratives, l&apos;IA devis
-                bâtiment et l&apos;IA gestion chantier (emails, chiffrages, comptes rendus).
+                sur l&apos;automatisation administrative, l&apos;IA devis bâtiment et l&apos;IA gestion
+                chantier (emails, chiffrages, comptes rendus).
+              </p>
+              <p className="mt-3 text-sm text-slate-600">
+                <Link href="/formation-ia" className="font-medium text-[var(--accent)] underline-offset-2 hover:underline">
+                  Hub formation IA par métier et par ville (Île-de-France)
+                </Link>
               </p>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
@@ -302,7 +317,7 @@ export default function HomePage() {
               <div className="relative h-48 w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-800 sm:h-52">
                 <Image
                   src="/images/ffb-espaces-accueil.png"
-                  alt="Espaces d’accueil FFB — environnement professionnel formation et réseau bâtiment"
+                  alt="Espaces d’accueil FFB : environnement professionnel de la Fédération Française du Bâtiment — réseau formation entreprises du bâtiment et artisans (Île-de-France, national)."
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 420px"

@@ -16,7 +16,7 @@ export function FFBIAAccrocheSection() {
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-900 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.35)] ring-1 ring-black/8">
               <Image
                 src="/images/ffb-affiche-ia-tous-concernes.png"
-                alt="Affiche FFB : Intelligence artificielle, tous concernés — cas concrets sur tout le cycle de l’acte de construire."
+                alt="Affichette campagne FFB « Intelligence artificielle, tous concernés » : sensibilisation de la filière bâtiment à l’IA sur l’acte de construire — alignée aux formations ChatGPT et Claude AI pour le BTP (Laure Olivié)."
                 fill
                 quality={88}
                 priority={false}
@@ -34,7 +34,7 @@ export function FFBIAAccrocheSection() {
               />
             </div>
             <p className="mt-3 text-center text-xs text-slate-500 lg:text-left">
-              Campagne FFB — message terrain pour la filière bâtiment
+              Campagne FFB — IA et filière bâtiment (Paris, Île-de-France et national)
             </p>
           </div>
 
@@ -75,28 +75,28 @@ export function FFBIAAccrocheSection() {
             <div className="relative aspect-[4/3] w-full">
               <Image
                 src="/images/ffb-logo-moss-mur.png"
-                alt="Logo FFB — Fédération Française du Bâtiment sur panneau végétalisé"
+                alt="Logo FFB sur mur végétalisé en accueil : Fédération Française du Bâtiment — institution de référence pour artisans et entreprises du bâtiment, partenaire formations IA BTP en Île-de-France."
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
             <figcaption className="px-4 py-3 text-center text-xs text-slate-600">
-              FFB — référence fédération BTP
+              FFB — fédération du bâtiment · formations IA (ChatGPT, Claude AI) avec Laure Olivié
             </figcaption>
           </figure>
           <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
             <div className="relative aspect-[4/3] w-full">
               <Image
                 src="/images/csfe-signaletique.png"
-                alt="Signalétique CSFE — Professionnels de l’étanchéité, Chambre syndicale française de l’étanchéité"
+                alt="Signalétique murale CSFE : Chambre syndicale française de l’étanchéité et APME-PROMETHEE — accueil des professionnels de l’étanchéité et de la filière BTP."
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
             <figcaption className="px-4 py-3 text-center text-xs text-slate-600">
-              CSFE — filière étanchéité &amp; BTP
+              CSFE — étanchéité &amp; métiers enveloppe · formations IA pour entreprises du BTP
             </figcaption>
           </figure>
         </div>

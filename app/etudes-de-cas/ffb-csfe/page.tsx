@@ -14,16 +14,18 @@ import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutub
 const ETUDE_CAS_THUMBNAILS = [
   {
     src: '/images/ffb-logo-moss-mur.png',
-    alt: 'Logo FFB — Fédération Française du Bâtiment, présentation sur support végétalisé',
-    title: 'FFB — référence fédération BTP',
-    subtitle: 'Réseau professionnel & formation IA',
+    alt:
+      'Logo FFB sur mur de mousse en accueil : Fédération Française du Bâtiment — réseau artisans et entreprises du bâtiment, formations IA BTP (ChatGPT, Claude AI) en Île-de-France.',
+    title: 'FFB — formation IA BTP & réseau national du bâtiment',
+    subtitle: 'Interventions Grand Paris, IDF Est & Ouest · Laure Olivié, OFC Qualiopi',
     href: '#ffb',
   },
   {
     src: '/images/csfe-signaletique.png',
-    alt: 'Signalétique CSFE — Professionnels de l’étanchéité, Chambre syndicale française de l’étanchéité',
-    title: 'CSFE — filière étanchéité & BTP',
-    subtitle: 'APME-PROMETHEE — promotion des métiers de l’étanchéité',
+    alt:
+      'Panneau d’orientation CSFE : Chambre syndicale française de l’étanchéité — professionnels de l’étanchéité BTP, filière toiture-terrasse et enveloppe (formations IA).',
+    title: 'CSFE — étanchéité & intelligence artificielle pour le bâtiment',
+    subtitle: 'Mémoires techniques, métiers enveloppe · même socle pédagogique que le réseau FFB',
     href: '#csfe',
   },
 ] as const;

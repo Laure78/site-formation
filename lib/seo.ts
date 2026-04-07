@@ -117,10 +117,11 @@ export function createPageMetadata({
   openGraphType?: 'website' | 'article';
 }) {
   const url = path ? `${SITE_CONFIG.url}${path}` : SITE_CONFIG.url;
+  const kw = keywords ? [...keywords] : [...SITE_CONFIG.keywords];
   return {
     title,
     description,
-    keywords: keywords ?? SITE_CONFIG.keywords,
+    keywords: kw,
     openGraph: {
       type: openGraphType,
       title,

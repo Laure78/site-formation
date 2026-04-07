@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
+import { FORMATION_IA_ALL_SLUGS } from "./lib/seo-formation-ia-hub-data";
+
+const formationIaLegacyRedirects = () =>
+  FORMATION_IA_ALL_SLUGS.map((slug) => ({
+    source: `/formation-ia-${slug}`,
+    destination: `/formation-ia/${slug}`,
+    permanent: true as const,
+  }));
 
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      ...formationIaLegacyRedirects(),
       { source: '/cours', destination: '/formations', permanent: true },
       {
         source: '/clients-partenaires',
