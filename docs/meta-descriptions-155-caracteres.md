@@ -22,13 +22,13 @@ Référence rédactionnelle. Les descriptions effectives sont dans chaque `page.
 | `/ressources/ia-btp` | Ressources IA BTP : guides, articles, cas d'usage pour artisans et PME du bâtiment. Veille — Laure Olivié, OFC Qualiopi. |
 | `/ressources/ia-btp/10-cas-usage-concrets` | 10 cas d'usage IA concrets dans le BTP : devis, DCE, RH, chantier. Exemples terrain — ressource Laure Olivié, OFC. |
 | `/formations/ia-btp-ile-de-france` | Formation IA BTP en Île-de-France : Paris, Yvelines, 8 départements. Devis, emails, AO — Qualiopi, Constructys. Laure Olivié. |
-| `/formations/ia-btp-paris` | Formation IA BTP à Paris et en Île-de-France : 4 h ou 7 h, ChatGPT & pratique. Qualiopi, Constructys — OFC Laure Olivié. |
+| `/formations/ia-btp-paris` | Formation IA BTP à Paris et en Île-de-France : session 4 h, ChatGPT & pratique. Qualiopi, Constructys — OFC Laure Olivié. |
 | `/formations/ia-btp-lyon` | Formation IA BTP à Lyon et Auvergne-Rhône-Alpes : devis, mémoires, administratif. Qualiopi, Constructys — Laure Olivié, OFC. |
 | `/formations/ia-btp-bordeaux` | Formation IA BTP à Bordeaux et Nouvelle-Aquitaine : automatisations métier pour le bâtiment. Qualiopi, Constructys — OFC. |
 | `/formations/ia-btp-lille` | Formation IA BTP à Lille et Hauts-de-France : PME et artisans du bâtiment. Qualiopi, Constructys — Laure Olivié, OFC. |
-| `/formations/ia-au-service-du-batiment` | L'IA au service du bâtiment : formation 4 h ou 7 h, devis, emails, prompts. Qualiopi BTP-01 — finançable Constructys, OFC. |
+| `/formations/ia-au-service-du-batiment` | L'IA au service du bâtiment : formation 4 h, devis, emails, prompts. Qualiopi BTP-01 — finançable Constructys, OFC. |
 | `/formations/ia-travaux-publics` | L'IA au service des travaux publics : DCE, mémoires, chantier. Formation TP — Qualiopi, Constructys. Laure Olivié, OFC. |
-| `/formations/ia-appels-offre-btp` | Répondre aux appels d'offres avec l'IA : DCE, mémoire technique, assistant. 7 h — Qualiopi, Constructys. Laure Olivié, OFC. |
+| `/formations/ia-appels-offre-btp` | Répondre aux appels d'offres avec l'IA : DCE, mémoire technique, assistant. 4 h — Qualiopi, Constructys. Laure Olivié, OFC. |
 | `/formations/ia-rh-btp` | Formation IA pour la fonction RH dans le BTP : recrutement, GEPP, tableaux de bord. 2 jours — Qualiopi, Constructys, OFC. |
 | `/formations/ia-pme-btp` | Formation IA pour PME du BTP : programme sur mesure, devis et productivité. Qualiopi, finançable Constructys — Laure Olivié, OFC. |
 | `/formations/sensibilisation-ia-assistants-personnalises` | Sensibilisation IA & assistants personnalisés : parcours LMS 8 h, prompts métier. Qualiopi, Constructys — OFC Laure Olivié. |

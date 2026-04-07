@@ -196,7 +196,7 @@ export function getCourseSchema({
   teaches?: string[];
   /** Ex. réf. catalogue BTP-02 */
   courseCode?: string;
-  /** Ex. « Intermédiaire », « Professionnel » */
+  /** Ex. « Avancé », « Professionnel » */
   educationalLevel?: string;
   /** Durée ISO 8601, ex. PT7H pour 7 h */
   timeRequired?: string;

@@ -36,6 +36,7 @@ import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
@@ -475,8 +476,8 @@ export default function HomePage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
-            Formation modulaire adaptée aux besoins de votre entreprise BTP. De 4h à
-            14h selon vos objectifs.
+            Formation modulaire adaptée aux besoins de votre entreprise BTP : sessions de 4 h, grille
+            forfaitaire par participant selon le niveau (débutant ou avancé).
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -579,7 +580,7 @@ export default function HomePage() {
             Nos formations IA spécialisées BTP
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Formations IA finançables Qualiopi / OPCO — présentiel et distanciel.
+            Formations IA finançables Qualiopi / OPCO — présentiel.
           </p>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {[
@@ -588,7 +589,7 @@ export default function HomePage() {
                 level: 'DÉBUTANT',
                 title: "L'IA au service du bâtiment",
                 href: '/formations/ia-au-service-du-batiment',
-                duree: '4h ou 7h',
+                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
                 effectif: '12 max',
                 objectifs: [
                   'Identifier les usages IA utiles dans le BTP',
@@ -602,7 +603,7 @@ export default function HomePage() {
                 level: 'DÉBUTANT',
                 title: "L'IA au service des Travaux Publics",
                 href: '/formations/ia-travaux-publics',
-                duree: '2 jours (14h)',
+                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
                 effectif: '12 max',
                 objectifs: [
                   'Analyser DCE, CCTP et comptes rendus chantier',
@@ -615,13 +616,13 @@ export default function HomePage() {
                 level: 'DÉBUTANT',
                 title: "Sensibilisation à l'IA & Assistants IA personnalisés",
                 href: '/formations/sensibilisation-ia-assistants-personnalises',
-                duree: '8h (parcours LMS)',
+                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
                 effectif: 'Selon session',
                 objectifs: [
                   "Sensibilisation à l'IA et usages terrain (supports PDF)",
                   'Banque de prompts par métier (Excel)',
                   'Concevoir des assistants IA personnalisés',
-                  'Parcours sur la plateforme de formation — Qualiopi, OPCO Constructys',
+                  'Ressources plateforme en prolongement — Qualiopi, OPCO Constructys',
                 ],
               },
             ].map((cours) => (

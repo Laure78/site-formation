@@ -96,28 +96,28 @@ export default function FinancementConstructys100IABTPPage() {
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
               <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service du bâtiment</h3>
-              <p className="mt-1 text-sm text-slate-600">4h ou 7h · Devis, emails, CR</p>
+              <p className="mt-1 text-sm text-slate-600">4 h · Devis, emails, CR</p>
             </Link>
             <Link
               href="/formations/ia-appels-offre-btp"
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
               <h3 className="font-semibold text-[var(--accent)]">Appels d&apos;offres et IA</h3>
-              <p className="mt-1 text-sm text-slate-600">7h · DCE, mémoires techniques</p>
+              <p className="mt-1 text-sm text-slate-600">4 h · DCE, mémoires techniques</p>
             </Link>
             <Link
               href="/formations/ia-rh-btp"
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
               <h3 className="font-semibold text-[var(--accent)]">IA fonction RH</h3>
-              <p className="mt-1 text-sm text-slate-600">14h · Recrutement, formation</p>
+              <p className="mt-1 text-sm text-slate-600">4 h · Recrutement, GEPP</p>
             </Link>
             <Link
               href="/formations/ia-travaux-publics"
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
               <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service des Travaux Publics</h3>
-              <p className="mt-1 text-sm text-slate-600">14h · Métiers TP</p>
+              <p className="mt-1 text-sm text-slate-600">4 h · Métiers TP</p>
             </Link>
           </div>
         </div>

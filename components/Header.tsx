@@ -424,7 +424,7 @@ export function Header() {
                   {activeMega.id === 'cas-usage'
                     ? 'Choisissez votre contexte : on vous oriente vers les pages et formations les plus pertinentes.'
                     : activeMega.id === 'formations'
-                      ? 'Formations IA finançables Qualiopi / OPCO — présentiel et distanciel.'
+                      ? 'Formations IA finançables Qualiopi / OPCO — présentiel.'
                       : activeMega.id === 'methode'
                         ? 'Une méthode éprouvée avec des professionnels du bâtiment et des travaux publics.'
                         : 'Transparence sur le parcours, les partenaires et les retours clients.'}

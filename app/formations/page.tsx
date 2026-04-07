@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Clock, Users, Check } from 'lucide-react';
+import { Clock, Users, Check, Euro } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
@@ -9,11 +9,12 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, getCourseListSchema } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
+import { libelleTarifParticipant, SESSION_DUREE_LIBELLE, ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
   title: 'Formations IA BTP & ChatGPT entreprise | Catalogue Qualiopi',
   description:
-    "Catalogue formation IA BTP : ChatGPT, devis, appels d'offres, RH, TP. Sessions 4 h à 2 jours. Qualiopi, OPCO Constructys. Choisissez votre parcours.",
+    "Catalogue formation IA BTP : sessions 4 h, forfait 100 € ou 175 € HT/participant selon niveau. Qualiopi, OPCO Constructys.",
   path: '/formations',
   keywords: [
     'formation IA BTP',
@@ -31,8 +32,8 @@ export const metadata = createPageMetadata({
   ],
 });
 
-/** Niveaux affichés : débutant et intermédiaire uniquement (pas de niveau avancé). */
-const LEVEL_RANK: Record<string, number> = { DÉBUTANT: 0, INTERMÉDIAIRE: 1 };
+/** Tri catalogue : dé puis avancé. */
+const LEVEL_RANK: Record<string, number> = { DÉBUTANT: 0, AVANCÉ: 1 };
 
 const FORMATIONS_UNSORTED = [
   {
@@ -40,7 +41,7 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "L'IA au service du bâtiment",
     href: '/formations/ia-au-service-du-batiment',
-    duree: '4h ou 7h',
+    duree: SESSION_DUREE_LIBELLE,
     effectif: '12 max',
     objectifs: [
       "Identifier les usages IA utiles dans le BTP",
@@ -51,11 +52,11 @@ const FORMATIONS_UNSORTED = [
   },
   {
     ref: 'BTP-02',
-    level: 'INTERMÉDIAIRE' as const,
+    level: 'AVANCÉ' as const,
     title: "Répondre aux appels d'offre avec l'IA",
     href: '/formations/ia-appels-offre-btp',
-    duree: '1 jour (7h) ou parcours LMS 7h',
-    effectif: '12 max · LMS selon session',
+    duree: SESSION_DUREE_LIBELLE,
+    effectif: '12 max',
     objectifs: [
       "Analyser un DCE rapidement et structurer les critères d'évaluation",
       "Rédiger mémoires techniques et chiffrages avec méthode et assistant IA",
@@ -66,10 +67,10 @@ const FORMATIONS_UNSORTED = [
   },
   {
     ref: 'BTP-03',
-    level: 'INTERMÉDIAIRE' as const,
+    level: 'AVANCÉ' as const,
     title: "Formation IA pour la Fonction RH dans le BTP",
     href: '/formations/ia-rh-btp',
-    duree: '2 jours (14h)',
+    duree: SESSION_DUREE_LIBELLE,
     effectif: '12 max',
     objectifs: [
       "Automatiser le recrutement et la sélection",
@@ -83,7 +84,7 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "L'IA au service des Travaux Publics",
     href: '/formations/ia-travaux-publics',
-    duree: '3 jours (21h)',
+    duree: SESSION_DUREE_LIBELLE,
     effectif: '12 max',
     objectifs: [
       "Réponse aux consultations : DCE, trames, synthèses et check-lists",
@@ -96,22 +97,22 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     href: '/formations/sensibilisation-ia-assistants-personnalises',
-    duree: '8h (parcours LMS)',
-    effectif: 'Selon session',
+    duree: SESSION_DUREE_LIBELLE,
+    effectif: '12 max',
     objectifs: [
       "Sensibilisation à l'IA et usages terrain (supports PDF)",
       "Banque de prompts par métier (Excel)",
       "Concevoir des assistants IA personnalisés",
-      "Parcours sur la plateforme de formation — Qualiopi, OPCO Constructys",
+      "Ressources plateforme en prolongement — Qualiopi, OPCO Constructys",
     ],
   },
   {
     ref: 'BTP-06',
-    level: 'INTERMÉDIAIRE' as const,
+    level: 'AVANCÉ' as const,
     title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
     href: '/formations/ia-architecture-claude-dpgf',
-    duree: '4h (visioconférence)',
-    effectif: '1 à 10 (intra)',
+    duree: SESSION_DUREE_LIBELLE,
+    effectif: '12 max',
     objectifs: [
       'DPGF, métrés et planning GANTT avec Claude AI et Google Sheets',
       'CR de chantier, situations de travaux, PV de réception (Google Docs)',
@@ -168,7 +169,7 @@ export default function FormationsPage() {
           <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
             utiliser ChatGPT dans le BTP
           </Link>
-          , automatisez devis bâtiment, emails et comptes rendus chantier. De 4h à 14h selon vos objectifs. Méthode 100% pratique.{' '}
+          , automatisez devis bâtiment, emails et comptes rendus chantier. {ENCART_TARIFS_COMMERCIAUX} Méthode 100&nbsp;% pratique.{' '}
           <RdvLink className="text-[var(--accent)] font-medium hover:underline">
             Prenez rendez-vous
           </RdvLink>
@@ -216,7 +217,7 @@ export default function FormationsPage() {
             <h2 className="mt-3 font-display text-xl font-semibold text-slate-900 group-hover:text-[var(--accent)]">
               {cours.title}
             </h2>
-            <div className="mt-4 flex gap-4 rounded-lg bg-slate-50 px-4 py-3">
+            <div className="mt-4 flex flex-wrap gap-3 rounded-lg bg-slate-50 px-4 py-3">
               <span className="flex items-center gap-2 text-sm text-slate-600">
                 <Clock size={16} strokeWidth={1.5} />
                 {cours.duree}
@@ -224,6 +225,10 @@ export default function FormationsPage() {
               <span className="flex items-center gap-2 text-sm text-slate-600">
                 <Users size={16} strokeWidth={1.5} />
                 {cours.effectif}
+              </span>
+              <span className="flex w-full items-center gap-2 text-sm font-semibold text-slate-800 sm:w-auto">
+                <Euro size={16} strokeWidth={1.75} className="text-[var(--accent)]" aria-hidden />
+                {libelleTarifParticipant(cours.level)}
               </span>
             </div>
             <p className="mt-4 font-semibold text-slate-900">

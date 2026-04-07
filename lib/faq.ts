@@ -23,11 +23,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: "La formation est modulaire : de 4h à 14h selon vos objectifs. Le format standard « L'IA au service du bâtiment » dure 4h ou 7h. Les parcours spécialisés (appels d'offres, RH) peuvent aller jusqu'à 7h ou plus.",
+    a: "Toutes nos sessions sont proposées au format unique de 4 heures, en présentiel. Le contenu est adapté au niveau (débutant ou avancé) avec un forfait par participant.",
   },
   {
     q: "La formation se fait-elle en présentiel ou en distanciel ?",
-    a: "Les deux formats sont proposés : présentiel (inter ou intra-entreprise) et distanciel. Nous nous adaptons à vos contraintes et à la taille de votre équipe.",
+    a: "Les formations catalogue se déroulent en présentiel : sessions inter en Île-de-France ou intra dans vos locaux. Nous nous adaptons à la taille de votre équipe.",
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -59,11 +59,11 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
-    a: "Laure Olivié (OFC Création d'Entreprise) forme les entreprises BTP à ChatGPT en Île-de-France depuis Guyancourt (78). Programme 'L'IA au service du bâtiment' : 4h ou 7h. Intervention Paris, Yvelines (78), Seine-et-Marne (77), Essonne (91), Val-d'Oise (95). Financement 100 % Constructys.",
+    a: "Laure Olivié (OFC Création d'Entreprise) forme les entreprises BTP à ChatGPT en Île-de-France depuis Guyancourt (78). Programme 'L'IA au service du bâtiment' : session 4 h en présentiel. Intervention Paris, Yvelines (78), Seine-et-Marne (77), Essonne (91), Val-d'Oise (95). Financement 100 % Constructys.",
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
-    a: "De 4h (initiation) à 14h (expertise appels d'offres, RH). Format modulaire. 100 % finançable OPCO Constructys (24€ HT/h/stagiaire). Zéro prérequis technique. Travail sur documents réels (devis, emails, CR chantier). Note 4,85/5.",
+    a: "Sessions de 4 h avec forfait 100 € HT par participant (niveau débutant) ou 175 € HT par participant (niveau avancé). 100 % finançable OPCO Constructys selon barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note 4,85/5.",
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
@@ -79,7 +79,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
-    a: "Formation IA appels d'offres BTP (1 jour, 7h) : analyse DCE/CCTP 5x plus rapide, rédaction mémoires techniques, workflows de traitement. Public : chargés d'affaires, bureaux d'études. Financement 100 % Constructys. Formatrice : Laure Olivié (1592 formés, note 4,85/5). Programme certifié Qualiopi.",
+    a: "Formation IA appels d'offres BTP (session 4 h, niveau avancé) : analyse DCE/CCTP, rédaction mémoires techniques, workflows de traitement. Public : chargés d'affaires, bureaux d'études. Financement 100 % Constructys selon éligibilité. Formatrice : Laure Olivié (1592 formés, note 4,85/5). Programme certifié Qualiopi.",
   },
 ];
 
@@ -87,7 +87,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: "Quelles formations IA BTP sont proposées ?",
-    a: "Notre catalogue inclut : L'IA au service du bâtiment (4h ou 7h), Répondre aux appels d'offres avec l'IA (7h), NIVEAU 2 — assistant IA pour DCE et mémoire technique (parcours LMS), Formation IA pour la fonction RH (14h), L'IA au service des Travaux Publics (14h), IA pour PME du BTP, Sensibilisation à l'IA & Assistants IA personnalisés (parcours LMS). Interventions en présentiel ou distanciel partout en France, et formations en ligne sur la plateforme. Toutes sont finançables Constructys.",
+    a: "Notre catalogue est proposé en sessions de 4 h : niveau débutant (forfait 100 € HT par participant) ou niveau avancé (forfait 175 € HT par participant) selon le programme — L'IA au service du bâtiment, Travaux publics, appels d'offres, RH, architecture / DPGF, sensibilisation & assistants, etc. En présentiel (inter en Île-de-France, intra sur la France). Toutes sont éligibles financement Constructys dans les conditions habituelles.",
   },
   {
     q: "Comment choisir ma formation IA BTP ?",
@@ -102,7 +102,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
 export const FAQ_TARIFS: FAQItem[] = [
   {
     q: "Combien coûte une formation IA BTP ?",
-    a: "Les tarifs varient selon le format (4h à 14h) et le type de session (inter ou intra-entreprise). Pour les entreprises de moins de 50 salariés, la formation peut être prise en charge à 100 % par Constructys. Contactez-nous pour un devis personnalisé.",
+    a: "Nous proposons uniquement des sessions de 4 heures, en forfait par participant : 100 € HT (niveau débutant) ou 175 € HT (niveau avancé). Selon votre entreprise, le financement OPCO Constructys peut couvrir tout ou partie du coût — nous vous accompagnons sur le dossier.",
   },
   {
     q: "Comment financer ma formation IA ?",
@@ -117,7 +117,7 @@ export const FAQ_TARIFS: FAQItem[] = [
 export const FAQ_OFFRES: FAQItem[] = [
   {
     q: "Quels formats de formation proposez-vous ?",
-    a: "Formations en présentiel (inter ou intra-entreprise), en distanciel, et parcours hybrides. Nous nous adaptons à vos contraintes et à la taille de votre équipe. De 4h à 14h selon vos objectifs.",
+    a: "Sessions de 4 heures en présentiel (inter ou intra-entreprise). Tarif forfaitaire par participant selon le niveau (débutant ou avancé). Nous nous adaptons à la taille de votre groupe.",
   },
   {
     q: "Comment accéder à l'espace apprenant ?",
@@ -168,7 +168,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Constructys finance-t-il les formations en distanciel ?",
-    a: "Oui, lorsque l'action est éligible au plan de développement des compétences et respecte les conditions du dispositif, le distanciel peut être financé comme le présentiel. L'essentiel est un programme clair, des modalités d'évaluation et un dossier complet sur eGestion.",
+    a: "Les formations catalogue OFC se déroulent en présentiel. Pour toute question sur les règles Constructys et l'éligibilité d'une action au plan de développement des compétences, nous vous renseignons sur votre dossier (programme, évaluation, dépôt eGestion).",
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
@@ -214,7 +214,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP à Paris ?",
-    a: "La formation se déroule en présentiel dans vos locaux ou en salle à Paris et en Île-de-France (75, 92, 93, 94, 77, 78, 91, 95), ou en distanciel. Nous nous adaptons à vos contraintes.",
+    a: "La formation se déroule en présentiel dans vos locaux ou en salle à Paris et en Île-de-France (75, 92, 93, 94, 77, 78, 91, 95). Nous nous adaptons à vos contraintes.",
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
@@ -222,7 +222,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
   {
     q: "Quel est le format de la formation IA BTP Paris ?",
-    a: "Formation de 4h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique.",
+    a: "Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait par participant selon le niveau.",
   },
 ];
 
@@ -234,11 +234,15 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: "1 journée (7 heures) en format intensif et opérationnel. Adaptable selon vos besoins. 100 % finançable OPCO Constructys.",
+    a: "Session unique de 4 heures, intensive et opérationnelle (niveau avancé). 100 % finançable OPCO Constructys selon éligibilité.",
   },
   {
     q: "Quels livrables sont inclus ?",
     a: "Bibliothèque de prompts spécialisés, templates de mémoires techniques, workflows de traitement DCE, guide RGPD, accès plateforme 1 an.",
+  },
+  {
+    q: "Quel compte IA est recommandé pour ce niveau ?",
+    a: "Compte Claude AI recommandé pour le niveau avancé — adapté aux analyses de DCE et aux brouillons de mémoires techniques.",
   },
 ];
 
@@ -246,11 +250,11 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
 export const FAQ_RH_BTP: FAQItem[] = [
   {
     q: "La formation IA RH BTP s'adresse à qui ?",
-    a: "DRH, chargés de recrutement, responsables RH et assistants RH du secteur BTP. Aucune compétence technique requise. ChatGPT Teams recommandé.",
+    a: "DRH, chargés de recrutement, responsables RH et assistants RH du secteur BTP. Aucune compétence technique requise. ChatGPT Teams recommandé pour les données RH. Compte Claude AI recommandé pour le niveau avancé.",
   },
   {
     q: "Quelle est la durée de la formation IA fonction RH ?",
-    a: "2 jours (14 heures) en format intensif. Automatisation recrutement, GEPP, tableaux de bord RH et création d'assistants IA personnalisés.",
+    a: "Session de 4 heures (niveau avancé). Automatisation recrutement, GEPP, tableaux de bord RH et création d'assistants IA personnalisés — contenus condensés sur une demi-journée.",
   },
   {
     q: "Les données RH sont-elles sécurisées avec l'IA ?",
@@ -265,8 +269,8 @@ export const FAQ_BATIMENT: FAQItem[] = [
     a: "Artisans, dirigeants et équipes de PME du bâtiment, conducteurs et chargés d'affaires, assistants administratifs. Aucun prérequis technique — nous partons de vos cas réels (devis, emails, CR).",
   },
   {
-    q: "Quelle différence entre le format 4 h et 7 h ?",
-    a: "Même socle pédagogique (4 modules). Le format 7 h permet d'approfondir chaque thème, d'ajouter plus d'ateliers pratiques sur vos documents et de consolider votre bibliothèque de prompts.",
+    q: "Proposez-vous plusieurs durées de session ?",
+    a: "Non : toutes nos sessions d'accompagnement catalogue sont calibrées sur 4 heures. La différence se joue sur le niveau (débutant ou avancé) et le forfait par participant, pas sur la durée.",
   },
   {
     q: "La formation est-elle finançable ?",
@@ -290,8 +294,8 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
     a: "Oui : la logique de consultation, de structuration de réponse et de relecture s'applique aux deux contextes. Les marchés publics ajoutent des contraintes de forme et de délais que nous intégrons dans les ateliers (questions, mémoires, pièces).",
   },
   {
-    q: "Existe-t-il un format court ou seulement le parcours 21 h ?",
-    a: "La référence catalogue est un parcours 3 jours (21 h) pour une montée en puissance complète. Selon vos besoins, des formats plus courts ou une sensibilisation peuvent être étudiés en intra — indiquez-le dans votre demande de devis.",
+    q: "Quelle est la durée de la formation IA travaux publics ?",
+    a: "Nous proposons une session unique de 4 heures (niveau débutant), avec forfait par participant. Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants).",
   },
 ];
 
@@ -306,7 +310,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: "Oui, 100 % finançable OPCO Constructys, AKTO, OPCO EP. Parcours 3 jours (21 h), attestation Qualiopi.",
+    a: "Oui, selon éligibilité auprès de l'OPCO (Constructys, AKTO, OPCO EP). Session 4 h, attestation Qualiopi.",
   },
 ];
 
@@ -314,7 +318,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP ?",
-    a: "En présentiel dans vos locaux ou en salle, ou en distanciel. Nous intervenons dans toute la région. Sessions adaptées à votre équipe.",
+    a: "En présentiel dans vos locaux ou en salle. Nous intervenons dans toute la région. Sessions adaptées à votre équipe.",
   },
   {
     q: "La formation est-elle finançable ?",
@@ -366,7 +370,7 @@ export const FAQ_CONTACT: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: "Basée à Guyancourt (78), j'interviens en Île-de-France et partout en France. Formations à Paris, Lyon, Bordeaux, Lille, en présentiel ou distanciel.",
+    a: "Basée à Guyancourt (78), j'interviens en Île-de-France et partout en France. Formations à Paris, Lyon, Bordeaux, Lille, en présentiel.",
   },
   {
     q: "Comment financer ma formation IA BTP ?",
@@ -402,7 +406,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Comment accéder aux formations IA BTP ?",
-    a: "Catalogue des formations sur laureolivie.fr. Formations en présentiel (Paris, Lyon, Bordeaux, Lille) ou distanciel. Devis personnalisé sur demande.",
+    a: "Catalogue des formations sur laureolivie.fr. Formations en présentiel (Paris, Lyon, Bordeaux, Lille). Devis personnalisé sur demande.",
   },
 ];
 
@@ -414,7 +418,7 @@ export const FAQ_AUTEUR: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: "Paris, Lyon, Bordeaux, Lille, Île-de-France et partout en France. Formations en présentiel (inter ou intra-entreprise) ou en distanciel.",
+    a: "Paris, Lyon, Bordeaux, Lille, Île-de-France et partout en France. Formations en présentiel (inter ou intra-entreprise).",
   },
   {
     q: "Proposez-vous des formations LinkedIn Learning ?",

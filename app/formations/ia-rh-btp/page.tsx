@@ -12,6 +12,11 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { FAQ_RH_BTP } from '@/lib/faq';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_AVANCE_HT,
+  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+} from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-rh-btp';
 /** À déposer dans public/formations/ia-rh-btp/ si besoin */
@@ -20,7 +25,7 @@ const PDF_HREF = '/formations/ia-rh-btp/Programme_Formation_IA_RH_BTP.pdf';
 export const metadata = createPageMetadata({
   title: 'Formation IA RH BTP : Recrutement & GEPP efficaces',
   description:
-    "IA pour la fonction RH dans le BTP : recrutement, GEPP, tableaux de bord. Deux jours, Qualiopi. DRH et responsables RH : financez via Constructys sans attendre.",
+    `IA pour la fonction RH dans le BTP : recrutement, GEPP, tableaux de bord. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
   path: '/formations/ia-rh-btp',
   keywords: [
     'formation IA RH BTP',
@@ -36,7 +41,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: 'Formation IA pour la Fonction RH dans le BTP',
   description:
-    'Formation opérationnelle 2 jours : automatiser le recrutement, optimiser la GEPP, créer des tableaux de bord RH et votre assistant IA. 100% finançable OPCO selon éligibilité.',
+    `Formation opérationnelle ${SESSION_DUREE_LIBELLE} : recrutement, GEPP, tableaux de bord RH, assistant IA. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Finançable OPCO selon éligibilité.`,
   path: '/formations/ia-rh-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -50,71 +55,41 @@ const breadcrumbSchema = getBreadcrumbSchema([
 
 const MODULES = [
   {
-    duree: '2 h',
-    outils: 'Éthique · RGPD · panorama outils',
-    titre: 'Comprendre l’IA et ses applications RH dans le BTP',
+    duree: '1 h',
+    outils: 'Éthique · RGPD · prompts',
+    titre: 'Cadre RH & IA — vigilance et prompts',
     objectifs: [
-      'Cadre de vigilance : éthique, RGPD, confidentialité des données RH',
-      'Risques : biais, hallucinations, discrimination en recrutement',
-      'Panorama des outils : ChatGPT, Mistral AI, Gemini, Perplexity',
-      'Cas pratique : besoins IA du service RH',
+      'RGPD, confidentialité et risques (biais, recrutement)',
+      'Structure de prompts RH et premiers cas d’usage',
     ],
-    livrable: 'Matrice de vigilance + premiers cas d’usage',
+    livrable: 'Matrice de vigilance + brouillon de prompts',
   },
   {
-    duree: '2 h',
-    outils: 'Prompt engineering',
-    titre: 'Maîtrise du prompt engineering RH',
+    duree: '1 h',
+    outils: 'Recrutement · formation',
+    titre: 'Recrutement et contenus pédagogiques accélérés',
     objectifs: [
-      'Structure d’un prompt RH : contexte, rôle, tâche, format',
-      'Bibliothèque de prompts BTP (entretiens, e-mails, bilans)',
-      'Exercice : génération de contenus RH professionnels',
+      'Trames entretiens, e-mails, sélection ; esquisse de contenus pédagogiques BTP',
     ],
-    livrable: 'Bibliothèque de prompts personnalisés (brouillon)',
+    livrable: 'Modèles réutilisables',
   },
   {
-    duree: '3 h',
-    outils: 'Formation · contenus pédagogiques',
-    titre: 'IA au service de la formation dans le BTP',
+    duree: '1 h',
+    outils: 'GEPP · données',
+    titre: 'GEPP, compétences et indicateurs',
     objectifs: [
-      'Créer contenus pédagogiques et quiz',
-      'Plans de formation par métier (maçon, conducteur de travaux, etc.)',
-      'Cas pratique : module sécurité chantier avec l’IA',
+      'Cartographier les compétences et écarts ; pistes de tableaux de bord RH',
     ],
-    livrable: 'Ébauche de module pédagogique',
+    livrable: 'Trame GEPP + idées de KPI',
   },
   {
-    duree: '2 h 30',
-    outils: 'GEPP · entretiens',
-    titre: 'GEPP et anticiper les compétences BTP',
+    duree: '1 h',
+    outils: 'Assistants IA',
+    titre: 'Assistants IA RH et plan d’action',
     objectifs: [
-      'Cartographier compétences actuelles et futures',
-      'Identifier écarts par métier',
-      'Simulation de parcours et entretiens professionnels',
+      'Configurer des assistants (recrutement, communication interne) et plan 30 jours',
     ],
-    livrable: 'Trame GEPP + synthèse entretiens',
-  },
-  {
-    duree: '2 h',
-    outils: 'Données · indicateurs',
-    titre: 'Construire ses KPI RH avec l’IA',
-    objectifs: [
-      'Données RH exploitables (SIRH, enquêtes, entretiens de sortie)',
-      'Tableaux de bord : recrutement, absentéisme, formation, climat',
-      'Cas pratique : tableau de bord BTP',
-    ],
-    livrable: 'Modèle de tableau de bord RH',
-  },
-  {
-    duree: '2 h 30',
-    outils: 'GPTs · plan d’action',
-    titre: 'Création d’un assistant IA RH et plan d’action',
-    objectifs: [
-      'Configurer des GPTs pour recrutement, manager, formation',
-      'Assistants : pré-sélection, newsletter, présentations',
-      'Formaliser un plan d’action IA RH pour chaque participant',
-    ],
-    livrable: 'Plan d’action IA RH + configuration assistants',
+    livrable: 'Plan d’action IA RH',
   },
 ];
 
@@ -149,7 +124,7 @@ export default function FormationIARHBTPPage() {
       </nav>
 
       <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Présentiel ou distanciel · 2 jours (14 h) · Intermédiaire · BTP-03
+        Présentiel · {SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-03
       </p>
       <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
         Formation IA pour la fonction RH dans le BTP
@@ -200,15 +175,17 @@ export default function FormationIARHBTPPage() {
           <li className="flex gap-2">
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Durée :</strong> 2 jours (<strong>14 h</strong>) · <strong>Format :</strong> présentiel
-              ou visio, dans vos locaux ou à distance — groupe selon devis.
+              <strong>Durée :</strong> session <strong>{SESSION_DUREE_LIBELLE}</strong> ·{' '}
+              <strong>Forfait :</strong> {TARIF_FORFAIT_AVANCE_HT} € HT / participant (niveau avancé) ·{' '}
+              <strong>Format :</strong> présentiel (inter en Île-de-France ou intra dans vos locaux).
             </span>
           </li>
           <li className="flex gap-2">
             <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
               <strong>Prérequis :</strong> aucune compétence technique IA.{' '}
-              <strong>ChatGPT Teams</strong> recommandé pour la confidentialité des données RH.
+              <strong>ChatGPT Teams</strong> recommandé pour la confidentialité des données RH.{' '}
+              {RECOMMANDATION_CLAUDE_NIVEAU_AVANCE}
             </span>
           </li>
         </ul>
@@ -245,7 +222,7 @@ export default function FormationIARHBTPPage() {
       <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Jour 1 — usages RH &amp; formation · Jour 2 — GEPP, données &amp; assistants IA.
+          Session unique {SESSION_DUREE_LIBELLE} — modules condensés ci-dessous.
         </p>
         <div className="mt-8 space-y-8">
           {MODULES.map((m, i) => (
@@ -279,7 +256,8 @@ export default function FormationIARHBTPPage() {
         <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
-            <strong>Durée :</strong> 14 h sur 2 jours · <strong>Tarif :</strong> sur devis (intra / inter) ·{' '}
+            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
+            {TARIF_FORFAIT_AVANCE_HT} € HT / participant (niveau avancé) ·{' '}
             <strong>Financement :</strong> OPCO (Constructys, AKTO, etc.) selon éligibilité.
           </li>
           <li>

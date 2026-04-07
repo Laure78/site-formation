@@ -200,7 +200,7 @@ export default function FormationIAArtisansBTPPage() {
           </h2>
           <p className="mt-4 text-blue-100">
             Laure Olivié forme les dirigeants et équipes du bâtiment et des travaux publics à ChatGPT depuis 2024.
-            Formation 4h ou 7h, 100 % pratique : vous repartez avec des trames et
+            Formation 4 h, 100 % pratique : vous repartez avec des trames et
             des prompts prêts à l&apos;emploi. 100 % finançable OPCO Constructys.
           </p>
           <ul className="mt-6 space-y-2">

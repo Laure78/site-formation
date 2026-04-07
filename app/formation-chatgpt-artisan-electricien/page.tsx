@@ -97,7 +97,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'C’est plutôt présentiel ou à distance ?',
-    a: "Les deux existent selon les sessions : visioconférence interactive ou présentiel en entreprise / inter-entreprises. Le programme reste orienté pratique, avec des exercices sur vos cas réels (sans données nominatives dans l’outil public).",
+    a: "Les sessions catalogue se déroulent en présentiel (inter en Île-de-France ou intra dans vos locaux). Le programme reste orienté pratique, avec des exercices sur vos cas réels (sans données nominatives dans l’outil public).",
   },
 ];
 
@@ -216,8 +216,8 @@ export default function FormationChatGPTArtisanElectricienPage() {
               sont majoritairement pratiques.
             </li>
             <li>
-              <strong className="text-slate-900">Format :</strong> visioconférence ou présentiel, inter-entreprises ou
-              en intra pour votre équipe — idéal pour aligner secrétaire et chefs d&apos;équipe sur les mêmes consignes.
+              <strong className="text-slate-900">Format :</strong> présentiel, inter-entreprises ou en intra pour votre
+              équipe — idéal pour aligner secrétaire et chefs d&apos;équipe sur les mêmes consignes.
             </li>
             <li>
               <strong className="text-slate-900">Prérequis :</strong> utiliser couramment un ordinateur ou une tablette,

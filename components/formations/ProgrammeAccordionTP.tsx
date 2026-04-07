@@ -3,122 +3,39 @@
 import { useState } from 'react';
 import { ChevronRight, Plus, Minus } from 'lucide-react';
 
-/** Programme 21 h — 3 jours : AO/DCE, documents chantier & QSE, industrialisation (templates + assistants). */
+/** Programme session unique 4 h — thèmes TP condensés (consultations, chantier, industrialisation). */
 const PROGRAMME_SECTIONS = [
   {
-    id: 'jour-1',
-    label: 'Jour 1 — AO / DCE et préparation opérationnelle (Travaux Publics)',
+    id: 'session-4h',
+    label: 'Session 4 h — Travaux publics (consultations, chantier, industrialisation)',
     public:
-      'Introduction, lecture DCE/CCTP, préparation chantier et cas pratiques orientés réponse aux consultations',
+      'Format catalogue : une demi-journée. Ateliers pratiques et trames réutilisables — même exigence Qualiopi.',
     modules: [
       {
-        title: 'Introduction à la formation',
+        title: 'Bloc 1 — Réponse aux consultations (DCE / CCTP, synthèses)',
         points: [
-          'Objectifs, déroulement, règles de sécurité des données (confidentialité, RGPD)',
-          "Comprendre l'IA générative : limites, hallucinations, méthode de validation humaine",
-          'Panorama des usages TP : études, méthode, travaux, QSE, administratif, relation MOA / MOE',
+          'Lecture rapide des pièces : exigences, risques, questions et trame de réponse',
+          'Cas pratique : d’un extrait DCE à une synthèse « go / no go »',
         ],
       },
       {
-        title: 'Lire un DCE / CCTP plus vite et sans oublier l’essentiel',
+        title: 'Bloc 2 — Documents de chantier & reporting',
         points: [
-          'Extraction des exigences : techniques, délais, contraintes, pièces, pénalités, livrables',
-          'Liste de questions pour clarifications, hypothèses, variantes',
-          'Trame de réponse : plan, preuves, éléments différenciants (sans promesses non maîtrisées)',
+          'Comptes rendus, courriers et relances : structure, ton, validation humaine',
+          'Reporting et pilotage : à partir de notes ou bullet points',
         ],
       },
       {
-        title: 'Préparation chantier : anticiper risques et dépendances',
+        title: 'Bloc 3 — QSE / prévention (selon contexte)',
         points: [
-          'Checklists démarrage : interfaces, DICT/DT, phasage, accès, approvisionnement, matériel, sous-traitance',
-          'Planning : jalons, dépendances, points de contrôle, risques et actions',
-          'Réunion de lancement : ordre du jour, relevé de décisions et suivi',
+          'Briefings, checklists et messages courts adaptés au terrain TP',
         ],
       },
       {
-        title: 'Cas d’usage Travaux Publics (atelier)',
+        title: 'Bloc 4 — Industrialisation (templates, assistants, charte)',
         points: [
-          'DCE : synthèse « exigences / risques / questions » + checklist de conformité',
-          'Prépa : passer d’un CCTP ou de notes à un plan « phasage / risques / actions »',
-          'Lancement : ordre du jour + compte rendu + tableau d’actions (responsables / échéances)',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'jour-2',
-    label: 'Jour 2 — Documents de chantier, reporting et QSE (rigueur & traçabilité)',
-    public: 'CR, courriers, reporting, QSE et prévention — toujours avec protocole de validation',
-    modules: [
-      {
-        title: 'Écrits chantier : gagner du temps sans perdre la rigueur',
-        points: [
-          'Comptes rendus : décisions, faits marquants, points bloquants, actions',
-          'Courriers et relances : demandes d’info, constats, retards, aléas, réserves',
-          'Rapports : avancement, moyens, incidents, synthèses à partir de notes ou photos décrites',
-        ],
-      },
-      {
-        title: 'Reporting et pilotage',
-        points: [
-          'Tableaux de suivi : avancement, écarts, risques, actions correctives',
-          'Reporting hebdomadaire : format direction et format MOA / MOE',
-          'Capitalisation : retours d’expérience, bonnes pratiques, base « cas & solutions »',
-        ],
-      },
-      {
-        title: 'QSE / prévention (selon contexte)',
-        points: [
-          'Briefings sécurité : messages clairs, quarts d’heure sécurité',
-          'Checklists prévention : co-activité, signalisation, EPI, points de vigilance',
-          'Procédures et modes opératoires : structure, clarté, contrôles',
-        ],
-      },
-      {
-        title: 'Cas d’usage Travaux Publics (atelier)',
-        points: [
-          'Compte rendu chantier : livrable « prêt à envoyer » + tableau d’actions',
-          'Reporting : reporting hebdo (avancement / risques / actions) à partir de notes',
-          'QSE : fiche briefing sécurité 5 minutes + checklist de contrôle',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'jour-3',
-    label: 'Jour 3 — Industrialisation (templates, assistants et méthode de validation)',
-    public: 'Templates TP, assistants par rôle, charte d’usage et plan de déploiement',
-    modules: [
-      {
-        title: 'Bibliothèque de templates TP',
-        points: [
-          'Pack documents : CR, courriers, relances, constats, reporting, REX, trames appels d’offres',
-          'Règles de rédaction : structure, vocabulaire, niveaux de détail',
-          'Workflow : collecte → production IA → relecture → validation → diffusion',
-        ],
-      },
-      {
-        title: 'Assistants IA par rôle (Travaux Publics)',
-        points: [
-          'Assistant « Conduite de travaux » : CR, actions, relances, reporting',
-          'Assistant « Méthodes / BE » : DCE, synthèses, questions, trames',
-          'Assistant « QSE » : procédures, checklists, REX, plans d’actions',
-        ],
-      },
-      {
-        title: 'Maîtrise des risques : fiabilité et responsabilité',
-        points: [
-          'Checklist anti-erreurs : faits, sources, versions, cohérence',
-          "Cadre d'usage : ce que l'IA prépare vs ce que l'humain valide",
-          'Charte IA en entreprise : règles, limites, confidentialité, responsabilités',
-        ],
-      },
-      {
-        title: 'Cas d’usage Travaux Publics (atelier)',
-        points: [
-          'Industrialisation : enchaînement réunion → CR → actions → relances → reporting',
-          'QSE : pack de checklists par type d’opération + protocole de contrôle',
-          'Déploiement : plan d’actions 30 jours (équipe, templates, règles, indicateurs temps gagné)',
+          'Templates TP réutilisables et règles de rédaction',
+          'Esquisse d’assistants par rôle + charte d’usage IA en entreprise',
         ],
       },
     ],
@@ -126,7 +43,7 @@ const PROGRAMME_SECTIONS = [
 ];
 
 export function ProgrammeAccordionTP() {
-  const [openSection, setOpenSection] = useState<string | null>('jour-1');
+  const [openSection, setOpenSection] = useState<string | null>('session-4h');
 
   return (
     <div className="mt-12 space-y-4">

@@ -12,6 +12,11 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_AVANCE_HT,
+  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+} from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-appels-offre-btp';
 /** Programme officiel — aligné seed SQL supports */
@@ -22,7 +27,7 @@ const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prom
 export const metadata = createPageMetadata({
   title: "IA appel d'offres BTP — DCE, CCTP, mémoire technique | Formation",
   description:
-    "IA appels d'offres BTP : analyse DCE, CCTP, rédaction mémoire technique appel d'offres, assistant IA marchés. Journée 7 h ou LMS 7 h. Chargés d'affaires BTP. Qualiopi, Constructys.",
+    `IA appels d'offres BTP : analyse DCE, CCTP, mémoire technique. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appel d\'offres BTP DCE CCTP',
@@ -41,7 +46,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: "Répondre aux appels d'offre avec l'IA",
   description:
-    "Formation IA appels d'offres BTP : DCE, CCTP, mémoire technique, chiffrage. Analysez les dossiers plus vite et rédigez des réponses marchés avec l'IA. Journée 7 h ou parcours LMS 7 h. 100 % finançable OPCO selon éligibilité.",
+    `Formation IA appels d'offres BTP : DCE, CCTP, mémoire technique, chiffrage. Session ${SESSION_DUREE_LIBELLE}. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Finançable OPCO selon éligibilité.`,
   path: '/formations/ia-appels-offre-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -58,7 +63,7 @@ const OUTILS_IA_LINE =
 
 const MODULES = [
   {
-    duree: '30 min',
+    duree: '25 min',
     outils: 'Contexte marchés publics',
     titre: 'Introduction',
     objectifs: [
@@ -69,7 +74,7 @@ const MODULES = [
     livrable: 'Feuille de route personnelle pour la journée',
   },
   {
-    duree: '2 h',
+    duree: '1 h',
     outils: 'NotebookLM · DCE / pièces',
     titre: 'Analyse DCE avec NotebookLM',
     objectifs: [
@@ -80,7 +85,7 @@ const MODULES = [
     livrable: 'Méthode d’analyse DCE réutilisable + prompts',
   },
   {
-    duree: '1 h 30',
+    duree: '45 min',
     outils: 'IA générative · tableaux',
     titre: 'Décision Go / No Go et rentabilité',
     objectifs: [
@@ -91,7 +96,7 @@ const MODULES = [
     livrable: 'Grille Go/No Go + synthèse rentabilité',
   },
   {
-    duree: '1 h 30',
+    duree: '1 h',
     outils: 'Rédaction assistée · CCTP',
     titre: 'Rédaction mémoire technique et relecture',
     objectifs: [
@@ -102,7 +107,7 @@ const MODULES = [
     livrable: 'Trame de mémoire + prompts de relecture',
   },
   {
-    duree: '1 h 30',
+    duree: '50 min',
     outils: 'Chiffrage · IA',
     titre: 'Aide au chiffrage et contrôle de rentabilité',
     objectifs: [
@@ -145,7 +150,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       </nav>
 
       <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Présentiel ou distanciel · 7 h ou LMS 7 h · Intermédiaire · BTP-02
+        Présentiel · {SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-02
       </p>
       <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
         Répondre aux appels d&apos;offre avec l&apos;IA
@@ -207,8 +212,9 @@ export default function FormationIAAppelsOffreBTPPage() {
           <li className="flex gap-2">
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Formats :</strong> journée <strong>7 h</strong> (présentiel ou visio, jusqu&apos;à 12
-              personnes) ou <strong>parcours LMS 7 h</strong> sur la plateforme — même référence catalogue{' '}
+              <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en présentiel.
+              Forfait <strong>{TARIF_FORFAIT_AVANCE_HT} € HT par participant</strong> (niveau
+              avancé). Ressources complémentaires sur la plateforme selon convention — réf.{' '}
               <strong>BTP-02</strong>.
             </span>
           </li>
@@ -217,7 +223,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             <span>
               <strong>Prérequis :</strong> connaissance du secteur BTP et des dossiers DCE / CCTP. Pour les
               données sensibles : privilégier des environnements professionnels (ex. offres Team) — rappels
-              RGPD en session.
+              RGPD en session. {RECOMMANDATION_CLAUDE_NIVEAU_AVANCE}
             </span>
           </li>
         </ul>
@@ -253,7 +259,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Répartition indicative sur une journée — ajustements possibles selon le groupe.
+          Répartition indicative sur {SESSION_DUREE_LIBELLE} — ajustements possibles selon le groupe.
         </p>
         <div className="mt-8 space-y-8">
           {MODULES.map((m, i) => (
@@ -288,14 +294,12 @@ export default function FormationIAAppelsOffreBTPPage() {
         className="mt-12 scroll-mt-24 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-6"
       >
         <h2 className="font-display text-xl font-bold text-slate-900">
-          Parcours LMS 7 h — assistant IA DCE &amp; mémoire technique
+          Ressources sur la plateforme — assistant IA DCE &amp; mémoire technique
         </h2>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-          La même formation « répondre aux appels d&apos;offre avec l&apos;IA » est aussi disponible en{' '}
-          <strong>parcours en ligne 7 h</strong> sur la plateforme : approfondissement sur la création et le
-          paramétrage d&apos;un assistant IA pour analyser les DCE et accélérer vos mémoires techniques.{' '}
-          <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon éligibilité — même
-          référence <strong>BTP-02</strong> que la journée présentielle.
+          Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
+          convention). <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
+          éligibilité — référence <strong>BTP-02</strong>.
         </p>
         <p className="mt-4">
           <Link
@@ -311,9 +315,9 @@ export default function FormationIAAppelsOffreBTPPage() {
         <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
-            <strong>Durée :</strong> 7 h (journée) ou 7 h (LMS) · <strong>Tarif :</strong> sur devis selon
-            effectif et modalité (intra / inter) · <strong>Financement :</strong> OPCO (Constructys, AKTO,
-            etc.) selon éligibilité.
+            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
+            {TARIF_FORFAIT_AVANCE_HT} € HT / participant (niveau avancé) ·{' '}
+            <strong>Financement :</strong> OPCO (Constructys, AKTO, etc.) selon éligibilité.
           </li>
           <li>
             <strong>Livrables :</strong> bibliothèque de prompts, trames de mémoires, workflows DCE, repères

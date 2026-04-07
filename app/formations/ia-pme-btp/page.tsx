@@ -9,7 +9,7 @@ import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema,
 export const metadata = createPageMetadata({
   title: 'Formation IA PME bâtiment — Devis, productivité, Île-de-France | OFC',
   description:
-    "Formation IA PME bâtiment : devis, emails, administratif. Interventions Île-de-France et France. 4 h à 7 h, Qualiopi, financement formation IA OPCO Constructys. Diagnostic sur demande.",
+    "Formation IA PME bâtiment : sessions 4 h, forfait 100 € ou 175 € HT/part. selon niveau. Île-de-France et France. Qualiopi, OPCO Constructys selon éligibilité.",
   path: '/formations/ia-pme-btp',
   keywords: [
     'formation IA PME bâtiment',

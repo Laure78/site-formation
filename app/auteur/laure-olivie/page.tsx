@@ -91,7 +91,7 @@ export default function AuteurPage() {
             <p className="mt-4 text-slate-600 leading-relaxed">
               Intervenante et créatrice de contenus pédagogiques sur l&apos;IA pour
               TPE et PME du BTP. Formations en présentiel (Paris, Lyon, Bordeaux, Lille,
-              Île-de-France) ou en distanciel. Partenaire FFB, GERESO, Lefebvre
+              Île-de-France). Partenaire FFB, GERESO, Lefebvre
               Dalloz, CNAM, LinkedIn Learning, OPCO Constructys.
             </p>
           </section>
@@ -102,7 +102,7 @@ export default function AuteurPage() {
               Formations IA BTP
             </h2>
             <p className="mt-4 text-slate-600 leading-relaxed">
-              Programme phare « L&apos;IA au service du bâtiment » (4h ou 7h), formation
+              Programme phare « L&apos;IA au service du bâtiment » (session 4 h), formation
               appels d&apos;offres, IA pour la fonction RH, L&apos;IA au service des Travaux Publics.
               Certifié Qualiopi. 100 % finançable OPCO Constructys.
             </p>

@@ -15,6 +15,11 @@ import {
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema } from '@/lib/seo';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_DEBUTANT_HT,
+  TARIF_FORFAIT_AVANCE_HT,
+} from '@/lib/tarifs-sessions';
 
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
 
@@ -130,6 +135,32 @@ export default function FinancementConstructysFormationIABTPPage() {
             professionnalisation, à condition que le programme soit explicite et que le
             prestataire soit reconnu. C&apos;est pourquoi le couple <strong>Qualiopi + devis
             détaillé</strong> compte autant que le sujet &quot;IA&quot; lui-même.
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-sky-50/90 px-4 py-12">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-xl font-bold text-slate-900">
+            Grille commerciale OFC — sessions de formation
+          </h2>
+          <p className="mt-3 text-slate-700">
+            L&apos;organisme propose un format unique :{' '}
+            <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
+            <strong>forfait par participant</strong> selon le niveau pédagogique :
+          </p>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+            <li>
+              <strong>Niveau débutant :</strong> {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
+            </li>
+            <li>
+              <strong>Niveau avancé :</strong> {TARIF_FORFAIT_AVANCE_HT} € HT par participant
+            </li>
+          </ul>
+          <p className="mt-4 text-sm text-slate-600">
+            Le montant facturé par OFC peut ensuite être couvert en tout ou partie par votre OPCO
+            (Constructys pour le BTP) dans la limite des plafonds et de votre éligibilité — voir
+            le tableau ci-dessous.
           </p>
         </div>
       </section>
@@ -283,7 +314,7 @@ export default function FinancementConstructysFormationIABTPPage() {
       <FAQSection
         items={FAQ_FINANCEMENT_IA_BTP}
         title="Questions fréquentes — Constructys formation IA"
-        subtitle="Réponses courtes pour avancer : éligibilité, plafonds, CPF, distanciel et retard de dossier."
+        subtitle="Réponses courtes pour avancer : éligibilité, plafonds, CPF et retard de dossier."
       />
 
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">

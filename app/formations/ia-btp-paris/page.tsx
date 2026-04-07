@@ -27,7 +27,7 @@ const ZONES = [
   {
     num: '75',
     nom: 'Paris',
-    contenu: 'Tous arrondissements • Sessions en présentiel ou distanciel • Accès facilité transports en commun',
+    contenu: 'Tous arrondissements • Sessions en présentiel • Accès facilité transports en commun',
   },
   {
     num: '92',
@@ -201,8 +201,7 @@ export default function FormationIABTPParisPage() {
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             Formations disponibles à Paris et dans l&apos;ensemble des départements
-            d&apos;Île-de-France. Sessions en présentiel dans vos locaux ou en
-            distanciel selon vos besoins.
+            d&apos;Île-de-France. Sessions en présentiel dans vos locaux ou en salle.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {ZONES.map((zone) => (

@@ -28,11 +28,16 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_DEBUTANT_HT,
+  MODALITE_FORMATIONS_PRESENTIEL,
+} from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
   title: "L'IA au service des Travaux Publics : DCE, AO, chantier & industrialisation",
   description:
-    "Formation IA TP 21 h (3 jours) : appels d'offres, DCE/CCTP, comptes rendus, reporting QSE, templates et assistants par rôle. Présentiel ou distanciel. Qualiopi, OPCO.",
+    `Formation IA TP ${SESSION_DUREE_LIBELLE} : appels d'offres, DCE/CCTP, comptes rendus, reporting. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO.`,
   path: '/formations/ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',
@@ -49,7 +54,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: "L'IA au service des Travaux Publics",
   description:
-    "Formation 3 jours (21 h) : IA générative pour les TP — consultations, DCE/CCTP, documents de chantier, reporting, QSE, templates et assistants métier. Finançable OPCO.",
+    `Formation ${SESSION_DUREE_LIBELLE} : IA générative pour les TP — consultations, DCE/CCTP, documents de chantier, reporting, templates et assistants. Finançable OPCO.`,
   path: '/formations/ia-travaux-publics',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -64,9 +69,10 @@ const breadcrumbSchema = getBreadcrumbSchema([
 const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 
 const POINTS_MARQUANTS = [
-  'Parcours 21 h orienté TP : consultations / DCE, documents opérationnels, puis industrialisation (templates + assistants).',
-  '« Boîte à prompts TP » : CR de chantier, situations, relances, demandes d’info, REX, QSE, trames AO.',
-  'Focus maîtrise : standardisation, versioning, check-list anti-erreurs et charte d’usage IA en entreprise.',
+  `Session unique ${SESSION_DUREE_LIBELLE} — contenus TP : consultations / DCE, documents opérationnels, industrialisation (templates + assistants).`,
+  `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant).`,
+  'Présentiel en Île-de-France (inter ou sur devis) ou intra dans vos locaux.',
+  '« Boîte à prompts TP » : CR de chantier, situations, relances, trames AO — focus validation humaine.',
 ];
 
 const OBJECTIFS_FORMATION = [
@@ -88,14 +94,13 @@ const PROFIL_APPRENANTS = [
 ];
 
 const MOYENS_PEDAGOGIQUES = [
-  'Formation animée par une formatrice experte en IA appliquée au BTP et aux TP, en présentiel (dans vos locaux) ou à distance.',
+  `Formation animée par une formatrice experte en IA appliquée au BTP et aux TP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
   'Exercices guidés, cas concrets et templates réutilisables (prompts, trames, check-lists).',
   'Atelier mise en situation sur vos documents (anonymisés si nécessaire) et vos scénarios TP.',
-  'Digital learning en option selon la formule retenue.',
+  'Supports et ressources selon la convention.',
 ];
 
 const MOYENS_TECHNIQUES = [
-  'À distance : visioconférence (ex. Microsoft Teams) ; connexion stable et poste par participant recommandé.',
   'En présentiel : salle équipée, connexion internet, poste par apprenant si possible.',
   'Utiliser des données non sensibles ou anonymisées ; définir en amont un protocole de validation interne.',
 ];
@@ -111,14 +116,14 @@ const MODALITES = [
   {
     icon: Clock,
     title: 'Durée',
-    primary: '3 jours (21 heures)',
-    secondary: 'Trois journées complémentaires (voir programme détaillé)',
+    primary: SESSION_DUREE_LIBELLE,
+    secondary: `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant)`,
   },
   {
     icon: MapPin,
     title: 'Format',
-    primary: 'Présentiel ou distanciel',
-    secondary: 'Dans vos locaux ou en visio',
+    primary: 'Présentiel',
+    secondary: 'Sessions inter en salle en Île-de-France ; intra dans vos locaux (France)',
   },
   {
     icon: Users,
@@ -140,9 +145,9 @@ const MODALITES = [
   },
   {
     icon: DollarSign,
-    title: 'Financement',
-    primary: '100% finançable OPCO',
-    secondary: 'Constructys, AKTO, OPCO EP',
+    title: 'Tarif & financement',
+    primary: `${TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (débutant)`,
+    secondary: 'Financement OPCO selon éligibilité — Constructys, AKTO, OPCO EP',
   },
 ];
 
@@ -150,7 +155,7 @@ const LIVRABLES = [
   {
     icon: FolderOpen,
     title: 'Pack templates & prompts TP',
-    desc: 'Trames prêtes à l’emploi (AO, CR, reporting, REX) alignées sur le programme 21 h.',
+    desc: 'Trames prêtes à l’emploi (AO, CR, reporting, REX) alignées sur la session 4 h.',
   },
   {
     icon: Bot,
@@ -202,10 +207,14 @@ export default function FormationIATravauxPublicsPage() {
                 : consultations, chantier et industrialisation de l&apos;usage
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
-                Parcours de <strong>3 jours (21 h)</strong> pour maîtriser l&apos;IA générative sur
+                Session de <strong>{SESSION_DUREE_LIBELLE}</strong> pour cadrer l&apos;IA générative sur
                 les enjeux TP : <strong>appels d&apos;offres et DCE</strong>, documents de chantier et
-                reporting, puis <strong>templates, assistants par rôle</strong> et charte d&apos;usage
-                avec validation « anti-erreurs ».
+                reporting, puis <strong>templates et assistants</strong> et charte d&apos;usage avec
+                validation « anti-erreurs ».{' '}
+                <strong>
+                  Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
+                </strong>{' '}
+                (niveau débutant).
               </p>
               <p className="mt-4 max-w-xl text-sm text-slate-500">
                 <Link
@@ -298,9 +307,9 @@ export default function FormationIATravauxPublicsPage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
-            <strong>21 heures sur 3 jours</strong> — progression : réponse aux consultations et
-            préparation opérationnelle, documents de chantier / reporting / QSE, puis
-            industrialisation (templates, assistants, charte).
+            <strong>{SESSION_DUREE_LIBELLE}</strong> — progression condensée : consultations et
+            DCE, documents de chantier / reporting / QSE, puis industrialisation (templates,
+            assistants, charte).
           </p>
           <ProgrammeAccordionTP />
         </div>
@@ -395,7 +404,7 @@ export default function FormationIATravauxPublicsPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Livrables & ressources</h2>
           <p className="mt-3 text-slate-600">
-            Ce que vous repartez pour capitaliser après les 21 h — angle livrables et déploiement en
+            Ce que vous repartez pour capitaliser après la session — angle livrables et déploiement en
             entreprise.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -437,7 +446,8 @@ export default function FormationIATravauxPublicsPage() {
             Contactez-nous pour organiser cette formation dans votre entreprise TP.
           </p>
           <p className="mt-2 text-blue-100">
-            Financement OPCO selon éligibilité. Parcours adapté à vos enjeux et à vos métiers.
+            Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
+            {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a

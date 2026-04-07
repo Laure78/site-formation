@@ -11,6 +11,12 @@ import {
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_AVANCE_HT,
+  MODALITE_FORMATIONS_PRESENTIEL,
+  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+} from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-architecture-claude-dpgf';
 const PDF_HREF =
@@ -20,7 +26,7 @@ export const metadata = createPageMetadata({
   title:
     'Formation IA architecture — Claude AI, DPGF, chantier, documents | Qualiopi',
   description:
-    'Architectes et cabinets : automatiser DPGF, métrés, planning GANTT, CR de chantier, PV de réception avec Claude AI et Google Workspace. 4 h visio intra. 800 € HT.',
+    `Architectes et cabinets : DPGF, métrés, CR, PV avec Claude AI et Google Workspace. ${SESSION_DUREE_LIBELLE} en présentiel. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé).`,
   path: '/formations/ia-architecture-claude-dpgf',
   keywords: [
     'formation IA architecture',
@@ -35,7 +41,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
   description:
-    'Formation intra-entreprise 4 h en visioconférence : Claude AI, Google Drive, Sheets et Docs pour DPGF, métrés, situations de travaux, courriers et actes de marché.',
+    'Formation intra-entreprise 4 h en présentiel : Claude AI, Google Drive, Sheets et Docs pour DPGF, métrés, situations de travaux, courriers et actes de marché.',
   path: '/formations/ia-architecture-claude-dpgf',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France'],
@@ -102,11 +108,11 @@ const FAQ_ARCHI = [
   },
   {
     q: 'Quel est le tarif et le format ?',
-    a: 'Tarif pédagogique 800 € HT — formation intra-entreprise en visioconférence (Zoom), 4 h, 9h00–13h00, 1 à 10 personnes. TVA exonérée (art. 261-4-4° du CGI).',
+    a: `Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT par participant (niveau avancé) — session de ${SESSION_DUREE_LIBELLE} en présentiel (ex. 9h00–13h00). TVA exonérée (art. 261-4-4° du CGI).`,
   },
   {
     q: 'Quels prérequis ?',
-    a: 'Public : architectes, chefs de projet, collaborateurs de cabinet. Aucune expérience IA requise. Abonnement Claude AI Pro (claude.ai, env. 18 € HT/mois/personne) à souscrire avant la session.',
+    a: `Public : architectes, chefs de projet, collaborateurs de cabinet. Aucune expérience IA requise. ${RECOMMANDATION_CLAUDE_NIVEAU_AVANCE} Abonnement Claude AI Pro (claude.ai, env. 18 € HT/mois/personne) à souscrire avant la session.`,
   },
 ];
 
@@ -141,7 +147,7 @@ export default function FormationIAArchitectureClaudePage() {
       </nav>
 
       <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Formation intra-entreprise · Visioconférence · 4 h
+        Formation intra-entreprise · Présentiel · 4 h
       </p>
       <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
         Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI
@@ -185,15 +191,16 @@ export default function FormationIAArchitectureClaudePage() {
           <li className="flex gap-2">
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Horaires :</strong> 9h00 – 13h00 · <strong>Modalité :</strong> Zoom — 30 % apports,
-              70 % ateliers sur vos fichiers réels.
+              <strong>Horaires :</strong> 9h00 – 13h00 · <strong>Modalité :</strong> présentiel — 30 % apports,
+              70 % ateliers sur vos fichiers réels. {MODALITE_FORMATIONS_PRESENTIEL}
             </span>
           </li>
           <li className="flex gap-2">
             <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Prérequis :</strong> abonnement Claude AI Pro à souscrire avant la session. Support
-              pédagogique numérique et bibliothèque de prompts remis en fin de session.
+              <strong>Prérequis :</strong> {RECOMMANDATION_CLAUDE_NIVEAU_AVANCE} Abonnement Claude AI Pro à
+              souscrire avant la session. Support pédagogique numérique et bibliothèque de prompts remis en fin
+              de session.
             </span>
           </li>
         </ul>
@@ -257,8 +264,9 @@ export default function FormationIAArchitectureClaudePage() {
         <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
-            <strong>Durée :</strong> 4 h · <strong>Tarif pédagogique :</strong> 800 € HT ·{' '}
-            <strong>Effectif :</strong> 1 à 10 personnes (intra-entreprise)
+            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} ·{' '}
+            <strong>Forfait :</strong> {TARIF_FORFAIT_AVANCE_HT} € HT / participant (niveau avancé) ·{' '}
+            <strong>Effectif :</strong> selon convention (intra-entreprise)
           </li>
           <li>
             <strong>TVA :</strong> exonérée — art. 261-4-4° du CGI

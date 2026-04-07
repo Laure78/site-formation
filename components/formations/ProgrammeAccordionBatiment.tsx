@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import { ChevronRight, Plus, Minus } from 'lucide-react';
 
-/** Programme BTP-01 — 4 h ou 7 h : devis, emails, CR/DOE, administratif */
+/** Programme BTP-01 — session 4 h : devis, emails, CR/DOE, administratif */
 const PROGRAMME_SECTIONS = [
   {
     id: 'modules',
-    label: 'Programme — 4 modules (4 h ou 7 h)',
+    label: 'Programme — 4 modules (session 4 h)',
     public:
-      'Devis et chiffrage, relation client, documentation chantier et administratif — ateliers sur vos cas réels. Le format 7 h approfondit chaque module.',
+      'Devis et chiffrage, relation client, documentation chantier et administratif — ateliers sur vos cas réels, calibrés sur une demi-journée.',
     modules: [
       {
         title: 'Module 1 — Devis et chiffrage avec l’IA',

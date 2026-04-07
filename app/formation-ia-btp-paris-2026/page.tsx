@@ -71,7 +71,7 @@ export default function FormationIABTPParis2026Page() {
             Vos formations IA BTP à Paris en 2026
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Sessions à Paris (75) et dans toute l&apos;Île-de-France. 4h ou 7h pratiques,
+            Sessions à Paris (75) et en présentiel en Île-de-France : 4 h pratiques,
             100 % finançables par l&apos;OPCO Constructys.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

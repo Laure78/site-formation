@@ -205,15 +205,15 @@ export default function ExpertIABTPPage() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { title: 'Formation IA BTP', href: '/formations', desc: '4h à 2 jours — Tous niveaux' },
-              { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '1 jour — Intermédiaire' },
-              { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '2 jours — Recrutement & GEPP' },
-              { title: "L'IA au service des Travaux Publics", href: '/formations/ia-travaux-publics', desc: '2 jours — Spécialisation TP' },
-              { title: 'ChatGPT & IA pour entreprises BTP', href: '/formation-ia-artisans-btp', desc: '4h — TPE & PME' },
+              { title: 'Formation IA BTP', href: '/formations', desc: 'Sessions 4 h — Forfaits par participant' },
+              { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '4 h — Niveau avancé' },
+              { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '4 h — Recrutement & GEPP' },
+              { title: "L'IA au service des Travaux Publics", href: '/formations/ia-travaux-publics', desc: '4 h — Spécialisation TP' },
+              { title: 'ChatGPT & IA pour entreprises BTP', href: '/formation-ia-artisans-btp', desc: '4 h — TPE & PME' },
               {
                 title: "Sensibilisation IA & assistants",
                 href: '/formations/sensibilisation-ia-assistants-personnalises',
-                desc: '8h — Parcours LMS',
+                desc: '4 h — Débutant + ressources LMS',
               },
             ].map((formation) => (
               <Link

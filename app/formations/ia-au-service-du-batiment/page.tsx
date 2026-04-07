@@ -27,13 +27,18 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { FAQ_BATIMENT } from '@/lib/faq';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_DEBUTANT_HT,
+  MODALITE_FORMATIONS_PRESENTIEL,
+} from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
 export const metadata = createPageMetadata({
   title: "L'IA au service du bâtiment — Devis, administratif, ChatGPT | Qualiopi",
   description:
-    "Formation IA BTP 4 h ou 7 h : devis, emails, comptes rendus, administratif. Artisans et PME du bâtiment. Présentiel ou distanciel. Qualiopi, OPCO Constructys. BTP-01.",
+    `Formation IA BTP ${SESSION_DUREE_LIBELLE} : devis, emails, comptes rendus, administratif. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO Constructys. BTP-01.`,
   path: '/formations/ia-au-service-du-batiment',
   keywords: [
     'formation IA bâtiment',
@@ -49,7 +54,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: "L'IA au service du bâtiment",
   description:
-    "Formation 4 h ou 7 h : identifier les usages IA utiles dans le BTP, accélérer devis et messages clients, structurer l'administratif, repartir avec trames et prompts. Finançable OPCO.",
+    `Formation ${SESSION_DUREE_LIBELLE} (niveau débutant) : identifier les usages IA utiles dans le BTP, accélérer devis et messages clients, structurer l'administratif, repartir avec trames et prompts. Finançable OPCO.`,
   path: '/formations/ia-au-service-du-batiment',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -65,8 +70,8 @@ const faqSchema = getFAQSchema(FAQ_BATIMENT);
 
 const POINTS_MARQUANTS = [
   'Parcours catalogue BTP-01 : devis, emails, comptes rendus et administratif — prompts et trames prêts à l’emploi.',
-  'Formats 4 h (condensé) ou 7 h (approfondissement et ateliers renforcés) — même socle pédagogique.',
-  'Intervention en présentiel (vos locaux ou salle) ou en visioconférence — Qualiopi, financement OPCO Constructys selon éligibilité.',
+  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant).`,
+  'Qualiopi, financement OPCO Constructys selon éligibilité — sessions en présentiel uniquement.',
 ];
 
 const OBJECTIFS_FORMATION = [
@@ -85,14 +90,13 @@ const PROFIL_APPRENANTS = [
 ];
 
 const MOYENS_PEDAGOGIQUES = [
-  'Formation animée par une formatrice experte en IA appliquée au BTP, en présentiel ou à distance.',
+  `Formation animée par une formatrice experte en IA appliquée au BTP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
   'Exercices guidés et cas concrets sur des situations types du bâtiment.',
   'Atelier sur vos documents réels (anonymisés ou fictifs si besoin).',
   'Supports pédagogiques et ressources téléchargeables selon la convention.',
 ];
 
 const MOYENS_TECHNIQUES = [
-  'À distance : visioconférence (Teams, Zoom, etc.) ; connexion stable et poste par participant.',
   'En présentiel : salle équipée, connexion internet, poste par apprenant si possible.',
   'Compte ChatGPT ou équivalent recommandé ; rappels RGPD et confidentialité des données en session.',
 ];
@@ -107,14 +111,14 @@ const MODALITES = [
   {
     icon: Clock,
     title: 'Durée',
-    primary: '4 h ou 7 h',
-    secondary: 'Selon le format retenu : même programme, 7 h = plus d’ateliers',
+    primary: SESSION_DUREE_LIBELLE,
+    secondary: `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant)`,
   },
   {
     icon: MapPin,
     title: 'Format',
-    primary: 'Présentiel ou distanciel',
-    secondary: 'Dans vos locaux, en salle ou en visio',
+    primary: 'Présentiel',
+    secondary: 'Sessions inter en Île-de-France ou intra dans vos locaux',
   },
   {
     icon: Users,
@@ -136,9 +140,9 @@ const MODALITES = [
   },
   {
     icon: DollarSign,
-    title: 'Financement',
-    primary: '100% finançable OPCO',
-    secondary: 'Constructys, AKTO, OPCO EP selon éligibilité',
+    title: 'Tarif & financement',
+    primary: `${TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (débutant)`,
+    secondary: 'Financement OPCO selon éligibilité — Constructys, AKTO, OPCO EP',
   },
 ];
 
@@ -201,10 +205,14 @@ export default function FormationIAuServiceDuBatimentPage() {
                 : devis, administratif et relation client
               </h1>
               <p className="mt-6 max-w-xl text-slate-600">
-                Formation pratique en <strong>4 h ou 7 h</strong> pour maîtriser ChatGPT et l&apos;IA
-                générative sur vos enjeux quotidiens :{' '}
+                Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour maîtriser ChatGPT et
+                l&apos;IA générative sur vos enjeux quotidiens :{' '}
                 <strong>devis, emails, comptes rendus et administratif</strong>, avec des trames et
-                prompts prêts à l&apos;emploi — sans jargon inutile.
+                prompts prêts à l&apos;emploi — sans jargon inutile.{' '}
+                <strong>
+                  Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
+                </strong>{' '}
+                (niveau débutant).
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <a
@@ -293,9 +301,9 @@ export default function FormationIAuServiceDuBatimentPage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
-            <strong>4 h ou 7 h</strong> — quatre modules : devis et chiffrage, emails et relation
-            client, comptes rendus et documentation chantier, gestion administrative. Le format 7 h
-            développe les ateliers et la personnalisation sur vos cas.
+            <strong>{SESSION_DUREE_LIBELLE}</strong> — quatre modules condensés : devis et chiffrage,
+            emails et relation client, comptes rendus et documentation chantier, gestion administrative.
+            Ateliers pratiques sur vos cas.
           </p>
           <ProgrammeAccordionBatiment />
         </div>
@@ -432,7 +440,8 @@ export default function FormationIAuServiceDuBatimentPage() {
             Contactez-nous pour organiser cette formation dans votre entreprise du bâtiment.
           </p>
           <p className="mt-2 text-blue-100">
-            Financement OPCO selon éligibilité. Formats 4 h ou 7 h selon vos enjeux.
+            Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
+            {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a

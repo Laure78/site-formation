@@ -11,6 +11,7 @@ import {
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
+import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'formation-ia-sensibilisation-prompt-engineering-assistants';
 /** Supports statiques — voir public/formations/pitel-ia-sensibilisation-prompts-assistants/README.md */
@@ -20,7 +21,7 @@ const PDF_HREF =
 export const metadata = createPageMetadata({
   title: "Sensibilisation à l'IA & assistants personnalisés — Formation LMS BTP",
   description:
-    "Parcours LMS sensibilisation IA, prompts par métier et assistants personnalisés. Huit heures, niveau débutant. Qualiopi, Constructys. Accédez au cours.",
+    `Sensibilisation IA, prompts par métier et assistants : session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Ressources LMS en prolongement. Qualiopi, Constructys.`,
   path: '/formations/sensibilisation-ia-assistants-personnalises',
   keywords: [
     'sensibilisation IA BTP',
@@ -34,7 +35,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: "Sensibilisation à l'IA & Assistants IA personnalisés",
   description:
-    "Parcours LMS en trois volets : sensibilisation à l'IA, ressource prompts par métier, assistants IA personnalisés. 100% finançable Constructys.",
+    `Session ${SESSION_DUREE_LIBELLE} : sensibilisation IA, prompts par métier, assistants. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Finançable Constructys selon éligibilité.`,
   path: '/formations/sensibilisation-ia-assistants-personnalises',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France'],
@@ -51,37 +52,41 @@ const breadcrumbSchema = getBreadcrumbSchema([
 
 const MODULES = [
   {
-    duree: '2 h 30',
+    duree: '1 h',
     outils: 'Supports PDF · plateforme LMS',
     titre: 'Sensibilisation à l’IA générative',
     objectifs: [
-      'Comprendre l’IA générative et ses usages terrain dans le BTP',
-      'Parcourir les modules 1 et 2 avec les supports fournis',
-      'Identifier des cas d’usage prioritaires pour votre entreprise',
+      'Usages terrain BTP et cas d’usage prioritaires',
+      'Parcours des supports modules 1 et 2 (à approfondir sur le LMS)',
     ],
-    livrable: 'Supports PDF + validation des acquis sur la plateforme',
+    livrable: 'Repères + accès ressources plateforme',
   },
   {
-    duree: '2 h 30',
+    duree: '1 h',
     outils: 'Ressource Excel · prompts par métier',
     titre: 'Prompts par métier',
     objectifs: [
-      'Utiliser la banque de prompts adaptés à votre corps de métier',
-      'Personnaliser des modèles pour devis, relances et suivi administratif',
-      'Construire votre propre bibliothèque de prompts réutilisables',
+      'Banque de prompts et personnalisation (devis, relances, admin.)',
     ],
-    livrable: 'Fichier Excel prompts par métier (version mise à jour)',
+    livrable: 'Fichier Excel prompts (mise à jour)',
   },
   {
-    duree: '3 h',
+    duree: '1 h',
     outils: 'Plateforme LMS · assistants IA',
-    titre: 'Assistants IA personnalisés',
+    titre: 'Assistants IA personnalisés — conception',
     objectifs: [
-      'Concevoir le périmètre d’un assistant IA aligné sur vos process',
-      'Paramétrer et tester un assistant sur des cas réels',
-      'Préparer un plan de déploiement simple en entreprise',
+      'Périmètre d’un assistant aligné sur vos process ; tests sur cas réels',
     ],
-    livrable: 'Assistant IA paramétré + trame de mise en œuvre',
+    livrable: 'Trame assistant + tests',
+  },
+  {
+    duree: '1 h',
+    outils: 'Déploiement',
+    titre: 'Plan de mise en œuvre',
+    objectifs: [
+      'Plan simple de déploiement en entreprise et prochaines étapes sur le LMS',
+    ],
+    livrable: 'Trame de mise en œuvre',
   },
 ];
 
@@ -91,8 +96,8 @@ const FAQ_SENSIB = [
     a: "Oui. Le titre affiché sur le LMS est « Formation IA : Sensibilisation à l'IA & Assistants IA Personnalisés ». Vous accédez au parcours complet depuis la page du cours une fois inscrit.",
   },
   {
-    q: 'Combien de temps dure le parcours ?',
-    a: 'Environ 8 heures au total (durée indicative), en autonomie sur la plateforme, avec PDF et ressource Excel.',
+    q: 'Combien de temps dure la formation ?',
+    a: `La session encadrée est de ${SESSION_DUREE_LIBELLE} (forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant, niveau débutant). Des ressources LMS restent disponibles en prolongement pour approfondir à votre rythme.`,
   },
   {
     q: 'Est-ce finançable par mon OPCO ?',
@@ -131,22 +136,21 @@ export default function SensibilisationIAAssistantsPage() {
       </nav>
 
       <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Parcours LMS · 8 h (indicatif) · Débutant · BTP-05
+        Session {SESSION_DUREE_LIBELLE} · Débutant · BTP-05 · Ressources LMS en prolongement
       </p>
       <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
         Sensibilisation à l&apos;IA &amp; Assistants IA personnalisés
       </h1>
       <p className="mt-6 text-lg text-slate-600">
-        Parcours en ligne sur la plateforme de formation : sensibilisation à l&apos;IA, prompts par métier
-        (Excel), puis conception d&apos;assistants IA sur mesure. Pensé pour les professionnels du BTP qui
-        veulent des contenus opérationnels, pas de la théorie creuse — sur la même logique que{' '}
+        Session {SESSION_DUREE_LIBELLE} en présentiel : sensibilisation à l&apos;IA, prompts par métier
+        (Excel), puis conception d&apos;assistants IA sur mesure — aligné sur{' '}
         <Link
           href="/formations/ia-au-service-du-batiment"
           className="font-medium text-[var(--accent)] hover:underline"
         >
           L&apos;IA au service du bâtiment
-        </Link>{' '}
-        (parcours présentiel 4 h / 7 h), mais ici en autonomie sur le LMS.
+        </Link>
+        . La plateforme LMS permet d&apos;approfondir les supports en autonomie après la session.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-4">
@@ -183,8 +187,9 @@ export default function SensibilisationIAAssistantsPage() {
           <li className="flex gap-2">
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Format :</strong> 100 % en ligne sur la plateforme — rythme libre, durée indicative{' '}
-              <strong>8 h</strong>. Niveau <strong>débutant</strong>.
+              <strong>Durée :</strong> session <strong>{SESSION_DUREE_LIBELLE}</strong> ·{' '}
+              <strong>Forfait :</strong> {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant) ·{' '}
+              <strong>Format :</strong> présentiel uniquement ; ressources LMS en prolongement.
             </span>
           </li>
           <li className="flex gap-2">
@@ -254,9 +259,10 @@ export default function SensibilisationIAAssistantsPage() {
         <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
-            <strong>Durée :</strong> 8 h (indicatif) · <strong>Réf. catalogue :</strong> BTP-05 ·{' '}
-            <strong>Certification :</strong> Qualiopi — financement possible <strong>OPCO Constructys</strong>{' '}
-            selon éligibilité.
+            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
+            {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant) ·{' '}
+            <strong>Réf. catalogue :</strong> BTP-05 · <strong>Certification :</strong> Qualiopi —{' '}
+            <strong>OPCO Constructys</strong> selon éligibilité.
           </li>
           <li>
             <strong>Évaluation :</strong> quiz et activités sur la plateforme, attestation en fin de parcours

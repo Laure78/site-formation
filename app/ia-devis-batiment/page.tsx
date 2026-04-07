@@ -181,11 +181,11 @@ export default function IADevisBatimentPage() {
         {/* CTA */}
         <section className="mt-16 rounded-2xl bg-[var(--accent)] p-8 text-white">
           <h2 className="font-display text-2xl font-bold">
-            Formation IA devis et chiffrage BTP
+            Formation IA devis et chiffrage BTP — session 4 h
           </h2>
           <p className="mt-4 text-blue-100">
-            Module dédié dans la formation « L&apos;IA au service du bâtiment ». 4h ou
-            7h de pratique sur vos vrais devis. 100 % finançable Constructys.
+            Module dédié dans la formation « L&apos;IA au service du bâtiment » : session 4 h de pratique sur
+            vos vrais devis. Forfait selon niveau — finançable Constructys selon éligibilité.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link

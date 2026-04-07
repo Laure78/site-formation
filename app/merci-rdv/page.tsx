@@ -5,7 +5,7 @@ import { CheckCircle, Phone, Mail, Home, Calendar, ClipboardList, BookOpen } fro
 export const metadata = {
   title: 'Rendez-vous confirmé — Laure Olivié',
   description:
-    "Votre rendez-vous formation IA BTP est enregistré. Confirmation par email avec lien visio, lieu ou consignes pour votre entretien avec Laure Olivié.",
+    "Votre rendez-vous formation IA BTP est enregistré. Confirmation par email avec le lieu, les horaires ou les consignes selon le mode d’entretien choisi avec Laure Olivié.",
   robots: { index: false, follow: false },
 };
 

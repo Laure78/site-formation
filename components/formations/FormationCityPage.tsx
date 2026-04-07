@@ -174,7 +174,7 @@ export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }:
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             Formations disponibles à {ville} et dans les villes voisines. Sessions en présentiel
-            dans vos locaux ou en distanciel selon vos besoins.
+            dans vos locaux ou en salle.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {zones.map((zone) => (

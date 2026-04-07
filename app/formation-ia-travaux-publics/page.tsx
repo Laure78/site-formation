@@ -292,9 +292,8 @@ export default function FormationIATravauxPublicsLandingPage() {
               indiquons les repères à jour sur votre <strong>devis personnalisé</strong>.
             </p>
             <p>
-              Format : <strong>présentiel</strong> (dans vos locaux ou salle) ou{' '}
-              <strong>distanciel</strong> selon l&apos;organisation retenue. L&apos;objectif est
-              que les participants repartent avec des modèles réutilisables sur leurs vrais
+              Format : <strong>présentiel</strong> (sessions inter en Île-de-France ou intra dans vos locaux).
+              L&apos;objectif est que les participants repartent avec des modèles réutilisables sur leurs vrais
               dossiers — anonymisés si nécessaire.
             </p>
           </div>
