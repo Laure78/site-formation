@@ -6,6 +6,8 @@
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
+import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
+import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 
 /** Prompt optimisé pour affichage dans les articles ressources */
 export interface ArticlePrompt {
@@ -34,6 +36,8 @@ export interface BlogArticle {
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  ...blogArticlesClaudeBtp2026,
+  ...blogArticlesLsrAoModules,
   // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
   {
     slug: 'adoption-ia-btp-2026-chiffres-freins-leviers',
@@ -1875,6 +1879,10 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
   if (s.includes('conducteur-travaux')) return 'appels-offres';
+  if (s.includes('formation-ia-artisans-batiment-programme')) return 'metiers';
+  if (s.includes('7-cas-usage-ia-btp') || s.includes('5-assistants-ia-btp')) return 'metiers';
+  if (s.includes('guide-claude-ia-btp') || s.includes('mcp-claude-model')) return 'metiers';
+  if (s.includes('prompts-linkedin-btp')) return 'productivite';
   if (s.includes('adoption-ia-btp') || s.includes('ia-btp-2026')) return 'metiers';
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
   if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';

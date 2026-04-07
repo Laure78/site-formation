@@ -19,6 +19,7 @@ import {
   Building2,
   ArrowRight,
   Sparkles,
+  UserCircle,
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -35,6 +36,8 @@ import {
   TARIF_FORFAIT_DEBUTANT_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  LIBELLE_EFFECTIF_GROUPE,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
@@ -101,6 +104,7 @@ const faqSchema = getFAQSchema(FAQ_BATIMENT);
 const POINTS_MARQUANTS = [
   'Parcours catalogue BTP-01 : devis, emails, comptes rendus et administratif — prompts et trames prêts à l’emploi.',
   `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant).`,
+  `${LIBELLE_EFFECTIF_GROUPE}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité — sessions en présentiel uniquement.',
 ];
 
@@ -141,6 +145,12 @@ const MODALITES = [
     title: 'Format',
     primary: 'Présentiel',
     secondary: 'Sessions inter en Île-de-France ou intra dans vos locaux',
+  },
+  {
+    icon: UserCircle,
+    title: 'Effectif',
+    primary: LIBELLE_EFFECTIF_GROUPE_COURT,
+    secondary: 'Par session et par groupe',
   },
   {
     icon: Users,

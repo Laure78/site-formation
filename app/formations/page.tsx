@@ -9,7 +9,12 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, getCourseListSchema } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
-import { libelleTarifParticipant, SESSION_DUREE_LIBELLE, ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
+import {
+  libelleTarifParticipant,
+  SESSION_DUREE_LIBELLE,
+  ENCART_TARIFS_COMMERCIAUX,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
+} from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
   title: 'Formations IA BTP & ChatGPT entreprise | Catalogue Qualiopi',
@@ -42,7 +47,7 @@ const FORMATIONS_UNSORTED = [
     title: "L'IA au service du bâtiment",
     href: '/formations/ia-au-service-du-batiment',
     duree: SESSION_DUREE_LIBELLE,
-    effectif: '12 max',
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
       "Identifier les usages IA utiles dans le BTP",
       "Accélérer la rédaction de devis et messages clients",
@@ -56,7 +61,7 @@ const FORMATIONS_UNSORTED = [
     title: "Répondre aux appels d'offre avec l'IA",
     href: '/formations/ia-appels-offre-btp',
     duree: SESSION_DUREE_LIBELLE,
-    effectif: '12 max',
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
       "Analyser un DCE rapidement et structurer les critères d'évaluation",
       "Rédiger mémoires techniques et chiffrages avec méthode et assistant IA",
@@ -71,7 +76,7 @@ const FORMATIONS_UNSORTED = [
     title: "Formation IA pour la Fonction RH dans le BTP",
     href: '/formations/ia-rh-btp',
     duree: SESSION_DUREE_LIBELLE,
-    effectif: '12 max',
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
       "Automatiser le recrutement et la sélection",
       "Piloter la GEPP et anticiper les compétences",
@@ -85,7 +90,7 @@ const FORMATIONS_UNSORTED = [
     title: "L'IA au service des Travaux Publics",
     href: '/formations/ia-travaux-publics',
     duree: SESSION_DUREE_LIBELLE,
-    effectif: '12 max',
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
       "Réponse aux consultations : DCE, trames, synthèses et check-lists",
       "Documents de chantier et reporting avec protocole de validation",
@@ -98,7 +103,7 @@ const FORMATIONS_UNSORTED = [
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     href: '/formations/sensibilisation-ia-assistants-personnalises',
     duree: SESSION_DUREE_LIBELLE,
-    effectif: '12 max',
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
       "Sensibilisation à l'IA et usages terrain (supports PDF)",
       "Banque de prompts par métier (Excel)",
@@ -112,7 +117,7 @@ const FORMATIONS_UNSORTED = [
     title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
     href: '/formations/ia-architecture-claude-dpgf',
     duree: SESSION_DUREE_LIBELLE,
-    effectif: '12 max',
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
       'DPGF, métrés et planning GANTT avec Claude AI et Google Sheets',
       'CR de chantier, situations de travaux, PV de réception (Google Docs)',

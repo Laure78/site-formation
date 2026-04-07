@@ -17,6 +17,7 @@ import {
   ClipboardList,
   Laptop,
   Sparkles,
+  UserCircle,
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -33,6 +34,8 @@ import {
   TARIF_FORFAIT_DEBUTANT_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  LIBELLE_EFFECTIF_GROUPE,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
@@ -72,6 +75,7 @@ const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 const POINTS_MARQUANTS = [
   `Session unique ${SESSION_DUREE_LIBELLE} — contenus TP : consultations / DCE, documents opérationnels, industrialisation (templates + assistants).`,
   `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant).`,
+  `${LIBELLE_EFFECTIF_GROUPE}.`,
   'Présentiel en Île-de-France (inter ou sur devis) ou intra dans vos locaux.',
   '« Boîte à prompts TP » : CR de chantier, situations, relances, trames AO — focus validation humaine.',
 ];
@@ -126,6 +130,12 @@ const MODALITES = [
     title: 'Format',
     primary: 'Présentiel',
     secondary: 'Sessions inter en salle en Île-de-France ; intra dans vos locaux (France)',
+  },
+  {
+    icon: UserCircle,
+    title: 'Effectif',
+    primary: LIBELLE_EFFECTIF_GROUPE_COURT,
+    secondary: 'Par session et par groupe',
   },
   {
     icon: Users,

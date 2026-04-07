@@ -26,6 +26,15 @@ export function libelleTarifParticipant(level: 'DÉBUTANT' | 'AVANCÉ'): string 
   return `${n} € HT / participant`;
 }
 
+/** Effectif maximal par groupe (sessions catalogue, inter ou intra) */
+export const EFFECTIF_GROUPE_MAX = 12;
+
+/** Libellé pour badges / cartes (icône « participants ») */
+export const LIBELLE_EFFECTIF_GROUPE_COURT = `${EFFECTIF_GROUPE_MAX} participants max`;
+
+/** Phrase complète pour modalités et encarts */
+export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
+
 /** Modalité d’intervention catalogue (pas de visioconférence pour les sessions formation) */
 export const MODALITE_FORMATIONS_PRESENTIEL =
   'Formations en présentiel uniquement (sessions inter en Île-de-France, intra dans vos locaux).';
@@ -39,4 +48,4 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini.';
 
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT par participant (niveau avancé). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT par participant (niveau avancé). ${LIBELLE_EFFECTIF_GROUPE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

@@ -36,7 +36,11 @@ import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_DEBUTANT_HT,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
+} from '@/lib/tarifs-sessions';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
@@ -590,7 +594,7 @@ export default function HomePage() {
                 title: "L'IA au service du bâtiment",
                 href: '/formations/ia-au-service-du-batiment',
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
-                effectif: '12 max',
+                effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
                   'Identifier les usages IA utiles dans le BTP',
                   'Accélérer la rédaction de devis et messages clients',
@@ -604,7 +608,7 @@ export default function HomePage() {
                 title: "L'IA au service des Travaux Publics",
                 href: '/formations/ia-travaux-publics',
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
-                effectif: '12 max',
+                effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
                   'Analyser DCE, CCTP et comptes rendus chantier',
                   "Rédiger rapports et réponses appels d'offres",
@@ -617,7 +621,7 @@ export default function HomePage() {
                 title: "Sensibilisation à l'IA & Assistants IA personnalisés",
                 href: '/formations/sensibilisation-ia-assistants-personnalises',
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
-                effectif: 'Selon session',
+                effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
                   "Sensibilisation à l'IA et usages terrain (supports PDF)",
                   'Banque de prompts par métier (Excel)',
