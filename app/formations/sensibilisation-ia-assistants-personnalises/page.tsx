@@ -11,7 +11,11 @@ import {
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_FORFAIT_DEBUTANT_HT,
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+} from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'formation-ia-sensibilisation-prompt-engineering-assistants';
 /** Supports statiques — voir public/formations/pitel-ia-sensibilisation-prompts-assistants/README.md */
@@ -91,6 +95,10 @@ const MODULES = [
 ];
 
 const FAQ_SENSIB = [
+  {
+    q: 'Quels comptes IA pour le niveau débutant ?',
+    a: COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  },
   {
     q: 'Cette formation est-elle la même que sur la plateforme de formation ?',
     a: "Oui. Le titre affiché sur le LMS est « Formation IA : Sensibilisation à l'IA & Assistants IA Personnalisés ». Vous accédez au parcours complet depuis la page du cours une fois inscrit.",
@@ -198,6 +206,12 @@ export default function SensibilisationIAAssistantsPage() {
               <strong>Livrables :</strong> supports PDF modules 1 et 2, banque de prompts Excel, supports du
               module 3 (assistants) — fichiers listés dans le dossier public{' '}
               <code className="rounded bg-white px-1 text-xs">formations/pitel-ia-sensibilisation-prompts-assistants</code>.
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Outils :</strong> {COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}
             </span>
           </li>
         </ul>

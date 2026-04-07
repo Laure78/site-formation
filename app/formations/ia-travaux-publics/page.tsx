@@ -32,6 +32,7 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
@@ -102,6 +103,7 @@ const MOYENS_PEDAGOGIQUES = [
 
 const MOYENS_TECHNIQUES = [
   'En présentiel : salle équipée, connexion internet, poste par apprenant si possible.',
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   'Utiliser des données non sensibles ou anonymisées ; définir en amont un protocole de validation interne.',
 ];
 
@@ -135,7 +137,7 @@ const MODALITES = [
     icon: FileText,
     title: 'Pré-requis',
     primary: 'Aucune compétence technique',
-    secondary: 'Abonnement ChatGPT Teams recommandé pour industrialiser',
+    secondary: COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   },
   {
     icon: Award,

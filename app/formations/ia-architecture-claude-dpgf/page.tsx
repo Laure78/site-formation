@@ -15,7 +15,7 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
-  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-architecture-claude-dpgf';
@@ -112,7 +112,7 @@ const FAQ_ARCHI = [
   },
   {
     q: 'Quels prérequis ?',
-    a: `Public : architectes, chefs de projet, collaborateurs de cabinet. Aucune expérience IA requise. ${RECOMMANDATION_CLAUDE_NIVEAU_AVANCE} Abonnement Claude AI Pro (claude.ai, env. 18 € HT/mois/personne) à souscrire avant la session.`,
+    a: `Public : architectes, chefs de projet, collaborateurs de cabinet. Aucune expérience IA requise. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Souscription sur claude.ai avant la session (ordre de grandeur : env. 18 € HT/mois et personne).`,
   },
 ];
 
@@ -198,9 +198,8 @@ export default function FormationIAArchitectureClaudePage() {
           <li className="flex gap-2">
             <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Prérequis :</strong> {RECOMMANDATION_CLAUDE_NIVEAU_AVANCE} Abonnement Claude AI Pro à
-              souscrire avant la session. Support pédagogique numérique et bibliothèque de prompts remis en fin
-              de session.
+              <strong>Prérequis :</strong> {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} À souscrire sur claude.ai avant la
+              session. Support pédagogique numérique et bibliothèque de prompts remis en fin de session.
             </span>
           </li>
         </ul>

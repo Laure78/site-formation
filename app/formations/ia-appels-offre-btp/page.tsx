@@ -15,7 +15,7 @@ import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
-  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-appels-offre-btp';
@@ -223,7 +223,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             <span>
               <strong>Prérequis :</strong> connaissance du secteur BTP et des dossiers DCE / CCTP. Pour les
               données sensibles : privilégier des environnements professionnels (ex. offres Team) — rappels
-              RGPD en session. {RECOMMANDATION_CLAUDE_NIVEAU_AVANCE}
+              RGPD en session. {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
             </span>
           </li>
         </ul>

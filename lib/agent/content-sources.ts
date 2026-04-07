@@ -9,7 +9,8 @@ import {
   TARIF_FORFAIT_DEBUTANT_HT,
   TARIF_FORFAIT_AVANCE_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
-  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
 import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
@@ -29,22 +30,22 @@ const FORMATIONS_DATA = [
   {
     path: '/formations/ia-au-service-du-batiment',
     title: "L'IA au service du bâtiment",
-    desc: `Formation BTP-01 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. Devis, emails, CR, administratif. Qualiopi, Constructys.`,
+    desc: `Formation BTP-01 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails, CR, administratif. Qualiopi, Constructys.`,
   },
-  { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
-  { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. DCE, CCTP, comptes rendus chantier TP.` },
-  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. DCE, mémoires, marchés. ${RECOMMANDATION_CLAUDE_NIVEAU_AVANCE} Qualiopi, Constructys.` },
-  { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. Recrutement, GEPP, RH. ${RECOMMANDATION_CLAUDE_NIVEAU_AVANCE}` },
+  { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
+  { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} DCE, CCTP, comptes rendus chantier TP.` },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. DCE, mémoires, marchés. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
+  { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. Recrutement, GEPP, RH. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par participant.' },
   {
     path: '/formations/sensibilisation-ia-assistants-personnalises',
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
-    desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. Sensibilisation, prompts, assistants. Qualiopi, Constructys.`,
+    desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Sensibilisation, prompts, assistants. Qualiopi, Constructys.`,
   },
   {
     path: '/formations/ia-architecture-claude-dpgf',
     title: 'Architecte augmenté — Claude AI, DPGF, chantier et documents',
-    desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. DPGF, métrés, documents. ${RECOMMANDATION_CLAUDE_NIVEAU_AVANCE} Claude AI + Google Workspace.`,
+    desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. DPGF, métrés, documents. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Claude AI + Google Workspace.`,
   },
 ];
 

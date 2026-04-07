@@ -19,6 +19,8 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
   TARIF_FORFAIT_AVANCE_HT,
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
 
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
@@ -151,10 +153,12 @@ export default function FinancementConstructysFormationIABTPPage() {
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
             <li>
-              <strong>Niveau débutant :</strong> {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
+              <strong>Niveau débutant :</strong> {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant —{' '}
+              {COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}
             </li>
             <li>
-              <strong>Niveau avancé :</strong> {TARIF_FORFAIT_AVANCE_HT} € HT par participant
+              <strong>Niveau avancé :</strong> {TARIF_FORFAIT_AVANCE_HT} € HT par participant —{' '}
+              {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
             </li>
           </ul>
           <p className="mt-4 text-sm text-slate-600">

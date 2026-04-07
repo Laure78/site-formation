@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import {
@@ -16,6 +17,8 @@ import {
   Laptop,
   Monitor,
   Building2,
+  ArrowRight,
+  Sparkles,
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -31,33 +34,60 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
+/** Title ≤ 60 car. — requête « formation IA bâtiment » */
+const SEO_TITLE =
+  'Formation IA bâtiment : gagnez du temps sur chantiers | OFC';
+
+/** Meta description ≤ 155 car. */
+const SEO_DESCRIPTION = `Formation IA bâtiment ${SESSION_DUREE_LIBELLE} en Île-de-France : devis, emails, suivi chantier, administratif. Qualiopi, OPCO Constructys. Sans prérequis technique.`;
+
+const MAIL_PROGRAMME =
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA bâtiment (BTP-01)')}`;
+const MAIL_RAPPEL =
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA bâtiment')}`;
+
 export const metadata = createPageMetadata({
-  title: "L'IA au service du bâtiment — Devis, administratif, ChatGPT | Qualiopi",
-  description:
-    `Formation IA BTP ${SESSION_DUREE_LIBELLE} : devis, emails, comptes rendus, administratif. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO Constructys. BTP-01.`,
+  title: SEO_TITLE,
+  description: SEO_DESCRIPTION,
   path: '/formations/ia-au-service-du-batiment',
   keywords: [
     'formation IA bâtiment',
+    'IA BTP',
+    'formation intelligence artificielle construction',
+    'IA pour artisans bâtiment',
+    'IA chantier',
+    'automatisation devis BTP',
+    'IA appels d\'offres',
+    'formation IA BTP Paris',
+    'formation IA bâtiment Île-de-France',
     'ChatGPT BTP',
-    'IA devis bâtiment',
-    'formation IA artisans',
-    'IA administratif BTP',
-    'Qualiopi BTP',
-    'Constructys',
+    'Qualiopi',
+    'OPCO Constructys',
   ],
 });
 
 const courseSchema = getCourseSchema({
-  name: "L'IA au service du bâtiment",
-  description:
-    `Formation ${SESSION_DUREE_LIBELLE} (niveau débutant) : identifier les usages IA utiles dans le BTP, accélérer devis et messages clients, structurer l'administratif, repartir avec trames et prompts. Finançable OPCO.`,
+  name: 'Formation IA bâtiment — L’IA au service du bâtiment (BTP-01)',
+  description: `Formation intelligence artificielle construction ${SESSION_DUREE_LIBELLE} (débutant) : IA pour artisans bâtiment, automatisation devis BTP, IA chantier et relation client. Présentiel Île-de-France. Finançable OPCO.`,
   path: '/formations/ia-au-service-du-batiment',
   providerName: SITE_CONFIG.legalName,
-  areaServed: ['France', 'Île-de-France'],
+  areaServed: [
+    'France',
+    'Île-de-France',
+    'Paris',
+    'Yvelines',
+    'Essonne',
+    'Seine-et-Marne',
+    'Val-d\'Oise',
+    'Hauts-de-Seine',
+    'Seine-Saint-Denis',
+    'Val-de-Marne',
+  ],
 });
 
 const breadcrumbSchema = getBreadcrumbSchema([
@@ -81,14 +111,6 @@ const OBJECTIFS_FORMATION = [
   'Repartir avec des trames, prompts et bonnes pratiques adaptés à votre métier.',
 ];
 
-const PROFIL_APPRENANTS = [
-  'Artisans, dirigeants et équipes de TPE / PME du bâtiment',
-  'Conducteurs et chargés d’affaires',
-  'Encadrement de chantier et techniciens',
-  'Assistants administratifs et gestionnaires',
-  'Commerciaux et relation client',
-];
-
 const MOYENS_PEDAGOGIQUES = [
   `Formation animée par une formatrice experte en IA appliquée au BTP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
   'Exercices guidés et cas concrets sur des situations types du bâtiment.',
@@ -98,7 +120,7 @@ const MOYENS_PEDAGOGIQUES = [
 
 const MOYENS_TECHNIQUES = [
   'En présentiel : salle équipée, connexion internet, poste par apprenant si possible.',
-  'Compte ChatGPT ou équivalent recommandé ; rappels RGPD et confidentialité des données en session.',
+  `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Rappels RGPD et confidentialité des données en session.`,
 ];
 
 const MODALITES_EVALUATION = [
@@ -124,13 +146,13 @@ const MODALITES = [
     icon: Users,
     title: 'Public cible',
     primary: 'Entreprises du bâtiment et artisans',
-    secondary: 'Voir encadré « Profil des apprenants » ci-dessous',
+    secondary: 'Dirigeants, conducteurs de travaux, équipes terrain et administratives',
   },
   {
     icon: FileText,
     title: 'Pré-requis',
     primary: 'Aucune compétence technique en IA',
-    secondary: 'Ordinateur et connexion internet — compte ChatGPT recommandé',
+    secondary: 'Ordinateur et connexion internet — ' + COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   },
   {
     icon: Award,
@@ -169,6 +191,52 @@ const LIVRABLES = [
   },
 ];
 
+const CAS_USAGE_BATIMENT = [
+  {
+    titre: 'Répondre à un appel d’offres avec l’IA',
+    texte:
+      'Structurer une lecture de DCE, lister les points sensibles et produire un premier plan de réponse — toujours validé par votre expertise. Pour les dossiers complexes, la formation dédiée « appels d’offre » complète ce socle.',
+    lien: { href: '/formations/ia-appels-offre-btp', label: 'Formation appels d’offres BTP' },
+  },
+  {
+    titre: 'Générer ou fiabiliser un devis',
+    texte:
+      'Partir d’un historique ou d’un métré pour accélérer la proposition commerciale, tout en gardant la main sur les prix et les hypothèses : l’automatisation devis BTP s’apprend avec des garde-fous.',
+  },
+  {
+    titre: 'Répondre à un client ou relancer un chantier',
+    texte:
+      'Emails clairs, ton professionnel, relances sans friction : l’IA aide à formuler vite, vous gardez le relationnel et la signature.',
+  },
+];
+
+const AVANT_APRES = [
+  {
+    label: 'Avant',
+    items: [
+      'Devis et courriers refaits « depuis zéro » à chaque fois',
+      'Comptes rendus de réunion ou de chantier longs à rédiger',
+      'Charge mentale sur l’administratif et la prospection',
+    ],
+  },
+  {
+    label: 'Après',
+    items: [
+      'Trames et prompts réutilisables sur vos cas récurrents',
+      'Structuration systématique : vous gagnez du temps sans baisser la qualité',
+      'Équipe plus autonome sur les tâches répétitives, avec relecture humaine cadrée',
+    ],
+  },
+];
+
+const PUBLIC_CIBLE = [
+  'Dirigeants et responsables d’entreprises du bâtiment (TPE / PME)',
+  'Conducteurs de travaux et chargés d’affaires',
+  'Encadrement de chantier, chefs d’équipe, techniciens',
+  'Assistantes et assistants administratifs, gestionnaires',
+  'Commerciaux et relation client',
+];
+
 export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
@@ -199,47 +267,86 @@ export default function FormationIAuServiceDuBatimentPage() {
               <p className="mt-4 text-sm font-medium uppercase tracking-wide text-slate-500">
                 Réf. catalogue BTP-01 · Débutant
               </p>
-              <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                <span className="text-[var(--accent)]">L&apos;IA au service du bâtiment</span>
-                {' '}
-                : devis, administratif et relation client
+              <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem] lg:leading-tight">
+                Formation IA bâtiment : gagnez du temps sur vos chantiers
               </h1>
+              <p className="mt-2 text-lg font-medium text-slate-700">
+                L&apos;IA au service du bâtiment — devis, administratif et relation client
+              </p>
               <p className="mt-6 max-w-xl text-slate-600">
-                Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour maîtriser ChatGPT et
-                l&apos;IA générative sur vos enjeux quotidiens :{' '}
-                <strong>devis, emails, comptes rendus et administratif</strong>, avec des trames et
-                prompts prêts à l&apos;emploi — sans jargon inutile.{' '}
+                Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour intégrer l&apos;IA dans
+                votre quotidien : <strong>devis, emails, comptes rendus et suivi</strong>, avec des trames
+                et prompts prêts à l&apos;emploi. Approche accessible,{' '}
+                <strong>aucun jargon inutile</strong> — des cas réels issus du terrain BTP.{' '}
                 <strong>
                   Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
                 </strong>{' '}
-                (niveau débutant).
+                (niveau débutant). Financement possible via{' '}
+                <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation certifiée Qualiopi).
               </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <ul className="mt-6 flex flex-wrap gap-2 text-sm text-slate-700">
+                {['OPCO / plan de développement des compétences', 'Accessible débutant', 'Cas terrain'].map(
+                  (badge) => (
+                    <li
+                      key={badge}
+                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1"
+                    >
+                      {badge}
+                    </li>
+                  ),
+                )}
+              </ul>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+                  Prendre rendez-vous
+                </RdvLink>
                 <a
-                  href="#programme"
-                  className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
+                  href={MAIL_PROGRAMME}
+                  className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
                 >
+                  Demander le programme
+                </a>
+                <a
+                  href={MAIL_RAPPEL}
+                  className="rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
+                >
+                  Être rappelé
+                </a>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-4 text-sm">
+                <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
                   Voir le programme détaillé
                 </a>
                 <Link
                   href={`/cours/${LMS_SLUG}`}
-                  className="rounded-xl border-2 border-slate-200 px-8 py-4 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+                  className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
                 >
                   Voir sur la plateforme
                 </Link>
                 <a
-                  href="tel:+33695661818"
-                  className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
+                  href={`tel:${SITE_CONFIG.phone}`}
+                  className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
                 >
-                  Nous appeler
+                  {SITE_CONFIG.phoneDisplay}
                 </a>
               </div>
             </div>
-            <div className="w-full shrink-0 lg:w-[380px]">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <div className="w-full shrink-0 lg:w-[400px]">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                <Image
+                  src="/images/formation-ia-btp-entreprise.png"
+                  alt="Formation IA bâtiment en entreprise — atelier pratique dédié aux professionnels du BTP : devis, emails et suivi chantier avec Laure Olivié (Qualiopi)."
+                  width={800}
+                  height={520}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  priority
+                />
+              </div>
+              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
                 <div className="flex items-center gap-2 text-[var(--accent)]">
                   <Building2 size={22} strokeWidth={1.5} aria-hidden />
-                  <h2 className="font-display text-lg font-bold text-slate-900">Points marquants</h2>
+                  <h2 className="font-display text-lg font-bold text-slate-900">En résumé</h2>
                 </div>
                 <ul className="mt-4 space-y-3 text-sm text-slate-700">
                   {POINTS_MARQUANTS.map((item) => (
@@ -255,10 +362,270 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
+      {/* Contenu SEO long */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Formation IA BTP : une méthode pensée pour le terrain
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Dans une entreprise du bâtiment, le temps se joue sur trois tables : le chantier, le client et
+            l&apos;administratif. La <strong>formation IA BTP</strong> que nous proposons ne vise pas à
+            transformer vos équipes en experts informatiques : il s&apos;agit de{' '}
+            <strong>gagner des heures chaque semaine</strong> sur des tâches répétitives — devis, relances,
+            courriers, synthèses — tout en gardant la main sur le fond technique et la relation de
+            confiance avec vos clients.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            L&apos;intelligence artificielle sert ici de <strong>levier de productivité</strong> : vous
+            apprenez à formuler des demandes claires, à structurer vos documents et à réutiliser des
+            modèles adaptés au vocabulaire des corps d&apos;état. Les exemples viennent du quotidien des
+            artisans et des PME : petits travaux, rénovation, lots techniques, suivi de chantier,
+            coordination avec la maîtrise d&apos;ouvrage ou les sous-traitants.
+          </p>
+
+          <h3 className="mt-10 font-display text-xl font-bold text-slate-900">
+            IA pour artisans bâtiment : concret et sans promesse irréaliste
+          </h3>
+          <p className="mt-3 text-slate-700 leading-relaxed">
+            L&apos;<strong>IA pour artisans bâtiment</strong> commence par des usages simples : préparer
+            un email client, reformuler un compte rendu, classer des idées avant une réunion de chantier.
+            Vous découvrez comment éviter les pièges (données sensibles, chiffres non vérifiés) et instaurer
+            une <strong>relecture humaine</strong> systématique. C&apos;est une progression courte, en
+            présentiel, avec des exercices sur des situations proches des vôtres.
+          </p>
+
+          <h3 className="mt-8 font-display text-xl font-bold text-slate-900">
+            IA chantier : comptes rendus, suivi et communication
+          </h3>
+          <p className="mt-3 text-slate-700 leading-relaxed">
+            L&apos;<strong>IA chantier</strong> prend tout son sens sur la documentation : résumer une
+            visite, préparer un mail après une réunion de coordination, garder une trace claire des
+            décisions pour votre équipe terrain et vos interlocuteurs. Le gain n&apos;est pas « magique » :
+            il vient de la <strong>structuration</strong> : moins de temps passé à partir d&apos;une page
+            blanche, plus de temps pour arbitrer, sécuriser le planning et la relation client.
+          </p>
+
+          <h3 className="mt-8 font-display text-xl font-bold text-slate-900">
+            Automatisation devis BTP : aller plus vite sans se tromper de prix
+          </h3>
+          <p className="mt-3 text-slate-700 leading-relaxed">
+            L&apos;<strong>automatisation devis BTP</strong> ne remplace pas votre expertise métier : elle
+            accélère la mise en forme, la reformulation et la comparaison de variantes à partir de vos
+            données et de vos hypothèses. En session, nous travaillons la méthode : quoi confier à l&apos;IA,
+            quoi vérifier systématiquement (quantités, taux, périmètre), comment capitaliser des trames
+            pour les chantiers similaires. L&apos;objectif est un{' '}
+            <strong>gain de temps mesurable</strong> sur les propositions commerciales.
+          </p>
+
+          <h3 className="mt-8 font-display text-xl font-bold text-slate-900">
+            IA et appels d&apos;offres : structurer avant d&apos;approfondir
+          </h3>
+          <p className="mt-3 text-slate-700 leading-relaxed">
+            Pour l&apos;<strong>IA appels d&apos;offres</strong>, cette formation pose les bases : lecture
+            aidée des pièces, plan de réponse, formulations professionnelles. Les dossiers publics complexes
+            méritent souvent un accompagnement spécifique : c&apos;est le rôle de notre module avancé dédié
+            aux marchés, en complément de ce socle « bâtiment » généraliste.
+          </p>
+
+          <h2 className="mt-12 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Formation intelligence artificielle construction : objectifs et pédagogie
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Cette <strong>formation intelligence artificielle construction</strong> s&apos;adresse aux
+            professionnels qui veulent <strong>des résultats rapidement</strong> : une session unique de{' '}
+            {SESSION_DUREE_LIBELLE}, 100 % pratique, animée par une formatrice spécialisée dans le secteur
+            BTP. Vous repartez avec des supports réutilisables, une feuille de route claire et des repères
+            pour former progressivement vos collaborateurs aux bonnes habitudes (confidentialité, validation
+            des contenus générés, traçabilité).
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Les <strong>conducteurs de travaux</strong> y trouvent des réponses pour fluidifier le lien avec
+            le bureau d&apos;études, les corps de métier et le client final. Les{' '}
+            <strong>équipes administratives</strong> y gagnent en autonomie sur les relances, les courriers
+            types et la préparation de dossiers. Les <strong>dirigeants</strong> y voient un levier simple
+            pour réduire la charge mentale collective — sans projet SI lourd, car l&apos;accent est mis sur
+            les usages immédiats et sur la capitalisation de trames internes.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Enfin, cette approche s&apos;inscrit dans une logique de <strong>responsabilité</strong> : l&apos;IA
+            assiste, elle ne remplace ni le métier ni la signature des engagements pris envers vos clients.
+            C&apos;est cette ligne de conduite — testée sur le terrain avec des entreprises du réseau
+            professionnel du bâtiment — qui permet d&apos;obtenir des gains durables plutôt qu&apos;un
+            effet « gadget » après la formation.
+          </p>
+        </div>
+      </section>
+
+      {/* Cas d'usage */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex items-center gap-2 text-[var(--accent)]">
+            <Sparkles size={26} strokeWidth={1.5} aria-hidden />
+            <h2 className="font-display text-3xl font-bold text-slate-900">
+              Cas d&apos;usage concrets dans le bâtiment
+            </h2>
+          </div>
+          <p className="mt-3 max-w-3xl text-slate-600">
+            Exemples fréquents travaillés en atelier — toujours avec validation humaine et respect du cadre
+            RGPD.
+          </p>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {CAS_USAGE_BATIMENT.map((bloc) => (
+              <div
+                key={bloc.titre}
+                className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm"
+              >
+                <h3 className="font-display text-lg font-bold text-slate-900">{bloc.titre}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-700">{bloc.texte}</p>
+                {bloc.lien ? (
+                  <Link
+                    href={bloc.lien.href}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)] hover:underline"
+                  >
+                    {bloc.lien.label}
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Avant / Après */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-3xl font-bold text-slate-900">Avant / Après la formation</h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Ce que changent concrètement quatre heures de mise en pratique — au-delà du simple « test » des
+            outils.
+          </p>
+          <div className="mt-10 grid gap-8 md:grid-cols-2">
+            {AVANT_APRES.map((col) => (
+              <div
+                key={col.label}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <p className="text-sm font-semibold uppercase tracking-wide text-[var(--accent)]">
+                  {col.label}
+                </p>
+                <ul className="mt-4 space-y-3 text-slate-700">
+                  {col.items.map((line) => (
+                    <li key={line} className="flex gap-2">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" strokeWidth={2} />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* À qui s'adresse */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="font-display text-3xl font-bold text-slate-900">
+            À qui s&apos;adresse cette formation ?
+          </h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            TPE, PME et équipes du second œuvre ou du gros œuvre : la session est conçue pour des profils
+            métiers, pas pour des développeurs.
+          </p>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {PUBLIC_CIBLE.map((line) => (
+              <li
+                key={line}
+                className="flex gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-800"
+              >
+                <Users className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={2} />
+                {line}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* SEO local */}
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+        <div className="mx-auto max-w-3xl">
+          <div className="flex items-center gap-2 text-[var(--accent)]">
+            <MapPin size={26} strokeWidth={1.5} aria-hidden />
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Formation IA BTP Paris, Yvelines et Île-de-France
+            </h2>
+          </div>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Nous organisons des sessions <strong>formation IA BTP Paris</strong> et en{' '}
+            <strong>formation IA bâtiment Île-de-France</strong> : présentiel en salle ou{' '}
+            <strong>intra-entreprise</strong> dans vos locaux selon vos contraintes. Interventions possibles
+            notamment en <strong>Yvelines</strong>, <strong>Essonne</strong>,{' '}
+            <strong>Seine-et-Marne</strong>, <strong>Val-d&apos;Oise</strong>,{' '}
+            <strong>Hauts-de-Seine</strong>, <strong>Seine-Saint-Denis</strong> et{' '}
+            <strong>Val-de-Marne</strong> — ainsi qu&apos;à Paris et en petite couronne. Pour le détail des
+            formats et des créneaux :{' '}
+            <Link href="/formations/ia-btp-paris" className="font-semibold text-[var(--accent)] hover:underline">
+              formation IA bâtiment Paris
+            </Link>
+            ,{' '}
+            <Link
+              href="/formations/ia-btp-ile-de-france"
+              className="font-semibold text-[var(--accent)] hover:underline"
+            >
+              formation IA Île-de-France
+            </Link>
+            , ou contact direct pour un devis intra.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Le siège de l&apos;organisme est situé à {SITE_CONFIG.geo.city} ({SITE_CONFIG.geo.département}).
+            Le financement des actions de formation passe le plus souvent par votre{' '}
+            <strong>OPCO</strong> (notamment <strong>Constructys</strong> pour le périmètre BTP) dans le cadre
+            du plan de développement des compétences — dossier et convention sur demande. Pour les
+            dispositifs publics complémentaires (aides aux TPE/PME, accompagnements régionaux), les
+            éligibilités varient : nous pouvons orienter selon votre situation.
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/financement-constructys-formation-ia-btp"
+              className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
+            >
+              Guide financement Constructys — formation IA BTP
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Déroulé */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-3xl font-bold text-slate-900">Déroulé de la formation</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            La session de <strong>{SESSION_DUREE_LIBELLE}</strong> alterne démonstrations courtes et ateliers
+            guidés. Quatre modules couvrent le chiffrage et les devis, la relation client par email, les
+            comptes rendus et la documentation de chantier, puis l&apos;administratif et la capitalisation
+            (trames, bibliothèque de prompts). La pédagogie est volontairement <strong>terrain</strong> :
+            vous manipulez les outils sur des cas types du bâtiment, avec possibilité d&apos;anonymiser vos
+            propres documents.
+          </p>
+          <p className="mt-4">
+            <a
+              href="#programme"
+              className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
+            >
+              Consulter le programme détaillé (modules et contenus)
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </a>
+          </p>
+        </div>
+      </section>
+
       {/* Objectifs */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">Objectifs</h2>
+          <h2 className="font-display text-3xl font-bold text-slate-900">Objectifs pédagogiques</h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             À l&apos;issue de la formation, vous êtes en mesure de :
           </p>
@@ -276,26 +643,8 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      {/* Profil des apprenants */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">Profil des apprenants</h2>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {PROFIL_APPRENANTS.map((line) => (
-              <li
-                key={line}
-                className="flex gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 text-sm text-slate-800"
-              >
-                <Users className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={2} />
-                {line}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* Programme détaillé */}
-      <section id="programme" className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section id="programme" className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Programme détaillé de la formation
@@ -310,14 +659,14 @@ export default function FormationIAuServiceDuBatimentPage() {
       </section>
 
       {/* Modalités pratiques */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MODALITES.map((mod) => (
               <div
                 key={mod.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
+                className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
                   <mod.icon size={24} strokeWidth={1.5} />
@@ -334,7 +683,7 @@ export default function FormationIAuServiceDuBatimentPage() {
       </section>
 
       {/* Moyens pédagogiques & techniques */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
@@ -374,7 +723,7 @@ export default function FormationIAuServiceDuBatimentPage() {
       </section>
 
       {/* Modalités d'évaluation */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <div className="flex items-center gap-2 text-[var(--accent)]">
             <ClipboardList size={24} strokeWidth={1.5} aria-hidden />
@@ -384,7 +733,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </div>
           <ul className="mt-8 space-y-3 text-slate-700">
             {MODALITES_EVALUATION.map((line) => (
-              <li key={line} className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+              <li key={line} className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" strokeWidth={2} />
                 {line}
               </li>
@@ -394,7 +743,7 @@ export default function FormationIAuServiceDuBatimentPage() {
       </section>
 
       {/* Livrables & Ressources */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Livrables & ressources</h2>
           <p className="mt-3 text-slate-600">
@@ -405,7 +754,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             {LIVRABLES.map((item) => (
               <div
                 key={item.title}
-                className="flex gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="flex gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
                   <item.icon size={24} strokeWidth={1.5} />
@@ -421,11 +770,11 @@ export default function FormationIAuServiceDuBatimentPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_BATIMENT}
-            title="Questions fréquentes — L'IA au service du bâtiment"
+            title="Questions fréquentes — formation IA bâtiment (BTP-01)"
           />
         </div>
       </section>
@@ -443,19 +792,31 @@ export default function FormationIAuServiceDuBatimentPage() {
             Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
             {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant).
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+            <RdvLink className="flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
+              <Mail size={20} strokeWidth={1.5} />
+              Prendre rendez-vous
+            </RdvLink>
             <a
-              href="tel:+33695661818"
-              className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
+              href={MAIL_PROGRAMME}
+              className="flex items-center justify-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-4 font-semibold text-white hover:bg-white/10"
+            >
+              <FileText size={20} strokeWidth={1.5} />
+              Demander le programme
+            </a>
+            <a
+              href={MAIL_RAPPEL}
+              className="flex items-center justify-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-4 font-semibold text-white hover:bg-white/10"
             >
               <Phone size={20} strokeWidth={1.5} />
-              Appeler maintenant
+              Être rappelé
             </a>
-            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10">
-              <Mail size={20} strokeWidth={1.5} />
-              Prendre RDV
-            </RdvLink>
           </div>
+          <p className="mt-6 text-sm text-blue-100">
+            <a href={`tel:${SITE_CONFIG.phone}`} className="underline hover:text-white">
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </p>
         </div>
       </section>
     </div>

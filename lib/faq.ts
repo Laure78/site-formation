@@ -2,6 +2,11 @@
  * FAQ partagée pour le composant UI et le schema FAQPage (GEO)
  */
 
+import {
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+} from '@/lib/tarifs-sessions';
+
 export type FAQItem = { q: string; a: string };
 
 export const FAQ_ITEMS: readonly FAQItem[] = [
@@ -100,6 +105,14 @@ export const FAQ_FORMATIONS: FAQItem[] = [
 ];
 
 export const FAQ_TARIFS: FAQItem[] = [
+  {
+    q: "Faut-il un abonnement Claude pour les formations niveau avancé ?",
+    a: EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  },
+  {
+    q: "Quels comptes IA pour les formations niveau débutant ?",
+    a: COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  },
   {
     q: "Combien coûte une formation IA BTP ?",
     a: "Nous proposons uniquement des sessions de 4 heures, en forfait par participant : 100 € HT (niveau débutant) ou 175 € HT (niveau avancé). Selon votre entreprise, le financement OPCO Constructys peut couvrir tout ou partie du coût — nous vous accompagnons sur le dossier.",
@@ -241,8 +254,8 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
     a: "Bibliothèque de prompts spécialisés, templates de mémoires techniques, workflows de traitement DCE, guide RGPD, accès plateforme 1 an.",
   },
   {
-    q: "Quel compte IA est recommandé pour ce niveau ?",
-    a: "Compte Claude AI recommandé pour le niveau avancé — adapté aux analyses de DCE et aux brouillons de mémoires techniques.",
+    q: "Quel abonnement est requis pour le niveau avancé ?",
+    a: `${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Indispensable pour les analyses de DCE et les brouillons de mémoires techniques.`,
   },
 ];
 
@@ -250,7 +263,7 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
 export const FAQ_RH_BTP: FAQItem[] = [
   {
     q: "La formation IA RH BTP s'adresse à qui ?",
-    a: "DRH, chargés de recrutement, responsables RH et assistants RH du secteur BTP. Aucune compétence technique requise. ChatGPT Teams recommandé pour les données RH. Compte Claude AI recommandé pour le niveau avancé.",
+    a: `DRH, chargés de recrutement, responsables RH et assistants RH du secteur BTP. Aucune compétence technique requise. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}`,
   },
   {
     q: "Quelle est la durée de la formation IA fonction RH ?",
@@ -258,12 +271,16 @@ export const FAQ_RH_BTP: FAQItem[] = [
   },
   {
     q: "Les données RH sont-elles sécurisées avec l'IA ?",
-    a: "Nous formons aux bonnes pratiques RGPD et recommandons ChatGPT Teams pour la confidentialité des données RH. Guide de sécurité inclus.",
+    a: "Nous formons aux bonnes pratiques RGPD : ne pas saisir de données personnelles dans des outils non validés par votre organisation, anonymiser les exemples en session, et cadrer les usages avec votre direction ou votre référent conformité. Guide de sécurité inclus.",
   },
 ];
 
 /** FAQ — formation L'IA au service du bâtiment (BTP-01) */
 export const FAQ_BATIMENT: FAQItem[] = [
+  {
+    q: "Quels comptes IA pour cette formation (niveau débutant) ?",
+    a: COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  },
   {
     q: "Qui peut suivre la formation « L'IA au service du bâtiment » ?",
     a: "Artisans, dirigeants et équipes de PME du bâtiment, conducteurs et chargés d'affaires, assistants administratifs. Aucun prérequis technique — nous partons de vos cas réels (devis, emails, CR).",
@@ -300,6 +317,10 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
 ];
 
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
+  {
+    q: "Quels outils IA sont prévus pour le niveau débutant ?",
+    a: COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  },
   {
     q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",
     a: "Conducteurs et chefs de travaux, bureaux d'études et méthodes, QSE, assistants travaux, achats, dirigeants et managers TP. Aucun prérequis technique.",

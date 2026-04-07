@@ -15,7 +15,7 @@ import { FAQ_RH_BTP } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
-  RECOMMANDATION_CLAUDE_NIVEAU_AVANCE,
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
 
 const LMS_SLUG = 'ia-rh-btp';
@@ -183,9 +183,7 @@ export default function FormationIARHBTPPage() {
           <li className="flex gap-2">
             <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Prérequis :</strong> aucune compétence technique IA.{' '}
-              <strong>ChatGPT Teams</strong> recommandé pour la confidentialité des données RH.{' '}
-              {RECOMMANDATION_CLAUDE_NIVEAU_AVANCE}
+              <strong>Prérequis :</strong> aucune compétence technique IA. {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
             </span>
           </li>
         </ul>
