@@ -30,7 +30,6 @@ export const SITE_CONFIG = {
     'formation IA BTP',
     'formation ChatGPT entreprise BTP',
     'IA pour PME bâtiment',
-    'IA pour garage automobile',
     'formation IA artisan',
     'automatisation tâches administratives BTP',
     'IA devis bâtiment',
@@ -51,11 +50,6 @@ export const SITE_CONFIG = {
     'IA entreprise artisanale',
     'IA PME artisanale',
     'IA TPE bâtiment',
-    'formation IA garage automobile',
-    'formation ChatGPT garage',
-    'IA pour garages',
-    'IA réparation automobile',
-    'IA atelier mécanique',
     'formation IA PME BTP',
     'formation IA entreprise bâtiment',
     'IA pour dirigeants BTP',
@@ -246,7 +240,7 @@ export function getOrganizationSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
     description:
-      "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment, artisans et garages. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
+      "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et artisans. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
     telephone: SITE_CONFIG.phone,
@@ -271,6 +265,16 @@ export function getOrganizationSchema() {
     ],
     sameAs: SITE_CONFIG.sameAs,
     taxID: SITE_CONFIG.siret,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: SITE_CONFIG.phone,
+        email: SITE_CONFIG.email,
+        availableLanguage: ['French'],
+        areaServed: 'FR',
+      },
+    ],
   };
 }
 
@@ -282,7 +286,7 @@ export function getLocalBusinessSchema() {
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: 'Laure Olivié — Formation IA BTP',
     description:
-      "Formation IA BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Artisans, PME bâtiment, garages automobile, conducteurs de travaux. Guyancourt (78), Île-de-France et France.",
+      "Formation IA BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Artisans, PME bâtiment, conducteurs de travaux. Guyancourt (78), Île-de-France et France.",
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
     email: SITE_CONFIG.email,
@@ -323,6 +327,37 @@ export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
       },
     })),
   };
+}
+
+/**
+ * Extrait les paires Q/R des sections `type: 'faq'` (format « Question — Réponse » par ligne).
+ * Utilisé pour JSON-LD FAQPage sur les articles blog.
+ */
+export function extractFaqPairsFromArticleSections(
+  sections: ReadonlyArray<{
+    type: string;
+    content: string | string[] | unknown;
+  }>
+): { q: string; a: string }[] {
+  const pairs: { q: string; a: string }[] = [];
+  const lineSep = /\s[—–-]\s/;
+  for (const section of sections) {
+    if (section.type !== 'faq') continue;
+    const raw = section.content;
+    const lines = Array.isArray(raw)
+      ? raw.filter((x): x is string => typeof x === 'string')
+      : typeof raw === 'string'
+        ? [raw]
+        : [];
+    for (const line of lines) {
+      const m = line.split(lineSep);
+      if (m.length < 2) continue;
+      const q = m[0]?.trim() ?? '';
+      const a = m.slice(1).join(' ').trim();
+      if (q && a) pairs.push({ q, a });
+    }
+  }
+  return pairs;
 }
 
 /** Schéma Article pour blog (GEO) — image recommandée pour rich results */
@@ -373,7 +408,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB, GERESO, Lefebvre Dalloz, CNAM Entreprise.',
+    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB, Lefebvre Dalloz, CNAM Entreprise.',
     knowsAbout: [
       'Formation IA BTP',
       'Formation ChatGPT entreprise BTP',
@@ -439,11 +474,6 @@ export function getPersonSchema() {
       },
       {
         '@type': 'Organization',
-        name: 'GERESO',
-        description: 'Organisme de formation professionnelle',
-      },
-      {
-        '@type': 'Organization',
         name: 'Lefebvre Dalloz',
         description: 'Formations juridiques et professionnelles',
       },
@@ -456,12 +486,6 @@ export function getPersonSchema() {
         '@type': 'Organization',
         name: 'IFRB 78',
         description: 'Institut de Formation Régional du Bâtiment Yvelines',
-      },
-      {
-        '@type': 'Organization',
-        name: 'ARFAB',
-        url: 'https://www.arfab-formation.fr/',
-        description: 'Association de formation pour les artisans du bâtiment',
       },
     ],
     alumniOf: {

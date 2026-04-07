@@ -52,7 +52,7 @@ const FORMATIONS_DATA = [
 // Pages clés + contenu synthétique
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/', title: 'Accueil — Laure Olivié', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
-  { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, GERESO, CNAM, Lefebvre Dalloz, LinkedIn Learning, Constructys.' },
+  { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CNAM Entreprise, Lefebvre Dalloz, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',
     title: 'Étude de cas FFB & CSFE — Étanchéité',
@@ -69,6 +69,150 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
     title: 'ChatGPT artisan électricien BTP',
     content:
       'Formation IA et ChatGPT pour artisans électriciens et TPE électricité bâtiment : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi, finançable Constructys. Laure Olivié.',
+  },
+  {
+    path: '/formation-ia-electricien-btp',
+    title: 'Formation IA électricien BTP',
+    content:
+      'Landing SEO : gagner du temps sur l’administratif (devis, AO, emails) avec ChatGPT. Formation Qualiopi, Constructys. Visio découverte gratuite. Prompts devis, mémoire technique, relances.',
+  },
+  {
+    path: '/formation-ia-charpentier-btp',
+    title: 'Formation IA charpentier BTP Île-de-France',
+    content:
+      'Landing SEO : métrés charpente bois/acier, devis, variantes, bons de commande avec ChatGPT. Qualiopi, Constructys. Grand Paris, Île-de-France. Pas de substitution au BET pour le dimensionnement réglementaire.',
+  },
+  {
+    path: '/formation-ia-ferrailleur-btp',
+    title: 'Formation IA ferrailleur / armaturier BTP Île-de-France',
+    content:
+      'Landing SEO : quantitatifs ferraillage, tonnages HA/treillis, devis acier béton, bons de commande avec ChatGPT. Qualiopi, Constructys. Validation humaine des plans et Eurocodes. Grand Paris, Île-de-France.',
+  },
+  {
+    path: '/formation-ia-etancheur-btp',
+    title: 'Formation IA étancheur BTP Île-de-France',
+    content:
+      'Landing SEO : surfaces étanchéité, relevés, joints, devis membrane/bitume, variantes systèmes avec ChatGPT. Qualiopi, Constructys. Validation notices et DTU. Grand Paris, Île-de-France.',
+  },
+  {
+    path: '/formation-ia-couvreur-btp',
+    title: 'Formation IA couvreur / zingueur BTP Île-de-France',
+    content:
+      'Landing SEO : surfaces toiture pente, gouttières, devis tuiles/ardoise/zinc, variantes avec ChatGPT. Qualiopi, Constructys. Validation DTU et notices fabricants. Grand Paris, Île-de-France.',
+  },
+  {
+    path: '/formation-ia-vitrier-btp',
+    title: 'Formation IA vitrier miroitier BTP Île-de-France',
+    content:
+      'Landing SEO : devis vitrage, métrages, fiches techniques Uw/Rw, variantes, FAQ clients avec ChatGPT. Qualiopi, Constructys. Valeurs certifiées = données fabricant. Laure Olivié.',
+  },
+  {
+    path: '/formation-ia-plombier-btp',
+    title: 'Formation IA plombier chauffagiste BTP Île-de-France',
+    content:
+      'Landing SEO : devis plomberie chauffage, diagnostics, mails SAV, synthèse DCE et mémoires techniques avec ChatGPT. Qualiopi, Constructys. Responsabilité gaz et marchés publics = validation pro. Laure Olivié, OFC.',
+  },
+  {
+    path: '/formation-ia-plaquiste-btp',
+    title: 'Formation IA plaquiste plâtrier BTP Île-de-France',
+    content:
+      'Landing SEO : devis doublage BA13, métrages, variantes, briefs chantier, FAQ clients avec ChatGPT. Qualiopi, Constructys. Quantités et DTU = validation par le plaquiste. Laure Olivié.',
+  },
+  {
+    path: '/formation-ia-peintre-btp',
+    title: 'Formation IA peintre en bâtiment Île-de-France',
+    content:
+      'Landing SEO : devis peinture, métrages, fiches chantier, variantes gammes, FAQ clients avec ChatGPT. Qualiopi, Constructys. Supports et temps de séchage = validation par le peintre. Laure Olivié, OFC.',
+  },
+  {
+    path: '/formation-ia-menuisier-btp',
+    title: 'Formation IA menuisier BTP Île-de-France',
+    content:
+      'Landing SEO : devis menuiserie bois PVC alu, fiches techniques Uw/Rw depuis notices, variantes, briefs atelier avec ChatGPT. Qualiopi, Constructys. Cotes et prix = validation pro. Laure Olivié.',
+  },
+  {
+    path: '/formation-ia-dirigeant-pme-btp',
+    title: 'Formation IA chef entreprise BTP',
+    content:
+      'Landing SEO : dirigeants PME BTP, devis, prospection, relances, synthèses rentabilité avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Validation humaine des engagements et des chiffres.',
+  },
+  {
+    path: '/formation-ia-conducteur-travaux-btp',
+    title: 'Formation IA conducteur de travaux BTP',
+    content:
+      'Landing SEO : rapports multi-lots, mails sous-traitants, variations, planning hebdo avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Décisions et contrats restent au conducteur de travaux.',
+  },
+  {
+    path: '/formation-ia-charge-affaires-btp',
+    title: 'Formation IA chargé d’affaires métreur BTP',
+    content:
+      'Landing SEO : analyse DCE, métrés, chiffrage, mémoire technique avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Validation humaine des quantités et des prix.',
+  },
+  {
+    path: '/formation-ia-assistante-administrative-btp',
+    title: 'Formation IA assistante administrative BTP',
+    content:
+      'Landing SEO : courriers, relances impayés, rapports chantier, tableaux de bord avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Facturation et paie validées par les référents légaux.',
+  },
+  {
+    path: '/formation-ia-pisciniste-btp',
+    title: 'Formation IA pisciniste BTP',
+    content:
+      'Landing SEO : devis piscine, variantes, documentation entretien, suivi client avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Dimensionnement et normes validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-paysagiste-btp',
+    title: 'Formation IA paysagiste BTP',
+    content:
+      'Landing SEO : briefs paysagers, métrés et devis, mails client avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Choix végétaux, prix et faisabilité validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-macon-paysagiste-btp',
+    title: 'Formation IA maçon paysagiste BTP',
+    content:
+      'Landing SEO : devis dallage et terrasses, brouillons de mémoire technique AO, coordination chantier avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Normes, quantités et engagements validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-cloturiste-btp',
+    title: 'Formation IA clôturiste BTP',
+    content:
+      'Landing SEO : devis clôtures, portails, grillages, variantes et modèles réutilisables avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Prix, conformité locale et pose validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-carreleur-btp',
+    title: 'Formation IA carreleur faïencier BTP',
+    content:
+      'Landing SEO : devis carrelage, métrage, fiches techniques, variantes et FAQ client avec ChatGPT. Île-de-France. Qualiopi, Constructys. Barèmes, métrages définitifs et notices fabricants validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-geometre-tp',
+    title: 'Formation IA géomètre TP',
+    content:
+      'Landing SEO : rapports de levé topographique, devis, notes d’analyse, emails maître d’ouvrage avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Coordonnées, cadastre et livrables officiels validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-conducteur-engins-tp',
+    title: 'Formation IA conducteur d’engins TP',
+    content:
+      'Landing SEO : fiches d’activité, rapports hebdomadaires, emails chef de chantier, légendes photos avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Faits terrain et sécurité validés par le conducteur et la hiérarchie.',
+  },
+  {
+    path: '/formation-ia-chef-chantier-tp',
+    title: 'Formation IA chef de chantier TP',
+    content:
+      'Landing SEO : rapports d’avancement, coordination sous-traitants, variations CCTP, rappels sécurité avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. PPSPS et décisions contractuelles validées par les responsables habilités.',
+  },
+  {
+    path: '/formation-ia-canalisateur-tp',
+    title: 'Formation IA canalisateur TP',
+    content:
+      'Landing SEO : devis canalisations EU/EV/ANC, variantes, mémoire technique marchés publics, fiches techniques avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Dimensionnement, DTU et essais validés par le professionnel.',
+  },
+  {
+    path: '/formation-ia-macon-btp',
+    title: 'Formation IA maçon BTP',
+    content:
+      'Landing SEO : devis maçonnerie, métré, mémoires techniques, emails avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Quantités, DTU et conformité validés par le professionnel.',
   },
   {
     path: '/formation-ia-travaux-publics',

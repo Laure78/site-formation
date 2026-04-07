@@ -76,7 +76,7 @@ export const INTERNAL_LINKS = {
   },
   clientsPartenaires: {
     path: '/a-propos#clients-partenaires',
-    anchors: ['clients et partenaires', 'FFB, GERESO, Lefebvre Dalloz', 'nos partenaires'],
+    anchors: ['clients et partenaires', 'FFB, Lefebvre Dalloz, CNAM Entreprise', 'nos partenaires'],
   },
   communauteFormateurs: {
     path: '/communaute-formateurs',

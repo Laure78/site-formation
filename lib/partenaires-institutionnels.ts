@@ -36,12 +36,6 @@ export const PARTENAIRES_INSTITUTIONNELS: PartenaireInstitutionnel[] = [
     logo: '/images/partenaires/ifrb-78.jpg',
   },
   {
-    name: 'GERESO',
-    desc: 'Organisme de formation professionnelle',
-    href: 'https://www.gereso.com/',
-    logo: '/images/partenaires/gereso.svg',
-  },
-  {
     name: 'Lefebvre Dalloz',
     desc: 'Formations juridiques et professionnelles',
     href: 'https://formation.lefebvre-dalloz.fr/',
@@ -52,11 +46,5 @@ export const PARTENAIRES_INSTITUTIONNELS: PartenaireInstitutionnel[] = [
     desc: 'Conservatoire National des Arts et Métiers',
     href: 'https://formation-entreprise.cnam.fr/',
     logo: '/images/partenaires/cnam-entreprise.svg',
-  },
-  {
-    name: 'ARFAB',
-    desc: 'Association de formation pour les artisans du bâtiment',
-    href: 'https://www.arfab-formation.fr/',
-    logo: '/images/partenaires/arfab.png',
   },
 ];

@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
-import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getHowToFromArticle } from '@/lib/seo';
+import {
+  createPageMetadata,
+  extractFaqPairsFromArticleSections,
+  getArticleSchema,
+  getBreadcrumbSchema,
+  getFAQSchema,
+  getHowToFromArticle,
+} from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
   getArticle,
@@ -111,11 +118,16 @@ export default async function BlogArticlePage({ params }: Props) {
     { name: article.title, path: `/blog/${article.slug}` },
   ]);
   const howToSchema = getHowToFromArticle(article);
+  const faqPairs = extractFaqPairsFromArticleSections(article.sections);
+  const faqSchema = faqPairs.length > 0 ? getFAQSchema(faqPairs) : null;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}

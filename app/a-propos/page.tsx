@@ -18,7 +18,7 @@ const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Formatrice IA BTP | Qualiopi | 1 500+ professionnels formés',
   description:
-    "Laure Olivié, formatrice IA BTP certifiée Qualiopi : 1 500+ professionnels formés, note 4,85/5. ChatGPT, entreprises du bâtiment et travaux publics. FFB, GERESO, Guyancourt.",
+    "Laure Olivié, formatrice IA BTP certifiée Qualiopi : 1 500+ professionnels formés, note 4,85/5. ChatGPT, entreprises du bâtiment et travaux publics. FFB, Lefebvre Dalloz, CNAM Entreprise, Guyancourt.",
   path: '/a-propos',
   keywords: [
     'Laure Olivié',

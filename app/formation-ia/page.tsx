@@ -5,7 +5,7 @@ import { FORMATION_IA_METIERS, FORMATION_IA_VILLES } from '@/lib/seo-formation-i
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Hub métiers & villes (ChatGPT, Claude AI)',
   description:
-    'Hub SEO : formation IA BTP, ChatGPT et Claude AI par lots (gros œuvre, second œuvre, CVC, VRD…) et par ville en Île-de-France. Qualiopi, financement Constructys. OFC Laure Olivié.',
+    'Hub formation IA BTP : ChatGPT & Claude AI par métier et par ville (Île-de-France). Qualiopi, Constructys. Visio découverte gratuite — Laure Olivié, OFC.',
   path: '/formation-ia',
   keywords: [
     'formation IA BTP',

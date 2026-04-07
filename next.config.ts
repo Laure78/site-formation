@@ -67,6 +67,29 @@ const nextConfig: NextConfig = {
         destination: '/formation-ia-artisans-btp',
         permanent: true,
       },
+      // Anciennes URLs WordPress (Hello World, catégorie par défaut) — consolidation SEO
+      { source: '/hello-world', destination: '/', permanent: true },
+      { source: '/hello-world/', destination: '/', permanent: true },
+      {
+        source: '/2024/08/06/hello-world',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/2024/08/06/hello-world/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/category/uncategorized',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/category/uncategorized/',
+        destination: '/blog',
+        permanent: true,
+      },
     ];
   },
 };

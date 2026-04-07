@@ -1,0 +1,136 @@
+# .cursorrules pour laureolivie.fr
+
+## Stack Technique
+- Framework : **Next.js 13+** (App Router)
+- CSS : **Tailwind CSS**
+- Polices : Inter, Outfit (charger depuis Google Fonts)
+- Langage : **Français uniquement**
+- Cible : Artisans et PME du BTP (Île-de-France, France)
+
+## Charte Graphique OFC Création d'Entreprise
+- **Couleur primaire** : Bleu `#377CF3`
+- **Couleur secondaire** : Blanc `#FFFFFF`
+- **Couleur d'arrière-plan neutre** : Gris `#F2F2F2`
+- **Typographie** : Poppins (fallback Century Gothic si indisponible)
+- **Logo OFC** : Inclure sur toutes les pages
+- **Badge Qualiopi** : Afficher dans le footer
+- **Pas d'autre couleur d'accent** : Respecter strictement la palette
+
+## Identité OFC Création d'Entreprise
+- **Fondatrice** : Laure Olivié
+- **Statut** : SASU
+- **SIRET** : 905 244 281 00010
+- **NDA (Numéro de Déclaration d'Activité)** : 11788515078
+- **Localisation** : 6 rue Henri Dunant, 78280 Guyancourt
+- **Certification** : Qualiopi
+- **Financements** : Constructys, FSE+, OPCO
+- **Plafonds pédagogiques Constructys** : 24 € HT/h/participant, max 840 € HT/jour/groupe intra
+- **Satisfaction clients** : 4,85/5 ⭐
+- **Nombre de personnes formées** : 1 592+
+- **Spécialité** : IA & ChatGPT pour le BTP (bâtiment, travaux publics, second œuvre)
+
+## Formations Proposées
+- Formations inter et intra en français uniquement
+- Thèmes : productivité IA, devis/chiffrage, appels d'offres (DCE/mémoire technique), réseaux sociaux, communication
+- **Tarif journalier** : 1 000 € HT
+- **Public cible** : Artisans, conducteurs de travaux, chefs d'entreprise, fonctions support
+
+## Clients Clés (à mentionner)
+- FFB Grand Paris
+- FFB Île-de-France (78/91/95)
+- FFB Île-de-France Est
+- CSFE
+- CAPEB
+- CNAM Entreprise
+- Lefebvre Dalloz
+
+## Contact & Communication
+- **Email professionnel** : laureolivie@yahoo.fr
+- **Téléphone** : 06 95 66 18 18
+- **Site web** : www.laureolivie.fr
+- **Calendly** : https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
+- **CTA principal** : "Prendre un rendez-vous découverte" ou "Appel découverte" (vers Calendly)
+
+## SEO & Structure du Contenu
+- **H1 unique par page** : Une seule balise H1 par page
+- **Hiérarchie** : H1 → H2 (2-4 par page) → H3 (détails)
+- **Textes alternatifs** : Tous les images, logos et icônes doivent avoir un `alt` descriptif
+- **Maillage interne** : 3+ liens internes vers autres pages pertinentes par page
+- **CTA Calendly** : Intégrer naturellement dans le contenu (pas seulement en footer)
+- **Mots-clés principaux** :
+  - Formation IA BTP
+  - ChatGPT bâtiment
+  - IA artisan
+  - Formation IA Île-de-France
+  - ChatGPT artisans BTP
+  - Productivité IA construction
+
+## Schema Markup (JSON-LD)
+Implémenter les schémas suivants pour l'extraction IA :
+1. **Organization** : OFC Création d'Entreprise, coordonnées complètes, logo
+2. **Person** : Laure Olivié, description, photo
+3. **Course** : Chaque formation (nom, description, durée, prix, certification)
+4. **FAQPage** : FAQ sur formations et IA BTP
+5. **LocalBusiness** : OFC Création d'Entreprise (adresse Guyancourt, téléphone, email)
+6. **BreadcrumbList** : Sur toutes les pages pour la navigation
+
+## Mentions Légales (à inclure systématiquement)
+```
+OFC Création d'Entreprise
+SIRET 905 244 281 00010
+NDA 11788515078
+6 rue Henri Dunant, 78280 Guyancourt
+laureolivie@yahoo.fr
+06 95 66 18 18
+www.laureolivie.fr
+```
+
+Placer dans le footer de chaque page + page dédiée "Mentions légales".
+
+## Règles Fiscales (à documenter)
+- **Formations intra** : TVA exonérée (article 261-4-4° du CGI)
+- **Formations inter** : TVA non applicable (article 293B du CGI)
+- Adapter les devis en fonction du type de formation
+
+## Robots.txt & IA Bots
+- Autoriser les bots IA officiels (`anthropic-web` pour Claude, `Googlebot-Extended`, etc.)
+- Contenu bien structuré et accessible pour extraction par IA
+- Éviter `noindex` sur les pages clés (formations, à-propos, contact)
+
+## Pages Essentielles
+1. **Accueil** : Présentation OFC, formations, CTA Calendly
+2. **Formations** : Catalogue avec détails, durée, prix, CTA
+3. **À propos** : Bio Laure, expérience, certifications, logo clients
+4. **Blog** : Articles IA/BTP (SEO + pensée-leadership)
+5. **Contact** : Formulaire + infos complètes
+6. **Prendre RDV** : Intégration Calendly ou redirection
+
+## Règles de Génération de Contenu
+- **Ton** : Professionnel, accessible, orienté artisans/PME BTP
+- **Vocabulaire** : Adapter au secteur BTP (chantier, devis, CCTP, DCE, conducteur de travaux)
+- **Pas de jargon marketing** : Rester honnête et transparent
+- **Cas d'usage concrets** : Exemples tirés du BTP (automatiser un devis, générer une offre, créer du contenu réseaux sociaux)
+- **Conformité Qualiopi** : Tous les programmes doivent respecter les critères Qualiopi
+
+## Accessibilité
+- Contraste WCAG AA minimum (pour le bleu #377CF3, vérifier sur fond blanc/gris)
+- Images avec alt text descriptif
+- Navigation au clavier fluide
+- Texte alternatif pour tous les CTA
+
+## Performance
+- Images optimisées (WebP, lazy loading)
+- CSS Tailwind purgé (production)
+- Fonts chargées stratégiquement
+- LCP < 2.5s, FID < 100ms, CLS < 0.1
+
+## Non-Inclusions
+- ❌ Ne pas mentionner GERESO dans les clients
+- ❌ Ne pas mentionner ARFBABOF dans les clients
+- ❌ Éviter les couleurs d'accent autres que la charte
+- ❌ Ne pas proposer de formations en anglais ou autres langues
+- ❌ Pas de plugin WordPress ou thème préconçu (Next.js/React from scratch ou framework minimaliste)
+
+---
+
+**Dernière mise à jour** : 2026-04-07

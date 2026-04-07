@@ -49,7 +49,7 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — ChatGPT & Claude AI | Paris, Île-de-France',
   description:
-    "Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France : devis, chantier, mémoires. Qualiopi, financement Constructys. Laure Olivié — OFC. +1592 professionnels formés.",
+    'Formation IA BTP Paris & Île-de-France : devis, chantier, mémoires. Qualiopi, Constructys. Visio découverte gratuite — Laure Olivié (+1592 formés).',
   path: '/',
   keywords: [
     'formation IA BTP',
@@ -303,7 +303,7 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, GERESO… des acteurs du BTP qui font confiance à une
+                FFB, Lefebvre Dalloz, CNAM… des acteurs du BTP qui font confiance à une
                 formation terrain
               </h2>
               <p className="mt-4 text-slate-300">

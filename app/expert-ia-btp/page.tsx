@@ -253,7 +253,7 @@ export default function ExpertIABTPPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               'FFB - Fédération Française du Bâtiment',
-              'GERESO',
+              'CSFE',
               'Lefebvre Dalloz',
               'CNAM Entreprise',
               'LinkedIn Learning',
