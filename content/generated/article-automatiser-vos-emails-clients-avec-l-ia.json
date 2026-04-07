@@ -2,12 +2,12 @@
   "slug": "automatiser-vos-emails-clients-avec-l-ia",
   "title": "Automatiser vos emails clients avec l'IA",
   "description": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.",
-  "date": "2026-04-06",
+  "date": "2026-04-07",
   "keywords": [
-    "emails artisans",
-    "relance client IA",
-    "email professionnel ChatGPT",
-    "ChatGPT entreprises BTP"
+    "offre emploi IA",
+    "recruter BTP",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -79,10 +79,6 @@
     {
       "path": "/financement-constructys",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
