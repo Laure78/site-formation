@@ -20,7 +20,7 @@ export const MEDIA_CONFIG = {
   internalLinks: {
     formations: { path: '/formations', anchors: ['formation IA BTP', 'formations IA bâtiment'] },
     chatgptArtisans: {
-      path: '/chatgpt-artisans-btp',
+      path: '/formation-ia-artisans-btp',
       anchors: ['ChatGPT pour entreprises BTP', 'IA bâtiment et travaux publics'],
     },
     iaDevis: { path: '/ia-devis-batiment', anchors: ['IA devis bâtiment', 'automatiser devis BTP'] },
@@ -29,7 +29,7 @@ export const MEDIA_CONFIG = {
       anchors: ['réserver formation', 'prendre rendez-vous', 'devis formation'],
     },
     blog: { path: '/blog', anchors: ['ressources IA BTP', 'articles formation'] },
-    financement: { path: '/financement-constructys', anchors: ['financement Constructys', 'tarifs formation'] },
+    financement: { path: '/financement-constructys-formation-ia-btp', anchors: ['financement Constructys', 'tarifs formation'] },
   },
   ctaPhrases: [
     'Découvrez notre formation IA BTP — 100% finançable Constructys.',

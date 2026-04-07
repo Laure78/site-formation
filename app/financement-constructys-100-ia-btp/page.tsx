@@ -21,7 +21,7 @@ export const metadata = createPageMetadata({
 
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
-  { name: 'Financement', path: '/financement-constructys' },
+  { name: 'Financement', path: '/financement-constructys-formation-ia-btp' },
   { name: 'Financement Constructys 100% IA BTP', path: '/financement-constructys-100-ia-btp' },
 ]);
 
@@ -46,7 +46,7 @@ export default function FinancementConstructys100IABTPPage() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
-              href="/financement-constructys"
+              href="/financement-constructys-formation-ia-btp"
               className="rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-600"
             >
               Modalités détaillées
@@ -177,11 +177,11 @@ export default function FinancementConstructys100IABTPPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/financement-constructys', label: 'Modalités Constructys' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Modalités Constructys' },
               { href: '/formations', label: 'Catalogue formations IA BTP' },
-              { href: '/financement-constructys', label: 'Financement Constructys' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+              { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/blog', label: 'Articles sur le financement' },

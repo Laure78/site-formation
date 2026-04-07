@@ -20,7 +20,7 @@ export const INTERNAL_LINKS = {
     anchors: ['prendre rendez-vous', 'réserver un RDV gratuit', 'devis personnalisé formation'],
   },
   chatgptArtisans: {
-    path: '/chatgpt-artisans-btp',
+    path: '/formation-ia-artisans-btp',
     anchors: [
       'ChatGPT pour entreprises BTP',
       'IA et ChatGPT bâtiment et travaux publics',
@@ -36,7 +36,7 @@ export const INTERNAL_LINKS = {
     anchors: ['IA conducteur de travaux', 'IA CR chantier', 'formation IA conducteur'],
   },
   financementConstructys: {
-    path: '/financement-constructys',
+    path: '/financement-constructys-formation-ia-btp',
     anchors: ['financement Constructys', 'OPCO Constructys', 'financer formation IA BTP'],
   },
   financement100: {

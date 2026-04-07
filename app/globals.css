@@ -91,3 +91,19 @@
 .article-html a {
   @apply font-medium text-[var(--accent)] underline underline-offset-2 hover:text-blue-700;
 }
+.article-html table {
+  @apply mt-4 w-full border-collapse overflow-hidden rounded-xl border border-slate-200 text-sm;
+}
+.article-html thead {
+  @apply bg-slate-50;
+}
+.article-html th,
+.article-html td {
+  @apply border border-slate-200 px-3 py-2.5 align-top text-slate-700;
+}
+.article-html th {
+  @apply font-semibold text-slate-900;
+}
+.article-html caption {
+  @apply mb-2 text-left text-sm font-semibold text-slate-900;
+}

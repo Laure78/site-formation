@@ -7,11 +7,12 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT pour entreprises BTP : devis, emails, comptes rendus',
+  title: 'Formation IA artisans BTP : ChatGPT, devis, emails, comptes rendus',
   description:
-    "Maîtrisez ChatGPT dans votre entreprise du bâtiment ou des travaux publics : devis, emails, CR. Formation finançable Constructys. Gagnez plusieurs heures chaque semaine.",
-  path: '/chatgpt-artisans-btp',
+    "Formation IA artisans BTP et ChatGPT entreprises : devis, emails, CR chantier. 4 h pratiques, Qualiopi, 100 % finançable Constructys. Laure Olivié — OFC.",
+  path: '/formation-ia-artisans-btp',
   keywords: [
+    'formation IA artisans BTP',
     'ChatGPT entreprises BTP',
     'ChatGPT TPE PME bâtiment',
     'IA devis BTP',
@@ -66,7 +67,7 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function ChatGPTArtisansBTPPage() {
+export default function FormationIAArtisansBTPPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
 
   return (
@@ -80,12 +81,13 @@ export default function ChatGPTArtisansBTPPage() {
           Accueil
         </Link>
         {' / '}
-        <span className="text-slate-900">ChatGPT pour entreprises BTP</span>
+        <span className="text-slate-900">Formation IA artisans BTP</span>
       </nav>
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          ChatGPT pour <span className="text-[var(--accent)]">entreprises du BTP</span> : automatiser devis et emails
+          Formation IA artisans BTP : <span className="text-[var(--accent)]">ChatGPT</span> pour
+          devis, emails et comptes rendus
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Guide pratique pour utiliser l&apos;intelligence artificielle dans votre
@@ -257,7 +259,7 @@ export default function ChatGPTArtisansBTPPage() {
         {/* Liens internes */}
         <section className="mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-lg font-semibold text-slate-900">
-            ChatGPT pour entreprises BTP : aller plus loin
+            Formation IA artisans BTP : aller plus loin
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>

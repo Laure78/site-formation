@@ -293,7 +293,7 @@ export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }:
             <AllerPlusLoin
               links={[
                 { href: '/formations', label: 'Formation IA BTP' },
-                { href: '/chatgpt-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
+                { href: '/formation-ia-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
                 { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous pour un diagnostic' },
               ]}
             />

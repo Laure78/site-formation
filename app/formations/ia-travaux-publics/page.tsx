@@ -207,6 +207,16 @@ export default function FormationIATravauxPublicsPage() {
                 reporting, puis <strong>templates, assistants par rôle</strong> et charte d&apos;usage
                 avec validation « anti-erreurs ».
               </p>
+              <p className="mt-4 max-w-xl text-sm text-slate-500">
+                <Link
+                  href="/formation-ia-travaux-publics"
+                  className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+                >
+                  Formation IA travaux publics
+                </Link>
+                {' '}
+                — vue d&apos;ensemble (routes, VRD, génie civil, financement) sur une page dédiée.
+              </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#programme"

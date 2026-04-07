@@ -55,7 +55,7 @@ export default function ChecklistIABTPPage() {
                 Formation IA BTP →
               </Link>
               <Link
-                href="/chatgpt-artisans-btp"
+                href="/formation-ia-artisans-btp"
                 className="text-[#166534] font-medium hover:underline"
               >
                 ChatGPT pour entreprises BTP →

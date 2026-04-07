@@ -11,11 +11,11 @@ export interface AllerPlusLoinLink {
 
 const DEFAULT_LINKS: AllerPlusLoinLink[] = [
   { href: '/formations', label: 'Formation IA BTP' },
-  { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+  { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
   { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
   { href: '/blog', label: 'Articles et guides' },
   { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-  { href: '/financement-constructys', label: 'Financement Constructys' },
+  { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
 ];
 
 interface AllerPlusLoinProps {

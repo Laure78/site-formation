@@ -17,6 +17,8 @@ export interface ArticlePrompt {
 export interface BlogArticle {
   slug: string;
   title: string;
+  /** Si défini, utilisé pour la balise title / Open Graph (le H1 reste `title`) */
+  seoTitle?: string;
   description: string;
   date: string;
   keywords: string[];
@@ -139,6 +141,520 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'formation-ia-btp-guide-complet-2026',
       'financer-formation-ia-btp-constructys',
       'chatgpt-devis-btp-methode-2026',
+    ],
+  },
+
+  // Avril 2026 — ChatGPT devis bâtiment en 20 minutes (méthode terrain)
+  {
+    slug: 'devis-btp-chatgpt-20-minutes',
+    title:
+      'ChatGPT devis bâtiment : comment je fais tenir un devis en 20 minutes (sans brûler mes prix)',
+    description:
+      'ChatGPT devis bâtiment : méthode terrain en 4 étapes — données, prompt magique, relecture des prix, variantes. Devis BTP IA, automatiser devis artisan. Prompts peinture, électricité, maçonnerie. Laure Olivié, formation IA BTP finançable Constructys.',
+    date: '2026-04-07',
+    keywords: [
+      'ChatGPT devis bâtiment',
+      'devis BTP IA',
+      'automatiser devis artisan',
+      'ChatGPT devis chiffrage',
+      'prompt devis BTP',
+      'IA devis bâtiment',
+      'formation IA BTP',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Je forme des artisans et des dirigeants du bâtiment depuis des années : ce qui revient le plus souvent, c’est le temps perdu sur les devis. Avec une bonne préparation et un prompt clair, ChatGPT peut vous livrer une base de devis exploitable en une vingtaine de minutes — pas à la place de votre cerveau, mais pour vous éviter la page blanche et la mise en forme. Ce guide reprend exactement ce que je fais valider en formation : préparer ses données, coller le bon modèle, relire les prix à la main, puis adapter selon le type de chantier. Les montants restent votre responsabilité : l’outil propose une structure, vous validez chaque chiffre.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Le vrai problème : ce n’est pas le chantier, c’est le papier',
+        content:
+          'Sur le terrain, vous savez ce que vous allez faire : déposer les câbles, passer les sous-couches, monter les cloisons. Le client, lui, veut un papier qui rassure : un devis détaillé, lisible, avec des lots clairs et des totaux cohérents. Dans les TPE que j’accompagne, on voit souvent 3 à 5 heures par semaine absorbées par la rédaction et la mise au propre des devis — parfois plus quand il y a plusieurs variantes ou un marché un peu technique. Souvent, le blocage n’est même pas le calcul : c’est de reformuler proprement ce que vous avez déjà en tête, de répéter les mêmes mentions légales, d’aligner les libellés pour que le client comprenne ce qu’il paie. La solution que je propose n’est pas magique : c’est ChatGPT utilisé comme assistant de rédaction pour un devis BTP IA, avec une règle d’or que je répète en salle : on automatise le devis artisan pour gagner du temps sur la forme, jamais pour laisser un robot décider du chiffrage à votre place. Quand la méthode est propre, le premier jet sort en environ vingt minutes ; le reste, c’est votre relecture et votre grille tarifaire. C’est exactement l’objectif d’un bon usage de l’outil : moins de fatigue administrative, plus de disponibilité pour les chantiers et les clients.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 1 — Préparer vos données (sans ça, ChatGPT invente)',
+        content:
+          'Avant d’ouvrir ChatGPT, je vous demande de rassembler le strict nécessaire — comme avant un vrai chiffrage. Côté entreprise : raison sociale, coordonnées, numéro SIRET, mentions d’assurance (décennale, RC pro) si vous les mettez en pied de devis. Côté chantier : type de travaux (neuf, rénovation, extension), localisation au moins par commune, contraintes (accès, délais, horaires bruyants), périmètre précis des prestations. Côté argent : votre grille de prix unitaires ou, à défaut, des ordres de grandeur que vous acceptez d’utiliser provisoirement — mais en les étiquetant comme « à valider ». Les conditions commerciales : acompte, délai de validité du devis, modalités de paiement, taux de TVA prévu (10 % ou 20 % selon le cas rénovation / neuf — en cas de doute, notez-le et vérifiez avec votre comptable). Si vous donnez ça à ChatGPT, vous limitez les « prix fantaisistes » ; si vous donnez un vague « refaire la salle de bain », vous obtiendrez un texte joli mais pas ancré dans votre réalité économique.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 2 — Le prompt magique (celui que je fais copier en formation)',
+        content:
+          'Voici le modèle que je donne tel quel aux équipes : vous le copiez, vous remplacez ce qui est entre crochets par vos infos réelles, et vous lisez la sortie comme un brouillon de chantier — pas comme une vérité comptable. L’objectif est un devis lot par lot, avec séparation claire fournitures et main-d’œuvre quand c’est pertinent, TVA explicitée, et mentions légales de base. Si un prix ne figure pas dans votre grille, le modèle doit laisser « à compléter » plutôt que broder un chiffre crédible au hasard.',
+      },
+      {
+        type: 'prompts',
+        title: 'Le prompt à coller dans ChatGPT (devis complet, lots, TVA)',
+        content: [
+          {
+            titre: 'Modèle — Devis BTP structuré (lots, fournitures, main d’œuvre, TVA)',
+            prompt:
+              "Tu es un assistant de rédaction pour une entreprise du bâtiment en France. Rédige un DEVIS professionnel à partir des éléments suivants, sans inventer de normes techniques ni de prix si je ne les fournis pas.\n\nIDENTITÉ ENTREPRISE : [nom, adresse, téléphone, email, SIRET, assurances décennale et RC pro si connues].\n\nCHANTIER : [adresse ou commune], type [neuf / rénovation / extension], délai souhaité [X semaines], contraintes [accès, stationnement, horaires].\n\nPÉRIMÈTRE : [décrire corps d'état par corps d'état : ex. dépose, préparation des supports, fourniture et pose, finitions].\n\nGRILLE DE PRIX (HT) : [coller PU ou table : désignation / unité / PU HT ; ou écrire « PU à saisir » pour chaque ligne si non fourni].\n\nTVA : indiquer pour chaque poste si tu appliques 10 % ou 20 % et pourquoi (travaux sur logement de plus de 2 ans, etc.) ; si tu n'es pas certain, écris « TVA à confirmer selon situation fiscale du chantier ».\n\nSTRUCTURE DU DOCUMENT :\n1) Objet et rappel du périmètre\n2) Détail par LOT avec sous-titres clairs : pour chaque ligne — désignation, quantité, unité, PU HT, total HT\n3) Distinction fournitures / main-d'œuvre lorsque pertinent\n4) Sous-total HT, détail TVA par taux, Total TTC\n5) Conditions : validité du devis [30 jours], acompte [%], solde, délais de paiement\n6) Mentions légales habituelles (décennale, RC Pro) — sans inventer de numéros de police\n\nSTYLE : français professionnel, vocabulaire BTP correct, phrases courtes. Si une information manque pour chiffrer, écris « À compléter par l'entreprise » au lieu d'estimer un montant.",
+            usage:
+              'Remplacez tout ce qui est entre crochets. Relisez chaque PU et total : ChatGPT ne connaît pas votre marge ni votre saison.',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 3 — Personnaliser et vérifier (indispensable sur les prix)',
+        content:
+          'Le texte généré est une base, pas une offre prête à signer. Je passe toujours en revue les mêmes points avec les stagiaires : d’abord les prix unitaires et les quantités — ChatGPT devis chiffrage peut arrondir ou aligner sur des moyennes trouvées sur internet, ce qui n’a rien à voir avec votre fournisseur local ou votre productivité réelle. Ensuite la TVA : une erreur ici coûte cher au client comme à vous. Puis le descriptif technique : les intitulés de lots doivent coller à ce que vous facturez vraiment (pas de prestation « en trop » qui vous engage). J’ajoute ensuite votre mise en page habituelle : logo, pied de page, numérotation, références aux CGV. Si vous utilisez un logiciel de devis, copiez les lots utiles plutôt que d’envoyer brut le PDF ChatGPT — l’important est de gagner du temps sur la rédaction, pas de créer un second flux bancal. C’est exactement cet enchaînement relecture humaine + outil métier que je valide en formation IA BTP : l’IA accélère, vous tranchez.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 4 — Les variantes : rapide vs détaillé, rénovation vs neuf',
+        content:
+          'Pas besoin du même niveau de détail pour chaque prospect. Pour un petit entretien ou une réparation ciblée, je demande un « devis rapide » : peu de lots, phrases courtes, focus sur déplacement, MO, fourniture principale — le but est d’envoyer vite pour débloquer le planning. Pour une rénovation lourde ou une extension, on passe en « devis détaillé » : lots découpés (dépose, reprise d’étanchéité, isolation, finitions), parce que le client compare souvent plusieurs artisans et que la transparence du poste rassure. Neuf et rénovation ne se traitent pas pareil : en rénovation, j’insiste dans le prompt sur l’imprévu (prises en sous-œuvre, état des supports) pour que le devis dise clairement ce qui est mesuré sur place — ça évite les disputes à l’avancement. Pour le neuf, la structuration par phase ou par corps d’état est souvent plus lisible pour le maître d’ouvrage. Vous pouvez dupliquer le prompt magique et ajouter une ligne « mode : devis synthétique » ou « mode : mémoire technique léger » selon le cas.',
+      },
+      {
+        type: 'prompts',
+        title: '3 prompts prêts à l’emploi (peinture, électricité, maçonnerie)',
+        content: [
+          {
+            titre: 'Devis peinture — pièces et surfaces données',
+            prompt:
+              "Tu es peintre en bâtiment en France. Rédige un devis pour [nombre] pièces, surface totale environ [X] m² de murs et [Y] m² de plafonds. Préparation : lessivage, rebouchages légers, ponçage. Finitions : [mat / satin / acrylique], [nombre] couches. Fourniture des peintures : [oui/non]. Déplacement [zone]. Utilise ma grille PU HT suivante : [coller]. Précise TVA 10 % si travaux sur logement de plus de 2 ans, sinon justifie. Total HT, TVA, TTC. Conditions : validité 30 jours, acompte 30 %.",
+            usage: 'Adaptez surfaces, type de pièces (humides ou non) et gamme peinture.',
+          },
+          {
+            titre: 'Devis électricité — tableau et circuits',
+            prompt:
+              "Tu es électricien qualifié (France). Rédige un devis pour : [rénovation partielle / mise aux normes / extension] — logement [surface] m². Travaux : [ex. remplacement tableau X rangées, circuits éclairage et prises, prises dédiées, mise à la terre]. Fourniture matériel : [marque ou « selon catalogue »]. Main-d'œuvre détaillée par lot. Utilise les PU HT suivants ou laisse « à compléter » : [grille]. Mentionne attestation Consuel si applicable sans inventer de numéro. TVA, totaux, délai d'exécution, validité de l'offre.",
+            usage: 'Complétez avec le nombre de points, tableau existant ou neuf, contraintes génie civil.',
+          },
+          {
+            titre: 'Devis maçonnerie — ouvrages et volumes',
+            prompt:
+              "Tu es maçon en France. Rédige un devis pour [murs / dalle / extension] — [dimensions ou m² / m³]. Béton et armatures : [préciser si fournis]. Fourniture [sable, ciment, parpaings : oui/non]. Main-d'œuvre par étape : fondations, élévation, reprises. Intègre les PU HT : [grille ou à compléter]. Précise délais, conditions météo si travaux extérieurs, TVA 10 % ou 20 % selon contexte. Totaux et acompte.",
+            usage: 'Pour les gros œuvres, joindre toujours une visite technique avant engagement ferme.',
+          },
+        ],
+      },
+      {
+        type: 'list',
+        title: 'Erreurs à éviter (les trois pièges que je vois encore trop souvent)',
+        content: [
+          'Prix fantaisistes — croire le premier total affiché sans passer sur votre grille : ChatGPT est fort en phrases, pas en comptabilité de chantier.',
+          'Oublier frais annexes — déplacement, bennes, échafaudage, protections : si vous ne les indiquez pas dans le prompt, ils ne seront pas dans le devis.',
+          'Zéro relecture — envoyer tel quel au client : vous engage votre nom ; une ligne de TVA ou un lot mal libellé suffit à créer un conflit.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Pour conclure',
+        content:
+          'Automatiser devis artisan avec ChatGPT, ce n’est pas tricher : c’est arrêter de partir de zéro à chaque fois. La méthode qui tient la route, je la répète en formation : données propres, prompt magique, relecture des prix, adaptation au type de chantier. Si vous maîtrisez ça, le gain de temps devient réel sans vous exposer sur le fond. Je préfère toujours qu’on travaille sur vos propres exemples (anonymisés) : un devis type de votre métier, une rénovation récurrente, un petit entretien — comme ça, personne ne repart avec un modèle « scolaire » qui ne colle pas à votre entreprise. Et si vous voulez que ce soit votre équipe qui gagne ce réflexe — avec des cas concrets du bâtiment et des consignes pour ne pas coller d’informations sensibles dans l’outil — c’est tout le sens de ma formation IA BTP chez OFC Création d’Entreprise, certifiée Qualiopi et finançable par l’OPCO Constructys dans les conditions habituelles des entreprises du secteur.',
+      },
+      {
+        type: 'cta',
+        content:
+          'Vous voulez maîtriser ces techniques ? Découvrez ma formation IA BTP finançable Constructys — 4 h ou 7 h en pratique, prompts et relecture des devis inclus. +1 500 professionnels formés, note 4,85/5.',
+        formationHref: '/formations',
+      },
+    ],
+    relatedSlugs: ['chatgpt-devis-btp-methode-2026', 'financer-formation-ia-btp-constructys', 'formation-ia-btp-guide-complet-2026'],
+  },
+
+  // Avril 2026 — Comparatif ChatGPT / Claude / Gemini pour le BTP
+  {
+    slug: 'comparatif-chatgpt-claude-gemini-btp',
+    title: 'ChatGPT vs Claude vs Gemini : lequel choisir quand on est dans le BTP ?',
+    seoTitle: 'Comparatif ChatGPT Claude Gemini BTP — avis terrain | Laure Olivié',
+    description:
+      'Comparatif ChatGPT Claude Gemini BTP : devis, emails, appels d\'offres, réseaux — avis terrain d\'une formatrice. Quel outil pour les artisans et les TP ? Simplicité, mémoire longue, intégration Google. Laure Olivié.',
+    date: '2026-04-08',
+    keywords: [
+      'comparatif ChatGPT Claude Gemini BTP',
+      'ChatGPT vs Claude BTP',
+      'Gemini ou ChatGPT bâtiment',
+      'IA artisan BTP',
+      'Claude mémoire technique',
+      'ChatGPT devis BTP',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Ce comparatif ChatGPT Claude Gemini BTP part de la pratique : ce que j’observe en formation avec des artisans, des conducteurs de travaux et des dirigeants de TPE du bâtiment. Aucun outil ne « gagne » sur tout : chacun a des forces selon que vous rédigez un devis, un courrier tendu, un mémoire technique ou un post LinkedIn. L’objectif est de vous éviter de jongler au hasard entre trois abonnements sans critères.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Mes stagiaires me posent toujours la même question',
+        content:
+          'Dès qu’on ouvre le sujet des assistants d’écriture, quelqu’un lève la main : « Alors, c’est lequel le meilleur ? » Je réponds presque toujours la même chose : le meilleur, c’est celui que vous allez vraiment utiliser deux fois par jour, avec une méthode — pas celui qui a la meilleure réputation sur internet. J’utilise ChatGPT, Claude et Gemini au quotidien avec les groupes : pas en mode démo stérile, mais sur des extraits de devis, des brouillons de mails et des morceaux de DCE anonymisés. Ce qui change le résultat, ce n’est pas seulement le logo en haut de la page, c’est la consigne, la relecture humaine et le type de document. Ce que je vous propose ici, c’est un avis terrain, pas un tableau marketing : des tendances que je vois revenir, lesquelles tiennent aussi à l’évolution des modèles (donc à prendre avec le recul du mois en cours). Je n’ai aucun intérêt à vous vendre un « vainqueur » : mon boulot, c’est que vous gagniez du temps sans prendre de risques sur les données sensibles, et que vous sachiez quand passer d’un outil à l’autre.',
+      },
+      {
+        type: 'html',
+        title: 'Tableau comparatif synthétique (vue d’ensemble)',
+        content:
+          '<p class="text-slate-600">Lecture rapide : « Très bon » = je le sors souvent pour ce cas ; « Bon » = ça fait le job avec un bon prompt ; « Correct » = utilisable mais pas mon premier réflexe pour cette tâche.</p>' +
+          '<div class="mt-4 overflow-x-auto">' +
+          '<table>' +
+          '<caption>Comparatif ChatGPT, Claude et Gemini pour le BTP (avis formatrice)</caption>' +
+          '<thead><tr><th scope="col">Critère</th><th scope="col">ChatGPT</th><th scope="col">Claude</th><th scope="col">Gemini</th></tr></thead>' +
+          '<tbody>' +
+          '<tr><th scope="row">Devis / chiffrage</th><td>Très bon — réactif, bon pour structurer lots et TVA si vous fournissez votre grille.</td><td>Très bon — souvent très propre sur les longues listes de postes.</td><td>Bon — pratique si vous êtes déjà tout le jour dans Google Workspace.</td></tr>' +
+          '<tr><th scope="row">Rédaction courriers / emails</th><td>Très bon — ton professionnel, variantes courtes.</td><td>Très bon — style posé, moins « punchy » parfois.</td><td>Bon à très bon — s’intègre bien à Gmail / Docs.</td></tr>' +
+          '<tr><th scope="row">Appels d’offres (mémoire, CCTP)</th><td>Bon — fenêtre de contexte large en version payante.</td><td>Très bon — confort sur les pièces longues et les relectures.</td><td>Bon — utile pour croiser avec Drive sans copier-coller partout.</td></tr>' +
+          '<tr><th scope="row">Simplicité du quotidien</th><td>Très bon — interface familière, grosse communauté, tutos partout.</td><td>Bon — un cran de moins « grand public », mais clair.</td><td>Très bon pour les équipes déjà chez Google.</td></tr>' +
+          '</tbody></table></div>',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pour les devis et chiffrages : lequel je tends à ouvrir en premier',
+        content:
+          'Pour un devis ou un chiffrage, j’alterne le plus souvent entre ChatGPT et Claude. ChatGPT, les équipes le connaissent déjà : peu de friction pour coller un brief chantier et demander un découpage en lots avec fournitures / main-d’œuvre. Sur les chantiers « classiques » (rénovation, second œuvre), le résultat est souvent prêt à être repris dans votre logiciel métier après une passe sur les prix. Quand la liste de postes devient longue ou qu’il faut garder la cohérence sur plusieurs pages, Claude me donne fréquemment une mise en forme très lisible — les titres de lots restent stables, moins de mélange entre les lignes. Gemini brille moins sur le « pur » devis quand l’équipe n’est pas déjà dans l’écosystème Google, mais si votre devis vit dans une Sheet partagée, le fait de rester dans le même univers peut faire gagner du temps administratif. À titre personnel, je ne laisse jamais un modèle « inventer » une grille tarifaire : soit vous collez vos PU, soit vous demandez explicitement des champs vides à compléter — sinon vous retrouvez des montants plausibles mais faux. Exemple de prompt que je fais tester en salle (à adapter avec vos chiffres réels) : « Artisan [métier], région [X]. Chantier : [description courte]. Produis un devis en tableau avec colonnes désignation, quantité, unité, PU HT, total HT ; sépare fournitures et MO ; ajoute une ligne TVA 10 % ou 20 % selon le cas annoncé ; ne invente pas de prix si je ne les donne pas — laisse « à compléter ». » Ensuite, on vérifie chaque montant à la main : toujours.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pour les emails et courriers : ton, fermeté, relances',
+        content:
+          'Sur les mails clients, relances ou courriers un peu délicats (retard de paiement, réserve sur travaux, demande de complément d’information), je trouve ChatGPT très efficace pour produire trois tons : sec, neutre, plus chaleureux — vous choisissez ce qui colle à votre entreprise. Claude a souvent un style un peu plus « posé » ; certaines personnes préfèrent pour les textes où il ne faut pas paraître agressif. Gemini est particulièrement pratique si le brouillon part directement depuis Gmail : moins d’allers-retours entre onglets. Exemple testé avec des stagiaires : « Rédige un email professionnel en français : nous sommes une entreprise du BTP, nous relançons un devis envoyé le [date], travaux prévus [période], ton ferme mais courtois, 120 mots max, objet inclus. » Les trois outils sortent quelque chose d’utilisable ; la différence, c’est souvent le dernier pourcent de « naturel » — d’où l’intérêt de relire en voix haute.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pour les appels d’offres : mémoire technique, CCTP, synthèses',
+        content:
+          'Là où les dossiers deviennent lourds, la discussion change. Quand on doit résumer des centaines de pages de DCE ou garder le fil entre plusieurs pièces, Claude est souvent celui que je recommande pour une première lecture assistée : les réponses restent généralement bien structurées quand on lui demande un plan, des risques, des points à clarifier avec le maître d’ouvrage. ChatGPT en version payante tient aussi largement le coup grâce à une fenêtre de contexte élevée — je l’utilise beaucoup pour des plans de mémoire en sections (sécurité, méthodologie, moyens humains et matériels). Gemini prend tout son sens si les documents sont déjà dans Google Drive : on réduit les copier-coller hasardeux, ce qui aide à garder une trace propre côté entreprise — à condition que votre organisation accepte ce flux. Prompt type que je donne : « Voici un extrait anonymisé de CCTP. Liste les exigences techniques contraignantes, les interfaces avec d’autres lots, et les points flous à poser en clarification — tableau avec colonne « citation / référence » si le texte le permet. » Puis on croise avec la relecture humaine : l’IA ne remplace pas la visite de chantier ni le visa du responsable.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pour les réseaux sociaux : LinkedIn, Facebook, photos de chantier',
+        content:
+          'Pour des posts réseaux — chantier terminé, recrutement, sécurité au travail — ChatGPT est souvent le plus rapide pour une accroche courte et des variantes (trois longueurs, trois angles). Claude peut aider si vous voulez un texte un peu plus « narration » sur un projet complexe. Gemini peut proposer des formulations adaptées à une communauté locale ou lier à un événement saisonnier si vous lui donnez le contexte. Exemple : « Photo : rénovation de toiture. Entreprise [spécialité]. Ton authentique, pas marketing. 2 hashtags max. 90 mots. » Je le répète en formation : on ne publie pas une photo de chantier sans accord ; et on ne copie-colle pas d’infos confidentielles dans un outil public.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Mon verdict de formatrice BTP',
+        content:
+          'Si vous devez n’en choisir qu’un pour démarrer : commencez par ChatGPT — la courbe d’apprentissage est souvent la plus douce pour une équipe mixte (bureau et terrain). Ensuite, ajoutez Claude lorsque vous traitez régulièrement des documents longs ou des mémoires où la structure compte autant que le fond. Gardez Gemini dans la boucle si votre entreprise vit déjà dans Gmail, Drive et Calendar : l’intégration fait partie du gain de temps, pas seulement le modèle. Je ne crois pas au « gagnant unique » : je crois au trio testé sur vos vrais cas, avec des règles internes sur les données personnelles et les dossiers sensibles. Honnêtement, les écarts entre modèles se réduisent vite ; ce qui reste stable, c’est votre méthode et votre relecture. Côté abonnements, il n’y a pas de règle unique : certains restent sur des offres gratuites pour démarrer, d’autres passent sur des abonnements payants quand le volume de documents augmente — l’important est de savoir ce que vous payez (confidentialité, historique, accès équipe) et de l’aligner avec votre politique interne.',
+      },
+      {
+        type: 'paragraph',
+        title: 'En conclusion',
+        content:
+          'Ce comparatif ChatGPT Claude Gemini BTP ne remplace pas un essai sur votre bureau : les outils évoluent, et ce qui compte est ce que vous validez devant un client ou dans un marché public. En formation, je vous montre les trois sur vos documents réels — devis, modèles de mails, extraits de pièces — pour que chacun reparte avec une feuille de route claire, sans promesse miracle. Si vous voulez qu’on verrouille ça ensemble avec votre métier (bâtiment, travaux publics, sous-traitance), c’est précisément le programme que je porte chez OFC Création d’Entreprise, avec certification Qualiopi et financement possible via l’OPCO Constructys selon les règles en vigueur.',
+      },
+      {
+        type: 'cta',
+        content:
+          'En formation, je vous montre les 3 outils sur vos documents réels — devis, courriers, appels d\'offres. Formation IA BTP, Qualiopi, finançable Constructys selon éligibilité.',
+        formationHref: '/formations',
+      },
+    ],
+    relatedSlugs: [
+      'devis-btp-chatgpt-20-minutes',
+      'chatgpt-devis-btp-methode-2026',
+      'formation-ia-btp-guide-complet-2026',
+    ],
+  },
+
+  // Avril 2026 — IA mémoire technique & appels d'offres BTP (Module 5)
+  {
+    slug: 'ia-memoire-technique-appel-offres-guide-2026',
+    title: 'Comment rédiger un mémoire technique BTP avec l\'IA — Guide complet 2026',
+    seoTitle: 'IA mémoire technique appel d\'offres — guide BTP 2026 | Laure Olivié',
+    description:
+      'IA mémoire technique appel d\'offres : analyser le DCE, structurer le mémoire, prompts CCTP/RC, critères d\'attribution, relecture. Mémoire technique BTP IA, ChatGPT. Finançable Constructys. Laure Olivié.',
+    date: '2026-04-09',
+    keywords: [
+      'IA mémoire technique appel d\'offres',
+      'mémoire technique BTP IA',
+      'rédiger mémoire technique ChatGPT',
+      'appel d\'offres BTP intelligence artificielle',
+      'DCE CCTP mémoire technique',
+      'critères d\'attribution BTP',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Ce guide sur l\'IA mémoire technique appel d\'offres s\'adresse aux dirigeants et chargés d\'affaires des PME du bâtiment et des travaux publics qui répondent à des marchés publics ou privés : comment utiliser ChatGPT ou un assistant IA pour accélérer l\'analyse du DCE et la rédaction du mémoire, sans jamais déléguer la responsabilité du fond. Je m\'appuie sur le Module 5 de ma formation « Répondre aux appels d\'offres avec l\'IA » : analyse DCE, plan aligné sur la note technique, sections clés, relecture. Les pièces officielles (RC, CCTP, DPGF) restent votre référence ; l\'IA structure et reformule à partir de ce que vous lui fournissez.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pourquoi le mémoire technique mérite autant d\'attention',
+        content:
+          'Sur la plupart des marchés de travaux, la note technique représente souvent 40 à 60 % de la notation globale — parfois plus selon les pondérations du règlement de consultation. Pourtant, dans les PME que je forme, je vois encore trop souvent le mémoire rédigé à la dernière minute, avec des passages génériques qui ne répondent pas précisément aux critères d\'attribution. Ce n\'est pas un manque de compétence métier : c\'est un manque de temps et de méthode. Entre le chiffrage, le planning chantier et le courrier du jour, le dossier d\'offre passe au second plan — alors que c\'est pourtant lui qui doit démontrer que vous avez compris le CCTP et que vous savez organiser les moyens. L\'intelligence artificielle ne remplace pas votre expertise : elle vous aide à structurer plus vite, à ne rien oublier dans le RC, et à aligner chaque paragraphe sur les sous-critères de la note technique. Le bon réflexe, c\'est de traiter le mémoire comme un chantier : avec un planning, des jalons et une relecture finale par quelqu\'un qui connaît le marché.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Ce que l\'IA peut faire (et ne peut pas faire) dans un mémoire technique',
+        content:
+          'Ce qu\'elle peut faire : synthétiser des extraits du DCE pour en sortir une grille de critères et de délais ; proposer un plan de mémoire cohérent avec les rubriques demandées dans le RC ; rédiger des brouillons de sections à partir de vos données (effectifs, matériel, références de chantiers) ; reformuler pour gagner en clarté ; générer des listes de points de vigilance (interfaces entre lots, contraintes de phasage). Ce qu\'elle ne peut pas faire à votre place : signer une méthode qu\'elle n\'a pas vue sur le terrain ; garantir une faisabilité prix sans votre DPGF ; inventer des références ou des effectifs crédibles ; interpréter seule une clause ambiguë du CCAP — il faut alors une relecture humaine, voire une question au maître d\'ouvrage. Autre point sensible : ne collez pas des données personnelles, des prix confidentiels ou des pièces entières dans un outil public sans cadre d\'entreprise. En formation, je fais travailler les équipes sur des extraits anonymisés et sur des consignes de confidentialité claires.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 1 — Analyser le DCE avec l\'IA',
+        content:
+          'Avant d\'écrire une ligne du mémoire, il faut savoir ce que le pouvoir adjudicateur attend vraiment. Je commence toujours par le règlement de la consultation (RC) : critères d\'attribution, pondération, sous-critères, pièces à produire, format de remise. Ensuite le CCTP pour votre lot : exigences techniques, délais, interfaces, normes. L\'IA sert à transformer ces dizaines de pages en fiche de travail : exigences classées par thème, points qui alimentent directement les sections du mémoire, et liste des « mots attendus » issus du lexique du marché. Si vous lui donnez des extraits ciblés plutôt que le PDF entier, vous gardez le contrôle et vous réduisez le bruit.',
+      },
+      {
+        type: 'prompts',
+        title: 'Prompt — Synthèse DCE pour préparer le mémoire (RC + extraits CCTP)',
+        content: [
+          {
+            titre: 'Extraction critères, exigences et délais',
+            prompt:
+              "Tu es un assistant pour une entreprise du BTP en France. À partir des extraits suivants du règlement de consultation et du CCTP (collés ci-dessous), produis :\n1) Un tableau des critères d'attribution et sous-critères avec leur pondération si elle figure au texte.\n2) La liste des exigences techniques obligatoires pour le lot [PRÉCISER LE LOT] avec référence d'article ou de paragraphe si présente dans les extraits.\n3) Les délais d'exécution ou phasage imposés.\n4) Les pièces à fournir explicitement mentionnées pour la note technique.\n5) Les points flous ou contradictoires à clarifier avec le MOA/MOE.\nNe invente pas d'information absente des extraits. Texte des extraits :\n\n[COLLER EXTRAITS ANONYMISÉS]",
+            usage:
+              'Collez uniquement les parties utiles du DCE. Vérifiez chaque pondération sur le document officiel.',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 2 — Structurer le plan du mémoire',
+        content:
+          'Le plan doit refléter la grille de notation : si le RC impose une trame ou des intitulés, respectez-les à la lettre. Sinon, alignez vos titres sur les sous-critères (souvent : compréhension du besoin, méthodologie, moyens humains et matériels, planning, QSE, références). L\'IA peut proposer une arborescence avec sous-parties et indication de ce que chaque section doit démontrer par rapport au CCTP. Je demande systématiquement une colonne « lien avec critère / sous-critère » pour éviter les développements hors sujet. N\'oubliez pas les annexes listées au RC (certificats, organisationnel QSE, fiches matériel) : le plan du mémoire n\'est pas seulement du texte, c\'est aussi la liste des preuves que vous allez joindre.',
+      },
+      {
+        type: 'prompts',
+        title: 'Prompt — Plan de mémoire aligné sur les critères d\'attribution',
+        content: [
+          {
+            titre: 'Trame détaillée + lien avec la note technique',
+            prompt:
+              "Voici les critères et sous-critères d'attribution (copiés du RC) :\n[COLLER]\n\nVoici le périmètre du lot et les contraintes principales du CCTP :\n[COLLER]\n\nPropose un plan de mémoire technique en niveaux (I, II, III) avec pour chaque section : objectif, contenu attendu, et renvoi au(x) sous-critère(s) concerné(s). Ajoute une ligne « pièces / illustrations recommandées » par section. Langage : français professionnel BTP. Ne pas dépasser la structure demandée par le RC si une trame imposée existe.",
+            usage: 'Adaptez le niveau de détail à la note maximale du mémoire.',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 3 — Rédiger les sections clés du mémoire',
+        content:
+          'Une fois le plan validé, je fais rédiger les blocs un par un — jamais le mémoire entier en un seul jet sans relecture intermédiaire. La présentation de l\'entreprise doit coller aux attentes du marché (effectifs, savoir-faire, références pertinentes par nature et ampleur). La méthodologie d\'exécution doit montrer que vous avez compris les interfaces et le phasage. Le planning prévisionnel doit être cohérent avec les délais du CCTP et votre organisation interne. Les moyens humains et matériels doivent être vérifiables : pas d\'effectifs « au doigt mouillé ». La démarche QSE doit reprendre vos process réels (planification des contrôles, gestion des déchets, coordination sécurité). Pour chaque rubrique, je fournis à l\'IA des données brutes (chiffres, listes, noms de matériel) et je lui demande une mise en forme argumentative, pas l\'inverse.',
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts par section (à alimenter avec vos données réelles)',
+        content: [
+          {
+            titre: 'Présentation de l\'entreprise',
+            prompt:
+              "Rédige la section « Présentation de l'entreprise » d'un mémoire technique pour un marché de travaux en France. Données à intégrer (véritables uniquement) : raison sociale, forme juridique, année de création, effectif moyen annuel, compétences clés, zone géographique d'intervention, références de chantiers [LISTE AVEC ANNÉES ET MONTANTS / NATURE]. Ton : professionnel, factuel, sans marketing creux. 400 à 600 mots. Terminer par une phrase liant l'expérience au besoin du marché décrit ici : [RÉSUMÉ BESOIN CCTP EN 3 PHRASES].",
+            usage: 'Vérifiez chaque référence et chiffre avant envoi.',
+          },
+          {
+            titre: 'Méthodologie d\'exécution',
+            prompt:
+              "Rédige la section « Méthodologie d'exécution des travaux » pour le lot [LOT]. Contraintes CCTP à respecter : [COLLER POINTS CLÉS]. Décris : phasage, interfaces avec autres lots, gestion des accès, gestion des nuisances, contrôles qualité sur ouvrages clés. Indique les risques identifiés et les mesures associées. Ne pas inventer de procédures internes : si une info manque, insère [à compléter par l'entreprise]. 500 à 800 mots, style technique BTP.",
+            usage: 'Alignez sur le phasage réellement envisageable.',
+          },
+          {
+            titre: 'Planning prévisionnel',
+            prompt:
+              "À partir des durées et jalons suivants (à valider par l'entreprise) : [LISTE TÂCHES + DURÉES], produis un planning sous forme de tableau : tâche, durée, dépendances, jalon, semaine cible. Ajoute un paragraphe sur les marges et le chemin critique. Mentionne les contraintes de calendrier imposées par le CCTP : [COLLER]. Si les dates sont indicatives, précise-le clairement.",
+            usage: 'Exportez ensuite vers votre outil planning habituel.',
+          },
+          {
+            titre: 'Moyens humains et matériels',
+            prompt:
+              "Rédige la section « Moyens humains et matériels ». Effectifs : [NOMBRE + PROFILS]. Matériel principal : [LISTE]. Moyens de levage / équipements spécifiques : [LISTE]. Précise ce qui est déjà en possession de l'entreprise vs location prévue. Ne pas gonfler les quantités : si une ressource n'est pas assurée, écris « à confirmer ». Conclure sur la capacité à tenir le délai global du marché.",
+            usage: 'Cohérence obligatoire avec le planning et le prix.',
+          },
+          {
+            titre: 'Démarche QSE (Qualité, Sécurité, Environnement)',
+            prompt:
+              "Rédige la section QSE : politique qualité et sécurité applicable au chantier, coordination SPS (selon rôle attendu), gestion des déchets, mesures environnementales (nuisances, protection des sols, etc.). Références aux certifications ou documents d'entreprise : [PRÉCISER ISO, PPSPS, modes opératoires — sans inventer de numéros]. Intègre les exigences du CCTP suivantes : [COLLER EXIGENCES QSE]. Ton factuel, conforme aux usages BTP.",
+            usage: 'Recoupez avec votre coordinateur QSE ou votre modèle interne.',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 4 — Personnaliser et vérifier',
+        content:
+          'Un mémoire « IA » se reconnaît quand les phrases sont fluides mais un peu trop générales, ou quand deux sections se contredisent sur les effectifs. La relecture humaine est obligatoire : faites-la faire par quelqu\'un qui n\'a pas écrit le brouillon — idéalement le conducteur de travaux ou le dirigeant. Vérifiez la cohérence avec votre offre de prix : méthode, durées, moyens. Contrôlez que chaque critère de la note technique est couvert au moins une fois, de façon explicite. Préparez les pièces justificatives citées : une référence de chantier doit être traçable ; un plan d\'installation doit exister. Enfin, adaptez le style au pouvoir adjudicateur : un marché hospitalier n\'a pas les mêmes attentes qu\'un lot de voirie. Le Module 5 de la formation insiste sur cette étape : l\'IA accélère le brouillon, l\'entreprise valide le pli.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Note technique, DPGF et critères : faire tenir l\'ensemble',
+        content:
+          'Dans beaucoup de marchés, la note technique n\'est qu\'une partie du dossier : le prix et le détail quantitatif (DPGF ou bordereau de prix) portent le reste de la notation ou des sous-critères liés au « rapport qualité / prix ». Ce que je vérifie systématiquement avec les PME en formation, c\'est l\'alignement : les durées annoncées dans le mémoire doivent être compatibles avec votre planning chiffré ; les moyens matériels listés doivent être cohérents avec les postes de location ou d\'amortissement ; les quantités ou périmètres évoqués dans la méthode ne doivent pas contredire votre quantitatif. Un écart visible entre le discours technique et les chiffres du DPGF est l\'un des signaux les plus négatifs pour un jury. L\'IA peut vous aider à produire un tableau de cohérence « critère → extrait mémoire → renvoi DPGF » si vous lui fournissez les bons éléments — sans jamais les substituer à votre contrôle interne. Pensez aussi aux critères d\'exclusion : un mémoire brillant ne compense pas une pièce administrative manquante ou une erreur de forme de dépôt.',
+      },
+      {
+        type: 'html',
+        title: 'Kit IA appels d\'offres BTP (PDF gratuit)',
+        content:
+          '<p class="text-slate-600">Pour aller plus loin avec des fiches méthode et des rappels sur l\'analyse du DCE et la rédaction du mémoire, <strong>téléchargez notre kit IA appels d\'offres BTP (PDF gratuit)</strong> : support complémentaire à la formation.</p>' +
+          '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
+          '<li><a href="/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html">Kit IA appels d\'offres BTP — 7 prompts (HTML, imprimer en PDF)</a></li>' +
+          '<li><a href="/formations/ia-appels-offre-btp/Support_complementaire_AO_BTP.pdf">Support complémentaire AO BTP (PDF)</a></li>' +
+          '<li><a href="/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP_2026.pdf">Programme détaillé de la formation AO (PDF)</a></li>' +
+          '<li><a href="/formations/ia-appels-offre-btp">Page formation « Répondre aux appels d\'offres avec l\'IA »</a> — Module 5 mémoire technique, finançable Constructys</li>' +
+          '</ul>',
+      },
+      {
+        type: 'prompts',
+        title: '5 prompts prêts à l\'emploi pour votre mémoire technique (versions complètes)',
+        content: [
+          {
+            titre: '1 — Cartographie « critère → contenu du mémoire »',
+            prompt:
+              "À partir du RC et de la grille de notation ci-dessous (copier-coller), crée une table : pour chaque sous-critère, indique quelles sections du mémoire doivent y répondre, quelles pièces justificatives suggérer, et un exemple de phrase de conclusion par section. Signale les trous si un sous-critère n'est couvert par aucune section prévue.\n\n[COLLER RC / GRILLE]",
+            usage: 'Gardez cette table comme checklist avant envoi.',
+          },
+          {
+            titre: '2 — Synthèse risques & interfaces (CCTP)',
+            prompt:
+              "À partir des extraits CCTP suivants concernant le lot [LOT], liste les risques techniques, interfaces avec autres corps d'état, et contraintes de réception. Pour chaque point, propose une réponse courte « comment nous traitons ce point dans l'exécution » en 2 phrases maximum. Ne pas inventer de solutions : si l'info manque, écris « à traiter après visite ».\n\n[COLLER EXTRAITS]",
+            usage: 'Alimente la méthodologie et la QSE.',
+          },
+          {
+            titre: '3 — Paragraphe « valeur technique » lié au prix',
+            prompt:
+              "Rédige un paragraphe (150 à 200 mots) expliquant la cohérence entre l'offre de prix et la méthode proposée : organisation, optimisation des durées, choix de matériaux ou techniques sans divulguer de secrets industriels. Données : [RÉSUMÉ OFFRE TECHNIQUE] + [POINTS CLÉS CHIFFRAGE SANS MONTANTS CONFIDENTIELS SI BESOIN]. Évite le jargon vide ; reste factuel.",
+            usage: 'Souvent utile quand le RC demande une articulation prix / technique.',
+          },
+          {
+            titre: '4 — Checklist relecture avant dépôt',
+            prompt:
+              "Génère une checklist de relecture pour un dossier d'offre BTP : cohérence mémoire / DPGF, présence des attestations, orthographe des références, respect du format de remise, signatures, mentions RGPD si données personnelles, version PDF conforme. Adapte à la liste de pièces suivante : [COLLER LISTE DU RC].",
+            usage: 'À imprimer ou cocher en équipe.',
+          },
+          {
+            titre: '5 — Lettre de pli / note de synthèse pour le jury',
+            prompt:
+              "Rédige une note de synthèse d'une page maximum pour accompagner le mémoire : rappel du besoin compris, trois arguments différenciants de l'entreprise, engagement sur délais et QSE, sans répéter tout le mémoire. Contexte marché : [2 PHRASES]. Points forts à mettre en avant : [LISTE VALIDÉE PAR L'ENTREPRISE].",
+            usage: 'Utile quand une courte note est autorisée ou recommandée.',
+          },
+        ],
+      },
+      {
+        type: 'list',
+        title: 'Erreurs fatales à éviter',
+        content: [
+          'Copier-coller un mémoire d\'un autre marché sans l\'aligner sur le CCTP et les critères du RC — le jury le détecte vite, et vous perdez la note sur la compréhension du besoin.',
+          'Laisser l\'IA inventer des effectifs, références ou certifications : une incohérence avec le DC4 ou les attestations élimine la confiance et peut engager votre responsabilité.',
+          'Oublier de répondre explicitement à un sous-critère de la note technique — même un bon discours général ne remplace pas la trace d\'un critère non traité.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Dernier mot',
+        content:
+          'Rédiger un mémoire technique BTP avec l\'IA, ce n\'est pas court-circuiter le métier : c\'est libérer du temps sur la mise en forme et la structuration pour concentrer votre intelligence sur le fond — risques, moyens, cohérence avec le prix. En formation, j\'anime le Module 5 précisément sur cette chaîne : DCE, plan, rédaction, relecture, avec des prompts testés en salle et des consignes de confidentialité. Si vous voulez monter en puissance sur les appels d\'offres avec votre équipe, l\'offre « Répondre aux appels d\'offres avec l\'IA » est certifiée Qualiopi et peut être financée par l\'OPCO Constructys dans le cadre habituel du plan de développement des compétences — je vous accompagne pour cadrer le besoin et le nombre de participants.',
+      },
+      {
+        type: 'cta',
+        content:
+          'Formez votre équipe à l\'IA pour les appels d\'offres et les mémoires techniques — présentiel ou distanciel, sur vos DCE anonymisés. Formation certifiée Qualiopi, finançable Constructys selon éligibilité.',
+        formationHref: '/formations/ia-appels-offre-btp',
+      },
+    ],
+    relatedSlugs: [
+      'comparatif-chatgpt-claude-gemini-btp',
+      'chatgpt-devis-btp-methode-2026',
+      'financer-formation-ia-btp-constructys',
+    ],
+  },
+
+  // Veille annuelle — intelligence artificielle BTP (à mettre à jour chaque année)
+  {
+    slug: 'ia-btp-2026-tendances',
+    title: 'L\'IA dans le BTP en 2026 — Chiffres, tendances et ce qui change pour les artisans',
+    seoTitle: 'Intelligence artificielle BTP 2026 : tendances, chiffres, terrain | Laure Olivié',
+    description:
+      'Intelligence artificielle BTP 2026 : adoption, 5 tendances (devis, agents IA, AO, BIM, formation), impacts PME. Observatoire métiers BTP, McKinsey, Constructys. Veille annuelle. Laure Olivié.',
+    date: '2026-04-10',
+    keywords: [
+      'intelligence artificielle BTP 2026',
+      'IA BTP tendances',
+      'adoption IA bâtiment',
+      'formation IA BTP Constructys',
+      'IA générative devis BTP',
+      'BIM IA',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Cette veille sur l\'intelligence artificielle BTP en 2026 synthétise des études publiques et retours de terrain : où en est l\'adoption dans le bâtiment et les travaux publics, quelles tendances structurent l\'année, et ce que cela change pour une PME. Dernière mise à jour : avril 2026 — l\'article est pensé pour être révisé chaque année (chiffres, sources, exemples). Je m\'appuie notamment sur l\'Observatoire des métiers du BTP (étude 2026, cabinet Plein Sens), sur des analyses internationales du secteur construction (McKinsey), et sur les indicateurs français (Bpifrance, Baromètre France Num) complétés par le contexte OPCO Constructys.',
+      },
+      {
+        type: 'paragraph',
+        title: 'L\'IA n\'est plus un sujet de conférence : elle est sur les chantiers (et dans les bureaux d\'études)',
+        content:
+          'Il y a trois ans, quand je parlais d\'IA avec des patrons d\'artisanat, on me répondait encore « on verra plus tard ». En 2026, le débat a changé de nature : ce n\'est plus « si » on s\'y met, mais « sur quels cas concrets » on commence — devis, compte rendu, lecture de pièces marchés, modèles BIM. Sur le terrain, le téléphone filme, la tablette envoie des photos, et le bureau d\'études reçoit des volumes de données qu\'un seul cerveau ne peut plus traiter à la main. L\'IA ne pose pas encore les carreaux à votre place : en revanche, elle accélère fortement tout ce qui est écriture, synthèse et préparation de dossiers. Mon angle est celui d\'une formatrice qui voit passer chaque semaine des équipes du BTP : pas de promesse miracle, mais des gains de temps mesurables quand la méthode et la relecture humaine sont au rendez-vous.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Les chiffres clés de l\'IA dans le BTP en 2026 (sources vérifiables)',
+        content:
+          'France — adoption dans le BTP : l\'étude « Observatoire des métiers du BTP » (2026), réalisée auprès de 621 professionnels par le cabinet Plein Sens pour l\'Observatoire, indique que moins de 10 % des entreprises du secteur utilisent déjà l\'IA, avec seulement 3 % de déploiements effectifs et 5 % en cours — tout en notant 36 % de dirigeants se déclarant prêts à adopter. Le fossé s\'explique en partie par la méconnaissance : 43,5 % n\'ont jamais essayé ChatGPT et 16 % ne savent pas ce qu\'est l\'IA (même source). Synthèse et téléchargements : voir la fiche publiée sur le site de l\'Observatoire des métiers du BTP (metiers-btp.fr). Une enquête Orisha Construction / InfoPro Digital (2025) souligne une progression marquée de l\'intention d\'adoption en un an. Échelle nationale tous secteurs : le taux d\'adoption de l\'IA en France avoisine 10 % (contre 6 % en 2023), en dessous de la moyenne européenne d\'environ 13 % (Bpifrance Le Lab ; Baromètre France Num 2025). Côté TPE-PME, l\'IA générative concerne environ 31 % des structures, dont 8 % de façon régulière (mêmes sources). International — construction : McKinsey décrit l\'IA comme une « prochaine frontière » des technologies pour le secteur, avec un potentiel notable sur les tâches à forte intensité documentaire (gestion de projet, documentation, préparation d\'offres) tout tant que les freins en compétences et en organisation sont levés. Marché européen « IA dans la construction » : les analystes (ex. MarketDataForecast) citaient un marché européen de l\'ordre d\'environ 1,5 à 1,8 milliard USD en 2025-2026, avec des trajectoires de croissance annuelle élevées à l\'échelle de la décennie — ordres de grandeur à suivre année après année. Côté financement des compétences, l\'OPCO Constructys publie chaque année un rapport d\'activité détaillant le volume d\'accompagnement des branches (stagiaires formés, engagements PDC, etc.) : la dynamique de formation reste massive ; la demande de compétences « numériques et transition » y tient une place croissante dans les feuilles de route sectorielles.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Tendance 1 — IA générative pour les devis et chiffrages',
+        content:
+          'C\'est l\'usage le plus cité en salle : décrire un chantier en langage naturel et obtenir un premier jet de devis structuré (lots, fournitures, main d\'œuvre, TVA). Les équipes gagnent du temps sur la mise en forme — pas sur la responsabilité du prix. L\'enjeu 2026 : intégrer ces brouillons aux logiciels métiers et verrouiller une grille tarifaire interne pour éviter les « prix plausibles mais faux » générés par défaut.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Tendance 2 — Assistants IA spécialisés BTP (GPTs, agents, copilotes)',
+        content:
+          'Au-delà du chat généraliste, on voit se répandre des assistants entraînés ou paramétrés sur des corpus métiers : modèles de courriers, checklists sécurité, rappels réglementaires. Le risque à éviter : croire qu\'un « agent » remplace une visite de chantier. Le bon usage, observé en formation, est d\'ancrer l\'outil dans des consignes d\'entreprise (ton, mentions légales, interdiction de coller des données sensibles dans un service public non validé).',
+      },
+      {
+        type: 'paragraph',
+        title: 'Tendance 3 — IA et appels d\'offres (analyse DCE, mémoires techniques)',
+        content:
+          'Les dossiers lourds (CCTP, RC, pièces graphiques) poussent les PME à chercher des synthèses rapides et des plans de mémoire alignés sur les critères d\'attribution. Les modèles à grande fenêtre de contexte aident à parcourir des extraits — à condition de travailler sur des parties anonymisées et de garder la validation humaine sur chaque engagement contractuel.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Tendance 4 — IA + BIM + jumeaux numériques',
+        content:
+          'Sur les projets complexes, l\'intersection BIM / simulation / données de chantier progresse : l\'IA aide à détecter des incohérences, à proposer des variantes d\'implantation ou à prioriser des contrôles — surtout là où les maquettes numériques sont déjà structurées. Pour une petite entreprise, le point d\'entrée est souvent plus modeste (extraction de quantités, documentation), mais la trajectoire sectorielle est claire : plus de données structurées, plus d\'usages possibles.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Tendance 5 — Formation IA BTP : demande en hausse et financement via l\'OPCO',
+        content:
+          'Côté terrain, je constate une demande forte de formats courts, pratiques, avec des cas réels — pas des slides génériques. Les dispositifs de prise en charge par l\'OPCO Constructys (plan de développement des compétences, règles par branche et taille d\'entreprise) restent le levier principal pour les structures du BTP ; les montants et plafonds évoluent : vérifiez les barèmes en vigueur sur constructys.fr et le rapport d\'activité annuel. L\'explosion n\'est pas « un chiffre magique sur l\'IA seule », mais une montée en puissance des compétences numériques dans un secteur déjà très formé, avec une place croissante pour l\'IA dans les catalogues et les priorités entreprises.',
+      },
+      {
+        type: 'list',
+        title: 'Ce que ça change concrètement pour une PME du bâtiment',
+        content: [
+          'Le rythme : les dossiers administratifs (devis, réponses clients, synthèses marchés) peuvent être traités plus vite — à condition d\'avoir nommé un référent interne et des règles de relecture.',
+          'Les compétences : la valeur se déplace un peu du « savoir taper vite » vers le « savoir cadrer un prompt, vérifier une sortie, sécuriser les données ».',
+          'La différenciation : les entreprises qui standardisent quelques usages (compte rendu, devis type, extraction DCE) gagnent en régularité par rapport à celles qui improvisent au cas par cas.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Mon avis de formatrice (1 500+ professionnels formés)',
+        content:
+          'Ce qui fonctionne : partir d\'un vrai document (anonymisé), un cas d\'usage par session, et une règle claire — « l\'IA propose, l\'humain valide ». Ce qui échoue : vouloir tout automatiser du jour au lendemain, ou laisser des juniors envoyer des réponses sans contrôle métier. Les équipes les plus satisfaites sont celles qui ont désigné un pilote, fixé des modèles de prompts et partagé une charte simple (données personnelles, clients, montants). Je ne vends pas d\'outil : je fais gagner du temps avec des pratiques reproductibles. Si vous lisez cette veille dans deux ans, comparez surtout l\'évolution des chiffres d\'adoption et des offres éditeurs — pas seulement le buzz.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Sources et références (à actualiser lors des republications annuelles)',
+        content:
+          'Observatoire des métiers du BTP — Étude sur la perception et l\'intégration de l\'IA dans les entreprises du BTP (2026), réalisée avec Plein Sens — fiche et téléchargements sur metiers-btp.fr · Orisha Construction / InfoPro Digital (2025) · McKinsey — Artificial intelligence: Construction technology\'s next frontier (Engineering, Construction & Building Materials) · Bpifrance Le Lab — adoption de l\'IA générative en TPE-PME · Baromètre France Num 2025 · MarketDataForecast et analystes du marché « AI in Construction » (Europe) — projections à interpréter comme ordres de grandeur · OPCO Constructys — rapport d\'activité et barèmes de financement (constructys.fr). Les pourcentages et marchés varient selon les méthodes d\'enquête ; croisez toujours avec les publications officielles mises à jour.',
+      },
+      {
+        type: 'cta',
+        content:
+          'Passez à l\'action — formez vos équipes à l\'IA sur des cas BTP réels (devis, chantier, appels d\'offres). Formations certifiées Qualiopi, finançables Constructys selon éligibilité. +1 500 professionnels formés.',
+        formationHref: '/formations',
+      },
+    ],
+    relatedSlugs: [
+      'adoption-ia-btp-2026-chiffres-freins-leviers',
+      'ia-memoire-technique-appel-offres-guide-2026',
+      'formation-ia-btp-guide-complet-2026',
     ],
   },
 
@@ -337,7 +853,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content: 'Formation ChatGPT pour devis BTP — 4h pratiques. Automatisez vos devis en 2-5 minutes. Financement 100% Constructys.',
-        formationHref: '/chatgpt-artisans-btp',
+        formationHref: '/formation-ia-artisans-btp',
       },
     ],
     relatedSlugs: ['formation-ia-btp-guide-complet-2026', 'financer-formation-ia-btp-constructys'],
@@ -1359,7 +1875,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
   if (s.includes('conducteur-travaux')) return 'appels-offres';
-  if (s.includes('adoption-ia-btp')) return 'metiers';
+  if (s.includes('adoption-ia-btp') || s.includes('ia-btp-2026')) return 'metiers';
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
   if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';
   if (s.includes('avis-google') || s.includes('organisation-chantier')) return 'productivite';

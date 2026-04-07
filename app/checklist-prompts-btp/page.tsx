@@ -119,7 +119,7 @@ export default function ChecklistDocumentPage() {
             <RdvLink className="font-medium text-[#166534] hover:underline">
               Prendre rendez-vous
             </RdvLink>
-            <Link href="/chatgpt-artisans-btp" className="font-medium text-[#166534] hover:underline">
+            <Link href="/formation-ia-artisans-btp" className="font-medium text-[#166534] hover:underline">
               IA pour entreprises du bâtiment
             </Link>
           </div>

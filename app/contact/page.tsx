@@ -287,7 +287,7 @@ export default async function ContactPage({
               <AllerPlusLoin
                 links={[
                   { href: '/formations', label: 'Formation IA BTP' },
-                  { href: '/chatgpt-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
+                  { href: '/formation-ia-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
                   { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous pour un diagnostic' },
                 ]}
               />

@@ -165,7 +165,7 @@ export default function FormationsPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600">
           Formations IA finançables pour les dirigeants et équipes du bâtiment et des travaux publics. Apprenez à{' '}
-          <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
+          <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
             utiliser ChatGPT dans le BTP
           </Link>
           , automatisez devis bâtiment, emails et comptes rendus chantier. De 4h à 14h selon vos objectifs. Méthode 100% pratique.{' '}
@@ -268,7 +268,7 @@ export default function FormationsPage() {
         </h2>
         <ul className="mt-4 flex flex-wrap gap-4">
           <li>
-            <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+            <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>
           </li>
@@ -292,7 +292,7 @@ export default function FormationsPage() {
 
       <AllerPlusLoin
         links={[
-          { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+          { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
           { href: '/blog', label: 'Articles et guides' },

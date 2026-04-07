@@ -1,0 +1,131 @@
+<!--
+  JSON-LD — Page d'accueil laureolivie.fr
+  Coller avant </head> (WordPress : Apparence > Éditeur de thème > header.php,
+  ou Yoast SEO > Réglages généraux > Site représente > code personnalisé,
+  ou plugin « Insert Headers and Footers » — UN SEUL bloc par page).
+
+  Tests : https://validator.schema.org/ | Rich Results Test Google
+  Attention : ne pas dupliquer un autre FAQPage si la même FAQ est déjà injectée.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness", "EducationalOrganization"],
+      "@id": "https://www.laureolivie.fr/#organization",
+      "name": "OFC Création d'Entreprise",
+      "legalName": "OFC Création d'Entreprise",
+      "url": "https://www.laureolivie.fr",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.laureolivie.fr/logo-lo.svg"
+      },
+      "image": "https://www.laureolivie.fr/images/laure-olivie-formatrice.png",
+      "description": "Organisme de formation professionnelle — intelligence artificielle et ChatGPT pour le bâtiment et les travaux publics. Certification Qualiopi.",
+      "telephone": "+33695661818",
+      "email": "laureolivie@yahoo.fr",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6 rue Henri Dunant",
+        "addressLocality": "Guyancourt",
+        "postalCode": "78280",
+        "addressRegion": "Yvelines",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.7713,
+        "longitude": 2.0739
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "France" },
+        { "@type": "AdministrativeArea", "name": "Île-de-France" }
+      ],
+      "taxID": "90524428100010",
+      "sameAs": [
+        "https://www.linkedin.com/in/laure-olivie",
+        "https://www.laureolivie.fr"
+      ]
+    },
+    {
+      "@type": "Course",
+      "@id": "https://www.laureolivie.fr/#course-ia-chatgpt-btp",
+      "name": "Formation IA & ChatGPT pour le BTP",
+      "description": "Formation pratique IA pour artisans et dirigeants du BTP — devis, chantier, mémoires techniques, administratif. Sans prérequis technique.",
+      "inLanguage": "fr-FR",
+      "url": "https://www.laureolivie.fr",
+      "coursePrerequisites": "Aucun prérequis technique — public professionnels du bâtiment et des travaux publics.",
+      "educationalCredentialAwarded": "Attestation de formation (selon parcours)",
+      "provider": { "@id": "https://www.laureolivie.fr/#organization" },
+      "instructor": { "@id": "https://www.laureolivie.fr/#person-laure-olivie" },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.laureolivie.fr/formations",
+        "price": "1000",
+        "priceCurrency": "EUR",
+        "description": "Tarif indicatif : à partir de 1 000 € HT par jour de formation — financement possible via OPCO Constructys selon éligibilité et règles en vigueur.",
+        "availability": "https://schema.org/InStock",
+        "eligibleRegion": { "@type": "Country", "name": "FR" },
+        "seller": { "@id": "https://www.laureolivie.fr/#organization" }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.85",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "1500"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.laureolivie.fr/#person-laure-olivie",
+      "name": "Laure Olivié",
+      "jobTitle": "Formatrice IA & ChatGPT pour le BTP",
+      "image": "https://www.laureolivie.fr/images/laure-olivie-formatrice.png",
+      "url": "https://www.laureolivie.fr/auteur/laure-olivie",
+      "worksFor": { "@id": "https://www.laureolivie.fr/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/laure-olivie"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.laureolivie.fr/#faq-formation-ia-btp",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il des compétences techniques pour suivre la formation IA BTP ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. La formation est conçue pour des professionnels du BTP sans prérequis technique informatique. On travaille sur vos documents réels (devis, comptes rendus, emails) avec relecture et bonnes pratiques de confidentialité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La formation IA pour le BTP est-elle finançable par l'OPCO Constructys ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les formations certifiées Qualiopi proposées par OFC Création d'Entreprise peuvent être financées par l'OPCO Constructys pour les entreprises du secteur et les salariés éligibles, dans le cadre du plan de développement des compétences et selon les barèmes en vigueur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels résultats peut-on attendre après une formation IA et ChatGPT pour le BTP ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les équipes formées gagnent en général plusieurs heures par semaine sur la rédaction (devis, courriers, synthèses) lorsque la méthode est appliquée avec relecture humaine. Les gains dépendent du volume de dossiers et de l'usage régulier des outils."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment utiliser ChatGPT en entreprise du bâtiment sans risquer les données clients ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La formation couvre des consignes simples : ne pas coller d'informations confidentielles dans un outil grand public non validé par l'entreprise, anonymiser les exemples, privilégier des offres professionnelles (Team, Enterprise) lorsque c'est pertinent, et toujours relire les sorties avant envoi."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>

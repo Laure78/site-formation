@@ -26,7 +26,7 @@ const FORMATIONS_DATA = [
   },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: '4h pratiques. Devis en 15 min, emails automatisés. Paris + Île-de-France. 100% finançable OPCO.' },
   { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: '2 jours. DCE, CCTP, comptes rendus chantier. Assistant IA métier TP.' },
-  { path: '/formations/ia-appels-offre-btp', title: 'Répondre aux appels d\'offre avec l\'IA', desc: 'Journée 7h ou parcours LMS 7h. DCE, mémoires techniques, assistant IA, prompts par métier. Qualiopi, Constructys.' },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: 'Journée 7h ou LMS 7h. Analyse DCE, CCTP, mémoire technique appel d\'offres, assistant IA marchés. Qualiopi, Constructys.' },
   { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: '2 jours. Recrutement, GEPP, tableaux de bord RH, assistant IA.' },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Démarrage rapide.' },
   {
@@ -52,10 +52,22 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email} — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
-  { path: '/financement-constructys', title: 'Financement Constructys', content: 'Tarif journalier 2026 : 1000€ HT. Formations 100% finançables OPCO Constructys. Qualiopi.' },
-  { path: '/financement-constructys', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
-  { path: '/chatgpt-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
-  { path: '/ia-devis-batiment', title: 'IA devis bâtiment', content: 'Automatiser les devis bâtiment avec l\'IA. Gain de temps, trames réutilisables.' },
+  { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: 'Tarif journalier 2026 : 1000€ HT. Formations 100% finançables OPCO Constructys. Qualiopi. Plafonds, eGestion, délais.' },
+  { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
+  { path: '/formation-ia-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
+  { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation finançable OPCO Constructys. Gain de temps sur chiffrages.' },
+  {
+    path: '/formation-chatgpt-artisan-electricien',
+    title: 'ChatGPT artisan électricien BTP',
+    content:
+      'Formation IA et ChatGPT pour artisans électriciens et TPE électricité bâtiment : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi, finançable Constructys. Laure Olivié.',
+  },
+  {
+    path: '/formation-ia-travaux-publics',
+    title: 'Formation IA travaux publics',
+    content:
+      "Landing SEO : formation IA et ChatGPT pour routes, VRD, génie civil. Cas d'usage TP (planification, études de sol, marchés publics, rapports chantier). Qualiopi, OPCO Constructys. Fiche détaillée : /formations/ia-travaux-publics (21 h).",
+  },
   { path: '/ia-conducteur-travaux', title: 'IA conducteur de travaux', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE.' },
   { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIRET 905 244 281 00010. Hébergement O2switch.' },
 ];

@@ -713,7 +713,7 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <Link
-              href="/financement-constructys"
+              href="/financement-constructys-formation-ia-btp"
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
             >
               Tout savoir sur le financement Constructys
@@ -877,7 +877,7 @@ export default function HomePage() {
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Link
-                  href="/financement-constructys"
+                  href="/financement-constructys-formation-ia-btp"
                   className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
                 >
                   En savoir plus sur les financements →

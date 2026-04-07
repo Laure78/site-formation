@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit IA pour vos Appels d'Offres BTP — 7 prompts pour gagner des marchés</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --slate: #1e293b;
+      --muted: #64748b;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      color: var(--slate);
+      font-size: 11pt;
+      line-height: 1.45;
+      background: #f1f5f9;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 1rem;
+      padding: 18mm 20mm;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+    }
+    @media print {
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        min-height: auto;
+      }
+      .page:last-of-type { page-break-after: auto; }
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      border: 3px solid var(--accent);
+    }
+    .cover-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .cover h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--slate);
+      line-height: 1.25;
+      margin-top: 2rem;
+    }
+    .cover-sub {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+    .cover-footer {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .cover-footer strong { color: var(--slate); }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 0.35rem;
+    }
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--slate);
+      margin: 0.85rem 0 0.35rem;
+    }
+    p { margin-bottom: 0.6rem; }
+    ul { margin: 0.4rem 0 0.6rem 1.1rem; }
+    li { margin-bottom: 0.25rem; }
+    .small { font-size: 0.85rem; color: var(--muted); }
+    .prompt-box {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 0.85rem 1rem;
+      margin: 0.65rem 0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      font-family: ui-monospace, 'Cascadia Code', monospace;
+      color: #334155;
+    }
+    .meta {
+      margin-top: 0.5rem;
+      padding: 0.65rem 0.75rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      font-size: 0.8rem;
+    }
+    .meta strong { color: var(--slate); }
+    .page-num {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%);
+      color: #fff;
+      padding: 1.25rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .cta-box h2 { color: #fff; border: none; margin-bottom: 0.5rem; }
+    .cta-box p { font-size: 0.9rem; opacity: 0.95; margin-bottom: 0.5rem; }
+    .cta-box a { color: #fff; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 — Couverture -->
+  <section class="page cover">
+    <div>
+      <p class="cover-badge">Lead magnet — usage interne entreprise</p>
+      <h1>Kit IA pour vos Appels d'Offres BTP</h1>
+      <p class="cover-sub">7 prompts pour gagner des marchés</p>
+    </div>
+    <div>
+      <p class="cover-footer">
+        <strong>OFC Création d'Entreprise</strong><br />
+        Organisme de formation certifié Qualiopi<br />
+        <strong>Laure Olivié</strong> — Formatrice IA BTP<br />
+        <a href="https://www.laureolivie.fr" style="color: var(--accent);">www.laureolivie.fr</a> · laureolivie@yahoo.fr
+      </p>
+      <p class="small" style="margin-top: 1rem;">Document mis à jour — 2026</p>
+    </div>
+  </section>
+
+  <!-- Page 2 — Contexte -->
+  <section class="page">
+    <h2>L'IA dans les AO BTP : ce qui change en 2026</h2>
+    <p>
+      Les dossiers de consultation (DCE) ne cessent de grossir : règlement de consultation (RC), CCTP, BPU, plans, CCAP…
+      L'intelligence artificielle ne remplace ni la visite de chantier ni la signature du dirigeant : elle accélère la lecture,
+      la structuration et la relecture — à condition de coller des extraits <strong>anonymisés</strong> dans l'outil et de valider
+      chaque engagement juridique et technique.
+    </p>
+    <h3>Repères utiles (sources publiques)</h3>
+    <ul>
+      <li><strong>Observatoire des métiers du BTP (2026, cabinet Plein Sens)</strong> : moins de 10 % des entreprises du BTP utilisent déjà l'IA ; plus d'un tiers des dirigeants se déclarent prêts à adopter — le fossé vient surtout de la méconnaissance des usages.</li>
+      <li><strong>France — Bpifrance / France Num (2025)</strong> : adoption de l'IA en France autour de 10 % tous secteurs ; les TPE-PME expérimentent massivement l'IA générative, mais de façon encore irrégulière.</li>
+      <li><strong>En pratique AO</strong> : les équipes qui gagnent du temps sont celles qui ont nommé un <strong>référent prompt</strong>, défini une charte données (pas de données personnelles ni de secrets d'affaires dans les outils grand public) et gardé la <strong>relecture humaine</strong> sur critères d'attribution et DPGF.</li>
+    </ul>
+    <p class="small">
+      Ce kit suppose que vous disposez déjà du DCE officiel : l'IA travaille sur des <strong>extraits</strong> que vous sélectionnez,
+      pas sur la substitution au portail d'achat ni au dépôt électronique.
+    </p>
+    <p class="page-num">Page 2 / 8</p>
+  </section>
+
+  <!-- Page 3 — Prompt 1 -->
+  <section class="page">
+    <h2>Prompt 1 — Analyser un CCTP en 5 minutes</h2>
+    <p><strong>Objectif :</strong> sortir une fiche opérationnelle (exigences, délais, interfaces) à partir d'extraits du CCTP et, si besoin, du RC.</p>
+    <div class="meta">
+      <strong>Contexte à fournir :</strong> nature du marché (public / privé), votre lot, extrait(s) du CCTP concernant ce lot, extrait du RC sur les critères d'attribution et la pondération si disponible.<br /><br />
+      <strong>Format de sortie attendu :</strong> tableau des exigences techniques numérotées, liste des délais et jalons, interfaces avec autres lots, points à clarifier avec le MOE, renvois « article CCTP » si présents dans votre extrait.<br /><br />
+      <strong>Pièges à éviter :</strong> ne pas coller le CCTP complet ; ne pas demander à l'IA d'inventer des prescriptions absentes du texte ; vérifier chaque délai sur le document officiel.
+    </div>
+    <h3>Texte à copier dans votre assistant IA</h3>
+    <div class="prompt-box">Tu es un assistant spécialisé marchés de travaux en France. À partir des EXTRAITS DU CCTP et, si fourni, du RC ci-dessous (uniquement le texte que je colle), produis une synthèse opérationnelle pour le LOT [numéro / intitulé].
+
+1) Tableau « Exigences techniques » : colonnes = Exigence | Référence (article ou § si mentionné dans l'extrait) | Impact sur notre méthode | Risque si non traité.
+2) Liste des DÉLAIS et JALONS imposés (date ou durée) avec source dans l'extrait.
+3) INTERFACES avec autres lots ou corps d'état explicitement mentionnées.
+4) Liste des points FLOUS ou contradictoires à poser en demande de précision (sans inventer de questions si le texte est clair).
+5) Rappel des CRITÈRES D'ATTRIBUTION liés au mémoire technique si le RC est fourni (sinon indiquer « RC non fourni »).
+
+Règles : ne pas inventer de prescriptions absentes des extraits ; si une information manque, écris « non précisé dans les extraits fournis » ; rester factuel, vocabulaire BTP correct.
+
+EXTRAITS (anonymisés) :
+[COLLER ICI]</div>
+    <p class="page-num">Page 3 / 8</p>
+  </section>
+
+  <!-- Page 4 — Prompt 2 -->
+  <section class="page">
+    <h2>Prompt 2 — Décision Go / No-Go assistée par IA</h2>
+    <p><strong>Objectif :</strong> structurer une grille de décision avant d'engager des heures chiffrage / mémoire — pas de « oui / non » automatique sans validation humaine.</p>
+    <div class="meta">
+      <strong>Contexte à fournir :</strong> synthèse du besoin, montant estimatif ou enveloppe si connue, moyens disponibles (effectifs, matériel), contraintes calendaires, historique avec le maître d'ouvrage, liste des critères d'élimination du RC.<br /><br />
+      <strong>Format de sortie attendu :</strong> tableau critère / preuve ou information / verdict (vert-orange-rouge) / action recommandée ; synthèse en 5 puces « pour décider ».<br /><br />
+      <strong>Pièges à éviter :</strong> ne pas confondre avis IA et décision commerciale ; ne pas omettre les clauses d'exclusion ; garder la marge et le risque juridique sous la responsabilité du dirigeant.
+    </div>
+    <h3>Texte à copier dans votre assistant IA</h3>
+    <div class="prompt-box">Tu es un chargé d'affaires senior en entreprise du BTP. Aide-moi à structurer une décision GO / NO-GO sur le marché suivant (informations partielles — je compléterai).
+
+Données que je fournis :
+- Objet et localisation (niveau ville / région) : […]
+- Lot(s) visé(s) et périmètre : […]
+- Enveloppe ou ordre de grandeur budget / notre chiffrage interne indicatif : […]
+- Délais de réponse et de réalisation imposés : […]
+- Moyens dont je dispose (effectifs clés, matériel, sous-traitance prévue) : […]
+- Critères d'ÉLIMINATION ou d'exclusion cités dans le RC (liste) : […]
+- Points rouges identifiés (technique, financier, géographique) : […]
+
+Tâche :
+1) Construis une GRILLE avec colonnes : Thème (technique / financier / juridique / organisationnel) | Question à trancher | Information manquante | Niveau de risque (faible à élevé) | Recommandation (poursuivre / approfondir / arrêter).
+2) Liste les pièces ou vérifications indispensables avant engagement (RC, cautions, références, visites).
+3) Termine par un paragraphe « Décision à valider en interne » sans imposer GO ou NO-GO — propose les questions que le dirigeant doit trancher.
+
+Ne donne pas de conseil juridique définitif ; signale qu'un avis juriste peut être nécessaire pour les clauses particulières.</div>
+    <p class="page-num">Page 4 / 8</p>
+  </section>
+
+  <!-- Page 5 — Prompts 3 et 4 -->
+  <section class="page">
+    <h2>Prompt 3 — Structurer le plan du mémoire technique</h2>
+    <div class="meta">
+      <strong>Contexte :</strong> critères et sous-critères du RC, pondération, éventuelle trame imposée, synthèse du besoin CCTP.<br />
+      <strong>Sortie :</strong> plan détaillé I / II / III avec lien explicite « section → sous-critère noté ».<br />
+      <strong>Pièges :</strong> respecter la trame imposée ; ne pas créer de sections hors barème.
+    </div>
+    <div class="prompt-box">Tu es consultant en réponse marchés BTP. Voici les CRITÈRES ET SOUS-CRITÈRES D'ATTRIBUTION (copie du RC) :
+[COLLER]
+
+Voici la synthèse du besoin et contraintes CCTP pour notre lot :
+[COLLER]
+
+Produis un PLAN DE MÉMOIRE TECHNIQUE avec :
+- Titres niveau I, II, III
+- Pour chaque section : objectif, contenu attendu, lien explicite avec le(s) sous-critère(s) noté(s) (ex. « répond à sous-critère 2.b »)
+- Colonne « Pièce justificative ou illustration suggérée »
+- Si le RC impose une trame ou des intitulés obligatoires, REPRODUIS-LES en priorité et indique où insérer nos développements.
+
+Ne rédige pas le mémoire : fournis uniquement la structure et les consignes de rédaction par section.</div>
+
+    <h2 style="margin-top: 1.25rem;">Prompt 4 — Rédiger la méthodologie d'exécution</h2>
+    <div class="meta">
+      <strong>Contexte :</strong> extraits CCTP sur phasage, accès, nuisances, interfaces ; moyens réels de l'entreprise.<br />
+      <strong>Sortie :</strong> texte de section structuré (phases, contrôles qualité, coordination), ton professionnel.<br />
+      <strong>Pièges :</strong> ne pas promettre des moyens ou délais non validés en interne.
+    </div>
+    <div class="prompt-box">Rédige la section « Méthodologie d'exécution des travaux » pour le LOT […] du marché suivant.
+
+Entrées :
+- Exigences et contraintes CCTP (extraits) : [COLLER]
+- Phasage souhaité ou imposé : [PRÉCISER]
+- Moyens internes validés (effectifs types, encadrement, sous-traitants identifiés) : [LISTE]
+- Interfaces avec autres lots : [LISTE ou « à compléter »]
+
+Structure attendue :
+1) Compréhension du besoin (rappel court)
+2) Phasage (séquence logique avec jalons)
+3) Méthodes et contrôles qualité sur ouvrages clés
+4) Gestion des nuisances, accès, coordination chantier
+5) Gestion des interfaces et informations à remonter au MOE
+
+Règles : ne pas inventer de procédures ou d'effectifs ; insérer [à compléter par l'entreprise] si une donnée manque ; style factuel, français professionnel BTP ; longueur cible 600 à 900 mots.</div>
+    <p class="page-num">Page 5 / 8</p>
+  </section>
+
+  <!-- Page 6 — Prompts 5 et 6 -->
+  <section class="page">
+    <h2>Prompt 5 — Rédiger la démarche QSE</h2>
+    <div class="meta">
+      <strong>Contexte :</strong> exigences QSE du CCTP, certifications réelles de l'entreprise, rôles sécurité / environnement.<br />
+      <strong>Sortie :</strong> paragraphes distincts Qualité, Sécurité, Environnement + tableau des risques principaux.<br />
+      <strong>Pièges :</strong> ne pas citer de certification ou numéro de document inventé.
+    </div>
+    <div class="prompt-box">Rédige la section « Démarche Qualité — Sécurité — Environnement (QSE) » pour notre réponse à l'appel d'offres suivant.
+
+Fourni :
+- Exigences QSE extraites du CCTP / CCAP : [COLLER]
+- Certifications et documents réels de l'entreprise (ISO, PPSPS types, modes opératoires — sans numéros inventés) : [PRÉCISER]
+- Politique sécurité et environnementale (tels que validés en interne) : [RÉSUMÉ]
+
+Livrable :
+1) Sous-partie Qualité : objectifs, contrôles, traçabilité, points d'inspection
+2) Sous-partie Sécurité : coordination, formation, EPI, gestion des sous-traitants
+3) Sous-partie Environnement : déchets, nuisances, protection des sols / eaux si pertinent
+4) Tableau synthétique « Risque sur chantier | Mesure | Responsable »
+
+Règles : toute certification ou référence documentaire doit être exacte ou marquée [à compléter] ; ne pas inventer de numéros de police d'assurance ou de visas.</div>
+
+    <h2 style="margin-top: 1rem;">Prompt 6 — Générer le planning prévisionnel</h2>
+    <div class="meta">
+      <strong>Contexte :</strong> durées internes estimées, délais contractuels, contraintes de calendrier du CCTP.<br />
+      <strong>Sortie :</strong> tableau de tâches + dépendances + jalons ; paragraphe sur le chemin critique.<br />
+      <strong>Pièges :</strong> cohérence avec le DPGF et la méthode ; indiquer « indicatif » si les durées ne sont pas figées.
+    </div>
+    <div class="prompt-box">Élabore un PLANNING PRÉVISIONNEL pour l'exécution du lot […] à partir des éléments suivants :
+
+- Liste des tâches ou phases avec durées internes (en jours ouvrés) : [LISTE]
+- Délais imposés par le CCTP ou le RC (date de début, fin, jalons) : [COLLER]
+- Contraintes (interventions nocturnes, ordre des entreprises, arrêts imposés) : [PRÉCISER]
+
+Format demandé :
+1) Tableau : Tâche | Durée | Prédécesseur | Jalon | Semaine cible (indicatif)
+2) Représentation textuelle du chemin critique (3 à 5 phrases)
+3) Liste des risques de décalage et mesures d'absorption
+
+Précise en en-tête : « Planning indicatif — à valider par le conducteur de travaux et aligné sur l'offre de prix (DPGF) ».
+
+Ne pas attribuer de dates fermes sans validation interne : utilise S+1, S+2 ou semaines relatives si nécessaire.</div>
+    <p class="page-num">Page 6 / 8</p>
+  </section>
+
+  <!-- Page 7 — Prompt 7 -->
+  <section class="page">
+    <h2>Prompt 7 — Relire et améliorer le mémoire technique avant soumission</h2>
+    <p><strong>Objectif :</strong> passage de relecture transverse — cohérence, complétude des critères, ton, risques de sur-promesse.</p>
+    <div class="meta">
+      <strong>Contexte à fournir :</strong> mémoire technique en brouillon (ou extraits par section), RC avec critères d'attribution, éventuellement synthèse de l'offre de prix (sans montants confidentiels si vous utilisez un outil non professionnel).<br /><br />
+      <strong>Format de sortie attendu :</strong> liste de corrections prioritaires (bloquant / majeur / mineur), tableau « critère RC | couverture dans le mémoire | manque détecté », suggestions de formulations neutres.<br /><br />
+      <strong>Pièges à éviter :</strong> ne pas envoyer des montants ou données personnelles ; la validation finale reste humaine ; vérifier la conformité du format de remise (signature, nommage des fichiers).
+    </div>
+    <h3>Texte à copier dans votre assistant IA</h3>
+    <div class="prompt-box">Tu es un relecteur expert en réponses marchés BTP. Tu ne remplaces pas le visa du dirigeant.
+
+Entrées :
+A) Extrait ou texte complet du MÉMOIRE TECHNIQUE (version brouillon) :
+[COLLER]
+
+B) Liste des critères et sous-critères d'attribution avec pondération si disponible :
+[COLLER]
+
+C) Contraintes de forme du RC (longueur max, interdiction d'annexes, etc.) :
+[COLLER]
+
+Mission :
+1) Tableau de COUVERTURE : chaque sous-critère noté | section du mémoire qui y répond | évaluation (couvert / partiel / absent) | recommandation courte.
+2) Liste des INCOHÉRENCES internes (effectifs, délais, méthode vs planning) avec gravité.
+3) Liste des SURPROMESSES ou formulations risquées (engagements non soutenus par le texte).
+4) Propositions de reformulation pour 5 passages au ton inadapté (trop marketing ou trop vague).
+5) CHECKLIST finale avant dépôt : cohérence avec DPGF (rappel générique, sans chiffrage si non fourni), présence des attestations citées, relecture orthographique des références.
+
+Si le texte fourni est trop long, indique quelles sections doivent être relues en priorité.
+
+Ne modifie pas les engagements légaux : signale seulement les zones à valider par la direction.</div>
+    <p class="page-num">Page 7 / 8</p>
+  </section>
+
+  <!-- Page 8 — CTA -->
+  <section class="page">
+    <div class="cta-box">
+      <h2>Formez votre équipe aux appels d'offres avec l'IA</h2>
+      <p>
+        Le <strong>Module 5 — Mémoire technique et relecture</strong> fait partie de la formation
+        <strong>« Répondre aux appels d'offres avec l'IA »</strong> (OFC Création d'Entreprise),
+        animée par Laure Olivié : analyse DCE, prompts métier, assistant IA, relecture — sur vos documents réels (anonymisés).
+      </p>
+      <p>Formation certifiée <strong>Qualiopi</strong> — finançable <strong>OPCO Constructys</strong> selon les règles applicables à votre entreprise.</p>
+      <p style="margin-top: 0.75rem;">
+        <a href="https://www.laureolivie.fr/formations/ia-appels-offre-btp">laureolivie.fr/formations/ia-appels-offre-btp</a>
+      </p>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+      <strong>Rappel responsable :</strong> les assistants IA peuvent se tromper ou broder. Vous restez seuls responsables du contenu des offres,
+      du respect du DCE et du RC, et de la cohérence entre mémoire technique, BPU / DPGF et pièces administratives.
+    </p>
+    <p class="small" style="margin-top: 1rem;">
+      © OFC Création d'Entreprise — Reproduction autorisée au sein de votre entreprise. Diffusion publique interdite sans accord écrit.
+    </p>
+    <p class="page-num">Page 8 / 8</p>
+  </section>
+
+</body>
+</html>

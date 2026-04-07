@@ -7,22 +7,24 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'IA devis BTP — Automatiser devis bâtiment | Formation finançable',
+  title: 'IA devis automatique bâtiment — TPE & PME BTP | Formation finançable',
   description:
-    "Automatisez vos devis bâtiment avec l'IA : formation terrain pour TPE et PME du BTP. Gain de temps mesurable. Qualiopi, Constructys. Demandez votre programme.",
+    "IA devis automatique bâtiment : rédiger et structurer vos devis plus vite avec l'IA. TPE et PME du BTP, formation terrain. Qualiopi, financement formation IA OPCO Constructys.",
   path: '/ia-devis-batiment',
   keywords: [
+    'IA devis automatique bâtiment',
     'IA devis bâtiment',
     'IA pour devis BTP',
     'ChatGPT devis construction',
     'automatiser devis bâtiment',
     'devis IA BTP',
+    'financement formation IA OPCO Constructys',
   ],
 });
 
 const DEFINITION = {
-  titre: "Qu'est-ce que l'IA devis bâtiment ?",
-  court: "L'IA devis bâtiment désigne l'utilisation de ChatGPT et outils similaires pour générer, structurer et accélérer la rédaction de devis et chiffrages dans le secteur du BTP : descriptifs techniques, quantités, prix, conditions générales.",
+  titre: "Qu'est-ce que l'IA devis automatique bâtiment ?",
+  court: "L'IA devis automatique bâtiment désigne l'utilisation de ChatGPT et outils similaires pour générer, structurer et accélérer la rédaction de devis et chiffrages dans le secteur du BTP : descriptifs techniques, quantités, prix, conditions générales.",
   long: "Un devis bâtiment complet comprend généralement : un descriptif détaillé des prestations, les quantités et unités, les prix unitaires et totaux HT/TTC, les conditions de validité et de paiement. L'intelligence artificielle peut produire ces éléments à partir d'un brief succinct : type de chantier, corps de métier, superficie, options. Vous conservez la maîtrise des prix et des marges ; l'IA vous fait gagner le temps de rédaction et de mise en forme.",
 };
 
@@ -105,7 +107,7 @@ export default function IADevisBatimentPage() {
         {/* Bloc GEO : Réponse courte */}
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">
-            En bref : IA pour devis bâtiment
+            En bref : IA devis automatique bâtiment
           </h2>
           <p className="mt-4 text-slate-700">{DEFINITION.court}</p>
         </section>
@@ -216,7 +218,7 @@ export default function IADevisBatimentPage() {
           </h2>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
-              <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+              <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
                 ChatGPT pour entreprises BTP
               </Link>
             </li>
@@ -246,7 +248,7 @@ export default function IADevisBatimentPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

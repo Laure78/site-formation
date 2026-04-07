@@ -75,11 +75,11 @@ export default function PrendreRDVPage() {
           <AllerPlusLoin
             links={[
               { href: '/formations', label: 'Catalogue des formations' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+              { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
-              { href: '/financement-constructys', label: 'Financement Constructys' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             ]}
           />
         </div>

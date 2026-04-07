@@ -16,13 +16,14 @@ import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
 export const metadata = createPageMetadata({
-  title: 'Laure Olivié : Formatrice IA BTP | 1592 formés, note 4,85/5',
+  title: 'Laure Olivié — Formatrice IA BTP | Qualiopi | 1 500+ professionnels formés',
   description:
-    "Laure Olivié forme dirigeants et équipes BTP à l'IA et ChatGPT. Réseau FFB, GERESO, Lefebvre Dalloz. 1592 professionnels, note 4,85/5. Qualiopi, Guyancourt.",
+    "Laure Olivié, formatrice IA BTP certifiée Qualiopi : 1 500+ professionnels formés, note 4,85/5. ChatGPT, entreprises du bâtiment et travaux publics. FFB, GERESO, Guyancourt.",
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
     'formatrice IA BTP',
+    'Qualiopi',
     'expert IA bâtiment',
     'LinkedIn Learning instructor',
     'consultant IA BTP',
@@ -366,7 +367,7 @@ export default function AProposPage() {
           <AllerPlusLoin
             links={[
               { href: '/formations', label: 'Formation IA BTP' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+              { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: '/blog', label: 'Articles et guides' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

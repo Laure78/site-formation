@@ -322,7 +322,7 @@ export default function FormationIARHBTPPage() {
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-            { href: '/financement-constructys', label: 'Financement Constructys' },
+            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
       </div>

@@ -16,14 +16,17 @@ import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 const LMS_SLUG = 'ia-appels-offre-btp';
 /** Programme officiel — aligné seed SQL supports */
 const PDF_HREF = '/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP_2026.pdf';
+/** Lead magnet — 8 pages, impression navigateur → PDF */
+const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
 export const metadata = createPageMetadata({
-  title: "Répondre aux appels d'offre avec l'IA — DCE, mémoires, assistant",
+  title: "IA appel d'offres BTP — DCE, CCTP, mémoire technique | Formation",
   description:
-    "Formation appels d'offre avec l'IA : DCE, mémoires techniques, assistant IA, chiffrage. Journée 7h ou parcours LMS 7h. Chargés d'affaires BTP. Qualiopi, Constructys.",
+    "IA appels d'offres BTP : analyse DCE, CCTP, rédaction mémoire technique appel d'offres, assistant IA marchés. Journée 7 h ou LMS 7 h. Chargés d'affaires BTP. Qualiopi, Constructys.",
   path: '/formations/ia-appels-offre-btp',
   keywords: [
-    'IA appels d\'offres BTP',
+    'IA appel d\'offres BTP DCE CCTP',
+    'IA mémoire technique appel d\'offres',
     'mémoire technique BTP IA',
     'analyse CCTP IA',
     'répondre appel d\'offre travaux',
@@ -31,13 +34,14 @@ export const metadata = createPageMetadata({
     'DCE IA',
     'analyse DCE IA',
     'IA marchés publics BTP',
+    'formation IA PME bâtiment',
   ],
 });
 
 const courseSchema = getCourseSchema({
   name: "Répondre aux appels d'offre avec l'IA",
   description:
-    "Formation opérationnelle : analysez les DCE plus vite, rédigez des mémoires techniques et configurez un assistant IA pour vos réponses marchés. Journée 7 h ou parcours LMS 7 h. 100% finançable OPCO selon éligibilité.",
+    "Formation IA appels d'offres BTP : DCE, CCTP, mémoire technique, chiffrage. Analysez les dossiers plus vite et rédigez des réponses marchés avec l'IA. Journée 7 h ou parcours LMS 7 h. 100 % finançable OPCO selon éligibilité.",
   path: '/formations/ia-appels-offre-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -147,7 +151,8 @@ export default function FormationIAAppelsOffreBTPPage() {
         Répondre aux appels d&apos;offre avec l&apos;IA
       </h1>
       <p className="mt-6 text-lg text-slate-600">
-        Analysez les DCE plus vite, rédigez des mémoires techniques convaincants et optimisez vos chiffrages
+        <strong>IA appel d&apos;offres BTP</strong> : analyse DCE et pièces, relecture CCTP, brouillons de{' '}
+        <strong>mémoire technique</strong> pour répondre aux marchés. Optimisez vos chiffrages
         grâce à l&apos;IA. Formation opérationnelle pour entreprises du bâtiment, chargés d&apos;affaires et
         bureaux d&apos;études — même exigence de clarté que sur une fiche type{' '}
         <Link
@@ -167,6 +172,15 @@ export default function FormationIAAppelsOffreBTPPage() {
         >
           <Download size={20} strokeWidth={1.5} />
           Télécharger le programme (PDF)
+        </a>
+        <a
+          href={KIT_7_PROMPTS_HREF}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-100"
+        >
+          <FileText size={20} strokeWidth={1.5} />
+          Kit 7 prompts AO (PDF via impression)
         </a>
         <Link
           href={`/cours/${LMS_SLUG}`}
@@ -324,7 +338,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-            { href: '/financement-constructys', label: 'Financement Constructys' },
+            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/blog/ia-btp-analyse-dce', label: 'Article : analyser un DCE avec l’IA' },
           ]}
         />

@@ -4,22 +4,26 @@ import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France | Guyancourt, Yvelines, Paris',
+  title: 'Formation IA PME bâtiment Île-de-France — Devis, AO, mémoires | OFC',
   description:
-    "Formation IA BTP Île-de-France : devis, appels d'offres, emails. Paris, Yvelines, IDF. Qualiopi, Constructys. Guyancourt, interventions régionales.",
+    "Formation IA BTP Île-de-France : PME et artisans, devis, appels d'offres, mémoire technique. Paris, Yvelines, 8 départements. Qualiopi, financement formation IA OPCO Constructys.",
   path: '/formations/ia-btp-ile-de-france',
   keywords: [
+    'formation IA PME bâtiment Île-de-France',
     'formation IA BTP Île-de-France',
+    'IA mémoire technique appel d\'offres',
     'formation IA Guyancourt',
     'formation ChatGPT BTP Yvelines',
     'IA bâtiment Île-de-France',
     'formation intelligence artificielle BTP Paris',
+    'financement formation IA OPCO Constructys',
   ],
 });
 
 const courseSchema = getCourseSchema({
   name: 'Formation IA BTP en Île-de-France',
-  description: 'Formation IA pour entreprises du BTP en Île-de-France. Basée à Guyancourt (Yvelines). Intervention Paris et 8 départements. Devis, appels d\'offres, emails. Qualiopi · Constructys.',
+  description:
+    "Formation IA PME bâtiment Île-de-France : devis, appels d'offres, mémoires techniques. Guyancourt (Yvelines), Paris et 8 départements. Financement OPCO Constructys. Qualiopi.",
   path: '/formations/ia-btp-ile-de-france',
   providerName: SITE_CONFIG.legalName,
   areaServed: ILE_DE_FRANCE.areaServed,

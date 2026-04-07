@@ -268,7 +268,7 @@ export default function FormationIABTPParisPage() {
               { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
-              { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+              { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             ]}
           />

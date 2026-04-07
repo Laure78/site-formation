@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /xmlrpc.php
+
+# Templately — URLs avec ?templately_library= (noindex recommandé côté serveur / meta, voir doc)
+Disallow: /*?templately_library=*
+
+# Article par défaut WordPress + permaliens datés + archive inutile
+Disallow: /hello-world/
+Disallow: /2024/08/06/hello-world/
+Disallow: /category/uncategorized/
+
+# Elementor — bibliothèque de modèles / prévisualisations (crawl inutile ; noindex côté WP obligatoire pour l’index)
+Disallow: /elementor_library/
+Disallow: /*?post_type=elementor_library*
+Disallow: /*?elementor-preview=*
+Disallow: /*?preview_id=*
+Disallow: /*?preview=*
+Disallow: /*?ver=*
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+Sitemap: https://laureolivie.fr/sitemap_index.xml

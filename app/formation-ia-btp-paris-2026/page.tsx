@@ -142,7 +142,7 @@ export default function FormationIABTPParis2026Page() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/financement-constructys"
+              href="/financement-constructys-formation-ia-btp"
               className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent-soft)] px-6 py-3 font-medium text-[var(--accent)] hover:bg-blue-100"
             >
               Modalités Constructys 2026 →
@@ -154,7 +154,7 @@ export default function FormationIABTPParis2026Page() {
               Guide financement IA BTP →
             </Link>
             <Link
-              href="/financement-constructys"
+              href="/financement-constructys-formation-ia-btp"
               className="inline-flex items-center gap-2 rounded-xl bg-slate-100 px-6 py-3 font-medium text-slate-700 hover:bg-slate-200"
             >
               Tarifs formations →
@@ -175,7 +175,7 @@ export default function FormationIABTPParis2026Page() {
           </p>
           <ul className="mt-8 flex flex-wrap gap-4">
             <li>
-              <Link href="/chatgpt-artisans-btp" className="font-medium text-[var(--accent)] hover:underline">
+              <Link href="/formation-ia-artisans-btp" className="font-medium text-[var(--accent)] hover:underline">
                 ChatGPT pour entreprises BTP
               </Link>
             </li>
@@ -244,7 +244,7 @@ export default function FormationIABTPParis2026Page() {
               { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
               { href: '/formations/ia-btp-ile-de-france', label: 'Formation Île-de-France' },
               { href: '/formations', label: 'Catalogue formations' },
-              { href: '/financement-constructys', label: 'Financement Constructys' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/financement-constructys-100-ia-btp', label: 'Guide financement 100 % IA BTP' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic gratuit' },

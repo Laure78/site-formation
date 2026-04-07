@@ -199,7 +199,7 @@ export default function IAConducteurTravauxPage() {
               </Link>
             </li>
             <li>
-              <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+              <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
                 ChatGPT pour entreprises BTP
               </Link>
             </li>
@@ -229,7 +229,7 @@ export default function IAConducteurTravauxPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/blog', label: 'Articles et guides' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

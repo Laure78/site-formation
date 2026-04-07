@@ -69,8 +69,9 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return { title: 'Article non trouvé' };
+  const metaTitle = article.seoTitle ?? article.title;
   const base = createPageMetadata({
-    title: article.title,
+    title: metaTitle,
     description: article.description,
     path: `/blog/${slug}`,
     keywords: article.keywords,
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: Props) {
       authors: [SITE_CONFIG.name],
       images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
     },
-    twitter: { card: 'summary_large_image', title: article.title, description: article.description },
+    twitter: { card: 'summary_large_image', title: metaTitle, description: article.description },
   };
 }
 
@@ -325,7 +326,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       Catalogue formations
                     </Link>
                     <Link
-                      href="/chatgpt-artisans-btp"
+                      href="/formation-ia-artisans-btp"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
                     >
                       ChatGPT pour entreprises BTP
@@ -337,7 +338,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       IA devis bâtiment
                     </Link>
                     <Link
-                      href="/financement-constructys"
+                      href="/financement-constructys-formation-ia-btp"
                       className="inline-block rounded-xl border-2 border-white/60 px-6 py-2 font-semibold text-white hover:bg-white/10"
                     >
                       Tarifs et financement
@@ -398,7 +399,7 @@ export default async function BlogArticlePage({ params }: Props) {
           </p>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
-              <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
+              <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
                 ChatGPT pour entreprises BTP
               </Link>
             </li>
@@ -451,7 +452,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <Link href="/formations" className="text-[var(--accent)] hover:underline">
             Formation IA BTP
           </Link>
-          <Link href="/chatgpt-artisans-btp" className="text-[var(--accent)] hover:underline">
+          <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
             ChatGPT pour entreprises BTP
           </Link>
           <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
@@ -463,7 +464,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <RdvLink className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous
           </RdvLink>
-          <Link href="/financement-constructys" className="text-[var(--accent)] hover:underline">
+          <Link href="/financement-constructys-formation-ia-btp" className="text-[var(--accent)] hover:underline">
             Tarifs et financement
           </Link>
           <Link href="/blog" className="text-[var(--accent)] hover:underline">
@@ -477,7 +478,7 @@ export default async function BlogArticlePage({ params }: Props) {
             { href: '/formations', label: 'Formation IA BTP' },
             { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
             { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

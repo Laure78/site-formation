@@ -209,7 +209,7 @@ export default function ExpertIABTPPage() {
               { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '1 jour — Intermédiaire' },
               { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '2 jours — Recrutement & GEPP' },
               { title: "L'IA au service des Travaux Publics", href: '/formations/ia-travaux-publics', desc: '2 jours — Spécialisation TP' },
-              { title: 'ChatGPT & IA pour entreprises BTP', href: '/chatgpt-artisans-btp', desc: '4h — TPE & PME' },
+              { title: 'ChatGPT & IA pour entreprises BTP', href: '/formation-ia-artisans-btp', desc: '4h — TPE & PME' },
               {
                 title: "Sensibilisation IA & assistants",
                 href: '/formations/sensibilisation-ia-assistants-personnalises',

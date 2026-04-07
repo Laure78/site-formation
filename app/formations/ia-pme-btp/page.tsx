@@ -7,16 +7,23 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA bâtiment PME — Devis, productivité | Constructys',
+  title: 'Formation IA PME bâtiment — Devis, productivité, Île-de-France | OFC',
   description:
-    "PME du bâtiment : devis, emails et administratif avec l'IA sans surcharger les équipes. Formations 4 h à 7 h. Qualiopi, Constructys. Planifiez un diagnostic.",
+    "Formation IA PME bâtiment : devis, emails, administratif. Interventions Île-de-France et France. 4 h à 7 h, Qualiopi, financement formation IA OPCO Constructys. Diagnostic sur demande.",
   path: '/formations/ia-pme-btp',
-  keywords: ['formation IA PME BTP', 'IA devis bâtiment', 'formation IA Constructys'],
+  keywords: [
+    'formation IA PME bâtiment',
+    'formation IA PME bâtiment Île-de-France',
+    'IA devis bâtiment',
+    'financement formation IA OPCO Constructys',
+    'formation IA Constructys',
+  ],
 });
 
 const courseSchema = getCourseSchema({
   name: "Formation IA pour PME du BTP",
-  description: "Programme sur-mesure pour les PME du bâtiment : devis, chiffrages, emails, comptes rendus. Optimisez votre temps avec l'IA sans embaucher. 100% finançable Constructys.",
+  description:
+    "Formation IA PME bâtiment : devis, chiffrages, emails, comptes rendus. Paris, Île-de-France et France. Financement formation IA OPCO Constructys selon éligibilité. 100 % finançable Constructys.",
   path: '/formations/ia-pme-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -85,7 +92,11 @@ export default function FormationIAPMEBTPPage() {
       <p className="mt-4 text-slate-600">
         Les PME du BTP perdent un temps précieux sur l&apos;administratif. L&apos;IA devis bâtiment
         et les outils comme ChatGPT permettent de gagner 3 à 5h par semaine par collaborateur,
-        sans recruter. Notre formation est 100 % finançable par l&apos;OPCO Constructys.
+        sans recruter. Interventions en{' '}
+        <Link href="/formations/ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
+          formation IA BTP Île-de-France
+        </Link>{' '}
+        et partout en France. Financement formation IA via l&apos;OPCO Constructys (selon dossier).
       </p>
 
       <section className="mt-12">
@@ -122,8 +133,8 @@ export default function FormationIAPMEBTPPage() {
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-            { href: '/financement-constructys', label: 'Financement Constructys' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
+            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           ]}
         />
       </div>

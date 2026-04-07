@@ -33,7 +33,7 @@ export default function DiagnosticIABTPPage() {
           variant="compact"
           links={[
             { href: '/formations', label: 'Formation IA BTP' },
-            { href: '/chatgpt-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },

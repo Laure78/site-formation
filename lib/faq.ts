@@ -144,6 +144,42 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
 ];
 
+/** FAQ page financement Constructys formation IA BTP — schema.org FAQPage */
+export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
+  {
+    q: "Ma formation IA est-elle éligible Constructys ?",
+    a: "Oui, si votre entreprise relève du secteur BTP (bâtiment, travaux publics, négoce de matériaux) et que la formation est inscrite au plan de développement des compétences. Les actions dispensées par un organisme certifié Qualiopi, comme OFC, répondent aux exigences OPCO pour la prise en charge.",
+  },
+  {
+    q: "Quel est le montant maximum remboursé ?",
+    a: "Constructys applique un plafond de coûts pédagogiques de 24 € HT par heure et par participant. En session intra-entreprise, la prise en charge est plafonnée à 840 € HT par jour et par groupe. Le reste à charge dépend de la taille de l'entreprise et des barèmes salaires et annexes en vigueur.",
+  },
+  {
+    q: "Combien de temps avant la formation faut-il déposer le dossier ?",
+    a: "Le dossier complet doit parvenir à Constructys au moins 15 jours calendaires avant le premier jour de formation, via la plateforme eGestion. La formation ne doit pas avoir commencé avant la réception de la demande.",
+  },
+  {
+    q: "Mon entreprise de moins de 11 salariés a-t-elle droit au financement ?",
+    a: "Oui, les très petites entreprises sont éligibles. La participation aux frais de salaires suit un barème spécifique (par exemple 15 € HT par heure et par stagiaire hors cas particuliers). Les plafonds pédagogiques restent alignés sur les règles Constructys 2026.",
+  },
+  {
+    q: "La formation IA est-elle éligible au CPF ?",
+    a: "L'éligibilité au Compte personnel de formation dépend de l'enregistrement de l'action sur France compétences et du catalogue. Pour le volet entreprise et OPCO, c'est la prise en charge Constructys qui s'applique dans le cadre du plan de développement des compétences. Nous vous indiquons la bonne combinaison selon votre situation.",
+  },
+  {
+    q: "Constructys finance-t-il les formations en distanciel ?",
+    a: "Oui, lorsque l'action est éligible au plan de développement des compétences et respecte les conditions du dispositif, le distanciel peut être financé comme le présentiel. L'essentiel est un programme clair, des modalités d'évaluation et un dossier complet sur eGestion.",
+  },
+  {
+    q: "Que se passe-t-il si ma demande est déposée en retard ?",
+    a: "Depuis le 1er janvier 2026, les demandes incomplètes ou reçues après la date limite ne sont plus financées. Il n'y a pas d'exception : anticipez le montage de dossier avec votre organisme de formation.",
+  },
+  {
+    q: "Comment savoir si mon OPCO est Constructys ?",
+    a: "Constructys est l'OPCO du BTP : entreprises du bâtiment, des travaux publics et activités assimilées, négoce de matériaux. Si votre activité principale est dans ce périmètre, c'est bien Constructys qui gère votre contribution et vos demandes de financement.",
+  },
+];
+
 export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Où intervenez-vous pour les formations IA BTP ?",
@@ -239,6 +275,26 @@ export const FAQ_BATIMENT: FAQItem[] = [
 ];
 
 /** FAQ — formation L'IA au service des Travaux Publics */
+/** FAQ landing SEO — formation IA travaux publics (page dédiée) */
+export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
+  {
+    q: "Pourquoi une formation « IA travaux publics » plutôt qu'une formation bâtiment générique ?",
+    a: "Les enjeux TP (VRD, terrassement, enrobés, ouvrages d'art, maître d'ouvrage public, marchés publics) ne sont pas ceux du gros œuvre ou de la second œuvre. Les documents, délais et interlocuteurs diffèrent : une formation dédiée aligne les cas d'usage et les prompts sur vos chantiers routes et réseaux.",
+  },
+  {
+    q: "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
+    a: "Si votre activité relève du périmètre BTP / travaux publics, les règles OPCO (notamment Constructys) s'appliquent dans le cadre du plan de développement des compétences. Le montage de dossier et les plafonds dépendent de votre taille et du dispositif retenu — nous vous guidons sur le devis.",
+  },
+  {
+    q: "La formation couvre-t-elle à la fois les marchés publics et les dossiers privés ?",
+    a: "Oui : la logique de consultation, de structuration de réponse et de relecture s'applique aux deux contextes. Les marchés publics ajoutent des contraintes de forme et de délais que nous intégrons dans les ateliers (questions, mémoires, pièces).",
+  },
+  {
+    q: "Existe-t-il un format court ou seulement le parcours 21 h ?",
+    a: "La référence catalogue est un parcours 3 jours (21 h) pour une montée en puissance complète. Selon vos besoins, des formats plus courts ou une sensibilisation peuvent être étudiés en intra — indiquez-le dans votre demande de devis.",
+  },
+];
+
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
     q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",
