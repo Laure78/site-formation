@@ -10,6 +10,8 @@ export type ClientLogoItem = {
   height: number;
   /** Affiché sous le logo si besoin (ex. plusieurs entrées FFB avec le même visuel). */
   caption?: string;
+  /** Logo horizontal large (ex. CSFE). */
+  wide?: boolean;
 };
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
@@ -32,30 +34,30 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     caption: 'FFB Artisan',
   },
   {
-    id: 'ffb-gp-csfe',
-    name: 'FFB Grand Paris CSFE',
-    alt: 'FFB Grand Paris et CSFE',
-    src: '/images/partenaires/ffb-logo-officiel.png',
-    width: 200,
-    height: 80,
-    caption: 'FFB Grand Paris · CSFE',
+    id: 'ffb-grand-paris-idf',
+    name: 'FFB Grand Paris Île-de-France',
+    alt: 'FFB — Fédération française du bâtiment, Grand Paris Île-de-France',
+    src: '/images/partenaires/ffb-grand-paris-ile-de-france.png',
+    width: 400,
+    height: 120,
+    wide: true,
+  },
+  {
+    id: 'csfe',
+    name: 'CSFE',
+    alt: 'CSFE — Chambre syndicale française de l\'étanchéité, professionnels de l\'étanchéité',
+    src: '/images/partenaires/csfe-logo.png',
+    width: 360,
+    height: 120,
+    wide: true,
   },
   {
     id: 'cnam',
-    name: 'CNAM Entreprise',
-    alt: 'CNAM Entreprise',
-    src: '/images/partenaires/cnam-entreprise.svg',
-    width: 180,
-    height: 48,
-  },
-  {
-    id: 'lefebvre-dalloz',
-    name: 'Lefebvre Dalloz Compétences',
-    alt: 'Lefebvre Dalloz Compétences',
-    src: '/images/partenaires/lefebvre-dalloz.png',
-    width: 200,
-    height: 56,
-    caption: 'Lefebvre Dalloz Compétences',
+    name: 'le CNAM entreprises',
+    alt: 'le CNAM entreprises',
+    src: '/images/partenaires/cnam-entreprises.png',
+    width: 220,
+    height: 72,
   },
   {
     id: 'arfab',

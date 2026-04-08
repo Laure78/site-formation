@@ -10,16 +10,28 @@ function LogoRow({ idSuffix = '' }: { idSuffix?: string }) {
       {CLIENT_LOGOS_MARQUEE.map((logo) => (
         <div
           key={`${logo.id}${idSuffix}`}
-          className="flex h-[4.5rem] shrink-0 flex-col items-center justify-center gap-1 px-8 md:h-[5rem] md:px-10"
+          className={`flex shrink-0 flex-col items-center justify-center gap-1 px-6 md:px-8 ${
+            logo.wide ? 'min-h-[5.5rem] py-1 md:min-h-[6rem]' : 'h-[4.5rem] md:h-[5rem]'
+          }`}
         >
-          <div className="relative flex h-11 max-h-11 w-[min(9rem,28vw)] items-center justify-center md:h-12 md:max-h-12 md:w-40">
+          <div
+            className={`relative flex items-center justify-center ${
+              logo.wide
+                ? 'h-20 max-h-20 w-[min(18rem,85vw)] md:h-24 md:max-h-24 md:w-[min(22rem,40vw)]'
+                : 'h-11 max-h-11 w-[min(9rem,28vw)] md:h-12 md:max-h-12 md:w-40'
+            }`}
+          >
             <Image
               src={logo.src}
               alt={logo.alt}
               width={logo.width}
               height={logo.height}
-              className="max-h-11 w-auto max-w-full object-contain opacity-[0.92] md:max-h-12"
-              sizes="(max-width: 768px) 28vw, 160px"
+              className={`w-auto max-w-full object-contain opacity-[0.92] ${
+                logo.wide
+                  ? 'max-h-20 md:max-h-24'
+                  : 'max-h-11 md:max-h-12'
+              }`}
+              sizes={logo.wide ? '(max-width: 768px) 85vw, 320px' : '(max-width: 768px) 28vw, 160px'}
             />
           </div>
           {logo.caption ? (
