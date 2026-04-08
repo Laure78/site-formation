@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/seo';
+import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { PHOTOS } from '@/lib/photos';
 
 /** Cartes « articles liés » — titres & accroches alignés maquette ; liens vers articles du blog. */
@@ -79,13 +80,15 @@ export function ArticlesFormationLies() {
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{a.excerpt}</p>
                 <div className="mt-4 flex items-center gap-2 border-t border-slate-100 pt-4">
-                  <Image
-                    src="/images/laure-olivie-linkedin-graz.png"
-                    alt={SITE_CONFIG.name}
-                    width={36}
-                    height={36}
-                    className="h-9 w-9 shrink-0 rounded-full object-cover ring-2 ring-[var(--accent-soft)]"
-                  />
+                  <PortraitLinkedInLink className="shrink-0 rounded-full ring-2 ring-[var(--accent-soft)] transition-opacity hover:opacity-95">
+                    <Image
+                      src="/images/laure-olivie-linkedin-graz.png"
+                      alt={SITE_CONFIG.name}
+                      width={36}
+                      height={36}
+                      className="h-9 w-9 rounded-full object-cover"
+                    />
+                  </PortraitLinkedInLink>
                   <span className="text-sm font-medium text-slate-800">{SITE_CONFIG.name}</span>
                 </div>
               </div>

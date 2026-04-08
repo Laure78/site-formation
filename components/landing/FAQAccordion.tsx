@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import type { FAQItem } from '@/lib/faq';
 import { FAQ_ITEMS } from '@/lib/faq';
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 
 type FAQAccordionProps = {
   items?: readonly FAQItem[];
@@ -31,7 +32,7 @@ export function FAQAccordion({ items = FAQ_ITEMS }: FAQAccordionProps) {
           </button>
           {open === i && (
             <p className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">
-              {item.a}
+              <FAQAnswer content={item.a} />
             </p>
           )}
         </div>

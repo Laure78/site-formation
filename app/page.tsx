@@ -26,6 +26,7 @@ import {
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
@@ -168,7 +169,7 @@ export default function HomePage() {
               <CitationSentence text="La formation IA BTP animée par Laure Olivié permet aux professionnels du bâtiment de gagner 3 à 5 heures par semaine en automatisant les devis, l'administratif et les réponses aux appels d'offres avec ChatGPT et les outils IA adaptés au terrain." />
             </div>
             <div className="shrink-0 lg:w-80">
-              <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <PortraitLinkedInLink className="block overflow-hidden rounded-2xl shadow-2xl transition-opacity hover:opacity-95">
                 <Image
                   src={PHOTOS.interventionClaude.src}
                   alt={PHOTOS.interventionClaude.alt}
@@ -178,7 +179,7 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 320px"
                   priority
                 />
-              </div>
+              </PortraitLinkedInLink>
             </div>
           </div>
         </div>
@@ -802,7 +803,7 @@ export default function HomePage() {
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
               <ProfilePhoto />
               <div className="grid grid-cols-2 gap-2">
-                <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                <PortraitLinkedInLink className="relative block aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-opacity hover:opacity-95">
                   <Image
                     src="/images/laure-olivie-linkedin-graz.png"
                     alt="Laure Olivié — événement LinkedIn Graz, formatrice IA BTP"
@@ -810,8 +811,8 @@ export default function HomePage() {
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 45vw, 180px"
                   />
-                </div>
-                <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+                </PortraitLinkedInLink>
+                <PortraitLinkedInLink className="relative block aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-opacity hover:opacity-95">
                   <Image
                     src="/images/laure-olivie-linkedin-studio.png"
                     alt="Laure Olivié — tournage LinkedIn Learning, formation IA pour le BTP"
@@ -819,7 +820,7 @@ export default function HomePage() {
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 45vw, 180px"
                   />
-                </div>
+                </PortraitLinkedInLink>
               </div>
               <p className="text-center text-xs text-slate-500">
                 LinkedIn Learning &amp; événements professionnels

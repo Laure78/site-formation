@@ -3,6 +3,8 @@
  * Formation IA BTP — France, Île-de-France, Guyancourt (Yvelines)
  */
 
+import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
+
 const SITE_URL_DEFAULT = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
 
 /** Profil LinkedIn (locale FR) — source unique pour liens UI et sameAs */
@@ -346,7 +348,7 @@ export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
       name: item.q,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: item.a,
+        text: faqAnswerPlainTextForSchema(item.a),
       },
     })),
   };

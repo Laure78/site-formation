@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import type { FAQItem } from '@/lib/faq';
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 
 type FAQSectionProps = {
   items: readonly FAQItem[];
@@ -43,7 +44,9 @@ export function FAQSection({ items, title = 'Questions fréquentes', subtitle, i
                 </span>
               </button>
               {open === i && (
-                <p className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">{item.a}</p>
+                <p className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">
+                  <FAQAnswer content={item.a} />
+                </p>
               )}
             </div>
           ))}

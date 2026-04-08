@@ -31,6 +31,7 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { FAQ_BATIMENT } from '@/lib/faq';
+import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
@@ -342,7 +343,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               </div>
             </div>
             <div className="w-full shrink-0 lg:w-[400px]">
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+              <PortraitLinkedInLink className="block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition-opacity hover:opacity-95">
                 <Image
                   src="/images/formation-ia-btp-entreprise.png"
                   alt="Formation IA bâtiment en entreprise — atelier pratique dédié aux professionnels du BTP : devis, emails et suivi chantier avec Laure Olivié (Qualiopi)."
@@ -352,7 +353,7 @@ export default function FormationIAuServiceDuBatimentPage() {
                   sizes="(max-width: 1024px) 100vw, 400px"
                   priority
                 />
-              </div>
+              </PortraitLinkedInLink>
               <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
                 <div className="flex items-center gap-2 text-[var(--accent)]">
                   <Building2 size={22} strokeWidth={1.5} aria-hidden />

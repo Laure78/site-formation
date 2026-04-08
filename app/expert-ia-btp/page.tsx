@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Award, Briefcase, Users, GraduationCap, CheckCircle, TrendingUp, Star } from 'lucide-react';
 import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
+import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
@@ -62,7 +63,7 @@ export default function ExpertIABTPPage() {
               </div>
             </div>
             <div className="w-full shrink-0 lg:w-96">
-              <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <PortraitLinkedInLink className="block overflow-hidden rounded-2xl shadow-2xl transition-opacity hover:opacity-95">
                 <Image
                   src={PHOTOS.formatriceLowerThird.src}
                   alt={PHOTOS.formatriceLowerThird.alt}
@@ -72,7 +73,7 @@ export default function ExpertIABTPPage() {
                   sizes="(max-width: 1024px) 100vw, 384px"
                   priority
                 />
-              </div>
+              </PortraitLinkedInLink>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { Check, FileText, Calendar, ClipboardList, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -151,7 +152,7 @@ export default function IAConducteurTravauxPage() {
                 className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
               >
                 <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-2 text-slate-600">{a}</p>
+                <p className="mt-2 text-slate-600"><FAQAnswer content={a} /></p>
               </div>
             ))}
           </div>

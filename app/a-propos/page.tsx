@@ -11,6 +11,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { PARTENAIRES_INSTITUTIONNELS } from '@/lib/partenaires-institutionnels';
+import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
@@ -143,7 +144,7 @@ export default function AProposPage() {
           </ul>
 
           <div className="mt-16 max-w-4xl mx-auto">
-            <div className="mb-10 overflow-hidden rounded-2xl shadow-lg">
+            <PortraitLinkedInLink className="mb-10 block overflow-hidden rounded-2xl shadow-lg transition-opacity hover:opacity-95">
               <Image
                 src="/images/rencontres-artisans-ia-ffb-btp.png"
                 alt="Rencontres FFB avec Laure Olivié : formation intelligence artificielle au service des entreprises du bâtiment"
@@ -151,7 +152,7 @@ export default function AProposPage() {
                 height={630}
                 className="h-auto w-full object-cover"
               />
-            </div>
+            </PortraitLinkedInLink>
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
               <div className="flex gap-6">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)] text-white">

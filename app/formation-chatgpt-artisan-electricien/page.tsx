@@ -1,3 +1,4 @@
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -305,7 +306,7 @@ export default function FormationChatGPTArtisanElectricienPage() {
                 className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
               >
                 <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">{a}</p>
+                <p className="mt-2 text-slate-600 leading-relaxed"><FAQAnswer content={a} /></p>
               </div>
             ))}
           </div>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { User } from 'lucide-react';
 import { PHOTOS } from '@/lib/photos';
+import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
 const PROFILE = PHOTOS.interventionClaude;
 
@@ -19,7 +20,7 @@ export function ProfilePhoto() {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl shadow-lg">
+    <PortraitLinkedInLink className="block overflow-hidden rounded-2xl shadow-lg transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]">
       <Image
         src={PROFILE.src}
         alt={PROFILE.alt}
@@ -30,6 +31,6 @@ export function ProfilePhoto() {
         priority
         onError={() => setError(true)}
       />
-    </div>
+    </PortraitLinkedInLink>
   );
 }

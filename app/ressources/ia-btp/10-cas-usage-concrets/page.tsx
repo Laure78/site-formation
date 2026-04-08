@@ -1,3 +1,4 @@
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { Check, ArrowRight, Lightbulb, TrendingUp, Clock, Euro } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -329,7 +330,7 @@ export default function CasUsageIABTPPage() {
                     className="shrink-0 transition-transform group-open:rotate-90"
                   />
                 </summary>
-                <p className="mt-4 text-slate-700">{item.a}</p>
+                <p className="mt-4 text-slate-700"><FAQAnswer content={item.a} /></p>
               </details>
             ))}
           </div>

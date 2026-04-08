@@ -209,12 +209,73 @@ function isActive(href: string, pathname: string) {
   return pathname === href || pathname.startsWith(href + '/');
 }
 
-/** Colonnes du sous-grille 12 pour les cartes du méga-menu (4, 3 ou 2 items). */
-function megaLinkColClass(linkCount: number) {
-  if (linkCount >= 4) return 'col-span-12 sm:col-span-6 xl:col-span-3';
-  if (linkCount === 3) return 'col-span-12 sm:col-span-6 xl:col-span-4';
-  if (linkCount === 2) return 'col-span-12 md:col-span-6';
-  return 'col-span-12';
+function MegaDropdownPanel({
+  mega,
+  pathname,
+}: {
+  mega: NavMega;
+  pathname: string;
+}) {
+  return (
+    <div
+      className={`absolute top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,26rem)] pt-2 ${
+        mega.id === 'a-propos' ? 'right-0 left-auto' : 'left-0'
+      }`}
+    >
+      <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
+        <div className="border-b border-slate-100 px-4 pb-3">
+          <Link
+            href={mega.allHref}
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent)]/90"
+          >
+            {mega.allLabel}
+            <ArrowRight
+              size={15}
+              className="transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </Link>
+          <p className="mt-2 text-xs leading-relaxed text-slate-500">
+            {mega.id === 'cas-usage'
+              ? 'Choisissez votre contexte : on vous oriente vers les pages et formations les plus pertinentes.'
+              : mega.id === 'formations'
+                ? 'Formations IA finançables Qualiopi / OPCO — présentiel.'
+                : mega.id === 'methode'
+                  ? 'Une méthode éprouvée avec des professionnels du bâtiment et des travaux publics.'
+                  : 'Transparence sur le parcours, les partenaires et les retours clients.'}
+          </p>
+        </div>
+        <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain px-2 pt-1">
+          {mega.columns.map((col) => (
+            <div key={col.title}>
+              <p className="px-3 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                {col.title}
+              </p>
+              <ul className="space-y-0.5 pb-2">
+                {col.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`block rounded-xl px-3 py-2.5 transition-colors ${
+                        isActive(link.href, pathname)
+                          ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                          : 'text-slate-800 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                      <span className="mt-0.5 block text-xs leading-relaxed text-slate-500">
+                        {link.description}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function megaHasActivePath(m: NavMega, pathname: string): boolean {
@@ -274,10 +335,6 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const activeMega = NAV_ITEMS.find(
-    (item): item is NavMega => item.kind === 'mega' && item.id === openMega
-  );
-
   return (
     <>
     <header
@@ -291,7 +348,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[4.5rem] lg:min-h-[4.5rem]">
         <Link
           href="/"
-          className="group flex shrink-0 items-center gap-2.5 font-display text-lg font-bold tracking-tight text-slate-900 sm:gap-3 sm:text-xl"
+          className="group flex shrink-0 items-center gap-1 font-display text-lg font-bold tracking-tight text-slate-900 sm:gap-1.5 sm:text-xl"
         >
           <img
             src="/logo-lo.svg"
@@ -305,7 +362,7 @@ export function Header() {
 
         {/* Desktop */}
         <nav
-          className="hidden items-center gap-0.5 lg:flex xl:gap-1"
+          className="hidden items-center gap-0.5 rounded-full border border-slate-200/80 bg-slate-100/90 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] lg:flex"
           aria-label="Navigation principale"
         >
           {NAV_ITEMS.map((item) =>
@@ -317,57 +374,37 @@ export function Header() {
               >
                 <button
                   type="button"
-                  className={`group relative flex items-center gap-1.5 rounded px-3 py-2.5 text-[0.9375rem] font-medium transition-colors ${
+                  className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9375rem] font-medium transition-all ${
                     megaHasActivePath(item, pathname) || openMega === item.id
-                      ? 'text-slate-900'
-                      : 'text-slate-600 hover:text-slate-900'
+                      ? 'bg-white text-slate-900 shadow-sm'
+                      : 'text-slate-700 hover:text-slate-900'
                   }`}
                   aria-expanded={openMega === item.id}
                   aria-haspopup="true"
                 >
-                  <item.navIcon
-                    size={17}
-                    strokeWidth={1.75}
-                    className="text-slate-400 transition-colors group-hover:text-[var(--accent)]"
-                    aria-hidden
-                  />
                   {item.label}
                   <ChevronDown
                     size={15}
                     strokeWidth={2}
-                    className={`transition-transform duration-200 ${openMega === item.id ? 'rotate-180' : ''}`}
+                    className={`shrink-0 text-slate-500 transition-transform duration-200 ${
+                      openMega === item.id ? 'rotate-180' : ''
+                    }`}
+                    aria-hidden
                   />
-                  {(megaHasActivePath(item, pathname) || openMega === item.id) && (
-                    <span
-                      className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full bg-[var(--accent)]"
-                      aria-hidden
-                    />
-                  )}
                 </button>
+                {openMega === item.id && <MegaDropdownPanel mega={item} pathname={pathname} />}
               </div>
             ) : (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group relative flex items-center gap-1.5 rounded px-3 py-2.5 text-[0.9375rem] font-medium transition-colors ${
+                className={`rounded-full px-3.5 py-2 text-[0.9375rem] font-medium transition-all ${
                   isActive(item.href, pathname)
-                    ? 'text-slate-900'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-700 hover:text-slate-900'
                 }`}
               >
-                <item.navIcon
-                  size={17}
-                  strokeWidth={1.75}
-                  className={`transition-colors ${isActive(item.href, pathname) ? 'text-[var(--accent)]' : 'text-slate-400 group-hover:text-[var(--accent)]'}`}
-                  aria-hidden
-                />
                 {item.label}
-                {isActive(item.href, pathname) && (
-                  <span
-                    className="absolute bottom-1 left-3 right-3 h-0.5 rounded-full bg-[var(--accent)]"
-                    aria-hidden
-                  />
-                )}
               </Link>
             )
           )}
@@ -419,98 +456,6 @@ export function Header() {
         </button>
       </div>
 
-      {/* Méga-menu plein largeur (desktop) */}
-      {activeMega && (
-        <div
-          className="absolute left-0 right-0 top-full hidden border-t border-slate-100 bg-white shadow-[0_28px_56px_-16px_rgba(15,23,42,0.14)] lg:block"
-          onMouseEnter={() => handleEnterMega(activeMega.id)}
-        >
-          <div className="mx-auto max-w-[1400px] px-5 pb-6 pt-4 sm:px-8">
-            <div className="grid grid-cols-12 gap-x-6 gap-y-3 border-b border-slate-100 pb-2">
-              <div className="col-span-12 lg:col-span-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-                  {activeMega.label}
-                </p>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-                  {activeMega.id === 'cas-usage'
-                    ? 'Choisissez votre contexte : on vous oriente vers les pages et formations les plus pertinentes.'
-                    : activeMega.id === 'formations'
-                      ? 'Formations IA finançables Qualiopi / OPCO — présentiel.'
-                      : activeMega.id === 'methode'
-                        ? 'Une méthode éprouvée avec des professionnels du bâtiment et des travaux publics.'
-                        : 'Transparence sur le parcours, les partenaires et les retours clients.'}
-                </p>
-              </div>
-              <div className="col-span-12 flex items-end justify-start lg:col-span-4 lg:justify-end">
-                <Link
-                  href={activeMega.allHref}
-                  className="group inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] sm:w-auto"
-                >
-                  {activeMega.allLabel}
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </Link>
-              </div>
-            </div>
-
-            {activeMega.columns.map((col) => {
-              const n = col.links.length;
-              const colClass = megaLinkColClass(n);
-              return (
-                <div key={col.title} className="mt-1.5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    {col.title}
-                  </p>
-                  <ul className="mt-2.5 grid grid-cols-12 gap-4">
-                    {col.links.map((link) => {
-                      const Icon = link.icon;
-                      return (
-                        <li key={link.href} className={colClass}>
-                          <Link
-                            href={link.href}
-                            className={`group flex h-full min-h-[5.5rem] gap-3 rounded-xl border border-transparent px-3 py-3 transition-colors ${
-                              isActive(link.href, pathname)
-                                ? 'bg-[var(--accent-soft)] ring-1 ring-[var(--accent)]/25'
-                                : 'hover:border-slate-200 hover:bg-slate-50'
-                            }`}
-                          >
-                            <span
-                              className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-colors ${
-                                isActive(link.href, pathname)
-                                  ? 'border-[var(--accent)]/25 bg-white text-[var(--accent)]'
-                                  : 'border-slate-200/80 bg-slate-50 text-slate-500 group-hover:border-[var(--accent)]/30 group-hover:text-[var(--accent)]'
-                              }`}
-                            >
-                              <Icon size={18} strokeWidth={1.75} aria-hidden />
-                            </span>
-                            <span className="min-w-0">
-                              <span
-                                className={`block text-[0.9375rem] leading-snug ${
-                                  isActive(link.href, pathname)
-                                    ? 'font-semibold text-[var(--accent)]'
-                                    : 'font-medium text-slate-900 group-hover:text-slate-950'
-                                }`}
-                              >
-                                {link.label}
-                              </span>
-                              <span className="mt-1 block text-xs leading-relaxed text-slate-500">
-                                {link.description}
-                              </span>
-                            </span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
     </header>
 
       {/* Mobile : rendu hors du <header> pour éviter que backdrop-blur ne casse position:fixed (viewport) */}

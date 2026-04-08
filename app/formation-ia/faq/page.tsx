@@ -1,3 +1,4 @@
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
@@ -89,7 +90,7 @@ export default function FormationIaFaqPage() {
           {FAQ_ITEMS.map((item) => (
             <li key={item.q} className="border-b border-slate-200 pb-8">
               <h2 className="font-display text-lg font-semibold text-slate-900">{item.q}</h2>
-              <p className="mt-3 text-slate-700 leading-relaxed">{item.a}</p>
+              <p className="mt-3 text-slate-700 leading-relaxed"><FAQAnswer content={item.a} /></p>
             </li>
           ))}
         </ul>

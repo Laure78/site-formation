@@ -1,3 +1,4 @@
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -344,7 +345,7 @@ export default async function BlogArticlePage({ params }: Props) {
                             className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
                           >
                             <h3 className="font-semibold text-slate-900">{q}</h3>
-                            <p className="mt-2 text-slate-600">{a}</p>
+                            <p className="mt-2 text-slate-600"><FAQAnswer content={a} /></p>
                           </div>
                         );
                       })}
