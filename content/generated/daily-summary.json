@@ -1,17 +1,9 @@
 {
-  "date": "2026-04-07",
+  "date": "2026-04-08",
   "articles": [
     {
-      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
-      "title": "Formation IA BTP : ce qu'il faut savoir en 2026"
-    },
-    {
-      "slug": "financement-constructys-mode-d-emploi",
-      "title": "Financement Constructys : mode d'emploi"
-    },
-    {
-      "slug": "l-ia-va-t-elle-remplacer-les-plombiers",
-      "title": "L'IA va-t-elle remplacer les plombiers ?"
+      "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
+      "title": "ChatGPT pour artisans : erreurs à éviter"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
@@ -26,20 +18,28 @@
       "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-peintre",
-      "title": "Comment utiliser ChatGPT pour vos devis peintre"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-carreleur",
+      "title": "Comment utiliser ChatGPT pour vos devis carreleur"
     },
     {
-      "slug": "ia-et-charpentier-5-gains-de-temps-concrets",
-      "title": "IA et charpentier : 5 gains de temps concrets"
+      "slug": "ia-et-peintre-5-gains-de-temps-concrets",
+      "title": "IA et peintre : 5 gains de temps concrets"
     },
     {
-      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026-741616-8",
+      "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
       "title": "Formation IA BTP : ce qu'il faut savoir en 2026"
     },
     {
-      "slug": "financement-constructys-mode-d-emploi-741616-9",
+      "slug": "financement-constructys-mode-d-emploi",
       "title": "Financement Constructys : mode d'emploi"
+    },
+    {
+      "slug": "chatgpt-pour-artisans-erreurs-a-eviter-741617-8",
+      "title": "ChatGPT pour artisans : erreurs à éviter"
+    },
+    {
+      "slug": "devis-en-15-min-le-guide-chauffagiste",
+      "title": "Devis en 15 min : le guide chauffagiste"
     }
   ],
   "linkedinCount": 10

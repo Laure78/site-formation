@@ -2,12 +2,12 @@
   "slug": "ia-et-peintre-5-gains-de-temps-concrets",
   "title": "IA et peintre : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et peintre. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-03-30",
+  "date": "2026-04-08",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -73,12 +73,16 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
+      "anchor": "prendre rendez-vous"
     },
     {
-      "path": "/financement-constructys",
+      "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
