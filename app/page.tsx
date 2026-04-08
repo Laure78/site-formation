@@ -37,6 +37,7 @@ import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSect
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
+import { ClientsLogosMarquee } from '@/components/landing/ClientsLogosMarquee';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import {
   SESSION_DUREE_LIBELLE,
@@ -184,6 +185,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ClientsLogosMarquee />
 
       {/* Problème → solution — scan rapide (design GEO / conversion) */}
       <section
