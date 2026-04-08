@@ -87,6 +87,10 @@ export const SITE_CONFIG = {
   /** Fiche Google Business Profile (avis, horaires, local SEO) */
   googleBusinessProfileUrl:
     'https://share.google/kuzjL3D0CaVMgQS8i',
+  /** Google Maps — siège (aligné sur geo.streetAddress / postalCode / city) */
+  googleMapsUrl:
+    'https://www.google.com/maps/search/?api=1&query=' +
+    encodeURIComponent('6 Rue Henri Dunant, 78280 Guyancourt, France'),
   sameAs: [
     LINKEDIN_PROFILE_URL,
     SITE_URL_DEFAULT,
@@ -335,6 +339,7 @@ export function getLocalBusinessSchema() {
     ],
     priceRange: '€€',
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
+    hasMap: SITE_CONFIG.googleMapsUrl,
   };
 }
 

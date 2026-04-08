@@ -1,5 +1,15 @@
 import Link from 'next/link';
-import { Mail, Phone, Globe, Linkedin, FileText, BookOpen, MapPin, GraduationCap } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  Globe,
+  Linkedin,
+  FileText,
+  BookOpen,
+  MapPin,
+  Map,
+  GraduationCap,
+} from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -96,6 +106,14 @@ export function Footer() {
             >
               <MapPin size={20} strokeWidth={1.5} className="shrink-0" aria-hidden />
               Fiche Google (avis &amp; localisation)
+            </ExternalLinkAnchor>
+            <ExternalLinkAnchor
+              href={SITE_CONFIG.googleMapsUrl}
+              title="Ouvrir l’adresse du siège dans Google Maps"
+              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-800 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
+            >
+              <Map size={20} strokeWidth={1.5} className="shrink-0" aria-hidden />
+              Google Maps (itinéraire)
             </ExternalLinkAnchor>
           </div>
 
@@ -225,6 +243,14 @@ export function Footer() {
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
             >
               <MapPin size={20} strokeWidth={1.5} />
+            </ExternalLinkAnchor>
+            <ExternalLinkAnchor
+              href={SITE_CONFIG.googleMapsUrl}
+              title="Google Maps — adresse Guyancourt"
+              aria-label="Google Maps"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
+            >
+              <Map size={20} strokeWidth={1.5} />
             </ExternalLinkAnchor>
             <ExternalLinkAnchor
               href="mailto:laureolivie@yahoo.fr"

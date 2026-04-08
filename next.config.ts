@@ -9,6 +9,15 @@ const formationIaLegacyRedirects = () =>
   }));
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '/**',
+      },
+    ],
+  },
   async redirects() {
     return [
       ...formationIaLegacyRedirects(),

@@ -127,3 +127,14 @@
     animation: none;
   }
 }
+
+/* Banderole avis Google — défilement plus lent pour la lecture */
+.animate-marquee-reviews {
+  animation: marquee-scroll 80s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-reviews {
+    animation: none;
+  }
+}

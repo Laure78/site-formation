@@ -126,6 +126,11 @@ export const EXTERNAL_AUTHORITY_LINKS = {
     label: 'Fiche Google — Laure Olivié',
     title: 'Fiche Google Business — avis et informations locales',
   },
+  googleMaps: {
+    href: SITE_CONFIG.googleMapsUrl,
+    label: 'Google Maps — OFC Guyancourt',
+    title: 'Ouvrir l’adresse dans Google Maps',
+  },
   linkedinProfile: {
     href: SITE_CONFIG.linkedinProfileUrl,
     label: 'LinkedIn Laure Olivié',
