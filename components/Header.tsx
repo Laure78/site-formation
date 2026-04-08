@@ -283,7 +283,13 @@ function megaHasActivePath(m: NavMega, pathname: string): boolean {
   if (m.id === 'formations' && pathname.startsWith('/formations')) return true;
   if (m.id === 'cas-usage' && pathname.startsWith('/ressources/ia-btp')) return true;
   if (m.id === 'a-propos' && pathname.startsWith('/etudes-de-cas')) return true;
-  return m.columns.some((col) => col.links.some((l) => isActive(l.href, pathname)));
+  return m.columns.some((col) =>
+    col.links.some((l) => {
+      // Ancres même page (ex. /#temoignages) : ne pas surligner le bouton méga sur / — sinon double actif avec « Accueil »
+      if (l.href.startsWith('/#')) return false;
+      return isActive(l.href, pathname);
+    })
+  );
 }
 
 export function Header() {

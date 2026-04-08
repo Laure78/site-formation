@@ -86,11 +86,11 @@ export const SITE_CONFIG = {
   ],
   /** Fiche Google Business Profile (avis, horaires, local SEO) */
   googleBusinessProfileUrl:
-    'https://share.google/4ILaucOrmSyE55gkx',
+    'https://share.google/kuzjL3D0CaVMgQS8i',
   sameAs: [
     LINKEDIN_PROFILE_URL,
     SITE_URL_DEFAULT,
-    'https://share.google/4ILaucOrmSyE55gkx',
+    'https://share.google/kuzjL3D0CaVMgQS8i',
   ],
   /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
   statsPersonnesFormees: '1592',

@@ -10,8 +10,6 @@ export type ClientLogoItem = {
   height: number;
   /** Affiché sous le logo si besoin (ex. plusieurs entrées FFB avec le même visuel). */
   caption?: string;
-  /** Logo horizontal large (ex. CSFE). */
-  wide?: boolean;
 };
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
@@ -40,7 +38,6 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/ffb-grand-paris-ile-de-france.png',
     width: 400,
     height: 120,
-    wide: true,
   },
   {
     id: 'csfe',
@@ -49,7 +46,6 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/csfe-logo.png',
     width: 360,
     height: 120,
-    wide: true,
   },
   {
     id: 'cnam',
