@@ -3,12 +3,18 @@
  * Formation IA BTP — France, Île-de-France, Guyancourt (Yvelines)
  */
 
+const SITE_URL_DEFAULT = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
+
+/** Profil LinkedIn (locale FR) — source unique pour liens UI et sameAs */
+export const LINKEDIN_PROFILE_URL = 'https://fr.linkedin.com/in/laure-olivie' as const;
+
 export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
     "Formation IA BTP & ChatGPT : devis, chantier, mémoires techniques et administratif. Réseau FFB & CSFE, Qualiopi, financement OPCO Constructys. Laure Olivié — +1592 pros formés. Île-de-France & France.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
+  url: SITE_URL_DEFAULT,
+  linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: 'laureolivie@yahoo.fr',
   phone: '+33695661818',
   phoneDisplay: '06 95 66 18 18',
@@ -80,8 +86,8 @@ export const SITE_CONFIG = {
   googleBusinessProfileUrl:
     'https://share.google/4ILaucOrmSyE55gkx',
   sameAs: [
-    'https://www.linkedin.com/in/laure-olivie',
-    'https://www.laureolivie.fr',
+    LINKEDIN_PROFILE_URL,
+    SITE_URL_DEFAULT,
     'https://share.google/4ILaucOrmSyE55gkx',
   ],
   /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
@@ -94,6 +100,23 @@ const DEFAULT_OG_IMAGE = {
   height: 630,
   alt: 'Laure Olivié — Formatrice IA pour le BTP, Qualiopi',
 } as const;
+
+/** Section thématique (Open Graph article:section / GEO) */
+export const ARTICLE_SECTION_GEO = 'Formation IA BTP';
+
+/** Date YYYY-MM-DD → ISO 8601 UTC pour les métadonnées article (Google / IA) */
+export function dateToIso8601ForMeta(date: string): string {
+  const d = new Date(`${date}T12:00:00+01:00`);
+  if (Number.isNaN(d.getTime())) return new Date().toISOString();
+  return d.toISOString();
+}
+
+/** Estimation du nombre de mots pour schema Article (GEO) */
+export function estimateWordCountFromPlainText(text: string): number {
+  const trimmed = text.trim();
+  if (!trimmed) return 0;
+  return trimmed.split(/\s+/).length;
+}
 
 /** Helper pour métadonnées de page avec Open Graph + Twitter (partages & GEO) */
 export function createPageMetadata({
@@ -369,6 +392,7 @@ export function getArticleSchema({
   dateModified,
   authorName,
   image,
+  wordCount,
 }: {
   headline: string;
   description: string;
@@ -377,23 +401,50 @@ export function getArticleSchema({
   dateModified?: string;
   authorName: string;
   image?: string;
+  /** Optionnel — estimation pour rich results / IA */
+  wordCount?: number;
 }) {
+  const pageUrl = `${SITE_CONFIG.url}${path}`;
   const imageUrl = image?.startsWith('http') ? image : image ? `${SITE_CONFIG.url}${image}` : `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
-  return {
+  const pubIso = dateToIso8601ForMeta(datePublished);
+  const modIso = dateModified ? dateToIso8601ForMeta(dateModified) : pubIso;
+  const base: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline,
     description,
-    url: `${SITE_CONFIG.url}${path}`,
-    datePublished,
-    dateModified: dateModified ?? datePublished,
-    author: { '@type': 'Person', '@id': `${SITE_CONFIG.url}/#person`, name: authorName },
+    url: pageUrl,
+    datePublished: pubIso,
+    dateModified: modIso,
+    author: {
+      '@type': 'Person',
+      '@id': `${SITE_CONFIG.url}/#person`,
+      name: authorName,
+      url: `${SITE_CONFIG.url}/a-propos/`,
+      jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+    },
     publisher: {
+      '@type': 'Organization',
       '@id': `${SITE_CONFIG.url}/#organization`,
-      logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
+      name: SITE_CONFIG.legalName,
+      url: SITE_CONFIG.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/logo-lo.svg`,
+      },
     },
     image: { '@type': 'ImageObject', url: imageUrl, width: 1200, height: 630 },
+    inLanguage: 'fr-FR',
+    articleSection: ARTICLE_SECTION_GEO,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+    },
   };
+  if (wordCount != null && wordCount > 0) {
+    base.wordCount = wordCount;
+  }
+  return base;
 }
 
 /** Schéma Person (Laure Olivié) — EEAT / Autorité — Optimisé GEO */
@@ -408,7 +459,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB, Lefebvre Dalloz, CNAM Entreprise.',
+    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE, OPPBTP.',
     knowsAbout: [
       'Formation IA BTP',
       'Formation ChatGPT entreprise BTP',
@@ -471,16 +522,6 @@ export function getPersonSchema() {
         '@type': 'Organization',
         name: 'FFB Île-de-France Ouest',
         description: 'Fédération Française du Bâtiment - Région Île-de-France (78-91-95)',
-      },
-      {
-        '@type': 'Organization',
-        name: 'Lefebvre Dalloz',
-        description: 'Formations juridiques et professionnelles',
-      },
-      {
-        '@type': 'Organization',
-        name: 'CNAM Entreprise',
-        description: 'Conservatoire National des Arts et Métiers - Formation continue',
       },
       {
         '@type': 'Organization',

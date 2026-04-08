@@ -76,7 +76,7 @@ export const INTERNAL_LINKS = {
   },
   clientsPartenaires: {
     path: '/a-propos#clients-partenaires',
-    anchors: ['clients et partenaires', 'FFB, Lefebvre Dalloz, CNAM Entreprise', 'nos partenaires'],
+    anchors: ['clients et partenaires', 'FFB, CSFE, OPPBTP', 'nos partenaires'],
   },
   communauteFormateurs: {
     path: '/communaute-formateurs',
@@ -127,7 +127,7 @@ export const EXTERNAL_AUTHORITY_LINKS = {
     title: 'Fiche Google Business — avis et informations locales',
   },
   linkedinProfile: {
-    href: 'https://www.linkedin.com/in/laure-olivie',
+    href: SITE_CONFIG.linkedinProfileUrl,
     label: 'LinkedIn Laure Olivié',
     title: 'Profil LinkedIn de Laure Olivié',
   },

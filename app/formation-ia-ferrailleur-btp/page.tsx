@@ -392,7 +392,7 @@ export default function FormationIaFerrailleurBtpPage() {
             conducteurs de travaux, chefs de chantier, dirigeants — en Île-de-France et en France.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz,
+            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB,
             etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

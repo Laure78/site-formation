@@ -6,6 +6,7 @@
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
+import { estimateWordCountFromPlainText } from '@/lib/seo';
 import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 
@@ -23,6 +24,8 @@ export interface BlogArticle {
   seoTitle?: string;
   description: string;
   date: string;
+  /** Si défini, utilisé pour dateModified (schema + meta) — sinon = date de publication */
+  dateModified?: string;
   keywords: string[];
   sections: {
     type: 'paragraph' | 'definition' | 'list' | 'faq' | 'cta' | 'prompts' | 'html';
@@ -33,6 +36,29 @@ export interface BlogArticle {
     ctaCommunauteHref?: string;
   }[];
   relatedSlugs?: string[];
+}
+
+/** Estimation du nombre de mots pour schema Article JSON-LD (GEO) */
+export function estimateWordCountFromArticle(article: BlogArticle): number {
+  const parts: string[] = [article.title, article.description];
+  for (const s of article.sections) {
+    const c = s.content;
+    if (typeof c === 'string') parts.push(c);
+    else if (Array.isArray(c)) {
+      for (const item of c) {
+        if (typeof item === 'string') parts.push(item);
+        else if (
+          item &&
+          typeof item === 'object' &&
+          'titre' in item &&
+          'prompt' in item
+        ) {
+          parts.push(item.titre, item.prompt);
+        }
+      }
+    }
+  }
+  return estimateWordCountFromPlainText(parts.join(' '));
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
@@ -690,7 +716,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, Lefebvre Dalloz, CNAM Entreprise.',
+          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE, CAPEB, OPPBTP.',
       },
       {
         type: 'paragraph',

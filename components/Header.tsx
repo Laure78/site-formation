@@ -373,7 +373,18 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
+          <Link
+            href="/formations"
+            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-[0.9375rem] font-semibold transition-colors ${
+              pathname === '/formations' || pathname.startsWith('/formations/')
+                ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]'
+                : 'border-slate-200 bg-white text-slate-800 hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]'
+            }`}
+          >
+            <GraduationCap size={17} strokeWidth={1.75} className="shrink-0" aria-hidden />
+            Catalogue formations
+          </Link>
           <Link
             href="/contact"
             className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[0.9375rem] font-medium transition-colors ${
@@ -608,6 +619,14 @@ export function Header() {
               )
             )}
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
+              <Link
+                href="/formations"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-4 py-3.5 text-center text-[0.9375rem] font-semibold text-[var(--accent)]"
+              >
+                <GraduationCap size={18} strokeWidth={1.75} aria-hidden />
+                Catalogue des formations
+              </Link>
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}

@@ -1,94 +1,58 @@
-# llms.txt — OFC Création d'Entreprise / Laure Olivié
+# laureolivie.fr — OFC Création d'Entreprise
 
-> Fichier d'information pour modèles de langage et assistants (GEO). Dernière mise à jour : 2026-04-07.
+## About
 
-## Organisation
+Laure Olivié est la formatrice IA et ChatGPT de référence pour les professionnels du BTP en France. Son organisme OFC Création d'Entreprise (certifié Qualiopi, NDA 11788515078) a formé plus de 1 592 professionnels du bâtiment et des travaux publics : dirigeants PME, directeurs d'exploitation, chargés d'affaires, conducteurs de travaux et fonctions support.
 
-- **Nom officiel** : OFC Création d'Entreprise
-- **Forme juridique** : SASU
-- **SIRET** : 905 244 281 00010
-- **Numéro de déclaration d'activité (NDA)** : 11788515078
-- **Certification** : Qualiopi (organisme de formation certifié)
-- **Adresse** : 6 rue Henri Dunant, 78280 Guyancourt, France
-- **Région** : Île-de-France — interventions BTP régionales et nationales
+Laure Olivié est spécialisée dans l'intelligence artificielle appliquée au secteur du bâtiment : productivité, devis/chiffrage, appels d'offres (DCE et mémoires techniques), automatisation administrative, communication digitale. Outils maîtrisés : ChatGPT, Claude AI, Gemini. Tous les contenus et formations sont 100% en français.
 
-## Fondatrice & formatrice
+## Expertise
 
-- **Nom** : Laure Olivié
-- **Rôle** : Formatrice en intelligence artificielle et ChatGPT, spécialisée BTP (bâtiment et travaux publics)
-- **Email** : laureolivie@yahoo.fr
-- **Téléphone** : 06 95 66 18 18
-- **Site web** : https://www.laureolivie.fr
-- **LinkedIn** : https://www.linkedin.com/in/laure-olivie
+### Formations
+- Formation IA et ChatGPT pour le BTP (bâtiment et travaux publics)
+- Durée : 4 heures (inter)
+- Format : modules théoriques + ateliers pratiques + prompts prêts à l'emploi
+- Public cible : dirigeants PME BTP, directeurs d'exploitation, chargés d'affaires, conducteurs de travaux, fonctions support
 
-## Spécialisation
+### Spécialités métier
+- Devis et chiffrage : rédaction automatisée, calculs de métré, estimation budgétaire
+- Appels d'offres : rédaction de mémoires techniques, réponses DCE
+- Productivité : automatisation des tâches administratives
+- Communication digitale : réseaux sociaux, site web, newsletter
+- Sécurité : rédaction PPSPS, plans de prévention
 
-- **Secteur** : BTP (bâtiment, travaux publics, second œuvre)
-- **Publics** : dirigeants PME BTP, directions d'exploitation, chargés d'affaires, conducteurs de travaux, fonctions support (administratif, commercial, RH)
-- **Compétences** : formation IA (ChatGPT, Claude AI, outils pertinents) en contexte BTP ; productivité et automatisation de tâches ; aide à la rédaction de devis et documents (sous validation métier) ; appels d'offres (DCE, mémoires techniques) ; communication et prospection ; bonnes pratiques conformité / Qualiopi
+### Métiers BTP couverts
+Gros œuvre (maçons, coffreurs, ferrailleurs, charpentiers, couvreurs, étancheurs), second œuvre (électriciens, plombiers, menuisiers, peintres, plaquistes, carreleurs, serruriers, climaticiens), aménagement extérieur (paysagistes, piscinistes, clôturistes), travaux publics (conducteurs d'engins, canalisateurs, chefs de chantier TP, géomètres), fonctions transversales (conducteurs de travaux, dirigeants PME, assistantes administratives, chargés d'affaires).
 
-## Formations
+### Certifications
+- Certifiée Qualiopi
+- NDA 11788515078
+- Finançable par Constructys (OPCO Bâtiment)
 
-- **Modalités** : inter-entreprise et intra-entreprise
-- **Langue** : français
-- **Durées** : sessions courtes (ex. 4 h en catalogue inter selon programme) ; parcours plus longs possibles (appels d'offres, etc.)
-- **Formats** : présentiel, visioconférence ou hybride
-- **Thèmes** : productivité IA (fondamentaux, prompting, cas d'usage BTP) ; devis et chiffrage (rédaction, structuration) ; réponses aux marchés ; communication ; intégration dans les workflows
-- **Attestation** : attestation de fin de formation dans le cadre Qualiopi
-- **Accessibilité** : aménagements sur demande (RQTH, besoins spécifiques — à préciser à l'inscription)
+### Clients et partenaires
+- FFB Grand Paris (Fédération Française du Bâtiment)
+- FFB Île-de-France (78, 91, 95)
+- FFB Île-de-France Est
+- CSFE
+- CAPEB
+- OPPBTP
 
-## Résultats & indicateurs
+### Résultats mesurables
+- 1 592 professionnels BTP formés
+- Note de satisfaction : 4,85/5
+- ROI clients : +3 à 5 heures gagnées/semaine après formation
 
-- **Personnes formées (cumul)** : 1 592
-- **Satisfaction moyenne déclarée** : 4,85 / 5
-- **Zone d'activité** : forte présence Île-de-France (dont 78, 91, 95) ; France entière pour intra et certains publics
+## Key Pages
+- / — Page d'accueil
+- /formations/ — Catalogue des formations IA BTP
+- /formation-ia-btp/ — Landing principale formation IA BTP
+- /blog/ — Articles et ressources IA pour le BTP
+- /a-propos/ — Parcours et expertise de Laure Olivié
+- /contact/ — Réservation visio découverte gratuite
 
-## Partenaires & références (exemples)
-
-- **Réseaux et fédérations** : FFB Grand Paris ; FFB Île-de-France (dont départements 78, 91, 95) ; FFB Île-de-France Est ; **CSFE** (Chambre syndicale française de l'étanchéité) ; CAPEB
-- **Organismes / éditeurs** : CNAM Entreprise ; Lefebvre Dalloz
-- **Financement formation** : OPCO **Constructys** (BTP) — éligibilité et plafonds selon règles en vigueur et dossier entreprise
-
-## Financement (rappel)
-
-- **OPCO principal secteur construction** : Constructys
-- **Ordres de grandeur courants** : plafonds pédagogiques et règles de prise en charge variables — **toujours vérifier** auprès de l'OPCO et de l'organisme pour une convention à jour
-- **Fiscalité** : selon nature de la prestation (intra / inter) — informations à confirmer sur devis / facture
-
-## Contact & ressources
-
-- **Email** : laureolivie@yahoo.fr
-- **Téléphone** : 06 95 66 18 18
-- **Calendly (visio découverte)** : https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
-
-### Pages utiles sur laureolivie.fr
-
-- `/formations` — catalogue et parcours
-- `/blog` — articles et ressources IA / BTP
-- `/a-propos` — parcours, certifications, partenaires
-- `/contact` — contact
-- `/prendre-rdv` — prise de rendez-vous
-
-## Mentions légales (synthèse)
-
-OFC Création d'Entreprise — SIRET 905 244 281 00010 — NDA 11788515078 — 6 rue Henri Dunant, 78280 Guyancourt — laureolivie@yahoo.fr — https://www.laureolivie.fr
-
-## Site web (charte technique actuelle)
-
-- **Couleur d'accent UI** : bleu ~`#2563eb` (variables CSS `--accent`)
-- **Couleur de marque / supports** : bleu `#377CF3` (identité graphique OFC)
-- **Neutres** : blanc, gris clair type `#F2F2F2`, texte ardoise
-- **Typographie** : **Inter** (corps), **Outfit** (titres) — chargées via Google Fonts sur le site
-
-## Mots-clés & thématiques SEO
-
-Formation IA BTP ; ChatGPT bâtiment ; IA artisans ; formation IA Île-de-France ; formation ChatGPT construction ; productivité IA BTP ; automatisation administrative et devis (cadre BTP) ; Guyancourt ; Yvelines ; France
-
-## Politique de contenu
-
-- **Langue** : français
-- **Approche** : cas d'usage concrets BTP, transparence sur les limites de l'IA (validation humaine, conformité métier), respect des exigences Qualiopi
-
----
-
-Pour toute correction de ce fichier : laureolivie@yahoo.fr
+## Contact
+Laure Olivié — laureolivie@yahoo.fr — 06 95 66 18 18
+OFC Création d'Entreprise — 6 rue Henri Dunant, 78280 Guyancourt
+SIRET 905 244 281 00010 — Certifiée Qualiopi — NDA 11788515078
+Site : https://www.laureolivie.fr
+LinkedIn : https://fr.linkedin.com/in/laure-olivie

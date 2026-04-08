@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
+  ARTICLE_SECTION_GEO,
   createPageMetadata,
+  dateToIso8601ForMeta,
   extractFaqPairsFromArticleSections,
   getArticleSchema,
   getBreadcrumbSchema,
@@ -11,6 +13,7 @@ import {
 } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
+  estimateWordCountFromArticle,
   getArticle,
   getAllSlugs,
   getAllArticles,
@@ -84,17 +87,31 @@ export async function generateMetadata({ params }: Props) {
     keywords: article.keywords,
   });
   const ogImage = `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
+  const publishedIso = dateToIso8601ForMeta(article.date);
+  const modifiedIso = dateToIso8601ForMeta(article.dateModified ?? article.date);
+  const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
   return {
     ...base,
-    authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
+    authors: [{ name: SITE_CONFIG.name, url: authorUrl }],
     openGraph: {
       ...base.openGraph,
       type: 'article',
-      publishedTime: article.date,
+      publishedTime: publishedIso,
+      modifiedTime: modifiedIso,
       authors: [SITE_CONFIG.name],
+      section: ARTICLE_SECTION_GEO,
+      tags: article.keywords,
       images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
     },
     twitter: { card: 'summary_large_image', title: metaTitle, description: article.description },
+    /** GEO — métadonnées article pour IA / réseaux (complément Open Graph) */
+    other: {
+      'article:author': SITE_CONFIG.name,
+      'og:author': SITE_CONFIG.name,
+      'article:published_time': publishedIso,
+      'article:modified_time': modifiedIso,
+      'article:section': ARTICLE_SECTION_GEO,
+    },
   };
 }
 
@@ -105,12 +122,15 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const related = getRelatedArticlesForDisplay(slug, 6);
 
+  const wordCount = estimateWordCountFromArticle(article);
   const articleSchema = getArticleSchema({
     headline: article.title,
     description: article.description,
     path: `/blog/${article.slug}`,
     datePublished: article.date,
+    dateModified: article.dateModified ?? article.date,
     authorName: SITE_CONFIG.name,
+    wordCount,
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Accueil', path: '/' },
@@ -142,21 +162,38 @@ export default async function BlogArticlePage({ params }: Props) {
       </nav>
 
       <article>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
-          <time dateTime={article.date}>
-            {new Date(article.date).toLocaleDateString('fr-FR', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
-          </time>
-          <span aria-hidden>·</span>
-          <address className="not-italic">
-            Par{' '}
-            <Link href="/auteur/laure-olivie" className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline" rel="author">
-              {SITE_CONFIG.name}
-            </Link>
-          </address>
+        <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <span>
+              Publié le{' '}
+              <time dateTime={article.date}>
+                {new Date(article.date).toLocaleDateString('fr-FR', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </time>
+            </span>
+            <span aria-hidden className="hidden sm:inline">
+              ·
+            </span>
+            <address className="not-italic">
+              Par{' '}
+              <Link href="/auteur/laure-olivie" className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline" rel="author">
+                {SITE_CONFIG.name}
+              </Link>
+            </address>
+          </div>
+          <p className="text-xs text-slate-400 sm:text-sm">
+            Dernière mise à jour :{' '}
+            <time dateTime={article.dateModified ?? article.date}>
+              {new Date(article.dateModified ?? article.date).toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </time>
+          </p>
         </div>
         <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           {article.title}

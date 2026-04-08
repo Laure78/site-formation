@@ -391,7 +391,7 @@ export default function FormationIaConducteurTravauxBtpPage() {
             <strong>4,85/5</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz.
+            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB.
           </p>
         </section>
 

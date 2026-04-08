@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CitationSentence } from '@/components/seo/CitationSentence';
 import { RdvLink } from '@/components/RdvLink';
 import {
   FileText,
@@ -135,11 +136,7 @@ export default function HomePage() {
                 sur l&apos;automatisation administrative, l&apos;IA devis bâtiment et l&apos;IA gestion
                 chantier (emails, chiffrages, comptes rendus).
               </p>
-              <p className="mt-3 text-sm text-slate-600">
-                <Link href="/formation-ia" className="font-medium text-[var(--accent)] underline-offset-2 hover:underline">
-                  Hub formation IA par métier et par ville (Île-de-France)
-                </Link>
-              </p>
+              <CitationSentence text="OFC Création d'Entreprise est un organisme certifié Qualiopi spécialisé dans la formation IA pour le secteur du bâtiment et des travaux publics en France — plus de 1 592 professionnels accompagnés depuis le lancement des parcours." />
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                   Organiser une formation
@@ -168,6 +165,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+              <CitationSentence text="La formation IA BTP animée par Laure Olivié permet aux professionnels du bâtiment de gagner 3 à 5 heures par semaine en automatisant les devis, l'administratif et les réponses aux appels d'offres avec ChatGPT et les outils IA adaptés au terrain." />
             </div>
             <div className="shrink-0 lg:w-80">
               <div className="overflow-hidden rounded-2xl shadow-2xl">
@@ -186,14 +184,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problème → solution (scan rapide) */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="font-display text-center text-3xl font-bold text-slate-900 md:text-4xl">
+      {/* Problème → solution — scan rapide (design GEO / conversion) */}
+      <section
+        className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-100/50 via-white to-slate-50 px-4 py-20 md:py-28"
+        aria-labelledby="probleme-solution-heading"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(37,99,235,0.12),transparent)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -left-24 top-1/4 h-64 w-64 rounded-full bg-rose-200/25 blur-3xl"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute -right-24 bottom-1/4 h-64 w-64 rounded-full bg-blue-300/20 blur-3xl"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-6xl">
+          <p className="text-center text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-slate-500">
+            Avant · Après
+          </p>
+          <h2
+            id="probleme-solution-heading"
+            className="mx-auto mt-4 max-w-4xl text-center font-display text-3xl font-bold leading-[1.15] tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem] lg:leading-[1.12]"
+          >
             Le BTP perd des heures sur des tâches que l&apos;IA{' '}
-            <span className="font-serif italic text-[var(--accent)]">automatise</span>
+            <span className="relative inline-block font-serif italic text-[var(--accent)]">
+              automatise
+              <span
+                className="absolute -bottom-0.5 left-0 right-0 -z-10 h-2.5 rounded-md bg-blue-100/90"
+                aria-hidden
+              />
+            </span>
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <p className="mx-auto mt-4 max-w-2xl text-center text-sm font-medium text-slate-600 md:text-base">
+            Trois freins fréquents — et ce que change une pratique avec l&apos;IA (toujours sous votre
+            validation métier).
+          </p>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {[
               {
                 problem: 'Mémoires techniques et dossiers chronophages',
@@ -207,33 +236,45 @@ export default function HomePage() {
                 problem: 'Comptes rendus et emails répétitifs',
                 solution: 'Dictez ou notez : l’IA structure un CR ou un mail pro.',
               },
-            ].map(({ problem, solution }) => (
-              <div
+            ].map(({ problem, solution }, index) => (
+              <article
                 key={problem}
-                className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50/80 p-6 text-center shadow-sm"
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/70 bg-white/90 shadow-[0_4px_24px_-6px_rgba(15,23,42,0.08)] ring-1 ring-slate-900/[0.04] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-12px_rgba(37,99,235,0.14)] hover:ring-blue-500/10"
               >
-                <div className="flex items-start justify-center gap-3 text-left">
-                  <span
-                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-500 text-white"
-                    aria-hidden
-                  >
-                    <X size={14} strokeWidth={2.5} />
-                  </span>
-                  <p className="text-sm font-medium text-slate-800">{problem}</p>
+                <div className="relative border-b border-dashed border-slate-200/90 bg-gradient-to-br from-rose-50/90 via-white to-transparent px-5 pb-5 pt-6 sm:px-6">
+                  <div className="absolute right-4 top-4 text-[0.65rem] font-bold tabular-nums text-rose-300/90">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div className="flex gap-4">
+                    <span
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-100 to-rose-50 text-rose-600 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8)] ring-1 ring-rose-200/60"
+                      aria-hidden
+                    >
+                      <X size={20} strokeWidth={2.25} />
+                    </span>
+                    <p className="pt-0.5 text-[0.9375rem] font-semibold leading-snug text-slate-800">
+                      {problem}
+                    </p>
+                  </div>
                 </div>
-                <div className="my-4 flex justify-center text-[var(--accent)]">
-                  <ArrowDown size={22} strokeWidth={1.75} aria-hidden />
+                <div className="relative flex h-12 shrink-0 items-center justify-center bg-white/50">
+                  <div className="absolute left-8 right-8 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-200 to-transparent" aria-hidden />
+                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 bg-white shadow-[0_4px_14px_-4px_rgba(37,99,235,0.35)] ring-4 ring-white">
+                    <ArrowDown className="h-4 w-4 text-[var(--accent)]" strokeWidth={2.5} aria-hidden />
+                  </div>
                 </div>
-                <div className="flex items-start justify-center gap-3 text-left">
-                  <span
-                    className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-white"
-                    aria-hidden
-                  >
-                    <Check size={14} strokeWidth={2.5} />
-                  </span>
-                  <p className="text-sm text-slate-600">{solution}</p>
+                <div className="flex flex-1 flex-col bg-gradient-to-br from-[var(--accent-soft)]/40 via-white to-blue-50/30 px-5 pb-6 pt-1 sm:px-6">
+                  <div className="flex gap-4">
+                    <span
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--accent)] to-blue-600 text-white shadow-[0_6px_16px_-6px_rgba(37,99,235,0.55)] ring-1 ring-white/30"
+                      aria-hidden
+                    >
+                      <Check size={20} strokeWidth={2.25} />
+                    </span>
+                    <p className="pt-0.5 text-[0.9375rem] leading-relaxed text-slate-700">{solution}</p>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
@@ -303,8 +344,8 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, Lefebvre Dalloz, CNAM… des acteurs du BTP qui font confiance à une
-                formation terrain
+                FFB, CSFE, OPPBTP… des acteurs du BTP qui font confiance à une formation
+                terrain
               </h2>
               <p className="mt-4 text-slate-300">
                 Interventions auprès de fédérations, organismes et entreprises du bâtiment et
@@ -470,19 +511,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Programme modulaire — fond blanc */}
+      {/* Thématiques abordées — fond blanc */}
       <section id="programme" className="border-b border-slate-200 bg-white px-4 py-20">
         <div className="mx-auto max-w-6xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <span>PROGRAMME MODULAIRE</span>
+            <span>THÉMATIQUES ABORDÉES</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Programme détaillé de la formation
           </h2>
-          <p className="mt-3 text-slate-600">
-            Formation modulaire adaptée aux besoins de votre entreprise BTP : sessions de 4 h, grille
-            forfaitaire par participant selon le niveau (débutant ou avancé).
+          <p className="mt-3 max-w-3xl text-slate-600">
+            Voici les <strong className="font-semibold text-slate-800">quatre grands axes</strong> sur
+            lesquels s&apos;appuient les formations IA BTP : devis et chiffrage, réponses aux appels
+            d&apos;offres, comptes rendus et DOE, gestion des emails et relation client. Selon le
+            programme choisi dans le catalogue, l&apos;accent est mis sur l&apos;un ou l&apos;autre de ces
+            sujets — toujours en <strong className="font-semibold text-slate-800">sessions de 4 h</strong>,
+            avec un forfait par participant selon le niveau (débutant ou avancé).
           </p>
+          <div className="mt-8">
+            <Link
+              href="/formations"
+              className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+            >
+              Voir le catalogue des formations
+            </Link>
+          </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {

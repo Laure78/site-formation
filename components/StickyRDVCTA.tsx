@@ -34,13 +34,19 @@ export function StickyRDVCTA() {
       className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-200 bg-white/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur-sm"
       role="banner"
     >
-      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4">
+      <div className="mx-auto flex max-w-4xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <p className="text-sm font-medium text-slate-700">
           {isContactPage
             ? 'Prêt à échanger sur votre projet de formation ?'
             : 'RDV gratuit de 30 min — Devis personnalisé sous 24h'}
         </p>
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 flex-wrap items-center justify-end gap-2 sm:gap-3">
+          <Link
+            href="/formations"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
+          >
+            Catalogue formations
+          </Link>
           {isContactPage && (
             <Link
               href="#formulaire"

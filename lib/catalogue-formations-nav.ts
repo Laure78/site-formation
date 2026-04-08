@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Building2, FileText, HardHat, Layers, MapPin, Sparkles, Users } from 'lucide-react';
+import { Building2, FileText, HardHat, Layers, Sparkles, Users } from 'lucide-react';
 
 /** Liens méga-menu — même ordre que le catalogue /formations (niveau puis réf.). */
 export type CatalogueFormationNavLink = {
@@ -45,11 +45,5 @@ export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     label: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
     description: '4 h · forfait 175 € HT/part. (avancé) — BTP-06.',
     icon: Layers,
-  },
-  {
-    href: '/formation-ia',
-    label: 'Hub formation IA (métiers & villes Île-de-France)',
-    description: 'Pages locales et par lots : ChatGPT, Claude AI, Paris et départements IDF.',
-    icon: MapPin,
   },
 ];

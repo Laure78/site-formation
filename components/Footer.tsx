@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, Globe, Linkedin, FileText, BookOpen, MapPin } from 'lucide-react';
+import { Mail, Phone, Globe, Linkedin, FileText, BookOpen, MapPin, GraduationCap } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -8,6 +8,23 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-16">
+        <div className="mb-12 flex flex-col items-stretch justify-center gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-display text-lg font-semibold text-slate-900">
+              Formations IA BTP &amp; ChatGPT entreprise
+            </p>
+            <p className="mt-1 text-sm text-slate-600">
+              Catalogue Qualiopi, financement Constructys — sessions 4 h.
+            </p>
+          </div>
+          <Link
+            href="/formations"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+          >
+            <GraduationCap size={20} strokeWidth={1.75} aria-hidden />
+            Voir le catalogue des formations
+          </Link>
+        </div>
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           {/* Colonne principale */}
           <div className="lg:col-span-2">
@@ -65,7 +82,7 @@ export function Footer() {
               </address>
             </div>
             <ExternalLinkAnchor
-              href="https://www.linkedin.com/in/laure-olivie"
+              href={SITE_CONFIG.linkedinProfileUrl}
               title="Profil LinkedIn de Laure Olivié"
               className="mt-6 inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-5 py-3 text-sm font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent-soft)]"
             >
@@ -169,6 +186,7 @@ export function Footer() {
               {[
                 { href: '/reglement-interieur', label: 'Règlement intérieur' },
                 { href: '/annuaire-handicap', label: 'Annuaire handicap' },
+                { href: '/llms.txt', label: 'Fichier llms.txt (assistants IA)' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
@@ -207,14 +225,6 @@ export function Footer() {
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
             >
               <MapPin size={20} strokeWidth={1.5} />
-            </ExternalLinkAnchor>
-            <ExternalLinkAnchor
-              href="https://www.linkedin.com/in/laure-olivie"
-              title="LinkedIn Laure Olivié"
-              aria-label="LinkedIn"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
-            >
-              <Linkedin size={20} strokeWidth={1.5} />
             </ExternalLinkAnchor>
             <ExternalLinkAnchor
               href="mailto:laureolivie@yahoo.fr"

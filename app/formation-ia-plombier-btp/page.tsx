@@ -413,8 +413,8 @@ export default function FormationIaPlombierBtpPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             L’organisme a formé plus de <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du bâtiment
-            (artisans, PME, encadrement). <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM
-            Entreprise, Lefebvre Dalloz, etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
+            (artisans, PME, encadrement). <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB,
+            OPPBTP, etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Les parcours s’appuient sur des cas concrets (devis, diagnostics, dossiers) — pas de théorie généraliste sans

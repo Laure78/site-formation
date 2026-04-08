@@ -35,16 +35,4 @@ export const PARTENAIRES_INSTITUTIONNELS: PartenaireInstitutionnel[] = [
     href: 'https://www.ifrb-78-91-95.fr/',
     logo: '/images/partenaires/ifrb-78.jpg',
   },
-  {
-    name: 'Lefebvre Dalloz',
-    desc: 'Formations juridiques et professionnelles',
-    href: 'https://formation.lefebvre-dalloz.fr/',
-    logo: '/images/partenaires/lefebvre-dalloz.png',
-  },
-  {
-    name: 'CNAM Entreprise',
-    desc: 'Conservatoire National des Arts et Métiers',
-    href: 'https://formation-entreprise.cnam.fr/',
-    logo: '/images/partenaires/cnam-entreprise.svg',
-  },
 ];
