@@ -6,7 +6,7 @@ import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
-const AUTHOR_PHOTO = PHOTOS.interventionClaude;
+const AUTHOR_PHOTO = PHOTOS.portraitPro2026;
 
 export function AuthorBlock({ className }: { className?: string }) {
   return (

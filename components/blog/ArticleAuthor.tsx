@@ -4,6 +4,7 @@ import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { ExternalLink } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKEDIN_PROFILE_URL } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -11,7 +12,7 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const AUTHOR_IMAGE = '/images/laure-olivie-formatrice.png';
+const AUTHOR_PHOTO = PHOTOS.portraitPro2026;
 
 const JOB_TITLE = 'Formatrice IA & ChatGPT — Spécialiste BTP';
 
@@ -42,8 +43,8 @@ export function ArticleAuthor({ className }: Props) {
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-md">
           <Image
-            src={AUTHOR_IMAGE}
-            alt="Laure Olivié — formatrice IA et ChatGPT pour le BTP"
+            src={AUTHOR_PHOTO.src}
+            alt={AUTHOR_PHOTO.alt}
             fill
             className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="96px"

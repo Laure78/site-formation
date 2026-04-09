@@ -162,7 +162,7 @@ export const PHOTOS = {
   portraitPro2026: {
     src: '/images/laure-portrait-pro-2026.png',
     alt: 'Portrait professionnel de Laure Olivié, formatrice IA et ChatGPT spécialisée BTP',
-    width: 683,
+    width: 682,
     height: 1024,
   },
 
@@ -227,9 +227,9 @@ export const PHOTOS = {
   },
   btpFormationChantierPlans2026: {
     src: '/images/btp-formation-chantier-plans-2026.png',
-    alt: 'Chantier BTP : transmission sur plans et coordination entre encadrement et équipes terrain',
+    alt: "Formation IA en salle : Laure Olivié accompagne un participant au clavier ; écran « Travail de l'IA » (idées, synthèse de documents, automatisation) ; public BTP en arrière-plan",
     width: 1024,
-    height: 762,
+    height: 682,
   },
   btpFormationChantierEquipe2026: {
     src: '/images/btp-formation-chantier-equipe-2026.png',
@@ -251,14 +251,13 @@ export const PHOTOS = {
   },
 
   /**
-   * Fiche « IA au service du bâtiment » (BTP-01) — bureau, visio avec professionnel terrain,
-   * affiche Devis / Chantier / Organisation.
+   * Fiche « IA au service du bâtiment » (BTP-01) — présentiel, formatrice et participants, écran au fond.
    */
   formationIABtpVisioBureau2026: {
     src: '/images/formation-ia-btp-visio-bureau-2026.jpg',
-    alt: "Une formatrice en bureau présente la formation IA BTP en visioconférence à un professionnel du bâtiment en casque et gilet haute visibilité ; affiche thématiques devis, chantier et organisation",
+    alt: 'Laure Olivié anime une formation IA BTP en salle : présentation devant des professionnels, écran de projection au fond',
     width: 1024,
-    height: 699,
+    height: 682,
   },
 
   /** Page d'accueil — échange en bureau, tableau « Formation IA BTP » (devis, chantier, organisation) */

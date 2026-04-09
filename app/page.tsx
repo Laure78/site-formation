@@ -115,7 +115,7 @@ export default function HomePage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-6xl">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
             <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
                 <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
@@ -347,8 +347,8 @@ export default function HomePage() {
       {/* Référence clients — bande sombre */}
       <section className="border-b border-slate-200 bg-slate-900 px-4 py-16 text-white">
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-xl">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
+            <div className="max-w-xl shrink-0">
               <p className="inline-flex rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-blue-200">
                 Référence & partenaires
               </p>
@@ -367,18 +367,7 @@ export default function HomePage() {
               >
                 Voir les clients & partenaires
               </Link>
-            </div>
-            <div className="flex w-full flex-col gap-6 lg:max-w-md">
-              <div className="relative h-52 w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-800 sm:h-60">
-                <Image
-                  src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
-                  alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
-                  fill
-                  className="object-cover object-[center_15%]"
-                  sizes="(max-width: 1024px) 100vw, 420px"
-                />
-              </div>
-              <div className="grid shrink-0 grid-cols-3 gap-3 sm:gap-4">
+              <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 sm:gap-4">
                 {[
                   { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'personnes formées' },
                   { val: '4,85/5', label: 'note moyenne' },
@@ -386,13 +375,22 @@ export default function HomePage() {
                 ].map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-2xl border border-white/10 bg-slate-800/80 px-3 py-4 text-center sm:px-5 sm:py-5"
+                    className="rounded-2xl border border-white/10 bg-slate-800/80 px-2 py-3 text-center sm:px-4 sm:py-4"
                   >
-                    <p className="text-xl font-bold text-cyan-300 sm:text-2xl md:text-3xl">{s.val}</p>
-                    <p className="mt-1 text-[0.65rem] text-slate-400 sm:text-xs">{s.label}</p>
+                    <p className="text-lg font-bold text-cyan-300 sm:text-xl md:text-2xl">{s.val}</p>
+                    <p className="mt-1 text-[0.6rem] leading-tight text-slate-400 sm:text-xs">{s.label}</p>
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/10 bg-slate-800 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
+              <Image
+                src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
+                alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
+                fill
+                className="object-cover object-[center_15%]"
+                sizes="(max-width: 1024px) 100vw, 576px"
+              />
             </div>
           </div>
         </div>
