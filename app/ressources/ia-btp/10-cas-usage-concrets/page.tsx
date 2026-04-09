@@ -1,6 +1,17 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
-import { Check, ArrowRight, Lightbulb, TrendingUp, Clock, Euro } from 'lucide-react';
+import {
+  Check,
+  ArrowRight,
+  Lightbulb,
+  TrendingUp,
+  Clock,
+  Euro,
+  Sparkles,
+  GraduationCap,
+  Target,
+  BookMarked,
+} from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
@@ -36,6 +47,54 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Ressources IA BTP', path: '/ressources/ia-btp' },
   { name: '10 cas d\'usage concrets', path: '/ressources/ia-btp/10-cas-usage-concrets' },
 ]);
+
+const DEMARRER_IA_BTP_STEPS = [
+  {
+    step: 1,
+    title: 'Choisir le bon outil',
+    body: (
+      <>
+        Pour 90&nbsp;% des cas d&apos;usage BTP, <strong>ChatGPT</strong> (version payante, 24&nbsp;€/mois) est la
+        solution idéale. Simple, en français, et immédiatement opérationnel.
+      </>
+    ),
+    Icon: Sparkles,
+  },
+  {
+    step: 2,
+    title: 'Se former (4 h suffisent)',
+    body: (
+      <>
+        Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Nos
+        formations de 4&nbsp;h sont <strong>100&nbsp;% finançables par l&apos;OPCO Constructys</strong> (aucun reste à
+        charge).
+      </>
+    ),
+    Icon: GraduationCap,
+  },
+  {
+    step: 3,
+    title: "Commencer par 1 ou 2 cas d'usage",
+    body: (
+      <>
+        Ne cherchez pas à tout faire en même temps. Identifiez la tâche qui vous fait perdre le plus de temps (souvent
+        : devis ou emails), et automatisez-la d&apos;abord. Une fois à l&apos;aise, étendez progressivement.
+      </>
+    ),
+    Icon: Target,
+  },
+  {
+    step: 4,
+    title: 'Créer une bibliothèque de prompts',
+    body: (
+      <>
+        Sauvegardez vos meilleurs prompts (instructions pour l&apos;IA) dans un document partagé. Cela permet à toute
+        l&apos;équipe de gagner du temps immédiatement.
+      </>
+    ),
+    Icon: BookMarked,
+  },
+] as const;
 
 const FAQ = [
   {
@@ -279,35 +338,47 @@ export default function CasUsageIABTPPage() {
       </section>
 
       {/* Comment démarrer */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="prose prose-lg mx-auto max-w-4xl">
-          <h2 className="font-display text-3xl font-bold text-slate-900">
-            Comment démarrer avec l'IA dans votre entreprise BTP
-          </h2>
-          
-          <h3 className="text-2xl font-semibold text-slate-900">1. Choisir le bon outil</h3>
-          <p className="text-slate-700">
-            Pour 90% des cas d'usage BTP, <strong>ChatGPT</strong> (version payante, 24€/mois) est la solution idéale. 
-            Simple, en français, et immédiatement opérationnel.
-          </p>
+      <section
+        className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-16"
+        aria-labelledby="demarrer-ia-btp-titre"
+      >
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2
+              id="demarrer-ia-btp-titre"
+              className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+            >
+              Comment démarrer avec l&apos;IA dans votre entreprise BTP
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Quatre étapes concrètes pour passer du constat à la pratique, sans dispersion.
+            </p>
+          </div>
 
-          <h3 className="text-2xl font-semibold text-slate-900">2. Se former (4h suffisent)</h3>
-          <p className="text-slate-700">
-            Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. 
-            Nos formations de 4h sont <strong>100% finançables par l'OPCO Constructys</strong> (aucun reste à charge).
-          </p>
-
-          <h3 className="text-2xl font-semibold text-slate-900">3. Commencer par 1 ou 2 cas d'usage</h3>
-          <p className="text-slate-700">
-            Ne cherchez pas à tout faire en même temps. Identifiez la tâche qui vous fait perdre le plus de temps 
-            (souvent : devis ou emails), et automatisez-la d'abord. Une fois à l'aise, étendez progressivement.
-          </p>
-
-          <h3 className="text-2xl font-semibold text-slate-900">4. Créer une bibliothèque de prompts</h3>
-          <p className="text-slate-700">
-            Sauvegardez vos meilleurs prompts (instructions pour l'IA) dans un document partagé. 
-            Cela permet à toute l'équipe de gagner du temps immédiatement.
-          </p>
+          <ol className="mt-12 grid list-none gap-6 sm:grid-cols-2 lg:gap-8">
+            {DEMARRER_IA_BTP_STEPS.map(({ step, title, body, Icon }) => (
+              <li
+                key={step}
+                className="group relative flex flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-200 hover:border-[var(--accent)]/35 hover:shadow-md md:p-8"
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)]/10 text-[var(--accent)] transition-colors group-hover:bg-[var(--accent)] group-hover:text-white"
+                    aria-hidden
+                  >
+                    <Icon className="h-7 w-7" strokeWidth={1.75} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                      Étape {step}
+                    </span>
+                    <h3 className="mt-1 font-display text-xl font-semibold text-slate-900">{title}</h3>
+                  </div>
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-slate-600">{body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

@@ -371,10 +371,10 @@ export default function HomePage() {
             <div className="flex w-full flex-col gap-6 lg:max-w-md">
               <div className="relative h-52 w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-800 sm:h-60">
                 <Image
-                  src="/images/ffb-espaces-accueil.png"
-                  alt="Espaces d’accueil FFB : environnement professionnel de la Fédération Française du Bâtiment — réseau formation entreprises du bâtiment et artisans (Île-de-France, national)."
+                  src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
+                  alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-[center_15%]"
                   sizes="(max-width: 1024px) 100vw, 420px"
                 />
               </div>

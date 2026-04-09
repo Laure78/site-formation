@@ -217,6 +217,14 @@ export const PHOTOS = {
     width: 1024,
     height: 682,
   },
+
+  /** Fiche formation IA architecture / Claude — présentation en petit groupe, salle */
+  formationIABtpArchiClaudePresentielGroupe2026: {
+    src: '/images/formation-ia-architecture-claude-presentiel-groupe-2026.jpg',
+    alt: 'Formation en présentiel : formatrice devant un groupe de professionnels du bâtiment, écran de présentation en arrière-plan',
+    width: 1024,
+    height: 682,
+  },
   btpFormationChantierPlans2026: {
     src: '/images/btp-formation-chantier-plans-2026.png',
     alt: 'Chantier BTP : transmission sur plans et coordination entre encadrement et équipes terrain',
@@ -259,6 +267,14 @@ export const PHOTOS = {
     alt: "Échange professionnel en bureau autour de la formation IA BTP : poignée de main au-dessus d'un bureau avec ordinateur portable ; tableau avec les thématiques devis, chantier et organisation",
     width: 1024,
     height: 682,
+  },
+
+  /** Accueil — bloc « Référence & partenaires » (visuel formatrice OFC) */
+  accueilReferencePartenairesLaureOFC2026: {
+    src: '/images/accueil-reference-partenaires-laure-ofc-2026.jpg',
+    alt: 'Laure Olivié, formatrice IA BTP certifiée Qualiopi, en tenue professionnelle devant un bâtiment moderne, chemise à l’emblème OFC Création d’Entreprise',
+    width: 682,
+    height: 1024,
   },
 
 };

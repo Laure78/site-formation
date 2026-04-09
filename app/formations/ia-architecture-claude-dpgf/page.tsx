@@ -46,10 +46,10 @@ export const metadata = createPageMetadata({
     'Qualiopi architecture',
   ],
   image: {
-    url: PHOTOS.btpFormationBureauConseil2026.src,
-    width: PHOTOS.btpFormationBureauConseil2026.width,
-    height: PHOTOS.btpFormationBureauConseil2026.height,
-    alt: PHOTOS.btpFormationBureauConseil2026.alt,
+    url: PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.src,
+    width: PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.width,
+    height: PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.height,
+    alt: PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.alt,
   },
 });
 
@@ -164,10 +164,10 @@ export default function FormationIAArchitectureClaudePage() {
         summaryItems={HERO_RESUME_ARCHI}
         image={
           <FormationHeroPhoto
-            src={PHOTOS.btpFormationBureauConseil2026.src}
-            alt={PHOTOS.btpFormationBureauConseil2026.alt}
-            width={PHOTOS.btpFormationBureauConseil2026.width}
-            height={PHOTOS.btpFormationBureauConseil2026.height}
+            src={PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.src}
+            alt={PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.alt}
+            width={PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.width}
+            height={PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.height}
             priority
           />
         }

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Award } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
+import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
 const AUTHOR_PHOTO = PHOTOS.interventionClaude;
@@ -11,13 +12,12 @@ export function AuthorBlock({ className }: { className?: string }) {
   return (
     <div className={`rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8 ${className ?? ''}`}>
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-        <PortraitLinkedInLink className="relative block h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-slate-200 ring-2 ring-white shadow-md transition-opacity hover:opacity-95">
+        <PortraitLinkedInLink className="relative block h-16 w-16 shrink-0 overflow-hidden rounded-full bg-slate-200 ring-2 ring-white shadow-md transition-opacity hover:opacity-95">
           <Image
             src={AUTHOR_PHOTO.src}
             alt={AUTHOR_PHOTO.alt}
-            width={64}
-            height={64}
-            className="h-full w-full object-cover object-top"
+            fill
+            className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="64px"
           />
         </PortraitLinkedInLink>

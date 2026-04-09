@@ -148,40 +148,6 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
   return refNum(a.ref) - refNum(b.ref);
 });
 
-/** Miniatures catalogue — chaque visuel est associé à sa formation */
-const FORMATIONS_PAGE_THUMBNAILS = [
-  {
-    photo: PHOTOS.formationIAArtisans2026,
-    href: '/formations/ia-au-service-du-batiment',
-    title: "L'IA au service du bâtiment",
-  },
-  {
-    photo: PHOTOS.formationIATP2026,
-    href: '/formations/ia-travaux-publics',
-    title: "L'IA au service des Travaux Publics",
-  },
-  {
-    photo: PHOTOS.formationIAAppelsOffres2026,
-    href: '/formations/ia-appels-offre-btp',
-    title: "Répondre aux appels d'offre avec l'IA",
-  },
-  {
-    photo: PHOTOS.formationIASensibilisation2026,
-    href: '/formations/sensibilisation-ia-assistants-personnalises',
-    title: "Sensibilisation à l'IA & Assistants IA personnalisés",
-  },
-  {
-    photo: PHOTOS.formationIAClaude2026,
-    href: '/formations/ia-architecture-claude-dpgf',
-    title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
-  },
-  {
-    photo: PHOTOS.formationIARH2026,
-    href: '/formations/ia-rh-btp',
-    title: 'Formation IA pour la Fonction RH dans le BTP',
-  },
-] as const;
-
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
   const courseListSchema = getCourseListSchema(
@@ -268,27 +234,6 @@ export default function FormationsPage() {
           ))}
         </div>
       </section>
-      
-      <div className="mx-auto mt-12 max-w-5xl">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-          {FORMATIONS_PAGE_THUMBNAILS.map(({ photo, href, title }) => (
-            <Link
-              key={photo.src}
-              href={href}
-              className="group relative block aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm transition-shadow hover:shadow-md"
-              aria-label={`Voir la formation : ${title}`}
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 200px"
-              />
-            </Link>
-          ))}
-        </div>
-      </div>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {FORMATIONS.map((cours) => (

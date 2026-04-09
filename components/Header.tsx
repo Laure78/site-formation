@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
@@ -357,13 +358,16 @@ export function Header() {
           href="/"
           className="group flex shrink-0 items-center gap-1 font-display text-lg font-bold tracking-tight text-slate-900 sm:gap-1.5 sm:text-xl"
         >
-          <Image
-            src="/images/laure-portrait-header-2026.png"
-            alt="Portrait de Laure Olivié, formatrice IA BTP"
-            className="h-9 w-9 rounded-full object-cover sm:h-10 sm:w-10"
-            width={40}
-            height={40}
-          />
+          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70 sm:h-10 sm:w-10">
+            <Image
+              src="/images/laure-portrait-header-2026.png"
+              alt="Portrait de Laure Olivié, formatrice IA BTP"
+              fill
+              className={AUTHOR_HEADSHOT_IMAGE_CLASS}
+              sizes="40px"
+              priority
+            />
+          </span>
           <span className="hidden min-[380px]:inline">Laure Olivié</span>
         </Link>
 

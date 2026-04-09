@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Poppins } from 'next/font/google';
+import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { ExternalLink } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKEDIN_PROFILE_URL } from '@/lib/seo';
@@ -39,13 +40,12 @@ export function ArticleAuthor({ className }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
-        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-lg ring-2 ring-white shadow-md">
+        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-md">
           <Image
             src={AUTHOR_IMAGE}
             alt="Laure Olivié — formatrice IA et ChatGPT pour le BTP"
-            width={96}
-            height={96}
-            className="h-full w-full object-cover object-top"
+            fill
+            className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="96px"
           />
         </div>
