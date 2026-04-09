@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { Mail, Phone } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'CGV — Conditions Générales de Vente — OFC Création d\'Entreprise',
   description:
     "CGV formations OFC : vente, délais, annulations, paiement. Organisme Qualiopi. Lisez les conditions avant de réserver votre formation IA BTP.",
-};
+  path: '/cgv',
+  keywords: ['CGV formation professionnelle', 'conditions vente formation BTP', 'Qualiopi OFC'],
+});
 
 export default function CGVPage() {
   return (

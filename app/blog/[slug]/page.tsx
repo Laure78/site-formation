@@ -5,11 +5,8 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
   ARTICLE_SECTION_GEO,
   createPageMetadata,
-  dateToIso8601ForMeta,
-  extractFaqPairsFromArticleSections,
   getArticleSchema,
   getBreadcrumbSchema,
-  getFAQSchema,
   getHowToFromArticle,
 } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -26,7 +23,8 @@ import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
-import { AuthorBlock } from '@/components/blog/AuthorBlock';
+import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
+import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 
 interface Props {
@@ -81,37 +79,32 @@ export async function generateMetadata({ params }: Props) {
   const article = getArticle(slug);
   if (!article) return { title: 'Article non trouvé' };
   const metaTitle = article.seoTitle ?? article.title;
+  const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
   const base = createPageMetadata({
     title: metaTitle,
     description: article.description,
     path: `/blog/${slug}`,
     keywords: article.keywords,
+    openGraphType: 'article',
+    article: {
+      publishedTime: article.date,
+      modifiedTime: article.dateModified ?? article.date,
+      author: SITE_CONFIG.name,
+      section: ARTICLE_SECTION_GEO,
+    },
+    image: {
+      url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
+      width: 1200,
+      height: 630,
+      alt: article.title,
+    },
   });
-  const ogImage = `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
-  const publishedIso = dateToIso8601ForMeta(article.date);
-  const modifiedIso = dateToIso8601ForMeta(article.dateModified ?? article.date);
-  const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
   return {
     ...base,
     authors: [{ name: SITE_CONFIG.name, url: authorUrl }],
     openGraph: {
       ...base.openGraph,
-      type: 'article',
-      publishedTime: publishedIso,
-      modifiedTime: modifiedIso,
-      authors: [SITE_CONFIG.name],
-      section: ARTICLE_SECTION_GEO,
       tags: article.keywords,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: article.title }],
-    },
-    twitter: { card: 'summary_large_image', title: metaTitle, description: article.description },
-    /** GEO — métadonnées article pour IA / réseaux (complément Open Graph) */
-    other: {
-      'article:author': SITE_CONFIG.name,
-      'og:author': SITE_CONFIG.name,
-      'article:published_time': publishedIso,
-      'article:modified_time': modifiedIso,
-      'article:section': ARTICLE_SECTION_GEO,
     },
   };
 }
@@ -139,16 +132,12 @@ export default async function BlogArticlePage({ params }: Props) {
     { name: article.title, path: `/blog/${article.slug}` },
   ]);
   const howToSchema = getHowToFromArticle(article);
-  const faqPairs = extractFaqPairsFromArticleSections(article.sections);
-  const faqSchema = faqPairs.length > 0 ? getFAQSchema(faqPairs) : null;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {faqSchema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      )}
+      <BlogArticleFaqJsonLd sections={article.sections} />
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}
@@ -409,7 +398,7 @@ export default async function BlogArticlePage({ params }: Props) {
         })}
         </div>
 
-        <AuthorBlock className="mt-12" />
+        <ArticleAuthor className="mt-12" />
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-slate-200 pt-12">

@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Mentions légales — OFC Création d\'Entreprise',
   description:
     "Mentions légales OFC : éditeur Laure Olivié, siège Guyancourt, hébergement O2switch, RGPD. Organisme formation IA BTP certifié Qualiopi. Informations à jour.",
-};
+  path: '/mentions-legales',
+  keywords: ['mentions légales OFC', 'organisme formation Qualiopi', 'RGPD formation BTP'],
+});
 
 export default function MentionsLegalesPage() {
   return (

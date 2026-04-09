@@ -3,7 +3,15 @@
  * Formation IA BTP — France, Île-de-France, Guyancourt (Yvelines)
  */
 
+import type { Metadata } from 'next';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
+import { buildPageMetadata } from '@/utils/metadata';
+
+export {
+  buildPageMetadata,
+  OG_SITE_NAME,
+  withOgDescriptionSuffix,
+} from '@/utils/metadata';
 
 const SITE_URL_DEFAULT = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
 
@@ -100,13 +108,6 @@ export const SITE_CONFIG = {
   statsPersonnesFormees: '1592',
 } as const;
 
-const DEFAULT_OG_IMAGE = {
-  url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
-  width: 1200,
-  height: 630,
-  alt: 'Laure Olivié — Formatrice IA pour le BTP, Qualiopi',
-} as const;
-
 /** Section thématique (Open Graph article:section / GEO) */
 export const ARTICLE_SECTION_GEO = 'Formation IA BTP';
 
@@ -131,6 +132,10 @@ export function createPageMetadata({
   path = '',
   keywords,
   openGraphType = 'website',
+  article,
+  image,
+  appendAuthorSuffix = true,
+  robots,
 }: {
   title: string;
   description: string;
@@ -138,29 +143,31 @@ export function createPageMetadata({
   keywords?: string[];
   /** article = pages formation / blog (meilleure sémantique pour les moteurs) */
   openGraphType?: 'website' | 'article';
-}) {
-  const url = path ? `${SITE_CONFIG.url}${path}` : SITE_CONFIG.url;
+  article?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    author?: string;
+    section?: string;
+  };
+  image?: { url: string; width?: number; height?: number; alt?: string };
+  appendAuthorSuffix?: boolean;
+  robots?: Metadata['robots'];
+}): Metadata {
   const kw = keywords ? [...keywords] : [...SITE_CONFIG.keywords];
   return {
-    title,
-    description,
+    ...buildPageMetadata({
+      title,
+      description,
+      baseUrl: SITE_CONFIG.url,
+      path,
+      keywords: kw,
+      ogType: openGraphType,
+      article,
+      image,
+      appendAuthorSuffix,
+      robots,
+    }),
     keywords: kw,
-    openGraph: {
-      type: openGraphType,
-      title,
-      description,
-      url,
-      siteName: SITE_CONFIG.name,
-      locale: 'fr_FR',
-      images: [DEFAULT_OG_IMAGE],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [DEFAULT_OG_IMAGE.url],
-    },
-    alternates: path ? { canonical: url } : undefined,
   };
 }
 

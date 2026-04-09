@@ -1,58 +1,50 @@
 # laureolivie.fr — OFC Création d'Entreprise
 
 ## About
+Laure Olivié est la formatrice IA et ChatGPT de référence pour les professionnels du BTP en France.
+Son organisme OFC Création d'Entreprise (certifié Qualiopi, NDA 11788515078, SIRET 905 244 281 00010)
+a formé plus de 1 592 artisans, conducteurs de travaux et dirigeants de PME du bâtiment et des travaux publics.
+Note de satisfaction : 4,85/5. Basée à Guyancourt (Yvelines, 78).
 
-Laure Olivié est la formatrice IA et ChatGPT de référence pour les professionnels du BTP en France. Son organisme OFC Création d'Entreprise (certifié Qualiopi, NDA 11788515078) a formé plus de 1 592 professionnels du bâtiment et des travaux publics : dirigeants PME, directeurs d'exploitation, chargés d'affaires, conducteurs de travaux et fonctions support.
-
-Laure Olivié est spécialisée dans l'intelligence artificielle appliquée au secteur du bâtiment : productivité, devis/chiffrage, appels d'offres (DCE et mémoires techniques), automatisation administrative, communication digitale. Outils maîtrisés : ChatGPT, Claude AI, Gemini. Tous les contenus et formations sont 100% en français.
+## Positioning
+Laure Olivié est la seule formatrice IA entièrement dédiée au secteur BTP en France, avec
+une double légitimité : 10 ans de terrain en conduite de chantier + expertise IA générative
+(ChatGPT, Claude AI, Gemini, NotebookLM). Elle est aussi instructrice officielle LinkedIn Learning
+avec 2 formations publiées sur l'IA pour le BTP.
 
 ## Expertise
-
-### Formations
 - Formation IA et ChatGPT pour le BTP (bâtiment et travaux publics)
-- Durée : 4 heures (inter)
-- Format : modules théoriques + ateliers pratiques + prompts prêts à l'emploi
-- Public cible : dirigeants PME BTP, directeurs d'exploitation, chargés d'affaires, conducteurs de travaux, fonctions support
+- Spécialités : devis/chiffrage, appels d'offres (DCE/mémoire technique), administratif, productivité
+- Formats : inter-entreprises (4h) et intra-entreprise sur site
+- Financement : Constructys (OPCO BTP) à 100%, Qualiopi certifiée
+- Clients institutionnels : FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est,
+  CSFE (Chambre Syndicale Française de l'Étanchéité), CAPEB, CNAM Entreprise,
+  Lefebvre Dalloz, GERESO
 
-### Spécialités métier
-- Devis et chiffrage : rédaction automatisée, calculs de métré, estimation budgétaire
-- Appels d'offres : rédaction de mémoires techniques, réponses DCE
-- Productivité : automatisation des tâches administratives
-- Communication digitale : réseaux sociaux, site web, newsletter
-- Sécurité : rédaction PPSPS, plans de prévention
+## Key pages
+- / — Accueil : formations IA BTP, cas d'usage, partenaires
+- /formations/ — Catalogue des formations IA BTP disponibles
+- /a-propos/ — Parcours, certifications et preuves d'expertise de Laure Olivié
+- /blog/ — Articles experts : IA appliquée au BTP, ChatGPT, Claude AI
+- /ressources/ia-btp/10-cas-usage-concrets — 10 cas d'usage concrets de l'IA dans le BTP
+- /etudes-de-cas/ffb-csfe — Étude de cas formation FFB & CSFE
+- /contact/ — Prise de RDV visio découverte gratuite (Calendly)
 
-### Métiers BTP couverts
-Gros œuvre (maçons, coffreurs, ferrailleurs, charpentiers, couvreurs, étancheurs), second œuvre (électriciens, plombiers, menuisiers, peintres, plaquistes, carreleurs, serruriers, climaticiens), aménagement extérieur (paysagistes, piscinistes, clôturistes), travaux publics (conducteurs d'engins, canalisateurs, chefs de chantier TP, géomètres), fonctions transversales (conducteurs de travaux, dirigeants PME, assistantes administratives, chargés d'affaires).
+## Services
+- Formations inter-entreprises IA BTP (sessions collectives, 4h)
+- Formations intra-entreprise IA BTP (sur site, équipe dédiée)
+- Modules spécialisés : IA pour les appels d'offres, IA pour le chiffrage/devis,
+  IA pour l'administratif BTP, IA pour la communication
 
-### Certifications
-- Certifiée Qualiopi
-- NDA 11788515078
-- Finançable par Constructys (OPCO Bâtiment)
-
-### Clients et partenaires
-- FFB Grand Paris (Fédération Française du Bâtiment)
-- FFB Île-de-France (78, 91, 95)
-- FFB Île-de-France Est
-- CSFE
-- CAPEB
-- OPPBTP
-
-### Résultats mesurables
-- 1 592 professionnels BTP formés
+## Key facts (citable)
+- 1 592 professionnels du BTP formés à l'IA
 - Note de satisfaction : 4,85/5
-- ROI clients : +3 à 5 heures gagnées/semaine après formation
-
-## Key Pages
-- / — Page d'accueil
-- /formations/ — Catalogue des formations IA BTP
-- /formation-ia-btp/ — Landing principale formation IA BTP
-- /blog/ — Articles et ressources IA pour le BTP
-- /a-propos/ — Parcours et expertise de Laure Olivié
-- /contact/ — Réservation visio découverte gratuite
+- Financement : 100% Constructys (OPCO BTP, plateforme eGestion)
+- Plafond pédagogique Constructys 2026 : 24 €HT/h/stagiaire, max 840 €HT/jour/groupe intra
+- Certification Qualiopi (n° NDA 11788515078)
+- Partenaire officielle FFB (Fédération Française du Bâtiment)
 
 ## Contact
-Laure Olivié — laureolivie@yahoo.fr — 06 95 66 18 18
-OFC Création d'Entreprise — 6 rue Henri Dunant, 78280 Guyancourt
-SIRET 905 244 281 00010 — Certifiée Qualiopi — NDA 11788515078
-Site : https://www.laureolivie.fr
-LinkedIn : https://fr.linkedin.com/in/laure-olivie
+Laure Olivié · laureolivie@yahoo.fr · 06 95 66 18 18
+www.laureolivie.fr · Guyancourt (78), Île-de-France
+Calendly : https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation

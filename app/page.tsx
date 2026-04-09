@@ -172,10 +172,10 @@ export default function HomePage() {
             <div className="shrink-0 lg:w-80">
               <PortraitLinkedInLink className="block overflow-hidden rounded-2xl shadow-2xl transition-opacity hover:opacity-95">
                 <Image
-                  src={PHOTOS.interventionClaude.src}
-                  alt={PHOTOS.interventionClaude.alt}
-                  width={PHOTOS.interventionClaude.width}
-                  height={PHOTOS.interventionClaude.height}
+                  src={PHOTOS.portraitPro2026.src}
+                  alt={PHOTOS.portraitPro2026.alt}
+                  width={PHOTOS.portraitPro2026.width}
+                  height={PHOTOS.portraitPro2026.height}
                   className="h-auto w-full"
                   sizes="(max-width: 1024px) 100vw, 320px"
                   priority

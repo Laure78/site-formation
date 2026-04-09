@@ -1,12 +1,16 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { MessagesClient } from './MessagesClient';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Messages',
   description:
     "Échangez en messagerie avec votre formateur sur les modules IA BTP. Questions de parcours et ressources. Espace connecté réservé aux apprenants inscrits.",
-};
+  path: '/messages',
+  keywords: ['messagerie formation en ligne'],
+  robots: { index: false, follow: false },
+});
 
 export default async function MessagesPage() {
   const supabase = await createClient();

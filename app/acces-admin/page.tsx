@@ -2,13 +2,16 @@ import { createClient } from '@/lib/supabase/server';
 import { getProfile, isAdmin } from '@/lib/auth';
 import Link from 'next/link';
 import { AlertCircle, CheckCircle, ExternalLink } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Accès espace admin',
   description:
     "Accès réservé administrateurs plateforme formation IA BTP. Connexion requise pour gérer cours, apprenants, contenus pédagogiques et paramètres.",
-  robots: 'noindex',
-};
+  path: '/acces-admin',
+  keywords: ['administration formation'],
+  robots: { index: false, follow: false },
+});
 
 export default async function AccesAdminPage() {
   const supabase = await createClient();

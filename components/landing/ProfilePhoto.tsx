@@ -6,7 +6,7 @@ import { User } from 'lucide-react';
 import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
-const PROFILE = PHOTOS.interventionClaude;
+const PROFILE = PHOTOS.portraitPro2026;
 
 export function ProfilePhoto() {
   const [error, setError] = useState(false);

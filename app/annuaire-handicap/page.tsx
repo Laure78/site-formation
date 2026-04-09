@@ -11,12 +11,15 @@ import {
   CheckCircle,
   Building2,
 } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Annuaire national des partenaires handicap — OFC Création d\'Entreprise',
   description:
     "Annuaire handicap : AGEFIPH, MDPH, accompagnement. Contacts utiles pour stagiaires en situation de handicap en formation IA BTP organisée par OFC.",
-};
+  path: '/annuaire-handicap',
+  keywords: ['handicap formation professionnelle', 'AGEFIPH', 'MDPH', 'formation IA BTP'],
+});
 
 export default function AnnuaireHandicapPage() {
   return (

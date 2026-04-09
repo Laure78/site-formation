@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import { Mail, Phone } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Règlement intérieur — OFC Création d\'Entreprise',
   description:
     "Règlement intérieur OFC : présence, sécurité, discipline. Code du travail, organisme Qualiopi. Consultez avant votre session de formation BTP.",
-};
+  path: '/reglement-interieur',
+  keywords: ['règlement intérieur formation', 'Qualiopi', 'formation BTP'],
+});
 
 export default function ReglementInterieurPage() {
   return (

@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import { CheckCircle, Phone, Mail, Home, Calendar, ClipboardList, BookOpen } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: 'Rendez-vous confirmé — Laure Olivié',
   description:
     "Votre rendez-vous formation IA BTP est enregistré. Confirmation par email avec le lieu, les horaires ou les consignes selon le mode d’entretien choisi avec Laure Olivié.",
+  path: '/merci-rdv',
+  keywords: ['confirmation rendez-vous formation'],
   robots: { index: false, follow: false },
-};
+});
 
 function formatRDVDisplay(startIso: string): string {
   try {

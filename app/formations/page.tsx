@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 import Image from 'next/image';
 import { Clock, Users, Check, Euro } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -15,6 +16,7 @@ import {
   ENCART_TARIFS_COMMERCIAUX,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
+import { getSchemaCourses } from '@/lib/schema-courses';
 
 export const metadata = createPageMetadata({
   title: 'Formations IA BTP & ChatGPT entreprise | Catalogue Qualiopi',
@@ -139,10 +141,12 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
 
 /** Miniatures catalogue — même ratio 4:3 pour toutes les images */
 const FORMATIONS_PAGE_PHOTOS = [
-  PHOTOS.ouvrierPlan,
-  PHOTOS.architecteConcentration,
-  PHOTOS.ouvrierConfiant,
-  PHOTOS.formationEntreprise,
+  PHOTOS.formationIAArtisans2026,
+  PHOTOS.formationIATP2026,
+  PHOTOS.formationIAAppelsOffres2026,
+  PHOTOS.formationIASensibilisation2026,
+  PHOTOS.formationIAClaude2026,
+  PHOTOS.formationIARH2026,
 ] as const;
 
 export default function FormationsPage() {
@@ -156,7 +160,16 @@ export default function FormationsPage() {
   );
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
+    <>
+      <Script
+        id="schema-courses"
+        strategy="afterInteractive"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getSchemaCourses()),
+        }}
+      />
+      <div className="mx-auto max-w-6xl px-4 py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -187,8 +200,8 @@ export default function FormationsPage() {
         </div>
       </div>
       
-      <div className="mx-auto mt-12 max-w-4xl">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+      <div className="mx-auto mt-12 max-w-5xl">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {FORMATIONS_PAGE_PHOTOS.map((photo) => (
             <div
               key={photo.src}
@@ -309,6 +322,7 @@ export default function FormationsPage() {
           { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
         ]}
       />
-    </div>
+      </div>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
@@ -13,6 +14,8 @@ import {
   getPersonSchema,
   getMainCourseSchema,
 } from '@/lib/seo';
+import { getSchemaPersonOrganization } from '@/lib/schema-person-organization';
+import { OG_SITE_NAME, withOgDescriptionSuffix } from '@/utils/metadata';
 
 const inter = Inter({
   variable: '--font-body',
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
       'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin | Laure Olivié',
     template: '%s | Laure Olivié',
   },
-  description: SITE_CONFIG.description,
+  description: withOgDescriptionSuffix(SITE_CONFIG.description),
   keywords: [...SITE_CONFIG.keywords],
   authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   creator: SITE_CONFIG.name,
@@ -44,10 +47,10 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
+    siteName: OG_SITE_NAME,
     title:
       'Formation IA BTP & ChatGPT entreprise | Laure Olivié | Île-de-France · Yvelines · Qualiopi',
-    description: SITE_CONFIG.description,
+    description: withOgDescriptionSuffix(SITE_CONFIG.description),
     images: [
       {
         url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
@@ -61,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title:
       'Formation IA BTP & ChatGPT entreprise | Laure Olivié | Île-de-France · Yvelines',
-    description: SITE_CONFIG.description,
+    description: withOgDescriptionSuffix(SITE_CONFIG.description),
     images: [`${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`],
   },
   robots: {
@@ -132,6 +135,14 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <head>
+        <Script
+          id="schema-person-org"
+          strategy="afterInteractive"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getSchemaPersonOrganization()),
+          }}
+        />
         {/* Données structurées Schema.org JSON-LD — Rich Results Google */}
         {jsonLdScripts.map((schema, i) => (
           <script

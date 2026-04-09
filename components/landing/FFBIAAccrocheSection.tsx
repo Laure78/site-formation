@@ -13,28 +13,28 @@ export function FFBIAAccrocheSection() {
       <div className="mx-auto max-w-6xl">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="mx-auto w-full max-w-[min(100%,640px)] lg:mx-0">
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-900 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.35)] ring-1 ring-black/8">
-              <Image
-                src="/images/ffb-affiche-ia-tous-concernes.png"
-                alt="Affichette campagne FFB « Intelligence artificielle, tous concernés » : sensibilisation de la filière bâtiment à l’IA sur l’acte de construire — alignée aux formations ChatGPT et Claude AI pour le BTP (Laure Olivié)."
-                fill
-                quality={88}
-                priority={false}
-                className="object-cover object-[center_38%] contrast-[1.09] brightness-[1.05] saturate-[1.08]"
-                sizes="(max-width: 1024px) 92vw, 640px"
-              />
-              {/* Atténue les reflets / aplati le rendu pour un rendu plus net à l’écran */}
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/10 via-transparent to-slate-950/15 mix-blend-soft-light"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_45%,transparent_0%,rgba(15,23,42,0.08)_100%)]"
-                aria-hidden
-              />
+            <div className="flex aspect-video w-full items-center justify-center gap-8 overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.22)]">
+              <div className="relative h-20 w-full max-w-[240px]">
+                <Image
+                  src="/images/partenaires/ffb-logo-officiel.png"
+                  alt="Logo officiel FFB — Fédération Française du Bâtiment"
+                  fill
+                  className="object-contain object-center"
+                  sizes="240px"
+                />
+              </div>
+              <div className="relative h-20 w-full max-w-[240px]">
+                <Image
+                  src="/images/partenaires/csfe-logo.png"
+                  alt="Logo officiel CSFE — Chambre Syndicale Française de l'Étanchéité"
+                  fill
+                  className="object-contain object-center"
+                  sizes="240px"
+                />
+              </div>
             </div>
             <p className="mt-3 text-center text-xs text-slate-500 lg:text-left">
-              Campagne FFB — IA et filière bâtiment (Paris, Île-de-France et national)
+              Logos partenaires FFB &amp; CSFE — filière bâtiment et étanchéité
             </p>
           </div>
 
@@ -74,10 +74,10 @@ export function FFBIAAccrocheSection() {
           <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/ffb-logo-moss-mur.png"
-                alt="Logo FFB sur mur végétalisé en accueil : Fédération Française du Bâtiment — institution de référence pour artisans et entreprises du bâtiment, partenaire formations IA BTP en Île-de-France."
+                src="/images/partenaires/ffb-logo-officiel.png"
+                alt="Logo officiel FFB — Fédération Française du Bâtiment, partenaire des formations IA BTP."
                 fill
-                className="object-cover object-center"
+                className="object-contain object-center p-8"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -88,10 +88,10 @@ export function FFBIAAccrocheSection() {
           <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/csfe-signaletique.png"
-                alt="Signalétique murale CSFE : Chambre syndicale française de l’étanchéité et APME-PROMETHEE — accueil des professionnels de l’étanchéité et de la filière BTP."
+                src="/images/partenaires/csfe-logo.png"
+                alt="Logo officiel CSFE — Chambre Syndicale Française de l'Étanchéité."
                 fill
-                className="object-cover object-center"
+                className="object-contain object-center p-8"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>

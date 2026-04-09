@@ -380,7 +380,7 @@ export function Header() {
               >
                 <button
                   type="button"
-                  className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9375rem] font-medium transition-all ${
+                  className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                     megaHasActivePath(item, pathname) || openMega === item.id
                       ? 'bg-white text-slate-900 shadow-sm'
                       : 'text-slate-700 hover:text-slate-900'
@@ -404,7 +404,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-3.5 py-2 text-[0.9375rem] font-medium transition-all ${
+                className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                   isActive(item.href, pathname)
                     ? 'bg-white text-slate-900 shadow-sm'
                     : 'text-slate-700 hover:text-slate-900'
@@ -419,7 +419,7 @@ export function Header() {
         <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
           <Link
             href="/formations"
-            className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-[0.9375rem] font-semibold transition-colors ${
+            className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-3.5 py-2.5 text-sm font-semibold transition-colors xl:px-4 xl:text-[0.9375rem] ${
               pathname === '/formations' || pathname.startsWith('/formations/')
                 ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--accent)]'
                 : 'border-slate-200 bg-white text-slate-800 hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]'
@@ -430,7 +430,7 @@ export function Header() {
           </Link>
           <Link
             href="/contact"
-            className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[0.9375rem] font-medium transition-colors ${
+            className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-3.5 py-2.5 text-sm font-medium transition-colors xl:px-4 xl:text-[0.9375rem] ${
               pathname === '/contact'
                 ? 'text-slate-900'
                 : 'text-slate-600 hover:text-slate-900'
@@ -445,7 +445,7 @@ export function Header() {
             href={RDV_CTA.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--nav-cta-bg)] px-5 py-2.5 text-[0.9375rem] font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[var(--nav-cta-hover)] active:scale-[0.98]"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[var(--nav-cta-bg)] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[var(--nav-cta-hover)] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]"
           >
             {RDV_CTA.label}
           </a>

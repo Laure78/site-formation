@@ -157,6 +157,52 @@ export const PHOTOS = {
     width: 1024,
     height: 718,
   },
+
+  /** Nouveau portrait principal 2026 (présentation Laure) */
+  portraitPro2026: {
+    src: '/images/laure-portrait-pro-2026.png',
+    alt: 'Portrait professionnel de Laure Olivié, formatrice IA et ChatGPT spécialisée BTP',
+    width: 683,
+    height: 1024,
+  },
+
+  /** Visuels formations 2026 */
+  formationIATP2026: {
+    src: '/images/formation-ia-tp-2026.png',
+    alt: "Session « L'IA au service des Travaux Publics » animée par Laure Olivié",
+    width: 1024,
+    height: 768,
+  },
+  formationIAArtisans2026: {
+    src: '/images/formation-ia-artisans-2026.png',
+    alt: "Session « L'IA au service des artisans du bâtiment » animée par Laure Olivié",
+    width: 1024,
+    height: 768,
+  },
+  formationIAAppelsOffres2026: {
+    src: '/images/formation-ia-appels-offres-2026.png',
+    alt: "Session « Répondre aux appels d'offres avec l'IA » animée par Laure Olivié",
+    width: 1024,
+    height: 768,
+  },
+  formationIASensibilisation2026: {
+    src: '/images/formation-ia-sensibilisation-2026.png',
+    alt: "Session « Sensibilisation à l'IA et assistants IA personnalisés » animée par Laure Olivié",
+    width: 1024,
+    height: 768,
+  },
+  formationIAClaude2026: {
+    src: '/images/formation-ia-claude-2026.png',
+    alt: 'Session « Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI »',
+    width: 1024,
+    height: 768,
+  },
+  formationIARH2026: {
+    src: '/images/formation-ia-rh-2026.png',
+    alt: "Session « Formation IA pour la fonction RH dans le BTP » animée par Laure Olivié",
+    width: 1024,
+    height: 768,
+  },
 };
 
 export type PhotoKey = keyof typeof PHOTOS;
