@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
@@ -356,12 +357,12 @@ export function Header() {
           href="/"
           className="group flex shrink-0 items-center gap-1 font-display text-lg font-bold tracking-tight text-slate-900 sm:gap-1.5 sm:text-xl"
         >
-          <img
-            src="/logo-lo.svg"
-            alt="Laure Olivié — formation intelligence artificielle BTP"
-            className="h-8 w-auto sm:h-9"
-            width={48}
-            height={36}
+          <Image
+            src="/images/laure-portrait-header-2026.png"
+            alt="Portrait de Laure Olivié, formatrice IA BTP"
+            className="h-9 w-9 rounded-full object-cover sm:h-10 sm:w-10"
+            width={40}
+            height={40}
           />
           <span className="hidden min-[380px]:inline">Laure Olivié</span>
         </Link>

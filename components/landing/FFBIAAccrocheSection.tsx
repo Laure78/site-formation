@@ -70,36 +70,6 @@ export function FFBIAAccrocheSection() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-8 border-t border-slate-200 pt-12 sm:grid-cols-2">
-          <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src="/images/partenaires/ffb-logo-officiel.png"
-                alt="Logo officiel FFB — Fédération Française du Bâtiment, partenaire des formations IA BTP."
-                fill
-                className="object-contain object-center p-8"
-                sizes="(max-width: 640px) 100vw, 50vw"
-              />
-            </div>
-            <figcaption className="px-4 py-3 text-center text-xs text-slate-600">
-              FFB — fédération du bâtiment · formations IA (ChatGPT, Claude AI) avec Laure Olivié
-            </figcaption>
-          </figure>
-          <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-            <div className="relative aspect-[4/3] w-full">
-              <Image
-                src="/images/partenaires/csfe-logo.png"
-                alt="Logo officiel CSFE — Chambre Syndicale Française de l'Étanchéité."
-                fill
-                className="object-contain object-center p-8"
-                sizes="(max-width: 640px) 100vw, 50vw"
-              />
-            </div>
-            <figcaption className="px-4 py-3 text-center text-xs text-slate-600">
-              CSFE — étanchéité &amp; métiers enveloppe · formations IA pour entreprises du BTP
-            </figcaption>
-          </figure>
-        </div>
       </div>
     </section>
   );

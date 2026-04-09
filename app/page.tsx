@@ -805,29 +805,6 @@ export default function HomePage() {
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
               <ProfilePhoto />
-              <div className="grid grid-cols-2 gap-2">
-                <PortraitLinkedInLink className="relative block aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-opacity hover:opacity-95">
-                  <Image
-                    src="/images/laure-olivie-linkedin-graz.png"
-                    alt="Laure Olivié — événement LinkedIn Graz, formatrice IA BTP"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1024px) 45vw, 180px"
-                  />
-                </PortraitLinkedInLink>
-                <PortraitLinkedInLink className="relative block aspect-square overflow-hidden rounded-xl border border-slate-200 shadow-sm transition-opacity hover:opacity-95">
-                  <Image
-                    src="/images/laure-olivie-linkedin-studio.png"
-                    alt="Laure Olivié — tournage LinkedIn Learning, formation IA pour le BTP"
-                    fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1024px) 45vw, 180px"
-                  />
-                </PortraitLinkedInLink>
-              </div>
-              <p className="text-center text-xs text-slate-500">
-                LinkedIn Learning &amp; événements professionnels
-              </p>
             </div>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
