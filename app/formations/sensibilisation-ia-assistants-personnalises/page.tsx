@@ -15,9 +15,13 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
-import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
 
 const LMS_SLUG = 'formation-ia-sensibilisation-prompt-engineering-assistants';
 /** Supports statiques — voir public/formations/pitel-ia-sensibilisation-prompts-assistants/README.md */
@@ -104,6 +108,13 @@ const MODULES = [
   },
 ];
 
+const HERO_RESUME_SENSIB = [
+  `Parcours catalogue BTP-05 : sensibilisation IA, prompts métier, assistants personnalisés.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant).`,
+  `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
+  'Ressources LMS en prolongement — Qualiopi, OPCO Constructys selon éligibilité.',
+];
+
 const FAQ_SENSIB = [
   {
     q: 'Quels comptes IA pour le niveau débutant ?',
@@ -127,7 +138,7 @@ export default function SensibilisationIAAssistantsPage() {
   const faqSchema = getFAQSchema(FAQ_SENSIB);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -141,64 +152,78 @@ export default function SensibilisationIAAssistantsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <nav className="mb-6 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Sensibilisation à l&apos;IA &amp; assistants IA</span>
-      </nav>
+      <FormationCourseHero
+        refLine={`Session ${SESSION_DUREE_LIBELLE} · Débutant · BTP-05 · LMS en prolongement`}
+        title={"Sensibilisation à l'IA & Assistants IA personnalisés"}
+        subtitle="Prompts par métier, assistants sur mesure — aligné sur le socle « IA au service du bâtiment »"
+        badges={['Débutant', 'Qualiopi', 'Ressources LMS']}
+        summaryItems={HERO_RESUME_SENSIB}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationEcranIABTP2026.src}
+            alt={PHOTOS.btpFormationEcranIABTP2026.alt}
+            width={PHOTOS.btpFormationEcranIABTP2026.width}
+            height={PHOTOS.btpFormationEcranIABTP2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={PDF_HREF}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              <Download size={20} strokeWidth={1.5} />
+              Télécharger le programme (PDF)
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+            >
+              <ExternalLink size={20} strokeWidth={1.5} />
+              Voir sur la plateforme
+            </Link>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
+              Voir le programme détaillé
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Fiche cours plateforme
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          Session {SESSION_DUREE_LIBELLE} en présentiel : sensibilisation à l&apos;IA, prompts par métier
+          (Excel), puis conception d&apos;assistants IA sur mesure — aligné sur{' '}
+          <Link
+            href="/formations/ia-au-service-du-batiment"
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            L&apos;IA au service du bâtiment
+          </Link>
+          . La plateforme LMS permet d&apos;approfondir les supports en autonomie après la session.
+        </p>
+      </FormationCourseHero>
 
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Session {SESSION_DUREE_LIBELLE} · Débutant · BTP-05 · Ressources LMS en prolongement
-      </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-        Sensibilisation à l&apos;IA &amp; Assistants IA personnalisés
-      </h1>
-      <p className="mt-6 text-lg text-slate-600">
-        Session {SESSION_DUREE_LIBELLE} en présentiel : sensibilisation à l&apos;IA, prompts par métier
-        (Excel), puis conception d&apos;assistants IA sur mesure — aligné sur{' '}
-        <Link
-          href="/formations/ia-au-service-du-batiment"
-          className="font-medium text-[var(--accent)] hover:underline"
-        >
-          L&apos;IA au service du bâtiment
-        </Link>
-        . La plateforme LMS permet d&apos;approfondir les supports en autonomie après la session.
-      </p>
-
-      <FormationPageHeroImage
-        src={PHOTOS.btpFormationEcranIABTP2026.src}
-        alt={PHOTOS.btpFormationEcranIABTP2026.alt}
-        priority
-      />
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a
-          href={PDF_HREF}
-          download
-          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-        >
-          <Download size={20} strokeWidth={1.5} />
-          Télécharger le programme (PDF)
-        </a>
-        <Link
-          href={`/cours/${LMS_SLUG}`}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-        >
-          <ExternalLink size={20} strokeWidth={1.5} />
-          Voir sur la plateforme
-        </Link>
-        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
-          Prendre rendez-vous
-        </RdvLink>
-      </div>
-
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+      <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
         <ul className="mt-4 space-y-2 text-slate-700">
           <li className="flex gap-2">
@@ -255,7 +280,7 @@ export default function SensibilisationIAAssistantsPage() {
         </ul>
       </section>
 
-      <section className="mt-12">
+      <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <div className="mt-8 space-y-8">
           {MODULES.map((m, i) => (
@@ -320,6 +345,7 @@ export default function SensibilisationIAAssistantsPage() {
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
+      </div>
       </div>
     </div>
   );

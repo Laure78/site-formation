@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { RdvLink } from '@/components/RdvLink';
 import {
   Check,
@@ -39,6 +38,15 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
+
+const MAIL_PROGRAMME_TP =
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — IA Travaux publics (BTP-04)')}`;
+const MAIL_RAPPEL_TP =
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA Travaux publics')}`;
 
 export const metadata = createPageMetadata({
   title: "L'IA au service des Travaux Publics : DCE, AO, chantier & industrialisation",
@@ -212,86 +220,89 @@ export default function FormationIATravauxPublicsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex-1">
-              <Link
-                href="/formations"
-                className="text-sm text-[var(--accent)] hover:underline"
-              >
-                ← Retour au catalogue
-              </Link>
-              <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                <span className="text-[var(--accent)]">L&apos;IA au service des Travaux Publics</span>
-                {' '}
-                : consultations, chantier et industrialisation de l&apos;usage
-              </h1>
-              <p className="mt-6 max-w-xl text-slate-600">
-                Session de <strong>{SESSION_DUREE_LIBELLE}</strong> pour cadrer l&apos;IA générative sur
-                les enjeux TP : <strong>appels d&apos;offres et DCE</strong>, documents de chantier et
-                reporting, puis <strong>templates et assistants</strong> et charte d&apos;usage avec
-                validation « anti-erreurs ».{' '}
-                <strong>
-                  Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
-                </strong>{' '}
-                (niveau débutant).
-              </p>
-              <p className="mt-4 max-w-xl text-sm text-slate-500">
-                <Link
-                  href="/formation-ia-travaux-publics"
-                  className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
-                >
-                  Formation IA travaux publics
-                </Link>
-                {' '}
-                — vue d&apos;ensemble (routes, VRD, génie civil, financement) sur une page dédiée.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="#programme"
-                  className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600"
-                >
-                  Voir le programme détaillé
-                </a>
-                <a
-                  href="tel:+33695661818"
-                  className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
-                >
-                  Nous appeler
-                </a>
-              </div>
-            </div>
-            <div className="w-full shrink-0 lg:w-[380px]">
-              <div className="relative mb-6 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-                <Image
-                  src={PHOTOS.btpFormationChantierEquipe2026.src}
-                  alt={PHOTOS.btpFormationChantierEquipe2026.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 380px"
-                  priority
-                />
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                <div className="flex items-center gap-2 text-[var(--accent)]">
-                  <Sparkles size={20} strokeWidth={1.5} aria-hidden />
-                  <h2 className="font-display text-lg font-bold text-slate-900">Points marquants</h2>
-                </div>
-                <ul className="mt-4 space-y-3 text-sm text-slate-700">
-                  {POINTS_MARQUANTS.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FormationCourseHero
+        refLine="Réf. catalogue BTP-04 · Débutant"
+        title={
+          <>
+            <span className="text-[var(--accent)]">L&apos;IA au service des Travaux Publics</span>
+            {' '}
+            : DCE, AO, chantier &amp; industrialisation
+          </>
+        }
+        subtitle="Consultations, documents de chantier et industrialisation de l&apos;usage"
+        badges={[
+          'OPCO / plan de développement des compétences',
+          'Accessible débutant',
+          'Cas terrain TP',
+        ]}
+        summaryIcon={Sparkles}
+        summaryItems={POINTS_MARQUANTS}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationChantierEquipe2026.src}
+            alt={PHOTOS.btpFormationChantierEquipe2026.alt}
+            width={PHOTOS.btpFormationChantierEquipe2026.width}
+            height={PHOTOS.btpFormationChantierEquipe2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={MAIL_PROGRAMME_TP}
+              className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              Demander le programme
+            </a>
+            <a
+              href={MAIL_RAPPEL_TP}
+              className="rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
+            >
+              Être rappelé
+            </a>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
+              Voir le programme détaillé
+            </a>
+            <Link
+              href="/formation-ia-travaux-publics"
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Vue d&apos;ensemble formation TP
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          Session de <strong>{SESSION_DUREE_LIBELLE}</strong> pour cadrer l&apos;IA générative sur les enjeux
+          TP : <strong>appels d&apos;offres et DCE</strong>, documents de chantier et reporting, puis{' '}
+          <strong>templates et assistants</strong> et charte d&apos;usage avec validation « anti-erreurs ».{' '}
+          <strong>Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant</strong> (niveau débutant).
+          Financement possible via <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation
+          certifiée Qualiopi).
+        </p>
+        <p className="mt-4 text-sm text-slate-600">
+          <Link
+            href="/formation-ia-travaux-publics"
+            className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+          >
+            Formation IA travaux publics
+          </Link>{' '}
+          — vue d&apos;ensemble (routes, VRD, génie civil, financement) sur une page dédiée.
+        </p>
+      </FormationCourseHero>
 
       {/* Objectifs */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
@@ -333,7 +344,7 @@ export default function FormationIATravauxPublicsPage() {
       </section>
 
       {/* Programme détaillé */}
-      <section id="programme" className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section id="programme" className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Programme détaillé de la formation

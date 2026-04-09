@@ -241,6 +241,22 @@ export const PHOTOS = {
     width: 1024,
     height: 682,
   },
+
+  /** Accueil site — visuel formation IA BTP (visio, casque chantier, thématiques devis / chantier / organisation) */
+  heroAccueilIABTP2026: {
+    src: '/images/hero-formation-ia-btp-visio-2026.jpg',
+    alt: "Femme en visioconférence depuis un bureau : écran avec un professionnel du BTP en gilet et casque, casque de chantier sur le bureau et affiche « Formation IA BTP » (devis, chantier, organisation)",
+    width: 1024,
+    height: 682,
+  },
+
+  /** Accueil site — collaboration formation / terrain (poignée de main) */
+  accueilPoigneeMainFormationBTP2026: {
+    src: '/images/accueil-poignee-main-formation-btp-2026.jpg',
+    alt: 'Poignée de main entre une formatrice et un professionnel du BTP portant casque et gilet haute visibilité, dans un espace de formation ou de bureau moderne',
+    width: 1024,
+    height: 682,
+  },
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

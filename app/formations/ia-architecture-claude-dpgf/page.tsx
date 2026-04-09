@@ -16,9 +16,13 @@ import {
   TARIF_FORFAIT_AVANCE_HT,
   MODALITE_FORMATIONS_PRESENTIEL,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
-import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
 
 const LMS_SLUG = 'ia-architecture-claude-dpgf';
 const PDF_HREF =
@@ -112,6 +116,13 @@ const MODULES = [
   },
 ];
 
+const HERO_RESUME_ARCHI = [
+  `Parcours catalogue BTP-06 : Claude AI, DPGF, chantier, documents (Google Workspace).`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé).`,
+  `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
+  'Présentiel intra-entreprise — Qualiopi, financement OPCO selon éligibilité.',
+];
+
 const FAQ_ARCHI = [
   {
     q: 'Cette formation est-elle la même que sur la plateforme de formation ?',
@@ -131,7 +142,7 @@ export default function FormationIAArchitectureClaudePage() {
   const faqSchema = getFAQSchema(FAQ_ARCHI);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -145,58 +156,72 @@ export default function FormationIAArchitectureClaudePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <nav className="mb-6 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">IA architecture — Claude AI &amp; DPGF</span>
-      </nav>
+      <FormationCourseHero
+        refLine="Formation intra-entreprise · Présentiel · BTP-06 · Niveau avancé"
+        title="Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI"
+        subtitle="Claude AI, Google Drive, Sheets et Docs — cabinets et entreprises du bâtiment"
+        badges={['Claude AI', 'DPGF & chantier', 'Qualiopi']}
+        summaryItems={HERO_RESUME_ARCHI}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationBureauConseil2026.src}
+            alt={PHOTOS.btpFormationBureauConseil2026.alt}
+            width={PHOTOS.btpFormationBureauConseil2026.width}
+            height={PHOTOS.btpFormationBureauConseil2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={PDF_HREF}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              <Download size={20} strokeWidth={1.5} />
+              Télécharger le programme (PDF)
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+            >
+              <ExternalLink size={20} strokeWidth={1.5} />
+              Voir sur la plateforme
+            </Link>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
+              Voir le programme détaillé
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Fiche cours plateforme
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          DPGF, métrés, planning GANTT, comptes rendus de chantier, situations de travaux, PV de réception,
+          courriers : une demi-journée pour mettre en place Claude AI avec Google Drive, Sheets et Docs sur
+          vos flux de travail réels.
+        </p>
+      </FormationCourseHero>
 
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Formation intra-entreprise · Présentiel · 4 h
-      </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-        Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI
-      </h1>
-      <p className="mt-6 text-lg text-slate-600">
-        DPGF, métrés, planning GANTT, comptes rendus de chantier, situations de travaux, PV de réception,
-        courriers : une journée demi-journée pour mettre en place Claude AI avec Google Drive, Sheets et
-        Docs sur vos vrais flux de travail.
-      </p>
-
-      <FormationPageHeroImage
-        src={PHOTOS.btpFormationBureauConseil2026.src}
-        alt={PHOTOS.btpFormationBureauConseil2026.alt}
-        priority
-      />
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a
-          href={PDF_HREF}
-          download
-          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-        >
-          <Download size={20} strokeWidth={1.5} />
-          Télécharger le programme (PDF)
-        </a>
-        <Link
-          href={`/cours/${LMS_SLUG}`}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-        >
-          <ExternalLink size={20} strokeWidth={1.5} />
-          Voir sur la plateforme
-        </Link>
-        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
-          Prendre rendez-vous
-        </RdvLink>
-      </div>
-
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+      <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
         <ul className="mt-4 space-y-2 text-slate-700">
           <li className="flex gap-2">
@@ -246,7 +271,7 @@ export default function FormationIAArchitectureClaudePage() {
         </ul>
       </section>
 
-      <section className="mt-12">
+      <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <div className="mt-8 space-y-8">
           {MODULES.map((m, i) => (
@@ -313,6 +338,7 @@ export default function FormationIAArchitectureClaudePage() {
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
+      </div>
       </div>
     </div>
   );

@@ -26,7 +26,6 @@ import {
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
-import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
@@ -63,6 +62,12 @@ export const metadata = createPageMetadata({
     'Qualiopi',
     'OPCO Constructys',
   ],
+  image: {
+    url: PHOTOS.heroAccueilIABTP2026.src,
+    width: PHOTOS.heroAccueilIABTP2026.width,
+    height: PHOTOS.heroAccueilIABTP2026.height,
+    alt: PHOTOS.heroAccueilIABTP2026.alt,
+  },
 });
 
 export default function HomePage() {
@@ -169,18 +174,28 @@ export default function HomePage() {
               </div>
               <CitationSentence text="La formation IA BTP animée par Laure Olivié permet aux professionnels du bâtiment de gagner 3 à 5 heures par semaine en automatisant les devis, l'administratif et les réponses aux appels d'offres avec ChatGPT et les outils IA adaptés au terrain." />
             </div>
-            <div className="shrink-0 lg:w-80">
-              <PortraitLinkedInLink className="block overflow-hidden rounded-2xl shadow-2xl transition-opacity hover:opacity-95">
+            <div className="flex w-full shrink-0 flex-col gap-4 lg:max-w-md xl:max-w-lg">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-2xl">
                 <Image
-                  src={PHOTOS.portraitPro2026.src}
-                  alt={PHOTOS.portraitPro2026.alt}
-                  width={PHOTOS.portraitPro2026.width}
-                  height={PHOTOS.portraitPro2026.height}
-                  className="h-auto w-full"
-                  sizes="(max-width: 1024px) 100vw, 320px"
+                  src={PHOTOS.heroAccueilIABTP2026.src}
+                  alt={PHOTOS.heroAccueilIABTP2026.alt}
+                  width={PHOTOS.heroAccueilIABTP2026.width}
+                  height={PHOTOS.heroAccueilIABTP2026.height}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 448px"
                   priority
                 />
-              </PortraitLinkedInLink>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-lg">
+                <Image
+                  src={PHOTOS.accueilPoigneeMainFormationBTP2026.src}
+                  alt={PHOTOS.accueilPoigneeMainFormationBTP2026.alt}
+                  width={PHOTOS.accueilPoigneeMainFormationBTP2026.width}
+                  height={PHOTOS.accueilPoigneeMainFormationBTP2026.height}
+                  className="h-auto w-full object-cover"
+                  sizes="(max-width: 1024px) 100vw, 448px"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -16,9 +16,13 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
-import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
 
 const LMS_SLUG = 'ia-rh-btp';
 /** À déposer dans public/formations/ia-rh-btp/ si besoin */
@@ -103,11 +107,18 @@ const MODULES = [
   },
 ];
 
+const HERO_RESUME_RH = [
+  `Parcours catalogue BTP-03 : recrutement, GEPP, assistants IA RH.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé).`,
+  `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
+  'Qualiopi, financement OPCO selon éligibilité.',
+];
+
 export default function FormationIARHBTPPage() {
   const faqSchema = getFAQSchema(FAQ_RH_BTP);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -121,65 +132,79 @@ export default function FormationIARHBTPPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <nav className="mb-6 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA — fonction RH BTP</span>
-      </nav>
+      <FormationCourseHero
+        refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-03`}
+        title="Formation IA pour la fonction RH dans le BTP"
+        subtitle="Recrutement, GEPP, tableaux de bord et assistants IA — entreprises du bâtiment"
+        badges={['RH & BTP', 'Présentiel Qualiopi', 'Cas terrain']}
+        summaryItems={HERO_RESUME_RH}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationBureauConseil2026.src}
+            alt={PHOTOS.btpFormationBureauConseil2026.alt}
+            width={PHOTOS.btpFormationBureauConseil2026.width}
+            height={PHOTOS.btpFormationBureauConseil2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={PDF_HREF}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              <Download size={20} strokeWidth={1.5} />
+              Télécharger le programme (PDF)
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+            >
+              <ExternalLink size={20} strokeWidth={1.5} />
+              Voir sur la plateforme
+            </Link>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
+              Voir le programme détaillé
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Fiche cours plateforme
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          Automatisez le recrutement, optimisez la GEPP, générez des tableaux de bord RH et créez votre
+          assistant IA personnalisé. Formation opérationnelle pour DRH, chargés de recrutement et
+          responsables RH du secteur BTP — voir aussi la structure{' '}
+          <Link
+            href="/formations/ia-architecture-claude-dpgf"
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            programme détaillé + modalités
+          </Link>
+          .
+        </p>
+      </FormationCourseHero>
 
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Présentiel · {SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-03
-      </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-        Formation IA pour la fonction RH dans le BTP
-      </h1>
-      <p className="mt-6 text-lg text-slate-600">
-        Automatisez le recrutement, optimisez la GEPP, générez des tableaux de bord RH et créez votre
-        assistant IA personnalisé. Formation opérationnelle pour DRH, chargés de recrutement et
-        responsables RH du secteur BTP — présentation alignée sur la fiche{' '}
-        <Link
-          href="/formations/ia-architecture-claude-dpgf"
-          className="font-medium text-[var(--accent)] hover:underline"
-        >
-          type « programme détaillé + modalités »
-        </Link>
-        .
-      </p>
-
-      <FormationPageHeroImage
-        src={PHOTOS.btpFormationBureauConseil2026.src}
-        alt={PHOTOS.btpFormationBureauConseil2026.alt}
-        priority
-      />
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a
-          href={PDF_HREF}
-          download
-          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-        >
-          <Download size={20} strokeWidth={1.5} />
-          Télécharger le programme (PDF)
-        </a>
-        <Link
-          href={`/cours/${LMS_SLUG}`}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-        >
-          <ExternalLink size={20} strokeWidth={1.5} />
-          Voir sur la plateforme
-        </Link>
-        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
-          Prendre rendez-vous
-        </RdvLink>
-      </div>
-
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+      <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
         <ul className="mt-4 space-y-2 text-slate-700">
           <li className="flex gap-2">
@@ -233,7 +258,7 @@ export default function FormationIARHBTPPage() {
         </ul>
       </section>
 
-      <section className="mt-12">
+      <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
           Session unique {SESSION_DUREE_LIBELLE} — modules condensés ci-dessous.
@@ -317,6 +342,7 @@ export default function FormationIARHBTPPage() {
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
+      </div>
       </div>
     </div>
   );

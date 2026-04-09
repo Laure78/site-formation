@@ -4,7 +4,31 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { createPageMetadata, getCourseSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import {
+  createPageMetadata,
+  getCourseSchema,
+  getBreadcrumbSchema,
+  getFAQSchema,
+  SITE_CONFIG,
+} from '@/lib/seo';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
+import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_HT } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
+
+const MAIL_PROGRAMME_PME =
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA PME BTP')}`;
+const MAIL_RAPPEL_PME =
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA PME BTP')}`;
+
+const HERO_RESUME_PME = [
+  `Programme sur-mesure PME bâtiment : devis, chiffrages, emails, comptes rendus.`,
+  `Sessions ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € ou ${TARIF_FORFAIT_AVANCE_HT} € HT/part. selon niveau.`,
+  'Interventions Île-de-France et France — Qualiopi, financement OPCO Constructys selon éligibilité.',
+  "Sans prérequis technique — trames prêtes à l'emploi.",
+];
 
 export const metadata = createPageMetadata({
   title: 'Formation IA PME bâtiment — Devis, productivité, Île-de-France | OFC',
@@ -61,7 +85,7 @@ export default function FormationIAPMEBTPPage() {
   const faqSchema = getFAQSchema(FAQ_PME);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -74,32 +98,83 @@ export default function FormationIAPMEBTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <nav className="mb-6 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">Accueil</Link>
-        {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">Formations</Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA PME BTP</span>
-      </nav>
-      <h1 className="font-display text-4xl font-bold text-slate-900">
-        Formation IA pour PME du BTP
-      </h1>
-      <p className="mt-6 text-lg text-slate-600">
-        Programme sur-mesure pour les PME du bâtiment. Devis, chiffrages, emails,
-        comptes rendus : optimisez votre temps avec l&apos;IA sans embaucher. La formation IA Constructys
-        vous donne des outils opérationnels dès le lendemain.
-      </p>
-      <p className="mt-4 text-slate-600">
-        Les PME du BTP perdent un temps précieux sur l&apos;administratif. L&apos;IA devis bâtiment
-        et les outils comme ChatGPT permettent de gagner 3 à 5h par semaine par collaborateur,
-        sans recruter. Interventions en{' '}
-        <Link href="/formations/ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
-          formation IA BTP Île-de-France
-        </Link>{' '}
-        et partout en France. Financement formation IA via l&apos;OPCO Constructys (selon dossier).
-      </p>
 
-      <section className="mt-12">
+      <FormationCourseHero
+        refLine="PME bâtiment · Sur mesure · Qualiopi"
+        title="Formation IA pour PME du BTP"
+        subtitle="Devis, productivité et administratif — sans embaucher"
+        badges={[
+          'OPCO / plan de développement des compétences',
+          'PME & équipes terrain',
+          'Cas concrets',
+        ]}
+        summaryItems={HERO_RESUME_PME}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationSalleIntervention2026.src}
+            alt={PHOTOS.btpFormationSalleIntervention2026.alt}
+            width={PHOTOS.btpFormationSalleIntervention2026.width}
+            height={PHOTOS.btpFormationSalleIntervention2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={MAIL_PROGRAMME_PME}
+              className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              Demander le programme
+            </a>
+            <a
+              href={MAIL_RAPPEL_PME}
+              className="rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
+            >
+              Être rappelé
+            </a>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#cas-usage" className="font-medium text-[var(--accent)] hover:underline">
+              Voir les cas d&apos;usage
+            </a>
+            <Link
+              href="/formations"
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Catalogue des formations
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          Programme sur-mesure pour les <strong>PME du bâtiment</strong>.{' '}
+          <strong>Devis, chiffrages, emails, comptes rendus</strong> : optimisez votre temps avec
+          l&apos;IA sans embaucher. La formation IA Constructys vous donne des{' '}
+          <strong>outils opérationnels dès le lendemain</strong>.
+        </p>
+        <p className="mt-4">
+          Les PME du BTP gagnent souvent <strong>3 à 5 h par semaine</strong> par collaborateur sur
+          l&apos;administratif. Interventions en{' '}
+          <Link href="/formations/ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
+            formation IA BTP Île-de-France
+          </Link>{' '}
+          et partout en France — <strong>financement OPCO Constructys</strong> selon dossier.
+        </p>
+      </FormationCourseHero>
+
+      <div className="mx-auto max-w-4xl px-4 py-16">
+      <section id="cas-usage" className="scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">
           Cas d&apos;usage : IA devis bâtiment et productivité PME
         </h2>
@@ -138,7 +213,7 @@ export default function FormationIAPMEBTPPage() {
           ]}
         />
       </div>
-
+      </div>
     </div>
   );
 }

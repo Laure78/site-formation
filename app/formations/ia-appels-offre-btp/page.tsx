@@ -16,9 +16,13 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
-import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
 
 const LMS_SLUG = 'ia-appels-offre-btp';
 /** Programme officiel — aligné seed SQL supports */
@@ -128,11 +132,18 @@ const MODULES = [
   },
 ];
 
+const HERO_RESUME_AO = [
+  `Parcours catalogue BTP-02 : DCE, CCTP, mémoire technique, chiffrage.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé).`,
+  `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
+  'Qualiopi, financement OPCO Constructys selon éligibilité.',
+];
+
 export default function FormationIAAppelsOffreBTPPage() {
   const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
@@ -146,75 +157,90 @@ export default function FormationIAAppelsOffreBTPPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <nav className="mb-6 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Répondre aux appels d&apos;offre avec l&apos;IA</span>
-      </nav>
+      <FormationCourseHero
+        refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-02`}
+        title="Répondre aux appels d'offre avec l'IA"
+        subtitle="Mémoire technique, DCE et chiffrage — entreprises du bâtiment et marchés publics"
+        badges={['Analyse DCE & CCTP', 'Mémoire technique assistée', 'Qualiopi']}
+        summaryItems={HERO_RESUME_AO}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationChantierPlans2026.src}
+            alt={PHOTOS.btpFormationChantierPlans2026.alt}
+            width={PHOTOS.btpFormationChantierPlans2026.width}
+            height={PHOTOS.btpFormationChantierPlans2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={PDF_HREF}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              <Download size={20} strokeWidth={1.5} />
+              Télécharger le programme (PDF)
+            </a>
+            <a
+              href={KIT_7_PROMPTS_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-blue-100"
+            >
+              <FileText size={20} strokeWidth={1.5} />
+              Kit 7 prompts AO
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+            >
+              <ExternalLink size={20} strokeWidth={1.5} />
+              Voir sur la plateforme
+            </Link>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
+              Voir le programme détaillé
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Fiche cours plateforme
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          <strong>IA appel d&apos;offres BTP</strong> : analyse DCE et pièces, relecture CCTP, brouillons de{' '}
+          <strong>mémoire technique</strong> pour répondre aux marchés. Optimisez vos chiffrages grâce à
+          l&apos;IA. Formation opérationnelle pour entreprises du bâtiment, chargés d&apos;affaires et
+          bureaux d&apos;études — même exigence de clarté que sur une{' '}
+          <Link
+            href="/formations/ia-architecture-claude-dpgf"
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            fiche programme détaillée
+          </Link>
+          . Outils :{' '}
+          {OUTILS_IA_LINE}
+        </p>
+      </FormationCourseHero>
 
-      <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-        Présentiel · {SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-02
-      </p>
-      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-        Répondre aux appels d&apos;offre avec l&apos;IA
-      </h1>
-      <p className="mt-6 text-lg text-slate-600">
-        <strong>IA appel d&apos;offres BTP</strong> : analyse DCE et pièces, relecture CCTP, brouillons de{' '}
-        <strong>mémoire technique</strong> pour répondre aux marchés. Optimisez vos chiffrages
-        grâce à l&apos;IA. Formation opérationnelle pour entreprises du bâtiment, chargés d&apos;affaires et
-        bureaux d&apos;études — même exigence de clarté que sur une fiche type{' '}
-        <Link
-          href="/formations/ia-architecture-claude-dpgf"
-          className="font-medium text-[var(--accent)] hover:underline"
-        >
-          programme détaillé par modules
-        </Link>
-        . Outils : {OUTILS_IA_LINE}
-      </p>
-
-      <FormationPageHeroImage
-        src={PHOTOS.btpFormationChantierPlans2026.src}
-        alt={PHOTOS.btpFormationChantierPlans2026.alt}
-        priority
-      />
-
-      <div className="mt-8 flex flex-wrap gap-4">
-        <a
-          href={PDF_HREF}
-          download
-          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
-        >
-          <Download size={20} strokeWidth={1.5} />
-          Télécharger le programme (PDF)
-        </a>
-        <a
-          href={KIT_7_PROMPTS_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-100"
-        >
-          <FileText size={20} strokeWidth={1.5} />
-          Kit 7 prompts AO (PDF via impression)
-        </a>
-        <Link
-          href={`/cours/${LMS_SLUG}`}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
-        >
-          <ExternalLink size={20} strokeWidth={1.5} />
-          Voir sur la plateforme
-        </Link>
-        <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]">
-          Prendre rendez-vous
-        </RdvLink>
-      </div>
-
-      <section className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+      <div className="mx-auto max-w-4xl px-4 py-16">
+      <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
         <ul className="mt-4 space-y-2 text-slate-700">
           <li className="flex gap-2">
@@ -271,7 +297,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         </ul>
       </section>
 
-      <section className="mt-12">
+      <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
           Répartition indicative sur {SESSION_DUREE_LIBELLE} — ajustements possibles selon le groupe.
@@ -361,6 +387,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             { href: '/blog/ia-btp-analyse-dce', label: 'Article : analyser un DCE avec l’IA' },
           ]}
         />
+      </div>
       </div>
     </div>
   );

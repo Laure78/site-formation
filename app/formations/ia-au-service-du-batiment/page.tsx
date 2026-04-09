@@ -16,7 +16,6 @@ import {
   ClipboardList,
   Laptop,
   Monitor,
-  Building2,
   ArrowRight,
   Sparkles,
   UserCircle,
@@ -32,6 +31,7 @@ import {
 } from '@/lib/seo';
 import { FAQ_BATIMENT } from '@/lib/faq';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
+import { FormationCourseHero } from '@/components/formations/FormationCourseHero';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
@@ -274,114 +274,78 @@ export default function FormationIAuServiceDuBatimentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex-1">
-              <Link
-                href="/formations"
-                className="text-sm text-[var(--accent)] hover:underline"
-              >
-                ← Retour au catalogue
-              </Link>
-              <p className="mt-4 text-sm font-medium uppercase tracking-wide text-slate-500">
-                Réf. catalogue BTP-01 · Débutant
-              </p>
-              <h1 className="mt-2 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem] lg:leading-tight">
-                Formation IA bâtiment : gagnez du temps sur vos chantiers
-              </h1>
-              <p className="mt-2 text-lg font-medium text-slate-700">
-                L&apos;IA au service du bâtiment — devis, administratif et relation client
-              </p>
-              <p className="mt-6 max-w-xl text-slate-600">
-                Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour intégrer l&apos;IA dans
-                votre quotidien : <strong>devis, emails, comptes rendus et suivi</strong>, avec des trames
-                et prompts prêts à l&apos;emploi. Approche accessible,{' '}
-                <strong>aucun jargon inutile</strong> — des cas réels issus du terrain BTP.{' '}
-                <strong>
-                  Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant
-                </strong>{' '}
-                (niveau débutant). Financement possible via{' '}
-                <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation certifiée Qualiopi).
-              </p>
-              <ul className="mt-6 flex flex-wrap gap-2 text-sm text-slate-700">
-                {['OPCO / plan de développement des compétences', 'Accessible débutant', 'Cas terrain'].map(
-                  (badge) => (
-                    <li
-                      key={badge}
-                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1"
-                    >
-                      {badge}
-                    </li>
-                  ),
-                )}
-              </ul>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
-                  Prendre rendez-vous
-                </RdvLink>
-                <a
-                  href={MAIL_PROGRAMME}
-                  className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
-                >
-                  Demander le programme
-                </a>
-                <a
-                  href={MAIL_RAPPEL}
-                  className="rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
-                >
-                  Être rappelé
-                </a>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-4 text-sm">
-                <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
-                  Voir le programme détaillé
-                </a>
-                <Link
-                  href={`/cours/${LMS_SLUG}`}
-                  className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-                >
-                  Voir sur la plateforme
-                </Link>
-                <a
-                  href={`tel:${SITE_CONFIG.phone}`}
-                  className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-                >
-                  {SITE_CONFIG.phoneDisplay}
-                </a>
-              </div>
-            </div>
-            <div className="w-full shrink-0 lg:w-[400px]">
-              <PortraitLinkedInLink className="block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition-opacity hover:opacity-95">
-                <Image
-                  src={PHOTOS.btpFormationSalleIntervention2026.src}
-                  alt={PHOTOS.btpFormationSalleIntervention2026.alt}
-                  width={PHOTOS.btpFormationSalleIntervention2026.width}
-                  height={PHOTOS.btpFormationSalleIntervention2026.height}
-                  className="h-auto w-full object-cover"
-                  sizes="(max-width: 1024px) 100vw, 400px"
-                  priority
-                />
-              </PortraitLinkedInLink>
-              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                <div className="flex items-center gap-2 text-[var(--accent)]">
-                  <Building2 size={22} strokeWidth={1.5} aria-hidden />
-                  <h2 className="font-display text-lg font-bold text-slate-900">En résumé</h2>
-                </div>
-                <ul className="mt-4 space-y-3 text-sm text-slate-700">
-                  {POINTS_MARQUANTS.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FormationCourseHero
+        refLine="Réf. catalogue BTP-01 · Débutant"
+        title="Formation IA bâtiment : gagnez du temps sur vos chantiers"
+        subtitle="L&apos;IA au service du bâtiment — devis, administratif et relation client"
+        badges={[
+          'OPCO / plan de développement des compétences',
+          'Accessible débutant',
+          'Cas terrain',
+        ]}
+        summaryItems={POINTS_MARQUANTS}
+        image={
+          <PortraitLinkedInLink className="block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition-opacity hover:opacity-95">
+            <Image
+              src={PHOTOS.btpFormationSalleIntervention2026.src}
+              alt={PHOTOS.btpFormationSalleIntervention2026.alt}
+              width={PHOTOS.btpFormationSalleIntervention2026.width}
+              height={PHOTOS.btpFormationSalleIntervention2026.height}
+              className="h-auto w-full object-cover"
+              sizes="(max-width: 1024px) 100vw, 400px"
+              priority
+            />
+          </PortraitLinkedInLink>
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href={MAIL_PROGRAMME}
+              className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              Demander le programme
+            </a>
+            <a
+              href={MAIL_RAPPEL}
+              className="rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
+            >
+              Être rappelé
+            </a>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
+              Voir le programme détaillé
+            </a>
+            <Link
+              href={`/cours/${LMS_SLUG}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Voir sur la plateforme
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour intégrer l&apos;IA dans votre
+          quotidien : <strong>devis, emails, comptes rendus et suivi</strong>, avec des trames et prompts
+          prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
+          issus du terrain BTP.{' '}
+          <strong>Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant</strong> (niveau débutant).
+          Financement possible via <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation
+          certifiée Qualiopi).
+        </p>
+      </FormationCourseHero>
 
       {/* Contenu SEO long */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

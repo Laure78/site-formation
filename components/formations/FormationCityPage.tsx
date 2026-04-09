@@ -6,9 +6,15 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { getBreadcrumbSchema } from '@/lib/seo';
+import { getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import type { CityFormationConfig } from '@/lib/formation-cities';
 import type { FAQItem } from '@/lib/faq';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
+import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
 
 interface FormationCityPageProps {
   config: CityFormationConfig;
@@ -19,6 +25,13 @@ interface FormationCityPageProps {
 
 export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }: FormationCityPageProps) {
   const { ville, path, zones, regionLabel } = config;
+  const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA BTP ${ville}`)}`;
+  const summaryVille = [
+    `Formation IA BTP à ${ville} — devis, emails, appels d'offres, administratif.`,
+    `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant) — Qualiopi.`,
+    `Présentiel — ${regionLabel} : inter ou intra dans vos locaux selon convention.`,
+    'Financement OPCO Constructys selon éligibilité.',
+  ];
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Accueil', path: '/' },
     { name: 'Formations', path: '/formations' },
@@ -41,80 +54,76 @@ export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }:
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex-1">
-              <Link
-                href="/formations"
-                className="text-sm text-[var(--accent)] hover:underline"
-              >
-                ← Retour au catalogue
-              </Link>
-              <div className="mt-4 inline-flex rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-600">
-                Formation {ville} & {regionLabel} • Financement OPCO
-              </div>
-              <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-                Formation IA pour les entreprises du BTP à{' '}
-                <span className="text-[var(--accent)]">{ville}</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-slate-600">
-                Formation IA bâtiment adaptée aux artisans et PME du BTP à {ville} et dans les environs.
-                Productivité entreprise bâtiment : ChatGPT pour devis, emails, relances clients.
-                Automatisez vos appels d&apos;offres et votre gestion administrative.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
-                  Réserver ma formation
-                </RdvLink>
-                <a
-                  href="#zones"
-                  className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
-                >
-                  Zones d&apos;intervention
-                </a>
-              </div>
-              <div className="mt-12 flex gap-6">
-                {[
-                  { val: '4h', label: 'Formation' },
-                  { val: '100%', label: 'Finançable OPCO' },
-                  { val: '70%', label: 'Gain de temps' },
-                ].map((stat) => (
-                  <div key={stat.label} className="rounded-xl bg-slate-50 px-5 py-3">
-                    <p className="text-xl font-bold text-[var(--accent)]">{stat.val}</p>
-                    <p className="text-xs text-slate-600">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="w-full shrink-0 lg:w-[380px]">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="h-1 w-16 rounded-full bg-[var(--accent)]" />
-                <h2 className="mt-4 font-display text-xl font-bold text-slate-900">
-                  Ce que vous allez maîtriser
-                </h2>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    'Créer des devis professionnels en 15 minutes avec ChatGPT',
-                    'Automatiser vos emails et relances clients grâce à l\'IA',
-                    'Générer du contenu pour vos réseaux sociaux',
-                    'Optimiser votre chiffrage et vos marges',
-                    "Gérer l'administratif 3x plus vite",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]">
-                        <Check size={14} strokeWidth={1.5} className="text-white" />
-                      </span>
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FormationCourseHero
+        refLine={`Formation ${ville} & ${regionLabel} · Financement OPCO`}
+        title={
+          <>
+            Formation IA pour les entreprises du BTP à{' '}
+            <span className="text-[var(--accent)]">{ville}</span>
+          </>
+        }
+        subtitle="Devis, emails, administratif et appels d&apos;offres — présentiel"
+        badges={[
+          'OPCO / plan de développement des compétences',
+          'Accessible débutant',
+          'Cas terrain',
+        ]}
+        summaryItems={summaryVille}
+        image={
+          <FormationHeroPhoto
+            src={PHOTOS.btpFormationSalleIntervention2026.src}
+            alt={PHOTOS.btpFormationSalleIntervention2026.alt}
+            width={PHOTOS.btpFormationSalleIntervention2026.width}
+            height={PHOTOS.btpFormationSalleIntervention2026.height}
+            priority
+          />
+        }
+        ctas={
+          <>
+            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+              Prendre rendez-vous
+            </RdvLink>
+            <a
+              href="#zones"
+              className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+            >
+              Zones d&apos;intervention
+            </a>
+            <a
+              href={mailRappelVille}
+              className="rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 text-center font-semibold text-slate-900 hover:bg-[var(--accent-soft)]"
+            >
+              Être rappelé
+            </a>
+          </>
+        }
+        footerLinks={
+          <>
+            <a href="#zones" className="font-medium text-[var(--accent)] hover:underline">
+              Voir les zones d&apos;intervention
+            </a>
+            <Link
+              href="/formations/ia-au-service-du-batiment"
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Fiche formation catalogue (BTP-01)
+            </Link>
+            <a
+              href={`tel:${SITE_CONFIG.phone}`}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              {SITE_CONFIG.phoneDisplay}
+            </a>
+          </>
+        }
+      >
+        <p>
+          Formation IA bâtiment adaptée aux <strong>artisans et PME du BTP</strong> à {ville} et dans les
+          environs. <strong>Productivité</strong> : ChatGPT pour <strong>devis, emails et relances</strong>.
+          Automatisez vos <strong>appels d&apos;offres</strong> et votre gestion administrative —{' '}
+          <strong>aucun jargon inutile</strong>.
+        </p>
+      </FormationCourseHero>
 
       {/* Pourquoi cette formation est animée par une experte reconnue */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
@@ -167,7 +176,7 @@ export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }:
       </section>
 
       {/* Zones d'intervention */}
-      <section id="zones" className="border-b border-slate-200 bg-white px-4 py-16">
+      <section id="zones" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
             Zones d&apos;intervention autour de {ville}
