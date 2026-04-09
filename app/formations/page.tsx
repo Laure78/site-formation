@@ -139,14 +139,38 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
   return refNum(a.ref) - refNum(b.ref);
 });
 
-/** Miniatures catalogue — même ratio 4:3 pour toutes les images */
-const FORMATIONS_PAGE_PHOTOS = [
-  PHOTOS.formationIAArtisans2026,
-  PHOTOS.formationIATP2026,
-  PHOTOS.formationIAAppelsOffres2026,
-  PHOTOS.formationIASensibilisation2026,
-  PHOTOS.formationIAClaude2026,
-  PHOTOS.formationIARH2026,
+/** Miniatures catalogue — chaque visuel est associé à sa formation */
+const FORMATIONS_PAGE_THUMBNAILS = [
+  {
+    photo: PHOTOS.formationIAArtisans2026,
+    href: '/formations/ia-au-service-du-batiment',
+    title: "L'IA au service du bâtiment",
+  },
+  {
+    photo: PHOTOS.formationIATP2026,
+    href: '/formations/ia-travaux-publics',
+    title: "L'IA au service des Travaux Publics",
+  },
+  {
+    photo: PHOTOS.formationIAAppelsOffres2026,
+    href: '/formations/ia-appels-offre-btp',
+    title: "Répondre aux appels d'offre avec l'IA",
+  },
+  {
+    photo: PHOTOS.formationIASensibilisation2026,
+    href: '/formations/sensibilisation-ia-assistants-personnalises',
+    title: "Sensibilisation à l'IA & Assistants IA personnalisés",
+  },
+  {
+    photo: PHOTOS.formationIAClaude2026,
+    href: '/formations/ia-architecture-claude-dpgf',
+    title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
+  },
+  {
+    photo: PHOTOS.formationIARH2026,
+    href: '/formations/ia-rh-btp',
+    title: 'Formation IA pour la Fonction RH dans le BTP',
+  },
 ] as const;
 
 export default function FormationsPage() {
@@ -202,10 +226,12 @@ export default function FormationsPage() {
       
       <div className="mx-auto mt-12 max-w-5xl">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-          {FORMATIONS_PAGE_PHOTOS.map((photo) => (
-            <div
+          {FORMATIONS_PAGE_THUMBNAILS.map(({ photo, href, title }) => (
+            <Link
               key={photo.src}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm"
+              href={href}
+              className="group relative block aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm transition-shadow hover:shadow-md"
+              aria-label={`Voir la formation : ${title}`}
             >
               <Image
                 src={photo.src}
@@ -214,7 +240,7 @@ export default function FormationsPage() {
                 className="object-cover"
                 sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 200px"
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
