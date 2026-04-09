@@ -242,21 +242,25 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** Accueil site — visuel formation IA BTP (visio, casque chantier, thématiques devis / chantier / organisation) */
-  heroAccueilIABTP2026: {
-    src: '/images/hero-formation-ia-btp-visio-2026.jpg',
-    alt: "Femme en visioconférence depuis un bureau : écran avec un professionnel du BTP en gilet et casque, casque de chantier sur le bureau et affiche « Formation IA BTP » (devis, chantier, organisation)",
+  /**
+   * Fiche « IA au service du bâtiment » (BTP-01) — bureau, visio avec professionnel terrain,
+   * affiche Devis / Chantier / Organisation.
+   */
+  formationIABtpVisioBureau2026: {
+    src: '/images/formation-ia-btp-visio-bureau-2026.jpg',
+    alt: "Une formatrice en bureau présente la formation IA BTP en visioconférence à un professionnel du bâtiment en casque et gilet haute visibilité ; affiche thématiques devis, chantier et organisation",
+    width: 1024,
+    height: 699,
+  },
+
+  /** Page d'accueil — échange en bureau, tableau « Formation IA BTP » (devis, chantier, organisation) */
+  heroAccueilFormationIABtpEchange2026: {
+    src: '/images/hero-accueil-formation-ia-btp-echange-2026.jpg',
+    alt: "Échange professionnel en bureau autour de la formation IA BTP : poignée de main au-dessus d'un bureau avec ordinateur portable ; tableau avec les thématiques devis, chantier et organisation",
     width: 1024,
     height: 682,
   },
 
-  /** Accueil site — collaboration formation / terrain (poignée de main) */
-  accueilPoigneeMainFormationBTP2026: {
-    src: '/images/accueil-poignee-main-formation-btp-2026.jpg',
-    alt: 'Poignée de main entre une formatrice et un professionnel du BTP portant casque et gilet haute visibilité, dans un espace de formation ou de bureau moderne',
-    width: 1024,
-    height: 682,
-  },
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

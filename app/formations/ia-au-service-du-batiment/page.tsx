@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import {
@@ -30,8 +29,10 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { FAQ_BATIMENT } from '@/lib/faq';
-import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
-import { FormationCourseHero } from '@/components/formations/FormationCourseHero';
+import {
+  FormationCourseHero,
+  FormationHeroPhoto,
+} from '@/components/formations/FormationCourseHero';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
@@ -78,10 +79,10 @@ export const metadata = createPageMetadata({
     'OPCO Constructys',
   ],
   image: {
-    url: PHOTOS.btpFormationSalleIntervention2026.src,
-    width: PHOTOS.btpFormationSalleIntervention2026.width,
-    height: PHOTOS.btpFormationSalleIntervention2026.height,
-    alt: PHOTOS.btpFormationSalleIntervention2026.alt,
+    url: PHOTOS.formationIABtpVisioBureau2026.src,
+    width: PHOTOS.formationIABtpVisioBureau2026.width,
+    height: PHOTOS.formationIABtpVisioBureau2026.height,
+    alt: PHOTOS.formationIABtpVisioBureau2026.alt,
   },
 });
 
@@ -285,17 +286,13 @@ export default function FormationIAuServiceDuBatimentPage() {
         ]}
         summaryItems={POINTS_MARQUANTS}
         image={
-          <PortraitLinkedInLink className="block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition-opacity hover:opacity-95">
-            <Image
-              src={PHOTOS.btpFormationSalleIntervention2026.src}
-              alt={PHOTOS.btpFormationSalleIntervention2026.alt}
-              width={PHOTOS.btpFormationSalleIntervention2026.width}
-              height={PHOTOS.btpFormationSalleIntervention2026.height}
-              className="h-auto w-full object-cover"
-              sizes="(max-width: 1024px) 100vw, 400px"
-              priority
-            />
-          </PortraitLinkedInLink>
+          <FormationHeroPhoto
+            src={PHOTOS.formationIABtpVisioBureau2026.src}
+            alt={PHOTOS.formationIABtpVisioBureau2026.alt}
+            width={PHOTOS.formationIABtpVisioBureau2026.width}
+            height={PHOTOS.formationIABtpVisioBureau2026.height}
+            priority
+          />
         }
         ctas={
           <>
