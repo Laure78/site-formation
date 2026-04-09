@@ -17,6 +17,8 @@ import {
   TARIF_FORFAIT_AVANCE_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
+import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
 
 const LMS_SLUG = 'ia-appels-offre-btp';
 /** Programme officiel — aligné seed SQL supports */
@@ -27,12 +29,13 @@ const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prom
 export const metadata = createPageMetadata({
   title: "IA appel d'offres BTP — DCE, CCTP, mémoire technique | Formation",
   description:
-    `IA appels d'offres BTP : analyse DCE, CCTP, mémoire technique. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
+    `Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appel d\'offres BTP DCE CCTP',
     'IA mémoire technique appel d\'offres',
     'mémoire technique BTP IA',
+    'rédaction mémoire technique',
     'analyse CCTP IA',
     'répondre appel d\'offre travaux',
     'ChatGPT appels d\'offres BTP',
@@ -41,6 +44,12 @@ export const metadata = createPageMetadata({
     'IA marchés publics BTP',
     'formation IA PME bâtiment',
   ],
+  image: {
+    url: PHOTOS.btpFormationChantierPlans2026.src,
+    width: PHOTOS.btpFormationChantierPlans2026.width,
+    height: PHOTOS.btpFormationChantierPlans2026.height,
+    alt: PHOTOS.btpFormationChantierPlans2026.alt,
+  },
 });
 
 const courseSchema = getCourseSchema({
@@ -168,6 +177,12 @@ export default function FormationIAAppelsOffreBTPPage() {
         </Link>
         . Outils : {OUTILS_IA_LINE}
       </p>
+
+      <FormationPageHeroImage
+        src={PHOTOS.btpFormationChantierPlans2026.src}
+        alt={PHOTOS.btpFormationChantierPlans2026.alt}
+        priority
+      />
 
       <div className="mt-8 flex flex-wrap gap-4">
         <a

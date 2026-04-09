@@ -17,6 +17,8 @@ import {
   TARIF_FORFAIT_AVANCE_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
+import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
 
 const LMS_SLUG = 'ia-rh-btp';
 /** À déposer dans public/formations/ia-rh-btp/ si besoin */
@@ -25,17 +27,25 @@ const PDF_HREF = '/formations/ia-rh-btp/Programme_Formation_IA_RH_BTP.pdf';
 export const metadata = createPageMetadata({
   title: 'Formation IA RH BTP : Recrutement & GEPP efficaces',
   description:
-    `IA pour la fonction RH dans le BTP : recrutement, GEPP, tableaux de bord. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
+    `Formation IA RH BTP et bâtiment : recrutement, GEPP, tableaux de bord, assistants IA. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
   path: '/formations/ia-rh-btp',
   keywords: [
     'formation IA RH BTP',
+    'formation IA BTP',
     'recrutement BTP IA',
     'GEPP BTP intelligence artificielle',
     'DRH BTP formation IA',
     'ChatGPT recrutement BTP',
     'IA ressources humaines BTP',
     'automatisation RH BTP',
+    'mémoire technique entreprise BTP',
   ],
+  image: {
+    url: PHOTOS.btpFormationBureauConseil2026.src,
+    width: PHOTOS.btpFormationBureauConseil2026.width,
+    height: PHOTOS.btpFormationBureauConseil2026.height,
+    alt: PHOTOS.btpFormationBureauConseil2026.alt,
+  },
 });
 
 const courseSchema = getCourseSchema({
@@ -141,6 +151,12 @@ export default function FormationIARHBTPPage() {
         </Link>
         .
       </p>
+
+      <FormationPageHeroImage
+        src={PHOTOS.btpFormationBureauConseil2026.src}
+        alt={PHOTOS.btpFormationBureauConseil2026.alt}
+        priority
+      />
 
       <div className="mt-8 flex flex-wrap gap-4">
         <a

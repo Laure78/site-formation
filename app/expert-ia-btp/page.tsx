@@ -9,16 +9,25 @@ import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
   description:
-    "Expert IA BTP : Laure Olivié accompagne les dirigeants de TPE et PME du bâtiment et des travaux publics. Plus de dix ans terrain, LinkedIn Learning. Qualiopi. Demandez une session stratégique personnalisée.",
+    "Expert IA BTP : mémoire technique, appels d'offre, formation IA bâtiment et travaux publics. Laure Olivié, Qualiopi, LinkedIn Learning. Accompagnement dirigeants TPE/PME.",
   path: '/expert-ia-btp',
   keywords: [
     'expert IA BTP',
     'formatrice IA',
+    'rédaction mémoire technique',
+    'appel d\'offre BTP',
     'consultant IA bâtiment',
     'Laure Olivié',
     'LinkedIn Learning instructor',
     'formation IA entreprise',
+    'formation IA BTP',
   ],
+  image: {
+    url: PHOTOS.btpFormationVisioChantier2026.src,
+    width: PHOTOS.btpFormationVisioChantier2026.width,
+    height: PHOTOS.btpFormationVisioChantier2026.height,
+    alt: PHOTOS.btpFormationVisioChantier2026.alt,
+  },
 });
 
 export default function ExpertIABTPPage() {

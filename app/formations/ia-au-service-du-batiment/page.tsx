@@ -40,6 +40,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
@@ -47,8 +48,8 @@ const LMS_SLUG = 'ia-au-service-du-btp';
 const SEO_TITLE =
   'Formation IA bâtiment : gagnez du temps sur chantiers | OFC';
 
-/** Meta description ≤ 155 car. */
-const SEO_DESCRIPTION = `Formation IA bâtiment ${SESSION_DUREE_LIBELLE} en Île-de-France : devis, emails, suivi chantier, administratif. Qualiopi, OPCO Constructys. Sans prérequis technique.`;
+/** Meta description — mots-clés BTP : mémoire technique, appels d'offre, formation IA */
+const SEO_DESCRIPTION = `Formation IA BTP et bâtiment ${SESSION_DUREE_LIBELLE} : devis, appels d'offre, mémoire technique, chantier, administratif. Qualiopi, OPCO Constructys. Sans prérequis technique.`;
 
 const MAIL_PROGRAMME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA bâtiment (BTP-01)')}`;
@@ -61,7 +62,10 @@ export const metadata = createPageMetadata({
   path: '/formations/ia-au-service-du-batiment',
   keywords: [
     'formation IA bâtiment',
+    'formation IA BTP',
     'IA BTP',
+    'rédaction mémoire technique',
+    'appel d\'offre BTP',
     'formation intelligence artificielle construction',
     'IA pour artisans bâtiment',
     'IA chantier',
@@ -73,6 +77,12 @@ export const metadata = createPageMetadata({
     'Qualiopi',
     'OPCO Constructys',
   ],
+  image: {
+    url: PHOTOS.btpFormationSalleIntervention2026.src,
+    width: PHOTOS.btpFormationSalleIntervention2026.width,
+    height: PHOTOS.btpFormationSalleIntervention2026.height,
+    alt: PHOTOS.btpFormationSalleIntervention2026.alt,
+  },
 });
 
 const courseSchema = getCourseSchema({
@@ -345,10 +355,10 @@ export default function FormationIAuServiceDuBatimentPage() {
             <div className="w-full shrink-0 lg:w-[400px]">
               <PortraitLinkedInLink className="block overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm transition-opacity hover:opacity-95">
                 <Image
-                  src="/images/formation-ia-btp-entreprise.png"
-                  alt="Formation IA bâtiment en entreprise — atelier pratique dédié aux professionnels du BTP : devis, emails et suivi chantier avec Laure Olivié (Qualiopi)."
-                  width={800}
-                  height={520}
+                  src={PHOTOS.btpFormationSalleIntervention2026.src}
+                  alt={PHOTOS.btpFormationSalleIntervention2026.alt}
+                  width={PHOTOS.btpFormationSalleIntervention2026.width}
+                  height={PHOTOS.btpFormationSalleIntervention2026.height}
                   className="h-auto w-full object-cover"
                   sizes="(max-width: 1024px) 100vw, 400px"
                   priority

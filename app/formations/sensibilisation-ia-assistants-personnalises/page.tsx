@@ -16,6 +16,8 @@ import {
   TARIF_FORFAIT_DEBUTANT_HT,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
+import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
 
 const LMS_SLUG = 'formation-ia-sensibilisation-prompt-engineering-assistants';
 /** Supports statiques — voir public/formations/pitel-ia-sensibilisation-prompts-assistants/README.md */
@@ -25,15 +27,23 @@ const PDF_HREF =
 export const metadata = createPageMetadata({
   title: "Sensibilisation à l'IA & assistants personnalisés — Formation LMS BTP",
   description:
-    `Sensibilisation IA, prompts par métier et assistants : session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Ressources LMS en prolongement. Qualiopi, Constructys.`,
+    `Sensibilisation IA BTP et bâtiment : prompts métier, assistants IA, usages terrain. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Ressources LMS. Qualiopi, Constructys.`,
   path: '/formations/sensibilisation-ia-assistants-personnalises',
   keywords: [
     'sensibilisation IA BTP',
+    'formation IA BTP',
     'formation assistants IA personnalisés',
     'prompts par métier BTP',
     'formation IA en ligne',
+    'appel d\'offre BTP',
     'Constructys',
   ],
+  image: {
+    url: PHOTOS.btpFormationEcranIABTP2026.src,
+    width: PHOTOS.btpFormationEcranIABTP2026.width,
+    height: PHOTOS.btpFormationEcranIABTP2026.height,
+    alt: PHOTOS.btpFormationEcranIABTP2026.alt,
+  },
 });
 
 const courseSchema = getCourseSchema({
@@ -160,6 +170,12 @@ export default function SensibilisationIAAssistantsPage() {
         </Link>
         . La plateforme LMS permet d&apos;approfondir les supports en autonomie après la session.
       </p>
+
+      <FormationPageHeroImage
+        src={PHOTOS.btpFormationEcranIABTP2026.src}
+        alt={PHOTOS.btpFormationEcranIABTP2026.alt}
+        priority
+      />
 
       <div className="mt-8 flex flex-wrap gap-4">
         <a

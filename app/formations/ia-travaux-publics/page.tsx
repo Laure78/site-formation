@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { RdvLink } from '@/components/RdvLink';
 import {
   Check,
@@ -37,22 +38,31 @@ import {
   LIBELLE_EFFECTIF_GROUPE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
   title: "L'IA au service des Travaux Publics : DCE, AO, chantier & industrialisation",
   description:
-    `Formation IA TP ${SESSION_DUREE_LIBELLE} : appels d'offres, DCE/CCTP, comptes rendus, reporting. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO.`,
+    `Formation IA travaux publics et BTP : appels d'offre, DCE, mémoire technique terrain, documents chantier. Session ${SESSION_DUREE_LIBELLE}. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO.`,
   path: '/formations/ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',
     'IA TP',
     'formation IA appels d offres TP',
+    'appel d\'offre BTP',
+    'rédaction mémoire technique',
     'DCE travaux publics IA',
     'conducteur travaux IA',
     'rapport chantier IA',
     'ChatGPT travaux publics',
     'formation IA infrastructures',
   ],
+  image: {
+    url: PHOTOS.btpFormationChantierEquipe2026.src,
+    width: PHOTOS.btpFormationChantierEquipe2026.width,
+    height: PHOTOS.btpFormationChantierEquipe2026.height,
+    alt: PHOTOS.btpFormationChantierEquipe2026.alt,
+  },
 });
 
 const courseSchema = getCourseSchema({
@@ -254,6 +264,16 @@ export default function FormationIATravauxPublicsPage() {
               </div>
             </div>
             <div className="w-full shrink-0 lg:w-[380px]">
+              <div className="relative mb-6 aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+                <Image
+                  src={PHOTOS.btpFormationChantierEquipe2026.src}
+                  alt={PHOTOS.btpFormationChantierEquipe2026.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 380px"
+                  priority
+                />
+              </div>
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
                 <div className="flex items-center gap-2 text-[var(--accent)]">
                   <Sparkles size={20} strokeWidth={1.5} aria-hidden />

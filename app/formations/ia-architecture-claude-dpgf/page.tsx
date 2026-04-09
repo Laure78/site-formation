@@ -17,6 +17,8 @@ import {
   MODALITE_FORMATIONS_PRESENTIEL,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
+import { FormationPageHeroImage } from '@/components/formations/FormationPageHeroImage';
 
 const LMS_SLUG = 'ia-architecture-claude-dpgf';
 const PDF_HREF =
@@ -26,16 +28,25 @@ export const metadata = createPageMetadata({
   title:
     'Formation IA architecture — Claude AI, DPGF, chantier, documents | Qualiopi',
   description:
-    `Architectes et cabinets : DPGF, métrés, CR, PV avec Claude AI et Google Workspace. ${SESSION_DUREE_LIBELLE} en présentiel. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé).`,
+    `Formation IA BTP pour cabinets : DPGF, métrés, mémoire technique, CR chantier et documents avec Claude AI. ${SESSION_DUREE_LIBELLE} présentiel. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (avancé). Qualiopi.`,
   path: '/formations/ia-architecture-claude-dpgf',
   keywords: [
     'formation IA architecture',
+    'formation IA BTP',
     'Claude AI architecte',
     'DPGF IA',
+    'rédaction mémoire technique',
     'formation IA cabinet architecture',
     'métrés automatisation',
+    'appel d\'offre BTP',
     'Qualiopi architecture',
   ],
+  image: {
+    url: PHOTOS.btpFormationBureauConseil2026.src,
+    width: PHOTOS.btpFormationBureauConseil2026.width,
+    height: PHOTOS.btpFormationBureauConseil2026.height,
+    alt: PHOTOS.btpFormationBureauConseil2026.alt,
+  },
 });
 
 const courseSchema = getCourseSchema({
@@ -157,6 +168,12 @@ export default function FormationIAArchitectureClaudePage() {
         courriers : une journée demi-journée pour mettre en place Claude AI avec Google Drive, Sheets et
         Docs sur vos vrais flux de travail.
       </p>
+
+      <FormationPageHeroImage
+        src={PHOTOS.btpFormationBureauConseil2026.src}
+        alt={PHOTOS.btpFormationBureauConseil2026.alt}
+        priority
+      />
 
       <div className="mt-8 flex flex-wrap gap-4">
         <a

@@ -203,6 +203,44 @@ export const PHOTOS = {
     width: 1024,
     height: 768,
   },
+
+  /** Photos terrain / pédagogie 2026 (sessions réelles BTP) */
+  btpFormationSalleIntervention2026: {
+    src: '/images/btp-formation-salle-intervention-2026.png',
+    alt: 'Formation IA BTP en salle : intervenante devant un groupe de professionnels du bâtiment et des travaux publics',
+    width: 1024,
+    height: 682,
+  },
+  btpFormationBureauConseil2026: {
+    src: '/images/btp-formation-bureau-conseil-2026.png',
+    alt: 'Accompagnement et conseil en entreprise du bâtiment — échange professionnel autour de la formation IA',
+    width: 1024,
+    height: 682,
+  },
+  btpFormationChantierPlans2026: {
+    src: '/images/btp-formation-chantier-plans-2026.png',
+    alt: 'Chantier BTP : transmission sur plans et coordination entre encadrement et équipes terrain',
+    width: 1024,
+    height: 762,
+  },
+  btpFormationChantierEquipe2026: {
+    src: '/images/btp-formation-chantier-equipe-2026.png',
+    alt: 'Entreprise du bâtiment : réunion de chantier avec professionnels et plans sur le terrain',
+    width: 1024,
+    height: 682,
+  },
+  btpFormationEcranIABTP2026: {
+    src: '/images/btp-formation-ecran-ia-btp-2026.png',
+    alt: 'Présentation « IA dans le BTP » : optimisation devis, gestion de chantier et organisation',
+    width: 1024,
+    height: 682,
+  },
+  btpFormationVisioChantier2026: {
+    src: '/images/btp-formation-visio-chantier-2026.png',
+    alt: 'Formation IA BTP à distance : échange entre bureau et terrain, cas concrets entreprise du bâtiment',
+    width: 1024,
+    height: 682,
+  },
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

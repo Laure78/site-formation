@@ -6,15 +6,19 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA artisans BTP : ChatGPT, devis, emails, comptes rendus',
   description:
-    "Formation IA artisans BTP et ChatGPT entreprises : devis, emails, CR chantier. 4 h pratiques, Qualiopi, 100 % finançable Constructys. Laure Olivié — OFC.",
+    "Formation IA BTP et bâtiment : ChatGPT, devis, mémoire technique, emails et CR chantier. 4 h pratiques, Qualiopi, Constructys. Entreprises du bâtiment et travaux publics.",
   path: '/formation-ia-artisans-btp',
   keywords: [
     'formation IA artisans BTP',
+    'formation IA BTP',
     'ChatGPT entreprises BTP',
+    'rédaction mémoire technique',
+    'appel d\'offre BTP',
     'ChatGPT TPE PME bâtiment',
     'IA devis BTP',
     'ChatGPT travaux publics',
@@ -23,6 +27,12 @@ export const metadata = createPageMetadata({
     'automatisation administrative BTP',
     'ChatGPT conducteur de travaux',
   ],
+  image: {
+    url: PHOTOS.btpFormationSalleIntervention2026.src,
+    width: PHOTOS.btpFormationSalleIntervention2026.width,
+    height: PHOTOS.btpFormationSalleIntervention2026.height,
+    alt: PHOTOS.btpFormationSalleIntervention2026.alt,
+  },
 });
 
 const DEFINITION = {

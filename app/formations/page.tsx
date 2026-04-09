@@ -19,15 +19,18 @@ import {
 import { getSchemaCourses } from '@/lib/schema-courses';
 
 export const metadata = createPageMetadata({
-  title: 'Formations IA BTP & ChatGPT entreprise | Catalogue Qualiopi',
+  title: 'Formation IA BTP : appels d’offres, mémoire technique, catalogue Qualiopi',
   description:
-    "Catalogue formation IA BTP : sessions 4 h, forfait 100 € ou 175 € HT/participant selon niveau. Qualiopi, OPCO Constructys.",
+    "Catalogue formation IA BTP et bâtiment : appels d'offre, rédaction mémoire technique, DCE et chantier. Sessions 4 h Qualiopi, OPCO Constructys. Île-de-France et France.",
   path: '/formations',
   keywords: [
     'formation IA BTP',
     'formation ChatGPT entreprise BTP',
     'catalogue formation IA BTP',
     'formations IA bâtiment',
+    'mémoire technique BTP',
+    'appel d\'offre BTP',
+    'rédaction mémoire technique',
     'IA devis bâtiment',
     'IA gestion chantier',
     'automatisation tâches administratives BTP',
@@ -37,6 +40,12 @@ export const metadata = createPageMetadata({
     'OPCO Constructys',
     'formation IA PME BTP',
   ],
+  image: {
+    url: PHOTOS.btpFormationChantierPlans2026.src,
+    width: PHOTOS.btpFormationChantierPlans2026.width,
+    height: PHOTOS.btpFormationChantierPlans2026.height,
+    alt: PHOTOS.btpFormationChantierPlans2026.alt,
+  },
 });
 
 /** Tri catalogue : dé puis avancé. */
@@ -223,6 +232,42 @@ export default function FormationsPage() {
           </ShortAnswerBlock>
         </div>
       </div>
+
+      <section
+        className="mx-auto mt-12 max-w-5xl"
+        aria-labelledby="formations-visuelles-titre"
+      >
+        <h2
+          id="formations-visuelles-titre"
+          className="font-display text-2xl font-bold text-slate-900"
+        >
+          Sessions en présentiel : salle, bureau et chantier
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm text-slate-600">
+          Des visuels de terrain pour illustrer les formations en entreprise du bâtiment : appels
+          d&apos;offres, mémoire technique, conduite de travaux et accompagnement.
+        </p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3 sm:gap-4">
+          {[
+            PHOTOS.btpFormationSalleIntervention2026,
+            PHOTOS.btpFormationChantierPlans2026,
+            PHOTOS.btpFormationBureauConseil2026,
+          ].map((p) => (
+            <div
+              key={p.src}
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm"
+            >
+              <Image
+                src={p.src}
+                alt={p.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
       
       <div className="mx-auto mt-12 max-w-5xl">
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
