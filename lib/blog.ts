@@ -588,6 +588,140 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
   },
 
+  // Avril 2026 — Mémoire technique BTP & IA (angle gain de temps / conversion)
+  {
+    slug: 'memoire-technique-btp-ia-gagner-temps-appels-offres',
+    title:
+      'Mémoire technique BTP avec l’IA : gagnez vos appels d’offres en 2x moins de temps',
+    seoTitle:
+      'Mémoire technique BTP IA : gagner du temps sur les appels d’offres | Laure Olivié',
+    description:
+      'Mémoire technique BTP avec l’IA : analyser le DCE, structurer le dossier, éviter le copier-coller générique. Méthode en 5 étapes, prompt type, checklist. Formation appels d’offres Qualiopi, Constructys. Île-de-France.',
+    date: '2026-04-10',
+    keywords: [
+      'mémoire technique BTP IA',
+      'mémoire technique appel d’offres',
+      'ChatGPT mémoire technique BTP',
+      'réponse marché public BTP',
+      'DCE CCTP mémoire technique',
+      'gain de temps appels d’offres BTP',
+      'formation IA appels d’offres Île-de-France',
+      'intelligence artificielle BTP marchés publics',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Cet article s’adresse aux dirigeants, conducteurs de travaux et chargés d’affaires qui répondent à des marchés dans le bâtiment et les travaux publics : comment utiliser l’IA (ChatGPT, Claude ou équivalent) pour accélérer la préparation du mémoire technique sans sacrifier la personnalisation. Vous y trouverez une méthode en cinq étapes, un exemple de prompt, une checklist avant envoi — et des liens vers la formation « Répondre aux appels d’offres avec l’IA » (certifiée Qualiopi, finançable OPCO Constructys selon éligibilité). L’IA est un assistant de structuration et de rédaction : la validation métier et la cohérence avec votre prix restent votre responsabilité.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Le problème : des heures sur le mémoire… pour un pli parfois éliminé',
+        content:
+          'Il y a encore des équipes qui passent trois à huit heures (parfois plus) sur un mémoire technique, alors que le chiffrage ou le planning chantier mobilise déjà toute l’énergie. Dans le BTP, ce document est chronophage, répétitif d’un marché à l’autre — et pourtant stratégique : c’est lui qui doit prouver que vous avez compris le besoin et que vous savez organiser les moyens. Aujourd’hui, des entreprises utilisent l’IA pour rédiger plus vite, structurer mieux et aligner chaque paragraphe sur les critères du règlement. Mais mal utilisée, l’IA produit du générique : les acheteurs publics repèrent vite les phrases toutes faites, les réponses floues et l’absence de détails terrain — et vous perdez des points sur la note technique. L’enjeu : gagner du temps sur la forme pour garder du temps sur le fond et la relecture.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pourquoi le mémoire technique est décisif dans un appel d’offres BTP',
+        content:
+          'Le mémoire technique n’est pas une pièce administrative de plus : c’est l’endroit où vous valorisez votre savoir-faire, rassurez le maître d’ouvrage et vous différenciez des concurrents. Sur beaucoup de marchés de travaux, la note technique représente souvent 40 à 60 % de la notation globale — parfois davantage selon les pondérations du règlement de consultation. Pourtant, dans les PME que j’accompagne, je vois encore des dossiers recopiés d’anciens marchés, des réponses à côté du CCTP ou des développements trop vagues sur les moyens humains. Résultat : des marchés perdus non pas par manque de compétence métier, mais par manque de clarté et d’alignement avec les critères. Le bon réflexe : traiter le mémoire comme une production industrielle — avec une méthode, des jalons et une relecture croisée.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Utiliser l’IA pour le mémoire : gain de temps et efficacité',
+        content:
+          'Avec un outil comme ChatGPT ou Claude, vous pouvez analyser un DCE, structurer le plan du mémoire, générer des brouillons de sections à partir de vos données (effectifs, matériel, références) et améliorer la clarté de la formulation. Sur le terrain, lorsque la méthode est en place, je vois souvent des temps de rédaction qui passent de plusieurs heures à une session de travail nettement plus courte — le temps exact dépend de la complexité du lot et de la qualité des infos que vous injectez dans l’outil. Ce n’est pas magique : l’IA est un assistant, pas un remplaçant. Elle ne remplace ni la visite de chantier ni le visa du responsable sur la cohérence avec le DPGF et votre organisation réelle.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Pourquoi beaucoup de mémoires « IA » ratent la note',
+        content:
+          'L’erreur la plus fréquente : copier-coller une réponse générée sans adaptation au CCTP. Le contenu devient générique, imprécis ou hors sujet par rapport aux exigences du lot. Les acheteurs publics et les bureaux de contrôle sont habitués à lire des dossiers : ils détectent vite les formulations standardisées, les réponses qui pourraient s’appliquer à n’importe quel marché et l’absence de personnalisation (contraintes d’accès, interfaces entre lots, phasage réel). Là, la perte de points est directe. La règle que je donne en formation : tout ce qui sort du modèle doit être vérifié, complété par les détails réels du terrain et recoupé avec votre offre de prix.',
+      },
+      {
+        type: 'list',
+        title: 'Méthode en 5 étapes pour rédiger un mémoire technique avec l’IA',
+        content: [
+          'Analyser le DCE — Lire le règlement de consultation (critères, pondération), le CCTP du lot et les pièces annexes : identifier ce qui alimente vraiment la note technique.',
+          'Structurer le mémoire — Faire produire un plan à l’IA aligné sur les sous-critères ou la trame imposée ; chaque section doit « répondre » à une exigence du RC.',
+          'Générer un premier contenu — Utiliser des prompts précis avec votre activité, vos moyens humains et matériels, vos références réelles (sans inventer de données).',
+          'Personnaliser — Ajouter les détails chantier, contraintes d’exécution, organisation terrain, interfaces : c’est là que se joue la différence.',
+          'Optimiser et relire — Vérifier clarté, cohérence avec le chiffrage et le planning, puis faire relire par quelqu’un qui n’a pas écrit le brouillon.',
+        ],
+      },
+      {
+        type: 'prompts',
+        title: 'Exemple de prompt prêt à l’emploi (à adapter)',
+        content: [
+          {
+            titre: 'Brouillon de mémoire technique contextualisé',
+            prompt:
+              'Tu es un conducteur de travaux expérimenté en France. Rédige un premier jet de mémoire technique pour un chantier de [type de projet : neuf, rénovation, VRD, second œuvre, etc.].\n\nPrends en compte :\n- moyens humains (effectifs, compétences)\n- organisation chantier (phasage, interfaces)\n- gestion des délais\n- sécurité et environnement\n- contraintes spécifiques du client suivantes : [À REMPLIR]\n\nStyle : professionnel, factuel, sans marketing creux. Indique les zones où des données précises doivent être complétées par l’entreprise.\n\nNe pas inventer de références ni de chiffres.',
+            usage:
+              'Remplacez les crochets par vos informations réelles. Relisez et supprimez toute phrase qui ne correspond pas à votre entreprise.',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Cas concret (terrain)',
+        content:
+          'Une PME du bâtiment accompagnée sur la méthode IA : avant, environ cinq heures par mémoire, avec des réponses peu homogènes entre les chargés d’affaires. Après mise en place d’une trame (analyse DCE, plan aligné sur les critères, prompts standardisés) et d’une relecture obligatoire, le temps de rédaction d’un premier dossier complet est descendu à environ une heure pour le brouillon structuré — puis une passe humaine pour le verrouillage. Les dossiers partent plus souvent, avec une meilleure clarté, et l’équipe répond à plus de consultations dans le même temps calendaire. Les résultats commerciaux varient selon les marchés ; la constante est la qualité de préparation et la traçabilité des engagements.',
+      },
+      {
+        type: 'list',
+        title: 'Checklist mémoire technique BTP avant envoi',
+        content: [
+          'CCTP et RC analysés : chaque critère de la note technique est couvert explicitement.',
+          'Réponse adaptée au projet : pas de copier-coller d’un autre marché sans mise à jour.',
+          'Moyens humains détaillés et cohérents avec le planning et le prix.',
+          'Organisation claire : phasage, interfaces, QSE alignés sur vos process réels.',
+          'Planning cohérent avec les délais du CCTP et votre DPGF.',
+          'Éléments différenciants présents : références pertinentes, méthodes, moyens spécifiques.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Pour qui est faite cette méthode ?',
+        content:
+          'Artisans, PME du BTP, conducteurs de travaux, responsables appels d’offres ou direction technique : si vous répondez régulièrement à des marchés publics ou privés, structurer la rédaction avec l’IA est un levier fort — à condition d’imposer une discipline interne (données, confidentialité, relecture). En Île-de-France, les sessions inter se déroulent en présentiel ; l’intra est possible dans vos locaux. Pour le détail des lieux et modalités, voir la page « Formation IA BTP en Île-de-France ».',
+      },
+      {
+        type: 'html',
+        title: 'Aller plus loin',
+        content:
+          '<p class="text-slate-600">Pour approfondir avec un guide pas à pas (prompts DCE, plan aligné sur la grille de notation, pièces jointes) :</p>' +
+          '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
+          '<li><a href="/blog/ia-memoire-technique-appel-offres-guide-2026">IA mémoire technique appel d’offres — guide complet 2026</a></li>' +
+          '<li><a href="/formations/ia-appels-offre-btp">Formation « Répondre aux appels d’offres avec l’IA »</a> (Qualiopi, OPCO Constructys)</li>' +
+          '<li><a href="/formations/ia-btp-ile-de-france">Formation IA BTP en Île-de-France</a> — sessions inter et intra</li>' +
+          '</ul>',
+      },
+      {
+        type: 'faq',
+        title: 'FAQ — Mémoire technique BTP et IA',
+        content: [
+          'Peut-on utiliser l’IA pour un appel d’offres ? — Oui, dans un cadre de vérification humaine : le contenu doit être personnalisé, exact et cohérent avec les pièces contractuelles. Ne transmettez pas de données sensibles dans des outils non validés par votre entreprise.',
+          'Quel outil utiliser ? — ChatGPT et Claude sont parmi les plus accessibles pour structurer et rédiger ; le bon outil est celui que votre équipe maîtrise et que votre politique données autorise.',
+          'L’IA remplace-t-elle un conducteur de travaux ? — Non. Elle fait gagner du temps sur la structuration et le premier jet ; l’expertise terrain, le jugement sur les risques et la signature du dossier restent humains.',
+          'Combien de temps peut-on gagner ? — Cela dépend de la complexité du marché et de votre méthode ; en organisation, on peut souvent réduire fortement le temps de premier jet, le gain réel se mesurant sur la qualité de la relecture et le nombre de dossiers traités.',
+        ],
+      },
+      {
+        type: 'cta',
+        content:
+          'Vous voulez gagner du temps sur vos mémoires techniques et répondre à plus d’appels d’offres avec une méthode opérationnelle ? Réservez un échange ou demandez une formation adaptée à votre entreprise — présentiel, cas réels, prompts prêts à l’emploi. Certifié Qualiopi, finançable Constructys selon éligibilité.',
+        formationHref: '/formations/ia-appels-offre-btp',
+      },
+    ],
+    relatedSlugs: [
+      'ia-memoire-technique-appel-offres-guide-2026',
+      'formation-ia-btp-guide-complet-2026',
+      'comparatif-chatgpt-claude-gemini-btp',
+    ],
+  },
+
   // Veille annuelle — intelligence artificielle BTP (à mettre à jour chaque année)
   {
     slug: 'ia-btp-2026-tendances',
@@ -889,100 +1023,325 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     relatedSlugs: ['formation-ia-btp-guide-complet-2026', 'financer-formation-ia-btp-constructys'],
   },
 
-  // Article existant : financement Constructys (déjà optimisé)
+  // Financement Constructys — réécriture SEO 2026 (sans emojis)
   {
     slug: 'financer-formation-ia-btp-constructys',
-    title: 'Comment financer sa formation IA BTP avec Constructys',
+    title: 'Financer une formation IA dans le BTP : guide complet Constructys (2026)',
+    seoTitle:
+      'Financer formation IA BTP Constructys 2026 — OPCO, PDC, FNE | Laure Olivié',
     description:
-      'Guide complet : financement Constructys à 100% pour votre formation IA BTP. Plan de développement des compétences, OPCO, démarches.',
+      'Formation IA BTP : financement Constructys, OPCO construction, plan de développement des compétences, FNE, CPF. Guide 2026 pour TPE et PME bâtiment — plafonds, délais eGestion, Qualiopi.',
     date: '2025-03-05',
-    keywords: ['financement Constructys', 'formation IA BTP', 'OPCO', 'Plan développement compétences'],
+    dateModified: '2026-04-10',
+    keywords: [
+      'formation IA BTP',
+      'financement formation BTP',
+      'Constructys financement',
+      'OPCO construction',
+      'formation intelligence artificielle bâtiment',
+      'plan développement des compétences',
+      'FNE formation',
+      'CPF formation',
+      'Qualiopi Constructys',
+    ],
     sections: [
       {
         type: 'definition',
         title: 'En bref',
         content:
-          "Constructys est l'OPCO (Opérateur de Compétences) dédié au secteur de la construction. Il finance les formations des salariés et dirigeants du BTP dans le cadre du Plan de Développement des Compétences. Pour une formation IA BTP certifiée Qualiopi, la prise en charge peut atteindre 100% du coût pédagogique.",
+          'Financer une formation en intelligence artificielle appliquée au bâtiment et aux travaux publics, c’est en général passer par votre OPCO : pour la construction, il s’agit d’OPCO Constructys. Les cotisations de votre entreprise alimentent déjà les dispositifs de formation professionnelle ; une formation certifiée Qualiopi, alignée avec votre plan de développement des compétences (PDC), peut voir son coût pédagogique pris en charge dans les conditions fixées par votre branche — plafonds, délais de dossier et règles 2026 à vérifier sur constructys.fr et auprès de votre conseiller.',
       },
       {
         type: 'paragraph',
+        title: 'Pourquoi le budget n’est souvent pas le vrai frein',
         content:
-          "En 2026, les entreprises du BTP de moins de 50 salariés peuvent faire financer intégralement leur formation à l'intelligence artificielle par Constructys. Laure Olivié propose des formations IA certifiées Qualiopi, éligibles à ce dispositif.",
+          'Dans le BTP, le coût direct d’une formation IA n’est pas toujours ce qui bloque le projet : le frein le plus fréquent est le manque d’information sur les dispositifs, les délais de montage de dossier et le choix d’un organisme certifié Qualiopi compatible avec les règles Constructys. Votre entreprise cotise déjà à l’OPCO de la construction : l’enjeu est d’aligner votre besoin métier (devis, chantier, appels d’offres, RH) avec une action de formation éligible et une convention déposée dans les temps.',
       },
       {
         type: 'paragraph',
-        title: 'Quelles formations sont éligibles ?',
+        title: 'Pourquoi se former à l’IA dans le BTP en 2026 ?',
         content:
-          "Toutes les formations IA pour le BTP de Laure Olivié sont certifiées Qualiopi et éligibles au financement Constructys : « L'IA au service du bâtiment », formation appels d'offres, IA pour la fonction RH, L'IA au service des Travaux Publics. Le coût pédagogique est pris en charge à hauteur de 24€ HT/heure/stagiaire.",
+          'L’IA générative est déjà utilisée sur le terrain et au bureau : mémoires techniques et synthèses de DCE, automatisation des devis et des pièces chiffrées, comptes rendus de chantier, relances et emails. Une formation courte et opérationnelle permet d’encadrer l’usage des outils, d’éviter les erreurs de fond et de gagner souvent plusieurs heures par semaine sur l’administratif — sous réserve de méthode et de relecture humaine. Les formations proposées par OFC Création d’Entreprise sont pensées pour les artisans, PME, conducteurs de travaux et fonctions support.',
       },
       {
         type: 'list',
-        title: 'Les étapes pour faire financer votre formation',
+        title: 'Constructys : rôle et périmètre',
         content: [
-          "Identifier votre OPCO : pour le BTP, c'est généralement Constructys.",
-          "Contacter Laure Olivié pour un devis personnalisé avec le code formation.",
-          "Transmettre le devis à votre OPCO ou à votre service formation.",
-          "Obtenir l'accord de prise en charge avant le démarrage de la formation.",
-          "Suivre la formation. L'OPCO règle directement l'organisme.",
+          'OPCO Constructys couvre le secteur de la construction, des travaux publics et le négoce de matériaux — vérifiez votre rattachement en cas d’activité mixte.',
+          'Missions principales : financer la formation professionnelle, accompagner les entreprises sur les compétences et orienter vers les bons dispositifs selon l’effectif et la convention collective.',
+          'Les barèmes et plafonds évoluent : pour le catalogue et les entreprises éligibles, les règles de prise en charge (dont le plafond couramment cité de 24 € HT par heure et par stagiaire pour le coût pédagogique, dans la limite des montants en vigueur) doivent être confirmées au moment du dossier.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Trois leviers à connaître (PDC, FNE, CPF)',
+        content:
+          'Le plan de développement des compétences (PDC) reste le socle pour financer les salariés : entreprises du BTP, financement mutualisé pour les structures de moins de 50 salariés selon les règles applicables. Le FNE-Formation peut compléter ou cibler certaines priorités (dont le numérique et la transition) : utile notamment pour structurer un projet IA sur des effectifs plus importants — vérifiez l’éligibilité et les budgets auprès de Constructys. Le Compte personnel de formation (CPF) peut financer des parcours certifiants (RNCP, RS) en co-construction avec l’employeur ; pour former une équipe entière sur une session intra ou inter, le PDC et les dispositifs entreprise restent en pratique les plus adaptés. Toute simulation définitive repose sur votre situation et les textes en vigueur.',
+      },
+      {
+        type: 'paragraph',
+        title: 'TPE et très petites structures : dispositifs « objectif compétences »',
+        content:
+          'Les entreprises de moins de onze salariés peuvent bénéficier, sous conditions, de dispositifs renforcés (programme Objectif compétences et règles associées) : prise en charge élevée du coût pédagogique et mécanismes limitant l’avance de trésorerie selon les modalités du dossier. C’est souvent le levier le plus efficace pour les artisans qui veulent monter en compétence sur l’IA sans bloquer la caisse — montez le dossier avec votre conseiller Constructys et un organisme de formation référencé.',
+      },
+      {
+        type: 'list',
+        title: 'Ordre de grandeur du reste à charge (indicatif)',
+        content: [
+          'Artisan ou TPE éligible à un dispositif renforcé — reste à charge souvent nul ou très faible sur le coût pédagogique, sous réserve d’accord préalable.',
+          'PME sous le seuil des 50 salariés — financement mutualisé via le PDC : dans de nombreux cas, le reste à charge entreprise est limité si le dossier est complet et dans les plafonds.',
+          'Entreprises plus grandes — combinaison PDC et leviers type FNE selon projets numériques et accords : reste à charge variable ; anticipez le cadrage avec votre service RH et Constructys.',
+        ],
+      },
+      {
+        type: 'list',
+        title: 'Démarche en cinq étapes',
+        content: [
+          'Étape 1 — Vérifier votre rattachement OPCO et votre éligibilité au titre de la convention collective et de l’effectif.',
+          'Étape 2 — Choisir une formation IA BTP orientée métier (devis, chantier, appels d’offres, RH) plutôt qu’une offre généraliste sans mise en situation BTP.',
+          'Étape 3 — Contacter un conseiller Constructys ou votre référent formation pour valider le dispositif et le montage financier.',
+          'Étape 4 — Déposer le dossier sur la plateforme (eGestion) dans les délais : anticipez au minimum quinze jours avant le début de la formation, sauf délai différent imposé par votre filière.',
+          'Étape 5 — Fournir les justificatifs demandés après la session pour le versement des sommes dues selon le calendrier Constructys.',
+        ],
+      },
+      {
+        type: 'list',
+        title: 'Erreurs fréquentes à éviter',
+        content: [
+          'Déposer le dossier trop tard par rapport à la date de formation.',
+          'Choisir un organisme non certifié Qualiopi alors que votre politique de formation ou votre OPCO l’exige pour la prise en charge.',
+          'Négliger les dispositifs complémentaires (FNE, priorités branche) alors que votre projet IA pourrait les mobiliser.',
+          'Confondre financement entreprise (PDC, OPCO) et prise en charge individuelle au titre du CPF.',
+        ],
+      },
+      {
+        type: 'faq',
+        title: 'FAQ — Financement formation IA BTP et Constructys',
+        content: [
+          'Constructys finance-t-il les formations à l’IA ? — Oui, lorsque l’action entre dans le cadre du développement des compétences et des priorités de branche (y compris le numérique et l’innovation), sous réserve d’éligibilité et de budget. Vérifiez toujours le catalogue et les notes en vigueur.',
+          'Peut-on viser une prise en charge à 100 % du coût pédagogique ? — C’est possible pour certaines TPE et situations ; pour d’autres structures, un reste à charge existe. La réponse est toujours individuelle.',
+          'Les entreprises de plus de cinquante salariés ont-elles des solutions ? — Oui, notamment via le PDC et des opérations FNE ciblées ; le montage se fait avec votre interlocuteur Constructys.',
+          'Quel délai pour monter un dossier ? — Comptez en pratique deux à trois semaines avant la date souhaitée pour sécuriser la validation, en plus du délai légal minimum de quinze jours pour le dépôt lorsqu’il s’applique.',
+          'Pourquoi privilégier Qualiopi ? — La certification Qualiopi est un gage de qualité de processus ; elle est souvent requise ou fortement recommandée pour les financements professionnels et rassure les financeurs.',
+        ],
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts utiles pour préparer votre dossier',
+        content: [
+          {
+            titre: 'Email de demande de devis à l’organisme de formation',
+            prompt:
+              'Rédige un email professionnel à envoyer à un organisme de formation pour demander un devis de formation IA appliquée au BTP. Contexte : entreprise du bâtiment ou des travaux publics, [effectif], public [dirigeant / conducteur de travaux / équipe]. Mentionner : besoin de convention pour financement OPCO Constructys, certification Qualiopi attendue, thématiques [devis / chantier / appels d’offres].',
+            usage: 'Remplacez les crochets. Joignez les informations sur votre SIRET et votre IDCC si demandées.',
+          },
+          {
+            titre: 'Checklist pièces pour demande Constructys',
+            prompt:
+              'Liste les pièces habituellement nécessaires à une demande de prise en charge Constructys pour une formation en présentiel : devis signé, programme, convention, liste des stagiaires, etc. Format checklist numérotée. Ajoute une mention : vérifier la liste à jour sur constructys.fr.',
+            usage: 'À adapter selon votre taille d’entreprise et le dispositif retenu.',
+          },
+          {
+            titre: 'Argumentaire interne pour convaincre la direction',
+            prompt:
+              'Rédige trois arguments courts pour convaincre la direction d’une PME du BTP de lancer une formation IA : gain de temps administratif, réduction des erreurs sur les dossiers, financement possible via Constructys. Ton sobre, sans promesse chiffrée irréaliste.',
+            usage: 'Utile en réunion ou par email interne.',
+          },
+        ],
+      },
+      {
+        type: 'cta',
+        content:
+          'Formation IA spécialisée BTP, cas concrets terrain, accompagnement pour le montage du dossier Constructys selon votre situation. Prenez rendez-vous pour étudier votre financement et recevoir un devis.',
+        formationHref: '/financement-constructys-formation-ia-btp',
+      },
+    ],
+    relatedSlugs: [
+      'formation-ia-btp-guide-complet-2026',
+      '5-cas-usage-chatgpt-artisans-btp',
+      'ia-devis-gain-temps-pme-btp',
+      'compte-rendu-chantier-ia-automatiser-gagner-temps',
+    ],
+  },
+
+  // Avril 2026 — Comptes rendus de chantier et IA (productivité)
+  {
+    slug: 'compte-rendu-chantier-ia-automatiser-gagner-temps',
+    title:
+      'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5 h par semaine',
+    seoTitle:
+      'Compte rendu chantier IA : automatiser vos CR BTP avec ChatGPT (2026) | Laure Olivié',
+    description:
+      'Compte rendu de chantier et IA : structurer vos CR à partir de notes vocales ou écrites avec ChatGPT ou Claude. Prompts BTP, tableau gain de temps, bonnes pratiques confidentialité. Formation IA BTP Qualiopi, financement Constructys.',
+    date: '2026-04-10',
+    dateModified: '2026-04-10',
+    keywords: [
+      'compte rendu chantier IA',
+      'CR chantier BTP',
+      'automatiser compte rendu chantier',
+      'ChatGPT compte rendu chantier',
+      'conducteur de travaux IA',
+      'formation IA BTP',
+      'Constructys formation',
+      'intelligence artificielle bâtiment',
+      'productivité chantier',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Le compte-rendu de chantier est l’une des tâches administratives les plus chronophages du BTP : un conducteur de travaux consacre souvent 3 à 5 heures par semaine à ses CR, soit plus d’une journée par mois. L’IA générative (ChatGPT, Claude) permet d’automatiser la structuration et la rédaction à partir de notes vocales ou écrites, sans compétence technique. Objectif : un document professionnel, prêt à diffuser, en quelques minutes — avec relecture humaine obligatoire avant envoi.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Qu’est-ce qu’un compte-rendu de chantier ?',
+        content:
+          'Le compte-rendu de chantier (CR) retrace l’avancement d’un chantier à un instant donné. Il suit souvent une réunion de chantier ou une visite de site, et est adressé aux intervenants : maître d’ouvrage, maître d’œuvre, entreprises, sous-traitants. Il sert à la coordination et constitue une trace utile en cas de désaccord — d’où l’exigence de clarté et de précision.',
+      },
+      {
+        type: 'list',
+        title: 'Que contient en général un CR de chantier complet ?',
+        content: [
+          'La date, le lieu et la liste des participants présents',
+          'L’avancement des travaux par lot ou par corps de métier',
+          'Les points de vigilance et non-conformités relevées',
+          'Les décisions prises lors de la réunion',
+          'Les actions à mener avec responsables et délais',
+          'Le planning prévisionnel actualisé',
+          'Les prochaines réunions ou jalons prévus',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Pourquoi les CR de chantier sont-ils si chronophages ?',
+        content:
+          'Sur le terrain, les notes sont fragmentées : griffonnages, dictée sur téléphone, photos de tableau. Les remettre en forme dans un document unique, neutre et exhaustif, demande du temps. Le formalisme attendu est élevé (présents, décisions, responsables). La diffusion doit être rapide — idéalement sous 24 à 48 heures — sinon la mémoire des faits se brouille. Sur la durée du chantier, le volume de CR s’accumule et le retard devient difficile à rattraper sans méthode.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Comment l’IA automatise la rédaction d’un CR de chantier',
+        content:
+          'L’IA ne remplace ni votre jugement ni votre responsabilité : elle prend en charge la mise en forme, la structuration et une première rédaction à partir de vos entrées brutes. Vous validez le fond, les noms, les délais et les formulations sensibles. Le processus ci-dessous est celui que nous faisons pratiquer en formation sur des cas réels.',
+      },
+      {
+        type: 'list',
+        title: 'Processus en cinq étapes',
+        content: [
+          'Capture — Pendant la réunion, gardez vos habitudes : notes vocales sur le téléphone, photos de tableau ou de documents, saisies rapides. Notez les faits bruts ; l’IA structurera ensuite.',
+          'Transcription ou saisie — Transcrivez les enregistrements (outils de transcription ou dictée dans un champ texte) ou copiez-collez vos notes écrites.',
+          'Prompt structuré — Soumettez le tout à l’IA avec un prompt calibré BTP (voir la section prompts ci-dessous) : sections imposées, ton neutre, tableau des actions si besoin.',
+          'Relecture et validation — Vérifiez noms, entreprises, délais, montants et points litigieux. Prévoyez en général 5 à 10 minutes de contrôle pour un CR standard.',
+          'Diffusion — Intégrez le texte dans votre modèle Word ou votre outil de gestion de chantier, ajoutez l’en-tête de l’entreprise, puis envoyez aux destinataires.',
+        ],
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts prêts à l’emploi pour vos comptes rendus de chantier',
+        content: [
+          {
+            titre: 'CR de réunion de chantier classique',
+            prompt:
+              'Tu es assistant administratif pour une entreprise de BTP. Rédige un compte-rendu de réunion de chantier à partir de mes notes.\n\nStructure imposée :\n1. En-tête : Chantier / Date / Lieu / Participants\n2. Avancement par lot (un paragraphe par corps de métier)\n3. Points de vigilance et non-conformités\n4. Décisions prises (liste numérotée)\n5. Actions à mener (tableau : Action | Responsable | Délai)\n6. Prochaine réunion\n\nTon : professionnel, neutre, factuel. Pas de spéculation — si une info manque, indique « à préciser ».\n\nMes notes : [collez ici]',
+            usage: 'Après collage des notes brutes, adaptez les lots au projet.',
+          },
+          {
+            titre: 'CR depuis une transcription vocale imparfaite',
+            prompt:
+              'Voici la transcription d’une réunion de chantier. Certaines phrases sont incomplètes ou incorrectes (transcription automatique). Corrige les erreurs évidentes et rédige un CR structuré avec : Présents ; Avancement par lot ; Points à résoudre ; Décisions et actions (tableau responsable / délai).\n\nTexte transcrit : [collez ici]',
+            usage: 'Utile après dictée ou outil de transcription.',
+          },
+          {
+            titre: 'Email de diffusion du CR',
+            prompt:
+              'Rédige un email professionnel pour diffuser le compte-rendu de chantier du [DATE] sur [NOM DU CHANTIER]. Destinataires : maître d’ouvrage et entreprises présentes. Mets en avant les 2 à 3 actions prioritaires. Ton : factuel, bienveillant, orienté action.',
+            usage: 'Complétez date et intitulé du chantier avant envoi.',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Exemple de consigne pour un premier jet (à coller dans le chat)',
+        content:
+          '« Tu es assistant de direction pour une entreprise de BTP. À partir des notes brutes ci-dessous, rédige un compte-rendu de chantier professionnel avec les sections suivantes : informations générales (date, chantier, participants), avancement par lot, points de vigilance, décisions prises, actions à mener (responsable et délai), prochaine réunion. Adopte un ton neutre et factuel. Notes : [vos notes]. »',
+      },
+      {
+        type: 'html',
+        title: 'Combien de temps gagne-t-on réellement ?',
+        content: `<p class="mb-4">Les ordres de grandeur ci-dessous correspondent à des retours de conducteurs de travaux et d’encadrants formés avec OFC (sessions notamment avec la FFB Île-de-France) : ils varient selon l’organisation du chantier et le niveau de détail attendu.</p>
+<table>
+<caption>Gain de temps indicatif sur une semaine type (3 comptes rendus)</caption>
+<thead><tr><th scope="col">Situation</th><th scope="col">Avant l’IA</th><th scope="col">Avec l’IA</th></tr></thead>
+<tbody>
+<tr><td>CR après réunion hebdomadaire (réunion d’environ 2 h)</td><td>1 h 30 à 2 h de rédaction</td><td>15 à 20 min</td></tr>
+<tr><td>CR après visite de chantier rapide</td><td>30 à 45 min</td><td>5 à 10 min</td></tr>
+<tr><td>CR mensuel de synthèse</td><td>3 à 4 h</td><td>environ 45 min</td></tr>
+<tr><td><strong>Total sur une semaine (3 CR)</strong></td><td><strong>4 h à 6 h</strong></td><td><strong>45 min à 1 h</strong></td></tr>
+</tbody>
+</table>
+<p class="mt-4">Le gain est souvent visible dès les premières utilisations, à condition de garder une relecture systématique.</p>`,
+      },
+      {
+        type: 'html',
+        title: 'Les bonnes pratiques pour des CR assistés par IA',
+        content: `<h3>Notes brutes précises</h3><p>L’IA structure ce que vous lui donnez. Une note vague (« problème béton ») produit un CR vague. Indiquez qui signale quoi, et l’impact sur le planning lorsque c’est pertinent.</p>
+<h3>Responsables nommés</h3><p>Dans vos notes, associez systématiquement chaque action à un prénom, une entreprise ou un rôle : le tableau des actions sera plus fiable.</p>
+<h3>Prompt personnalisé par chantier</h3><p>Après un ou deux essais, intégrez vos lots habituels, les entreprises du projet et votre mise en page : vous gagnez encore du temps à chaque utilisation.</p>
+<h3>Confidentialité</h3><p>Évitez de coller dans un chat public des données sensibles : montants contractuels confidentiels, données personnelles non nécessaires. Pour les sujets sensibles, privilégiez des offres entreprise ou des solutions françaises adaptées — thématique abordée en formation (choix d’outil selon le contexte).</p>
+<h3>Réutilisation des modèles</h3><p>Conservez vos premiers CR validés comme base pour harmoniser le travail d’équipe.</p>`,
+      },
+      {
+        type: 'paragraph',
+        title: 'Automatiser au-delà du compte rendu',
+        content:
+          'Les mêmes principes s’appliquent au rapport d’avancement mensuel, à la structuration de parties d’un DOE (dossier des ouvrages exécutés), aux procès-verbaux de réception ou aux emails de coordination (relances, informations au maître d’ouvrage). Dans chaque cas : matière brute + prompt métier + validation humaine.',
+      },
+      {
+        type: 'list',
+        title: 'Pour quels métiers du BTP ?',
+        content: [
+          'Conducteurs de travaux et chefs de chantier — usage le plus fréquent',
+          'Bureaux d’études — réunions de coordination',
+          'Architectes et maîtres d’œuvre — suivi et OPC',
+          'Entreprises générales et corps de métier — dès que vous participez à des réunions de chantier',
         ],
       },
       {
         type: 'faq',
         title: 'Questions fréquentes',
         content: [
-          "Quelle est la différence entre Constructys et les autres OPCO ? — Constructys est spécifiquement dédié à la construction. Si votre entreprise est du BTP, vous dépendez très probablement de Constructys.",
-          "Faut-il avancer les frais ? — Non. Avec une convention de formation signée avant le démarrage, l'OPCO peut régler directement l'organisme. Pour les TPE, des dispositifs existent pour limiter l'avance de trésorerie.",
-          "Combien de formations puis-je financer par an ? — Il n'y a pas de limite fixe. Tout dépend de votre Plan de Développement des Compétences et du budget alloué par Constructys à votre entreprise.",
+          'Faut-il une formation pour utiliser ChatGPT pour ses CR de chantier ? — Pour tester les prompts de cet article, non. Pour sécuriser la confidentialité, personnaliser vos modèles et intégrer l’IA dans un workflow durable, une formation courte (par exemple 4 h) fait souvent gagner des mois d’essais.',
+          'Le CR assisté par IA a-t-il une valeur contractuelle ? — Oui, si vous le relisez, l’adaptez et le validez avant diffusion. Engage votre entreprise ce que vous signez ou envoyez sous votre en-tête, quelle que soit la manière dont le texte a été produit.',
+          'Quelle application utiliser ? — ChatGPT reste très accessible ; Claude est souvent pertinent sur des documents longs ; des acteurs français existent pour des données sensibles. Le choix dépend du contexte et des politiques de votre entreprise.',
+          'Et si le CR contient des erreurs ? — L’IA peut se tromper (noms, lots, participants). La relecture humaine reste non négociable ; avec un bon prompt et des notes fiables, le taux d’erreur diminue fortement.',
+          'Constructys finance-t-il une formation sur ce thème ? — Les formations certifiées Qualiopi d’OFC Création d’Entreprise peuvent être financées par OPCO Constructys selon les règles applicables à votre structure (plafonds, dossier, éligibilité). Vérifiez auprès de votre conseiller.',
         ],
       },
       {
-        type: 'prompts',
-        title: 'Prompts pour préparer votre demande de financement',
-        content: [
-          {
-            titre: 'Email demande de devis formation',
-            prompt:
-              "Rédige un email professionnel à envoyer à [ORGANISME DE FORMATION] pour demander un devis de formation IA BTP. Contexte : entreprise du BTP, [X] salariés, formation pour [CHARGE D'AFFAIRES / DIRIGEANT / ÉQUIPE]. Mentionner : financement OPCO Constructys, certification Qualiopi recherchée.",
-            usage: "Adaptez le contexte. Idéal pour lancer votre démarche de financement.",
-          },
-          {
-            titre: 'Checklist pièces à fournir à l\'OPCO',
-            prompt:
-              "Liste les pièces habituellement demandées par Constructys pour une demande de financement de formation. Contexte : entreprise BTP, formation IA certifiée Qualiopi. Format : liste numérotée claire avec brève explication de chaque document.",
-            usage: "Pour anticiper la constitution de votre dossier.",
-          },
-        ],
+        type: 'paragraph',
+        title: 'Comment se former à l’automatisation des comptes rendus de chantier',
+        content:
+          'OFC Création d’Entreprise propose une formation IA BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux possibles sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu’à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.',
       },
       {
-        type: 'prompts',
-        title: 'Prompts pour préparer votre financement',
-        content: [
-          {
-            titre: 'Email demande de devis formation',
-            prompt:
-              "Rédige un email court et professionnel à mon OPCO (Constructys) pour demander un devis de formation IA BTP. Entreprise du bâtiment, [X] salariés. Je souhaite former [équipes/commerciaux/chargés d'affaires] à l'utilisation de ChatGPT pour les devis et l'administratif. Demande de prise en charge dans le cadre du plan de développement des compétences.",
-            usage: 'Adaptez le public cible et le nombre de salariés.',
-          },
-          {
-            titre: 'Checklist démarches OPCO',
-            prompt:
-              "Liste les étapes et documents à préparer pour faire financer une formation par l'OPCO Constructys (BTP). Inclus : délais, pièces à fournir, interlocuteurs. Format checklist opérationnelle.",
-            usage: "Pour ne rien oublier dans vos démarches.",
-          },
-          {
-            titre: 'Argumentaire formation IA BTP',
-            prompt:
-              "Rédige 3 arguments courts (2-3 phrases chacun) pour convaincre ma direction d'investir dans une formation IA BTP : gains productivité, ROI, financement 100% OPCO. Ton professionnel, secteur bâtiment.",
-            usage: 'Pour présenter le projet en interne.',
-          },
-        ],
+        type: 'paragraph',
+        title: 'Conclusion',
+        content:
+          'Le compte-rendu de chantier est un excellent point d’entrée pour intégrer l’IA dans une entreprise du BTP : gain de temps rapide, risque maîtrisé si vous relisez toujours avant envoi, méthode reproductible avec un abonnement type ChatGPT. Pour un encadrant qui produit plusieurs CR par semaine, l’automatisation peut représenter plusieurs heures récupérées chaque semaine — soit l’équivalent de plusieurs jours sur un trimestre.',
       },
       {
         type: 'cta',
-        content: 'Demandez un devis personnalisé pour votre formation IA BTP. 100% finançable Constructys.',
+        content:
+          'Formation IA BTP spécialisée bâtiment et travaux : cas concrets terrain, accompagnement pour le financement Constructys selon votre situation. Prenez rendez-vous pour un échange ou consultez le catalogue.',
+        formationHref: '/formations',
       },
     ],
-    relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'ia-devis-gain-temps-pme-btp'],
+    relatedSlugs: [
+      'financer-formation-ia-btp-constructys',
+      '5-cas-usage-chatgpt-artisans-btp',
+      'formation-ia-btp-guide-complet-2026',
+      'chatgpt-devis-btp-methode-2026',
+    ],
   },
   {
     slug: '5-cas-usage-chatgpt-artisans-btp',
@@ -1527,6 +1886,212 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   // Cluster appels d'offres BTP
   {
+    slug: 'analyser-cctp-ia-methode-complete-20-minutes',
+    title:
+      'Analyser un CCTP avec l\'IA : la méthode complète pour décortiquer un cahier des charges en 20 minutes',
+    seoTitle:
+      'Analyse CCTP avec IA : méthode DCE BTP en 20 min (prompts 2026) | Laure Olivié',
+    description:
+      'Analyser un CCTP avec ChatGPT ou Claude : synthèse, normes DTU/NF, risques, croisement CCTP–BPU. Méthode en 5 étapes, prompts BTP, tableau de gains. Formation IA appels d\'offres Qualiopi, financement Constructys.',
+    date: '2026-04-10',
+    dateModified: '2026-04-10',
+    keywords: [
+      'analyse CCTP IA',
+      'CCTP appel d\'offres BTP',
+      'ChatGPT CCTP',
+      'analyse DCE BTP',
+      'cahier des charges BTP',
+      'mémoire technique CCTP',
+      'formation IA BTP',
+      'Constructys formation',
+      'intelligence artificielle marchés publics',
+      'DTU NF CCTP',
+    ],
+    sections: [
+      {
+        type: 'definition',
+        title: 'En bref',
+        content:
+          'Un CCTP de plusieurs dizaines de pages se lit souvent en 2 à 4 heures à la main. Avec une IA générative et des prompts calibrés pour le BTP, vous pouvez obtenir en moins de 20 minutes une synthèse structurée, l’extraction des clauses critiques et une liste de risques — à compléter par votre relecture métier. Cette méthode en cinq étapes est issue des formations animées avec la FFB Île-de-France, la FFB Grand Paris et la CSFE ; elle est reproductible dès le premier essai, sans compétence informatique particulière.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Qu’est-ce qu’un CCTP et pourquoi son analyse est si critique ?',
+        content:
+          'Le CCTP (cahier des clauses techniques particulières) est le document central de nombreux appels d’offres BTP. Il décrit les exigences techniques du maître d’ouvrage : matériaux, normes (NF, DTU, Eurocodes), niveaux de qualité, conditions d’exécution par lot. C’est sur cette base que vous chiffrez et rédigez votre mémoire technique : une exigence manquée peut faire basculer la marge ou l’admissibilité de votre offre.',
+      },
+      {
+        type: 'paragraph',
+        title: 'La réalité du terrain',
+        content:
+          'Un CCTP courant compte souvent entre 30 et 150 pages. Sur les marchés publics volumineux, le DCE complet (CCTP, CCAP, règlement de consultation, plans, annexes) dépasse fréquemment 400 à 500 pages. Beaucoup de chargés d’affaires et de conducteurs de travaux lisent le CCTP de façon linéaire : efficace pour se faire une culture du projet, moins pour repérer vite les points qui impactent chiffrage et risques.',
+      },
+      {
+        type: 'list',
+        title: 'Trois erreurs qui coûtent cher',
+        content: [
+          'Oublier une exigence technique — une norme ou un DTU cité loin dans le document, absent du mémoire et du chiffrage : travaux supplémentaires non prévus, marge grignotée.',
+          'Sous-estimer une clause de pénalité — pénalités de retard ou de non-conformité dans le CCAP ou pièces jointes : surprise en fin de chantier si l’analyse n’a pas croisé les pièces.',
+          'Manquer une incohérence entre pièces — matériau au CCTP absent du bordereau, quantités contradictoires : litige ou avenant défavorable.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Ce que l’IA change concrètement dans l’analyse d’un CCTP',
+        content:
+          'L’usage pertinent de l’IA n’est pas de « déléguer » la décision : c’est un travail collaboratif. L’IA trie, structure et extrait des informations dans un volume important en quelques minutes ; vous concentrez votre expertise sur les points à arbitrer, à chiffrer et à sécuriser contractuellement.',
+      },
+      {
+        type: 'list',
+        title: 'Ce que l’IA sait faire sur un CCTP (avec un PDF exploitable)',
+        content: [
+          'Produire une synthèse thématique du CCTP ou d’extraits pertinents',
+          'Extraire normes, certifications et références (NF, DTU, RE2020, labels)',
+          'Aider à repérer des clauses à risque : pénalités, résiliation, obligations inhabituelles',
+          'Soutenir un recoupement entre CCTP et autres pièces du DCE chargées dans le même fil',
+          'Générer une checklist d’exigences pour alimenter mémoire technique et revue interne',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Ce que l’IA ne remplace pas',
+        content:
+          'Elle ne valide pas vos prix ni vos marges, ne connaît pas vos contraintes internes et n’engage pas votre entreprise. Vous restez responsable de chaque engagement dans l’offre et de la cohérence avec votre retour d’expérience terrain.',
+      },
+      {
+        type: 'list',
+        title: 'La méthode en cinq étapes',
+        content: [
+          'Étape 1 — Charger le CCTP (et si besoin le CCAP, le RC, le BPU) dans l’outil : privilégier un PDF texte ; si le document est un scan image, passer par un OCR avant analyse. Ne pas charger de données sensibles dans un chat grand public : privilégier des offres entreprise ou des solutions adaptées au niveau de confidentialité.',
+          'Étape 2 — Demander une synthèse structurée (objet, lots, matériaux, normes, délais, contraintes d’exécution, points inhabituels) : voir les prompts ci-dessous.',
+          'Étape 3 — Extraire les exigences du lot qui vous concerne avec références, niveau d’obligation et impact chiffrage estimatif.',
+          'Étape 4 — Lancer une analyse des risques (pénalités, exigences lourdes, travaux implicites, contradictions entre pièces) et des questions à poser au maître d’ouvrage.',
+          'Étape 5 — Croiser CCTP et bordereau de prix pour repérer postes non chiffrés, quantités douteuses ou prestations implicites.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 1 : charger les pièces et sécuriser la confidentialité',
+        content:
+          'Téléversez le CCTP en PDF dans l’outil. Si le DCE comprend plusieurs pièces, les regrouper dans une même conversation aide les recoupements — sous réserve des limites techniques du modèle (taille de fichier, nombre de documents). Vérifiez que le PDF est recherchable : sur un scan image, utilisez un OCR (logiciel bureautique, outil en ligne selon votre politique de sécurité, solutions françaises selon le contexte). Pour les données sensibles, évitez le simple ChatGPT grand public : orientez-vous vers des offres Team / entreprise ou des acteurs avec politique adaptée ; c’est un des volets travaillé en formation.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Étape 2 à 5 : prompts prêts à l’emploi',
+        content:
+          'Les blocs suivants reprennent les consignes détaillées pour la synthèse, l’analyse par lot, les risques et le croisement avec le bordereau. Copiez-les, adaptez le numéro de lot et rechargez vos pièces si nécessaire.',
+      },
+      {
+        type: 'prompts',
+        title: 'Prompts pour analyser un CCTP avec l’IA',
+        content: [
+          {
+            titre: 'Synthèse structurée du CCTP',
+            prompt:
+              'Analyse ce CCTP et produis une synthèse structurée avec :\n1. L’objet du marché et les lots concernés\n2. Les matériaux et procédés imposés\n3. Les normes et certifications exigées (NF, DTU, Eurocodes, labels)\n4. Les délais, phasage et contraintes d’intervention\n5. Les conditions particulières d’exécution (accès, nuisances, co-activité)\n6. Les points que tu considères inhabituels ou contraignants\n\nTon : technique et factuel. Si une information est absente du document, indique-le explicitement.',
+            usage: 'Vue d’ensemble avant d’approfondir un lot précis.',
+          },
+          {
+            titre: 'Exigences techniques par lot (tableau)',
+            prompt:
+              'Pour le lot [numéro et intitulé du lot], liste toutes les exigences techniques avec pour chacune :\n- La référence exacte dans le document (page et article si disponible)\n- La norme ou le DTU associé si mentionné\n- Le niveau de conformité : obligation absolue ou recommandation\n- L’impact estimé sur le chiffrage : faible / moyen / fort\n\nFormat : tableau à quatre colonnes.',
+            usage: 'Remplacez le lot par le vôtre ; vérifiez les références page à la main.',
+          },
+          {
+            titre: 'Risques et points de vigilance',
+            prompt:
+              'Analyse ce CCTP sous l’angle des risques pour une entreprise soumissionnaire. Identifie et classe par niveau de risque (élevé / moyen / faible) :\n1. Les clauses de pénalité (retard, non-conformité, sous-traitance)\n2. Les exigences inhabituelles ou difficiles à tenir (techniques, délais, certifications)\n3. Les postes susceptibles de générer des travaux supplémentaires non prévus\n4. Les contradictions entre le CCTP et les autres pièces du DCE\n5. Les obligations implicites non chiffrées dans le bordereau\n\nPour chaque risque identifié, propose une question à poser au maître d’ouvrage lors de la visite de site ou via une demande de précision formelle.',
+            usage: 'À croiser avec votre jugement métier et le CCAP.',
+          },
+          {
+            titre: 'Croisement CCTP et bordereau de prix',
+            prompt:
+              'Compare les exigences techniques du CCTP avec les lignes du bordereau de prix (BPU ou DQE) fourni dans cette conversation.\nIdentifie :\n1. Les postes du CCTP qui ne correspondent à aucune ligne du bordereau\n2. Les quantités qui semblent incohérentes entre les deux documents\n3. Les prestations implicites décrites dans le CCTP mais non chiffrées\n4. Les matériaux spécifiés dans le CCTP absents du bordereau\n\nFormat : liste structurée avec références aux pages sources.',
+            usage: 'Chargez le BPU dans le même fil lorsque l’outil le permet.',
+          },
+          {
+            titre: 'Comparer deux versions d’un CCTP (DCE modificatif)',
+            prompt:
+              'Voici deux versions du CCTP [version initiale et addendum].\nCompare-les et liste uniquement les modifications apportées dans la version 2 : nouvelles exigences, suppressions, modifications de quantités ou de normes.\nFormat : tableau avec colonnes « Avant » / « Après » / « Impact chiffrage ».',
+            usage: 'Joignez les deux fichiers ou textes complets.',
+          },
+          {
+            titre: 'Questions pour visite de site ou demande de précision',
+            prompt:
+              'À partir de ce CCTP, génère la liste des questions à poser lors de la visite de site ou à envoyer au maître d’ouvrage avant remise de l’offre.\nClasse les questions par thème : technique, planning, co-activité, accès chantier, sous-traitance.\nFormule chaque question de manière formelle, prête à être intégrée dans une demande de précision officielle.',
+            usage: 'Relisez avant envoi ; adaptez au contexte local.',
+          },
+          {
+            titre: 'Plan de mémoire technique à partir du CCTP',
+            prompt:
+              'À partir des exigences de ce CCTP, génère le plan du mémoire technique pour le lot [X] avec pour chaque section :\n- Le titre de la section\n- Les points à aborder obligatoirement (issus du CCTP)\n- Les arguments différenciants à valoriser (selon les critères de sélection du règlement de consultation)',
+            usage: 'Indiquez le lot et les critères issus du RC.',
+          },
+        ],
+      },
+      {
+        type: 'html',
+        title: 'Gains de temps mesurés sur le terrain (indicatifs)',
+        content: `<p class="mb-4">Ordres de grandeur issus des retours de participants aux formations IA BTP (FFB Île-de-France, FFB Grand Paris, CSFE). Les durées varient selon la complexité du lot et la qualité du PDF.</p>
+<table>
+<caption>Temps d’analyse CCTP / DCE — avant / après IA (à titre indicatif)</caption>
+<thead><tr><th scope="col">Tâche</th><th scope="col">Sans IA</th><th scope="col">Avec IA</th><th scope="col">Gain</th></tr></thead>
+<tbody>
+<tr><td>Lecture / synthèse d’un CCTP d’environ 80 pages</td><td>2 à 4 h</td><td>15 à 20 min</td><td>environ −85 %</td></tr>
+<tr><td>Extraction des normes et DTU</td><td>45 à 60 min</td><td>3 à 5 min</td><td>environ −90 %</td></tr>
+<tr><td>Identification des risques</td><td>1 à 2 h</td><td>5 à 10 min</td><td>environ −85 %</td></tr>
+<tr><td>Vérification croisée CCTP / BPU</td><td>1 à 2 h</td><td>10 à 15 min</td><td>environ −80 %</td></tr>
+<tr><td><strong>Analyse complète d’un DCE (ordre de grandeur)</strong></td><td><strong>5 à 9 h</strong></td><td><strong>30 à 50 min</strong></td><td><strong>environ −85 % en moyenne</strong></td></tr>
+</tbody>
+</table>
+<p class="mt-4">Ces gains supposent des prompts adaptés au BTP et une validation humaine systématique.</p>`,
+      },
+      {
+        type: 'paragraph',
+        title: 'Quelle IA choisir pour analyser un CCTP ?',
+        content:
+          'ChatGPT Plus ou Team lit souvent bien les PDF et convient pour démarrer. Claude est en pratique très utile sur des textes longs et des formulations denses. Mistral et d’autres acteurs français peuvent être pertinents lorsque l’enjeu de souveraineté ou de confidentialité est fort. NotebookLM (Google) peut aider à interroger un corpus de documents en phase de réponse. Le bon outil dépend de vos contraintes : taille des fichiers, nombre de pièces, politique de données — thème abordé en formation.',
+      },
+      {
+        type: 'paragraph',
+        title: 'Au-delà de l’analyse : workflow de réponse aux appels d’offres',
+        content:
+          'Une fois le CCTP structuré, les mêmes principes servent la rédaction du mémoire technique, la préparation du chiffrage (repérage des postes à risque), la checklist des pièces administratives et les demandes de précision au maître d’ouvrage. Les modules « appels d’offres » des formations OFC couvrent ces enchaînements sur documents réels.',
+      },
+      {
+        type: 'faq',
+        title: 'Questions fréquentes',
+        content: [
+          'Quelle IA utiliser pour analyser un CCTP ? — ChatGPT Plus et Claude sont souvent les plus simples pour démarrer avec des PDF volumineux. Pour des données sensibles, orientez-vous vers des offres adaptées (entreprise, hébergement européen). La formation aide à trancher selon votre contexte.',
+          'Peut-on s’appuyer sur ChatGPT gratuit ? — Possible pour des essais courts, avec limites : chargement de PDF, fenêtre de contexte, politique de confidentialité. Pour un usage professionnel régulier sur des DCE, une offre payante ou entreprise est en général plus adaptée.',
+          'L’IA remplace-t-elle le chargé d’affaires ? — Non. Elle accélère la lecture et l’extraction ; le métier reste indispensable sur la faisabilité, le prix, la stratégie de réponse et la relation avec le maître d’ouvrage.',
+          'Combien de temps pour analyser un CCTP avec l’IA ? — Avec la méthode en cinq étapes et des PDF exploitables, comptez souvent 20 à 50 minutes pour un CCTP d’environ 80 pages selon la complexité, plus votre temps de relecture.',
+          'La formation IA BTP est-elle finançable par Constructys ? — Les actions certifiées Qualiopi d’OFC Création d’Entreprise peuvent être financées dans le cadre du plan de développement des compétences selon les règles Constructys et votre situation (plafonds, dont le plafond couramment cité de 24 € HT par heure et par stagiaire pour le coût pédagogique — à confirmer au moment du dossier). Les très petites entreprises disposent aussi de règles spécifiques sur la prise en charge des frais de salaires (par exemple 15 € HT par heure et par stagiaire dans les cas prévus par la branche).',
+          'Comment monter un dossier Constructys ? — Le dossier se dépose sur eGestion ; un délai minimum de quinze jours avant le début de l’action est habituellement requis. Nous vous guidons sur le programme et les pièces — prenez rendez-vous pour un premier échange.',
+        ],
+      },
+      {
+        type: 'paragraph',
+        title: 'Se former à l’analyse de CCTP avec l’IA',
+        content:
+          'OFC Création d’Entreprise propose une formation IA BTP de 4 heures, certifiée Qualiopi, avec un module appels d’offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d’outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. Plus de 1 592 professionnels formés, note 4,85/5.',
+      },
+      {
+        type: 'cta',
+        content:
+          'Formation IA appels d’offres BTP : analyser un DCE, mémoire technique, méthode terrain. Financement selon éligibilité Constructys — échange gratuit pour cadrer votre besoin.',
+        formationHref: '/formations/ia-appels-offre-btp',
+      },
+    ],
+    relatedSlugs: [
+      'analyse-cctp-btp',
+      'ia-btp-analyse-dce',
+      'memoire-technique-btp-ia-gagner-temps-appels-offres',
+      'financer-formation-ia-btp-constructys',
+      'repondre-appel-offre-travaux',
+    ],
+  },
+  {
     slug: 'analyse-cctp-btp',
     title: 'Comment analyser un CCTP rapidement dans un appel d\'offre BTP',
     description: 'Guide pratique : définition du CCTP, identification des exigences techniques, erreurs fréquentes et rôle de l\'IA pour accélérer l\'analyse.',
@@ -1593,7 +2158,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: 'Formation IA appels d\'offres BTP — Analysez un DCE en 30 min. 100% finançable Constructys.',
       },
     ],
-    relatedSlugs: ['memoire-technique-btp-exemple', 'repondre-appel-offre-travaux', 'ia-btp-analyse-dce'],
+    relatedSlugs: [
+      'analyser-cctp-ia-methode-complete-20-minutes',
+      'memoire-technique-btp-exemple',
+      'repondre-appel-offre-travaux',
+      'ia-btp-analyse-dce',
+    ],
   },
   {
     slug: 'memoire-technique-btp-exemple',
@@ -1913,6 +2483,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
   if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';
   if (s.includes('avis-google') || s.includes('organisation-chantier')) return 'productivite';
+  if (s.includes('compte-rendu') || s.includes('cr-chantier')) return 'productivite';
   if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
   if (s.includes('lyon') || s.includes('bordeaux') || s.includes('lille')) return 'regions';
   if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
@@ -1957,6 +2528,30 @@ export function getRelatedArticlesForDisplay(slug: string, limit = 6): BlogArtic
     }
   }
   return result.slice(0, limit);
+}
+
+/**
+ * Slugs affichés en tête de /blog (« À la une »), dans l’ordre.
+ * Retirer un slug de cette liste le remet uniquement dans les blocs par catégorie.
+ */
+export const BLOG_FEATURED_SLUGS: string[] = [
+  'memoire-technique-btp-ia-gagner-temps-appels-offres',
+];
+
+/** Articles mis en avant (résolus depuis le catalogue ; slug inconnu ignoré) */
+export function getFeaturedBlogArticles(): BlogArticle[] {
+  const bySlug = new Map(getAllArticles().map((a) => [a.slug, a]));
+  return BLOG_FEATURED_SLUGS.map((s) => bySlug.get(s)).filter(
+    (a): a is BlogArticle => a !== undefined
+  );
+}
+
+/** Exclut les slugs donnés (évite doublon avec la zone « À la une ») */
+export function excludeArticlesBySlug(
+  articles: BlogArticle[],
+  slugs: Set<string>
+): BlogArticle[] {
+  return articles.filter((a) => !slugs.has(a.slug));
 }
 
 /** Articles groupés par catégorie */

@@ -148,6 +148,13 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
   return refNum(a.ref) - refNum(b.ref);
 });
 
+/** Visuels présentiel (salle, accompagnement poste, conseil) — réutilisés en tête de carte, en rotation. */
+const CATALOGUE_CARTE_VISUELS = [
+  PHOTOS.btpFormationSalleIntervention2026,
+  PHOTOS.btpFormationChantierPlans2026,
+  PHOTOS.btpFormationBureauConseil2026,
+] as const;
+
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
   const courseListSchema = getCourseListSchema(
@@ -214,37 +221,30 @@ export default function FormationsPage() {
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
           Visuels de nos formations IA BTP en entreprise : salle, bureau et chantier — appels
-          d&apos;offres, mémoire technique, conduite de travaux et accompagnement des équipes.
+          d&apos;offres, mémoire technique, conduite de travaux et accompagnement des équipes. Chaque
+          fiche reprend un de ces visuels en tête de carte.
         </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-3 sm:gap-4">
-          {[
-            PHOTOS.btpFormationSalleIntervention2026,
-            PHOTOS.btpFormationChantierPlans2026,
-            PHOTOS.btpFormationBureauConseil2026,
-          ].map((p) => (
-            <div
-              key={p.src}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-sm"
-            >
-              <Image
-                src={p.src}
-                alt={p.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-              />
-            </div>
-          ))}
-        </div>
       </section>
 
-      <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {FORMATIONS.map((cours) => (
+      <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {FORMATIONS.map((cours, index) => {
+          const visuel = CATALOGUE_CARTE_VISUELS[index % CATALOGUE_CARTE_VISUELS.length];
+          return (
           <Link
             key={cours.ref}
             href={cours.href}
-            className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-[var(--accent)] hover:shadow-md"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-[var(--accent)] hover:shadow-md"
           >
+            <div className="relative aspect-[4/3] w-full shrink-0 bg-slate-100">
+              <Image
+                src={visuel.src}
+                alt={visuel.alt}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
             <div className="flex items-start justify-between">
               <span className="text-sm text-slate-500">RÉF: {cours.ref}</span>
               <span className="rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
@@ -282,8 +282,10 @@ export default function FormationsPage() {
             <span className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors group-hover:bg-blue-700">
               Voir le programme
             </span>
+            </div>
           </Link>
-        ))}
+          );
+        })}
       </div>
 
       <section className="mt-16 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8">

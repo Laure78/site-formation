@@ -16,6 +16,16 @@ export interface CityFormationConfig {
   departements: string[];
   regionLabel: string;
   areaServed: string[];
+  /** Remplace la ligne au-dessus du H1 (SEO / cohérence locale) */
+  customHeroRefLine?: string;
+  /** H1 complet — si absent, titre générique « Formation IA … à {ville} » */
+  customHeroTitle?: string;
+  /** Sous-titre sous le H1 */
+  customHeroSubtitle?: string;
+  /** Paragraphes d’intro hero (remplacent le texte par défaut) */
+  customHeroIntro?: string[];
+  /** Badges sous l’intro (sinon valeurs par défaut du composant) */
+  heroBadges?: string[];
 }
 
 export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
@@ -73,6 +83,20 @@ export const ILE_DE_FRANCE = {
   ville: 'Île-de-France',
   path: '/formations/ia-btp-ile-de-france',
   regionLabel: 'Yvelines',
+  customHeroRefLine: 'OFC Création d’Entreprise · Île-de-France · Présentiel · Qualiopi',
+  customHeroTitle:
+    'Formation IA BTP en Île-de-France : gagnez du temps sur vos chantiers et vos dossiers',
+  customHeroSubtitle:
+    'Devis, emails, appels d’offres et organisation chantier — méthode terrain, sans jargon inutile',
+  customHeroIntro: [
+    'Vous perdez encore du temps sur vos devis, vos emails clients, vos mémoires techniques ou l’organisation de chantier ? L’intelligence artificielle permet aujourd’hui aux entreprises du BTP de gagner plusieurs heures par semaine sur l’administratif et les dossiers — à condition de savoir l’utiliser concrètement, sur des cas réels.',
+    'Les sessions sont animées en présentiel : inter en Île-de-France ou intra dans vos locaux. Objectif : repartir avec des prompts, trames et habitudes directement utilisables au bureau comme sur le terrain.',
+  ],
+  heroBadges: [
+    'Présentiel inter & intra IDF',
+    'Cas réels BTP',
+    'Qualiopi · OPCO Constructys',
+  ],
   zones: [
     { num: '78', nom: 'Yvelines', contenu: 'Guyancourt, Versailles, Saint-Quentin • Siège basé à Guyancourt' },
     { num: '75', nom: 'Paris', contenu: 'Tous arrondissements • Sessions en présentiel' },

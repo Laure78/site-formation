@@ -4,6 +4,9 @@ import { FAQ_BLOG } from '@/lib/faq';
 import {
   BLOG_CATEGORIES,
   getArticlesByCategory,
+  getFeaturedBlogArticles,
+  excludeArticlesBySlug,
+  getArticleCategory,
 } from '@/lib/blog';
 import type { BlogCategoryId } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
@@ -23,11 +26,19 @@ const faqSchema = getFAQSchema(FAQ_BLOG);
 
 function ArticleCard({
   article,
+  highlighted,
 }: {
   article: { slug: string; title: string; description: string; date: string };
+  highlighted?: boolean;
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8">
+    <article
+      className={`rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8 ${
+        highlighted
+          ? 'border-2 border-[var(--accent)] ring-1 ring-[var(--accent)]/20'
+          : 'border border-slate-200'
+      }`}
+    >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
         <time dateTime={article.date}>
           {new Date(article.date).toLocaleDateString('fr-FR', {
@@ -69,6 +80,11 @@ export default async function BlogPage({
     categorie && categorie in BLOG_CATEGORIES ? (categorie as BlogCategoryId) : null;
 
   const grouped = getArticlesByCategory();
+  const featured = getFeaturedBlogArticles();
+  const featuredForView = isValidCat
+    ? featured.filter((a) => getArticleCategory(a.slug) === isValidCat)
+    : featured;
+  const slugsToExclude = new Set(featuredForView.map((a) => a.slug));
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
@@ -161,16 +177,42 @@ export default async function BlogPage({
         )}
       </div>
 
+      {/* À la une — articles mis en avant (lib/blog.ts → BLOG_FEATURED_SLUGS) */}
+      {featuredForView.length > 0 && (
+        <section className="mt-10" aria-labelledby="blog-a-la-une">
+          <h2
+            id="blog-a-la-une"
+            className="font-display text-xl font-bold text-slate-900"
+          >
+            À la une
+          </h2>
+          <p className="mt-1 text-sm text-slate-600">
+            Sélection mise à jour régulièrement — à lire en priorité.
+          </p>
+          <div className="mt-6 space-y-8">
+            {featuredForView.map((article) => (
+              <ArticleCard key={article.slug} article={article} highlighted />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Liste des articles */}
-      <div className="mt-10 space-y-10">
+      <div className={`space-y-10 ${featuredForView.length > 0 ? 'mt-12' : 'mt-10'}`}>
         {isValidCat ? (
-          grouped[isValidCat].length > 0 ? (
-            grouped[isValidCat].map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))
-          ) : (
-            <p className="text-slate-600">Aucun article dans cette catégorie.</p>
-          )
+          (() => {
+            const list = excludeArticlesBySlug(
+              grouped[isValidCat] ?? [],
+              slugsToExclude
+            );
+            return list.length > 0 ? (
+              list.map((article) => (
+                <ArticleCard key={article.slug} article={article} />
+              ))
+            ) : featuredForView.length === 0 ? (
+              <p className="text-slate-600">Aucun article dans cette catégorie.</p>
+            ) : null;
+          })()
         ) : (
           (Object.keys(BLOG_CATEGORIES) as BlogCategoryId[])
             .filter((id) => grouped[id]?.length > 0)
@@ -180,9 +222,11 @@ export default async function BlogPage({
                   {BLOG_CATEGORIES[id]}
                 </h2>
                 <div className="space-y-8">
-                  {grouped[id].map((article) => (
-                    <ArticleCard key={article.slug} article={article} />
-                  ))}
+                  {excludeArticlesBySlug(grouped[id], slugsToExclude).map(
+                    (article) => (
+                      <ArticleCard key={article.slug} article={article} />
+                    )
+                  )}
                 </div>
               </section>
             ))

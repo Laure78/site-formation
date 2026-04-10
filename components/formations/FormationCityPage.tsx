@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { Check, Phone, Calendar } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
@@ -21,9 +22,17 @@ interface FormationCityPageProps {
   courseSchema: object;
   faqSchema?: object;
   faqItems?: readonly FAQItem[];
+  /** Bloc SEO / conversion inséré entre le hero et la section « experte » */
+  afterHero?: ReactNode;
 }
 
-export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }: FormationCityPageProps) {
+export function FormationCityPage({
+  config,
+  courseSchema,
+  faqSchema,
+  faqItems,
+  afterHero,
+}: FormationCityPageProps) {
   const { ville, path, zones, regionLabel } = config;
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA BTP ${ville}`)}`;
   const summaryVille = [
@@ -55,19 +64,31 @@ export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }:
         />
       )}
       <FormationCourseHero
-        refLine={`Formation ${ville} & ${regionLabel} · Financement OPCO`}
-        title={
-          <>
-            Formation IA pour les entreprises du BTP à{' '}
-            <span className="text-[var(--accent)]">{ville}</span>
-          </>
+        refLine={
+          config.customHeroRefLine ??
+          `Formation ${ville} & ${regionLabel} · Financement OPCO`
         }
-        subtitle="Devis, emails, administratif et appels d&apos;offres — présentiel"
-        badges={[
-          'OPCO / plan de développement des compétences',
-          'Accessible débutant',
-          'Cas terrain',
-        ]}
+        title={
+          config.customHeroTitle ? (
+            config.customHeroTitle
+          ) : (
+            <>
+              Formation IA pour les entreprises du BTP à{' '}
+              <span className="text-[var(--accent)]">{ville}</span>
+            </>
+          )
+        }
+        subtitle={
+          config.customHeroSubtitle ??
+          'Devis, emails, administratif et appels d&apos;offres — présentiel'
+        }
+        badges={
+          config.heroBadges ?? [
+            'OPCO / plan de développement des compétences',
+            'Accessible débutant',
+            'Cas terrain',
+          ]
+        }
         summaryItems={summaryVille}
         image={
           <FormationHeroPhoto
@@ -117,13 +138,23 @@ export function FormationCityPage({ config, courseSchema, faqSchema, faqItems }:
           </>
         }
       >
-        <p>
-          Formation IA bâtiment adaptée aux <strong>artisans et PME du BTP</strong> à {ville} et dans les
-          environs. <strong>Productivité</strong> : ChatGPT pour <strong>devis, emails et relances</strong>.
-          Automatisez vos <strong>appels d&apos;offres</strong> et votre gestion administrative —{' '}
-          <strong>aucun jargon inutile</strong>.
-        </p>
+        {config.customHeroIntro && config.customHeroIntro.length > 0 ? (
+          <div className="space-y-4">
+            {config.customHeroIntro.map((paragraph, i) => (
+              <p key={`hero-intro-${i}`}>{paragraph}</p>
+            ))}
+          </div>
+        ) : (
+          <p>
+            Formation IA bâtiment adaptée aux <strong>artisans et PME du BTP</strong> à {ville} et dans les
+            environs. <strong>Productivité</strong> : ChatGPT pour <strong>devis, emails et relances</strong>.
+            Automatisez vos <strong>appels d&apos;offres</strong> et votre gestion administrative —{' '}
+            <strong>aucun jargon inutile</strong>.
+          </p>
+        )}
       </FormationCourseHero>
+
+      {afterHero}
 
       {/* Pourquoi cette formation est animée par une experte reconnue */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">

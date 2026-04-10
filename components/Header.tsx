@@ -237,23 +237,25 @@ function MegaDropdownPanel({
               aria-hidden
             />
           </Link>
-          <p className="mt-2 text-xs leading-relaxed text-slate-500">
-            {mega.id === 'cas-usage'
-              ? 'Choisissez votre contexte : on vous oriente vers les pages et formations les plus pertinentes.'
-              : mega.id === 'formations'
-                ? 'Formations IA finançables Qualiopi / OPCO — présentiel.'
-                : mega.id === 'methode'
-                  ? 'Une méthode éprouvée avec des professionnels du bâtiment et des travaux publics.'
-                  : 'Transparence sur le parcours, les partenaires et les retours clients.'}
-          </p>
+          {mega.id === 'methode' && (
+            <p className="mt-2 text-xs leading-relaxed text-slate-500">
+              Une méthode éprouvée avec des professionnels du bâtiment et des travaux publics.
+            </p>
+          )}
         </div>
         <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain px-2 pt-1">
           {mega.columns.map((col) => (
             <div key={col.title}>
-              <p className="px-3 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                {col.title}
-              </p>
-              <ul className="space-y-0.5 pb-2">
+              {mega.id !== 'a-propos' && (
+                <p className="px-3 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                  {col.title}
+                </p>
+              )}
+              <ul
+                className={`space-y-0.5 pb-2 ${
+                  mega.id === 'a-propos' ? 'pt-2' : ''
+                }`}
+              >
                 {col.links.map((link) => (
                   <li key={link.href}>
                     <Link

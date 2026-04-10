@@ -1,4 +1,6 @@
+import { Fragment } from 'react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { BlogArticleIllustration } from '@/components/blog/BlogArticleIllustration';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -25,6 +27,10 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
+import {
+  getBlogArticleIllustrations,
+  getIllustrationSectionIndices,
+} from '@/lib/blog-article-illustrations';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 
 interface Props {
@@ -80,6 +86,7 @@ export async function generateMetadata({ params }: Props) {
   if (!article) return { title: 'Article non trouvé' };
   const metaTitle = article.seoTitle ?? article.title;
   const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
+  const heroIll = getBlogArticleIllustrations(slug)[0];
   const base = createPageMetadata({
     title: metaTitle,
     description: article.description,
@@ -93,10 +100,10 @@ export async function generateMetadata({ params }: Props) {
       section: ARTICLE_SECTION_GEO,
     },
     image: {
-      url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
-      width: 1200,
-      height: 630,
-      alt: article.title,
+      url: `${SITE_CONFIG.url}${heroIll.src}`,
+      width: heroIll.width,
+      height: heroIll.height,
+      alt: heroIll.alt,
     },
   });
   return {
@@ -115,6 +122,8 @@ export default async function BlogArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const related = getRelatedArticlesForDisplay(slug, 6);
+  const illustrations = getBlogArticleIllustrations(slug);
+  const { afterFirst, afterSecond } = getIllustrationSectionIndices(article.sections.length);
 
   const wordCount = estimateWordCountFromArticle(article);
   const articleSchema = getArticleSchema({
@@ -125,6 +134,7 @@ export default async function BlogArticlePage({ params }: Props) {
     dateModified: article.dateModified ?? article.date,
     authorName: SITE_CONFIG.name,
     wordCount,
+    image: illustrations[0]?.src,
   });
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Accueil', path: '/' },
@@ -190,6 +200,10 @@ export default async function BlogArticlePage({ params }: Props) {
         </h1>
         <p className="mt-4 text-lg text-slate-600">{article.description}</p>
 
+        {illustrations[0] && (
+          <BlogArticleIllustration ill={illustrations[0]} priority />
+        )}
+
         {/* Bloc liens commerciaux contextuels — au moins 2-3 pages commerciales par article */}
         <section className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-lg font-semibold text-slate-900">
@@ -240,7 +254,8 @@ export default async function BlogArticlePage({ params }: Props) {
           {article.sections.map((section, i) => {
             const contentStr = getContentAsString(section.content);
             return (
-              <section key={i}>
+              <Fragment key={i}>
+              <section>
                 {section.type === 'definition' && section.title && (
                   <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
                     <h2 className="font-display text-xl font-bold text-slate-900">
@@ -394,6 +409,13 @@ export default async function BlogArticlePage({ params }: Props) {
                 </div>
               )}
             </section>
+            {afterFirst === i && illustrations[1] && (
+              <BlogArticleIllustration ill={illustrations[1]} />
+            )}
+            {afterSecond === i && illustrations[2] && (
+              <BlogArticleIllustration ill={illustrations[2]} />
+            )}
+          </Fragment>
           );
         })}
         </div>
