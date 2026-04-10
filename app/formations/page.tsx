@@ -312,6 +312,11 @@ export default function FormationsPage() {
         </h2>
         <ul className="mt-4 flex flex-wrap gap-4">
           <li>
+            <Link href="/formations/ia-btp-yvelines-78" className="text-[var(--accent)] hover:underline">
+              Formation IA BTP Yvelines (78)
+            </Link>
+          </li>
+          <li>
             <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>

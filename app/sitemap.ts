@@ -59,6 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.88,
     },
     { url: `${baseUrl}/formations/ia-btp-paris`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    {
+      url: `${baseUrl}/formations/ia-btp-yvelines-78`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     { url: `${baseUrl}/formations/ia-btp-lyon`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/formations/ia-btp-bordeaux`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/formations/ia-btp-lille`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },

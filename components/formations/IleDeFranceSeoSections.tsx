@@ -28,6 +28,16 @@ export function IleDeFranceSeoSections() {
             le module choisi. Objectif : repartir avec des outils et des trames{' '}
             <strong className="text-slate-800">directement utilisables</strong> le lundi suivant.
           </p>
+          <p className="mt-4 text-sm text-slate-600">
+            <span className="font-medium text-slate-800">Yvelines (78) :</span>{' '}
+            <Link
+              href="/formations/ia-btp-yvelines-78"
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              Formation IA BTP Versailles, Yvelines et 78
+            </Link>{' '}
+            (Versailles, Saint-Quentin-en-Yvelines, Mantes, Rambouillet…).
+          </p>
         </section>
 
         <section aria-labelledby="idf-apprendre">
