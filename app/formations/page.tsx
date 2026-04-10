@@ -19,9 +19,9 @@ import {
 import { getSchemaCourses } from '@/lib/schema-courses';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP : appels d’offres, mémoire technique, catalogue Qualiopi',
+  title: 'Catalogue formation IA BTP : intelligence artificielle bâtiment, TP, ChatGPT',
   description:
-    "Catalogue formation IA BTP et bâtiment : appels d'offre, rédaction mémoire technique, DCE et chantier. Sessions 4 h Qualiopi, OPCO Constructys. Île-de-France et France.",
+    "Catalogue formation IA pour le BTP : intelligence artificielle bâtiment, formation IA travaux publics, ChatGPT BTP. Devis, appels d'offres, chantier — gain de temps. Sessions 4 h Qualiopi, OPCO Constructys. Île-de-France et France.",
   path: '/formations',
   keywords: [
     'formation IA BTP',
@@ -179,14 +179,16 @@ export default function FormationsPage() {
       />
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-          Formation IA BTP : programmes certifiés et finançables
+          Formation IA pour le BTP : catalogue Qualiopi, bâtiment et travaux publics
         </h1>
         <p className="mt-4 max-w-2xl text-slate-600">
-          Formations IA finançables pour les dirigeants et équipes du bâtiment et des travaux publics. Apprenez à{' '}
+          Formations IA BTP finançables pour dirigeants, artisans et conducteurs de travaux : intelligence
+          artificielle bâtiment, formation IA travaux publics et{' '}
           <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
-            utiliser ChatGPT dans le BTP
-          </Link>
-          , automatisez devis bâtiment, emails et comptes rendus chantier. {ENCART_TARIFS_COMMERCIAUX} Méthode 100&nbsp;% pratique.{' '}
+            ChatGPT BTP
+          </Link>{' '}
+          au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. {ENCART_TARIFS_COMMERCIAUX}{' '}
+          Méthode 100&nbsp;% terrain, orientée productivité.{' '}
           <RdvLink className="text-[var(--accent)] font-medium hover:underline">
             Prenez rendez-vous
           </RdvLink>
@@ -194,7 +196,8 @@ export default function FormationsPage() {
         </p>
         <div className="mt-8">
           <ShortAnswerBlock>
-            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+            Une formation IA BTP de 4 h suffit pour automatiser une partie de l&apos;administratif et gagner 3 à 5 h
+            par semaine sur devis, emails et suivi chantier — sans remplacer le jugement métier.
           </ShortAnswerBlock>
         </div>
       </div>
@@ -210,8 +213,8 @@ export default function FormationsPage() {
           Sessions en présentiel : salle, bureau et chantier
         </h2>
         <p className="mt-2 max-w-3xl text-sm text-slate-600">
-          Des visuels de terrain pour illustrer les formations en entreprise du bâtiment : appels
-          d&apos;offres, mémoire technique, conduite de travaux et accompagnement.
+          Visuels de nos formations IA BTP en entreprise : salle, bureau et chantier — appels
+          d&apos;offres, mémoire technique, conduite de travaux et accompagnement des équipes.
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-3 sm:gap-4">
           {[
@@ -285,7 +288,7 @@ export default function FormationsPage() {
 
       <section className="mt-16 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">
-          Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?
+          Une formation IA BTP pour gagner du temps sur devis, chantier et administratif ?
         </h2>
         <p className="mt-3 text-slate-700">
           Prenez rendez-vous pour échanger sur votre projet et recevoir un devis personnalisé.

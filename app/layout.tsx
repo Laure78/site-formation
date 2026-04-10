@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
     default:
-      'Formation IA BTP & ChatGPT entreprise | Devis, chantier, admin | Laure Olivié',
+      'Formation IA pour le BTP | Intelligence artificielle bâtiment, TP & ChatGPT | Laure Olivié',
     template: '%s | Laure Olivié',
   },
   description: withOgDescriptionSuffix(SITE_CONFIG.description),
@@ -49,21 +49,21 @@ export const metadata: Metadata = {
     url: SITE_CONFIG.url,
     siteName: OG_SITE_NAME,
     title:
-      'Formation IA BTP & ChatGPT entreprise | Laure Olivié | Île-de-France · Yvelines · Qualiopi',
+      'Formation IA BTP & intelligence artificielle bâtiment | ChatGPT entreprise | Laure Olivié · Île-de-France',
     description: withOgDescriptionSuffix(SITE_CONFIG.description),
     images: [
       {
         url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
         width: 1200,
         height: 630,
-        alt: 'Laure Olivié - Formatrice IA pour le BTP',
+        alt: 'Laure Olivié, formatrice experte en formation IA pour le BTP et le bâtiment en Île-de-France',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title:
-      'Formation IA BTP & ChatGPT entreprise | Laure Olivié | Île-de-France · Yvelines',
+      'Formation IA BTP & ChatGPT | Intelligence artificielle bâtiment | Laure Olivié',
     description: withOgDescriptionSuffix(SITE_CONFIG.description),
     images: [`${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`],
   },

@@ -49,9 +49,9 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — ChatGPT & Claude AI | Paris, Île-de-France',
+  title: 'Formation IA pour le BTP — ChatGPT, devis & chantier | Paris, Île-de-France',
   description:
-    'Formation IA BTP Paris & Île-de-France : devis, chantier, mémoires. Qualiopi, Constructys. Visio découverte gratuite — Laure Olivié (+1592 formés).',
+    'Formation IA BTP et intelligence artificielle bâtiment : artisans, conducteurs de travaux, appels d\'offres. ChatGPT BTP pour automatiser devis et administratif. Qualiopi, Constructys. Visio découverte — Laure Olivié (+1592 formés).',
   path: '/',
   keywords: [
     'formation IA BTP',
@@ -119,7 +119,7 @@ export default function HomePage() {
             <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
                 <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
-                <span>Formation IA × BTP</span>
+                <span>Formation IA BTP · bâtiment & travaux publics</span>
                 <span className="hidden text-slate-300 sm:inline">·</span>
                 <span className="hidden sm:inline">Qualiopi · Constructys</span>
               </div>
@@ -136,14 +136,16 @@ export default function HomePage() {
                 Financement OPCO
               </p>
               <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
-                <strong>Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France</strong>{' '}
-                — finançable par Constructys pour les dirigeants de TPE et PME du bâtiment et des
-                travaux publics. Gagnez{' '}
-                <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span>{' '}
-                sur l&apos;automatisation administrative, l&apos;IA devis bâtiment et l&apos;IA gestion
-                chantier (emails, chiffrages, comptes rendus).
+                <strong>
+                  Formation IA BTP, intelligence artificielle bâtiment et travaux publics
+                </strong>{' '}
+                — ChatGPT BTP, Claude et outils pensés pour artisans, conducteurs de travaux et
+                dirigeants. Paris et Île-de-France, finançable Constructys. Gagnez{' '}
+                <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span> grâce à
+                l&apos;automatisation des devis, du suivi chantier, des emails et des dossiers
+                d&apos;appels d&apos;offres, sans sacrifier la validation métier.
               </p>
-              <CitationSentence text="OFC Création d'Entreprise est un organisme certifié Qualiopi spécialisé dans la formation IA pour le secteur du bâtiment et des travaux publics en France — plus de 1 592 professionnels accompagnés depuis le lancement des parcours." />
+              <CitationSentence text="OFC Création d'Entreprise est votre référent formation IA pour le BTP : organisme certifié Qualiopi, spécialisé intelligence artificielle bâtiment et travaux publics — plus de 1 592 artisans et professionnels accompagnés." />
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                   Organiser une formation
@@ -172,7 +174,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <CitationSentence text="La formation IA BTP animée par Laure Olivié permet aux professionnels du bâtiment de gagner 3 à 5 heures par semaine en automatisant les devis, l'administratif et les réponses aux appels d'offres avec ChatGPT et les outils IA adaptés au terrain." />
+              <CitationSentence text="La formation IA BTP animée par Laure Olivié aide artisans et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
             </div>
             <div className="w-full shrink-0 lg:max-w-md xl:max-w-lg">
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-2xl">
@@ -228,8 +230,8 @@ export default function HomePage() {
             </span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm font-medium text-slate-600 md:text-base">
-            Trois freins fréquents — et ce que change une pratique avec l&apos;IA (toujours sous votre
-            validation métier).
+            Trois freins fréquents sur chantier et au bureau — et ce que change une formation IA BTP
+            encadrée (toujours sous votre validation métier).
           </p>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {[
@@ -297,8 +299,8 @@ export default function HomePage() {
             <span className="font-serif italic">BTP</span>
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
-            Approches testées en formation avec des professionnels du bâtiment et des travaux
-            publics — devis, chantier, réponses marchés.
+            Méthodes éprouvées en formation IA BTP avec artisans, conducteurs de travaux et
+            entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au quotidien.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -353,13 +355,12 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, CSFE, OPPBTP… des acteurs du BTP qui font confiance à une formation
-                terrain
+                FFB, CSFE, OPPBTP… la formation IA BTP terrain plébiscitée par le réseau pro
               </h2>
               <p className="mt-4 text-slate-300">
-                Interventions auprès de fédérations, organismes et entreprises du bâtiment et
-                des travaux publics : toujours des cas d&apos;usage concrets (devis, chantier,
-                marchés), pas de gadget.
+                Interventions en intelligence artificielle bâtiment et formation IA travaux publics
+                auprès de fédérations et d&apos;entreprises : cas réels (devis, chantier, appels
+                d&apos;offres), gain de temps mesurable — zéro gadget.
               </p>
               <Link
                 href="/a-propos#clients-partenaires"
@@ -412,9 +413,9 @@ export default function HomePage() {
             Pourquoi l&apos;IA change le quotidien des entreprises du BTP
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            L&apos;IA pour gestion administrative BTP permet d&apos;automatiser devis bâtiment
-            et emails en quelques clics. Les professionnels du BTP perdent un temps précieux
-            sur des tâches répétitives ; l&apos;IA vous recentre sur le chantier.
+            Une formation IA BTP sérieuse automatise devis, emails et suivi administratif sans
+            remplacer le métier. Les artisans et conducteurs de travaux gagnent en productivité
+            et retrouvent du temps sur le chantier et les appels d&apos;offres.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -462,7 +463,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-center text-3xl font-bold text-white md:text-4xl">
-            Les bénéfices de se former à l&apos;IA dans le BTP
+            Les bénéfices d&apos;une formation IA BTP pour votre entreprise
           </h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[

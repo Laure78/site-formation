@@ -22,7 +22,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    "Formation IA BTP & ChatGPT : devis, chantier, mémoires techniques et administratif. Réseau FFB & CSFE, Qualiopi, financement OPCO Constructys. Laure Olivié — +1592 pros formés. Île-de-France & France.",
+    "Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — +1592 pros formés. Île-de-France & France.",
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: 'laureolivie@yahoo.fr',
