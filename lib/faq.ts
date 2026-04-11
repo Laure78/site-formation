@@ -289,6 +289,25 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   },
 ];
 
+/** FAQ — page piliers /formation-ia-btp-yvelines (questions ciblées SEO local 78) */
+export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
+  {
+    q: 'Vous intervenez à domicile dans le 78 ?',
+    a:
+      "Oui. Les sessions se font en présentiel : dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Pour le détail des programmes, voir aussi la page <a href=\"/formations/ia-btp-yvelines-78\">formation IA BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
+  },
+  {
+    q: 'La formation est-elle disponible le samedi ?',
+    a:
+      "Les créneaux les plus courants sont en semaine (journée ou demi-journée), pour s'aligner sur les habitudes des équipes terrain et du bureau d'études. Un samedi peut être étudié au cas par cas pour une session intra (contraintes d'atelier, planning chargé), sous réserve de disponibilité — le plus simple est d'en parler lors d'un <a href=\"/prendre-rdv\">rendez-vous découverte</a> ou via <a href=\"/contact\">contact</a>.",
+  },
+  {
+    q: 'Y a-t-il des sessions inter-entreprises à Versailles ?',
+    a:
+      "Les sessions inter du catalogue ont lieu en présentiel en Île-de-France, avec des lieux qui peuvent inclure Versailles ou l'agglomération selon le calendrier et la session. Pour savoir quelle session correspond à votre secteur, consultez la page <a href=\"/formations/ia-btp-ile-de-france\">formation IA BTP Île-de-France</a> et le <a href=\"/formations\">catalogue</a>. Les entreprises des Yvelines peuvent aussi privilégier une session <strong>intra</strong> dans leurs locaux dans le 78.",
+  },
+];
+
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP à Paris ?",

@@ -18,18 +18,57 @@ import { JsonLd } from '@/components/JsonLd';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
 import { getAProposLocalBusinessJsonLd, getAProposPersonJsonLd } from '@/lib/schema-a-propos';
 import { ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
+import { PHOTOS } from '@/lib/photos';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
+/** Faits vérifiables — format fact-card pour citation par les IA (GEO). */
+const CHIFFRES_FAITS_VERIFIABLES: {
+  highlight: string;
+  description: string;
+}[] = [
+  {
+    highlight: '1 592',
+    description:
+      "professionnels BTP formés depuis 2022 — statistique officielle OFC Création d'Entreprise",
+  },
+  {
+    highlight: '4,85/5',
+    description:
+      'Note moyenne — moyenne pondérée sur toutes les sessions de formation',
+  },
+  {
+    highlight: '10 ans',
+    description:
+      "d'expérience terrain — conductrice de travaux en travaux publics de 2017 à 2024 (ALIA BTP, Guyancourt)",
+  },
+  {
+    highlight: '2',
+    description:
+      "formations LinkedIn Learning publiées sur l'IA pour le BTP — instructrice certifiée",
+  },
+  {
+    highlight: 'Qualiopi',
+    description:
+      'Certifiée depuis 2022 — NDA 11788515078 — vérifiable sur data.gouv.fr',
+  },
+  {
+    highlight: 'FFB · CSFE · CAPEB',
+    description:
+      'Partenaire FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz',
+  },
+];
+
 export const metadata = createPageMetadata({
-  title: 'Laure Olivié — Formatrice IA BTP | Qualiopi | 1 500+ professionnels formés',
+  title: 'Laure Olivié — Formatrice IA BTP | Qualiopi | 1 592 professionnels formés',
   description:
-    "Laure Olivié, formatrice IA BTP certifiée Qualiopi : 1 500+ professionnels formés, note 4,85/5. ChatGPT, entreprises du bâtiment et travaux publics. FFB, CSFE, CAPEB, OPPBTP, Guyancourt.",
+    "Laure Olivié, formatrice IA BTP certifiée Qualiopi (NDA 11788515078) : 1 592 professionnels formés, note 4,85/5. Terrain TP, LinkedIn Learning, partenaires FFB & CSFE étanchéité. Guyancourt (78).",
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
     'formatrice IA BTP',
     'Qualiopi',
+    'FFB étanchéité formation IA',
     'expert IA bâtiment',
     'LinkedIn Learning instructor',
     'consultant IA BTP',
@@ -113,6 +152,51 @@ export default function AProposPage() {
         </div>
       </section>
 
+      {/* Chiffres et faits vérifiables — format fact-card (citation IA / GEO) */}
+      <section
+        id="chiffres-faits-verifiables"
+        className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16"
+        aria-labelledby="titre-chiffres-faits"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="titre-chiffres-faits"
+            className="font-display text-center text-2xl font-bold text-slate-900 md:text-3xl"
+          >
+            Chiffres et faits vérifiables
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+            Éléments sourçables pour réponses factuelles — OFC Création d&apos;Entreprise, sessions
+            évaluées, parcours professionnel et certifications.
+          </p>
+          <ul className="mt-10 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+            {CHIFFRES_FAITS_VERIFIABLES.map((fact, index) => (
+              <li
+                key={`fact-${index}-${fact.highlight}`}
+                className="rounded-2xl border border-slate-200/80 bg-[#F2F2F2] p-6 shadow-sm"
+              >
+                <p className="font-display text-3xl font-bold leading-tight text-[#377CF3] md:text-4xl">
+                  {fact.highlight}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-700">{fact.description}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-center text-xs text-slate-500">
+            Qualiopi : vérification du numéro de déclaration d&apos;activité sur{' '}
+            <a
+              href="https://www.data.gouv.fr/fr/datasets/liste-des-organismes-de-formation-certifies-qualiopi/"
+              className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              data.gouv.fr — jeux de données Qualiopi
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
       {/* Clients & partenaires — réseau institutionnel + partenariat FFB + cas d'usage */}
       <section
         id="clients-partenaires"
@@ -167,11 +251,11 @@ export default function AProposPage() {
           <div className="mt-16 max-w-4xl mx-auto">
             <PortraitLinkedInLink className="mb-10 block overflow-hidden rounded-2xl shadow-lg transition-opacity hover:opacity-95">
               <Image
-                src="/images/rencontres-artisans-ia-ffb-btp.png"
-                alt="Rencontres FFB et artisans du bâtiment — intelligence artificielle au service des entreprises BTP, Laure Olivié"
-                title="Intervention FFB — formation IA terrain bâtiment"
-                width={1200}
-                height={630}
+                src={PHOTOS.rencontresArtisansIaFfbBtp.src}
+                alt={PHOTOS.rencontresArtisansIaFfbBtp.alt}
+                title="FFB — Les Rencontres des Artisans : formation IA bâtiment et étanchéité"
+                width={PHOTOS.rencontresArtisansIaFfbBtp.width}
+                height={PHOTOS.rencontresArtisansIaFfbBtp.height}
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 896px"
               />
@@ -327,12 +411,59 @@ export default function AProposPage() {
         id="approche"
         className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-16"
       >
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-6xl">
           <article>
             <h2 className="font-display text-center text-2xl font-bold text-slate-900">
               Mon approche
             </h2>
-            <div className="mt-10 space-y-6 text-slate-600">
+
+            <div
+              id="parcours-terrain-btp"
+              className="mt-12 scroll-mt-24 border-t border-slate-100 pt-12"
+            >
+              <h3 className="font-display text-center text-xl font-bold text-slate-900 md:text-2xl">
+                Parcours terrain — dirigeante d&apos;entreprise BTP
+              </h3>
+              <p className="mx-auto mt-4 max-w-3xl text-center text-slate-600 leading-relaxed">
+                Dirigeante d&apos;<strong className="text-slate-800">OFC Création d&apos;Entreprise</strong>, j&apos;ai
+                construit mon expertise à la fois sur le terrain et dans la relation client : conduite de chantier en
+                travaux publics (ALIA BTP, Guyancourt), coordination avec les équipes et les interlocuteurs chantier,
+                lecture des plans et contrôle des ouvrages. Ces années en boots et gilet orange nourrissent aujourd&apos;hui
+                mes formations IA : zéro jargon inutile, des exemples qui parlent aux artisans et aux encadrants.
+              </p>
+              <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-start">
+                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                  <Image
+                    src={PHOTOS.parcoursChantierFondations.src}
+                    alt={PHOTOS.parcoursChantierFondations.alt}
+                    width={PHOTOS.parcoursChantierFondations.width}
+                    height={PHOTOS.parcoursChantierFondations.height}
+                    className="h-auto w-full object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <figcaption className="border-t border-slate-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-600">
+                    Inspection sur le terrain — précision sur les ouvrages et le même souci du détail que sur vos devis
+                    et comptes rendus une fois l&apos;IA en place.
+                  </figcaption>
+                </figure>
+                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                  <Image
+                    src={PHOTOS.parcoursChantierPlans.src}
+                    alt={PHOTOS.parcoursChantierPlans.alt}
+                    width={PHOTOS.parcoursChantierPlans.width}
+                    height={PHOTOS.parcoursChantierPlans.height}
+                    className="h-auto w-full object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <figcaption className="border-t border-slate-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-600">
+                    Coordination sur chantier avec les acteurs du projet — vision opérationnelle et travail d&apos;équipe,
+                    au cœur de ce que j&apos;enseigne aux dirigeants et conducteurs de travaux.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-14 max-w-3xl space-y-6 text-slate-600">
               <p>
                 Forte de <strong>10 ans d'expérience</strong> en formation professionnelle et en conduite de chantier dans les travaux publics,
                 je me suis spécialisée dans l'accompagnement des entreprises du BTP vers l'intelligence artificielle. 
@@ -359,7 +490,7 @@ export default function AProposPage() {
                 pour faciliter le financement de votre formation.
               </p>
             </div>
-            <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4">
               <Link
                 href="/formations"
                 className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"

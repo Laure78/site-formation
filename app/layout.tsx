@@ -2,10 +2,11 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/Header';
+import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/ChatWidget';
 import { StickyRDVCTA } from '@/components/StickyRDVCTA';
+import { StickyCTA } from '@/components/StickyCTA';
 import {
   SITE_CONFIG,
   getOrganizationSchema,
@@ -150,12 +151,13 @@ export default function RootLayout({
         >
           Aller au contenu principal
         </a>
-        <Header />
+        <Navbar />
         <main className="flex-1" id="main-content">
           {children}
         </main>
         <Footer />
         <StickyRDVCTA />
+        <StickyCTA />
         <ChatWidget />
       </body>
     </html>

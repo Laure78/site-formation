@@ -1031,7 +1031,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     seoTitle:
       'Financer formation IA BTP Constructys 2026 — OPCO, PDC, FNE | Laure Olivié',
     description:
-      'Financer sa formation IA BTP à 100% avec Constructys : démarche PDC 2026, eGestion, délais et montants. Guide officiel pour PME bâtiment. Qualiopi · OFC Création d\'Entreprise.',
+      "Constructys finance jusqu'à 100% de votre formation IA BTP. Guide PDC 2026 : plafonds 24€/h, délai 15j, démarches eGestion — tout en 5 min.",
     date: '2025-03-05',
     dateModified: '2026-04-10',
     keywords: [
@@ -1348,7 +1348,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: '5-cas-usage-chatgpt-artisans-btp',
     title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
-      '5 usages concrets de ChatGPT pour artisans BTP : CR de chantier automatisé, devis en 15 min, emails, relances, appels d\'offres. Formation finançable Constructys, note 4,85/5.',
+      "5 cas d'usage ChatGPT prouvés sur chantier : devis, emails, CR, relances, mémoire technique. Prompts prêts à l'emploi pour artisans BTP. Gagnez 5h/semaine.",
     date: '2025-02-20',
     keywords: ['ChatGPT entreprises BTP', 'IA BTP', 'ChatGPT bâtiment', 'intelligence artificielle construction'],
     sections: [
@@ -1419,7 +1419,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'ia-devis-gain-temps-pme-btp',
     title: 'IA et devis : gain de temps réel pour les PME BTP',
     description:
-      "L'IA divise par 10 le temps de rédaction des devis bâtiment. Témoignages et chiffres mesurés sur 1 592 artisans et PME formés. Formation IA BTP finançable Constructys.",
+      "L'IA réduit de 90% le temps de rédaction des devis bâtiment. Méthode terrain + témoignages de PME BTP : de 2h à 15 min par devis.",
     date: '2025-01-28',
     keywords: ['IA devis BTP', 'gain de temps devis', 'devis bâtiment IA', 'productivité BTP'],
     sections: [

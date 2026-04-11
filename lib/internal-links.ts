@@ -26,6 +26,8 @@ export const LINKS = {
   formationParis: '/formations/ia-btp-paris',
   formationIleDeFrance: '/formations/ia-btp-ile-de-france',
   formationYvelines: '/formations/ia-btp-yvelines-78',
+  /** Landing SEO local Yvelines (78) — pilier */
+  formationIABTPYvelines: '/formation-ia-btp-yvelines',
 
   // Tier 2 — Cas d'usage
   chatgptArtisans: '/formation-ia-artisans-btp',

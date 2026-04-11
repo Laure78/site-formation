@@ -62,7 +62,41 @@ export const PHOTOS = {
     width: 1024,
     height: 571,
   },
-  
+
+  /** Page à propos — parcours terrain BTP (dirigeante / conduite de travaux) */
+  parcoursChantierFondations: {
+    src: '/images/laure-parcours-btp-chantier-fondations.png',
+    alt:
+      'Laure Olivié en inspection chantier BTP, gilet haute visibilité — contrôle maçonnerie et fondations, expérience conductrice de travaux TP',
+    width: 682,
+    height: 1024,
+  },
+  parcoursChantierPlans: {
+    src: '/images/laure-parcours-btp-chantier-plans.png',
+    alt:
+      'Laure Olivié sur chantier avec plans techniques — coordination équipes BTP, conduite de travaux, bâtiment en construction',
+    width: 1024,
+    height: 682,
+  },
+
+  /** À propos — Les Rencontres des Artisans FFB (atelier IA bâtiment) */
+  rencontresArtisansIaFfbBtp: {
+    src: '/images/rencontres-artisans-ia-ffb-btp.jpg',
+    alt:
+      'Atelier FFB Les Rencontres des Artisans — intelligence artificielle au service des artisans du bâtiment, formation animée par Laure Olivié',
+    width: 1024,
+    height: 682,
+  },
+
+  /** Accueil — bloc étude de cas FFB & étanchéité */
+  accueilEtudeCasFfbLaureIntervention: {
+    src: '/images/accueil-etude-cas-ffb-laure-intervention.jpg',
+    alt:
+      "Laure Olivié formant des pros du bâtiment à l'IA — salle de formation ; étude de cas FFB, filière étanchéité et CSFE",
+    width: 1024,
+    height: 682,
+  },
+
   // Bannière LinkedIn Learning - Recrutement
   bannerRecrutement: {
     src: '/images/linkedin-learning-recrutement-btp.png',
@@ -251,6 +285,21 @@ export const PHOTOS = {
     width: 1024,
     height: 682,
   },
+
+  /** Catalogue formations — sessions réelles « Formation IA pour le BTP », salle et participants */
+  formationIaBtpSalleInteractive2026: {
+    src: '/images/formation-ia-btp-salle-interactive-2026.jpg',
+    alt: 'Session de formation IA pour le BTP : formatrice devant un écran « Formation IA pour le BTP », participants avec ordinateurs portables',
+    width: 1024,
+    height: 682,
+  },
+  formationIaBtpSalleModerne2026: {
+    src: '/images/formation-ia-btp-salle-moderne-2026.jpg',
+    alt: 'Formation IA BTP en salle lumineuse : intervenante et groupe de professionnels du bâtiment, travail sur ordinateurs',
+    width: 1024,
+    height: 682,
+  },
+
   btpFormationVisioChantier2026: {
     src: '/images/btp-formation-visio-chantier-2026.png',
     alt: 'Formation IA BTP à distance : échange entre bureau et terrain, cas concrets entreprise du bâtiment',
@@ -279,7 +328,8 @@ export const PHOTOS = {
   /** Accueil — bloc « Référence & partenaires » (visuel formatrice OFC) */
   accueilReferencePartenairesLaureOFC2026: {
     src: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
-    alt: 'Laure Olivié en échange avec un professionnel BTP — convivialité et formation IA entreprise',
+    alt:
+      'Laure Olivié, formatrice IA BTP OFC — échange avec un dirigeant artisan ; formation entreprise Qualiopi, réseau FFB',
     width: 1024,
     height: 682,
   },

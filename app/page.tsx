@@ -55,11 +55,13 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP — ChatGPT, devis & chantier | Paris, Île-de-France',
   description:
-    'Formation IA BTP et intelligence artificielle bâtiment : artisans, conducteurs de travaux, appels d\'offres. ChatGPT BTP pour automatiser devis et administratif. Qualiopi, Constructys. Visio découverte — Laure Olivié (+1592 formés).',
+    'Formation IA BTP et ChatGPT bâtiment : devis, chantier, appels d\'offres. Étude de cas FFB & étanchéité (CSFE), Qualiopi, OPCO Constructys. Laure Olivié — 1 592 pros formés, 4,85/5. Île-de-France.',
   path: '/',
   keywords: [
     'formation IA BTP',
     'formation ChatGPT BTP',
+    'FFB formation IA',
+    'étanchéité CSFE formation',
     'formation Claude AI bâtiment',
     'formation IA Paris',
     'formation IA Île-de-France',

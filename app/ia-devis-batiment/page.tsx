@@ -10,11 +10,12 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'IA devis automatique bâtiment — TPE & PME BTP | Formation finançable',
   description:
-    "IA devis automatique bâtiment : rédiger et structurer vos devis plus vite avec l'IA. TPE et PME du BTP, formation terrain. Qualiopi, financement formation IA OPCO Constructys.",
+    "IA devis bâtiment et ChatGPT devis BTP : prompts par métier, checklist avant envoi, erreurs à éviter. Formation 4 h — Qualiopi, financement OPCO Constructys.",
   path: '/ia-devis-batiment',
   keywords: [
     'IA devis automatique bâtiment',
     'IA devis bâtiment',
+    'ChatGPT devis BTP',
     'IA pour devis BTP',
     'ChatGPT devis construction',
     'automatiser devis bâtiment',
@@ -47,6 +48,92 @@ const BENEFICES = [
   },
 ];
 
+/** Prompts ChatGPT — devis BTP par métier (section SEO « ChatGPT devis BTP » / « IA devis bâtiment ») */
+const PROMPTS_PAR_METIER = [
+  {
+    label: 'Électricien',
+    prompt:
+      "Rédige un devis professionnel pour un artisan électricien. Chantier : mise aux normes d'un tableau électrique et ajout de 8 circuits (éclairage, prises 16A, prises dédiées four). Précise un tableau avec 3 colonnes : désignation des fournitures (avec références types si génériques), main d'œuvre par poste, sous-totaux HT. Mentionne déplacement, diagnostic, mise en conformité NF C 15-100. TVA à 10 % pour la rénovation sur logement de plus de 2 ans. Ajoute validité du devis 30 jours, délais d'exécution indicatifs, conditions de paiement 30 % à la commande / solde à la réception. Ton : professionnel BTP, vocabulaire métier.",
+    resultat:
+      'Un devis structuré avec postes séparés fournitures / pose, ligne pour le tableau et les protections, mention des essais et réception, totaux HT et TTC avec TVA 10 %.',
+    temps: '1 h 30',
+  },
+  {
+    label: 'Plombier-chauffagiste',
+    prompt:
+      "Rédige un devis détaillé pour une rénovation complète de salle de bain (environ 8 m²) : dépose ancien carrelage et sanitaires, alimentations eau chaude / froide, évacuations, pose WC suspendu, meuble vasque, douche à l'italienne avec receveur à carreler, robinetterie entrée de gamme milieu de gamme. Inclus : fournitures listées par poste (à préciser « fournis par l'entreprise » ou « fournis par le client »), main d'œuvre par lot, délais, reprise des étanchéités et tests d'étanchéité. TVA 10 % rénovation. Validité 30 jours. Style : devis BTP clair, sans prix inventés — laisse des champs [PU HT] à compléter.",
+    resultat:
+      'Un devis multi-lots (dépose, réseaux, étanchéité, pose sanitaires, finitions) avec quantités indicatives et lignes à compléter pour le chiffrage réel.',
+    temps: '2 h',
+  },
+  {
+    label: 'Maçon',
+    prompt:
+      "Élabore un devis pour travaux de maçonnerie : fondations superficielles longrines pour extension 20 m², dalle isolée 10 cm avec treillis, élévation murs en parpaings creux de 20 cm avec chaînage et linteaux, ouvertures baies et portes. Détaille les unités (m³ béton, m² maçonnerie, tonnes ciment si pertinent), la main d'œuvre par phase, les sous-traitances éventuelles (étude géotechnique en hors-devis si besoin). Mentionne délais météo, reprises de liaison avec l'existant. TVA selon contexte neuf / rénovation (précise à compléter). Format : tableau par lot technique.",
+    resultat:
+      'Un chiffrage découpé par phases gros œuvre, avec vocabulaire CCTP-friendly (fondations, dalle, élévation) prêt à être complété par vos unitaires chantier.',
+    temps: '1 h 45',
+  },
+  {
+    label: 'Carreleur',
+    prompt:
+      "Rédige un devis pour pose de carrelage sol et mural en rénovation : 28 m² sol + 22 m² murs, format 60×60 cm, colle C2 selon DTU, joints cimentaires compatibles, découpe et chutes incluses. Précise : préparation des supports, primaire d'accrochage si nécessaire, pose collée, joints (largeur 2 mm), nettoyage. Tableau fournitures (colle, croisillons, joints) / main d'œuvre. TVA 10 % si rénovation logement éligible. Ajoute conditions de réception et garanties habituelles. Laisse les prix unitaires en [à compléter].",
+    resultat:
+      'Un devis aligné DTU 52.1 avec postes compréhensibles pour le client et lignes techniques pour votre bureau de prix.',
+    temps: '1 h 15',
+  },
+  {
+    label: 'Peintre',
+    prompt:
+      "Produis un devis pour travaux de peinture intérieure : préparation des supports (rebouchage léger, ponçage, lessivage), application d'un enduit de lissage sur zones irrégulières, puis deux couches de peinture acrylique sur murs et plafonds — surface totale environ 120 m² décomposée par pièce. Liste les produits par type (sous-couche, finition), le temps estimé par pièce, protections sol et mobilier. Précise finitions plinthes et raccords. TVA 10 % si rénovation. Format professionnel avec lignes [PU] à compléter.",
+    resultat:
+      'Un devis par pièce ou par surface avec phases préparation / finition, adapté aux réponses clients exigeants sur les produits.',
+    temps: '1 h 20',
+  },
+  {
+    label: 'Charpentier',
+    prompt:
+      "Rédige un devis pour réfection de charpente traditionnelle : dépose partielle de couverture, remplacement chevrons endommagés, liteaux, écran sous-toiture, voligeage si nécessaire — surface de toiture environ 90 m², pente 45 %. Inclus : calage sécurité chantier, évacuation gravats, liaison avec couvreur si sous-traitance (à mentionner). Détaille bois section / essences en [à préciser selon étude], quincaillerie, traitement fongicide si besoin. Ajoute délais, garanties décennale à rappeler côté coordination corps d'état. TVA selon opération. Ton : charpentier BTP.",
+    resultat:
+      'Un devis structuré bois / couverture avec lots techniques et rappels de coordination, prêt pour ajout de votre étude et prix fournisseurs bois.',
+    temps: '1 h 45',
+  },
+] as const;
+
+const CHECKLIST_DEVIS_IA = [
+  'Prix unitaires et quantités : chaque ligne correspond à vos tarifs réels et aux quantités mesurées (pas seulement celles inventées par l’IA).',
+  'TVA : taux correct pour l’opération (10 %, 20 %, exonération selon cas) et mention légale si besoin.',
+  'Délais de paiement et acomptes : alignés avec votre trésorerie et le code du commerce (acomptes encadrés pour le logement).',
+  'Durée de validité du devis : date butoir claire pour éviter les engagements périmés.',
+  'Identité du client : raison sociale ou nom, adresse du chantier, références de contact.',
+  'Coordonnées de l’entreprise : SIRET, assurance décennale / RC pro selon activité, RCS ou RM.',
+  'Mentions de signature et bon pour accord : cases datées pour le client et vous.',
+  'Conditions générales ou renvoi à vos CGV : pénalités de retard, réception des travaux, garanties.',
+];
+
+const ERREURS_IA_DEVIS = [
+  {
+    titre: 'Oublier les marges et la structure de coûts',
+    desc: "L'IA propose des lignes et des formulations ; elle ne connaît pas votre coefficient, vos frais fixes ni la concurrence locale. Si vous recopiez des montants « plausibles » sans les recalculer, vous perdez de la marge ou vous sous-évaluez la main d'œuvre.",
+  },
+  {
+    titre: 'Ne pas adapter le vocabulaire au métier et au client',
+    desc: "Un devis trop générique fait moins professionnel qu'un texte qui cite les bons matériaux, normes et unités (m², ml, forfait). Ajustez toujours le ton : particulier, syndic, marché public.",
+  },
+  {
+    titre: 'Envoyer sans relecture humaine',
+    desc: "Fautes, incohérences entre les postes, oublis de prestations incluses dans votre visite : l'IA ne remplace pas le passage sur chantier. Une relecture systématique évite les engagements hasardeux.",
+  },
+  {
+    titre: 'Coller des données sensibles dans ChatGPT « public »',
+    desc: "Plans détaillés, données clients, prix négociés fournisseurs : à traiter avec des outils adaptés (comptes entreprise, anonymisation) ou saisie manuelle des éléments confidentiels après génération du squelette.",
+  },
+  {
+    titre: 'Utiliser un prompt trop vague',
+    desc: "« Fais un devis pour un chantier » produit un texte médiocre. Précisez métier, surfaces, contexte neuf/rénovation, contraintes normatives et format attendu : c'est ce qui distingue un prompt utile pour un ChatGPT devis BTP d'un brouillon inutilisable.",
+  },
+];
+
 const FAQ_ITEMS = [
   {
     q: "L'IA peut-elle remplacer un métreur ou un chargé d'affaires ?",
@@ -63,6 +150,14 @@ const FAQ_ITEMS = [
   {
     q: "La formation IA devis bâtiment est-elle finançable ?",
     a: "Oui. La formation IA Constructys est certifiée Qualiopi. Le module IA devis bâtiment (« L'IA au service du bâtiment ») est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP.",
+  },
+  {
+    q: 'Comment structurer un prompt ChatGPT pour un devis BTP crédible ?',
+    a: "Indiquez le métier, le type de chantier (neuf ou rénovation), les quantités ou surfaces, les normes ou contraintes (DTU, NF, TVA applicable), et le format souhaité (tableau par poste, détail fournitures / main d'œuvre, conditions de validité). Plus le brief est précis, plus le brouillon est exploitable — vous ne faites qu'ajuster prix et marges. Des exemples de prompts par corps de métier sont détaillés sur cette page.",
+  },
+  {
+    q: "Quelles sont les erreurs les plus fréquentes avec un devis généré par l'IA ?",
+    a: "Les plus courantes : envoyer sans relecture, prompts trop vagues, oubli des marges ou des coûts cachés, vocabulaire hors métier, et saisie de données sensibles (clients, prix fournisseurs) dans un outil public non adapté. Toujours valider chaque ligne de prix, la TVA et les délais avant signature.",
   },
 ];
 
@@ -158,6 +253,149 @@ export default function IADevisBatimentPage() {
               utiliser ChatGPT dans le BTP
             </Link>
             , notre formation pratique vous donne les trames prêtes à l&apos;emploi.
+          </p>
+        </section>
+
+        {/* Prompts par métier — SEO ChatGPT devis BTP / IA devis bâtiment */}
+        <section className="mt-20">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Prompts ChatGPT prêts à l&apos;emploi par corps de métier
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Pour ranker sur des recherches comme{' '}
+            <strong className="text-slate-800">ChatGPT devis BTP</strong> ou{' '}
+            <strong className="text-slate-800">IA devis bâtiment</strong>, le critère décisif est la
+            qualité du brief : un prompt détaillé produit un brouillon de devis exploitable, que vous
+            complétez avec vos prix et votre marge. Ci-dessous, six exemples de prompts complets à
+            copier-coller dans ChatGPT (ou un outil équivalent), puis à adapter après relecture.
+          </p>
+          <p className="mt-3 text-slate-600 leading-relaxed">
+            Chaque bloc suit le même principe : l&apos;IA structure le document et le vocabulaire
+            métier ; vous restez seul juge des montants, des délais et de la conformité réglementaire.
+          </p>
+          <div className="mt-10 space-y-12">
+            {PROMPTS_PAR_METIER.map((bloc) => (
+              <div
+                key={bloc.label}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
+              >
+                <h3 className="font-display text-xl font-semibold text-slate-900">{bloc.label}</h3>
+                <div className="mt-4 space-y-3 text-slate-700">
+                  <p>
+                    <strong className="text-slate-900">Prompt :</strong>{' '}
+                    <span className="leading-relaxed">{bloc.prompt}</span>
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">Résultat attendu :</strong>{' '}
+                    {bloc.resultat}
+                  </p>
+                  <p>
+                    <strong className="text-slate-900">Temps économisé :</strong>{' '}
+                    environ {bloc.temps} par rapport à une rédaction « à blanc » sans trame.
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Checklist avant envoi */}
+        <section className="mt-20 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Checklist avant d&apos;envoyer un devis généré par l&apos;IA
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            L&apos;<strong className="text-slate-800">IA devis bâtiment</strong> accélère la mise en
+            forme ; en revanche, la responsabilité du document signé reste entièrement la vôtre.
+            Avant d&apos;envoyer un devis issu d&apos;un modèle généré (y compris avec{' '}
+            <strong className="text-slate-800">ChatGPT pour devis BTP</strong>), cochez mentalement
+            ces huit points — ils évitent la majorité des litiges et des impasses commerciales.
+          </p>
+          <ul className="mt-8 space-y-4">
+            {CHECKLIST_DEVIS_IA.map((point, i) => (
+              <li key={i} className="flex gap-3 text-slate-700">
+                <Check
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                  strokeWidth={1.5}
+                  aria-hidden
+                />
+                <span className="leading-relaxed">{point}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Erreurs fréquentes */}
+        <section className="mt-20">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Erreurs fréquentes quand on utilise l&apos;IA pour ses devis BTP
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Sur le terrain, les entreprises qui réussissent avec l&apos;IA sur les devis sont celles
+            qui traitent l&apos;outil comme un <strong className="text-slate-800">assistant de
+            rédaction</strong>, pas comme un chiffreur automatique. Voici cinq écueils observés lors
+            des formations IA devis BTP, et comment les éviter pour sécuriser vos{' '}
+            <strong className="text-slate-800">devis intelligents bâtiment</strong>.
+          </p>
+          <div className="mt-10 space-y-6">
+            {ERREURS_IA_DEVIS.map((e) => (
+              <div
+                key={e.titre}
+                className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h3 className="font-semibold text-slate-900">{e.titre}</h3>
+                <p className="mt-2 text-slate-600 leading-relaxed">{e.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Formation 4 h — CTA Calendly */}
+        <section className="mt-20 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-10">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Formation IA devis BTP — ce que vous apprenez en 4 heures
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            La session <strong className="text-slate-900">« L&apos;IA au service du bâtiment »</strong>{' '}
+            inclut un module concret sur les devis et le chiffrage : construction de prompts par corps
+            de métier, relecture des brouillons, bonnes pratiques de confidentialité, et reprise de vos
+            propres modèles (Excel, PDF, texte). Vous repartez avec des trames réutilisables pour le{' '}
+            <strong className="text-slate-900">ChatGPT devis BTP</strong> au quotidien — sans remplacer
+            votre expertise, en renforçant votre{' '}
+            <strong className="text-slate-900">IA devis bâtiment</strong> maîtrisée.
+          </p>
+          <ul className="mt-6 list-inside list-disc space-y-2 text-slate-700">
+            <li>Atelier sur vos cas réels : devis types, variantes, relances après envoi.</li>
+            <li>Rappels TVA, mentions légales et structure de document professionnelle.</li>
+            <li>Certification Qualiopi — financement OPCO Constructys selon éligibilité et dossier.</li>
+          </ul>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600">
+              Réserver un appel découverte (Calendly)
+            </RdvLink>
+            <Link
+              href="/formations/ia-au-service-du-batiment"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
+            >
+              Voir le programme « IA au service du bâtiment »
+            </Link>
+            <Link
+              href="/financement-constructys-formation-ia-btp"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-4 text-center font-medium text-slate-800 hover:border-[var(--accent)]"
+            >
+              Financement Constructys
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-slate-600">
+            Lien direct agenda :{' '}
+            <a
+              href={CALENDLY_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              {CALENDLY_BOOKING_URL}
+            </a>
           </p>
         </section>
 

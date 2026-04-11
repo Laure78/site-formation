@@ -42,10 +42,10 @@ export const metadata = createPageMetadata({
     'formation IA PME BTP',
   ],
   image: {
-    url: PHOTOS.btpFormationChantierPlans2026.src,
-    width: PHOTOS.btpFormationChantierPlans2026.width,
-    height: PHOTOS.btpFormationChantierPlans2026.height,
-    alt: PHOTOS.btpFormationChantierPlans2026.alt,
+    url: PHOTOS.formationIaBtpSalleInteractive2026.src,
+    width: PHOTOS.formationIaBtpSalleInteractive2026.width,
+    height: PHOTOS.formationIaBtpSalleInteractive2026.height,
+    alt: PHOTOS.formationIaBtpSalleInteractive2026.alt,
   },
 });
 
@@ -151,6 +151,8 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
 
 /** Visuels présentiel (salle, accompagnement poste, conseil) — réutilisés en tête de carte, en rotation. */
 const CATALOGUE_CARTE_VISUELS = [
+  PHOTOS.formationIaBtpSalleInteractive2026,
+  PHOTOS.formationIaBtpSalleModerne2026,
   PHOTOS.btpFormationSalleIntervention2026,
   PHOTOS.btpFormationChantierPlans2026,
   PHOTOS.btpFormationBureauConseil2026,
@@ -212,6 +214,36 @@ export default function FormationsPage() {
           d&apos;offres, mémoire technique, conduite de travaux et accompagnement des équipes. Chaque
           fiche reprend un de ces visuels en tête de carte.
         </p>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div className="relative aspect-[1024/682] w-full bg-slate-100">
+              <Image
+                src={PHOTOS.formationIaBtpSalleInteractive2026.src}
+                alt={PHOTOS.formationIaBtpSalleInteractive2026.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-slate-600">
+              Session en présentiel : écran « Formation IA pour le BTP » et atelier sur poste.
+            </figcaption>
+          </figure>
+          <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+            <div className="relative aspect-[1024/682] w-full bg-slate-100">
+              <Image
+                src={PHOTOS.formationIaBtpSalleModerne2026.src}
+                alt={PHOTOS.formationIaBtpSalleModerne2026.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-slate-600">
+              Salle moderne, groupe professionnel BTP et mise en pratique sur ordinateur.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
