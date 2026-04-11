@@ -160,7 +160,7 @@ export default function FormationIAPMEBTPPage() {
         <p className="mt-4">
           Les PME du BTP gagnent souvent <strong>3 à 5 h par semaine</strong> par collaborateur sur
           l&apos;administratif. Interventions en{' '}
-          <Link href="/formations/ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
+          <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
             formation IA BTP Île-de-France
           </Link>{' '}
           et partout en France — <strong>financement OPCO Constructys</strong> selon dossier.

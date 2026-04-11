@@ -1,21 +1,19 @@
 import Script from 'next/script';
-import type { BlogArticle } from '@/lib/blog';
+import { getBlogArticleFaqPairs, type BlogArticle } from '@/lib/blog';
 import { getDefaultBlogFaqSchema } from '@/lib/blog-default-faq-schema';
-import {
-  extractFaqPairsFromArticleSections,
-  getFAQSchema,
-} from '@/lib/seo';
+import { getFAQSchema } from '@/lib/seo';
 
 type Props = {
-  sections: BlogArticle['sections'];
+  article: BlogArticle;
 };
 
 /**
- * FAQPage JSON-LD : paires extraites des sections `type: 'faq'` si présentes,
- * sinon schéma FAQ générique BTP (fallback sur tous les articles).
+ * FAQPage JSON-LD : champ `article.faq` (équivalent frontmatter MDX) si défini,
+ * sinon paires extraites des sections `type: 'faq'` (lignes « Question — Réponse »),
+ * sinon FAQ générique BTP.
  */
-export function BlogArticleFaqJsonLd({ sections }: Props) {
-  const faqPairs = extractFaqPairsFromArticleSections(sections);
+export function BlogArticleFaqJsonLd({ article }: Props) {
+  const faqPairs = getBlogArticleFaqPairs(article);
   const schema =
     faqPairs.length > 0 ? getFAQSchema(faqPairs) : getDefaultBlogFaqSchema();
 

@@ -50,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/financement-constructys-100-ia-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.88 },
     { url: `${baseUrl}/ressources/ia-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/ressources/ia-btp/10-cas-usage-concrets`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${baseUrl}/formations/ia-btp-ile-de-france`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${baseUrl}/formation-ia-btp-ile-de-france`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     {
       url: `${baseUrl}/repondre-appels-offres-ia-btp`,
       lastModified: new Date(),

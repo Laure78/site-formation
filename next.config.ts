@@ -9,6 +9,14 @@ const formationIaLegacyRedirects = () =>
   }));
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/llms.txt',
+        headers: [{ key: 'Content-Type', value: 'text/plain; charset=utf-8' }],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -21,6 +29,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...formationIaLegacyRedirects(),
+      {
+        source: '/formations/ia-btp-ile-de-france',
+        destination: '/formation-ia-btp-ile-de-france',
+        permanent: true,
+      },
       { source: '/cours', destination: '/formations', permanent: true },
       {
         source: '/clients-partenaires',

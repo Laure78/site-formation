@@ -1,6 +1,7 @@
 /**
  * Schémas JSON-LD Course + EducationalOrganization pour le catalogue et les fiches formation.
  */
+import { formationsData } from '@/src/data/formations';
 import { SITE_CONFIG } from '@/lib/seo';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
@@ -183,28 +184,62 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
   };
 }
 
-/** Fiche formation : @graph = EducationalOrganization + Course (URL canonique de la page). */
+/**
+ * Schéma Course unique (données `src/data/formations.ts`) — aligné GEO / fiches formation.
+ */
+export function getCourseJsonLdFromFormationsData(
+  slug: string
+): Record<string, unknown> | null {
+  const f = formationsData[slug as keyof typeof formationsData];
+  if (!f) return null;
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: f.name,
+    description: f.description,
+    url: `${base}/formations/${slug}`,
+    provider: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.legalName,
+      url: base,
+      sameAs: 'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
+    },
+    instructor: {
+      '@type': 'Person',
+      name: SITE_CONFIG.name,
+      url: `${base}/a-propos`,
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: ['onsite', 'blended'],
+      duration: f.duration,
+      courseWorkload: f.duration,
+      location: {
+        '@type': 'Place',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Île-de-France',
+          addressCountry: 'FR',
+        },
+      },
+      offers: {
+        '@type': 'Offer',
+        price: f.price,
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        validFrom: '2026-01-01',
+      },
+    },
+    educationalLevel: f.level,
+    inLanguage: 'fr',
+  };
+}
+
+/** Fiche formation : schéma Course depuis la map `formationsData` (URL = /formations/{slug}). */
 export function getFormationCoursePageJsonLd(
   path: FormationCatalogEntry['path']
 ): Record<string, unknown> | null {
-  const entry = FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === path);
-  if (!entry) return null;
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'EducationalOrganization',
-        '@id': EDUCATIONAL_ORGANIZATION_FRAGMENT_ID,
-        name: SITE_CONFIG.legalName,
-        url: SITE_CONFIG.url,
-        sameAs: 'https://www.linkedin.com/in/laure-olivie',
-        hasCredential: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'Qualiopi',
-          credentialCategory: 'certification',
-        },
-      },
-      buildCourseObject(entry),
-    ],
-  };
+  const slug = path.replace(/^\/formations\//, '').replace(/\/$/, '');
+  return getCourseJsonLdFromFormationsData(slug);
 }

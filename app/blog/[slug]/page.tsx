@@ -9,8 +9,8 @@ import {
   breadcrumbItemsFromPaths,
   createPageMetadata,
   getHowToFromArticle,
+  SITE_CONFIG,
 } from '@/lib/seo';
-import { SITE_CONFIG } from '@/lib/seo';
 import {
   estimateWordCountFromArticle,
   getArticle,
@@ -85,12 +85,15 @@ export async function generateMetadata({ params }: Props) {
   if (!article) return { title: 'Article non trouvé' };
   const metaTitle = article.seoTitle ?? article.title;
   const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
-  const heroIll = getBlogArticleIllustrations(slug, article.title)[0];
+  const category = ARTICLE_SECTION_GEO;
+  const ogImageUrl = `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(metaTitle)}&category=${encodeURIComponent(category)}`;
   const base = createPageMetadata({
     title: metaTitle,
     description: article.description,
     path: `/blog/${slug}`,
     keywords: article.keywords,
+    /** Évite le suffixe commun sur og:description — les articles ont déjà une phrase unique optimisée */
+    appendAuthorSuffix: false,
     openGraphType: 'article',
     article: {
       publishedTime: article.date,
@@ -99,10 +102,10 @@ export async function generateMetadata({ params }: Props) {
       section: ARTICLE_SECTION_GEO,
     },
     image: {
-      url: `${SITE_CONFIG.url}${heroIll.src}`,
-      width: heroIll.width,
-      height: heroIll.height,
-      alt: heroIll.alt,
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+      alt: metaTitle,
     },
   });
   return {
@@ -124,12 +127,12 @@ export default async function BlogArticlePage({ params }: Props) {
   const illustrations = getBlogArticleIllustrations(slug, article.title);
 
   const wordCount = estimateWordCountFromArticle(article);
-  const heroSrc = illustrations[0]?.src;
-  const imageUrl = heroSrc
-    ? heroSrc.startsWith('http')
-      ? heroSrc
-      : `${SITE_CONFIG.url}${heroSrc}`
-    : `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
+  const defaultArticleImage = `${SITE_CONFIG.url}/images/og-default.jpg`;
+  const articleSchemaImage = article.coverImage
+    ? article.coverImage.trim().startsWith('http')
+      ? article.coverImage.trim()
+      : `${SITE_CONFIG.url}${article.coverImage.trim().startsWith('/') ? article.coverImage.trim() : `/${article.coverImage.trim()}`}`
+    : defaultArticleImage;
   const howToSchema = getHowToFromArticle(article);
 
   return (
@@ -140,7 +143,7 @@ export default async function BlogArticlePage({ params }: Props) {
         slug={article.slug}
         datePublished={article.date}
         dateModified={article.dateModified}
-        imageUrl={imageUrl}
+        imageUrl={articleSchemaImage}
         keywords={article.keywords}
         wordCount={wordCount}
       />
@@ -153,7 +156,7 @@ export default async function BlogArticlePage({ params }: Props) {
         showVisual
         className="mb-6"
       />
-      <BlogArticleFaqJsonLd sections={article.sections} />
+      <BlogArticleFaqJsonLd article={article} />
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}

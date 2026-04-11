@@ -7,7 +7,10 @@ import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
 import { LINKS } from '@/lib/internal-links';
-import { estimateWordCountFromPlainText } from '@/lib/seo';
+import {
+  estimateWordCountFromPlainText,
+  extractFaqPairsFromArticleSections,
+} from '@/lib/seo';
 import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 
@@ -37,6 +40,24 @@ export interface BlogArticle {
     ctaCommunauteHref?: string;
   }[];
   relatedSlugs?: string[];
+  /**
+   * FAQ structurée (équivalent frontmatter MDX `faq:`) — prioritaire sur l’extraction
+   * des sections `type: 'faq'` pour le JSON-LD FAQPage.
+   */
+  faq?: { question: string; answer: string }[];
+  /** Image de couverture pour le schéma Article (URL absolue ou chemin commençant par /) */
+  coverImage?: string;
+}
+
+/** Paires Q/R pour FAQPage : champ `faq` si présent, sinon sections FAQ (format « Q — R »). */
+export function getBlogArticleFaqPairs(article: BlogArticle): { q: string; a: string }[] {
+  if (article.faq && article.faq.length > 0) {
+    return article.faq.map(({ question, answer }) => ({
+      q: question.trim(),
+      a: answer.trim(),
+    }));
+  }
+  return extractFaqPairsFromArticleSections(article.sections);
 }
 
 /** Estimation du nombre de mots pour schema Article JSON-LD (GEO) */
@@ -696,7 +717,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
           '<li><a href="/blog/ia-memoire-technique-appel-offres-guide-2026">IA mémoire technique appel d’offres — guide complet 2026</a></li>' +
           '<li><a href="/formations/ia-appels-offre-btp">Formation « Répondre aux appels d’offres avec l’IA »</a> (Qualiopi, OPCO Constructys)</li>' +
-          '<li><a href="/formations/ia-btp-ile-de-france">Formation IA BTP en Île-de-France</a> — sessions inter et intra</li>' +
+          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA BTP en Île-de-France</a> — sessions inter et intra</li>' +
           '</ul>',
       },
       {

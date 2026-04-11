@@ -59,6 +59,23 @@ export function buildFormationIaLocalBusinessJsonLd() {
   };
 }
 
+const FORMATION_IDF_PATH = '/formation-ia-btp-ile-de-france';
+
+/**
+ * Page pilier Île-de-France — LocalBusiness dédié avec URL canonique et tous les départements en areaServed.
+ */
+export function getFormationIleDeFrancePageLocalBusinessJsonLd(): Record<string, unknown> {
+  const base = buildFormationIaLocalBusinessJsonLd();
+  return {
+    ...base,
+    '@id': `${SITE_CONFIG.url}${FORMATION_IDF_PATH}#localbusiness-idf`,
+    url: `${SITE_CONFIG.url}${FORMATION_IDF_PATH}`,
+    name: `${SITE_CONFIG.legalName} — Formation IA BTP Île-de-France`,
+    description:
+      'Formation IA BTP en Île-de-France : ChatGPT et Claude AI pour entreprises du bâtiment et des travaux publics. Sessions 4 h en présentiel, Qualiopi, financement OPCO Constructys. Paris, Yvelines, 8 départements.',
+  };
+}
+
 /** Organisation certifiée Qualiopi (schéma déjà porté par getOrganizationSchema) */
 export function buildEducationalOrgSnippetJsonLd() {
   return getOrganizationSchema();

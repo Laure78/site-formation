@@ -45,7 +45,7 @@ const CHIFFRES_FAITS_VERIFIABLES: {
   {
     highlight: '2',
     description:
-      "formations LinkedIn Learning publiées sur l'IA pour le BTP — instructrice certifiée",
+      "Instructrice LinkedIn Learning — 2 formations publiées sur l'IA pour le BTP",
   },
   {
     highlight: 'Qualiopi',
@@ -53,7 +53,7 @@ const CHIFFRES_FAITS_VERIFIABLES: {
       'Certifiée depuis 2022 — NDA 11788515078 — vérifiable sur data.gouv.fr',
   },
   {
-    highlight: 'FFB · CSFE · CAPEB',
+    highlight: '6',
     description:
       'Partenaire FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz',
   },
@@ -431,31 +431,33 @@ export default function AProposPage() {
                 lecture des plans et contrôle des ouvrages. Ces années en boots et gilet orange nourrissent aujourd&apos;hui
                 mes formations IA : zéro jargon inutile, des exemples qui parlent aux artisans et aux encadrants.
               </p>
-              <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-start">
-                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-                  <Image
-                    src={PHOTOS.parcoursChantierFondations.src}
-                    alt={PHOTOS.parcoursChantierFondations.alt}
-                    width={PHOTOS.parcoursChantierFondations.width}
-                    height={PHOTOS.parcoursChantierFondations.height}
-                    className="h-auto w-full object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <figcaption className="border-t border-slate-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-600">
+              <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-stretch">
+                <figure className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-slate-200">
+                    <Image
+                      src={PHOTOS.parcoursChantierFondations.src}
+                      alt={PHOTOS.parcoursChantierFondations.alt}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <figcaption className="flex flex-1 flex-col border-t border-slate-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-600">
                     Inspection sur le terrain — précision sur les ouvrages et le même souci du détail que sur vos devis
                     et comptes rendus une fois l&apos;IA en place.
                   </figcaption>
                 </figure>
-                <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-                  <Image
-                    src={PHOTOS.parcoursChantierPlans.src}
-                    alt={PHOTOS.parcoursChantierPlans.alt}
-                    width={PHOTOS.parcoursChantierPlans.width}
-                    height={PHOTOS.parcoursChantierPlans.height}
-                    className="h-auto w-full object-cover object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <figcaption className="border-t border-slate-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-600">
+                <figure className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                  <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-slate-200">
+                    <Image
+                      src={PHOTOS.parcoursChantierPlans.src}
+                      alt={PHOTOS.parcoursChantierPlans.alt}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <figcaption className="flex flex-1 flex-col border-t border-slate-100 bg-white px-4 py-3 text-sm leading-relaxed text-slate-600">
                     Coordination sur chantier avec les acteurs du projet — vision opérationnelle et travail d&apos;équipe,
                     au cœur de ce que j&apos;enseigne aux dirigeants et conducteurs de travaux.
                   </figcaption>

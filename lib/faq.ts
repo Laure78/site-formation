@@ -69,7 +69,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ou en distanciel ?",
-    a: 'Les formations catalogue se déroulent en présentiel : sessions inter en <a href="/formations/ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95) ou intra dans vos locaux en Île-de-France. Nous nous adaptons à la taille de votre équipe ; pour un créneau, utilisez <a href="/prendre-rdv">prendre rendez-vous</a> ou la <a href="/contact">page contact</a>.',
+    a: 'Les formations catalogue se déroulent en présentiel : sessions inter en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95) ou intra dans vos locaux en Île-de-France. Nous nous adaptons à la taille de votre équipe ; pour un créneau, utilisez <a href="/prendre-rdv">prendre rendez-vous</a> ou la <a href="/contact">page contact</a>.',
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -101,7 +101,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
-    a: 'Laure Olivié (OFC Création d\'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formations/ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Programme « L\'IA au service du bâtiment » : session 4 h en présentiel. Interventions notamment à <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et dans l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. <a href="/financement-constructys-formation-ia-btp">Financement 100 % Constructys</a>.',
+    a: 'Laure Olivié (OFC Création d\'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Programme « L\'IA au service du bâtiment » : session 4 h en présentiel. Interventions notamment à <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et dans l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. <a href="/financement-constructys-formation-ia-btp">Financement 100 % Constructys</a>.',
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
@@ -233,7 +233,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
 export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Où intervenez-vous pour les formations IA BTP ?",
-    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formations/ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter en salle ou intra-entreprise sur votre site).',
+    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter en salle ou intra-entreprise sur votre site).',
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
@@ -265,7 +265,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
 export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   {
     q: 'La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?',
-    a: 'Oui. Les sessions en présentiel ont lieu dans vos locaux dans tout le département des Yvelines (78), sans frais de déplacement supplémentaires pour les entreprises du 78. Les sessions inter du catalogue sont également en présentiel — voir <a href="/formations/ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>. Pour des besoins spécifiques (intra, contraintes), le format se cadrage sur devis.',
+    a: 'Oui. Les sessions en présentiel ont lieu dans vos locaux dans tout le département des Yvelines (78), sans frais de déplacement supplémentaires pour les entreprises du 78. Les sessions inter du catalogue sont également en présentiel — voir <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>. Pour des besoins spécifiques (intra, contraintes), le format se cadrage sur devis.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -304,14 +304,14 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Y a-t-il des sessions inter-entreprises à Versailles ?',
     a:
-      "Les sessions inter du catalogue ont lieu en présentiel en Île-de-France, avec des lieux qui peuvent inclure Versailles ou l'agglomération selon le calendrier et la session. Pour savoir quelle session correspond à votre secteur, consultez la page <a href=\"/formations/ia-btp-ile-de-france\">formation IA BTP Île-de-France</a> et le <a href=\"/formations\">catalogue</a>. Les entreprises des Yvelines peuvent aussi privilégier une session <strong>intra</strong> dans leurs locaux dans le 78.",
+      "Les sessions inter du catalogue ont lieu en présentiel en Île-de-France, avec des lieux qui peuvent inclure Versailles ou l'agglomération selon le calendrier et la session. Pour savoir quelle session correspond à votre secteur, consultez la page <a href=\"/formation-ia-btp-ile-de-france\">formation IA BTP Île-de-France</a> et le <a href=\"/formations\">catalogue</a>. Les entreprises des Yvelines peuvent aussi privilégier une session <strong>intra</strong> dans leurs locaux dans le 78.",
   },
 ];
 
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP à Paris ?",
-    a: 'La formation se déroule en présentiel dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et départements 75, 77, 78, 91, 92, 93, 94, 95. Nous nous adaptons à vos contraintes — voir aussi <a href="/formations/ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
+    a: 'La formation se déroule en présentiel dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et départements 75, 77, 78, 91, 92, 93, 94, 95. Nous nous adaptons à vos contraintes — voir aussi <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
@@ -423,7 +423,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP ?",
-    a: 'En présentiel dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et les départements 75, 77, 78, 91, 92, 93, 94, 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA BTP</a> et <a href="/formations/ia-btp-ile-de-france">Île-de-France</a>.',
+    a: 'En présentiel dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et les départements 75, 77, 78, 91, 92, 93, 94, 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
   },
   {
     q: "La formation est-elle finançable ?",
@@ -475,7 +475,7 @@ export const FAQ_CONTACT: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formations/ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter ou intra-entreprise).',
+    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter ou intra-entreprise).',
   },
   {
     q: "Comment financer ma formation IA BTP ?",
@@ -511,7 +511,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Comment accéder aux formations IA BTP ?",
-    a: 'Catalogue des formations sur laureolivie.fr : page <a href="/formations">formations IA BTP</a>. Formations en présentiel en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et les départements 75, 77, 78, 91, 92, 93, 94, 95 — voir <a href="/formations/ia-btp-ile-de-france">Île-de-France</a>. Devis personnalisé via <a href="/contact">contact</a>.',
+    a: 'Catalogue des formations sur laureolivie.fr : page <a href="/formations">formations IA BTP</a>. Formations en présentiel en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et les départements 75, 77, 78, 91, 92, 93, 94, 95 — voir <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>. Devis personnalisé via <a href="/contact">contact</a>.',
   },
 ];
 
@@ -523,7 +523,7 @@ export const FAQ_AUTEUR: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: 'Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter ou intra-entreprise) — <a href="/formations">catalogue</a> et <a href="/formations/ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
+    a: 'Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter ou intra-entreprise) — <a href="/formations">catalogue</a> et <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
   },
   {
     q: "Proposez-vous des formations LinkedIn Learning ?",

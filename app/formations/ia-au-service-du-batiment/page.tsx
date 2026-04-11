@@ -528,7 +528,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             </Link>
             ,{' '}
             <Link
-              href="/formations/ia-btp-ile-de-france"
+              href="/formation-ia-btp-ile-de-france"
               className="font-semibold text-[var(--accent)] hover:underline"
             >
               formation IA Île-de-France

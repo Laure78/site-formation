@@ -502,6 +502,65 @@ function mergeBlogPostingKeywords(articleKeywords?: string[]): string[] {
 }
 
 /**
+ * Schéma schema.org `Article` pour `/blog/[slug]` (rich results / GEO).
+ * Dates en ISO 8601 ; image URL absolue.
+ */
+export function buildBlogArticleJsonLd({
+  headline,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  imageUrl,
+  wordCount,
+  keywords,
+}: {
+  headline: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+  dateModified?: string;
+  imageUrl: string;
+  wordCount?: number;
+  keywords?: string[];
+}): Record<string, unknown> {
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const pageUrl = `${base}/blog/${slug}`;
+  const pubIso = dateToIso8601ForMeta(datePublished);
+  const modIso = dateToIso8601ForMeta(dateModified ?? datePublished);
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline,
+    description,
+    author: {
+      '@type': 'Person',
+      name: SITE_CONFIG.name,
+      url: `${base}/a-propos`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.legalName,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${base}/logo-lo.svg`,
+      },
+    },
+    datePublished: pubIso,
+    dateModified: modIso,
+    image: imageUrl,
+    url: pageUrl,
+  };
+  if (wordCount != null && wordCount > 0) {
+    schema.wordCount = wordCount;
+  }
+  if (keywords?.length) {
+    schema.keywords = keywords.join(', ');
+  }
+  return schema;
+}
+
+/**
  * Schéma BlogPosting pour les articles `/blog/[slug]` (remplace Article sur ces pages).
  * Dates en ISO 8601 ; image URL absolue.
  */

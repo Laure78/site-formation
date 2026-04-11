@@ -1,5 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
-import { buildBlogPostingJsonLd } from '@/lib/seo';
+import { buildBlogArticleJsonLd } from '@/lib/seo';
 
 export type ArticleJsonLdProps = {
   /** Titre affiché (H1 / headline Schema) */
@@ -9,16 +9,15 @@ export type ArticleJsonLdProps = {
   slug: string;
   datePublished: string;
   dateModified?: string;
-  /** URL absolue de l’image principale (hero) */
+  /** URL absolue de l’image principale (cover ou défaut OG) */
   imageUrl: string;
-  /** Mots-clés issus de l’article — fusionnés avec le jeu par défaut côté `buildBlogPostingJsonLd` */
   keywords?: string[];
   wordCount?: number;
   id?: string;
 };
 
 /**
- * JSON-LD Schema.org `BlogPosting` pour `/blog/[slug]`.
+ * JSON-LD Schema.org `Article` pour `/blog/[slug]`.
  * Les articles sont définis dans `lib/blog.ts` (données statiques TypeScript + générés).
  */
 export function ArticleJsonLd({
@@ -30,9 +29,9 @@ export function ArticleJsonLd({
   imageUrl,
   keywords,
   wordCount,
-  id = 'schema-blog-posting',
+  id = 'schema-blog-article',
 }: ArticleJsonLdProps) {
-  const schema = buildBlogPostingJsonLd({
+  const schema = buildBlogArticleJsonLd({
     headline: title,
     description,
     slug,

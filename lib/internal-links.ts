@@ -24,7 +24,7 @@ export const LINKS = {
   formationArchitecture: '/formations/ia-architecture-claude-dpgf',
   /** Page locale Paris (canonique SEO) */
   formationParis: '/formations/ia-btp-paris',
-  formationIleDeFrance: '/formations/ia-btp-ile-de-france',
+  formationIleDeFrance: '/formation-ia-btp-ile-de-france',
   formationYvelines: '/formations/ia-btp-yvelines-78',
   /** Landing SEO local Yvelines (78) — pilier */
   formationIABTPYvelines: '/formation-ia-btp-yvelines',

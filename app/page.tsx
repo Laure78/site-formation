@@ -46,6 +46,7 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import { buildHomePageImageObjectsJsonLd } from '@/lib/schema-image-objects';
 import { getHomeOrganizationLocalBusinessEnrichmentJsonLd } from '@/lib/schema-home-organization';
+import { HOME_PAGE_GRAPH_JSON_LD as homeSchema } from '@/lib/schema-home-page-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
@@ -1118,6 +1119,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <JsonLd
+        id="schema-home-graph-localbusiness-person"
+        data={homeSchema}
+      />
     </div>
   );
 }

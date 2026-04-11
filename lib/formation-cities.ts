@@ -81,7 +81,7 @@ export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
 
 export const ILE_DE_FRANCE = {
   ville: 'Île-de-France',
-  path: '/formations/ia-btp-ile-de-france',
+  path: '/formation-ia-btp-ile-de-france',
   regionLabel: 'Yvelines',
   customHeroRefLine: 'OFC Création d’Entreprise · Île-de-France · Présentiel · Qualiopi',
   customHeroTitle:

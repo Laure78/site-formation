@@ -91,7 +91,7 @@ export default function FormationIABTPParis2026Page() {
               </span>
             </Link>
             <Link
-              href="/formations/ia-btp-ile-de-france"
+              href="/formation-ia-btp-ile-de-france"
               className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-[var(--accent)] hover:shadow-md"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)] text-white">
@@ -240,7 +240,7 @@ export default function FormationIABTPParis2026Page() {
           <AllerPlusLoin
             links={[
               { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
-              { href: '/formations/ia-btp-ile-de-france', label: 'Formation Île-de-France' },
+              { href: '/formation-ia-btp-ile-de-france', label: 'Formation Île-de-France' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement 100 % IA BTP' },

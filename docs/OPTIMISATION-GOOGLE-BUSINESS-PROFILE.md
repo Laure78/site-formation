@@ -49,7 +49,7 @@ Centre de formation
 | Libellé | URL |
 |---------|-----|
 | Formation IA BTP | https://www.laureolivie.fr/formations |
-| Formation Île-de-France | https://www.laureolivie.fr/formations/ia-btp-ile-de-france |
+| Formation Île-de-France | https://www.laureolivie.fr/formation-ia-btp-ile-de-france |
 | Formation Paris | https://www.laureolivie.fr/formations/ia-btp-paris |
 | Prendre rendez-vous | https://www.laureolivie.fr/prendre-rdv |
 | LinkedIn | https://www.linkedin.com/in/laure-olivie |

@@ -310,7 +310,7 @@ export default function RepondreAppelsOffresIaBtpPage() {
           </h2>
           <p className="mt-2 text-sm text-slate-600">
             Sessions en présentiel : inter en Île-de-France ou intra dans vos locaux —{' '}
-            <Link href="/formations/ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
+            <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
               voir la page dédiée
             </Link>
             .
@@ -320,7 +320,7 @@ export default function RepondreAppelsOffresIaBtpPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations/ia-appels-offre-btp', label: 'Formation appels d’offres BTP (BTP-02)' },
-            { href: '/formations/ia-btp-ile-de-france', label: 'Formation IA BTP Île-de-France' },
+            { href: '/formation-ia-btp-ile-de-france', label: 'Formation IA BTP Île-de-France' },
             { href: '/blog/ia-memoire-technique-appel-offres-guide-2026', label: 'Guide mémoire technique IA' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             { href: '/formations', label: 'Catalogue des formations' },

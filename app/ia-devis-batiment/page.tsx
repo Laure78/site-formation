@@ -101,14 +101,14 @@ const PROMPTS_PAR_METIER = [
 ] as const;
 
 const CHECKLIST_DEVIS_IA = [
-  'Prix unitaires et quantités : chaque ligne correspond à vos tarifs réels et aux quantités mesurées (pas seulement celles inventées par l’IA).',
-  'TVA : taux correct pour l’opération (10 %, 20 %, exonération selon cas) et mention légale si besoin.',
-  'Délais de paiement et acomptes : alignés avec votre trésorerie et le code du commerce (acomptes encadrés pour le logement).',
-  'Durée de validité du devis : date butoir claire pour éviter les engagements périmés.',
-  'Identité du client : raison sociale ou nom, adresse du chantier, références de contact.',
-  'Coordonnées de l’entreprise : SIRET, assurance décennale / RC pro selon activité, RCS ou RM.',
-  'Mentions de signature et bon pour accord : cases datées pour le client et vous.',
-  'Conditions générales ou renvoi à vos CGV : pénalités de retard, réception des travaux, garanties.',
+  'Prix unitaires corrects : chaque PU et chaque quantité reflètent votre métreur / votre bordereau — pas les valeurs « plausibles » suggérées par l’IA.',
+  'TVA : taux et assiette adaptés au chantier (10 %, 20 %, exonération) et libellés conformes à votre situation.',
+  'Délais de paiement : acomptes, échéancier et pénalités de retard cohérents avec votre politique et le cadre légal.',
+  'Validité du devis : date limite d’acceptation explicite (souvent 30 jours) pour sécuriser votre prix.',
+  'Nom du client : raison sociale ou identité, adresse de facturation et du chantier si différente.',
+  'Coordonnées complètes : téléphone, email, SIRET, assurance décennale / RC pro selon activité.',
+  'Signature : mentions « Bon pour accord », date et paraphes prévus pour client et entreprise.',
+  'CGV : renvoi à vos conditions générales jointes ou résumé des clauses essentielles (réception, garanties, litiges).',
 ];
 
 const ERREURS_IA_DEVIS = [
@@ -158,6 +158,14 @@ const FAQ_ITEMS = [
   {
     q: "Quelles sont les erreurs les plus fréquentes avec un devis généré par l'IA ?",
     a: "Les plus courantes : envoyer sans relecture, prompts trop vagues, oubli des marges ou des coûts cachés, vocabulaire hors métier, et saisie de données sensibles (clients, prix fournisseurs) dans un outil public non adapté. Toujours valider chaque ligne de prix, la TVA et les délais avant signature.",
+  },
+  {
+    q: 'Comment intégrer la TVA 10 % dans un prompt ChatGPT pour un devis de rénovation ?',
+    a: "Précisez dans le brief que les travaux relèvent de la rénovation sur un logement éligible (habitation de plus de deux ans, travaux concernés) et que vous souhaitez un affichage HT, taux de TVA 10 % et TTC par ligne ou par total. L'IA structurera le document ; vous contrôlez l'éligibilité réelle de l'opération et les mentions obligatoires avant signature du devis.",
+  },
+  {
+    q: "L'IA peut-elle inventer des normes ou des prix sur un devis BTP ?",
+    a: "Oui, c'est un risque : l'outil peut formuler des références normatives ou des ordres de grandeur crédibles mais inexacts pour votre fournisseur ou votre zone géographique. Ne validez jamais un devis sans vérifier chaque norme citée (DTU, NF), chaque prix unitaire et chaque quantité. L'IA sert à accélérer la mise en forme et le vocabulaire métier ; le chiffrage et la conformité restent votre responsabilité.",
   },
 ];
 
@@ -254,6 +262,19 @@ export default function IADevisBatimentPage() {
             </Link>
             , notre formation pratique vous donne les trames prêtes à l&apos;emploi.
           </p>
+          <p className="mt-6 text-slate-600 leading-relaxed">
+            Sur les moteurs comme Google, les requêtes{' '}
+            <strong className="text-slate-800">ChatGPT devis BTP</strong> et{' '}
+            <strong className="text-slate-800">IA devis bâtiment</strong> regroupent des artisans,
+            chefs d&apos;entreprise et conducteurs de travaux qui cherchent un gain de temps concret :
+            moins de blanc sur la page, des postes mieux structurés, des variantes pour négocier avec le
+            client. L&apos;objectif n&apos;est pas de &laquo; générer un prix &raquo; sans contrôle, mais
+            d&apos;obtenir un <strong className="text-slate-800">squelette professionnel</strong> (titres,
+            lots, unités, mentions TVA et délais) que vous complétez avec votre grille tarifaire et votre
+            visite technique. Les sections qui suivent détaillent des prompts par métier, une checklist
+            de relecture, les erreurs fréquentes — puis le déroulé d&apos;une formation en 4 h pour
+            ancrer ces réflexes dans votre équipe.
+          </p>
         </section>
 
         {/* Prompts par métier — SEO ChatGPT devis BTP / IA devis bâtiment */}
@@ -272,6 +293,30 @@ export default function IADevisBatimentPage() {
           <p className="mt-3 text-slate-600 leading-relaxed">
             Chaque bloc suit le même principe : l&apos;IA structure le document et le vocabulaire
             métier ; vous restez seul juge des montants, des délais et de la conformité réglementaire.
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            <strong className="text-slate-800">Méthode.</strong> Copiez le prompt dans une nouvelle
+            conversation, complétez les éléments entre crochets si nous en avons laissés, puis imposez
+            le format souhaité : tableau pour séparer fournitures et main d&apos;œuvre, TVA à 10 % pour
+            une rénovation éligible, mentions de validité et de paiement. Relisez systématiquement : une
+            bonne pratique pour le <strong className="text-slate-800">devis intelligent bâtiment</strong>{' '}
+            consiste à enregistrer vos prompts validés comme modèles internes (texte, Notion ou fiche
+            Excel) afin d&apos;harmoniser les réponses de votre bureau des prix. Pour les marchés
+            sensibles ou les données personnelles, préférez un environnement professionnel (compte
+            entreprise, anonymisation des noms) plutôt que le collage brut de dossiers complets dans un
+            outil grand public.
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Les six métiers ci-dessous couvrent une large part des demandes en second œuvre et en
+            structure : <strong className="text-slate-800">électricien</strong> (tableau explicite
+            fournitures / main d&apos;œuvre / TVA 10 %),{' '}
+            <strong className="text-slate-800">plombier-chauffagiste</strong> (salle de bain rénovée),
+            <strong className="text-slate-800"> maçon</strong> (fondations, dalles, élévation),{' '}
+            <strong className="text-slate-800">carreleur</strong> (60×60, colle C2, joints),{' '}
+            <strong className="text-slate-800">peintre</strong> (préparation, deux couches),{' '}
+            <strong className="text-slate-800">charpentier</strong> (traditionnelle, chevrons,
+            coordination couverture). Adaptez les surfaces, les marques et les contraintes chantier à votre
+            réalité — le prompt est une base, pas une offre figée.
           </p>
           <div className="mt-10 space-y-12">
             {PROMPTS_PAR_METIER.map((bloc) => (
@@ -323,6 +368,14 @@ export default function IADevisBatimentPage() {
               </li>
             ))}
           </ul>
+          <p className="mt-8 text-slate-600 leading-relaxed">
+            Une relecture méthodique — idéalement par la personne qui signe ou par un second lecteur —
+            évite les oublis de mentions obligatoires, les incohérences entre quantités et libellés, ou
+            les taux de TVA appliqués à tort. Gardez une trace de la version envoyée (PDF horodaté ou
+            numéro de devis) pour tout suivi en cas de contestation ou d&apos;avenant. Selon votre
+            assurance décennale ou votre logiciel de gestion, vous pouvez compléter cette grille par des
+            contrôles supplémentaires : plans, fiches techniques produits, planning d&apos;intervention.
+          </p>
         </section>
 
         {/* Erreurs fréquentes */}
@@ -337,6 +390,16 @@ export default function IADevisBatimentPage() {
             des formations IA devis BTP, et comment les éviter pour sécuriser vos{' '}
             <strong className="text-slate-800">devis intelligents bâtiment</strong>.
           </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Beaucoup d&apos;artisans découvrent l&apos;<strong className="text-slate-800">IA devis
+            bâtiment</strong> par essai-erreur : le premier jet semble convaincant, puis un détail
+            (marge, norme, confidentialité) crée un problème en phase d&apos;exécution ou de relation
+            client. Anticiper ces erreurs permet de traiter l&apos;IA comme un{' '}
+            <strong className="text-slate-800">assistant de structuration</strong>, pas comme une
+            source de vérité sur les prix ou les obligations légales. En intra-entreprise, formalisez
+            une charte d&apos;usage : qui valide le devis, quelles données ne doivent jamais être
+            collées dans un prompt public, comment archiver les versions finales.
+          </p>
           <div className="mt-10 space-y-6">
             {ERREURS_IA_DEVIS.map((e) => (
               <div
@@ -348,6 +411,13 @@ export default function IADevisBatimentPage() {
               </div>
             ))}
           </div>
+          <p className="mt-8 text-slate-600 leading-relaxed">
+            En résumé : un usage responsable du <strong className="text-slate-800">ChatGPT devis BTP</strong>{' '}
+            combine prompts précis, validation humaine systématique et protection des données sensibles.
+            Cette triple barrière préserve votre crédibilité auprès des clients et limite les écarts entre
+            le texte généré et la réalité chantier — ce qui est précisément l&apos;objectif d&apos;une
+            démarche d&apos;<strong className="text-slate-800">IA devis bâtiment</strong> professionnelle.
+          </p>
         </section>
 
         {/* Formation 4 h — CTA Calendly */}
@@ -363,6 +433,13 @@ export default function IADevisBatimentPage() {
             <strong className="text-slate-900">ChatGPT devis BTP</strong> au quotidien — sans remplacer
             votre expertise, en renforçant votre{' '}
             <strong className="text-slate-900">IA devis bâtiment</strong> maîtrisée.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Le programme alterne démonstrations et ateliers : vous repartez avec des modèles de prompts
+            adaptés au BTP, une grille de contrôle avant signature, et des réponses à des cas réels
+            (petites rénovations, extensions, lots techniques). L&apos;objectif est de réduire le temps
+            passé sur la mise en forme tout en gardant la maîtrise des montants et des engagements
+            contractuels — pilier d&apos;une approche sérieuse de l&apos;IA en entreprise du bâtiment.
           </p>
           <ul className="mt-6 list-inside list-disc space-y-2 text-slate-700">
             <li>Atelier sur vos cas réels : devis types, variantes, relances après envoi.</li>

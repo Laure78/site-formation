@@ -533,7 +533,7 @@ export default function FormationIABTPYvelinesPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations/ia-btp-ile-de-france', label: 'Formation IA BTP Île-de-France' },
+              { href: '/formation-ia-btp-ile-de-france', label: 'Formation IA BTP Île-de-France' },
               { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
