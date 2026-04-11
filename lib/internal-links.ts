@@ -35,8 +35,8 @@ export const LINKS = {
   // Utilitaires
   diagnostic: '/diagnostic-ia-btp',
   checklist: '/checklist-ia-btp',
-  /** Page complémentaire « 100 % » — ne pas confondre avec le guide principal */
-  financement100: '/financement-constructys-100-ia-btp',
+  /** Alias canonique financement (aligné sur le guide OPCO principal) */
+  financement100: '/financement-constructys-formation-ia-btp',
   etudesCas: '/etudes-de-cas/ffb-csfe',
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
 

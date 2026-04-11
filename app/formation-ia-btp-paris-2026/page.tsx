@@ -146,7 +146,7 @@ export default function FormationIABTPParis2026Page() {
               Modalités Constructys 2026 →
             </Link>
             <Link
-              href="/financement-constructys-100-ia-btp"
+              href="/financement-constructys-formation-ia-btp"
               className="inline-flex items-center gap-2 rounded-xl bg-slate-100 px-6 py-3 font-medium text-slate-700 hover:bg-slate-200"
             >
               Guide financement IA BTP →
@@ -243,7 +243,7 @@ export default function FormationIABTPParis2026Page() {
               { href: '/formations/ia-btp-ile-de-france', label: 'Formation Île-de-France' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-              { href: '/financement-constructys-100-ia-btp', label: 'Guide financement 100 % IA BTP' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement 100 % IA BTP' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic gratuit' },
               { href: '/blog', label: 'Articles et guides' },

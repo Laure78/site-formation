@@ -393,8 +393,8 @@ export function Header() {
           <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70 sm:h-10 sm:w-10">
             <Image
               src={PHOTOS.siteAvatar.src}
-              alt={PHOTOS.siteAvatar.alt}
-              title="Laure Olivié — OFC Création d'Entreprise, Guyancourt (78)"
+              alt="Laure Olivié — formation IA BTP, organisme certifié Qualiopi"
+              title="Retour à l'accueil — laureolivie.fr"
               fill
               className={AUTHOR_HEADSHOT_IMAGE_CLASS}
               sizes="40px"

@@ -1031,7 +1031,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     seoTitle:
       'Financer formation IA BTP Constructys 2026 — OPCO, PDC, FNE | Laure Olivié',
     description:
-      'Formation IA BTP : financement Constructys, OPCO construction, plan de développement des compétences, FNE, CPF. Guide 2026 pour TPE et PME bâtiment — plafonds, délais eGestion, Qualiopi.',
+      'Financer sa formation IA BTP à 100% avec Constructys : démarche PDC 2026, eGestion, délais et montants. Guide officiel pour PME bâtiment. Qualiopi · OFC Création d\'Entreprise.',
     date: '2025-03-05',
     dateModified: '2026-04-10',
     keywords: [
@@ -1348,7 +1348,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: '5-cas-usage-chatgpt-artisans-btp',
     title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
-      'Découvrez 5 usages concrets de ChatGPT pour les entreprises du BTP : devis, emails, CR chantier, relances, descriptifs techniques.',
+      '5 usages concrets de ChatGPT pour artisans BTP : CR de chantier automatisé, devis en 15 min, emails, relances, appels d\'offres. Formation finançable Constructys, note 4,85/5.',
     date: '2025-02-20',
     keywords: ['ChatGPT entreprises BTP', 'IA BTP', 'ChatGPT bâtiment', 'intelligence artificielle construction'],
     sections: [
@@ -1419,7 +1419,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'ia-devis-gain-temps-pme-btp',
     title: 'IA et devis : gain de temps réel pour les PME BTP',
     description:
-      "Comment l'IA divise par 10 le temps de rédaction des devis bâtiment. Témoignages et chiffres concrets.",
+      "L'IA divise par 10 le temps de rédaction des devis bâtiment. Témoignages et chiffres mesurés sur 1 592 artisans et PME formés. Formation IA BTP finançable Constructys.",
     date: '2025-01-28',
     keywords: ['IA devis BTP', 'gain de temps devis', 'devis bâtiment IA', 'productivité BTP'],
     sections: [
@@ -2233,7 +2233,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'repondre-appel-offre-travaux',
     title: 'Comment répondre à un appel d\'offre travaux : guide pour les PME du BTP',
-    description: 'Étapes de réponse, analyse du DCE, constitution du dossier et rôle du mémoire technique. Guide opérationnel pour les entreprises du bâtiment.',
+    description:
+      'Répondre à un appel d\'offre BTP : guide complet en 7 étapes. DCE, mémoire technique, bordereau de prix — rôle de l\'IA pour diviser le temps par 5. Formation Constructys.',
     date: '2025-03-16',
     keywords: ['répondre appel d\'offre travaux', 'appel d\'offre BTP', 'DCE BTP', 'constitution dossier AO'],
     sections: [
@@ -2297,7 +2298,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'ia-btp-analyse-dce',
     title: 'Comment utiliser l\'IA pour analyser un DCE dans le BTP',
-    description: 'Structure d\'un DCE, analyse rapide avec l\'IA, synthèse des exigences. Guide pour chargés d\'affaires et bureaux d\'études.',
+    description:
+      'Analyser un DCE de 80 pages en 20 minutes avec l\'IA. Méthode en 5 étapes, prompts CCTP prêts à l\'emploi, gains mesurés. Formation IA BTP finançable Constructys, Qualiopi.',
     date: '2025-03-16',
     keywords: ['IA analyse DCE', 'analyse DCE BTP', 'ChatGPT DCE', 'synthèse DCE IA'],
     sections: [
@@ -2408,10 +2410,10 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
   links.push({ href: INTERNAL_LINKS.prendreRdv.path, label: getAnchor('prendreRdv') });
   switch (cat) {
     case 'financement':
-      links.push(
-        { href: INTERNAL_LINKS.financementConstructys.path, label: getAnchor('financementConstructys') },
-        { href: INTERNAL_LINKS.financement100.path, label: getAnchor('financement100') },
-      );
+      links.push({
+        href: INTERNAL_LINKS.financementConstructys.path,
+        label: getAnchor('financementConstructys'),
+      });
       break;
     case 'devis':
       links.push(
@@ -2455,7 +2457,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       links.push(
         { href: INTERNAL_LINKS.communauteFormateurs.path, label: getAnchor('communauteFormateurs') },
         { href: LINKS.formationParis, label: 'formation IA BTP Paris' },
-        { href: INTERNAL_LINKS.financement100.path, label: getAnchor('financement100') },
+        { href: INTERNAL_LINKS.financementConstructys.path, label: getAnchor('financement100') },
       );
       break;
     default:
