@@ -24,7 +24,7 @@ import type { LucideIcon } from 'lucide-react';
 type MegaLink = {
   href: string;
   label: string;
-  description: string;
+  description?: string;
   icon: LucideIcon;
 };
 
@@ -386,7 +386,11 @@ export function Navbar() {
                             <Icon size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
                             <span>
                               <span className="block text-[0.9375rem]">{link.label}</span>
-                              <span className="mt-0.5 block text-xs text-slate-500">{link.description}</span>
+                              {link.description ? (
+                                <span className="mt-0.5 block text-xs text-slate-500">
+                                  {link.description}
+                                </span>
+                              ) : null}
                             </span>
                           </Link>
                         </li>
