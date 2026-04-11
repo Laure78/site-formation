@@ -79,18 +79,23 @@ export function ArticlesFormationLies() {
                   </Link>
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{a.excerpt}</p>
-                <div className="mt-4 flex items-center gap-2 border-t border-slate-100 pt-4">
+                <div className="mt-4 flex items-start gap-2 border-t border-slate-100 pt-4">
                   <PortraitLinkedInLink className="shrink-0 rounded-full ring-2 ring-[var(--accent-soft)] transition-opacity hover:opacity-95">
                     <Image
-                      src={PHOTOS.linkedinGraz.src}
-                      alt={PHOTOS.linkedinGraz.alt}
-                      title="Profil LinkedIn — Laure Olivié, formatrice IA BTP"
+                      src={PHOTOS.siteAvatar.src}
+                      alt={PHOTOS.siteAvatar.alt}
+                      title="Laure Olivié — OFC Création d'Entreprise, formatrice IA BTP"
                       width={36}
                       height={36}
                       className="h-9 w-9 rounded-full object-cover"
                     />
                   </PortraitLinkedInLink>
-                  <span className="text-sm font-medium text-slate-800">{SITE_CONFIG.name}</span>
+                  <div className="min-w-0">
+                    <span className="block text-sm font-medium text-slate-800">{SITE_CONFIG.name}</span>
+                    <span className="mt-0.5 block text-xs leading-snug text-slate-600">
+                      Formatrice IA & ChatGPT — Qualiopi
+                    </span>
+                  </div>
                 </div>
               </div>
             </article>

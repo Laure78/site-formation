@@ -6,7 +6,7 @@ import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_IMAGE_CLASS } from '@/lib/author-headshot';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 
-const AUTHOR_PHOTO = PHOTOS.linkedinGraz;
+const AUTHOR_PHOTO = PHOTOS.siteAvatar;
 
 export function AuthorBlock({ className }: { className?: string }) {
   return (
@@ -16,7 +16,7 @@ export function AuthorBlock({ className }: { className?: string }) {
           <Image
             src={AUTHOR_PHOTO.src}
             alt={AUTHOR_PHOTO.alt}
-            title="Profil LinkedIn — Laure Olivié, formatrice IA BTP"
+            title="Laure Olivié — OFC Création d'Entreprise, formatrice IA BTP"
             fill
             className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="64px"

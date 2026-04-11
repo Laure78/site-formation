@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
+import { PHOTOS } from '@/lib/photos';
 
 type MegaLink = {
   href: string;
@@ -237,9 +238,24 @@ function MegaDropdownPanel({
               aria-hidden
             />
           </Link>
+          {mega.id === 'formations' && (
+            <p className="mt-2 text-xs leading-relaxed text-slate-600">
+              Sessions 4 h, présentiel — Qualiopi, financement OPCO Constructys selon éligibilité.
+            </p>
+          )}
+          {mega.id === 'cas-usage' && (
+            <p className="mt-2 text-xs leading-relaxed text-slate-600">
+              Choisir un angle : terrain, administratif, marchés, RH — avec des exemples concrets BTP.
+            </p>
+          )}
           {mega.id === 'methode' && (
-            <p className="mt-2 text-xs leading-relaxed text-slate-500">
+            <p className="mt-2 text-xs leading-relaxed text-slate-600">
               Une méthode éprouvée avec des professionnels du bâtiment et des travaux publics.
+            </p>
+          )}
+          {mega.id === 'a-propos' && (
+            <p className="mt-2 text-xs leading-relaxed text-slate-600">
+              Parcours, références FFB / CSFE, témoignages et prise de contact.
             </p>
           )}
         </div>
@@ -256,23 +272,37 @@ function MegaDropdownPanel({
                   mega.id === 'a-propos' ? 'pt-2' : ''
                 }`}
               >
-                {col.links.map((link) => (
+                {col.links.map((link) => {
+                  const ItemIcon = link.icon;
+                  const linkActive = isActive(link.href, pathname);
+                  return (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`block rounded-xl px-3 py-2.5 transition-colors ${
-                        isActive(link.href, pathname)
+                      className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                        linkActive
                           ? 'bg-slate-50 font-medium text-[var(--accent)]'
                           : 'text-slate-800 hover:bg-slate-50'
                       }`}
                     >
-                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      <span className="mt-0.5 block text-xs leading-relaxed text-slate-500">
-                        {link.description}
+                      <ItemIcon
+                        size={20}
+                        strokeWidth={1.75}
+                        className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                        aria-hidden
+                      />
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                        {link.description ? (
+                          <span className="mt-1 block text-sm leading-relaxed text-slate-600">
+                            {link.description}
+                          </span>
+                        ) : null}
                       </span>
                     </Link>
                   </li>
-                ))}
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -362,8 +392,8 @@ export function Header() {
         >
           <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70 sm:h-10 sm:w-10">
             <Image
-              src="/images/laure-portrait-header-2026.png"
-              alt="Laure Olivié, formatrice IA BTP certifiée Qualiopi — OFC Création d'Entreprise"
+              src={PHOTOS.siteAvatar.src}
+              alt={PHOTOS.siteAvatar.alt}
               title="Laure Olivié — OFC Création d'Entreprise, Guyancourt (78)"
               fill
               className={AUTHOR_HEADSHOT_IMAGE_CLASS}

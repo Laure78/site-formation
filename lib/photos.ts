@@ -6,6 +6,14 @@ export const PHOTOS = {
     width: 547,
     height: 456,
   },
+
+  /** Avatar site — même fichier que le portrait rond du header (fond clair, cohérence NAP / marque) */
+  siteAvatar: {
+    src: '/images/laure-portrait-header-2026.png',
+    alt: "Laure Olivié, formatrice IA BTP certifiée Qualiopi — OFC Création d'Entreprise",
+    width: 682,
+    height: 1024,
+  },
   
   // Photo auteur blog / cartes (LinkedIn Graz)
   linkedinGraz: {
