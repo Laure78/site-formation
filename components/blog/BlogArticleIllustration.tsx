@@ -5,18 +5,21 @@ type Props = {
   ill: BlogIllustration;
   /** LCP — uniquement pour la première image de l’article */
   priority?: boolean;
+  /** Complément au survol — ne pas dupliquer l’alt */
+  title?: string;
 };
 
 /**
  * Figure responsive pour les articles blog — bordure et ratio cohérents avec le site.
  */
-export function BlogArticleIllustration({ ill, priority }: Props) {
+export function BlogArticleIllustration({ ill, priority, title }: Props) {
   return (
     <figure className="my-10 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
       <div className="relative aspect-[16/10] w-full">
         <Image
           src={ill.src}
           alt={ill.alt}
+          title={title}
           fill
           className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 768px"

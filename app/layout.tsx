@@ -9,9 +9,7 @@ import { StickyRDVCTA } from '@/components/StickyRDVCTA';
 import {
   SITE_CONFIG,
   getOrganizationSchema,
-  getLocalBusinessSchema,
   getWebSiteSchema,
-  getPersonSchema,
   getMainCourseSchema,
 } from '@/lib/seo';
 import { getSchemaPersonOrganization } from '@/lib/schema-person-organization';
@@ -119,18 +117,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const orgSchema = getOrganizationSchema();
-  const localSchema = getLocalBusinessSchema();
   const webSchema = getWebSiteSchema();
-  const personSchema = getPersonSchema();
   const mainCourseSchema = getMainCourseSchema();
 
-  const jsonLdScripts = [
-    orgSchema,
-    localSchema,
-    webSchema,
-    personSchema,
-    mainCourseSchema,
-  ];
+  /** LocalBusiness + Person détaillés : page /a-propos (évite doublons) */
+  const jsonLdScripts = [orgSchema, webSchema, mainCourseSchema];
 
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>

@@ -4,9 +4,10 @@ import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 
 const PATH = '/formation-ia-conducteur-travaux-btp';
 
@@ -407,13 +408,7 @@ export default function FormationIaConducteurTravauxBtpPage() {
               Réserver votre visio découverte
               <ArrowRight size={20} strokeWidth={1.5} />
             </RdvLink>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
@@ -434,7 +429,7 @@ export default function FormationIaConducteurTravauxBtpPage() {
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
             OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
-            {SITE_CONFIG.email} · {SITE_CONFIG.phoneDisplay}
+            {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
 

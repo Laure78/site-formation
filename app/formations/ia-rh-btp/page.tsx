@@ -1,16 +1,20 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
+  siteHasPublicPhone,
 } from '@/lib/seo';
+import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_RH_BTP } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -52,20 +56,7 @@ export const metadata = createPageMetadata({
   },
 });
 
-const courseSchema = getCourseSchema({
-  name: 'Formation IA pour la Fonction RH dans le BTP',
-  description:
-    `Formation opérationnelle ${SESSION_DUREE_LIBELLE} : recrutement, GEPP, tableaux de bord RH, assistant IA. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Finançable OPCO selon éligibilité.`,
-  path: '/formations/ia-rh-btp',
-  providerName: SITE_CONFIG.legalName,
-  areaServed: ['France', 'Île-de-France'],
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: 'Formation IA pour la fonction RH BTP', path: '/formations/ia-rh-btp' },
-]);
+const formationCourseGraph = getFormationCoursePageJsonLd('/formations/ia-rh-btp')!;
 
 const MODULES = [
   {
@@ -119,18 +110,15 @@ export default function FormationIARHBTPPage() {
 
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: 'Formation IA pour la fonction RH BTP', path: '/formations/ia-rh-btp' },
+        ])}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
         refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-03`}
@@ -180,12 +168,7 @@ export default function FormationIARHBTPPage() {
             >
               Fiche cours plateforme
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >
@@ -232,11 +215,18 @@ export default function FormationIARHBTPPage() {
           Contact :{' '}
           <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
             laureolivie@yahoo.fr
-          </a>{' '}
-          ·{' '}
-          <a href="tel:+33695661818" className="font-medium text-[var(--accent)] hover:underline">
-            06 95 66 18 18
           </a>
+          {siteHasPublicPhone() ? (
+            <>
+              {' · '}
+              <a
+                href={`tel:${SITE_CONFIG.phone}`}
+                className="font-medium text-[var(--accent)] hover:underline"
+              >
+                {SITE_CONFIG.phoneDisplay}
+              </a>
+            </>
+          ) : null}
         </p>
       </section>
 

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { createPageMetadata, getBreadcrumbSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
 import { FORMATION_IA_METIERS, FORMATION_IA_VILLES } from '@/lib/seo-formation-ia-hub-data';
 
 export const metadata = createPageMetadata({
@@ -21,18 +22,17 @@ export const metadata = createPageMetadata({
 });
 
 export default function FormationIaHubPage() {
-  const breadcrumb = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: 'Formation IA BTP (hub)', path: '/formation-ia' },
-  ]);
-
   const paris = FORMATION_IA_VILLES.find((v) => v.slug === 'btp-paris');
 
   return (
     <div className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formation IA BTP (hub)', path: '/formation-ia' },
+        ])}
+        showVisual
+        className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 lg:px-8"
       />
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <article className="prose prose-slate max-w-none">

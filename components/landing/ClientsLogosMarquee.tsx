@@ -4,7 +4,14 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { CLIENT_LOGOS_MARQUEE } from '@/lib/client-logos';
 
-function LogoRow({ idSuffix = '' }: { idSuffix?: string }) {
+function LogoRow({
+  idSuffix = '',
+  decorativeDuplicate = false,
+}: {
+  idSuffix?: string;
+  /** Seconde bande du carrousel : mêmes visuels, alts vides (déjà décrits). */
+  decorativeDuplicate?: boolean;
+}) {
   return (
     <>
       {CLIENT_LOGOS_MARQUEE.map((logo) => (
@@ -16,7 +23,7 @@ function LogoRow({ idSuffix = '' }: { idSuffix?: string }) {
           <div className="relative h-10 w-[9.5rem] shrink-0 md:h-11 md:w-[10.5rem]">
             <Image
               src={logo.src}
-              alt={logo.alt}
+              alt={decorativeDuplicate ? '' : logo.alt}
               fill
               sizes="(max-width: 768px) 152px, 168px"
               className="object-contain object-center p-0.5 opacity-[0.92]"
@@ -81,7 +88,7 @@ export function ClientsLogosMarquee() {
                 <LogoRow idSuffix="-a" />
               </div>
               <div className="flex items-center" aria-hidden>
-                <LogoRow idSuffix="-b" />
+                <LogoRow idSuffix="-b" decorativeDuplicate />
               </div>
             </div>
           )}

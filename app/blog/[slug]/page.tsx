@@ -6,9 +6,8 @@ import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
   ARTICLE_SECTION_GEO,
+  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getArticleSchema,
-  getBreadcrumbSchema,
   getHowToFromArticle,
 } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -26,12 +25,12 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
+import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
-import {
-  getBlogArticleIllustrations,
-  getIllustrationSectionIndices,
-} from '@/lib/blog-article-illustrations';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getBlogArticleIllustrations } from '@/lib/blog-article-illustrations';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
+import { LINKS } from '@/lib/internal-links';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -86,7 +85,7 @@ export async function generateMetadata({ params }: Props) {
   if (!article) return { title: 'Article non trouvé' };
   const metaTitle = article.seoTitle ?? article.title;
   const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
-  const heroIll = getBlogArticleIllustrations(slug)[0];
+  const heroIll = getBlogArticleIllustrations(slug, article.title)[0];
   const base = createPageMetadata({
     title: metaTitle,
     description: article.description,
@@ -122,31 +121,38 @@ export default async function BlogArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const related = getRelatedArticlesForDisplay(slug, 6);
-  const illustrations = getBlogArticleIllustrations(slug);
-  const { afterFirst, afterSecond } = getIllustrationSectionIndices(article.sections.length);
+  const illustrations = getBlogArticleIllustrations(slug, article.title);
 
   const wordCount = estimateWordCountFromArticle(article);
-  const articleSchema = getArticleSchema({
-    headline: article.title,
-    description: article.description,
-    path: `/blog/${article.slug}`,
-    datePublished: article.date,
-    dateModified: article.dateModified ?? article.date,
-    authorName: SITE_CONFIG.name,
-    wordCount,
-    image: illustrations[0]?.src,
-  });
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: 'Blog', path: '/blog' },
-    { name: article.title, path: `/blog/${article.slug}` },
-  ]);
+  const heroSrc = illustrations[0]?.src;
+  const imageUrl = heroSrc
+    ? heroSrc.startsWith('http')
+      ? heroSrc
+      : `${SITE_CONFIG.url}${heroSrc}`
+    : `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
   const howToSchema = getHowToFromArticle(article);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <ArticleJsonLd
+        title={article.title}
+        description={article.description}
+        slug={article.slug}
+        datePublished={article.date}
+        dateModified={article.dateModified}
+        imageUrl={imageUrl}
+        keywords={article.keywords}
+        wordCount={wordCount}
+      />
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Ressources', path: '/blog' },
+          { name: article.title, path: `/blog/${article.slug}` },
+        ])}
+        showVisual
+        className="mb-6"
+      />
       <BlogArticleFaqJsonLd sections={article.sections} />
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
@@ -409,12 +415,6 @@ export default async function BlogArticlePage({ params }: Props) {
                 </div>
               )}
             </section>
-            {afterFirst === i && illustrations[1] && (
-              <BlogArticleIllustration ill={illustrations[1]} />
-            )}
-            {afterSecond === i && illustrations[2] && (
-              <BlogArticleIllustration ill={illustrations[2]} />
-            )}
           </Fragment>
           );
         })}
@@ -460,37 +460,47 @@ export default async function BlogArticlePage({ params }: Props) {
           </p>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
-              <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] font-medium hover:underline">
+              <Link
+                href={LINKS.chatgptArtisans}
+                className="text-[var(--accent)] font-medium hover:underline"
+                title="ChatGPT pour artisans et entreprises du BTP"
+              >
                 ChatGPT pour entreprises BTP
               </Link>
             </li>
             <li>
-              <Link href="/ia-devis-batiment" className="text-[var(--accent)] font-medium hover:underline">
+              <Link
+                href={LINKS.iaDevis}
+                className="text-[var(--accent)] font-medium hover:underline"
+                title="Automatiser les devis bâtiment avec l’IA"
+              >
                 IA devis bâtiment
               </Link>
             </li>
             <li>
-              <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] font-medium hover:underline">
+              <Link
+                href={LINKS.iaCDT}
+                className="text-[var(--accent)] font-medium hover:underline"
+                title="IA pour conducteurs de travaux et comptes rendus chantier"
+              >
                 IA conducteur de travaux
               </Link>
             </li>
             <li>
-              <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
-                Catalogue des formations
+              <Link
+                href={LINKS.financement}
+                className="text-[var(--accent)] font-medium hover:underline"
+                title="Financement OPCO Constructys — formation IA BTP"
+              >
+                Financement Constructys
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-btp-paris-2026" className="text-[var(--accent)] font-medium hover:underline">
-                Formation IA BTP Paris 2026
-              </Link>
-            </li>
-            <li>
-              <Link href="/financement-constructys-100-ia-btp" className="text-[var(--accent)] font-medium hover:underline">
-                Financement Constructys 100% IA BTP
-              </Link>
-            </li>
-            <li>
-              <Link href="/diagnostic-ia-btp" className="text-[var(--accent)] font-medium hover:underline">
+              <Link
+                href={LINKS.diagnostic}
+                className="text-[var(--accent)] font-medium hover:underline"
+                title="Diagnostic gratuit sur votre usage de l’IA BTP"
+              >
                 Diagnostic IA BTP gratuit
               </Link>
             </li>
@@ -504,46 +514,36 @@ export default async function BlogArticlePage({ params }: Props) {
             description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet — 30 minutes gratuites."
             primaryLabel="Prendre rendez-vous"
             primaryHref={CALENDLY_BOOKING_URL}
-            secondaryLabel="Voir les formations"
-            secondaryHref="/formations"
+            secondaryLabel="Programme « L'IA au service du bâtiment »"
+            secondaryHref={LINKS.formationBatiment}
           />
         </div>
 
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link href="/formations" className="text-[var(--accent)] hover:underline">
-            Formation IA BTP
-          </Link>
-          <Link href="/formation-ia-artisans-btp" className="text-[var(--accent)] hover:underline">
+          <Link href={LINKS.chatgptArtisans} className="text-[var(--accent)] hover:underline" title="ChatGPT pour entreprises BTP">
             ChatGPT pour entreprises BTP
           </Link>
-          <Link href="/ia-devis-batiment" className="text-[var(--accent)] hover:underline">
-            IA devis bâtiment
-          </Link>
-          <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
-            IA conducteur de travaux
+          <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA BTP à Paris et Île-de-France">
+            Formation IA BTP Paris
           </Link>
           <RdvLink className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous
           </RdvLink>
-          <Link href="/financement-constructys-formation-ia-btp" className="text-[var(--accent)] hover:underline">
-            Tarifs et financement
+          <Link href={LINKS.financement} className="text-[var(--accent)] hover:underline" title="Financement OPCO Constructys">
+            Financement Constructys
           </Link>
-          <Link href="/blog" className="text-[var(--accent)] hover:underline">
-            Toutes les ressources
+          <Link href={LINKS.blog} className="text-[var(--accent)] hover:underline" title="Articles et guides IA BTP">
+            Tous les articles
           </Link>
         </div>
 
         <AllerPlusLoin
           variant="compact"
           links={[
-            { href: '/formations', label: 'Formation IA BTP' },
-            { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-            { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
-            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-            { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-            { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
+            { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
+            { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
+            { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-            { href: '/blog', label: 'Articles et guides' },
           ]}
         />
       </article>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
@@ -41,13 +41,6 @@ export default function ReglementInterieurPage() {
             >
               <Mail size={16} strokeWidth={1.5} />
               laureolivie@yahoo.fr
-            </a>
-            <a
-              href="tel:+33695661818"
-              className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
-            >
-              <Phone size={16} strokeWidth={1.5} />
-              06 95 66 18 18
             </a>
           </div>
         </div>
@@ -214,7 +207,7 @@ export default function ReglementInterieurPage() {
           <p className="mt-4 font-medium text-slate-700">Absences</p>
           <p className="mt-2 text-slate-600">
             Toute absence doit être justifiée dans les plus brefs délais par
-            téléphone (06 95 66 18 18) ou email (laureolivie@yahoo.fr).
+            email (laureolivie@yahoo.fr).
           </p>
           <p className="mt-2 text-slate-600">
             En cas d&apos;absence injustifiée ou de justificatif non fourni,
@@ -393,7 +386,7 @@ export default function ReglementInterieurPage() {
           </h2>
           <p className="mt-4 text-slate-600">
             L&apos;Organisme s&apos;engage à faciliter l&apos;accès aux formations.
-            Référent Handicap : Laure OLIVIÉ — laureolivie@yahoo.fr — 06 95 66 18 18.
+            Référent Handicap : Laure OLIVIÉ — laureolivie@yahoo.fr.
             Aménagements possibles sur demande (supports, horaires, moyens
             techniques, temps supplémentaire). Demandes à formuler 15 jours avant
             le début. Partenariats : MDPH, AGEFIPH, référents handicap OPCO.
@@ -406,8 +399,8 @@ export default function ReglementInterieurPage() {
             ARTICLE 14 — RÉCLAMATIONS
           </h2>
           <p className="mt-4 text-slate-600">
-            Réclamations à adresser par email (laureolivie@yahoo.fr), courrier (6
-            rue Henri Dunant, 78280 GUYANCOURT) ou téléphone (06 95 66 18 18).
+            Réclamations à adresser par email (laureolivie@yahoo.fr) ou courrier (6
+            rue Henri Dunant, 78280 GUYANCOURT).
             L&apos;Organisme s&apos;engage à accuser réception sous 48h et répondre
             sous 15 jours ouvrés.
           </p>
@@ -449,13 +442,6 @@ export default function ReglementInterieurPage() {
               className="text-[var(--accent)] hover:underline"
             >
               laureolivie@yahoo.fr
-            </a>
-            {' · '}
-            <a
-              href="tel:+33695661818"
-              className="text-[var(--accent)] hover:underline"
-            >
-              06 95 66 18 18
             </a>
           </p>
           <p>

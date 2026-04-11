@@ -46,7 +46,6 @@
 
 ## Contact & Communication
 - **Email professionnel** : laureolivie@yahoo.fr
-- **Téléphone** : 06 95 66 18 18
 - **Site web** : www.laureolivie.fr
 - **Calendly** : https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
 - **CTA principal** : "Prendre un rendez-vous découverte" ou "Appel découverte" (vers Calendly)
@@ -54,7 +53,7 @@
 ## SEO & Structure du Contenu
 - **H1 unique par page** : Une seule balise H1 par page
 - **Hiérarchie** : H1 → H2 (2-4 par page) → H3 (détails)
-- **Textes alternatifs** : Tous les images, logos et icônes doivent avoir un `alt` descriptif
+- **Textes alternatifs** : Voir section « Images — SEO & WCAG » (ci-dessous) ; alts centralisés dans `lib/photos.ts` et `lib/client-logos.ts` lorsque possible
 - **Maillage interne** : 3+ liens internes vers autres pages pertinentes par page
 - **CTA Calendly** : Intégrer naturellement dans le contenu (pas seulement en footer)
 - **Mots-clés principaux** :
@@ -65,14 +64,58 @@
   - ChatGPT artisans BTP
   - Productivité IA construction
 
-## Schema Markup (JSON-LD)
-Implémenter les schémas suivants pour l'extraction IA :
-1. **Organization** : OFC Création d'Entreprise, coordonnées complètes, logo
-2. **Person** : Laure Olivié, description, photo
+## Netlinking interne laureolivie.fr — règles absolues
+
+1. **Jamais** deux liens vers la même URL dans la même page.
+2. **Toujours** importer les URLs depuis `lib/internal-links.ts` (jamais de chemins internes en dur dans le code).
+3. **Jamais** `/financement-constructys` seul → toujours `/financement-constructys-formation-ia-btp`.
+4. **Jamais** `/tarifs` → remplacer par `/financement-constructys-formation-ia-btp`.
+5. **Maximum 5** liens internes par article de blog.
+6. Chaque **nouvelle page** doit recevoir au moins **1 lien** depuis une page existante.
+7. Les **ancres** doivent décrire la page cible (pas « cliquez ici », « en savoir plus », etc.).
+8. **Vérifier** `lib/internal-links.ts` avant d’ajouter tout nouveau lien interne (étendre le fichier si besoin plutôt que dupliquer des chaînes).
+
+## Images — SEO BTP & accessibilité (WCAG 2.1)
+
+1. **Alt** : description factuelle + 1 mot-clé contextuel (page / thème) ; **max. 125 caractères** ; pas de « image de », « photo de » en tête ; pas de bourrage de mots-clés.
+2. **Décoratif** : `alt=""` (chaîne vide) — jamais « décoratif » en texte ; pas d’absence d’attribut `alt` sur `<img>` / `next/image`.
+3. **Logos** : `Logo [Organisation] — [contexte court]` (ex. partenaire formation IA BTP).
+4. **Personnes** : `[Prénom Nom], [rôle], [contexte]` (ex. session de formation, lieu).
+5. **Title sur image** : optionnel ; **ne pas dupliquer l’alt** — info complémentaire au survol (tooltip).
+6. **Doublons visuels** (carrousel, marquee) : une seule bande avec textes alternatifs ; répétitions `aria-hidden` + `alt=""` sur les clones.
+7. **Blog** : **une seule image par article** (hero sous le chapô) ; alts alignés titre + catégorie (`getBlogArticleIllustrations`).
+8. **LCP** : `priority` sur le hero et le portrait header ; pas sur les visuels sous la ligne de flottaison sauf exception (ex. hero page À propos).
+9. **Schéma** : `ImageObject` JSON-LD pour les visuels stratégiques (accueil, à propos) — voir `lib/schema-image-objects.ts`.
+
+## Schema.org — règles projet (obligatoires)
+
+1. **SCHEMA.ORG** — Avant d’ajouter une nouvelle page : vérifier la présence du composant **`JsonLd`** (ou du pattern équivalent `ArticleJsonLd` / `Breadcrumb` / scripts alignés sur le projet). Pas de bloc JSON-LD dupliqué ou incohérent avec le layout.
+
+2. **SCHEMA.ORG** — **Nouvelles pages de formation** : ajouter automatiquement le schéma **`Course`** avec **`<JsonLd />`** (fiches catalogue : `getFormationCoursePageJsonLd` depuis `lib/schema-course-formations.ts` ; alignement prix / durée avec `lib/tarifs-sessions.ts`).
+
+3. **SCHEMA.ORG** — **Nouveaux articles de blog** (`/blog/[slug]`) : ajouter automatiquement **`BlogPosting`** via **`ArticleJsonLd`** ; FAQ article via **`BlogArticleFaqJsonLd`** si sections FAQ ; fil d’Ariane via **`Breadcrumb`**.
+
+4. **SCHEMA.ORG** — **Ne jamais** modifier en dur dans les fichiers de schéma les données fixes (téléphone, SIRET, NDA, email, coordonnées GPS, horaires, note agrégée, identité OFC / Laure) : **source unique** **`lib/schema-constants.ts`**. Le SEO global (`SITE_CONFIG` dans `lib/seo.ts`) s’aligne sur ces constantes.
+
+5. **SCHEMA.ORG** — Après chaque ajout ou modification de schéma, tester l’URL sur **[Google Rich Results Test](https://search.google.com/test/rich-results)**.
+
+## SEO — titres & métadonnées (pages nouvelles)
+
+6. **SEO** — **Title SEO** : format **`[Mot-clé principal] : [bénéfice] | Laure Olivié`**, **max. 65 caractères**.
+
+7. **SEO** — **Meta description** : **max. 160 caractères**, doit contenir **« formation IA BTP »** ou **« ChatGPT BTP »**.
+
+8. **SEO** — Chaque nouvelle page doit avoir **au moins un lien interne** depuis une page existante ; étendre **`lib/internal-links.ts`** si besoin (pas d’URL en dur hors ce fichier).
+
+## Schema Markup (JSON-LD) — inventaire cible
+Implémenter / maintenir les schémas suivants pour l’extraction IA et les rich results :
+1. **Organization** : OFC Création d'Entreprise, coordonnées depuis `lib/schema-constants.ts`, logo
+2. **Person** : Laure Olivié — données alignées `schema-constants` / `schema-a-propos`
 3. **Course** : Chaque formation (nom, description, durée, prix, certification)
 4. **FAQPage** : FAQ sur formations et IA BTP
-5. **LocalBusiness** : OFC Création d'Entreprise (adresse Guyancourt, téléphone, email)
-6. **BreadcrumbList** : Sur toutes les pages pour la navigation
+5. **LocalBusiness** : enrichissements cohérents (adresse Guyancourt, email ; téléphone si public)
+6. **BreadcrumbList** : pages internes (composant `Breadcrumb`)
+7. **BlogPosting** : articles blog via `ArticleJsonLd`
 
 ## Mentions Légales (à inclure systématiquement)
 ```
@@ -81,7 +124,6 @@ SIRET 905 244 281 00010
 NDA 11788515078
 6 rue Henri Dunant, 78280 Guyancourt
 laureolivie@yahoo.fr
-06 95 66 18 18
 www.laureolivie.fr
 ```
 
@@ -133,4 +175,4 @@ Placer dans le footer de chaque page + page dédiée "Mentions légales".
 
 ---
 
-**Dernière mise à jour** : 2026-04-07
+**Dernière mise à jour** : 2026-04-10

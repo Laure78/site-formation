@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
-import { Phone, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
   getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
@@ -96,12 +98,6 @@ const courseSchema = getCourseSchema({
   areaServed: ['Paris', 'Île-de-France', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', 'Seine-et-Marne', 'Yvelines', 'Essonne', "Val-d'Oise"],
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: 'Formation IA BTP à Paris', path: '/formations/ia-btp-paris' },
-]);
-
 const faqSchema = getFAQSchema(FAQ_IA_BTP_PARIS);
 
 export default function FormationIABTPParisPage() {
@@ -111,9 +107,12 @@ export default function FormationIABTPParisPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: 'Formation IA BTP à Paris', path: '/formations/ia-btp-paris' },
+        ])}
       />
       <script
         type="application/ld+json"
@@ -172,12 +171,7 @@ export default function FormationIABTPParisPage() {
             >
               Fiche formation catalogue (BTP-01)
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >
@@ -253,13 +247,7 @@ export default function FormationIABTPParisPage() {
                 <Calendar size={20} strokeWidth={1.5} />
                 Prendre rendez-vous
               </RdvLink>
-              <a
-                href="tel:+33695661818"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
-              >
-                <Phone size={20} strokeWidth={1.5} />
-                Appeler : 06 95 66 18 18
-              </a>
+              <PublicPhoneCta className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50" />
             </div>
           </div>
         </div>
@@ -280,9 +268,8 @@ export default function FormationIABTPParisPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-              { href: '/formations', label: 'Catalogue formations' },
-              { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
+              { href: '/formations', label: 'Catalogue des formations IA BTP' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             ]}
@@ -305,13 +292,7 @@ export default function FormationIABTPParisPage() {
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
             </RdvLink>
-            <a
-              href="tel:+33695661818"
-              className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler maintenant
-            </a>
+            <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>
       </section>

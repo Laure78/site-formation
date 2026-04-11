@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
@@ -40,13 +40,6 @@ export default function CGVPage() {
             >
               <Mail size={16} strokeWidth={1.5} />
               laureolivie@yahoo.fr
-            </a>
-            <a
-              href="tel:+33695661818"
-              className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
-            >
-              <Phone size={16} strokeWidth={1.5} />
-              06 95 66 18 18
             </a>
           </div>
         </div>
@@ -122,8 +115,7 @@ export default function CGVPage() {
           </h3>
           <p className="mt-2">
             Par formulaire en ligne sur www.laureolivie.fr ; par email à
-            laureolivie@yahoo.fr ; par téléphone au 06 95 66 18 18 ; par voie
-            postale.
+            laureolivie@yahoo.fr ; par voie postale.
           </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
             3.2 Validation de l&apos;inscription
@@ -348,7 +340,7 @@ export default function CGVPage() {
             ARTICLE 17 — RÉFÉRENT HANDICAP
           </h2>
           <p className="mt-4">
-            Référent : Laure OLIVIÉ — laureolivie@yahoo.fr — 06 95 66 18 18.
+            Référent : Laure OLIVIÉ — laureolivie@yahoo.fr.
             Contact au moins 15 jours avant le début pour adaptation. Annuaire
             partenaires handicap disponible sur demande.
           </p>
@@ -382,13 +374,6 @@ export default function CGVPage() {
               className="text-[var(--accent)] hover:underline"
             >
               laureolivie@yahoo.fr
-            </a>
-            {' · '}
-            <a
-              href="tel:+33695661818"
-              className="text-[var(--accent)] hover:underline"
-            >
-              06 95 66 18 18
             </a>
           </p>
           <p>

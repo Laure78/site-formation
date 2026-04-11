@@ -1,15 +1,18 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
-import { Phone, Calendar, Check } from 'lucide-react';
+import { Calendar, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
   getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
+  sitePhoneDisplaySuffix,
 } from '@/lib/seo';
 import { FAQ_IA_BTP_YVELINES } from '@/lib/faq';
 import {
@@ -67,12 +70,6 @@ const courseSchema = getCourseSchema({
   ],
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: 'Formation IA BTP Yvelines (78)', path: '/formations/ia-btp-yvelines-78' },
-]);
-
 const faqSchema = getFAQSchema(FAQ_IA_BTP_YVELINES);
 
 export default function FormationIABTPYvelinesPage() {
@@ -82,9 +79,12 @@ export default function FormationIABTPYvelinesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: 'Formation IA BTP Yvelines (78)', path: '/formations/ia-btp-yvelines-78' },
+        ])}
       />
       <script
         type="application/ld+json"
@@ -142,12 +142,7 @@ export default function FormationIABTPYvelinesPage() {
             <Link href="/formations" className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline">
               Catalogue formations
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >
@@ -526,7 +521,7 @@ export default function FormationIABTPYvelinesPage() {
             Plus de 1 592 professionnels BTP formés · Note 4,85/5 · Qualiopi · Constructys / FSE+
           </p>
           <p className="mt-6 text-sm text-slate-500">
-            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · {SITE_CONFIG.phoneDisplay} ·{' '}
+            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
             <a href={`mailto:${SITE_CONFIG.email}`} className="text-[var(--accent)] hover:underline">
               {SITE_CONFIG.email}
             </a>
@@ -563,13 +558,7 @@ export default function FormationIABTPYvelinesPage() {
               <Calendar size={20} strokeWidth={1.5} />
               Prendre rendez-vous
             </RdvLink>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler
-            </a>
+            <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>
       </section>

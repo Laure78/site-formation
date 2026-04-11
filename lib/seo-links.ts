@@ -5,13 +5,14 @@
 
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
 
-/** Pages clés avec ancres SEO variées (éviter répétition) */
+/** Pages clés avec ancres SEO variées (éviter répétition) — chemins alignés sur {@link LINKS} */
 export const INTERNAL_LINKS = {
   formations: {
-    path: '/formations',
+    path: LINKS.formations,
     anchors: ['formation IA BTP', 'catalogue formations IA', 'formations IA bâtiment'],
   },
   /** Prise de RDV — lien direct Calendly (nouvel onglet côté UI) */
@@ -20,7 +21,7 @@ export const INTERNAL_LINKS = {
     anchors: ['prendre rendez-vous', 'réserver un RDV gratuit', 'devis personnalisé formation'],
   },
   chatgptArtisans: {
-    path: '/formation-ia-artisans-btp',
+    path: LINKS.chatgptArtisans,
     anchors: [
       'ChatGPT pour entreprises BTP',
       'IA et ChatGPT bâtiment et travaux publics',
@@ -28,39 +29,39 @@ export const INTERNAL_LINKS = {
     ],
   },
   iaDevis: {
-    path: '/ia-devis-batiment',
+    path: LINKS.iaDevis,
     anchors: ['IA devis bâtiment', 'automatiser devis BTP', 'IA pour devis'],
   },
   iaConducteur: {
-    path: '/ia-conducteur-travaux',
+    path: LINKS.iaCDT,
     anchors: ['IA conducteur de travaux', 'IA CR chantier', 'formation IA conducteur'],
   },
   financementConstructys: {
-    path: '/financement-constructys-formation-ia-btp',
+    path: LINKS.financement,
     anchors: ['financement Constructys', 'OPCO Constructys', 'financer formation IA BTP'],
   },
   financement100: {
-    path: '/financement-constructys-100-ia-btp',
+    path: LINKS.financement100,
     anchors: ['financement 100% IA BTP', 'formation IA Constructys 100%', 'prise en charge totale'],
   },
   diagnostic: {
-    path: '/diagnostic-ia-btp',
+    path: LINKS.diagnostic,
     anchors: ['diagnostic IA BTP gratuit', 'audit IA BTP', 'diagnostic gratuit'],
   },
   blog: {
-    path: '/blog',
+    path: LINKS.blog,
     anchors: ['ressources IA BTP', 'articles formation IA', 'blog formation IA BTP'],
   },
   aPropos: {
-    path: '/a-propos',
+    path: LINKS.aPropos,
     anchors: ['Laure Olivié formatrice', 'à propos', 'notre formatrice'],
   },
   contact: {
-    path: '/contact',
+    path: LINKS.contact,
     anchors: ['contact', 'nous contacter', 'devis formation'],
   },
   appelsOffres: {
-    path: '/formations/ia-appels-offre-btp',
+    path: LINKS.formationAO,
     anchors: [
       'formation appels d\'offres IA',
       'répondre aux appels d\'offre avec l\'IA',
@@ -71,7 +72,7 @@ export const INTERNAL_LINKS = {
     ],
   },
   checklist: {
-    path: '/checklist-ia-btp',
+    path: LINKS.checklist,
     anchors: ['checklist prompts ChatGPT', '10 prompts ChatGPT BTP', 'prompts gratuits'],
   },
   clientsPartenaires: {

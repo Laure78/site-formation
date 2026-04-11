@@ -82,8 +82,9 @@ export function ArticlesFormationLies() {
                 <div className="mt-4 flex items-center gap-2 border-t border-slate-100 pt-4">
                   <PortraitLinkedInLink className="shrink-0 rounded-full ring-2 ring-[var(--accent-soft)] transition-opacity hover:opacity-95">
                     <Image
-                      src="/images/laure-olivie-linkedin-graz.png"
-                      alt={SITE_CONFIG.name}
+                      src={PHOTOS.linkedinGraz.src}
+                      alt={PHOTOS.linkedinGraz.alt}
+                      title="Profil LinkedIn — Laure Olivié, formatrice IA BTP"
                       width={36}
                       height={36}
                       className="h-9 w-9 rounded-full object-cover"

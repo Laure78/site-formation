@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import {
   Mail,
-  Phone,
   Globe,
   Linkedin,
   FileText,
@@ -39,7 +38,12 @@ export function Footer() {
           {/* Colonne principale */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/logo-lo.svg" alt="Laure Olivié formation IA BTP certifiée Qualiopi pour TPE, PME et entreprises du bâtiment et des travaux publics" className="h-12 w-auto" />
+              <img
+                src="/logo-lo.svg"
+                alt="Laure Olivié — formation IA BTP, organisme certifié Qualiopi"
+                title="Retour à l’accueil — laureolivie.fr"
+                className="h-12 w-auto"
+              />
               <div>
                 <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
                 <p className="text-sm font-medium text-slate-600">
@@ -67,15 +71,6 @@ export function Footer() {
                   <Mail size={18} strokeWidth={1.5} />
                 </span>
                 laureolivie@yahoo.fr
-              </a>
-              <a
-                href="tel:+33695661818"
-                className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:border-slate-300"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <Phone size={18} strokeWidth={1.5} />
-                </span>
-                06 95 66 18 18
               </a>
               <Link
                 href="/"
@@ -130,8 +125,6 @@ export function Footer() {
                 { href: '/contact', label: 'Contact' },
                 { href: '/a-propos', label: 'À propos' },
                 { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
-                { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-                { href: '/financement-constructys-100-ia-btp', label: 'Financement Constructys 100% IA BTP' },
                 { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },

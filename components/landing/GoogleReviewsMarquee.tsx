@@ -5,7 +5,15 @@ import { useEffect, useState } from 'react';
 import { Star } from 'lucide-react';
 import type { ReviewMarqueeItem } from '@/lib/google-reviews-marquee';
 
-function ReviewCard({ review }: { review: ReviewMarqueeItem }) {
+function ReviewCard({
+  review,
+  decorativeAvatar,
+}: {
+  review: ReviewMarqueeItem;
+  /** Doublon carrousel : avatar décoratif (nom lisible dans le texte). */
+  decorativeAvatar?: boolean;
+}) {
+  const avatarAlt = decorativeAvatar ? '' : `Photo de profil Google — ${review.authorName}`;
   return (
     <article
       className="w-[min(100vw-3rem,20rem)] shrink-0 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-[0_4px_20px_-8px_rgba(15,23,42,0.12)] sm:w-[22rem] sm:p-5"
@@ -15,7 +23,7 @@ function ReviewCard({ review }: { review: ReviewMarqueeItem }) {
           {review.profilePhotoUrl ? (
             <Image
               src={review.profilePhotoUrl}
-              alt={review.authorName}
+              alt={avatarAlt}
               fill
               className="object-cover"
               sizes="40px"
@@ -62,11 +70,23 @@ function ReviewCard({ review }: { review: ReviewMarqueeItem }) {
   );
 }
 
-function ReviewRow({ items, idSuffix = '' }: { items: ReviewMarqueeItem[]; idSuffix?: string }) {
+function ReviewRow({
+  items,
+  idSuffix = '',
+  decorativeAvatar,
+}: {
+  items: ReviewMarqueeItem[];
+  idSuffix?: string;
+  decorativeAvatar?: boolean;
+}) {
   return (
     <>
       {items.map((review) => (
-        <ReviewCard key={`${review.id}${idSuffix}`} review={review} />
+        <ReviewCard
+          key={`${review.id}${idSuffix}`}
+          review={review}
+          decorativeAvatar={decorativeAvatar}
+        />
       ))}
     </>
   );
@@ -105,7 +125,7 @@ export function GoogleReviewsMarquee({ reviews }: { reviews: ReviewMarqueeItem[]
             <ReviewRow items={reviews} idSuffix="-a" />
           </div>
           <div className="flex items-stretch gap-5 pr-5" aria-hidden>
-            <ReviewRow items={reviews} idSuffix="-b" />
+            <ReviewRow items={reviews} idSuffix="-b" decorativeAvatar />
           </div>
         </div>
       )}

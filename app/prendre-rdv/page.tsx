@@ -4,7 +4,8 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
@@ -19,6 +20,14 @@ export default function PrendreRDVPage() {
 
   return (
     <div className="min-h-[80vh]">
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Prendre rendez-vous', path: '/prendre-rdv' },
+        ])}
+        showVisual
+        className="mx-auto max-w-4xl px-4 pt-8"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

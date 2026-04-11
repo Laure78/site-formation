@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Check, Calendar, Download, FileText } from 'lucide-react';
-import { createPageMetadata, getBreadcrumbSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
 export const metadata = createPageMetadata({
@@ -19,18 +20,15 @@ export const metadata = createPageMetadata({
   ],
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Financement', path: '/financement-constructys-formation-ia-btp' },
-  { name: 'Financement Constructys 100% IA BTP', path: '/financement-constructys-100-ia-btp' },
-]);
-
 export default function FinancementConstructys100IABTPPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Financement', path: '/financement-constructys-formation-ia-btp' },
+          { name: 'Financement Constructys 100% IA BTP', path: '/financement-constructys-100-ia-btp' },
+        ])}
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
@@ -177,10 +175,9 @@ export default function FinancementConstructys100IABTPPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/financement-constructys-formation-ia-btp', label: 'Modalités Constructys' },
-              { href: '/formations', label: 'Catalogue formations IA BTP' },
-              { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-              { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement Constructys' },
+              { href: '/formations', label: 'Catalogue des formations IA BTP' },
+              { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

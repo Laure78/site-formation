@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { ALT_LOGO_CSFE, ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
 
 /**
  * Aligné campagne FFB terrain : citation + visuel affiche + logos réseau (FFB / CSFE).
@@ -17,7 +18,8 @@ export function FFBIAAccrocheSection() {
               <div className="relative h-20 w-full max-w-[240px]">
                 <Image
                   src="/images/partenaires/ffb-logo-officiel.png"
-                  alt="Logo officiel FFB — Fédération Française du Bâtiment"
+                  alt={ALT_LOGO_FFB_OFFICIEL}
+                  title="Fédération Française du Bâtiment — partenaire formations terrain"
                   fill
                   className="object-contain object-center"
                   sizes="240px"
@@ -26,7 +28,8 @@ export function FFBIAAccrocheSection() {
               <div className="relative h-20 w-full max-w-[240px]">
                 <Image
                   src="/images/partenaires/csfe-logo.png"
-                  alt="Logo officiel CSFE — Chambre Syndicale Française de l'Étanchéité"
+                  alt={ALT_LOGO_CSFE}
+                  title="CSFE — filière étanchéité et bâtiment"
                   fill
                   className="object-contain object-center"
                   sizes="240px"

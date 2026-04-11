@@ -6,6 +6,7 @@
 import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
+import { LINKS } from '@/lib/internal-links';
 import { estimateWordCountFromPlainText } from '@/lib/seo';
 import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
@@ -2420,7 +2421,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       break;
     case 'regions':
       links.push(
-        { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+        { href: LINKS.formationParis, label: 'formation IA BTP Paris' },
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;
@@ -2432,8 +2433,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       break;
     case 'rh':
       links.push(
-        { href: INTERNAL_LINKS.formations.path, label: getAnchor('formations', 1) },
-        { href: '/formations/ia-rh-btp', label: 'Formation IA RH BTP' },
+        { href: LINKS.formationRH, label: 'formation IA RH BTP' },
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;
@@ -2454,7 +2454,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
     case 'formateurs':
       links.push(
         { href: INTERNAL_LINKS.communauteFormateurs.path, label: getAnchor('communauteFormateurs') },
-        { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+        { href: LINKS.formationParis, label: 'formation IA BTP Paris' },
         { href: INTERNAL_LINKS.financement100.path, label: getAnchor('financement100') },
       );
       break;

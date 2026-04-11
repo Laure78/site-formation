@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
 import {
   Check,
-  Phone,
   Mail,
   Clock,
   MapPin,
@@ -21,13 +21,15 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
+import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -73,20 +75,9 @@ export const metadata = createPageMetadata({
   },
 });
 
-const courseSchema = getCourseSchema({
-  name: "L'IA au service des Travaux Publics",
-  description:
-    `Formation ${SESSION_DUREE_LIBELLE} : IA générative pour les TP — consultations, DCE/CCTP, documents de chantier, reporting, templates et assistants. Finançable OPCO.`,
-  path: '/formations/ia-travaux-publics',
-  providerName: SITE_CONFIG.legalName,
-  areaServed: ['France', 'Île-de-France'],
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: "L'IA au service des Travaux Publics", path: '/formations/ia-travaux-publics' },
-]);
+const formationCourseGraph = getFormationCoursePageJsonLd(
+  '/formations/ia-travaux-publics'
+)!;
 
 const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 
@@ -207,18 +198,15 @@ const LIVRABLES = [
 export default function FormationIATravauxPublicsPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: "L'IA au service des Travaux Publics", path: '/formations/ia-travaux-publics' },
+        ])}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
         refLine="Réf. catalogue BTP-04 · Débutant"
@@ -276,12 +264,7 @@ export default function FormationIATravauxPublicsPage() {
             >
               Vue d&apos;ensemble formation TP
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >
@@ -493,13 +476,7 @@ export default function FormationIATravauxPublicsPage() {
             {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="tel:+33695661818"
-              className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler maintenant
-            </a>
+            <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50" />
             <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10">
               <Mail size={20} strokeWidth={1.5} />
               Prendre RDV

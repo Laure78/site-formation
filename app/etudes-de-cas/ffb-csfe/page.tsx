@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import { Check, Building2, GraduationCap, TrendingUp, Landmark, ShieldCheck, Timer } from 'lucide-react';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
   getArticleSchema,
-  getBreadcrumbSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
 import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
@@ -43,11 +44,6 @@ export const metadata = createPageMetadata({
     'Laure Olivié FFB',
   ],
 });
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: `Étude de cas ${CSFE_TITRE_PAGE}`, path: '/etudes-de-cas/ffb-csfe' },
-]);
 
 const articleSchema = getArticleSchema({
   headline: `Étude de cas — FFB & CSFE (étanchéité) | ${SITE_CONFIG.name}`,
@@ -111,9 +107,11 @@ const BENEFICES_CLIENTS = [
 export default function EtudeDeCasFfbCsfePage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: `Étude de cas ${CSFE_TITRE_PAGE}`, path: '/etudes-de-cas/ffb-csfe' },
+        ])}
       />
       <script
         type="application/ld+json"

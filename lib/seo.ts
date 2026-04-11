@@ -5,6 +5,13 @@
 
 import type { Metadata } from 'next';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
+import {
+  SCHEMA_CONTACT,
+  SCHEMA_GEO,
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_PUBLIC_SITE_URL,
+  SCHEMA_STATS,
+} from '@/lib/schema-constants';
 import { buildPageMetadata } from '@/utils/metadata';
 
 export {
@@ -13,10 +20,10 @@ export {
   withOgDescriptionSuffix,
 } from '@/utils/metadata';
 
-const SITE_URL_DEFAULT = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr';
+const SITE_URL_DEFAULT = SCHEMA_PUBLIC_SITE_URL;
 
 /** Profil LinkedIn (locale FR) — source unique pour liens UI et sameAs */
-export const LINKEDIN_PROFILE_URL = 'https://fr.linkedin.com/in/laure-olivie' as const;
+export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
 
 export const SITE_CONFIG = {
   name: 'Laure Olivié',
@@ -25,21 +32,21 @@ export const SITE_CONFIG = {
     "Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — +1592 pros formés. Île-de-France & France.",
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
-  email: 'laureolivie@yahoo.fr',
-  phone: '+33695661818',
-  phoneDisplay: '06 95 66 18 18',
-  siret: '905 244 281 00010',
+  email: SCHEMA_CONTACT.email,
+  /** Numéro public (liens tel:) — laisser vide pour masquer le téléphone sur tout le site */
+  phone: SCHEMA_CONTACT.phone,
+  phoneDisplay: SCHEMA_CONTACT.phoneDisplay,
+  siret: SCHEMA_CONTACT.siretFormatted,
   locale: 'fr_FR',
   geo: {
-    country: 'FR',
-    region: 'Île-de-France',
-    city: 'Guyancourt',
-    département: 'Yvelines',
-    streetAddress: '6 Rue Henri Dunant',
-    postalCode: '78280',
-    // Guyancourt — siège social
-    latitude: 48.7713,
-    longitude: 2.0739,
+    country: SCHEMA_GEO.addressCountry,
+    region: SCHEMA_GEO.addressRegion,
+    city: SCHEMA_GEO.addressLocality,
+    département: SCHEMA_GEO.departement,
+    streetAddress: SCHEMA_GEO.streetAddress,
+    postalCode: SCHEMA_GEO.postalCode,
+    latitude: SCHEMA_GEO.latitude,
+    longitude: SCHEMA_GEO.longitude,
   },
   keywords: [
     // Priorité haute — requêtes stratégiques
@@ -105,8 +112,18 @@ export const SITE_CONFIG = {
     'https://share.google/kuzjL3D0CaVMgQS8i',
   ],
   /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
-  statsPersonnesFormees: '1592',
+  statsPersonnesFormees: SCHEMA_STATS.personnesFormees,
 } as const;
+
+/** Indique si un numéro public est exposé (liens cliquables, JSON-LD telephone, etc.) */
+export function siteHasPublicPhone(): boolean {
+  return typeof SITE_CONFIG.phone === 'string' && SITE_CONFIG.phone.length > 0;
+}
+
+/** Suffixe « · 06 xx… » pour lignes de contact (vide si pas de téléphone public) */
+export function sitePhoneDisplaySuffix(): string {
+  return siteHasPublicPhone() ? ` · ${SITE_CONFIG.phoneDisplay}` : '';
+}
 
 /** Section thématique (Open Graph article:section / GEO) */
 export const ARTICLE_SECTION_GEO = 'Formation IA BTP';
@@ -279,7 +296,7 @@ export function getOrganizationSchema() {
       "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et artisans. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
-    telephone: SITE_CONFIG.phone,
+    ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'FR',
@@ -305,7 +322,7 @@ export function getOrganizationSchema() {
       {
         '@type': 'ContactPoint',
         contactType: 'customer service',
-        telephone: SITE_CONFIG.phone,
+        ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
         email: SITE_CONFIG.email,
         availableLanguage: ['French'],
         areaServed: 'FR',
@@ -324,7 +341,7 @@ export function getLocalBusinessSchema() {
     description:
       "Formation IA BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Artisans, PME bâtiment, conducteurs de travaux. Guyancourt (78), Île-de-France et France.",
     url: SITE_CONFIG.url,
-    telephone: SITE_CONFIG.phone,
+    ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     email: SITE_CONFIG.email,
     address: {
       '@type': 'PostalAddress',
@@ -461,6 +478,96 @@ export function getArticleSchema({
   return base;
 }
 
+/** Mots-clés de base pour JSON-LD BlogPosting (blog /blog/[slug]) — complétés par les mots-clés de l’article */
+const BLOG_POSTING_DEFAULT_KEYWORDS = [
+  'formation ia btp',
+  'chatgpt btp',
+  'intelligence artificielle bâtiment',
+  'constructys formation ia',
+] as const;
+
+function mergeBlogPostingKeywords(articleKeywords?: string[]): string[] {
+  const fromArticle = (articleKeywords ?? [])
+    .map((k) => k.trim().toLowerCase())
+    .filter(Boolean);
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const k of [...BLOG_POSTING_DEFAULT_KEYWORDS, ...fromArticle]) {
+    if (!seen.has(k)) {
+      seen.add(k);
+      out.push(k);
+    }
+  }
+  return out;
+}
+
+/**
+ * Schéma BlogPosting pour les articles `/blog/[slug]` (remplace Article sur ces pages).
+ * Dates en ISO 8601 ; image URL absolue.
+ */
+export function buildBlogPostingJsonLd({
+  headline,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  imageUrl,
+  keywords,
+  wordCount,
+}: {
+  headline: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+  dateModified?: string;
+  imageUrl: string;
+  keywords?: string[];
+  wordCount?: number;
+}): Record<string, unknown> {
+  const pageUrl = `${SITE_CONFIG.url}/blog/${slug}`;
+  const pubIso = dateToIso8601ForMeta(datePublished);
+  const modIso = dateModified ? dateToIso8601ForMeta(dateModified) : pubIso;
+  const base: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline,
+    description,
+    image: imageUrl,
+    datePublished: pubIso,
+    dateModified: modIso,
+    author: {
+      '@type': 'Person',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+      sameAs: LINKEDIN_PROFILE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.legalName,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.url}/logo-lo.svg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    articleSection: ARTICLE_SECTION_GEO,
+    keywords: mergeBlogPostingKeywords(keywords),
+    inLanguage: 'fr',
+    isPartOf: {
+      '@type': 'Blog',
+      name: 'Formation IA BTP — Ressources et articles',
+      url: `${SITE_CONFIG.url}/blog`,
+    },
+  };
+  if (wordCount != null && wordCount > 0) {
+    base.wordCount = wordCount;
+  }
+  return base;
+}
+
 /** Schéma Person (Laure Olivié) — EEAT / Autorité — Optimisé GEO */
 export function getPersonSchema() {
   return {
@@ -561,7 +668,7 @@ export function getPersonSchema() {
     },
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
-    telephone: SITE_CONFIG.phone,
+    ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     sameAs: [
       ...SITE_CONFIG.sameAs,
       'https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers',
@@ -655,8 +762,18 @@ export function getHowToSchema({
   };
 }
 
-/** Schéma BreadcrumbList */
-export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
+/** URL absolue canonique du site pour un chemin (ex. `/blog` → https://www.laureolivie.fr/blog ; `/` → origine sans slash final). */
+export function siteAbsoluteUrl(path: string): string {
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  if (!path || path === '/') return base;
+  const p = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${p}`;
+}
+
+export type BreadcrumbListItem = { name: string; url: string };
+
+/** JSON-LD BreadcrumbList (URLs absolues dans `item`). */
+export function buildBreadcrumbListJsonLd(items: BreadcrumbListItem[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -664,9 +781,22 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `${SITE_CONFIG.url}${item.path}`,
+      item: item.url,
     })),
   };
+}
+
+/** Construit les entrées `{ name, url }` à partir de chemins relatifs (pour `<Breadcrumb />`). */
+export function breadcrumbItemsFromPaths(items: { name: string; path: string }[]): BreadcrumbListItem[] {
+  return items.map((it) => ({
+    name: it.name,
+    url: siteAbsoluteUrl(it.path),
+  }));
+}
+
+/** Schéma BreadcrumbList (alias de `buildBreadcrumbListJsonLd` + chemins relatifs). */
+export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
+  return buildBreadcrumbListJsonLd(breadcrumbItemsFromPaths(items));
 }
 
 /** Schéma WebSite pour moteur de recherche (sitelinks search box Google) */

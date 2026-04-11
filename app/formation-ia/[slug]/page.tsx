@@ -10,7 +10,8 @@ import {
   buildFormationIaCourseJsonLd,
   buildFormationIaLocalBusinessJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
-import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import {
   FormationIaMetierBody,
   FormationIaVilleBody,
@@ -70,19 +71,12 @@ export default async function FormationIaSlugPage({ params }: Props) {
 
   const localJson = buildFormationIaLocalBusinessJsonLd();
   const orgJson = buildEducationalOrgSnippetJsonLd();
-  const breadcrumb = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: 'Formation IA BTP (hub)', path: '/formation-ia' },
-    {
-      name:
-        entry.kind === 'metier' && entry.metier
-          ? entry.metier.label
-          : entry.kind === 'ville' && entry.ville
-            ? entry.ville.label
-            : 'Page',
-      path,
-    },
-  ]);
+  const breadcrumbLastName =
+    entry.kind === 'metier' && entry.metier
+      ? entry.metier.label
+      : entry.kind === 'ville' && entry.ville
+        ? entry.ville.label
+        : 'Page';
 
   return (
     <div className="bg-white">
@@ -98,9 +92,12 @@ export default async function FormationIaSlugPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJson) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formation IA BTP (hub)', path: '/formation-ia' },
+          { name: breadcrumbLastName, path },
+        ])}
       />
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         {entry.kind === 'metier' && entry.metier ? (

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
-import { CheckCircle, Phone, Mail, Home, Calendar, ClipboardList, BookOpen } from 'lucide-react';
+import { CheckCircle, Mail, Home, Calendar, ClipboardList, BookOpen } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
@@ -91,13 +91,6 @@ export default async function MerciRDVPage({
               Une question avant notre échange ?
             </p>
             <div className="mt-4 flex flex-wrap justify-center gap-6">
-              <a
-                href="tel:+33695661818"
-                className="flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
-              >
-                <Phone size={20} strokeWidth={1.5} />
-                06 95 66 18 18
-              </a>
               <a
                 href="mailto:laureolivie@yahoo.fr"
                 className="flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"

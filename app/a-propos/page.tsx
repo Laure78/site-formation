@@ -7,12 +7,17 @@ import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
 
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { PARTENAIRES_INSTITUTIONNELS } from '@/lib/partenaires-institutionnels';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
+import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
+import { getAProposLocalBusinessJsonLd, getAProposPersonJsonLd } from '@/lib/schema-a-propos';
+import { ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
@@ -37,11 +42,20 @@ export default function AProposPage() {
 
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      
+      <JsonLd id="schema-a-propos-local-business" schema={getAProposLocalBusinessJsonLd()} />
+      <JsonLd id="schema-a-propos-person" schema={getAProposPersonJsonLd()} />
+      <JsonLd id="schema-a-propos-faq" schema={faqSchema} />
+      <JsonLd id="schema-a-propos-image" schema={buildAProposImageObjectJsonLd()} />
+      <div className="mx-auto max-w-6xl px-4 pt-8">
+        <Breadcrumb
+          items={breadcrumbItemsFromPaths([
+            { name: 'Accueil', path: '/' },
+            { name: 'À propos', path: '/a-propos' },
+          ])}
+          showVisual
+        />
+      </div>
+
       {/* Hero — Formatrice IA pour les entreprises du BTP */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
@@ -90,7 +104,10 @@ export default function AProposPage() {
               </div>
             </article>
             <div className="shrink-0 lg:w-96">
-              <ProfilePhoto />
+              <ProfilePhoto
+                priority
+                title="10 ans d'expérience terrain BTP · +1 592 professionnels formés · 4,85/5"
+              />
             </div>
           </div>
         </div>
@@ -128,7 +145,11 @@ export default function AProposPage() {
                   <div className="mx-auto mb-4 flex min-h-[3.5rem] w-full max-w-[220px] items-center justify-center">
                     <Image
                       src={p.logo}
-                      alt=""
+                      alt={
+                        p.logo.includes('ffb-logo-officiel.png')
+                          ? ALT_LOGO_FFB_OFFICIEL
+                          : `Logo ${p.name} — ${p.desc}, partenaire formation IA BTP`
+                      }
                       width={220}
                       height={130}
                       className="max-h-14 w-auto max-w-full object-contain object-center"
@@ -147,10 +168,12 @@ export default function AProposPage() {
             <PortraitLinkedInLink className="mb-10 block overflow-hidden rounded-2xl shadow-lg transition-opacity hover:opacity-95">
               <Image
                 src="/images/rencontres-artisans-ia-ffb-btp.png"
-                alt="Rencontres FFB avec Laure Olivié : formation intelligence artificielle au service des entreprises du bâtiment"
+                alt="Rencontres FFB et artisans du bâtiment — intelligence artificielle au service des entreprises BTP, Laure Olivié"
+                title="Intervention FFB — formation IA terrain bâtiment"
                 width={1200}
                 height={630}
                 className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 896px"
               />
             </PortraitLinkedInLink>
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">

@@ -1,16 +1,19 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
+import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
@@ -53,20 +56,9 @@ export const metadata = createPageMetadata({
   },
 });
 
-const courseSchema = getCourseSchema({
-  name: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
-  description:
-    'Formation intra-entreprise 4 h en présentiel : Claude AI, Google Drive, Sheets et Docs pour DPGF, métrés, situations de travaux, courriers et actes de marché.',
-  path: '/formations/ia-architecture-claude-dpgf',
-  providerName: SITE_CONFIG.legalName,
-  areaServed: ['France'],
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: 'IA architecture — Claude AI & DPGF', path: '/formations/ia-architecture-claude-dpgf' },
-]);
+const formationCourseGraph = getFormationCoursePageJsonLd(
+  '/formations/ia-architecture-claude-dpgf'
+)!;
 
 const MODULES = [
   {
@@ -143,18 +135,15 @@ export default function FormationIAArchitectureClaudePage() {
 
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: 'IA architecture — Claude AI & DPGF', path: '/formations/ia-architecture-claude-dpgf' },
+        ])}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
         refLine="Formation intra-entreprise · Présentiel · BTP-06 · Niveau avancé"
@@ -204,12 +193,7 @@ export default function FormationIAArchitectureClaudePage() {
             >
               Fiche cours plateforme
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >

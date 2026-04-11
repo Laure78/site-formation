@@ -1,81 +1,49 @@
 /**
- * JSON-LD @graph Person + Organization (GEO / rich results)
- * — injecté globalement via next/script dans app/layout.tsx
+ * JSON-LD @graph Organization — Person détaillé sur /a-propos uniquement
+ * (lib/schema-a-propos.ts) pour éviter les doublons Person / LocalBusiness.
  */
-import { SITE_CONFIG } from '@/lib/seo';
+import {
+  SCHEMA_CONTACT,
+  SCHEMA_GEO,
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_ORGANIZATION_OFC,
+  SCHEMA_PERSON_LAURE,
+  SCHEMA_PUBLIC_SITE_URL,
+} from '@/lib/schema-constants';
+import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 
 export function getSchemaPersonOrganization() {
-  const base = SITE_CONFIG.url;
-  const photoUrl = `${base}/images/laure-olivie-formatrice.png`;
+  const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Person',
-        '@id': `${base}/#laure-olivie`,
-        name: 'Laure Olivié',
-        givenName: 'Laure',
-        familyName: 'Olivié',
-        jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
-        description:
-          'Formatrice experte en intelligence artificielle spécialisée dans le secteur BTP. 1 592 professionnels formés, note 4,85/5. Ancienne conductrice de travaux reconvertie en formatrice IA. Instructrice LinkedIn Learning.',
-        url: `${base}/a-propos`,
-        image: photoUrl,
-        email: 'laureolivie@yahoo.fr',
-        telephone: '+33695661818',
-        sameAs: [
-          'https://fr.linkedin.com/in/laure-olivie',
-          'https://www.linkedin.com/learning/instructors/laure-olivie',
-        ],
-        hasCredential: [
-          {
-            '@type': 'EducationalOccupationalCredential',
-            name: 'Certification Qualiopi',
-            credentialCategory: 'Organisme de formation certifié',
-            recognizedBy: {
-              '@type': 'Organization',
-              name: 'France Compétences',
-            },
-          },
-        ],
-        worksFor: {
-          '@id': `${base}/#ofc`,
-        },
-        knowsAbout: [
-          'Intelligence artificielle pour le BTP',
-          'ChatGPT formation professionnelle',
-          'Claude AI',
-          'Formation IA bâtiment',
-          "Appels d'offres BTP",
-          'Chiffrage et devis BTP',
-          'Mémoire technique',
-        ],
-      },
-      {
         '@type': 'Organization',
         '@id': `${base}/#ofc`,
-        name: "OFC Création d'Entreprise",
-        legalName: "OFC Création d'Entreprise SASU",
+        name: SCHEMA_ORGANIZATION_OFC.name,
+        legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
         url: base,
         logo: `${base}/logo-lo.svg`,
-        description:
-          'Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. 1 592 professionnels formés. Finançable Constructys.',
-        foundingDate: '2021',
+        description: SCHEMA_ORGANIZATION_OFC.descriptionShortGraph,
+        foundingDate: SCHEMA_ORGANIZATION_OFC.foundingYear,
         founder: {
-          '@id': `${base}/#laure-olivie`,
+          '@type': 'Person',
+          name: SCHEMA_PERSON_LAURE.name,
+          url: `${base}/a-propos`,
         },
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Guyancourt',
-          addressRegion: 'Île-de-France',
-          postalCode: '78280',
-          addressCountry: 'FR',
+          streetAddress: SCHEMA_GEO.streetAddress,
+          addressLocality: SCHEMA_GEO.addressLocality,
+          addressRegion: SCHEMA_GEO.addressRegion,
+          postalCode: SCHEMA_GEO.postalCode,
+          addressCountry: SCHEMA_GEO.addressCountry,
         },
         contactPoint: {
           '@type': 'ContactPoint',
-          telephone: '+33695661818',
-          email: 'laureolivie@yahoo.fr',
+          ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
+          email: SCHEMA_CONTACT.email,
           contactType: 'customer service',
           availableLanguage: 'French',
         },
@@ -83,12 +51,12 @@ export function getSchemaPersonOrganization() {
           {
             '@type': 'PropertyValue',
             name: 'SIRET',
-            value: '905 244 281 00010',
+            value: SCHEMA_CONTACT.siretFormatted,
           },
           {
             '@type': 'PropertyValue',
             name: 'NDA',
-            value: '11788515078',
+            value: SCHEMA_CONTACT.nda,
           },
         ],
         hasCredential: {
@@ -113,7 +81,7 @@ export function getSchemaPersonOrganization() {
           'Formation ChatGPT bâtiment',
           'Formation intelligence artificielle construction',
         ],
-        sameAs: ['https://fr.linkedin.com/in/laure-olivie'],
+        sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
       },
     ],
   };

@@ -2,12 +2,14 @@
 
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { Check, Phone, Calendar } from 'lucide-react';
+import { Check, Calendar } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, SITE_CONFIG } from '@/lib/seo';
+import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import type { CityFormationConfig } from '@/lib/formation-cities';
 import type { FAQItem } from '@/lib/faq';
 import {
@@ -41,21 +43,18 @@ export function FormationCityPage({
     `Présentiel — ${regionLabel} : inter ou intra dans vos locaux selon convention.`,
     'Financement OPCO Constructys selon éligibilité.',
   ];
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: 'Formations', path: '/formations' },
-    { name: `Formation IA BTP à ${ville}`, path },
-  ]);
-
   return (
     <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: `Formation IA BTP à ${ville}`, path },
+        ])}
       />
       {faqSchema && (
         <script
@@ -129,12 +128,7 @@ export function FormationCityPage({
             >
               Fiche formation catalogue (BTP-01)
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >
@@ -249,13 +243,7 @@ export function FormationCityPage({
                 <Calendar size={20} strokeWidth={1.5} />
                 Prendre rendez-vous
               </RdvLink>
-              <a
-                href="tel:+33695661818"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
-              >
-                <Phone size={20} strokeWidth={1.5} />
-                Appeler : 06 95 66 18 18
-              </a>
+              <PublicPhoneCta className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50" />
             </div>
           </div>
         </div>
@@ -356,13 +344,7 @@ export function FormationCityPage({
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
             </RdvLink>
-            <a
-              href="tel:+33695661818"
-              className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler maintenant
-            </a>
+            <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>
       </section>

@@ -7,6 +7,24 @@ import { PHOTOS } from '@/lib/photos';
 import { getArticleCategory } from '@/lib/blog';
 import type { BlogCategoryId } from '@/lib/blog';
 
+/** Corps de métier / thème BTP pour l’alt SEO des illustrations d’article */
+const METIER_PAR_CATEGORIE: Record<BlogCategoryId, string> = {
+  'appels-offres': 'appels d’offres et mémoires techniques BTP',
+  devis: 'devis et chiffrage BTP',
+  financement: 'financement formation Constructys BTP',
+  chatgpt: 'ChatGPT et IA générative BTP',
+  metiers: 'entreprises et métiers du BTP',
+  rh: 'RH et recrutement BTP',
+  productivite: 'productivité et organisation chantier BTP',
+  regions: 'formation IA BTP Île-de-France',
+  formateurs: 'formateurs et organismes BTP',
+};
+
+function truncate125(s: string): string {
+  if (s.length <= 125) return s;
+  return `${s.slice(0, 122)}…`;
+}
+
 export type BlogIllustration = {
   src: string;
   alt: string;
@@ -19,6 +37,14 @@ type PhotoKey = keyof typeof PHOTOS;
 function fromPhoto(key: PhotoKey): BlogIllustration {
   const p = PHOTOS[key];
   return { src: p.src, alt: p.alt, width: p.width, height: p.height };
+}
+
+function buildArticleIllustrationAlt(articleTitle: string, slug: string): string {
+  const cat = getArticleCategory(slug);
+  const metier = METIER_PAR_CATEGORIE[cat];
+  return truncate125(
+    `${articleTitle} — ${metier} — formation IA BTP Laure Olivié`
+  );
 }
 
 /** Pools thématiques (ordre = préférence de rotation) */
@@ -109,42 +135,20 @@ function hashSlug(slug: string): number {
 }
 
 /**
- * Trois visuels distincts par article : hero + deux intercalaires (rotation selon le slug).
+ * Un seul visuel par article (hero sous le chapô) — rotation selon le slug et la catégorie.
  */
-export function getBlogArticleIllustrations(slug: string): BlogIllustration[] {
+export function getBlogArticleIllustrations(slug: string, articleTitle?: string): BlogIllustration[] {
   const cat = getArticleCategory(slug);
   const pool = POOLS[cat] ?? DEFAULT_POOL;
   const h = hashSlug(slug);
   const n = pool.length;
-  const indices: number[] = [];
-  let step = h % n;
-  for (let k = 0; k < 3; k++) {
-    let idx = (step + k * (1 + (h % 3))) % n;
-    let guard = 0;
-    while (indices.includes(idx) && guard < n) {
-      idx = (idx + 1) % n;
-      guard++;
-    }
-    indices.push(idx);
-  }
-  return indices.map((i) => fromPhoto(pool[i]));
-}
-
-/** Indices de sections après lesquels insérer la 2e et 3e image (évite articles trop courts). */
-export function getIllustrationSectionIndices(sectionCount: number): {
-  afterFirst: number | null;
-  afterSecond: number | null;
-} {
-  if (sectionCount <= 1) {
-    return { afterFirst: null, afterSecond: null };
-  }
-  if (sectionCount === 2) {
-    return { afterFirst: 0, afterSecond: null };
-  }
-  const i1 = Math.max(0, Math.min(sectionCount - 2, Math.floor(sectionCount * 0.38)));
-  let i2 = Math.max(0, Math.min(sectionCount - 2, Math.floor(sectionCount * 0.72)));
-  if (i2 <= i1) {
-    i2 = Math.min(i1 + 1, sectionCount - 1);
-  }
-  return { afterFirst: i1, afterSecond: i2 };
+  const idx = h % n;
+  const ill = fromPhoto(pool[idx]);
+  if (!articleTitle?.trim()) return [ill];
+  return [
+    {
+      ...ill,
+      alt: buildArticleIllustrationAlt(articleTitle.trim(), slug),
+    },
+  ];
 }

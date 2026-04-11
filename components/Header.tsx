@@ -363,7 +363,8 @@ export function Header() {
           <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70 sm:h-10 sm:w-10">
             <Image
               src="/images/laure-portrait-header-2026.png"
-              alt="Portrait de Laure Olivié, formatrice IA BTP"
+              alt="Laure Olivié, formatrice IA BTP certifiée Qualiopi — OFC Création d'Entreprise"
+              title="Laure Olivié — OFC Création d'Entreprise, Guyancourt (78)"
               fill
               className={AUTHOR_HEADSHOT_IMAGE_CLASS}
               sizes="40px"

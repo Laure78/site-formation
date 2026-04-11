@@ -3,7 +3,6 @@ import { Users, BookOpen, Zap, ExternalLink } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/prospectionfacile/';
 
@@ -173,13 +172,13 @@ export default function CommunauteFormateursPage() {
               </RdvLink>
             </li>
             <li>
-              <Link href="/formation-ia-btp-paris-2026" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
-                Formation IA BTP Paris 2026
+              <Link href="/formations/ia-btp-paris" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Formation IA BTP Paris et Île-de-France">
+                Formation IA BTP Paris
               </Link>
             </li>
             <li>
-              <Link href="/financement-constructys-100-ia-btp" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
-                Financement OPCO
+              <Link href="/financement-constructys-formation-ia-btp" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Financement OPCO Constructys">
+                Financement Constructys
               </Link>
             </li>
             <li>
@@ -196,11 +195,9 @@ export default function CommunauteFormateursPage() {
         <AllerPlusLoin
           variant="compact"
           links={[
-            { href: '/formations', label: 'Formation IA BTP' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-            { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
-            { href: '/financement-constructys-100-ia-btp', label: 'Financement OPCO' },
-            { href: '/blog', label: 'Articles et guides' },
+            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
+            { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
+            { href: '/checklist-ia-btp', label: 'Checklist prompts ChatGPT BTP' },
           ]}
         />
       </div>

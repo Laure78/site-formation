@@ -10,6 +10,42 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 export type FAQItem = { q: string; a: string };
 
+/**
+ * FAQ page d'accueil — 6 questions alignées avec le JSON-LD FAQPage (app/page.tsx).
+ */
+export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
+  {
+    q: 'Comment utiliser ChatGPT dans une entreprise du bâtiment ?',
+    a:
+      "On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. La formation IA BTP donne des trames pour l'automatisation des devis, la gestion de chantier et l'administratif — sans prérequis technique.",
+  },
+  {
+    q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
+    a:
+      "L'IA générative (ChatGPT, Claude AI) permet d'automatiser la rédaction des comptes rendus de chantier, des devis, des emails et des réponses aux appels d'offres. En moyenne, les artisans et conducteurs de travaux formés gagnent 3 à 5 heures par semaine dès la première utilisation.",
+  },
+  {
+    q: 'La formation est-elle vraiment prise en charge à 100 % ?',
+    a:
+      'Oui, pour les entreprises du BTP de moins de 50 salariés éligibles au Plan de Développement des Compétences Constructys. Les coûts pédagogiques sont pris en charge à hauteur de 24 € HT/heure/stagiaire, et les salaires des participants sont remboursés pour les entreprises de moins de 11 salariés.',
+  },
+  {
+    q: 'Faut-il des compétences techniques pour suivre cette formation IA BTP ?',
+    a:
+      "Non. La formation est conçue pour des professionnels du bâtiment sans formation informatique. Seuls prérequis : naviguer sur internet et disposer d'un ordinateur. Tout le reste est expliqué pas à pas, en travaillant sur vos propres documents de chantier.",
+  },
+  {
+    q: 'Combien de temps dure la formation IA pour le BTP ?',
+    a:
+      'Le module standard est de 4 heures, en présentiel dans vos locaux ou en distanciel. Ce format est calibré pour s\'intégrer dans une journée de travail et maximiser la prise en charge Constructys.',
+  },
+  {
+    q: 'Mes données BTP sont-elles sécurisées avec ChatGPT ?',
+    a:
+      'Pour les données non sensibles, ChatGPT est utilisable directement. Pour les documents confidentiels (marchés, données clients, données financières), on recommande ChatGPT Team ou des solutions européennes comme Mistral AI. La formation inclut un module sur les bonnes pratiques de confidentialité.',
+  },
+];
+
 export const FAQ_ITEMS: readonly FAQItem[] = [
   {
     q: "Comment utiliser ChatGPT dans une entreprise du bâtiment ?",

@@ -154,7 +154,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
         ${typeRdvBlock}
         <p>Avant notre échange, vous pouvez compléter ce court questionnaire pour mieux préparer notre discussion :</p>
         <p><a href="${questionnaireLink}" style="display:inline-block;background:#166534;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Remplir le questionnaire</a></p>
-        <p>Une question ? Contactez-moi au 06 95 66 18 18 ou par email à laureolivie@yahoo.fr.</p>
+        <p>Une question ? Écrivez-moi à laureolivie@yahoo.fr.</p>
         <p>À bientôt,<br/>Laure Olivié</p>
       `,
     });

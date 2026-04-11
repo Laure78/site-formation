@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { Check, Phone } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
-import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { PHOTOS } from '@/lib/photos';
 import Image from 'next/image';
 
@@ -30,11 +32,6 @@ export const metadata = createPageMetadata({
   },
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Répondre aux appels d’offres BTP avec l’IA', path: '/repondre-appels-offres-ia-btp' },
-]);
-
 export default function RepondreAppelsOffresIaBtpPage() {
   const mailProgramme = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(
     'Demande programme — appels d’offres BTP et IA'
@@ -42,9 +39,11 @@ export default function RepondreAppelsOffresIaBtpPage() {
 
   return (
     <div className="border-b border-slate-200 bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Répondre aux appels d’offres BTP avec l’IA', path: '/repondre-appels-offres-ia-btp' },
+        ])}
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
@@ -301,13 +300,7 @@ export default function RepondreAppelsOffresIaBtpPage() {
             >
               Découvrir la formation
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/80 px-8 py-3.5 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={18} strokeWidth={1.75} aria-hidden />
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/80 px-8 py-3.5 font-semibold text-white hover:bg-white/10" iconSize={18} />
           </div>
         </section>
 

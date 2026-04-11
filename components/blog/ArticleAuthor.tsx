@@ -12,7 +12,7 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const AUTHOR_PHOTO = PHOTOS.portraitPro2026;
+const AUTHOR_PHOTO = PHOTOS.linkedinGraz;
 
 const JOB_TITLE = 'Formatrice IA & ChatGPT — Spécialiste BTP';
 
@@ -45,6 +45,7 @@ export function ArticleAuthor({ className }: Props) {
           <Image
             src={AUTHOR_PHOTO.src}
             alt={AUTHOR_PHOTO.alt}
+            title="Profil LinkedIn — Laure Olivié, formatrice IA BTP"
             fill
             className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="96px"

@@ -7,10 +7,10 @@ export const PHOTOS = {
     height: 456,
   },
   
-  // Photo profil LinkedIn In Graz
+  // Photo auteur blog / cartes (LinkedIn Graz)
   linkedinGraz: {
-    src: '/images/laure-linkedin-graz.png',
-    alt: 'Laure Olivié au LinkedIn In Graz pour partager son expertise en formation IA BTP avec la communauté',
+    src: '/images/laure-olivie-linkedin-graz.png',
+    alt: 'Laure Olivié, formatrice IA BTP — auteure articles intelligence artificielle bâtiment',
     width: 1024,
     height: 770,
   },
@@ -50,7 +50,7 @@ export const PHOTOS = {
   // Photo formation en entreprise
   formationEntreprise: {
     src: '/images/formation-ia-btp-entreprise.png',
-    alt: 'Atelier pratique formation IA BTP avec Laure Olivié pour optimiser la gestion des appels d\'offre',
+    alt: 'Atelier formation IA BTP en entreprise — session pratique sur documents réels avec Laure Olivié',
     width: 1024,
     height: 571,
   },
@@ -82,7 +82,7 @@ export const PHOTOS = {
   // Ouvrier avec plan
   ouvrierPlan: {
     src: '/images/ouvrier-plan-chantier.png',
-    alt: 'Professionnel du BTP consultant des plans de chantier lors d\'une formation IA pour optimiser son travail',
+    alt: 'Professionnel BTP consultant des plans de chantier — formation IA pour la gestion documentaire',
     width: 1024,
     height: 682,
   },
@@ -90,7 +90,7 @@ export const PHOTOS = {
   // Architecte concentration (portrait)
   architecteConcentration: {
     src: '/images/architecte-concentration.png',
-    alt: 'Architecte BTP analysant des plans techniques avec méthodes optimisées par intelligence artificielle',
+    alt: 'Architecte BTP analysant des plans techniques — usages IA pour l\'analyse DCE et CCTP',
     width: 764,
     height: 1024,
   },
@@ -98,7 +98,7 @@ export const PHOTOS = {
   // Ouvrier chantier confiant (carré)
   ouvrierConfiant: {
     src: '/images/ouvrier-chantier-confiant.png',
-    alt: 'Ouvrier qualifié du bâtiment ayant suivi une formation IA BTP pour améliorer sa productivité',
+    alt: 'Artisan ou ouvrier qualifié du bâtiment — formation IA BTP pour gagner du temps sur les tâches administratives',
     width: 1024,
     height: 1024,
   },
@@ -158,10 +158,10 @@ export const PHOTOS = {
     height: 718,
   },
 
-  /** Nouveau portrait principal 2026 (présentation Laure) */
+  /** Nouveau portrait principal 2026 (présentation Laure) — page À propos & blocs auteur */
   portraitPro2026: {
     src: '/images/laure-portrait-pro-2026.png',
-    alt: 'Portrait professionnel de Laure Olivié, formatrice IA et ChatGPT spécialisée BTP',
+    alt: 'Laure Olivié en formation IA BTP — 10 ans d\'expérience terrain BTP, +1 592 professionnels formés',
     width: 682,
     height: 1024,
   },
@@ -174,10 +174,10 @@ export const PHOTOS = {
     height: 768,
   },
   formationIAArtisans2026: {
-    src: '/images/formation-ia-artisans-2026.png',
-    alt: "Session « L'IA au service des artisans du bâtiment » animée par Laure Olivié",
+    src: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
+    alt: 'Laure Olivié animant une formation « L’IA au service des artisans du bâtiment » — présentation projetée, public BTP',
     width: 1024,
-    height: 768,
+    height: 682,
   },
   formationIAAppelsOffres2026: {
     src: '/images/formation-ia-appels-offres-2026.png',
@@ -262,18 +262,18 @@ export const PHOTOS = {
 
   /** Page d'accueil — échange en bureau, tableau « Formation IA BTP » (devis, chantier, organisation) */
   heroAccueilFormationIABtpEchange2026: {
-    src: '/images/hero-accueil-formation-ia-btp-echange-2026.jpg',
-    alt: "Échange professionnel en bureau autour de la formation IA BTP : poignée de main au-dessus d'un bureau avec ordinateur portable ; tableau avec les thématiques devis, chantier et organisation",
+    src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+    alt: 'Laure Olivié animant une formation IA BTP à distance avec un professionnel du bâtiment — visio et affiche Devis, Chantier, Organisation',
     width: 1024,
     height: 682,
   },
 
   /** Accueil — bloc « Référence & partenaires » (visuel formatrice OFC) */
   accueilReferencePartenairesLaureOFC2026: {
-    src: '/images/accueil-reference-partenaires-laure-ofc-2026.jpg',
-    alt: 'Laure Olivié, formatrice IA BTP certifiée Qualiopi, en tenue professionnelle devant un bâtiment moderne, chemise à l’emblème OFC Création d’Entreprise',
-    width: 682,
-    height: 1024,
+    src: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
+    alt: 'Laure Olivié en échange avec un professionnel BTP — convivialité et formation IA entreprise',
+    width: 1024,
+    height: 682,
   },
 
 };

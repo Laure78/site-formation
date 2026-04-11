@@ -132,7 +132,7 @@ export default function ChecklistDocumentPage() {
           <div className="mt-8 text-left">
             <AllerPlusLoin variant="compact" />
           </div>
-          <p className="mt-6">laureolivie.fr · 06 95 66 18 18</p>
+          <p className="mt-6">laureolivie.fr · laureolivie@yahoo.fr</p>
           <p className="mt-4 text-xs">
             Document offert par Laure Olivié. Téléchargez cette checklist sur{' '}
             <Link href="/checklist-ia-btp" className="text-[#166534] hover:underline">

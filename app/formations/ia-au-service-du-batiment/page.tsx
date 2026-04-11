@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink, InlinePublicPhoneLink } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
 import {
   Check,
@@ -21,13 +22,16 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
+  siteHasPublicPhone,
 } from '@/lib/seo';
+import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_BATIMENT } from '@/lib/faq';
 import {
   FormationCourseHero,
@@ -86,30 +90,9 @@ export const metadata = createPageMetadata({
   },
 });
 
-const courseSchema = getCourseSchema({
-  name: 'Formation IA bâtiment — L’IA au service du bâtiment (BTP-01)',
-  description: `Formation intelligence artificielle construction ${SESSION_DUREE_LIBELLE} (débutant) : IA pour artisans bâtiment, automatisation devis BTP, IA chantier et relation client. Présentiel Île-de-France. Finançable OPCO.`,
-  path: '/formations/ia-au-service-du-batiment',
-  providerName: SITE_CONFIG.legalName,
-  areaServed: [
-    'France',
-    'Île-de-France',
-    'Paris',
-    'Yvelines',
-    'Essonne',
-    'Seine-et-Marne',
-    'Val-d\'Oise',
-    'Hauts-de-Seine',
-    'Seine-Saint-Denis',
-    'Val-de-Marne',
-  ],
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: "L'IA au service du bâtiment", path: '/formations/ia-au-service-du-batiment' },
-]);
+const formationCourseGraph = getFormationCoursePageJsonLd(
+  '/formations/ia-au-service-du-batiment'
+)!;
 
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
 
@@ -262,18 +245,15 @@ const PUBLIC_CIBLE = [
 export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: "L'IA au service du bâtiment", path: '/formations/ia-au-service-du-batiment' },
+        ])}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
         refLine="Réf. catalogue BTP-01 · Débutant"
@@ -324,12 +304,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             >
               Voir sur la plateforme
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >
@@ -795,9 +770,13 @@ export default function FormationIAuServiceDuBatimentPage() {
             </a>
           </div>
           <p className="mt-6 text-sm text-blue-100">
-            <a href={`tel:${SITE_CONFIG.phone}`} className="underline hover:text-white">
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            {siteHasPublicPhone() ? (
+              <InlinePublicPhoneLink className="underline hover:text-white" />
+            ) : (
+              <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">
+                {SITE_CONFIG.email}
+              </a>
+            )}
           </p>
         </div>
       </section>

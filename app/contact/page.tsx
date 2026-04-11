@@ -7,7 +7,8 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { FAQSection } from '@/components/landing/FAQSection';
 
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
@@ -27,6 +28,14 @@ export default async function ContactPage({
   const { formation } = await searchParams;
   return (
     <div>
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ])}
+        showVisual
+        className="mx-auto max-w-6xl px-4 pt-8"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -269,12 +278,6 @@ export default async function ContactPage({
             <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
               Prendre rendez-vous
             </RdvLink>
-            <a
-              href="tel:+33695661818"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
-            >
-              <span>06 95 66 18 18</span>
-            </a>
             <a
               href="mailto:laureolivie@yahoo.fr"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"

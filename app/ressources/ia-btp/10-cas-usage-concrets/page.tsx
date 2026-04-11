@@ -13,7 +13,14 @@ import {
   BookMarked,
 } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { createPageMetadata, getArticleSchema, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import {
+  breadcrumbItemsFromPaths,
+  createPageMetadata,
+  getArticleSchema,
+  getFAQSchema,
+  SITE_CONFIG,
+} from '@/lib/seo';
 
 export const metadata = createPageMetadata({
   title: 'IA dans le BTP : 10 cas d\'usage concrets (2026)',
@@ -41,12 +48,6 @@ const articleSchema = getArticleSchema({
   authorName: 'Laure Olivié',
   image: '/images/ia-btp-cas-usage.png',
 });
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Ressources IA BTP', path: '/ressources/ia-btp' },
-  { name: '10 cas d\'usage concrets', path: '/ressources/ia-btp/10-cas-usage-concrets' },
-]);
 
 const DEMARRER_IA_BTP_STEPS = [
   {
@@ -211,9 +212,12 @@ export default function CasUsageIABTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Ressources IA BTP', path: '/ressources/ia-btp' },
+          { name: '10 cas d\'usage concrets', path: '/ressources/ia-btp/10-cas-usage-concrets' },
+        ])}
       />
       <script
         type="application/ld+json"

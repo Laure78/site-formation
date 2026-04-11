@@ -4,7 +4,8 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { createPageMetadata, getBreadcrumbSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
@@ -21,18 +22,15 @@ export const metadata = createPageMetadata({
   ],
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: 'Formation IA BTP Paris 2026', path: '/formation-ia-btp-paris-2026' },
-]);
-
 export default function FormationIABTPParis2026Page() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: 'Formation IA BTP Paris 2026', path: '/formation-ia-btp-paris-2026' },
+        ])}
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">

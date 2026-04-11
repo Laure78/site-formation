@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
         destination: '/financement-constructys-formation-ia-btp',
         permanent: true,
       },
+      {
+        source: '/formation-ia-btp-paris-2026',
+        destination: '/formations/ia-btp-paris',
+        permanent: true,
+      },
       { source: '/merci-devis', destination: '/contact', permanent: true },
       { source: '/formation-ia-btp', destination: '/formations', permanent: false },
       {

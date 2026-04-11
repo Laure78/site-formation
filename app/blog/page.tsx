@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_BLOG } from '@/lib/faq';
 import {
   BLOG_CATEGORIES,
@@ -11,6 +11,7 @@ import {
 import type { BlogCategoryId } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import { CTABlock } from '@/components/CTABlock';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
@@ -88,6 +89,14 @@ export default async function BlogPage({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Ressources', path: '/blog' },
+        ])}
+        showVisual
+        className="mb-6"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

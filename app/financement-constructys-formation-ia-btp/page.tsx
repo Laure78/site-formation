@@ -12,7 +12,8 @@ import {
   ListOrdered,
   AlertTriangle,
 } from 'lucide-react';
-import { createPageMetadata, getFAQSchema, getBreadcrumbSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
@@ -41,14 +42,6 @@ export const metadata = createPageMetadata({
   ],
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  {
-    name: 'Financement Constructys formation IA BTP',
-    path: '/financement-constructys-formation-ia-btp',
-  },
-]);
-
 export default function FinancementConstructysFormationIABTPPage() {
   const faqSchema = getFAQSchema(FAQ_FINANCEMENT_IA_BTP);
 
@@ -58,9 +51,14 @@ export default function FinancementConstructysFormationIABTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          {
+            name: 'Financement Constructys formation IA BTP',
+            path: '/financement-constructys-formation-ia-btp',
+          },
+        ])}
       />
 
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
@@ -353,15 +351,11 @@ export default function FinancementConstructysFormationIABTPPage() {
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                {
-                  href: '/financement-constructys-100-ia-btp',
-                  label: 'Financement Constructys 100% IA BTP',
-                },
-                { href: '/formations', label: 'Formation IA BTP' },
-                { href: '/formation-ia-btp-paris-2026', label: 'Formation IA BTP Paris 2026' },
+                { href: '/formations', label: 'Catalogue des formations IA BTP' },
+                { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
                 { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-                { href: '/blog', label: 'Articles et guides' },
+                { href: '/blog', label: 'Tous les articles' },
                 { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               ]}
             />

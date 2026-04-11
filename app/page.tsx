@@ -9,7 +9,6 @@ import {
   Target,
   Users,
   Check,
-  Phone,
   Calendar,
   Mail,
   GraduationCap,
@@ -30,7 +29,8 @@ import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection'
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
 import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
-import { FAQ_ITEMS } from '@/lib/faq';
+import { FAQ_ITEMS_HOME } from '@/lib/faq';
+import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
 import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
@@ -43,6 +43,10 @@ import {
   TARIF_FORFAIT_DEBUTANT_HT,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
+import { LINKS } from '@/lib/internal-links';
+import { buildHomePageImageObjectsJsonLd } from '@/lib/schema-image-objects';
+import { getHomeOrganizationLocalBusinessEnrichmentJsonLd } from '@/lib/schema-home-organization';
+import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
@@ -71,14 +75,13 @@ export const metadata = createPageMetadata({
 });
 
 export default function HomePage() {
-  const faqSchema = getFAQSchema(FAQ_ITEMS);
-
   return (
     <div>
-      {/* FAQPage JSON-LD pour GEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      <JsonLd id="schema-faqpage-accueil" schema={getFAQSchema(FAQ_ITEMS_HOME)} />
+      <JsonLd id="schema-imageobjects-accueil" schema={buildHomePageImageObjectsJsonLd()} />
+      <JsonLd
+        id="schema-home-localbusiness-reviews"
+        schema={getHomeOrganizationLocalBusinessEnrichmentJsonLd()}
       />
       {/* Hero — Formation IA BTP */}
       <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-24 md:py-32">
@@ -181,6 +184,7 @@ export default function HomePage() {
                 <Image
                   src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
                   alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
+                  title="Formation IA BTP — session pratique avec des entreprises du bâtiment"
                   width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
                   height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
                   className="h-auto w-full object-cover"
@@ -336,8 +340,9 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <Link
-              href="/ressources/ia-btp/10-cas-usage-concrets"
+              href={LINKS.casUsage}
               className="inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
+              title="10 cas d’usage concrets de l’IA dans le BTP"
             >
               Voir le détail des 10 cas d&apos;usage
               <span aria-hidden>→</span>
@@ -388,6 +393,7 @@ export default function HomePage() {
               <Image
                 src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
                 alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
+                title="+1 592 professionnels formés · Note 4,85/5 · Finançable Constructys"
                 fill
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 100vw, 576px"
@@ -528,6 +534,31 @@ export default function HomePage() {
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Programme détaillé de la formation
           </h2>
+          <p className="mt-3 text-sm text-slate-600">
+            <Link
+              href={LINKS.formationBatiment}
+              className="font-medium text-[var(--accent)] hover:underline"
+              title="Fiche formation BTP-01 — L’IA au service du bâtiment"
+            >
+              programme détaillé
+            </Link>
+            {' — '}
+            <Link href={LINKS.blog} className="font-medium text-[var(--accent)] hover:underline" title="Articles et guides IA BTP">
+              tous les articles
+            </Link>
+            {' · '}
+            <Link href={LINKS.iaDevis} className="font-medium text-[var(--accent)] hover:underline" title="IA pour automatiser les devis bâtiment">
+              IA devis bâtiment
+            </Link>
+            {' · '}
+            <Link href={LINKS.iaCDT} className="font-medium text-[var(--accent)] hover:underline" title="IA pour conducteurs de travaux">
+              IA conducteur de travaux
+            </Link>
+            {' · '}
+            <Link href={LINKS.prendreRdv} className="font-medium text-[var(--accent)] hover:underline" title="Prendre rendez-vous — diagnostic gratuit">
+              prendre rendez-vous
+            </Link>
+          </p>
           <p className="mt-3 max-w-3xl text-slate-600">
             Voici les <strong className="font-semibold text-slate-800">quatre grands axes</strong> sur
             lesquels s&apos;appuient les formations IA BTP : devis et chiffrage, réponses aux appels
@@ -538,10 +569,11 @@ export default function HomePage() {
           </p>
           <div className="mt-8">
             <Link
-              href="/formations"
+              href={LINKS.formations}
               className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+              title="Catalogue des formations IA BTP Qualiopi"
             >
-              Voir le catalogue des formations
+              catalogue des formations IA BTP
             </Link>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -734,14 +766,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-8 text-center">
-            <Link
-              href="/formations"
-              className="text-[var(--accent)] font-medium hover:underline"
-            >
-              Voir tout le catalogue →
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -794,10 +818,11 @@ export default function HomePage() {
           </div>
           <div className="mt-10 text-center">
             <Link
-              href="/financement-constructys-formation-ia-btp"
+              href={LINKS.financement}
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+              title="Financement OPCO Constructys — formation IA BTP"
             >
-              Tout savoir sur le financement Constructys
+              financement Constructys
             </Link>
           </div>
         </div>
@@ -808,7 +833,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
-              <ProfilePhoto />
+              <ProfilePhoto
+                alt="Laure Olivié, formatrice IA BTP certifiée Qualiopi, spécialiste ChatGPT pour le bâtiment"
+                title="Sessions présentiel Île-de-France — Qualiopi, OPCO Constructys"
+              />
             </div>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -934,12 +962,6 @@ export default function HomePage() {
                 cadre du plan de développement des compétences de votre entreprise.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
-                <Link
-                  href="/financement-constructys-formation-ia-btp"
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
-                >
-                  En savoir plus sur les financements →
-                </Link>
                 <ExternalLinkAnchor
                   href={ANNUAIRE_ENTREPRISES_OFC_URL}
                   title="Vérifier la certification Qualiopi — fiche entreprise officielle"
@@ -967,7 +989,7 @@ export default function HomePage() {
             fréquentes.
           </p>
           <div className="mt-8">
-            <FAQAccordion />
+            <FAQAccordion items={FAQ_ITEMS_HOME} />
           </div>
         </div>
       </section>
@@ -980,16 +1002,15 @@ export default function HomePage() {
               Une autre question ?
             </h2>
             <p className="mt-3 text-slate-600">
-              Appelez-moi directement ou prenez rendez-vous pour un échange de 30
-              minutes gratuit.
+              Écrivez-moi ou prenez rendez-vous pour un échange de 30 minutes gratuit.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <a
-                href="tel:+33695661818"
+                href={`mailto:${SITE_CONFIG.email}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
               >
-                <Phone size={20} strokeWidth={1.5} />
-                06 95 66 18 18
+                <Mail size={20} strokeWidth={1.5} />
+                {SITE_CONFIG.email}
               </a>
               <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50">
                 <Calendar size={20} strokeWidth={1.5} />
@@ -1021,7 +1042,7 @@ export default function HomePage() {
                 Voir le calendrier
               </RdvLink>
               <p className="mt-6 text-sm text-slate-500">
-                Ou écrivez-moi ou appelez-moi — coordonnées à droite.
+                Écrivez-moi ou prenez rendez-vous — coordonnées à droite.
               </p>
               <div className="mt-8 space-y-6">
                 {[
@@ -1036,9 +1057,9 @@ export default function HomePage() {
                     desc: 'Votre devis intègre les possibilités de prise en charge Constructys',
                   },
                   {
-                    icon: Phone,
+                    icon: Mail,
                     title: 'Besoin d\'échanger ?',
-                    desc: '06 95 66 18 18 · laureolivie@yahoo.fr',
+                    desc: 'laureolivie@yahoo.fr',
                   },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-4">
@@ -1091,13 +1112,7 @@ export default function HomePage() {
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
             </RdvLink>
-            <a
-              href="tel:+33695661818"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              Appeler directement
-            </a>
+            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>
       </section>

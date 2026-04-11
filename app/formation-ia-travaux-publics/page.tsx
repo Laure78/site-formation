@@ -14,10 +14,11 @@ import {
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
-  getBreadcrumbSchema,
 } from '@/lib/seo';
 import { FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING } from '@/lib/faq';
 
@@ -37,11 +38,6 @@ export const metadata = createPageMetadata({
     'Constructys formation IA',
   ],
 });
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formation IA travaux publics', path: '/formation-ia-travaux-publics' },
-]);
 
 const CAS_USAGE = [
   {
@@ -107,9 +103,11 @@ export default function FormationIATravauxPublicsLandingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formation IA travaux publics', path: '/formation-ia-travaux-publics' },
+        ])}
       />
 
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-16 text-white md:py-20">

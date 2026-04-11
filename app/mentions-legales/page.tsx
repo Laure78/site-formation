@@ -59,15 +59,6 @@ export default function MentionsLegalesPage() {
               laureolivie@yahoo.fr
             </a>
           </p>
-          <p className="mt-2">
-            Téléphone :{' '}
-            <a
-              href="tel:+33695661818"
-              className="text-[var(--accent)] hover:underline"
-            >
-              06 95 66 18 18
-            </a>
-          </p>
         </section>
 
         <section>
@@ -253,15 +244,6 @@ export default function MentionsLegalesPage() {
                 className="text-[var(--accent)] hover:underline"
               >
                 laureolivie@yahoo.fr
-              </a>
-            </li>
-            <li>
-              Téléphone :{' '}
-              <a
-                href="tel:+33695661818"
-                className="text-[var(--accent)] hover:underline"
-              >
-                06 95 66 18 18
               </a>
             </li>
             <li>Adresse : 6 Rue Henri Dunant, 78280 Guyancourt</li>

@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Mail, Calculator, Users } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import {
+  breadcrumbItemsFromPaths,
   createPageMetadata,
   getCourseSchema,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
@@ -53,12 +55,6 @@ const courseSchema = getCourseSchema({
   areaServed: ['France', 'Île-de-France'],
 });
 
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formations', path: '/formations' },
-  { name: 'Formation IA pour PME du BTP', path: '/formations/ia-pme-btp' },
-]);
-
 const CAS_USAGE = [
   { icon: FileText, titre: 'Devis et chiffrages', desc: 'Générez des devis professionnels en 15 min au lieu de 2h. L\'IA structure les descriptifs et variantes ; vous gardez la maîtrise des prix.' },
   { icon: Mail, titre: 'Emails et relances', desc: 'Automatisez les emails clients, fournisseurs et sous-traitants. Ton professionnel adapté au BTP.' },
@@ -90,9 +86,12 @@ export default function FormationIAPMEBTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Formations', path: '/formations' },
+          { name: 'Formation IA pour PME du BTP', path: '/formations/ia-pme-btp' },
+        ])}
       />
       <script
         type="application/ld+json"
@@ -148,12 +147,7 @@ export default function FormationIAPMEBTPPage() {
             >
               Catalogue des formations
             </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
-            >
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>
         }
       >

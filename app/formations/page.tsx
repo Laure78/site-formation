@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Script from 'next/script';
 import Image from 'next/image';
 import { Clock, Users, Check, Euro } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -7,7 +6,9 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, getCourseListSchema } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -16,7 +17,7 @@ import {
   ENCART_TARIFS_COMMERCIAUX,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
-import { getSchemaCourses } from '@/lib/schema-courses';
+import { getFormationsCatalogJsonLd } from '@/lib/schema-course-formations';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue formation IA BTP : intelligence artificielle bâtiment, TP, ChatGPT',
@@ -157,32 +158,19 @@ const CATALOGUE_CARTE_VISUELS = [
 
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
-  const courseListSchema = getCourseListSchema(
-    FORMATIONS.map((f) => ({
-      title: f.title,
-      description: f.objectifs.join('. '),
-      path: f.href.startsWith('/formations') ? f.href : '/formations',
-    }))
-  );
 
   return (
     <>
-      <Script
-        id="schema-courses"
-        strategy="afterInteractive"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getSchemaCourses()),
-        }}
-      />
+      <JsonLd id="schema-formations-catalog-graph" schema={getFormationsCatalogJsonLd()} />
+      <JsonLd id="schema-formations-faq" schema={faqSchema} />
       <div className="mx-auto max-w-6xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }}
+      <Breadcrumb
+        items={breadcrumbItemsFromPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Catalogue formations', path: '/formations' },
+        ])}
+        showVisual
+        className="mb-6"
       />
       <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">

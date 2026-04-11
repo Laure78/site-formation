@@ -40,14 +40,6 @@ export default function PolitiqueConfidentialitePage() {
             >
               laureolivie@yahoo.fr
             </a>
-            {' · '}
-            Téléphone :{' '}
-            <a
-              href="tel:+33695661818"
-              className="text-[var(--accent)] hover:underline"
-            >
-              06 95 66 18 18
-            </a>
           </p>
           <p>
             Site :{' '}
@@ -670,15 +662,6 @@ export default function PolitiqueConfidentialitePage() {
               Responsable de la protection des données — 6 rue Henri Dunant —
               78280 GUYANCOURT
             </li>
-            <li>
-              Par téléphone :{' '}
-              <a
-                href="tel:+33695661818"
-                className="text-[var(--accent)] hover:underline"
-              >
-                06 95 66 18 18
-              </a>
-            </li>
           </ul>
 
           <h3 className="mt-6 text-base font-semibold text-[var(--accent)] underline">
@@ -869,13 +852,6 @@ export default function PolitiqueConfidentialitePage() {
                 className="text-[var(--accent)] hover:underline"
               >
                 laureolivie@yahoo.fr
-              </a>
-              {' · '}
-              <a
-                href="tel:+33695661818"
-                className="text-[var(--accent)] hover:underline"
-              >
-                06 95 66 18 18
               </a>
             </p>
             <p className="mt-2 text-slate-600">

@@ -41,7 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/checklist-prompts-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.88 },
     { url: `${baseUrl}/communaute-formateurs`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
     { url: `${baseUrl}/financement-constructys-formation-ia-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${baseUrl}/formation-ia-btp-paris-2026`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.88 },
     {
       url: `${baseUrl}/formation-ia-travaux-publics`,
       lastModified: new Date(),

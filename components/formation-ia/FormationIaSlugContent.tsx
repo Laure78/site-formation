@@ -145,7 +145,7 @@ export function FormationIaMetierBody({
       <p>
         <strong>Formatrice IA, ChatGPT et Claude AI pour le BTP</strong> — plus de 1 500
         professionnels accompagnés, note moyenne 4,85/5. SIRET 905 244 281 00010 — NDA 11788515078.
-        Siège : 6 rue Henri Dunant, 78280 Guyancourt — 06 95 66 18 18 — laureolivie@yahoo.fr.
+        Siège : 6 rue Henri Dunant, 78280 Guyancourt — laureolivie@yahoo.fr.
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">

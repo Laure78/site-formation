@@ -4,8 +4,15 @@ import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import {
+  createPageMetadata,
+  getFAQSchema,
+  SITE_CONFIG,
+  siteHasPublicPhone,
+  sitePhoneDisplaySuffix,
+} from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { InlinePublicPhoneLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 
 const PATH = '/formation-ia-vitrier-btp';
 
@@ -427,11 +434,9 @@ export default function FormationIaVitrierBtpPage() {
             <li>Financement Constructys et mise en pratique</li>
           </ul>
           <p className="mt-6 text-blue-100 text-sm">
-            Équipe ou session intra : contactez Laure au{' '}
-            <a href={`tel:${SITE_CONFIG.phone}`} className="underline hover:text-white">
-              {SITE_CONFIG.phoneDisplay}
-            </a>{' '}
-            ou{' '}
+            Équipe ou session intra : contactez Laure {siteHasPublicPhone() ? 'au ' : 'à '}
+            <InlinePublicPhoneLink className="underline hover:text-white" />
+            {siteHasPublicPhone() ? ' ou ' : ''}
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">
               {SITE_CONFIG.email}
             </a>
@@ -445,13 +450,7 @@ export default function FormationIaVitrierBtpPage() {
               Choisir un créneau
               <ArrowRight size={20} strokeWidth={1.5} />
             </RdvLink>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              <Phone size={20} strokeWidth={1.5} />
-              {SITE_CONFIG.phoneDisplay}
-            </a>
+            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
@@ -471,7 +470,7 @@ export default function FormationIaVitrierBtpPage() {
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
             SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Certifiée Qualiopi · Finançable Constructys, FSE+, OPCO selon
             règles en vigueur · {SITE_CONFIG.geo.streetAddress}, {SITE_CONFIG.geo.postalCode} {SITE_CONFIG.geo.city} ·{' '}
-            {SITE_CONFIG.email} · {SITE_CONFIG.phoneDisplay} ·{' '}
+            {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
             <a href={SITE_CONFIG.url} className="text-[var(--accent)] hover:underline">
               www.laureolivie.fr
             </a>
