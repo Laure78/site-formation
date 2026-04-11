@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-couvreurs",
   "title": "L'IA va-t-elle remplacer les couvreurs ?",
   "description": "L'IA remplace-t-elle les couvreurs ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-04-02",
+  "date": "2026-04-11",
   "keywords": [
-    "emails artisans",
-    "relance client IA",
-    "email professionnel ChatGPT",
-    "ChatGPT entreprises BTP"
+    "offre emploi IA",
+    "recruter BTP",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
-      "path": "/financement-constructys",
+      "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/chatgpt-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
