@@ -14,9 +14,13 @@ import {
   BookOpen,
   UserCircle,
   Mail,
+  Home,
+  CircleDollarSign,
+  LogIn,
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
+import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 
 import type { LucideIcon } from 'lucide-react';
@@ -192,9 +196,13 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const homeActive = pathname === '/';
   const blogActive = pathname === '/blog' || pathname.startsWith('/blog/');
   const aProposActive = pathname.startsWith('/a-propos');
   const contactActive = pathname === '/contact';
+  const financementActive =
+    pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
+  const connexionActive = pathname.startsWith('/auth/');
 
   return (
     <>
@@ -229,6 +237,18 @@ export function Navbar() {
             className="hidden items-center gap-0.5 rounded-full border border-slate-200/80 bg-slate-100/90 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] lg:flex"
             aria-label="Navigation principale"
           >
+            <Link
+              href="/"
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                homeActive
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <Home size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              Accueil
+            </Link>
+
             <div
               className="relative"
               onMouseEnter={handleEnterFormations}
@@ -271,6 +291,18 @@ export function Navbar() {
             </Link>
 
             <Link
+              href={LINKS.financement}
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                financementActive
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <CircleDollarSign size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              Financement
+            </Link>
+
+            <Link
               href="/a-propos"
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 aProposActive
@@ -285,14 +317,6 @@ export function Navbar() {
 
           <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
             <Link
-              href="/blog"
-              className={`whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-colors xl:text-[0.9375rem] ${
-                blogActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              Blog
-            </Link>
-            <Link
               href="/contact"
               className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-colors xl:text-[0.9375rem] ${
                 contactActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
@@ -300,6 +324,15 @@ export function Navbar() {
             >
               <Mail size={17} strokeWidth={1.75} className="text-slate-400" aria-hidden />
               <span className="decoration-slate-300 underline-offset-4 hover:underline">Contact</span>
+            </Link>
+            <Link
+              href="/auth/connexion"
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] xl:px-4 xl:text-[0.9375rem] ${
+                connexionActive ? 'border-[var(--accent)] text-[var(--accent)]' : ''
+              }`}
+            >
+              <LogIn size={16} strokeWidth={1.75} aria-hidden />
+              Connexion
             </Link>
             <a
               href={RDV_CTA.href}
@@ -342,6 +375,23 @@ export function Navbar() {
             </button>
           </div>
           <nav className="min-h-0 flex-1 overflow-y-auto px-4 py-4" aria-label="Navigation mobile">
+            <div className="border-b border-slate-100 py-1">
+              <Link
+                href="/"
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
+                  homeActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
+              >
+                <Home
+                  size={18}
+                  strokeWidth={1.75}
+                  className={homeActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                />
+                Accueil
+              </Link>
+            </div>
+
             <div className="border-b border-slate-100 py-1">
               <button
                 type="button"
@@ -420,6 +470,23 @@ export function Navbar() {
 
             <div className="border-b border-slate-100 py-1">
               <Link
+                href={LINKS.financement}
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
+                  financementActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
+              >
+                <CircleDollarSign
+                  size={18}
+                  strokeWidth={1.75}
+                  className={financementActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                />
+                Financement
+              </Link>
+            </div>
+
+            <div className="border-b border-slate-100 py-1">
+              <Link
                 href="/a-propos"
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
@@ -443,6 +510,14 @@ export function Navbar() {
               >
                 <Mail size={18} strokeWidth={1.75} className="text-slate-500" aria-hidden />
                 Contact
+              </Link>
+              <Link
+                href="/auth/connexion"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-4 py-3.5 text-center text-[0.9375rem] font-semibold text-[var(--accent)]"
+              >
+                <LogIn size={18} strokeWidth={1.75} aria-hidden />
+                Connexion
               </Link>
               <a
                 href={RDV_CTA.href}
