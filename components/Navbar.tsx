@@ -1,8 +1,3 @@
-/**
- * Barre de navigation unique — toutes les pages publiques (accueil, blog, formations, etc.).
- * Menu : Formations IA BTP (méga-menu 6 modules + catalogue) · Blog · À propos · Contact · Prendre RDV (Calendly).
- * Pas de liens Connexion / inscription (réservés aux pages /auth/*).
- */
 'use client';
 
 import Link from 'next/link';
@@ -57,9 +52,6 @@ const FORMATIONS_MEGA: NavMega = {
 };
 
 const RDV_CTA = { href: CALENDLY_BOOKING_URL, label: 'Prendre RDV' as const };
-
-const RDV_BUTTON_CLASS =
-  'inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[#2d6ae0] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]';
 
 function isActive(href: string, pathname: string) {
   if (href === '/') return pathname === '/';
@@ -150,6 +142,7 @@ function formationsDropdownActive(pathname: string): boolean {
   return CATALOGUE_FORMATIONS_NAV_LINKS.some((l) => isActive(l.href, pathname));
 }
 
+/** Barre de navigation unique — pages site et blog (pas de liens espace apprenant dans le header public). */
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -292,6 +285,14 @@ export function Navbar() {
 
           <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
             <Link
+              href="/blog"
+              className={`whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-colors xl:text-[0.9375rem] ${
+                blogActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              Blog
+            </Link>
+            <Link
               href="/contact"
               className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-colors xl:text-[0.9375rem] ${
                 contactActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
@@ -304,7 +305,7 @@ export function Navbar() {
               href={RDV_CTA.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={RDV_BUTTON_CLASS}
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[var(--nav-cta-bg)] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[var(--nav-cta-hover)] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]"
             >
               {RDV_CTA.label}
             </a>
@@ -444,7 +445,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-full bg-[#377CF3] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform hover:bg-[#2d6ae0] active:scale-[0.99]"
+                className="rounded-full bg-[var(--nav-cta-bg)] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform active:scale-[0.99]"
               >
                 {RDV_CTA.label}
               </a>
