@@ -117,6 +117,27 @@ const nextConfig: NextConfig = {
         destination: '/blog',
         permanent: true,
       },
+      // Blog : fusion « Devis 15 min » + « ChatGPT devis » électricien → article unique
+      {
+        source: '/blog/devis-en-15-min-le-guide-electricien',
+        destination: '/blog/chatgpt-devis-electricien-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/devis-en-15-min-le-guide-electricien/',
+        destination: '/blog/chatgpt-devis-electricien-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien',
+        destination: '/blog/chatgpt-devis-electricien-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/comment-utiliser-chatgpt-pour-vos-devis-electricien/',
+        destination: '/blog/chatgpt-devis-electricien-btp',
+        permanent: true,
+      },
     ];
   },
 };

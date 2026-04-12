@@ -1,0 +1,121 @@
+{
+  "slug": "ia-planning-chantier-btp",
+  "title": "Créer un planning de chantier avec l'IA : méthode en 30 min pour conducteurs de travaux",
+  "seoTitle": "Planning de chantier avec l'IA : méthode complète 2026 | Laure Olivié",
+  "description": "Créez un planning de chantier en 30 min avec l'IA. Méthode terrain en 5 étapes, prompts BTP, tableau de gains. Formation finançable Constructys. +1 592 pros formés.",
+  "date": "2026-04-13",
+  "dateModified": "2026-04-13",
+  "keywords": [
+    "planning chantier IA",
+    "conducteur de travaux IA",
+    "Claude AI planning BTP",
+    "phasage chantier intelligence artificielle",
+    "productivité chantier BTP",
+    "formation Constructys 2026"
+  ],
+  "sections": [
+    {
+      "type": "list",
+      "title": "En bref",
+      "content": [
+        "Un planning de chantier prend en moyenne 2 à 4 heures à structurer manuellement — l'IA le réduit à 30 minutes.",
+        "Claude AI permet de générer un phasage complet, d'identifier les interdépendances entre corps d'état et d'intégrer les délais de livraison.",
+        "La méthode en 5 étapes ci-dessous est issue des formations dispensées avec la FFB Grand Paris et la FFB Île-de-France.",
+        "Formation finançable jusqu'à 24 € HT/h/stagiaire via Constructys 2026.",
+        "+1 592 professionnels du BTP formés, note 4,85/5."
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Qu'est-ce qu'un planning de chantier assisté par IA ?",
+      "content": "<p>Le <strong>planning de chantier assisté par IA</strong> désigne l'utilisation d'un outil d'intelligence artificielle générative — comme Claude AI ou Mistral — pour structurer le phasage d'un chantier, ordonner les interventions des corps d'état, calculer les durées prévisionnelles et rédiger le document de planification à partir de données brutes fournies par le conducteur de travaux.</p><p>Il ne s'agit pas d'un logiciel de planification automatique : l'IA ne remplace pas MS Project ou un outil de diagramme de Gantt dédié. Elle joue le rôle d'un <strong>assistant de rédaction et de structuration</strong>, capable de transformer vos notes de chantier en un document de planning cohérent, lisible et exportable en quelques minutes.</p>"
+    },
+    {
+      "type": "html",
+      "title": "Le problème terrain : pourquoi la planification reste un point de douleur",
+      "content": "<p>Tout conducteur de travaux le sait : le planning est un document qu'on remet sans cesse à jour et qui mange du temps à chaque phase. En réunion de chantier, vous repartez avec des notes, des dates décalées, des arbitrages à intégrer. De retour au bureau, il faut tout compiler, vérifier les contraintes, reformater le document et le renvoyer aux sous-traitants avant le lendemain matin.</p><p>D'après une enquête menée auprès des participants aux formations <strong>FFB Grand Paris</strong> et <strong>FFB Île-de-France</strong>, 35 % du temps d'un conducteur de travaux est consacré à des tâches administratives — dont la planification représente entre <strong>20 et 30 %</strong>. Ce n'est pas une tâche à valeur ajoutée : c'est une tâche de mise en forme que l'IA peut prendre en charge.</p><p>Autre douleur fréquente : les <strong>interdépendances entre corps d'état</strong>. Qui intervient après qui ? L'IA peut vous aider à repérer ces enchaînements logiques que le planning manuel risque d'oublier quand on est sous pression.</p>"
+    },
+    {
+      "type": "html",
+      "title": "La méthode en 5 étapes : de vos notes au planning structuré",
+      "content": "<h3>Étape 1 — Rassemblez les données brutes du chantier</h3><p>Avant de saisir quoi que ce soit dans l'IA, réunissez : nature et surface du chantier ; liste des corps d'état et sous-traitants ; dates de démarrage et de livraison contractuelle ; contraintes (accès, riverains) ; délais de livraison des matériaux critiques. Cette étape est cruciale : plus vos données sont précises, plus le planning sera exploitable.</p><h3>Étape 2 — Construisez votre prompt de planning</h3><p>Utilisez le <strong>prompt « phasage initial »</strong> ci-dessous (formation FFB Grand Paris).</p><h3>Étape 3 — Affinez avec les contraintes spécifiques</h3><p>Le premier résultat donne une ossature. Intégrez les contraintes omises avec le <strong>prompt d'affinage</strong>.</p><h3>Étape 4 — Générez la version pour vos sous-traitants</h3><p>Une fois le tableau validé, produisez le <strong>document transmissible</strong> avec le prompt dédié.</p><h3>Étape 5 — Relisez et validez sous votre responsabilité</h3><p>L'IA génère un planning vraisemblable, pas un planning certifié. Vérifiez : cohérence des durées avec vos ratios habituels ; respect des délais contractuels ; délais d'approvisionnement réels ; conformité au CCAP sur marché public. <strong>C'est votre signature qui engage</strong> — l'IA structure, vous validez.</p>"
+    },
+    {
+      "type": "prompts",
+      "title": "Prompts prêts à l’emploi — planning de chantier",
+      "content": [
+        {
+          "titre": "Étape 2 — Phasage initial (tableau)",
+          "prompt": "Tu es conducteur de travaux expérimenté.\nJe dois planifier un chantier avec les caractéristiques suivantes :\n- Nature : [ex : réhabilitation d'un immeuble R+4, 12 appartements]\n- Date de démarrage : [date]\n- Date de livraison : [date]\n- Corps d'état : [liste : gros œuvre, plomberie, électricité, plaquiste, peinture, sol…]\n- Contraintes : [ex : pas d'intervention le samedi, livraison menuiseries semaine 22]\n\nGénère un planning de chantier phasé :\n1. Liste les corps d'état dans l'ordre logique d'intervention\n2. Pour chaque corps d'état, indique une durée prévisionnelle en semaines\n3. Identifie les 3 principales interdépendances critiques\n4. Propose les jalons de contrôle à intégrer (OPR, réunions de chantier, livraison partielle)\n\nFormat de sortie : tableau avec colonnes Corps d'état / Semaine de début / Durée / Observations",
+          "usage": "Premier jet : ordre des lots, durées, interdépendances, jalons."
+        },
+        {
+          "titre": "Étape 3 — Affiner avec contraintes",
+          "prompt": "Modifie le planning précédent en intégrant ces contraintes supplémentaires :\n- Les travaux de plomberie ne peuvent démarrer qu'après réception du gros œuvre (1 semaine d'écart minimum)\n- Le lot électricité est assuré par [nom entreprise] qui a d'autres chantiers en parallèle — prévoir une durée majorée de 20 %\n- La livraison des menuiseries extérieures est fixée au [date] — les travaux intérieurs doivent démarrer après cette date\n\nReformule le tableau de planning en intégrant ces modifications.",
+          "usage": "Itération après premier résultat : décalages, ressources, livraisons."
+        },
+        {
+          "titre": "Étape 4 — Document transmissible sous-traitants",
+          "prompt": "À partir du planning ci-dessus, rédige un document de planning de chantier professionnel\ndestiné à être transmis aux sous-traitants.\nInclus :\n- Un paragraphe d'introduction rappelant les dates clés du chantier\n- Le tableau de phasage reformaté avec les jalons\n- Un paragraphe de règles communes (réunion de chantier hebdomadaire, remontée des aléas sous 24h)\n- Une note sur la procédure de demande de prolongation de délai\n\nTon : professionnel, direct, pas de jargon inutile.",
+          "usage": "Texte propre à envoyer après validation du tableau."
+        },
+        {
+          "titre": "Bonus — Planning initial rapide",
+          "prompt": "Tu es conducteur de travaux BTP.\nGénère un planning de chantier prêt à l'emploi pour les données suivantes :\nChantier : [description courte]\nDurée totale : [X semaines]\nCorps d'état : [liste]\nContraintes : [liste]\n\nProduis un tableau structuré : Corps d'état / Début semaine / Durée / Dépendances\nIdentifie ensuite les 3 risques de retard les plus probables sur ce chantier.",
+          "usage": "Variante courte : chantier, durée, corps d’état, risques de retard."
+        },
+        {
+          "titre": "Bonus — Révision après réunion de chantier",
+          "prompt": "Suite à la réunion de chantier du [date], voici les mises à jour :\n- [Modification 1 : ex : maçonnerie décalée de 1 semaine]\n- [Modification 2 : ex : plomberie en avance de 3 jours]\n- [Point bloquant : ex : livraison carrelage repoussée au ...]\n\nRévise le planning initial (ci-dessous) en intégrant ces données.\nIndique les impacts en cascade sur les autres corps d'état.\nPlanning initial : [coller le tableau]",
+          "usage": "Mise à jour post-réunion et impacts en cascade."
+        },
+        {
+          "titre": "Bonus — Compte-rendu de coordination",
+          "prompt": "À partir du planning de chantier suivant, rédige un compte-rendu de la réunion\nde coordination de ce jour destiné aux sous-traitants et au maître d'ouvrage.\nFormat souhaité :\n- Date et participants\n- Points traités (planning, points bloquants, décisions)\n- Tableau des actions à mener avec responsable et délai\n- Prochain rendez-vous\n\nChantier : [nom chantier]\nPlanning : [coller le tableau]\nPoints traités en réunion : [vos notes brutes]",
+          "usage": "CR structuré pour MOA et sous-traitants à partir du planning."
+        },
+        {
+          "titre": "Bonus — Pénalités de retard (estimation)",
+          "prompt": "Sur ce chantier, le CCAP prévoit des pénalités de retard de [montant] € par jour ouvré.\nLe planning prévisionnel est le suivant : [coller le tableau]\nLe chantier a pris [X] jours de retard sur le lot [corps d'état].\n\nCalcule :\n1. Le nombre de jours de retard imputable à l'entreprise (hors aléas force majeure)\n2. Le montant des pénalités potentielles\n3. Les arguments que je peux faire valoir pour contester ou minorer ce retard\n\nImportant : fournis une estimation, pas un avis juridique.",
+          "usage": "Estimation chiffrée et pistes d’argumentaire — pas un avis juridique."
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Tableau de gains de temps — planning avec et sans IA",
+      "content": "<p><em>Données mesurées lors des sessions de formation avec la FFB Grand Paris et la FFB Île-de-France (78/91/95).</em></p><div class=\"overflow-x-auto mt-4\"><table class=\"w-full min-w-[520px] border-collapse text-left text-sm border border-slate-200\"><caption class=\"sr-only\">Gains de temps planning chantier avec IA</caption><thead><tr class=\"bg-slate-100\"><th class=\"border border-slate-200 p-3 font-semibold\">Tâche planning</th><th class=\"border border-slate-200 p-3 font-semibold\">Sans IA</th><th class=\"border border-slate-200 p-3 font-semibold\">Avec IA</th><th class=\"border border-slate-200 p-3 font-semibold\">Gain</th></tr></thead><tbody class=\"text-slate-700\"><tr><td class=\"border border-slate-200 p-3\">Structuration du phasage initial</td><td class=\"border border-slate-200 p-3\">2 à 4 heures</td><td class=\"border border-slate-200 p-3\">20 à 30 minutes</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−85 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Identification des interdépendances</td><td class=\"border border-slate-200 p-3\">45 min à 1 h</td><td class=\"border border-slate-200 p-3\">5 à 10 minutes</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−85 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Révision après réunion de chantier</td><td class=\"border border-slate-200 p-3\">1 à 2 heures</td><td class=\"border border-slate-200 p-3\">10 à 15 minutes</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−87 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Rédaction du compte-rendu associé</td><td class=\"border border-slate-200 p-3\">1 h à 1 h 30</td><td class=\"border border-slate-200 p-3\">10 à 15 minutes</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−85 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Mise en forme pour transmission</td><td class=\"border border-slate-200 p-3\">30 à 45 min</td><td class=\"border border-slate-200 p-3\">5 minutes</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−90 %</td></tr></tbody></table></div>"
+    },
+    {
+      "type": "html",
+      "title": "Outils recommandés pour la planification de chantier avec IA",
+      "content": "<p><strong>Claude AI (Anthropic)</strong> est l'outil principal recommandé par OFC pour les conducteurs de travaux : fenêtre de contexte étendue et fil de conversation stable pour les allers-retours sur le planning.</p><p><strong>Mistral</strong> (version gratuite disponible) peut convenir pour des plannings simples ; les sorties en tableau sont moins stables sur chantiers multi-lots.</p><p><strong>NotebookLM (Google, gratuit)</strong> : charger CCTP, CCAP ou documents de référence pour croiser le planning avec les exigences contractuelles — utilisé en formation avec la CSFE.</p>"
+    },
+    {
+      "type": "faq",
+      "title": "FAQ — Planning de chantier et IA",
+      "content": [
+        "L'IA peut-elle remplacer un logiciel de planning comme MS Project ou Primavera ? — Non. L'IA générative ne produit pas de diagramme de Gantt interactif avec dépendances automatiques et chemin critique. Elle rédige et structure un planning en texte ou tableau. Pour les chantiers complexes : l'IA pour la structure logique, puis import dans votre outil.",
+        "Mes données de chantier sont-elles confidentielles si je les saisis dans Claude AI ? — Par défaut, la version gratuite peut contribuer à l'amélioration des modèles. Pour données sensibles, utilisez Claude Pro (confidentialité renforcée, option désactivation entraînement) ou une solution avec DPA en entreprise.",
+        "Combien de temps faut-il pour former un conducteur de travaux à l'IA sur le planning ? — Avec la FFB Grand Paris, un niveau opérationnel sur la rédaction de planning est atteint en environ 2 h de pratique guidée. Le métier est déjà là — il s'agit de traduire l'expertise en prompts efficaces.",
+        "L'IA connaît-elle les normes DTU applicables à chaque corps d'état ? — Partiellement. Les connaissances peuvent être incomplètes ou non à jour. Pour des exigences normatives, chargez les DTU dans NotebookLM comme documents de référence.",
+        "Peut-on utiliser l'IA pour un marché public, notamment le planning du mémoire technique ? — Oui. Le planning prévisionnel du mémoire peut être généré rapidement à partir du CCTP. Vérifiez toujours les critères d'attribution liés au planning dans le RC.",
+        "L'IA peut-elle aider pour une VEFA ou une réhabilitation ? — Oui. En réhabilitation, précisez occupation, site occupé, horaires. En VEFA, les jalons par tranches si applicable."
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Se former au planning de chantier avec l’IA — OFC",
+      "content": "<p><strong>OFC Création d'Entreprise</strong> propose un module de formation IA BTP de 4 h, finançable <strong>Constructys</strong>, pour conducteurs de travaux et dirigeants PME BTP.</p><p>Contenu : méthode en 5 étapes sur un chantier type ; prompts planning prêts à l'emploi ; confidentialité des données ; intégration avec MS Project, Excel ou PDF.</p><p><strong>Présentiel</strong> en Île-de-France (75, 78, 91, 92, 93, 94, 95, 77) ou <strong>distanciel</strong>. Jusqu'à <strong>24 € HT/heure/stagiaire</strong> (PDC 2026). Exemple : session intra 4 h, 6 personnes — jusqu'à 576 € HT sur la prestation pédagogique selon dossier. Dépôt eGestion (services.constructys.fr) <strong>15 jours minimum</strong> avant le démarrage.</p><p>Références : FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France, Lefebvre Dalloz — <strong>+1 592 professionnels formés, note 4,85/5.</strong></p><p><a href=\"/prendre-rdv\" class=\"text-[#377CF3] font-medium underline\">Prendre rendez-vous — diagnostic gratuit 30 min</a> · <a href=\"/formations\" class=\"text-[#377CF3] font-medium underline\">Catalogue formations IA BTP</a> · <a href=\"/financement-constructys-formation-ia-btp\" class=\"text-[#377CF3] font-medium underline\">Financement Constructys</a></p><p class=\"mt-6 text-sm text-slate-600\">Une fois cette méthode intégrée, les mêmes principes s'appliquent aux appels d'offres — notamment le <a href=\"/blog/memoire-technique-btp-ia-gagner-temps-appels-offres\" class=\"text-[#377CF3] font-medium underline\">planning prévisionnel du mémoire technique BTP</a>.</p><p class=\"mt-8 text-sm text-slate-500\"><em>Laure Olivié — Formatrice IA BTP, OFC Création d'Entreprise · Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078 · <a href=\"tel:+33695661818\" class=\"underline\">06 95 66 18 18</a> · <a href=\"mailto:laureolivie@yahoo.fr\" class=\"underline\">laureolivie@yahoo.fr</a> · <a href=\"https://www.laureolivie.fr\" class=\"underline\">www.laureolivie.fr</a></em></p><p class=\"mt-4 text-sm\"><a href=\"https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation\" class=\"text-[#377CF3] font-medium underline\" target=\"_blank\" rel=\"noopener noreferrer\">Prendre rendez-vous — diagnostic gratuit 30 min</a> · <a href=\"/formations\" class=\"text-[#377CF3] font-medium underline\">Voir le catalogue formations</a></p>"
+    },
+    {
+      "type": "cta",
+      "content": "Formation IA BTP — planning, chantier, productivité. Qualiopi, Constructys. Réservez une visio découverte de 30 minutes."
+    }
+  ],
+  "relatedSlugs": [
+    "memoire-technique-btp-ia-gagner-temps-appels-offres",
+    "ia-analyse-cctp-methode",
+    "financer-formation-ia-btp-constructys"
+  ]
+}

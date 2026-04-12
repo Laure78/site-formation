@@ -1,0 +1,21 @@
+{
+  "note": "Articles prévus pour le maillage interne — non chargés par le site. À la publication, créer content/generated/article-<slug>.json avec le slug exact ci-dessous pour qu’ils apparaissent dans « Articles connexes » (notamment depuis ia-analyse-cctp-methode).",
+  "articles": [
+    {
+      "slug": "claude-ai-memoire-technique-erreurs-btp",
+      "title": "Claude AI pour mémoire technique BTP : les 5 erreurs à ne pas commettre",
+      "statut": "publié 2026-05-12 — content/generated/article-claude-ai-memoire-technique-erreurs-btp.json",
+      "maillage": {
+        "lierVers": ["/blog/ia-analyse-cctp-methode", "/blog/ia-btp-analyse-dce", "/formation-ia-appels-offres-btp"]
+      }
+    },
+    {
+      "slug": "analyse-dce-ia-exemple-reel",
+      "title": "Analyse DCE avec l'IA : exemple réel d'un appel d'offres bâtiment (de la réception à l'offre)",
+      "statut": "publié 2026-05-28 — content/generated/article-analyse-dce-ia-exemple-reel.json",
+      "maillage": {
+        "lierVers": ["/blog/ia-analyse-cctp-methode", "/blog/ia-btp-analyse-dce", "/formation-ia-appels-offres-btp"]
+      }
+    }
+  ]
+}

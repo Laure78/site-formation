@@ -1,12 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 
 const SESSION_KEY = 'cta-dismissed';
 
 /** Bandeau CTA fixe en bas d’écran — mobile uniquement (md et plus : masqué). */
 export function StickyCTA() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
@@ -25,6 +28,7 @@ export function StickyCTA() {
     sessionStorage.setItem(SESSION_KEY, '1');
   };
 
+  if (isStickyBlogMetierRdvPath(pathname)) return null;
   if (!visible || dismissed) return null;
 
   return (

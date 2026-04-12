@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
@@ -16,9 +17,13 @@ import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
-import { getAProposLocalBusinessJsonLd, getAProposPersonJsonLd } from '@/lib/schema-a-propos';
+import {
+  A_PROPOS_PERSON_SCRIPT_JSON_LD,
+  getAProposLocalBusinessJsonLd,
+} from '@/lib/schema-a-propos';
 import { ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
 import { PHOTOS } from '@/lib/photos';
+import { AProposEeatSections } from '@/components/a-propos/AProposEeatSections';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
@@ -81,8 +86,15 @@ export default function AProposPage() {
 
   return (
     <div>
+      <Script
+        id="schema-a-propos-person-ld-json"
+        type="application/ld+json"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(A_PROPOS_PERSON_SCRIPT_JSON_LD),
+        }}
+      />
       <JsonLd id="schema-a-propos-local-business" schema={getAProposLocalBusinessJsonLd()} />
-      <JsonLd id="schema-a-propos-person" schema={getAProposPersonJsonLd()} />
       <JsonLd id="schema-a-propos-faq" schema={faqSchema} />
       <JsonLd id="schema-a-propos-image" schema={buildAProposImageObjectJsonLd()} />
       <div className="mx-auto max-w-6xl px-4 pt-8">
@@ -507,6 +519,8 @@ export default function AProposPage() {
           </article>
         </div>
       </section>
+
+      <AProposEeatSections />
 
       {/* FAQ GEO inline */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">

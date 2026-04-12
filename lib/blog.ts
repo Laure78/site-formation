@@ -49,15 +49,72 @@ export interface BlogArticle {
   coverImage?: string;
 }
 
-/** Paires Q/R pour FAQPage : champ `faq` si présent, sinon sections FAQ (format « Q — R »). */
-export function getBlogArticleFaqPairs(article: BlogArticle): { q: string; a: string }[] {
-  if (article.faq && article.faq.length > 0) {
-    return article.faq.map(({ question, answer }) => ({
-      q: question.trim(),
-      a: answer.trim(),
-    }));
+/** Titre de section (H2) typique d’un bloc FAQ pour détection HTML. */
+export function isFaqSectionHeading(title: string | undefined): boolean {
+  if (!title?.trim()) return false;
+  const t = title.toLowerCase();
+  return /\bfaq\b/.test(t) || t.includes('questions fréquentes');
+}
+
+/** Extrait les paires Q/R depuis un fragment HTML (H3 + premier &lt;p&gt; suivant chaque H3). */
+export function extractFaqPairsFromHtmlSection(html: string): { q: string; a: string }[] {
+  const pairs: { q: string; a: string }[] = [];
+  const strip = (s: string) =>
+    s
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  const parts = html.split(/<h3\b[^>]*>/i);
+  for (let i = 1; i < parts.length; i++) {
+    const chunk = parts[i];
+    const endH3 = chunk.search(/<\/h3>/i);
+    if (endH3 < 0) continue;
+    const q = strip(chunk.slice(0, endH3));
+    const after = chunk.slice(endH3 + 5);
+    const pMatch = /<p\b[^>]*>([\s\S]*?)<\/p>/i.exec(after);
+    const a = pMatch ? strip(pMatch[1]) : '';
+    if (q && a) pairs.push({ q, a });
   }
-  return extractFaqPairsFromArticleSections(article.sections);
+  return pairs;
+}
+
+/**
+ * Paires Q/R pour le schéma FAQPage : `article.faq`, sections `type: 'faq'`
+ * (lignes « Q — R »), et sections `type: 'html'` dont le titre contient FAQ / Questions fréquentes
+ * avec H3 + paragraphes dans le HTML.
+ */
+export function extractFaqPairsForFaqPageJsonLd(article: BlogArticle): { q: string; a: string }[] {
+  const pairs: { q: string; a: string }[] = [];
+
+  if (article.faq && article.faq.length > 0) {
+    for (const { question, answer } of article.faq) {
+      const q = question.trim();
+      const a = answer.trim();
+      if (q && a) pairs.push({ q, a });
+    }
+    if (pairs.length > 0) return pairs;
+  }
+
+  for (const section of article.sections) {
+    if (section.type === 'faq') {
+      pairs.push(...extractFaqPairsFromArticleSections([section]));
+    }
+    if (
+      section.type === 'html' &&
+      typeof section.content === 'string' &&
+      section.title &&
+      isFaqSectionHeading(section.title)
+    ) {
+      pairs.push(...extractFaqPairsFromHtmlSection(section.content));
+    }
+  }
+
+  return pairs;
+}
+
+/** Alias — même logique que extractFaqPairsForFaqPageJsonLd. */
+export function getBlogArticleFaqPairs(article: BlogArticle): { q: string; a: string }[] {
+  return extractFaqPairsForFaqPageJsonLd(article);
 }
 
 /** Estimation du nombre de mots pour schema Article JSON-LD (GEO) */
@@ -81,6 +138,68 @@ export function estimateWordCountFromArticle(article: BlogArticle): number {
     }
   }
   return estimateWordCountFromPlainText(parts.join(' '));
+}
+
+/** Une section d’article qui affiche un titre en H2 (hors bloc CTA). */
+export function sectionRendersBlogH2(
+  section: BlogArticle['sections'][number]
+): boolean {
+  if (!section.title?.trim()) return false;
+  if (section.type === 'cta') return false;
+  return true;
+}
+
+/** Estimation du nombre de mots pour une section (titre + contenu). */
+export function estimateWordCountForSection(
+  section: BlogArticle['sections'][number]
+): number {
+  const parts: string[] = [];
+  if (section.title) parts.push(section.title);
+  const c = section.content;
+  if (typeof c === 'string') parts.push(c);
+  else if (Array.isArray(c)) {
+    for (const item of c) {
+      if (typeof item === 'string') parts.push(item);
+      else if (
+        item &&
+        typeof item === 'object' &&
+        'titre' in item &&
+        'prompt' in item
+      ) {
+        const p = item as ArticlePrompt;
+        parts.push(p.titre, p.prompt);
+        if (p.usage) parts.push(p.usage);
+      }
+    }
+  }
+  return estimateWordCountFromPlainText(parts.join(' '));
+}
+
+/**
+ * Index de section après lequel insérer le CTA blog « milieu » :
+ * après le premier H2 une fois ~450+ mots cumulés depuis le début du corps,
+ * sinon après la section du premier H2 si l’article est court.
+ */
+export function getBlogCTAMidInsertAfterIndex(
+  sections: BlogArticle['sections']
+): number | null {
+  if (sections.length === 0) return null;
+  const MIN_WORDS = 450;
+  let cum = 0;
+  let firstH2 = -1;
+  for (let i = 0; i < sections.length; i++) {
+    cum += estimateWordCountForSection(sections[i]);
+    if (sectionRendersBlogH2(sections[i]) && firstH2 < 0) {
+      firstH2 = i;
+    }
+    if (firstH2 >= 0 && cum >= MIN_WORDS) {
+      return i;
+    }
+  }
+  if (firstH2 >= 0) {
+    return firstH2;
+  }
+  return null;
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
@@ -2400,6 +2519,10 @@ function loadGeneratedArticles(): BlogArticle[] {
         keywords: a.keywords ?? [],
         sections: a.sections ?? [],
         relatedSlugs: a.relatedSlugs ?? [],
+        ...(a.seoTitle ? { seoTitle: a.seoTitle } : {}),
+        ...(a.dateModified ? { dateModified: a.dateModified } : {}),
+        ...(a.faq?.length ? { faq: a.faq } : {}),
+        ...(a.coverImage ? { coverImage: a.coverImage } : {}),
       };
     });
   } catch {
@@ -2495,8 +2618,9 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   const s = slug.toLowerCase();
   if (s.includes('formateur') || s.includes('premiers-clients') || s.includes('prospection-formation') || s.includes('developper-activite')) return 'formateurs';
   if (s.includes('appels-d-offres') || s.includes('appels-offres') || s.includes('cctp') || s.includes('memoire-technique') || s.includes('repondre-appel') || s.includes('analyse-dce')) return 'appels-offres';
-  if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il')) return 'financement';
+  if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il') || s.includes('intra-btp-constructys') || s.includes('dossier-constructys')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
+  if (s.includes('conducteur-travaux-usages')) return 'metiers';
   if (s.includes('conducteur-travaux')) return 'appels-offres';
   if (s.includes('formation-ia-artisans-batiment-programme')) return 'metiers';
   if (s.includes('7-cas-usage-ia-btp') || s.includes('5-assistants-ia-btp')) return 'metiers';
@@ -2505,7 +2629,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('adoption-ia-btp') || s.includes('ia-btp-2026')) return 'metiers';
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
   if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';
-  if (s.includes('avis-google') || s.includes('organisation-chantier')) return 'productivite';
+  if (s.includes('avis-google') || s.includes('organisation-chantier') || s.includes('planning-chantier')) return 'productivite';
   if (s.includes('compte-rendu') || s.includes('cr-chantier')) return 'productivite';
   if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
   if (s.includes('lyon') || s.includes('bordeaux') || s.includes('lille')) return 'regions';

@@ -7,12 +7,13 @@
 
 @layer base {
   :root {
-    --accent: #2563eb;
+    /* Charte OFC — bleu primaire #377CF3 */
+    --accent: #377cf3;
     --accent-soft: #eff6ff;
     --muted: #64748b;
     /* CTA header « Prendre RDV » — même bleu que les boutons primaires (sticky RDV, etc.) */
-    --nav-cta-bg: var(--accent);
-    --nav-cta-hover: #1d4ed8;
+    --nav-cta-bg: #377cf3;
+    --nav-cta-hover: #2d66d6;
     --header-border: rgba(15, 23, 42, 0.08);
   }
 }

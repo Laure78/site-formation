@@ -1,0 +1,151 @@
+{
+  "slug": "analyse-dce-ia-exemple-reel",
+  "title": "Analyse DCE avec l'IA : exemple réel d'un appel d'offres bâtiment (de la réception à l'offre)",
+  "seoTitle": "Analyser un DCE avec l'IA : exemple réel BTP de A à Z | Laure Olivié",
+  "description": "Analyse complète d'un DCE bâtiment avec l'IA : de la réception du dossier à l'offre déposée. Exemple pas à pas, prompts inclus. Formation Qualiopi Constructys.",
+  "date": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "keywords": [
+    "analyse DCE intelligence artificielle BTP",
+    "analyser DCE ChatGPT",
+    "IA appel d offres bâtiment",
+    "répondre AO IA",
+    "Claude Pro DCE",
+    "mémoire technique BTP",
+    "CCTP étanchéité",
+    "GO NO GO marché public"
+  ],
+  "sections": [
+    {
+      "type": "list",
+      "title": "En bref",
+      "content": [
+        "Cet article suit en temps réel l'analyse complète d'un DCE fictif mais réaliste — lot étanchéité-bardage, marché public, maître d'ouvrage collectivité territoriale.",
+        "Étapes couvertes : réception du DCE, GO/NO GO, analyse CCTP, extraction des critères RC, plan du mémoire technique, vérification cohérence chiffrage.",
+        "Temps total avec l'IA : 47 minutes. Sans IA, le même travail prend une journée complète.",
+        "Tous les prompts utilisés sont reproduits et commentés.",
+        "Ce cas s'appuie sur la méthode enseignée en formation OFC avec la FFB Grand Paris et la CSFE (étanchéité)."
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Le DCE de départ — présentation du marché fictif",
+      "content": "<p>Pour cet exemple, nous travaillons sur un appel d'offres public fictif mais représentatif des marchés que traitent les entreprises formées avec la <strong>CSFE</strong> et la <strong>FFB Île-de-France</strong>.</p><p><strong>Le marché :</strong></p><ul class=\"list-disc pl-6 space-y-1 text-slate-700\"><li><strong>Maître d'ouvrage :</strong> Communauté d'agglomération de Seine-et-Marne (fictif)</li><li><strong>Objet :</strong> Réhabilitation de la toiture-terrasse et ravalement de façade — Groupe scolaire Les Acacias</li><li><strong>Lot concerné :</strong> Lot 3 — Étanchéité toiture-terrasse + isolation thermique par l'extérieur</li><li><strong>Montant estimé :</strong> 180 000 à 220 000 € HT</li><li><strong>Délai de remise des offres :</strong> 21 jours à compter de la publication</li><li><strong>Documents fournis :</strong> RC (12 pages), CCTP lot 3 (64 pages), CCAP (18 pages), BPU/DQE (8 pages), plans (non analysés par l'IA)</li></ul><p><strong>La situation de l'entreprise :</strong> ETI de 28 salariés spécialisée en étanchéité et bardage, Île-de-France. Le chargé d'affaires a téléchargé le DCE le lundi matin. Remise des offres le vendredi en deux semaines. Il dispose de 3 jours calendaires pour analyser le DCE, décider du GO/NO GO, et lancer la rédaction du mémoire technique en parallèle du chiffrage.</p>"
+    },
+    {
+      "type": "html",
+      "title": "Étape 1 — Analyse rapide pour le GO/NO GO (8 minutes)",
+      "content": "<p>Avant d'investir du temps sur le chiffrage et le mémoire, le chargé d'affaires veut savoir si ce marché vaut la peine d'être traité. Il charge le RC et le CCTP dans Claude Pro et lance le premier prompt (voir section prompts ci-dessous).</p><p><strong>Résultat obtenu en 4 minutes :</strong></p><p>Claude identifie que le lot couvre 1 400 m² de toiture-terrasse inaccessible avec système d'étanchéité bicouche SBS + isolation en polyisocyanurate 120 mm, et 320 m² de bardage métallique sur façade nord. Complexité technique : élevée (travaux en milieu scolaire, phasage imposé pendant les vacances). Exigences : certification CSFE exigée pour les travaux d'étanchéité, qualification Qualibat 3141 minimum.</p><p>Signaux positifs : l'entreprise est certifiée CSFE, dispose d'une référence récente sur un marché similaire (groupe scolaire Seine-Saint-Denis, 2024). Signaux négatifs : le phasage en vacances scolaires impose une concentration des effectifs sur 3 semaines — risque de surcharge si d'autres chantiers sont en cours à la même période.</p><p>Recommandation Claude : GO conditionnel — vérifier la disponibilité des équipes en juillet-août avant de s'engager.</p><p><strong>Temps réel : 8 minutes</strong> (chargement PDF + prompt + lecture de la réponse).</p>"
+    },
+    {
+      "type": "html",
+      "title": "Étape 2 — Analyse approfondie du CCTP (12 minutes)",
+      "content": "<p>Le GO est confirmé. Le chargé d'affaires passe à l'analyse technique détaillée du CCTP lot 3 (prompt étape 2).</p><p><strong>Résultat obtenu en 6 minutes :</strong></p><p>Claude produit une fiche de 2 pages structurée. Points inhabituels signalés : le CCTP exige un Avis Technique en cours de validité pour le système d'étanchéité (AT 5/15-2847 ou équivalent agréé) — ce qui élimine d'emblée certains systèmes du catalogue habituel. L'isolation doit atteindre R≥5,5 m²K/W, soit 140 mm de polyisocyanurate — plus épais que le standard de marché. La garantie décennale doit être accompagnée d'une attestation d'assurance spécifique aux travaux sur établissement recevant du public (ERP).</p><p>Le chargé d'affaires vérifie ces points avec son bureau d'études en 10 minutes. Deux points d'alerte : l'AT du système habituel est expiré depuis mars 2026 — il faut soit trouver un système équivalent avec AT valide, soit contacter le fabricant pour une attestation de renouvellement. L'isolation 140 mm n'est pas en stock standard chez son fournisseur habituel — délai d'approvisionnement à vérifier.</p><p><strong>Temps réel : 12 minutes.</strong></p>"
+    },
+    {
+      "type": "html",
+      "title": "Étape 3 — Extraction des critères RC et plan du mémoire (10 minutes)",
+      "content": "<p><strong>Résultat obtenu en 5 minutes :</strong></p><div class=\"overflow-x-auto mt-4\"><table class=\"w-full min-w-[560px] border-collapse text-left text-sm border border-slate-200\"><caption class=\"sr-only\">Plan de mémoire technique et pondérations RC</caption><thead><tr class=\"bg-slate-100\"><th class=\"border border-slate-200 p-3 font-semibold\">Section</th><th class=\"border border-slate-200 p-3 font-semibold\">Pondération</th><th class=\"border border-slate-200 p-3 font-semibold\">Longueur cible</th><th class=\"border border-slate-200 p-3 font-semibold\">Points forts à valoriser</th></tr></thead><tbody class=\"text-slate-700\"><tr><td class=\"border border-slate-200 p-3\">Présentation entreprise</td><td class=\"border border-slate-200 p-3\">10 %</td><td class=\"border border-slate-200 p-3\">200 mots</td><td class=\"border border-slate-200 p-3\">Certification CSFE, 28 ans d'expérience</td></tr><tr><td class=\"border border-slate-200 p-3\">Références similaires</td><td class=\"border border-slate-200 p-3\">15 %</td><td class=\"border border-slate-200 p-3\">350 mots</td><td class=\"border border-slate-200 p-3\">3 marchés ERP de montant comparable</td></tr><tr><td class=\"border border-slate-200 p-3\">Méthodologie étanchéité</td><td class=\"border border-slate-200 p-3\">25 %</td><td class=\"border border-slate-200 p-3\">600 mots</td><td class=\"border border-slate-200 p-3\">Méthode phasage vacances, protocole AT</td></tr><tr><td class=\"border border-slate-200 p-3\">Moyens humains</td><td class=\"border border-slate-200 p-3\">15 %</td><td class=\"border border-slate-200 p-3\">350 mots</td><td class=\"border border-slate-200 p-3\">2 étancheurs N3, conducteur dédié</td></tr><tr><td class=\"border border-slate-200 p-3\">Gestion des interfaces</td><td class=\"border border-slate-200 p-3\">10 %</td><td class=\"border border-slate-200 p-3\">250 mots</td><td class=\"border border-slate-200 p-3\">Réunion de coordination hebdomadaire</td></tr><tr><td class=\"border border-slate-200 p-3\">QSE chantier scolaire</td><td class=\"border border-slate-200 p-3\">15 %</td><td class=\"border border-slate-200 p-3\">350 mots</td><td class=\"border border-slate-200 p-3\">Plan de prévention ERP, signalisation</td></tr><tr><td class=\"border border-slate-200 p-3\">Planning d'intervention</td><td class=\"border border-slate-200 p-3\">10 %</td><td class=\"border border-slate-200 p-3\">250 mots</td><td class=\"border border-slate-200 p-3\">Phasage en 2 séquences vacances</td></tr></tbody></table></div><p class=\"mt-4\">Ce tableau devient le brief de rédaction. La méthodologie (25 %) et le QSE (15 %) méritent les développements les plus longs — ce que le chargé d'affaires n'aurait pas spontanément priorisé sans cette analyse.</p><p><strong>Temps réel : 10 minutes.</strong></p>"
+    },
+    {
+      "type": "html",
+      "title": "Étape 4 — Rédaction de la section la plus valorisée : Méthodologie (12 minutes)",
+      "content": "<p>Le chargé d'affaires fournit ses données brutes à Claude et lui demande de rédiger la section Méthodologie — celle à 25 % de la note (prompt étape 4).</p><p>La réponse de Claude produit une section de 610 mots qui cite explicitement l'Avis Technique du système, justifie le dépassement de l'exigence thermique (+15 % vs le minimum), et détaille le protocole de sécurité ERP en lien direct avec le critère de notation. Le chargé d'affaires relit, ajuste deux formulations sur les délais, et valide.</p><p><strong>Temps réel : 12 minutes</strong> (prompt + relecture + corrections mineures).</p>"
+    },
+    {
+      "type": "html",
+      "title": "Étape 5 — Vérification cohérence mémoire / BPU (5 minutes)",
+      "content": "<p>Avant de déposer, le chargé d'affaires utilise Claude pour une vérification croisée rapide (prompt étape 5).</p><p>Claude détecte deux écarts : la réunion de coordination hebdomadaire mentionnée dans le mémoire n'est pas valorisée dans le BPU (prestation à ajouter ou à préciser comme incluse). Le système de dépose des graviers existants est décrit dans le mémoire mais absent du BPU lot 3 — à vérifier si c'est une prestation du lot démolition ou à chiffrer en option.</p><p>Deux alertes, 5 minutes, zéro litige potentiel.</p>"
+    },
+    {
+      "type": "html",
+      "title": "Bilan temps total",
+      "content": "<div class=\"overflow-x-auto mt-4\"><table class=\"w-full min-w-[480px] border-collapse text-left text-sm border border-slate-200\"><caption class=\"sr-only\">Bilan temps total analyse DCE avec et sans IA</caption><thead><tr class=\"bg-slate-100\"><th class=\"border border-slate-200 p-3 font-semibold\">Étape</th><th class=\"border border-slate-200 p-3 font-semibold\">Tâche</th><th class=\"border border-slate-200 p-3 font-semibold\">Temps avec IA</th><th class=\"border border-slate-200 p-3 font-semibold\">Temps sans IA</th></tr></thead><tbody class=\"text-slate-700\"><tr><td class=\"border border-slate-200 p-3\">1</td><td class=\"border border-slate-200 p-3\">GO/NO GO</td><td class=\"border border-slate-200 p-3\">8 min</td><td class=\"border border-slate-200 p-3\">1 h 30</td></tr><tr><td class=\"border border-slate-200 p-3\">2</td><td class=\"border border-slate-200 p-3\">Analyse CCTP approfondie</td><td class=\"border border-slate-200 p-3\">12 min</td><td class=\"border border-slate-200 p-3\">3 h</td></tr><tr><td class=\"border border-slate-200 p-3\">3</td><td class=\"border border-slate-200 p-3\">Extraction RC + plan mémoire</td><td class=\"border border-slate-200 p-3\">10 min</td><td class=\"border border-slate-200 p-3\">1 h</td></tr><tr><td class=\"border border-slate-200 p-3\">4</td><td class=\"border border-slate-200 p-3\">Rédaction section méthodologie</td><td class=\"border border-slate-200 p-3\">12 min</td><td class=\"border border-slate-200 p-3\">2 h</td></tr><tr><td class=\"border border-slate-200 p-3\">5</td><td class=\"border border-slate-200 p-3\">Vérification cohérence</td><td class=\"border border-slate-200 p-3\">5 min</td><td class=\"border border-slate-200 p-3\">1 h</td></tr><tr class=\"font-semibold bg-slate-50\"><td class=\"border border-slate-200 p-3\" colspan=\"2\">Total</td><td class=\"border border-slate-200 p-3 text-[#377CF3]\">47 min</td><td class=\"border border-slate-200 p-3\">~8 h 30</td></tr></tbody></table></div><p class=\"mt-4\">Gain global : <strong>−91 %</strong> sur les tâches documentaires de l'AO. Le temps libéré a été consacré au chiffrage précis des postes identifiés comme à risque (isolation 140 mm, dépose graviers) et à la vérification de la disponibilité des équipes pour le phasage.</p>"
+    },
+    {
+      "type": "prompts",
+      "title": "Les 5 prompts du workflow (Claude Pro)",
+      "content": [
+        {
+          "titre": "Étape 1 — GO/NO GO",
+          "prompt": "Tu es un chargé d'affaires dans une entreprise d'étanchéité\net de bardage de 28 salariés en Île-de-France.\n\nJ'ai reçu ce DCE (RC + CCTP lot 3 ci-joints).\n\nDonne-moi en 5 minutes les éléments de décision GO/NO GO :\n1. Périmètre exact des prestations (ce qu'on doit faire)\n2. Niveau de complexité technique estimé (simple / moyen / élevé)\n3. Contraintes de délais ou de phasage inhabituelles\n4. Exigences administratives particulières (certifications, agréments)\n5. Signaux positifs pour notre entreprise (adéquation avec nos compétences)\n6. Signaux négatifs ou risques à évaluer\n7. Ta recommandation : GO ou NO GO, et pourquoi en 2 phrases\n\nFormat : liste structurée, aller à l'essentiel.",
+          "usage": "RC + CCTP chargés dans la même conversation."
+        },
+        {
+          "titre": "Étape 2 — Analyse CCTP structurée",
+          "prompt": "Voici le CCTP complet du lot 3 — Étanchéité toiture-terrasse\net isolation thermique par l'extérieur.\n\nExtrais et structure les informations suivantes :\n\n1. DESCRIPTION DES OUVRAGES\n   - Surfaces et quantités par poste\n   - Nature des supports existants\n   - Prestations de dépose à la charge du lot\n\n2. PRESCRIPTIONS TECHNIQUES\n   - Systèmes d'étanchéité imposés (marques agréées, Avis Techniques)\n   - Isolants imposés (lambda, certification ACERMI)\n   - Relevés et accessoires (hauteur minimale, fixations)\n\n3. NORMES ET DTU APPLICABLES\n   - Liste exhaustive des DTU et normes cités\n   - Éléments de réception et essais demandés\n\n4. INTERFACES AVEC AUTRES LOTS\n   - Prestations à la charge du lot maçonnerie\n   - Prestations à la charge du lot menuiseries extérieures\n   - Points de coordination obligatoires\n\n5. CLAUSES PARTICULIÈRES\n   - Garanties spécifiques (durée, étendue)\n   - Obligations de maintenance post-réception\n   - Modalités de réception partielle\n\nSignale en MAJUSCULES tout ce qui est inhabituel ou exigeant\npar rapport aux marchés courants d'étanchéité en Île-de-France.",
+          "usage": "CCTP lot seul ou avec extrait RC si besoin de contexte."
+        },
+        {
+          "titre": "Étape 3 — Critères RC et plan de mémoire",
+          "prompt": "Voici le Règlement de Consultation (RC) du marché.\n\nÉtape 1 : Extrais les critères de jugement des offres\net leurs pondérations exactes (en % ou en points).\n\nÉtape 2 : Pour les critères qualitatifs (valeur technique),\ndétaille les sous-critères et leurs poids si précisés.\n\nÉtape 3 : Propose un plan de mémoire technique en 10 sections maximum,\navec :\n- Titre de chaque section\n- Longueur cible en mots (proportionnelle à la pondération)\n- Données clés à mettre en avant pour maximiser la note\n\nFormat : tableau à 4 colonnes.",
+          "usage": "À appliquer sur le RC complet."
+        },
+        {
+          "titre": "Étape 4 — Section Méthodologie (données réelles)",
+          "prompt": "Tu es un rédacteur technique spécialisé en marchés publics BTP,\nétanchéité et bardage.\n\nJe dois rédiger la section \"Méthodologie d'exécution — Étanchéité toiture-terrasse\"\npour le mémoire technique du lot 3.\n\nMes données réelles :\n- Système proposé : étanchéité bicouche SBS SIPLAST Parafor Solo G,\n  AT 5/19-3012 (en cours de validité)\n- Isolation : Polyisocyanurate EFISOL recto-verso 140 mm, ACERMI certifié,\n  lambda 0,022 W/mK → R = 6,36 m²K/W (> exigence 5,5)\n- Phasage : Séquence 1 — zone A (800 m²) pendant vacances de printemps\n  (15 avril au 2 mai) / Séquence 2 — zone B (600 m²) pendant vacances d'été\n  (7 juillet au 22 août)\n- Équipe dédiée : 1 conducteur de travaux + 2 étancheurs N3 + 1 N2\n- Protocole ERP : réunion de démarrage avec chef d'établissement,\n  balisage périmètre de sécurité, horaires 7h-17h, pas de travaux par vent > 60 km/h\n\nCritères de notation RC pour cette section :\n\"Pertinence de la méthode d'exécution et adéquation aux contraintes\ndu site (ERP, phasage, milieu scolaire occupé)\"\n\nRédige cette section en 550 à 650 mots.\nTon professionnel, factuel, sans superlatifs.\nMontre précisément l'adéquation entre notre méthode et les exigences du RC.",
+          "usage": "Remplacez les données par les vôtres avant envoi."
+        },
+        {
+          "titre": "Étape 5 — Cohérence mémoire / BPU",
+          "prompt": "Voici :\n1. La version finale du mémoire technique (sections 1 à 7)\n2. Le BPU/DQE complété pour le lot 3\n\nIdentifie toute incohérence entre les deux :\n- Prestations décrites dans le mémoire absentes du BPU\n- Quantités ou spécifications contradictoires\n- Engagements du mémoire non valorisés dans le chiffrage\n- Postes du BPU non justifiés dans le mémoire\n\nFormat : liste d'alertes classées par niveau de risque.",
+          "usage": "Joignez les deux documents dans leur version quasi finale."
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Ce que cet exemple enseigne sur la bonne utilisation de l'IA",
+      "content": "<p><strong>L'IA ne remplace pas le bureau d'études.</strong> La découverte que l'AT du système habituel est expiré — c'est le chargé d'affaires qui l'a détecté en vérifiant les références produites par Claude. L'IA a signalé l'exigence d'un AT en cours de validité ; la vérification a été humaine.</p><p><strong>L'IA ne remplace pas la connaissance du marché.</strong> Le signal sur la surcharge potentielle des équipes en juillet-août — c'est le chargé d'affaires qui l'a traduit en risque opérationnel. Claude ne connaît pas le carnet de commandes de l'entreprise.</p><p><strong>L'IA est maximalement utile quand elle reçoit des données réelles.</strong> La section méthodologie produite à l'étape 4 est de qualité parce que le brief était précis : référence exacte du système d'étanchéité, valeur lambda certifiée, noms des intervenants, contraintes ERP réelles. Sans ce brief, Claude aurait produit une section générique.</p>"
+    },
+    {
+      "type": "html",
+      "title": "Gains de temps mesurés — appels d'offres avec l'IA",
+      "content": "<div class=\"overflow-x-auto mt-4\"><table class=\"w-full min-w-[520px] border-collapse text-left text-sm border border-slate-200\"><caption class=\"sr-only\">Gains de temps appels d'offres avec l'IA</caption><thead><tr class=\"bg-slate-100\"><th class=\"border border-slate-200 p-3 font-semibold\">Tâche</th><th class=\"border border-slate-200 p-3 font-semibold\">Sans IA</th><th class=\"border border-slate-200 p-3 font-semibold\">Avec IA</th><th class=\"border border-slate-200 p-3 font-semibold\">Gain</th></tr></thead><tbody class=\"text-slate-700\"><tr><td class=\"border border-slate-200 p-3\">GO/NO GO documenté</td><td class=\"border border-slate-200 p-3\">1 h 30</td><td class=\"border border-slate-200 p-3\">8 à 10 min</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−90 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Analyse CCTP (64 pages)</td><td class=\"border border-slate-200 p-3\">2 h 30</td><td class=\"border border-slate-200 p-3\">12 à 15 min</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−90 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Extraction critères RC + plan mémoire</td><td class=\"border border-slate-200 p-3\">1 h</td><td class=\"border border-slate-200 p-3\">8 à 10 min</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−85 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Rédaction section mémoire (600 mots)</td><td class=\"border border-slate-200 p-3\">1 h 30 à 2 h</td><td class=\"border border-slate-200 p-3\">10 à 15 min</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−85 %</td></tr><tr><td class=\"border border-slate-200 p-3\">Vérification cohérence mémoire / BPU</td><td class=\"border border-slate-200 p-3\">1 h</td><td class=\"border border-slate-200 p-3\">5 min</td><td class=\"border border-slate-200 p-3 font-medium text-[#377CF3]\">−90 %</td></tr><tr class=\"font-semibold bg-slate-50\"><td class=\"border border-slate-200 p-3\">Total tâches documentaires AO</td><td class=\"border border-slate-200 p-3\">~8 h</td><td class=\"border border-slate-200 p-3\">&lt; 1 h</td><td class=\"border border-slate-200 p-3 text-[#377CF3]\">−90 %</td></tr></tbody></table></div>"
+    },
+    {
+      "type": "faq",
+      "title": "FAQ",
+      "content": [
+        "Peut-on utiliser ce workflow sur n'importe quel lot BTP ? — Oui. Les étapes sont identiques quelle que soit la spécialité — maçonnerie, électricité, plomberie, charpente, peinture. Seul le contenu des prompts change : le vocabulaire technique, les normes citées, les certifications exigées. En formation, les participants appliquent ce workflow sur leur propre DCE en cours dès la deuxième heure.",
+        "Le workflow fonctionne-t-il sur les marchés privés ? — Oui, avec une nuance : les marchés privés n'ont pas toujours de RC formalisé avec pondérations explicites. L'étape 3 (extraction critères RC) est remplacée par une analyse du cahier des charges et des critères de sélection exprimés informellement dans le descriptif de l'appel.",
+        "Faut-il Claude Pro ou la version gratuite suffit ? — Pour des CCTP de 30 à 40 pages, la version gratuite peut suffire. Au-delà — et la plupart des DCE sérieux dépassent cette taille — Claude Pro est indispensable : la fenêtre de contexte étendue permet de charger l'ensemble du DCE sans le découper, ce qui maintient la cohérence des réponses.",
+        "Ce workflow inclut-il le chiffrage ? — Non. Le chiffrage (calcul des prix, marges, sous-détails) reste une tâche humaine appuyée sur vos bases de prix internes. L'IA peut aider à structurer un DPGF ou à vérifier des quantités, mais la décision de prix reste la vôtre. Le module BTP-02 aborde les limites précises de l'IA sur le chiffrage.",
+        "Combien de temps pour maîtriser ce workflow ? — En formation, les participants réalisent leur premier workflow complet sur un DCE réel en 3 heures. Après deux ou trois AO traités avec cette méthode, le réflexe est acquis et le temps de traitement descend encore."
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Se former à la réponse aux appels d'offres avec l'IA — OFC Création d'Entreprise",
+      "content": "<p><strong>OFC Création d'Entreprise</strong> propose la formation <strong>Répondre aux appels d'offres avec l'IA (BTP-02)</strong>, une session de 4 heures 100 % finançable Constructys (plafonds et règles sur <a href=\"https://www.constructys.fr\" class=\"text-[#377CF3] font-medium underline\" target=\"_blank\" rel=\"noopener noreferrer\">constructys.fr</a>).</p><p>Le module dédié à l'analyse de DCE comprend :</p><ul class=\"list-disc pl-6 space-y-1 text-slate-700\"><li>Ce workflow complet appliqué sur votre propre DCE en cours (vous apportez vos documents)</li><li>Les prompts calibrés pour chaque étape, personnalisés à votre corps de métier</li><li>La gestion de la confidentialité et le choix de l'outil adapté à votre taille d'entreprise</li><li>La construction de votre bibliothèque de mémoires réutilisables par type de marché</li></ul><p><strong>Disponible en présentiel</strong> dans vos locaux en Île-de-France (75, 78, 91, 92, 93, 94, 95, 77) <strong>ou en distanciel.</strong></p><p>Financement : jusqu'à <strong>24 € HT/heure/stagiaire</strong> pris en charge par Constructys (PDC 2026).</p><p>Références : FFB Grand Paris, FFB Île-de-France (78/91/95), CSFE, CNAM Île-de-France — <strong>+1 592 professionnels formés, note 4,85/5.</strong></p><p><a href=\"https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation\" class=\"text-[#377CF3] font-medium underline\" target=\"_blank\" rel=\"noopener noreferrer\">Prendre rendez-vous pour un diagnostic IA BTP gratuit</a> · <a href=\"/formation-ia-appels-offres-btp\" class=\"text-[#377CF3] font-medium underline\">Formation IA appels d'offres BTP — page complète</a> · <a href=\"https://www.laureolivie.fr/formations\" class=\"text-[#377CF3] font-medium underline\">Voir le catalogue des formations IA BTP</a></p><p class=\"mt-8 text-sm text-slate-500\"><em>Laure Olivié — Formatrice IA BTP, OFC Création d'Entreprise</em><br /><em>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</em><br /><em><a href=\"tel:+33695661818\" class=\"underline\">06 95 66 18 18</a> · <a href=\"mailto:laureolivie@yahoo.fr\" class=\"underline\">laureolivie@yahoo.fr</a> · <a href=\"https://www.laureolivie.fr\" class=\"underline\">www.laureolivie.fr</a></em></p><p class=\"mt-4\"><a href=\"https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation\" class=\"text-[#377CF3] font-medium underline\" target=\"_blank\" rel=\"noopener noreferrer\">Prendre rendez-vous — diagnostic gratuit 30 min</a> · <a href=\"https://www.laureolivie.fr/formations\" class=\"text-[#377CF3] font-medium underline\">Voir le catalogue formations</a></p>"
+    },
+    {
+      "type": "cta",
+      "content": "BTP-02 — analyse DCE, mémoire technique et IA. Qualiopi, Constructys. Réservez un diagnostic de 30 minutes."
+    }
+  ],
+  "relatedSlugs": [
+    "ia-btp-analyse-dce",
+    "ia-analyse-cctp-methode",
+    "claude-ai-memoire-technique-erreurs-btp",
+    "financer-formation-ia-btp-constructys"
+  ],
+  "internalLinks": [
+    {
+      "path": "/formation-ia-appels-offres-btp",
+      "anchor": "formation IA appels d offres BTP"
+    },
+    {
+      "path": "/formations",
+      "anchor": "formations IA BTP"
+    },
+    {
+      "path": "/blog/ia-btp-analyse-dce",
+      "anchor": "IA pour analyser un DCE BTP"
+    },
+    {
+      "path": "/blog/ia-analyse-cctp-methode",
+      "anchor": "méthode analyse CCTP avec l IA"
+    }
+  ]
+}

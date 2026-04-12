@@ -1,0 +1,89 @@
+{
+  "slug": "chatgpt-devis-electricien-btp",
+  "title": "ChatGPT pour devis électricien : guide complet + prompts prêts à l'emploi",
+  "seoTitle": "ChatGPT pour devis électricien BTP : guide, méthode et prompts",
+  "description": "Guide fusionné : problème du temps sur les devis, ce que change ChatGPT, méthode en 4 étapes, prompts électricien (tableau, rénovation, Consuel), FAQ TVA et financement Qualiopi — OFC.",
+  "date": "2026-04-12",
+  "dateModified": "2026-04-12",
+  "keywords": [
+    "ChatGPT devis électricien",
+    "devis électricité BTP",
+    "prompts électricien",
+    "TVA 10 % rénovation électricité",
+    "Consuel devis",
+    "IA artisan électricien"
+  ],
+  "sections": [
+    {
+      "type": "html",
+      "title": "Le problème : le temps perdu sur les devis électricien",
+      "content": "<p>Entre la visite technique, la lecture des plans, le choix des matériels (tableau, différentiels, gaines, appareillage), les contraintes normatives (NF C 15-100, Consuel, locaux humides, volumes de protection) et la mise en forme commerciale, un <strong>devis d’électricité</strong> peut facilement vous prendre <strong>une à trois heures</strong> — parfois davantage si le client hésite entre plusieurs scénarios ou si le chantier est fragmenté (rénovation partielle, extension, passage en triphasé, ajout d’une borne de recharge).</p><p>Beaucoup d’artisans électriciens subissent une double pression : <strong>répondre vite</strong> pour ne pas perdre le marché face à d’autres corps d’état ou à des installateurs moins rigoureux, tout en restant <strong>précis sur les quantités et les libellés</strong> pour éviter les impayés, les avenants à répétition et les contentieux. Résultat : les devis sont souvent rédigés le soir ou le week-end, avec fatigue, ou alors standardisés à l’excès et peu adaptés au dossier — ce qui nourrit l’idée d’un « devis en quinze minutes » : réalisable pour <strong>la mise en forme</strong> une fois les hypothèses posées, rarement pour l’ensemble du raisonnement technique si vous restez seul à tout intégrer.</p><p>Les modèles Word « génériques » ne suffisent plus : chaque logement a ses spécificités (ancienneté du tableau, présence et qualité de la prise de terre, nombre de circuits, besoin de préhenseurs, domotique, mutualisation avec la fibre ou la VDI). Une erreur de formulation sur le périmètre des travaux, sur la reprise des saignées ou sur la TVA (10 % sur la rénovation énergétique sous conditions strictes, 20 % selon les cas) peut vous coûter cher en reprise ou en négociation avec un particulier qui compare trois offres ligne à ligne.</p><p>Les demandes se diversifient : rénovation énergétique couplée à un gestionnaire d’énergie, pré-câblage pour borne IRVE en copropriété, mise aux normes après achat « à rénover », ou simple sécurisation avant vente. Chaque situation impose des <strong>mentions différentes</strong> dans le devis : délais d’intervention, coordination avec le plâtrier ou le carreleur, clauses d’accès aux parties communes, parfois un planning imposé par le syndic ou le maître d’ouvrage.</p><p>C’est exactement là qu’un assistant comme <strong>ChatGPT</strong> devient utile : pas pour « inventer » vos prix ni remplacer l’avis d’un consuel ou d’un bureau de contrôle, mais pour <strong>structurer</strong> votre pensée, <strong>rédiger</strong> des libellés clairs, <strong>préparer</strong> des variantes (option rénovation tableau seul / réfection complète des circuits / renfort minimal) et <strong>gagner du temps</strong> sur la narration du document — à partir des données que vous contrôlez et validez.</p>"
+    },
+    {
+      "type": "html",
+      "title": "Ce que change ChatGPT pour vos devis (exemples concrets)",
+      "content": "<p>ChatGPT ne remplace ni votre expertise, ni votre visite, ni votre grille de prix : il accélère la <strong>phase rédactionnelle</strong> et réduit les allers-retours avec le client quand le devis est <strong>lisible, hiérarchisé et cohérent</strong> avec votre proposition technique. L’objectif n’est pas de tricher sur le fond : c’est d’éviter de repartir d’une page blanche à chaque dossier quand 80 % du texte est récurrent (conditions, délais, exclusions) et que seule la partie « corps de métier » change réellement.</p><p><strong>Exemple 1 — Mise aux normes d’un tableau (appartement 65 m²) :</strong> vous saisissez le contexte (ancien tableau une rangée, ajout différentiel 30 mA type A ou AC selon le cas, répartition des circuits, nombre de points lumineux et de prises, présence d’un lien équipotentiel). L’IA peut proposer une structure de devis avec lots « Fournitures tableau / Main-d’œuvre remplacement / Mise en conformité terre / Essais et dossier Consuel », puis des formulations pour les garanties, délais et reprises — que vous ajustez avec vos taux horaires, coefficients et marges réelles.</p><p><strong>Exemple 2 — Rénovation partielle cuisine / salle de bains :</strong> vous décrivez les zones, les appareils (four, plaques, VMC, sèche-serviettes), les contraintes d’alimentation et les volumes. ChatGPT aide à rédiger les descriptifs « pose sous goulotte / saignées », à lister les contrôles d’isolement et de continuité, et à rappeler les mentions utiles (attestation de conformité, coordination avec l’eau, hors plomberie et carrelage si ce n’est pas votre lot).</p><p><strong>Exemple 3 — Relamping ou pré-câblage pour entreprise / local commercial :</strong> vous fournissez quantités et types de luminaires, hauteurs d’implantation, contraintes d’accès (nacelle, horaires hors ouverture au public). L’IA peut synthétiser un tableau lisible par le donneur d’ordre, avec variantes « fourniture luminaires par le client / par l’entreprise » et une section risques (indisponibilité de zone, reprise de faux plafond par un tiers).</p><p><strong>Exemple 4 — Renfort pour borne IRVE ou passage en triphasé :</strong> vous indiquez la puissance souscrite, la distance tableau / point de livraison, la présence ou non d’un gestionnaire d’énergie, les contraintes de goulotte en parties communes. ChatGPT aide à structurer un devis en phases (étude / fourniture / pose / essais / mise en service) sans mélanger les responsabilités — utile quand le client veut comparer vite avec d’autres installateurs.</p><p><strong>Exemple 5 — Intervention « sécurisation minimale » avant vente ou location :</strong> vous listez ce qui est observable (absence de terre, tableau obsolète, disjoncteur non adapté). L’IA peut rédiger deux niveaux de lecture : une synthèse pour le client et le détail technique pour votre planning interne, tout en rappelant qu’une intervention partielle peut laisser d’autres non-conformités hors de votre périmètre si elles ne sont pas traitées.</p><p>En résumé : vous gardez la <strong>responsabilité du chiffrage et de la conformité</strong> ; ChatGPT fluidifie la <strong>communication écrite</strong> et la <strong>structuration</strong> — en fusionnant l’esprit de « Comment utiliser ChatGPT pour vos devis électricien » avec la promesse de rapidité de « Devis en 15 min : le guide électricien », sous forme de <strong>méthode reproductible</strong> et de prompts métier ci-dessous.</p>"
+    },
+    {
+      "type": "list",
+      "title": "Méthode en 4 étapes (pas à pas)",
+      "content": [
+        "<strong>Étape 1 — Collecter les faits sur le terrain (environ 5 minutes).</strong> Notez le type de bâtiment (maison, appartement, tertiaire), la surface utile, l’état du tableau (nombre de modules, marque si visible), le nombre de circuits existants, les besoins exprimés (points, USB, domotique, éclairage LED, VDI), les contraintes d’accès (cave, comble, parties communes) et le délai souhaité. Si vous photographiez le tableau ou le local technique, décrivez dans le prompt ce que montrent les images (câbles apparents, gaines, ancienne terre) : l’IA ne « voit » pas vos photos sans transcription. Cette étape évite les devis « trop beaux sur le papier » qui oublient un chemin de câble ou une reprise de cloison.",
+        "<strong>Étape 2 — Fixer le périmètre et les options (environ 5 minutes).</strong> Décidez ce qui est « dans le lot de base » et ce qui est option : passage en différentiel 63 A, ajout de lignes dédiées (four, lave-linge), étiquetage des circuits, rédaction complète du dossier Consuel, déplacement pour visite complémentaire. Tranchez les hypothèses sur la TVA selon votre analyse documentée (rénovation énergétique éligible ou non, logement de plus de deux ans, lien avec l’économie d’énergie) — ChatGPT peut rappeler des principes généraux, mais <strong>ne substitue pas</strong> votre validation comptable ou juridique du taux.",
+        "<strong>Étape 3 — Générer une première structure avec ChatGPT (5 à 8 minutes).</strong> Utilisez un prompt détaillé (section prompts) pour obtenir un canevas : titres de lots, désignations, conditions générales minimales, délais d’exécution, validité de l’offre (souvent 30 jours), modalités de réponse des fournitures par le client. Exportez vers votre logiciel de devis ou tableur pour y intégrer vos prix unitaires, forfaits déplacement et coefficients de marge — l’IA ne doit pas figer des montants HT inventés.",
+        "<strong>Étape 4 — Relecture « métier + clarté contractuelle » (environ 5 minutes).</strong> Contrôlez la cohérence des quantités avec votre métré, les mentions de conformité (essais, attestation), la zone d’intervention et les exclusions explicites (reprise carrelage, peinture, percement non repris par vos soins, coordination plomberie). Vérifiez que le client comprend ce qu’il signe : un devis confus génère des appels et des négociations de baisse. Envoyez un PDF nommé proprement ; archivez la version envoyée et la version signée. Avec l’habitude, la rédaction assistée permet bien souvent de rester dans une <strong>fenêtre de 15 à 25 minutes</strong> pour un dossier courant — le gain est sur la forme et la complétude, pas sur le contournement de la norme."
+      ]
+    },
+    {
+      "type": "prompts",
+      "title": "Prompts prêts à l’emploi (électricien BTP)",
+      "content": [
+        {
+          "titre": "Devis « tableau + mise aux normes »",
+          "prompt": "Tu es artisan électricien qualifié en France. Rédige un devis professionnel en français pour : [rénovation partielle / mise aux normes] — logement [surface] m², tableau [X] rangées. Travaux : remplacement tableau, différentiel 30 mA type A, répartition circuits éclairage et prises, continuité de terre, essais. Fournitures : [Legrand / Schneider / à préciser]. Prévois main-d’œuvre par lot, sous-détails si utile, délai d’exécution, validité de l’offre 30 jours, mentions dossier Consuel sans inventer de numéros. Prix laissés sous forme [à compléter HT]. Indique que la TVA dépend du dossier et doit être validée par l’entreprise.",
+          "usage": "Après avoir remplacé les crochets par vos données réelles et votre grille de prix."
+        },
+        {
+          "titre": "Descriptif prestation rénovation cuisine / salle de bains",
+          "prompt": "Rédige un descriptif technique clair pour un devis d’électricité en rénovation de [cuisine / salle de bains] : alimentation nouvelles prises 32 A pour plaque, circuits lumières, VMc, prises étanches, équipotentiel salle d’eau. Précise hypothèses d’implantation, longueurs indicative si fournies, reprise de saignées ou goulotte. Ton professionnel, vocabulaire NF, sans inventer de mesures. Ajoute une section « Hors périmètre » (carrelage, plomberie).",
+          "usage": "Pour enrichir la partie « désignation » lorsque le client lit le devis sur son téléphone."
+        },
+        {
+          "titre": "Mail d’accompagnement du devis (ton ferme et courtois)",
+          "prompt": "Rédige un email en français à un particulier pour transmettre un devis travaux d’électricité : rappel du contexte [chantier], invitation à poser questions, délai de validité, modalités de signature, possibilité de visite complémentaire. Longueur max 180 mots, ton professionnel.",
+          "usage": "Gagne du temps sur l’email de transmission souvent oublié ou bâclé."
+        },
+        {
+          "titre": "Check-list de relecture avant envoi",
+          "prompt": "Produis une check-list de 12 points pour qu’un électricien relise un devis avant envoi : périmètre, quantités, mentions TVA, délais, garanties, référence aux normes, exclusions, coordination avec autres corps d’état, clauses de visite, etc. Format liste à cocher, phrases courtes.",
+          "usage": "Imprimable ou copié dans vos notes de chantier."
+        },
+        {
+          "titre": "Variante « petit renfort » vs « gros chantier »",
+          "prompt": "À partir du même contexte [décrire chantier], rédige deux variantes de devis : (A) intervention minimale sécuritaire avec limitations explicites ; (B) recommandation complète avec tableau neuf et circuits refaits. Pour chaque variante : avantages, risques résiduels, prérequis client. Ne donne pas de prix inventés.",
+          "usage": "Pour arbitrer avec le client et documenter les choix."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "title": "Questions fréquentes",
+      "content": [
+        "ChatGPT peut-il calculer la TVA à 10 % sur ma rénovation électrique ? — Non de façon fiable sans votre validation. Le taux réduit sur les travaux d’amélioration de la performance énergétique est encadré : nature des travaux, logement concerné, lien avec l’économie d’énergie, date d’achèvement du logement, et parfois attestations ou évaluations énergétiques. L’IA peut résumer des rappels pédagogiques ; en cas de doute, vérifiez avec votre expert-comptable ou votre source administrative à jour. Sur le devis, ce qui compte est que <strong>vous</strong> assumiez le taux indiqué.",
+        "Dois-je mentionner le Consuel sur le devis ? — Vous pouvez indiquer la production du dossier de conformité, les essais et la demande de mise en service, sans inventer de références ou de délais officiels. Précisez si les frais de déplacement pour dépôt ou reclassement sont inclus ou en sus. Le client doit voir clairement ce qui relève de votre prestation « électricité » et ce qui dépend d’un tiers (syndic, Enedis, fabricant de borne).",
+        "Les prompts fonctionnent-ils avec Claude ou Gemini ? — Oui : la logique est la même (contexte + consignes). Adaptez le niveau de formalité si besoin. Évitez les modèles qui inventent des articles de norme : demandez plutôt une structure et des formulations, puis vérifiez vous-même les références NF et les intitulés de matériel.",
+        "Comment éviter les « prix hallucinés » par l’IA ? — Dans le prompt, imposez explicitement des montants « [à compléter HT] » ou « selon grille interne », et interdisez les tarifs fictifs. Après génération, injectez vos prix depuis votre base ou votre tableur. C’est la même discipline que pour un devis manuel : le chiffre vient de votre entreprise.",
+        "Puis-je former mon équipe à cette méthode avec financement OPCO ? — Oui, selon éligibilité et règles Constructys en vigueur. OFC Création d’Entreprise propose des formations courtes, orientées terrain et documents réels, dans le cadre Qualiopi. Les plafonds pédagogiques Constructys (dont 24 € HT/h/participant et plafonds journaliers) s’appliquent : détail sur la page financement du site. Un appel découverte permet de cadrer votre besoin (devis, mails, AO) avant inscription."
+      ]
+    },
+    {
+      "type": "cta",
+      "content": "Vous souhaitez verrouiller la méthode sur vos vrais devis (tableau, rénovation, petits renforts) avec un accompagnement Qualiopi ? Réservez un appel découverte de 30 minutes — nous regardons vos cas types et le financement Constructys."
+    }
+  ],
+  "relatedSlugs": [
+    "formation-ia-btp-guide-complet-2026",
+    "chatgpt-devis-btp-methode-2026",
+    "financer-formation-ia-btp-constructys"
+  ]
+}

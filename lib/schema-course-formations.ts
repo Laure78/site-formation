@@ -185,7 +185,8 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
 }
 
 /**
- * Schéma Course unique (données `src/data/formations.ts`) — aligné GEO / fiches formation.
+ * Schéma Course unique (données `src/data/formations.ts`) — page dynamique `/formations/[slug]`
+ * et fiches qui réutilisent la même map.
  */
 export function getCourseJsonLdFromFormationsData(
   slug: string
@@ -193,46 +194,42 @@ export function getCourseJsonLdFromFormationsData(
   const f = formationsData[slug as keyof typeof formationsData];
   if (!f) return null;
   const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const courseUrl = `${base}/formations/${slug}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Course',
+    '@id': `${courseUrl}#course`,
+    url: courseUrl,
     name: f.name,
     description: f.description,
-    url: `${base}/formations/${slug}`,
     provider: {
       '@type': 'Organization',
       name: SITE_CONFIG.legalName,
       url: base,
-      sameAs: 'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
     },
     instructor: {
       '@type': 'Person',
       name: SITE_CONFIG.name,
-      url: `${base}/a-propos`,
     },
+    timeRequired: f.duration,
+    educationalLevel: 'Professionnel',
+    courseLanguage: 'fr',
+    inLanguage: 'fr',
+    availableLanguage: 'fr',
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: ['onsite', 'blended'],
-      duration: f.duration,
-      courseWorkload: f.duration,
-      location: {
-        '@type': 'Place',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: 'Île-de-France',
-          addressCountry: 'FR',
-        },
-      },
-      offers: {
-        '@type': 'Offer',
-        price: f.price,
-        priceCurrency: 'EUR',
-        availability: 'https://schema.org/InStock',
-        validFrom: '2026-01-01',
+      courseMode: 'Onsite',
+      courseSchedule: {
+        '@type': 'Schedule',
+        duration: f.duration,
       },
     },
-    educationalLevel: f.level,
-    inLanguage: 'fr',
+    offers: {
+      '@type': 'Offer',
+      price: f.price,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+    },
   };
 }
 

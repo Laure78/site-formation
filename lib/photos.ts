@@ -263,7 +263,8 @@ export const PHOTOS = {
   /** Fiche formation IA architecture / Claude — présentation en petit groupe, salle */
   formationIABtpArchiClaudePresentielGroupe2026: {
     src: '/images/formation-ia-architecture-claude-presentiel-groupe-2026.jpg',
-    alt: 'Formation en présentiel : formatrice devant un groupe de professionnels du bâtiment, écran de présentation en arrière-plan',
+    alt:
+      'Formatrice en tenue professionnelle animant une session en salle moderne : grand écran avec schémas et plans techniques, participants du bâtiment au premier plan, lumière naturelle par les baies vitrées',
     width: 1024,
     height: 682,
   },
@@ -308,11 +309,19 @@ export const PHOTOS = {
   },
 
   /**
-   * Fiche « IA au service du bâtiment » (BTP-01) — présentiel, formatrice et participants, écran au fond.
+   * Fiche « IA au service du bâtiment » (BTP-01) — salle de formation, écran « Formation IA pour le BTP », participants aux ordinateurs.
    */
   formationIABtpVisioBureau2026: {
-    src: '/images/formation-ia-btp-visio-bureau-2026.jpg',
-    alt: 'Laure Olivié anime une formation IA BTP en salle : présentation devant des professionnels, écran de projection au fond',
+    src: '/images/formation-ia-au-service-du-batiment-carte-btp-01-2026.png',
+    alt: 'Formation IA pour le BTP en présentiel : Laure Olivié face aux participants, grand écran « Formation IA pour le BTP », salle équipée d’ordinateurs portables',
+    width: 784,
+    height: 974,
+  },
+
+  /** Landing formation IA appels d’offres BTP — présentiel, écran « L’IA dans le BTP », public BTP (casque, gilet). */
+  formationIaAppelsOffresBtpHero2026: {
+    src: '/images/formation-ia-appels-offres-btp-hero-2026.jpg',
+    alt: 'Laure Olivié anime une formation IA BTP en salle : écran « L’IA dans le BTP », optimisation des devis, gestion de chantier et organisation — professionnels du bâtiment au premier plan',
     width: 1024,
     height: 682,
   },

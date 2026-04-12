@@ -15,11 +15,12 @@ import {
   estimateWordCountFromArticle,
   getArticle,
   getAllSlugs,
-  getAllArticles,
+  getBlogCTAMidInsertAfterIndex,
   getCommercialLinksForArticle,
   getRelatedArticlesForDisplay,
   type ArticlePrompt,
 } from '@/lib/blog';
+import { BlogCTA } from '@/components/BlogCTA';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
@@ -127,6 +128,9 @@ export default async function BlogArticlePage({ params }: Props) {
   const illustrations = getBlogArticleIllustrations(slug, article.title);
 
   const wordCount = estimateWordCountFromArticle(article);
+  const midCtaAfterIndex = getBlogCTAMidInsertAfterIndex(article.sections);
+  const showMidBlogCTA =
+    midCtaAfterIndex !== null && midCtaAfterIndex < article.sections.length - 1;
   const defaultArticleImage = `${SITE_CONFIG.url}/images/og-default.jpg`;
   const articleSchemaImage = article.coverImage
     ? article.coverImage.trim().startsWith('http')
@@ -418,10 +422,15 @@ export default async function BlogArticlePage({ params }: Props) {
                 </div>
               )}
             </section>
+            {showMidBlogCTA && midCtaAfterIndex === i ? (
+              <BlogCTA idSuffix="mid" className="mt-10 scroll-mt-8" />
+            ) : null}
           </Fragment>
           );
         })}
         </div>
+
+        <BlogCTA className="mt-12" />
 
         <ArticleAuthor className="mt-12" />
 

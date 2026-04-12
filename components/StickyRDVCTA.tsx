@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Calendar, X } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 
 /** CTA sticky au scroll — accès rapide à la prise de RDV / formulaire contact */
 export function StickyRDVCTA() {
@@ -13,6 +14,10 @@ export function StickyRDVCTA() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
+    if (isStickyBlogMetierRdvPath(pathname)) {
+      setVisible(false);
+      return;
+    }
     if (dismissed) return;
     const onScroll = () => {
       setVisible(window.scrollY > 280);
@@ -20,8 +25,9 @@ export function StickyRDVCTA() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, [dismissed]);
+  }, [dismissed, pathname]);
 
+  if (isStickyBlogMetierRdvPath(pathname)) return null;
   if (!visible) return null;
 
   // Ne pas afficher sur la page RDV (déjà sur place)

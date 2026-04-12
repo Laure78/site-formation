@@ -1,6 +1,5 @@
 import Script from 'next/script';
-import { getBlogArticleFaqPairs, type BlogArticle } from '@/lib/blog';
-import { getDefaultBlogFaqSchema } from '@/lib/blog-default-faq-schema';
+import { extractFaqPairsForFaqPageJsonLd, type BlogArticle } from '@/lib/blog';
 import { getFAQSchema } from '@/lib/seo';
 
 type Props = {
@@ -8,19 +7,19 @@ type Props = {
 };
 
 /**
- * FAQPage JSON-LD : champ `article.faq` (équivalent frontmatter MDX) si défini,
- * sinon paires extraites des sections `type: 'faq'` (lignes « Question — Réponse »),
- * sinon FAQ générique BTP.
+ * FAQPage JSON-LD — uniquement si l’article contient une FAQ détectée
+ * (champ `faq`, section `type: 'faq'`, ou section HTML avec titre FAQ + H3/p).
  */
 export function BlogArticleFaqJsonLd({ article }: Props) {
-  const faqPairs = getBlogArticleFaqPairs(article);
-  const schema =
-    faqPairs.length > 0 ? getFAQSchema(faqPairs) : getDefaultBlogFaqSchema();
+  const faqPairs = extractFaqPairsForFaqPageJsonLd(article);
+  if (faqPairs.length === 0) return null;
+
+  const schema = getFAQSchema(faqPairs);
 
   return (
     <Script
-      id="schema-faq"
-      strategy="afterInteractive"
+      id={`blog-faq-jsonld-${article.slug}`}
+      strategy="lazyOnload"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />

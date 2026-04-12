@@ -1,131 +1,213 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
-import { SITE_CONFIG } from '@/lib/seo';
+import {
+  createPageMetadata,
+  getCourseSchema,
+  getFAQSchema,
+  SITE_CONFIG,
+  sitePhoneDisplaySuffix,
+} from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 const PATH = '/formation-ia-electricien-btp';
 
+const BTP01 = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'BTP-01')!;
+
+/** Titre SEO — le layout ajoute « | Laure Olivié » via le template. */
+const SEO_TITLE = 'Formation IA pour Électriciens BTP | Devis en 15 min';
+
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour Électriciens — Laure Olivié, Formatrice BTP',
+  title: SEO_TITLE,
   description:
-    'Découvrez comment les électriciens du BTP gagnent 5h/semaine avec ChatGPT. Devis automatisés, appels d’offres optimisés, administratif simplifié. Formation Qualiopi finançable Constructys.',
+    'Formation IA pour électriciens BTP. Devis en 15 min, emails clients, CR chantier automatisés. Qualiopi, finançable Constructys. Île-de-France. 1 592 pros formés.',
   path: PATH,
   keywords: [
-    'Formation IA électricien BTP',
-    'ChatGPT électricien',
+    'formation IA électricien BTP',
+    'ChatGPT devis électricité',
     'IA artisan électricien',
-    'automatiser devis électricité',
-    'formation ChatGPT BTP',
-    'IA devis électricité',
-    'OPCO Constructys électricien',
     'formation Qualiopi électricien',
+    'Constructys formation électricien',
+    'compte rendu chantier IA',
+    'Île-de-France formation IA BTP',
   ],
   openGraphType: 'article',
+  appendAuthorSuffix: false,
+  article: {
+    publishedTime: '2026-05-19',
+    modifiedTime: '2026-05-19',
+    author: 'Laure Olivié',
+    section: 'Formations',
+  },
+  image: {
+    url: '/images/formation-ia-electricien-btp.png',
+    width: 1200,
+    height: 630,
+    alt: 'Formation IA pour électriciens BTP — devis, emails et comptes rendus avec ChatGPT',
+  },
 });
 
-const PROMPT_DEVIS = `Tu es un expert en rédaction de devis pour un électricien artisan BTP. 
-Voici mes infos :
-- Entreprise : [Votre nom]
-- Localisation : [Ville/région]
-- Spécialités : [Ex : neuf, rénovation, TCE, petit appareillage]
-- Tarif horaire main-d'œuvre : [€]
-- Délai de validité : 30 jours
-- Conditions de paiement : 50% acompte, solde à réception
+const PROMPT_DEVIS_INSTALLATION = `Tu es un électricien qualifié en BTP pour une PME de 12 salariés
+basée en Île-de-France.
 
-Crée un devis professionnel, complet et attrayant (pas génériques) à partir de ces infos :
-- Nature du travail : [décrire le chantier]
-- Fournitures nécessaires : [lister rapidement]
-- Durée estimée : [heures]
-- Client : [nom]
-- Localisation du chantier : [adresse]
+Je dois rédiger un devis pour :
+[Décrivez les travaux : type de chantier, surface, prestations]
 
-Le devis doit être:
-- Structuré en postes clairs (matériaux, main-d'œuvre, frais généraux)
-- Professionnel et persuasif
-- Conforme aux attentes des maîtres d'ouvrage publics/privés
-- Prêt à imprimer et signer`;
+Mes données de chiffrage :
+- Fournitures : [liste avec références et prix HT]
+- Main d'œuvre : [nombre d'heures × taux horaire]
+- Déplacement : [forfait ou km]
+- TVA applicable : [10 % rénovation / 20 % neuf]
 
-const PROMPT_MEMOIRE = `Tu es un consultant spécialisé dans la rédaction de mémoires techniques pour les appels d'offres électrique BTP.
+Rédige un devis professionnel structuré avec :
+1. En-tête (à compléter avec mes coordonnées)
+2. Description détaillée des travaux par poste
+3. Tableau fournitures + main d'œuvre + total HT/TTC
+4. Conditions de règlement et délai d'exécution
+5. Mentions légales (garantie décennale, assurance)
 
-Contexte :
-- Entreprise : [Votre nom/SIREN]
-- Secteurs d'expertise : [Ex : rénovation résidentielle, neuf tertiaire, TCE, installation VMC]
-- Effectif : [nombre d'électriciens]
-- Certifications : [RGE, Qualiopi, etc.]
-- Références clients : [exemples de chantiers réussis]
+Vocabulaire électricité BTP : tableau, disjoncteur, circuit,
+TGBT, câble, gaine, boîte de dérivation, mise à la terre.`;
 
-Plan demandé (adapté au DCE) :
-1. Présentation de l'entreprise (expertise, références)
-2. Compréhension du lot électrique (prestations demandées)
-3. Moyens humains et techniques (qui fait quoi, planning)
-4. Sécurité/environnement (PPSPS, assurances)
-5. Délais et phasage
+const PROMPT_EMAIL_RECLAMATION = `J'ai reçu cette réclamation client : [collez le texte]
 
-Crée un mémoire technique structuré de 15-20 pages, persuasif et conforme aux standards DCE.`;
+Contexte réel de ma part : [expliquez les faits en 5 lignes]
 
-const PROMPT_EMAIL = `Rédige un email professionnel pour un électricien artisan BTP.
-Contexte : [Ex : "Je dois relancer un client à qui j'ai envoyé un devis il y a 10 jours, il n'a pas encore réagi. Je veux lui proposer de discuter des détails du chantier pour affiner le devis"]
+Rédige une réponse professionnelle de 150 à 200 mots qui :
+- Accuse réception et reformule les faits de façon neutre
+- Présente mon point de vue avec les éléments techniques
+- Propose une solution concrète ou une date d'intervention
+- Reste courtoise sans reconnaître de responsabilité non établie`;
 
-Ton : professionnel, courtois, sans agressivité
-Longueur : 200-250 mots
+const PROMPT_CR_INTERVENTION = `Je viens de terminer une intervention électrique.
+Voici mes notes : [collez vos notes brutes]
 
-Le client : [nom + contexte court]
+Rédige un compte rendu d'intervention avec :
+1. Date, lieu, client
+2. Travaux réalisés (description technique précise)
+3. Matériaux posés (avec références si fourni)
+4. Tests et vérifications effectués
+5. Réserves éventuelles ou travaux complémentaires conseillés
+6. Signature (à compléter)
 
-Génère l'email prêt à envoyer.`;
+Format : une page A4 maximum. Ton professionnel.
+Vocabulaire : mise en service, essais, conformité NF C 15-100.`;
+
+const PROMPT_RELANCE_FACTURE = `Mon client [prénom nom] n'a pas réglé la facture N°[numéro]
+de [montant] € TTC, échéance le [date].
+
+C'est la [1ère / 2ème / 3ème] relance.
+
+Rédige un email de relance adapté au rang :
+- 1ère relance : ton courtois, rappel simple
+- 2ème relance : ton ferme, mention des pénalités de retard
+- 3ème relance : ton formel, mise en demeure avant action juridique
+
+Inclus le montant des pénalités de retard légales (taux BCE + 10 points)
+calculées à la date d'envoi de la relance.`;
+
+const PROMPT_NOTICE_DOE = `Je dois remettre à mon client une notice simple sur
+l'installation électrique que je viens de réaliser.
+
+Installation réalisée : [description en 10 lignes]
+Composants principaux : [tableau, disjoncteurs différentiels, etc.]
+Puissance souscrite : [X] kVA
+
+Rédige une notice de 1 à 2 pages expliquant :
+1. Description générale de l'installation
+2. Localisation des équipements principaux
+3. Consignes de sécurité et d'utilisation
+4. Entretien recommandé
+5. Contacts d'urgence et numéro de votre entreprise
+
+Langue claire et accessible pour un non-électricien.`;
 
 const FAQ_ITEMS = [
   {
-    q: "L'IA va-t-elle remplacer les électriciens ?",
-    a: "Non. L'IA remplace l'administratif répétitif (devis, emails, appels d'offres), pas le métier de l'électricien. Vous restez le spécialiste technique : diagnostic, pose, respect des normes, sécurité. L'IA vous fait gagner du temps sur le travail de bureau.",
+    q: "L'IA connaît-elle la norme NF C 15-100 ?",
+    a: "ChatGPT et Claude connaissent les grandes lignes de la NF C 15-100 et peuvent l'utiliser dans vos prompts. Mais ils ne remplacent pas votre vérification technique : l'IA cite des règles générales, pas votre installation spécifique. Utilisez-la pour la rédaction des documents, pas pour le calcul des sections de câbles.",
   },
   {
-    q: 'Faut-il être « bon en informatique » pour utiliser ChatGPT ?',
-    a: "Non. ChatGPT fonctionne en langage naturel français. En formation, nous utilisons des templates de prompts prêts à copier-coller. En quelques heures, vous êtes autonome sur les usages utiles au quotidien.",
+    q: "Peut-on utiliser l'IA pour faire des devis en déplacement depuis le smartphone ?",
+    a: "Oui. ChatGPT et Claude ont des applications mobiles. Le cas le plus courant après formation : prendre les notes de métré sur chantier (vocal ou texte), générer le devis depuis l'application pendant le trajet de retour, et l'envoyer au client dans la journée.",
   },
   {
-    q: 'Est-ce que mes clients vont savoir que mes devis sont générés par l’IA ?',
-    a: "Non. Un devis généré puis relu et validé par vous reste un document professionnel comme un autre : c'est votre contenu, votre tarification — l'IA n'est que l'outil de rédaction.",
+    q: "L'IA peut-elle générer des devis avec les prix du marché actuels ?",
+    a: "Non. L'IA ne connaît pas vos tarifs fournisseurs ni vos taux horaires. Elle structure et met en forme le devis à partir des données que vous lui donnez. Vous restez maître des prix.",
   },
   {
-    q: 'Quelle est la durée de la formation ?',
-    a: "Les formats OFC vont d'une journée (8 h) à deux jours (16 h) selon le parcours. Nous proposons aussi du sur mesure en intra, adapté à votre activité (neuf, rénovation, TCE, etc.).",
+    q: "Est-ce que l'IA peut aider pour les dossiers ENEDIS ou CONSUEL ?",
+    a: "L'IA peut vous aider à rédiger les courriers et descriptions techniques associés à un dossier ENEDIS ou CONSUEL. Elle ne remplit pas les formulaires officiels à votre place — mais elle structure les informations que vous devez y faire figurer.",
   },
   {
-    q: 'Peut-on financer la formation avec Constructys ?',
-    a: "Oui. OFC Création d'Entreprise est certifiée Qualiopi et enregistrée auprès de Constructys. La prise en charge dépend des règles de votre branche et de votre entreprise. Nous vous accompagnons sur le dossier.",
+    q: 'La formation est-elle adaptée pour une PME avec plusieurs électriciens ?',
+    a: "Oui. Une session intra dans vos locaux permet de former toute l'équipe ensemble. Avantage : tout le monde utilise les mêmes prompts et les mêmes méthodes — la productivité gagnée est immédiatement partagée dans l'entreprise.",
   },
   {
-    q: 'Qu’est-ce que je vais exactement apprendre dans la formation ?',
-    a: "Présentation de ChatGPT et cas d'usage électricien BTP, prompts devis et emails, structuration de contenu, appels d'offres et mémoires techniques, bonnes pratiques de sécurité et de validation des sorties IA.",
-  },
-  {
-    q: 'Avez-vous des références dans mon secteur (électriciens) ?',
-    a: "Oui : artisans électriciens, conducteurs de travaux, responsables administratifs de PME électricité. Interventions dans le réseau FFB, CSFE. Vous pouvez demander une mise en relation avec un professionnel formé.",
+    q: 'Faut-il un abonnement payant à ChatGPT ou Claude ?',
+    a: "Non pour commencer. La version gratuite de ChatGPT ou Claude suffit pour les devis et emails standards. Pour les entreprises qui génèrent plusieurs dizaines de documents par semaine, la version payante (20 €/mois) est rentabilisée dès la première heure économisée.",
   },
 ];
 
+const SOMMAIRE = [
+  { href: '#le-probleme', label: "Le problème : combien d'heures l'électricien perd sur l'administratif ?" },
+  { href: '#la-solution', label: "Ce que l'IA change pour les électriciens BTP" },
+  { href: '#usages', label: "5 cas d'usage concrets avec prompts" },
+  { href: '#resultats', label: 'Tableau de gains de temps' },
+  { href: '#programme', label: 'Programme de la formation BTP-01' },
+  { href: '#financement', label: 'Financement Constructys 2026' },
+  { href: '#faq', label: 'FAQ — électriciens et IA' },
+  { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
+  { href: '#rdv', label: 'Réservez votre diagnostic IA gratuit' },
+];
+
+function getElectricienCourseJsonLd() {
+  const base = getCourseSchema({
+    name: BTP01.name,
+    description: BTP01.description,
+    path: PATH,
+    providerName: SITE_CONFIG.legalName,
+    teaches: BTP01.teaches,
+    courseCode: 'BTP-01',
+    educationalLevel: 'Beginner',
+    timeRequired: 'PT4H',
+    areaServed: ['France', 'Île-de-France'],
+  });
+  return {
+    ...base,
+    offers: {
+      '@type': 'Offer',
+      price: TARIF_FORFAIT_DEBUTANT_HT,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      url: `${SITE_CONFIG.url}${PATH}`,
+      category: 'Formation professionnelle',
+    },
+  };
+}
+
 export default function FormationIaElectricienBtpPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const courseJsonLd = getElectricienCourseJsonLd();
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={courseJsonLd} id="jsonld-course-btp01-electricien" />
+      <JsonLd data={faqSchema} id="jsonld-faq-electricien" />
 
       <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
+        <Link href="/" className="text-[#377CF3] hover:underline">
           Accueil
         </Link>
         {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+        <Link href="/formations" className="text-[#377CF3] hover:underline">
           Formations
         </Link>
         {' / '}
@@ -134,260 +216,436 @@ export default function FormationIaElectricienBtpPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour électriciens —{' '}
-          <span className="text-[var(--accent)]">gagnez 5 h/semaine sur l’administratif</span>
+          Formation IA pour Électriciens BTP —{' '}
+          <span className="text-[#377CF3]">Devis, Emails et CR en 15 minutes</span>
         </h1>
+        <p className="mt-4 text-lg italic text-slate-600">
+          Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
+        </p>
         <p className="mt-6 text-xl text-slate-600">
-          <strong>Formation IA électricien BTP</strong> : ChatGPT et l’IA pour les{' '}
-          <strong>devis</strong>, les <strong>appels d’offres</strong> et l’<strong>administratif</strong>, sans
-          remplacer votre expertise terrain. Qualiopi, finançable Constructys.
+          Devis en 15 minutes, <strong>emails clients</strong> et <strong>comptes rendus</strong> automatisés : formez
+          vos équipes à l&apos;IA sans remplacer l&apos;expertise terrain. <strong>Qualiopi</strong>, finançable{' '}
+          <strong>Constructys</strong> — <strong>Île-de-France</strong>.
         </p>
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            Les électriciens BTP qui utilisent ChatGPT sur les tâches rédactionnelles (devis, relances, mémoires
-            techniques) gagnent souvent plusieurs heures par semaine — à condition de valider chiffres, normes et
-            engagements. Formation pratique avec Laure Olivié (OFC Création d’Entreprise).
+            L&apos;IA ne fait pas les métrés ni le choix du câblage : elle structure devis, courriers et documents à
+            partir de vos données — vous vérifiez les chiffres et vous signez. Programme aligné sur{' '}
+            <strong>BTP-01</strong> — « L&apos;IA au service du bâtiment ».
           </ShortAnswerBlock>
         </div>
 
-        <section className="mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Le problème : l’électricien perd 2 h par jour sur l’administratif
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Vous êtes électricien artisan ou conducteur de travaux électrique dans le BTP. Votre quotidien ressemble
-            souvent à ceci :
-          </p>
-          <ul className="mt-6 space-y-3">
-            {[
-              'Chaque devis peut prendre une longue durée à rédiger : estimation du matériel, calcul du temps, mise en page, envoi au client.',
-              'Les appels d’offres demandent des jours de travail administratif au lieu de vous concentrer sur la technique.',
-              'Les emails professionnels (relances, précisions, paiement) se retapent à la main.',
-              'Les erreurs de devis coûtent cher : quantités, oublis de postes, marge qui s’évapore.',
-              'Entre le chantier, l’administratif et la prospection, le temps manque.',
-            ].map((item) => (
-              <li key={item} className="flex gap-3 text-slate-700">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-                {item}
+        <nav
+          aria-label="Sommaire"
+          className="mt-10 rounded-2xl border border-slate-200 bg-[#F2F2F2] p-6"
+        >
+          <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
+            {SOMMAIRE.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} className="text-[#377CF3] underline hover:no-underline">
+                  {label}
+                </a>
               </li>
             ))}
-          </ul>
-          <p className="mt-6 text-slate-600 leading-relaxed">
-            <strong>Résultat ?</strong> Charge de travail élevée, fatigue, et opportunités commerciales laissées de côté
-            faute de temps pour répondre à tous les marchés. C’est un enjeu récurrent pour les artisans électriciens en
-            2026 : plus de chantiers rime souvent avec plus de papier.
-          </p>
-        </section>
+          </ol>
+        </nav>
 
-        <section className="mt-14">
+        <section id="le-probleme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            La solution : ChatGPT et l’IA pour électriciens — viser 5 h gagnées par semaine
+            Combien d&apos;heures l&apos;électricien perd sur l&apos;administratif chaque semaine ?
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            L’IA (ChatGPT, Claude, Gemini) automatise les tâches répétitives. Votre vocabulaire métier est structuré :
-            c’est un atout pour obtenir des brouillons exploitables.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            1. Devis accélérés : structurer au lieu de repartir de zéro
-          </h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Vous donnez les paramètres (nature des travaux, client, prestations, cadre tarifaire) ; l’IA propose une
-            structure de devis et des formulations — vous fixez les prix et la marge. Exemple type : décrire une
-            intervention en quelques phrases, puis obtenir un premier jet à retravailler en quelques minutes.
-          </p>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            <strong>Ordre de grandeur</strong> : sur plusieurs devis par semaine, le gain cumulé sur la rédaction peut
-            représenter plusieurs heures — selon votre volume et votre méthode.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            2. Appels d’offres : mémoire technique structuré plus vite
-          </h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Les DCE sont volumineux. L’IA aide à structurer le mémoire technique à partir de vos moyens, références et
-            compréhension du lot — vous gardez la validation finale et la cohérence avec le prix.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            3. Emails et relances en quelques secondes
-          </h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Relances, demandes de précision, prospection : l’IA rédige un premier jet professionnel que vous personnalisez
-            avant envoi.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            4. Moins d’erreurs administratives, meilleure lisibilité des marges
-          </h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Une checklist et une relecture systématique limitent les oublis de postes ou les malentendus sur le cahier
-            des charges — sous votre responsabilité.
-          </p>
+          <div className="mt-4 space-y-4 text-slate-600 leading-relaxed">
+            <p>
+              Un électricien qualifié, qu&apos;il soit à son compte ou salarié d&apos;une PME, passe en moyenne{' '}
+              <strong>6 à 10 heures par semaine</strong> sur des tâches qui n&apos;ont rien à voir avec
+              l&apos;installation électrique : rédiger des devis, répondre à des emails clients, préparer des comptes
+              rendus, remplir des documents de réception, gérer les relances. Pour un artisan qui travaille 45 heures
+              par semaine, c&apos;est entre <strong>13 et 22 %</strong> de son temps.
+            </p>
+            <p>
+              Ces tâches sont indispensables — elles structurent la relation client, conditionnent le paiement et
+              protègent contractuellement. Mais leur rédaction est répétitive, chronophage, et peut être largement
+              automatisée.
+            </p>
+            <p className="font-medium text-slate-900">
+              Les 3 points de douleur que les électriciens citent le plus souvent en formation :
+            </p>
+            <p>
+              <strong>Les devis.</strong> Un devis d&apos;installation électrique complète (tableau, circuits, prises,
+              éclairage) prend 1 h 30 à 3 h à rédiger avec précision — fournitures, main d&apos;œuvre, TVA 10 % sur la
+              rénovation, TVA 20 % sur le neuf, variantes. Avec l&apos;IA et un prompt calibré, ce temps tombe à{' '}
+              <strong>15 à 20 minutes</strong>.
+            </p>
+            <p>
+              <strong>Les emails clients.</strong> Répondre à une réclamation, expliquer un surcoût, relancer une
+              facture impayée, confirmer un chantier — chaque email est différent, et chacun prend 15 à 25 minutes à
+              rédiger correctement. L&apos;IA réduit ce temps à <strong>2 à 3 minutes</strong>.
+            </p>
+            <p>
+              <strong>Les documents de réception.</strong> PV de réception, DOE simplifié, notice d&apos;utilisation
+              pour le client — des documents que l&apos;électricien remet rarement par manque de temps, et qui le
+              protègent pourtant en cas de litige. L&apos;IA permet de les produire en <strong>10 minutes</strong> à
+              partir de ses notes.
+            </p>
+          </div>
         </section>
 
-        <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
-          <p className="font-medium text-slate-900">Vous voulez voir ça en action ?</p>
-          <p className="mt-2 text-slate-600">
-            <RdvLink className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
-            </RdvLink>{' '}
-            — je vous montre comment adapter ces techniques à votre activité d’électricien et comment financer la
-            formation avec Constructys.
-          </p>
-        </aside>
-
-        <section className="mt-14">
+        <section id="la-solution" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Méthode pas à pas : 3 étapes pour utiliser l’IA comme électricien
+            Ce que l&apos;IA change pour les électriciens BTP
+          </h2>
+          <div className="mt-4 space-y-4 text-slate-600 leading-relaxed">
+            <p>
+              L&apos;intelligence artificielle — ChatGPT, Claude AI — ne connaît pas votre installation électrique.
+              Elle ne fait pas les métrés, ne vérifie pas la puissance du tableau, ne choisit pas le câblage à la place
+              de votre technicien. Ce qui reste entièrement de votre ressort.
+            </p>
+            <p>
+              En revanche, elle est exceptionnellement utile pour tout ce qui concerne la{' '}
+              <strong>rédaction et la structuration de documents</strong> à partir d&apos;informations que vous possédez
+              déjà : les fournitures que vous avez sélectionnées, les heures que vous avez comptées, les travaux que
+              vous avez réalisés.
+            </p>
+            <p>
+              Le principe est simple : vous lui donnez vos données brutes, elle les met en forme. Vous vérifiez les
+              chiffres, vous signez.
+            </p>
+          </div>
+        </section>
+
+        <section id="usages" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            5 cas d&apos;usage concrets avec prompts calibrés électricité
           </h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 1 : votre prompt « devis électrique » réutilisable
+            Usage 1 — Devis d&apos;installation électrique
           </h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Vous préparez une fois le contexte entreprise (tarifs, conditions, spécialités). Ensuite, chaque nouveau
-            devis s’appuie sur ce cadre.
-          </p>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_DEVIS}
+            {PROMPT_DEVIS_INSTALLATION}
           </pre>
 
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            Étape 2 : template mémoire technique pour les AO
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Usage 2 — Email de réponse à une réclamation client
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_MEMOIRE}
+            {PROMPT_EMAIL_RECLAMATION}
           </pre>
 
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            Étape 3 : emails de relance et prospection
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Usage 3 — Compte rendu d&apos;intervention
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_EMAIL}
+            {PROMPT_CR_INTERVENTION}
+          </pre>
+
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Usage 4 — Relance facture impayée
+          </h3>
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
+            {PROMPT_RELANCE_FACTURE}
+          </pre>
+
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Usage 5 — Notice de remise en main client (DOE simplifié)
+          </h3>
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
+            {PROMPT_NOTICE_DOE}
           </pre>
         </section>
 
-        <section className="mt-14">
+        <section id="resultats" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Résultats : ce que constatent les électriciens formés à l’IA
+            Tableau de gains de temps — électriciens BTP
           </h2>
-          <div className="mt-8 space-y-8">
-            <blockquote className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-slate-700 italic leading-relaxed">
-                « Avant, je passais 50 h/semaine : 30 h de chantier, 20 h d’administratif. Après la formation IA de
-                Laure, je fais 30 h de chantier et 10 h d’administratif. J’ai repris les appels d’offres que je refusais
-                avant. »
-              </p>
-              <footer className="mt-4 text-sm font-medium text-slate-900">— Marie, électricienne artisan en rénovation (Île-de-France)</footer>
-            </blockquote>
-            <blockquote className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-slate-700 italic leading-relaxed">
-                « Nous répondons à beaucoup plus d’appels d’offres depuis la formation. L’IA structure le mémoire
-                technique et on gagne des jours à chaque réponse. »
-              </p>
-              <footer className="mt-4 text-sm font-medium text-slate-900">
-                — Jean-Pierre, conducteur de travaux électrique TCE (Grand Paris)
-              </footer>
-            </blockquote>
-          </div>
-
-          <div className="mt-10 overflow-x-auto">
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Les ordres de grandeur ci-dessous sont <strong>pédagogiques</strong> : ils illustrent le type de gain
+            observé lorsque la méthode est appliquée avec relecture systématique.
+          </p>
+          <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200">
             <table className="w-full min-w-[520px] border-collapse text-left text-sm">
-              <caption className="sr-only">Synthèse indicative des gains observés en formation</caption>
+              <caption className="sr-only">
+                Comparaison temps sans IA et avec IA pour les tâches administratives des électriciens
+              </caption>
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-3 font-semibold text-slate-900">Métrique</th>
-                  <th className="p-3 font-semibold text-slate-900">Avant</th>
-                  <th className="p-3 font-semibold text-slate-900">Après</th>
-                  <th className="p-3 font-semibold text-slate-900">Gain</th>
+                <tr className="border-b border-slate-200 bg-[#F2F2F2]">
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Tâche
+                  </th>
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Sans IA
+                  </th>
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Avec IA
+                  </th>
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Gain
+                  </th>
                 </tr>
               </thead>
               <tbody className="text-slate-700">
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Temps devis / semaine</td>
-                  <td className="p-3">5 h</td>
-                  <td className="p-3">1 h 30</td>
-                  <td className="p-3 font-medium text-[var(--accent)]">~70 % de temps gagné</td>
+                  <td className="p-3">Devis installation complète</td>
+                  <td className="p-3">1 h 30 à 3 h</td>
+                  <td className="p-3 font-medium text-[#377CF3]">15 à 20 min</td>
+                  <td className="p-3">−85 %</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Appels d’offres / trimestre</td>
-                  <td className="p-3">2 à 3</td>
-                  <td className="p-3">8 à 12</td>
-                  <td className="p-3 font-medium text-[var(--accent)]">Plus d’opportunités</td>
+                  <td className="p-3">Email client (réponse/réclamation)</td>
+                  <td className="p-3">15 à 25 min</td>
+                  <td className="p-3 font-medium text-[#377CF3]">2 à 3 min</td>
+                  <td className="p-3">−85 %</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Temps administratif / semaine</td>
-                  <td className="p-3">15 h</td>
-                  <td className="p-3">8 h</td>
-                  <td className="p-3 font-medium text-[var(--accent)]">~7 h par semaine</td>
+                  <td className="p-3">CR d&apos;intervention</td>
+                  <td className="p-3">20 à 40 min</td>
+                  <td className="p-3 font-medium text-[#377CF3]">5 à 8 min</td>
+                  <td className="p-3">−80 %</td>
                 </tr>
                 <tr className="border-b border-slate-100">
-                  <td className="p-3">Erreurs devis / an</td>
-                  <td className="p-3">6 à 8</td>
-                  <td className="p-3">1 à 2</td>
-                  <td className="p-3 font-medium text-[var(--accent)]">Moins d’erreurs</td>
+                  <td className="p-3">Relance facture impayée</td>
+                  <td className="p-3">15 à 20 min</td>
+                  <td className="p-3 font-medium text-[#377CF3]">2 à 3 min</td>
+                  <td className="p-3">−85 %</td>
+                </tr>
+                <tr className="border-b border-slate-100">
+                  <td className="p-3">Notice DOE simplifié</td>
+                  <td className="p-3">45 à 60 min</td>
+                  <td className="p-3 font-medium text-[#377CF3]">8 à 12 min</td>
+                  <td className="p-3">−80 %</td>
+                </tr>
+                <tr className="border-b border-slate-100">
+                  <td className="p-3 font-semibold text-slate-900">Total semaine type</td>
+                  <td className="p-3 font-semibold">4 à 6 h</td>
+                  <td className="p-3 font-semibold text-[#377CF3]">40 à 60 min</td>
+                  <td className="p-3 font-semibold">−85 %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
-            Chiffres pédagogiques issus de retours de formation ; résultats variables selon votre organisation et votre
-            volume d’activité.
+        </section>
+
+        <section id="programme" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Programme de la formation BTP-01</h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            <strong>L&apos;IA au service du bâtiment — spécialisation électricité</strong>
+            <br />
+            Référence : BTP-01 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant ·{' '}
+            {EFFECTIF_GROUPE_MAX} participants max
+          </p>
+          <h3 className="mt-6 font-display text-lg font-semibold text-slate-900">Objectifs pédagogiques</h3>
+          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-600 leading-relaxed">
+            <li>Rédiger un devis électricité en 15 minutes avec ChatGPT</li>
+            <li>Produire un email client professionnel en 3 minutes</li>
+            <li>Générer un CR d&apos;intervention depuis vos notes brutes</li>
+            <li>Créer votre bibliothèque de prompts réutilisables (devis, emails, relances)</li>
+            <li>Gérer la confidentialité de vos données clients</li>
+          </ul>
+          <h3 className="mt-6 font-display text-lg font-semibold text-slate-900">Public</h3>
+          <p className="mt-3 text-slate-600 leading-relaxed">
+            Électriciens qualifiés, chefs d&apos;équipe, assistantes de PME électricité BTP. Aucun prérequis
+            informatique.
+          </p>
+          <h3 className="mt-6 font-display text-lg font-semibold text-slate-900">Format</h3>
+          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-600 leading-relaxed">
+            <li>
+              <strong>Intra</strong> dans vos locaux en Île-de-France
+            </li>
+            <li>
+              <strong>Inter</strong> en sessions collectives Île-de-France
+            </li>
+            <li>
+              <strong>Distanciel</strong> par visio
+            </li>
+          </ul>
+          <p className="mt-6">
+            <Link
+              href="/formations/ia-au-service-du-batiment"
+              className="inline-flex items-center gap-2 font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Voir le programme complet
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
           </p>
         </section>
 
-        <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
-          <p className="font-medium text-slate-900">Les résultats vous intéressent ?</p>
+        <section id="financement" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys 2026</h2>
+          <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+            <table className="w-full min-w-[480px] border-collapse text-left text-sm">
+              <caption className="sr-only">
+                Plafonds et taux Constructys selon la taille d&apos;entreprise
+              </caption>
+              <thead>
+                <tr className="border-b border-slate-200 bg-[#F2F2F2]">
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Entreprise
+                  </th>
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Coût pédagogique
+                  </th>
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Salaires
+                  </th>
+                  <th scope="col" className="p-3 font-semibold text-slate-900">
+                    Max intra/jour
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-700">
+                <tr className="border-b border-slate-100">
+                  <td className="p-3">&lt; 11 salariés</td>
+                  <td className="p-3">24 € HT/h/stagiaire</td>
+                  <td className="p-3">15 € HT/h/stagiaire</td>
+                  <td className="p-3">840 € HT/groupe</td>
+                </tr>
+                <tr className="border-b border-slate-100">
+                  <td className="p-3">11 à 50 salariés</td>
+                  <td className="p-3">24 € HT/h/stagiaire</td>
+                  <td className="p-3">10 € HT/h/stagiaire</td>
+                  <td className="p-3">840 € HT/groupe</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-6 rounded-xl border border-slate-200 bg-white p-6 text-slate-600 leading-relaxed shadow-sm">
+            <p className="font-semibold text-slate-900">Exemple pour un électricien indépendant (1 salarié)</p>
+            <p className="mt-2">
+              Formation inter 4 h · 100 € HT — Constructys prend en charge 96 € HT (24 € × 4 h × 1) + 60 € de salaires
+              (15 € × 4 h). Reste à charge : 4 € HT.
+            </p>
+            <p className="mt-4">
+              <strong>Condition :</strong> demande sur eGestion 15 jours avant la formation. OFC constitue le dossier
+              avec vous.
+            </p>
+          </div>
+          <p className="mt-6">
+            <Link
+              href="/financement-constructys-formation-ia-btp"
+              className="inline-flex items-center gap-2 font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Guide financement Constructys
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
+          </p>
+        </section>
+
+        <aside className="mt-10 rounded-2xl border-l-4 border-[#377CF3] bg-[#F2F2F2] p-6 md:p-8">
+          <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
-            <RdvLink className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
+            <RdvLink className="inline-flex items-center gap-2 font-semibold text-[#377CF3] underline hover:no-underline">
+              Réserver mon diagnostic IA BTP
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
             </RdvLink>{' '}
-            — nous analyserons votre administratif et estimerons vos gains potentiels.
+            — 30 minutes pour cadrer vos cas et le financement Constructys.
           </p>
         </aside>
 
-        <section className="mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — électriciens BTP</h2>
+        <section id="faq" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — électriciens BTP et IA</h2>
           <div className="mt-8 space-y-6">
             {FAQ_ITEMS.map(({ q, a }) => (
               <div key={q} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed"><FAQAnswer content={a} /></p>
+                <p className="mt-2 text-slate-600 leading-relaxed">
+                  <FAQAnswer content={a} />
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Pourquoi vous former avec Laure Olivié
-          </h2>
+        <section id="a-propos" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> — formatrice IA & ChatGPT spécialisée BTP. Plus de{' '}
-            <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du BTP formés, note de satisfaction
-            moyenne <strong>4,85/5</strong>. Organisme certifié <strong>Qualiopi</strong> (NDA 11788515078), enregistré{' '}
-            <strong>Constructys</strong>. Clients et partenaires : FFB, CSFE,
-            etc.
+            Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux publics. Son
+            organisme <strong>OFC Création d&apos;Entreprise</strong> est certifié <strong>Qualiopi</strong>, basé à
+            Guyancourt (Yvelines, 78), et référencé par la <strong>FFB Grand Paris</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Approche 100 % pratique, vocabulaire BTP sans jargon inutile. Formation initiale électricité (CAP + BP) : le
-            discours est ancré dans les réalités du terrain et de la norme.
+            Sa singularité : <strong>7 ans de direction d&apos;entreprise en travaux publics</strong> (ALIA BTP,
+            2017-2024) avant de créer OFC. Elle forme les électriciens avec le vocabulaire et les contraintes de terrain
+            qu&apos;elle connaît directement — pas depuis un manuel pédagogique.
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            <strong>+{SITE_CONFIG.statsPersonnesFormees} professionnels formés</strong> · Note{' '}
+            <strong>4,85/5</strong> · Qualiopi · FFB Grand Paris · FFB Île-de-France · CSFE
+            · CNAM IDF · LinkedIn Learning
+          </p>
+          <p className="mt-6">
+            <Link
+              href="/a-propos"
+              className="inline-flex items-center gap-2 font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Voir le parcours complet
+              <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+            </Link>
           </p>
         </section>
 
-        <section className="mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
-          <h2 className="font-display text-2xl font-bold">Prochaine étape : visio découverte gratuite (30 min)</h2>
+        <section className="mt-14">
+          <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-600 leading-relaxed">
+            <li>
+              <Link href="/blog/chatgpt-devis-electricien-btp" className="text-[#377CF3] underline hover:no-underline">
+                ChatGPT pour devis électricien : guide et prompts
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blog/ia-et-electricien-5-gains-de-temps-concrets"
+                className="text-[#377CF3] underline hover:no-underline"
+              >
+                IA et électricien : 5 gains de temps concrets
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/ia-conducteur-travaux-usages" className="text-[#377CF3] underline hover:no-underline">
+                IA pour conducteur de travaux : 8 usages terrain
+              </Link>
+            </li>
+            <li>
+              <Link href="/formation-ia-btp-ile-de-france" className="text-[#377CF3] underline hover:no-underline">
+                Formation IA BTP Île-de-France
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/dossier-constructys-2026-etapes" className="text-[#377CF3] underline hover:no-underline">
+                Constructys 2026 : monter son dossier en 20 min
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <section
+          id="rdv"
+          className="scroll-mt-24 mt-14 rounded-2xl bg-[#377CF3] p-8 text-white md:p-10"
+        >
+          <h2 className="font-display text-2xl font-bold">Réservez votre diagnostic IA gratuit</h2>
+          <p className="mt-4 text-blue-100 leading-relaxed">
+            30 minutes pour identifier les 3 tâches où l&apos;IA vous fera gagner le plus de temps cette semaine.
+            Gratuit, sans engagement.
+          </p>
           <ul className="mt-6 space-y-2 text-blue-100">
-            <li>Cas d’usage IA pour électriciens</li>
-            <li>Estimation personnalisée du temps récupérable</li>
-            <li>Financement Constructys : comment ça marche</li>
+            <li className="flex gap-2">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-white" strokeWidth={2} aria-hidden />
+              Cas d&apos;usage adaptés aux électriciens BTP
+            </li>
+            <li className="flex gap-2">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-white" strokeWidth={2} aria-hidden />
+              Garde-fous (normes, prix, confidentialité)
+            </li>
+            <li className="flex gap-2">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-white" strokeWidth={2} aria-hidden />
+              Pistes de financement Qualiopi / Constructys
+            </li>
           </ul>
           <div className="mt-8 flex flex-wrap gap-4">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Réserver sur Calendly
-              <ArrowRight size={20} strokeWidth={1.5} />
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50">
+              Réserver mon diagnostic IA BTP
+              <ArrowRight size={20} strokeWidth={2} aria-hidden />
             </RdvLink>
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
@@ -398,6 +656,14 @@ export default function FormationIaElectricienBtpPage() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-blue-100">
+            <Link href="/formations" className="underline hover:text-white">
+              Catalogue formations
+            </Link>
+            {' · '}
+            <Link href="/financement-constructys-formation-ia-btp" className="underline hover:text-white">
+              Financement Constructys
+            </Link>
+            {' · '}
             Email :{' '}
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">
               {SITE_CONFIG.email}
@@ -405,28 +671,44 @@ export default function FormationIaElectricienBtpPage() {
           </p>
         </section>
 
+        <p className="mt-10 text-sm italic text-slate-600 leading-relaxed">
+          Laure Olivié — Formatrice IA BTP, OFC Création d&apos;Entreprise
+          <br />
+          Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Guyancourt (78)
+          <br />
+          06 95 66 18 18 · {SITE_CONFIG.email} ·{' '}
+          <a href={SITE_CONFIG.url} className="text-[#377CF3] hover:underline">
+            www.laureolivie.fr
+          </a>
+        </p>
+
         <section className="mt-14">
           <h2 className="font-display text-xl font-bold text-slate-900">Mentions légales</h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            <strong>OFC Création d’Entreprise</strong> — Laure Olivié · SIRET : {SITE_CONFIG.siret} · NDA Qualiopi 11788515078 ·{' '}
-            {SITE_CONFIG.geo.streetAddress}, {SITE_CONFIG.geo.postalCode} {SITE_CONFIG.geo.city} · Tél. :{' '}
-            {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
-            <a href={SITE_CONFIG.url} className="text-[var(--accent)] hover:underline">
+            <strong>OFC Création d&apos;Entreprise</strong> — Laure Olivié · SIRET : {SITE_CONFIG.siret} · NDA Qualiopi
+            11788515078 · {SITE_CONFIG.geo.streetAddress}, {SITE_CONFIG.geo.postalCode} {SITE_CONFIG.geo.city} · Email
+            :{' '}
+            <a href={`mailto:${SITE_CONFIG.email}`} className="text-[#377CF3] hover:underline">
+              {SITE_CONFIG.email}
+            </a>
+            {sitePhoneDisplaySuffix()} ·{' '}
+            <a href={SITE_CONFIG.url} className="text-[#377CF3] hover:underline">
               www.laureolivie.fr
             </a>
             <br />
-            Organisme certifié Qualiopi · Formations finançables Constructys, FSE+ · TVA exonérée (article 261-4-4° du CGI
-            pour formations en intra) selon conditions.
+            Organisme certifié Qualiopi · Formations finançables Constructys, FSE+ · TVA exonérée (article 261-4-4° du
+            CGI pour formations en intra) selon conditions.
           </p>
         </section>
 
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
-            { href: '/formation-chatgpt-artisan-electricien', label: 'ChatGPT artisan électricien BTP' },
-            { href: '/formations/ia-appels-offre-btp', label: 'IA appels d’offres BTP' },
+            { href: '/formations/ia-au-service-du-batiment', label: 'Formation BTP-01 — IA au service du bâtiment' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: '/blog/chatgpt-devis-electricien-btp', label: 'Blog — ChatGPT devis électricien BTP' },
+            { href: '/formation-ia-btp-ile-de-france', label: 'Formation IA BTP Île-de-France' },
+            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous Calendly' },
           ]}
         />
       </article>

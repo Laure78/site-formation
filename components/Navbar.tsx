@@ -13,10 +13,8 @@ import {
   GraduationCap,
   BookOpen,
   UserCircle,
-  Mail,
   Home,
   CircleDollarSign,
-  LogIn,
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
@@ -43,7 +41,7 @@ type NavMega = {
 
 const FORMATIONS_MEGA: NavMega = {
   id: 'formations',
-  label: 'Formations IA BTP',
+  label: 'Formations',
   allLabel: 'Voir tout le catalogue',
   allHref: '/formations',
   navIcon: GraduationCap,
@@ -55,7 +53,11 @@ const FORMATIONS_MEGA: NavMega = {
   ],
 };
 
-const RDV_CTA = { href: CALENDLY_BOOKING_URL, label: 'Prendre RDV' as const };
+/** Calendly — appel découverte (charte : bouton #377CF3) */
+const RDV_CTA = {
+  href: CALENDLY_BOOKING_URL,
+  label: 'Prendre RDV' as const,
+};
 
 function isActive(href: string, pathname: string) {
   if (href === '/') return pathname === '/';
@@ -199,10 +201,8 @@ export function Navbar() {
   const homeActive = pathname === '/';
   const blogActive = pathname === '/blog' || pathname.startsWith('/blog/');
   const aProposActive = pathname.startsWith('/a-propos');
-  const contactActive = pathname === '/contact';
   const financementActive =
     pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
-  const connexionActive = pathname.startsWith('/auth/');
 
   return (
     <>
@@ -279,18 +279,6 @@ export function Navbar() {
             </div>
 
             <Link
-              href="/blog"
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
-                blogActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <BookOpen size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
-              Blog
-            </Link>
-
-            <Link
               href={LINKS.financement}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 financementActive
@@ -300,6 +288,18 @@ export function Navbar() {
             >
               <CircleDollarSign size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
               Financement
+            </Link>
+
+            <Link
+              href="/blog"
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                blogActive
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <BookOpen size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              Blog
             </Link>
 
             <Link
@@ -315,30 +315,12 @@ export function Navbar() {
             </Link>
           </nav>
 
-          <div className="hidden shrink-0 items-center gap-2 lg:flex xl:gap-3">
-            <Link
-              href="/contact"
-              className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-colors xl:text-[0.9375rem] ${
-                contactActive ? 'text-slate-900' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <Mail size={17} strokeWidth={1.75} className="text-slate-400" aria-hidden />
-              <span className="decoration-slate-300 underline-offset-4 hover:underline">Contact</span>
-            </Link>
-            <Link
-              href="/auth/connexion"
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] xl:px-4 xl:text-[0.9375rem] ${
-                connexionActive ? 'border-[var(--accent)] text-[var(--accent)]' : ''
-              }`}
-            >
-              <LogIn size={16} strokeWidth={1.75} aria-hidden />
-              Connexion
-            </Link>
+          <div className="hidden shrink-0 items-center lg:flex">
             <a
               href={RDV_CTA.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[var(--nav-cta-bg)] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[var(--nav-cta-hover)] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#377cf3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]"
             >
               {RDV_CTA.label}
             </a>
@@ -453,23 +435,6 @@ export function Navbar() {
 
             <div className="border-b border-slate-100 py-1">
               <Link
-                href="/blog"
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  blogActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <BookOpen
-                  size={18}
-                  strokeWidth={1.75}
-                  className={blogActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                Blog
-              </Link>
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <Link
                 href={LINKS.financement}
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
@@ -482,6 +447,23 @@ export function Navbar() {
                   className={financementActive ? 'text-[var(--accent)]' : 'text-slate-400'}
                 />
                 Financement
+              </Link>
+            </div>
+
+            <div className="border-b border-slate-100 py-1">
+              <Link
+                href="/blog"
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
+                  blogActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
+              >
+                <BookOpen
+                  size={18}
+                  strokeWidth={1.75}
+                  className={blogActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                />
+                Blog
               </Link>
             </div>
 
@@ -503,28 +485,12 @@ export function Navbar() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
-              <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 px-4 py-3.5 text-center text-[0.9375rem] font-medium text-slate-800"
-              >
-                <Mail size={18} strokeWidth={1.75} className="text-slate-500" aria-hidden />
-                Contact
-              </Link>
-              <Link
-                href="/auth/connexion"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-4 py-3.5 text-center text-[0.9375rem] font-semibold text-[var(--accent)]"
-              >
-                <LogIn size={18} strokeWidth={1.75} aria-hidden />
-                Connexion
-              </Link>
               <a
                 href={RDV_CTA.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-full bg-[var(--nav-cta-bg)] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform active:scale-[0.99]"
+                className="rounded-full bg-[#377cf3] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform hover:bg-[#2d66d6] active:scale-[0.99]"
               >
                 {RDV_CTA.label}
               </a>

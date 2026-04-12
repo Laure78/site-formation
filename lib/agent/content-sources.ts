@@ -63,6 +63,12 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (avancé). Prise en charge OPCO Constructys selon barèmes. Qualiopi. eGestion, délais 15 jours.` },
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
   { path: '/formation-ia-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
+  {
+    path: '/formation-ia-appels-offres-btp',
+    title: "Formation IA appels d'offres BTP — DCE et mémoire technique",
+    content:
+      "Landing SEO BTP-02 : analyser un DCE avec l'IA, mémoire technique, prompts, financement Constructys, méthode en 5 étapes. Laure Olivié, Qualiopi, +1 592 pros formés. Lien vers la fiche /formations/ia-appels-offre-btp.",
+  },
   { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation finançable OPCO Constructys. Gain de temps sur chiffrages.' },
   {
     path: '/formation-chatgpt-artisan-electricien',

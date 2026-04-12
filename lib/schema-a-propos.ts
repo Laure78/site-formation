@@ -8,7 +8,6 @@ import {
   SCHEMA_OPENING_HOURS,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PUBLIC_SITE_URL,
-  SCHEMA_PERSON_LAURE,
 } from '@/lib/schema-constants';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -74,70 +73,54 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
 
 /**
  * @see https://schema.org/Person — Laure Olivié (page /a-propos)
- * Schéma complet : image, adresse, credentials, knowsAbout.
+ * Injecté via `<Script type="application/ld+json" strategy="lazyOnload" />` pour différer le chargement.
  */
-export function getAProposPersonJsonLd(): Record<string, unknown> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${BASE}/#laure`,
-    name: SCHEMA_PERSON_LAURE.name,
-    url: `${BASE}/a-propos`,
-    image: {
-      '@type': 'ImageObject',
-      url: `${BASE}/images/laure-portrait-pro-2026.png`,
-      width: 400,
-      height: 400,
-    },
-    jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
-    description:
-      "Laure Olivié est la formatrice IA BTP de référence en France. Elle a formé 1592 professionnels du bâtiment avec une note de 4,85/5. Ancienne conductrice de travaux (travaux publics, 2017–2024), elle est l'une des rares formatrices IA avec une vraie expérience terrain BTP.",
-    worksFor: {
-      '@type': 'Organization',
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      '@id': `${BASE}/#business`,
-    },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: SCHEMA_GEO.addressLocality,
-      postalCode: SCHEMA_GEO.postalCode,
-      addressRegion: SCHEMA_GEO.addressRegion,
-      addressCountry: SCHEMA_GEO.addressCountry,
-    },
-    sameAs: [
-      'https://fr.linkedin.com/in/laure-olivie',
-      'https://www.linkedin.com/learning/instructors/laure-olivie',
-    ],
-    knowsAbout: [
-      'Intelligence artificielle pour le BTP',
-      'ChatGPT pour les entreprises du bâtiment',
-      'Formation professionnelle Qualiopi',
-      "Appels d'offres et marchés publics BTP",
-      'Dossier de Consultation des Entreprises (DCE)',
-      'Mémoire technique BTP',
-      'Financement OPCO Constructys',
-      'Conduite de chantier et travaux publics',
-    ],
-    hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'certification',
-        name: 'Certification Qualiopi — Action de formation',
-        recognizedBy: {
-          '@type': 'Organization',
-          name: 'République Française',
-          url: 'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281',
-        },
+export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Laure Olivié',
+  jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
+  description:
+    'Formatrice spécialisée en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. 1592 professionnels formés. Certifiée Qualiopi.',
+  url: `${BASE}/a-propos`,
+  image: `${BASE}/images/laure-portrait-pro-2026.png`,
+  telephone: '+33695661818',
+  email: 'laureolivie@yahoo.fr',
+  worksFor: {
+    '@type': 'Organization',
+    name: "OFC Création d'Entreprise",
+    url: BASE,
+    identifier: '905 244 281 00010',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Guyancourt',
+    postalCode: '78280',
+    addressRegion: 'Île-de-France',
+    addressCountry: 'FR',
+  },
+  sameAs: [
+    'https://fr.linkedin.com/in/laure-olivie',
+    'https://www.linkedin.com/learning/instructors/laure-olivie',
+  ],
+  knowsAbout: [
+    'Intelligence artificielle générative',
+    'ChatGPT pour le BTP',
+    'Formation professionnelle bâtiment',
+    "Appels d'offres BTP",
+    'Mémoire technique',
+    'Devis bâtiment',
+    'Constructys OPCO',
+  ],
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'Certification qualité',
+      name: 'Qualiopi',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'État français',
       },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'award',
-        name: 'Instructrice LinkedIn Learning',
-        recognizedBy: {
-          '@type': 'Organization',
-          name: 'LinkedIn',
-        },
-      },
-    ],
-  };
-}
+    },
+  ],
+};

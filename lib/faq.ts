@@ -343,6 +343,50 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
   },
 ];
 
+/** FAQ landing SEO — formation IA appels d'offres BTP (page dédiée maillage) */
+export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
+  {
+    q: "L'IA peut-elle rédiger un mémoire technique de A à Z sans intervention humaine ?",
+    a:
+      "Non, et ce n'est pas l'objectif. L'IA structure et rédige à partir du contenu que vous lui fournissez — vos références réelles, vos effectifs, vos moyens. Elle ne peut pas inventer vos chantiers ni connaître vos spécificités d'entreprise. En revanche, elle réduit considérablement le temps de mise en forme et de structuration. Le résultat est votre mémoire, pas celui de l'IA. Voir aussi la <a href=\"/formations/ia-appels-offre-btp\">fiche formation BTP-02</a>.",
+  },
+  {
+    q: "Les maîtres d'ouvrage peuvent-ils détecter qu'un mémoire a été rédigé avec l'IA ?",
+    a:
+      "Un mémoire bien travaillé avec l'IA, alimenté de données réelles et relu par un professionnel, ne se distingue pas d'un mémoire rédigé manuellement. Le risque est inverse : un mémoire générique copié-collé d'un précédent AO sans personnalisation se détecte facilement. L'IA, utilisée correctement, améliore la personnalisation — elle ne la remplace pas.",
+  },
+  {
+    q: "Comment gérer la confidentialité des données DCE dans ChatGPT ?",
+    a:
+      "Pour les marchés sensibles : (1) désactiver l'utilisation des données dans les paramètres ChatGPT, ou (2) utiliser ChatGPT Team ou Enterprise qui garantissent contractuellement la non-utilisation des données pour l'entraînement. Claude Pro (Anthropic) offre également des garanties similaires. Ces points sont traités en <a href=\"/formations/ia-appels-offre-btp\">formation BTP-02</a>.",
+  },
+  {
+    q: "Peut-on utiliser l'IA pour les marchés publics comme pour les marchés privés ?",
+    a:
+      "Oui. La méthode est identique. Pour les marchés publics, l'analyse du Règlement de Consultation (RC) est particulièrement utile : l'IA extrait les critères de sélection et leurs pondérations, ce qui permet d'orienter précisément la rédaction du mémoire sur les points les mieux notés. Ressource : <a href=\"/blog/ia-btp-analyse-dce\">analyse DCE avec l'IA</a>.",
+  },
+  {
+    q: "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
+    a:
+      "Non. Des outils gratuits (ChatGPT gratuit, Claude gratuit, Mistral Le Chat, NotebookLM) suffisent pour découvrir la méthode. Pour un usage professionnel intensif sur des CCTP longs, les versions payantes (environ 20 €/mois) offrent des capacités supérieures. La formation présente les deux niveaux.",
+  },
+  {
+    q: "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?",
+    a:
+      "Oui. Les exemples et cas pratiques sont calibrés pour des PME de 5 à 50 salariés. Les participants de très petites entreprises apportent souvent leurs propres DCE en cours pour travailler directement sur leur situation réelle. Principe : 100 % pratique, zéro théorie inutile.",
+  },
+  {
+    q: "Combien de temps après la formation peut-on appliquer la méthode ?",
+    a:
+      "Dès le lendemain. Les participants repartent avec leurs prompts personnalisés, leur bibliothèque structurée et un accès pendant 1 an aux ressources pédagogiques. Les entreprises formées avec la FFB Grand Paris ont généralement appliqué la méthode sur leur AO suivant dans la semaine.",
+  },
+  {
+    q: "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
+    a:
+      "BTP-02 couvre l'ensemble du processus de réponse à un AO, y compris l'analyse du BPU et du DQE avec l'IA. Le chiffrage proprement dit (calcul des prix, marges) fait l'objet d'un module spécifique qui peut être combiné selon vos besoins. Programme : <a href=\"/formations/ia-appels-offre-btp\">Répondre aux appels d'offres avec l'IA</a>.",
+  },
+];
+
 /** FAQ Formation IA RH BTP */
 export const FAQ_RH_BTP: FAQItem[] = [
   {

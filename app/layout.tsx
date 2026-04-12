@@ -5,6 +5,8 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/ChatWidget';
+import { ExitIntentPopup } from '@/components/ExitIntentPopup';
+import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyRDVCTA } from '@/components/StickyRDVCTA';
 import { StickyCTA } from '@/components/StickyCTA';
 import {
@@ -158,7 +160,9 @@ export default function RootLayout({
         <Footer />
         <StickyRDVCTA />
         <StickyCTA />
+        <StickyBlogMetierRdvBar />
         <ChatWidget />
+        <ExitIntentPopup />
       </body>
     </html>
   );

@@ -58,6 +58,8 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "L'IA au service du bâtiment",
     href: '/formations/ia-au-service-du-batiment',
+    /** Même visuel que la fiche formation dédiée */
+    visuel: PHOTOS.formationIABtpVisioBureau2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -72,6 +74,7 @@ const FORMATIONS_UNSORTED = [
     level: 'AVANCÉ' as const,
     title: "Répondre aux appels d'offre avec l'IA",
     href: '/formations/ia-appels-offre-btp',
+    visuel: PHOTOS.btpFormationChantierPlans2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -87,6 +90,7 @@ const FORMATIONS_UNSORTED = [
     level: 'AVANCÉ' as const,
     title: "Formation IA pour la Fonction RH dans le BTP",
     href: '/formations/ia-rh-btp',
+    visuel: PHOTOS.btpFormationBureauConseil2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -101,6 +105,7 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "L'IA au service des Travaux Publics",
     href: '/formations/ia-travaux-publics',
+    visuel: PHOTOS.btpFormationChantierEquipe2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -114,6 +119,7 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     href: '/formations/sensibilisation-ia-assistants-personnalises',
+    visuel: PHOTOS.btpFormationEcranIABTP2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -128,6 +134,7 @@ const FORMATIONS_UNSORTED = [
     level: 'AVANCÉ' as const,
     title: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
     href: '/formations/ia-architecture-claude-dpgf',
+    visuel: PHOTOS.formationIABtpArchiClaudePresentielGroupe2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -148,15 +155,6 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
   if (lr !== 0) return lr;
   return refNum(a.ref) - refNum(b.ref);
 });
-
-/** Visuels présentiel (salle, accompagnement poste, conseil) — réutilisés en tête de carte, en rotation. */
-const CATALOGUE_CARTE_VISUELS = [
-  PHOTOS.formationIaBtpSalleInteractive2026,
-  PHOTOS.formationIaBtpSalleModerne2026,
-  PHOTOS.btpFormationSalleIntervention2026,
-  PHOTOS.btpFormationChantierPlans2026,
-  PHOTOS.btpFormationBureauConseil2026,
-] as const;
 
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
@@ -200,8 +198,8 @@ export default function FormationsPage() {
       </div>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {FORMATIONS.map((cours, index) => {
-          const visuel = CATALOGUE_CARTE_VISUELS[index % CATALOGUE_CARTE_VISUELS.length];
+        {FORMATIONS.map((cours) => {
+          const visuel = cours.visuel;
           return (
           <Link
             key={cours.ref}
