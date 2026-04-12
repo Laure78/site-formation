@@ -34,7 +34,7 @@ Domaines couverts :
 - Financement OPCO Constructys jusqu'à 100% pour entreprises BTP < 50 salariés
 
 ## Institutional clients
-FFB Grand Paris, FFB Île-de-France Est, FFB Île-de-France Ouest (78-91-95), CSFE (Chambre Syndicale Française de l'Étanchéité), CAPEB, CNAM Île-de-France Entreprises, Lefebvre Dalloz, IFRB Île-de-France, LinkedIn Learning
+FFB Grand Paris, FFB Île-de-France Est, FFB Île-de-France Ouest (78-91-95), CSFE (Chambre Syndicale Française de l'Étanchéité), CNAM Île-de-France Entreprises, Lefebvre Dalloz, IFRB Île-de-France, LinkedIn Learning
 
 ## Course catalog (6 modules)
 - BTP-01 : L'IA au service du bâtiment (débutant, 100€HT/participant)

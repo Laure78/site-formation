@@ -357,7 +357,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'CLAUDE.md : identité et règles toujours actives',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-10.png" alt="Fichier CLAUDE.md pour Claude Code : identité formatrice BTP, clients FFB CAPEB, règles de style français" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/slide-10.png" alt="Fichier CLAUDE.md pour Claude Code : identité formatrice BTP, clients FFB et CSFE, règles de style français" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Le fichier est relu au démarrage : configurez-le une fois, capitalisez sur la durée.</figcaption>
 </figure>`,
       },

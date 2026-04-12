@@ -199,54 +199,7 @@ export default function FormationsPage() {
         </div>
       </div>
 
-      <section
-        className="mx-auto mt-12 max-w-5xl"
-        aria-labelledby="formations-visuelles-titre"
-      >
-        <h2
-          id="formations-visuelles-titre"
-          className="font-display text-2xl font-bold text-slate-900"
-        >
-          Sessions en présentiel : salle, bureau et chantier
-        </h2>
-        <p className="mt-2 max-w-3xl text-sm text-slate-600">
-          Visuels de nos formations IA BTP en entreprise : salle, bureau et chantier — appels
-          d&apos;offres, mémoire technique, conduite de travaux et accompagnement des équipes. Chaque
-          fiche reprend un de ces visuels en tête de carte.
-        </p>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-            <div className="relative aspect-[1024/682] w-full bg-slate-100">
-              <Image
-                src={PHOTOS.formationIaBtpSalleInteractive2026.src}
-                alt={PHOTOS.formationIaBtpSalleInteractive2026.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-slate-600">
-              Session en présentiel : écran « Formation IA pour le BTP » et atelier sur poste.
-            </figcaption>
-          </figure>
-          <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-            <div className="relative aspect-[1024/682] w-full bg-slate-100">
-              <Image
-                src={PHOTOS.formationIaBtpSalleModerne2026.src}
-                alt={PHOTOS.formationIaBtpSalleModerne2026.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-slate-600">
-              Salle moderne, groupe professionnel BTP et mise en pratique sur ordinateur.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {FORMATIONS.map((cours, index) => {
           const visuel = CATALOGUE_CARTE_VISUELS[index % CATALOGUE_CARTE_VISUELS.length];
           return (

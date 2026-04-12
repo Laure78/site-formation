@@ -443,7 +443,7 @@ export default function FormationIABTPYvelinesPage() {
               },
               {
                 titre: 'Fédérations et groupements',
-                text: 'Sessions collectives pour adhérents — possibilité de partenariat (FFB, CAPEB, etc.).',
+                text: 'Sessions collectives pour adhérents — possibilité de partenariat (FFB, CSFE, etc.).',
               },
             ].map((item) => (
               <li key={item.titre} className="flex gap-3 border-b border-slate-100 pb-4 last:border-0">
@@ -515,7 +515,7 @@ export default function FormationIABTPYvelinesPage() {
           </p>
           <p className="mt-4 text-sm text-slate-600">
             <strong className="text-slate-800">Références :</strong> FFB Grand Paris · FFB Île-de-France
-            (78/91/95) · FFB Île-de-France Est · CSFE · CNAM Entreprise · Lefebvre Dalloz · CAPEB
+            (78/91/95) · FFB Île-de-France Est · CSFE · CNAM Entreprise · Lefebvre Dalloz
           </p>
           <p className="mt-2 text-sm text-slate-600">
             Plus de 1 592 professionnels BTP formés · Note 4,85/5 · Qualiopi · Constructys / FSE+

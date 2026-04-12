@@ -16,7 +16,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Combien de temps dure la formation IA BTP ?',
-    a: "Les formations IA BTP de Laure Olivié durent 4 heures en format inter-entreprises ou intra-entreprise. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations sont réalisables en présentiel sur votre site ou dans les locaux des partenaires (FFB, CSFE, CAPEB).",
+    a: "Les formations IA BTP de Laure Olivié durent 4 heures en format inter-entreprises ou intra-entreprise. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations sont réalisables en présentiel sur votre site ou dans les locaux des partenaires (FFB, CSFE).",
   },
   {
     q: "L'IA va-t-elle remplacer les métiers du bâtiment ?",

@@ -106,7 +106,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Avez-vous des références dans mon secteur (électriciens) ?',
-    a: "Oui : artisans électriciens, conducteurs de travaux, responsables administratifs de PME électricité. Interventions dans le réseau FFB, CAPEB, CSFE. Vous pouvez demander une mise en relation avec un professionnel formé.",
+    a: "Oui : artisans électriciens, conducteurs de travaux, responsables administratifs de PME électricité. Interventions dans le réseau FFB, CSFE. Vous pouvez demander une mise en relation avec un professionnel formé.",
   },
 ];
 
@@ -368,7 +368,7 @@ export default function FormationIaElectricienBtpPage() {
             <strong>Laure Olivié</strong> — formatrice IA & ChatGPT spécialisée BTP. Plus de{' '}
             <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du BTP formés, note de satisfaction
             moyenne <strong>4,85/5</strong>. Organisme certifié <strong>Qualiopi</strong> (NDA 11788515078), enregistré{' '}
-            <strong>Constructys</strong>. Clients et partenaires : FFB, CAPEB, CSFE,
+            <strong>Constructys</strong>. Clients et partenaires : FFB, CSFE,
             etc.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

@@ -398,7 +398,7 @@ export default function FormationIaPlaquisteBtpPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             L’organisme a formé plus de <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du bâtiment.{' '}
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB,
+            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE,
             etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

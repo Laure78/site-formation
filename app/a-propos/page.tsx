@@ -55,7 +55,7 @@ const CHIFFRES_FAITS_VERIFIABLES: {
   {
     highlight: '6',
     description:
-      'Partenaire FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz',
+      'Partenaire FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Lefebvre Dalloz',
   },
 ];
 

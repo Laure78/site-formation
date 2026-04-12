@@ -355,7 +355,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
             <strong>4,85/5</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB.
+            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE.
           </p>
         </section>
 

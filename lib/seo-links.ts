@@ -77,7 +77,7 @@ export const INTERNAL_LINKS = {
   },
   clientsPartenaires: {
     path: '/a-propos#clients-partenaires',
-    anchors: ['clients et partenaires', 'FFB, CSFE, CAPEB', 'nos partenaires'],
+    anchors: ['clients et partenaires', 'FFB, CSFE', 'nos partenaires'],
   },
   communauteFormateurs: {
     path: '/communaute-formateurs',

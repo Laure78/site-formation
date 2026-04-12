@@ -264,7 +264,6 @@ export default function ExpertIABTPPage() {
             {[
               'FFB - Fédération Française du Bâtiment',
               'CSFE',
-              'CAPEB',
               'LinkedIn Learning',
               'OPCO Constructys',
             ].map((partner) => (

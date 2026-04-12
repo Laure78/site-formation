@@ -639,7 +639,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE, CAPEB.',
+    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.',
     knowsAbout: [
       'Formation IA BTP',
       'Formation ChatGPT entreprise BTP',

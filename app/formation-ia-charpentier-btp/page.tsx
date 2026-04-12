@@ -407,7 +407,7 @@ export default function FormationIaCharpentierBtpPage() {
             menuisiers, conducteurs de travaux, dirigeants — en Île-de-France et en France.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB,
+            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE,
             etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
