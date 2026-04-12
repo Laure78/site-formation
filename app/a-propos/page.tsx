@@ -433,12 +433,13 @@ export default function AProposPage() {
               </p>
               <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-stretch">
                 <figure className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+                  {/* Portrait : cadre 4/3 + ancrage haut pour éviter de couper la tête (object-cover) */}
                   <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-slate-200">
                     <Image
                       src={PHOTOS.parcoursChantierFondations.src}
                       alt={PHOTOS.parcoursChantierFondations.alt}
                       fill
-                      className="object-cover object-center"
+                      className="object-cover object-top"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>

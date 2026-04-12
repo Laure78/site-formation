@@ -156,7 +156,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Fiabiliser la donnée : structurer les données internes et les logiciels métiers avant d\'industrialiser l\'IA.',
           'Sécuriser les usages : confidentialité, vérification des réponses, limites de l\'IA générative — thématiques centrales dans une formation sérieuse.',
           'Structurer l\'offre de formation : privilégier des formats courts (par exemple une demi-journée, 4 h), ancrés dans les métiers, éligibles au financement via Constructys pour les entreprises du BTP concernées.',
-          'Renforcer la coordination sectorielle : fédérations, organismes de formation, OPPBTP, OPCO — pour éviter la dispersion des messages et des ressources.',
+          'Renforcer la coordination sectorielle : fédérations, organismes de formation, OPCO — pour éviter la dispersion des messages et des ressources.',
         ],
       },
       {
@@ -872,7 +872,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE, CAPEB, OPPBTP.',
+          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE, CAPEB.',
       },
       {
         type: 'paragraph',

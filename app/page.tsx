@@ -363,7 +363,7 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, CSFE, OPPBTP… la formation IA BTP terrain plébiscitée par le réseau pro
+                FFB, CSFE, CAPEB… la formation IA BTP terrain plébiscitée par le réseau pro
               </h2>
               <p className="mt-4 text-slate-300">
                 Interventions en intelligence artificielle bâtiment et formation IA travaux publics

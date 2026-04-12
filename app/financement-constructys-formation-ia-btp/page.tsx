@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -25,6 +26,15 @@ import {
 } from '@/lib/tarifs-sessions';
 
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
+
+/** Visuel hero — session en présentiel, écran « L'IA dans le BTP » (devis, chantier, organisation) */
+const HERO_FINANCEMENT = {
+  src: '/images/financement-constructys-formation-ia-btp-hero-2026.jpg',
+  width: 1024,
+  height: 682,
+  alt:
+    'Formatrice présentant une session sur l’IA dans le BTP à des professionnels du secteur — écran avec optimisation des devis, gestion de chantier et organisation, casque de chantier au premier plan',
+} as const;
 
 export const metadata = createPageMetadata({
   title: 'Financement formation IA OPCO Constructys — plafonds 2026 | Laure Olivié',
@@ -61,30 +71,49 @@ export default function FinancementConstructysFormationIABTPPage() {
         ])}
       />
 
-      <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-            Constructys formation IA · OPCO BTP
-          </p>
-          <h1 className="mt-4 font-display text-3xl font-bold leading-tight md:text-4xl">
-            Comment financer votre formation IA BTP avec Constructys ? — Guide complet
-          </h1>
-          <p className="mt-6 text-lg text-slate-300">
-            En pratique, environ <strong className="text-white">neuf stagiaires sur dix</strong>{' '}
-            qui suivent nos formations avec leur entreprise obtiennent une prise en charge via
-            l&apos;OPCO Constructys. Ce guide vous aide à comprendre les règles, sans
-            vous noyer dans le jargon administratif.
-          </p>
-          <p className="mt-6">
-            <ExternalLinkAnchor
-              href={CONSTRUCTYS_SITE.href}
-              title={CONSTRUCTYS_SITE.title}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
-            >
-              Site officiel Constructys (OPCO BTP)
-              <ExternalLink size={16} strokeWidth={1.5} aria-hidden />
-            </ExternalLinkAnchor>
-          </p>
+      <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-12 text-white md:py-16">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+          <div className="text-center lg:text-left">
+            <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+              Constructys formation IA · OPCO BTP
+            </p>
+            <h1 className="mt-4 font-display text-3xl font-bold leading-tight md:text-4xl">
+              Comment financer votre formation IA BTP avec Constructys ? — Guide complet
+            </h1>
+            <p className="mt-6 text-lg text-slate-300">
+              En pratique, environ <strong className="text-white">neuf stagiaires sur dix</strong>{' '}
+              qui suivent nos formations avec leur entreprise obtiennent une prise en charge via
+              l&apos;OPCO Constructys. Ce guide vous aide à comprendre les règles, sans
+              vous noyer dans le jargon administratif.
+            </p>
+            <p className="mt-6">
+              <ExternalLinkAnchor
+                href={CONSTRUCTYS_SITE.href}
+                title={CONSTRUCTYS_SITE.title}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+              >
+                Site officiel Constructys (OPCO BTP)
+                <ExternalLink size={16} strokeWidth={1.5} aria-hidden />
+              </ExternalLinkAnchor>
+            </p>
+          </div>
+          <figure className="mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-800/50 shadow-2xl ring-1 ring-white/5">
+              <Image
+                src={HERO_FINANCEMENT.src}
+                alt={HERO_FINANCEMENT.alt}
+                width={HERO_FINANCEMENT.width}
+                height={HERO_FINANCEMENT.height}
+                className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-xs leading-relaxed text-slate-400 lg:text-left">
+              Formation en présentiel, atelier sur poste : le même niveau d’exigence pour votre dossier
+              de financement Constructys.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
