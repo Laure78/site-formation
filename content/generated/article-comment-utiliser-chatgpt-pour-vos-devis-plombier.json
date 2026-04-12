@@ -1,13 +1,13 @@
 {
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-plombier",
   "title": "Comment utiliser ChatGPT pour vos devis plombier",
-  "description": "ChatGPT pour plombier-chauffagiste : devis salle de bain, dépannage et entretien en 15 min. Vocabulaire métier + TVA 10% intégré.",
-  "date": "2026-04-01",
+  "description": "Devis plombier avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
+  "date": "2026-04-12",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -73,12 +73,16 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "/prendre-rdv",
-      "anchor": "devis formation"
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

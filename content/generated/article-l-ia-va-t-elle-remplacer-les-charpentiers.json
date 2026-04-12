@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
   "title": "L'IA va-t-elle remplacer les charpentiers ?",
   "description": "L'IA remplace-t-elle les charpentiers ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-04-03",
+  "date": "2026-04-12",
   "keywords": [
-    "offre emploi IA",
-    "recruter BTP",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "LinkedIn BTP",
+    "post IA",
+    "contenu réseaux BTP",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
