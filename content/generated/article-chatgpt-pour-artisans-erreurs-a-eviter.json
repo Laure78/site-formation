@@ -2,13 +2,12 @@
   "slug": "chatgpt-pour-artisans-erreurs-a-eviter",
   "title": "ChatGPT pour artisans : erreurs à éviter",
   "description": "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
-  "date": "2026-04-13",
+  "date": "2026-04-14",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT entreprises BTP"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -75,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
