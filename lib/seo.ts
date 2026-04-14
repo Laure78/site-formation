@@ -152,6 +152,8 @@ export function createPageMetadata({
   article,
   image,
   appendAuthorSuffix = true,
+  openGraphTitle,
+  openGraphDescription,
   robots,
 }: {
   title: string;
@@ -168,6 +170,8 @@ export function createPageMetadata({
   };
   image?: { url: string; width?: number; height?: number; alt?: string };
   appendAuthorSuffix?: boolean;
+  openGraphTitle?: string;
+  openGraphDescription?: string;
   robots?: Metadata['robots'];
 }): Metadata {
   const kw = keywords ? [...keywords] : [...SITE_CONFIG.keywords];
@@ -182,6 +186,8 @@ export function createPageMetadata({
       article,
       image,
       appendAuthorSuffix,
+      openGraphTitle,
+      openGraphDescription,
       robots,
     }),
     keywords: kw,

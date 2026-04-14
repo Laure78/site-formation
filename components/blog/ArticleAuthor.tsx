@@ -5,6 +5,7 @@ import { ExternalLink } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKEDIN_PROFILE_URL } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -59,8 +60,10 @@ export function ArticleAuthor({ className }: Props) {
               Ancienne conductrice de travaux reconvertie en formatrice IA, Laure Olivié a formé
               plus de 1 592 professionnels du BTP à l&apos;utilisation de ChatGPT et Claude AI.
             </p>
-            <p>
-              Organisme certifié Qualiopi, formations finançables par Constructys.
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span>Organisme certifié</span>
+              <QualiopiWordmark />
+              <span>, formations finançables par Constructys.</span>
             </p>
             <p>Instructrice officielle LinkedIn Learning.</p>
           </div>

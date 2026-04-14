@@ -7,8 +7,7 @@ import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/ChatWidget';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
-import { StickyRDVCTA } from '@/components/StickyRDVCTA';
-import { StickyCTA } from '@/components/StickyCTA';
+import { CTASticky } from '@/components/CTASticky';
 import {
   SITE_CONFIG,
   getOrganizationSchema,
@@ -158,8 +157,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <StickyRDVCTA />
-        <StickyCTA />
+        <CTASticky />
         <StickyBlogMetierRdvBar />
         <ChatWidget />
         <ExitIntentPopup />

@@ -2,6 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Poppins } from 'next/font/google';
 import { SITE_CONFIG } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
+import { LINKS } from '@/lib/internal-links';
+import {
+  LINKEDIN_LEARNING_A_PROPOS_EMBEDS,
+  LINKEDIN_LEARNING_INSTRUCTOR_HREF,
+} from '@/lib/linkedin-learning-a-propos-embeds';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -106,13 +113,13 @@ export function AProposEeatSections() {
           </p>
           <ul className="mt-12 grid list-none gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
             <li className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-              <div className="flex h-20 w-full max-w-[200px] items-center justify-center">
+              <div className="flex w-full max-w-[260px] items-center justify-center">
                 <Image
-                  src="/images/blog/carrousel-5-assistants-ia-btp/08-cta-qualiopi-opco.png"
-                  alt="Logo certification Qualiopi — organisme de formation certifié"
-                  width={200}
-                  height={80}
-                  className="h-auto max-h-16 w-auto max-w-full object-contain"
+                  src={PHOTOS.qualiopiLogoOfficiel.src}
+                  alt={PHOTOS.qualiopiLogoOfficiel.alt}
+                  width={PHOTOS.qualiopiLogoOfficiel.width}
+                  height={PHOTOS.qualiopiLogoOfficiel.height}
+                  className="h-auto max-h-24 w-full object-contain"
                 />
               </div>
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
@@ -157,6 +164,86 @@ export function AProposEeatSections() {
               </Link>
             </li>
           </ul>
+        </div>
+      </section>
+
+      {/* Formations LinkedIn Learning — extraits vidéo + lien catalogue OFC */}
+      <section
+        id="formations-linkedin-learning"
+        className="scroll-mt-24 border-t border-slate-100 bg-white px-4 py-16"
+        aria-labelledby="titre-formations-linkedin"
+      >
+        <div className="mx-auto max-w-4xl">
+          <h2
+            id="titre-formations-linkedin"
+            className="text-center text-2xl font-bold text-slate-900 md:text-3xl"
+          >
+            Formations LinkedIn Learning
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">
+            Deux cours publiés en tant qu&apos;instructrice officielle — extraits vidéo ci-dessous. Pour les sessions{' '}
+            <strong>en entreprise</strong>, certifiées <QualiopiWordmark /> et finançables{' '}
+            <strong>Constructys</strong> (dont la formation IA BTP en présentiel ou à distance), consultez le{' '}
+            <Link
+              href={LINKS.formations}
+              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              catalogue des formations OFC
+            </Link>
+            .
+          </p>
+
+          <div className="mt-12 space-y-14">
+            {LINKEDIN_LEARNING_A_PROPOS_EMBEDS.map((item, index) => (
+              <div key={`linkedin-learning-embed-${index}`}>
+                <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-lg">
+                  <iframe
+                    src={item.embedSrc}
+                    title={item.iframeTitle}
+                    className="absolute inset-0 h-full w-full border-0"
+                    allowFullScreen
+                    allow="fullscreen"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="mt-4 text-center text-sm leading-relaxed text-slate-700">
+                  <strong>
+                    <a
+                      href={item.lessonHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#377CF3] underline-offset-2 hover:underline"
+                    >
+                      {item.lessonLabel}
+                    </a>
+                  </strong>{' '}
+                  — extrait du cours{' '}
+                  <strong>
+                    <a
+                      href={item.courseHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#377CF3] underline-offset-2 hover:underline"
+                    >
+                      {item.courseLabel}
+                    </a>
+                  </strong>{' '}
+                  par{' '}
+                  <strong>
+                    <a
+                      href={LINKEDIN_LEARNING_INSTRUCTOR_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#377CF3] underline-offset-2 hover:underline"
+                    >
+                      Laure Olivié
+                    </a>
+                  </strong>{' '}
+                  sur LinkedIn Learning.
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

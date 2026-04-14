@@ -31,6 +31,10 @@ export type BuildPageMetadataInput = {
   article?: ArticleMetaInput;
   /** Par défaut true : suffixe « Laure Olivié, formatrice IA BTP » */
   appendAuthorSuffix?: boolean;
+  /** Remplace og:title et twitter:title (balise HTML <title> inchangée si non défini) */
+  openGraphTitle?: string;
+  /** Remplace og:description et twitter:description (texte tel quel, sans suffixe auteur) */
+  openGraphDescription?: string;
   robots?: Metadata['robots'];
 };
 
@@ -79,12 +83,17 @@ export function buildPageMetadata({
   image,
   article,
   appendAuthorSuffix = true,
+  openGraphTitle,
+  openGraphDescription,
   robots,
 }: BuildPageMetadataInput): Metadata {
   const canonical = path ? `${baseUrl}${path}` : baseUrl;
-  const ogDescription = appendAuthorSuffix
+  const metaDescription = appendAuthorSuffix
     ? withOgDescriptionSuffix(description)
-    : description;
+    : description.trim();
+  const ogTitle = openGraphTitle?.trim() || title;
+  const ogDescription =
+    openGraphDescription != null ? openGraphDescription.trim() : metaDescription;
   const img = resolveImageUrl(baseUrl, image);
 
   const articleOg =
@@ -99,7 +108,7 @@ export function buildPageMetadata({
 
   const openGraph = {
     type: ogType,
-    title,
+    title: ogTitle,
     description: ogDescription,
     url: canonical,
     siteName: OG_SITE_NAME,
@@ -123,12 +132,12 @@ export function buildPageMetadata({
 
   const meta: Metadata = {
     title,
-    description: ogDescription,
+    description: metaDescription,
     ...(keywords?.length ? { keywords } : {}),
     openGraph,
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: ogTitle,
       description: ogDescription,
       images: [img.url],
     },

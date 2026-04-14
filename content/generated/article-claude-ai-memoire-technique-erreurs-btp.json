@@ -4,7 +4,7 @@
   "seoTitle": "Claude AI mémoire technique BTP : 5 erreurs à éviter | Laure Olivié",
   "description": "Utilisez Claude AI pour votre mémoire technique BTP sans ces 5 erreurs. Méthode issue des formations FFB/CSFE. 3 prompts calibrés. Finançable Constructys.",
   "date": "2026-05-12",
-  "dateModified": "2026-05-12",
+  "dateModified": "2026-05-13",
   "keywords": [
     "Claude AI mémoire technique BTP",
     "erreurs mémoire technique IA",
@@ -28,7 +28,7 @@
     {
       "type": "html",
       "title": "Ce qu'est un mémoire technique BTP et pourquoi l'IA change la donne",
-      "content": "<p>Le mémoire technique — parfois appelé offre technique, note méthodologique ou mémoire justificatif selon les RC — est la pièce de votre réponse à un appel d'offres qui décrit <strong>comment</strong> vous allez réaliser les travaux. Il couvre généralement : la présentation de votre entreprise, vos moyens humains et matériels, votre méthodologie d'exécution, votre démarche QSE, vos références similaires et vos engagements de planning.</p><p>Dans les marchés publics, le mémoire technique est noté — souvent entre <strong>40 % et 60 %</strong> de la note finale, le reste étant le prix. Dans les marchés privés, il conditionne la décision du maître d'ouvrage quand plusieurs entreprises chiffrent de façon équivalente.</p><p>Le problème que j'observe depuis trois ans de formations avec la <strong>FFB Grand Paris</strong>, la <strong>FFB Île-de-France</strong> et la <strong>CSFE</strong> : les entreprises passent <strong>90 %</strong> de leur temps sur le chiffrage et <strong>10 %</strong> sur le mémoire technique. Résultat : une offre compétitive en prix, mais un mémoire générique qui plombe la note qualitative.</p><p><strong>Claude AI</strong> change la donne sur ce point précis. Avec une fenêtre de contexte de 200 000 tokens, il peut lire l'intégralité d'un DCE complexe, en extraire les critères de notation du mémoire technique, et structurer votre réponse section par section en respectant les pondérations du RC. Ce que ChatGPT fait bien, Claude le fait mieux sur les très longs documents — c'est le retour unanime des conducteurs de travaux et chargés d'affaires que je forme.</p><p>Mais cette puissance ne dispense pas de méthode. Voici les 5 erreurs que je corrige le plus souvent.</p>"
+      "content": "<p>Le mémoire technique — parfois appelé offre technique, note méthodologique ou mémoire justificatif selon les RC — est la pièce de votre réponse à un appel d'offres qui décrit <strong>comment</strong> vous allez réaliser les travaux. Il couvre généralement : la présentation de votre entreprise, vos moyens humains et matériels, votre méthodologie d'exécution, votre démarche QSE, vos références similaires et vos engagements de planning.</p><p>Dans les marchés publics, le mémoire technique est noté — souvent entre <strong>40 % et 60 %</strong> de la note finale, le reste étant le prix. Dans les marchés privés, il conditionne la décision du maître d'ouvrage quand plusieurs entreprises chiffrent de façon équivalente.</p><p>Le problème que j'observe depuis trois ans de formations avec la <strong>FFB Grand Paris</strong>, la <strong>FFB Île-de-France</strong> et la <strong>CSFE</strong> : les entreprises passent <strong>90 %</strong> de leur temps sur le chiffrage et <strong>10 %</strong> sur le mémoire technique. Résultat : une offre compétitive en prix, mais un mémoire générique qui plombe la note qualitative.</p><p><strong>Claude AI</strong> change la donne sur ce point précis. Avec une fenêtre de contexte de 200 000 tokens, il peut lire l'intégralité d'un DCE complexe, en extraire les critères de notation du mémoire technique, et structurer votre réponse section par section en respectant les pondérations du RC. Ce que ChatGPT fait bien, Claude le fait mieux sur les très longs documents — c'est le retour unanime des conducteurs de travaux et chargés d'affaires que je forme.</p><p>Mais cette puissance ne dispense pas de méthode. Voici les 5 erreurs que je corrige le plus souvent.</p><p>Retrouvez les autres contenus Claude sur la <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>"
     },
     {
       "type": "html",
@@ -104,6 +104,7 @@
     }
   ],
   "relatedSlugs": [
+    "claude-ai-btp-5-interfaces-chat-cowork-code",
     "ia-analyse-cctp-methode",
     "memoire-technique-btp-ia-gagner-temps-appels-offres",
     "ia-btp-analyse-dce",

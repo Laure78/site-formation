@@ -3,8 +3,17 @@ Allow: /
 Disallow: /api/
 Disallow: /auth/
 Disallow: /_next/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
 
-# Autoriser les bots IA pour la visibilité GEO
+# Moteurs de recherche
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bots IA (GEO)
 User-agent: GPTBot
 Allow: /
 

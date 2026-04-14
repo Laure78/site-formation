@@ -389,6 +389,7 @@ export default function FormationIABTPYvelinesLandingPage() {
           <AllerPlusLoin
             links={[
               { href: LINKS.formationYvelines, label: 'Formation IA BTP Yvelines (78) — fiche détaillée' },
+              { href: LINKS.formationSaintQuentinYvelines, label: 'Formation IA BTP Saint-Quentin-en-Yvelines' },
               { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP Île-de-France' },
               { href: LINKS.formations, label: 'Catalogue formations' },
               { href: LINKS.financement, label: 'Financement Constructys' },

@@ -289,6 +289,34 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   },
 ];
 
+/** FAQ — page Formation IA BTP Saint-Quentin-en-Yvelines (SQY, 78) */
+export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
+  {
+    q: 'Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?',
+    a: 'Oui. Sessions en présentiel dans vos locaux ou sur chantier : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Pour le département tout entier, voir aussi la page <a href="/formations/ia-btp-yvelines-78">formation IA BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
+  },
+  {
+    q: "Faut-il des compétences informatiques pour suivre cette formation ?",
+    a: 'Non. La formation s\'adresse à des professionnels du BTP : savoir naviguer sur internet et utiliser un ordinateur ou une tablette suffit. Le reste est expliqué pas à pas sur vos documents réels.',
+  },
+  {
+    q: "Combien de temps dure la formation ?",
+    a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="/prendre-rdv">prendre rendez-vous</a>.',
+  },
+  {
+    q: "La formation IA BTP est-elle finançable par Constructys dans les Yvelines ?",
+    a: 'Oui. Les règles sont les mêmes pour les entreprises du BTP en Île-de-France : financement possible dans le cadre du plan de développement des compétences, selon votre éligibilité et les barèmes en vigueur. Détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
+  },
+  {
+    q: "Quelle différence avec une formation généraliste sur ChatGPT ?",
+    a: 'La formation est calibrée pour le BTP : vocabulaire du bâtiment (CCTP, DTU, mémoire technique, comptes rendus de chantier), exercices sur vos vrais documents, méthodes éprouvées avec des entreprises du secteur. Voir aussi <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a>.',
+  },
+  {
+    q: "Puis-je former plusieurs personnes en même temps ?",
+    a: 'Oui. Le format intra-entreprise convient à des groupes de plusieurs personnes ; au-delà d\'une dizaine, il est souvent préférable de diviser en deux groupes pour garder du temps d\'exercice. Le financement Constructys s\'applique par stagiaire, dans les limites des plafonds en vigueur.',
+  },
+];
+
 /** FAQ — page piliers /formation-ia-btp-yvelines (questions ciblées SEO local 78) */
 export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {

@@ -24,6 +24,18 @@ function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
       priority: 0.82,
     },
     { url: `${baseUrl}/expert-ia-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+    {
+      url: `${baseUrl}/outils-ia-btp`,
+      lastModified: new Date('2026-04-10'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/claude-ai-btp`,
+      lastModified: new Date('2026-04-12'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     { url: `${baseUrl}/auteur/laure-olivie`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/prendre-rdv`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
     { url: `${baseUrl}/diagnostic-ia-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
@@ -51,6 +63,12 @@ function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/formation-ia-btp`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.98,
+    },
+    {
       url: `${baseUrl}/repondre-appels-offres-ia-btp`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -68,6 +86,12 @@ function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/formations/ia-btp-saint-quentin-en-yvelines`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.88,
     },
     {
       url: `${baseUrl}/formation-ia-btp-yvelines`,

@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 import Link from 'next/link';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
@@ -35,7 +36,7 @@ function CtaHref({
 interface CTABlockProps {
   title?: string;
   /** Description personnalisée (ex. CTA pour prendre RDV) */
-  description?: string;
+  description?: ReactNode;
   primaryLabel?: string;
   primaryHref?: string;
   secondaryLabel?: string;
@@ -59,9 +60,16 @@ export function CTABlock({
           {title}
         </h2>
       )}
-      <p className="mt-2 text-white/90">
-        {description ?? 'Formation certifiée Qualiopi · 100% finançable Constructys'}
-      </p>
+      <div className="mt-2 text-white/90">
+        {description ?? (
+          <span className="inline-flex flex-wrap items-center gap-2">
+            <span className="inline-flex shrink-0 items-center rounded-md bg-white px-1.5 py-1 shadow-sm">
+              <QualiopiLogoInline heightPx={22} />
+            </span>
+            <span>Formation certifiée Qualiopi · 100% finançable Constructys</span>
+          </span>
+        )}
+      </div>
       <div className="mt-6 flex flex-wrap gap-4">
         <CtaHref
           href={primaryHref}

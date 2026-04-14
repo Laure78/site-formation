@@ -16,7 +16,7 @@ import {
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const ORG_ID = `${BASE}/#organization` as const;
 
-/** Complète le schéma global Organization (layout) : note agrégée + avis exemples. */
+/** Complète le schéma global Organization (layout) : note agrégée + avis exemples. Pas de `itemReviewed` sur les Review imbriquées (recommandation Google / extraits d'avis). */
 export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
@@ -49,7 +49,6 @@ export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<strin
     review: [
       {
         '@type': 'Review',
-        itemReviewed: { '@id': ORG_ID },
         author: { '@type': 'Person', name: 'Marc D.' },
         reviewRating: {
           '@type': 'Rating',
@@ -63,7 +62,6 @@ export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<strin
       },
       {
         '@type': 'Review',
-        itemReviewed: { '@id': ORG_ID },
         author: { '@type': 'Person', name: 'Sophie M.' },
         reviewRating: {
           '@type': 'Rating',
@@ -77,7 +75,6 @@ export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<strin
       },
       {
         '@type': 'Review',
-        itemReviewed: { '@id': ORG_ID },
         author: { '@type': 'Person', name: 'Pierre L.' },
         reviewRating: {
           '@type': 'Rating',

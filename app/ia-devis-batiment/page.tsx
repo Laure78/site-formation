@@ -8,9 +8,9 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'IA devis automatique bâtiment — TPE & PME BTP | Formation finançable',
+  title: 'IA Devis Bâtiment — Automatiser son Chiffrage BTP | Laure Olivié',
   description:
-    "IA devis bâtiment et ChatGPT devis BTP : prompts par métier, checklist avant envoi, erreurs à éviter. Formation 4 h — Qualiopi, financement OPCO Constructys.",
+    'Créez vos devis BTP plus vite avec l\'IA et ChatGPT adaptés au vocabulaire bâtiment. Formation Qualiopi, finançable Constructys. Réservez votre visio découverte gratuite.',
   path: '/ia-devis-batiment',
   keywords: [
     'IA devis automatique bâtiment',

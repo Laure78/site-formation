@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
 import { FORMATION_IA_METIERS, FORMATION_IA_VILLES } from '@/lib/seo-formation-ia-hub-data';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Hub métiers & villes (ChatGPT, Claude AI)',
@@ -39,6 +40,11 @@ export default function FormationIaHubPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
             Formation IA, ChatGPT et Claude AI pour le BTP — hub métiers & Île-de-France
           </h1>
+          <p className="mt-4 text-lg text-slate-700">
+            <Link href={LINKS.formationIaBtp} className="font-semibold text-[#377CF3] hover:underline">
+              Page pilier : formation IA BTP (programme, financement, FAQ)
+            </Link>
+          </p>
           <p className="lead text-lg text-slate-700">
             Cette section regroupe des pages thématiques : une par <strong>lot / métier</strong> (pour
             des exemples d&apos;atelier ciblés) et une par <strong>grande ville d&apos;Île-de-France</strong>{' '}

@@ -8,9 +8,9 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA conducteur travaux — CR chantier | BTP',
+  title: 'Formation IA Conducteur de Travaux BTP | Laure Olivié IDF',
   description:
-    "Formation IA conducteur de travaux : CR, rapports et coordination plus rapides. Méthode terrain. Constructys, Qualiopi. Obtenez une proposition adaptée.",
+    'Gagnez du temps sur les CR de chantier et les emails avec l\'IA. Formation pratique Qualiopi en Île-de-France. Finançable Constructys. Réservez votre visio.',
   path: '/ia-conducteur-travaux',
   keywords: [
     'IA conducteur de travaux',

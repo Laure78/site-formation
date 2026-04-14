@@ -5,6 +5,7 @@ import { ArrowRight, Building2, CheckCircle2, FileStack } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/seo';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 
 const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
 
@@ -38,20 +39,38 @@ export function EtudeCasClientsSection() {
             </p>
 
             <ul className="mt-8 space-y-3 text-slate-700">
-              {[
-                'Sessions courtes et opérationnelles avec la FFB (Grand Paris, IDF Est & Ouest).',
-                `Même socle pédagogique avec la ${CSFE_NOM_LIBRE} pour cohérence réseau.`,
-                'Financement OPCO / Qualiopi lorsque les entreprises sont éligibles.',
-              ].map((line) => (
-                <li key={line} className="flex gap-3">
-                  <CheckCircle2
-                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
-                    strokeWidth={2}
-                    aria-hidden
-                  />
-                  <span>{line}</span>
-                </li>
-              ))}
+              <li className="flex gap-3">
+                <CheckCircle2
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                  strokeWidth={2}
+                  aria-hidden
+                />
+                <span>
+                  Sessions courtes et opérationnelles avec la FFB (Grand Paris, IDF Est &amp; Ouest).
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                  strokeWidth={2}
+                  aria-hidden
+                />
+                <span>
+                  Même socle pédagogique avec la {CSFE_NOM_LIBRE} pour cohérence réseau.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <CheckCircle2
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                  strokeWidth={2}
+                  aria-hidden
+                />
+                <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                  <span>Financement OPCO /</span>
+                  <QualiopiWordmark />
+                  <span>lorsque les entreprises sont éligibles.</span>
+                </span>
+              </li>
             </ul>
 
             <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">

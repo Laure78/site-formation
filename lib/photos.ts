@@ -14,7 +14,16 @@ export const PHOTOS = {
     width: 682,
     height: 1024,
   },
-  
+
+  /** Logo officiel Qualiopi — processus certifié, République française, actions de formation */
+  qualiopiLogoOfficiel: {
+    src: '/images/logo-qualiopi-actions-de-formation.png',
+    alt:
+      'Logo Qualiopi — processus certifié par la République française pour les actions de formation',
+    width: 842,
+    height: 509,
+  },
+
   // Photo auteur blog / cartes (LinkedIn Graz)
   linkedinGraz: {
     src: '/images/laure-olivie-linkedin-graz.png',
@@ -229,9 +238,9 @@ export const PHOTOS = {
   },
   formationIASensibilisation2026: {
     src: '/images/formation-ia-sensibilisation-2026.png',
-    alt: "Session « Sensibilisation à l'IA et assistants IA personnalisés » animée par Laure Olivié",
-    width: 1024,
-    height: 768,
+    alt: "Carte formation catalogue BTP-05 — Sensibilisation à l'IA et assistants IA personnalisés, niveau débutant",
+    width: 866,
+    height: 856,
   },
   formationIAClaude2026: {
     src: '/images/formation-ia-claude-2026.png',
@@ -282,7 +291,18 @@ export const PHOTOS = {
   },
   btpFormationEcranIABTP2026: {
     src: '/images/btp-formation-ecran-ia-btp-2026.png',
-    alt: 'Présentation « IA dans le BTP » : optimisation devis, gestion de chantier et organisation',
+    alt: 'Formation en salle — présentation « L\'IA dans le BTP » : optimisation des devis, gestion de chantier et organisation, Laure Olivié face aux professionnels du bâtiment',
+    width: 1024,
+    height: 682,
+  },
+
+  /**
+   * BTP-05 — Sensibilisation IA & assistants personnalisés (écran « Création d\'Assistants IA BTP »).
+   */
+  formationSensibilisationAssistantsIaBtp2026: {
+    src: '/images/formation-sensibilisation-assistants-ia-btp-2026.png',
+    alt:
+      'Formation en salle — présentation « Création d\'Assistants IA BTP » : optimisation des devis, gestion de chantier et organisation, public du bâtiment',
     width: 1024,
     height: 682,
   },
@@ -309,13 +329,31 @@ export const PHOTOS = {
   },
 
   /**
-   * Fiche « IA au service du bâtiment » (BTP-01) — salle de formation, écran « Formation IA pour le BTP », participants aux ordinateurs.
+   * Carte catalogue « IA au service du bâtiment » (BTP-01) — réf. BTP-01, niveau débutant, visuel salle avec participants aux ordinateurs.
    */
   formationIABtpVisioBureau2026: {
     src: '/images/formation-ia-au-service-du-batiment-carte-btp-01-2026.png',
-    alt: 'Formation IA pour le BTP en présentiel : Laure Olivié face aux participants, grand écran « Formation IA pour le BTP », salle équipée d’ordinateurs portables',
-    width: 784,
-    height: 974,
+    alt:
+      'Carte formation catalogue BTP-01 — L\'IA au service du bâtiment, niveau débutant ; salle de formation avec participants aux ordinateurs et intervenante',
+    width: 794,
+    height: 622,
+  },
+
+  /** Page pilier /formation-ia-btp — visuel carte catalogue BTP-01 (réf., badge débutant, titre). */
+  formationIaBtpPillarCarteCatalogue2026: {
+    src: '/images/formation-ia-btp-carte-catalogue-btp-01-2026.png',
+    alt:
+      'Carte catalogue formation IA BTP-01 débutant — L\'IA au service du bâtiment ; salle avec professionnels aux ordinateurs et formatrice',
+    width: 776,
+    height: 602,
+  },
+
+  /** Open Graph / partages — page pilier formation IA BTP (portrait formatrice). */
+  formationIaBtpOgPortrait2026: {
+    src: '/images/formation-ia-btp-laure-olivie.jpg',
+    alt: 'Laure Olivié, formatrice IA BTP Qualiopi, portrait professionnel formation ChatGPT bâtiment',
+    width: 682,
+    height: 1024,
   },
 
   /** Landing formation IA appels d’offres BTP — présentiel, écran « L’IA dans le BTP », public BTP (casque, gilet). */
@@ -339,6 +377,46 @@ export const PHOTOS = {
     src: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
     alt:
       'Laure Olivié, formatrice IA BTP OFC — échange avec un dirigeant artisan ; formation entreprise Qualiopi, réseau FFB',
+    width: 1024,
+    height: 682,
+  },
+
+  /**
+   * Illustrations blog — shootings cohérents (chantier, salle, convention).
+   * Référencées par lib/blog-article-illustrations.ts selon la catégorie SEO.
+   */
+  blogBtpChantierPlansEchange2026: {
+    src: '/images/blog-btp-chantier-plans-echange-2026.png',
+    alt:
+      'Laure Olivié sur un chantier BTP, plans à la main, en discussion avec des professionnels du bâtiment — contexte terrain et conduite de travaux',
+    width: 1024,
+    height: 682,
+  },
+  blogBtpChantierEncadrement2026: {
+    src: '/images/blog-btp-chantier-encadrement-2026.png',
+    alt:
+      'Échange sur chantier entre la formatrice et des ouvriers du bâtiment — coordination terrain et sécurité',
+    width: 1024,
+    height: 762,
+  },
+  blogFormationIaDansLeBtpSalle2026: {
+    src: '/images/blog-formation-ia-dans-btp-salle-2026.png',
+    alt:
+      'Formation IA en salle : présentation « L\'IA dans le BTP » à un public d\'artisans et de professionnels du bâtiment',
+    width: 1024,
+    height: 682,
+  },
+  blogFormationIaBtpHandshakeFlipchart2026: {
+    src: '/images/blog-formation-ia-btp-handshake-convention-2026.png',
+    alt:
+      'Poignée de main en bureau — flipchart « Formation IA BTP » avec les thèmes Devis, Chantier et Organisation',
+    width: 1024,
+    height: 682,
+  },
+  blogIaAuServiceArtisansBatiment2026: {
+    src: '/images/blog-ia-au-service-artisans-batiment-2026.png',
+    alt:
+      'Formation « L\'IA au service des artisans du bâtiment » — intervenante face à un public BTP en gilet de chantier',
     width: 1024,
     height: 682,
   },

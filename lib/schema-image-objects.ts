@@ -4,9 +4,17 @@
  */
 import { SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
+import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
 
 const year = new Date().getFullYear();
 const base = SITE_CONFIG.url.replace(/\/$/, '');
+
+/** Créateur — champ attendu pour les métadonnées d'image (Google / ImageObject). */
+const imageCreatorOrg = {
+  '@type': 'Organization' as const,
+  name: SCHEMA_ORGANIZATION_OFC.name,
+  url: base,
+};
 
 export function buildHomePageImageObjectsJsonLd() {
   return {
@@ -23,6 +31,7 @@ export function buildHomePageImageObjectsJsonLd() {
         acquireLicensePage: `${base}/contact`,
         creditText: "OFC Création d'Entreprise",
         copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+        creator: imageCreatorOrg,
         author: { '@type': 'Person', name: 'Laure Olivié' },
       },
       {
@@ -37,6 +46,7 @@ export function buildHomePageImageObjectsJsonLd() {
         acquireLicensePage: `${base}/contact`,
         creditText: "OFC Création d'Entreprise",
         copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+        creator: imageCreatorOrg,
         author: { '@type': 'Person', name: 'Laure Olivié' },
       },
     ],
@@ -57,6 +67,7 @@ export function buildAProposImageObjectJsonLd() {
     acquireLicensePage: `${base}/contact`,
     creditText: "OFC Création d'Entreprise",
     copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+    creator: imageCreatorOrg,
     author: { '@type': 'Person', name: 'Laure Olivié' },
   };
 }

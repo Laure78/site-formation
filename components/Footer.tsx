@@ -12,6 +12,7 @@ import {
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
+import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
 
 export function Footer() {
   return (
@@ -22,8 +23,10 @@ export function Footer() {
             <p className="font-display text-lg font-semibold text-slate-900">
               Formations IA BTP &amp; ChatGPT entreprise
             </p>
-            <p className="mt-1 text-sm text-slate-600">
-              Catalogue Qualiopi, financement Constructys — sessions 4 h.
+            <p className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-slate-600">
+              <span>Catalogue</span>
+              <QualiopiWordmark />
+              <span>, financement Constructys — sessions 4 h.</span>
             </p>
           </div>
           <Link
@@ -137,6 +140,8 @@ export function Footer() {
                 { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
                 { href: '/financement-constructys-formation-ia-btp', label: 'Financement OPCO' },
                 { href: '/blog', label: 'Ressources & Articles' },
+                { href: '/outils-ia-btp', label: 'Outils IA BTP (ChatGPT, Claude, Gemini)' },
+                { href: '/claude-ai-btp', label: 'Claude AI BTP (Anthropic)' },
                 { href: '/communaute-formateurs', label: 'Communauté formateurs' },
                 { href: '/espace-apprenant', label: 'Espace apprenant' },
                 { href: '/install-pwa', label: 'Installer l\'app mobile' },
@@ -214,10 +219,11 @@ export function Footer() {
               title="Vérifier la certification Qualiopi — Annuaire officiel data.gouv.fr"
               className="mt-6 block rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-slate-300 hover:bg-slate-100"
             >
-              <p className="font-semibold text-slate-900">Qualiopi</p>
-              <p className="mt-1 text-xs text-slate-500">Processus certifié</p>
-              <p className="mt-2 text-xs text-slate-500">
-                RÉPUBLIQUE FRANÇAISE — Action de formation
+              <div className="flex justify-center">
+                <QualiopiLogoBlock className="max-w-[220px]" />
+              </div>
+              <p className="mt-3 text-center text-xs font-medium text-slate-600">
+                Vérifier la certification sur data.gouv.fr (annuaire officiel)
               </p>
             </ExternalLinkAnchor>
           </div>
@@ -225,8 +231,9 @@ export function Footer() {
 
         {/* Bas de page */}
         <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-slate-200 pt-10 md:flex-row">
-          <p className="text-center text-sm text-slate-500 md:text-left">
-            © {new Date().getFullYear()} OFC Création d&apos;Entreprise · Organisme certifié Qualiopi
+          <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-sm text-slate-500 md:justify-start">
+            <span>© {new Date().getFullYear()} OFC Création d&apos;Entreprise · Organisme certifié</span>
+            <QualiopiWordmark />
           </p>
           <div className="flex gap-3">
             <ExternalLinkAnchor

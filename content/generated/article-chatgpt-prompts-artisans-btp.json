@@ -1,0 +1,93 @@
+{
+  "slug": "chatgpt-prompts-artisans-btp",
+  "title": "ChatGPT pour artisans BTP : 10 prompts prêts à l'emploi par corps de métier",
+  "seoTitle": "ChatGPT artisans BTP : 10 prompts par métier | Laure Olivié",
+  "description": "10 prompts ChatGPT testés pour électriciens, plombiers, couvreurs, maçons et métiers du bâtiment. Devis, CR chantier, relances — copier-coller. Qualiopi, OFC.",
+  "date": "2026-04-10",
+  "dateModified": "2026-04-12",
+  "keywords": [
+    "ChatGPT artisans BTP",
+    "prompts BTP par métier",
+    "IA devis artisan",
+    "prompts électricien plombier",
+    "outils IA BTP ChatGPT Claude Gemini"
+  ],
+  "relatedSlugs": [
+    "outils-ia-btp-chatgpt-claude-gemini",
+    "confidentialite-donnees-ia-btp",
+    "5-cas-usage-chatgpt-artisans-btp",
+    "chatgpt-btp-guide-complet"
+  ],
+  "sections": [
+    {
+      "type": "html",
+      "title": "Pourquoi des prompts calibrés par métier",
+      "content": "<p>Un même outil (<strong>ChatGPT</strong>) donne des résultats très différents selon la <strong>consigne</strong> et le <strong>contexte métier</strong> que vous lui donnez. Les prompts ci-dessous intègrent le vocabulaire du BTP (devis, CCTP, DTU, chantier) et limitent les « inventions » : vous gardez la validation des prix et des normes.</p><p>Pour une vue d&apos;ensemble des outils (<strong>Claude</strong>, <strong>Gemini</strong>), voir le <a href=\"/blog/outils-ia-btp-chatgpt-claude-gemini\" class=\"text-[var(--accent)] font-medium underline\">comparatif ChatGPT, Claude et Gemini pour le BTP</a>, la page <a href=\"/outils-ia-btp\" class=\"text-[var(--accent)] font-medium underline\">Outils IA BTP</a> et la <a href=\"/claude-ai-btp\" class=\"text-[var(--accent)] font-medium underline\">page pilier Claude AI BTP</a>.</p>"
+    },
+    {
+      "type": "prompts",
+      "title": "10 prompts par corps de métier — à adapter avec vos données réelles",
+      "content": [
+        {
+          "titre": "Électricité — structure de devis après visite",
+          "prompt": "Tu es électricien qualifié en France. À partir du brief suivant, rédige un CANEVAS de devis (sans inventer de prix HT) : [type de logement, tableau, nombre de circuits, travaux prévus, contraintes NF]. Inclure lots, mentions TVA à valider, délais, exclusions. Vocabulaire : NF C 15-100, différentiel, Consuel.",
+          "usage": "Remplacez le brief par vos notes de visite."
+        },
+        {
+          "titre": "Plomberie / chauffage — email client après intervention",
+          "prompt": "Rédige un email professionnel en français à un particulier après intervention plomberie : contexte [fuite / remplacement / mise aux normes], travaux réalisés en 5 lignes, conseils d'usage, invitation à laisser un avis. Ton clair, 120 mots max.",
+          "usage": "Personnalisez le contexte et le ton selon votre entreprise."
+        },
+        {
+          "titre": "Couverture / zinguerie — compte rendu photo chantier",
+          "prompt": "À partir de ces observations terrain : [notes brutes], rédige un compte rendu pour le client : météo, zone traitée, produits posés, points de vigilance, photos à prévoir. Format pro, une page.",
+          "usage": "Collez vos bullet points après une intervention."
+        },
+        {
+          "titre": "Gros œuvre / maçonnerie — synthèse réunion de chantier",
+          "prompt": "Transforme ces notes de réunion en synthèse structurée : participants, décisions, risques, délais, actions avec responsable. Notes : [coller].",
+          "usage": "Idéal conducteur de travaux ou chef de chantier."
+        },
+        {
+          "titre": "Menuiserie / fermetures — variante de devis (option A / B)",
+          "prompt": "Propose deux variantes de descriptif de prestation pour [fenêtres / portes / volets] : option économique vs option haut de gamme. Sans prix inventé — laisser [à compléter HT]. Mentionner délais et coordination avec autres corps d'état.",
+          "usage": "Aide à clarifier le choix pour le client."
+        },
+        {
+          "titre": "Peinture / finitions — planning d'intervention client",
+          "prompt": "Rédige un email pour proposer un planning de passages peinture en appartement occupé : contraintes d'accès, séchage, ventilation, protection des sols. Ton professionnel, 150 mots.",
+          "usage": "Ajustez selon votre politique de planning."
+        },
+        {
+          "titre": "Étanchéité / bardage — points de vigilance CCTP (extrait)",
+          "prompt": "Voici un extrait de CCTP : [coller]. Liste les exigences techniques critiques pour le lot étanchéité / bardage, les normes citées et les incohérences éventuelles. Format liste à puces.",
+          "usage": "À utiliser avec Claude pour les longs PDF si besoin."
+        },
+        {
+          "titre": "TP / VRD — email de coordination avec le maître d'œuvre",
+          "prompt": "Rédige un courrier professionnel pour demander une validation de planning ou une information manquante sur le dossier [référence]. Contexte : [2 phrases]. Ton ferme et courtois.",
+          "usage": "Vérifiez les références avant envoi."
+        },
+        {
+          "titre": "Dirigeant TPE — ordre du jour réunion interne IA",
+          "prompt": "Propose un ordre du jour de 45 min pour sensibiliser mon équipe à l'IA : objectifs, démo live sur cas [devis / email], règles de confidentialité, prochaines étapes. Public : artisans et administratif.",
+          "usage": "À combiner avec une formation OFC si besoin."
+        },
+        {
+          "titre": "Assistante administrative — modèle de relance fournisseur",
+          "prompt": "Rédige une relance courtoise pour un retard de livraison de matériaux : commande [réf], date promise, impact chantier, demande de date ferme. 100 mots, ton professionnel.",
+          "usage": "Ne pas inclure de données sensibles non nécessaires."
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Confidentialité et données",
+      "content": "<p>Avant d&apos;insérer des informations réelles sur vos chantiers ou clients, lisez le guide <a href=\"/blog/confidentialite-donnees-ia-btp\" class=\"text-[var(--accent)] font-medium underline\">confidentialité des données et IA dans le BTP</a> : paramètres des comptes, anonymisation et bonnes pratiques RGPD.</p>"
+    },
+    {
+      "type": "cta",
+      "content": "Vous voulez calibrer ces prompts sur vos dossiers réels avec un accompagnement Qualiopi ? Réservez un diagnostic gratuit de 30 minutes — nous regardons votre métier et le financement Constructys."
+    }
+  ]
+}

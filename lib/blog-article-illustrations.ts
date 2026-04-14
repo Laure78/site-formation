@@ -47,10 +47,16 @@ function buildArticleIllustrationAlt(articleTitle: string, slug: string): string
   );
 }
 
-/** Pools thématiques (ordre = préférence de rotation) */
+/**
+ * Pools thématiques (ordre = préférence de rotation).
+ * Visuels blog 2026 (chantier, salle « L'IA dans le BTP », convention / flipchart, artisans)
+ * : voir PHOTOS.blog* dans lib/photos.ts.
+ */
 const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
   'appels-offres': [
+    'blogFormationIaDansLeBtpSalle2026',
     'formationIAAppelsOffres2026',
+    'blogBtpChantierPlansEchange2026',
     'btpFormationChantierPlans2026',
     'formationIABtpVisioBureau2026',
     'btpFormationEcranIABTP2026',
@@ -58,6 +64,9 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'interventionClaude',
   ],
   devis: [
+    'blogBtpChantierPlansEchange2026',
+    'blogFormationIaBtpHandshakeFlipchart2026',
+    'blogIaAuServiceArtisansBatiment2026',
     'formationIAArtisans2026',
     'heroAccueilFormationIABtpEchange2026',
     'btpFormationSalleIntervention2026',
@@ -66,6 +75,7 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'btpFormationBureauConseil2026',
   ],
   financement: [
+    'blogFormationIaBtpHandshakeFlipchart2026',
     'formationIAArtisans2026',
     'formationIASensibilisation2026',
     'portraitPro2026',
@@ -73,6 +83,8 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'btpFormationSalleIntervention2026',
   ],
   chatgpt: [
+    'blogFormationIaDansLeBtpSalle2026',
+    'blogIaAuServiceArtisansBatiment2026',
     'interventionClaude',
     'formatriceLowerThird',
     'coursRecrutementVideo1',
@@ -81,6 +93,9 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'btpFormationChantierPlans2026',
   ],
   metiers: [
+    'formationSensibilisationAssistantsIaBtp2026',
+    'blogBtpChantierEncadrement2026',
+    'blogBtpChantierPlansEchange2026',
     'formationIATP2026',
     'formationIAClaude2026',
     'formationIASensibilisation2026',
@@ -89,6 +104,7 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'btpFormationChantierEquipe2026',
   ],
   rh: [
+    'blogFormationIaBtpHandshakeFlipchart2026',
     'formationIARH2026',
     'bannerRecrutement',
     'linkedinLeconFideliser',
@@ -96,6 +112,8 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'linkedinPlayerRecrutement',
   ],
   productivite: [
+    'blogBtpChantierPlansEchange2026',
+    'blogFormationIaDansLeBtpSalle2026',
     'btpFormationBureauConseil2026',
     'btpFormationChantierPlans2026',
     'studioLight',
@@ -103,6 +121,8 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'heroAccueilFormationIABtpEchange2026',
   ],
   regions: [
+    'blogBtpChantierPlansEchange2026',
+    'blogFormationIaBtpHandshakeFlipchart2026',
     'accueilReferencePartenairesLaureOFC2026',
     'btpFormationSalleIntervention2026',
     'heroAccueilFormationIABtpEchange2026',
@@ -110,6 +130,8 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'btpFormationChantierPlans2026',
   ],
   formateurs: [
+    'blogIaAuServiceArtisansBatiment2026',
+    'blogFormationIaBtpHandshakeFlipchart2026',
     'portraitPro2026',
     'linkedinPanel',
     'studioLight',
@@ -119,6 +141,9 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
 };
 
 const DEFAULT_POOL: PhotoKey[] = [
+  'blogFormationIaDansLeBtpSalle2026',
+  'blogBtpChantierPlansEchange2026',
+  'blogIaAuServiceArtisansBatiment2026',
   'btpFormationSalleIntervention2026',
   'btpFormationChantierPlans2026',
   'heroAccueilFormationIABtpEchange2026',

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { QualiopiLogoInline, QualiopiWordmark } from '@/components/QualiopiLogo';
 import type { FormationIaRawMetier, FormationIaRawVille } from '@/lib/seo-formation-ia-hub-data';
 import {
   getMetierLinkedVilles,
@@ -54,7 +55,8 @@ export function FormationIaMetierBody({
       <p>
         {metier.exemple} Cette approche fait de la session un atelier actionnable : vous repartez
         avec des modèles de prompts et des méthodes pour capitaliser sur vos propres documents
-        (CCTP, notices, historiques d&apos;échanges) tout en respectant le cadre Qualiopi et les
+        (CCTP, notices, historiques d&apos;échanges) tout en respectant le cadre{' '}
+        <QualiopiWordmark /> et les
         exigences de traçabilité du BTP.
       </p>
       <p>
@@ -90,7 +92,9 @@ export function FormationIaMetierBody({
       </h2>
       <h3 className="text-lg font-semibold text-slate-800">Mise à niveau & cadre</h3>
       <ul>
-        <li>Cadrage Qualiopi, objectifs personnels et cas d&apos;usage prioritaires pour {metier.label}.</li>
+        <li>
+          Cadrage <QualiopiWordmark />, objectifs personnels et cas d&apos;usage prioritaires pour {metier.label}.
+        </li>
         <li>Rappels RGPD : ce qu&apos;on peut / ne peut pas déposer dans un assistant IA en entreprise.</li>
         <li>Comparatif pratique ChatGPT vs Claude AI pour le même brief métier.</li>
       </ul>
@@ -124,11 +128,12 @@ export function FormationIaMetierBody({
         chiffres et les engagements, et utiliser l&apos;IA comme assistant — pas comme « boîte noire ».
       </p>
 
-      <h2 className="font-display text-xl font-semibold text-slate-900">
-        Financement OPCO Constructys & certification Qualiopi
+      <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
+        <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
+        <span>Financement OPCO Constructys & certification Qualiopi</span>
       </h2>
       <p>
-        L&apos;organisme OFC Création d&apos;Entreprise est certifié Qualiopi. Selon votre branche et
+        L&apos;organisme OFC Création d&apos;Entreprise est certifié <QualiopiWordmark />. Selon votre branche et
         votre plan de développement des compétences, une prise en charge via{' '}
         <strong>OPCO Constructys</strong> est fréquente pour les publics BTP : nous vous orientons
         vers la bonne démarche (financements, justificatifs, objectifs pédagogiques). Pour toute
@@ -292,11 +297,12 @@ export function FormationIaVilleBody({
         </>
       )}
 
-      <h2 className="font-display text-xl font-semibold text-slate-900">
-        Qualiopi — financement Constructys — contact
+      <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
+        <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
+        <span>Qualiopi — financement Constructys — contact</span>
       </h2>
       <p>
-        Organisme certifié Qualiopi, financements OPCO selon éligibilité.{' '}
+        Organisme certifié <QualiopiWordmark />, financements OPCO selon éligibilité.{' '}
         <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">
           Page financement Constructys
         </Link>
@@ -419,8 +425,9 @@ function FormationIaParisBody() {
         reste lisible, avec des exemples concrets.
       </p>
 
-      <h2 className="font-display text-xl font-semibold text-slate-900">
-        Qualiopi, OPCO Constructys, contact
+      <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
+        <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
+        <span>Qualiopi, OPCO Constructys, contact</span>
       </h2>
       <p>
         OFC Création d&apos;Entreprise — Laure Olivié, formatrice <strong>ChatGPT</strong> et{' '}

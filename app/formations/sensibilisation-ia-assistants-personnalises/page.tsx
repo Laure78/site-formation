@@ -46,10 +46,10 @@ export const metadata = createPageMetadata({
     'Constructys',
   ],
   image: {
-    url: PHOTOS.btpFormationEcranIABTP2026.src,
-    width: PHOTOS.btpFormationEcranIABTP2026.width,
-    height: PHOTOS.btpFormationEcranIABTP2026.height,
-    alt: PHOTOS.btpFormationEcranIABTP2026.alt,
+    url: PHOTOS.formationSensibilisationAssistantsIaBtp2026.src,
+    width: PHOTOS.formationSensibilisationAssistantsIaBtp2026.width,
+    height: PHOTOS.formationSensibilisationAssistantsIaBtp2026.height,
+    alt: PHOTOS.formationSensibilisationAssistantsIaBtp2026.alt,
   },
 });
 
@@ -149,10 +149,10 @@ export default function SensibilisationIAAssistantsPage() {
         summaryItems={HERO_RESUME_SENSIB}
         image={
           <FormationHeroPhoto
-            src={PHOTOS.btpFormationEcranIABTP2026.src}
-            alt={PHOTOS.btpFormationEcranIABTP2026.alt}
-            width={PHOTOS.btpFormationEcranIABTP2026.width}
-            height={PHOTOS.btpFormationEcranIABTP2026.height}
+            src={PHOTOS.formationSensibilisationAssistantsIaBtp2026.src}
+            alt={PHOTOS.formationSensibilisationAssistantsIaBtp2026.alt}
+            width={PHOTOS.formationSensibilisationAssistantsIaBtp2026.width}
+            height={PHOTOS.formationSensibilisationAssistantsIaBtp2026.height}
             priority
           />
         }

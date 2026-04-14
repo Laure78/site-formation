@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { PHOTOS } from '@/lib/photos';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 
 /** Cartes « articles liés » — titres & accroches alignés maquette ; liens vers articles du blog. */
 const ARTICLES = [
@@ -92,8 +93,9 @@ export function ArticlesFormationLies() {
                   </PortraitLinkedInLink>
                   <div className="min-w-0">
                     <span className="block text-sm font-medium text-slate-800">{SITE_CONFIG.name}</span>
-                    <span className="mt-0.5 block text-xs leading-snug text-slate-600">
-                      Formatrice IA & ChatGPT — Qualiopi
+                    <span className="mt-0.5 flex flex-wrap items-center gap-x-1 text-xs leading-snug text-slate-600">
+                      <span>Formatrice IA &amp; ChatGPT —</span>
+                      <QualiopiWordmark />
                     </span>
                   </div>
                 </div>

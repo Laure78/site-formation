@@ -48,9 +48,10 @@ export const metadata = createPageMetadata({
   },
   image: {
     url: '/images/formation-ia-electricien-btp.png',
-    width: 1200,
-    height: 630,
-    alt: 'Formation IA pour électriciens BTP — devis, emails et comptes rendus avec ChatGPT',
+    width: 1024,
+    height: 682,
+    alt:
+      'Formation IA BTP en salle — présentation « L\'IA dans le BTP » (devis, chantier, organisation) avec Laure Olivié et des professionnels du bâtiment',
   },
 });
 

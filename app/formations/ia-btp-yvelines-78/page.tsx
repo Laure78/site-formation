@@ -21,6 +21,7 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import { LINKS } from '@/lib/internal-links';
 
 const MAIL_RAPPEL_YVELINES =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA BTP Yvelines 78')}`;
@@ -533,6 +534,7 @@ export default function FormationIABTPYvelinesPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
+              { href: LINKS.formationSaintQuentinYvelines, label: 'Formation IA BTP Saint-Quentin-en-Yvelines' },
               { href: '/formation-ia-btp-ile-de-france', label: 'Formation IA BTP Île-de-France' },
               { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
               { href: '/formations', label: 'Catalogue formations' },

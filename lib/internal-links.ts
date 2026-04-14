@@ -10,10 +10,14 @@ export const LINKS = {
   home: '/',
   formations: '/formations',
   blog: '/blog',
+  /** Article pilier GEO — guide formation IA BTP 2026 */
+  blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',
   aPropos: '/a-propos',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
   prendreRdv: '/prendre-rdv',
+  /** Page pilier SEO — mot-clé « formation IA BTP » */
+  formationIaBtp: '/formation-ia-btp',
 
   // Tier 2 — Formations (catalogue)
   formationBatiment: '/formations/ia-au-service-du-batiment',
@@ -26,6 +30,8 @@ export const LINKS = {
   formationParis: '/formations/ia-btp-paris',
   formationIleDeFrance: '/formation-ia-btp-ile-de-france',
   formationYvelines: '/formations/ia-btp-yvelines-78',
+  /** Page SEO locale Saint-Quentin-en-Yvelines (CA SQY, 78) */
+  formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
   /** Landing SEO local Yvelines (78) — pilier */
   formationIABTPYvelines: '/formation-ia-btp-yvelines',
 
@@ -33,6 +39,10 @@ export const LINKS = {
   chatgptArtisans: '/formation-ia-artisans-btp',
   iaDevis: '/ia-devis-batiment',
   iaCDT: '/ia-conducteur-travaux',
+  /** Fiche SEO — formation IA conducteur de travaux BTP */
+  formationConducteurTravaux: '/formation-ia-conducteur-travaux-btp',
+  formationElectricienBtp: '/formation-ia-electricien-btp',
+  formationPlombierBtp: '/formation-ia-plombier-btp',
 
   // Utilitaires
   diagnostic: '/diagnostic-ia-btp',

@@ -439,6 +439,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     description:
       'Comparatif ChatGPT Claude Gemini BTP : devis, emails, appels d\'offres, réseaux — avis terrain d\'une formatrice. Quel outil pour les artisans et les TP ? Simplicité, mémoire longue, intégration Google. Laure Olivié.',
     date: '2026-04-08',
+    dateModified: '2026-04-12',
     keywords: [
       'comparatif ChatGPT Claude Gemini BTP',
       'ChatGPT vs Claude BTP',
@@ -453,6 +454,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'En bref',
         content:
           'Ce comparatif ChatGPT Claude Gemini BTP part de la pratique : ce que j’observe en formation avec des artisans, des conducteurs de travaux et des dirigeants de TPE du bâtiment. Aucun outil ne « gagne » sur tout : chacun a des forces selon que vous rédigez un devis, un courrier tendu, un mémoire technique ou un post LinkedIn. L’objectif est de vous éviter de jongler au hasard entre trois abonnements sans critères.',
+      },
+      {
+        type: 'html',
+        title: 'Claude sur laureolivie.fr',
+        content:
+          '<p class="text-slate-600">Pour une vue dédiée à <strong>Claude</strong> : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a> (guides Chat, Cowork, Code, MCP).</p>',
       },
       {
         type: 'paragraph',

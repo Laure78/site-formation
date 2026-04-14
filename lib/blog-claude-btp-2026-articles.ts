@@ -245,6 +245,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     description:
       'Comment utiliser Claude Code, les Projects, les Skills métier et le protocole MCP pour gagner du temps dans une entreprise du bâtiment ou des travaux publics. Schémas, étapes et bonnes pratiques — OFC, Qualiopi, financement Constructys.',
     date: '2026-04-07',
+    dateModified: '2026-04-12',
     keywords: [
       'Claude IA BTP',
       'formation IA bâtiment',
@@ -263,6 +264,12 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         title: 'En bref',
         content:
           'Ce guide synthétise une approche avancée mais accessible : Claude Code pour agir sur vos fichiers et votre site, les Projects pour garder le contexte de votre entreprise, les Skills pour figer vos règles et commandes métier, et le MCP pour connecter Claude à Drive, Gmail, Notion ou votre calendrier. Il s’appuie sur le support de formation « Guide avancé Claude » (OFC Création d’Entreprise) et sur les modules PITEL (prompts, assistants) utilisés en session.',
+      },
+      {
+        type: 'html',
+        title: 'Sur ce site',
+        content:
+          '<p class="text-slate-600">Tous les articles et ressources <strong>Claude</strong> (Anthropic) pour le BTP sont listés sur la <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
       },
       {
         type: 'paragraph',
@@ -435,6 +442,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     description:
       'Comprendre le MCP, l’installer pas à pas (ex. Google Drive), et voir des exemples concrets pour le BTP : conventions, prospection, planning, WordPress. Illustrations pédagogiques OFC — Laure Olivié, Qualiopi.',
     date: '2026-04-07',
+    dateModified: '2026-04-12',
     keywords: [
       'MCP Claude',
       'Model Context Protocol',
@@ -450,6 +458,12 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         title: 'En bref',
         content:
           'Le MCP est un standard ouvert qui permet à Claude (notamment via Claude Code) de dialoguer en profondeur avec vos outils : fichiers sur Drive, messages Gmail, bases Notion, agenda, canaux Slack ou Teams. Pour une entreprise du BTP, l’enjeu est simple : moins de copier-coller, plus de traçabilité — à condition de cadrer les accès et la validation humaine.',
+      },
+      {
+        type: 'html',
+        title: 'Sur ce site',
+        content:
+          '<p class="text-slate-600">Les guides <strong>Claude</strong> sont regroupés sur la <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
       },
       {
         type: 'html',

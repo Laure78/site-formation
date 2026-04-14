@@ -18,6 +18,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { getFormationsCatalogJsonLd } from '@/lib/schema-course-formations';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue formation IA BTP : intelligence artificielle bâtiment, TP, ChatGPT',
@@ -119,7 +120,7 @@ const FORMATIONS_UNSORTED = [
     level: 'DÉBUTANT' as const,
     title: "Sensibilisation à l'IA & Assistants IA personnalisés",
     href: '/formations/sensibilisation-ia-assistants-personnalises',
-    visuel: PHOTOS.btpFormationEcranIABTP2026,
+    visuel: PHOTOS.formationSensibilisationAssistantsIaBtp2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     objectifs: [
@@ -283,8 +284,13 @@ export default function FormationsPage() {
         </h2>
         <ul className="mt-4 flex flex-wrap gap-4">
           <li>
-            <Link href="/formations/ia-btp-yvelines-78" className="text-[var(--accent)] hover:underline">
+            <Link href={LINKS.formationYvelines} className="text-[var(--accent)] hover:underline">
               Formation IA BTP Yvelines (78)
+            </Link>
+          </li>
+          <li>
+            <Link href={LINKS.formationSaintQuentinYvelines} className="text-[var(--accent)] hover:underline">
+              Formation IA BTP Saint-Quentin-en-Yvelines
             </Link>
           </li>
           <li>

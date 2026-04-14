@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-react';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -291,11 +292,8 @@ export default function AProposPage() {
                     l&apos;intelligence artificielle.
                   </p>
                   <p className="mt-4 text-slate-600">
-                    Ce partenariat stratégique nous permet d&apos;offrir des{' '}
-                    <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">
-                      formations
-                    </Link>{' '}
-                    100% adaptées aux réalités du secteur du bâtiment, avec un
+                    Ce partenariat stratégique nous permet d&apos;offrir des formations 100&nbsp;% adaptées aux
+                    réalités du secteur du bâtiment, avec un
                     financement facilité via Constructys pour les adhérents FFB.
                   </p>
                   <p className="mt-6 font-semibold text-slate-900">
@@ -507,15 +505,22 @@ export default function AProposPage() {
             </div>
             <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4">
               <Link
-                href="/formations"
+                href={LINKS.formationIaBtp}
                 className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white hover:bg-blue-700"
               >
-                Voir le catalogue formations
+                Formation IA BTP (page pilier)
               </Link>
               <RdvLink className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]">
                 Prendre RDV
               </RdvLink>
             </div>
+            <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-slate-600">
+              Catalogue Qualiopi complet : voir la section{' '}
+              <a href="#formations-linkedin-learning" className="font-semibold text-[var(--accent)] hover:underline">
+                Formations LinkedIn Learning
+              </a>{' '}
+              ci-dessous (lien vers le catalogue OFC).
+            </p>
           </article>
         </div>
       </section>
@@ -538,10 +543,10 @@ export default function AProposPage() {
         <div className="mx-auto max-w-3xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations', label: 'Formation IA BTP' },
-              { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-              { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-              { href: '/blog', label: 'Articles et guides' },
+              { href: LINKS.chatgptArtisans, label: 'ChatGPT pour artisans BTP' },
+              { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
+              { href: LINKS.blog, label: 'Articles et guides' },
+              { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
               { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
               { href: '/a-propos#clients-partenaires', label: 'Clients & partenaires' },
             ]}

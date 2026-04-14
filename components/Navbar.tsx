@@ -15,11 +15,13 @@ import {
   UserCircle,
   Home,
   CircleDollarSign,
+  Sparkles,
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
+import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 
 import type { LucideIcon } from 'lucide-react';
 
@@ -92,8 +94,11 @@ function FormationsDropdownPanel({
               aria-hidden
             />
           </Link>
-          <p className="mt-2 text-xs leading-relaxed text-slate-600">
-            Six parcours en présentiel — Qualiopi, financement OPCO Constructys selon éligibilité.
+          <p className="mt-2 flex items-start gap-2 text-xs leading-relaxed text-slate-600">
+            <QualiopiLogoInline heightPx={14} className="mt-0.5 shrink-0" />
+            <span>
+              Six parcours en présentiel — Qualiopi, financement OPCO Constructys selon éligibilité.
+            </span>
           </p>
         </div>
         <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain px-2 pt-1">
@@ -203,6 +208,7 @@ export function Navbar() {
   const aProposActive = pathname.startsWith('/a-propos');
   const financementActive =
     pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
+  const claudeAiBtpActive = pathname === '/claude-ai-btp';
 
   return (
     <>
@@ -300,6 +306,18 @@ export function Navbar() {
             >
               <BookOpen size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
               Blog
+            </Link>
+
+            <Link
+              href="/claude-ai-btp"
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                claudeAiBtpActive
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <Sparkles size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              Claude AI BTP
             </Link>
 
             <Link
@@ -464,6 +482,23 @@ export function Navbar() {
                   className={blogActive ? 'text-[var(--accent)]' : 'text-slate-400'}
                 />
                 Blog
+              </Link>
+            </div>
+
+            <div className="border-b border-slate-100 py-1">
+              <Link
+                href="/claude-ai-btp"
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
+                  claudeAiBtpActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
+              >
+                <Sparkles
+                  size={18}
+                  strokeWidth={1.75}
+                  className={claudeAiBtpActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                />
+                Claude AI BTP
               </Link>
             </div>
 

@@ -1,0 +1,101 @@
+{
+  "slug": "chatgpt-conducteur-travaux-5-prompts-gagner-temps",
+  "title": "ChatGPT conducteur de travaux : 5 prompts pour gagner 2 h par jour",
+  "seoTitle": "ChatGPT conducteur de travaux : 5 prompts pour gagner 2 h/jour — Laure Olivié",
+  "description": "5 prompts ChatGPT pour CR de chantier, emails et synthèses DCE. Guide pratique par Laure Olivié, formatrice IA BTP Qualiopi — Île-de-France.",
+  "date": "2026-04-14",
+  "keywords": [
+    "ChatGPT conducteur de travaux",
+    "formation IA BTP",
+    "compte rendu chantier IA",
+    "conducteur de travaux BTP",
+    "prompts ChatGPT BTP",
+    "Laure Olivié"
+  ],
+  "coverImage": "/images/blog-formation-ia-dans-btp-salle-2026.png",
+  "faq": [
+    {
+      "question": "ChatGPT peut-il rédiger un compte rendu de chantier sans erreur ?",
+      "answer": "Non sans relecture : il produit un brouillon structuré à partir de vos notes ; vous validez chiffres, sécurité et engagements. C’est un gain de temps sur la mise en forme, pas un substitut au jugement métier."
+    },
+    {
+      "question": "Quelles données ne faut-il jamais coller telles quelles dans ChatGPT ?",
+      "answer": "Plans annotés confidentiels, données personnelles non nécessaires, pièces marchés entières sans anonymisation préalable. Utilisez des extraits, pseudonymisez, et respectez la politique interne de l’entreprise et du maître d’ouvrage."
+    },
+    {
+      "question": "Combien de temps pour monter en compétence sur ces prompts ?",
+      "answer": "En une demi-journée de pratique guidée, la plupart des conducteurs de travaux reproduisent le flux sur leurs propres chantiers ; l’affinage des trames prend ensuite quelques semaines d’usage réel."
+    },
+    {
+      "question": "Cela fonctionne-t-il pour le Grand Paris et l’Île-de-France ?",
+      "answer": "Oui : les contraintes sont les mêmes (multi-lots, interfaces, planning). Les exemples ci-dessous sont calibrés BTP ; adaptez les noms de projet et les références locales à vos opérations en Île-de-France."
+    },
+    {
+      "question": "Où suivre une formation complète Qualiopi sur le sujet ?",
+      "answer": "OFC propose des sessions certifiées Qualiopi, finançables Constructys selon dossier : voir la page formation IA BTP et le catalogue des formations — visio découverte gratuite sur demande."
+    }
+  ],
+  "relatedSlugs": [
+    "compte-rendu-chantier-ia-automatiser-gagner-temps",
+    "formation-ia-btp-guide-complet-2026",
+    "ia-btp-2026-tendances"
+  ],
+  "sections": [
+    {
+      "type": "html",
+      "content": "<p>Entre deux visites de chantier, le conducteur de travaux produit une quantité impressionnante de textes : comptes rendus, mails aux entreprises, synthèses pour le maître d’ouvrage, relances sur les réserves, mises à jour de planning. Ce n’est pas du « travail de bureau » au sens administratif : c’est du <strong>temps de pilotage</strong> — sauf qu’il mange 1,5 à 3 h par jour selon les semaines.</p><p>Cet article propose <strong>cinq prompts ChatGPT</strong> (à adapter) pour structurer ces livrables plus vite, en gardant la main sur le fond. Objectif réaliste : <strong>récupérer jusqu’à 2 h par jour</strong> une fois les trames en place — en Île-de-France comme ailleurs, sur des opérations type Grand Paris ou marchés classiques.</p>"
+    },
+    {
+      "type": "html",
+      "title": "Le problème en détail",
+      "content": "<p>Trois familles de tâches explosent le planning :</p><ul><li><strong>Formalisation</strong> : transformer des notes brutes (voix, papier, WhatsApp) en documents exploitables pour le maître d’ouvrage ou les corps de métier.</li><li><strong>Coordination</strong> : relancer sur les interfaces entre lots, consigner les décisions de réunion, suivre les PPSPS et points sensibles sécurité.</li><li><strong>Marchés</strong> : lorsque le CDT participe à la réponse, relire des extraits de <strong>DCE</strong> / <strong>CCTP</strong> et préparer des synthèses pour l’équipe.</li></ul><p>ChatGPT n’écrit pas à votre place : il accélère la <strong>mise en forme</strong> et la <strong>structuration</strong>. La validation reste humaine — indispensable sur les engagements, délais et conformité.</p>"
+    },
+    {
+      "type": "prompts",
+      "title": "Les 5 prompts (copier-coller puis adapter)",
+      "content": [
+        {
+          "titre": "Prompt 1 — CR de réunion de chantier (lot / interface)",
+          "prompt": "Tu es conducteur de travaux en France. Voici des notes brutes de réunion de chantier :\\n[COLLER NOTES]\\nProduis un compte rendu structuré avec :\\n1) Date, lieu, participants\\n2) Points abordés par lot (gros œuvre / second œuvre / CVC / etc.)\\n3) Décisions et responsables\\n4) Points de vigilance sécurité / qualité\\n5) Actions à mener avec échéances\\nTon : professionnel, factuel, sans jargon inutile. Ne pas inventer de faits non présents dans les notes."
+        },
+        {
+          "titre": "Prompt 2 — Email de synthèse au maître d’ouvrage",
+          "prompt": "Rédige un email en français (10–12 lignes max) pour informer le maître d’ouvrage de l’avancement.\\nContexte chantier : [NOM / VILLE]\\nAvancement : [ % ou jalons ]\\nPoints bloquants : [LISTE]\\nDemandes de réunion ou arbitrage : [SI BESOIN]\\nTon : courtois, clair, sans minimiser les risques. Ne pas promettre de délai non validé en interne."
+        },
+        {
+          "titre": "Prompt 3 — Synthèse d’extrait CCTP (risques & exigences)",
+          "prompt": "Voici un extrait de CCTP (ne pas citer de marques ni données confidentielles) :\\n[COLLER EXTRAIT ANONYMISÉ]\\nListe :\\n- Exigences techniques majeures\\n- Risques pour le planning\\n- Points à clarifier en réunion\\n- Questions à poser au maître d’œuvre\\nRéponses courtes à puces. Ne pas inventer d’articles de norme : si absent du texte, indiquer « non précisé dans l’extrait »."
+        },
+        {
+          "titre": "Prompt 4 — Relance entreprise sur réserves / levées",
+          "prompt": "Rédige une relance professionnelle en français pour [ENTREPRISE], suite à des réserves sur le lot [LOT].\\nRappeler : date de la visite, référence des réserves, délai demandé.\\nTon ferme mais correct. Proposer un créneau de reprise ou une visite commune. Maximum 130 mots."
+        },
+        {
+          "titre": "Prompt 5 — Plan d’email pour le sous-traitant (interface)",
+          "prompt": "Je dois coordonner [LOT A] et [LOT B] sur le chantier [VILLE].\\nProblème : [DÉCRIRE INTERFACE].\\nGénère un plan d’email en 5 puces + paragraphe d’introduction + appel à réunion de coordination si pertinent. Pas de promesse contractuelle."
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "title": "Méthode pas à pas",
+      "content": "<ol><li><strong>Collecte</strong> : notes brutes (même imparfaites) juste après la visite — le CDT perd moins de temps que le soir.</li><li><strong>Trame</strong> : un prompt par type de document (CR, mail, synthèse CCTP) ; vous gardez la même structure pendant 30 jours.</li><li><strong>Relecture métier</strong> : chiffres, dates, sécurité, obligations contractuelles — toujours humain.</li><li><strong>Archivage</strong> : modèles validés dans un dossier équipe (Notion, Drive, etc.).</li><li><strong>Formation</strong> : une session <strong>Qualiopi</strong> accélère l’adoption collective — financement <strong>Constructys</strong> selon dossier.</li></ol>"
+    },
+    {
+      "type": "html",
+      "title": "Résultats indicatifs (ordre de grandeur)",
+      "content": "<div class=\"overflow-x-auto\"><table class=\"w-full border-collapse text-sm\"><thead><tr class=\"border-b border-slate-200 bg-slate-50\"><th class=\"px-3 py-2 text-left\">Tâche</th><th class=\"px-3 py-2 text-left\">Avant</th><th class=\"px-3 py-2 text-left\">Avec IA</th><th class=\"px-3 py-2 text-left\">Gain</th></tr></thead><tbody><tr><td class=\"px-3 py-2\">CR de réunion</td><td class=\"px-3 py-2\">45–60 min</td><td class=\"px-3 py-2\">12–18 min</td><td class=\"px-3 py-2\">~30–40 min</td></tr><tr><td class=\"px-3 py-2\">Mail de synthèse MO</td><td class=\"px-3 py-2\">25–35 min</td><td class=\"px-3 py-2\">8–12 min</td><td class=\"px-3 py-2\">~15–20 min</td></tr><tr><td class=\"px-3 py-2\">Synthèse extrait CCTP</td><td class=\"px-3 py-2\">40–90 min</td><td class=\"px-3 py-2\">15–25 min</td><td class=\"px-3 py-2\">~30–60 min</td></tr></tbody></table></div><p class=\"mt-4 text-sm text-slate-600\">Les durées varient selon la complexité du marché et la qualité des notes sources.</p>"
+    },
+    {
+      "type": "cta",
+      "title": "Accompagnement personnalisé",
+      "content": "Vous voulez un cadre Qualiopi et des trames adaptées à votre entreprise ? Réservez votre visio découverte gratuite (30 min) avec Laure Olivié.",
+      "formationHref": "/formation-ia-btp"
+    },
+    {
+      "type": "html",
+      "title": "Maillage utile",
+      "content": "<p>Pour aller plus loin : <a href=\"/formation-ia-btp\" class=\"text-[#377CF3] font-medium underline\">page pilier formation IA BTP</a>, <a href=\"/formation-ia-conducteur-travaux-btp\" class=\"text-[#377CF3] font-medium underline\">formation IA conducteur de travaux BTP</a>, et l’article <a href=\"/blog/compte-rendu-chantier-ia-automatiser-gagner-temps\" class=\"text-[#377CF3] font-medium underline\">compte rendu de chantier et IA</a>.</p><p><strong>À propos de Laure Olivié</strong> : formatrice IA BTP, plus de 1 500 professionnels accompagnés, certifiée Qualiopi, références FFB Grand Paris, CNAM Entreprise, Lefebvre Dalloz — sessions en Île-de-France et Grand Paris.</p>"
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { SITE_CONFIG } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
 
 /**
  * Bloc SEO / conversion — page Formation IA BTP Île-de-France uniquement.
@@ -31,12 +33,19 @@ export function IleDeFranceSeoSections() {
           <p className="mt-4 text-sm text-slate-600">
             <span className="font-medium text-slate-800">Yvelines (78) :</span>{' '}
             <Link
-              href="/formations/ia-btp-yvelines-78"
+              href={LINKS.formationYvelines}
               className="font-medium text-[var(--accent)] hover:underline"
             >
               Formation IA BTP Versailles, Yvelines et 78
             </Link>{' '}
-            (Versailles, Saint-Quentin-en-Yvelines, Mantes, Rambouillet…).
+            (Versailles, Saint-Quentin-en-Yvelines, Mantes, Rambouillet…). Page locale SQY :{' '}
+            <Link
+              href={LINKS.formationSaintQuentinYvelines}
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              formation IA BTP Saint-Quentin-en-Yvelines
+            </Link>
+            .
           </p>
         </section>
 
@@ -212,7 +221,7 @@ export function IleDeFranceSeoSections() {
             Financement possible
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600 leading-relaxed">
-            Les formations certifiées Qualiopi peuvent être financées dans le cadre du plan de
+            Les formations certifiées <QualiopiWordmark /> peuvent être financées dans le cadre du plan de
             développement des compétences, selon les règles de votre branche — en particulier via
             l&apos;OPCO <strong className="text-slate-800">Constructys</strong> pour les entreprises
             du BTP, sous conditions d&apos;éligibilité. Nous vous indiquons les informations utiles

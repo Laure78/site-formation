@@ -33,6 +33,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
     description:
       'Charger un DCE, repérer critères pondérations, clauses CCAP à risque et produire une note de synthèse — NotebookLM + interfaces Claude pour l’AO BTP. Laure Olivié, Qualiopi.',
     date: '2026-04-07',
+    dateModified: '2026-04-12',
     keywords: [
       'analyse DCE BTP',
       'NotebookLM appel d’offres',
@@ -53,6 +54,12 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         title: 'En bref',
         content:
           'Ce module pose les bases d’un parcours « réponse marché » : analyser un dossier de consultation (DCE) sans se noyer, avec NotebookLM (Google) pour des réponses ancrées dans vos PDF, et Claude (Chat, Cowork, extensions) pour les tâches quotidiennes et les dossiers lourds. Les supports illustrés ci-dessous reprennent le fil rouge LSR (revêtements de sol) : la méthode transpose à tout corps d’état BTP.',
+      },
+      {
+        type: 'html',
+        title: 'Sur ce site',
+        content:
+          '<p class="text-slate-600">Tous les guides <strong>Claude</strong> pour le BTP sont listés sur la <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
       },
       {
         type: 'paragraph',
@@ -113,6 +120,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
     description:
       'Éviter les réponses AO non rentables : méthode en 5 critères (technique, financier, RH, contractuel, rentabilité), règle des 3 %, synthèse direction — module LSR illustré.',
     date: '2026-04-07',
+    dateModified: '2026-04-12',
     keywords: [
       'Go No Go appel d’offres',
       'rentabilité réponse marché public',
@@ -133,6 +141,12 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         title: 'En bref',
         content:
           'Avant d’engager des jours-homme sur un dossier, structurer la décision : le marché peut être « gagnable » sur le papier mais défavorable en charge, risques ou marge. Le module 2 présente cinq critères décisifs, une règle de rentabilité (coût de réponse vs montant visé) et des prompts Claude pour accélérer l’analyse — illustré sur le cas revêtements de sol LSR.',
+      },
+      {
+        type: 'html',
+        title: 'Sur ce site',
+        content:
+          '<p class="text-slate-600">Ressources <strong>Claude</strong> : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
       },
       {
         type: 'paragraph',
@@ -186,6 +200,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
     description:
       'Créer un projet « mémoire technique » dans Claude, system prompt métier, 6 chapitres alignés sur le règlement de consultation — module LSR (revêtements) transposable à votre entreprise.',
     date: '2026-04-07',
+    dateModified: '2026-04-12',
     keywords: [
       'mémoire technique BTP',
       'Claude projet IA',
@@ -206,6 +221,12 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         title: 'En bref',
         content:
           'Le module 3 part du constat terrain : sans contexte entreprise, l’IA produit du générique. La solution consiste à créer un projet Claude avec instructions système (identité, métiers, références, limites « ne jamais inventer ») et fichiers sources (plaquette, qualifications, chantiers de référence). Les prompts suivants s’appuient sur cet assistant — d’où la précision sur les mémoires alignés RC.',
+      },
+      {
+        type: 'html',
+        title: 'Sur ce site',
+        content:
+          '<p class="text-slate-600">Guides <strong>Claude</strong> (interfaces, mémoire technique) : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
       },
       {
         type: 'paragraph',

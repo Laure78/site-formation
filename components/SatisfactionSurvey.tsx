@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Star, Send } from 'lucide-react';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 
 interface Props {
   courseId: string;
@@ -57,8 +58,10 @@ export function SatisfactionSurvey({ courseId, courseTitle, onSubmitted }: Props
       <h3 className="font-display text-lg font-semibold text-slate-900">
         Évaluation de satisfaction — {courseTitle}
       </h3>
-      <p className="mt-2 text-sm text-slate-600">
-        Cette évaluation est utilisée pour notre démarche qualité Qualiopi. Merci de votre retour.
+      <p className="mt-2 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-slate-600">
+        <span>Cette évaluation est utilisée pour notre démarche qualité</span>
+        <QualiopiWordmark />
+        <span>. Merci de votre retour.</span>
       </p>
 
       <div className="mt-6 space-y-4">

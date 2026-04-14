@@ -140,6 +140,9 @@ export default async function BlogPage({
             Guides pratiques
           </p>
           <div className="mt-3 flex flex-wrap gap-3">
+            <Link href="/claude-ai-btp" className="text-sm font-medium text-[var(--accent)] hover:underline">
+              Claude AI BTP (page pilier)
+            </Link>
             <Link href="/formation-ia-artisans-btp" className="text-sm font-medium text-[var(--accent)] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>
