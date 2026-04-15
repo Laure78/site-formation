@@ -213,7 +213,7 @@ export function FormationCityPage({
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {zones.map((zone) => (
               <div
-                key={zone.num}
+                key={`${zone.num}-${zone.nom}`}
                 className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm"
               >
                 <div className="flex items-center gap-3">

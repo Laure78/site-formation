@@ -7,6 +7,7 @@ import {
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 
 export type FAQItem = { q: string; a: string };
 
@@ -129,15 +130,27 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: "Quelles formations IA BTP sont proposées ?",
-    a: 'Notre <a href="/formations">catalogue formations IA BTP</a> est proposé en sessions de 4 h : niveau débutant (forfait 100 € HT par participant) ou niveau avancé (forfait 175 € HT par participant) selon le programme — L\'IA au service du bâtiment, Travaux publics, <a href="/formations/ia-appels-offre-btp">appels d\'offres</a>, RH, architecture / DPGF, sensibilisation & assistants, etc. En présentiel (inter en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95 ; intra dans vos locaux en Île-de-France). Toutes sont éligibles <a href="/financement-constructys-formation-ia-btp">financement Constructys</a> dans les conditions habituelles.',
+    a: `Six sessions de 4 h, niveau débutant (forfait 100 € HT par participant) ou avancé (175 € HT par participant), groupe de 12 maximum : bâtiment, travaux publics, appels d&apos;offres, RH, sensibilisation & assistants, et parcours <a href="${LINKS.formationArchitecture}">architecte augmenté (Claude AI, DPGF, chantier)</a>. Selon le module, on travaille avec ChatGPT, Claude ou Gemini (comptes gratuits possibles au niveau débutant) — guide <a href="${LINKS.claudeAiBtp}">Claude AI BTP</a>. Pour les marchés publics : <a href="${LINKS.formationAO}">formation IA appels d&apos;offres</a>. Les fiches détaillées sont listées sur cette page (cartes ci-dessus).`,
   },
   {
     q: "Comment choisir ma formation IA BTP ?",
-    a: `Prenez rendez-vous pour un diagnostic personnalisé de 30 minutes via <a href="${CALENDLY_BOOKING_URL}" rel="noopener noreferrer">Calendly</a> ou la page <a href="/prendre-rdv">prendre rendez-vous</a>. Nous identifions ensemble vos besoins (devis, appels d'offres, CR chantier, RH) et vous proposons le programme adapté. <a href="/contact">Devis personnalisé</a> sous 24h.`,
+    a: `On part de votre métier et de votre niveau : les parcours débutants posent les bases (devis, administratif, sensibilisation) ; les parcours avancés ciblent les appels d&apos;offres, la fonction RH ou l&apos;architecture avec exigences outils plus poussées. Un échange permet d&apos;aligner le programme sur vos documents réels. Réservez un créneau sur la page <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou écrivez-nous pour un <a href="${LINKS.contact}">devis personnalisé</a> sous 24 h.`,
   },
   {
     q: "Les formations sont-elles certifiées Qualiopi ?",
-    a: 'Oui. OFC Création d\'Entreprise est certifié Qualiopi. Toutes nos formations sont éligibles au financement OPCO Constructys pour les entreprises du BTP — voir <a href="/financement-constructys-formation-ia-btp">financement 100 %</a> et <a href="/a-propos">à propos de l\'organisme</a>.',
+    a: `Oui. OFC Création d&apos;Entreprise est un organisme de formation certifié Qualiopi : processus d&apos;évaluation et traçabilité conformes aux exigences des financeurs. En savoir plus sur <a href="${LINKS.aPropos}">l&apos;organisme et la formatrice</a>.`,
+  },
+  {
+    q: "Comment financer ma formation avec l'OPCO Constructys ?",
+    a: `Les entreprises du BTP peuvent mobiliser leur plan de développement des compétences : plafonds pédagogiques et règles de dépôt (notamment délai avant le premier jour de session) sont détaillés sur la page <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>. Nous vous aidons à cadrer le dossier avec votre interlocuteur habituel.`,
+  },
+  {
+    q: "Où se déroulent les sessions en Île-de-France ?",
+    a: `Les sessions inter ont lieu en présentiel dans des salles en Île-de-France (Paris, Yvelines, Essonne, SQY, départements 75 à 95 selon le calendrier). Des pages locales précisent le contexte : <a href="${LINKS.formationParis}">formation IA BTP Paris</a>, <a href="${LINKS.formationMorangis}">Morangis (91)</a>, <a href="${LINKS.formationLongjumeau}">Longjumeau (91)</a>, et une vue d&apos;ensemble sur la <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>. L&apos;intra se fait dans vos locaux en Île-de-France sur devis.`,
+  },
+  {
+    q: "Faut-il un abonnement payant (ChatGPT Plus, Claude Pro) ?",
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Pour des trames prêtes à l&apos;emploi, voir aussi la <a href="${LINKS.checklist}">checklist prompts ChatGPT BTP</a>.`,
   },
 ];
 

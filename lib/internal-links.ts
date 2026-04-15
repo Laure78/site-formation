@@ -18,6 +18,8 @@ export const LINKS = {
   prendreRdv: '/prendre-rdv',
   /** Page pilier SEO — mot-clé « formation IA BTP » */
   formationIaBtp: '/formation-ia-btp',
+  /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
+  claudeAiBtp: '/claude-ai-btp',
 
   // Tier 2 — Formations (catalogue)
   formationBatiment: '/formations/ia-au-service-du-batiment',
@@ -28,6 +30,9 @@ export const LINKS = {
   formationArchitecture: '/formations/ia-architecture-claude-dpgf',
   /** Page locale Paris (canonique SEO) */
   formationParis: '/formations/ia-btp-paris',
+  /** Essonne (91) — pages locales SEO */
+  formationMorangis: '/formations/ia-btp-morangis',
+  formationLongjumeau: '/formations/ia-btp-longjumeau',
   formationIleDeFrance: '/formation-ia-btp-ile-de-france',
   formationYvelines: '/formations/ia-btp-yvelines-78',
   /** Page SEO locale Saint-Quentin-en-Yvelines (CA SQY, 78) */
@@ -46,7 +51,10 @@ export const LINKS = {
 
   // Utilitaires
   diagnostic: '/diagnostic-ia-btp',
+  outilsIaBtp: '/outils-ia-btp',
   checklist: '/checklist-ia-btp',
+  /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
+  downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',
   /** Alias canonique financement (aligné sur le guide OPCO principal) */
   financement100: '/financement-constructys-formation-ia-btp',
   etudesCas: '/etudes-de-cas/ffb-csfe',

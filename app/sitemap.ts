@@ -102,6 +102,18 @@ function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { url: `${baseUrl}/formations/ia-btp-lyon`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/formations/ia-btp-bordeaux`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${baseUrl}/formations/ia-btp-lille`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+    {
+      url: `${baseUrl}/formations/ia-btp-morangis`,
+      lastModified: new Date('2026-04-15'),
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
+    {
+      url: `${baseUrl}/formations/ia-btp-longjumeau`,
+      lastModified: new Date('2026-04-15'),
+      changeFrequency: 'weekly',
+      priority: 0.88,
+    },
     { url: `${baseUrl}/formations/ia-pme-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/formation-ia`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.92 },
     { url: `${baseUrl}/formation-ia/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.88 },

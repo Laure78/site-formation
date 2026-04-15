@@ -139,3 +139,11 @@
     animation: none;
   }
 }
+
+/* Page pilier Claude AI BTP — grille abstraite type industrie / tech */
+.claude-btp-hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
