@@ -364,10 +364,10 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** Page d'accueil — échange en bureau, tableau « Formation IA BTP » (devis, chantier, organisation) */
+  /** Page d'accueil — présentation en salle, écran « L'IA au service des artisans du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
-    alt: 'Laure Olivié animant une formation IA BTP à distance avec un professionnel du bâtiment — visio et affiche Devis, Chantier, Organisation',
+    alt: 'Laure Olivié, formatrice IA BTP, présentation « L’IA au service des artisans du bâtiment » — session en salle avec professionnels du BTP',
     width: 1024,
     height: 682,
   },

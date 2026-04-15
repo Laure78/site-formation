@@ -121,8 +121,8 @@ export default function HomePage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-6xl">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-            <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-8 xl:gap-10">
+            <div className="min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
                 <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
                 <span>Formation IA BTP · bâtiment & travaux publics</span>
@@ -141,7 +141,7 @@ export default function HomePage() {
                 {SITE_CONFIG.statsPersonnesFormees}+ professionnels accompagnés · Note 4,85/5 ·
                 Financement OPCO
               </p>
-              <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600">
+              <p className="mt-5 text-lg text-slate-600">
                 <strong>
                   Formation IA BTP, intelligence artificielle bâtiment et travaux publics
                 </strong>{' '}
@@ -182,16 +182,16 @@ export default function HomePage() {
               </div>
               <CitationSentence text="La formation IA BTP animée par Laure Olivié aide artisans et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
             </div>
-            <div className="w-full shrink-0 lg:max-w-md xl:max-w-lg">
+            <div className="min-w-0 w-full">
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-2xl">
                 <Image
                   src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
                   alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
-                  title="Formation IA BTP — session pratique avec des entreprises du bâtiment"
+                  title="Formation IA BTP — présentation « L’IA au service des artisans du bâtiment » en salle"
                   width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
                   height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
                   className="h-auto w-full object-cover"
-                  sizes="(max-width: 1024px) 100vw, 448px"
+                  sizes="(max-width: 1023px) 100vw, 50vw"
                   priority
                 />
               </div>
@@ -692,7 +692,8 @@ export default function HomePage() {
                 ref: 'BTP-01',
                 level: 'DÉBUTANT',
                 title: "L'IA au service du bâtiment",
-                href: '/formations/ia-au-service-du-batiment',
+                href: LINKS.formationBatiment,
+                visuel: PHOTOS.formationIABtpVisioBureau2026,
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
@@ -706,7 +707,8 @@ export default function HomePage() {
                 ref: 'BTP-04',
                 level: 'DÉBUTANT',
                 title: "L'IA au service des Travaux Publics",
-                href: '/formations/ia-travaux-publics',
+                href: LINKS.formationTP,
+                visuel: PHOTOS.btpFormationChantierEquipe2026,
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
@@ -719,7 +721,8 @@ export default function HomePage() {
                 ref: 'BTP-05',
                 level: 'DÉBUTANT',
                 title: "Sensibilisation à l'IA & Assistants IA personnalisés",
-                href: '/formations/sensibilisation-ia-assistants-personnalises',
+                href: LINKS.formationSensibilisation,
+                visuel: PHOTOS.formationSensibilisationAssistantsIaBtp2026,
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
@@ -732,8 +735,18 @@ export default function HomePage() {
             ].map((cours) => (
               <div
                 key={cours.ref}
-                className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md"
               >
+                <div className="relative aspect-[4/3] w-full shrink-0 bg-slate-100">
+                  <Image
+                    src={cours.visuel.src}
+                    alt={cours.visuel.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 767px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
                 <div className="flex items-start justify-between">
                   <span className="text-sm text-slate-500">RÉF: {cours.ref}</span>
                   <span className="rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
@@ -770,6 +783,7 @@ export default function HomePage() {
                 >
                   Voir le programme
                 </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -902,17 +916,28 @@ export default function HomePage() {
                 </p>
                 <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                   {[
-                    { label: 'FFB Artisans' },
-                    { label: 'FFB Île-de-France' },
-                    { label: 'CSFE', title: CSFE_NOM_COMPLET },
-                  ].map(({ label, title }) => (
+                    {
+                      label: 'FFB Artisans',
+                      href: 'https://www.ffbatiment.fr',
+                      title: 'Fédération Française du Bâtiment',
+                    },
+                    {
+                      label: 'FFB Île-de-France',
+                      href: 'https://www.ffbatiment.fr/federations/ile-de-france',
+                      title: 'FFB Île-de-France',
+                    },
+                    { label: 'CSFE', href: 'https://www.csfe.fr', title: CSFE_NOM_COMPLET },
+                  ].map(({ label, href, title }) => (
                     <li key={label}>
-                      <span
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         title={title}
-                        className="inline-flex rounded-xl border border-[var(--accent)]/25 bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm"
+                        className="inline-flex rounded-xl border border-[var(--accent)]/25 bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
                       >
                         {label}
-                      </span>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -943,6 +968,14 @@ export default function HomePage() {
         <div className="mx-auto max-w-4xl">
           <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-center">
             <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <Image
+                src={PHOTOS.qualiopiLogoOfficiel.src}
+                alt={PHOTOS.qualiopiLogoOfficiel.alt}
+                width={PHOTOS.qualiopiLogoOfficiel.width}
+                height={PHOTOS.qualiopiLogoOfficiel.height}
+                className="mb-4 h-auto w-40"
+                sizes="160px"
+              />
               <p className="font-display text-xl font-bold text-[var(--accent)]">
                 Qualiopi
               </p>

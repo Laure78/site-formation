@@ -53,6 +53,13 @@ export const LINKS = {
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
 
   repondreAoLanding: '/repondre-appels-offres-ia-btp',
+
+  // Pages légales & conformité
+  cgv: '/cgv',
+  mentionsLegales: '/mentions-legales',
+  politiqueConfidentialite: '/politique-confidentialite',
+  reglementInterieur: '/reglement-interieur',
+  annuaireHandicap: '/annuaire-handicap',
 } as const;
 
 export type InternalLinkPath = (typeof LINKS)[keyof typeof LINKS];

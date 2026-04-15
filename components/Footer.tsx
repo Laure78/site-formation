@@ -1,265 +1,220 @@
 import Link from 'next/link';
-import {
-  Mail,
-  Globe,
-  Linkedin,
-  FileText,
-  BookOpen,
-  MapPin,
-  Map,
-  GraduationCap,
-} from 'lucide-react';
+import { Mail, Globe, Map, MapPin, GraduationCap } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
 import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
+import { LINKS } from '@/lib/internal-links';
+import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 
 export function Footer() {
+  const companyLinks: Array<
+    { href: string; label: string; external?: false } | { href: string; label: string; external: true }
+  > = [
+    { href: LINKS.aPropos, label: 'À propos' },
+    { href: LINKS.contact, label: 'Contact' },
+    { href: LINKS.prendreRdv, label: 'Rendez-vous' },
+    { href: SITE_CONFIG.linkedinProfileUrl, label: 'LinkedIn', external: true },
+  ];
+
+  const serviceLinks = [
+    { href: LINKS.formations, label: 'Catalogue' },
+    { href: LINKS.financement, label: 'Financement' },
+    { href: LINKS.chatgptArtisans, label: 'ChatGPT BTP' },
+    { href: LINKS.formationAO, label: "Appels d'offres" },
+    { href: LINKS.formationParis, label: 'Paris' },
+  ];
+
+  const resourceLinks = [
+    { href: LINKS.blog, label: 'Blog' },
+    { href: LINKS.diagnostic, label: 'Diagnostic' },
+    { href: LINKS.checklist, label: 'Checklist' },
+    { href: LINKS.etudesCas, label: 'Étude de cas' },
+    { href: LINKS.casUsage, label: "Cas d'usage" },
+  ];
+
+  const legalLinks = [
+    { href: LINKS.cgv, label: 'CGV' },
+    { href: LINKS.mentionsLegales, label: 'Mentions légales' },
+    { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
+    { href: LINKS.reglementInterieur, label: 'Règlement' },
+    { href: LINKS.annuaireHandicap, label: 'Handicap' },
+  ];
+
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <div className="mb-12 flex flex-col items-stretch justify-center gap-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
+        <div className="mb-8 flex flex-col gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <div>
-            <p className="font-display text-lg font-semibold text-slate-900">
+            <p className="font-display text-base font-semibold text-slate-900">
               Formations IA BTP &amp; ChatGPT entreprise
             </p>
-            <p className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-slate-600">
-              <span>Catalogue</span>
-              <QualiopiWordmark />
-              <span>, financement Constructys — sessions 4 h.</span>
+            <p className="mt-0.5 text-sm text-slate-600">
+              Catalogue <QualiopiWordmark />, financement Constructys — sessions 4 h.
             </p>
           </div>
           <Link
-            href="/formations"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+            href={LINKS.formations}
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
           >
-            <GraduationCap size={20} strokeWidth={1.75} aria-hidden />
-            Voir le catalogue des formations
+            <GraduationCap size={18} strokeWidth={1.75} aria-hidden />
+            Catalogue
           </Link>
         </div>
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
-          {/* Colonne principale */}
-          <div className="lg:col-span-2">
+
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+          <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3">
               <img
                 src="/logo-lo.svg"
                 alt="Laure Olivié — formation IA BTP, organisme certifié Qualiopi"
                 title="Retour à l’accueil — laureolivie.fr"
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
               <div>
-                <span className="font-display text-xl font-bold text-slate-900">Laure Olivié</span>
-                <p className="text-sm font-medium text-slate-600">
-                  Formatrice en intelligence artificielle
-                </p>
-                <p className="text-xs text-[var(--accent)]">
-                  Intervenante LinkedIn Learning
-                </p>
+                <span className="font-display text-lg font-bold text-slate-900">Laure Olivié</span>
+                <p className="text-xs font-medium text-slate-600">Formatrice IA · BTP</p>
               </div>
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-600">
-              Formation spécialisée en intelligence artificielle pour les
-              professionnels et PME du bâtiment.
+            <p className="mt-3 max-w-xs text-sm leading-snug text-slate-600">
+              IA pour artisans et PME du bâtiment — méthode terrain, Qualiopi.
             </p>
-            <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-700">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              Financement OPCO Constructys 100%
-            </p>
-            <div className="mt-8 space-y-4">
+            <div className="mt-4 space-y-2">
               <a
                 href="mailto:laureolivie@yahoo.fr"
-                className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:border-slate-300"
+                className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <Mail size={18} strokeWidth={1.5} />
-                </span>
+                <Mail size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
                 laureolivie@yahoo.fr
               </a>
               <Link
-                href="/"
-                className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 transition-colors hover:bg-slate-100 hover:border-slate-300"
+                href={LINKS.home}
+                className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <Globe size={18} strokeWidth={1.5} />
-                </span>
+                <Globe size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
                 www.laureolivie.fr
               </Link>
-              <address className="not-italic px-4 text-xs text-slate-500">
-                France · Île-de-France · Guyancourt (Yvelines)<br />
-                SIRET 905 244 281 00010
-              </address>
             </div>
-            <ExternalLinkAnchor
-              href={SITE_CONFIG.linkedinProfileUrl}
-              title="Profil LinkedIn de Laure Olivié"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-5 py-3 text-sm font-medium text-[var(--accent)] transition-all hover:bg-[var(--accent-soft)]"
-            >
-              <Linkedin size={20} strokeWidth={1.5} />
-              Suivez-moi sur LinkedIn
-            </ExternalLinkAnchor>
-            <ExternalLinkAnchor
-              href={SITE_CONFIG.googleBusinessProfileUrl}
-              title="Fiche Google — Laure Olivié, formation IA BTP (avis et informations)"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-800 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
-            >
-              <MapPin size={20} strokeWidth={1.5} className="shrink-0" aria-hidden />
-              Fiche Google (avis &amp; localisation)
-            </ExternalLinkAnchor>
-            <ExternalLinkAnchor
-              href={SITE_CONFIG.googleMapsUrl}
-              title="Ouvrir l’adresse du siège dans Google Maps"
-              className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-800 transition-all hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
-            >
-              <Map size={20} strokeWidth={1.5} className="shrink-0" aria-hidden />
-              Google Maps (itinéraire)
-            </ExternalLinkAnchor>
+            <address className="not-italic mt-3 text-xs leading-snug text-slate-500">
+              Guyancourt (78) · SIRET 905 244 281 00010
+            </address>
           </div>
 
-          {/* Formation */}
-          <div>
-            <h4 className="flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-slate-700">
-              <BookOpen size={16} strokeWidth={1.5} />
-              Formation
-            </h4>
-            <ul className="mt-5 space-y-3">
-              {[
-                { href: '/formations', label: 'Catalogue des formations' },
-                { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-                { href: '/contact', label: 'Contact' },
-                { href: '/a-propos', label: 'À propos' },
-                { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
-                { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-                { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-                { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
-                { href: '/formations/ia-architecture-claude-dpgf', label: 'IA architecture — Claude AI & DPGF' },
-                {
-                  href: '/formations/ia-appels-offre-btp',
-                  label: "Répondre aux appels d'offre avec l'IA",
-                },
-                { href: '/diagnostic-ia-btp', label: 'Diagnostic IA BTP gratuit' },
-                { href: '/checklist-ia-btp', label: 'Checklist 10 prompts ChatGPT' },
-                { href: '/financement-constructys-formation-ia-btp', label: 'Financement OPCO' },
-                { href: '/blog', label: 'Ressources & Articles' },
-                { href: '/outils-ia-btp', label: 'Outils IA BTP (ChatGPT, Claude, Gemini)' },
-                { href: '/claude-ai-btp', label: 'Claude AI BTP (Anthropic)' },
-                { href: '/communaute-formateurs', label: 'Communauté formateurs' },
-                { href: '/espace-apprenant', label: 'Espace apprenant' },
-                { href: '/install-pwa', label: 'Installer l\'app mobile' },
-              ].map(({ href, label }) => (
-                <li key={href}>
-                  {href.startsWith('http') ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+          <nav aria-label="Entreprise" className="min-w-0">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Entreprise</h2>
+            <ul className="mt-3 space-y-2">
+              {companyLinks.map((item) => (
+                <li key={item.label}>
+                  {item.external ? (
+                    <ExternalLinkAnchor
+                      href={item.href}
                       className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
+                      title="Profil LinkedIn — Laure Olivié"
                     >
-                      {label}
-                    </a>
+                      {item.label}
+                    </ExternalLinkAnchor>
                   ) : (
                     <Link
-                      href={href}
+                      href={item.href}
                       className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
                     >
-                      {label}
+                      {item.label}
                     </Link>
                   )}
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Informations légales */}
-          <div>
-            <h4 className="flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-slate-700">
-              <FileText size={16} strokeWidth={1.5} />
-              Informations légales
-            </h4>
-            <ul className="mt-5 space-y-3">
-              {[
-                { href: '/cgv', label: 'CGV' },
-                { href: '/mentions-legales', label: 'Mentions légales' },
-                { href: '/politique-confidentialite', label: 'Politique de confidentialité' },
-              ].map(({ href, label }) => (
-                <li key={href}>
+          <nav aria-label="Services" className="min-w-0">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Services</h2>
+            <ul className="mt-3 space-y-2">
+              {serviceLinks.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={href}
+                    href={item.href}
                     className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
                   >
-                    {label}
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Documents officiels + Qualiopi */}
-          <div>
-            <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-slate-700">
-              Documents officiels
-            </h4>
-            <ul className="mt-5 space-y-3">
-              {[
-                { href: '/reglement-interieur', label: 'Règlement intérieur' },
-                { href: '/annuaire-handicap', label: 'Annuaire handicap' },
-                { href: '/llms.txt', label: 'Fichier llms.txt (assistants IA)' },
-              ].map(({ href, label }) => (
-                <li key={href}>
+          <nav aria-label="Ressources" className="min-w-0">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Ressources</h2>
+            <ul className="mt-3 space-y-2">
+              {resourceLinks.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={href}
+                    href={item.href}
                     className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
                   >
-                    {label}
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <ExternalLinkAnchor
-              href="https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281"
-              title="Vérifier la certification Qualiopi — Annuaire officiel data.gouv.fr"
-              className="mt-6 block rounded-2xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:border-slate-300 hover:bg-slate-100"
-            >
-              <div className="flex justify-center">
-                <QualiopiLogoBlock className="max-w-[220px]" />
-              </div>
-              <p className="mt-3 text-center text-xs font-medium text-slate-600">
-                Vérifier la certification sur data.gouv.fr (annuaire officiel)
-              </p>
-            </ExternalLinkAnchor>
-          </div>
+          </nav>
+
+          <nav aria-label="Légal" className="min-w-0">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Légal</h2>
+            <ul className="mt-3 space-y-2">
+              {legalLinks.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        {/* Bas de page */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-slate-200 pt-10 md:flex-row">
-          <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-sm text-slate-500 md:justify-start">
-            <span>© {new Date().getFullYear()} OFC Création d&apos;Entreprise · Organisme certifié</span>
+        <ExternalLinkAnchor
+          href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
+          title={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.title}
+          className="mt-8 flex flex-col items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 transition-colors hover:border-slate-300 sm:flex-row sm:justify-center sm:gap-4"
+        >
+          <QualiopiLogoBlock className="max-w-[180px] shrink-0" />
+          <span className="text-center text-xs font-medium text-slate-600 sm:text-left">
+            Certification Qualiopi — vérifier sur data.gouv.fr
+          </span>
+        </ExternalLinkAnchor>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 sm:flex-row">
+          <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-xs text-slate-500 sm:justify-start">
+            <span>© {new Date().getFullYear()} OFC Création d&apos;Entreprise ·</span>
             <QualiopiWordmark />
           </p>
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             <ExternalLinkAnchor
               href={SITE_CONFIG.googleBusinessProfileUrl}
               title="Fiche Google — Laure Olivié"
               aria-label="Fiche Google Business"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
             >
-              <MapPin size={20} strokeWidth={1.5} />
+              <MapPin size={18} strokeWidth={1.5} />
             </ExternalLinkAnchor>
             <ExternalLinkAnchor
               href={SITE_CONFIG.googleMapsUrl}
               title="Google Maps — adresse Guyancourt"
               aria-label="Google Maps"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
             >
-              <Map size={20} strokeWidth={1.5} />
+              <Map size={18} strokeWidth={1.5} />
             </ExternalLinkAnchor>
-            <ExternalLinkAnchor
+            <a
               href="mailto:laureolivie@yahoo.fr"
               title="Envoyer un email"
               aria-label="Email"
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:bg-[var(--accent-soft)] hover:text-[var(--accent)] hover:border-[var(--accent-soft)]"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
             >
-              <Mail size={20} strokeWidth={1.5} />
-            </ExternalLinkAnchor>
+              <Mail size={18} strokeWidth={1.5} />
+            </a>
           </div>
         </div>
       </div>

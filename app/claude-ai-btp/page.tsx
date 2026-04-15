@@ -8,28 +8,36 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { ClaudeSkillTutorialBtpSection } from '@/components/claude/ClaudeSkillTutorialBtpSection';
+import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsLeadMagnetSection';
+import { LINKS } from '@/lib/internal-links';
 
 const PATH = '/claude-ai-btp';
 const CANONICAL = `${SITE_CONFIG.url}${PATH}`;
 const OG_IMAGE = '/og-claude-ai-btp.jpg';
 
 export const metadata = createPageMetadata({
-  title: 'Claude AI pour le BTP : guide complet 2026',
+  title: 'Formation Claude AI BTP : guide & IDF | Laure Olivié',
   description:
-    "Claude Chat, Cowork, Code, Chrome : le guide complet de l'IA Claude pour les pros du BTP. Outils, cas d'usage, prompts, financement Constructys. +1 592 formés.",
+    'Formation Claude AI BTP : guide Chat, Cowork, Code, Chrome. Paris, Yvelines, Essonne, IDF. Formation IA BTP Qualiopi — Constructys. +1 592 formés.',
   path: PATH,
   keywords: [
+    'formation Claude AI BTP',
+    'formation Claude AI BTP Île-de-France',
+    'formation Claude AI BTP Yvelines',
+    'formation Claude AI BTP Saint-Quentin-en-Yvelines',
+    'formation Claude AI BTP Paris',
+    'formation Claude AI BTP Essonne',
     'Claude AI BTP',
+    'IA chantier',
+    'automatisation BTP',
     'Claude Cowork conducteur de travaux',
-    'Claude Chat BTP',
-    'IA BTP',
     'formation IA BTP',
-    'Anthropic Claude BTP',
   ],
   openGraphType: 'article',
   article: {
     publishedTime: '2026-04-13',
-    modifiedTime: '2026-04-13',
+    modifiedTime: '2026-04-15',
     author: SITE_CONFIG.name,
     section: 'Formation IA BTP',
   },
@@ -51,9 +59,9 @@ const breadcrumbJson = getBreadcrumbSchema([
 const techArticleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
-  headline: 'Claude AI pour le BTP : le guide complet 2026',
+  headline: 'Formation Claude AI BTP : guide complet 2026 — Paris, Île-de-France, Yvelines',
   description:
-    "Guide complet des 5 interfaces Claude AI pour les professionnels du BTP : Chat, Cowork, Code, App Desktop, Chrome. Cas d'usage, prompts, gains de temps mesurés.",
+    "Guide et formation Claude AI BTP : interfaces Chat, Cowork, Code, Chrome. Sessions et ressources pour pros du bâtiment en Île-de-France, Paris, Yvelines, Essonne.",
   author: {
     '@type': 'Person',
     name: 'Laure Olivié',
@@ -74,11 +82,11 @@ const techArticleJsonLd = {
     },
   },
   datePublished: '2026-04-13',
-  dateModified: '2026-04-13',
+  dateModified: '2026-04-15',
   url: CANONICAL,
   mainEntityOfPage: CANONICAL,
   keywords:
-    'Claude AI BTP, Claude Cowork conducteur de travaux, Claude Chat BTP, IA BTP, formation IA BTP',
+    'formation Claude AI BTP, formation Claude AI BTP Île-de-France, formation Claude AI BTP Yvelines, formation Claude AI BTP Paris, IA chantier, automatisation BTP, Claude AI BTP',
 };
 
 const faqJsonLd = {
@@ -131,6 +139,22 @@ const faqJsonLd = {
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Une demi-journée suffit pour maîtriser Claude Chat. La configuration de Claude Cowork demande environ 1 heure. Dans les formations OFC avec la FFB, les participants produisent leur premier CR de chantier ou leur première analyse de DCE le jour même.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "OFC Création d'Entreprise anime des formations IA BTP en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.) et en distanciel. Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Oui : le même programme formation Claude AI BTP (Claude Chat, Cowork, Code, Chrome) s'adapte aux équipes du bâtiment et des travaux publics partout en Île-de-France. Paris et la communauté d'agglomération de Saint-Quentin-en-Yvelines sont des zones d'intervention fréquentes ; en Essonne, les entreprises des Ulis, Morangis, Longjumeau et environs peuvent rejoindre une session inter ou demander une date intra.",
       },
     },
   ],
@@ -226,7 +250,7 @@ export default function ClaudeAiBtpPillarPage() {
 
       <article className="mx-auto max-w-4xl px-4 pb-20 pt-4">
         <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-          Claude AI pour le BTP : le guide complet 2026
+          Claude AI pour le BTP : guide complet et formation 2026
         </h1>
         <p className="mt-4 text-sm text-slate-600 md:text-base">
           Par Laure Olivié — Formatrice IA BTP, OFC Création d&apos;Entreprise
@@ -236,32 +260,66 @@ export default function ClaudeAiBtpPillarPage() {
           </span>
         </p>
 
+        <ClaudeSkillsLeadMagnetSection />
+
+        <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6" aria-labelledby="formation-claude-idf">
+          <h2 id="formation-claude-idf" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+            Formation Claude AI BTP en Île-de-France
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-700 md:text-base">
+            Vous cherchez une <strong>formation Claude AI BTP</strong> alignée sur vos enjeux chantier (comptes rendus,
+            devis, emails) ? OFC anime des sessions en présentiel et en distanciel. Accès directs :{' '}
+            <Link href={LINKS.formationParis} className="font-medium text-[var(--accent)] underline hover:no-underline">
+              formation Claude AI BTP à Paris
+            </Link>
+            ,{' '}
+            <Link href={LINKS.formationYvelines} className="font-medium text-[var(--accent)] underline hover:no-underline">
+              formation Claude AI BTP en Yvelines
+            </Link>
+            ,{' '}
+            <Link
+              href={LINKS.formationSaintQuentinYvelines}
+              className="font-medium text-[var(--accent)] underline hover:no-underline"
+            >
+              formation Claude AI BTP à Saint-Quentin-en-Yvelines
+            </Link>
+            , et au niveau régional :{' '}
+            <Link
+              href={LINKS.formationIleDeFrance}
+              className="font-medium text-[var(--accent)] underline hover:no-underline"
+            >
+              formation Claude AI BTP en Île-de-France
+            </Link>{' '}
+            (dont l&apos;Essonne : Les Ulis, Morangis, Longjumeau — même programme, même exigence Qualiopi).
+          </p>
+          <p className="mt-3 text-sm text-slate-600">
+            Automatisation BTP et <strong>IA chantier</strong> : le guide ci-dessous complète ces parcours terrain.
+          </p>
+        </section>
+
         <p className="mt-8 text-slate-700 leading-relaxed">
           Retrouvez aussi les{' '}
-          <Link href="/formations" className="font-medium text-[var(--accent)] underline hover:no-underline">
+          <Link href={LINKS.formations} className="font-medium text-[var(--accent)] underline hover:no-underline">
             formations IA BTP
           </Link>
           , le{' '}
-          <Link
-            href="/financement-constructys-formation-ia-btp"
-            className="font-medium text-[var(--accent)] underline hover:no-underline"
-          >
+          <Link href={LINKS.financement} className="font-medium text-[var(--accent)] underline hover:no-underline">
             financement Constructys
           </Link>
           , les pages{' '}
-          <Link href="/chatgpt-artisans-btp" className="font-medium text-[var(--accent)] underline hover:no-underline">
+          <Link href={LINKS.chatgptArtisans} className="font-medium text-[var(--accent)] underline hover:no-underline">
             ChatGPT pour artisans BTP
           </Link>
           ,{' '}
-          <Link href="/ia-conducteur-travaux" className="font-medium text-[var(--accent)] underline hover:no-underline">
+          <Link href={LINKS.iaCDT} className="font-medium text-[var(--accent)] underline hover:no-underline">
             IA conducteur de travaux
           </Link>
           ,{' '}
-          <Link href="/ia-devis-batiment" className="font-medium text-[var(--accent)] underline hover:no-underline">
+          <Link href={LINKS.iaDevis} className="font-medium text-[var(--accent)] underline hover:no-underline">
             IA devis bâtiment
           </Link>{' '}
           et un{' '}
-          <Link href="/prendre-rdv" className="font-medium text-[var(--accent)] underline hover:no-underline">
+          <Link href={LINKS.prendreRdv} className="font-medium text-[var(--accent)] underline hover:no-underline">
             diagnostic IA BTP gratuit
           </Link>{' '}
           (visio découverte).
@@ -286,6 +344,8 @@ export default function ClaudeAiBtpPillarPage() {
             </p>
           </div>
         </section>
+
+        <ClaudeSkillTutorialBtpSection />
 
         {/* Section 2 */}
         <section className="mt-14" aria-labelledby="tableau-interfaces">
@@ -366,13 +426,10 @@ export default function ClaudeAiBtpPillarPage() {
           </p>
           <PromptBlock body={PROMPT_PROJET} />
           <p className="mt-4 text-sm text-slate-600">
-            {/* TODO: articles dédiés /blog/projet-claude-btp-contexte-permanent — lien provisoire vers le guide avancé */}
-            <Link
-              href="/blog/guide-claude-ia-btp-code-projects-skills-mcp"
-              className="font-medium text-[var(--accent)] underline hover:no-underline"
-            >
-              Guide complet : Projects, Skills et contexte entreprise (Claude IA BTP)
+            <Link href="#cluster" className="font-medium text-[var(--accent)] underline hover:no-underline">
+              Projects, Skills et contexte entreprise — voir la ressource dédiée dans la section ci-dessous
             </Link>
+            .
           </p>
 
           <h3 className="mt-10 font-display text-xl font-bold text-slate-900">
@@ -400,13 +457,8 @@ export default function ClaudeAiBtpPillarPage() {
             </li>
           </ul>
           <p className="mt-4 text-sm text-slate-600">
-            {/* TODO: /blog/claude-cowork-conducteur-travaux — voir guide 5 interfaces + guide avancé */}
-            <Link
-              href="/blog/claude-ai-btp-5-interfaces-chat-cowork-code"
-              className="font-medium text-[var(--accent)] underline hover:no-underline"
-            >
-              Cowork et workflows — guide des 5 interfaces Claude pour le BTP
-            </Link>
+            Pour Cowork et workflows, reportez-vous à la section « Toutes nos ressources Claude AI pour le BTP » en bas de
+            page.
           </p>
 
           <h3 className="mt-10 font-display text-xl font-bold text-slate-900">
@@ -439,13 +491,8 @@ export default function ClaudeAiBtpPillarPage() {
             <li>Extraction des postes d&apos;un DPGF ouvert en PDF dans Chrome vers un tableau</li>
             <li>Rédaction d&apos;un email directement dans Gmail sans changer d&apos;onglet</li>
           </ul>
-          <p className="mt-4">
-            <Link
-              href="/blog/claude-ai-btp-5-interfaces-chat-cowork-code"
-              className="font-medium text-[var(--accent)] underline hover:no-underline"
-            >
-              Guide complet : Claude AI pour le BTP — les 5 interfaces
-            </Link>
+          <p className="mt-4 text-sm text-slate-600">
+            Pour le panorama des interfaces, voir le lien « Cowork et workflows » ci-dessus (même guide).
           </p>
         </section>
 
@@ -557,6 +604,14 @@ export default function ClaudeAiBtpPillarPage() {
                 q: 'Combien de temps faut-il pour être opérationnel sur Claude AI ?',
                 a: 'Une demi-journée suffit pour maîtriser Claude Chat et produire les premiers livrables utiles. La configuration de Claude Cowork demande environ 1 heure. Dans les formations OFC avec la FFB, les participants produisent leur premier CR de chantier ou leur première analyse de DCE assistée le jour même.',
               },
+              {
+                q: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
+                a: "OFC Création d'Entreprise anime des formations IA BTP en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.) et en distanciel. Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
+              },
+              {
+                q: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',
+                a: "Oui : le même programme formation Claude AI BTP (Claude Chat, Cowork, Code, Chrome) s'adapte aux équipes du bâtiment et des travaux publics partout en Île-de-France. Paris et la communauté d'agglomération de Saint-Quentin-en-Yvelines sont des zones d'intervention fréquentes ; en Essonne, les entreprises des Ulis, Morangis, Longjumeau et environs peuvent rejoindre une session inter ou demander une date intra.",
+              },
             ].map((item) => (
               <div key={item.q}>
                 <dt className="font-bold text-slate-900">{item.q}</dt>
@@ -619,18 +674,8 @@ export default function ClaudeAiBtpPillarPage() {
           </h2>
           <div className="mt-4 space-y-4 text-slate-700 leading-relaxed">
             <p>
-              OFC Création d&apos;Entreprise propose une{' '}
-              <Link href="/formations" className="font-medium text-[var(--accent)] underline hover:no-underline">
-                formation IA BTP
-              </Link>{' '}
-              de 4 heures, 100 % finançable{' '}
-              <Link
-                href="/financement-constructys-formation-ia-btp"
-                className="font-medium text-[var(--accent)] underline hover:no-underline"
-              >
-                Constructys
-              </Link>
-              , conçue pour les professionnels du bâtiment et des travaux publics en Île-de-France.
+              OFC Création d&apos;Entreprise propose une formation IA BTP de 4 heures, 100 % finançable Constructys,
+              conçue pour les professionnels du bâtiment et des travaux publics en Île-de-France.
             </p>
             <p>
               Le programme couvre l&apos;ensemble des interfaces Claude AI : prise en main de Claude Chat et
@@ -660,10 +705,10 @@ export default function ClaudeAiBtpPillarPage() {
               Réserver ma visio découverte gratuite
             </a>
             <Link
-              href="/formations"
+              href={LINKS.contact}
               className="text-center text-base font-semibold text-[var(--accent)] underline hover:no-underline sm:text-left"
             >
-              Voir le catalogue des formations IA BTP
+              Contact — formation Claude AI BTP (Île-de-France)
             </Link>
           </div>
         </section>
