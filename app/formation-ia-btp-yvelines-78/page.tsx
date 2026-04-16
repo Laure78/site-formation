@@ -1,3 +1,7 @@
+/**
+ * Formation IA BTP — Yvelines (78). Contenu long (~1 200–1 800 mots), liens internes dans le composant.
+ * Schémas : Course, Service, BreadcrumbList, FAQPage. CTA sticky via layout racine.
+ */
 import {
   FormationIaBtpDepartementLanding,
   formationIaBtpDeptMetadata,

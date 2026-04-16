@@ -250,6 +250,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-btp-paris',
   '/formations/ia-architecture-claude-dpgf',
   '/formations/ia-appels-offre-btp',
+  '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;
 
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
@@ -296,6 +297,7 @@ function buildDedicatedFormationCourseObject(opts: {
     '@context': 'https://schema.org',
     '@type': 'Course',
     '@id': `${courseUrl}#course`,
+    url: courseUrl,
     name,
     description,
     provider: { '@id': organizationId },
@@ -348,6 +350,25 @@ export function getDedicatedFormationCoursePageJsonLd(
         PARIS_FORMATION_DEDICATED.teaches[0],
         PARIS_FORMATION_DEDICATED.teaches[1],
         PARIS_FORMATION_DEDICATED.teaches[2],
+      ],
+      organizationId,
+      laurePersonId,
+    });
+  }
+
+  if (path === '/formations/formation-ia-cctp-analyse-dce-btp') {
+    const price = tarifHtDepuisBadgeCatalogue('AVANCÉ');
+    return buildDedicatedFormationCourseObject({
+      courseUrl: `${base}${path}`,
+      name: 'Formation IA analyse CCTP & DCE pour entreprises BTP',
+      description:
+        'Session 4 h : analyser CCTP, DPGF et DCE avec l’IA, détecter les risques et préparer un mémoire technique aligné. Qualiopi, finançable Constructys selon dossier.',
+      educationalLevel: 'Avancé',
+      priceString: String(price),
+      teaches: [
+        'Structurer la lecture d’un CCTP et d’un DCE avec l’IA sans perdre le contrôle',
+        'Croiser exigences techniques, DPGF et critères du CCAP pour cadrer le chiffrage',
+        'Créer prompts, projets et assistants réutilisables pour les réponses aux marchés',
       ],
       organizationId,
       laurePersonId,

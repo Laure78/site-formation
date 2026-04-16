@@ -25,9 +25,9 @@ export function PourQuiSection() {
   return (
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl">
+        <h3 className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl">
           Pour <span className="font-serif italic text-slate-800">qui</span> ?
-        </h2>
+        </h3>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CARTES.map((c) => (
             <div

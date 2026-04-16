@@ -71,6 +71,14 @@ export const INTERNAL_LINKS = {
       'parcours LMS appels d\'offres',
     ],
   },
+  formationIaCctpAnalyseDce: {
+    path: LINKS.formationIaCctpAnalyseDceBtp,
+    anchors: [
+      'formation IA CCTP analyse DCE',
+      'formation analyse CCTP et DCE BTP',
+      'se former à l\'analyse CCTP avec l\'IA',
+    ],
+  },
   checklist: {
     path: LINKS.checklist,
     anchors: ['checklist prompts ChatGPT', '10 prompts ChatGPT BTP', 'prompts gratuits'],

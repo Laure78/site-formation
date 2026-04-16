@@ -13,7 +13,15 @@ import {
 } from '@/lib/seo';
 import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
+import { blogArticleFormationIaCctpAnalyseDceBtp } from '@/lib/blog-formation-ia-cctp-pillar';
+import { blogArticleIaDevisBatimentChiffrageAutomatise } from '@/lib/blog-ia-devis-batiment-chiffrage-automatise';
+import { blogArticleCompteRenduChantierIaMethode } from '@/lib/blog-compte-rendu-chantier-ia-methode';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import {
+  getAllMdxBlogSlugs,
+  getMdxFrontmatter,
+  mdxFrontmatterToBlogArticle,
+} from '@/lib/blog-mdx';
 
 /** Prompt optimisé pour affichage dans les articles ressources */
 export interface ArticlePrompt {
@@ -48,6 +56,8 @@ export interface BlogArticle {
   faq?: { question: string; answer: string }[];
   /** Image de couverture pour le schéma Article (URL absolue ou chemin commençant par /) */
   coverImage?: string;
+  /** Affichage carte blog (ex. « 8 min ») — articles MDX avec `sections` vides */
+  readingTime?: string;
 }
 
 /** Titre de section (H2) typique d’un bloc FAQ pour détection HTML. */
@@ -204,6 +214,9 @@ export function getBlogCTAMidInsertAfterIndex(
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  blogArticleCompteRenduChantierIaMethode,
+  blogArticleIaDevisBatimentChiffrageAutomatise,
+  blogArticleFormationIaCctpAnalyseDceBtp,
   ...blogArticlesClaudeBtp2026,
   ...blogArticlesLsrAoModules,
   // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
@@ -1569,6 +1582,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     description:
       "L'IA réduit de 90% le temps de rédaction des devis bâtiment. Méthode terrain + témoignages de PME BTP : de 2h à 15 min par devis.",
     date: '2025-01-28',
+    dateModified: '2026-04-16',
     keywords: ['IA devis BTP', 'gain de temps devis', 'devis bâtiment IA', 'productivité BTP'],
     sections: [
       {
@@ -1620,13 +1634,56 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
+        type: 'html',
+        title: 'Méthode pas à pas : automatiser un devis BTP avec ChatGPT',
+        content: `<p>Sur le terrain, un devis « qui tient la route » repose sur trois choses : une structure de postes que vous maîtrisez, un prompt qui parle votre métier, et une relecture humaine avant envoi. Voici une méthode progressive, utilisable dès la semaine prochaine sur vos chantiers courants (rénovation, second œuvre, petits lots techniques).</p>
+<h3>Étape 1 : préparer son modèle de devis (structurer les postes récurrents)</h3>
+<p>Avant d'ouvrir ChatGPT, listez les blocs qui reviennent dans vos devis : déplacement, mise en protection, préparation des supports, fourniture-pose, finitions, nettoyage, reprise des déchets. Pour chaque bloc, notez vos libellés habituels et les unités (m², ml, forfait, h). L'objectif n'est pas d'avoir un modèle figé pour la vie, mais une ossature suffisamment stable pour que l'IA ne réinvente pas la roue à chaque fois : vous gagnez du temps sur la mise en forme, pas sur le jugement prix.</p>
+<p>Pour une petite entreprise de second œuvre, on voit souvent 60 à 80 % de postes identiques d'un devis à l'autre : ne laissez pas l'IA « inventer » des lignes de prestation si vous avez déjà une nomenclature interne. Copiez cette structure dans un document de référence (même un tableau simple) et indiquez à l'IA de s'y tenir.</p>
+<h3>Étape 2 : créer un prompt de chiffrage adapté à son métier</h3>
+<p>Un bon prompt de devis BTP contient : le type de chantier, le périmètre (neuf, rénovation, reprise en sous-œuvre), les contraintes d'accès, les normes ou référentiels que vous citez souvent (DTU, fiches techniques fabricants), et la structure de lignes souhaitée. Précisez si vous voulez des sous-totaux par lot, une mention TVA par ligne ou globale, et le délai de validité. Évitez de coller des données personnelles ou des prix confidentiels clients : décrivez le cas de façon anonymisée.</p>
+<p>En formation, on travaille des prompts « métier » : plâtrerie, électricité, étanchéité, VRD… Le principe est le même : vous calibrez le vocabulaire une fois, puis vous dupliquez le prompt pour les dossiers suivants en changeant uniquement les quantités et le contexte.</p>
+<h3>Étape 3 : vérifier et personnaliser le résultat</h3>
+<p>ChatGPT peut proposer des formulations solides et une présentation propre ; en revanche, il ne connaît pas vos bordereaux d'achat du jour ni vos taux de marge cibles. Relisez systématiquement : cohérence des unités, doublons, oublis de prestations liées (évacuation, reprises), et mentions légales ou d'assurance que vous mettez d'habitude en pied de document. Faites relire le devis par une deuxième personne sur les gros montants ou les chantiers atypiques.</p>
+<p><strong>Deux exemples de prompts concrets pour le devis BTP</strong> (à adapter avec vos libellés et seuils) :</p>
+<pre class="mt-3 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-800 border border-slate-200">Tu es un assistant pour une entreprise d'électricité second œuvre en Île-de-France. À partir des éléments suivants, rédige un devis structuré avec lignes détaillées, sous-totaux et conditions de paiement type BTP (acompte 30 %, solde à la réception). Ne fixe pas de prix : laisse des champs [PU] et [QTÉ] à compléter. Chantier : rénovation appartement, tableau divisionnaire à refaire, ajout de prises et éclairages LED, passage gaines encastrées, conformité selon prescriptions du client. Prévoir ligne pour déplacement et mise en conformité si découverte en cours de travaux.</pre>
+<pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-800 border border-slate-200">Tu rédiges un devis pour une entreprise de plomberie-chauffage (petite structure). Prestations : remplacement ballon thermodynamique, vérification pression réseau, purge et mise en service, désinfection circuit si nécessaire. Format : intitulé des postes, quantités, unités, total HT, TVA 10 % pour la rénovation résidentielle, délai d'intervention indicatif. Ton sobre et professionnel. Ajoute une phrase sur les aléas de reprise derrière anciens équipements.</pre>`,
+      },
+      {
+        type: 'html',
+        title: '',
+        content: `<div class="rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 my-2">
+<p class="font-semibold text-slate-900">Vous voulez voir la méthode en action ?</p>
+<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline-offset-2 hover:underline">Réservez votre visio découverte gratuite</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
+</div>`,
+      },
+      {
+        type: 'html',
+        title: 'Témoignages : ce que disent les entreprises formées',
+        content: `<p>Les retours ci-dessous sont issus de situations types rencontrées en formation (dirigeants, conducteurs de travaux, fonctions support). Ils illustrent le gain de temps sur la rédaction et la clarté des devis, sans remplacer le travail de chiffrage.</p>
+<ul class="mt-4 space-y-4 list-none pl-0">
+<li class="border-l-4 border-[var(--accent)] pl-4"><strong>Marc</strong>, gérant, entreprise de peinture et revêtements (15 salariés) : « Depuis la formation, on sort nos devis en 20 minutes au lieu de 2 heures. Le gros du temps, c'est sur les prix, plus sur la mise en page. »</li>
+<li class="border-l-4 border-[var(--accent)] pl-4"><strong>Sandrine</strong>, responsable administrative, TPE de gros œuvre en zone pavillonnaire : « On a harmonisé les intitulés entre les conducteurs de travaux. Moins d'allers-retours avec le client sur ce qui est inclus ou non. »</li>
+<li class="border-l-4 border-[var(--accent)] pl-4"><strong>Julien</strong>, chef d'entreprise, VRD et aménagements paysagers : « L'IA ne nous dit pas à quel prix acheter le gravier, mais elle nous fait gagner un temps fou sur les descriptifs et les variantes quand le maître d'ouvrage hésite entre deux solutions. »</li>
+</ul>`,
+      },
+      {
         type: 'faq',
         title: 'Questions fréquentes',
         content: [
           "L'IA remplace-t-elle le métreur ? — Non. L'IA assiste la rédaction. Les prix, quantités et choix techniques restent sous votre responsabilité.",
           "Quels types de devis ? — Tous les corps de métier : gros œuvre, second œuvre, VRD. L'IA adapte le vocabulaire et la structure.",
           "La formation est-elle finançable ? — Oui. 100% finançable par l'OPCO Constructys pour les entreprises du BTP.",
+          "Combien de temps faut-il pour maîtriser l'IA sur les devis ? — Comptez en général quelques séances ciblées pour être autonome sur une trame de devis : la première semaine sert à verrouiller structure et prompts, les suivantes à les appliquer sur de vrais dossiers. Une formation courte en présentiel ou à distance accélère nettement la courbe par rapport à l'auto-formation.",
+          "L'IA fait-elle des erreurs de chiffrage ? — Oui, si on lui laisse inventer des prix ou des quantités sans contrôle. L'IA peut aussi mal interpréter une unité ou oublier une ligne de prestation liée. La règle simple : l'IA propose, vous validez chiffres, normes et périmètre avant signature.",
+          "Comment convaincre mon associé d'utiliser l'IA pour nos devis ? — Partez d'un cas pilote mesurable (un type de chantier récurrent), comparez le temps passé avant/après sur deux semaines, et fixez des règles communes (relecture, pas de données sensibles dans le chat public, validation des montants). Montrer un premier gain concret bat souvent un long débat théorique.",
         ],
+      },
+      {
+        type: 'html',
+        title: 'À propos de l\'auteure',
+        content:
+          '<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Elle a formé plus de 1 592 professionnels du bâtiment (FFB, Lefebvre Dalloz, CNAM). Certifiée Qualiopi, ses formations sont finançables par Constructys.</p>',
       },
       {
         type: 'cta',
@@ -2215,6 +2272,12 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
   // Base : formations + RDV sur tous les articles
   links.push({ href: INTERNAL_LINKS.formations.path, label: getAnchor('formations') });
   links.push({ href: INTERNAL_LINKS.prendreRdv.path, label: getAnchor('prendreRdv') });
+  if (slug === 'formation-ia-cctp-analyse-dce-btp') {
+    links.splice(2, 0, {
+      href: LINKS.formationIaCctpAnalyseDceBtp,
+      label: getAnchor('formationIaCctpAnalyseDce', 0),
+    });
+  }
   switch (cat) {
     case 'financement':
       links.push({
@@ -2288,15 +2351,17 @@ export function getArticleCategory(slug: string): BlogCategoryId {
 }
 
 /** Articles liés pour maillage interne — relatedSlugs en priorité, complété par même catégorie */
-export function getRelatedArticlesForDisplay(slug: string, limit = 6): BlogArticle[] {
+export function getRelatedArticlesForDisplay(slug: string, limit = 6, extraRelatedSlugs?: string[]): BlogArticle[] {
   const all = getAllArticles();
   const current = all.find((a) => a.slug === slug);
-  if (!current) return [];
   const cat = getArticleCategory(slug);
   const used = new Set<string>([slug]);
   const result: BlogArticle[] = [];
-  // Priorité : relatedSlugs
-  for (const s of current.relatedSlugs ?? []) {
+  const seenPriority = new Set<string>();
+  const prioritySlugs = [...(extraRelatedSlugs ?? []), ...(current?.relatedSlugs ?? [])];
+  for (const s of prioritySlugs) {
+    if (seenPriority.has(s)) continue;
+    seenPriority.add(s);
     const a = all.find((x) => x.slug === s);
     if (a && !used.has(a.slug)) {
       result.push(a);
@@ -2362,13 +2427,24 @@ export function getArticlesByCategory(): Record<BlogCategoryId, BlogArticle[]> {
   return grouped;
 }
 
-/** Tous les articles : statiques + générés (publiés automatiquement) */
+/** Fusionne les entrées MDX (`content/blog/*.mdx`) : remplace ou ajoute par slug. */
+function mergeMdxIntoArticles(articles: BlogArticle[]): BlogArticle[] {
+  const map = new Map(articles.map((a) => [a.slug, a]));
+  for (const slug of getAllMdxBlogSlugs()) {
+    const fm = getMdxFrontmatter(slug);
+    if (!fm) continue;
+    map.set(slug, mdxFrontmatterToBlogArticle(fm));
+  }
+  return [...map.values()].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+/** Tous les articles : statiques + générés (publiés automatiquement) + MDX */
 export function getAllArticles(): BlogArticle[] {
   const generated = loadGeneratedArticles();
   const staticSlugs = new Set(BLOG_ARTICLES.map((a) => a.slug));
   const generatedFiltered = generated.filter((a) => !staticSlugs.has(a.slug));
   const all = [...BLOG_ARTICLES, ...generatedFiltered];
-  return all.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return mergeMdxIntoArticles(all);
 }
 
 export function getArticle(slug: string): BlogArticle | undefined {

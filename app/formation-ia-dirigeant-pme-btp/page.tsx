@@ -8,7 +8,7 @@ import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/
 import { SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
@@ -400,7 +400,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
             <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> les <strong>dirigeants et PME du BTP</strong>{' '}
             pour utiliser ChatGPT et l’IA sur la productivité (devis, communication, appels d’offres, prospection).{' '}
             <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
-            <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> formés, satisfaction moyenne{' '}
+            <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}
             <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

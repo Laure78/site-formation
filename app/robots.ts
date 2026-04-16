@@ -1,10 +1,13 @@
 import type { MetadataRoute } from 'next';
+import { SITE_CONFIG } from '@/lib/seo';
 
-const SITE = 'https://www.laureolivie.fr';
+const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 /**
- * robots.txt — App Router (MetadataRoute.Robots).
+ * robots.txt — App Router (`MetadataRoute.Robots`).
  * Bots IA explicitement autorisés + règle générale avec exclusions techniques.
+ *
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
  */
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -23,6 +26,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: `${SITE}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

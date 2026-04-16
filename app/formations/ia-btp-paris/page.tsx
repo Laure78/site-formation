@@ -5,7 +5,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { JsonLd } from '@/components/JsonLd';
+import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -96,7 +96,7 @@ const faqSchema = getFAQSchema(FAQ_IA_BTP_PARIS);
 export default function FormationIABTPParisPage() {
   return (
     <div>
-      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

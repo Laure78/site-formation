@@ -67,7 +67,7 @@ export function ClientsLogosMarquee() {
           <div className="min-w-0 flex-1">
             <h2
               id="clients-logos-heading"
-              className="font-display text-base font-bold tracking-tight text-slate-900 md:text-lg"
+              className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
             >
               Ils m&apos;ont fait confiance
             </h2>

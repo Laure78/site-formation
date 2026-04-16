@@ -92,7 +92,6 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Les dirigeants de TPE et PME que je rencontre dans le 78 ne cherchent pas une transformation numérique de trois ans : ils veulent un gain de temps mesurable sur l’administratif et les dossiers, sans alourdir l’organisation. C’est exactement l’objectif des sessions proposées par ${OFC} : quatre heures, orientées terrain, avec des livrables utilisables dès le lendemain — pas une conférence généraliste sur l’IA.`,
     `Les chantiers « express » et les opérations de rénovation tertiaire autour de Versailles ou dans les zones d’activité de Saint-Quentin-en-Yvelines génèrent une documentation dispersée : pièces sur serveur, échanges de chantier, photos terrain. Sans cadre commun, l’IA devient un cinquième canal de bruit ; avec une formation encadrée Qualiopi, elle devient l’endroit où restructurer l’information avant archivage et envoi officiel.`,
     `Entre la vallée de la Mauldre et les secteurs plus ruraux du sud des Yvelines, le recrutement de profils administratifs reste tendu : chaque heure gagnée sur les modèles Word ou les mails répétitifs est une heure réinjectée sur le corps d’état critique. Les gains typiques observés après une première semaine d’application des méthodes vues en salle se situent souvent entre trois et cinq heures par semaine pour une petite équipe.`,
-    `Enfin, la proximité avec Paris et La Défense crée une attente de « niveau d’exigence documentaire » comparable à la capitale, sans toujours disposer des mêmes moyens RH. Une formation courte permet d’aligner la qualité perçue des écrits (clarté, structure, ton) sans multiplier les revues internes : la machine propose, l’humain tranche, le client ou le maître d’ouvrage reçoit un contenu maîtrisé.`,
   ],
   solutionTitle: 'La solution : une formation IA BTP courte, certifiée Qualiopi, centrée sur vos documents',
   solutionBody: [
@@ -101,7 +100,6 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Sur le plan du financement, les entreprises du BTP relevant de l’OPCO Constructys peuvent mobiliser le plan de développement des compétences, sous réserve d’éligibilité et de montage de dossier. Les plafonds et règles nationales s’appliquent au 78 comme partout ailleurs ; mon rôle est de fournir les éléments pédagogiques (objectifs, programme, durée) cohérents avec une demande de prise en charge. La certification Qualiopi de l’organisme est un repère utile pour les services RH et les OPCO.`,
     `Enfin, la démarche est compatible avec une montée en compétence progressive : commencer par automatiser les courriers et les relances, puis, dans un second temps, attaquer des usages plus sensibles (analyse de pièces marchés, mémoires techniques) lorsque l’équipe est prête. C’est souvent ainsi que les entreprises des Yvelines sécurisent l’adoption : petits gains immédiats, puis usage avancé lorsque les réflexes de relecture humaine sont ancrés.`,
     `Pour les directions techniques qui pilotent plusieurs petits chantiers en parallèle (courants faibles, étanchéité, gros œuvre local), la session peut intégrer un volet « standardisation des consignes » : mêmes prompts pour les comptes rendus hebdomadaires, mêmes grilles de relecture, ce qui simplifie le contrôle qualité sans alourdir le reporting.`,
-    `Les équipes « multi-sites » entre Guyancourt, Trappes et Mantes peuvent alterner présentiel et visio : l’important est que chaque participant ait accès à un poste stable, puisse partager un extrait anonymisé de document, et accepte la règle d’or : rien de confidentiel dans un outil non professionnel sans cadre préalable validé par la direction.`,
   ],
   villesTitle: 'Villes et bassins des Yvelines couverts (liste indicative)',
   villesIntro: `Les sessions intra se déroulent chez vous ou sur le site que vous désignez. Voici des villes et bassins d’emploi fréquemment concernés dans le 78 — la liste n’est pas limitative : si votre commune n’y figure pas, un échange de 30 minutes permet de confirmer la faisabilité et les créneaux.`,
@@ -117,7 +115,6 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Pour les équipes déjà à l’aise avec l’outil, nous poussons la logique vers l’industrialisation : modèles de relecture, check-list avant envoi, partage des prompts entre collègues (dans le respect de votre politique interne). L’objectif n’est pas d’ajouter une couche logicielle de plus, mais de rendre votre façon de travailler plus fluide.`,
     `Après la session, vous repartez avec des supports réutilisables et une feuille de route simple pour la semaine suivante : quelles tâches automatiser en priorité, quels documents « pilotes » choisir pour tester l’IA sans disperser l’équipe.`,
     `Une plage est réservée aux questions « terrain » : comment intégrer l’usage de l’IA dans une réunion de chantier hebdomadaire, comment imposer une relecture croisée conducteur / chargé d’affaires, comment tracer une version « brouillon IA » versus « version validée » dans votre gestion documentaire habituelle.`,
-    `Enfin, pour les structures qui préparent déjà des réponses marchés publics, nous esquissons la chaîne DCE → questions → plan de mémoire → sections rédigées, sans jamais oublier que la conformité et la signature finale restent humaines : l’outil accélère le brouillon, la direction technique tranche.`,
   ],
   temoignagesTitle: 'Témoignages de professionnels en Île-de-France (extraits anonymisés)',
   temoignages: [
@@ -424,3 +421,14 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   axes: 'A15, A115, Francilienne nord',
   temoignageZone: "dans le Val-d'Oise",
 });
+
+/** URLs des 7 landings SEO « formation IA BTP » par département (sitemap, contrôle maillage). */
+export const FORMATION_IA_BTP_DEPT_LANDING_PATHS = [
+  FORMATION_IA_BTP_SEINE_ET_MARNE_77.path,
+  FORMATION_IA_BTP_YVELINES_78.path,
+  FORMATION_IA_BTP_ESSONNE_91.path,
+  FORMATION_IA_BTP_HAUTS_DE_SEINE_92.path,
+  FORMATION_IA_BTP_SEINE_SAINT_DENIS_93.path,
+  FORMATION_IA_BTP_VAL_DE_MARNE_94.path,
+  FORMATION_IA_BTP_VAL_DOISE_95.path,
+] as const;

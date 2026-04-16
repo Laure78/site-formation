@@ -12,6 +12,8 @@ export const LINKS = {
   blog: '/blog',
   /** Article pilier GEO — guide formation IA BTP 2026 */
   blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',
+  /** Article MDX — guide pratique formation IA BTP 2026 (calendrier éditorial) */
+  blogFormationIaBtpGuide2026Mdx: '/blog/formation-ia-btp-guide-2026',
   aPropos: '/a-propos',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
@@ -75,6 +77,10 @@ export const LINKS = {
   formationIaAnalyseCctp: '/formation-ia-analyse-cctp',
   /** Article — prompts et méthode analyse CCTP avec l'IA */
   blogIaAnalyseCctpMethode: '/blog/ia-analyse-cctp-methode',
+  /** Article pilier SEO — formation IA CCTP, analyse DCE BTP */
+  blogFormationIaCctpAnalyseDceBtp: '/blog/formation-ia-cctp-analyse-dce-btp',
+  /** Fiche formation conversion — IA analyse CCTP & DCE */
+  formationIaCctpAnalyseDceBtp: '/formations/formation-ia-cctp-analyse-dce-btp',
 
   // Pages légales & conformité
   cgv: '/cgv',

@@ -19,6 +19,13 @@ import {
   getRelatedArticlesForDisplay,
   type ArticlePrompt,
 } from '@/lib/blog';
+import { BlogMdxArticle } from '@/components/blog/BlogMdxArticle';
+import {
+  buildMdxBlogMetadata,
+  getMdxFrontmatter,
+  hasMdxBlogFile,
+  mergeBlogSlugsForStaticParams,
+} from '@/lib/blog-mdx';
 import { BlogCTA } from '@/components/BlogCTA';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -75,11 +82,24 @@ function getPromptsFromContent(
 }
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return mergeBlogSlugsForStaticParams(getAllSlugs()).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
+  const mdxMeta = buildMdxBlogMetadata(slug);
+  if (mdxMeta) {
+    const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
+    const fm = getMdxFrontmatter(slug);
+    return {
+      ...mdxMeta,
+      authors: [{ name: SITE_CONFIG.name, url: authorUrl }],
+      openGraph: {
+        ...mdxMeta.openGraph,
+        tags: fm?.keywords,
+      },
+    };
+  }
   const article = getArticle(slug);
   if (!article) return { title: 'Article non trouvé' };
   const metaTitle = article.seoTitle ?? article.title;
@@ -119,6 +139,9 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
+  if (hasMdxBlogFile(slug)) {
+    return <BlogMdxArticle slug={slug} />;
+  }
   const article = getArticle(slug);
   if (!article) notFound();
 

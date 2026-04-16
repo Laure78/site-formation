@@ -2,11 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { RdvLink } from '@/components/RdvLink';
 import { ArrowRight, Building2, CheckCircle2, FileStack } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/seo';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
 
@@ -26,13 +25,13 @@ export function EtudeCasClientsSection() {
               <FileStack size={14} strokeWidth={2} aria-hidden />
               Étude de cas clients
             </div>
-            <h2
+            <h3
               id="etude-cas-titre"
               className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
             >
               FFB &amp; étanchéité :{' '}
               <span className="font-serif italic text-slate-800">ce qui a été mis en place</span>
-            </h2>
+            </h3>
             <p className="mt-4 text-lg text-slate-600">
               Retour d&apos;expérience détaillé : défis, dispositif pédagogique, modules (mémoires,
               CCTP, devis, mails) et indicateurs — pour les fédérations, OPCO et entreprises du
@@ -76,7 +75,7 @@ export function EtudeCasClientsSection() {
 
             <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
               {[
-                { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'accompagnés' },
+                { val: `+${formatProfessionalsTrainedCount()}`, label: 'accompagnés' },
                 { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'satisfaction' },
                 { val: '5', label: 'modules clés' },
               ].map((k) => (

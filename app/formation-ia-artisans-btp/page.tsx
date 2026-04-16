@@ -8,6 +8,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA artisans BTP : ChatGPT, devis, emails, comptes rendus',
@@ -68,7 +69,7 @@ const serviceJsonLd = {
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.85',
-    reviewCount: '1592',
+    reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
     bestRating: '5',
   },
 };
@@ -282,7 +283,8 @@ export default function FormationIAArtisansBTPPage() {
           </div>
           <p className="mt-4 text-sm italic text-slate-500">
             Mesures réalisées en sessions OFC avec des dirigeants de TPE/PME BTP, artisans électriciens,
-            plombiers, maçons et peintres. +1 592 professionnels formés, note 4,85/5.
+            plombiers, maçons et peintres. +{formatProfessionalsTrainedCount()} professionnels formés, note{' '}
+            {SOCIAL_PROOF.AVERAGE_RATING}.
           </p>
         </section>
 

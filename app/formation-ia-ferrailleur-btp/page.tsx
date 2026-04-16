@@ -7,7 +7,7 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-ferrailleur-btp';
 
@@ -391,7 +391,7 @@ export default function FormationIaFerrailleurBtpPage() {
           <p className="mt-4 text-slate-600 leading-relaxed">
             <strong>Laure Olivié</strong>, formatrice IA et ChatGPT spécialisée BTP. L’organisme{' '}
             <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> (NDA 11788515078) et a formé
-            plus de <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du bâtiment : ferrailleurs,
+            plus de <strong>{formatProfessionalsTrainedCount()} professionnels</strong> du bâtiment : ferrailleurs,
             conducteurs de travaux, chefs de chantier, dirigeants — en Île-de-France et en France.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

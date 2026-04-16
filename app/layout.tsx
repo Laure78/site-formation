@@ -10,6 +10,7 @@ import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { CTASticky } from '@/components/CTASticky';
 import {
   SITE_CONFIG,
+  getGlobalLayoutPersonJsonLd,
   getOrganizationSchema,
   getWebSiteSchema,
   getMainCourseSchema,
@@ -121,9 +122,10 @@ export default function RootLayout({
   const orgSchema = getOrganizationSchema();
   const webSchema = getWebSiteSchema();
   const mainCourseSchema = getMainCourseSchema();
+  const personGlobalSchema = getGlobalLayoutPersonJsonLd();
 
-  /** LocalBusiness + Person détaillés : page /a-propos (évite doublons) */
-  const jsonLdScripts = [orgSchema, webSchema, mainCourseSchema];
+  /** JSON-LD globaux — Organization, WebSite, Course, Person (#laure-olivie) */
+  const jsonLdScripts = [orgSchema, webSchema, mainCourseSchema, personGlobalSchema];
 
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>

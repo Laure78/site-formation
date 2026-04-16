@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Poppins } from 'next/font/google';
-import { SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -17,9 +16,8 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const formesNombreAffiche = Number(
-  String(SITE_CONFIG.statsPersonnesFormees).replace(/\D/g, '') || '0'
-).toLocaleString('fr-FR');
+const formesNombreAffiche =
+  SOCIAL_PROOF.PROFESSIONALS_TRAINED.toLocaleString('fr-FR');
 
 const PARCOURS = [
   {

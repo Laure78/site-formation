@@ -46,9 +46,9 @@ export function ArticlesFormationLies() {
   return (
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
+        <h3 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
           Articles liés à cette formation
-        </h2>
+        </h3>
         <div className="mt-10 grid gap-8 md:grid-cols-3">
           {ARTICLES.map((a) => (
             <article

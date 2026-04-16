@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FileText, ArrowRight, Clock, TrendingUp } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
   title: 'Ressources IA BTP : Guides & Articles pratiques',
@@ -63,7 +64,9 @@ export default function RessourcesIABTPPage() {
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
               <TrendingUp size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">+1500</p>
+              <p className="mt-4 text-3xl font-bold text-slate-900">
+                +{formatProfessionalsTrainedCount()}
+              </p>
               <p className="text-sm text-slate-600">Professionnels formés</p>
             </div>
           </div>

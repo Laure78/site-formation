@@ -12,7 +12,8 @@ type Props = {
 };
 
 /**
- * Fil d’Ariane JSON-LD + navigation (layouts de section — données résolues côté serveur).
+ * Fil d’Ariane JSON-LD (`BreadcrumbJsonLd`) + navigation HTML (`Breadcrumb` avec `omitJsonLd`).
+ * Utilisé par les layouts `app/formations`, `app/blog`, `app/etudes-de-cas`, `app/ressources`.
  */
 export function SectionBreadcrumbLayout({ zone, pathname, children }: Props) {
   const items = getSectionBreadcrumbItems(zone, pathname);

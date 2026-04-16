@@ -27,9 +27,9 @@ export async function GoogleReviewsSection() {
               <Award size={16} strokeWidth={1.5} />
               <span>{hasGoogleApi ? 'AVIS GOOGLE' : 'AVIS CLIENTS'}</span>
             </div>
-            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            <h3 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
               Cas concrets d&apos;entreprises du BTP formées
-            </h2>
+            </h3>
             <p className="mt-3 text-slate-600">
               {hasGoogleApi
                 ? 'Avis authentiques sur Google Business Profile — défilant ci-dessous.'

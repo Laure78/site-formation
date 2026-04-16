@@ -1,3 +1,8 @@
+/**
+ * Landing SEO par département — Course + Service + FAQ + BreadcrumbList JSON-LD.
+ * Les barres d’action fixes Calendly / blog (`CTASticky`, `StickyBlogMetierRdvBar`) sont rendues
+ * globalement dans `app/layout.tsx` pour toutes les pages.
+ */
 import Link from 'next/link';
 import { Calendar, Check, MapPin, Quote } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';

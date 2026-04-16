@@ -3,6 +3,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { formationsData } from '@/src/data/formations';
 import { getAllArticles } from '@/lib/blog';
 import { FORMATION_IA_ALL_SLUGS } from '@/lib/seo-formation-ia-hub-data';
+import { FORMATION_IA_BTP_DEPT_LANDING_PATHS } from '@/lib/formation-ia-btp-departements-config';
 
 function normUrl(u: string): string {
   return u.replace(/\/$/, '');
@@ -68,6 +69,12 @@ function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.98,
     },
+    ...FORMATION_IA_BTP_DEPT_LANDING_PATHS.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: new Date('2026-04-16'),
+      changeFrequency: 'weekly' as const,
+      priority: 0.88 as const,
+    })),
     {
       url: `${baseUrl}/repondre-appels-offres-ia-btp`,
       lastModified: new Date(),
@@ -327,6 +334,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/ia-devis-batiment`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/ia-conducteur-travaux`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/formation-ia-artisans-btp`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
+    {
+      url: `${baseUrl}/formations/formation-ia-cctp-analyse-dce-btp`,
+      lastModified: ts,
+      changeFrequency: 'weekly',
+      priority: 0.92,
+    },
   ];
 
   const blogIndex: MetadataRoute.Sitemap = [

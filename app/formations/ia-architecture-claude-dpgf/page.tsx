@@ -6,6 +6,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -133,7 +134,7 @@ export default function FormationIAArchitectureClaudePage() {
 
   return (
     <div>
-      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

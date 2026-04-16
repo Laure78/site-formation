@@ -23,6 +23,7 @@ import {
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -243,7 +244,7 @@ const PUBLIC_CIBLE = [
 export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
-      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
+      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

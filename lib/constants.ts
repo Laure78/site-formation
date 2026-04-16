@@ -1,11 +1,13 @@
 /**
  * Constantes métier partagées (preuve sociale, chiffres officiels OFC).
- * Aligné sur les schémas (schema-constants) — une seule valeur à jour.
+ * Source unique pour l’affichage et les schémas — ne pas dupliquer ailleurs.
+ *
+ * @see SCHEMA_STATS / SCHEMA_AGGREGATE_RATING_HOME dans lib/schema-constants.ts
  */
-
 export const SOCIAL_PROOF = {
+  /** Nombre officiel de professionnels formés (aligné JSON-LD, biographies, « Pour qui »). */
   PROFESSIONALS_TRAINED: 1592,
-  /** Note moyenne affichée côté marketing (FR). */
+  /** Note moyenne de satisfaction affichée (format FR, ex. cartes accueil, FFB). */
   AVERAGE_RATING: '4,85/5',
 } as const;
 

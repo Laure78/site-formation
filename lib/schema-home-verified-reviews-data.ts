@@ -4,9 +4,9 @@
  * Renseigner uniquement des avis réels, vérifiables (ex. copie conforme d’un avis Google Business
  * avec accord, ou témoignage signé), avec identité complète. Ne pas inventer de noms ou de dates.
  *
- * Quand les entrées sont prêtes, utiliser dans app/page.tsx :
- *   getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews()
- * à la place de getHomeOrganizationLocalBusinessEnrichmentJsonLd().
+ * Ensuite : passer `HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD` à `true` dans
+ * `lib/schema-home-organization.ts` (le schéma accueil utilise déjà
+ * `getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved()`).
  */
 
 export type HomeVerifiedReviewForSchema = {

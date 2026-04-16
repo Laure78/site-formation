@@ -5,9 +5,9 @@
  * Avis (Review) :
  * - Option A (défaut) : uniquement aggregateRating (note agrégée + nombre d’avis) — pas de tableau
  *   `review` pour limiter le risque d’avis non vérifiables (guidelines Google sur les extraits).
- * - Option B : témoignages individuels + publisher (fiche Google Business) — voir
- *   `getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews` et
- *   `lib/schema-home-verified-reviews-data.ts`.
+ * - Option B : témoignages individuels + publisher (fiche Google Business) — activer
+ *   `HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD`, remplir `HOME_VERIFIED_REVIEWS_FOR_SCHEMA`,
+ *   puis `getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved()`.
  */
 import {
   SCHEMA_AGGREGATE_RATING_HOME,
@@ -40,6 +40,9 @@ function reviewPublisherOrganization(): Record<string, unknown> {
 function mapVerifiedReviewToSchema(entry: HomeVerifiedReviewForSchema): Record<string, unknown> {
   return {
     '@type': 'Review',
+    /** Entité évaluée (cohérent avec aggregateRating sur la même @id) */
+    itemReviewed: { '@id': ORG_ID },
+    /** Source de publication de l’avis (fiche Google Business = traçabilité) */
     publisher: reviewPublisherOrganization(),
     author: {
       '@type': 'Person',
@@ -94,11 +97,24 @@ function getHomeOrganizationLocalBusinessCore(): Record<string, unknown> {
 }
 
 /**
+ * Basculer à `true` uniquement quand `HOME_VERIFIED_REVIEWS_FOR_SCHEMA` contient 3 avis réels
+ * (noms, entreprises, dates, citations vérifiables). Sinon rester à `false` (option A).
+ */
+export const HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD = false;
+
+/**
  * Option A — Recommandé par défaut : pas de `review[]`, seulement aggregateRating
  * (ratingValue 4,85, reviewCount issu de SCHEMA_AGGREGATE_RATING_HOME / ~1592).
  */
 export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<string, unknown> {
   return getHomeOrganizationLocalBusinessCore();
+}
+
+/** Schéma accueil : option A (aggregate seul) ou option B (aggregate + `review[]` vérifiables). */
+export function getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved(): Record<string, unknown> {
+  return HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD
+    ? getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews()
+    : getHomeOrganizationLocalBusinessEnrichmentJsonLd();
 }
 
 /**

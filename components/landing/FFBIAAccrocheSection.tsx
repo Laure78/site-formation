@@ -42,13 +42,13 @@ export function FFBIAAccrocheSection() {
           </div>
 
           <div>
-            <h2
+            <h3
               id="ffb-ia-accroche-titre"
               className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
             >
               Intelligence artificielle,{' '}
               <span className="text-[var(--accent)]">tous concernés</span> !
-            </h2>
+            </h3>
             <p className="mt-4 text-lg font-medium text-slate-800">
               Des cas concrets de l&apos;amont à l&apos;aval de l&apos;acte de construire.
             </p>

@@ -18,9 +18,9 @@ export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://fr.linkedin.com/in/laure-oli
 /** Contact & identifiants légaux (JSON-LD, mentions). */
 export const SCHEMA_CONTACT = {
   email: 'laureolivie@yahoo.fr',
-  /** Numéro public — laisser vide pour masquer les liens tel: et le champ telephone dans les schémas. */
-  phone: '',
-  phoneDisplay: '',
+  /** Numéro public (E.164) — laisser vide pour masquer les liens tel: et le champ telephone dans les schémas. */
+  phone: '+33695661818',
+  phoneDisplay: '06 95 66 18 18',
   siretFormatted: '905 244 281 00010',
   /** Sans espaces — annuaires, URLs */
   siretDigits: '90524428100010',

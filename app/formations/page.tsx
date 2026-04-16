@@ -6,9 +6,8 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -19,11 +18,12 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue formations IA BTP — Qualiopi Constructys | Laure Olivié',
   description:
-    '6 formations IA BTP Qualiopi de 4h : devis, appels d\'offres, chantier, RH. 100 % finançable Constructys. Diagnostic gratuit en visio.',
+    '7 formations IA BTP Qualiopi de 4h : devis, CCTP/DCE, appels d\'offres, chantier, RH. 100 % finançable Constructys. Diagnostic gratuit en visio.',
   path: '/formations',
   keywords: [
     'formation IA BTP',
@@ -145,6 +145,21 @@ const FORMATIONS_UNSORTED = [
       'Bibliothèque de prompts et flux opérationnels pour le cabinet',
     ],
   },
+  {
+    ref: 'BTP-07',
+    level: 'AVANCÉ' as const,
+    title: 'Formation IA analyse CCTP & DCE — répondre aux appels d’offres',
+    href: LINKS.formationIaCctpAnalyseDceBtp,
+    visuel: PHOTOS.btpFormationChantierPlans2026,
+    duree: SESSION_DUREE_LIBELLE,
+    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
+    objectifs: [
+      'Lire un CCTP et un DCE rapidement avec une méthode IA encadrée',
+      'Croiser exigences techniques, DPGF et critères pour cadrer le chiffrage',
+      'Préparer un mémoire technique aligné et sécuriser les relectures',
+      'Industrialiser prompts et assistants pour les marchés publics et privés',
+    ],
+  },
 ];
 
 function refNum(ref: string) {
@@ -181,7 +196,7 @@ function buildFormationsCourseListJsonLd(): Record<string, unknown> {
         '@id': `${baseUrl}/formations#course-list`,
         name: 'Catalogue des formations IA BTP',
         description:
-          '6 formations IA BTP Qualiopi de 4 h : devis, appels d\'offres, chantier, RH. 100 % finançable Constructys.',
+          '7 formations IA BTP Qualiopi de 4 h : devis, CCTP/DCE, appels d\'offres, chantier, RH. 100 % finançable Constructys.',
         numberOfItems: FORMATIONS.length,
         itemListElement: FORMATIONS.map((cours, i) => {
           const nn = cours.ref.replace(/^BTP-/, '');
@@ -215,7 +230,7 @@ function buildFormationsCourseListJsonLd(): Record<string, unknown> {
               aggregateRating: {
                 '@type': 'AggregateRating',
                 ratingValue: '4.85',
-                reviewCount: '1592',
+                reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
                 bestRating: '5',
               },
               image: cardImageUrl,
@@ -250,14 +265,6 @@ export default function FormationsPage() {
       <JsonLd id="schema-formations-catalog-graph" schema={buildFormationsCourseListJsonLd()} />
       <JsonLd id="schema-formations-faq" schema={faqSchema} />
       <div className="mx-auto max-w-6xl px-4 py-16">
-        <Breadcrumb
-          items={breadcrumbItemsFromPaths([
-            { name: 'Accueil', path: '/' },
-            { name: 'Catalogue formations', path: '/formations' },
-          ])}
-          showVisual
-          className="mb-6"
-        />
         <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Formation IA pour le BTP : catalogue Qualiopi, bâtiment et travaux publics

@@ -101,7 +101,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Entreprise" className="min-w-0">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Entreprise</h2>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Entreprise</h3>
             <ul className="mt-3 space-y-2">
               {companyLinks.map((item) => (
                 <li key={item.label}>
@@ -127,7 +127,7 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Services" className="min-w-0">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Services</h2>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Services</h3>
             <ul className="mt-3 space-y-2">
               {serviceLinks.map((item) => (
                 <li key={item.href}>
@@ -143,7 +143,7 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Ressources" className="min-w-0">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Ressources</h2>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Ressources</h3>
             <ul className="mt-3 space-y-2">
               {resourceLinks.map((item) => (
                 <li key={item.href}>
@@ -159,7 +159,7 @@ export function Footer() {
           </nav>
 
           <nav aria-label="Légal" className="min-w-0">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Légal</h2>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Légal</h3>
             <ul className="mt-3 space-y-2">
               {legalLinks.map((item) => (
                 <li key={item.href}>

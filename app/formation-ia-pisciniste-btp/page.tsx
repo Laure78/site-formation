@@ -8,7 +8,7 @@ import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/
 import { SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-pisciniste-btp';
 
@@ -361,7 +361,7 @@ export default function FormationIaPiscinisteBtpPage() {
             <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> les professionnels du BTP (artisans,
             dirigeants, fonctions techniques) pour utiliser ChatGPT sur la productivité (devis, documentation, appels
             d’offres). <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
-            <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> formés, satisfaction moyenne{' '}
+            <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}
             <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

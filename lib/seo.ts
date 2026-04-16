@@ -12,6 +12,7 @@ import {
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_PUBLIC_SITE_URL,
   SCHEMA_STATS,
+  schemaDefaultPersonImageUrl,
 } from '@/lib/schema-constants';
 import { buildPageMetadata } from '@/utils/metadata';
 
@@ -285,6 +286,39 @@ export function getCourseSchema({
     ...(areaServed?.length && {
       areaServed: areaServed.map((a) => ({ '@type': 'Place', name: a })),
     }),
+  };
+}
+
+/**
+ * Person (Laure Olivié) — JSON-LD global layout, @id #laure-olivie.
+ * Données alignées sur schema-constants / SITE_CONFIG.
+ */
+export function getGlobalLayoutPersonJsonLd() {
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${base}/#laure-olivie`,
+    name: SITE_CONFIG.name,
+    jobTitle: 'Formatrice IA & ChatGPT pour le BTP',
+    description: `Formatrice IA spécialisée BTP. A formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment. Certifiée Qualiopi.`,
+    url: `${base}/a-propos`,
+    image: schemaDefaultPersonImageUrl(),
+    email: SCHEMA_CONTACT.email,
+    ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
+    worksFor: {
+      '@type': 'Organization',
+      '@id': `${base}/#organization`,
+      name: SITE_CONFIG.legalName,
+    },
+    knowsAbout: [
+      'Intelligence artificielle pour le BTP',
+      'ChatGPT pour le bâtiment',
+      'Formation professionnelle Qualiopi',
+      'Devis BTP automatisés',
+      "Appels d'offres BTP",
+    ],
+    sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
   };
 }
 

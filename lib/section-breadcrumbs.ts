@@ -13,7 +13,8 @@ const BASE = SITE_CONFIG.url.replace(/\/$/, '');
 
 /** Libellés manuels pour URLs formation non présentes dans le catalogue typé. */
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
-  '/formations/ia-btp-paris': 'Formation IA BTP à Paris',
+  '/formations/ia-btp-paris': 'Formation IA BTP Paris',
+  '/formations/formation-ia-cctp-analyse-dce-btp': 'Formation IA CCTP & DCE',
   '/formations/ia-btp-bordeaux': 'Formation IA BTP à Bordeaux',
   '/formations/ia-btp-lyon': 'Formation IA BTP à Lyon',
   '/formations/ia-btp-lille': 'Formation IA BTP à Lille',

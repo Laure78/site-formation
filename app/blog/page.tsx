@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { existsSync } from 'fs';
 import { join } from 'path';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_BLOG } from '@/lib/faq';
 import {
   BLOG_CATEGORIES,
@@ -16,14 +16,13 @@ import {
 import type { BlogCategoryId } from '@/lib/blog';
 import { ArrowRight } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { CTABlock } from '@/components/CTABlock';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Articles, guides pratiques',
   description:
-    '33 articles et guides IA pour le BTP : devis, appels d\'offres, ChatGPT, Constructys. Méthode terrain par Laure Olivié, formatrice Qualiopi.',
+    'Articles et guides IA pour le BTP : devis, appels d\'offres, CCTP/DCE, ChatGPT, Constructys. Méthode terrain par Laure Olivié, formatrice Qualiopi.',
   path: '/blog',
   keywords: ['blog formation IA BTP', 'ressources IA bâtiment', 'articles ChatGPT BTP'],
 });
@@ -81,11 +80,27 @@ function ArticleCard({
   article,
   highlighted,
 }: {
-  article: { slug: string; title: string; description: string; date: string; sections?: unknown; coverImage?: string };
+  article: {
+    slug: string;
+    title: string;
+    description: string;
+    date: string;
+    sections?: unknown;
+    coverImage?: string;
+    readingTime?: string;
+  };
   highlighted?: boolean;
 }) {
   const coverSrc = resolveCoverImageUrl(article);
-  const readingMinutes = article.sections ? estimateReadingMinutes(article as never) : null;
+  const readingMinutes =
+    article.sections && Array.isArray(article.sections) && article.sections.length > 0
+      ? estimateReadingMinutes(article as never)
+      : null;
+  const readingLabel = article.readingTime
+    ? article.readingTime
+    : readingMinutes != null
+      ? `${readingMinutes} min de lecture`
+      : null;
   return (
     <article
       className={`rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md md:p-8 ${
@@ -111,10 +126,10 @@ function ArticleCard({
             year: 'numeric',
           })}
         </time>
-        {readingMinutes != null && (
+        {readingLabel != null && (
           <>
             <span aria-hidden>·</span>
-            <span>{readingMinutes} min de lecture</span>
+            <span>{readingLabel}</span>
           </>
         )}
         <span aria-hidden>·</span>
@@ -160,14 +175,6 @@ export default async function BlogPage({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Ressources', path: '/blog' },
-        ])}
-        showVisual
-        className="mb-6"
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
