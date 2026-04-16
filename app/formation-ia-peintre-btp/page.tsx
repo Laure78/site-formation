@@ -7,6 +7,7 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, siteHasPublicPhone, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { InlinePublicPhoneLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const PATH = '/formation-ia-peintre-btp';
 
@@ -392,7 +393,7 @@ export default function FormationIaPeintreBtpPage() {
           <p className="mt-4 text-slate-600 leading-relaxed">
             L’organisme a formé plus de <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du bâtiment.{' '}
             <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE,
-            etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
+            etc. <strong>Satisfaction moyenne :</strong> {SOCIAL_PROOF.AVERAGE_RATING}.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Les parcours restent centrés sur la <strong>pratique</strong> : devis, fiches, variantes — avec relecture

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Mail, Globe, Map, MapPin, GraduationCap } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { SITE_CONFIG } from '@/lib/seo';
+import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
 import { LINKS } from '@/lib/internal-links';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
@@ -80,11 +81,11 @@ export function Footer() {
             </p>
             <div className="mt-4 space-y-2">
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href={`mailto:${SCHEMA_CONTACT.email}`}
                 className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
               >
                 <Mail size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
-                laureolivie@yahoo.fr
+                {SCHEMA_CONTACT.email}
               </a>
               <Link
                 href={LINKS.home}
@@ -208,7 +209,7 @@ export function Footer() {
               <Map size={18} strokeWidth={1.5} />
             </ExternalLinkAnchor>
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href={`mailto:${SCHEMA_CONTACT.email}`}
               title="Envoyer un email"
               aria-label="Email"
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"

@@ -13,6 +13,7 @@ import {
 } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { InlinePublicPhoneLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const PATH = '/formation-ia-plaquiste-btp';
 
@@ -399,7 +400,7 @@ export default function FormationIaPlaquisteBtpPage() {
           <p className="mt-4 text-slate-600 leading-relaxed">
             L’organisme a formé plus de <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> du bâtiment.{' '}
             <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE,
-            etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
+            etc. <strong>Satisfaction moyenne :</strong> {SOCIAL_PROOF.AVERAGE_RATING}.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Les parcours plaquisterie restent <strong>100 % pratiques</strong> sur cas réels — avec validation systématique des

@@ -25,6 +25,7 @@ import {
 import { ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
 import { PHOTOS } from '@/lib/photos';
 import { AProposEeatSections } from '@/components/a-propos/AProposEeatSections';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
@@ -34,12 +35,12 @@ const CHIFFRES_FAITS_VERIFIABLES: {
   description: string;
 }[] = [
   {
-    highlight: '1 592',
+    highlight: formatProfessionalsTrainedCount(),
     description:
       "professionnels BTP formés depuis 2022 — statistique officielle OFC Création d'Entreprise",
   },
   {
-    highlight: '4,85/5',
+    highlight: SOCIAL_PROOF.AVERAGE_RATING,
     description:
       'Note moyenne — moyenne pondérée sur toutes les sessions de formation',
   },
@@ -66,9 +67,9 @@ const CHIFFRES_FAITS_VERIFIABLES: {
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Laure Olivié — Formatrice IA BTP | Qualiopi | 1 592 professionnels formés',
+  title: `Laure Olivié — Formatrice IA BTP | Qualiopi | ${formatProfessionalsTrainedCount()} professionnels formés`,
   description:
-    "Laure Olivié, formatrice IA BTP certifiée Qualiopi (NDA 11788515078) : 1 592 professionnels formés, note 4,85/5. Terrain TP, LinkedIn Learning, partenaires FFB & CSFE étanchéité. Guyancourt (78).",
+    `Laure Olivié, formatrice IA BTP certifiée Qualiopi (NDA 11788515078) : ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Terrain TP, LinkedIn Learning, partenaires FFB & CSFE étanchéité. Guyancourt (78).`,
   path: '/a-propos',
   keywords: [
     'Laure Olivié',
@@ -128,9 +129,10 @@ export default function AProposPage() {
                   ainsi que les conducteurs de travaux et équipes support, dans l&apos;intégration de ChatGPT et de l&apos;IA générative.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  <strong>1592 professionnels formés</strong> avec une note moyenne de <strong>4,85/5</strong>. 
-                  <strong>10 ans d'expérience</strong> en formation professionnelle et conduite de chantier dans les travaux publics. 
-                  Instructrice <strong>LinkedIn Learning</strong> avec 2 formations officielles sur l'IA pour le BTP.
+                  <strong>{formatProfessionalsTrainedCount()} professionnels formés</strong> avec une note moyenne de{' '}
+                  <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>. <strong>10 ans d'expérience</strong> en formation
+                  professionnelle et conduite de chantier dans les travaux publics. Instructrice{' '}
+                  <strong>LinkedIn Learning</strong> avec 2 formations officielles sur l'IA pour le BTP.
                 </p>
                 <p className="text-lg leading-relaxed">
                   Son organisme <strong>OFC Création d'Entreprise</strong> est <strong>certifié Qualiopi</strong> (n° 905 244 281 00010), 
@@ -140,8 +142,8 @@ export default function AProposPage() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
-                  '1592 formés',
-                  'Note 4,85/5',
+                  `${formatProfessionalsTrainedCount()} formés`,
+                  `Note ${SOCIAL_PROOF.AVERAGE_RATING}`,
                   '10 ans expérience',
                   'Qualiopi',
                   'LinkedIn Learning',
@@ -158,7 +160,7 @@ export default function AProposPage() {
             <div className="shrink-0 lg:w-96">
               <ProfilePhoto
                 priority
-                title="10 ans d'expérience terrain BTP · +1 592 professionnels formés · 4,85/5"
+                title={`10 ans d'expérience terrain BTP · +${formatProfessionalsTrainedCount()} professionnels formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
               />
             </div>
           </div>
@@ -382,7 +384,7 @@ export default function AProposPage() {
             {[
               {
                 icon: CheckCircle,
-                title: "1592 professionnels formés",
+                title: `${formatProfessionalsTrainedCount()} professionnels formés`,
                 desc: "Dirigeants, conducteurs de travaux, équipes BTP. Statistique officielle vérifiable.",
               },
               {
@@ -398,7 +400,7 @@ export default function AProposPage() {
               {
                 icon: Award,
                 title: 'Certification Qualiopi',
-                desc: "100 % finançable OPCO Constructys. Note 4,85/5. Référencé FFB.",
+                desc: `100 % finançable OPCO Constructys. Note ${SOCIAL_PROOF.AVERAGE_RATING}. Référencé FFB.`,
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div

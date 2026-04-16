@@ -4,6 +4,7 @@
  */
 
 import type { Metadata } from 'next';
+import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_CONTACT,
@@ -29,7 +30,7 @@ export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
   description:
-    "Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — +1592 pros formés. Île-de-France & France.",
+    `Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — +${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Île-de-France & France.`,
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: SCHEMA_CONTACT.email,
@@ -645,7 +646,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: 'Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). 1592 professionnels formés. Note moyenne 4,85/5. 10 ans d\'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.',
+    description: `Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans d'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.`,
     knowsAbout: [
       'Formation IA BTP',
       'Formation ChatGPT entreprise BTP',
@@ -722,13 +723,13 @@ export function getPersonSchema() {
     },
     award: [
       'Formatrice LinkedIn Learning 2024',
-      '1592 professionnels formés (statistique officielle)',
-      'Note moyenne 4,85/5',
+      `${formatProfessionalsTrainedCount()} professionnels formés (statistique officielle)`,
+      `Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}`,
       '10 ans d\'expérience en formation professionnelle',
     ],
     numberOfEmployees: {
       '@type': 'QuantitativeValue',
-      value: 1592,
+      value: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
       unitText: 'personnes formées',
     },
     url: SITE_CONFIG.url,

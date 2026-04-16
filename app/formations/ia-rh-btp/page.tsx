@@ -5,10 +5,8 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
@@ -111,13 +109,6 @@ export default function FormationIARHBTPPage() {
   return (
     <div>
       <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA pour la fonction RH BTP', path: '/formations/ia-rh-btp' },
-        ])}
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

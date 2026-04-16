@@ -2,6 +2,7 @@
  * JSON-LD LocalBusiness + Person — page /a-propos uniquement
  * (évite les doublons avec les scripts globaux du layout)
  */
+import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -23,8 +24,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}/images/laure-portrait-pro-2026.png`,
-    description:
-      'Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA BTP finançable Constructys. +1 592 professionnels formés. Note 4,85/5.',
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA BTP finançable Constructys. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',
@@ -80,8 +80,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   '@type': 'Person',
   name: 'Laure Olivié',
   jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
-  description:
-    'Formatrice spécialisée en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. 1592 professionnels formés. Certifiée Qualiopi.',
+  description: `Formatrice spécialisée en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. ${formatProfessionalsTrainedCount()} professionnels formés. Certifiée Qualiopi.`,
   url: `${BASE}/a-propos`,
   image: `${BASE}/images/laure-portrait-pro-2026.png`,
   telephone: '+33695661818',

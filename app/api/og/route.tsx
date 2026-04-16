@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const runtime = 'edge';
 
@@ -48,7 +49,7 @@ export async function GET(request: Request) {
             opacity: 0.8,
           }}
         >
-          Qualiopi · Finançable Constructys · 1592 professionnels formés
+          {`Qualiopi · Finançable Constructys · ${formatProfessionalsTrainedCount()} professionnels formés`}
         </div>
       </div>
     ),

@@ -3,6 +3,7 @@
  */
 import { formationsData } from '@/src/data/formations';
 import { SITE_CONFIG } from '@/lib/seo';
+import { SCHEMA_AGGREGATE_RATING_HOME } from '@/lib/schema-constants';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
@@ -239,4 +240,139 @@ export function getFormationCoursePageJsonLd(
 ): Record<string, unknown> | null {
   const slug = path.replace(/^\/formations\//, '').replace(/\/$/, '');
   return getCourseJsonLdFromFormationsData(slug);
+}
+
+/** Fiches catalogue prioritaires — Course JSON-LD enrichi (références @id organisation / formatrice, offre, avis). */
+export const DEDICATED_FORMATION_COURSE_PATHS = [
+  '/formations/ia-au-service-du-batiment',
+  '/formations/ia-travaux-publics',
+  '/formations/sensibilisation-ia-assistants-personnalises',
+  '/formations/ia-btp-paris',
+  '/formations/ia-architecture-claude-dpgf',
+  '/formations/ia-appels-offre-btp',
+] as const;
+
+export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
+
+const PARIS_FORMATION_DEDICATED = {
+  name: 'Formation IA BTP à Paris',
+  description:
+    'Formation de 4 h pour professionnels du BTP en Île-de-France : devis, chiffrages, ChatGPT. Paris (75) et huit départements. Qualiopi · Constructys.',
+  educationalLevel: 'Débutant' as const,
+  /** Aligné BTP-01 (débutant). */
+  priceHt: tarifHtDepuisBadgeCatalogue('DÉBUTANT'),
+  teaches: [
+    'Devis et chiffrage assistés par l’IA pour le BTP',
+    'Emails professionnels et suivi client en Île-de-France',
+    'Automatisation de l’administratif chantier avec ChatGPT',
+  ],
+};
+
+function niveauCatalogueToFr(level: NiveauCatalogue): 'Débutant' | 'Avancé' {
+  return level === 'DÉBUTANT' ? 'Débutant' : 'Avancé';
+}
+
+function buildDedicatedFormationCourseObject(opts: {
+  courseUrl: string;
+  name: string;
+  description: string;
+  educationalLevel: string;
+  priceString: string;
+  teaches: [string, string, string];
+  organizationId: string;
+  laurePersonId: string;
+}): Record<string, unknown> {
+  const {
+    courseUrl,
+    name,
+    description,
+    educationalLevel,
+    priceString,
+    teaches,
+    organizationId,
+    laurePersonId,
+  } = opts;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    '@id': `${courseUrl}#course`,
+    name,
+    description,
+    provider: { '@id': organizationId },
+    instructor: { '@id': laurePersonId },
+    educationalLevel,
+    inLanguage: 'fr-FR',
+    timeRequired: DURATION_ISO,
+    courseMode: [...COURSE_MODES],
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'onsite',
+      location: { '@type': 'Place', name: 'Île-de-France' },
+      courseWorkload: DURATION_ISO,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: priceString,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      category: 'Formation professionnelle finançable Constructys',
+    },
+    teaches: [...teaches],
+    aggregateRating: {
+      '@type': 'AggregateRating' as const,
+      ratingValue: SCHEMA_AGGREGATE_RATING_HOME.ratingValue,
+      reviewCount: SCHEMA_AGGREGATE_RATING_HOME.reviewCount,
+      bestRating: SCHEMA_AGGREGATE_RATING_HOME.bestRating,
+    },
+  };
+}
+
+/**
+ * Course dédiée pour les fiches formation listées (provider / instructor en @id, AggregateRating OFC).
+ */
+export function getDedicatedFormationCoursePageJsonLd(
+  path: DedicatedFormationCoursePath
+): Record<string, unknown> {
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const organizationId = `${base}/#organization`;
+  const laurePersonId = `${base}/#laure`;
+
+  if (path === '/formations/ia-btp-paris') {
+    return buildDedicatedFormationCourseObject({
+      courseUrl: `${base}${path}`,
+      name: PARIS_FORMATION_DEDICATED.name,
+      description: PARIS_FORMATION_DEDICATED.description,
+      educationalLevel: PARIS_FORMATION_DEDICATED.educationalLevel,
+      priceString: String(PARIS_FORMATION_DEDICATED.priceHt),
+      teaches: [
+        PARIS_FORMATION_DEDICATED.teaches[0],
+        PARIS_FORMATION_DEDICATED.teaches[1],
+        PARIS_FORMATION_DEDICATED.teaches[2],
+      ],
+      organizationId,
+      laurePersonId,
+    });
+  }
+
+  const entry = FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === path);
+  if (!entry) {
+    throw new Error(`getDedicatedFormationCoursePageJsonLd: chemin inconnu ${path}`);
+  }
+
+  const price = tarifHtDepuisBadgeCatalogue(entry.level);
+  const teaches3 = entry.teaches.slice(0, 3);
+  if (teaches3.length < 3) {
+    throw new Error(`getDedicatedFormationCoursePageJsonLd: pas assez de compétences "teaches" pour ${path}`);
+  }
+
+  return buildDedicatedFormationCourseObject({
+    courseUrl: `${base}${entry.path}`,
+    name: entry.name,
+    description: entry.description,
+    educationalLevel: niveauCatalogueToFr(entry.level),
+    priceString: String(price),
+    teaches: [teaches3[0]!, teaches3[1]!, teaches3[2]!],
+    organizationId,
+    laurePersonId,
+  });
 }

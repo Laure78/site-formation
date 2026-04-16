@@ -1,3 +1,4 @@
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { SITE_CONFIG, getCourseSchema, getOrganizationSchema, getLocalBusinessSchema } from '@/lib/seo';
 
 const DEPTS_IDF = [
@@ -33,6 +34,7 @@ export function buildFormationIaCourseJsonLd(opts: {
     ],
     areaServed: opts.areaServed ?? ['Île-de-France', 'France'],
     educationalLevel: 'Professionnel',
+    timeRequired: 'PT4H',
   });
 }
 
@@ -47,8 +49,8 @@ export function buildFormationIaLocalBusinessJsonLd() {
       ratingValue: 4.85,
       bestRating: 5,
       worstRating: 1,
-      ratingCount: 1592,
-      reviewCount: 1592,
+      ratingCount: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
+      reviewCount: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
     },
     areaServed: [
       { '@type': 'City', name: 'Paris' },
@@ -79,4 +81,30 @@ export function getFormationIleDeFrancePageLocalBusinessJsonLd(): Record<string,
 /** Organisation certifiée Qualiopi (schéma déjà porté par getOrganizationSchema) */
 export function buildEducationalOrgSnippetJsonLd() {
   return getOrganizationSchema();
+}
+
+/**
+ * Service — complète le Course sur les pages « formation IA BTP » par département (zone d’intervention).
+ */
+export function buildFormationIaServiceJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  areaServed: string[];
+}): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: opts.name,
+    description: opts.description,
+    serviceType: 'Formation professionnelle',
+    category: 'Formation IA BTP',
+    provider: {
+      '@type': 'Organization',
+      '@id': `${SITE_CONFIG.url}/#organization`,
+      name: SITE_CONFIG.legalName,
+    },
+    areaServed: opts.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
+    url: `${SITE_CONFIG.url}${opts.path}`,
+  };
 }

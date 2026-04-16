@@ -7,6 +7,7 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const PATH = '/formation-ia-couvreur-btp';
 
@@ -384,7 +385,7 @@ export default function FormationIaCouvreurBtpPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE,
-            etc. <strong>Satisfaction moyenne :</strong> 4,85/5.
+            etc. <strong>Satisfaction moyenne :</strong> {SOCIAL_PROOF.AVERAGE_RATING}.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Elle a conçu cette approche parce qu’elle voit souvent des couvreurs très compétents passer trop de temps sur le

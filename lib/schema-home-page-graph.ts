@@ -1,3 +1,6 @@
+import { SOCIAL_PROOF } from '@/lib/constants';
+import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+
 /**
  * JSON-LD @graph (LocalBusiness + Person) — page d’accueil uniquement.
  */
@@ -10,7 +13,16 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
       name: "OFC Création d'Entreprise — Laure Olivié",
       url: 'https://www.laureolivie.fr',
       telephone: '+33695661818',
-      email: 'laureolivie@yahoo.fr',
+      email: SCHEMA_CONTACT.email,
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer service',
+          email: SCHEMA_CONTACT.email,
+          availableLanguage: 'French',
+          areaServed: 'FR',
+        },
+      ],
       address: {
         '@type': 'PostalAddress',
         streetAddress: '6 Rue Henri Dunant',
@@ -26,7 +38,7 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '4.85',
-        reviewCount: '1592',
+        reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
         bestRating: '5',
         worstRating: '1',
       },

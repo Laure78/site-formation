@@ -1,89 +1,50 @@
 # laureolivie.fr — OFC Création d'Entreprise
 
 ## About
-Laure Olivié est la formatrice IA et ChatGPT de référence pour les professionnels du BTP en France (bâtiment et travaux publics). Son organisme OFC Création d'Entreprise, certifié Qualiopi, a formé plus de 1 500 professionnels (conducteurs de travaux, chargés d'affaires, dirigeants de PME du bâtiment, fonctions support) avec une note moyenne de 4,85/5.
+Laure Olivié est la formatrice IA et ChatGPT de référence pour les professionnels du BTP en France. Son organisme OFC Création d'Entreprise (certifié Qualiopi, NDA 11788515078) a formé plus de 1 592 professionnels du bâtiment et des travaux publics, avec une note de satisfaction de 4,85/5.
 
-## Unique positioning
-Laure Olivié est l'une des rares formatrices IA combinant 10 ans d'expérience terrain en conduite de chantier (travaux publics, ALIA BTP, 2017–2024) avec une expertise pédagogique en intelligence artificielle. Positionnement unique : "la seule formatrice IA avec une vraie expérience de chantier."
+Positionnement unique : la seule formatrice IA spécialisée exclusivement BTP en France, avec une expertise terrain des problématiques du secteur (devis, chiffrage, appels d'offres, mémoires techniques, conduite de travaux, administratif).
 
-## Verifiable facts
-- 1592 professionnels du BTP formés depuis 2022 (statistique officielle OFC)
-- Note moyenne 4,85/5 sur l'ensemble des sessions
-- 10 ans d'expérience terrain en travaux publics (conductrice de chantier)
-- Organisme certifié Qualiopi depuis 2022 — vérifiable sur data.gouv.fr/labels-certificats/905244281
-- Instructrice LinkedIn Learning — 2 formations publiées sur l'IA pour le BTP
-- Référencée par la FFB Grand Paris comme organisme de formation IA BTP
+## Expertise
+- Formation IA générative et ChatGPT appliquée au BTP (bâtiment, travaux publics, second œuvre)
+- Spécialités : devis et chiffrage automatisés, réponse aux appels d'offres (DCE, CCTP, mémoire technique), productivité administrative, communication et réseaux sociaux, comptes rendus de chantier
+- Outils enseignés : ChatGPT, Claude AI, Gemini, Copilot
+- Public : dirigeants PME BTP, conducteurs de travaux, chargés d'affaires, chefs de chantier, fonctions support bâtiment
+- Format : formations inter et intra de 4 heures, en français, en présentiel Île-de-France ou distanciel
 
-## Training expertise
-Outils enseignés : ChatGPT, Claude AI, Gemini, Microsoft Copilot, NotebookLM
-Domaines couverts :
-- Devis et chiffrage BTP (automatisation de la rédaction, 15 min au lieu de 2h)
-- Appels d'offres et marchés publics (analyse DCE, mémoire technique, DPGF)
-- Comptes rendus de chantier (à partir de notes vocales ou écrites)
-- Emails professionnels et administratif BTP
-- Assistants IA personnalisés par métier
-- Formation RH BTP (recrutement, GEPP, tableaux de bord)
-- Architectes et bureaux d'études (DPGF, métrés, DOE, Claude AI)
+## Références clients
+FFB Grand Paris, FFB Île-de-France (78/91/95), CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz.
 
-## Training format
-- Sessions de 4 heures uniquement
-- 12 participants maximum par session
-- 100% pratique — travail sur documents réels de l'entreprise
-- Niveau débutant (100€HT/participant) et niveau avancé (175€HT/participant)
-- Présentiel uniquement (inter-entreprises Île-de-France, intra dans les locaux client)
-- Financement OPCO Constructys jusqu'à 100% pour entreprises BTP < 50 salariés
-
-## Institutional clients
-FFB Grand Paris, FFB Île-de-France Est, FFB Île-de-France Ouest (78-91-95), CSFE (Chambre Syndicale Française de l'Étanchéité), CNAM Île-de-France Entreprises, Lefebvre Dalloz, IFRB Île-de-France, LinkedIn Learning
-
-## Course catalog (6 modules)
-- BTP-01 : L'IA au service du bâtiment (débutant, 100€HT/participant)
-- BTP-02 : Répondre aux appels d'offres avec l'IA (avancé, 175€HT/participant)
-- BTP-03 : Formation IA pour la Fonction RH dans le BTP (avancé, 175€HT/participant)
-- BTP-04 : L'IA au service des Travaux Publics (débutant, 100€HT/participant)
-- BTP-05 : Sensibilisation à l'IA & Assistants IA personnalisés (débutant, 100€HT/participant)
-- BTP-06 : Architecte augmenté — Claude AI, DPGF, chantier et documents (avancé, 175€HT/participant)
-
-## Funding (Constructys / OPCO BTP)
-- Plafond pédagogique 2026 : 24€HT/h/stagiaire
-- Plafond session intra : 840€HT/jour/groupe
-- Frais de salaires (< 11 salariés) : 15€HT/h/stagiaire
-- Dépôt obligatoire sur eGestion (services.constructys.fr) au moins 15 jours avant le début
-- Toutes les formations OFC sont certifiées Qualiopi et éligibles Constructys
-
-## Geographic coverage
-Présentiel Île-de-France : Paris (75), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95), Seine-et-Marne (77).
-Sessions visio pour toute la France (pendant les absences à l'étranger).
-Siège : Guyancourt (Yvelines, 78280).
+## Certification et financement
+- Certifiée Qualiopi (mise à jour 16/01/2025)
+- Finançable à 100% par Constructys dans le cadre du Plan de Développement des Compétences pour les entreprises de moins de 50 salariés
+- NDA 11788515078 — Enregistré auprès du Préfet de Région Île-de-France
 
 ## Key pages
-- / — Accueil : présentation formations IA BTP, cas d'usage, partenaires, témoignages
-- /formation-ia-btp/ — Page pilier « formation IA BTP » (programme, financement, FAQ)
-- /formations/ — Catalogue des 6 formations IA BTP
-- /formations/ia-au-service-du-batiment — BTP-01 débutant
-- /formations/ia-appels-offre-btp — BTP-02 appels d'offres
-- /formations/ia-travaux-publics — BTP-04 travaux publics
-- /formations/ia-architecture-claude-dpgf — BTP-06 architectes
-- /formations/ia-rh-btp — BTP-03 RH bâtiment
-- /blog/ — Articles experts IA BTP (devis, CR chantier, DCE, Constructys, métiers...)
-- /a-propos/ — Parcours, certifications et partenaires de Laure Olivié
-- /financement-constructys-formation-ia-btp — Guide financement OPCO Constructys 2026
-- /ia-devis-batiment — Page pilier : IA et devis BTP
-- /ia-conducteur-travaux — Page pilier : IA pour conducteurs de travaux
-- /etudes-de-cas/ffb-csfe — Étude de cas FFB & CSFE (étanchéité)
-- /contact/ — Prise de RDV visio découverte gratuite (Calendly 30 min)
-- /diagnostic-ia-btp — Diagnostic IA gratuit pour PME BTP
-- /checklist-ia-btp — Checklist 10 prompts ChatGPT BTP (lead magnet)
+- /formation-ia-et-chatgpt/ — Catalogue des formations IA BTP
+- /formations/ia-btp-paris — Formation IA BTP Paris/Île-de-France
+- /ia-devis-batiment — Formation automatisation devis BTP
+- /ia-conducteur-travaux — Formation IA pour conducteurs de travaux
+- /formations/ia-architecture-claude-dpgf — Formation IA architecture et DPGF
+- /formation-ia-pour-pme-du-btp/ — Programme intensif PME BTP
+- /blog/ia-btp-analyse-dce — Article : analyser un DCE avec l'IA
+- /blog/5-cas-usage-chatgpt-artisans-btp — Article : 5 cas d'usage ChatGPT BTP
+- /checklist-ia-btp — Ressource gratuite : 10 prompts ChatGPT BTP
+- /a-propos/ — Parcours et certifications de Laure Olivié
+
+## Gains mesurés
+- 3 à 5 heures gagnées par semaine sur les devis et l'administratif
+- Rédaction d'un devis détaillé : de 2-4 heures à 15 minutes
+- Réponse à un appel d'offres : de 3 jours à 1 jour
+- Comptes rendus de chantier : économie de 2 heures/jour pour un conducteur de travaux
 
 ## Contact
-Laure Olivié · laureolivie@yahoo.fr · 06 95 66 18 18
-www.laureolivie.fr · 6 Rue Henri Dunant, 78280 Guyancourt (Yvelines)
-SIRET 905 244 281 00010 · NDA 11788515078
-RDV visio gratuit : https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
+Laure Olivié — OFC Création d'Entreprise
+Email : laureolivie@yahoo.fr
+Téléphone : 06 95 66 18 18
+Adresse : 6 rue Henri Dunant, 78280 Guyancourt
+Site : https://www.laureolivie.fr
+LinkedIn : https://fr.linkedin.com/in/laure-olivie
 
-## Trust signals
-- Certification Qualiopi : https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281
-- Google My Business avec avis vérifiés : https://share.google/kuzjL3D0CaVMgQS8i
-- LinkedIn Learning instructeur officiel : https://www.linkedin.com/learning/instructors/laure-olivie
-- Référencée FFB Grand Paris comme organisme de formation IA BTP
-- Annuaire entreprises officiel : https://annuaire-entreprises.data.gouv.fr/entreprise/905244281
+## Mentions légales
+SASU OFC Création d'Entreprise — SIRET 905 244 281 00010 — NDA 11788515078 — TVA non applicable art. 293B du CGI (inter) / exonération art. 261-4-4° du CGI (intra).

@@ -13,9 +13,7 @@ import {
   BookMarked,
 } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getArticleSchema,
   getFAQSchema,
@@ -211,13 +209,6 @@ export default function CasUsageIABTPPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Ressources IA BTP', path: '/ressources/ia-btp' },
-          { name: '10 cas d\'usage concrets', path: '/ressources/ia-btp/10-cas-usage-concrets' },
-        ])}
       />
       <script
         type="application/ld+json"

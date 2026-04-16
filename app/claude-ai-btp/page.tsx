@@ -11,6 +11,7 @@ import {
   getBreadcrumbSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 const PATH = '/claude-ai-btp';
@@ -20,7 +21,7 @@ const OG_IMAGE = '/og-claude-ai-btp.jpg';
 export const metadata = createPageMetadata({
   title: 'Formation Claude AI BTP : guide & IDF | Laure Olivié',
   description:
-    'Formation Claude AI BTP : guide Chat, Cowork, Code, Chrome. Paris, Yvelines, Essonne, IDF. Formation IA BTP Qualiopi — Constructys. +1 592 formés.',
+    `Formation Claude AI BTP : guide Chat, Cowork, Code, Chrome. Paris, Yvelines, Essonne, IDF. Formation IA BTP Qualiopi — Constructys. +${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: PATH,
   keywords: [
     'formation Claude AI BTP',
@@ -579,7 +580,7 @@ export default function ClaudeAiBtpPillarPage() {
               </table>
             </div>
             <p className="mt-5 text-sm text-slate-500">
-              FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France · +1 592 formés · 4,85/5
+              {`FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France · +${formatProfessionalsTrainedCount()} formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
             </p>
           </section>
 
@@ -714,7 +715,7 @@ export default function ClaudeAiBtpPillarPage() {
                 <li>• Entreprises &lt; 11 sal. : prise en charge salaires (15 € HT/h)</li>
               </ul>
               <p className="mt-4 text-xs text-slate-500">
-                FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +1 592 formés · 4,85/5
+                {`FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +${formatProfessionalsTrainedCount()} formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Link

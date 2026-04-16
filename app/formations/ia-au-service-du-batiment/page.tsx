@@ -22,16 +22,14 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
   siteHasPublicPhone,
 } from '@/lib/seo';
-import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
+import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_BATIMENT } from '@/lib/faq';
 import {
   FormationCourseHero,
@@ -90,9 +88,9 @@ export const metadata = createPageMetadata({
   },
 });
 
-const formationCourseGraph = getFormationCoursePageJsonLd(
+const formationCourseGraph = getDedicatedFormationCoursePageJsonLd(
   '/formations/ia-au-service-du-batiment'
-)!;
+);
 
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
 
@@ -246,13 +244,6 @@ export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
       <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: "L'IA au service du bâtiment", path: '/formations/ia-au-service-du-batiment' },
-        ])}
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

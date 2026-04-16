@@ -51,6 +51,11 @@ const nextConfig: NextConfig = {
         destination: '/formations/ia-btp-paris',
         permanent: true,
       },
+      {
+        source: '/formation-ia-btp-paris',
+        destination: '/formations/ia-btp-paris',
+        permanent: true,
+      },
       { source: '/merci-devis', destination: '/contact', permanent: true },
       { source: '/formation-ia-btp', destination: '/formations', permanent: false },
       {
@@ -138,6 +143,20 @@ const nextConfig: NextConfig = {
         destination: '/blog/chatgpt-devis-electricien-btp',
         permanent: true,
       },
+      // Articles supprimés — redirection vers le blog
+      { source: '/blog/ia-btp-lyon', destination: '/blog', statusCode: 301 },
+      { source: '/blog/chatgpt-btp-bordeaux', destination: '/blog', statusCode: 301 },
+
+      // Articles formateurs supprimés — redirection vers /communaute-formateurs
+      { source: '/blog/comment-trouver-premiers-clients-formateur', destination: '/communaute-formateurs', statusCode: 301 },
+      { source: '/blog/9-actions-developper-activite-formation', destination: '/communaute-formateurs', statusCode: 301 },
+      { source: '/blog/prospection-formation-methodes-qui-marchent', destination: '/communaute-formateurs', statusCode: 301 },
+
+      // Articles renommés (lsr-*) — redirection vers nouveau slug
+      { source: '/blog/lsr-analyse-dce-notebooklm-claude-btp', destination: '/blog/analyse-dce-notebooklm-claude-btp', statusCode: 301 },
+      { source: '/blog/lsr-go-no-go-rentabilite-appels-offres-btp', destination: '/blog/go-no-go-rentabilite-appels-offres-btp', statusCode: 301 },
+      { source: '/blog/lsr-memoire-technique-claude-projet-btp', destination: '/blog/memoire-technique-claude-projet-btp', statusCode: 301 },
+      { source: '/blog/lsr-chiffrage-cctp-bpu-appels-offres-btp', destination: '/blog/chiffrage-cctp-bpu-appels-offres-btp', statusCode: 301 },
     ];
   },
 };

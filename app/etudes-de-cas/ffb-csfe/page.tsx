@@ -2,15 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
 import { Check, Building2, GraduationCap, TrendingUp, Landmark, ShieldCheck, Timer } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getArticleSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
 import { CSFE_NOM_LIBRE, CSFE_TITRE_PAGE } from '@/lib/csfe';
 import { CaseStudyYoutubeThumbnails } from '@/components/landing/CaseStudyYoutubeThumbnails';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const ETUDE_CAS_THUMBNAILS = [
   {
@@ -107,12 +106,6 @@ const BENEFICES_CLIENTS = [
 export default function EtudeDeCasFfbCsfePage() {
   return (
     <div>
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: `Étude de cas ${CSFE_TITRE_PAGE}`, path: '/etudes-de-cas/ffb-csfe' },
-        ])}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -328,7 +321,7 @@ export default function EtudeDeCasFfbCsfePage() {
                     <p className="text-sm text-slate-600">professionnels accompagnés</p>
                   </li>
                   <li>
-                    <p className="text-3xl font-bold text-[var(--accent)]">4,85/5</p>
+                    <p className="text-3xl font-bold text-[var(--accent)]">{SOCIAL_PROOF.AVERAGE_RATING}</p>
                     <p className="text-sm text-slate-600">note moyenne de satisfaction</p>
                   </li>
                   <li>

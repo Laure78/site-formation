@@ -7,8 +7,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, SITE_CONFIG } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo';
 import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import type { CityFormationConfig } from '@/lib/formation-cities';
 import type { FAQItem } from '@/lib/faq';
@@ -48,13 +47,6 @@ export function FormationCityPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: `Formation IA BTP à ${ville}`, path },
-        ])}
       />
       {faqSchema && (
         <script

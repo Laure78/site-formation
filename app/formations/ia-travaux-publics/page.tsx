@@ -21,15 +21,13 @@ import {
 } from 'lucide-react';
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
+import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -75,9 +73,7 @@ export const metadata = createPageMetadata({
   },
 });
 
-const formationCourseGraph = getFormationCoursePageJsonLd(
-  '/formations/ia-travaux-publics'
-)!;
+const formationCourseGraph = getDedicatedFormationCoursePageJsonLd('/formations/ia-travaux-publics');
 
 const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 
@@ -199,13 +195,6 @@ export default function FormationIATravauxPublicsPage() {
   return (
     <div>
       <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: "L'IA au service des Travaux Publics", path: '/formations/ia-travaux-publics' },
-        ])}
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

@@ -6,6 +6,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKEDIN_PROFILE_URL } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -58,7 +59,8 @@ export function ArticleAuthor({ className }: Props) {
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-slate-700">
             <p>
               Ancienne conductrice de travaux reconvertie en formatrice IA, Laure Olivié a formé
-              plus de 1 592 professionnels du BTP à l&apos;utilisation de ChatGPT et Claude AI.
+              plus de {formatProfessionalsTrainedCount()} professionnels du BTP à l&apos;utilisation de ChatGPT et
+              Claude AI.
             </p>
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <span>Organisme certifié</span>

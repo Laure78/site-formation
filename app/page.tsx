@@ -44,6 +44,8 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
+import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildHomePageImageObjectsJsonLd } from '@/lib/schema-image-objects';
 import { getHomeOrganizationLocalBusinessEnrichmentJsonLd } from '@/lib/schema-home-organization';
 import { HOME_PAGE_GRAPH_JSON_LD as homeSchema } from '@/lib/schema-home-page-graph';
@@ -56,7 +58,7 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Île-de-France — Laure Olivié, Formatrice Qualiopi',
   description:
-    'Formez-vous à l\'IA & ChatGPT pour le BTP. Plus de 1 500 pros formés, note 4,85/5. 100 % finançable Constructys selon dossier. Réservez votre visio découverte gratuite.',
+    `Formez-vous à l'IA & ChatGPT pour le BTP. Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. 100 % finançable Constructys selon dossier. Réservez votre visio découverte gratuite.`,
   path: '/',
   keywords: [
     'formation IA BTP',
@@ -82,6 +84,7 @@ export default function HomePage() {
     <div>
       <JsonLd id="schema-faqpage-accueil" schema={getFAQSchema(FAQ_ITEMS_HOME)} />
       <JsonLd id="schema-imageobjects-accueil" schema={buildHomePageImageObjectsJsonLd()} />
+      {/* Option A (actif) : aggregateRating uniquement. Option B : schema={getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews()} */}
       <JsonLd
         id="schema-home-localbusiness-reviews"
         schema={getHomeOrganizationLocalBusinessEnrichmentJsonLd()}
@@ -138,7 +141,7 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="mt-4 text-base font-medium text-slate-700">
-                {SITE_CONFIG.statsPersonnesFormees}+ professionnels accompagnés · Note 4,85/5 ·
+                {SITE_CONFIG.statsPersonnesFormees}+ professionnels accompagnés · Note {SOCIAL_PROOF.AVERAGE_RATING} ·
                 Financement OPCO
               </p>
               <p className="mt-5 text-lg text-slate-600">
@@ -151,7 +154,9 @@ export default function HomePage() {
                 l&apos;automatisation des devis, du suivi chantier, des emails et des dossiers
                 d&apos;appels d&apos;offres, sans sacrifier la validation métier.
               </p>
-              <CitationSentence text="OFC Création d'Entreprise est votre référent formation IA pour le BTP : organisme certifié Qualiopi, spécialisé intelligence artificielle bâtiment et travaux publics — plus de 1 592 artisans et professionnels accompagnés." />
+              <CitationSentence
+                text={`OFC Création d'Entreprise est votre référent formation IA pour le BTP : organisme certifié Qualiopi, spécialisé intelligence artificielle bâtiment et travaux publics — plus de ${formatProfessionalsTrainedCount()} artisans et professionnels accompagnés.`}
+              />
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                   Organiser une formation
@@ -167,7 +172,7 @@ export default function HomePage() {
                 {[
                   { val: String(SITE_CONFIG.statsPersonnesFormees), label: 'PERSONNES FORMÉES' },
                   { val: '100%', label: 'FINANÇABLE OPCO' },
-                  { val: '4,85/5', label: 'NOTE MOYENNE' },
+                  { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'NOTE MOYENNE' },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -379,7 +384,7 @@ export default function HomePage() {
               <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 sm:gap-4">
                 {[
                   { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'personnes formées' },
-                  { val: '4,85/5', label: 'note moyenne' },
+                  { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'note moyenne' },
                   { val: '100%', label: 'finançable OPCO' },
                 ].map((s) => (
                   <div
@@ -396,7 +401,7 @@ export default function HomePage() {
               <Image
                 src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
                 alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
-                title="+1 592 professionnels formés · Note 4,85/5 · Finançable Constructys"
+                title={`+${formatProfessionalsTrainedCount()} professionnels formés · Note ${SOCIAL_PROOF.AVERAGE_RATING} · Finançable Constructys`}
                 fill
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 100vw, 576px"
@@ -1046,11 +1051,11 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <a
-                href={`mailto:${SITE_CONFIG.email}`}
+                href={`mailto:${SCHEMA_CONTACT.email}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
               >
                 <Mail size={20} strokeWidth={1.5} />
-                {SITE_CONFIG.email}
+                {SCHEMA_CONTACT.email}
               </a>
               <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50">
                 <Calendar size={20} strokeWidth={1.5} />
@@ -1081,7 +1086,16 @@ export default function HomePage() {
                 <Calendar size={20} strokeWidth={1.5} />
                 Voir le calendrier
               </RdvLink>
-              <p className="mt-6 text-sm text-slate-500">
+              <p className="mt-4 text-sm text-slate-600">
+                Email :{' '}
+                <a
+                  href={`mailto:${SCHEMA_CONTACT.email}`}
+                  className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+                >
+                  {SCHEMA_CONTACT.email}
+                </a>
+              </p>
+              <p className="mt-2 text-sm text-slate-500">
                 Écrivez-moi ou prenez rendez-vous — coordonnées à droite.
               </p>
               <div className="mt-8 space-y-6">
@@ -1099,7 +1113,7 @@ export default function HomePage() {
                   {
                     icon: Mail,
                     title: 'Besoin d\'échanger ?',
-                    desc: 'laureolivie@yahoo.fr',
+                    desc: SCHEMA_CONTACT.email,
                   },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-4">

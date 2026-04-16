@@ -14,11 +14,12 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
   title: 'ChatGPT artisan électricien BTP — formation IA électricien | Laure Olivié',
   description:
-    'Formation IA et ChatGPT pour artisans électriciens : devis, appels d’offres, emails, fiches techniques. Qualiopi, finançable Constructys. Laure Olivié — +1 500 pros BTP formés, 4,85/5.',
+    `Formation IA et ChatGPT pour artisans électriciens : devis, appels d'offres, emails, fiches techniques. Qualiopi, finançable Constructys. Laure Olivié — +${formatProfessionalsTrainedCount()} pros BTP formés, ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: '/formation-chatgpt-artisan-electricien',
   keywords: [
     'ChatGPT artisan électricien BTP',
@@ -147,8 +148,9 @@ export default function FormationChatGPTArtisanElectricienPage() {
 
         <p className="mt-8 text-slate-600 leading-relaxed">
           Laure Olivié, formatrice pour <strong>OFC Création d’Entreprise</strong>, accompagne les professionnels du
-          BTP depuis le terrain : plus de <strong>1 500 professionnels</strong> formés, satisfaction moyenne{' '}
-          <strong>4,85/5</strong>. Les contenus s’adressent aux dirigeants et aux équipes qui en ont assez de passer deux
+          BTP depuis le terrain : plus de <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés,
+          satisfaction moyenne <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>. Les contenus s’adressent aux dirigeants et
+          aux équipes qui en ont assez de passer deux
           heures sur un mail alors que le tableau attend sur le chantier. L’enjeu n’est pas le gadget, c’est le{' '}
           <strong>ChatGPT devis électricité</strong> et l’<strong>IA artisan électricien</strong> au service du
           quotidien.

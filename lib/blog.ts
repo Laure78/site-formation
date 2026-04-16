@@ -13,6 +13,7 @@ import {
 } from '@/lib/seo';
 import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 /** Prompt optimisé pour affichage dans les articles ressources */
 export interface ArticlePrompt {
@@ -424,7 +425,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Vous voulez maîtriser ces techniques ? Découvrez ma formation IA BTP finançable Constructys — sessions de 4 h en pratique, prompts et relecture des devis inclus. +1 500 professionnels formés, note 4,85/5.',
+          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA BTP finançable Constructys — sessions de 4 h en pratique, prompts et relecture des devis inclus. +${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
         formationHref: '/formations',
       },
     ],
@@ -946,7 +947,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'paragraph',
-        title: 'Mon avis de formatrice (1 500+ professionnels formés)',
+        title: `Mon avis de formatrice (${formatProfessionalsTrainedCount()}+ professionnels formés)`,
         content:
           'Ce qui fonctionne : partir d\'un vrai document (anonymisé), un cas d\'usage par session, et une règle claire — « l\'IA propose, l\'humain valide ». Ce qui échoue : vouloir tout automatiser du jour au lendemain, ou laisser des juniors envoyer des réponses sans contrôle métier. Les équipes les plus satisfaites sont celles qui ont désigné un pilote, fixé des modèles de prompts et partagé une charte simple (données personnelles, clients, montants). Je ne vends pas d\'outil : je fais gagner du temps avec des pratiques reproductibles. Si vous lisez cette veille dans deux ans, comparez surtout l\'évolution des chiffres d\'adoption et des offres éditeurs — pas seulement le buzz.',
       },
@@ -959,7 +960,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Passez à l\'action — formez vos équipes à l\'IA sur des cas BTP réels (devis, chantier, appels d\'offres). Formations certifiées Qualiopi, finançables Constructys selon éligibilité. +1 500 professionnels formés.',
+          `Passez à l'action — formez vos équipes à l'IA sur des cas BTP réels (devis, chantier, appels d'offres). Formations certifiées Qualiopi, finançables Constructys selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés.`,
         formationHref: '/formations',
       },
     ],
@@ -975,7 +976,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'formation-ia-btp-guide-complet-2026',
     title: 'Formation IA BTP : guide complet 2026',
     description:
-      '1592 professionnels formés. Formation IA BTP certifiée Qualiopi, financement 100% Constructys. TPE et PME du bâtiment et des travaux publics. Gagnez 3-5h/semaine. Note 4,85/5.',
+      `${formatProfessionalsTrainedCount()} professionnels formés. Formation IA BTP certifiée Qualiopi, financement 100% Constructys. TPE et PME du bâtiment et des travaux publics. Gagnez 3-5h/semaine. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     date: '2026-03-17',
     keywords: [
       'formation IA BTP',
@@ -992,13 +993,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          'La formation IA BTP proposée par Laure Olivié (OFC Création d\'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu\'aux conducteurs de travaux et équipes support, d\'intégrer ChatGPT et l\'IA dans leurs tâches quotidiennes. 1592 professionnels formés, note 4,85/5. Certifiée Qualiopi, financement 100% Constructys. Basée à Guyancourt (78), intervention en Île-de-France et toute la France.',
+          `La formation IA BTP proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certifiée Qualiopi, financement 100% Constructys. Basée à Guyancourt (78), intervention en Île-de-France et toute la France.`,
       },
       {
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          'Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé 1592 professionnels du bâtiment avec une note moyenne de 4,85/5. Son organisme OFC Création d\'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l\'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.',
+          `Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment avec une note moyenne de ${SOCIAL_PROOF.AVERAGE_RATING}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
         type: 'paragraph',
@@ -1052,13 +1053,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par participant). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'La formation inclut-elle un suivi post-formation ? — Oui. Support WhatsApp, accès 1 an aux ressources pédagogiques, suivi personnalisé pour garantir l\'application des acquis.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
-          'Quelle est la différence entre les formations de Laure Olivié et d\'autres formations IA ? — Spécialisation BTP : 10 ans d\'expérience en travaux publics et conduite de chantier. Méthode 100% pratique sur vrais documents. 1592 formés, note 4,85/5. Certification Qualiopi.',
+          `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans d'expérience en travaux publics et conduite de chantier. Méthode 100% pratique sur vrais documents. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certification Qualiopi.`,
           'La formation est-elle éligible au CPF ? — Les formations présentielles accompagnées sont finançables Constructys pour les entreprises BTP selon les règles en vigueur. Contactez OFC Création d\'Entreprise pour vérifier votre éligibilité.',
         ],
       },
       {
         type: 'cta',
-        content: 'Découvrez nos formations IA BTP certifiées Qualiopi. 1592 formés, note 4,85/5. Financement 100% Constructys.',
+        content: `Découvrez nos formations IA BTP certifiées Qualiopi. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Financement 100% Constructys.`,
         formationHref: '/formations',
       },
     ],
@@ -1085,7 +1086,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          'ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L\'IA au service du bâtiment" (1592 professionnels formés, note 4,85/5). Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d\'état.',
+          `ChatGPT permet de générer un devis BTP complet en 2 à 5 minutes au lieu de 1 à 2 heures manuellement. Cette méthode est enseignée par Laure Olivié dans sa formation "L'IA au service du bâtiment" (${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}). Applicable aux devis plomberie, électricité, maçonnerie, menuiserie, tous corps d'état.`,
       },
       {
         type: 'paragraph',
@@ -1149,7 +1150,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
         content:
-          'Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. Formation "L\'IA au service du bâtiment" (session 4 h), certifiée Qualiopi, financement 100% Constructys. 1592 professionnels formés, note 4,85/5. Présentiel en Île-de-France et interventions partout en France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.',
+          `Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. Formation "L'IA au service du bâtiment" (session 4 h), certifiée Qualiopi, financement 100% Constructys. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Présentiel en Île-de-France et interventions partout en France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.`,
       },
       {
         type: 'faq',
@@ -1634,130 +1635,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'financer-formation-ia-btp-constructys'],
   },
-  // Cluster SEO local — articles par ville
-  {
-    slug: 'ia-btp-lyon',
-    title: 'IA pour les entreprises du BTP à Lyon : cas d\'usage concrets',
-    description:
-      'Cas pratiques d\'utilisation de l\'IA pour les entreprises du bâtiment à Lyon : automatisation devis, appels d\'offres, emails et administratif.',
-    date: '2025-03-08',
-    keywords: ['formation IA BTP Lyon', 'IA bâtiment Lyon', 'ChatGPT BTP', 'IA entreprises Lyon'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          "L'intelligence artificielle permet aux entreprises du BTP à Lyon et en Auvergne-Rhône-Alpes d'automatiser devis, analyse d'appels d'offres, réponses emails clients et organisation administrative. Artisans, conducteurs de travaux et PME du bâtiment gagnent plusieurs heures par semaine.",
-      },
-      {
-        type: 'list',
-        title: 'Cas pratiques pour entreprises à Lyon',
-        content: [
-          "Automatisation des devis — Gérez vos chiffrages plomberie, électricité, maçonnerie en 15 minutes avec ChatGPT.",
-          "Analyse d'appels d'offres — Extrayez les exigences d'un DCE en 30 min au lieu de 3h.",
-          "Réponse aux emails clients — Relances, réclamations, confirmations : l'IA adapte le ton professionnel.",
-          "Organisation administrative — CR de chantier, comptes rendus de réunion, suivi documentaire.",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Formation IA BTP à Lyon',
-        content:
-          "Laure Olivié propose des formations IA adaptées aux professionnels du BTP à Lyon, Villeurbanne, Vénissieux et dans toute la métropole. Sessions 4 h, 100% pratique, finançable Constructys.",
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts IA BTP — Lyon et Auvergne-Rhône-Alpes',
-        content: [
-          {
-            titre: 'Devis chantier BTP',
-            prompt:
-              "Rédige un devis professionnel pour [plomberie/électricité/maçonnerie] à Lyon. Projet : [TYPE DE TRAVAUX]. Prestations : [LISTER]. Quantités : [DÉTAILS]. Inclure fournitures, main d'œuvre, TVA 10%, validité 30 jours, conditions paiement BTP.",
-            usage: "Adaptez le métier et le type de chantier. Idéal pour les entreprises de la région.",
-          },
-          {
-            titre: 'CR de chantier structuré',
-            prompt:
-              "Rédige un compte rendu de chantier pour [DATE] sur [LIEU/PROJET]. Points abordés : [LISTER]. Suite à donner : [LISTER]. Avancement : [X]%. Format professionnel BTP.",
-            usage: 'Pour tracer les décisions et l\'avancement.',
-          },
-          {
-            titre: 'Email relance client',
-            prompt:
-              "Rédige un email de relance professionnel pour [VOTRE MÉTIER] à un client. Contexte : [relance devis / confirmation RDV / suivi chantier]. Ton courtois, adapté au BTP, 5 phrases max.",
-            usage: 'Personnalisez le contexte selon votre situation.',
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: 'Réservez votre formation IA BTP à Lyon. Devis personnalisé sous 24h.',
-        formationHref: '/formations/ia-btp-lyon',
-      },
-    ],
-    relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'chatgpt-btp-bordeaux'],
-  },
-  {
-    slug: 'chatgpt-btp-bordeaux',
-    title: 'Comment les PME du bâtiment utilisent ChatGPT à Bordeaux',
-    description:
-      'Exemples de prompts et gains de temps pour les entreprises du BTP à Bordeaux : administratif, appels d\'offres, organisation de chantier.',
-    date: '2025-03-07',
-    keywords: ['ChatGPT BTP Bordeaux', 'formation IA Bordeaux', 'IA bâtiment Gironde', 'PME bâtiment Bordeaux'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          "Les PME du bâtiment à Bordeaux et en Gironde utilisent ChatGPT pour gagner du temps sur l'administratif, les réponses aux appels d'offres et l'organisation de chantier. Voici des exemples concrets.",
-      },
-      {
-        type: 'list',
-        title: 'Exemples de prompts pour le BTP',
-        content: [
-          "Gain de temps administratif — Devis, emails, relances : l'IA rédige en quelques secondes.",
-          "Réponses aux appels d'offres — Analyse de DCE, synthèse cahier des charges, structure de mémoire technique.",
-          "Organisation de chantier — CR de chantier, planning, coordination entre corps de métier.",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Formation ChatGPT pour le BTP à Bordeaux',
-        content:
-          "Formation IA BTP à Bordeaux, Mérignac, Pessac et dans toute la Nouvelle-Aquitaine. Méthode 100% pratique, trames et prompts prêts à l'emploi. Financement OPCO Constructys.",
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts ChatGPT BTP — Bordeaux et Gironde',
-        content: [
-          {
-            titre: 'Synthèse DCE pour AO',
-            prompt:
-              "Analyse ce DCE et identifie : 1) les exigences techniques principales pour mon lot ; 2) les critères de sélection et leur pondération ; 3) les points de vigilance ; 4) les éléments à valoriser dans le mémoire technique. Présente une synthèse claire pour une PME du BTP.",
-            usage: 'Collez un extrait de DCE. Gain de temps considérable sur l\'analyse.',
-          },
-          {
-            titre: 'Organisation chantier',
-            prompt:
-              "Rédige un planning de chantier pour [TYPE DE PROJET]. Étapes : [LISTER]. Corps de métier concernés : [LISTER]. Délai total : [X] jours/semaines. Format tableau ou liste chronologique.",
-            usage: 'Pour coordonner les interventions sur un chantier.',
-          },
-          {
-            titre: 'Email administratif BTP',
-            prompt:
-              "Rédige un email professionnel pour [URGENCE PAIEMENT / DEMANDE DEVIS / RÉCLAMATION / CONFIRMATION]. Contexte BTP. Ton courtois, factuel, 5 phrases max.",
-            usage: 'Adaptez le type de demande selon votre besoin.',
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: 'Découvrez notre formation IA BTP à Bordeaux. 100% finançable.',
-        formationHref: '/formations/ia-btp-bordeaux',
-      },
-    ],
-    relatedSlugs: ['ia-btp-lyon', 'appels-offres-btp-ia-lille'],
-  },
   {
     slug: 'appels-offres-btp-ia-lille',
     title: 'Automatiser les appels d\'offres BTP avec l\'IA à Lille',
@@ -1811,226 +1688,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         formationHref: '/formations/ia-btp-lille',
       },
     ],
-    relatedSlugs: ['chatgpt-btp-bordeaux', '5-cas-usage-chatgpt-artisans-btp'],
-  },
-  // Cluster formateurs — trouver clients, développer activité
-  {
-    slug: 'comment-trouver-premiers-clients-formateur',
-    title: 'Comment trouver vos premiers clients en tant que formateur',
-    description:
-      'Guide pratique pour les formateurs indépendants : identifier vos cibles, construire votre offre, prospecter efficacement et décrocher vos premiers clients.',
-    date: '2025-03-15',
-    keywords: ['trouver clients formateur', 'formateur indépendant', 'prospection formateurs', 'premiers clients formation'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          "Trouver vos premiers clients en tant que formateur repose sur une offre claire, une cible identifiée et une prospection régulière. Pas besoin d'être un commercial : méthode structurée, réseaux et bouche-à-oreille suffisent pour démarrer.",
-      },
-      {
-        type: 'paragraph',
-        title: 'Définir votre offre et votre cible',
-        content:
-          "Avant de prospecter, clarifiez ce que vous proposez et à qui. Quelle formation ? Sur quel sujet ? Pour quel profil (dirigeants, équipes, secteur d'activité) ? Une offre floue disperse vos efforts. Une offre ciblée attire les bons prospects.",
-      },
-      {
-        type: 'list',
-        title: '5 pistes pour trouver vos premiers clients',
-        content: [
-          "OPCO et organismes de formation — Demandez à être référencé en tant qu'intervenant. Beaucoup de missions sont confiées à des formateurs déjà connus des OF.",
-          "Réseau professionnel — LinkedIn, anciens collègues, partenaires. Signalez que vous cherchez des missions. Les recommandations ouvrent les portes.",
-          "Appels d'offres et marchés — Consultez les plateformes (AchatsPublics, etc.) pour les formations commandées par l'État ou les collectivités.",
-          "Entreprises directement — Proposez une formation sur-mesure à des PME de votre secteur. Un email ciblé suivi d'un appel peut suffire.",
-          "Groupes et communautés — Rejoignez des groupes de formateurs pour échanger sur les opportunités et mutualiser les retours d'expérience.",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'La régularité paie',
-        content:
-          "Une prospection occasionnelle donne peu de résultats. Mieux vaut 30 minutes par jour que 3h une fois par mois. Construisez une routine : relances, contenu utile, présence sur les réseaux. La visibilité se construit dans le temps.",
-      },
-      {
-        type: 'faq',
-        title: 'Questions fréquentes',
-        content: [
-          "Combien de temps avant le premier client ? — Variable selon le secteur. En BTP et formation professionnelle, 2 à 6 mois est fréquent. La persévérance et l'ajustement de l'offre sont clés.",
-          "Faut-il un site internet ? — Oui, pour crédibiliser. Une page « À propos » et « Offre » suffisent au début.",
-          "Comment structurer un email de prospection ? — Court, personnalisé, proposition de valeur claire. Évitez le générique.",
-        ],
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts pour prospecter en tant que formateur',
-        content: [
-          {
-            titre: 'Email candidature OF',
-            prompt:
-              "Rédige un email de candidature pour un organisme de formation. Contexte : formateur indépendant, spécialité [SUJET], publics [DIRIGEANTS / ÉQUIPES / SECTEUR]. Ton professionnel, 5-6 lignes max, proposition de valeur claire.",
-            usage: 'Adaptez sujet et publics. À envoyer avec CV et références.',
-          },
-          {
-            titre: 'Email prospection entreprise',
-            prompt:
-              "Rédige un email de prospection pour proposer une formation [SUJET] à une PME [SECTEUR]. Entreprise cible : [TYPE]. Bénéfices attendus : [2-3 POINTS]. Ton direct, pas de jargon, CTA : échange de 15 min.",
-            usage: 'Personnalisez pour chaque cible.',
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: "Rejoignez 4 200+ formateurs qui partagent leurs astuces et opportunités. Échanges, mutualisation et soutien au quotidien.",
-        ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
-      },
-    ],
-    relatedSlugs: ['9-actions-developper-activite-formation', 'prospection-formation-methodes-qui-marchent'],
-  },
-  {
-    slug: '9-actions-developper-activite-formation',
-    title: '9 actions pour développer votre activité de formation',
-    description:
-      'Checklist opérationnelle pour développer votre activité de formateur : visibilité, prospection, partenariats et organisation.',
-    date: '2025-03-14',
-    keywords: ['développer activité formation', 'formateur indépendant', 'croissance activité formateur', 'prospection formation'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          "Développer votre activité de formation repose sur des actions simples et répétées : visibilité (LinkedIn, site), prospection ciblée, partenariats OF, qualité des prestations et bouche-à-oreille. Pas de recette magique : de la constance.",
-      },
-      {
-        type: 'list',
-        title: '9 actions concrètes',
-        content: [
-          "Optimiser votre profil LinkedIn — Titre clair, description orientée bénéfices, recommandations. Les missions trouvent souvent leurs formateurs via LinkedIn.",
-          "Créer une page offre sur votre site — Une page qui présente vos formations, publics cibles et bénéfices. Essentiel pour la crédibilité.",
-          "Identifier 3 à 5 OF partenaires — Envoyez une présentation courte. Proposez des interventions en sous-traitance pour étoffer votre portefeuille.",
-          "Prospecter 5 entreprises par semaine — Emails personnalisés, relances. La régularité compte plus que le volume ponctuel.",
-          "Publier du contenu utile — Articles, posts, vidéos courtes sur votre expertise. Cela attire des prospects en recherche.",
-          "Rejoindre une communauté de formateurs — Échanges, partage d'opportunités, soutien mutuel. Très utile quand on démarre.",
-          "Demander des recommandations — Après une formation réussie, demandez un témoignage ou une mise en relation.",
-          "Suivre vos indicateurs — Nombre de missions, CA, taux de transformation. Pour ajuster votre stratégie.",
-          "Se former en continu — Nouveaux sujets, nouvelles méthodes. Une offre à jour attire davantage.",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Prioriser sans se disperser',
-        content:
-          "Inutile de tout faire en même temps. Choisissez 2 ou 3 actions et tenez-vous-y pendant 3 mois. Mieux vaut exceller sur quelques leviers que papillonner. La progression se mesure sur plusieurs trimestres.",
-      },
-      {
-        type: 'faq',
-        title: 'Questions fréquentes',
-        content: [
-          "Par où commencer quand on débute ? — Profil LinkedIn + 2–3 OF contactés + une page offre. Puis prospection régulière.",
-          "Combien de temps pour voir des résultats ? — Les premiers signaux : 1 à 3 mois. Une activité stable : souvent 6 à 12 mois.",
-          "La certification Qualiopi est-elle obligatoire ? — Pour former des salariés en plan de développement des compétences, oui. En B2B direct, c'est un atout majeur.",
-        ],
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts pour développer votre activité',
-        content: [
-          {
-            titre: 'Bio LinkedIn formateur',
-            prompt:
-              "Rédige une bio LinkedIn pour un formateur indépendant. Spécialité : [SUJET]. Publics : [CIBLE]. Bénéfices : [2-3 RÉSULTATS]. Ton professionnel, 150 mots max. Inclure un CTA vers prise de contact.",
-            usage: 'Optimisez votre profil pour attirer des missions.',
-          },
-          {
-            titre: 'Relance douce (J+7)',
-            prompt:
-              "Rédige un email de relance pour un prospect [OF / ENTREPRISE] contacté il y a 7 jours. Rappel de ma proposition : formation [SUJET]. Ton courtois, pas insistant, propose un créneau d'échange.",
-            usage: 'Les relances convertissent. À personnaliser.',
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: "Échangez avec des formateurs qui développent leur activité. Rejoignez la communauté pour partager vos bonnes pratiques.",
-        ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
-      },
-    ],
-    relatedSlugs: ['comment-trouver-premiers-clients-formateur', 'prospection-formation-methodes-qui-marchent'],
-  },
-  {
-    slug: 'prospection-formation-methodes-qui-marchent',
-    title: 'Prospection formation : méthodes qui marchent',
-    description:
-      'Les méthodes de prospection efficaces pour les formateurs : cold outreach, relances, partenariats OF et réseaux. Concret et actionnable.',
-    date: '2025-03-13',
-    keywords: ['prospection formation', 'prospection formateurs', 'trouver missions formation', 'développer clientèle formateur'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          "La prospection formation qui marche combine : ciblage précis, message personnalisé, relances douces et diversification des canaux (OF, entreprises, réseaux). Pas de spam : de la pertinence et de la régularité.",
-      },
-      {
-        type: 'paragraph',
-        title: 'Prospection OF : les bonnes pratiques',
-        content:
-          "Les organismes de formation reçoivent des dizaines de candidatures. Pour vous démarquer : CV orienté formations, références concrètes, domaines et publics clairement indiqués. Un mail de présentation court (5–6 lignes) avec lien vers une présentation PDF ou votre site. Relancez une fois après 10 jours.",
-      },
-      {
-        type: 'list',
-        title: '3 méthodes qui donnent des résultats',
-        content: [
-          "Cold email B2B — Ciblez des PME de votre secteur. Sujet accrocheur, corps court, proposition de valeur. Taux d'ouverture correct si personnalisé.",
-          "Relances structurées — J+0 : premier contact. J+7 : relance douce. J+21 : dernière relance. Beaucoup abandonnent après la 1re. Les relances convertissent.",
-          "Partenariats gagnant-gagnant — Proposez à un confrère de vous mettre en relation avec ses clients sur un sujet complémentaire. La co-animation ou le référencement mutuel ouvrent des portes.",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Ce qui ne marche pas',
-        content:
-          "Les messages génériques, les envois en masse non ciblés, l'absence de relance. Évitez aussi de promettre des résultats irréalistes. La confiance se construit sur la transparence.",
-      },
-      {
-        type: 'faq',
-        title: 'Questions fréquentes',
-        content: [
-          "Combien de prospects contacter par mois ? — Mieux vaut 20 ciblés que 200 au hasard. Qualité > quantité.",
-          "Faut-il utiliser un CRM ? — Un tableur suffit au début. Un CRM devient utile dès 50+ prospects actifs.",
-          "Comment personnaliser à grande échelle ? — Par segments : par secteur, par taille d'entreprise. Le paragraphe d'accroche peut être adapté par segment.",
-        ],
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts prospection formation — cold outreach et relances',
-        content: [
-          {
-            titre: 'Email OF — candidature intervenue',
-            prompt:
-              "Rédige un email de présentation pour un OF. Contexte : formateur, domaine [VOTRE EXPERTISE], références [X] formations. Propositions : interventions, co-animation, mise en relation. 5 lignes max, lien vers CV ou site. Ton professionnel.",
-            usage: "Ciblez 3-5 OF. Personnalisez le domaine selon chaque OF.",
-          },
-          {
-            titre: 'Sujet email prospection B2B',
-            prompt:
-              "Génère 5 sujets d'email pour une prospection formateur → PME [SECTEUR]. Proposition : formation [SUJET]. Objectif : taux d'ouverture. Éviter le spam, privilégier la curiosité et la pertinence.",
-            usage: "Testez les sujets. Un bon sujet = email ouvert.",
-          },
-          {
-            titre: 'Relance J+21 (dernière)',
-            prompt:
-              "Rédige une dernière relance pour un prospect contacté à J+0 et J+7. Contexte : [FORMATION PROPOSÉE]. Ton : courtois, pas insistant. Proposer de ne plus recontacter si pas d'intérêt. Une phrase d'accroche, une de rappel, une de clôture.",
-            usage: "Dernière tentative avant d'archiver le prospect.",
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: "Rejoignez la communauté pour échanger sur vos méthodes de prospection. Retours d'expérience et mutualisation au quotidien.",
-        ctaCommunauteHref: 'https://www.facebook.com/groups/prospectionfacile/',
-      },
-    ],
-    relatedSlugs: ['comment-trouver-premiers-clients-formateur', '9-actions-developper-activite-formation'],
+    relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp'],
   },
   // Cluster appels d'offres BTP
   {
@@ -2222,7 +1880,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Se former à l’analyse de CCTP avec l’IA',
         content:
-          'OFC Création d’Entreprise propose une formation IA BTP de 4 heures, certifiée Qualiopi, avec un module appels d’offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d’outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. Plus de 1 592 professionnels formés, note 4,85/5.',
+          `OFC Création d'Entreprise propose une formation IA BTP de 4 heures, certifiée Qualiopi, avec un module appels d'offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d'outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
       },
       {
         type: 'cta',
@@ -2546,8 +2204,6 @@ export const BLOG_CATEGORIES = {
   metiers: 'IA par métier',
   rh: 'RH & recrutement',
   productivite: 'Productivité & emails',
-  regions: 'Formations par région',
-  formateurs: 'Formateurs & prospection',
 } as const;
 
 export type BlogCategoryId = keyof typeof BLOG_CATEGORIES;
@@ -2569,12 +2225,6 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
     case 'devis':
       links.push(
         { href: INTERNAL_LINKS.iaDevis.path, label: getAnchor('iaDevis') },
-        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
-      );
-      break;
-    case 'regions':
-      links.push(
-        { href: LINKS.formationParis, label: 'formation IA BTP Paris' },
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;
@@ -2604,13 +2254,6 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;
-    case 'formateurs':
-      links.push(
-        { href: INTERNAL_LINKS.communauteFormateurs.path, label: getAnchor('communauteFormateurs') },
-        { href: LINKS.formationParis, label: 'formation IA BTP Paris' },
-        { href: INTERNAL_LINKS.financementConstructys.path, label: getAnchor('financement100') },
-      );
-      break;
     default:
       links.push(
         { href: INTERNAL_LINKS.chatgptArtisans.path, label: getAnchor('chatgptArtisans') },
@@ -2623,7 +2266,6 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
 /** Détermine la catégorie d'un article à partir du slug */
 export function getArticleCategory(slug: string): BlogCategoryId {
   const s = slug.toLowerCase();
-  if (s.includes('formateur') || s.includes('premiers-clients') || s.includes('prospection-formation') || s.includes('developper-activite')) return 'formateurs';
   if (s.includes('appels-d-offres') || s.includes('appels-offres') || s.includes('cctp') || s.includes('memoire-technique') || s.includes('repondre-appel') || s.includes('analyse-dce')) return 'appels-offres';
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il') || s.includes('intra-btp-constructys') || s.includes('dossier-constructys')) return 'financement';
   if (s.includes('recrutement')) return 'rh';
@@ -2639,7 +2281,6 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('avis-google') || s.includes('organisation-chantier') || s.includes('planning-chantier')) return 'productivite';
   if (s.includes('compte-rendu') || s.includes('cr-chantier')) return 'productivite';
   if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
-  if (s.includes('lyon') || s.includes('bordeaux') || s.includes('lille')) return 'regions';
   if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';
   if (s.includes('chatgpt') || s.includes('erreurs') || s.includes('cas-usage')) return 'chatgpt';

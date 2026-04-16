@@ -19,6 +19,7 @@ import {
 import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_STATS } from '@/lib/schema-constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const PATH = '/formation-ia-btp';
 
@@ -549,7 +550,7 @@ export default function FormationIaBtpPillarPage() {
             <p className="font-display font-semibold text-slate-900">Nos chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
-                <strong>4,85/5</strong> — note de satisfaction moyenne
+                <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong> — note de satisfaction moyenne
               </li>
               <li>
                 <strong>{personnesFormeesAffiche}</strong> professionnels du BTP formés

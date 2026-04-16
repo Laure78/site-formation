@@ -8,22 +8,22 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import {
   libelleTarifParticipant,
+  tarifHtDepuisBadgeCatalogue,
   SESSION_DUREE_LIBELLE,
   ENCART_TARIFS_COMMERCIAUX,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
-import { getFormationsCatalogJsonLd } from '@/lib/schema-course-formations';
 import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
-  title: 'Catalogue formation IA BTP : intelligence artificielle bâtiment, TP, ChatGPT',
+  title: 'Catalogue formations IA BTP — Qualiopi Constructys | Laure Olivié',
   description:
-    "Catalogue formation IA pour le BTP : intelligence artificielle bâtiment, formation IA travaux publics, ChatGPT BTP. Devis, appels d'offres, chantier — gain de temps. Sessions 4 h Qualiopi, OPCO Constructys. Île-de-France et France.",
+    '6 formations IA BTP Qualiopi de 4h : devis, appels d\'offres, chantier, RH. 100 % finançable Constructys. Diagnostic gratuit en visio.',
   path: '/formations',
   keywords: [
     'formation IA BTP',
@@ -157,23 +157,108 @@ const FORMATIONS = [...FORMATIONS_UNSORTED].sort((a, b) => {
   return refNum(a.ref) - refNum(b.ref);
 });
 
+function buildFormationsCourseListJsonLd(): Record<string, unknown> {
+  const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
+  const organizationId = `${baseUrl}/#educational-organization`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'EducationalOrganization',
+        '@id': organizationId,
+        name: 'OFC Création d\'Entreprise',
+        url: baseUrl,
+        sameAs: 'https://www.linkedin.com/in/laure-olivie',
+        hasCredential: {
+          '@type': 'EducationalOccupationalCredential',
+          name: 'Qualiopi',
+          credentialCategory: 'certification',
+        },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${baseUrl}/formations#course-list`,
+        name: 'Catalogue des formations IA BTP',
+        description:
+          '6 formations IA BTP Qualiopi de 4 h : devis, appels d\'offres, chantier, RH. 100 % finançable Constructys.',
+        numberOfItems: FORMATIONS.length,
+        itemListElement: FORMATIONS.map((cours, i) => {
+          const nn = cours.ref.replace(/^BTP-/, '');
+          const slug = cours.href.replace(/^\/formations\//, '').replace(/\/$/, '');
+          const courseUrl = `${baseUrl}${cours.href}`;
+          const cardImageUrl = `${baseUrl}/images/formation-${slug}-carte-btp-${nn}.png`;
+          const price = tarifHtDepuisBadgeCatalogue(cours.level);
+          return {
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+              '@type': 'Course',
+              '@id': `${courseUrl}#course`,
+              name: cours.title,
+              url: courseUrl,
+              courseCode: cours.ref,
+              description: cours.objectifs.join(' · '),
+              duration: 'PT4H',
+              courseMode: ['onsite', 'online'],
+              inLanguage: 'fr-FR',
+              availableLanguage: 'fr',
+              provider: { '@id': organizationId },
+              offers: {
+                '@type': 'Offer',
+                price,
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
+                url: courseUrl,
+                category: 'Formation professionnelle',
+              },
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '4.85',
+                reviewCount: '1592',
+                bestRating: '5',
+              },
+              image: cardImageUrl,
+              hasCourseInstance: {
+                '@type': 'CourseInstance',
+                courseMode: 'onsite',
+                location: {
+                  '@type': 'Place',
+                  name: 'Île-de-France',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressCountry: 'FR',
+                    addressRegion: 'Île-de-France',
+                  },
+                },
+                courseWorkload: 'PT4H',
+                inLanguage: 'fr-FR',
+              },
+            },
+          };
+        }),
+      },
+    ],
+  };
+}
+
 export default function FormationsPage() {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
 
   return (
     <>
-      <JsonLd id="schema-formations-catalog-graph" schema={getFormationsCatalogJsonLd()} />
+      <JsonLd id="schema-formations-catalog-graph" schema={buildFormationsCourseListJsonLd()} />
       <JsonLd id="schema-formations-faq" schema={faqSchema} />
       <div className="mx-auto max-w-6xl px-4 py-16">
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Catalogue formations', path: '/formations' },
-        ])}
-        showVisual
-        className="mb-6"
-      />
-      <div>
+        <Breadcrumb
+          items={breadcrumbItemsFromPaths([
+            { name: 'Accueil', path: '/' },
+            { name: 'Catalogue formations', path: '/formations' },
+          ])}
+          showVisual
+          className="mb-6"
+        />
+        <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Formation IA pour le BTP : catalogue Qualiopi, bâtiment et travaux publics
         </h1>
@@ -184,7 +269,7 @@ export default function FormationsPage() {
             ChatGPT BTP
           </Link>{' '}
           au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. {ENCART_TARIFS_COMMERCIAUX}{' '}
-          Méthode 100&nbsp;% terrain, orientée productivité.{' '}
+          Méthode 100&nbsp;% terrain, orientée productivité, ou distanciel selon la demande.{' '}
           <RdvLink className="text-[var(--accent)] font-medium hover:underline">
             Prenez rendez-vous
           </RdvLink>
@@ -196,7 +281,14 @@ export default function FormationsPage() {
             par semaine sur devis, emails et suivi chantier — sans remplacer le jugement métier.
           </ShortAnswerBlock>
         </div>
-      </div>
+        <p className="mt-6 max-w-3xl text-sm text-slate-600">
+          Pilier complémentaire (DCE / mémoire technique) :{' '}
+          <Link href={LINKS.formationIaAnalyseCctp} className="font-medium text-[var(--accent)] hover:underline">
+            formation IA analyse CCTP avec ChatGPT
+          </Link>
+          .
+        </p>
+        </div>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {FORMATIONS.map((cours) => {
@@ -240,9 +332,7 @@ export default function FormationsPage() {
                 {libelleTarifParticipant(cours.level)}
               </span>
             </div>
-            <p className="mt-4 font-semibold text-slate-900">
-              OBJECTIFS PÉDAGOGIQUES
-            </p>
+            <h3 className="mt-4 font-semibold text-slate-900">Objectifs pédagogiques</h3>
             <ul className="mt-2 flex-1 space-y-2">
               {cours.objectifs.map((obj) => (
                 <li key={obj} className="flex gap-2 text-sm text-slate-600">

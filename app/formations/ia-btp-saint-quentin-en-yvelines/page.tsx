@@ -5,9 +5,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Calendar, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getCourseSchema,
   getFAQSchema,
@@ -22,6 +20,7 @@ import {
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = LINKS.formationSaintQuentinYvelines;
 
@@ -33,7 +32,7 @@ const HERO_RESUME = [
   'Siège OFC à Guyancourt : une formatrice à proximité immédiate, sans frais de déplacement supplémentaires pour les entreprises du 78.',
   `Session ${SESSION_DUREE_LIBELLE} — 100 % pratique sur vos documents : devis, comptes rendus de chantier, appels d'offres.`,
   'Financement possible par OPCO Constructys (plan de développement des compétences) selon éligibilité et dossier.',
-  'Plus de 1 592 professionnels BTP formés · Note 4,85/5 · Organisme certifié Qualiopi.',
+  `Plus de ${formatProfessionalsTrainedCount()} professionnels BTP formés · Note ${SOCIAL_PROOF.AVERAGE_RATING} · Organisme certifié Qualiopi.`,
 ];
 
 export const metadata = createPageMetadata({
@@ -78,13 +77,6 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA BTP Saint-Quentin-en-Yvelines', path: PATH },
-        ])}
       />
       <script
         type="application/ld+json"
@@ -462,7 +454,8 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             (78/91/95) · FFB Île-de-France Est · CSFE · CNAM Entreprise · Lefebvre Dalloz
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            Plus de 1 592 professionnels BTP formés · Note 4,85/5 · Qualiopi · Constructys / FSE+
+            Plus de {formatProfessionalsTrainedCount()} professionnels BTP formés · Note {SOCIAL_PROOF.AVERAGE_RATING} ·
+            Qualiopi · Constructys / FSE+
           </p>
           <p className="mt-6 text-sm text-slate-500">
             SIRET {SITE_CONFIG.siret} · NDA 11788515078 · {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}

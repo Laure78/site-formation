@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { JsonLd } from '@/components/JsonLd';
-import { buildBreadcrumbListJsonLd, type BreadcrumbListItem } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { type BreadcrumbListItem } from '@/lib/seo';
 
 export type BreadcrumbItem = BreadcrumbListItem;
 
@@ -11,6 +11,8 @@ export type BreadcrumbProps = {
   /** Affiche le fil d'Ariane (HTML + liens internes) */
   showVisual?: boolean;
   className?: string;
+  /** Si true, pas de script JSON-LD (ex. JSON-LD déjà fourni par `<BreadcrumbJsonLd />`) */
+  omitJsonLd?: boolean;
 };
 
 function hrefFromCanonicalUrl(canonicalUrl: string): string {
@@ -26,12 +28,17 @@ function hrefFromCanonicalUrl(canonicalUrl: string): string {
  * Fil d'Ariane : JSON-LD BreadcrumbList + option visuelle.
  * La home (/) n'utilise pas ce composant.
  */
-export function Breadcrumb({ items, jsonLdId = 'schema-breadcrumb', showVisual = false, className }: BreadcrumbProps) {
+export function Breadcrumb({
+  items,
+  jsonLdId = 'schema-breadcrumb',
+  showVisual = false,
+  className,
+  omitJsonLd = false,
+}: BreadcrumbProps) {
   if (items.length === 0) return null;
-  const schema = buildBreadcrumbListJsonLd(items);
   return (
     <>
-      <JsonLd id={jsonLdId} schema={schema} />
+      {!omitJsonLd && <BreadcrumbJsonLd id={jsonLdId} items={items} />}
       {showVisual && (
         <nav aria-label="Fil d'Ariane" className={className}>
           <ol className="flex flex-wrap items-center gap-1 text-sm text-slate-600">

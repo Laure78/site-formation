@@ -30,6 +30,8 @@ export const LINKS = {
   formationArchitecture: '/formations/ia-architecture-claude-dpgf',
   /** Page locale Paris (canonique SEO) */
   formationParis: '/formations/ia-btp-paris',
+  /** Alias court (301 → formationParis) — maillage explicite possible */
+  formationIaBtpParis: '/formation-ia-btp-paris',
   /** Essonne (91) — pages locales SEO */
   formationMorangis: '/formations/ia-btp-morangis',
   formationLongjumeau: '/formations/ia-btp-longjumeau',
@@ -39,6 +41,14 @@ export const LINKS = {
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
   /** Landing SEO local Yvelines (78) — pilier */
   formationIABTPYvelines: '/formation-ia-btp-yvelines',
+  /** Pages pilier SEO par département Île-de-France (+77) */
+  formationIaBtpYvelines78: '/formation-ia-btp-yvelines-78',
+  formationIaBtpSeineEtMarne77: '/formation-ia-btp-seine-et-marne-77',
+  formationIaBtpEssonne91: '/formation-ia-btp-essonne-91',
+  formationIaBtpHautsDeSeine92: '/formation-ia-btp-hauts-de-seine-92',
+  formationIaBtpSeineSaintDenis93: '/formation-ia-btp-seine-saint-denis-93',
+  formationIaBtpValDeMarne94: '/formation-ia-btp-val-de-marne-94',
+  formationIaBtpValDoise95: '/formation-ia-btp-val-doise-95',
 
   // Tier 2 — Cas d'usage
   chatgptArtisans: '/formation-ia-artisans-btp',
@@ -61,6 +71,10 @@ export const LINKS = {
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
 
   repondreAoLanding: '/repondre-appels-offres-ia-btp',
+  /** Landing SEO — analyse CCTP / DCE avec ChatGPT (appels d'offres BTP) */
+  formationIaAnalyseCctp: '/formation-ia-analyse-cctp',
+  /** Article — prompts et méthode analyse CCTP avec l'IA */
+  blogIaAnalyseCctpMethode: '/blog/ia-analyse-cctp-methode',
 
   // Pages légales & conformité
   cgv: '/cgv',

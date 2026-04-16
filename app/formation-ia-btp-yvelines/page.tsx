@@ -15,6 +15,7 @@ import {
 } from '@/lib/seo';
 import { FAQ_FORMATION_IA_BTP_YVELINES_LANDING } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-btp-yvelines';
 
@@ -200,9 +201,11 @@ export default function FormationIABTPYvelinesLandingPage() {
               discutés avec votre équipe, et une connaissance des enjeux locaux (marchés publics en
               zone urbaine dense, artisans en périphérie, entreprises industrielles près des
               vallées). Plus de{' '}
-              <strong className="text-slate-800">1 592 professionnels du BTP</strong> ont déjà suivi
-              une formation avec cette approche ; la note moyenne affichée est de{' '}
-              <strong className="text-slate-800">4,85/5</strong>.
+              <strong className="text-slate-800">
+                {formatProfessionalsTrainedCount()} professionnels du BTP
+              </strong>{' '}
+              ont déjà suivi une formation avec cette approche ; la note moyenne affichée est de{' '}
+              <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
             </p>
           </div>
         </div>

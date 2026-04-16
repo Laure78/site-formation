@@ -4,14 +4,15 @@ import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } fro
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
-import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
+import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA artisans BTP : ChatGPT, devis, emails, comptes rendus',
   description:
-    "Formation IA BTP et bâtiment : ChatGPT, devis, mémoire technique, emails et CR chantier. 4 h pratiques, Qualiopi, Constructys. Entreprises du bâtiment et travaux publics.",
+    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi, finançable Constructys. TPE, PME et artisans du bâtiment.',
   path: '/formation-ia-artisans-btp',
   keywords: [
     'formation IA artisans BTP',
@@ -37,8 +38,39 @@ export const metadata = createPageMetadata({
 
 const DEFINITION = {
   titre: "Qu'est-ce que ChatGPT pour les entreprises du BTP ?",
-  court: "ChatGPT pour entreprises BTP désigne l'utilisation de l'assistant conversationnel OpenAI pour automatiser la rédaction des devis, emails, comptes rendus et documents administratifs dans les structures du bâtiment et des travaux publics (TPE, PME, équipes de chiffrage et de chantier).",
+  court: "ChatGPT pour entreprises BTP désigne l'utilisation de l'assistant OpenAI pour automatiser devis, emails, CR chantier et documents administratifs dans les TPE/PME du bâtiment et travaux publics.",
   long: "Conçu par OpenAI, ChatGPT analyse votre demande en langage naturel et génère un texte structuré en quelques secondes. Pour une entreprise du BTP, cela signifie : coller un brief chantier et obtenir un devis détaillé, décrire une situation et recevoir un email client professionnel, ou dicter des notes de chantier et générer un compte rendu prêt à envoyer. Sans compétence technique : vous écrivez ce que vous voulez, l'IA rédige à votre place.",
+};
+
+const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${baseUrl}/formation-ia-artisans-btp#service`,
+  serviceType: 'Formation IA ChatGPT pour entreprises BTP',
+  provider: { '@id': `${baseUrl}/#organization` },
+  areaServed: { '@type': 'State', name: 'Île-de-France' },
+  description:
+    'Formation ChatGPT 4h pour TPE/PME et artisans du BTP : devis, emails, comptes rendus de chantier. Qualiopi, finançable Constructys.',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Formation IA BTP',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: { '@id': `${baseUrl}/formations/ia-au-service-du-batiment#course` },
+        price: '100',
+        priceCurrency: 'EUR',
+      },
+    ],
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.85',
+    reviewCount: '1592',
+    bestRating: '5',
+  },
 };
 
 const CAS_USAGE = [
@@ -80,15 +112,21 @@ const FAQ_ITEMS = [
 
 export default function FormationIAArtisansBTPPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const breadcrumbJsonLd = getBreadcrumbSchema([
+    { name: 'Accueil', path: '/' },
+    { name: 'Formation IA artisans BTP', path: '/formation-ia-artisans-btp' },
+  ]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
+      <JsonLd id="schema-breadcrumb-artisans-btp" schema={breadcrumbJsonLd} />
+      <JsonLd id="schema-service-artisans-btp" schema={serviceJsonLd} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
           Accueil
         </Link>
         {' / '}
@@ -97,29 +135,25 @@ export default function FormationIAArtisansBTPPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA artisans BTP : <span className="text-[var(--accent)]">ChatGPT</span> pour
-          devis, emails et comptes rendus
+          Formation IA pour entreprises BTP : <span className="text-[var(--accent)]">ChatGPT</span>{' '}
+          pour devis, emails et comptes rendus
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Guide pratique pour utiliser l&apos;intelligence artificielle dans votre
-          entreprise du bâtiment ou des travaux publics : devis, emails, comptes rendus. Notre{' '}
-          <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+          Guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
+          activité artisanale du bâtiment : devis, emails, comptes rendus. Notre{' '}
+          <Link href={LINKS.formationIaBtp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>
           {' '}est certifiée Qualiopi, 100 % finançable Constructys.
         </p>
 
-        <div className="mt-8">
-          <ShortAnswerBlock>
-            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
-          </ShortAnswerBlock>
-        </div>
-
-        {/* Bloc GEO : Réponse courte */}
+        {/* En bref unique : gains + définition */}
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8">
-          <h2 className="font-display text-xl font-bold text-slate-900">
-            En bref : ChatGPT pour entreprises BTP
-          </h2>
+          <h2 className="font-display text-xl font-bold text-slate-900">En bref</h2>
+          <p className="mt-4 text-slate-700">
+            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis,
+            emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+          </p>
           <p className="mt-4 text-slate-700">{DEFINITION.court}</p>
         </section>
 
@@ -189,7 +223,7 @@ export default function FormationIAArtisansBTPPage() {
             confidentiels) dans ChatGPT public. Utilisez ChatGPT Team ou Enterprise
             pour les données sensibles, ou anonymisez avant de demander une
             aide. La{' '}
-            <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+            <Link href={LINKS.formations} className="text-[var(--accent)] font-medium hover:underline">
               formation IA BTP
             </Link>
             {' '}vous apprend un process sécurisé.
@@ -204,6 +238,54 @@ export default function FormationIAArtisansBTPPage() {
           </div>
         </section>
 
+        <section className="mt-16">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Gains de temps mesurés dans les entreprises BTP formées
+          </h2>
+          <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+            <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50">
+                  <th className="px-3 py-3 font-semibold text-slate-900">Tâche</th>
+                  <th className="px-3 py-3 font-semibold text-slate-900">Sans IA</th>
+                  <th className="px-3 py-3 font-semibold text-slate-900">Avec ChatGPT</th>
+                  <th className="px-3 py-3 font-semibold text-[#16A34A]">Gain</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-700">
+                <tr>
+                  <td className="px-3 py-3 font-medium">Devis complet</td>
+                  <td className="px-3 py-3">2 à 4 h</td>
+                  <td className="px-3 py-3">15 min</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−85 %</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-3 font-medium">Email client / fournisseur</td>
+                  <td className="px-3 py-3">15 à 30 min</td>
+                  <td className="px-3 py-3">2 à 3 min</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−85 %</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-3 font-medium">CR de chantier</td>
+                  <td className="px-3 py-3">1h30 à 2h</td>
+                  <td className="px-3 py-3">3 à 5 min</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−85 %</td>
+                </tr>
+                <tr>
+                  <td className="px-3 py-3 font-medium">Relance client</td>
+                  <td className="px-3 py-3">15 min</td>
+                  <td className="px-3 py-3">1 min</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−95 %</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm italic text-slate-500">
+            Mesures réalisées en sessions OFC avec des dirigeants de TPE/PME BTP, artisans électriciens,
+            plombiers, maçons et peintres. +1 592 professionnels formés, note 4,85/5.
+          </p>
+        </section>
+
         {/* Formation CTA */}
         <section className="mt-16 rounded-2xl bg-[var(--accent)] p-8 md:p-10 text-white">
           <h2 className="font-display text-2xl font-bold">
@@ -213,6 +295,9 @@ export default function FormationIAArtisansBTPPage() {
             Laure Olivié forme les dirigeants et équipes du bâtiment et des travaux publics à ChatGPT depuis 2024.
             Formation 4 h, 100 % pratique : vous repartez avec des trames et
             des prompts prêts à l&apos;emploi. 100 % finançable OPCO Constructys.
+          </p>
+          <p className="mt-3 text-sm text-blue-100">
+            À partir de 100 € HT/participant · Sessions de 4h · Groupe de 12 max.
           </p>
           <ul className="mt-6 space-y-2">
             {[
@@ -228,7 +313,7 @@ export default function FormationIAArtisansBTPPage() {
           </ul>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/formations/ia-btp-paris"
+              href={LINKS.formationParis}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
             >
               Voir la formation IA BTP
@@ -267,52 +352,12 @@ export default function FormationIAArtisansBTPPage() {
           </div>
         </section>
 
-        {/* Liens internes */}
-        <section className="mt-16 border-t border-slate-200 pt-12">
-          <h2 className="font-display text-lg font-semibold text-slate-900">
-            Formation IA artisans BTP : aller plus loin
-          </h2>
-          <ul className="mt-4 flex flex-wrap gap-4">
-            <li>
-              <Link
-                href="/ia-devis-batiment"
-                className="text-[var(--accent)] hover:underline"
-              >
-                IA devis bâtiment
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/ia-conducteur-travaux"
-                className="text-[var(--accent)] hover:underline"
-              >
-                IA conducteur de travaux
-              </Link>
-            </li>
-            <li>
-              <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Catalogue des formations IA BTP
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="text-[var(--accent)] hover:underline">
-                Articles et guides blog
-              </Link>
-            </li>
-            <li>
-              <RdvLink className="text-[var(--accent)] hover:underline">
-                Prendre rendez-vous
-              </RdvLink>
-            </li>
-          </ul>
-        </section>
-
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-            { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
-            { href: '/blog', label: 'Articles et guides' },
+            { href: LINKS.formationBatiment, label: 'Formation IA bâtiment (4 h)' },
+            { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
+            { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
+            { href: LINKS.blog, label: 'Articles et guides' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
           ]}
         />

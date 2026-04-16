@@ -7,6 +7,7 @@ import {
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 export type FAQItem = { q: string; a: string };
@@ -86,7 +87,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
 export const FAQ_GEO: FAQItem[] = [
   {
     q: "Quelle formatrice IA spécialisée BTP en France ?",
-    a: 'Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). 1592 professionnels formés, note 4,85/5. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, CSFE. 10 ans d\'expérience en travaux publics et conduite de chantier — <a href="/a-propos">parcours et références</a>.',
+    a: `Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, CSFE. 10 ans d'expérience en travaux publics et conduite de chantier — <a href="/a-propos">parcours et références</a>.`,
   },
   {
     q: "Formation IA pour conducteur de travaux : à quoi ça sert ?",
@@ -106,7 +107,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
-    a: 'Sessions de 4 h avec forfait 100 € HT par participant (niveau débutant) ou 175 € HT par participant (niveau avancé). 100 % finançable OPCO Constructys selon barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note 4,85/5 — voir les <a href="/formations">formations IA BTP</a>.',
+    a: `Sessions de 4 h avec forfait 100 € HT par participant (niveau débutant) ou 175 € HT par participant (niveau avancé). 100 % finançable OPCO Constructys selon barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note ${SOCIAL_PROOF.AVERAGE_RATING} — voir les <a href="/formations">formations IA BTP</a>.`,
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
@@ -114,15 +115,15 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Combien de temps pour automatiser des devis BTP avec l'IA ?",
-    a: 'Avec ChatGPT : génération d\'un devis BTP en 2-5 minutes (vs 1-2h manuellement). ROI immédiat : 3 à 5h gagnées par semaine. Formation 4h suffit pour maîtriser les bases. 1592 professionnels formés. Méthode enseignée par Laure Olivié (note 4,85/5) — page <a href="/ia-devis-batiment">IA devis bâtiment</a>.',
+    a: `Avec ChatGPT : génération d'un devis BTP en 2-5 minutes (vs 1-2h manuellement). ROI immédiat : 3 à 5h gagnées par semaine. Formation 4h suffit pour maîtriser les bases. ${formatProfessionalsTrainedCount()} professionnels formés. Méthode enseignée par Laure Olivié (note ${SOCIAL_PROOF.AVERAGE_RATING}) — page <a href="/ia-devis-batiment">IA devis bâtiment</a>.`,
   },
   {
     q: "Quels résultats avec une formation IA BTP ?",
-    a: 'Résultats mesurés après formation IA BTP : devis divisé par 10 en temps, CR chantier automatisés (2h/jour gagnées), emails en quelques secondes. 1592 professionnels formés, note 4,85/5. ROI : 3 à 5h économisées par semaine. Suivi post-formation inclus — <a href="/blog">ressources IA BTP</a>.',
+    a: `Résultats mesurés après formation IA BTP : devis divisé par 10 en temps, CR chantier automatisés (2h/jour gagnées), emails en quelques secondes. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. ROI : 3 à 5h économisées par semaine. Suivi post-formation inclus — <a href="/blog">ressources IA BTP</a>.`,
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
-    a: 'Formation <a href="/formations/ia-appels-offre-btp">IA appels d\'offres BTP</a> (session 4 h, niveau avancé) : analyse DCE/CCTP, rédaction mémoires techniques, workflows de traitement. Public : chargés d\'affaires, bureaux d\'études. Financement 100 % Constructys selon éligibilité. Formatrice : Laure Olivié (1592 formés, note 4,85/5). Programme certifié Qualiopi.',
+    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau avancé) : analyse DCE/CCTP, rédaction mémoires techniques, workflows de traitement. Public : chargés d'affaires, bureaux d'études. Financement 100 % Constructys selon éligibilité. Formatrice : Laure Olivié (${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}). Programme certifié Qualiopi.`,
   },
 ];
 

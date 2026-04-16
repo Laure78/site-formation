@@ -5,14 +5,13 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { JsonLd } from '@/components/JsonLd';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getCourseSchema,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
+import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 import {
   FormationCourseHero,
@@ -90,30 +89,14 @@ const ZONES = [
   },
 ];
 
-const courseSchema = getCourseSchema({
-  name: 'Formation IA BTP à Paris',
-  description: 'Formation de 4h pour professionnels du BTP en Île-de-France. Devis, chiffrages, ChatGPT. Paris (75) et 8 départements. Qualiopi · Constructys.',
-  path: '/formations/ia-btp-paris',
-  providerName: SITE_CONFIG.legalName,
-  areaServed: ['Paris', 'Île-de-France', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', 'Seine-et-Marne', 'Yvelines', 'Essonne', "Val-d'Oise"],
-});
+const formationCourseGraph = getDedicatedFormationCoursePageJsonLd('/formations/ia-btp-paris');
 
 const faqSchema = getFAQSchema(FAQ_IA_BTP_PARIS);
 
 export default function FormationIABTPParisPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA BTP à Paris', path: '/formations/ia-btp-paris' },
-        ])}
-      />
+      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

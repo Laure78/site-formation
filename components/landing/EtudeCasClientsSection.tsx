@@ -6,6 +6,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
 
@@ -76,7 +77,7 @@ export function EtudeCasClientsSection() {
             <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
               {[
                 { val: `+${SITE_CONFIG.statsPersonnesFormees}`, label: 'accompagnés' },
-                { val: '4,85/5', label: 'satisfaction' },
+                { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'satisfaction' },
                 { val: '5', label: 'modules clés' },
               ].map((k) => (
                 <div

@@ -14,6 +14,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-conducteur-travaux';
 
@@ -25,7 +26,7 @@ const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP | CR, CCTP, Emails | L
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    'Formation IA pour conducteurs de travaux BTP. CR chantier, analyse CCTP, emails MOA, situations de travaux. Qualiopi, finançable Constructys. 1 592 pros formés.',
+    `Formation IA pour conducteurs de travaux BTP. CR chantier, analyse CCTP, emails MOA, situations de travaux. Qualiopi, finançable Constructys. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: [
     'formation IA conducteur de travaux',
@@ -191,7 +192,7 @@ export default function FormationIaConducteurTravauxPage() {
             Huit usages terrain (CR, CCTP, emails MOA, situations de travaux, etc.) avec prompts
             calibrés BTP. Formation certifiée <strong>Qualiopi</strong>, éligible{' '}
             <strong>OPCO Constructys</strong> selon votre dossier —{' '}
-            <strong>+1 592 professionnels</strong> formés.
+            <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés.
           </ShortAnswerBlock>
         </div>
 
@@ -564,8 +565,8 @@ export default function FormationIaConducteurTravauxPage() {
             contraintes.
           </p>
           <p className="mt-4 text-sm font-medium text-slate-800">
-            +1 592 professionnels formés · Note 4,85/5 · Certifiée Qualiopi · LinkedIn Learning · FFB Grand
-            Paris · FFB Île-de-France · CSFE · CNAM IDF
+            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Certifiée
+            Qualiopi · LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM IDF
           </p>
           <p className="mt-4">
             <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">

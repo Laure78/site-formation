@@ -16,6 +16,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-electricien-btp';
 
@@ -27,7 +28,7 @@ const SEO_TITLE = 'Formation IA pour Électriciens BTP | Devis en 15 min';
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    'Formation IA pour électriciens BTP. Devis en 15 min, emails clients, CR chantier automatisés. Qualiopi, finançable Constructys. Île-de-France. 1 592 pros formés.',
+    `Formation IA pour électriciens BTP. Devis en 15 min, emails clients, CR chantier automatisés. Qualiopi, finançable Constructys. Île-de-France. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: [
     'formation IA électricien BTP',
@@ -572,7 +573,7 @@ export default function FormationIaElectricienBtpPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             <strong>+{SITE_CONFIG.statsPersonnesFormees} professionnels formés</strong> · Note{' '}
-            <strong>4,85/5</strong> · Qualiopi · FFB Grand Paris · FFB Île-de-France · CSFE
+            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong> · Qualiopi · FFB Grand Paris · FFB Île-de-France · CSFE
             · CNAM IDF · LinkedIn Learning
           </p>
           <p className="mt-6">

@@ -5,16 +5,14 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
   siteHasPublicPhone,
 } from '@/lib/seo';
-import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
+import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -60,9 +58,7 @@ export const metadata = createPageMetadata({
   },
 });
 
-const formationCourseGraph = getFormationCoursePageJsonLd(
-  '/formations/ia-appels-offre-btp'
-)!;
+const formationCourseGraph = getDedicatedFormationCoursePageJsonLd('/formations/ia-appels-offre-btp');
 
 const OUTILS_IA_LINE =
   'ChatGPT, Claude, Perplexity, Mistral, Gemini, NotebookLM — selon modules.';
@@ -138,13 +134,6 @@ export default function FormationIAAppelsOffreBTPPage() {
   return (
     <div>
       <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: "Répondre aux appels d'offre avec l'IA", path: '/formations/ia-appels-offre-btp' },
-        ])}
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

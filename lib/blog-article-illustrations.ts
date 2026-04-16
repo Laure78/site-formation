@@ -16,8 +16,6 @@ const METIER_PAR_CATEGORIE: Record<BlogCategoryId, string> = {
   metiers: 'entreprises et métiers du BTP',
   rh: 'RH et recrutement BTP',
   productivite: 'productivité et organisation chantier BTP',
-  regions: 'formation IA BTP Île-de-France',
-  formateurs: 'formateurs et organismes BTP',
 };
 
 function truncate125(s: string): string {
@@ -119,24 +117,6 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'studioLight',
     'formationEntreprise',
     'heroAccueilFormationIABtpEchange2026',
-  ],
-  regions: [
-    'blogBtpChantierPlansEchange2026',
-    'blogFormationIaBtpHandshakeFlipchart2026',
-    'accueilReferencePartenairesLaureOFC2026',
-    'btpFormationSalleIntervention2026',
-    'heroAccueilFormationIABtpEchange2026',
-    'formationIAArtisans2026',
-    'btpFormationChantierPlans2026',
-  ],
-  formateurs: [
-    'blogIaAuServiceArtisansBatiment2026',
-    'blogFormationIaBtpHandshakeFlipchart2026',
-    'portraitPro2026',
-    'linkedinPanel',
-    'studioLight',
-    'formatriceLowerThird',
-    'interventionClaude',
   ],
 };
 

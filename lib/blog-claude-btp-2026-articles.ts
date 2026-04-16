@@ -582,7 +582,6 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     ],
     relatedSlugs: [
       'guide-claude-ia-btp-code-projects-skills-mcp',
-      'comment-trouver-premiers-clients-formateur',
       '5-cas-usage-chatgpt-artisans-btp',
     ],
   },

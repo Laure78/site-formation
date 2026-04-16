@@ -6,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
   ARTICLE_SECTION_GEO,
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getHowToFromArticle,
   SITE_CONFIG,
@@ -28,7 +27,6 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { getBlogArticleIllustrations } from '@/lib/blog-article-illustrations';
 import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
@@ -150,15 +148,6 @@ export default async function BlogArticlePage({ params }: Props) {
         imageUrl={articleSchemaImage}
         keywords={article.keywords}
         wordCount={wordCount}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Ressources', path: '/blog' },
-          { name: article.title, path: `/blog/${article.slug}` },
-        ])}
-        showVisual
-        className="mb-6"
       />
       <BlogArticleFaqJsonLd article={article} />
       {howToSchema && (

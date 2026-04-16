@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { FileText, ArrowRight, Clock, TrendingUp } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
   title: 'Ressources IA BTP : Guides & Articles pratiques',
@@ -31,15 +30,6 @@ const ARTICLES = [
 export default function RessourcesIABTPPage() {
   return (
     <div>
-      <div className="mx-auto max-w-5xl px-4 pt-8">
-        <Breadcrumb
-          items={breadcrumbItemsFromPaths([
-            { name: 'Accueil', path: '/' },
-            { name: 'Ressources IA BTP', path: '/ressources/ia-btp' },
-          ])}
-          showVisual
-        />
-      </div>
       {/* Hero */}
       <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
         <div className="mx-auto max-w-5xl">

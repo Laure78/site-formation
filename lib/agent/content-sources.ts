@@ -14,6 +14,7 @@ import {
 } from '@/lib/tarifs-sessions';
 import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export interface ContentChunk {
   url: string;
@@ -67,7 +68,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
     path: '/formation-ia-appels-offres-btp',
     title: "Formation IA appels d'offres BTP — DCE et mémoire technique",
     content:
-      "Landing SEO BTP-02 : analyser un DCE avec l'IA, mémoire technique, prompts, financement Constructys, méthode en 5 étapes. Laure Olivié, Qualiopi, +1 592 pros formés. Lien vers la fiche /formations/ia-appels-offre-btp.",
+      `Landing SEO BTP-02 : analyser un DCE avec l'IA, mémoire technique, prompts, financement Constructys, méthode en 5 étapes. Laure Olivié, Qualiopi, +${formatProfessionalsTrainedCount()} pros formés. Lien vers la fiche /formations/ia-appels-offre-btp.`,
   },
   { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation finançable OPCO Constructys. Gain de temps sur chiffrages.' },
   {

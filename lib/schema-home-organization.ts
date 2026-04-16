@@ -1,6 +1,13 @@
 /**
  * Enrichissement JSON-LD accueil : LocalBusiness + EducationalOrganization + Organization
- * fusionnés sur @id #organization avec avis (évite un second bloc LocalBusiness isolé).
+ * fusionnés sur @id #organization.
+ *
+ * Avis (Review) :
+ * - Option A (défaut) : uniquement aggregateRating (note agrégée + nombre d’avis) — pas de tableau
+ *   `review` pour limiter le risque d’avis non vérifiables (guidelines Google sur les extraits).
+ * - Option B : témoignages individuels + publisher (fiche Google Business) — voir
+ *   `getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews` et
+ *   `lib/schema-home-verified-reviews-data.ts`.
  */
 import {
   SCHEMA_AGGREGATE_RATING_HOME,
@@ -12,12 +19,49 @@ import {
   schemaDefaultPersonImageUrl,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
+import { SITE_CONFIG } from '@/lib/seo';
+import {
+  HOME_VERIFIED_REVIEWS_FOR_SCHEMA,
+  type HomeVerifiedReviewForSchema,
+} from '@/lib/schema-home-verified-reviews-data';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const ORG_ID = `${BASE}/#organization` as const;
 
-/** Complète le schéma global Organization (layout) : note agrégée + avis exemples. Pas de `itemReviewed` sur les Review imbriquées (recommandation Google / extraits d'avis). */
-export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<string, unknown> {
+/** Source commune pour les avis : fiche Google Business Profile (organisme). */
+function reviewPublisherOrganization(): Record<string, unknown> {
+  return {
+    '@type': 'Organization',
+    name: SCHEMA_ORGANIZATION_OFC.name,
+    url: SITE_CONFIG.googleBusinessProfileUrl,
+  };
+}
+
+function mapVerifiedReviewToSchema(entry: HomeVerifiedReviewForSchema): Record<string, unknown> {
+  return {
+    '@type': 'Review',
+    publisher: reviewPublisherOrganization(),
+    author: {
+      '@type': 'Person',
+      name: entry.authorName,
+      affiliation: {
+        '@type': 'Organization',
+        name: entry.companyName,
+      },
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: entry.ratingValue,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    reviewBody: entry.reviewBody,
+    datePublished: entry.datePublished,
+  };
+}
+
+/** Cœur du schéma (sans tableau review) — aggregateRating 4,85 / reviewCount aligné SOCIAL_PROOF (1592). */
+function getHomeOrganizationLocalBusinessCore(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@id': ORG_ID,
@@ -46,46 +90,25 @@ export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<strin
     currenciesAccepted: 'EUR',
     openingHours: SCHEMA_OPENING_HOURS,
     aggregateRating: SCHEMA_AGGREGATE_RATING_HOME,
-    review: [
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Marc D.' },
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: 5,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        reviewBody:
-          'Depuis la formation IA BTP, je génère mes devis 10 fois plus vite. Le retour sur investissement est immédiat.',
-        datePublished: '2026-01-15',
-      },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Sophie M.' },
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: 5,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        reviewBody:
-          'Formation 100 % terrain, zéro théorie inutile. On travaille directement sur nos vrais documents. Les gains de temps sont concrets dès le lendemain.',
-        datePublished: '2026-02-10',
-      },
-      {
-        '@type': 'Review',
-        author: { '@type': 'Person', name: 'Pierre L.' },
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: 5,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        reviewBody:
-          "J'ai automatisé tous mes comptes rendus de chantier avec ChatGPT. Je gagne minimum 2h par jour. Formation parfaitement adaptée au BTP.",
-        datePublished: '2026-03-05',
-      },
-    ],
+  };
+}
+
+/**
+ * Option A — Recommandé par défaut : pas de `review[]`, seulement aggregateRating
+ * (ratingValue 4,85, reviewCount issu de SCHEMA_AGGREGATE_RATING_HOME / ~1592).
+ */
+export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<string, unknown> {
+  return getHomeOrganizationLocalBusinessCore();
+}
+
+/**
+ * Option B — À utiliser uniquement quand `HOME_VERIFIED_REVIEWS_FOR_SCHEMA` contient des avis
+ * réels et vérifiables (noms, entreprises, dates, citations exactes).
+ * Chaque Review inclut `publisher` vers la fiche Google Business de l’organisme.
+ */
+export function getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews(): Record<string, unknown> {
+  return {
+    ...getHomeOrganizationLocalBusinessCore(),
+    review: HOME_VERIFIED_REVIEWS_FOR_SCHEMA.map(mapVerifiedReviewToSchema),
   };
 }

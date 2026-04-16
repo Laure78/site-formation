@@ -18,7 +18,9 @@ import {
   getFormationIleDeFrancePageLocalBusinessJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { LINKS } from '@/lib/internal-links';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -31,7 +33,7 @@ const PATH = '/formation-ia-btp-ile-de-france';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Île-de-France | Qualiopi Constructys | Laure Olivié',
   description:
-    'Formation IA BTP en Île-de-France (75-78-91-92-93-94-95-77). Organisme Qualiopi, finançable Constructys. Inter et intra. 1 592 professionnels formés. 4,85/5.',
+    `Formation IA BTP en Île-de-France (75-78-91-92-93-94-95-77). Organisme Qualiopi, finançable Constructys. Inter et intra. ${formatProfessionalsTrainedCount()} professionnels formés. ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: PATH,
   keywords: [
     'formation IA BTP Île-de-France',
@@ -89,12 +91,13 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: "Les formations en distanciel sont-elles aussi efficaces qu'en présentiel ?",
-    a: "Selon les retours des participants (note identique : 4,85/5 en présentiel et distanciel), oui — à condition que chaque participant ait son propre écran et sa connexion. La méthode est la même, les documents travaillés sont les vôtres.",
+    a: `Selon les retours des participants (note identique : ${SOCIAL_PROOF.AVERAGE_RATING} en présentiel et distanciel), oui — à condition que chaque participant ait son propre écran et sa connexion. La méthode est la même, les documents travaillés sont les vôtres.`,
   },
 ];
 
 const SOMMAIRE = [
   { href: '#contexte', label: "Pourquoi les entreprises BTP d'Île-de-France adoptent l'IA en formation courte" },
+  { href: '#par-departement', label: 'Formation IA BTP par département (77 à 95, 78)' },
   { href: '#formations', label: 'Les formations disponibles en Île-de-France' },
   { href: '#inter', label: 'Sessions inter : calendrier et lieux' },
   { href: '#intra', label: 'Sessions intra : dans vos locaux' },
@@ -138,7 +141,8 @@ export default function FormationIaBtpIleDeFrancePage() {
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             Formations courtes (4 h), sur vos documents réels, résultats dès le lendemain.{' '}
-            <strong>+1 592 professionnels</strong> formés · note <strong>4,85/5</strong>.
+            <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
+            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <RdvLink className="inline-flex rounded-full bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#2d6ae0]">
@@ -189,10 +193,42 @@ export default function FormationIaBtpIleDeFrancePage() {
             Depuis 2022, OFC forme les équipes BTP en Île-de-France en partenariat avec la{' '}
             <strong>FFB Grand Paris</strong>, la <strong>FFB Île-de-France (78/91/95)</strong>, la{' '}
             <strong>FFB IDF Est</strong>, la <strong>CSFE</strong> (étanchéité/bardage) et le{' '}
-            <strong>CNAM Île-de-France</strong>. Plus de <strong>1 592 professionnels</strong> formés — conducteurs de
-            travaux, chargés d&apos;affaires, assistantes administratives, dirigeants de PME — avec une note de
-            satisfaction de <strong>4,85/5</strong>.
+            <strong>CNAM Île-de-France</strong>. Plus de <strong>{formatProfessionalsTrainedCount()} professionnels</strong>{' '}
+            formés — conducteurs de travaux, chargés d&apos;affaires, assistantes administratives, dirigeants de PME —
+            avec une note de satisfaction de <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
+        </div>
+      </section>
+
+      <section id="par-departement" className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Formation IA BTP par département
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Pages dédiées Qualiopi et financement Constructys : problématiques locales, villes couvertes, FAQ
+            géographique.
+          </p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {[
+              { href: LINKS.formationIaBtpSeineEtMarne77, label: 'Seine-et-Marne (77)' },
+              { href: LINKS.formationIaBtpYvelines78, label: 'Yvelines (78)' },
+              { href: LINKS.formationIaBtpEssonne91, label: 'Essonne (91)' },
+              { href: LINKS.formationIaBtpHautsDeSeine92, label: 'Hauts-de-Seine (92)' },
+              { href: LINKS.formationIaBtpSeineSaintDenis93, label: 'Seine-Saint-Denis (93)' },
+              { href: LINKS.formationIaBtpValDeMarne94, label: 'Val-de-Marne (94)' },
+              { href: LINKS.formationIaBtpValDoise95, label: "Val-d'Oise (95)" },
+            ].map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="flex rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-[#377CF3] shadow-sm hover:bg-blue-50"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -414,7 +450,8 @@ export default function FormationIaBtpIleDeFrancePage() {
           <div className="mt-8 space-y-6 text-slate-700 leading-relaxed">
             <p>
               <strong>FFB Grand Paris</strong> — Sessions inter artisans et conducteurs de travaux, Paris et petite
-              couronne. 300+ participants formés depuis 2023. Note : 4,9/5.
+              couronne. Référence OFC : {formatProfessionalsTrainedCount()} professionnels formés, note{' '}
+              {SOCIAL_PROOF.AVERAGE_RATING}.
             </p>
             <p>
               <strong>FFB Île-de-France (78/91/95)</strong> — Sessions inter en Yvelines, Essonne et Val-d&apos;Oise.
@@ -462,8 +499,9 @@ export default function FormationIaBtpIleDeFrancePage() {
             spécialisée BTP avec une expérience de dirigeante de chantier.
           </p>
           <p className="mt-6 text-sm font-medium text-slate-800">
-            +1 592 professionnels formés · Note 4,85/5 · Qualiopi · Activateur France Num · Instructrice LinkedIn
-            Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM IDF
+            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi ·
+            Activateur France Num · Instructrice LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM
+            IDF
           </p>
           <p className="mt-6">
             <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">

@@ -1,3 +1,7 @@
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+
+const ffbSocialProofLine = `Référence FFB : ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}`;
+
 const CARTES = [
   {
     title: 'Dirigeants & conducteurs de travaux',
@@ -9,7 +13,7 @@ const CARTES = [
   },
   {
     title: 'Fédérations & OPCO',
-    desc: 'Proposez à vos adhérents une formation IA concrète, avec des résultats mesurables. Référence FFB : 300+ formés, 4,9/5.',
+    desc: `Proposez à vos adhérents une formation IA concrète, avec des résultats mesurables. ${ffbSocialProofLine}.`,
   },
   {
     title: 'Bureaux d’études',

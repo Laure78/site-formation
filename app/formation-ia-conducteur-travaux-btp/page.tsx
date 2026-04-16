@@ -8,6 +8,7 @@ import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/
 import { SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const PATH = '/formation-ia-conducteur-travaux-btp';
 
@@ -390,7 +391,7 @@ export default function FormationIaConducteurTravauxBtpPage() {
             dirigeants du BTP pour utiliser ChatGPT sur la productivité (rapports, coordination, appels d’offres).{' '}
             <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
             <strong>{SITE_CONFIG.statsPersonnesFormees} professionnels</strong> formés, satisfaction moyenne{' '}
-            <strong>4,85/5</strong>.
+            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE.

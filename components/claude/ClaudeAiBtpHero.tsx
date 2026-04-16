@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 /**
@@ -43,7 +44,9 @@ export function ClaudeAiBtpHero() {
           <span className="hidden sm:inline" aria-hidden>
             ·
           </span>
-          <span>+1 592 formés · 4,85/5</span>
+          <span>
+            +{formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
+          </span>
         </div>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">

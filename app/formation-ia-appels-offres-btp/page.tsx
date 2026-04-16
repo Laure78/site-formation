@@ -21,13 +21,14 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const PATH = '/formation-ia-appels-offres-btp';
 
 export const metadata = createPageMetadata({
   title: "Formation IA Appels d'Offres BTP | DCE & Mémoire Technique | Laure Olivié",
   description:
-    "Répondez 5x plus vite aux appels d'offres BTP avec l'IA. Formation Qualiopi finançable Constructys. Analyse DCE, mémoire technique, chiffrage. 1 592 pros formés.",
+    `Répondez 5x plus vite aux appels d'offres BTP avec l'IA. Formation Qualiopi finançable Constructys. Analyse DCE, mémoire technique, chiffrage. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: [
     'formation IA appels offres BTP',
@@ -536,7 +537,8 @@ export default function FormationIAAppelsOffresBTPPage() {
               Grand Paris.
             </p>
             <p>
-              <strong>En chiffres :</strong> +1 592 professionnels formés · note 4,85/5 · partenariats
+              <strong>En chiffres :</strong> +{formatProfessionalsTrainedCount()} professionnels formés · note{' '}
+              {SOCIAL_PROOF.AVERAGE_RATING} · partenariats
               FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France ·
               instructrice LinkedIn Learning.
             </p>

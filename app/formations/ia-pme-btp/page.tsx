@@ -5,9 +5,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getCourseSchema,
   getFAQSchema,
@@ -85,13 +83,6 @@ export default function FormationIAPMEBTPPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA pour PME du BTP', path: '/formations/ia-pme-btp' },
-        ])}
       />
       <script
         type="application/ld+json"

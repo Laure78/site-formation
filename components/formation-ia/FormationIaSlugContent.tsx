@@ -6,6 +6,7 @@ import {
   getSisterVilles,
   getVilleLinkedMetiers,
 } from '@/lib/seo-formation-ia-hub-links';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 function hashSlug(s: string): number {
   let h = 0;
@@ -148,8 +149,9 @@ export function FormationIaMetierBody({
         OFC Création d&apos;Entreprise — Laure Olivié
       </h2>
       <p>
-        <strong>Formatrice IA, ChatGPT et Claude AI pour le BTP</strong> — plus de 1 500
-        professionnels accompagnés, note moyenne 4,85/5. SIRET 905 244 281 00010 — NDA 11788515078.
+        <strong>Formatrice IA, ChatGPT et Claude AI pour le BTP</strong> — plus de{' '}
+        {formatProfessionalsTrainedCount()} professionnels accompagnés, note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.
+        SIRET 905 244 281 00010 — NDA 11788515078.
         Siège : 6 rue Henri Dunant, 78280 Guyancourt — laureolivie@yahoo.fr.
       </p>
 
@@ -431,7 +433,8 @@ function FormationIaParisBody() {
       </h2>
       <p>
         OFC Création d&apos;Entreprise — Laure Olivié, formatrice <strong>ChatGPT</strong> et{' '}
-        <strong>Claude AI</strong> pour le BTP. 1 500+ professionnels formés, note 4,85/5. Siège :
+        <strong>Claude AI</strong> pour le BTP. {formatProfessionalsTrainedCount()}+ professionnels formés, note{' '}
+        {SOCIAL_PROOF.AVERAGE_RATING}. Siège :
         Guyancourt (78).{' '}
         <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">
           Financement Constructys

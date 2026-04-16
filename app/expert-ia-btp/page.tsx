@@ -5,6 +5,7 @@ import { Award, Briefcase, Users, GraduationCap, CheckCircle, TrendingUp, Star }
 import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
@@ -58,11 +59,11 @@ export default function ExpertIABTPPage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
-                  <p className="text-3xl font-bold text-white">+1 500</p>
+                  <p className="text-3xl font-bold text-white">+{formatProfessionalsTrainedCount()}</p>
                   <p className="text-sm text-blue-100">Professionnels formés</p>
                 </div>
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">
-                  <p className="text-3xl font-bold text-white">4,85/5</p>
+                  <p className="text-3xl font-bold text-white">{SOCIAL_PROOF.AVERAGE_RATING}</p>
                   <p className="text-sm text-blue-100">Note moyenne</p>
                 </div>
                 <div className="rounded-xl bg-white/10 px-6 py-3 backdrop-blur-sm">

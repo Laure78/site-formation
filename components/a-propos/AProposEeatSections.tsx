@@ -9,6 +9,7 @@ import {
   LINKEDIN_LEARNING_INSTRUCTOR_HREF,
 } from '@/lib/linkedin-learning-a-propos-embeds';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
+import { SOCIAL_PROOF } from '@/lib/constants';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -47,13 +48,13 @@ const PARCOURS = [
   },
   {
     year: '2026',
-    text: `${formesNombreAffiche} professionnels formés — note 4,85/5`,
+    text: `${formesNombreAffiche} professionnels formés — note ${SOCIAL_PROOF.AVERAGE_RATING}`,
   },
 ] as const;
 
 const REF_TABLE = [
   { label: 'Professionnels formés', value: formesNombreAffiche },
-  { label: 'Note de satisfaction', value: '4,85/5' },
+  { label: 'Note de satisfaction', value: SOCIAL_PROOF.AVERAGE_RATING },
   { label: 'Partenaires institutionnels', value: '8+' },
   { label: "Années d'expérience BTP", value: '10+' },
   { label: 'Cours LinkedIn Learning', value: '2' },

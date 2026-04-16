@@ -5,15 +5,13 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
+import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
@@ -53,9 +51,9 @@ export const metadata = createPageMetadata({
   },
 });
 
-const formationCourseGraph = getFormationCoursePageJsonLd(
+const formationCourseGraph = getDedicatedFormationCoursePageJsonLd(
   '/formations/sensibilisation-ia-assistants-personnalises'
-)!;
+);
 
 const MODULES = [
   {
@@ -129,16 +127,6 @@ export default function SensibilisationIAAssistantsPage() {
   return (
     <div>
       <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          {
-            name: "Sensibilisation à l'IA & assistants IA",
-            path: '/formations/sensibilisation-ia-assistants-personnalises',
-          },
-        ])}
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
