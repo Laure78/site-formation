@@ -6,6 +6,7 @@ import { getAllArticles } from '@/lib/blog';
 import { Award, BookOpen, Building2, FileText } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié – Formatrice en IA pour le BTP | LinkedIn Learning',
@@ -32,10 +33,7 @@ export default function AuteurPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="mx-auto max-w-4xl px-4 py-16">
         <nav className="mb-8 text-sm text-slate-600">
           <Link href="/" className="text-[var(--accent)] hover:underline">

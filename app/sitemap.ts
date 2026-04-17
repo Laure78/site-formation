@@ -332,7 +332,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pillarPages: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/ia-devis-batiment`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/ia-conducteur-travaux`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${baseUrl}/formation-ia-artisans-btp`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
     {
       url: `${baseUrl}/formations/formation-ia-cctp-analyse-dce-btp`,

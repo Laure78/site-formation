@@ -74,11 +74,11 @@ export function ArticlesFormationLies() {
                     {a.date}
                   </time>
                 </div>
-                <h3 className="mt-3 font-display text-lg font-bold leading-snug text-slate-900">
+                <h4 className="mt-3 font-display text-lg font-bold leading-snug text-slate-900">
                   <Link href={a.href} className="hover:text-[var(--accent)] hover:underline">
                     {a.title}
                   </Link>
-                </h3>
+                </h4>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{a.excerpt}</p>
                 <div className="mt-4 flex items-start gap-2 border-t border-slate-100 pt-4">
                   <PortraitLinkedInLink className="shrink-0 rounded-full ring-2 ring-[var(--accent-soft)] transition-opacity hover:opacity-95">

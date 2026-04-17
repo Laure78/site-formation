@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
@@ -18,6 +17,7 @@ import { ArrowRight } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { CTABlock } from '@/components/CTABlock';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Articles, guides pratiques',
@@ -91,7 +91,6 @@ function ArticleCard({
   };
   highlighted?: boolean;
 }) {
-  const coverSrc = resolveCoverImageUrl(article);
   const readingMinutes =
     article.sections && Array.isArray(article.sections) && article.sections.length > 0
       ? estimateReadingMinutes(article as never)
@@ -109,15 +108,6 @@ function ArticleCard({
           : 'border border-slate-200'
       }`}
     >
-      <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-xl bg-slate-100">
-        <Image
-          src={coverSrc}
-          alt={`Illustration article blog IA BTP : ${article.title}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
-      </div>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
         <time dateTime={article.date}>
           {new Date(article.date).toLocaleDateString('fr-FR', {
@@ -175,10 +165,7 @@ export default async function BlogPage({
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildBlogJsonLd()) }}

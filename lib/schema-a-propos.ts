@@ -54,7 +54,8 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     currenciesAccepted: 'EUR',
     openingHours: SCHEMA_OPENING_HOURS,
     sameAs: [
-      'https://www.linkedin.com/in/laure-olivie',
+      'https://fr.linkedin.com/in/laure-olivie',
+      'https://www.malt.fr/profile/laureoli',
       'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
     ],
     hasCredential: {
@@ -71,6 +72,26 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
   };
 }
 
+/** Description courte Person / ProfilePage (≈150–200 car.) — alignée contenu page À propos. */
+export const A_PROPOS_PROFILE_PERSON_DESCRIPTION = `Formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Création d'Entreprise (Qualiopi). Plus de ${formatProfessionalsTrainedCount()} professionnels formés depuis 2022, note ${SOCIAL_PROOF.AVERAGE_RATING}. Organisme finançable Constructys (OPCO BTP).`;
+
+/**
+ * @see https://schema.org/ProfilePage — page biographique /a-propos
+ */
+export function getAProposProfilePageJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+      '@type': 'Person',
+      name: 'Laure Olivié',
+      jobTitle: 'Formatrice IA BTP',
+      description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
+      url: `${BASE}/a-propos/`,
+    },
+  };
+}
+
 /**
  * @see https://schema.org/Person — Laure Olivié (page /a-propos)
  * Injecté via `<Script type="application/ld+json" strategy="lazyOnload" />` pour différer le chargement.
@@ -79,8 +100,8 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
-  description: `Formatrice spécialisée en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. ${formatProfessionalsTrainedCount()} professionnels formés. Certifiée Qualiopi.`,
+  jobTitle: 'Formatrice IA BTP',
+  description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
   url: `${BASE}/a-propos`,
   image: `${BASE}/images/laure-portrait-pro-2026.png`,
   telephone: '+33695661818',
@@ -100,6 +121,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   },
   sameAs: [
     'https://fr.linkedin.com/in/laure-olivie',
+    'https://www.malt.fr/profile/laureoli',
     'https://www.linkedin.com/learning/instructors/laure-olivie',
   ],
   knowsAbout: [

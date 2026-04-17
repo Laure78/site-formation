@@ -113,6 +113,7 @@ export function StickyBlogMetierRdvBar() {
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:flex-none sm:justify-end">
           <a
             href={CALENDLY_BOOKING_URL}
+            data-calendly
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex h-10 max-w-full flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:h-10 sm:flex-none sm:px-5"

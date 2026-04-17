@@ -323,7 +323,7 @@ function buildDedicatedFormationCourseObject(opts: {
     aggregateRating: {
       '@type': 'AggregateRating' as const,
       ratingValue: SCHEMA_AGGREGATE_RATING_HOME.ratingValue,
-      reviewCount: SCHEMA_AGGREGATE_RATING_HOME.reviewCount,
+      ratingCount: SCHEMA_AGGREGATE_RATING_HOME.ratingCount,
       bestRating: SCHEMA_AGGREGATE_RATING_HOME.bestRating,
     },
   };

@@ -19,6 +19,7 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -122,7 +123,7 @@ const schemaGraph = {
         name: item.q,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: item.a,
+          text: faqAnswerPlainTextForSchema(item.a),
         },
       })),
     },

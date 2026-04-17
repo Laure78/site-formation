@@ -12,20 +12,27 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
+      { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'Claude-Web', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
       { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Perplexity-User', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
       { userAgent: 'Applebot-Extended', allow: '/' },
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/_next/'],
-      },
+      { userAgent: 'Bytespider', allow: '/' },
+      { userAgent: 'Amazonbot', allow: '/' },
+      { userAgent: 'CCBot', allow: '/' },
+      { userAgent: 'Meta-ExternalAgent', allow: '/' },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

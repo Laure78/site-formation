@@ -28,6 +28,17 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Canonique métier : ancienne landing courte → URL formation-
+      {
+        source: '/ia-conducteur-travaux',
+        destination: '/formation-ia-conducteur-travaux',
+        permanent: true,
+      },
+      {
+        source: '/ia-conducteur-travaux/',
+        destination: '/formation-ia-conducteur-travaux',
+        permanent: true,
+      },
       ...formationIaLegacyRedirects(),
       {
         source: '/formations/ia-btp-ile-de-france',

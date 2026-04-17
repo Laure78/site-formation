@@ -16,6 +16,7 @@ import {
 import { FAQ_FORMATION_IA_BTP_YVELINES_LANDING } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { JsonLd } from '@/components/JsonLd';
 
 const PATH = '/formation-ia-btp-yvelines';
 
@@ -92,10 +93,7 @@ export default function FormationIABTPYvelinesLandingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <Breadcrumb
         items={breadcrumbItemsFromPaths([

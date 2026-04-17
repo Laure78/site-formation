@@ -5,7 +5,8 @@ import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
@@ -22,9 +23,12 @@ export const metadata = createPageMetadata({
   ],
 });
 
+const faqSchema = getFAQSchema(FAQ_IA_BTP_PARIS);
+
 export default function FormationIABTPParis2026Page() {
   return (
     <div>
+      <JsonLd id="schema-faq-ia-btp-paris-2026" schema={faqSchema} />
       <Breadcrumb
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },

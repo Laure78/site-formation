@@ -1,6 +1,7 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
 
 const FAQ_ITEMS = [
   {
@@ -73,10 +74,7 @@ export default function FormationIaFaqPage() {
   const faqSchema = getFAQSchema([...FAQ_ITEMS]);
   return (
     <div className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           FAQ — formation IA BTP (ChatGPT & Claude AI)

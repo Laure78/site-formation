@@ -34,7 +34,7 @@ export function PourQuiSection() {
               key={c.title}
               className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm"
             >
-              <h3 className="font-semibold text-slate-900">{c.title}</h3>
+              <h4 className="font-semibold text-slate-900">{c.title}</h4>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{c.desc}</p>
             </div>
           ))}

@@ -14,6 +14,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
@@ -57,10 +58,7 @@ export default function FinancementConstructysFormationIABTPPage() {
 
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="mx-auto max-w-6xl px-4 pt-8">
         <Breadcrumbs items={[{ label: 'Financement Constructys' }]} />
       </div>

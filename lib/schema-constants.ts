@@ -52,13 +52,13 @@ export const SCHEMA_STATS = {
  * AggregateRating — page d'accueil / entité OFC (JSON-LD).
  * Ne pas modifier les chiffres hors validation métier.
  */
+/** ratingCount uniquement (pas de reviewCount sans avis individuels exposés — rich results Google). */
 export const SCHEMA_AGGREGATE_RATING_HOME = {
   '@type': 'AggregateRating' as const,
   ratingValue: '4.85',
   bestRating: '5',
   worstRating: '1',
   ratingCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-  reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
 };
 
 /** Person — Laure Olivié (fragments réutilisables JSON-LD). */

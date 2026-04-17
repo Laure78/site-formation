@@ -13,38 +13,48 @@ import { LINKS } from '@/lib/internal-links';
 export type FAQItem = { q: string; a: string };
 
 /**
- * FAQ page d'accueil — 6 questions alignées avec le JSON-LD FAQPage (app/page.tsx).
+ * FAQ page d'accueil — alignée avec le JSON-LD FAQPage (`lib/schema-home-unified-graph.ts`).
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Comment utiliser ChatGPT dans une entreprise du bâtiment ?',
     a:
-      "On part de vos documents réels (devis, CR chantier, emails) : prompts adaptés au vocabulaire BTP, relecture humaine et bonnes pratiques confidentialité. La formation IA BTP donne des trames pour l'automatisation des devis, la gestion de chantier et l'administratif — sans prérequis technique.",
+      "On part de vos documents réels (devis, comptes rendus de chantier, emails) avec des prompts adaptés au vocabulaire BTP. La formation IA BTP de Laure Olivié donne des trames pour automatiser les devis, la gestion de chantier et l'administratif, sans aucun prérequis technique.",
   },
   {
     q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
     a:
-      "L'IA générative (ChatGPT, Claude AI) permet d'automatiser la rédaction des comptes rendus de chantier, des devis, des emails et des réponses aux appels d'offres. En moyenne, les artisans et conducteurs de travaux formés gagnent 3 à 5 heures par semaine dès la première utilisation.",
+      "L'IA générative (ChatGPT, Claude AI) permet d'automatiser la rédaction des comptes rendus de chantier, des devis, des emails et des réponses aux appels d'offres. En moyenne, les conducteurs de travaux et dirigeants BTP formés par Laure Olivié gagnent 3 à 5 heures par semaine dès la première semaine.",
   },
   {
-    q: 'La formation est-elle vraiment prise en charge à 100 % ?',
+    q: 'La formation IA BTP est-elle vraiment prise en charge à 100 % par Constructys ?',
     a:
-      'Oui, pour les entreprises du BTP de moins de 50 salariés éligibles au Plan de Développement des Compétences Constructys. Les coûts pédagogiques sont pris en charge à hauteur de 24 € HT/heure/stagiaire, et les salaires des participants sont remboursés pour les entreprises de moins de 11 salariés.',
+      'Oui, pour les entreprises du BTP de moins de 50 salariés éligibles au Plan de Développement des Compétences Constructys. Les coûts pédagogiques sont pris en charge à 24 € HT par heure et par stagiaire (plafond 2026), et les salaires des participants sont remboursés à 15 € HT par heure pour les entreprises de moins de 11 salariés.',
   },
   {
     q: 'Faut-il des compétences techniques pour suivre cette formation IA BTP ?',
     a:
-      "Non. La formation est conçue pour des professionnels du bâtiment sans formation informatique. Seuls prérequis : naviguer sur internet et disposer d'un ordinateur. Tout le reste est expliqué pas à pas, en travaillant sur vos propres documents de chantier.",
+      "Non. La formation est conçue pour des professionnels du bâtiment et des travaux publics sans formation informatique. Seuls prérequis : savoir naviguer sur internet et disposer d'un ordinateur. Tout le reste est expliqué pas à pas, en travaillant directement sur les documents réels de chantier.",
   },
   {
     q: 'Combien de temps dure la formation IA pour le BTP ?',
     a:
-      'Le module standard est de 4 heures, en présentiel dans vos locaux ou en distanciel. Ce format est calibré pour s\'intégrer dans une journée de travail et maximiser la prise en charge Constructys.',
+      "Le module standard est de 4 heures, en présentiel dans vos locaux ou en distanciel via visioconférence. Ce format est calibré pour s'intégrer dans une demi-journée de travail et maximiser la prise en charge Constructys.",
   },
   {
-    q: 'Mes données BTP sont-elles sécurisées avec ChatGPT ?',
+    q: 'Mes données BTP confidentielles sont-elles sécurisées avec ChatGPT ?',
     a:
-      'Pour les données non sensibles, ChatGPT est utilisable directement. Pour les documents confidentiels (marchés, données clients, données financières), on recommande ChatGPT Team ou des solutions européennes comme Mistral AI. La formation inclut un module sur les bonnes pratiques de confidentialité.',
+      'Pour les données non sensibles, ChatGPT et Claude AI sont utilisables directement. Pour les documents confidentiels (marchés, données clients, données financières), Laure Olivié recommande ChatGPT Team, Claude for Work ou les solutions européennes comme Mistral AI. La formation inclut systématiquement un module sur les bonnes pratiques de confidentialité.',
+  },
+  {
+    q: 'Quels sont les principaux clients de Laure Olivié ?',
+    a:
+      'Laure Olivié forme principalement les adhérents et collaborateurs de la FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB IDF Est, CSFE (Chambre Syndicale Française de l\'Étanchéité), CAPEB, CNAM Île-de-France Entreprises et Lefebvre Dalloz.',
+  },
+  {
+    q: "Quelle est la différence entre une formation IA BTP en intra et en inter ?",
+    a:
+      "L'inter-entreprises regroupe plusieurs entreprises sur une session catalogue (idéal pour 1 à 3 collaborateurs). L'intra-entreprise est dédiée à votre seule équipe, sur vos documents et vos cas d'usage spécifiques (idéal à partir de 4 participants). Les deux formats durent 4 heures et coûtent 100 € HT par participant.",
   },
 ];
 
@@ -127,31 +137,27 @@ export const FAQ_GEO: FAQItem[] = [
   },
 ];
 
-/** FAQ par page — pour booster le SEO sur les pages clés */
+/** FAQ page catalogue `/formations` — alignée JSON-LD FAQPage (`lib/schema-formations-page-graph.ts`) */
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
-    q: "Quelles formations IA BTP sont proposées ?",
-    a: `Six sessions de 4 h, niveau débutant (forfait 100 € HT par participant) ou avancé (175 € HT par participant), groupe de 12 maximum : bâtiment, travaux publics, appels d&apos;offres, RH, sensibilisation & assistants, et parcours <a href="${LINKS.formationArchitecture}">architecte augmenté (Claude AI, DPGF, chantier)</a>. Selon le module, on travaille avec ChatGPT, Claude ou Gemini (comptes gratuits possibles au niveau débutant) — guide <a href="${LINKS.claudeAiBtp}">Claude AI BTP</a>. Pour les marchés publics : <a href="${LINKS.formationAO}">formation IA appels d&apos;offres</a>. Les fiches détaillées sont listées sur cette page (cartes ci-dessus).`,
+    q: 'Quelles formations IA BTP sont proposées au catalogue ?',
+    a: `Le catalogue OFC propose 6 formations IA BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service du bâtiment (BTP-01, débutant, 100 € HT/pers), (2) Répondre aux appels d&apos;offre avec l&apos;IA (BTP-02, avancé, 175 € HT/pers), (3) Formation IA pour la fonction RH dans le BTP (BTP-03, avancé, 175 € HT/pers), (4) L&apos;IA au service des Travaux Publics (BTP-04, débutant, 100 € HT/pers), (5) Sensibilisation à l&apos;IA et assistants IA personnalisés (BTP-05, débutant, 100 € HT/pers), (6) Architecte augmenté avec Claude AI, DPGF, chantier et documents (BTP-06, avancé, 175 € HT/pers). En présentiel, inter en Île-de-France ou intra dans les locaux du client. Toutes finançables Constructys. Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
-    q: "Comment choisir ma formation IA BTP ?",
-    a: `On part de votre métier et de votre niveau : les parcours débutants posent les bases (devis, administratif, sensibilisation) ; les parcours avancés ciblent les appels d&apos;offres, la fonction RH ou l&apos;architecture avec exigences outils plus poussées. Un échange permet d&apos;aligner le programme sur vos documents réels. Réservez un créneau sur la page <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou écrivez-nous pour un <a href="${LINKS.contact}">devis personnalisé</a> sous 24 h.`,
+    q: 'Comment choisir la bonne formation IA BTP pour mon entreprise ?',
+    a: `Le choix dépend de votre fonction et de votre niveau. Si vos équipes débutent avec l&apos;IA, partez sur BTP-01 (bâtiment) ou BTP-04 (TP). Si vous voulez gagner sur la production de mémoires techniques et chiffrages, BTP-02 (appels d&apos;offre, avancé). Pour vos équipes RH, BTP-03. Pour un cabinet d&apos;architecture ou MOE, BTP-06. Pour découvrir le potentiel de l&apos;IA et créer vos premiers assistants, BTP-05. Un diagnostic gratuit de 30 minutes en visio permet de cibler le programme adapté — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
-    q: "Les formations sont-elles certifiées Qualiopi ?",
-    a: `Oui. OFC Création d&apos;Entreprise est un organisme de formation certifié Qualiopi : processus d&apos;évaluation et traçabilité conformes aux exigences des financeurs. En savoir plus sur <a href="${LINKS.aPropos}">l&apos;organisme et la formatrice</a>.`,
+    q: 'Combien coûte une formation IA BTP du catalogue ?',
+    a: `Deux tarifs : 100 € HT par participant pour les formations de niveau débutant (BTP-01 bâtiment, BTP-04 travaux publics, BTP-05 sensibilisation), et 175 € HT par participant pour les formations de niveau avancé (BTP-02 appels d&apos;offre, BTP-03 RH, BTP-06 architecture). Toutes les formations durent 4 heures, en groupe de 12 participants maximum. Toutes éligibles au financement Constructys (plafond pédagogique 24 € HT/h/stagiaire pour les entreprises BTP cotisantes). Détail : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
-    q: "Comment financer ma formation avec l'OPCO Constructys ?",
-    a: `Les entreprises du BTP peuvent mobiliser leur plan de développement des compétences : plafonds pédagogiques et règles de dépôt (notamment délai avant le premier jour de session) sont détaillés sur la page <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>. Nous vous aidons à cadrer le dossier avec votre interlocuteur habituel.`,
+    q: 'Les formations IA BTP sont-elles certifiées Qualiopi ?',
+    a: `Oui. OFC Création d&apos;Entreprise est certifié Qualiopi (action de formation), certification valable jusqu&apos;en janvier 2028. Numéro de déclaration d&apos;activité : 11788515078. Toutes les formations du catalogue sont éligibles au financement OPCO Constructys pour les entreprises du BTP, dans les conditions du Plan de Développement des Compétences Bâtiment 2026. <a href="${LINKS.aPropos}">À propos de l&apos;organisme</a>.`,
   },
   {
-    q: "Où se déroulent les sessions en Île-de-France ?",
-    a: `Les sessions inter ont lieu en présentiel dans des salles en Île-de-France (Paris, Yvelines, Essonne, SQY, départements 75 à 95 selon le calendrier). Des pages locales précisent le contexte : <a href="${LINKS.formationParis}">formation IA BTP Paris</a>, <a href="${LINKS.formationMorangis}">Morangis (91)</a>, <a href="${LINKS.formationLongjumeau}">Longjumeau (91)</a>, et une vue d&apos;ensemble sur la <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>. L&apos;intra se fait dans vos locaux en Île-de-France sur devis.`,
-  },
-  {
-    q: "Faut-il un abonnement payant (ChatGPT Plus, Claude Pro) ?",
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Pour des trames prêtes à l&apos;emploi, voir aussi la <a href="${LINKS.checklist}">checklist prompts ChatGPT BTP</a>.`,
+    q: 'Les formations sont-elles disponibles en inter ou en intra ?',
+    a: `Les deux. En inter, les sessions ont lieu en Île-de-France (Paris, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). En intra, la formatrice se déplace dans vos locaux en Île-de-France pour une session dédiée à votre entreprise. Le format reste identique : 4 heures, 12 participants maximum, supports et ressources pédagogiques inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
   },
 ];
 

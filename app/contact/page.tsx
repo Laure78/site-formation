@@ -10,6 +10,7 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Contact | Laure Olivié',
@@ -36,10 +37,7 @@ export default async function ContactPage({
         showVisual
         className="mx-auto max-w-6xl px-4 pt-8"
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">

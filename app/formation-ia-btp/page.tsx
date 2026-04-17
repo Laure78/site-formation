@@ -29,14 +29,14 @@ const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France — Laure Olivié, Formatrice Qualiopi',
+  title: 'Formation IA BTP Île-de-France — ChatGPT 2026 | Laure Olivié',
   description:
-    'Formation IA & ChatGPT pour les PME du bâtiment. Certifiée Qualiopi, 100 % finançable Constructys. Devis, AO, chantier. Réservez votre visio.',
+    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.',
   path: PATH,
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA BTP Île-de-France — Laure Olivié',
+  openGraphTitle: 'Formation IA BTP Île-de-France — ChatGPT 2026 | Laure Olivié',
   openGraphDescription:
-    'Formation pratique ChatGPT & IA pour les professionnels du bâtiment. Qualiopi. 100 % Constructys.',
+    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.',
   image: {
     url: ogImage.src,
     width: ogImage.width,
@@ -56,7 +56,7 @@ export const metadata = createPageMetadata({
 });
 
 const courseName =
-  'Formation IA BTP — ChatGPT & Intelligence artificielle pour les professionnels du bâtiment';
+  'Formation IA BTP — ChatGPT pour le Bâtiment en Île-de-France';
 
 const courseBase = getCourseSchema({
   name: courseName,
@@ -179,8 +179,11 @@ export default function FormationIaBtpPillarPage() {
               OFC Création d&apos;Entreprise · Qualiopi · Constructys
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-              Formation IA BTP — Gagnez 3 à 5h par semaine sur votre Administratif
+              Formation IA BTP — ChatGPT pour le Bâtiment en Île-de-France
             </h1>
+            <p className="mt-4 text-base font-semibold text-slate-800">
+              {Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')} · {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi
+            </p>
             <div className="mx-auto mt-8 max-w-2xl space-y-6 text-left md:mx-0">
               <BlocCtaHaut />
             </div>

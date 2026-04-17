@@ -122,10 +122,7 @@ export default function FormationIAArtisansBTPPage() {
     <div className="mx-auto max-w-4xl px-4 py-16">
       <JsonLd id="schema-breadcrumb-artisans-btp" schema={breadcrumbJsonLd} />
       <JsonLd id="schema-service-artisans-btp" schema={serviceJsonLd} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <nav className="mb-8 text-sm text-slate-600">
         <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
           Accueil

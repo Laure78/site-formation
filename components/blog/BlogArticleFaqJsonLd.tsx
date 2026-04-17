@@ -10,11 +10,12 @@ type Props = {
  * FAQPage JSON-LD — uniquement si l’article contient une FAQ détectée
  * (champ `faq`, section `type: 'faq'`, ou section HTML avec titre FAQ + H3/p).
  */
-export function BlogArticleFaqJsonLd({ article }: Props) {
-  const faqPairs = extractFaqPairsForFaqPageJsonLd(article);
-  if (faqPairs.length === 0) return null;
+const FAQ_JSONLD_MAX = 10;
 
+export function BlogArticleFaqJsonLd({ article }: Props) {
+  const faqPairs = extractFaqPairsForFaqPageJsonLd(article).slice(0, FAQ_JSONLD_MAX);
   const schema = getFAQSchema(faqPairs);
+  if (schema == null) return null;
 
   return (
     <Script

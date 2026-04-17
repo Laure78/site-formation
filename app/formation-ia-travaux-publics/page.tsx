@@ -21,6 +21,7 @@ import {
   getFAQSchema,
 } from '@/lib/seo';
 import { FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING } from '@/lib/faq';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title:
@@ -99,10 +100,7 @@ export default function FormationIATravauxPublicsLandingPage() {
 
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <Breadcrumb
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },

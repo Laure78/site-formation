@@ -17,11 +17,12 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import { JsonLd } from '@/components/JsonLd';
 
 interface FormationCityPageProps {
   config: CityFormationConfig;
   courseSchema: object;
-  faqSchema?: object;
+  faqSchema?: object | null;
   faqItems?: readonly FAQItem[];
   /** Bloc SEO / conversion inséré entre le hero et la section « experte » */
   afterHero?: ReactNode;
@@ -49,10 +50,7 @@ export function FormationCityPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
       {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        <JsonLd id="schema-faq-page" schema={faqSchema} />
       )}
       <FormationCourseHero
         refLine={

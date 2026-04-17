@@ -28,7 +28,7 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
-import { getFAQSchema, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
@@ -46,36 +46,53 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { buildHomePageImageObjectsJsonLd } from '@/lib/schema-image-objects';
-import { getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved } from '@/lib/schema-home-organization';
-import { HOME_PAGE_GRAPH_JSON_LD as homeSchema } from '@/lib/schema-home-page-graph';
+import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
-/** Meta + Open Graph / Twitter (même texte, sans suffixe auteur — ~140 car.) */
+/** Meta + Open Graph / Twitter (sans suffixe auteur — ≤ 155 car. description SERP) */
 const HOME_META_DESCRIPTION =
-  "Formez vos équipes BTP à l'IA & ChatGPT. 1 592 pros formés, 4,85/5. Qualiopi, finançable Constructys. Visio découverte gratuite.";
+  "1 592 pros BTP formés à l'IA. Qualiopi finançable Constructys. ChatGPT devis, DCE, mémoire technique. Visio découverte gratuite.";
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France — Laure Olivié, Formatrice Qualiopi',
+  title: 'Formation IA BTP — ChatGPT, Devis & Chantier | Laure Olivié',
   description: HOME_META_DESCRIPTION,
   path: '/',
   appendAuthorSuffix: false,
-  openGraphDescription: HOME_META_DESCRIPTION,
+  openGraphDescription:
+    "1 592 pros BTP formés à l'IA. Qualiopi finançable Constructys. ChatGPT devis, DCE, mémoire technique. Visio découverte gratuite.",
+  openGraphTitle: 'Formation IA BTP — ChatGPT, Devis & Chantier | Laure Olivié',
   keywords: [
     'formation IA BTP',
     'formation ChatGPT BTP',
-    'FFB formation IA',
-    'étanchéité CSFE formation',
-    'formation Claude AI bâtiment',
-    'formation IA Paris',
+    'formation IA bâtiment',
+    'formation IA travaux publics',
+    'formation Claude AI BTP',
+    'intelligence artificielle bâtiment',
     'formation IA Île-de-France',
-    'Qualiopi',
-    'OPCO Constructys',
+    'formation IA Paris',
+    'formation IA Yvelines',
+    'Qualiopi IA BTP',
+    'Constructys IA',
+    'ChatGPT devis BTP',
+    'IA conducteur de travaux',
+    'IA appel d\'offres BTP',
   ],
+  category: 'education',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
   image: {
     url: PHOTOS.heroAccueilFormationIABtpEchange2026.src,
     width: PHOTOS.heroAccueilFormationIABtpEchange2026.width,
@@ -84,22 +101,11 @@ export const metadata = createPageMetadata({
   },
 });
 
+const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
+
 export default function HomePage() {
   return (
     <div>
-      <JsonLd id="schema-faqpage-accueil" schema={getFAQSchema(FAQ_ITEMS_HOME)} />
-      <JsonLd id="schema-imageobjects-accueil" schema={buildHomePageImageObjectsJsonLd()} />
-      {/*
-        LocalBusiness (accueil) — voir `getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved` :
-        - Option A (défaut) : `HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD === false` → aggregateRating
-          uniquement (pas de `review[]`).
-        - Option B : `HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD === true` + données dans
-          `lib/schema-home-verified-reviews-data.ts` → aggregateRating + Review avec publisher (GBP).
-      */}
-      <JsonLd
-        id="schema-home-localbusiness-reviews"
-        schema={getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved()}
-      />
       {/* Hero — Formation IA BTP */}
       <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-24 md:py-32">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
@@ -144,30 +150,28 @@ export default function HomePage() {
                 <span className="hidden sm:inline">Qualiopi · Constructys</span>
               </div>
               <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-                Formez vos équipes{' '}
-                <span className="font-serif italic text-slate-800">BTP</span> à{' '}
-                <span className="font-serif italic text-[var(--accent)]">l&apos;IA</span>
-                <span className="mt-3 block text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.65rem] lg:leading-tight">
-                  Devis, chantier &amp; administratif avec ChatGPT et Claude AI
-                </span>
+                Formation IA BTP en Île-de-France pour vos équipes du bâtiment
               </h1>
-              <p className="mt-4 text-base font-medium text-slate-700">
-                {formatProfessionalsTrainedCount()}+ professionnels accompagnés · Note {SOCIAL_PROOF.AVERAGE_RATING} ·
-                Financement OPCO
+              <p className="mt-3 text-2xl font-semibold text-slate-700 md:text-3xl">
+                Devis, chantier, appels d&apos;offres :{' '}
+                <span className="font-serif italic text-[var(--accent)]">
+                  ChatGPT et Claude AI
+                </span>{' '}
+                au service de votre productivité
               </p>
-              <p className="mt-5 text-lg text-slate-600">
-                <strong>
-                  Formation IA BTP, intelligence artificielle bâtiment et travaux publics
-                </strong>{' '}
-                — ChatGPT BTP, Claude et outils pensés pour artisans, conducteurs de travaux et
-                dirigeants. Paris et Île-de-France, finançable Constructys. Gagnez{' '}
-                <span className="font-semibold text-slate-900">3 à 5 heures par semaine</span> grâce à
-                l&apos;automatisation des devis, du suivi chantier, des emails et des dossiers
-                d&apos;appels d&apos;offres, sans sacrifier la validation métier.
+              <p
+                className="citation-sentence my-6 border-l-[3px] border-[var(--accent)] bg-[#F8F9FA] p-4 text-slate-800"
+                data-citation="true"
+                itemProp="description"
+              >
+                <strong>Laure Olivié</strong> forme les équipes BTP à utiliser ChatGPT et Claude AI
+                pour gagner 3 à 5 heures par semaine sur les devis, comptes rendus de chantier et
+                réponses aux appels d&apos;offres. Sa formation, dispensée par l&apos;organisme{' '}
+                <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi), est finançable à
+                100 % par Constructys et a déjà accompagné {formatProfessionalsTrainedCount()}{' '}
+                professionnels du bâtiment et des travaux publics en Île-de-France (note{' '}
+                {SOCIAL_PROOF.AVERAGE_RATING}/5 en 2026).
               </p>
-              <CitationSentence
-                text={`OFC Création d'Entreprise est votre référent formation IA pour le BTP : organisme certifié Qualiopi, spécialisé intelligence artificielle bâtiment et travaux publics — plus de ${formatProfessionalsTrainedCount()} artisans et professionnels accompagnés.`}
-              />
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                   Organiser une formation
@@ -179,7 +183,52 @@ export default function HomePage() {
                   Voir le programme
                 </Link>
               </div>
-              <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              <p className="mt-6 text-sm text-slate-500">
+                <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
+                <Link
+                  href={LINKS.formationBatiment}
+                  className="text-[var(--accent)] hover:underline"
+                  title="Formation IA bâtiment — L'IA au service du bâtiment"
+                >
+                  formation IA bâtiment
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationTP}
+                  className="text-[var(--accent)] hover:underline"
+                  title="Formation IA travaux publics"
+                >
+                  formation IA travaux publics
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.financement}
+                  className="text-[var(--accent)] hover:underline"
+                  title="Financement Constructys — formation IA BTP"
+                >
+                  financement Constructys
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationAO}
+                  className="text-[var(--accent)] hover:underline"
+                  title="IA et appels d'offres BTP"
+                >
+                  IA appels d&apos;offres BTP
+                </Link>
+              </p>
+              <p
+                className="mt-8 text-sm text-slate-600 italic"
+                data-citation="true"
+              >
+                <strong>Définition.</strong> Une « formation IA BTP » est une formation professionnelle
+                qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
+                d&apos;intelligence artificielle générative (ChatGPT, Claude AI, Gemini) pour
+                automatiser leurs tâches récurrentes : rédaction de devis, comptes rendus de
+                chantier, mémoires techniques, emails et analyse de dossiers d&apos;appel
+                d&apos;offres.
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
                   { val: formatProfessionalsTrainedCount(), label: 'PERSONNES FORMÉES' },
                   { val: '100%', label: 'FINANÇABLE OPCO' },
@@ -192,6 +241,9 @@ export default function HomePage() {
                     <p className="text-2xl font-bold text-[var(--accent)] md:text-3xl">
                       {stat.val}
                     </p>
+                    <small className="mt-1 block text-[0.65rem] text-slate-400">
+                      {STATS_FRESHNESS_LABEL}
+                    </small>
                     <p className="mt-1 text-xs text-slate-600">{stat.label}</p>
                   </div>
                 ))}
@@ -213,6 +265,29 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section
+        className="border-b border-slate-200 bg-white px-4 py-12"
+        aria-labelledby="couverture-geo"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="couverture-geo"
+            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+          >
+            Une formation IA BTP accessible partout en France
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-600" data-citation="true">
+            Basée à Guyancourt (Yvelines), Laure Olivié intervient principalement en présentiel en{' '}
+            <strong>Île-de-France (Paris, 78, 91, 92, 93, 94, 95, 77)</strong> auprès des entreprises
+            du bâtiment et des travaux publics. Pour les entreprises hors Île-de-France ou pour les
+            équipes réparties sur plusieurs sites, toutes les formations sont également disponibles{' '}
+            <strong>en distanciel via visioconférence</strong>, sans perte d&apos;efficacité
+            pédagogique. La pédagogie reste 100 % opérationnelle : on travaille directement sur vos
+            documents BTP réels.
+          </p>
         </div>
       </section>
 
@@ -273,6 +348,9 @@ export default function HomePage() {
       {/* Étude de cas clients — FFB / CSFE (preuve B2B) */}
       <EtudeCasClientsSection />
 
+      {/* Témoignages Google — sous « Ils m'ont fait confiance » (hiérarchie H2 → H3) */}
+      <GoogleReviewsSection />
+
       {/* Les bénéfices — H2 unique + sous-sections H3 */}
       <section
         className="border-b border-slate-200"
@@ -284,7 +362,7 @@ export default function HomePage() {
               id="benefices-formation-ia-heading"
               className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl"
             >
-              Les bénéfices d&apos;une formation IA BTP pour votre entreprise
+              Les bénéfices d&apos;une formation IA BTP
             </h2>
             <div className="mt-12">
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -421,12 +499,22 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mt-16 rounded-2xl border border-slate-200 bg-[#eef2ff] px-4 py-12 md:px-8">
-              <h3 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            <div
+              className="mt-16 rounded-2xl border border-slate-200 bg-[#eef2ff] px-4 py-12 md:px-8"
+              itemScope
+              itemType="https://schema.org/HowTo"
+            >
+              <h3
+                className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl"
+                itemProp="name"
+              >
                 5 cas d&apos;usage concrets de l&apos;IA dans le{' '}
                 <span className="font-serif italic">BTP</span>
               </h3>
-              <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
+              <p
+                className="mx-auto mt-3 max-w-2xl text-center text-slate-600"
+                itemProp="description"
+              >
                 Méthodes éprouvées en formation IA BTP avec artisans, conducteurs de travaux et
                 entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au
                 quotidien.
@@ -453,13 +541,21 @@ export default function HomePage() {
                     title: 'Emails & administratif',
                     desc: 'Relances, courriers et priorités pour souffler sur la boîte mail.',
                   },
-                ].map((c) => (
+                ].map((c, idx) => (
                   <div
                     key={c.title}
                     className="rounded-2xl border border-white/80 bg-white p-6 shadow-sm"
+                    itemScope
+                    itemProp="step"
+                    itemType="https://schema.org/HowToStep"
                   >
-                    <h4 className="font-semibold text-slate-900">{c.title}</h4>
-                    <p className="mt-2 text-sm text-slate-600">{c.desc}</p>
+                    <meta itemProp="position" content={String(idx + 1)} />
+                    <h4 className="font-semibold text-slate-900" itemProp="name">
+                      {c.title}
+                    </h4>
+                    <p className="mt-2 text-sm text-slate-600" itemProp="text">
+                      {c.desc}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -677,7 +773,7 @@ export default function HomePage() {
               tous les articles
             </Link>
             {' · '}
-            <Link href="/claude-ai-btp" className="font-medium text-[var(--accent)] hover:underline" title="Guide Claude AI pour le BTP — interfaces, prompts, gains de temps">
+            <Link href={LINKS.claudeAiBtp} className="font-medium text-[var(--accent)] hover:underline" title="Guide Claude AI pour le BTP — interfaces, prompts, gains de temps">
               Claude AI BTP
             </Link>
             {' · '}
@@ -801,67 +897,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Financement Constructys */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <span>FINANCEMENT</span>
-          </div>
-          <h3 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            Formation finançable par Constructys
-          </h3>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Cette formation peut être{' '}
-            <span className="font-semibold text-[var(--accent)]">
-              prise en charge à 100% par Constructys
-            </span>{' '}
-            dans le cadre du Plan de Développement des Compétences 2026 pour les
-            entreprises de moins de 50 salariés.
-          </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: Award,
-                title: '100% finançable',
-                desc: "Coût pédagogique pris en charge à hauteur de 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum.",
-              },
-              {
-                icon: Target,
-                title: 'Salaires remboursés',
-                desc: 'Pour les entreprises de moins de 11 salariés : 15€ HT/heure/stagiaire. Éligible si formation « gestion d\'entreprise ».',
-              },
-              {
-                icon: Check,
-                title: 'Certification Qualiopi',
-                desc: "Organisme certifié Qualiopi. Démarches administratives simplifiées. Accompagnement complet pour monter le dossier.",
-              },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                  <Icon size={24} strokeWidth={1.5} />
-                </div>
-                <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
-                <p className="mt-2 text-sm text-slate-600">{desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link
-              href={LINKS.financement}
-              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-              title="Financement OPCO Constructys — formation IA BTP"
-            >
-              financement Constructys
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Pourquoi choisir Laure Olivié */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section
+        className="border-b border-slate-200 bg-white px-4 py-16"
+        aria-labelledby="pourquoi-laure-heading"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
@@ -874,7 +914,10 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <span>VOTRE FORMATRICE</span>
               </div>
-              <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+              <h2
+                id="pourquoi-laure-heading"
+                className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
+              >
                 Pourquoi choisir Laure Olivié ?
               </h2>
               <blockquote className="mt-6 rounded-2xl bg-[var(--accent-soft)] p-6 text-[var(--accent)]">
@@ -910,7 +953,7 @@ export default function HomePage() {
                     className="rounded-xl border border-slate-200 p-4 shadow-sm"
                   >
                     <Icon size={24} strokeWidth={1.5} className="text-[var(--accent)]" />
-                    <h3 className="mt-2 font-semibold text-slate-900">{title}</h3>
+                    <h4 className="mt-2 font-semibold text-slate-900">{title}</h4>
                     <p className="mt-1 text-sm text-slate-600">{desc}</p>
                   </div>
                 ))}
@@ -968,58 +1011,110 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Avis clients Google */}
-      <GoogleReviewsSection />
-
-      {/* Qualiopi certification */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-center">
-            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <Image
-                src={PHOTOS.qualiopiLogoOfficiel.src}
-                alt={PHOTOS.qualiopiLogoOfficiel.alt}
-                width={PHOTOS.qualiopiLogoOfficiel.width}
-                height={PHOTOS.qualiopiLogoOfficiel.height}
-                className="mb-4 h-auto w-40"
-                sizes="160px"
-              />
-              <p className="font-display text-xl font-bold text-[var(--accent)]">
-                Qualiopi
-              </p>
-              <p className="mt-1 text-sm text-slate-600">processus certifié</p>
-              <p className="mt-4 text-xs text-slate-500">
-                La certification a été délivrée au titre de la catégorie d&apos;action
-                suivante : Action de formation
-              </p>
-              <ExternalLinkAnchor
-                href={ANNUAIRE_ENTREPRISES_OFC_URL}
-                title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"
-                className="mt-4 inline-flex text-xs font-medium text-[var(--accent)] hover:underline"
-              >
-                Vérifier l&apos;organisme sur annuaire-entreprises.data.gouv.fr →
-              </ExternalLinkAnchor>
-            </div>
-            <div className="flex-1">
-              <h3 className="font-display text-2xl font-bold text-slate-900">
-                Organisme de formation certifié Qualiopi
+          <div className="mt-16 space-y-16 border-t border-slate-200 pt-16">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+                <span>FINANCEMENT</span>
+              </div>
+              <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+                Formation finançable par Constructys
               </h3>
-              <p className="mt-3 text-slate-600">
-                OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi. Cette formation
-                est éligible aux financements OPCO et peut être prise en charge dans le
-                cadre du plan de développement des compétences de votre entreprise.
+              <p className="mt-3 max-w-2xl text-slate-600">
+                Cette formation peut être{' '}
+                <span className="font-semibold text-[var(--accent)]">
+                  prise en charge à 100% par Constructys
+                </span>{' '}
+                dans le cadre du Plan de Développement des Compétences 2026 pour les
+                entreprises de moins de 50 salariés.
               </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <ExternalLinkAnchor
-                  href={ANNUAIRE_ENTREPRISES_OFC_URL}
-                  title="Vérifier la certification Qualiopi — fiche entreprise officielle"
-                  className="inline-flex items-center gap-2 rounded-lg border border-[var(--accent)] bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)] hover:bg-blue-100"
+              <div className="mt-12 grid gap-6 md:grid-cols-3">
+                {[
+                  {
+                    icon: Award,
+                    title: '100% finançable',
+                    desc: "Coût pédagogique pris en charge à hauteur de 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum.",
+                  },
+                  {
+                    icon: Target,
+                    title: 'Salaires remboursés',
+                    desc: 'Pour les entreprises de moins de 11 salariés : 15€ HT/heure/stagiaire. Éligible si formation « gestion d\'entreprise ».',
+                  },
+                  {
+                    icon: Check,
+                    title: 'Certification Qualiopi',
+                    desc: "Organisme certifié Qualiopi. Démarches administratives simplifiées. Accompagnement complet pour monter le dossier.",
+                  },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                      <Icon size={24} strokeWidth={1.5} />
+                    </div>
+                    <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
+                    <p className="mt-2 text-sm text-slate-600">{desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10 text-center">
+                <Link
+                  href={LINKS.financement}
+                  className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+                  title="Financement OPCO Constructys — formation IA BTP"
                 >
-                  Vérifier la certification (annuaire des entreprises) →
-                </ExternalLinkAnchor>
+                  financement Constructys
+                </Link>
+              </div>
+            </div>
+
+            <div className="mx-auto max-w-4xl">
+              <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-center">
+                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <Image
+                    src={PHOTOS.qualiopiLogoOfficiel.src}
+                    alt={PHOTOS.qualiopiLogoOfficiel.alt}
+                    width={PHOTOS.qualiopiLogoOfficiel.width}
+                    height={PHOTOS.qualiopiLogoOfficiel.height}
+                    className="mb-4 h-auto w-40"
+                    sizes="160px"
+                  />
+                  <p className="font-display text-xl font-bold text-[var(--accent)]">
+                    Qualiopi
+                  </p>
+                  <p className="mt-1 text-sm text-slate-600">processus certifié</p>
+                  <p className="mt-4 text-xs text-slate-500">
+                    La certification a été délivrée au titre de la catégorie d&apos;action
+                    suivante : Action de formation
+                  </p>
+                  <ExternalLinkAnchor
+                    href={ANNUAIRE_ENTREPRISES_OFC_URL}
+                    title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"
+                    className="mt-4 inline-flex text-xs font-medium text-[var(--accent)] hover:underline"
+                  >
+                    Vérifier l&apos;organisme sur annuaire-entreprises.data.gouv.fr →
+                  </ExternalLinkAnchor>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-display text-2xl font-bold text-slate-900">
+                    Organisme de formation certifié Qualiopi
+                  </h3>
+                  <p className="mt-3 text-slate-600">
+                    OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi. Cette formation
+                    est éligible aux financements OPCO et peut être prise en charge dans le
+                    cadre du plan de développement des compétences de votre entreprise.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <ExternalLinkAnchor
+                      href={ANNUAIRE_ENTREPRISES_OFC_URL}
+                      title="Vérifier la certification Qualiopi — fiche entreprise officielle"
+                      className="inline-flex items-center gap-2 rounded-lg border border-[var(--accent)] bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)] hover:bg-blue-100"
+                    >
+                      Vérifier la certification (annuaire des entreprises) →
+                    </ExternalLinkAnchor>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1072,8 +1167,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Prendre rendez-vous */}
-      <section id="rdv" className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      {/* CTA final — Prêt à transformer */}
+      <section className="relative overflow-hidden bg-[var(--accent)] px-4 py-24">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
+        <div className="relative mx-auto max-w-4xl text-center text-white">
+          <h2 className="font-display text-3xl font-bold md:text-4xl">
+            Prêt à transformer votre métier avec l&apos;IA ?
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
+            Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
+            grâce à nos formations IA personnalisées pour le BTP.
+          </p>
+          <div className="mt-12 flex flex-wrap justify-center gap-8">
+            {[
+              { val: `+${formatProfessionalsTrainedCount()}`, label: 'Professionnels formés' },
+              { val: '98%', label: 'Satisfaction' },
+              { val: '100%', label: 'Finançable OPCO' },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl font-bold md:text-4xl">{s.val}</p>
+                <small className="mt-1 block text-[0.65rem] text-blue-200/80">
+                  {STATS_FRESHNESS_LABEL}
+                </small>
+                <p className="mt-1 text-sm text-blue-200">{s.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
+              <Calendar size={20} strokeWidth={1.5} />
+              Réserver ma formation
+            </RdvLink>
+            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10" />
+          </div>
+        </div>
+      </section>
+
+      {/* Prise de RDV — H3 après le CTA final (#rdv conservé pour ancres) */}
+      <section
+        id="rdv"
+        aria-labelledby="rdv-creneau-heading"
+        className="border-b border-slate-200 bg-slate-50 px-4 py-16"
+      >
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -1081,7 +1216,10 @@ export default function HomePage() {
                 <Calendar size={16} strokeWidth={1.5} />
                 <span>PRENDRE RDV</span>
               </div>
-              <h3 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+              <h3
+                id="rdv-creneau-heading"
+                className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
+              >
                 Réservez un créneau en ligne
               </h3>
               <p className="mt-3 text-slate-600">
@@ -1135,7 +1273,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h3 className="font-display text-lg font-semibold text-slate-900">Me contacter</h3>
+              <h4 className="font-display text-lg font-semibold text-slate-900">Me contacter</h4>
               <div className="mt-4">
                 <ContactDirect />
               </div>
@@ -1144,43 +1282,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA final — Prêt à transformer */}
-      <section className="relative overflow-hidden bg-[var(--accent)] px-4 py-24">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
-        <div className="relative mx-auto max-w-4xl text-center text-white">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Prêt à transformer votre métier avec l&apos;IA ?
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
-            Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
-            grâce à nos formations IA personnalisées pour le BTP.
-          </p>
-          <div className="mt-12 flex flex-wrap justify-center gap-8">
-            {[
-              { val: `+${formatProfessionalsTrainedCount()}`, label: 'Professionnels formés' },
-              { val: '98%', label: 'Satisfaction' },
-              { val: '100%', label: 'Finançable OPCO' },
-            ].map((s) => (
-              <div key={s.label}>
-                <p className="text-3xl font-bold md:text-4xl">{s.val}</p>
-                <p className="mt-1 text-sm text-blue-200">{s.label}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              <Calendar size={20} strokeWidth={1.5} />
-              Réserver ma formation
-            </RdvLink>
-            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10" />
-          </div>
-        </div>
-      </section>
-
-      <JsonLd
-        id="schema-home-graph-localbusiness-person"
-        data={homeSchema}
-      />
+      <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
     </div>
   );
 }

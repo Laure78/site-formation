@@ -21,6 +21,7 @@ import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { JsonLd } from '@/components/JsonLd';
 
 const PATH = LINKS.formationSaintQuentinYvelines;
 
@@ -78,10 +79,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <FormationCourseHero
         refLine="Laure Olivié · OFC Création d'Entreprise · Guyancourt (78280) · Qualiopi · Constructys"

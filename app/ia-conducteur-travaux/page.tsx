@@ -6,12 +6,14 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Conducteur de Travaux BTP | Laure Olivié IDF',
+  title: 'Formation IA Conducteur Travaux — CR Chantier | Laure Olivié',
   description:
-    'Gagnez du temps sur les CR de chantier et les emails avec l\'IA. Formation pratique Qualiopi en Île-de-France. Finançable Constructys. Réservez votre visio.',
+    'Formation IA pour conducteurs de travaux BTP : CR chantier, planning, AO avec ChatGPT. Gagnez 2h/jour. Qualiopi Constructys.',
   path: '/ia-conducteur-travaux',
+  appendAuthorSuffix: false,
   keywords: [
     'IA conducteur de travaux',
     'IA gestion chantier',
@@ -69,10 +71,7 @@ export default function IAConducteurTravauxPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <nav className="mb-8 text-sm text-slate-600">
         <Link href="/" className="text-[var(--accent)] hover:underline">
           Accueil

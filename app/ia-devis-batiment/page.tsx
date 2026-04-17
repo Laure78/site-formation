@@ -6,12 +6,14 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'IA Devis Bâtiment — Automatiser son Chiffrage BTP | Laure Olivié',
+  title: 'Formation IA Devis BTP — Auto Devis Bâtiment | Laure Olivié',
   description:
-    'Créez vos devis BTP plus vite avec l\'IA et ChatGPT adaptés au vocabulaire bâtiment. Formation Qualiopi, finançable Constructys. Réservez votre visio découverte gratuite.',
+    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Gagnez 2h par devis. Finançable Constructys.',
   path: '/ia-devis-batiment',
+  appendAuthorSuffix: false,
   keywords: [
     'IA devis automatique bâtiment',
     'IA devis bâtiment',
@@ -174,10 +176,7 @@ export default function IADevisBatimentPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <nav className="mb-8 text-sm text-slate-600">
         <Link href="/" className="text-[var(--accent)] hover:underline">
           Accueil

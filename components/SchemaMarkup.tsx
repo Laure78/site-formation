@@ -8,7 +8,7 @@ type SchemaMarkupProps = {
   /** Schéma Course (objet JSON-LD complet ou partiel fusionné côté page avec `getCourseSchema`) */
   course?: object;
   /** Schéma FAQPage */
-  faq?: object;
+  faq?: object | null;
   /** BreadcrumbList */
   breadcrumb?: object;
   /** Person (Laure Olivié) — utile articles / formations si non déjà injecté ailleurs */

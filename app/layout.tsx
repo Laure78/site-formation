@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
@@ -7,15 +6,12 @@ import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/ChatWidget';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
-import { CTASticky } from '@/components/CTASticky';
-import {
-  SITE_CONFIG,
-  getGlobalLayoutPersonJsonLd,
-  getOrganizationSchema,
-  getWebSiteSchema,
-  getMainCourseSchema,
-} from '@/lib/seo';
-import { getSchemaPersonOrganization } from '@/lib/schema-person-organization';
+import { CalendlyFloatingButton } from '@/components/CalendlyFloatingButton';
+import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
+import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
+import { SITE_CONFIG } from '@/lib/seo';
 import { OG_SITE_NAME, withOgDescriptionSuffix } from '@/utils/metadata';
 
 const inter = Inter({
@@ -29,44 +25,45 @@ const outfit = Outfit({
   variable: '--font-display',
   subsets: ['latin'],
   weight: ['600', '700'],
+  display: 'swap',
 });
+
+const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default:
-      'Formation IA pour le BTP | Intelligence artificielle bâtiment, TP & ChatGPT | Laure Olivié',
-    template: '%s | Laure Olivié',
+    default: 'Formation IA BTP Île-de-France — Laure Olivié (Qualiopi)',
+    template: '%s — Laure Olivié, Formation IA BTP',
   },
   description: withOgDescriptionSuffix(SITE_CONFIG.description),
   keywords: [...SITE_CONFIG.keywords],
-  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
+  authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
   creator: SITE_CONFIG.name,
-  publisher: SITE_CONFIG.legalName,
+  publisher: 'OFC Création d\'Entreprise',
   formatDetection: { email: false, telephone: false },
+  category: 'education',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: SITE_CONFIG.url,
+    url: baseUrl,
     siteName: OG_SITE_NAME,
-    title:
-      'Formation IA BTP & intelligence artificielle bâtiment | ChatGPT entreprise | Laure Olivié · Île-de-France',
+    title: 'Formation IA BTP Île-de-France — Laure Olivié (Qualiopi)',
     description: withOgDescriptionSuffix(SITE_CONFIG.description),
     images: [
       {
-        url: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Laure Olivié, formatrice experte en formation IA pour le BTP et le bâtiment en Île-de-France',
+        url: `${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`,
+        width: 1024,
+        height: 682,
+        alt: 'Laure Olivié, formatrice IA BTP, animation d\'une session « L\'IA au service des artisans du bâtiment »',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Formation IA BTP & ChatGPT | Intelligence artificielle bâtiment | Laure Olivié',
+    title: 'Formation IA BTP — Laure Olivié (Qualiopi · Constructys)',
     description: withOgDescriptionSuffix(SITE_CONFIG.description),
-    images: [`${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`],
+    images: [`${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`],
   },
   robots: {
     index: true,
@@ -74,6 +71,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
     },
   },
   verification: {
@@ -82,7 +82,8 @@ export const metadata: Metadata = {
     // yandex: 'votre-code',
   },
   alternates: {
-    canonical: SITE_CONFIG.url,
+    canonical: baseUrl,
+    languages: { 'fr-FR': baseUrl },
   },
   icons: {
     icon: [
@@ -119,35 +120,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const orgSchema = getOrganizationSchema();
-  const webSchema = getWebSiteSchema();
-  const mainCourseSchema = getMainCourseSchema();
-  const personGlobalSchema = getGlobalLayoutPersonJsonLd();
-
-  /** JSON-LD globaux — Organization, WebSite, Course, Person (#laure-olivie) */
-  const jsonLdScripts = [orgSchema, webSchema, mainCourseSchema, personGlobalSchema];
-
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
-      <head>
-        <Script
-          id="schema-person-org"
-          strategy="afterInteractive"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getSchemaPersonOrganization()),
-          }}
-        />
-        {/* Données structurées Schema.org JSON-LD — Rich Results Google */}
-        {jsonLdScripts.map((schema, i) => (
-          <script
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-          />
-        ))}
-      </head>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
+        <GoogleAnalytics />
+        <CalendlyScriptLoader />
+        <CalendlyClickTracker />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"
@@ -157,9 +135,10 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1" id="main-content">
           {children}
+          <FormationCalendlyInlineGate />
         </main>
         <Footer />
-        <CTASticky />
+        <CalendlyFloatingButton />
         <StickyBlogMetierRdvBar />
         <ChatWidget />
         <ExitIntentPopup />

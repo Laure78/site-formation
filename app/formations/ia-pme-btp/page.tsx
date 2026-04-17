@@ -17,6 +17,7 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_HT } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import { JsonLd } from '@/components/JsonLd';
 
 const MAIL_PROGRAMME_PME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA PME BTP')}`;
@@ -31,10 +32,11 @@ const HERO_RESUME_PME = [
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA PME bâtiment — Devis, productivité, Île-de-France | OFC',
+  title: 'Formation IA PME BTP — Dirigeants Bâtiment | Laure Olivié',
   description:
-    "Formation IA PME bâtiment : sessions 4 h, forfait 100 € ou 175 € HT/part. selon niveau. Île-de-France et France. Qualiopi, OPCO Constructys selon éligibilité.",
+    'Formation IA pour dirigeants PME BTP. Transformez votre entreprise avec ChatGPT. 1 592 pros formés. Qualiopi finançable Constructys.',
   path: '/formations/ia-pme-btp',
+  appendAuthorSuffix: false,
   keywords: [
     'formation IA PME bâtiment',
     'formation IA PME bâtiment Île-de-France',
@@ -84,10 +86,7 @@ export default function FormationIAPMEBTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <FormationCourseHero
         refLine="PME bâtiment · Sur mesure · Qualiopi"

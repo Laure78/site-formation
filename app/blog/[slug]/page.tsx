@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
-import { BlogArticleIllustration } from '@/components/blog/BlogArticleIllustration';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
@@ -34,7 +33,6 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
-import { getBlogArticleIllustrations } from '@/lib/blog-article-illustrations';
 import { Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -164,7 +162,6 @@ export default async function BlogArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const related = getRelatedArticlesForDisplay(slug, 6);
-  const illustrations = getBlogArticleIllustrations(slug, article.title);
 
   const wordCount = estimateWordCountFromArticle(article);
   const midCtaAfterIndex = getBlogCTAMidInsertAfterIndex(article.sections);
@@ -241,9 +238,6 @@ export default async function BlogArticlePage({ params }: Props) {
         </h1>
         <p className="mt-4 text-lg text-slate-600">{article.description}</p>
 
-        {illustrations[0] && (
-          <BlogArticleIllustration ill={illustrations[0]} priority />
-        )}
         {showToc && <TableOfContents items={[...IA_DEVIS_TOC_ITEMS]} />}
 
         {/* Bloc liens commerciaux contextuels — au moins 2-3 pages commerciales par article */}
@@ -463,7 +457,7 @@ export default async function BlogArticlePage({ params }: Props) {
 
         <BlogCTA className="mt-12" />
 
-        <ArticleAuthor className="mt-12" />
+        <ArticleAuthor />
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-slate-200 pt-12">

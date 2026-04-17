@@ -7,6 +7,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — Réserver un RDV gratuit',
@@ -28,10 +29,7 @@ export default function PrendreRDVPage() {
         showVisual
         className="mx-auto max-w-4xl px-4 pt-8"
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-4xl">
           <Link

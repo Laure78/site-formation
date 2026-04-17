@@ -1507,9 +1507,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: '5-cas-usage-chatgpt-artisans-btp',
+    seoTitle: "5 Cas d'Usage ChatGPT pour Entreprises BTP | Laure Olivié",
     title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
-      "5 cas d'usage ChatGPT prouvés sur chantier : devis, emails, CR, relances, mémoire technique. Prompts prêts à l'emploi pour artisans BTP. Gagnez 5h/semaine.",
+      "Découvrez 5 cas d'usage concrets de ChatGPT pour les entreprises du bâtiment : devis, emails, CR chantier, suivi, descriptifs.",
     date: '2025-02-20',
     keywords: ['ChatGPT entreprises BTP', 'IA BTP', 'ChatGPT bâtiment', 'intelligence artificielle construction'],
     sections: [
@@ -2159,9 +2160,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: 'ia-btp-analyse-dce',
+    seoTitle: "Analyser un DCE BTP avec l'IA en 20 min | Laure Olivié",
     title: 'Comment utiliser l\'IA pour analyser un DCE dans le BTP',
     description:
-      'Analyser un DCE de 80 pages en 20 minutes avec l\'IA. Méthode en 5 étapes, prompts CCTP prêts à l\'emploi, gains mesurés. Formation IA BTP finançable Constructys, Qualiopi.',
+      "Comment utiliser l'IA pour analyser un DCE dans le BTP : méthode pas à pas, prompts ChatGPT, exemples. Formation IA BTP Qualiopi.",
     date: '2025-03-16',
     keywords: ['IA analyse DCE', 'analyse DCE BTP', 'ChatGPT DCE', 'synthèse DCE IA'],
     sections: [

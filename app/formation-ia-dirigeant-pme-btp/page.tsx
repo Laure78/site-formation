@@ -9,6 +9,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { JsonLd } from '@/components/JsonLd';
 
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
@@ -149,10 +150,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <nav className="mb-8 text-sm text-slate-600">
         <Link href="/" className="text-[var(--accent)] hover:underline">

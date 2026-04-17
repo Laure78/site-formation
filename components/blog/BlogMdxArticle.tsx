@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
@@ -23,12 +22,6 @@ export async function BlogMdxArticle({ slug }: Props) {
   const article = mdxFrontmatterToBlogArticle(frontmatter);
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
-
-  const coverSrc = frontmatter.cover.startsWith('http')
-    ? frontmatter.cover
-    : frontmatter.cover.startsWith('/')
-      ? frontmatter.cover
-      : `/${frontmatter.cover}`;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
@@ -109,24 +102,13 @@ export async function BlogMdxArticle({ slug }: Props) {
         </h1>
         <p className="mt-4 text-lg text-slate-600">{frontmatter.description}</p>
 
-        <div className="relative mt-8 aspect-[1200/630] w-full overflow-hidden rounded-xl border border-slate-200">
-          <Image
-            src={coverSrc}
-            alt={frontmatter.coverAlt}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 896px"
-            priority
-          />
-        </div>
-
         <div className="mt-8">
           <TableOfContents items={toc} />
         </div>
 
         <div className="article-mdx mt-8 max-w-none">{content}</div>
 
-        <AuthorBio className="mt-12" />
+        <AuthorBio />
 
         <RelatedArticles articles={related} className="mt-16" />
       </article>

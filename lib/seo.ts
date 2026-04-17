@@ -157,6 +157,8 @@ export function createPageMetadata({
   openGraphTitle,
   openGraphDescription,
   robots,
+  alternatesLanguages,
+  category,
 }: {
   title: string;
   description: string;
@@ -175,6 +177,8 @@ export function createPageMetadata({
   openGraphTitle?: string;
   openGraphDescription?: string;
   robots?: Metadata['robots'];
+  alternatesLanguages?: Record<string, string>;
+  category?: string;
 }): Metadata {
   const kw = keywords ? [...keywords] : [...SITE_CONFIG.keywords];
   return {
@@ -191,6 +195,8 @@ export function createPageMetadata({
       openGraphTitle,
       openGraphDescription,
       robots,
+      alternatesLanguages,
+      category,
     }),
     keywords: kw,
   };
@@ -301,7 +307,7 @@ export function getGlobalLayoutPersonJsonLd() {
     '@id': `${base}/#laure-olivie`,
     name: SITE_CONFIG.name,
     jobTitle: 'Formatrice IA & ChatGPT pour le BTP',
-    description: `Formatrice IA spécialisée BTP. A formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment. Certifiée Qualiopi.`,
+    description: `Formatrice IA spécialisée BTP. A formé ${formatProfessionalsTrainedCount()}+ professionnels du bâtiment. Certifiée Qualiopi.`,
     url: `${base}/a-propos`,
     image: schemaDefaultPersonImageUrl(),
     email: SCHEMA_CONTACT.email,
@@ -408,12 +414,32 @@ export function getLocalBusinessSchema() {
   };
 }
 
-/** Schéma FAQPage pour GEO (ChatGPT, Perplexity, etc.) */
+/** Aligné recommandations Google / rich results FAQ */
+export const FAQ_SCHEMA_MIN = 3;
+export const FAQ_SCHEMA_MAX = 10;
+
+/**
+ * Schéma FAQPage pour GEO — aligné sur le corps de page (texte des réponses sans HTML).
+ * Minimum 3 questions, maximum 10 (au-delà : découper en blocs thématiques sur d’autres pages).
+ * Retourne `null` si moins de 3 paires valides (pas de JSON-LD FAQPage invalide).
+ */
 export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
+  const items = faq
+    .map((item) => {
+      const q = item.q.trim();
+      const a = item.a.trim();
+      if (!q || !a) return null;
+      return { q, a };
+    })
+    .filter((item): item is { q: string; a: string } => item != null)
+    .slice(0, FAQ_SCHEMA_MAX);
+
+  if (items.length < FAQ_SCHEMA_MIN) return null;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faq.map((item) => ({
+    mainEntity: items.map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: {

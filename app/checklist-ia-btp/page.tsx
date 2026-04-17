@@ -5,12 +5,14 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT BTP — 10 prompts gratuits pour entreprises',
+  title: '10 Prompts ChatGPT BTP Gratuits | Laure Olivié',
   description:
-    "Dix prompts ChatGPT pour entreprises du BTP : devis, emails, CR. Checklist opérationnelle. Complétez avec une formation IA finançable Constructys. Téléchargez.",
+    "Téléchargez 10 prompts ChatGPT gratuits pour le BTP : devis, emails, CR chantier. Par Laure Olivié, formatrice IA BTP certifiée Qualiopi.",
   path: '/checklist-ia-btp',
+  appendAuthorSuffix: false,
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT TPE PME'],
 });
 
@@ -19,10 +21,7 @@ const faqSchema = getFAQSchema(FAQ_CHECKLIST_IA_BTP);
 export default function ChecklistIABTPPage() {
   return (
     <div className="min-h-[80vh]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <nav className="mb-8">

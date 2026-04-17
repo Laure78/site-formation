@@ -15,6 +15,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'ChatGPT artisan électricien BTP — formation IA électricien | Laure Olivié',
@@ -108,10 +109,7 @@ export default function FormationChatGPTArtisanElectricienPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <nav className="mb-8 text-sm text-slate-600">
         <Link href="/" className="text-[var(--accent)] hover:underline">
           Accueil

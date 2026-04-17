@@ -55,7 +55,8 @@ export const LINKS = {
   // Tier 2 — Cas d'usage
   chatgptArtisans: '/formation-ia-artisans-btp',
   iaDevis: '/ia-devis-batiment',
-  iaCDT: '/ia-conducteur-travaux',
+  /** Canonique SEO — ancien `/ia-conducteur-travaux` redirige en 301 */
+  iaCDT: '/formation-ia-conducteur-travaux',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
   formationConducteurTravaux: '/formation-ia-conducteur-travaux-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',

@@ -19,6 +19,7 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import { JsonLd } from '@/components/JsonLd';
 
 const MAIL_RAPPEL_PARIS =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA BTP Paris')}`;
@@ -31,10 +32,11 @@ const HERO_RESUME_PARIS = [
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Paris : Devis & ChatGPT en 4h',
+  title: 'Formation IA BTP Paris — ChatGPT en 4h | Laure Olivié',
   description:
-    "Formation IA BTP Paris et Île-de-France : devis, emails, ChatGPT en 4 h. Artisans et PME. Qualiopi, Constructys. Réservez une session près de Paris.",
+    'Formation IA BTP à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi finançable Constructys. RDV visio gratuit.',
   path: '/formations/ia-btp-paris',
+  appendAuthorSuffix: false,
   keywords: [
     'formation IA Paris',
     'formation BTP Paris',
@@ -97,10 +99,7 @@ export default function FormationIABTPParisPage() {
   return (
     <div>
       <FormationCourseScriptJsonLd schema={formationCourseGraph} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <FormationCourseHero
         refLine="Formation Paris & Île-de-France · Financement OPCO"
         title={

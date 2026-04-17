@@ -1,6 +1,6 @@
 /**
  * Landing SEO par département — Course + Service + FAQ + BreadcrumbList JSON-LD.
- * Les barres d’action fixes Calendly / blog (`CTASticky`, `StickyBlogMetierRdvBar`) sont rendues
+ * Les barres d’action fixes Calendly / blog (`CalendlyFloatingButton`, `StickyBlogMetierRdvBar`) sont rendues
  * globalement dans `app/layout.tsx` pour toutes les pages.
  */
 import Link from 'next/link';

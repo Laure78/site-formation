@@ -14,7 +14,8 @@ const poppins = Poppins({
 });
 
 const STORAGE_KEY = 'ofc-exit-intent-popup-shown';
-const DELAY_MS = 10_000;
+/** Délai minimum sur la page avant d’activer la détection de sortie (desktop). */
+const ENGAGEMENT_MS = 30_000;
 const MIN_WIDTH = 768;
 const TOP_THRESHOLD_PX = 12;
 
@@ -76,7 +77,7 @@ export function ExitIntentPopup() {
       detachLeave = () => el.removeEventListener('mouseleave', onLeave);
     };
 
-    const timer = window.setTimeout(tryAttach, DELAY_MS);
+    const timer = window.setTimeout(tryAttach, ENGAGEMENT_MS);
 
     const onResize = () => {
       if (window.innerWidth <= MIN_WIDTH) detachLeave?.();
@@ -162,11 +163,10 @@ export function ExitIntentPopup() {
           id="exit-intent-title"
           className="pr-6 text-[22px] font-semibold leading-tight text-[#377CF3]"
         >
-          Avant de partir...
+          Avant de partir…
         </h2>
         <p className="mt-3 text-[15px] leading-relaxed text-slate-700">
-          Découvrez comment financer votre formation IA à 100% avec Constructys. Échange de 30 minutes, gratuit et
-          sans engagement.
+          Prenez 30 min avec Laure pour voir comment l&apos;IA peut faire gagner 5h/semaine à votre équipe BTP.
         </p>
 
         <div className="mt-6 flex flex-col gap-3">
@@ -174,9 +174,10 @@ export function ExitIntentPopup() {
             href={CALENDLY_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-calendly
             className="inline-flex w-full items-center justify-center rounded-lg bg-[#377CF3] px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
           >
-            Réserver ma visio gratuite
+            Réservez votre visio gratuite
           </a>
           <button
             type="button"

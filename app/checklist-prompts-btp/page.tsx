@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CHECKLIST_PROMPTS } from '@/lib/faq';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -76,10 +77,13 @@ const PROMPTS = [
   },
 ];
 
+const faqSchema = getFAQSchema(FAQ_CHECKLIST_PROMPTS);
+
 export default function ChecklistDocumentPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-[700px] px-4 py-12 sm:px-6">
+        <JsonLd id="schema-faq-checklist-prompts" schema={faqSchema} />
         <header className="mb-8 border-b-2 border-[#166534] pb-6 text-center">
           <h1 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             10 Prompts ChatGPT indispensables pour les entreprises du BTP

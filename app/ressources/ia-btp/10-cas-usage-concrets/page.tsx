@@ -20,6 +20,7 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'IA dans le BTP : 10 cas d\'usage concrets (2026)',
@@ -211,10 +212,7 @@ export default function CasUsageIABTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       {/* Hero Article */}
       <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">

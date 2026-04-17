@@ -3,6 +3,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_INSTALL_PWA } from '@/lib/faq';
 import { Smartphone, Download } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'Installer l\'app — Laure Olivié',
@@ -16,10 +17,7 @@ const faqSchema = getFAQSchema(FAQ_INSTALL_PWA);
 export default function InstallPWAPage() {
   return (
     <div className="mx-auto max-w-xl px-4 py-16 text-center">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
         <Smartphone size={40} strokeWidth={1.5} />
       </div>

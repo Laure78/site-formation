@@ -11,6 +11,7 @@ export function RdvLink({ className, children, ...rest }: RdvLinkProps) {
   return (
     <a
       href={CALENDLY_BOOKING_URL}
+      data-calendly
       target="_blank"
       rel="noopener noreferrer"
       className={className}

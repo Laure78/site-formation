@@ -58,11 +58,17 @@ const REF_TABLE = [
   { label: 'Cours LinkedIn Learning', value: '2' },
 ] as const;
 
+type AProposEeatSectionsProps = {
+  /** Si true, masque la timeline (évite doublon lorsque le parcours détaillé est au-dessus). */
+  hideTimeline?: boolean;
+};
+
 /** Sections E-E-A-T / GEO — timeline verticale, certifications, chiffres (charte OFC, Poppins). */
-export function AProposEeatSections() {
+export function AProposEeatSections({ hideTimeline = false }: AProposEeatSectionsProps) {
   return (
     <div className={`space-y-0 border-b border-slate-200 bg-white ${poppins.className}`}>
       {/* 1. Timeline Parcours */}
+      {!hideTimeline ? (
       <section
         id="parcours-timeline"
         className="scroll-mt-24 px-4 py-16"
@@ -92,6 +98,7 @@ export function AProposEeatSections() {
           </ol>
         </div>
       </section>
+      ) : null}
 
       {/* 2. Certifications */}
       <section

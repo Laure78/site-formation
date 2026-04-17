@@ -5,6 +5,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_OFFRES } from '@/lib/faq';
+import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title: 'Nos offres de formation IA BTP',
@@ -19,10 +20,7 @@ export default function OffresPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="text-center">
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Nos offres

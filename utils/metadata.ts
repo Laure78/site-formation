@@ -36,6 +36,9 @@ export type BuildPageMetadataInput = {
   /** Remplace og:description et twitter:description (texte tel quel, sans suffixe auteur) */
   openGraphDescription?: string;
   robots?: Metadata['robots'];
+  /** ex. { 'fr-FR': 'https://www.laureolivie.fr' } — renforce le signal hreflang */
+  alternatesLanguages?: Record<string, string>;
+  category?: string;
 };
 
 function toIso8601Utc(date: string): string {
@@ -86,8 +89,16 @@ export function buildPageMetadata({
   openGraphTitle,
   openGraphDescription,
   robots,
+  alternatesLanguages,
+  category,
 }: BuildPageMetadataInput): Metadata {
-  const canonical = path ? `${baseUrl}${path}` : baseUrl;
+  const baseNorm = baseUrl.replace(/\/$/, '');
+  const pathNorm = path
+    ? path.startsWith('/')
+      ? path
+      : `/${path}`
+    : '';
+  const canonical = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
   const metaDescription = appendAuthorSuffix
     ? withOgDescriptionSuffix(description)
     : description.trim();
@@ -134,6 +145,7 @@ export function buildPageMetadata({
     title,
     description: metaDescription,
     ...(keywords?.length ? { keywords } : {}),
+    ...(category ? { category } : {}),
     openGraph,
     twitter: {
       card: 'summary_large_image',
@@ -141,7 +153,10 @@ export function buildPageMetadata({
       description: ogDescription,
       images: [img.url],
     },
-    alternates: path ? { canonical } : undefined,
+    alternates: {
+      canonical,
+      languages: alternatesLanguages ?? { 'fr-FR': canonical },
+    },
     ...(Object.keys(other).length ? { other } : {}),
     ...(robots !== undefined ? { robots } : {}),
   };
