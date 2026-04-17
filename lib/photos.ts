@@ -331,14 +331,14 @@ export const PHOTOS = {
   },
 
   /**
-   * Carte catalogue « IA au service du bâtiment » (BTP-01) — réf. BTP-01, niveau débutant, visuel salle avec participants aux ordinateurs.
+   * Carte catalogue « IA au service du bâtiment » (BTP-01) — présentation en salle, écran « L’IA au service des artisans du bâtiment ».
    */
   formationIABtpVisioBureau2026: {
-    src: '/images/formation-ia-au-service-du-batiment-carte-btp-01-2026.png',
+    src: '/images/formation-btp-01-ia-artisans-batiment-2026.png',
     alt:
-      'Carte formation catalogue BTP-01 — L\'IA au service du bâtiment, niveau débutant ; salle de formation avec participants aux ordinateurs et intervenante',
-    width: 794,
-    height: 622,
+      'Formation catalogue BTP-01 — L\'IA au service du bâtiment, niveau débutant ; Laure Olivié en présentation, écran « L’IA au service des artisans du bâtiment », public du BTP',
+    width: 1024,
+    height: 682,
   },
 
   /** Page pilier /formation-ia-btp — visuel carte catalogue BTP-01 (réf., badge débutant, titre). */
