@@ -9,13 +9,13 @@ import { CheckCircle, Building2, Clock, Award, Shield, BarChart3 } from 'lucide-
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { FAQSection } from '@/components/landing/FAQSection';
 
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { PARTENAIRES_INSTITUTIONNELS } from '@/lib/partenaires-institutionnels';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { JsonLd } from '@/components/JsonLd';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
 import {
@@ -100,13 +100,7 @@ export default function AProposPage() {
       <JsonLd id="schema-a-propos-faq" schema={faqSchema} />
       <JsonLd id="schema-a-propos-image" schema={buildAProposImageObjectJsonLd()} />
       <div className="mx-auto max-w-6xl px-4 pt-8">
-        <Breadcrumb
-          items={breadcrumbItemsFromPaths([
-            { name: 'Accueil', path: '/' },
-            { name: 'À propos', path: '/a-propos' },
-          ])}
-          showVisual
-        />
+        <Breadcrumbs items={[{ label: 'À propos' }]} />
       </div>
 
       {/* Hero — Formatrice IA pour les entreprises du BTP */}

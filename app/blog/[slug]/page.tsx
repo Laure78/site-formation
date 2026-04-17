@@ -35,12 +35,30 @@ import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { getBlogArticleIllustrations } from '@/lib/blog-article-illustrations';
-import { ArrowLeft, Check, ExternalLink } from 'lucide-react';
+import { Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import TableOfContents from '@/components/TableOfContents';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
+
+const IA_DEVIS_TOC_ITEMS = [
+  { label: 'Le constat', anchor: 'le-constat' },
+  { label: 'Les gains mesurés', anchor: 'les-gains' },
+  { label: 'Par où commencer ?', anchor: 'par-ou-commencer' },
+  { label: "Prompts devis prêts à l'emploi", anchor: 'prompts-devis' },
+  { label: 'Questions fréquentes', anchor: 'faq' },
+] as const;
+
+const IA_DEVIS_SECTION_ANCHORS: Record<string, string> = {
+  'Le constat': 'le-constat',
+  'Les gains mesurés': 'les-gains',
+  'Par où commencer ?': 'par-ou-commencer',
+  "Prompts devis et chiffrage — prêts à l'emploi": 'prompts-devis',
+  'Questions fréquentes': 'faq',
+};
 
 /** Extrait le contenu texte pour l'affichage — gère string | string[] | ArticlePrompt[] */
 function getContentAsString(
@@ -159,6 +177,7 @@ export default async function BlogArticlePage({ params }: Props) {
       : `${SITE_CONFIG.url}${article.coverImage.trim().startsWith('/') ? article.coverImage.trim() : `/${article.coverImage.trim()}`}`
     : defaultArticleImage;
   const howToSchema = getHowToFromArticle(article);
+  const showToc = slug === 'ia-devis-gain-temps-pme-btp';
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
@@ -176,15 +195,12 @@ export default async function BlogArticlePage({ params }: Props) {
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}
-      <nav className="mb-8">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:underline"
-        >
-          <ArrowLeft size={16} strokeWidth={1.5} />
-          Retour aux ressources
-        </Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { label: 'Blog', href: '/blog' },
+          { label: article.title },
+        ]}
+      />
 
       <article>
         <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
@@ -228,6 +244,7 @@ export default async function BlogArticlePage({ params }: Props) {
         {illustrations[0] && (
           <BlogArticleIllustration ill={illustrations[0]} priority />
         )}
+        {showToc && <TableOfContents items={[...IA_DEVIS_TOC_ITEMS]} />}
 
         {/* Bloc liens commerciaux contextuels — au moins 2-3 pages commerciales par article */}
         <section className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
@@ -278,12 +295,14 @@ export default async function BlogArticlePage({ params }: Props) {
         <div className="mt-12 space-y-10">
           {article.sections.map((section, i) => {
             const contentStr = getContentAsString(section.content);
+            const sectionAnchor =
+              showToc && section.title ? IA_DEVIS_SECTION_ANCHORS[section.title] : undefined;
             return (
               <Fragment key={i}>
               <section>
                 {section.type === 'definition' && section.title && (
                   <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-                    <h2 className="font-display text-xl font-bold text-slate-900">
+                    <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
                       {section.title}
                     </h2>
                     <p className="mt-4 text-slate-700">{contentStr}</p>
@@ -292,7 +311,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 {section.type === 'paragraph' && (
                   <>
                     {section.title && (
-                      <h2 className="font-display text-xl font-bold text-slate-900">
+                      <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
                         {section.title}
                       </h2>
                     )}
@@ -302,7 +321,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 {section.type === 'html' && typeof section.content === 'string' && (
                   <>
                     {section.title && (
-                      <h2 className="font-display text-xl font-bold text-slate-900">
+                      <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
                         {section.title}
                       </h2>
                     )}
@@ -315,7 +334,7 @@ export default async function BlogArticlePage({ params }: Props) {
               {section.type === 'list' && (
                 <>
                   {section.title && (
-                    <h2 className="font-display text-xl font-bold text-slate-900">
+                    <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
                       {section.title}
                     </h2>
                   )}
@@ -336,7 +355,7 @@ export default async function BlogArticlePage({ params }: Props) {
               {section.type === 'prompts' && getPromptsFromContent(section.content).length > 0 && (
                 <>
                   {section.title && (
-                    <h2 className="font-display text-xl font-bold text-slate-900">
+                    <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
                       {section.title}
                     </h2>
                   )}
@@ -360,7 +379,7 @@ export default async function BlogArticlePage({ params }: Props) {
               )}
               {section.type === 'faq' && section.title && (
                 <>
-                  <h2 className="font-display text-xl font-bold text-slate-900">
+                  <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
                     {section.title}
                   </h2>
                   <div className="mt-6 space-y-6">

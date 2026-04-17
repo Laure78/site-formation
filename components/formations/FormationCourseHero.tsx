@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { Building2 } from 'lucide-react';
 
 /**
@@ -19,6 +20,7 @@ export function FormationCourseHero({
   summaryTitle = 'En résumé',
   summaryIcon: SummaryIcon = Building2,
   summaryItems,
+  breadcrumb,
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -31,12 +33,15 @@ export function FormationCourseHero({
   summaryTitle?: string;
   summaryIcon?: LucideIcon;
   summaryItems: string[];
+  /** Fil d'Ariane affiché avant le lien « Retour au catalogue » et le H1 */
+  breadcrumb?: ReactNode;
 }) {
   return (
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
+            {breadcrumb}
             <Link
               href="/formations"
               className="text-sm text-[var(--accent)] hover:underline"

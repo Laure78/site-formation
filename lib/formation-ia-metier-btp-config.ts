@@ -205,7 +205,6 @@ function metierTemplate(
     normeRef: string;
     normeLabelCourt: string;
     problemFocus: string;
-    docTypes: string;
     promptTitles: [string, string, string, string, string];
     testimonialQuote: string;
     testimonialAttribution: string;
@@ -311,42 +310,7 @@ export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = metierTe
   ],
 });
 
-export const FORMATION_IA_METIER_ELECTRICIEN: FormationIaMetierBtpConfig = metierTemplate('electricien', {
-  path: '/formation-ia-electricien-btp',
-  h1: 'Formation IA pour électriciens — NFC 15-100, Qualiopi',
-  metaTitle: 'Formation IA électricien BTP — NFC 15-100 | Laure Olivié',
-  metaDescription:
-    'Formation IA pour électriciens BTP : devis, DOE, CR intervention, relances. NF C 15-100 en référence. Qualiopi, Constructys.',
-  keywords: ['formation IA électricien', 'ChatGPT NF C 15-100', 'devis électricité IA', 'Qualiopi électricien'],
-  metierNom: 'électriciens',
-  metierNomTitre: 'électricien',
-  normeRef: 'la NFC 15-100',
-  normeLabelCourt: 'NFC 15-100',
-  problemFocus: 'devis détaillés, DOE, fiches de mesures, comptes rendus de mise en service',
-  promptTitles: [
-    'Devis tableau / rénovation (structure)',
-    'CR intervention et essais',
-    'Synthèse notice pour client final',
-    'Relance facture / litige courtois',
-    'Liste contrôle avant réception',
-  ],
-  testimonialQuote:
-    '« Les premiers jets de DOE et de comptes rendus sortent beaucoup plus propres — je relis toujours, mais je ne repars plus de zéro. »',
-  testimonialAttribution: 'Électricien installateur — Grand Paris (formation OFC, anonymisé)',
-  courseTeaches: [
-    'ChatGPT pour électriciens BTP',
-    'Devis et DOE (validation humaine)',
-    'NF C 15-100 — rappels assistés',
-    'Comptes rendus d’intervention',
-    'Qualiopi — confidentialité',
-  ],
-  ogImage: {
-    url: '/images/formation-ia-electricien-btp.png',
-    width: 1024,
-    height: 682,
-    alt: 'Formation IA BTP — électriciens en salle avec Laure Olivié',
-  },
-});
+/** Page dynamique : `app/formation-ia-[metier]-btp` — électricien migré dans `lib/formation-ia-metier-dynamic-registry`. */
 
 export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = metierTemplate('plombier', {
   path: '/formation-ia-plombier-btp',

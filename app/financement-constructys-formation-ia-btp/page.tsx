@@ -13,8 +13,8 @@ import {
   ListOrdered,
   AlertTriangle,
 } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import {
@@ -61,15 +61,9 @@ export default function FinancementConstructysFormationIABTPPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          {
-            name: 'Financement Constructys formation IA BTP',
-            path: '/financement-constructys-formation-ia-btp',
-          },
-        ])}
-      />
+      <div className="mx-auto max-w-6xl px-4 pt-8">
+        <Breadcrumbs items={[{ label: 'Financement Constructys' }]} />
+      </div>
 
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-12 text-white md:py-16">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">

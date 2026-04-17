@@ -45,6 +45,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
@@ -248,6 +249,14 @@ export default function FormationIAuServiceDuBatimentPage() {
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        breadcrumb={
+          <Breadcrumbs
+            items={[
+              { label: 'Formations', href: '/formations' },
+              { label: 'IA au service du bâtiment' },
+            ]}
+          />
+        }
         refLine="Réf. catalogue BTP-01 · Débutant"
         title="Formation IA bâtiment : gagnez du temps sur vos chantiers"
         subtitle="L&apos;IA au service du bâtiment — devis, administratif et relation client"

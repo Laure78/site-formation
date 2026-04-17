@@ -19,6 +19,7 @@ import {
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF } from '@/lib/constants';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata = createPageMetadata({
   title: 'Catalogue formations IA BTP — Qualiopi Constructys | Laure Olivié',
@@ -265,6 +266,7 @@ export default function FormationsPage() {
       <JsonLd id="schema-formations-catalog-graph" schema={buildFormationsCourseListJsonLd()} />
       <JsonLd id="schema-formations-faq" schema={faqSchema} />
       <div className="mx-auto max-w-6xl px-4 py-16">
+        <Breadcrumbs items={[{ label: 'Formations', href: '/formations' }]} />
         <div>
         <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
           Formation IA pour le BTP : catalogue Qualiopi, bâtiment et travaux publics

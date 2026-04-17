@@ -16,6 +16,14 @@
     --nav-cta-hover: #2d66d6;
     --header-border: rgba(15, 23, 42, 0.08);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h2 {
+    scroll-margin-top: 80px;
+  }
 }
 
 .font-display {

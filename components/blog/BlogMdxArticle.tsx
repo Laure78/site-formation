@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { AuthorBio } from '@/components/blog/AuthorBio';
@@ -15,7 +13,6 @@ import {
 } from '@/lib/blog-mdx';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
-import { getSectionBreadcrumbItems } from '@/lib/section-breadcrumbs';
 
 type Props = { slug: string };
 
@@ -24,8 +21,6 @@ export async function BlogMdxArticle({ slug }: Props) {
   if (!compiled) return null;
   const { content, frontmatter, toc, wordCount } = compiled;
   const article = mdxFrontmatterToBlogArticle(frontmatter);
-  const pathname = `/blog/${slug}`;
-  const breadcrumbItems = getSectionBreadcrumbItems('blog', pathname);
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
 
@@ -37,7 +32,6 @@ export async function BlogMdxArticle({ slug }: Props) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
-      <BreadcrumbJsonLd id="schema-blog-mdx-breadcrumb" items={breadcrumbItems} />
       <ArticleJsonLd
         id="schema-blog-mdx-article"
         title={frontmatter.title}
@@ -51,22 +45,11 @@ export async function BlogMdxArticle({ slug }: Props) {
       />
       <BlogArticleFaqJsonLd article={article} />
 
-      <nav className="mb-6">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:underline"
-        >
-          <ArrowLeft size={16} strokeWidth={1.5} />
-          Retour aux ressources
-        </Link>
-      </nav>
-
-      <Breadcrumb
-        items={breadcrumbItems}
-        showVisual
-        omitJsonLd
-        className="mb-8"
-        jsonLdId="schema-blog-mdx-breadcrumb-visual"
+      <Breadcrumbs
+        items={[
+          { label: 'Blog', href: '/blog' },
+          { label: frontmatter.title },
+        ]}
       />
 
       <article>
