@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-paysagiste-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Paysagiste BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Paysagiste BTP Île-de-France',
   description:
     'Automatisez vos devis paysagers, briefs clients et plans d’aménagement. Formation Qualiopi finançable Constructys.',
   path: PATH,

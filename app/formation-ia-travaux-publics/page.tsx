@@ -25,7 +25,7 @@ import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
   title:
-    'Formation IA travaux publics — ChatGPT, VRD, génie civil | Laure Olivié',
+    'Formation IA travaux publics — ChatGPT, VRD, génie civil',
   description:
     "Formation IA travaux publics : planification TP, études de sol, VRD, appels d'offres publics, rapports génie civil. IA génie civil, ChatGPT TP — Qualiopi, OPCO Constructys.",
   path: '/formation-ia-travaux-publics',

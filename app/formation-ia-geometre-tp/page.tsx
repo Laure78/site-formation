@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-geometre-tp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Géomètre TP Île-de-France — Laure Olivié',
+  title: 'Formation IA Géomètre TP Île-de-France',
   description:
     'Automatisez rapports levés topographiques, devis, documentation technique. Formation Qualiopi finançable Constructys.',
   path: PATH,

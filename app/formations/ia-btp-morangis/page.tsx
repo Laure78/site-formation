@@ -6,7 +6,7 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Morangis (91) — devis & ChatGPT | Laure Olivié',
+  title: 'Formation IA BTP Morangis (91) — devis & ChatGPT',
   description:
     'Formation IA BTP à Morangis et en Essonne : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Artisans et PME du bâtiment en Île-de-France.',
   path: '/formations/ia-btp-morangis',

@@ -1,166 +1,46 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2, Cpu, Layers, MapPin, MinusCircle } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { ClaudeAiBtpHero } from '@/components/claude/ClaudeAiBtpHero';
+import { ClaudeAiBtpTableOfContents } from '@/components/claude/ClaudeAiBtpTableOfContents';
 import { ClaudePromptBlock } from '@/components/claude/ClaudePromptBlock';
 import { ClaudeSkillTutorialBtpSection } from '@/components/claude/ClaudeSkillTutorialBtpSection';
 import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsLeadMagnetSection';
-import {
-  breadcrumbItemsFromPaths,
-  createPageMetadata,
-  getBreadcrumbSchema,
-  SITE_CONFIG,
-} from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import { PHOTOS } from '@/lib/photos';
 
 const PATH = '/claude-ai-btp';
 const CANONICAL = `${SITE_CONFIG.url}${PATH}`;
-const OG_IMAGE = '/og-claude-ai-btp.jpg';
+const ogClaudeBtpJpg = '/og-claude-ai-btp.jpg';
+const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 
 export const metadata = createPageMetadata({
-  title: 'Formation Claude AI BTP : guide & IDF | Laure Olivié',
+  title: 'Formation Claude AI BTP 2026 : guide Chat, Cowork, Code & Chrome',
   description:
-    `Formation Claude AI BTP : guide Chat, Cowork, Code, Chrome. Paris, Yvelines, Essonne, IDF. Formation IA BTP Qualiopi — Constructys. +${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    `Claude AI BTP : guide Chat, Cowork, Code & Chrome — chantier, DCE, CR et administratif. Formation IA Qualiopi, Île-de-France, Constructys. +${formatProfessionalsTrainedCount()} formés, ${SOCIAL_PROOF.AVERAGE_RATING}. Laure Olivié.`,
   path: PATH,
-  keywords: [
-    'formation Claude AI BTP',
-    'formation Claude AI BTP Île-de-France',
-    'formation Claude AI BTP Yvelines',
-    'formation Claude AI BTP Saint-Quentin-en-Yvelines',
-    'formation Claude AI BTP Paris',
-    'formation Claude AI BTP Essonne',
-    'Claude AI BTP',
-    'IA chantier',
-    'automatisation BTP',
-    'Claude Cowork conducteur de travaux',
-    'formation IA BTP',
-  ],
+  keywords: null,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-04-13',
-    modifiedTime: '2026-04-15',
+    modifiedTime: '2026-04-18',
     author: SITE_CONFIG.name,
     section: 'Formation IA BTP',
   },
   image: {
-    url: OG_IMAGE,
+    url: ogClaudeBtpJpg,
     width: 1200,
     height: 630,
-    alt: 'Formation IA BTP avec Claude — interface et cas d’usage professionnels',
+    alt: heroVisuel.alt,
   },
   appendAuthorSuffix: false,
   robots: { index: true, follow: true },
 });
 
-const breadcrumbJson = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Claude AI BTP', path: PATH },
-]);
-
-const techArticleJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'TechArticle',
-  headline: 'Formation Claude AI BTP : guide complet 2026 — Paris, Île-de-France, Yvelines',
-  description:
-    "Guide et formation Claude AI BTP : interfaces Chat, Cowork, Code, Chrome. Sessions et ressources pour pros du bâtiment en Île-de-France, Paris, Yvelines, Essonne.",
-  author: {
-    '@type': 'Person',
-    name: 'Laure Olivié',
-    url: `${SITE_CONFIG.url}/a-propos`,
-    jobTitle: 'Formatrice IA BTP',
-    worksFor: {
-      '@type': 'Organization',
-      name: "OFC Création d'Entreprise",
-      url: SITE_CONFIG.url,
-    },
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: "OFC Création d'Entreprise",
-    logo: {
-      '@type': 'ImageObject',
-      url: `${SITE_CONFIG.url}/logo-lo.svg`,
-    },
-  },
-  datePublished: '2026-04-13',
-  dateModified: '2026-04-15',
-  url: CANONICAL,
-  mainEntityOfPage: CANONICAL,
-  keywords:
-    'formation Claude AI BTP, formation Claude AI BTP Île-de-France, formation Claude AI BTP Yvelines, formation Claude AI BTP Paris, IA chantier, automatisation BTP, Claude AI BTP',
-};
-
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Claude AI est-il adapté aux petites entreprises du BTP ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Oui. La version gratuite de Claude Chat suffit pour commencer — rédiger des emails, structurer des comptes rendus, analyser un document PDF uploadé. L\'abonnement Pro (20 $/mois) devient pertinent dès que vous analysez régulièrement des DCE ou CCTP, ou souhaitez configurer des tâches automatisées avec Cowork.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Quelle interface Claude choisir pour un conducteur de travaux ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Un conducteur de travaux tire le meilleur parti de Claude Cowork pour les missions récurrentes — CR de chantier, analyse de DCE, veille AO automatisée. Claude Chat avec un Projet configuré complète Cowork pour les tâches ponctuelles. Les deux interfaces sont complémentaires.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "Peut-on utiliser Claude AI pour répondre à des appels d'offres publics ?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Oui. Claude est utilisé lors des sessions OFC avec la FFB Grand Paris pour la totalité du workflow AO : veille et détection des AO pertinents, analyse du DCE et décision Go/No-Go, rédaction du mémoire technique, vérification de conformité administrative.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Les données de chantier confiées à Claude sont-elles confidentielles ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "L'abonnement Claude Pro ne transmet pas les données des conversations pour l'entraînement des modèles. Désactivez l'option Améliorer le modèle dans les paramètres. Pour les données sensibles, anonymisez les éléments confidentiels avant soumission.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "Claude AI est-il finançable dans le cadre d'une formation BTP ?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "La formation à son usage est finançable. OFC Création d'Entreprise propose une formation IA BTP finançable Constructys à 24 € HT/heure/stagiaire dans le cadre du Plan de Développement des Compétences 2026.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Combien de temps faut-il pour être opérationnel sur Claude AI ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Une demi-journée suffit pour maîtriser Claude Chat. La configuration de Claude Cowork demande environ 1 heure. Dans les formations OFC avec la FFB, les participants produisent leur premier CR de chantier ou leur première analyse de DCE le jour même.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "OFC Création d'Entreprise anime des formations IA BTP en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.) et en distanciel. Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Oui : le même programme formation Claude AI BTP (Claude Chat, Cowork, Code, Chrome) s'adapte aux équipes du bâtiment et des travaux publics partout en Île-de-France. Paris et la communauté d'agglomération de Saint-Quentin-en-Yvelines sont des zones d'intervention fréquentes ; en Essonne, les entreprises des Ulis, Morangis, Longjumeau et environs peuvent rejoindre une session inter ou demander une date intra.",
-      },
-    },
-  ],
-};
+const claudeAiBtpJsonLdGraph = buildClaudeAiBtpJsonLdGraph();
 
 const PROMPT_PROJET = `# Projet [NOM ENTREPRISE] — 2026
 Je suis [Prénom NOM], [fonction] chez [entreprise].
@@ -211,12 +91,12 @@ Pour chaque AO correspondant à ma spécialité et ma zone :
 Sauvegarde CLAUDE OUTPUTS/veille-AO-[date].md`;
 
 const idfLinks = [
-  { href: LINKS.formationParis, label: 'Paris', sub: 'Sessions & contexte local' },
-  { href: LINKS.formationYvelines, label: 'Yvelines', sub: '78 · terrain & PME' },
-  { href: LINKS.formationSaintQuentinYvelines, label: 'Saint-Quentin-en-Yvelines', sub: 'SQY · CA' },
-  { href: LINKS.formationIleDeFrance, label: 'Île-de-France', sub: 'Vue régionale' },
-  { href: LINKS.formationMorangis, label: 'Morangis', sub: 'Essonne (91)' },
-  { href: LINKS.formationLongjumeau, label: 'Longjumeau', sub: 'Essonne (91)' },
+  { href: LINKS.formationParis, label: 'Paris', sub: 'Formation Claude AI BTP — sessions & contexte local' },
+  { href: LINKS.formationYvelines, label: 'Yvelines (78)', sub: 'Se former à Claude près de Versailles' },
+  { href: LINKS.formationSaintQuentinYvelines, label: 'Saint-Quentin-en-Yvelines', sub: 'Apprendre Claude Cowork · SQY' },
+  { href: LINKS.formationIleDeFrance, label: 'Île-de-France', sub: 'Vue régionale & parcours IA BTP' },
+  { href: LINKS.formationMorangis, label: 'Morangis', sub: 'Session Claude en Essonne (91)' },
+  { href: LINKS.formationLongjumeau, label: 'Longjumeau', sub: 'Essonne (91) · découvrir Claude Chat' },
 ] as const;
 
 const quickLinks = [
@@ -266,36 +146,146 @@ const faqItems = [
   },
 ] as const;
 
+function AnthropicAuthorityLinks() {
+  return (
+    <p className="mt-3 text-xs text-slate-500">
+      <a
+        href="https://docs.anthropic.com/"
+        className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Documentation Anthropic
+      </a>
+      <span className="mx-1.5 text-slate-300" aria-hidden>
+        ·
+      </span>
+      <a
+        href="https://www.anthropic.com/pricing"
+        className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Tarifs Claude
+      </a>
+      <span className="mx-1.5 text-slate-300" aria-hidden>
+        ·
+      </span>
+      <a
+        href="https://www.anthropic.com/news"
+        className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+        rel="nofollow noopener noreferrer"
+        target="_blank"
+      >
+        Actualités Anthropic
+      </a>
+    </p>
+  );
+}
+
+const INTERFACE_VISUALS: { src: string; alt: string; caption: string }[] = [
+  {
+    src: '/images/blog/guide-claude-btp-2026/slide-02.png',
+    alt: 'Claude Chat : interface conversationnelle pour analyser un DCE ou un CCTP BTP',
+    caption: 'Claude Chat — conversation et projets',
+  },
+  {
+    src: '/images/blog/guide-claude-btp-2026/slide-04.png',
+    alt: 'Claude Cowork : tableau de bord et missions sur fichiers pour un conducteur de travaux BTP',
+    caption: 'Claude Cowork — missions sur dossiers locaux',
+  },
+  {
+    src: '/images/blog/guide-claude-btp-2026/slide-06.png',
+    alt: 'Claude Code dans l’environnement de développement pour automatiser devis et exports BTP',
+    caption: 'Claude Code — automatisation et scripts',
+  },
+  {
+    src: '/images/blog/guide-claude-btp-2026/slide-08.png',
+    alt: 'Application Claude sur bureau pour accéder à Cowork depuis le poste chantier ou bureau',
+    caption: 'Application desktop Anthropic',
+  },
+  {
+    src: '/images/blog/guide-claude-btp-2026/slide-10.png',
+    alt: 'Extension Claude pour Chrome : analyse de fiches marchés publics et rédaction d’emails BTP',
+    caption: 'Claude pour Chrome — page web ouverte',
+  },
+];
+
+const relatedQuestions = [
+  {
+    q: 'Claude AI vs ChatGPT : lequel choisir pour le BTP ?',
+    a: 'Les deux couvrent rédaction et analyse de documents. Claude est souvent préféré pour de longs PDF (CCTP, DCE) et des sorties structurées ; ChatGPT pour l’écosystème d’intégrations et certaines habitudes d’équipe. En formation OFC, on compare les deux sur des cas réels (CR, mémoire technique) pour que vous tranchiez selon votre stack et votre budget.',
+  },
+  {
+    q: 'Combien coûte une formation Claude AI BTP finançable ?',
+    a: 'Le coût dépend du nombre de stagiaires, du format (inter / intra) et du financement OPCO. Le plafond Constructys 2026 sert de repère public : 24 € HT/h/stagiaire dans le cadre du plan de développement des compétences, avec possibilité de prise en charge des salaires pour les TPE. Un devis personnalisé précise le reste à charge.',
+  },
+  {
+    q: 'Claude AI peut-il remplacer mon logiciel de chiffrage ?',
+    a: 'Non pour le calcul des prix de revient et la conformité métier : le chiffrage reste dans votre outil ou votre tableur validé. Claude accélère la préparation (relecture de bordereaux, mise en forme, comparaison de postes) et la rédaction autour du chiffrage, pas le calcul contractuel signé.',
+  },
+  {
+    q: 'Quelle différence entre Claude Cowork et Claude Code ?',
+    a: 'Cowork orchestre des missions sur vos fichiers locaux avec des livrables dans un dossier de sortie — idéal pour récurrent et volumes. Claude Code s’adresse plutôt au traitement automatisé (scripts, exports, batch) à partir de consignes en langage naturel, sans que vous codiez pour autant la logique à la main.',
+  },
+  {
+    q: 'Comment anonymiser un DCE avant de le donner à Claude ?',
+    a: 'Retirez ou masquez noms propres de sous-traitants, prix internes, marges, données personnelles et références clients non publiques. Pour les marchés publics, conservez la structure technique utile à l’analyse (lots, critères, planning) et remplacez les éléments sensibles par des libellés génériques.',
+  },
+] as const;
+
 export default function ClaudeAiBtpPillarPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(claudeAiBtpJsonLdGraph) }}
       />
 
       <div className="min-h-screen bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 pt-6 md:pt-8">
-          <Breadcrumb
-            items={breadcrumbItemsFromPaths([
-              { name: 'Accueil', path: '/' },
-              { name: 'Claude AI BTP', path: PATH },
-            ])}
-            showVisual
-          />
-        </div>
-
         <ClaudeAiBtpHero />
 
-        <article className="mx-auto max-w-5xl space-y-20 px-4 pb-24 pt-12 md:space-y-28 md:pb-32 md:pt-16">
+        <div className="mx-auto max-w-6xl px-4 pb-24 pt-8 md:pb-32 md:pt-12">
+          <div className="lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-10 xl:gap-12">
+            <div className="mb-8 lg:mb-0">
+              <ClaudeAiBtpTableOfContents />
+            </div>
+
+            <article className="min-w-0 space-y-20 md:space-y-28">
+          <aside
+            id="en-chiffres"
+            aria-labelledby="en-chiffres-title"
+            className="scroll-mt-24 rounded-2xl border border-slate-200/90 bg-[#F2F4F8] p-6 shadow-sm"
+          >
+            <h2 id="en-chiffres-title" className="font-display text-lg font-bold text-slate-900 md:text-xl">
+              Claude AI dans le BTP — en chiffres (OFC 2026)
+            </h2>
+            <dl className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+              <div>
+                <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Gain CR chantier</dt>
+                <dd className="mt-1 font-display text-3xl font-bold text-[var(--accent)]">−85 %</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Gain analyse DCE</dt>
+                <dd className="mt-1 font-display text-3xl font-bold text-[var(--accent)]">−85 %</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Gain veille AO</dt>
+                <dd className="mt-1 font-display text-3xl font-bold text-[var(--accent)]">−100 %</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-medium uppercase tracking-wide text-slate-500">Pros formés</dt>
+                <dd className="mt-1 font-display text-3xl font-bold text-slate-900">
+                  {formatProfessionalsTrainedCount()}
+                </dd>
+              </div>
+            </dl>
+            <p className="mt-4 text-xs text-slate-600">
+              Source : mesures OFC sur 8 tâches, sessions FFB Grand Paris, FFB Île-de-France, CSFE — note moyenne{' '}
+              {SOCIAL_PROOF.AVERAGE_RATING}.
+            </p>
+          </aside>
+
           <ClaudeSkillsLeadMagnetSection />
 
           <section aria-labelledby="formation-claude-idf">
@@ -356,6 +346,12 @@ export default function ClaudeAiBtpPillarPage() {
             <h2 id="en-bref" className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
               En bref
             </h2>
+            <p className="tldr mt-6 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+              Ce guide regroupe les <strong className="font-semibold text-slate-800">cinq interfaces Claude</strong> utiles au
+              BTP, des <strong className="font-semibold text-slate-800">prompts copiables</strong> et une méthode de skill
+              réutilisable — pour gagner du temps sur les DCE, les comptes rendus et l&apos;administratif, sans remplacer le
+              jugement métier.
+            </p>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 text-white">
@@ -439,6 +435,39 @@ export default function ClaudeAiBtpPillarPage() {
             </p>
           </section>
 
+          <section className="scroll-mt-24" aria-labelledby="interfaces-visuels">
+            <h2
+              id="interfaces-visuels"
+              className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+            >
+              Repères visuels — les 5 interfaces
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm text-slate-600">
+              Extraits pédagogiques du guide Claude BTP — pour situer chaque interface avant de plonger dans les ressources
+              détaillées.
+            </p>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {INTERFACE_VISUALS.map((vis) => (
+                <figure
+                  key={vis.src}
+                  className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.05)]"
+                >
+                  <div className="relative aspect-[3/2] w-full">
+                    <Image
+                      src={vis.src}
+                      alt={vis.alt}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-slate-600">{vis.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+
           <section className="scroll-mt-24" aria-labelledby="ressources-interfaces">
             <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
               <h2 id="ressources-interfaces" className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
@@ -463,6 +492,7 @@ export default function ClaudeAiBtpPillarPage() {
                   Projects, Skills et contexte entreprise — ressource dédiée ci-dessous
                 </Link>
               </p>
+              <AnthropicAuthorityLinks />
             </div>
 
             <div className="mt-8">
@@ -498,6 +528,7 @@ export default function ClaudeAiBtpPillarPage() {
               <p className="mt-5 text-sm text-slate-500">
                 Workflows détaillés : section « Toutes nos ressources » ci-dessous.
               </p>
+              <AnthropicAuthorityLinks />
             </div>
 
             <div className="mt-10 rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:p-8">
@@ -519,6 +550,7 @@ export default function ClaudeAiBtpPillarPage() {
                   <span className="text-[var(--accent)]">→</span> Batch DCE → tableau comparatif Excel
                 </li>
               </ul>
+              <AnthropicAuthorityLinks />
             </div>
 
             <div className="mt-8 rounded-2xl border border-slate-200/90 bg-slate-50/80 p-6 md:p-8">
@@ -535,6 +567,7 @@ export default function ClaudeAiBtpPillarPage() {
                 <li>• DPGF PDF → tableau</li>
                 <li>• Email dans Gmail sans changer d&apos;onglet</li>
               </ul>
+              <AnthropicAuthorityLinks />
             </div>
           </section>
 
@@ -631,12 +664,68 @@ export default function ClaudeAiBtpPillarPage() {
             </p>
           </section>
 
+          <section className="scroll-mt-24" aria-labelledby="etudes-cas">
+            <h2 id="etudes-cas" className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Retours terrain (extraits)
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              <article className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
+                <h3 className="font-display text-lg font-bold text-slate-900">FFB Grand Paris — mémoires techniques</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Session de 8 conducteurs de travaux (mars 2026). Après trois semaines de mise en pratique, le temps
+                  moyen de premier jet d&apos;un mémoire technique est passé d&apos;environ 2 jours à 3 h 30 sur des dossiers
+                  comparables, avec une qualité perçue équivalente ou supérieure par la MOA sur quatre dossiers remis.
+                </p>
+              </article>
+              <article className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
+                <h3 className="font-display text-lg font-bold text-slate-900">PME second œuvre — veille AO</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Équipe de 4 personnes : tâche Cowork planifiée chaque matin sur les alertes marchés publics — la veille
+                  manuelle est passée d&apos;environ 45 min à quelques minutes de contrôle, avec tableau de priorisation
+                  partagé.
+                </p>
+              </article>
+              <article className="rounded-2xl border border-slate-200/90 bg-slate-50/80 p-6 md:col-span-2">
+                <h3 className="font-display text-lg font-bold text-slate-900">CSFE — comptes rendus de chantier</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Standardisation du skill « CR chantier » : les notes dictées sont transformées en livrable homogène
+                  (tableau d&apos;actions, réserves, prochaine réunion) — temps de mise en forme divisé par plus de dix sur la
+                  série suivie en formation.
+                </p>
+              </article>
+            </div>
+          </section>
+
           <section className="scroll-mt-24" aria-labelledby="faq-claude">
             <h2 id="faq-claude" className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
               Questions fréquentes
             </h2>
             <div className="mt-8 divide-y divide-slate-200/90 rounded-2xl border border-slate-200/90 bg-white px-4 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-6">
               {faqItems.map((item) => (
+                <details key={item.q} className="group py-4">
+                  <summary className="cursor-pointer list-none font-display text-sm font-semibold text-slate-900 transition hover:text-[var(--accent)] [&::-webkit-details-marker]:hidden">
+                    <span className="flex items-start justify-between gap-3">
+                      {item.q}
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-200 text-sm text-slate-400 transition group-open:rotate-45 group-open:border-[var(--accent)] group-open:text-[var(--accent)]">
+                        +
+                      </span>
+                    </span>
+                  </summary>
+                  <p className="mt-3 pb-1 text-sm leading-relaxed text-slate-600">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section className="scroll-mt-24" aria-labelledby="faq-connexes">
+            <h2 id="faq-connexes" className="font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              Questions connexes
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm text-slate-600">
+              Réponses courtes pour la longue traîne — complément de la FAQ principale.
+            </p>
+            <div className="mt-8 divide-y divide-slate-200/90 rounded-2xl border border-slate-200/90 bg-white px-4 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-6">
+              {relatedQuestions.map((item) => (
                 <details key={item.q} className="group py-4">
                   <summary className="cursor-pointer list-none font-display text-sm font-semibold text-slate-900 transition hover:text-[var(--accent)] [&::-webkit-details-marker]:hidden">
                     <span className="flex items-start justify-between gap-3">
@@ -733,7 +822,9 @@ export default function ClaudeAiBtpPillarPage() {
               </div>
             </div>
           </section>
-        </article>
+            </article>
+          </div>
+        </div>
       </div>
     </>
   );

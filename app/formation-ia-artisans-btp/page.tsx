@@ -6,6 +6,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -93,6 +94,7 @@ const CAS_USAGE = [
 ];
 
 const FAQ_ITEMS = [
+  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
   {
     q: 'Une entreprise du BTP peut-elle vraiment utiliser ChatGPT sans formation ?',
     a: "Oui pour des usages basiques (emails, idées de formulations). Pour les devis et documents techniques, une formation courte (4h) permet d'éviter les erreurs et d'obtenir des trames réutilisables. Laure Olivié forme les équipes avec des cas concrets adaptés au bâtiment et aux travaux publics.",

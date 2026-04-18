@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
+import { LINKS } from '@/lib/internal-links';
 import { BookOpen, Compass, FileStack, LayoutList, Target } from 'lucide-react';
 
 const SKILL_TEMPLATE = `ROLE
@@ -103,6 +105,19 @@ export function ClaudeSkillTutorialBtpSection() {
         <pre className="mt-4 whitespace-pre-wrap break-words border-l-[3px] border-[var(--accent)] pl-3 font-mono text-xs leading-relaxed text-slate-800 md:text-sm">
           {SKILL_TEMPLATE}
         </pre>
+      </div>
+
+      <div className="mt-6 rounded-xl border-l-4 border-[var(--accent)] bg-[#D4E3FC]/20 p-4 md:p-5">
+        <p className="font-display text-sm font-bold text-slate-900">Guide offert pour aller plus loin</p>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+          Le guide « Créez votre 1er Skill IA » — 8 pages, 5 cas d&apos;usage BTP, modèle universel à copier-coller.
+        </p>
+        <Link
+          href={LINKS.skillIaConducteurTravaux}
+          className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-600"
+        >
+          Télécharger le guide gratuit
+        </Link>
       </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">

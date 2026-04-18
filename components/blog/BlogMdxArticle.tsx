@@ -12,6 +12,9 @@ import {
 } from '@/lib/blog-mdx';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
+import { shouldShowSkillLeadMagnetCta } from '@/lib/lead-magnet-skill-ia';
+import { LeadMagnetCTA } from '@/components/LeadMagnetCTA';
 
 type Props = { slug: string };
 
@@ -107,6 +110,10 @@ export async function BlogMdxArticle({ slug }: Props) {
         </div>
 
         <div className="article-mdx mt-8 max-w-none">{content}</div>
+
+        {shouldShowSkillLeadMagnetCta(slug) ? (
+          <LeadMagnetCTA href={LINKS.skillIaConducteurTravaux} />
+        ) : null}
 
         <AuthorBio />
 

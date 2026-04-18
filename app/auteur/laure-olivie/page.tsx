@@ -167,7 +167,7 @@ export default function AuteurPage() {
           <section className="mt-16">
             <FAQSection
               items={FAQ_AUTEUR}
-              title="Questions fréquentes — Laure Olivié"
+              title="Questions fréquentes"
             />
           </section>
 

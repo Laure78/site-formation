@@ -72,6 +72,8 @@ export const LINKS = {
   financement100: '/financement-constructys-formation-ia-btp',
   etudesCas: '/etudes-de-cas/ffb-csfe',
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
+  /** Lead magnet — Guide PDF Skill IA conducteur de travaux */
+  skillIaConducteurTravaux: '/ressources/skill-ia-conducteur-travaux',
 
   repondreAoLanding: '/repondre-appels-offres-ia-btp',
   /** Landing SEO — analyse CCTP / DCE avec ChatGPT (appels d'offres BTP) */

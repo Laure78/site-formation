@@ -37,7 +37,7 @@ const HERO_RESUME = [
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Saint-Quentin-en-Yvelines : ChatGPT BTP | Laure Olivié',
+  title: 'Formation IA BTP Saint-Quentin-en-Yvelines : ChatGPT BTP',
   description:
     'Formation IA BTP à Saint-Quentin-en-Yvelines (78) : Guyancourt, Montigny, Trappes, Élancourt. ChatGPT BTP, devis, CR chantier. Qualiopi, Constructys. Île-de-France. Laure Olivié, OFC.',
   path: PATH,

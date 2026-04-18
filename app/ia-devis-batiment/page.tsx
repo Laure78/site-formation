@@ -9,7 +9,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Devis BTP — Auto Devis Bâtiment | Laure Olivié',
+  title: 'Formation IA Devis BTP — Auto Devis Bâtiment',
   description:
     'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Gagnez 2h par devis. Finançable Constructys.',
   path: '/ia-devis-batiment',

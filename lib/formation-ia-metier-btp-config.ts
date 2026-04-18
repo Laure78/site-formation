@@ -86,7 +86,7 @@ export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   id: 'etancheur',
   path: '/formation-ia-etancheur-btp',
   h1: 'Formation IA pour étancheurs — Partenariat CSFE, Qualiopi',
-  metaTitle: 'Formation IA étancheur BTP — CSFE & Qualiopi | Laure Olivié',
+  metaTitle: 'Formation IA étancheur BTP — CSFE & Qualiopi',
   metaDescription:
     'Formation IA & ChatGPT pour étancheurs BTP : DTU 43, avis techniques, mémoires, PPSPS, CR chantier. Partenaire CSFE. Qualiopi, finançable Constructys. Île-de-France.',
   keywords: [
@@ -282,7 +282,7 @@ function docTypesForMetier(id: string): string {
 export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = metierTemplate('couvreur', {
   path: '/formation-ia-couvreur-btp',
   h1: 'Formation IA pour couvreurs — DTU 40, Qualiopi',
-  metaTitle: 'Formation IA couvreur BTP — DTU 40 & Qualiopi | Laure Olivié',
+  metaTitle: 'Formation IA couvreur BTP — DTU 40 & Qualiopi',
   metaDescription:
     'Formation IA pour couvreurs : métrés toiture, zinguerie, devis ardoise/zinc. Prompts ChatGPT BTP. Qualiopi, Constructys. Île-de-France.',
   keywords: ['formation IA couvreur', 'ChatGPT couverture', 'DTU 40', 'devis toiture IA', 'Qualiopi couvreur'],
@@ -315,7 +315,7 @@ export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = metierTe
 export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = metierTemplate('plombier', {
   path: '/formation-ia-plombier-btp',
   h1: 'Formation IA pour plombiers — DTU 60, Qualiopi',
-  metaTitle: 'Formation IA plombier BTP — DTU 60 & Qualiopi | Laure Olivié',
+  metaTitle: 'Formation IA plombier BTP — DTU 60 & Qualiopi',
   metaDescription:
     'Formation IA pour plombiers chauffagistes : devis sanitaire, notices, planning interventions. DTU 60. Qualiopi, finançable Constructys.',
   keywords: ['formation IA plombier', 'ChatGPT plomberie', 'DTU 60', 'devis sanitaire IA'],
@@ -345,7 +345,7 @@ export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = metierTe
 export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = metierTemplate('macon', {
   path: '/formation-ia-macon-btp',
   h1: 'Formation IA pour maçons — DTU 20, Qualiopi',
-  metaTitle: 'Formation IA maçon BTP — DTU 20 & Qualiopi | Laure Olivié',
+  metaTitle: 'Formation IA maçon BTP — DTU 20 & Qualiopi',
   metaDescription:
     'Formation IA pour maçons : gros œuvre, métrés, méthodes, réponses marchés. DTU 20. Qualiopi, Constructys.',
   keywords: ['formation IA maçon', 'ChatGPT gros œuvre', 'DTU 20', 'mémoire technique maçonnerie'],
@@ -369,7 +369,7 @@ export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = metierTempl
 export const FORMATION_IA_METIER_PEINTRE: FormationIaMetierBtpConfig = metierTemplate('peintre', {
   path: '/formation-ia-peintre-btp',
   h1: 'Formation IA pour peintres — DTU 59, Qualiopi',
-  metaTitle: 'Formation IA peintre BTP — DTU 59 & Qualiopi | Laure Olivié',
+  metaTitle: 'Formation IA peintre BTP — DTU 59 & Qualiopi',
   metaDescription:
     'Formation IA pour peintres en bâtiment : supports, finitions, devis, mémoires. DTU 59. Qualiopi, Constructys.',
   keywords: ['formation IA peintre', 'ChatGPT peinture bâtiment', 'DTU 59', 'devis peinture IA'],
@@ -393,7 +393,7 @@ export const FORMATION_IA_METIER_PEINTRE: FormationIaMetierBtpConfig = metierTem
 export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = metierTemplate('menuisier', {
   path: '/formation-ia-menuisier-btp',
   h1: 'Formation IA pour menuisiers — DTU 36, Qualiopi',
-  metaTitle: 'Formation IA menuisier BTP — DTU 36 | Laure Olivié',
+  metaTitle: 'Formation IA menuisier BTP — DTU 36',
   metaDescription:
     'Formation IA pour menuisiers : pose, menuiseries extérieures, devis, notices. DTU 36. Qualiopi, Constructys.',
   keywords: ['formation IA menuisier', 'ChatGPT menuiserie', 'DTU 36', 'devis fenêtres'],
@@ -417,7 +417,7 @@ export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = metierT
 export const FORMATION_IA_METIER_CHARPENTIER: FormationIaMetierBtpConfig = metierTemplate('charpentier', {
   path: '/formation-ia-charpentier-btp',
   h1: 'Formation IA pour charpentiers — DTU 31, Qualiopi',
-  metaTitle: 'Formation IA charpentier BTP — DTU 31 | Laure Olivié',
+  metaTitle: 'Formation IA charpentier BTP — DTU 31',
   metaDescription:
     'Formation IA pour charpentiers : coupes, structures bois, devis, méthodes. DTU 31. Qualiopi, Constructys.',
   keywords: ['formation IA charpentier', 'ChatGPT charpente', 'DTU 31', 'devis bois'],
@@ -441,7 +441,7 @@ export const FORMATION_IA_METIER_CHARPENTIER: FormationIaMetierBtpConfig = metie
 export const FORMATION_IA_METIER_CARRELEUR: FormationIaMetierBtpConfig = metierTemplate('carreleur', {
   path: '/formation-ia-carreleur-btp',
   h1: 'Formation IA pour carreleurs — DTU 52, Qualiopi',
-  metaTitle: 'Formation IA carreleur BTP — DTU 52 | Laure Olivié',
+  metaTitle: 'Formation IA carreleur BTP — DTU 52',
   metaDescription:
     'Formation IA pour carreleurs : métrés, poses collées, délais, devis. DTU 52. Qualiopi, finançable Constructys.',
   keywords: ['formation IA carreleur', 'ChatGPT carrelage', 'DTU 52', 'devis pose'],
@@ -465,7 +465,7 @@ export const FORMATION_IA_METIER_CARRELEUR: FormationIaMetierBtpConfig = metierT
 export const FORMATION_IA_METIER_PLAQUISTE: FormationIaMetierBtpConfig = metierTemplate('plaquiste', {
   path: '/formation-ia-plaquiste-btp',
   h1: 'Formation IA pour plaquistes — DTU 25, Qualiopi',
-  metaTitle: 'Formation IA plaquiste BTP — DTU 25 | Laure Olivié',
+  metaTitle: 'Formation IA plaquiste BTP — DTU 25',
   metaDescription:
     'Formation IA pour plaquistes : cloisons, doublages, devis, plans de coupe. DTU 25. Qualiopi, Constructys.',
   keywords: ['formation IA plaquiste', 'ChatGPT plaque de plâtre', 'DTU 25', 'devis cloisons'],

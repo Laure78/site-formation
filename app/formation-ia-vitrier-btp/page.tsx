@@ -19,7 +19,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-vitrier-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Vitrier Miroitier BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Vitrier Miroitier BTP Île-de-France',
   description:
     'Formation IA ChatGPT pour vitriers miroitiers. Automatisez devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi finançable Constructys. Laure Olivié.',
   path: PATH,

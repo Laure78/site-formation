@@ -31,7 +31,7 @@ const poppins = Poppins({
 const PATH = '/formation-ia-btp-ile-de-france';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France | Qualiopi Constructys | Laure Olivié',
+  title: 'Formation IA BTP Île-de-France | Qualiopi Constructys',
   description:
     `Formation IA BTP en Île-de-France (75-78-91-92-93-94-95-77). Organisme Qualiopi, finançable Constructys. Inter et intra. ${formatProfessionalsTrainedCount()} professionnels formés. ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: PATH,

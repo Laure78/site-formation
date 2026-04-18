@@ -14,7 +14,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-pisciniste-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Pisciniste BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Pisciniste BTP Île-de-France',
   description:
     'Automatisez vos devis piscine, fiches techniques, relances clients. Formation Qualiopi finançable Constructys.',
   path: PATH,

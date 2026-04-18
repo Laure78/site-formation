@@ -35,7 +35,7 @@ const VILLES_YVELINES = [
 
 export const metadata = createPageMetadata({
   title:
-    'Formation IA BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment | Laure Olivié',
+    'Formation IA BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment',
   description:
     'Formation IA BTP en Yvelines : Versailles, Guyancourt, Saint-Quentin-en-Yvelines, Poissy. Qualiopi, finançable Constructys. Formatrice basée à Guyancourt (78).',
   path: PATH,

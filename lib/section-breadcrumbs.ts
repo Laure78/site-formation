@@ -32,6 +32,8 @@ const ETUDES_TITLES: Record<string, string> = {
 const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources/ia-btp': 'Ressources IA BTP',
   '/ressources/ia-btp/10-cas-usage-concrets': 'IA dans le BTP : 10 cas d’usage concrets (2026)',
+  '/ressources/skill-ia-conducteur-travaux': 'Guide : 1er Skill IA — conducteurs de travaux',
+  '/ressources/skill-ia-conducteur-travaux/merci': 'Confirmation — guide envoyé',
 };
 
 function home(): BreadcrumbListItem {
@@ -104,7 +106,21 @@ export function getSectionBreadcrumbItems(zone: SectionBreadcrumbZone, pathname:
       if (pathNorm === '/ressources/ia-btp') {
         return [home(), hub];
       }
-      const title = RESSOURCES_TITLES[pathNorm] ?? titleFromSlugSegments(pathNorm.replace('/ressources/ia-btp/', ''));
+      if (pathNorm === '/ressources/skill-ia-conducteur-travaux/merci') {
+        const guide: BreadcrumbListItem = {
+          name: RESSOURCES_TITLES['/ressources/skill-ia-conducteur-travaux'],
+          url: `${BASE}/ressources/skill-ia-conducteur-travaux`,
+        };
+        return [
+          home(),
+          hub,
+          guide,
+          { name: RESSOURCES_TITLES[pathNorm], url: `${BASE}${pathNorm}` },
+        ];
+      }
+      const title =
+        RESSOURCES_TITLES[pathNorm] ??
+        titleFromSlugSegments(pathNorm.replace(/^\/ressources\//, '').replace(/\//g, ' '));
       return [home(), hub, { name: title, url: `${BASE}${pathNorm}` }];
     }
     default:

@@ -6,7 +6,7 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Installer l\'app — Laure Olivié',
+  title: 'Installer l\'app',
   description:
     "Installez l'application formation Laure Olivié sur mobile : cours et messages sans App Store. Léger et rapide. Suivez vos modules IA BTP depuis le terrain.",
   path: '/install-pwa',

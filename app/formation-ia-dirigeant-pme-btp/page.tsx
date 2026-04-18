@@ -14,7 +14,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Chef Entreprise BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Chef Entreprise BTP Île-de-France',
   description:
     'Automatisez devis, relances clients, communication, rapports, prospection. Formation Qualiopi finançable Constructys.',
   path: PATH,

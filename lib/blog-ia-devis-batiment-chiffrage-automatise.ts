@@ -11,7 +11,7 @@ const N = formatProfessionalsTrainedCount();
 export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   slug: 'ia-devis-batiment-chiffrage-automatise',
   title: 'IA et devis bâtiment : automatiser le chiffrage BTP en 15 minutes',
-  seoTitle: 'IA devis bâtiment : chiffrer un BTP en 15 min | Laure Olivié',
+  seoTitle: 'IA devis bâtiment : chiffrer un BTP en 15 min',
   description:
     "Rédigez un devis BTP complet en 15 minutes avec l'IA au lieu de 3h. Méthode en 4 étapes, prompts ChatGPT prêts à l'emploi. Formation finançable Constructys.",
   date: '2026-04-21',

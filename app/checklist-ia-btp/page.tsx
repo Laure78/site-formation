@@ -8,7 +8,7 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: '10 Prompts ChatGPT BTP Gratuits | Laure Olivié',
+  title: '10 Prompts ChatGPT BTP Gratuits',
   description:
     "Téléchargez 10 prompts ChatGPT gratuits pour le BTP : devis, emails, CR chantier. Par Laure Olivié, formatrice IA BTP certifiée Qualiopi.",
   path: '/checklist-ia-btp',

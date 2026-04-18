@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps) {
   const { data } = await supabase.from('courses').select('title, description').eq('slug', slug).eq('published', true).single();
   if (!data) return { title: 'Cours non trouvé' };
   return createPageMetadata({
-    title: `${data.title} — Laure Olivié`,
+    title: data.title,
     description: (data.description as string)?.slice(0, 160) ?? 'Formation IA pour le BTP',
     path: `/cours/${slug}`,
   });

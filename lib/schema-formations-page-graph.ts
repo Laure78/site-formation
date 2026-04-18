@@ -2,6 +2,8 @@
  * JSON-LD @graph unique — page `/formations` uniquement.
  * Présentiel uniquement (OnsiteEventAttendanceMode) — pas de distanciel / online dans les schémas.
  */
+import { FAQ_FORMATIONS } from '@/lib/faq';
+import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -42,7 +44,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         mainEntity: { '@id': `${BASE}/formations#course-list` },
         primaryImageOfPage: `${BASE}/images/formation-ia-btp-salle-interactive-2026.jpg`,
         datePublished: '2024-01-15',
-        dateModified: '2026-04-17',
+        dateModified: '2026-04-18',
         speakable: {
           '@type': 'SpeakableSpecification',
           cssSelector: ['.citation-sentence', 'h1'],
@@ -451,48 +453,14 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'FAQPage',
         '@id': `${BASE}/formations#faq`,
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Quelles formations IA BTP sont proposées au catalogue ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Le catalogue OFC propose 6 formations IA BTP de 4 heures, toutes certifiées Qualiopi : (1) L'IA au service du bâtiment (BTP-01, débutant, 100 € HT/pers), (2) Répondre aux appels d'offre avec l'IA (BTP-02, avancé, 175 € HT/pers), (3) Formation IA pour la fonction RH dans le BTP (BTP-03, avancé, 175 € HT/pers), (4) L'IA au service des Travaux Publics (BTP-04, débutant, 100 € HT/pers), (5) Sensibilisation à l'IA et assistants IA personnalisés (BTP-05, débutant, 100 € HT/pers), (6) Architecte augmenté avec Claude AI, DPGF, chantier et documents (BTP-06, avancé, 175 € HT/pers). En présentiel, inter en Île-de-France ou intra dans les locaux du client. Toutes finançables Constructys.",
-            },
+        mainEntity: FAQ_FORMATIONS.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faqAnswerPlainTextForSchema(item.a),
           },
-          {
-            '@type': 'Question',
-            name: 'Comment choisir la bonne formation IA BTP pour mon entreprise ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Le choix dépend de votre fonction et de votre niveau. Si vos équipes débutent avec l'IA, partez sur BTP-01 (bâtiment) ou BTP-04 (TP). Si vous voulez gagner sur la production de mémoires techniques et chiffrages, BTP-02 (appels d'offre, avancé). Pour vos équipes RH, BTP-03. Pour un cabinet d'architecture ou MOE, BTP-06. Pour découvrir le potentiel de l'IA et créer vos premiers assistants, BTP-05. Un diagnostic gratuit de 30 minutes en visio permet de cibler le programme adapté à votre contexte.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Combien coûte une formation IA BTP du catalogue ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Deux tarifs : 100 € HT par participant pour les formations de niveau débutant (BTP-01 bâtiment, BTP-04 travaux publics, BTP-05 sensibilisation), et 175 € HT par participant pour les formations de niveau avancé (BTP-02 appels d'offre, BTP-03 RH, BTP-06 architecture). Toutes les formations durent 4 heures, en groupe de 12 participants maximum. Toutes éligibles au financement Constructys (plafond pédagogique 24 € HT/h/stagiaire pour les entreprises BTP cotisantes).",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Les formations IA BTP sont-elles certifiées Qualiopi ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Oui. OFC Création d'Entreprise est certifié Qualiopi (action de formation), certification valable jusqu'en janvier 2028. Numéro de déclaration d'activité : 11788515078. Toutes les formations du catalogue sont éligibles au financement OPCO Constructys pour les entreprises du BTP, dans les conditions du Plan de Développement des Compétences Bâtiment 2026.",
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Les formations sont-elles disponibles en inter ou en intra ?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: "Les deux. En inter, les sessions ont lieu en Île-de-France (Paris, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). En intra, la formatrice se déplace dans vos locaux en Île-de-France pour une session dédiée à votre entreprise. Le format reste identique : 4 heures, 12 participants maximum, supports et ressources pédagogiques inclus.",
-            },
-          },
-        ],
+        })),
       },
       {
         '@type': 'HowTo',

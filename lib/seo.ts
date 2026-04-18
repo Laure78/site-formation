@@ -147,9 +147,10 @@ export function estimateWordCountFromPlainText(text: string): number {
 /** Helper pour métadonnées de page avec Open Graph + Twitter (partages & GEO) */
 export function createPageMetadata({
   title,
+  titleAbsolute,
   description,
   path = '',
-  keywords,
+  keywords: _unusedKeywords,
   openGraphType = 'website',
   article,
   image,
@@ -161,9 +162,12 @@ export function createPageMetadata({
   category,
 }: {
   title: string;
+  /** Titre HTML final (sans template layout) — voir `utils/metadata` */
+  titleAbsolute?: string;
   description: string;
   path?: string;
-  keywords?: string[];
+  /** Ignoré — la meta keywords n’est plus émise (Google l’ignore). */
+  keywords?: string[] | null;
   /** article = pages formation / blog (meilleure sémantique pour les moteurs) */
   openGraphType?: 'website' | 'article';
   article?: {
@@ -180,26 +184,23 @@ export function createPageMetadata({
   alternatesLanguages?: Record<string, string>;
   category?: string;
 }): Metadata {
-  const kw = keywords ? [...keywords] : [...SITE_CONFIG.keywords];
-  return {
-    ...buildPageMetadata({
-      title,
-      description,
-      baseUrl: SITE_CONFIG.url,
-      path,
-      keywords: kw,
-      ogType: openGraphType,
-      article,
-      image,
-      appendAuthorSuffix,
-      openGraphTitle,
-      openGraphDescription,
-      robots,
-      alternatesLanguages,
-      category,
-    }),
-    keywords: kw,
-  };
+  void _unusedKeywords;
+  return buildPageMetadata({
+    title,
+    titleAbsolute,
+    description,
+    baseUrl: SITE_CONFIG.url,
+    path,
+    ogType: openGraphType,
+    article,
+    image,
+    appendAuthorSuffix,
+    openGraphTitle,
+    openGraphDescription,
+    robots,
+    alternatesLanguages,
+    category,
+  });
 }
 
 /** Schéma Course principal "Formation IA BTP" (visible sur toutes les pages) */
@@ -416,7 +417,7 @@ export function getLocalBusinessSchema() {
 
 /** Aligné recommandations Google / rich results FAQ */
 export const FAQ_SCHEMA_MIN = 3;
-export const FAQ_SCHEMA_MAX = 10;
+export const FAQ_SCHEMA_MAX = 24;
 
 /**
  * Schéma FAQPage pour GEO — aligné sur le corps de page (texte des réponses sans HTML).

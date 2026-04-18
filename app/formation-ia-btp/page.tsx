@@ -29,12 +29,12 @@ const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France — ChatGPT 2026 | Laure Olivié',
+  title: 'Formation IA BTP Île-de-France — ChatGPT 2026',
   description:
     'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.',
   path: PATH,
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA BTP Île-de-France — ChatGPT 2026 | Laure Olivié',
+  openGraphTitle: 'Formation IA BTP Île-de-France — ChatGPT 2026',
   openGraphDescription:
     'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.',
   image: {

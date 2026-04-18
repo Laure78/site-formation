@@ -146,7 +146,7 @@ export async function createProspectAndAppointment(data: QualificationFormData) 
       from: 'Laure Olivié <noreply@laureolivie.fr>',
       replyTo: SITE_CONFIG.email,
       to: q.email.trim().toLowerCase(),
-      subject: 'Confirmation de votre rendez-vous — Laure Olivié',
+      subject: 'Confirmation de votre rendez-vous',
       html: `
         <p>Bonjour ${q.prenom},</p>
         <p>Votre rendez-vous a bien été enregistré.</p>

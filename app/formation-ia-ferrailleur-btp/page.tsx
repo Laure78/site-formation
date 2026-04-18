@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-ferrailleur-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Ferrailleur BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Ferrailleur BTP Île-de-France',
   description:
     'Optimisez vos calculs d\'armatures, factures et devis acier béton avec ChatGPT. Formation Qualiopi finançable Constructys. Gagnez 6h/semaine.',
   path: PATH,

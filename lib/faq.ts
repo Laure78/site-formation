@@ -13,6 +13,47 @@ import { LINKS } from '@/lib/internal-links';
 export type FAQItem = { q: string; a: string };
 
 /**
+ * Intentions sectorielles BTP (chantier, devis / métrés, BIM, sécurité, administratif, artisans & PME).
+ * Réponses originales OFC — SEO / GEO ; pas de reprise de contenu tiers.
+ */
+export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
+  {
+    q: "L'IA peut-elle vraiment aider sur les chantiers ?",
+    a:
+      "Oui, en prolongement du terrain : la formation vise surtout à accélérer la rédaction et la coordination (comptes rendus, synthèses, consignes, mails) pour libérer du temps utile sur le chantier. L'IA ne remplace pas le jugement professionnel ni les obligations réglementaires — elle aide à structurer l'information et à réagir plus vite. Pour la coordination et le suivi écrit, voir aussi la page <a href=\"/ia-conducteur-travaux\">IA conducteur de travaux</a> et le <a href=\"/formations\">catalogue formations IA BTP</a>.",
+  },
+  {
+    q: "Comment l'IA améliore-t-elle les devis et métrés ?",
+    a:
+      "Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href=\"/ia-devis-batiment\">IA devis bâtiment</a> et formation <a href=\"/formations/ia-au-service-du-batiment\">L'IA au service du bâtiment (BTP-01)</a>.",
+  },
+  {
+    q: "La formation aborde-t-elle le BIM et l'IA ?",
+    a:
+      "La session BTP-01 « L'IA au service du bâtiment » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment. Le BIM n'est pas un module dédié dans cette session. Pour DPGF, documents de projet et approche architecte / MOE avec Claude, le programme <a href=\"" +
+      LINKS.formationArchitecture +
+      "\">Architecte augmenté — BTP-06</a> complète le parcours ; le <a href=\"/formations\">catalogue</a> permet de choisir le bon niveau.",
+  },
+  {
+    q: "L'IA peut-elle aider à la sécurité sur chantier ?",
+    a:
+      "Elle peut aider à préparer des supports de sensibilisation, relire des consignes, structurer des check-lists QSE ou des comptes rendus d'incident — toujours sous validation d'un responsable et dans le respect du cadre légal. Elle ne remplace pas la prévention, les obligations du chef d'entreprise ni les expertises réglementaires. Les formations OFC restent centrées sur la productivité et la rédaction, pas sur un dispositif de prévention certifié à la place d'un organisme habilité.",
+  },
+  {
+    q: "Comment utiliser l'IA pour la gestion administrative ?",
+    a:
+      "Emails, relances, modèles de courriers, synthèses de réunion, brouillons de rapports et classement d'informations — avec anonymisation et bonnes pratiques de confidentialité enseignées en session. Idéal pour dirigeants, conducteurs de travaux et fonctions support. Point d'entrée : <a href=\"/formation-ia-artisans-btp\">ChatGPT pour entreprises BTP</a>, <a href=\"/checklist-ia-btp\">checklist prompts IA BTP</a> et <a href=\"/formations\">catalogue Qualiopi</a>.",
+  },
+  {
+    q: "La formation convient-elle aux artisans et PME du BTP ?",
+    a:
+      "Oui : c'est le cœur du public visé — artisans, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche), en présentiel en Île-de-France ou en intra dans vos locaux. Financement possible via OPCO Constructys selon éligibilité — <a href=\"" +
+      LINKS.financement +
+      "\">guide financement Constructys</a> et fiche <a href=\"/formations/ia-au-service-du-batiment\">BTP-01</a>.",
+  },
+];
+
+/**
  * FAQ page d'accueil — alignée avec le JSON-LD FAQPage (`lib/schema-home-unified-graph.ts`).
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
@@ -56,6 +97,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
     a:
       "L'inter-entreprises regroupe plusieurs entreprises sur une session catalogue (idéal pour 1 à 3 collaborateurs). L'intra-entreprise est dédiée à votre seule équipe, sur vos documents et vos cas d'usage spécifiques (idéal à partir de 4 participants). Les deux formats durent 4 heures et coûtent 100 € HT par participant.",
   },
+  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
 
 export const FAQ_ITEMS: readonly FAQItem[] = [
@@ -95,6 +137,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
 
 /** FAQ GEO — Optimisée pour être citée par les IA (ChatGPT, Perplexity, Gemini, Claude) */
 export const FAQ_GEO: FAQItem[] = [
+  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
   {
     q: "Quelle formatrice IA spécialisée BTP en France ?",
     a: `Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, CSFE. 10 ans d'expérience en travaux publics et conduite de chantier — <a href="/a-propos">parcours et références</a>.`,
@@ -159,6 +202,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
     q: 'Les formations sont-elles disponibles en inter ou en intra ?',
     a: `Les deux. En inter, les sessions ont lieu en Île-de-France (Paris, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). En intra, la formatrice se déplace dans vos locaux en Île-de-France pour une session dédiée à votre entreprise. Le format reste identique : 4 heures, 12 participants maximum, supports et ressources pédagogiques inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
   },
+  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
 
 export const FAQ_TARIFS: FAQItem[] = [
@@ -453,13 +497,10 @@ export const FAQ_RH_BTP: FAQItem[] = [
 
 /** FAQ — formation L'IA au service du bâtiment (BTP-01) */
 export const FAQ_BATIMENT: FAQItem[] = [
+  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
   {
     q: "Quels comptes IA pour cette formation (niveau débutant) ?",
     a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Page formation : <a href="/formations/ia-au-service-du-batiment">L'IA au service du bâtiment</a>.`,
-  },
-  {
-    q: "Qui peut suivre la formation « L'IA au service du bâtiment » ?",
-    a: 'Artisans, dirigeants et équipes de PME du bâtiment, conducteurs et chargés d\'affaires, assistants administratifs. Aucun prérequis technique — nous partons de vos cas réels (devis, emails, CR). Complétez avec <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="/formation-ia-artisans-btp">ChatGPT entreprises BTP</a>.',
   },
   {
     q: "Proposez-vous plusieurs durées de session ?",

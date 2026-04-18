@@ -18,7 +18,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'ChatGPT artisan électricien BTP — formation IA électricien | Laure Olivié',
+  title: 'ChatGPT artisan électricien BTP — formation IA électricien',
   description:
     `Formation IA et ChatGPT pour artisans électriciens : devis, appels d'offres, emails, fiches techniques. Qualiopi, finançable Constructys. Laure Olivié — +${formatProfessionalsTrainedCount()} pros BTP formés, ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: '/formation-chatgpt-artisan-electricien',

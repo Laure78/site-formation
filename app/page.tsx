@@ -48,6 +48,7 @@ import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
@@ -58,13 +59,13 @@ const HOME_META_DESCRIPTION =
   "1 592 pros BTP formés à l'IA. Qualiopi finançable Constructys. ChatGPT devis, DCE, mémoire technique. Visio découverte gratuite.";
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — ChatGPT, Devis & Chantier | Laure Olivié',
+  title: 'Formation IA BTP — ChatGPT, Devis & Chantier',
   description: HOME_META_DESCRIPTION,
   path: '/',
   appendAuthorSuffix: false,
   openGraphDescription:
     "1 592 pros BTP formés à l'IA. Qualiopi finançable Constructys. ChatGPT devis, DCE, mémoire technique. Visio découverte gratuite.",
-  openGraphTitle: 'Formation IA BTP — ChatGPT, Devis & Chantier | Laure Olivié',
+  openGraphTitle: 'Formation IA BTP — ChatGPT, Devis & Chantier',
   keywords: [
     'formation IA BTP',
     'formation ChatGPT BTP',
@@ -150,9 +151,12 @@ export default function HomePage() {
                 <span className="hidden sm:inline">Qualiopi · Constructys</span>
               </div>
               <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-                Formation IA BTP en Île-de-France pour vos équipes du bâtiment
+                Laure Olivié — Formatrice IA BTP de référence en France
               </h1>
-              <p className="mt-3 text-2xl font-semibold text-slate-700 md:text-3xl">
+              <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-800 md:text-3xl lg:text-4xl">
+                Formation IA BTP en Île-de-France pour vos équipes du bâtiment
+              </h2>
+              <p className="mt-3 text-xl font-semibold text-slate-700 md:text-2xl">
                 Devis, chantier, appels d&apos;offres :{' '}
                 <span className="font-serif italic text-[var(--accent)]">
                   ChatGPT et Claude AI
@@ -267,6 +271,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomePrincipalSections />
 
       <section
         className="border-b border-slate-200 bg-white px-4 py-12"

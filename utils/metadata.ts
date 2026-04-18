@@ -22,9 +22,12 @@ export type ArticleMetaInput = {
 
 export type BuildPageMetadataInput = {
   title: string;
+  /** Si défini, remplace le titre HTML (ignore le template du layout). */
+  titleAbsolute?: string;
   description: string;
   baseUrl: string;
   path?: string;
+  /** @deprecated Non émis en HTML — Google ignore meta keywords. */
   keywords?: string[];
   ogType?: 'website' | 'article';
   image?: { url: string; width?: number; height?: number; alt?: string };
@@ -78,10 +81,11 @@ function resolveImageUrl(
  */
 export function buildPageMetadata({
   title,
+  titleAbsolute,
   description,
   baseUrl,
   path = '',
-  keywords,
+  keywords: _keywords,
   ogType = 'website',
   image,
   article,
@@ -102,7 +106,8 @@ export function buildPageMetadata({
   const metaDescription = appendAuthorSuffix
     ? withOgDescriptionSuffix(description)
     : description.trim();
-  const ogTitle = openGraphTitle?.trim() || title;
+  const resolvedTitleAbsolute = titleAbsolute?.trim();
+  const ogTitle = openGraphTitle?.trim() || resolvedTitleAbsolute || title;
   const ogDescription =
     openGraphDescription != null ? openGraphDescription.trim() : metaDescription;
   const img = resolveImageUrl(baseUrl, image);
@@ -142,9 +147,8 @@ export function buildPageMetadata({
   }
 
   const meta: Metadata = {
-    title,
+    title: resolvedTitleAbsolute != null ? { absolute: resolvedTitleAbsolute } : (title as string),
     description: metaDescription,
-    ...(keywords?.length ? { keywords } : {}),
     ...(category ? { category } : {}),
     openGraph,
     twitter: {
@@ -155,7 +159,7 @@ export function buildPageMetadata({
     },
     alternates: {
       canonical,
-      languages: alternatesLanguages ?? { 'fr-FR': canonical },
+      languages: alternatesLanguages ?? { 'fr-FR': canonical, 'x-default': canonical },
     },
     ...(Object.keys(other).length ? { other } : {}),
     ...(robots !== undefined ? { robots } : {}),

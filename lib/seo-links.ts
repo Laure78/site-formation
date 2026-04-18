@@ -132,7 +132,7 @@ export const EXTERNAL_AUTHORITY_LINKS = {
   },
   googleBusinessProfile: {
     href: SITE_CONFIG.googleBusinessProfileUrl,
-    label: 'Fiche Google — Laure Olivié',
+    label: 'Fiche Google',
     title: 'Fiche Google Business — avis et informations locales',
   },
   googleMaps: {

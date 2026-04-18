@@ -158,6 +158,50 @@ const nextConfig: NextConfig = {
       { source: '/blog/ia-btp-lyon', destination: '/blog', statusCode: 301 },
       { source: '/blog/chatgpt-btp-bordeaux', destination: '/blog', statusCode: 301 },
 
+      // Blog : filtres ?categorie= → URLs canoniques /blog/categorie/*
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'devis' }],
+        destination: '/blog/categorie/devis-chiffrage',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'appels-offres' }],
+        destination: '/blog/categorie/appels-offres',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'financement' }],
+        destination: '/blog/categorie/financement-opco',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'chatgpt' }],
+        destination: '/blog/categorie/chatgpt-bonnes-pratiques',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'metiers' }],
+        destination: '/blog/categorie/ia-par-metier',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'rh' }],
+        destination: '/blog/categorie/rh-recrutement',
+        permanent: true,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'categorie', value: 'productivite' }],
+        destination: '/blog/categorie/productivite-emails',
+        permanent: true,
+      },
+
       // Articles formateurs supprimés — redirection vers /communaute-formateurs
       { source: '/blog/comment-trouver-premiers-clients-formateur', destination: '/communaute-formateurs', statusCode: 301 },
       { source: '/blog/9-actions-developper-activite-formation', destination: '/communaute-formateurs', statusCode: 301 },

@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-canalisateur-tp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Canalisateur TP Île-de-France — Laure Olivié',
+  title: 'Formation IA Canalisateur TP Île-de-France',
   description:
     'Automatisez vos devis canalisations, rapports de chantier, conformité normes. Formation Qualiopi finançable Constructys.',
   path: PATH,

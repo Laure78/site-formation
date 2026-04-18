@@ -14,7 +14,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-assistante-administrative-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Assistante Administrative BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Assistante Administrative BTP Île-de-France',
   description:
     'Automatisez courriers, facturations, devis, relances, suivi chantier. Formation Qualiopi finançable Constructys.',
   path: PATH,

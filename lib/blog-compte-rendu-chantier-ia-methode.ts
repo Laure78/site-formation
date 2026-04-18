@@ -12,7 +12,7 @@ export const blogArticleCompteRenduChantierIaMethode: BlogArticle = {
   slug: 'compte-rendu-chantier-ia-methode',
   title:
     'Compte rendu de chantier IA : méthode en 5 étapes pour conducteurs de travaux',
-  seoTitle: 'Compte rendu chantier IA : méthode 5 étapes | Laure Olivié',
+  seoTitle: 'Compte rendu chantier IA : méthode 5 étapes',
   description:
     "Rédigez un compte rendu de chantier en 15 minutes avec l'IA au lieu de 2h. Méthode 5 étapes, prompts ChatGPT terrain, retours formation FFB. Finançable Constructys.",
   date: '2026-04-24',

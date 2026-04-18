@@ -30,7 +30,7 @@ const poppins = Poppins({
 const PATH = '/formation-ia-analyse-cctp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA : Analyser un CCTP avec ChatGPT — Entreprises BTP | Laure Olivié',
+  title: 'Formation IA : Analyser un CCTP avec ChatGPT — Entreprises BTP',
   description:
     "Analysez vos CCTP en 20 minutes avec l'IA. Formation concrète pour chargés d'affaires et dirigeants BTP. Qualiopi · Finançable Constructys · Formatrice ex-conductrice de travaux.",
   path: PATH,

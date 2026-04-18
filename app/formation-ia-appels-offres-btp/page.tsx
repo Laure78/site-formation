@@ -26,7 +26,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 const PATH = '/formation-ia-appels-offres-btp';
 
 export const metadata = createPageMetadata({
-  title: "Formation IA Appels d'Offres BTP | DCE & Mémoire Technique | Laure Olivié",
+  title: "Formation IA Appels d'Offres BTP | DCE & Mémoire Technique",
   description:
     `Répondez 5x plus vite aux appels d'offres BTP avec l'IA. Formation Qualiopi finançable Constructys. Analyse DCE, mémoire technique, chiffrage. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,

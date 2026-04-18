@@ -4,7 +4,7 @@ import { CheckCircle, Mail, Home, Calendar, ClipboardList, BookOpen } from 'luci
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata({
-  title: 'Rendez-vous confirmé — Laure Olivié',
+  title: 'Rendez-vous confirmé',
   description:
     "Votre rendez-vous formation IA BTP est enregistré. Confirmation par email avec le lieu, les horaires ou les consignes selon le mode d’entretien choisi avec Laure Olivié.",
   path: '/merci-rdv',

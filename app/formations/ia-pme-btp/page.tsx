@@ -32,7 +32,7 @@ const HERO_RESUME_PME = [
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA PME BTP — Dirigeants Bâtiment | Laure Olivié',
+  title: 'Formation IA PME BTP — Dirigeants Bâtiment',
   description:
     'Formation IA pour dirigeants PME BTP. Transformez votre entreprise avec ChatGPT. 1 592 pros formés. Qualiopi finançable Constructys.',
   path: '/formations/ia-pme-btp',

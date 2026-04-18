@@ -22,7 +22,7 @@ import { formatProfessionalsTrainedCount } from '@/lib/constants';
 const ANNUAIRE_LABELS_CERT =
   'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281';
 
-const FAQ_GRAPH_MAX = 10;
+const FAQ_GRAPH_MAX = 14;
 
 function faqMainEntity(items: readonly FAQItem[]) {
   return items.slice(0, FAQ_GRAPH_MAX).map((item) => ({
@@ -169,28 +169,10 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         contentUrl: heroImageUrl,
       },
       {
-        '@type': 'WebSite',
-        '@id': websiteId,
-        name: 'Laure Olivié — Formation IA BTP',
-        url: base,
-        description:
-          'Site officiel de Laure Olivié, formatrice IA et ChatGPT pour les professionnels du BTP. Formations Qualiopi finançables Constructys.',
-        publisher: { '@id': orgId },
-        inLanguage: 'fr-FR',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${base}/blog?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
-      },
-      {
         '@type': 'WebPage',
         '@id': webpageId,
         url: base,
-        name: 'Formation IA BTP Île-de-France — Laure Olivié',
+        name: 'Formation IA BTP Île-de-France',
         isPartOf: { '@id': websiteId },
         about: { '@id': courseId },
         primaryImageOfPage: { '@id': imageHeroId },

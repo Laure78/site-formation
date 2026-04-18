@@ -1,8 +1,15 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { CLAUDE_AI_BTP_WORD_COUNT } from '@/lib/claude-ai-btp-jsonld';
 import { LINKS } from '@/lib/internal-links';
+import { PHOTOS } from '@/lib/photos';
+
+const READING_MINUTES = Math.max(12, Math.round(CLAUDE_AI_BTP_WORD_COUNT / 220));
+
+const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 
 /**
  * Hero premium page pilier Claude AI BTP — fond navy, CTA contrastés, charte #377CF3.
@@ -21,51 +28,89 @@ export function ClaudeAiBtpHero() {
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-slate-500/10 blur-3xl" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-24 lg:py-28">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-          Guide professionnel · IA chantier &amp; administratif
-        </p>
-        <h1
-          id="claude-btp-hero-title"
-          className="mt-4 max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl"
-        >
-          Claude AI pour le BTP
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
-          Interfaces, workflows et prompts pour conducteurs de travaux, chargés d&apos;affaires et dirigeants — gain de
-          temps mesurable sur DCE, comptes rendus et relances.
-        </p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_minmax(0,440px)] lg:items-center lg:gap-12">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+              Guide professionnel · IA chantier &amp; administratif
+            </p>
+            <h1
+              id="claude-btp-hero-title"
+              className="mt-4 max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl"
+            >
+              Claude AI pour le BTP
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+              Interfaces, workflows et prompts pour conducteurs de travaux, chargés d&apos;affaires et dirigeants — gain de
+              temps mesurable sur DCE, comptes rendus et relances.
+            </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-8 text-sm text-slate-400">
-          <span className="font-medium text-slate-300">Laure Olivié · OFC Création d&apos;Entreprise</span>
-          <span className="hidden sm:inline" aria-hidden>
-            ·
-          </span>
-          <span>Qualiopi · Constructys</span>
-          <span className="hidden sm:inline" aria-hidden>
-            ·
-          </span>
-          <span>
-            +{formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
-          </span>
-        </div>
+            <p className="mt-4 text-sm text-slate-400">
+              Temps de lecture estimé : environ {READING_MINUTES} minutes · guide mis à jour en avril 2026
+            </p>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-          <a
-            href={CALENDLY_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-950/40 transition hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-950/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <Calendar className="h-5 w-5 shrink-0 opacity-90" aria-hidden />
-            Visio découverte gratuite
-            <ArrowRight className="h-4 w-4 shrink-0 opacity-90" aria-hidden />
-          </a>
-          <Link
-            href={LINKS.diagnostic}
-            className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:border-white/30 hover:bg-white/10"
-          >
-            Diagnostic IA BTP
-          </Link>
+            <ul
+              className="mt-4 flex flex-wrap gap-2"
+              aria-label="Thématiques de la page"
+            >
+              {['ClaudeAI', 'BTP', 'Formation', 'IA chantier', 'Qualiopi', 'Constructys'].map((tag) => (
+                <li key={tag}>
+                  <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                    #{tag}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-8 text-sm text-slate-400">
+              <span className="font-medium text-slate-300">Laure Olivié · OFC Création d&apos;Entreprise</span>
+              <span className="hidden sm:inline" aria-hidden>
+                ·
+              </span>
+              <span>Qualiopi · Constructys</span>
+              <span className="hidden sm:inline" aria-hidden>
+                ·
+              </span>
+              <span>
+                +{formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
+              </span>
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <a
+                href={CALENDLY_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-950/40 transition hover:bg-blue-600 hover:shadow-xl hover:shadow-blue-950/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <Calendar className="h-5 w-5 shrink-0 opacity-90" aria-hidden />
+                Visio découverte gratuite
+                <ArrowRight className="h-4 w-4 shrink-0 opacity-90" aria-hidden />
+              </a>
+              <Link
+                href={LINKS.diagnostic}
+                className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:border-white/30 hover:bg-white/10"
+              >
+                Diagnostic IA BTP
+              </Link>
+            </div>
+          </div>
+
+          <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50 ring-1 ring-white/5 lg:aspect-[1024/682]">
+              <Image
+                src={heroVisuel.src}
+                alt={heroVisuel.alt}
+                width={heroVisuel.width}
+                height={heroVisuel.height}
+                className="h-full w-full object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 440px"
+                priority
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-xs text-slate-500 lg:text-left">
+              Claude AI · BTP &mdash; chantier, interfaces et méthode terrain OFC
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

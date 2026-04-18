@@ -58,6 +58,12 @@ function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${baseUrl}/ressources/skill-ia-conducteur-travaux`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/formation-ia-btp-ile-de-france`,
       lastModified: new Date('2026-05-19'),
       changeFrequency: 'weekly',
@@ -317,9 +323,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: ts, changeFrequency: 'weekly', priority: 1 },
     {
       url: `${baseUrl}/financement-constructys-formation-ia-btp`,
-      lastModified: ts,
-      changeFrequency: 'weekly',
-      priority: 1,
+      lastModified: new Date('2026-04-18'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
   ];
 

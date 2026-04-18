@@ -14,7 +14,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-conducteur-travaux-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Conducteur Travaux BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Conducteur Travaux BTP Île-de-France',
   description:
     'Automatisez rapports chantier, coordination multiples lots, devis, suivi planning. Formation Qualiopi finançable Constructys.',
   path: PATH,

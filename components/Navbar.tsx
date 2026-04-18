@@ -16,6 +16,7 @@ import {
   Home,
   CircleDollarSign,
   Sparkles,
+  Layers,
 } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
@@ -153,12 +154,96 @@ function formationsDropdownActive(pathname: string): boolean {
   return CATALOGUE_FORMATIONS_NAV_LINKS.some((l) => isActive(l.href, pathname));
 }
 
+function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
+  const links: MegaLink[] = [
+    {
+      href: '/ressources/ia-btp',
+      label: 'Hub ressources IA BTP',
+      description: 'Guides et cas d’usage',
+      icon: BookOpen,
+    },
+    {
+      href: '/ressources/ia-btp/10-cas-usage-concrets',
+      label: '10 cas d’usage concrets',
+      description: '2026',
+      icon: Layers,
+    },
+    {
+      href: LINKS.skillIaConducteurTravaux,
+      label: 'Guide : 1er Skill IA',
+      description: 'PDF gratuit · conducteurs de travaux',
+      icon: Sparkles,
+    },
+  ];
+  return (
+    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,26rem)] pt-2">
+      <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
+        <div className="border-b border-slate-100 px-4 pb-3">
+          <Link
+            href="/ressources/ia-btp"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent)]/90"
+          >
+            Toutes les ressources
+            <ArrowRight
+              size={15}
+              className="transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </Link>
+        </div>
+        <ul className="max-h-[min(70vh,28rem)] space-y-0.5 overflow-y-auto overscroll-contain px-2 pt-1">
+          {links.map((link) => {
+            const ItemIcon = link.icon;
+            const linkActive = isActive(link.href, pathname);
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                    linkActive
+                      ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                      : 'text-slate-800 hover:bg-slate-50'
+                  }`}
+                >
+                  <ItemIcon
+                    size={20}
+                    strokeWidth={1.75}
+                    className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                    aria-hidden
+                  />
+                  <span className="min-w-0 flex-1">
+                    <span className="flex flex-wrap items-center gap-2">
+                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                      {link.href === LINKS.skillIaConducteurTravaux ? (
+                        <span className="rounded-full bg-[#D4E3FC] px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[#377CF3]">
+                          Nouveau
+                        </span>
+                      ) : null}
+                    </span>
+                    {link.description ? (
+                      <span className="mt-1 block text-sm leading-relaxed text-slate-600">
+                        {link.description}
+                      </span>
+                    ) : null}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 /** Barre de navigation unique — pages site et blog (pas de liens espace apprenant dans le header public). */
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFormations, setOpenFormations] = useState(false);
+  const [openResources, setOpenResources] = useState(false);
   const [mobileFormationsOpen, setMobileFormationsOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -169,20 +254,32 @@ export function Navbar() {
     }
   };
 
-  const scheduleClose = () => {
+  const scheduleCloseAll = () => {
     clearCloseTimer();
-    closeTimer.current = setTimeout(() => setOpenFormations(false), 180);
+    closeTimer.current = setTimeout(() => {
+      setOpenFormations(false);
+      setOpenResources(false);
+    }, 180);
   };
 
   const handleEnterFormations = () => {
     clearCloseTimer();
     setOpenFormations(true);
+    setOpenResources(false);
+  };
+
+  const handleEnterResources = () => {
+    clearCloseTimer();
+    setOpenResources(true);
+    setOpenFormations(false);
   };
 
   useEffect(() => {
     setMobileOpen(false);
     setOpenFormations(false);
+    setOpenResources(false);
     setMobileFormationsOpen(false);
+    setMobileResourcesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -209,6 +306,7 @@ export function Navbar() {
   const financementActive =
     pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
   const claudeAiBtpActive = pathname === '/claude-ai-btp';
+  const resourcesActive = pathname.startsWith('/ressources');
 
   return (
     <>
@@ -218,7 +316,7 @@ export function Navbar() {
             ? 'border-slate-200/90 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)]'
             : 'border-[var(--header-border)] shadow-none'
         }`}
-        onMouseLeave={scheduleClose}
+        onMouseLeave={scheduleCloseAll}
       >
         <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[4.5rem] lg:min-h-[4.5rem]">
           <Link
@@ -245,6 +343,7 @@ export function Navbar() {
           >
             <Link
               href="/"
+              aria-current={homeActive ? 'page' : undefined}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 homeActive
                   ? 'bg-white text-slate-900 shadow-sm'
@@ -258,9 +357,11 @@ export function Navbar() {
             <div
               className="relative"
               onMouseEnter={handleEnterFormations}
+              onMouseLeave={scheduleCloseAll}
             >
               <button
                 type="button"
+                aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
                 className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                   formationsDropdownActive(pathname) || openFormations
                     ? 'bg-white text-slate-900 shadow-sm'
@@ -286,6 +387,7 @@ export function Navbar() {
 
             <Link
               href={LINKS.financement}
+              aria-current={financementActive ? 'page' : undefined}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 financementActive
                   ? 'bg-white text-slate-900 shadow-sm'
@@ -298,6 +400,7 @@ export function Navbar() {
 
             <Link
               href="/blog"
+              aria-current={blogActive ? 'page' : undefined}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 blogActive
                   ? 'bg-white text-slate-900 shadow-sm'
@@ -308,8 +411,37 @@ export function Navbar() {
               Blog
             </Link>
 
+            <div
+              className="relative"
+              onMouseEnter={handleEnterResources}
+              onMouseLeave={scheduleCloseAll}
+            >
+              <button
+                type="button"
+                className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                  resourcesActive || openResources
+                    ? 'bg-white text-slate-900 shadow-sm'
+                    : 'text-slate-700 hover:text-slate-900'
+                }`}
+                aria-expanded={openResources}
+                aria-haspopup="true"
+              >
+                Ressources
+                <ChevronDown
+                  size={15}
+                  strokeWidth={2}
+                  className={`shrink-0 text-slate-500 transition-transform duration-200 ${
+                    openResources ? 'rotate-180' : ''
+                  }`}
+                  aria-hidden
+                />
+              </button>
+              {openResources && <ResourcesDropdownPanel pathname={pathname} />}
+            </div>
+
             <Link
               href="/claude-ai-btp"
+              aria-current={claudeAiBtpActive ? 'page' : undefined}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 claudeAiBtpActive
                   ? 'bg-white text-slate-900 shadow-sm'
@@ -322,6 +454,7 @@ export function Navbar() {
 
             <Link
               href="/a-propos"
+              aria-current={aProposActive ? 'page' : undefined}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
                 aProposActive
                   ? 'bg-white text-slate-900 shadow-sm'
@@ -378,6 +511,7 @@ export function Navbar() {
             <div className="border-b border-slate-100 py-1">
               <Link
                 href="/"
+                aria-current={homeActive ? 'page' : undefined}
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
                   homeActive ? 'text-[var(--accent)]' : 'text-slate-900'
@@ -395,6 +529,7 @@ export function Navbar() {
             <div className="border-b border-slate-100 py-1">
               <button
                 type="button"
+                aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
                 onClick={() => setMobileFormationsOpen((v) => !v)}
                 className="flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left"
               >
@@ -454,6 +589,7 @@ export function Navbar() {
             <div className="border-b border-slate-100 py-1">
               <Link
                 href={LINKS.financement}
+                aria-current={financementActive ? 'page' : undefined}
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
                   financementActive ? 'text-[var(--accent)]' : 'text-slate-900'
@@ -471,6 +607,7 @@ export function Navbar() {
             <div className="border-b border-slate-100 py-1">
               <Link
                 href="/blog"
+                aria-current={blogActive ? 'page' : undefined}
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
                   blogActive ? 'text-[var(--accent)]' : 'text-slate-900'
@@ -486,8 +623,69 @@ export function Navbar() {
             </div>
 
             <div className="border-b border-slate-100 py-1">
+              <button
+                type="button"
+                onClick={() => setMobileResourcesOpen((v) => !v)}
+                className="flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left text-[0.9375rem] font-medium text-slate-900"
+              >
+                <span className="flex items-center gap-2">
+                  <Layers size={18} strokeWidth={1.75} className="text-slate-400" />
+                  Ressources
+                </span>
+                <ChevronDown
+                  size={18}
+                  className={`shrink-0 text-slate-400 transition-transform ${
+                    mobileResourcesOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              {mobileResourcesOpen && (
+                <div className="pb-2 pl-1">
+                  <Link
+                    href="/ressources/ia-btp"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                  >
+                    <BookOpen size={18} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Hub ressources IA BTP</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">Guides &amp; cas d&apos;usage</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/ressources/ia-btp/10-cas-usage-concrets"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                  >
+                    <Layers size={18} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">10 cas d&apos;usage concrets</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href={LINKS.skillIaConducteurTravaux}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                  >
+                    <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                    <span>
+                      <span className="flex flex-wrap items-center gap-2">
+                        <span className="block text-[0.9375rem]">Guide : 1er Skill IA</span>
+                        <span className="rounded-full bg-[#D4E3FC] px-2 py-0.5 text-[0.65rem] font-semibold uppercase text-[#377CF3]">
+                          Nouveau
+                        </span>
+                      </span>
+                      <span className="mt-0.5 block text-xs text-slate-500">PDF gratuit</span>
+                    </span>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <div className="border-b border-slate-100 py-1">
               <Link
                 href="/claude-ai-btp"
+                aria-current={claudeAiBtpActive ? 'page' : undefined}
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
                   claudeAiBtpActive ? 'text-[var(--accent)]' : 'text-slate-900'
@@ -505,6 +703,7 @@ export function Navbar() {
             <div className="border-b border-slate-100 py-1">
               <Link
                 href="/a-propos"
+                aria-current={aProposActive ? 'page' : undefined}
                 onClick={() => setMobileOpen(false)}
                 className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
                   aProposActive ? 'text-[var(--accent)]' : 'text-slate-900'

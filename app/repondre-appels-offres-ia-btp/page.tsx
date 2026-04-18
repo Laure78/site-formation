@@ -13,7 +13,7 @@ const KIT_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompt
 
 export const metadata = createPageMetadata({
   title:
-    'Répondre aux appels d’offres BTP avec l’IA — mémoire technique, DCE | Laure Olivié',
+    'Répondre aux appels d’offres BTP avec l’IA — mémoire technique, DCE',
   description:
     'Répondre aux appels d’offres BTP avec l’IA : analyser le DCE, structurer le mémoire technique, éviter les erreurs. Méthode terrain, formation Qualiopi Constructys. Île-de-France et France.',
   path: '/repondre-appels-offres-ia-btp',

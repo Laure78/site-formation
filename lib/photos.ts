@@ -164,6 +164,15 @@ export const PHOTOS = {
     height: 614,
   },
 
+  /** Page pilier /claude-ai-btp — Claude BTP, chantier & formatrice (visuel promotionnel) */
+  claudeBtpGuideHero2026: {
+    src: '/images/claude-btp-hero-chantier-2026.png',
+    alt:
+      'Claude AI pour le BTP : logo Anthropic, chantier en construction au coucher du soleil, formatrice Laure Olivié — formation IA bâtiment et travaux publics',
+    width: 1024,
+    height: 682,
+  },
+
   /** Portrait pro avec bandeau « Formatrice IA spécialisée BTP » */
   formatriceLowerThird: {
     src: '/images/laure-formatrice-ia-btp-lower-third.png',

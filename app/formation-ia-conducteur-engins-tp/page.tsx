@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-conducteur-engins-tp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Conducteur Engins TP Île-de-France — Laure Olivié',
+  title: 'Formation IA Conducteur Engins TP Île-de-France',
   description:
     'Automatisez vos fiches chantier, rapports d’activité, relances clients. Formation Qualiopi finançable Constructys.',
   path: PATH,

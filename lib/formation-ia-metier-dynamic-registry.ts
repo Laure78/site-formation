@@ -9,7 +9,7 @@ const ORGA = "OFC Création d'Entreprise";
 export const FORMATION_IA_METIER_DYNAMIC_ELECTRICIEN: FormationIaMetierDynamicConfig = {
   slug: 'electricien',
   path: '/formation-ia-electricien-btp',
-  seoTitle: 'Formation IA Électricien BTP Île-de-France — Laure Olivié',
+  seoTitle: 'Formation IA Électricien BTP Île-de-France',
   seoDescription:
     'Devis TGBT, sections de câbles et conformité NFC 15-100 accélérés sans sacrifier la relecture métier. Formation Qualiopi finançable Constructys.',
   keywords: [

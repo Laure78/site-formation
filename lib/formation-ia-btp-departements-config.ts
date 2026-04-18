@@ -47,7 +47,7 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
 export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-yvelines-78',
   h1: 'Formation IA BTP dans les Yvelines (78) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Yvelines (78) | Laure Olivié Qualiopi',
+  metaTitle: 'Formation IA BTP Yvelines (78)',
   metaDescription:
     'Formation IA & ChatGPT pour BTP dans les Yvelines. Présentiel Guyancourt, Versailles, Saint-Germain, Mantes. 100% finançable Constructys.',
   keywords: [
@@ -246,7 +246,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
   deptCode: '77',
   departementNom: 'Seine-et-Marne',
   h1: 'Formation IA BTP en Seine-et-Marne (77) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Seine-et-Marne (77) | Laure Olivié Qualiopi',
+  metaTitle: 'Formation IA BTP Seine-et-Marne (77)',
   metaDescription:
     'Formation IA & ChatGPT BTP en Seine-et-Marne : Melun, Meaux, Marne-la-Vallée. Présentiel ou distanciel. Qualiopi, 100% finançable Constructys selon dossier.',
   keywords: [
@@ -271,7 +271,7 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
   deptCode: '91',
   departementNom: 'Essonne',
   h1: 'Formation IA BTP dans l’Essonne (91) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Essonne (91) | Laure Olivié Qualiopi',
+  metaTitle: 'Formation IA BTP Essonne (91)',
   metaDescription:
     'Formation IA & ChatGPT BTP en Essonne : Évry, Massy, Palaiseau, Corbeil. Présentiel ou visio. Organisme Qualiopi, finançable Constructys selon dossier.',
   keywords: [
@@ -304,7 +304,7 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   deptCode: '92',
   departementNom: 'Hauts-de-Seine',
   h1: 'Formation IA BTP dans les Hauts-de-Seine (92) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Hauts-de-Seine (92) | Laure Olivié Qualiopi',
+  metaTitle: 'Formation IA BTP Hauts-de-Seine (92)',
   metaDescription:
     'Formation IA BTP & ChatGPT dans les Hauts-de-Seine : Nanterre, Boulogne, La Défense. Qualiopi, sessions 4 h, finançable Constructys selon éligibilité.',
   keywords: [
@@ -337,7 +337,7 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
   deptCode: '93',
   departementNom: 'Seine-Saint-Denis',
   h1: 'Formation IA BTP en Seine-Saint-Denis (93) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Seine-Saint-Denis (93) | Laure Olivié Qualiopi',
+  metaTitle: 'Formation IA BTP Seine-Saint-Denis (93)',
   metaDescription:
     'Formation IA & ChatGPT pour le BTP en Seine-Saint-Denis : Saint-Denis, Montreuil, Bobigny. Qualiopi, 4 h, 100% finançable Constructys selon dossier.',
   keywords: [
@@ -370,7 +370,7 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   deptCode: '94',
   departementNom: 'Val-de-Marne',
   h1: 'Formation IA BTP dans le Val-de-Marne (94) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Val-de-Marne (94) | Laure Olivié Qualiopi',
+  metaTitle: 'Formation IA BTP Val-de-Marne (94)',
   metaDescription:
     'Formation IA BTP & ChatGPT dans le 94 : Créteil, Vitry, Saint-Maur. Présentiel ou distanciel. Qualiopi, finançable Constructys pour entreprises BTP.',
   keywords: [
@@ -403,7 +403,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   deptCode: '95',
   departementNom: "Val-d'Oise",
   h1: 'Formation IA BTP dans le Val-d’Oise (95) — Qualiopi, finançable Constructys',
-  metaTitle: "Formation IA BTP Val-d'Oise (95) | Laure Olivié Qualiopi",
+  metaTitle: "Formation IA BTP Val-d'Oise (95)",
   metaDescription:
     "Formation IA & ChatGPT BTP dans le Val-d'Oise : Cergy, Argenteuil, Sarcelles. Qualiopi, 4 h, finançable Constructys. Interventions en entreprise.",
   keywords: [

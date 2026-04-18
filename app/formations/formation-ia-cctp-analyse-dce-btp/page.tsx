@@ -26,7 +26,7 @@ import type { FAQItem } from '@/lib/faq';
 const PATH = LINKS.formationIaCctpAnalyseDceBtp;
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA CCTP & DCE BTP — Inter & Intra | Laure Olivié',
+  title: 'Formation IA CCTP & DCE BTP — Inter & Intra',
   description:
     'Formation IA analyse CCTP/DCE pour entreprises BTP. 4h en visio ou présentiel. Qualiopi, finançable Constructys 100%. Inter & intra. RDV gratuit avec Laure Olivié.',
   path: PATH,

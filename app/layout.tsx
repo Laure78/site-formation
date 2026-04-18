@@ -13,6 +13,9 @@ import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OG_SITE_NAME, withOgDescriptionSuffix } from '@/utils/metadata';
+import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
+import { SitelinksHub } from '@/components/layout/SitelinksHub';
+import { AutoBreadcrumb } from '@/components/layout/AutoBreadcrumb';
 
 const inter = Inter({
   variable: '--font-body',
@@ -33,11 +36,10 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'Formation IA BTP Île-de-France — Laure Olivié (Qualiopi)',
-    template: '%s — Laure Olivié, Formation IA BTP',
+    template: '%s | Laure Olivié',
+    default: "Laure Olivié — Formatrice IA BTP | OFC Création d'Entreprise",
   },
   description: withOgDescriptionSuffix(SITE_CONFIG.description),
-  keywords: [...SITE_CONFIG.keywords],
   authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
   creator: SITE_CONFIG.name,
   publisher: 'OFC Création d\'Entreprise',
@@ -123,6 +125,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
+        <GlobalSitelinksJsonLd />
         <GoogleAnalytics />
         <CalendlyScriptLoader />
         <CalendlyClickTracker />
@@ -134,9 +137,11 @@ export default function RootLayout({
         </a>
         <Navbar />
         <main className="flex-1" id="main-content">
+          <AutoBreadcrumb />
           {children}
           <FormationCalendlyInlineGate />
         </main>
+        <SitelinksHub />
         <Footer />
         <CalendlyFloatingButton />
         <StickyBlogMetierRdvBar />

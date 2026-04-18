@@ -32,7 +32,7 @@ const HERO_RESUME_PARIS = [
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Paris — ChatGPT en 4h | Laure Olivié',
+  title: 'Formation IA BTP Paris — ChatGPT en 4h',
   description:
     'Formation IA BTP à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi finançable Constructys. RDV visio gratuit.',
   path: '/formations/ia-btp-paris',

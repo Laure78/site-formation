@@ -10,7 +10,7 @@ import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/li
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Paris 2026 — 100% Constructys | Laure Olivié',
+  title: 'Formation IA BTP Paris 2026 — 100% Constructys',
   description:
     'Formation IA ChatGPT pour BTP à Paris et IDF. Sessions inter et intra. Qualiopi. Finançable Constructys (plafonds en vigueur). Réservez votre visio découverte gratuite.',
   path: '/formation-ia-btp-paris-2026',

@@ -4,8 +4,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -21,14 +20,6 @@ export default function PrendreRDVPage() {
 
   return (
     <div className="min-h-[80vh]">
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Prendre rendez-vous', path: '/prendre-rdv' },
-        ])}
-        showVisual
-        className="mx-auto max-w-4xl px-4 pt-8"
-      />
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-4xl">

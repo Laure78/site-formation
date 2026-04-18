@@ -2,7 +2,7 @@ import { createPageMetadata } from '@/lib/seo';
 import { FormationIaHubContent } from '@/components/formation-ia/FormationIaHubContent';
 
 export const metadata = createPageMetadata({
-  title: 'Formations IA & ChatGPT pour le BTP | Laure Olivié',
+  title: 'Formations IA & ChatGPT pour le BTP',
   description:
     'Catalogue des formations IA et ChatGPT spécialisées BTP. Inter et intra. Qualiopi. 1 592 professionnels formés. Visio découverte gratuite.',
   path: '/formation-ia-et-chatgpt',

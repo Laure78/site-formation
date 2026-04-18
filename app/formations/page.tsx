@@ -28,7 +28,7 @@ const OG_DESCRIPTION =
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Formation IA BTP : catalogue 6 formations Qualiopi | Laure Olivié',
+    title: 'Formation IA BTP : catalogue 6 formations Qualiopi',
     description:
       "Catalogue 6 formations IA BTP : ChatGPT bâtiment, travaux publics, appels d'offres, RH, architecture. 4 h, 100 ou 175 € HT/pers, finançable Constructys. Île-de-France.",
     path: '/formations',

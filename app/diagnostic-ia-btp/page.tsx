@@ -8,7 +8,7 @@ import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
-  title: 'Diagnostic IA BTP gratuit — Test 60 secondes | Laure Olivié',
+  title: 'Diagnostic IA BTP gratuit — Test 60 secondes',
   description:
     "Évaluez en quelques questions où l'IA peut vous faire gagner du temps sur devis et administratif. Diagnostic BTP gratuit. Résultat personnalisé. Lancez le test.",
   path: '/diagnostic-ia-btp',

@@ -7,13 +7,12 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { FAQSection } from '@/components/landing/FAQSection';
 
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Contact | Laure Olivié',
+  title: 'Formation IA BTP — Contact',
   description:
     "Écrivez à Laure Olivié ou prenez rendez-vous pour une formation IA BTP sur mesure. Île-de-France et France. Financement Constructys pour PME.",
   path: '/contact',
@@ -29,14 +28,6 @@ export default async function ContactPage({
   const { formation } = await searchParams;
   return (
     <div>
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Contact', path: '/contact' },
-        ])}
-        showVisual
-        className="mx-auto max-w-6xl px-4 pt-8"
-      />
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">

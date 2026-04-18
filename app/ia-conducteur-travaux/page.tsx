@@ -9,7 +9,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Conducteur Travaux — CR Chantier | Laure Olivié',
+  title: 'Formation IA Conducteur Travaux — CR Chantier',
   description:
     'Formation IA pour conducteurs de travaux BTP : CR chantier, planning, AO avec ChatGPT. Gagnez 2h/jour. Qualiopi Constructys.',
   path: '/ia-conducteur-travaux',

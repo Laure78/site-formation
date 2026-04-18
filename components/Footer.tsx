@@ -29,6 +29,7 @@ export function Footer() {
     { href: LINKS.blog, label: 'Blog' },
     { href: LINKS.diagnostic, label: 'Diagnostic' },
     { href: LINKS.checklist, label: 'Checklist' },
+    { href: LINKS.skillIaConducteurTravaux, label: 'Guide Skill IA (PDF)' },
     { href: LINKS.etudesCas, label: 'Étude de cas' },
     { href: LINKS.casUsage, label: "Cas d'usage" },
   ];
@@ -52,6 +53,12 @@ export function Footer() {
             <p className="mt-0.5 text-sm text-slate-600">
               Catalogue <QualiopiWordmark />, financement Constructys — sessions 4 h.
             </p>
+            <Link
+              href={LINKS.skillIaConducteurTravaux}
+              className="mt-3 inline-flex text-sm font-medium text-[var(--accent)] hover:underline"
+            >
+              Guide gratuit : créez votre 1er Skill IA →
+            </Link>
           </div>
           <Link
             href={LINKS.formations}
@@ -70,6 +77,7 @@ export function Footer() {
                 alt="Laure Olivié — formation IA BTP, organisme certifié Qualiopi"
                 title="Retour à l’accueil — laureolivie.fr"
                 className="h-10 w-auto"
+                fetchPriority="high"
               />
               <div>
                 <span className="font-display text-lg font-bold text-slate-900">Laure Olivié</span>
@@ -80,8 +88,13 @@ export function Footer() {
               IA pour artisans et PME du bâtiment — méthode terrain, Qualiopi.
             </p>
             <div className="mt-4 space-y-2">
+              {/*
+                Cloudflare : désactiver « Email Address Obfuscation » (Speed / Scrape Shield) ou garder
+                data-no-cfemail sur le lien mailto pour que l’adresse reste lisible côté client.
+              */}
               <a
                 href={`mailto:${SCHEMA_CONTACT.email}`}
+                data-no-cfemail
                 className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
               >
                 <Mail size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
@@ -210,6 +223,7 @@ export function Footer() {
             </ExternalLinkAnchor>
             <a
               href={`mailto:${SCHEMA_CONTACT.email}`}
+              data-no-cfemail
               title="Envoyer un email"
               aria-label="Email"
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"

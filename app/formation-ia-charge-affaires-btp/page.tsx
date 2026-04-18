@@ -14,7 +14,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-charge-affaires-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Chargé Affaires Métreur BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Chargé Affaires Métreur BTP Île-de-France',
   description:
     'Automatisez métrés, devis techniques, appels d’offres, rapports. Formation Qualiopi finançable Constructys.',
   path: PATH,

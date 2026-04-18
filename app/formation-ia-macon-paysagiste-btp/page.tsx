@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-macon-paysagiste-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Maçon Paysagiste BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Maçon Paysagiste BTP Île-de-France',
   description:
     'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Formation Qualiopi finançable Constructys.',
   path: PATH,

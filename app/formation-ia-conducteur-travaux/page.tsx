@@ -21,7 +21,7 @@ const PATH = '/formation-ia-conducteur-travaux';
 const BTP01 = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'BTP-01')!;
 const BTP04 = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'BTP-04')!;
 
-const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP | CR, CCTP, Emails | Laure Olivié';
+const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP | CR, CCTP, Emails';
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,

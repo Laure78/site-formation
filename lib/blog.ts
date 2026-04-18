@@ -449,7 +449,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'comparatif-chatgpt-claude-gemini-btp',
     title: 'ChatGPT vs Claude vs Gemini : lequel choisir quand on est dans le BTP ?',
-    seoTitle: 'Comparatif ChatGPT Claude Gemini BTP — avis terrain | Laure Olivié',
+    seoTitle: 'Comparatif ChatGPT Claude Gemini BTP — avis terrain',
     description:
       'Comparatif ChatGPT Claude Gemini BTP : devis, emails, appels d\'offres, réseaux — avis terrain d\'une formatrice. Quel outil pour les artisans et les TP ? Simplicité, mémoire longue, intégration Google. Laure Olivié.',
     date: '2026-04-08',
@@ -551,7 +551,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'ia-memoire-technique-appel-offres-guide-2026',
     title: 'Comment rédiger un mémoire technique BTP avec l\'IA — Guide complet 2026',
-    seoTitle: 'IA mémoire technique appel d\'offres — guide BTP 2026 | Laure Olivié',
+    seoTitle: 'IA mémoire technique appel d\'offres — guide BTP 2026',
     description:
       'IA mémoire technique appel d\'offres : analyser le DCE, structurer le mémoire, prompts CCTP/RC, critères d\'attribution, relecture. Mémoire technique BTP IA, ChatGPT. Finançable Constructys. Laure Olivié.',
     date: '2026-04-09',
@@ -756,7 +756,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title:
       'Mémoire technique BTP avec l’IA : gagnez vos appels d’offres en 2x moins de temps',
     seoTitle:
-      'Mémoire technique BTP IA : gagner du temps sur les appels d’offres | Laure Olivié',
+      'Mémoire technique BTP IA : gagner du temps sur les appels d’offres',
     description:
       'Mémoire technique BTP avec l’IA : analyser le DCE, structurer le dossier, éviter le copier-coller générique. Méthode en 5 étapes, prompt type, checklist. Formation appels d’offres Qualiopi, Constructys. Île-de-France.',
     date: '2026-04-10',
@@ -888,7 +888,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'ia-btp-2026-tendances',
     title: 'L\'IA dans le BTP en 2026 — Chiffres, tendances et ce qui change pour les artisans',
-    seoTitle: 'Intelligence artificielle BTP 2026 : tendances, chiffres, terrain | Laure Olivié',
+    seoTitle: 'Intelligence artificielle BTP 2026 : tendances, chiffres, terrain',
     description:
       'Intelligence artificielle BTP 2026 : adoption, 5 tendances (devis, agents IA, AO, BIM, formation), impacts PME. Observatoire métiers BTP, McKinsey, Constructys. Veille annuelle. Laure Olivié.',
     date: '2026-04-10',
@@ -1190,7 +1190,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'financer-formation-ia-btp-constructys',
     title: 'Financer une formation IA dans le BTP : guide complet Constructys (2026)',
     seoTitle:
-      'Financer formation IA BTP Constructys 2026 — OPCO, PDC, FNE | Laure Olivié',
+      'Financer formation IA BTP Constructys 2026 — OPCO, PDC, FNE',
     description:
       "Constructys finance jusqu'à 100% de votre formation IA BTP. Guide PDC 2026 : plafonds 24€/h, délai 15j, démarches eGestion — tout en 5 min.",
     date: '2025-03-05',
@@ -1332,7 +1332,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title:
       'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5 h par semaine',
     seoTitle:
-      'Compte rendu chantier IA : automatiser vos CR BTP avec ChatGPT (2026) | Laure Olivié',
+      'Compte rendu chantier IA : automatiser vos CR BTP avec ChatGPT (2026)',
     description:
       'Compte rendu de chantier et IA : structurer vos CR à partir de notes vocales ou écrites avec ChatGPT ou Claude. Prompts BTP, tableau gain de temps, bonnes pratiques confidentialité. Formation IA BTP Qualiopi, financement Constructys.',
     date: '2026-04-10',
@@ -1507,7 +1507,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: '5-cas-usage-chatgpt-artisans-btp',
-    seoTitle: "5 Cas d'Usage ChatGPT pour Entreprises BTP | Laure Olivié",
+    seoTitle: "5 Cas d'Usage ChatGPT pour Entreprises BTP",
     title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
       "Découvrez 5 cas d'usage concrets de ChatGPT pour les entreprises du bâtiment : devis, emails, CR chantier, suivi, descriptifs.",
@@ -1754,7 +1754,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title:
       'Analyser un CCTP avec l\'IA : la méthode complète pour décortiquer un cahier des charges en 20 minutes',
     seoTitle:
-      'Analyse CCTP avec IA : méthode DCE BTP en 20 min (prompts 2026) | Laure Olivié',
+      'Analyse CCTP avec IA : méthode DCE BTP en 20 min (prompts 2026)',
     description:
       'Analyser un CCTP avec ChatGPT ou Claude : synthèse, normes DTU/NF, risques, croisement CCTP–BPU. Méthode en 5 étapes, prompts BTP, tableau de gains. Formation IA appels d\'offres Qualiopi, financement Constructys.',
     date: '2026-04-10',
@@ -2160,7 +2160,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: 'ia-btp-analyse-dce',
-    seoTitle: "Analyser un DCE BTP avec l'IA en 20 min | Laure Olivié",
+    seoTitle: "Analyser un DCE BTP avec l'IA en 20 min",
     title: 'Comment utiliser l\'IA pour analyser un DCE dans le BTP',
     description:
       "Comment utiliser l'IA pour analyser un DCE dans le BTP : méthode pas à pas, prompts ChatGPT, exemples. Formation IA BTP Qualiopi.",

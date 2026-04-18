@@ -13,7 +13,7 @@ import { JsonLd } from '@/components/JsonLd';
 const PATH = '/formation-ia-cloturiste-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Clôturiste BTP Île-de-France — Laure Olivié',
+  title: 'Formation IA Clôturiste BTP Île-de-France',
   description:
     'Automatisez vos devis clôtures, portails, grillages. Formation Qualiopi finançable Constructys.',
   path: PATH,
