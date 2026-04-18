@@ -1,6 +1,8 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { Download } from 'lucide-react';
+import { SKILL_IA_LEAD_MAGNET } from '@/lib/lead-magnet-skill-ia';
 
 const ROLES = [
   { value: '', label: '— Sélectionnez votre fonction —' },
@@ -74,6 +76,23 @@ export function SkillIaLeadMagnetForm() {
         Recevoir le guide gratuitement
       </p>
       <p className="mt-1 text-sm text-slate-600">PDF · envoi immédiat par e-mail</p>
+
+      <div className="mt-5">
+        <a
+          href={SKILL_IA_LEAD_MAGNET.pdfPublicPath}
+          download={SKILL_IA_LEAD_MAGNET.fileName}
+          className="flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[#377CF3] bg-white px-5 py-3.5 text-base font-semibold text-[#377CF3] shadow-sm transition hover:bg-[#377CF3]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          onClick={() => pushDataLayer('lead_magnet_direct_download', SKILL_IA_LEAD_MAGNET.tag)}
+        >
+          <Download className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden />
+          Télécharger le PDF maintenant
+        </a>
+        <p className="mt-3 text-center text-xs text-slate-500">
+          Sans inscription — ou inscrivez-vous ci-dessous pour recevoir aussi une copie par e-mail.
+        </p>
+      </div>
+
+      <p className="mt-6 text-center text-sm font-medium text-slate-700">Ou inscription</p>
 
       {error ? (
         <p

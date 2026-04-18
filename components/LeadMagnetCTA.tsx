@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
+import { Download, Sparkles } from 'lucide-react';
+import { SKILL_IA_LEAD_MAGNET } from '@/lib/lead-magnet-skill-ia';
 
 type Props = {
   title?: string;
@@ -31,12 +32,19 @@ export function LeadMagnetCTA({
           </h3>
           <p className="mt-2 text-slate-700">{description}</p>
         </div>
-        <Link
-          href={href}
-          className="inline-flex shrink-0 items-center justify-center rounded-xl bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-[#2d66d6]"
-        >
-          Télécharger le guide
-        </Link>
+        <div className="flex shrink-0 flex-col items-stretch gap-2 sm:items-end">
+          <a
+            href={SKILL_IA_LEAD_MAGNET.pdfPublicPath}
+            download={SKILL_IA_LEAD_MAGNET.fileName}
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-[#2d66d6]"
+          >
+            <Download className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
+            Télécharger le PDF
+          </a>
+          <Link href={href} className="text-center text-xs font-medium text-[#377CF3] underline underline-offset-2 hover:text-[#2d66d6] sm:text-right">
+            Page ressource & inscription
+          </Link>
+        </div>
       </div>
     </aside>
   );

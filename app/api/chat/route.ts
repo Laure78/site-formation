@@ -30,7 +30,7 @@ COORDONNÉES OFFICIELLES (à rappeler dès qu'on parle de contact, financement O
 - Téléphone : ${SITE_CONFIG.phoneDisplay}
 - Page contact : ${SITE_CONFIG.url}/contact
 - Prendre rendez-vous (Calendly) : ${CALENDLY_BOOKING_URL} — page d'information : ${SITE_CONFIG.url}/prendre-rdv
-Ne renvoie jamais uniquement vers le formulaire de contact : mentionne toujours aussi l'email ${SITE_CONFIG.email} pour écrire directement à Laure.
+Ne renvoie jamais uniquement vers la page contact sans mentionner l'email ${SITE_CONFIG.email} pour écrire directement à Laure.
 
 RÈGLES :
 - Réponds en français, de manière claire et professionnelle.

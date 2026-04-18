@@ -7,7 +7,7 @@ import { Calendar, X } from 'lucide-react';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 
-/** CTA sticky au scroll — accès rapide à la prise de RDV / formulaire contact */
+/** CTA sticky au scroll — accès rapide au catalogue et à la prise de RDV */
 export function StickyRDVCTA() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
@@ -55,10 +55,10 @@ export function StickyRDVCTA() {
           </Link>
           {isContactPage && (
             <Link
-              href="#formulaire"
+              href="#contact"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
             >
-              Formulaire de contact
+              Coordonnées
             </Link>
           )}
           <a

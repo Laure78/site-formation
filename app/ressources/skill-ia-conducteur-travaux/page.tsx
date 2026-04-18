@@ -69,7 +69,7 @@ const learningResourceJsonLd = {
 const FAQ_ITEMS = [
   {
     q: 'Quel format est le guide ?',
-    a: 'Un fichier PDF à télécharger immédiatement après inscription (et une copie par e-mail). Compatible lecture sur ordinateur et tablette.',
+    a: 'Un fichier PDF : vous pouvez le télécharger directement depuis la page (sans inscription) ou recevoir une copie par e-mail après inscription. Compatible ordinateur et tablette.',
   },
   {
     q: 'Combien de temps pour le parcourir ?',
@@ -117,12 +117,12 @@ export default function SkillIaConducteurTravauxPage() {
             </ul>
           </div>
           <div className="flex flex-col gap-6">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/20 bg-[#D4E3FC]/20 shadow-lg">
+            <div className="relative aspect-[512/341] w-full overflow-hidden rounded-2xl border border-white/20 bg-[#D4E3FC]/20 shadow-lg">
               <Image
-                src="/mockups/skill-ia-mockup.svg"
-                alt="Aperçu du guide PDF Skill IA pour conducteurs de travaux BTP"
-                width={440}
-                height={330}
+                src="/images/skill-ia-conducteur-travaux-hero-formation-btp.png"
+                alt="Formation IA BTP : poignée de main en bureau, tableau Devis, Chantier et Organisation — accompagnement professionnels du bâtiment"
+                width={1024}
+                height={682}
                 className="h-full w-full object-cover object-center"
                 priority
               />

@@ -320,7 +320,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
-    a: 'Laissez vos coordonnées via le formulaire sur la page <a href="/contact">contact</a> ou <a href="/">accueil</a>. Nous vous recontactons rapidement pour convenir d\'un rendez-vous.',
+    a: 'Écrivez à Laure depuis la page <a href="/contact">contact</a> ou <a href="/">accueil</a> (e-mail et téléphone) ou réservez un créneau <a href="/prendre-rdv">prendre rendez-vous</a>. Nous vous recontactons rapidement si besoin.',
   },
 ];
 

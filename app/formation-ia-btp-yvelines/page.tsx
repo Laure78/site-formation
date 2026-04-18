@@ -368,7 +368,7 @@ export default function FormationIABTPYvelinesLandingPage() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white hover:bg-white/10"
             >
-              Formulaire contact
+              Page contact
             </Link>
           </div>
           <p className="mt-6 text-sm text-blue-100">

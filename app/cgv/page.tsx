@@ -114,7 +114,7 @@ export default function CGVPage() {
             3.1 Modalités d&apos;inscription
           </h3>
           <p className="mt-2">
-            Par formulaire en ligne sur www.laureolivie.fr ; par email à
+            Via la page contact de www.laureolivie.fr (coordonnées et prise de rendez-vous) ; par email à
             laureolivie@yahoo.fr ; par voie postale.
           </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
