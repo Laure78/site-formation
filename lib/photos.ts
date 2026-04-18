@@ -1,12 +1,12 @@
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const PHOTOS = {
-  // Photo profil rond fond bleu
+  // Photo profil rond fond bleu (LinkedIn / Graz)
   profileBlue: {
     src: '/images/laure-olivie-circle.png',
     alt: 'Laure Olivié formatrice en intelligence artificielle pour les entreprises du bâtiment et des travaux publics',
-    width: 547,
-    height: 456,
+    width: 364,
+    height: 404,
   },
 
   /** Avatar site — même fichier que le portrait rond du header (fond clair, cohérence NAP / marque) */
@@ -30,8 +30,8 @@ export const PHOTOS = {
   linkedinGraz: {
     src: '/images/laure-olivie-linkedin-graz.png',
     alt: 'Laure Olivié, formatrice IA BTP — auteure articles intelligence artificielle bâtiment',
-    width: 1024,
-    height: 770,
+    width: 364,
+    height: 404,
   },
   
   // Photo avec panneau LinkedIn (portrait)
