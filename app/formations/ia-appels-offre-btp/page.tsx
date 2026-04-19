@@ -367,7 +367,7 @@ export default function FormationIAAppelsOffreBTPPage() {
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: '/blog/ia-btp-analyse-dce', label: 'Article : analyser un DCE avec l’IA' },
+            { href: '/blog/analyse-dce-notebooklm-claude-btp', label: 'Article : analyser un DCE avec l’IA' },
           ]}
         />
       </div>

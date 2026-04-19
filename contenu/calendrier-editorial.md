@@ -30,5 +30,5 @@ Image à la une : **1200×630** px, texte alternatif descriptif incluant le mot-
 | Champ | Valeur |
 |--------|--------|
 | **Titre** | Formation IA BTP 2026 : guide pratique pour artisans et PME |
-| **Slug** | `formation-ia-btp-guide-2026` |
+| **Slug** | `formation-ia-btp-guide-complet-2026` |
 | **Publication** | 10 avril 2026 |

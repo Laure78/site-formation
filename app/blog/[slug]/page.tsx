@@ -180,6 +180,7 @@ export default async function BlogArticlePage({ params }: Props) {
     <div className="mx-auto max-w-3xl px-4 py-16">
       <ArticleJsonLd
         title={article.title}
+        headline={article.seoTitle ?? article.title}
         description={article.description}
         slug={article.slug}
         datePublished={article.date}

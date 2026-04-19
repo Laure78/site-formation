@@ -6,7 +6,7 @@
       "title": "Claude AI pour mémoire technique BTP : les 5 erreurs à ne pas commettre",
       "statut": "publié 2026-05-12 — content/generated/article-claude-ai-memoire-technique-erreurs-btp.json",
       "maillage": {
-        "lierVers": ["/blog/ia-analyse-cctp-methode", "/blog/ia-btp-analyse-dce", "/formation-ia-appels-offres-btp"]
+        "lierVers": ["/blog/ia-analyse-cctp-methode", "/blog/analyse-dce-notebooklm-claude-btp", "/formation-ia-appels-offres-btp"]
       }
     },
     {
@@ -14,7 +14,7 @@
       "title": "Analyse DCE avec l'IA : exemple réel d'un appel d'offres bâtiment (de la réception à l'offre)",
       "statut": "publié 2026-05-28 — content/generated/article-analyse-dce-ia-exemple-reel.json",
       "maillage": {
-        "lierVers": ["/blog/ia-analyse-cctp-methode", "/blog/ia-btp-analyse-dce", "/formation-ia-appels-offres-btp"]
+        "lierVers": ["/blog/ia-analyse-cctp-methode", "/blog/analyse-dce-notebooklm-claude-btp", "/formation-ia-appels-offres-btp"]
       }
     }
   ]

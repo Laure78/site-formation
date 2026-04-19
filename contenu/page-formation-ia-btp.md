@@ -33,7 +33,7 @@ Insérer au moins **trois** liens contextuels vers :
 
 1. Page catalogue / hub : `/formation-ia-et-chatgpt/`
 2. Page métier (exemple) : `/formation-ia-macon-btp/` ou `/formation-ia-conducteur-travaux-btp/`
-3. Article blog (exemple) : `/blog/ia-btp-analyse-dce` ou `/blog/5-cas-usage-chatgpt-artisans-btp`
+3. Article blog (exemple) : `/blog/analyse-dce-notebooklm-claude-btp` ou `/blog/5-cas-usage-chatgpt-artisans-btp`
 
 *(Adapter les ancres selon votre maillage prioritaire.)*
 
@@ -126,7 +126,7 @@ La formation IA BTP est une **formation pratique** : vous travaillez sur des sit
 - **Chantier** : transformer des notes brutes en comptes rendus exploitables pour le maître d’ouvrage ou les équipes.
 - **Communication** : emails clients, relances, synthèses — avec un ton professionnel adapté au BTP.
 
-> **Liens internes (exemples)** : pour un parcours catalogue complet, voir la page [Formations IA & ChatGPT pour le BTP](/formation-ia-et-chatgpt/) ; pour l’analyse de dossiers de consultation, l’article [Analyser un DCE avec l’IA](/blog/ia-btp-analyse-dce) détaille une méthode terrain.
+> **Liens internes (exemples)** : pour un parcours catalogue complet, voir la page [Formations IA & ChatGPT pour le BTP](/formation-ia-et-chatgpt/) ; pour l’analyse de dossiers de consultation, l’article [Analyser un DCE avec l’IA](/blog/analyse-dce-notebooklm-claude-btp) détaille une méthode terrain.
 
 ---
 

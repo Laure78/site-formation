@@ -56,7 +56,7 @@ Enfin, le **planning** : à partir de jalons et de contraintes, l’aide à la *
 **Liens internes :**  
 → [Formation IA chargé d’affaires](/formation-ia-charge-affaires-btp/)  
 → [Formation appels d’offres](/formations/ia-appels-offre-btp)  
-→ [Analyser un DCE avec l’IA](/blog/ia-btp-analyse-dce)
+→ [Analyser un DCE avec l’IA](/blog/analyse-dce-notebooklm-claude-btp)
 
 ---
 

@@ -26,12 +26,11 @@ function relatedExcept(slug: string): string[] {
 export const blogArticlesLsrAoModules: BlogArticle[] = [
   {
     slug: 'analyse-dce-notebooklm-claude-btp',
-    seoTitle:
-      'Analyse DCE BTP avec NotebookLM et Claude : critères, CCAP, synthèse',
+    seoTitle: 'Analyse DCE BTP : NotebookLM, Claude, CCAP | Laure Olivié',
     title:
       'Analyse d’un DCE BTP avec NotebookLM et Claude : critères, CCAP et synthèse',
     description:
-      'Charger un DCE, repérer critères pondérations, clauses CCAP à risque et produire une note de synthèse — NotebookLM + interfaces Claude pour l’AO BTP. Laure Olivié, Qualiopi.',
+      'Charger un DCE, isoler critères et clauses CCAP, produire une synthèse avec NotebookLM et Claude. Formation AO Qualiopi ; Constructys. Voir la méthode.',
     date: '2026-04-07',
     dateModified: '2026-04-12',
     keywords: [
@@ -113,12 +112,11 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
   },
   {
     slug: 'go-no-go-rentabilite-appels-offres-btp',
-    seoTitle:
-      'Go / No Go appel d’offres BTP : 5 critères, règle des 3 %, Claude',
+    seoTitle: 'Go / No Go AO BTP : 5 critères, règle 3 % | Laure Olivié',
     title:
       'Décision Go / No Go sur un appel d’offres BTP : rentabilité, 5 critères et prompts Claude',
     description:
-      'Éviter les réponses AO non rentables : méthode en 5 critères (technique, financier, RH, contractuel, rentabilité), règle des 3 %, synthèse direction — méthode illustrée.',
+      'Décider Go ou No Go avant d’engager des moyens : cinq critères, rentabilité, synthèse direction. OFC Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-07',
     dateModified: '2026-04-12',
     keywords: [
@@ -193,12 +191,11 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
   },
   {
     slug: 'memoire-technique-claude-projet-btp',
-    seoTitle:
-      'Mémoire technique BTP avec Claude : projet, prompts, structure RC',
+    seoTitle: 'Mémoire technique BTP : projet Claude, RC | Laure Olivié',
     title:
       'Mémoire technique pour marchés BTP : assistant Claude, prompts et alignement sur le RC',
     description:
-      'Créer un projet « mémoire technique » dans Claude, system prompt métier, 6 chapitres alignés sur le règlement de consultation — méthode transposable à votre entreprise BTP.',
+      'Projet Claude, consignes métier et pièces sources : mémoire aligné sur le RC. Formation AO Qualiopi ; Constructys selon branche. Voir la méthode.',
     date: '2026-04-07',
     dateModified: '2026-04-12',
     keywords: [
@@ -270,12 +267,11 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
   },
   {
     slug: 'chiffrage-cctp-bpu-appels-offres-btp',
-    seoTitle:
-      'Chiffrage AO BTP : extraction CCTP, BPU, ratios temps, contrôle prix m²',
+    seoTitle: 'Chiffrage AO BTP : CCTP, BPU, cohérence | Laure Olivié',
     title:
       'Chiffrage d’une réponse marché avec l’IA : du CCTP au BPU et contrôle de cohérence',
     description:
-      'Workflow en 4 étapes : extraire les ouvrages du CCTP, structurer le BPU, estimer les temps unitaires (ratios h/m²) et contrôler la cohérence prix/m² — méthode illustrée, Claude ou ChatGPT Plus.',
+      'CCTP vers BPU : extraire ouvrages, estimer temps unitaires et contrôler cohérence prix au m² avant dépôt. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-07',
     keywords: [
       'chiffrage CCTP BPU',

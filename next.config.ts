@@ -212,6 +212,38 @@ const nextConfig: NextConfig = {
       { source: '/blog/lsr-go-no-go-rentabilite-appels-offres-btp', destination: '/blog/go-no-go-rentabilite-appels-offres-btp', statusCode: 301 },
       { source: '/blog/lsr-memoire-technique-claude-projet-btp', destination: '/blog/memoire-technique-claude-projet-btp', statusCode: 301 },
       { source: '/blog/lsr-chiffrage-cctp-bpu-appels-offres-btp', destination: '/blog/chiffrage-cctp-bpu-appels-offres-btp', statusCode: 301 },
+
+      // Blog : fusion SEO (doublons sémantiques — audit avril 2026)
+      {
+        source: '/blog/analyse-cctp-btp',
+        destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
+        permanent: true,
+      },
+      {
+        source: '/blog/analyse-cctp-chatgpt-btp',
+        destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
+        permanent: true,
+      },
+      {
+        source: '/blog/ia-btp-analyse-dce',
+        destination: '/blog/analyse-dce-notebooklm-claude-btp',
+        permanent: true,
+      },
+      {
+        source: '/blog/formation-ia-btp-guide-2026',
+        destination: '/blog/formation-ia-btp-guide-complet-2026',
+        permanent: true,
+      },
+      {
+        source: '/blog/compte-rendu-chantier-ia-methode',
+        destination: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
+        permanent: true,
+      },
+      {
+        source: '/blog/ia-btp-2026-tendances',
+        destination: '/blog/adoption-ia-btp-2026-chiffres-freins-leviers',
+        permanent: true,
+      },
     ];
   },
 };

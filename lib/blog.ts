@@ -15,7 +15,6 @@ import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 import { blogArticleFormationIaCctpAnalyseDceBtp } from '@/lib/blog-formation-ia-cctp-pillar';
 import { blogArticleIaDevisBatimentChiffrageAutomatise } from '@/lib/blog-ia-devis-batiment-chiffrage-automatise';
-import { blogArticleCompteRenduChantierIaMethode } from '@/lib/blog-compte-rendu-chantier-ia-methode';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   getAllMdxBlogSlugs,
@@ -214,7 +213,6 @@ export function getBlogCTAMidInsertAfterIndex(
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
-  blogArticleCompteRenduChantierIaMethode,
   blogArticleIaDevisBatimentChiffrageAutomatise,
   blogArticleFormationIaCctpAnalyseDceBtp,
   ...blogArticlesClaudeBtp2026,
@@ -222,9 +220,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
   {
     slug: 'adoption-ia-btp-2026-chiffres-freins-leviers',
+    seoTitle: 'Adoption IA BTP : chiffres, freins, leviers | Laure Olivié',
     title: 'Adoption de l\'IA dans le BTP en 2026 : chiffres clés, freins et leviers',
     description:
-      'Moins de 10 % des entreprises BTP utilisent l\'IA aujourd\'hui : étude 2026 (621 professionnels), marché européen, 5 usages qui font gagner du temps, freins et recommandations. Par Laure Olivié, formatrice IA BTP.',
+      'Moins de 10 % des PME BTP utilisent l’IA ; 621 répondants 2026 : freins, usages, leviers formation. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-06',
     keywords: [
       'IA BTP',
@@ -332,10 +331,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Avril 2026 — ChatGPT devis bâtiment en 20 minutes (méthode terrain)
   {
     slug: 'devis-btp-chatgpt-20-minutes',
+    seoTitle: 'Devis BTP : méthode 20 min, prix maîtrisés | Laure Olivié',
     title:
       'ChatGPT devis bâtiment : comment je fais tenir un devis en 20 minutes (sans brûler mes prix)',
     description:
-      'ChatGPT devis bâtiment : méthode terrain en 4 étapes — données, prompt magique, relecture des prix, variantes. Devis BTP IA, automatiser devis artisan. Prompts peinture, électricité, maçonnerie. Laure Olivié, formation IA BTP finançable Constructys.',
+      'Premier jet de devis en ~20 min : données propres, prompt, relecture PU, variantes. Formation IA BTP Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-07',
     keywords: [
       'ChatGPT devis bâtiment',
@@ -449,9 +449,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'comparatif-chatgpt-claude-gemini-btp',
     title: 'ChatGPT vs Claude vs Gemini : lequel choisir quand on est dans le BTP ?',
-    seoTitle: 'Comparatif ChatGPT Claude Gemini BTP — avis terrain',
+    seoTitle: 'ChatGPT, Claude, Gemini BTP : lequel ouvrir ? | Laure Olivié',
     description:
-      'Comparatif ChatGPT Claude Gemini BTP : devis, emails, appels d\'offres, réseaux — avis terrain d\'une formatrice. Quel outil pour les artisans et les TP ? Simplicité, mémoire longue, intégration Google. Laure Olivié.',
+      'Quel outil pour devis, mails ou AO : repères terrain sans tout tester au hasard. Sessions Qualiopi ; réseaux FFB, CSFE. Diagnostic gratuit 30 min.',
     date: '2026-04-08',
     dateModified: '2026-04-12',
     keywords: [
@@ -551,9 +551,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'ia-memoire-technique-appel-offres-guide-2026',
     title: 'Comment rédiger un mémoire technique BTP avec l\'IA — Guide complet 2026',
-    seoTitle: 'IA mémoire technique appel d\'offres — guide BTP 2026',
+    seoTitle: 'Mémoire technique AO : méthode IA et plan BTP | Laure Olivié',
     description:
-      'IA mémoire technique appel d\'offres : analyser le DCE, structurer le mémoire, prompts CCTP/RC, critères d\'attribution, relecture. Mémoire technique BTP IA, ChatGPT. Finançable Constructys. Laure Olivié.',
+      'DCE, plan calé sur le RC, sections rédigées avec prompts métier ; la validation reste humaine. Formation AO Qualiopi ; Constructys. Voir la méthode.',
     date: '2026-04-09',
     keywords: [
       'IA mémoire technique appel d\'offres',
@@ -756,9 +756,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title:
       'Mémoire technique BTP avec l’IA : gagnez vos appels d’offres en 2x moins de temps',
     seoTitle:
-      'Mémoire technique BTP IA : gagner du temps sur les appels d’offres',
+      'Mémoire technique BTP : IA et dossiers AO | Laure Olivié',
     description:
-      'Mémoire technique BTP avec l’IA : analyser le DCE, structurer le dossier, éviter le copier-coller générique. Méthode en 5 étapes, prompt type, checklist. Formation appels d’offres Qualiopi, Constructys. Île-de-France.',
+      'Aligner mémoire et critères du RC : DCE, plan, brouillon IA, passes terrain, relecture équipe. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-10',
     keywords: [
       'mémoire technique BTP IA',
@@ -884,112 +884,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
   },
 
-  // Veille annuelle — intelligence artificielle BTP (à mettre à jour chaque année)
-  {
-    slug: 'ia-btp-2026-tendances',
-    title: 'L\'IA dans le BTP en 2026 — Chiffres, tendances et ce qui change pour les artisans',
-    seoTitle: 'Intelligence artificielle BTP 2026 : tendances, chiffres, terrain',
-    description:
-      'Intelligence artificielle BTP 2026 : adoption, 5 tendances (devis, agents IA, AO, BIM, formation), impacts PME. Observatoire métiers BTP, McKinsey, Constructys. Veille annuelle. Laure Olivié.',
-    date: '2026-04-10',
-    keywords: [
-      'intelligence artificielle BTP 2026',
-      'IA BTP tendances',
-      'adoption IA bâtiment',
-      'formation IA BTP Constructys',
-      'IA générative devis BTP',
-      'BIM IA',
-    ],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          'Cette veille sur l\'intelligence artificielle BTP en 2026 synthétise des études publiques et retours de terrain : où en est l\'adoption dans le bâtiment et les travaux publics, quelles tendances structurent l\'année, et ce que cela change pour une PME. Dernière mise à jour : avril 2026 — l\'article est pensé pour être révisé chaque année (chiffres, sources, exemples). Je m\'appuie notamment sur l\'Observatoire des métiers du BTP (étude 2026, cabinet Plein Sens), sur des analyses internationales du secteur construction (McKinsey), et sur les indicateurs français (Bpifrance, Baromètre France Num) complétés par le contexte OPCO Constructys.',
-      },
-      {
-        type: 'paragraph',
-        title: 'L\'IA n\'est plus un sujet de conférence : elle est sur les chantiers (et dans les bureaux d\'études)',
-        content:
-          'Il y a trois ans, quand je parlais d\'IA avec des patrons d\'artisanat, on me répondait encore « on verra plus tard ». En 2026, le débat a changé de nature : ce n\'est plus « si » on s\'y met, mais « sur quels cas concrets » on commence — devis, compte rendu, lecture de pièces marchés, modèles BIM. Sur le terrain, le téléphone filme, la tablette envoie des photos, et le bureau d\'études reçoit des volumes de données qu\'un seul cerveau ne peut plus traiter à la main. L\'IA ne pose pas encore les carreaux à votre place : en revanche, elle accélère fortement tout ce qui est écriture, synthèse et préparation de dossiers. Mon angle est celui d\'une formatrice qui voit passer chaque semaine des équipes du BTP : pas de promesse miracle, mais des gains de temps mesurables quand la méthode et la relecture humaine sont au rendez-vous.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Les chiffres clés de l\'IA dans le BTP en 2026 (sources vérifiables)',
-        content:
-          'France — adoption dans le BTP : l\'étude « Observatoire des métiers du BTP » (2026), réalisée auprès de 621 professionnels par le cabinet Plein Sens pour l\'Observatoire, indique que moins de 10 % des entreprises du secteur utilisent déjà l\'IA, avec seulement 3 % de déploiements effectifs et 5 % en cours — tout en notant 36 % de dirigeants se déclarant prêts à adopter. Le fossé s\'explique en partie par la méconnaissance : 43,5 % n\'ont jamais essayé ChatGPT et 16 % ne savent pas ce qu\'est l\'IA (même source). Synthèse et téléchargements : voir la fiche publiée sur le site de l\'Observatoire des métiers du BTP (metiers-btp.fr). Une enquête Orisha Construction / InfoPro Digital (2025) souligne une progression marquée de l\'intention d\'adoption en un an. Échelle nationale tous secteurs : le taux d\'adoption de l\'IA en France avoisine 10 % (contre 6 % en 2023), en dessous de la moyenne européenne d\'environ 13 % (Bpifrance Le Lab ; Baromètre France Num 2025). Côté TPE-PME, l\'IA générative concerne environ 31 % des structures, dont 8 % de façon régulière (mêmes sources). International — construction : McKinsey décrit l\'IA comme une « prochaine frontière » des technologies pour le secteur, avec un potentiel notable sur les tâches à forte intensité documentaire (gestion de projet, documentation, préparation d\'offres) tout tant que les freins en compétences et en organisation sont levés. Marché européen « IA dans la construction » : les analystes (ex. MarketDataForecast) citaient un marché européen de l\'ordre d\'environ 1,5 à 1,8 milliard USD en 2025-2026, avec des trajectoires de croissance annuelle élevées à l\'échelle de la décennie — ordres de grandeur à suivre année après année. Côté financement des compétences, l\'OPCO Constructys publie chaque année un rapport d\'activité détaillant le volume d\'accompagnement des branches (stagiaires formés, engagements PDC, etc.) : la dynamique de formation reste massive ; la demande de compétences « numériques et transition » y tient une place croissante dans les feuilles de route sectorielles.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Tendance 1 — IA générative pour les devis et chiffrages',
-        content:
-          'C\'est l\'usage le plus cité en salle : décrire un chantier en langage naturel et obtenir un premier jet de devis structuré (lots, fournitures, main d\'œuvre, TVA). Les équipes gagnent du temps sur la mise en forme — pas sur la responsabilité du prix. L\'enjeu 2026 : intégrer ces brouillons aux logiciels métiers et verrouiller une grille tarifaire interne pour éviter les « prix plausibles mais faux » générés par défaut.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Tendance 2 — Assistants IA spécialisés BTP (GPTs, agents, copilotes)',
-        content:
-          'Au-delà du chat généraliste, on voit se répandre des assistants entraînés ou paramétrés sur des corpus métiers : modèles de courriers, checklists sécurité, rappels réglementaires. Le risque à éviter : croire qu\'un « agent » remplace une visite de chantier. Le bon usage, observé en formation, est d\'ancrer l\'outil dans des consignes d\'entreprise (ton, mentions légales, interdiction de coller des données sensibles dans un service public non validé).',
-      },
-      {
-        type: 'paragraph',
-        title: 'Tendance 3 — IA et appels d\'offres (analyse DCE, mémoires techniques)',
-        content:
-          'Les dossiers lourds (CCTP, RC, pièces graphiques) poussent les PME à chercher des synthèses rapides et des plans de mémoire alignés sur les critères d\'attribution. Les modèles à grande fenêtre de contexte aident à parcourir des extraits — à condition de travailler sur des parties anonymisées et de garder la validation humaine sur chaque engagement contractuel.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Tendance 4 — IA + BIM + jumeaux numériques',
-        content:
-          'Sur les projets complexes, l\'intersection BIM / simulation / données de chantier progresse : l\'IA aide à détecter des incohérences, à proposer des variantes d\'implantation ou à prioriser des contrôles — surtout là où les maquettes numériques sont déjà structurées. Pour une petite entreprise, le point d\'entrée est souvent plus modeste (extraction de quantités, documentation), mais la trajectoire sectorielle est claire : plus de données structurées, plus d\'usages possibles.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Tendance 5 — Formation IA BTP : demande en hausse et financement via l\'OPCO',
-        content:
-          'Côté terrain, je constate une demande forte de formats courts, pratiques, avec des cas réels — pas des slides génériques. Les dispositifs de prise en charge par l\'OPCO Constructys (plan de développement des compétences, règles par branche et taille d\'entreprise) restent le levier principal pour les structures du BTP ; les montants et plafonds évoluent : vérifiez les barèmes en vigueur sur constructys.fr et le rapport d\'activité annuel. L\'explosion n\'est pas « un chiffre magique sur l\'IA seule », mais une montée en puissance des compétences numériques dans un secteur déjà très formé, avec une place croissante pour l\'IA dans les catalogues et les priorités entreprises.',
-      },
-      {
-        type: 'list',
-        title: 'Ce que ça change concrètement pour une PME du bâtiment',
-        content: [
-          'Le rythme : les dossiers administratifs (devis, réponses clients, synthèses marchés) peuvent être traités plus vite — à condition d\'avoir nommé un référent interne et des règles de relecture.',
-          'Les compétences : la valeur se déplace un peu du « savoir taper vite » vers le « savoir cadrer un prompt, vérifier une sortie, sécuriser les données ».',
-          'La différenciation : les entreprises qui standardisent quelques usages (compte rendu, devis type, extraction DCE) gagnent en régularité par rapport à celles qui improvisent au cas par cas.',
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: `Mon avis de formatrice (${formatProfessionalsTrainedCount()}+ professionnels formés)`,
-        content:
-          'Ce qui fonctionne : partir d\'un vrai document (anonymisé), un cas d\'usage par session, et une règle claire — « l\'IA propose, l\'humain valide ». Ce qui échoue : vouloir tout automatiser du jour au lendemain, ou laisser des juniors envoyer des réponses sans contrôle métier. Les équipes les plus satisfaites sont celles qui ont désigné un pilote, fixé des modèles de prompts et partagé une charte simple (données personnelles, clients, montants). Je ne vends pas d\'outil : je fais gagner du temps avec des pratiques reproductibles. Si vous lisez cette veille dans deux ans, comparez surtout l\'évolution des chiffres d\'adoption et des offres éditeurs — pas seulement le buzz.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Sources et références (à actualiser lors des republications annuelles)',
-        content:
-          'Observatoire des métiers du BTP — Étude sur la perception et l\'intégration de l\'IA dans les entreprises du BTP (2026), réalisée avec Plein Sens — fiche et téléchargements sur metiers-btp.fr · Orisha Construction / InfoPro Digital (2025) · McKinsey — Artificial intelligence: Construction technology\'s next frontier (Engineering, Construction & Building Materials) · Bpifrance Le Lab — adoption de l\'IA générative en TPE-PME · Baromètre France Num 2025 · MarketDataForecast et analystes du marché « AI in Construction » (Europe) — projections à interpréter comme ordres de grandeur · OPCO Constructys — rapport d\'activité et barèmes de financement (constructys.fr). Les pourcentages et marchés varient selon les méthodes d\'enquête ; croisez toujours avec les publications officielles mises à jour.',
-      },
-      {
-        type: 'cta',
-        content:
-          `Passez à l'action — formez vos équipes à l'IA sur des cas BTP réels (devis, chantier, appels d'offres). Formations certifiées Qualiopi, finançables Constructys selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés.`,
-        formationHref: '/formations',
-      },
-    ],
-    relatedSlugs: [
-      'adoption-ia-btp-2026-chiffres-freins-leviers',
-      'ia-memoire-technique-appel-offres-guide-2026',
-      'formation-ia-btp-guide-complet-2026',
-    ],
-  },
-
   // Article GEO #1 : Guide complet formation IA BTP 2026
   {
     slug: 'formation-ia-btp-guide-complet-2026',
+    seoTitle: 'Formation IA BTP : guide pratique Qualiopi | Laure Olivié',
     title: 'Formation IA BTP : guide complet 2026',
     description:
-      `${formatProfessionalsTrainedCount()} professionnels formés. Formation IA BTP certifiée Qualiopi, financement 100% Constructys. TPE et PME du bâtiment et des travaux publics. Gagnez 3-5h/semaine. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+      `${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Formation IA BTP Qualiopi ; financement Constructys si éligible. Gagnez 3 à 5 h par semaine sur l’administratif.`,
     date: '2026-03-17',
     keywords: [
       'formation IA BTP',
@@ -1082,9 +983,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Article GEO #2 : ChatGPT pour devis BTP — Méthode 2026
   {
     slug: 'chatgpt-devis-btp-methode-2026',
+    seoTitle: 'ChatGPT devis BTP : méthode pas à pas | Laure Olivié',
     title: 'ChatGPT pour générer un devis BTP : méthode pas à pas (2026)',
     description:
-      'Générez un devis BTP en 2-5 minutes avec ChatGPT. Méthode détaillée : descriptif, quantitatif, bordereau. Prompts prêts à l\'emploi. Formation Laure Olivié.',
+      'Devis structuré vite : descriptif, quantitatif, bordereau, puis contrôle de vos PU. Session 4 h Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
     date: '2026-03-17',
     keywords: [
       'ChatGPT devis BTP',
@@ -1189,10 +1091,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'financer-formation-ia-btp-constructys',
     title: 'Financer une formation IA dans le BTP : guide complet Constructys (2026)',
-    seoTitle:
-      'Financer formation IA BTP Constructys 2026 — OPCO, PDC, FNE',
+    seoTitle: 'Financer formation IA BTP : Constructys, PDC | Laure Olivié',
     description:
-      "Constructys finance jusqu'à 100% de votre formation IA BTP. Guide PDC 2026 : plafonds 24€/h, délai 15j, démarches eGestion — tout en 5 min.",
+      'Plafonds, délais eGestion, PDC : cadrer une formation IA Qualiopi avec Constructys. OFC vous aide sur le dossier. Prendre rendez-vous pour avancer.',
     date: '2025-03-05',
     dateModified: '2026-04-10',
     keywords: [
@@ -1331,10 +1232,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'compte-rendu-chantier-ia-automatiser-gagner-temps',
     title:
       'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5 h par semaine',
-    seoTitle:
-      'Compte rendu chantier IA : automatiser vos CR BTP avec ChatGPT (2026)',
+    seoTitle: 'Compte rendu chantier IA : automatiser vos CR | Laure Olivié',
     description:
-      'Compte rendu de chantier et IA : structurer vos CR à partir de notes vocales ou écrites avec ChatGPT ou Claude. Prompts BTP, tableau gain de temps, bonnes pratiques confidentialité. Formation IA BTP Qualiopi, financement Constructys.',
+      'Notes transformées en CR pro avec prompts BTP ; relecture humaine avant diffusion. Formation Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-10',
     dateModified: '2026-04-10',
     keywords: [
@@ -1507,10 +1407,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: '5-cas-usage-chatgpt-artisans-btp',
-    seoTitle: "5 Cas d'Usage ChatGPT pour Entreprises BTP",
+    seoTitle: '5 cas ChatGPT BTP : devis, mails, CR | Laure Olivié',
     title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
-      "Découvrez 5 cas d'usage concrets de ChatGPT pour les entreprises du bâtiment : devis, emails, CR chantier, suivi, descriptifs.",
+      'Cinq usages BTP : devis, mails, CR, suivi, descriptifs — prompts à adapter à vos chantiers. Qualiopi, Constructys. Voir la méthode sur le blog.',
     date: '2025-02-20',
     keywords: ['ChatGPT entreprises BTP', 'IA BTP', 'ChatGPT bâtiment', 'intelligence artificielle construction'],
     sections: [
@@ -1695,9 +1595,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: 'appels-offres-btp-ia-lille',
+    seoTitle: 'AO BTP et IA à Lille : méthode et financement | Laure Olivié',
     title: 'Automatiser les appels d\'offres BTP avec l\'IA à Lille',
     description:
-      'Analyse DCE, synthèse cahier des charges, rédaction mémoire technique : comment l\'IA accélère les réponses aux appels d\'offres pour les entreprises du BTP à Lille.',
+      'DCE et mémoire depuis Lille ou Hauts-de-France : méthode reproductible sur dossiers réels. Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
     date: '2025-03-06',
     keywords: ['appels d\'offres BTP IA', 'formation IA Lille', 'IA bâtiment Nord', 'DCE BTP'],
     sections: [
@@ -1753,10 +1654,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'analyser-cctp-ia-methode-complete-20-minutes',
     title:
       'Analyser un CCTP avec l\'IA : la méthode complète pour décortiquer un cahier des charges en 20 minutes',
-    seoTitle:
-      'Analyse CCTP avec IA : méthode DCE BTP en 20 min (prompts 2026)',
+    seoTitle: 'Analyse CCTP avec IA : méthode en 20 minutes | Laure Olivié',
     description:
-      'Analyser un CCTP avec ChatGPT ou Claude : synthèse, normes DTU/NF, risques, croisement CCTP–BPU. Méthode en 5 étapes, prompts BTP, tableau de gains. Formation IA appels d\'offres Qualiopi, financement Constructys.',
+      'Cinq étapes pour lire un CCTP dense : PDF, prompts, normes, risques, croisement BPU. Formation AO Qualiopi ; Constructys. Voir la méthode.',
     date: '2026-04-10',
     dateModified: '2026-04-10',
     keywords: [
@@ -1948,91 +1848,18 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     relatedSlugs: [
-      'analyse-cctp-btp',
-      'ia-btp-analyse-dce',
       'memoire-technique-btp-ia-gagner-temps-appels-offres',
+      'analyse-dce-notebooklm-claude-btp',
       'financer-formation-ia-btp-constructys',
       'repondre-appel-offre-travaux',
     ],
   },
   {
-    slug: 'analyse-cctp-btp',
-    title: 'Comment analyser un CCTP rapidement dans un appel d\'offre BTP',
-    description: 'Guide pratique : définition du CCTP, identification des exigences techniques, erreurs fréquentes et rôle de l\'IA pour accélérer l\'analyse.',
-    date: '2025-03-16',
-    keywords: ['analyse CCTP BTP', 'CCTP appel d\'offre', 'CCTP cahier charges', 'exigences techniques BTP'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content: 'Le CCTP (Cahier des Clauses Techniques Particulières) définit les prescriptions techniques d\'un projet. L\'analyser rapidement permet d\'identifier les exigences, les points de vigilance et les éléments à valoriser dans votre mémoire technique. L\'IA peut synthétiser un CCTP de 100 pages en quelques minutes.',
-      },
-      {
-        type: 'paragraph',
-        title: 'Qu\'est-ce qu\'un CCTP ?',
-        content: 'Le CCTP est une pièce du DCE qui détaille les exigences techniques pour chaque lot : quantitatifs, normes (DTU, NF), contrôles, délais d\'exécution. Il complète le CCAP et les pièces écrites. Une lecture méthodique est indispensable pour éviter les non-conformités.',
-      },
-      {
-        type: 'list',
-        title: 'Comment identifier les exigences techniques',
-        content: [
-          "Repérer les quantitatifs et les unités (m², ml, u.)",
-          "Lister les normes et référentiels cités (DTU, NF)",
-          "Identifier les contrôles et essais demandés",
-          "Noter les délais et les points de vigilance",
-          "Croiser avec les critères de sélection du règlement",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Erreurs fréquentes',
-        content: "Une lecture superficielle, l'oubli d'une clause éliminatoire, une interprétation erronée des quantités. Les PME qui n'ont pas le temps d'analyser en détail prennent des risques. L'IA permet de produire une première synthèse systématique, à compléter par votre expertise.",
-      },
-      {
-        type: 'paragraph',
-        title: 'Comment l\'IA peut aider',
-        content: "Coller un extrait de CCTP dans ChatGPT et demander une synthèse des exigences, des critères de sélection et des points de vigilance. Vous obtenez une fiche de travail en quelques secondes. Consultez notre formation IA appels d'offres BTP pour maîtriser ces usages.",
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts pour analyser un CCTP avec l\'IA',
-        content: [
-          {
-            titre: 'Synthèse CCTP complète',
-            prompt:
-              "Analyse ce CCTP et identifie : 1) les exigences techniques principales ; 2) les critères de sélection ; 3) les points de vigilance ; 4) les éléments à valoriser dans le mémoire technique. Présente une synthèse claire pour une PME du BTP.",
-            usage: 'Collez un extrait de CCTP. Gain de temps considérable sur la lecture.',
-          },
-          {
-            titre: 'Extraction normes et quantitatifs',
-            prompt:
-              "Liste les normes (DTU, NF) et les quantitatifs (m², ml, u.) mentionnés dans ce CCTP pour le lot [VOTRE LOT]. Format : tableau ou liste structurée. Indique les contrôles demandés.",
-            usage: 'Pour préparer votre chiffrage et vérifier la conformité.',
-          },
-          {
-            titre: 'Checklist clauses éliminatoires',
-            prompt:
-              "Identifie les clauses éliminatoires ou à ne pas manquer dans ce CCTP. Liste les éléments qui pourraient faire rejeter le dossier si non respectés. Format : liste de vigilance.",
-            usage: "Évitez les erreurs fatales à l'analyse.",
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: 'Formation IA appels d\'offres BTP — Analysez un DCE en 30 min. 100% finançable Constructys.',
-      },
-    ],
-    relatedSlugs: [
-      'analyser-cctp-ia-methode-complete-20-minutes',
-      'memoire-technique-btp-exemple',
-      'repondre-appel-offre-travaux',
-      'ia-btp-analyse-dce',
-    ],
-  },
-  {
     slug: 'memoire-technique-btp-exemple',
+    seoTitle: 'Mémoire technique BTP : structure et exemples | Laure Olivié',
     title: 'Exemple de mémoire technique BTP : structure et bonnes pratiques',
-    description: 'Structure d\'un mémoire technique, critères évalués, erreurs à éviter et rôle de l\'IA pour rédiger plus rapidement.',
+    description:
+      'Structure type de mémoire : entreprise, méthode, moyens ; première passe IA puis validation terrain. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
     date: '2025-03-16',
     keywords: ['mémoire technique BTP', 'exemple mémoire technique', 'réponse appel d\'offre BTP', 'structure mémoire technique'],
     sections: [
@@ -2091,13 +1918,18 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: 'Formation IA pour rédiger vos mémoires techniques plus vite. Qualiopi · Constructys.',
       },
     ],
-    relatedSlugs: ['analyse-cctp-btp', 'repondre-appel-offre-travaux', 'ia-btp-analyse-dce'],
+    relatedSlugs: [
+      'analyser-cctp-ia-methode-complete-20-minutes',
+      'repondre-appel-offre-travaux',
+      'analyse-dce-notebooklm-claude-btp',
+    ],
   },
   {
     slug: 'repondre-appel-offre-travaux',
+    seoTitle: 'Répondre à un AO travaux : guide PME BTP | Laure Olivié',
     title: 'Comment répondre à un appel d\'offre travaux : guide pour les PME du BTP',
     description:
-      'Répondre à un appel d\'offre BTP : guide complet en 7 étapes. DCE, mémoire technique, bordereau de prix — rôle de l\'IA pour diviser le temps par 5. Formation Constructys.',
+      'Éligibilité, DCE, critères, dossier, relecture : checklist avant dépôt ; l’IA accélère l’analyse si cadrée. Qualiopi, Constructys. Voir la méthode.',
     date: '2025-03-16',
     keywords: ['répondre appel d\'offre travaux', 'appel d\'offre BTP', 'DCE BTP', 'constitution dossier AO'],
     sections: [
@@ -2156,72 +1988,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: 'Formation IA appels d\'offres BTP — 4 h opérationnelles. 100% finançable.',
       },
     ],
-    relatedSlugs: ['analyse-cctp-btp', 'memoire-technique-btp-exemple', 'ia-btp-analyse-dce'],
-  },
-  {
-    slug: 'ia-btp-analyse-dce',
-    seoTitle: "Analyser un DCE BTP avec l'IA en 20 min",
-    title: 'Comment utiliser l\'IA pour analyser un DCE dans le BTP',
-    description:
-      "Comment utiliser l'IA pour analyser un DCE dans le BTP : méthode pas à pas, prompts ChatGPT, exemples. Formation IA BTP Qualiopi.",
-    date: '2025-03-16',
-    keywords: ['IA analyse DCE', 'analyse DCE BTP', 'ChatGPT DCE', 'synthèse DCE IA'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content: "Le DCE (Dossier de Consultation des Entreprises) regroupe l'ensemble des documents d'un appel d'offres. L'IA générative permet d'extraire les exigences, les délais et les critères de sélection en quelques minutes au lieu de plusieurs heures.",
-      },
-      {
-        type: 'paragraph',
-        title: 'Structure d\'un DCE',
-        content: "Règlement de consultation, CCAP, CCTP, pièces écrites, plans. Chaque section impose des contraintes. L'analyse systématique est longue ; l'IA accélère la première lecture en produisant des synthèses par section.",
-      },
-      {
-        type: 'list',
-        title: 'Analyse rapide avec l\'IA',
-        content: [
-          "Coller des extraits de DCE dans ChatGPT ou un outil équivalent",
-          "Demander une synthèse des exigences, délais et critères",
-          "Obtenir une fiche de travail structurée",
-          "Compléter avec votre expertise et vos notes",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Synthèse des exigences',
-        content: "L'IA liste les points à ne pas manquer : normes, contrôles, pièces à fournir. Vous priorisez selon votre lot et votre méthodologie. Ne partagez jamais de données confidentielles dans des outils publics.",
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts pour analyser un DCE avec l\'IA',
-        content: [
-          {
-            titre: 'Synthèse DCE par section',
-            prompt:
-              "Analyse ce DCE et identifie : 1) les exigences techniques principales pour mon lot ; 2) les critères de sélection et leur pondération ; 3) les points de vigilance ; 4) les éléments à valoriser dans le mémoire technique. Présente une synthèse claire pour une PME du BTP.",
-            usage: 'Collez un extrait de DCE. Gain de temps considérable sur l\'analyse.',
-          },
-          {
-            titre: 'Extraction délais et pièces',
-            prompt:
-              "Liste tous les délais (dépôt, ouverture, durée validité) et les pièces à fournir mentionnés dans ce document. Format : tableau avec date/élément et statut (à faire / récupéré). Contexte : réponse appel d'offres BTP.",
-            usage: "Pour planifier la constitution de votre dossier.",
-          },
-          {
-            titre: 'Comparatif critères de sélection',
-            prompt:
-              "Les critères de sélection de ce DCE sont : [COLLER]. Explique ce que le maître d'ouvrage valorise dans chaque critère. Propose des axes d'argumentation pour le mémoire technique. Adapté au lot [VOTRE LOT].",
-            usage: 'Pour aligner votre réponse sur les attentes du jury.',
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: 'Formation IA appels d\'offres BTP — Analyse DCE en 30 min. Qualiopi.',
-      },
+    relatedSlugs: [
+      'analyser-cctp-ia-methode-complete-20-minutes',
+      'memoire-technique-btp-exemple',
+      'analyse-dce-notebooklm-claude-btp',
     ],
-    relatedSlugs: ['analyse-cctp-btp', 'memoire-technique-btp-exemple', 'repondre-appel-offre-travaux'],
   },
 ];
 

@@ -11,9 +11,9 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
   slug: 'formation-ia-cctp-analyse-dce-btp',
   title:
     'Formation IA CCTP : analyser un DCE BTP en 30 minutes au lieu de 8 heures',
-  seoTitle: 'Formation IA CCTP : analyser un DCE BTP en 30 min (2026)',
+  seoTitle: 'Formation IA CCTP : analyser un DCE plus vite | Laure Olivié',
   description:
-    'Formation IA pour analyser CCTP, DPGF et DCE BTP. Méthode terrain testée sur 1 592 pros. ChatGPT + Claude. Finançable Constructys. RDV gratuit.',
+    'CCTP, DPGF et DCE : méthode terrain avec ChatGPT et Claude, relecture humaine sur le fond. Qualiopi ; Constructys si éligible. Diagnostic gratuit 30 min.',
   date: '2026-04-16',
   dateModified: '2026-04-16',
   keywords: [

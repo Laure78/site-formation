@@ -64,7 +64,7 @@ L’intelligence artificielle générative sert d’**assistant de brouillon** p
 **Liens internes (exemples à insérer dans le corps de page) :**  
 → [Formation IA plombier BTP](/formation-ia-plombier-btp/) (autre corps de métier)  
 → [Page pilier formation IA BTP](/formation-ia-btp/)  
-→ [Article : analyser un DCE avec l’IA](/blog/ia-btp-analyse-dce)
+→ [Article : analyser un DCE avec l’IA](/blog/analyse-dce-notebooklm-claude-btp)
 
 ---
 

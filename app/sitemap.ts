@@ -143,6 +143,12 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       lastModified: new Date('2026-05-19'),
     },
     { path: '/formation-ia-charge-affaires-btp', priority: 0.89, changeFrequency: 'monthly' },
+    {
+      path: '/formation-ia-assistante-gestion-btp',
+      priority: 0.89,
+      changeFrequency: 'monthly',
+      lastModified: new Date('2026-04-17'),
+    },
     { path: '/formation-ia-assistante-administrative-btp', priority: 0.89, changeFrequency: 'monthly' },
     {
       path: '/formation-ia-assistante-btp',

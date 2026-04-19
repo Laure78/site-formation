@@ -15,11 +15,11 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   carrouselAFormationArticle,
   {
     slug: '7-cas-usage-ia-btp-chiffrage-chantier-appels-offres',
-    seoTitle: '7 cas d’usage de l’IA dans le BTP : devis, chantier, AO, sécurité',
+    seoTitle: 'IA BTP : 7 cas concrets (devis à AO) | Laure Olivié',
     title:
       '7 cas d’usage concrets de l’IA dans le BTP (devis, chantier, appels d’offres, sécurité…)',
     description:
-      'Chiffrage et devis, comptes rendus de chantier, réponses aux appels d’offres, documents de sécurité, planning, communication client, veille réglementaire : visuels et repères pour dirigeants et conducteurs de travaux — Laure Olivié, Qualiopi.',
+      'Sept usages IA sur le terrain BTP : chiffrage, chantier, AO, sécurité, planning, client, veille. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-07',
     keywords: [
       'cas d’usage IA BTP',
@@ -125,11 +125,11 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: '5-assistants-ia-btp-chatgpt-productivite',
-    seoTitle: '5 assistants IA pour le BTP : chiffrage, admin, sécurité, planning, AO',
+    seoTitle: '5 assistants IA BTP : carte sans coder | Laure Olivié',
     title:
       'Les 5 assistants IA pour le BTP (chiffrage, admin, sécurité, planning, appels d’offres)',
     description:
-      'Cartographie des cinq assistants métiers pour gagner du temps sans coder : chiffrage, administratif, sécurité chantier, planning, appels d’offres — plus une synthèse « en chiffres » et un rappel Qualiopi / OPCO. Illustrations issues du carrousel « 5 compétences ».',
+      'Cinq assistants métiers (chiffrage, admin, sécurité, planning, AO) pour cadrer vos essais sans coder. Réseaux FFB, CSFE ; Qualiopi. Voir la méthode.',
     date: '2026-04-07',
     keywords: [
       'assistants IA BTP',
@@ -239,11 +239,11 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: 'guide-claude-ia-btp-code-projects-skills-mcp',
-    seoTitle: 'Claude IA BTP : Code, Projects, Skills, MCP — guide pratique 2026',
+    seoTitle: 'Claude BTP : Code, Projects, MCP | Laure Olivié',
     title:
       'Claude IA pour le BTP : Code, Projects, Skills et MCP — guide pratique pour dirigeants et équipes',
     description:
-      'Comment utiliser Claude Code, les Projects, les Skills métier et le protocole MCP pour gagner du temps dans une entreprise du bâtiment ou des travaux publics. Schémas, étapes et bonnes pratiques — OFC, Qualiopi, financement Constructys.',
+      'Claude Code, Projects, Skills, MCP : exécuter tâches fichiers et outils BTP. Qualiopi ; Constructys selon branche. Diagnostic gratuit 30 min.',
     date: '2026-04-07',
     dateModified: '2026-04-12',
     keywords: [
@@ -436,11 +436,11 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: 'mcp-claude-model-context-protocol-btp',
-    seoTitle: 'MCP Claude : connecter Drive, Gmail et outils BTP (Model Context Protocol)',
+    seoTitle: 'MCP Claude : Drive, Gmail, outils BTP | Laure Olivié',
     title:
       'MCP (Model Context Protocol) : connecter Claude à Google Drive, Gmail et vos outils métier dans le BTP',
     description:
-      'Comprendre le MCP, l’installer pas à pas (ex. Google Drive), et voir des exemples concrets pour le BTP : conventions, prospection, planning, WordPress. Illustrations pédagogiques OFC — Laure Olivié, Qualiopi.',
+      'MCP : relier Claude à Drive ou Gmail avec traçabilité. Cadre données et validation terrain OFC, Qualiopi. Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-07',
     dateModified: '2026-04-12',
     keywords: [
@@ -503,11 +503,11 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: 'prompts-linkedin-btp-carrousel-idees',
-    seoTitle: 'Prompts LinkedIn BTP : idées de posts et carrousel (Qualiopi, Constructys)',
+    seoTitle: 'LinkedIn BTP : prompts posts et carrousels | Laure Olivié',
     title:
       'Prompts LinkedIn pour le BTP : idées de carrousel, accroches et prises de parole pro (Qualiopi, Constructys)',
     description:
-      'Comment préparer des posts LinkedIn utiles pour une entreprise du bâtiment ou des travaux publics : idées de carrousels, angles « chantier / devis / financement formation », et prompts pour gagner du temps — aligné sur les supports PITEL et le carrousel prompts BTP.',
+      'Prompts et angles LinkedIn BTP (chantier, devis, financement formation) : publier sans tout réécrire. Qualiopi, Constructys. Voir la méthode sur le blog.',
     date: '2026-04-07',
     keywords: [
       'prompts LinkedIn BTP',

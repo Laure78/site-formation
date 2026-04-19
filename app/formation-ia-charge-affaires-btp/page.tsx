@@ -1,153 +1,198 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
-import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
-import { SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { JsonLd } from '@/components/JsonLd';
+import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
 const PATH = '/formation-ia-charge-affaires-btp';
 
-export const metadata = createPageMetadata({
-  title: 'Formation IA Chargé Affaires Métreur BTP Île-de-France',
+const SEO_TITLE = 'Formation IA Chargé d\'Affaires BTP | Devis, AO, Mémoire Technique';
+
+const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
+
+/** Course — GEO / rich results (complète la FAQ et le fil d’Ariane). */
+const COURSE_JSON_LD: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Formation IA pour Chargé d\'Affaires BTP',
   description:
-    'Automatisez métrés, devis techniques, appels d’offres, rapports. Formation Qualiopi finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi, finançable Constructys.',
+  provider: {
+    '@type': 'Organization',
+    name: "OFC Création d'Entreprise",
+    sameAs: BASE_URL,
+    url: BASE_URL,
+  },
+  instructor: {
+    '@type': 'Person',
+    name: 'Laure Olivié',
+    jobTitle: 'Formatrice IA BTP',
+    sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: String(TARIF_FORFAIT_AVANCE_HT),
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: CALENDLY_BOOKING_URL,
+  },
+  timeRequired: 'PT4H',
+  educationalLevel: 'Advanced',
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: ['onsite', 'online'],
+    location: {
+      '@type': 'Place',
+      name: 'Île-de-France',
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Île-de-France',
+        addressCountry: 'FR',
+      },
+    },
+  },
+  audience: {
+    '@type': 'EducationalAudience',
+    educationalRole: 'Chargé d\'affaires BTP',
+  },
+};
+
+/** BreadcrumbList — Accueil → Formations → page courante */
+const BREADCRUMB_JSON_LD: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Accueil',
+      item: `${BASE_URL}/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Formations',
+      item: `${BASE_URL}/formations`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Formation IA chargé d\'affaires',
+      item: `${BASE_URL}${PATH}`,
+    },
+  ],
+};
+
+export const metadata = createPageMetadata({
+  title: SEO_TITLE,
+  description:
+    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis 5x plus vite, mémoire technique gagnant, relance prospects. Qualiopi, finançable Constructys.',
   path: PATH,
   keywords: [
-    'formation IA chargé d’affaires BTP',
-    'IA métreur BTP',
-    'ChatGPT DCE mémoire technique',
-    'métré appel d’offres IA',
-    'formation IA Île-de-France',
-    'chiffrage IA BTP',
-    'OPCO Constructys',
-    'Qualiopi BTP',
+    'formation IA chargé d\'affaires BTP',
+    'ChatGPT devis BTP',
+    'IA mémoire technique',
+    'IA avant-vente bâtiment',
   ],
   openGraphType: 'article',
+  appendAuthorSuffix: false,
+  article: {
+    publishedTime: '2026-04-17',
+    modifiedTime: '2026-04-17',
+    author: 'Laure Olivié',
+    section: 'Formation IA BTP',
+  },
+  image: {
+    url: '/images/og/formation-ia-charge-affaires-btp.png',
+    width: 1200,
+    height: 630,
+    alt: 'Formation IA pour chargés d\'affaires BTP — devis, appels d\'offres, avant-vente',
+  },
 });
 
-const PROMPT_DCE = `Analyse ce DCE et synthétise pour un chargé d'affaires BTP (Île-de-France) :
+const PROMPT_PRECHIFFRAGE = `Tu es chargé d'affaires pour une entreprise de [spécialité BTP] en France.
+Voici le descriptif sommaire du client pour [type de chantier] :
+[Collez le descriptif — même flou]
+Génère un pré-chiffrage structuré avec :
 
-[Copie/colle le DCE ou les points clés : type travaux, localisation, lots identifiés, délai, conditions, exigences spéciales]
+Liste des postes à prévoir (DPGF sommaire par corps d'état)
+Quantités estimées (unité + valeur indicative) avec hypothèses explicites
+Prix unitaires moyens constatés en Île-de-France en 2026
+Total HT approximatif, fourchette basse/haute
+Liste des 5 questions à poser au client avant devis définitif
 
-Synthèse doit contenir :
-1. Résumé ouvrage (type, localisation, superficie, coût estimé)
-2. Lots identifiés + évaluation pertinence pour nous (structure, électricité, plomberie : Nos compétences)
-3. Exigences clés (normes, labels, certifications, assurance minimale, références)
-4. Calendrier (démarrage, étapes clés, fin chantier)
-5. Conditions de paiement et variantes
-6. Risques/points d'attention identifiés
-7. Questions à clarifier (si ambiguïtés)
+Format tableau. Précise toujours les hypothèses prises.`;
 
-Format : 1-2 pages, lisible pour directeur technique/patron.`;
+const PROMPT_MEMOIRE_AO = `Marché : [objet], maître d'ouvrage [nom], lot [numéro + intitulé].
+Entreprise : [nom], [CA annuel], [effectif], [3 références comparables].
+Génère la trame de mémoire technique en 5 sections :
 
-const PROMPT_METRE = `Crée un tableau métré détaillé (DCE immeuble 5 étages Grand Paris, lot électricité) :
+Méthodologie d'exécution (phasage, points de vigilance)
+Moyens humains affectés (profils, pas de noms)
+Moyens matériels (liste, propres vs location)
+Démarche QSE (PPSPS, PAQ, PAE sommaire)
+Planning directeur Gantt à préciser
 
-Spécifications :
-- 5 étages, RDC + 4 étages
-- Surface utile par étage : 800m² (4 000m² total)
-- Installation électrique : distribution par étage, prises + éclairage
-- Type installation : GTL 3 phases par étage, disjoncteurs différentiels, prises 2.5/4mm²
-- Éclairage : LED encastré (type prise plafond), environ 1 point pour 10m²
+Pour chaque section, 200-300 mots exploitables.
+Ton : professionnel, pas commercial. Pas de superlatifs.
+Les critères d'attribution du marché sont : [lister critères DCE].
+Oriente le contenu pour maximiser le score sur ces critères.`;
 
-Tableau métré doit contenir :
-1. Distribution électrique : GTL par étage (nombre, type, coût)
-2. Câblage : longueur câbles 2.5mm² et 4mm² (par étage + vertical)
-3. Prises et interrupteurs : nombre détail (prises simples, doubles, éclairage spécialisé)
-4. Appareillage : disjoncteurs, différentiels, compteurs
-5. Éclairage : nombre points LED, spots, appliques (par zone : circulation, bureaux, sanitaires)
-6. Main-d'œuvre : jours ouvriers pour installation complète
-
-Format : tableau Excel-like, avec quantités précises et sous-totaux par catégorie.`;
-
-const PROMPT_CHIFFRAGE = `Chiffre ce métré électricité avec ces paramètres (DCE Grand Paris) :
-
-PU (prix unitaires HT) :
-- GTL 3 phases : 280€ pièce
-- Câble 2.5mm² : 0.15€/m
-- Câble 4mm² : 0.25€/m
-- Prises simples : 3€ pièce
-- Prises doubles : 5€ pièce
-- Points éclairage LED : 25€ pièce
-- Disjoncteur : 12€ pièce
-- Main-d'œuvre électricien : 45€/h
-
-Métré recap (simplifié) :
-- GTL : 5 pièces (1/étage)
-- Câble 2.5mm² : 400m
-- Câble 4mm² : 100m
-- Prises simples : 150
-- Prises doubles : 80
-- Éclairage : 400 points
-- Disjoncteurs : 30
-- Main-d'œuvre : 350 heures
-
-Chiffrage doit contenir :
-1. Devis détaillé par catégorie (fournitures + main-d'œuvre)
-2. Sous-totaux par lot
-3. Total HT + TVA
-4. Variante "low-cost" : matériaux moins chers (sous 20%)
-5. Variante "premium" : matériaux quality + éclairage spécialisé
-6. Marges standard (20-25%), variables selon risques
-
-Format : tableau, clair, prêt à présenter direction.`;
-
-const PROMPT_MEMOIRE = `Crée un mémoire technique (réponse DCE immeuble Grand Paris, lot électricité) :
-
-Contexte :
-- Lot : électricité complète 5 étages
-- Entreprise : PME électricité 15 salariés, ISO 9001, assurance 1M€
-- Références similaires : immeuble 3 étages 2022, hôpital extension 2023
-- Délai : 8 semaines
-- Budget : 145 000€ HT
-
-MTD doit contenir :
-1. Présentation entreprise : historique, taille, certifications, assurance
-2. Savoir-faire : références similaires (2-3 projets clés), équipes dédiées (responsable, électriciens, apprentis)
-3. Processus : phases installation (planning), contrôle qualité, essais conformité
-4. Conformité normes : NF C15-100, DTU 55.2 (éclairage), respect DTU, tests de continuité
-5. Planning détaillé : phase par phase, jalons clés, tests avant livraison
-6. Sécurité : PPSPS application, prévention, formations équipes
-7. SAV et garantie : durée garantie (5 ans matériel), support rapide, maintenance
-
-Format : 3-4 pages, lisible, technique mais pro.`;
+const PROMPT_RELANCE = `Prospect : [fonction] chez [entreprise BTP], rencontré le [date] au sujet de [projet].
+Devis envoyé le [date], valeur [€ HT], aucun retour depuis [X jours].
+Concurrence pressentie : [2-3 noms éventuels].
+Rédige une séquence de 3 emails de relance espacés de 5-7 jours :
+Email 1 (J+10) : relance douce, valeur ajoutée (ex : lien vers une ressource pertinente)
+Email 2 (J+17) : relance ciblée, 1 question ouverte sur son hésitation
+Email 3 (J+25) : break-up email pro (vous fermez le dossier sauf retour)
+Chaque email : 80-120 mots max. Pas de "j'espère que vous allez bien".
+Ton : direct, respectueux du temps du prospect, centré sur son intérêt.`;
 
 const FAQ_ITEMS = [
   {
-    q: 'ChatGPT comprend-il les normes techniques (NF C 15-100, DTU) ?',
-    a: "L'IA peut rappeler des principes et des formulations courantes : toujours vérifier avec les textes officiels, les fiches techniques et votre expertise. Pour les détails réglementaires ou locaux, croisez avec votre ingénieur ou votre référent technique.",
+    q: 'Peut-on chiffrer un devis BTP avec ChatGPT en toute confidentialité ?',
+    a: "Oui, avec ChatGPT Team ou Claude Enterprise, ou en anonymisant les données sensibles (noms, adresses, montants exacts). La formation couvre les trois options pour travailler sans exposer vos dossiers.",
   },
   {
-    q: "L'IA peut-elle vraiment calculer les métrés compliqués ?",
-    a: "Elle peut proposer des quantités et des tableaux à partir des dimensions et hypothèses que vous indiquez. Pour les formes complexes, les exceptions et les cotes imprécises, vous contrôlez et corrigez manuellement — le résultat final engage votre entreprise.",
+    q: "L'IA peut-elle rédiger un mémoire technique qui remporte des AO publics ?",
+    a: "Elle ne remplace pas votre expertise : elle produit une trame personnalisée et des sections exploitables en quelques heures au lieu de plusieurs jours. La valeur différenciante — références, moyens réels, cohérence prix/méthode — reste la vôtre après relecture et validation.",
   },
   {
-    q: 'ChatGPT va-t-il remplacer les chargés d’affaires ?',
-    a: "Non. L'IA accélère la structuration des documents et des calculs ; le jugement commercial, la stratégie de prix, la négociation et la relation client restent humains.",
+    q: 'Comment l\'IA aide-t-elle à augmenter le taux de transformation des devis BTP ?',
+    a: "En réduisant le délai de réponse (effet fraîcheur) et en systématisant les relances. Une grande partie des dossiers se joue après le premier envoi : relancer proprement et vite augmente le taux de signature sans alourdir la charge.",
   },
   {
-    q: 'Comment financer la formation si je suis chargé d’affaires salarié ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre employeur et des règles du plan de développement des compétences — aucune promesse de « zéro reste à charge » sans étude de dossier.",
+    q: "Peut-on utiliser l'IA pour analyser la DPGF d'un AO public ?",
+    a: "Oui. Claude AI est particulièrement performant pour lire des DPGF Excel volumineuses (200 lignes et plus) et en extraire les postes stratégiques, les écarts de quantités et les points de vigilance pour votre chiffrage.",
   },
   {
-    q: 'Faut-il être bon en informatique ?',
-    a: "Non. On travaille en français, avec des prompts et des trames que vous adaptez à vos DCE et à vos lots.",
+    q: "L'IA connaît-elle les seuils des marchés publics français (MAPA, procédure formalisée) ?",
+    a: "Oui : les seuils 2026 sont intégrés dans les contenus de formation (notamment 40 k€ HT, 90 k€ HT et références européennes selon les typologies de marchés). Un récap à jour est fourni en session.",
+  },
+  {
+    q: 'Comment former un chargé d\'affaires déjà bien outillé (CRM, Excel, template mémoire) ?',
+    a: "La formation complète l'outillage existant sans le remplacer. L'IA s'insère dans votre workflow — nous travaillons sur vos modèles, vos grilles et vos exemples de mémoires pour gagner du temps sans tout reconstruire.",
   },
 ];
 
 const SOMMAIRE = [
-  { href: '#le-probleme', label: 'Le problème : métrés complexes et réponses d’AO lentes' },
-  { href: '#la-solution', label: 'La solution : l’IA pour vos métrés et devis' },
-  { href: '#methode', label: 'Méthode pas à pas avec prompts ChatGPT' },
-  { href: '#resultats', label: 'Résultats concrets et témoignages' },
-  { href: '#faq', label: 'FAQ — questions des chargés d’affaires sur l’IA' },
+  { href: '#goulot', label: 'Le chargé d\'affaires BTP est un goulot d\'étranglement commercial' },
+  { href: '#cycle-vente', label: 'Ce que l\'IA fait dans un cycle de vente BTP' },
+  { href: '#usages', label: 'Les 8 usages commerciaux les plus impactants' },
+  { href: '#prompts', label: '3 prompts prêts à l\'emploi' },
+  { href: '#resultats', label: 'Gains mesurés : taux de transformation et temps/AO' },
+  { href: '#programme', label: 'Programme des formations BTP-02 (AO avancé) et BTP-06 (architecture/Claude)' },
+  { href: '#financement', label: 'Financement Constructys 2026' },
+  { href: '#faq', label: 'FAQ chargés d\'affaires' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#rdv', label: 'Réservez votre diagnostic IA commercial gratuit' },
 ];
 
 export default function FormationIaChargeAffairesBtpPage() {
@@ -155,48 +200,49 @@ export default function FormationIaChargeAffairesBtpPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <JsonLd id="schema-faq-page" schema={faqSchema} />
+      <JsonLd data={COURSE_JSON_LD} id="jsonld-course-charge-affaires" />
+      {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-charge-affaires" /> : null}
+      <JsonLd data={BREADCRUMB_JSON_LD} id="jsonld-breadcrumb-charge-affaires" />
 
-      <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
+      <nav className="mb-8 text-sm text-slate-600" aria-label="Fil d'Ariane">
+        <Link href="/" className="text-[#377CF3] hover:underline">
           Accueil
         </Link>
         {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+        <Link href="/formations" className="text-[#377CF3] hover:underline">
           Formations
         </Link>
         {' / '}
-        <span className="text-slate-900">Formation IA chargé d’affaires / métreur BTP</span>
+        <span className="text-slate-900">Formation IA chargé d&apos;affaires</span>
       </nav>
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour chargés d’affaires / métreurs —{' '}
-          <span className="text-[var(--accent)]">gagnez du temps sur les devis et les AO</span>
+          Formation IA pour Chargé d&apos;Affaires BTP —{' '}
+          <span className="text-[#377CF3]">Transformez 2x plus d&apos;appels d&apos;offres</span>
         </h1>
-        <p className="mt-6 text-xl text-slate-600">
-          Objectif : <strong>libérer jusqu’à environ 4 h par semaine</strong> sur métrés, chiffrage et réponses
-          marchés (DCE, mémoires techniques). <strong>Île-de-France</strong> & <strong>Grand Paris</strong> —{' '}
-          <strong>Qualiopi</strong>, finançable <strong>Constructys</strong> selon éligibilité.
+        <p className="mt-4 text-lg text-slate-600">
+          Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
         </p>
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L’IA aide à synthétiser les DCE, structurer des métrés et des brouillons de mémoire technique : vous restez
-            responsable des prix, des quantités vérifiées et des engagements contractuels. Ne jamais envoyer de réponse
-            sans relecture humaine — surtout sur les normes et les montants.
+            Un chargé d&apos;affaires BTP consacre 25 à 35 % de son temps à produire des devis et des
+            mémoires techniques. Avec l&apos;IA, il divise ce temps par 5 et augmente son taux de
+            transformation sur les appels d&apos;offres de 20 à 40 %. Formation certifiée{' '}
+            <strong>Qualiopi</strong>, éligible <strong>Constructys</strong>.
           </ShortAnswerBlock>
         </div>
 
         <nav
           aria-label="Sommaire"
-          className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6"
+          className="mt-10 rounded-2xl border border-slate-200 bg-[#F2F2F2] p-6"
         >
           <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
             {SOMMAIRE.map(({ href, label }) => (
               <li key={href}>
-                <a href={href} className="text-[var(--accent)] underline hover:no-underline">
+                <a href={href} className="text-[#377CF3] underline hover:no-underline">
                   {label}
                 </a>
               </li>
@@ -204,247 +250,426 @@ export default function FormationIaChargeAffairesBtpPage() {
           </ol>
         </nav>
 
-        <section id="le-probleme" className="scroll-mt-24 mt-14">
+        <section id="goulot" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Le problème : métrés complexes et réponses d’appels d’offres lentes
+            Le chargé d&apos;affaires BTP est un goulot d&apos;étranglement commercial
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Vous êtes <strong>chargé d’affaires</strong> ou <strong>métreur</strong> en PME BTP en Île-de-France ou Grand
-            Paris : analyser les DCE, cadrer les lots, faire les métrés, chiffrer, rédiger le mémoire technique et livrer
-            la réponse dans les délais.
+            Le chargé d&apos;affaires porte la pression du chiffre : devis, dossiers d&apos;appel
+            d&apos;offres, relances et négociation. Sur une semaine de 40 h, il consacre souvent{' '}
+            <strong>10 à 14 h à l&apos;avant-vente</strong> (production commerciale, pas l&apos;exécution
+            chantier) — soit environ <strong>25 à 35 % du temps</strong> sur des livrables qui
+            conditionnent directement le carnet de commandes.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">Une réponse à un marché peut mobiliser :</p>
-          <ul className="mt-4 space-y-3">
-            {[
-              'Lecture et analyse du DCE (critères, lots, risques).',
-              'Métré détaillé : quantités, unités, reprises dans Excel ou outil métier.',
-              'Chiffrage : PU, marges, variantes.',
-              'Rédaction : mémoire technique, planning, pièces demandées.',
-              'Relecture et validation avant envoi.',
-            ].map((item) => (
-              <li key={item} className="flex gap-3 text-slate-700">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-                {item}
-              </li>
-            ))}
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Trois douleurs reviennent systématiquement en entreprise — et ce ne sont pas des sujets de
+            compte rendu de réunion ou de CCTP opérationnel (réservés au conducteur de travaux sur le
+            terrain) :
+          </p>
+          <ul className="mt-4 space-y-4 text-slate-700">
+            <li className="flex gap-3">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+              <span>
+                <strong>Devis quantitatifs.</strong> Chiffrer proprement avec DPGF et hypothèses claires
+                prend souvent 2 à 4 h par dossier — alors que le client attend vite une fourchette ou une
+                réponse à un AO.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+              <span>
+                <strong>Mémoires techniques.</strong> Les plis publics ou exigeants absorbent 2 à 3 jours,
+                et beaucoup de mémoires se ressemblent : peu différenciants au regard des critères de
+                notation.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+              <span>
+                <strong>Relances prospects.</strong> Faute de temps, les séquences de suivi ne partent pas —
+                alors qu&apos;une partie du potentiel de CA se joue après le premier envoi, quand le
+                prospect est encore chaud.
+              </span>
+            </li>
           </ul>
-          <p className="mt-6 text-slate-600 leading-relaxed">
-            Sur plusieurs appels d’offres par mois, le volume « papier » peut empiéter sur l’analyse du risque et le
-            temps commercial. D’où l’intérêt d’outils qui accélèrent la <strong>mise en forme</strong>, sous contrôle
-            humain.
-          </p>
         </section>
 
-        <section id="la-solution" className="scroll-mt-24 mt-14">
+        <section id="cycle-vente" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            La solution : l’IA pour vos métrés et devis
+            Ce que l&apos;IA fait dans un cycle de vente BTP
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            ChatGPT peut servir d’assistant pour : synthèse de DCE, tableaux métrés à partir de vos données, brouillons de
-            chiffrage et de mémoire technique — à valider avec vos méthodes internes et les pièces du marché.
+            De la prospection au closing, l&apos;IA accélère la production de contenus structurés et la
+            lecture de documents lourds — toujours sous votre validation.
           </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">1. Analyse DCE</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Première lecture structurée : lots, exigences, calendrier, points d’attention — à partir du texte ou de notes
-            que vous fournissez (respect de la confidentialité : pas de données sensibles dans des outils non adaptés).
-          </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">2. Métré structuré</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Tableaux pré-formatés, catégories et sous-totaux — vous contrôlez les quantités et les unités.
-          </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">3. Chiffrage et variantes</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Scénarios à partir de vos PU et hypothèses de marge — pas de substitution à votre politique commerciale.
-          </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">4. Mémoire technique</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Plan de rédaction aligné sur le RC, à compléter avec vos références réelles et preuves.
-          </p>
+          <ul className="mt-6 space-y-3 list-disc pl-6 text-slate-700 leading-relaxed">
+            <li>
+              <strong>Prospection :</strong> qualifier un contact, rédiger un message LinkedIn ou un email
+              froid adapté à un décideur BTP (chantier, contraintes, ton pro).
+            </li>
+            <li>
+              <strong>Qualification :</strong> lire un CCTP ou un extrait de DCE et en tirer les trois
+              points clés pour une décision GO / NO GO commerciale (charge, risques, positionnement prix).
+            </li>
+            <li>
+              <strong>Chiffrage :</strong> produire une DPGF préremplie ou un pré-chiffrage à partir d&apos;un
+              descriptif, avec hypothèses explicites et fourchettes.
+            </li>
+            <li>
+              <strong>Mémoire technique :</strong> générer la trame et les sections attendues — méthode,
+              moyens, références, QSE, planning — alignées sur les critères d&apos;attribution.
+            </li>
+            <li>
+              <strong>Relance :</strong> enchaîner trois emails espacés adaptés au cycle long BTP, sans ton
+              insistant ni formules creuses.
+            </li>
+            <li>
+              <strong>Closing :</strong> répondre aux objections récurrentes (« c&apos;est trop cher », « on
+              attend d&apos;autres devis ») avec un argumentaire court et des propositions d&apos;ajustement
+              crédibles.
+            </li>
+          </ul>
+          <blockquote className="mt-8 rounded-xl border-l-4 border-[#377CF3] bg-slate-50 p-6 text-slate-700">
+            <p className="font-medium text-slate-900">
+              Réservez votre diagnostic IA commercial gratuit — 30 minutes en visio.
+            </p>
+            <a
+              href={CALENDLY_BOOKING_URL}
+              className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prendre rendez-vous →
+            </a>
+          </blockquote>
         </section>
 
-        <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
-          <p className="font-medium text-slate-900">Aller plus loin</p>
-          <p className="mt-2 text-slate-600">
-            <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
-              Réservez votre visio découverte gratuite
-            </a>{' '}
-            — 30 minutes pour voir comment adapter ces usages à votre processus d’appels d’offres.
-          </p>
-        </aside>
-
-        <section id="methode" className="scroll-mt-24 mt-14">
+        <section id="usages" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Méthode pas à pas avec prompts ChatGPT
+            Les 8 usages commerciaux les plus impactants
           </h2>
+          <ol className="mt-6 list-decimal space-y-4 pl-5 text-slate-700 leading-relaxed">
+            <li>
+              <strong>Pré-chiffrage rapide</strong> à partir d&apos;un descriptif — 30 min → 5 min.
+            </li>
+            <li>
+              <strong>Trame de mémoire technique personnalisée</strong> — 2 jours → 3 h.
+            </li>
+            <li>
+              <strong>Analyse GO / NO GO d&apos;un DCE</strong> avec angle commercial : scoring de
+              rentabilité et de charge vendable (vs faisabilité purement opérationnelle côté conducteur de
+              travaux) — 1 h 30 → 10 min.
+            </li>
+            <li>
+              <strong>Séquence de trois emails de relance</strong> — 30 min par séquence → 3 min.
+            </li>
+            <li>
+              <strong>Lettre d&apos;offre commerciale structurée</strong> — 1 h → 10 min.
+            </li>
+            <li>
+              <strong>Variante d&apos;optimisation technique</strong> (justification pour ajuster prix et
+              marge) — 2 h → 20 min.
+            </li>
+            <li>
+              <strong>Préparation d&apos;un RDV commercial</strong> (contexte prospect, questions à poser) —
+              45 min → 10 min.
+            </li>
+            <li>
+              <strong>Argumentaire de closing sur objection prix</strong> — 30 min → 5 min.
+            </li>
+          </ol>
+        </section>
+
+        <section id="prompts" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">3 prompts prêts à l&apos;emploi</h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 1 : analyse DCE rapide
+            Prompt 1 — Pré-chiffrage rapide à partir d&apos;un descriptif client
           </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_DCE}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_PRECHIFFRAGE}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 2 : métré structuré (exemple lot électricité)
+            Prompt 2 — Trame de mémoire technique AO public BTP
           </h3>
-          <p className="mt-3 text-sm text-slate-500">
-            Exemple pédagogique — adaptez les corps d’état et les cotes à vos réponses marchés.
-          </p>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_METRE}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_MEMOIRE_AO}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 3 : chiffrage et variantes
+            Prompt 3 — Séquence de 3 emails de relance prospect BTP
           </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_CHIFFRAGE}
-          </pre>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 4 : mémoire technique et réponse AO
-          </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_MEMOIRE}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_RELANCE}
           </pre>
         </section>
 
         <section id="resultats" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Résultats concrets</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Ordres de grandeur possibles une fois les usages en place — <strong>variables</strong> selon la complexité du
-            DCE et le temps de contrôle que vous conservez :
-          </p>
-
-          <div className="mt-8 overflow-x-auto">
-            <table className="w-full min-w-[520px] border-collapse text-left text-sm">
-              <caption className="sr-only">Temps indicatif par étape de réponse à un marché</caption>
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Gains mesurés — données formations OFC
+          </h2>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[560px] border-collapse border border-slate-200 text-left text-sm">
+              <caption className="sr-only">Gains de temps IA pour chargé d&apos;affaires BTP</caption>
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="p-3 font-semibold text-slate-900">Tâche</th>
-                  <th className="p-3 font-semibold text-slate-900">Sans IA (ordre de grandeur)</th>
-                  <th className="p-3 font-semibold text-slate-900">Avec IA (brouillon + relecture)</th>
-                  <th className="p-3 font-semibold text-slate-900">Gain typique</th>
+                <tr className="bg-slate-100">
+                  <th className="border border-slate-200 p-3 font-semibold">Usage commercial</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Sans IA</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Avec IA</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Gain</th>
                 </tr>
               </thead>
               <tbody className="text-slate-700">
-                <tr className="border-b border-slate-100">
-                  <td className="p-3">Analyse DCE</td>
-                  <td className="p-3">Longue</td>
-                  <td className="p-3">Synthèse aidée</td>
-                  <td className="p-3">Important</td>
+                {[
+                  ['Pré-chiffrage devis', '2-3 h', '20-30 min', '−85 %'],
+                  ['Mémoire technique complet', '2-3 jours', '3-4 h', '−85 %'],
+                  ['Séquence de relances prospect', '30 min/email', '3 min/email', '−90 %'],
+                  ['Analyse GO/NO GO (scoring rentabilité)', '1h30', '10 min', '−90 %'],
+                  ['Lettre d\'offre commerciale', '1 h', '10 min', '−85 %'],
+                  ['Variante d\'optimisation technique', '2 h', '20 min', '−85 %'],
+                  ['Préparation RDV commercial', '45 min', '10 min', '−78 %'],
+                  ['Argumentaire objection prix', '30 min', '5 min', '−85 %'],
+                ].map(([u, sans, avec, gain]) => (
+                  <tr key={u as string}>
+                    <td className="border border-slate-200 p-3">{u}</td>
+                    <td className="border border-slate-200 p-3">{sans}</td>
+                    <td className="border border-slate-200 p-3">{avec}</td>
+                    <td className="border border-slate-200 p-3 font-medium text-[#377CF3]">{gain}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-6 text-slate-600 leading-relaxed">
+            Au-delà du temps gagné, les chargés d&apos;affaires formés par OFC rapportent une augmentation
+            moyenne de leur taux de transformation sur les AO de{' '}
+            <strong>+20 à +40 % dans les 3 mois</strong> — grâce à la qualité des mémoires techniques, à la
+            vitesse de réponse, et à la systématisation des relances.
+          </p>
+        </section>
+
+        <section id="programme" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Programmes des formations BTP-02 et BTP-06
+          </h2>
+
+          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
+            Formation BTP-02 — IA et appels d&apos;offres BTP : avancé
+          </h3>
+          <p className="mt-2 text-sm text-slate-600">
+            Référence : BTP-02 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant ·{' '}
+            {EFFECTIF_GROUPE_MAX} participants max
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Axée sur les <strong>AO publics</strong> : analyse de DCE, lecture CCTP, mémoire technique,
+            cohérence avec la DPGF et critères d&apos;attribution.
+          </p>
+
+          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
+            Formation BTP-06 — Architecture, Claude AI et DPGF : avancé
+          </h3>
+          <p className="mt-2 text-sm text-slate-600">
+            Référence : BTP-06 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant ·{' '}
+            {EFFECTIF_GROUPE_MAX} participants max
+          </p>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Axée sur <strong>Claude AI</strong>, les analyses documentaires complexes et les{' '}
+            <strong>DPGF élaborés</strong> (gros volumes de lignes, comparaisons de variantes).
+          </p>
+
+          <p className="mt-6 font-medium text-slate-900">Les formations sont disponibles :</p>
+          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
+            <li>
+              En <strong>intra</strong> dans vos locaux (Île-de-France ou partout en France)
+            </li>
+            <li>
+              En <strong>inter</strong> en Île-de-France (Paris, Versailles, Nanterre, Créteil)
+            </li>
+            <li>
+              En <strong>distanciel</strong> (visio)
+            </li>
+          </ul>
+          <p className="mt-6">
+            <a
+              href="https://www.laureolivie.fr/formations"
+              className="font-semibold text-[#377CF3] underline hover:no-underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir les programmes détaillés →
+            </a>
+          </p>
+        </section>
+
+        <section id="financement" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys 2026</h2>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[480px] border-collapse border border-slate-200 text-left text-sm">
+              <thead>
+                <tr className="bg-slate-100">
+                  <th className="border border-slate-200 p-3 font-semibold">Entreprise</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Coût pédagogique</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Salaires</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Max intra/jour</th>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="p-3">Métré structuré</td>
-                  <td className="p-3">Très chronophage</td>
-                  <td className="p-3">Tableau proposé</td>
-                  <td className="p-3">Important</td>
+              </thead>
+              <tbody className="text-slate-700">
+                <tr>
+                  <td className="border border-slate-200 p-3">&lt; 11 salariés</td>
+                  <td className="border border-slate-200 p-3">24 € HT/h/stagiaire</td>
+                  <td className="border border-slate-200 p-3">15 € HT/h/stagiaire</td>
+                  <td className="border border-slate-200 p-3">840 € HT/groupe</td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="p-3">Chiffrage + variantes</td>
-                  <td className="p-3">Itératif</td>
-                  <td className="p-3">Scénarios à valider</td>
-                  <td className="p-3">Modéré à fort</td>
-                </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="p-3">Mémoire technique</td>
-                  <td className="p-3">Rédaction lourde</td>
-                  <td className="p-3">Plan + brouillon</td>
-                  <td className="p-3">Important</td>
+                <tr>
+                  <td className="border border-slate-200 p-3">11 à 50 salariés</td>
+                  <td className="border border-slate-200 p-3">24 € HT/h/stagiaire</td>
+                  <td className="border border-slate-200 p-3">10 € HT/h/stagiaire</td>
+                  <td className="border border-slate-200 p-3">840 € HT/groupe</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
-            Les gains en heures par semaine ne sont pas garantis : ils dépendent du nombre de dossiers AO et de votre
-            processus de validation.
+          <p className="mt-6 text-slate-600 leading-relaxed">
+            <strong>Condition :</strong> demande déposée sur eGestion (services.constructys.fr) au minimum
+            15 jours avant la formation. OFC accompagne chaque client dans la constitution du dossier.
           </p>
-
-          <blockquote className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-slate-700 italic leading-relaxed">
-              « Avant, une réponse AO me prenait une grosse journée de frappe. Maintenant, je structure beaucoup plus vite
-              avec les brouillons IA — et je garde le temps pour le fond : risques, prix, stratégie. »
-            </p>
-            <footer className="mt-4 text-sm font-medium text-slate-900">
-              — Chargé d’affaires, témoignage de formation (FFB Île-de-France)
-            </footer>
-          </blockquote>
+          <p className="mt-4">
+            <Link
+              href="/financement-constructys-formation-ia-btp"
+              className="font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Guide complet du financement Constructys
+            </Link>
+            {' · '}
+            <Link
+              href="/blog/dossier-constructys-2026-etapes"
+              className="font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Monter son dossier en 20 min
+            </Link>
+          </p>
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — chargés d’affaires BTP et IA</h2>
-          <div className="mt-8 space-y-6">
-            {FAQ_ITEMS.map(({ q, a }) => (
-              <div key={q} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed"><FAQAnswer content={a} /></p>
+          <h2 className="font-display text-2xl font-bold text-slate-900">FAQ chargés d&apos;affaires</h2>
+          <dl className="mt-8 space-y-8">
+            {FAQ_ITEMS.map((item) => (
+              <div key={item.q}>
+                <dt className="font-semibold text-slate-900">{item.q}</dt>
+                <dd className="mt-2 text-slate-600">
+                  <FAQAnswer content={item.a} />
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
         </section>
 
         <section id="a-propos" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> chargés d’affaires, métreurs et équipes
-            commerciales du BTP pour utiliser ChatGPT sur les tâches rédactionnelles et l’appel d’offres.{' '}
-            <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
-            <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}
-            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
+            Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux
+            publics. Elle a dirigé ALIA BTP pendant sept ans : en tant que dirigeante, elle a porté la
+            relation commerciale au quotidien — signatures de devis, réponses à des appels d&apos;offres,
+            négociations avec les donneurs d&apos;ordre et arbitrages prix / risques.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE.
+            Cette expérience « avant-vente » complète sa connaissance du terrain : elle forme les chargés
+            d&apos;affaires sur des cas concrets (DCE, mémoires, relances) avec des prompts calibrés pour
+            le cycle de vente BTP, pas pour un discours générique sur l&apos;IA.
+          </p>
+          <p className="mt-4 text-sm font-medium text-slate-800">
+            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Certifiée
+            Qualiopi · LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM IDF
+          </p>
+          <p className="mt-4">
+            <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">
+              Voir le parcours complet →
+            </Link>
           </p>
         </section>
 
-        <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
-          <h2 className="font-display text-2xl font-bold">Visio découverte gratuite (30 min)</h2>
-          <p className="mt-4 text-blue-100 leading-relaxed">
-            Synthèse DCE, métré structuré, chiffrage — démonstration sur un cas type. Sans engagement.
+        <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
+          <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
+            <li>
+              <Link href="/blog/chatgpt-devis-btp-methode-2026" className="text-[#377CF3] underline">
+                ChatGPT pour générer un devis BTP : méthode pas à pas (2026)
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/memoire-technique-btp-ia-gagner-temps-appels-offres" className="text-[#377CF3] underline">
+                Mémoire technique BTP avec l&apos;IA : gagnez vos appels d&apos;offres en 2x moins de temps
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog/ia-memoire-technique-appel-offres-guide-2026" className="text-[#377CF3] underline">
+                Comment rédiger un mémoire technique BTP avec l&apos;IA — Guide complet 2026
+              </Link>
+            </li>
+            <li>
+              <Link href="/formations/ia-appels-offre-btp" className="text-[#377CF3] underline">
+                Formation « Répondre aux appels d&apos;offres avec l&apos;IA »
+              </Link>
+            </li>
+            <li>
+              <Link href="/formation-ia-dirigeant-btp" className="text-[#377CF3] underline">
+                Formation IA dirigeant BTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/formation-ia-conducteur-travaux" className="text-[#377CF3] underline">
+                Formation IA conducteur de travaux BTP — chantier, CR, CCTP
+              </Link>
+            </li>
+            <li>
+              <Link href="/formation-ia-assistante-gestion-btp" className="text-[#377CF3] underline">
+                Formation IA assistante de gestion BTP — facturation, relances, DGD
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Réservez votre diagnostic IA commercial gratuit
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            30 minutes en visio pour identifier les leviers avant-vente (devis, AO, relances) qui
+            augmenteront le plus votre taux de transformation. Gratuit, sans engagement.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Réserver votre visio découverte
-              <ArrowRight size={20} strokeWidth={1.5} />
+          <div className="mt-6 flex flex-wrap gap-4">
+            <RdvLink className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]">
+              Réserver mon diagnostic IA commercial
             </RdvLink>
-            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-            >
-              Contact
-            </Link>
+            <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
-          <p className="mt-6 text-sm text-blue-100">
-            <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">
-              {SITE_CONFIG.email}
+          <p className="mt-6 text-sm text-slate-600">
+            <a
+              href="https://www.laureolivie.fr/formations"
+              className="text-[#377CF3] underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Catalogue des formations IA BTP
+            </a>
+            {' · '}
+            <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] underline">
+              Financement Constructys
+            </Link>
+          </p>
+        </section>
+
+        <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
+          <p>Laure Olivié — Formatrice IA BTP, OFC Création d&apos;Entreprise</p>
+          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>
+            06 95 66 18 18 · laureolivie@yahoo.fr ·{' '}
+            <a href="https://www.laureolivie.fr" className="underline">
+              www.laureolivie.fr
             </a>
           </p>
-        </section>
-
-        <section className="mt-14">
-          <h2 className="font-display text-lg font-bold text-slate-900">
-            Formation IA chargé d’affaires / métreur BTP — Île-de-France & Grand Paris
-          </h2>
-          <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
-            {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
-          </p>
-        </section>
-
-        <AllerPlusLoin
-          links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
-            { href: '/formations/ia-appels-offre-btp', label: 'Répondre aux appels d’offres avec l’IA' },
-            { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
-          ]}
-        />
+        </footer>
       </article>
     </div>
   );

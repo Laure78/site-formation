@@ -8,12 +8,11 @@ const A = '/images/blog/carrousel-a-presentation-formation';
 
 export const carrouselAFormationArticle: BlogArticle = {
   slug: 'formation-ia-artisans-batiment-programme-objectifs-livrables',
-  seoTitle:
-    'Formation IA artisans bâtiment : programme, tarif, objectifs et livrables (Qualiopi)',
+  seoTitle: 'Formation IA bâtiment : programme 4h Qualiopi | Laure Olivié',
   title:
     '« L’IA au service des artisans du bâtiment » : présentation complète (infos pratiques, programme, livrables)',
   description:
-    'Durée 4 h, 70 % de pratique, public cible, quatre modules (fondamentaux, devis, administratif chantier, visibilité en ligne), livrables et méthodes pédagogiques — visuels issus du carrousel de présentation OFC. Qualiopi, financement OPCO Constructys.',
+    'Programme 4 h, 70 % pratique : fondamentaux IA, devis, administratif chantier, visibilité. Qualiopi ; financement Constructys. Diagnostic gratuit 30 min.',
   date: '2026-04-07',
   keywords: [
     'formation IA artisans bâtiment',

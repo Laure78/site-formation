@@ -31,6 +31,7 @@ export async function BlogMdxArticle({ slug }: Props) {
       <ArticleJsonLd
         id="schema-blog-mdx-article"
         title={frontmatter.title}
+        headline={frontmatter.seoTitle ?? frontmatter.title}
         description={frontmatter.description}
         slug={slug}
         datePublished={frontmatter.publishedAt}

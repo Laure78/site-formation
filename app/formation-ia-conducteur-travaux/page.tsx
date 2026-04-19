@@ -4,24 +4,91 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import {
-  createPageMetadata,
-  getCourseSchema,
-  getFAQSchema,
-  SITE_CONFIG,
-} from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
 const PATH = '/formation-ia-conducteur-travaux';
 
-const BTP01 = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'BTP-01')!;
-const BTP04 = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'BTP-04')!;
-
 const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP | CR, CCTP, Emails';
+
+const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
+
+/** Course — aligné GEO / rich results (complète la FAQ et le fil d’Ariane). */
+const COURSE_JSON_LD: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Formation IA pour Conducteur de Travaux BTP',
+  description:
+    'Formation ChatGPT et Claude AI pour conducteurs de travaux : CR de chantier, analyse CCTP, emails MOA/MOE, situations de travaux. Qualiopi, finançable Constructys.',
+  provider: {
+    '@type': 'Organization',
+    name: "OFC Création d'Entreprise",
+    sameAs: BASE_URL,
+    url: BASE_URL,
+  },
+  instructor: {
+    '@type': 'Person',
+    name: 'Laure Olivié',
+    jobTitle: 'Formatrice IA BTP',
+    sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: String(TARIF_FORFAIT_DEBUTANT_HT),
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: CALENDLY_BOOKING_URL,
+  },
+  timeRequired: 'PT4H',
+  educationalLevel: 'Beginner',
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: ['onsite', 'online'],
+    location: {
+      '@type': 'Place',
+      name: 'Île-de-France',
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Île-de-France',
+        addressCountry: 'FR',
+      },
+    },
+  },
+  audience: {
+    '@type': 'EducationalAudience',
+    educationalRole: 'Conducteur de travaux BTP',
+  },
+};
+
+/** BreadcrumbList — Accueil → Formations → page courante */
+const BREADCRUMB_JSON_LD: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Accueil',
+      item: `${BASE_URL}/`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Formations',
+      item: `${BASE_URL}/formations`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'Formation IA conducteur de travaux',
+      item: `${BASE_URL}${PATH}`,
+    },
+  ],
+};
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
@@ -126,45 +193,23 @@ const SOMMAIRE = [
   { href: '#resultats', label: 'Gains de temps mesurés' },
   { href: '#programme', label: 'Programme des formations BTP-01 et BTP-04' },
   { href: '#financement', label: 'Financement Constructys 2026' },
+  {
+    href: '#fonctions-tertiaires',
+    label: 'CDT, chargé d’affaires ou assistante de gestion : qui former ?',
+  },
   { href: '#faq', label: 'FAQ conducteurs de travaux' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
   { href: '#rdv', label: 'Réservez votre diagnostic IA gratuit' },
 ];
 
-function getConducteurTravauxCourseJsonLd() {
-  const teaches = [...new Set([...BTP01.teaches, ...BTP04.teaches])];
-  const base = getCourseSchema({
-    name: 'Formation IA pour conducteurs de travaux BTP — BTP-01 & BTP-04',
-    description: `${BTP01.description} ${BTP04.description} Public : conducteurs de travaux, chefs de chantier, chargés d'affaires.`,
-    path: PATH,
-    providerName: SITE_CONFIG.legalName,
-    teaches,
-    courseCode: 'BTP-01',
-    educationalLevel: 'Beginner',
-    timeRequired: 'PT4H',
-    areaServed: ['France', 'Île-de-France'],
-  });
-  return {
-    ...base,
-    offers: {
-      '@type': 'Offer',
-      price: TARIF_FORFAIT_DEBUTANT_HT,
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      url: `${SITE_CONFIG.url}${PATH}`,
-      category: 'Formation professionnelle',
-    },
-  };
-}
-
 export default function FormationIaConducteurTravauxPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
-  const courseJsonLd = getConducteurTravauxCourseJsonLd();
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <JsonLd data={courseJsonLd} id="jsonld-course-cdt-btp01-btp04" />
-      <JsonLd data={faqSchema} id="jsonld-faq-conducteur-travaux" />
+      <JsonLd data={COURSE_JSON_LD} id="jsonld-course-conducteur-travaux" />
+      {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-conducteur-travaux" /> : null}
+      <JsonLd data={BREADCRUMB_JSON_LD} id="jsonld-breadcrumb-conducteur-travaux" />
 
       <nav className="mb-8 text-sm text-slate-600">
         <Link href="/" className="text-[#377CF3] hover:underline">
@@ -344,8 +389,9 @@ export default function FormationIaConducteurTravauxPage() {
               transmissible au sous-traitant en 5 minutes.
             </li>
             <li>
-              <strong>Analyse GO/NO GO d&apos;appel d&apos;offres</strong> — Obtenez en 10 minutes une
-              analyse documentée pour décider si un DCE mérite d&apos;être traité.
+              <strong>PV de réception ou relevé de réserves</strong> — À partir de notes de visite ou de
+              photos, structurez un PV ou un relevé de réserves par lot (délais, responsables) — 45 min → 10
+              min.
             </li>
           </ol>
           <p className="mt-6">
@@ -407,7 +453,7 @@ export default function FormationIaConducteurTravauxPage() {
                   ['Réponse à une réclamation', '30 à 60 min', '5 à 10 min', '−85 %'],
                   ['Note de synthèse direction', '1 h', '10 à 15 min', '−85 %'],
                   ['Fiche de non-conformité', '20 à 30 min', '5 min', '−80 %'],
-                  ['Analyse GO/NO GO AO', '1 h 30', '10 min', '−90 %'],
+                  ['PV de réception / réserves', '45 à 60 min', '8 à 10 min', '−85 %'],
                 ].map(([u, sans, avec, gain]) => (
                   <tr key={u as string}>
                     <td className="border border-slate-200 p-3">{u}</td>
@@ -536,6 +582,74 @@ export default function FormationIaConducteurTravauxPage() {
           </p>
         </section>
 
+        <section id="fonctions-tertiaires" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Conducteur de travaux, chargé d&apos;affaires ou assistante de gestion : qui forme-t-on en priorité ?
+          </h2>
+          <p className="mt-4 text-slate-600 leading-relaxed">
+            Ces trois fonctions tertiaires du BTP utilisent toutes l&apos;IA, mais pour des tâches différentes.
+            Voici comment les distinguer pour choisir qui former en priorité :
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[560px] border-collapse border border-slate-200 text-left text-sm">
+              <caption className="sr-only">
+                Comparaison des gains horaires moyens par semaine selon la fonction BTP
+              </caption>
+              <thead>
+                <tr className="bg-slate-100">
+                  <th className="border border-slate-200 p-3 font-semibold">Fonction</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Cœur de métier IA</th>
+                  <th className="border border-slate-200 p-3 font-semibold">Gain horaire moyen/semaine</th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-700">
+                <tr>
+                  <td className="border border-slate-200 p-3 font-medium">Conducteur de travaux</td>
+                  <td className="border border-slate-200 p-3">
+                    Documents chantier : CR, CCTP, emails MOA, FNC, situations
+                  </td>
+                  <td className="border border-slate-200 p-3">5 à 7 heures</td>
+                </tr>
+                <tr>
+                  <td className="border border-slate-200 p-3 font-medium">Chargé d&apos;affaires</td>
+                  <td className="border border-slate-200 p-3">
+                    Avant-vente : devis, mémoires techniques, réponses DCE, relances prospects
+                  </td>
+                  <td className="border border-slate-200 p-3">4 à 6 heures</td>
+                </tr>
+                <tr>
+                  <td className="border border-slate-200 p-3 font-medium">Assistante de gestion BTP</td>
+                  <td className="border border-slate-200 p-3">
+                    Back-office : facturation avancement, relances impayés, DGD, sous-traitance, paie chantier
+                  </td>
+                  <td className="border border-slate-200 p-3">6 à 8 heures</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-6 text-slate-700 leading-relaxed">
+            <strong>Recommandation OFC</strong> : dans une PME du bâtiment de 10 à 50 salariés, le meilleur ROI
+            de la formation IA concerne d&apos;abord l&apos;assistante de gestion (volume de documents le plus
+            élevé), puis les conducteurs de travaux (pivot opérationnel), puis les chargés d&apos;affaires
+            (impact sur le taux de transformation des AO).
+          </p>
+          <p className="mt-4 text-slate-700">
+            <Link
+              href="/formation-ia-charge-affaires-btp"
+              className="font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Formation IA chargé d&apos;affaires →
+            </Link>
+            {' · '}
+            <Link
+              href="/formation-ia-assistante-gestion-btp"
+              className="font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              Formation IA assistante de gestion →
+            </Link>
+          </p>
+        </section>
+
         <section id="faq" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — conducteurs de travaux et IA</h2>
           <dl className="mt-8 space-y-8">
@@ -596,6 +710,16 @@ export default function FormationIaConducteurTravauxPage() {
             <li>
               <Link href="/blog/dossier-constructys-2026-etapes" className="text-[#377CF3] underline">
                 Constructys 2026 : monter son dossier en 20 min
+              </Link>
+            </li>
+            <li>
+              <Link href="/formation-ia-charge-affaires-btp" className="text-[#377CF3] underline">
+                Formation IA chargé d&apos;affaires BTP — devis, AO, mémoire technique
+              </Link>
+            </li>
+            <li>
+              <Link href="/formation-ia-assistante-gestion-btp" className="text-[#377CF3] underline">
+                Formation IA assistante de gestion BTP — facturation, relances, sous-traitance
               </Link>
             </li>
           </ul>

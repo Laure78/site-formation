@@ -13,7 +13,7 @@ export const LINKS = {
   /** Article pilier GEO — guide formation IA BTP 2026 */
   blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',
   /** Article MDX — guide pratique formation IA BTP 2026 (calendrier éditorial) */
-  blogFormationIaBtpGuide2026Mdx: '/blog/formation-ia-btp-guide-2026',
+  blogFormationIaBtpGuide2026Mdx: '/blog/formation-ia-btp-guide-complet-2026',
   aPropos: '/a-propos',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',

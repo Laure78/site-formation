@@ -635,6 +635,9 @@ export function buildBlogArticleJsonLd({
  * Schéma BlogPosting pour les articles `/blog/[slug]` (remplace Article sur ces pages).
  * Dates en ISO 8601 ; image URL absolue.
  */
+/** Titre affiché dans le rich result (éviter dépassement SERP). */
+const BLOG_POSTING_HEADLINE_MAX = 60;
+
 export function buildBlogPostingJsonLd({
   headline,
   description,
@@ -654,13 +657,18 @@ export function buildBlogPostingJsonLd({
   keywords?: string[];
   wordCount?: number;
 }): Record<string, unknown> {
-  const pageUrl = `${SITE_CONFIG.url}/blog/${slug}`;
+  const baseRoot = SITE_CONFIG.url.replace(/\/$/, '');
+  const pageUrl = `${baseRoot}/blog/${slug}`;
   const pubIso = dateToIso8601ForMeta(datePublished);
   const modIso = dateModified ? dateToIso8601ForMeta(dateModified) : pubIso;
+  const headlineSafe =
+    headline.length > BLOG_POSTING_HEADLINE_MAX
+      ? `${headline.slice(0, BLOG_POSTING_HEADLINE_MAX - 1).trim()}…`
+      : headline;
   const base: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    headline,
+    headline: headlineSafe,
     description,
     image: imageUrl,
     datePublished: pubIso,
@@ -668,7 +676,12 @@ export function buildBlogPostingJsonLd({
     author: {
       '@type': 'Person',
       name: SITE_CONFIG.name,
-      url: SITE_CONFIG.url,
+      url: `${baseRoot}/a-propos`,
+      jobTitle: 'Formatrice IA BTP',
+      worksFor: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.legalName,
+      },
       sameAs: LINKEDIN_PROFILE_URL,
     },
     publisher: {
@@ -676,20 +689,17 @@ export function buildBlogPostingJsonLd({
       name: SITE_CONFIG.legalName,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/logo-lo.svg`,
+        url: `${baseRoot}/logo-lo.svg`,
       },
     },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': pageUrl,
-    },
+    mainEntityOfPage: pageUrl,
     articleSection: ARTICLE_SECTION_GEO,
     keywords: mergeBlogPostingKeywords(keywords),
     inLanguage: 'fr',
     isPartOf: {
       '@type': 'Blog',
       name: 'Formation IA BTP — Ressources et articles',
-      url: `${SITE_CONFIG.url}/blog`,
+      url: `${baseRoot}/blog`,
     },
   };
   if (wordCount != null && wordCount > 0) {

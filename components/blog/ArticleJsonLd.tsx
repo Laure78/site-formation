@@ -1,9 +1,11 @@
 import { JsonLd } from '@/components/JsonLd';
-import { buildBlogArticleJsonLd } from '@/lib/seo';
+import { buildBlogPostingJsonLd } from '@/lib/seo';
 
 export type ArticleJsonLdProps = {
-  /** Titre affiché (H1 / headline Schema) */
+  /** Titre affiché (H1) */
   title: string;
+  /** Titre SEO (balise title / headline JSON-LD) — sinon `title` */
+  headline?: string;
   /** Meta description de l’article */
   description: string;
   slug: string;
@@ -17,11 +19,12 @@ export type ArticleJsonLdProps = {
 };
 
 /**
- * JSON-LD Schema.org `Article` pour `/blog/[slug]`.
+ * JSON-LD Schema.org `BlogPosting` pour `/blog/[slug]`.
  * Les articles sont définis dans `lib/blog.ts` (données statiques TypeScript + générés).
  */
 export function ArticleJsonLd({
   title,
+  headline,
   description,
   slug,
   datePublished,
@@ -31,8 +34,8 @@ export function ArticleJsonLd({
   wordCount,
   id = 'schema-blog-article',
 }: ArticleJsonLdProps) {
-  const schema = buildBlogArticleJsonLd({
-    headline: title,
+  const schema = buildBlogPostingJsonLd({
+    headline: headline ?? title,
     description,
     slug,
     datePublished,

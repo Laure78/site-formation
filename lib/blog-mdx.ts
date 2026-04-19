@@ -22,6 +22,8 @@ export type BlogMdxFaqItem = { q: string; a: string } | { question: string; answ
 
 export type BlogMdxFrontmatter = {
   title: string;
+  /** Titre HTML / Open Graph — si absent, `title` */
+  seoTitle?: string;
   description: string;
   slug: string;
   publishedAt: string;
@@ -106,8 +108,9 @@ export function buildMdxBlogMetadata(slug: string): Metadata | null {
   if (!fm) return null;
   const path = `/blog/${slug}`;
   const coverUrl = resolveMdxCoverUrl(fm.cover);
+  const metaTitle = fm.seoTitle ?? fm.title;
   return createPageMetadata({
-    title: fm.title,
+    title: metaTitle,
     description: fm.description,
     path,
     keywords: fm.keywords,
@@ -125,7 +128,7 @@ export function buildMdxBlogMetadata(slug: string): Metadata | null {
       height: 630,
       alt: fm.coverAlt,
     },
-    openGraphTitle: fm.title,
+    openGraphTitle: metaTitle,
     openGraphDescription: fm.description,
   });
 }

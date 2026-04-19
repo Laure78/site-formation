@@ -577,7 +577,7 @@ export default function FormationIAAppelsOffresBTPPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blog/ia-btp-analyse-dce" className="text-[var(--accent)] hover:underline">
+              <Link href="/blog/analyse-dce-notebooklm-claude-btp" className="text-[var(--accent)] hover:underline">
                 Analyse DCE avec l&apos;IA
               </Link>
             </li>

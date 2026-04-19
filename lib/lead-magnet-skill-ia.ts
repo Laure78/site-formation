@@ -10,7 +10,7 @@ export const SKILL_IA_LEAD_MAGNET = {
 /** Articles MDX où afficher l’encart CTA (SEO / GEO). */
 export const BLOG_SLUGS_WITH_SKILL_LEAD_MAGNET_CTA = [
   'chatgpt-btp-7-leviers-productivite-2026',
-  'formation-ia-btp-guide-2026',
+  'formation-ia-btp-guide-complet-2026',
 ] as const;
 
 export function shouldShowSkillLeadMagnetCta(slug: string): boolean {

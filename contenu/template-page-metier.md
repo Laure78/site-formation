@@ -85,7 +85,7 @@ Exemples de cibles :
 
 - Autres pages métier : `/formation-ia-plombier-btp/`, `/formation-ia-macon-btp/`, etc.
 - Pilier : `/formation-ia-btp/`
-- Blog : `/blog/ia-btp-analyse-dce`, `/blog/5-cas-usage-chatgpt-artisans-btp`
+- Blog : `/blog/analyse-dce-notebooklm-claude-btp`, `/blog/5-cas-usage-chatgpt-artisans-btp`
 - Cas d’usage : `/ia-devis-batiment`, `/formations/ia-appels-offre-btp`
 
 ---

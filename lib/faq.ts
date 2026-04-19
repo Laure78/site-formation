@@ -455,7 +455,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "Peut-on utiliser l'IA pour les marchés publics comme pour les marchés privés ?",
     a:
-      "Oui. La méthode est identique. Pour les marchés publics, l'analyse du Règlement de Consultation (RC) est particulièrement utile : l'IA extrait les critères de sélection et leurs pondérations, ce qui permet d'orienter précisément la rédaction du mémoire sur les points les mieux notés. Ressource : <a href=\"/blog/ia-btp-analyse-dce\">analyse DCE avec l'IA</a>.",
+      "Oui. La méthode est identique. Pour les marchés publics, l'analyse du Règlement de Consultation (RC) est particulièrement utile : l'IA extrait les critères de sélection et leurs pondérations, ce qui permet d'orienter précisément la rédaction du mémoire sur les points les mieux notés. Ressource : <a href=\"/blog/analyse-dce-notebooklm-claude-btp\">analyse DCE avec l'IA (NotebookLM & Claude)</a>.",
   },
   {
     q: "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",

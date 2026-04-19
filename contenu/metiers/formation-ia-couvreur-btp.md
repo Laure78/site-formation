@@ -54,7 +54,7 @@ Les photos de chantier et les relevés sur tablette se multiplient ; sans cadre,
 **Liens internes :**  
 → [Formation IA étancheur](/formation-ia-etancheur-btp/) (interface étanchéité / toiture-terrasse)  
 → [Formation IA charpente](/formation-ia-charpentier-btp/) si maillage pertinent  
-→ [Article blog analyse DCE](/blog/ia-btp-analyse-dce)
+→ [Article blog analyse DCE](/blog/analyse-dce-notebooklm-claude-btp)
 
 ---
 
