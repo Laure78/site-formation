@@ -6,6 +6,6 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-export default function FormationsLayout({ children }: { children: React.ReactNode }) {
+export default function ClaudeAiBtpLayout({ children }: { children: React.ReactNode }) {
   return <div className={poppins.className}>{children}</div>;
 }

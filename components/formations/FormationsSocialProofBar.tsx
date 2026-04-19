@@ -1,0 +1,25 @@
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+
+const ITEMS = [
+  `${formatProfessionalsTrainedCount()} pros formés`,
+  `${SOCIAL_PROOF.AVERAGE_RATING} satisfaction`,
+  '100 % finançable Constructys',
+  'Qualiopi certifié',
+] as const;
+
+export function FormationsSocialProofBar() {
+  return (
+    <div
+      className="mt-8 rounded-2xl bg-[#F8F8F8] px-4 py-6 md:px-6 md:py-8"
+      aria-label="Indicateurs de confiance"
+    >
+      <ul className="grid grid-cols-2 gap-y-5 text-center text-sm font-semibold leading-snug text-[#377CF3] md:flex md:divide-x md:divide-[#377CF3]/25 md:py-1 md:text-base">
+        {ITEMS.map((label) => (
+          <li key={label} className="flex min-h-[2.5rem] items-center justify-center px-2 md:flex-1 md:px-4">
+            {label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
