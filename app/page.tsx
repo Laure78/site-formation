@@ -29,7 +29,7 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_ITEMS_HOME } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
@@ -106,6 +106,8 @@ export const metadata = createPageMetadata({
 const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 
 export default function HomePage() {
+  const faqSchema = getFAQSchema(FAQ_ITEMS_HOME);
+
   return (
     <div>
       {/* Hero — Formation IA BTP */}
@@ -143,7 +145,8 @@ export default function HomePage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-8 xl:gap-10">
+          {/* items-start : évite le vide en haut à droite (items-center centrait l’image dans toute la hauteur du texte gauche) */}
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-8 xl:gap-12">
             <div className="min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
                 <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
@@ -151,7 +154,7 @@ export default function HomePage() {
                 <span className="hidden text-slate-300 sm:inline">·</span>
                 <span className="hidden sm:inline">Qualiopi · Constructys</span>
               </div>
-              <h1 className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+              <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-slate-900 md:mt-5 md:text-5xl lg:text-6xl">
                 Laure Olivié — Formatrice IA BTP de référence en France
               </h1>
               <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-800 md:text-3xl lg:text-4xl">
@@ -255,18 +258,18 @@ export default function HomePage() {
               </div>
               <CitationSentence text="La formation IA BTP animée par Laure Olivié aide artisans et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
             </div>
-            <div className="min-w-0 w-full">
-              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-2xl">
-                <Image
-                  src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
-                  alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
-                  title="Formation IA BTP — présentation « L’IA au service des artisans du bâtiment » en salle"
-                  width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
-                  height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
-                  className="h-auto w-full object-cover"
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                  priority
-                />
+            <div className="min-w-0 w-full lg:sticky lg:top-24 lg:z-10 lg:self-start">
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-2xl">
+                <div className="relative aspect-video w-full">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
+                    title="Présentation animée — 6 formations IA BTP"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1291,6 +1294,7 @@ export default function HomePage() {
       </section>
 
       <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
+      {faqSchema ? <JsonLd id="schema-home-faq" schema={faqSchema} /> : null}
     </div>
   );
 }

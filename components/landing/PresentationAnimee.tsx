@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
+import { VisioDecouverteCalendlyLink } from '@/components/VisioDecouverteCalendlyLink';
 
 /**
  * Animation de présentation des 6 formations IA BTP.
@@ -121,9 +122,12 @@ export function PresentationAnimee() {
           )}
         </div>
 
-        <p className="mt-4 text-center text-xs text-slate-400">
-          Astuce : cliquez sur play dans le lecteur pour dérouler l&apos;animation.
-        </p>
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <VisioDecouverteCalendlyLink />
+          <p className="text-center text-xs text-slate-400">
+            Astuce : cliquez sur play dans le lecteur pour dérouler l&apos;animation.
+          </p>
+        </div>
       </div>
     </section>
   );

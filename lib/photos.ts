@@ -26,12 +26,12 @@ export const PHOTOS = {
     height: 509,
   },
 
-  // Photo auteur blog / cartes (LinkedIn Graz)
+  // Photo auteur blog — bloc « À propos de l'auteure » (ArticleAuthor)
   linkedinGraz: {
     src: '/images/laure-olivie-linkedin-graz.png',
     alt: 'Laure Olivié, formatrice IA BTP — auteure articles intelligence artificielle bâtiment',
-    width: 364,
-    height: 404,
+    width: 682,
+    height: 1024,
   },
   
   // Photo avec panneau LinkedIn (portrait)

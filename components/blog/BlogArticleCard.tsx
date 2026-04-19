@@ -1,11 +1,9 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import type { BlogArticle } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 import { getArticleCategory } from '@/lib/blog';
 import { BLOG_CATEGORIES } from '@/lib/blog';
-import { getBlogCardCoverSrc } from '@/lib/blog-cover';
 import { estimateWordCountForSection } from '@/lib/blog';
 
 type CardArticle = Pick<
@@ -47,7 +45,6 @@ export function BlogArticleCard({
       ? `${readingMinutes} min de lecture`
       : null;
 
-  const coverSrc = getBlogCardCoverSrc(article);
   const cat = getArticleCategory(article.slug);
   const pub = new Date(article.date);
   const updated = article.dateModified ? new Date(article.dateModified) : null;
@@ -60,17 +57,6 @@ export function BlogArticleCard({
           : 'border border-slate-200'
       }`}
     >
-      <Link href={`/blog/${article.slug}`} className="relative block aspect-[16/9] w-full overflow-hidden bg-slate-100">
-        <Image
-          src={coverSrc}
-          alt={`Illustration — ${article.title}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 672px"
-          loading={highlighted ? 'eager' : 'lazy'}
-          priority={highlighted}
-        />
-      </Link>
       <div className="p-6 md:p-8">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
           <time dateTime={article.date}>

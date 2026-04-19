@@ -1,10 +1,8 @@
 /**
- * JSON-LD @graph unique — page d'accueil uniquement (Organization + WebSite + Course + FAQ + HowTo + Service + WebPage).
- * Données alignées sur `lib/schema-constants.ts` et `FAQ_ITEMS_HOME`.
+ * JSON-LD @graph unique — page d'accueil uniquement (Organization + WebSite + Course + HowTo + Service + WebPage).
+ * Le FAQPage est injecté séparément dans `app/page.tsx` via `getFAQSchema(FAQ_ITEMS_HOME)` pour rester aligné sur la FAQ visuelle.
+ * Données alignées sur `lib/schema-constants.ts`.
  */
-import type { FAQItem } from '@/lib/faq';
-import { FAQ_ITEMS_HOME } from '@/lib/faq';
-import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_AGGREGATE_RATING_HOME,
   SCHEMA_CONTACT,
@@ -22,19 +20,6 @@ import { formatProfessionalsTrainedCount } from '@/lib/constants';
 const ANNUAIRE_LABELS_CERT =
   'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281';
 
-const FAQ_GRAPH_MAX = 14;
-
-function faqMainEntity(items: readonly FAQItem[]) {
-  return items.slice(0, FAQ_GRAPH_MAX).map((item) => ({
-    '@type': 'Question' as const,
-    name: item.q,
-    acceptedAnswer: {
-      '@type': 'Answer' as const,
-      text: faqAnswerPlainTextForSchema(item.a),
-    },
-  }));
-}
-
 export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const orgId = `${base}/#organization`;
@@ -44,7 +29,6 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const breadcrumbId = `${base}/#breadcrumb`;
   const courseId = `${base}/#course-pivot`;
   const serviceId = `${base}/#service`;
-  const faqId = `${base}/#faq`;
   const howToId = `${base}/#howto-cas-usage`;
   const imageHeroId = `${base}/#image-hero`;
 
@@ -282,11 +266,6 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
             },
           ],
         },
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': faqId,
-        mainEntity: faqMainEntity(FAQ_ITEMS_HOME),
       },
       {
         '@type': 'HowTo',
