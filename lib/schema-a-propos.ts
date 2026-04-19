@@ -73,7 +73,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
 }
 
 /** Description courte Person / ProfilePage (≈150–200 car.) — alignée contenu page À propos. */
-export const A_PROPOS_PROFILE_PERSON_DESCRIPTION = `Formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Création d'Entreprise (Qualiopi). Plus de ${formatProfessionalsTrainedCount()} professionnels formés depuis 2022, note ${SOCIAL_PROOF.AVERAGE_RATING}. Organisme finançable Constructys (OPCO BTP).`;
+export const A_PROPOS_PROFILE_PERSON_DESCRIPTION = `Formatrice IA et ChatGPT spécialisée BTP. Ancienne fondatrice et conductrice de travaux chez ALIA BTP (Guyancourt). Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi). Instructrice LinkedIn Learning. Plus de ${formatProfessionalsTrainedCount()} professionnels formés depuis 2022, note ${SOCIAL_PROOF.AVERAGE_RATING}.`;
 
 /**
  * @see https://schema.org/ProfilePage — page biographique /a-propos
@@ -87,7 +87,7 @@ export function getAProposProfilePageJsonLd(): Record<string, unknown> {
       name: 'Laure Olivié',
       jobTitle: 'Formatrice IA BTP',
       description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
-      url: `${BASE}/a-propos/`,
+      url: `${BASE}/a-propos`,
     },
   };
 }
@@ -121,23 +121,27 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   },
   sameAs: [
     'https://fr.linkedin.com/in/laure-olivie',
-    'https://www.malt.fr/profile/laureoli',
     'https://www.linkedin.com/learning/instructors/laure-olivie',
   ],
+  alumniOf: {
+    '@type': 'Organization',
+    name: 'ALIA BTP',
+    identifier: '85368731700018',
+  },
   knowsAbout: [
-    'Intelligence artificielle générative',
-    'ChatGPT pour le BTP',
-    'Formation professionnelle bâtiment',
+    'Intelligence artificielle',
+    'ChatGPT',
+    'Claude AI',
+    'Formation BTP',
+    'Devis BTP',
     "Appels d'offres BTP",
-    'Mémoire technique',
-    'Devis bâtiment',
-    'Constructys OPCO',
+    'Qualiopi',
   ],
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'Certification qualité',
-      name: 'Qualiopi',
+      name: 'Certification Qualiopi',
+      credentialCategory: 'Certification',
       recognizedBy: {
         '@type': 'Organization',
         name: 'État français',

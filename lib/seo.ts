@@ -421,7 +421,7 @@ export const FAQ_SCHEMA_MAX = 24;
 
 /**
  * Schéma FAQPage pour GEO — aligné sur le corps de page (texte des réponses sans HTML).
- * Minimum 3 questions, maximum 10 (au-delà : découper en blocs thématiques sur d’autres pages).
+ * Minimum 3 questions, maximum `FAQ_SCHEMA_MAX` (au-delà : découper en blocs thématiques sur d’autres pages).
  * Retourne `null` si moins de 3 paires valides (pas de JSON-LD FAQPage invalide).
  */
 export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
@@ -605,6 +605,7 @@ export function buildBlogArticleJsonLd({
       '@type': 'Person',
       name: SITE_CONFIG.name,
       url: `${base}/a-propos`,
+      sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
     },
     publisher: {
       '@type': 'Organization',
@@ -617,6 +618,8 @@ export function buildBlogArticleJsonLd({
     datePublished: pubIso,
     dateModified: modIso,
     image: imageUrl,
+    /** URL canonique de la page article (GEO / rich results). */
+    mainEntityOfPage: pageUrl,
     url: pageUrl,
   };
   if (wordCount != null && wordCount > 0) {

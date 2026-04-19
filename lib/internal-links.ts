@@ -61,6 +61,10 @@ export const LINKS = {
   formationConducteurTravaux: '/formation-ia-conducteur-travaux-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
+  /** Décideurs — ROI, pilotage IA PME bâtiment */
+  formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
+  /** Landing SEO — assistante administrative BTP (URL courte) */
+  formationIaAssistanteBtp: '/formation-ia-assistante-btp',
 
   // Utilitaires
   diagnostic: '/diagnostic-ia-btp',

@@ -54,7 +54,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 ];
 
 /**
- * FAQ page d'accueil — alignée avec le JSON-LD FAQPage (`lib/schema-home-unified-graph.ts`).
+ * FAQ page d'accueil — même source que le JSON-LD FAQPage (`getFAQSchema(FAQ_ITEMS_HOME)` dans `app/page.tsx`).
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {

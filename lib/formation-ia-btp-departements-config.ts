@@ -43,13 +43,32 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
   ];
 }
 
+const CAS_USAGE_FORMATION_BTP: string[] = [
+  'Structurer des devis et des relances à partir de notes terrain ou de bons de commande — le chiffrage définitif reste interne.',
+  'Accélérer les comptes rendus de réunion et les synthèses hebdomadaires chantier, avec relecture avant envoi.',
+  'Préparer des brouillons de mémoires techniques et de réponses marchés, puis lister les questions au MOE à partir d’extraits de CCTP.',
+  'Formaliser les courriers récurrents (fournisseurs, assurances, sous-traitants) avec un ton homogène.',
+  'Reformuler tableaux de suivi et rapports à partir de données que vous fournissez — sans données personnelles non anonymisées.',
+];
+
+const DEPLACEMENT_GUYANCOURT = `Le siège d’${OFC} est à Guyancourt (Yvelines) : pour une session intra dans votre département, le déplacement est inclus dans la proposition commerciale — les créneaux sont souvent calés sous trois à six semaines. En pratique, Guyancourt est à environ 30 minutes de route des principaux bassins de la petite couronne et du Grand Paris, ce qui facilite le calage des interventions en Île-de-France sans surcoût de distance disproportionné.`;
+
+function ffbCasClient(deptCode: string): string {
+  const idf = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; la FFB Île-de-France et les retours de terrain franciliens alimentent les mises en situation près de chez vous.`;
+  const idfEst = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; en Seine-et-Marne, les échanges avec la FFB IDF Est nourrissent les exemples de formation (artisans, PME, marchés publics locaux).`;
+  const grandParis = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; dans ce département, les échanges avec la FFB Grand Paris nourrissent les exemples de formation (PME, grands marchés, rénovation urbaine).`;
+  if (deptCode === '77') return idfEst;
+  if (deptCode === '92' || deptCode === '93' || deptCode === '94') return grandParis;
+  return idf;
+}
+
 /** Yvelines (78) — contenu détaillé (pilote SEO). */
 export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-yvelines-78',
-  h1: 'Formation IA BTP dans les Yvelines (78) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Yvelines (78)',
+  h1: 'Formation IA BTP en Yvelines (78) — Versailles et agglomération',
+  metaTitle: 'Formation IA BTP Yvelines — Laure Olivié · Qualiopi',
   metaDescription:
-    'Formation IA & ChatGPT pour BTP dans les Yvelines. Présentiel Guyancourt, Versailles, Saint-Germain, Mantes. 100% finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour le BTP dans les Yvelines (78). Intervention à Versailles, Saint-Quentin-en-Yvelines et Mantes-la-Jolie. Qualiopi, finançable Constructys.',
   keywords: [
     'formation IA BTP Yvelines',
     'formation ChatGPT 78',
@@ -62,13 +81,12 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   deptCode: '78',
   badgeLine: 'Yvelines (78) · Présentiel & distanciel · Qualiopi',
   cities: [
-    'Guyancourt',
     'Versailles',
-    'Saint-Germain-en-Laye',
+    'Saint-Quentin-en-Yvelines',
     'Mantes-la-Jolie',
-    'Rambouillet',
-    'Sartrouville',
     'Poissy',
+    'Guyancourt',
+    'Saint-Germain-en-Laye',
   ],
   courseName: 'Formation IA BTP Yvelines (78) — Qualiopi, finançable Constructys',
   courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, présentiel ou distanciel, devis et chantier. Certification Qualiopi, financement OPCO Constructys selon dossier. Guyancourt, Versailles, Mantes, SQY.`,
@@ -139,6 +157,14 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Pour les financements, la vigilance porte souvent sur la bonne catégorisation de l’action (intra vs inter), sur le respect des plafonds horaires Constructys et sur la cohérence entre effectifs déclarés et participants réels : ces points sont clarifiés avant signature pour éviter les surprises en fin de bilan pédagogique.`,
     `Si vous hésitez encore entre une sensibilisation courte et un module « AO » plus dense, l’appel découverte Calendly permet d’arbitrer : on croise votre secteur (public/privé), votre effectif cible et vos délais de marché — puis on verrouille une date intra ou une inscription inter selon le calendrier.`,
   ],
+  tissuBtpLocal: [
+    `Les Yvelines concentrent un tissu très large de PME et d’artisans du bâtiment et des travaux : entre bassins d’emploi denses (Versailles, Saint-Quentin-en-Yvelines), corridor vers Mantes-la-Jolie et zones mixtes autour de Poissy. Les secteurs dominants vont du second œuvre et de l’enveloppe au gros œuvre local, en passant par les réseaux et la rénovation tertiaire.`,
+    `La proximité avec le Grand Paris et La Défense se traduit par des marchés exigeants sur les délais et la documentation : mémoires techniques, comptes rendus, réponses aux appels d’offres. Les équipes jonglent entre chantier et bureau ; sans méthode commune, les relances et les dossiers s’accumulent.`,
+    `Les sessions ${OFC} s’appuient sur ce réel : exercices sur devis, CCTP et courriers — avec ChatGPT et Claude AI dans un cadre Qualiopi, relecture humaine systématique et règles de confidentialité.`,
+  ],
+  casUsageStandard: CAS_USAGE_FORMATION_BTP,
+  deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
+  casClientFfb: ffbCasClient('78'),
   faq: faqGeoBase(
     'Yvelines',
     '78',
@@ -150,9 +176,8 @@ function buildDeptConfig(opts: {
   path: string;
   deptCode: string;
   departementNom: string;
-  h1: string;
-  metaTitle: string;
-  metaDescription: string;
+  chefLieuAgglo: string;
+  triVillesMeta: string;
   keywords: string[];
   badgeLine: string;
   cities: string[];
@@ -160,15 +185,19 @@ function buildDeptConfig(opts: {
   perimetre: string;
   axes: string;
   temoignageZone: string;
+  tissuBtpLocal: string[];
 }): FormationIaBtpDeptLandingConfig {
   const { deptCode, departementNom } = opts;
   const d = `${departementNom} (${deptCode})`;
+  const h1 = `Formation IA BTP en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
+  const metaTitle = `Formation IA BTP ${opts.departementNom} — Laure Olivié · Qualiopi`;
+  const metaDescription = `Formation ChatGPT et Claude AI pour le BTP dans ${opts.departementNom} (${opts.deptCode}). Intervention à ${opts.triVillesMeta}. Qualiopi, finançable Constructys.`;
   const courseName = `Formation IA BTP ${d} — Qualiopi, finançable Constructys`;
   return {
     path: opts.path,
-    h1: opts.h1,
-    metaTitle: opts.metaTitle,
-    metaDescription: opts.metaDescription,
+    h1,
+    metaTitle,
+    metaDescription,
     keywords: opts.keywords,
     departementNom,
     deptCode,
@@ -236,6 +265,10 @@ function buildDeptConfig(opts: {
       `Les plannings intra dans le ${deptCode} se calent souvent sur des fenêtres sans production critique : nous anticipons avec vous les accès salle, les postes de démonstration et les extraits de documents anonymisés pour éviter de consommer la première heure sur des problèmes logistiques.`,
       `Si plusieurs OPCO sont présents dans votre groupe (cas de filiales), le devis distingue les publics et les conventions : l’objectif est que chaque partie sache ce qu’elle finance avant le jour J.`,
     ],
+    tissuBtpLocal: opts.tissuBtpLocal,
+    casUsageStandard: CAS_USAGE_FORMATION_BTP,
+    deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
+    casClientFfb: ffbCasClient(deptCode),
     faq: faqGeoBase(departementNom, deptCode, opts.cities.slice(0, 4).join(', ')),
   };
 }
@@ -245,10 +278,8 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
   path: '/formation-ia-btp-seine-et-marne-77',
   deptCode: '77',
   departementNom: 'Seine-et-Marne',
-  h1: 'Formation IA BTP en Seine-et-Marne (77) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Seine-et-Marne (77)',
-  metaDescription:
-    'Formation IA & ChatGPT BTP en Seine-et-Marne : Melun, Meaux, Marne-la-Vallée. Présentiel ou distanciel. Qualiopi, 100% finançable Constructys selon dossier.',
+  chefLieuAgglo: 'Melun',
+  triVillesMeta: 'Melun, Meaux et Chessy',
   keywords: [
     'formation IA BTP 77',
     'formation ChatGPT Seine-et-Marne',
@@ -257,12 +288,17 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
     'formation IA Melun',
   ],
   badgeLine: 'Seine-et-Marne (77) · Île-de-France · Qualiopi',
-  cities: ['Melun', 'Meaux', 'Chelles', 'Pontault-Combault', 'Torcy', 'Fontainebleau', 'Provins'],
+  cities: ['Melun', 'Meaux', 'Chessy', 'Fontainebleau', 'Torcy', 'Chelles', 'Provins'],
   chefLieu: 'Melun',
   perimetre:
     'de Marne-la-Vallée aux zones industrielles du nord et aux bassins plus ruraux au sud et à l’est',
   axes: 'A4, Francilienne, grands pôles de Meaux et de la Vallée',
   temoignageZone: 'en Seine-et-Marne',
+  tissuBtpLocal: [
+    `La Seine-et-Marne concentre un tissu très étendu de PME et d’artisans du bâtiment : entre Marne-la-Vallée (Chessy, secteurs à fort enjeu touristique et tertiaire), les pôles de Meaux et de Melun, et les bassins de Fontainebleau ou plus à l’est. Les entreprises y enchaînent marchés publics et privés, avec une forte composante « grands projets » et réseaux.`,
+    `Les secteurs dominants vont du gros œuvre et des terrassements aux lots second œuvre, enveloppes et rénovation. La densité d’établissements reste élevée : la concurrence sur les offres et la charge documentaire (mémoires, CR, relances) pèsent sur les équipes comme ailleurs en Île-de-France.`,
+    `Les sessions ${OFC} s’alignent sur ce réel : prompts sur vos devis et CCTP, usage de ChatGPT et Claude AI avec garde-fous Qualiopi — jamais d’envoi sans validation interne.`,
+  ],
 });
 
 /** Essonne (91) */
@@ -270,10 +306,8 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
   path: '/formation-ia-btp-essonne-91',
   deptCode: '91',
   departementNom: 'Essonne',
-  h1: 'Formation IA BTP dans l’Essonne (91) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Essonne (91)',
-  metaDescription:
-    'Formation IA & ChatGPT BTP en Essonne : Évry, Massy, Palaiseau, Corbeil. Présentiel ou visio. Organisme Qualiopi, finançable Constructys selon dossier.',
+  chefLieuAgglo: 'Évry-Courcouronnes',
+  triVillesMeta: 'Évry-Courcouronnes, Massy et Palaiseau',
   keywords: [
     'formation IA BTP 91',
     'formation ChatGPT Essonne',
@@ -282,20 +316,17 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
     'formation IA Évry',
   ],
   badgeLine: 'Essonne (91) · Île-de-France · Qualiopi',
-  cities: [
-    'Évry-Courcouronnes',
-    'Corbeil-Essonnes',
-    'Massy',
-    'Palaiseau',
-    'Yerres',
-    'Draveil',
-    'Savigny-sur-Orge',
-  ],
+  cities: ['Évry-Courcouronnes', 'Massy', 'Palaiseau', 'Corbeil-Essonnes', 'Yerres', 'Draveil', 'Savigny-sur-Orge'],
   chefLieu: 'Évry-Courcouronnes',
   perimetre:
     'Silicon Valley française, pôles universitaires, tissu de PME industrielles et de sous-traitance BTP',
   axes: 'A6, Francilienne sud, liaison Massy–Évry',
   temoignageZone: 'en Essonne',
+  tissuBtpLocal: [
+    `L’Essonne combine pôles d’ingénierie et d’enseignement supérieur (Massy, Palaiseau) avec un maillage dense de PME du bâtiment, de sous-traitance et d’artisans autour d’Évry-Courcouronnes et de Corbeil-Essonnes. Le département accueille des zones d’activité actives et des opérations de rénovation et de neuf.`,
+    `Les secteurs dominants incluent le second œuvre, les lots techniques, le gros œuvre périphérique et les travaux publics sur les grands axes. Les entreprises cherchent à tenir des délais serrés tout en produisant des devis et des dossiers marchés de qualité — d’où l’intérêt d’une méthode IA encadrée.`,
+    `Les formations ${OFC} restent ancrées sur vos documents : ChatGPT et Claude AI pour structurer les brouillons, Qualiopi pour le cadre pédagogique, relecture humaine obligatoire.`,
+  ],
 });
 
 /** Hauts-de-Seine (92) */
@@ -303,10 +334,8 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   path: '/formation-ia-btp-hauts-de-seine-92',
   deptCode: '92',
   departementNom: 'Hauts-de-Seine',
-  h1: 'Formation IA BTP dans les Hauts-de-Seine (92) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Hauts-de-Seine (92)',
-  metaDescription:
-    'Formation IA BTP & ChatGPT dans les Hauts-de-Seine : Nanterre, Boulogne, La Défense. Qualiopi, sessions 4 h, finançable Constructys selon éligibilité.',
+  chefLieuAgglo: 'Nanterre',
+  triVillesMeta: 'Nanterre, Boulogne-Billancourt et Issy-les-Moulineaux',
   keywords: [
     'formation IA BTP 92',
     'formation ChatGPT Hauts-de-Seine',
@@ -318,17 +347,22 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   cities: [
     'Nanterre',
     'Boulogne-Billancourt',
+    'Issy-les-Moulineaux',
     'Courbevoie',
     'Levallois-Perret',
     'Colombes',
     'Asnières-sur-Seine',
-    'Clamart',
   ],
   chefLieu: 'Nanterre',
   perimetre:
     'tissu dense de PME du bâtiment, proximité La Défense et Paris, forte demande sur mémoires techniques et délais courts',
   axes: 'A86, A15, boulevard périphérique ouest',
   temoignageZone: 'dans les Hauts-de-Seine',
+  tissuBtpLocal: [
+    `Les Hauts-de-Seine concentrent une concentration élevée d’entreprises du bâtiment et des travaux : entre La Défense, Nanterre et les communes riveraines, le département mêle grands marchés tertiaires, rénovation urbaine et artisanat de proximité. Le nombre d’établissements BTP y reste parmi les plus élevés d’Île-de-France.`,
+    `Les secteurs dominants incluent le second œuvre technique, les lots courants forts, l’enveloppe et les travaux en milieu occupé — avec des exigences fortes sur les délais et la qualité documentaire (mémoires, planning, CR).`,
+    `Les sessions ${OFC} s’adaptent à ce rythme : 4 h, exemples sur vos propres modèles, ChatGPT et Claude AI avec cadre Qualiopi et règles de confidentialité.`,
+  ],
 });
 
 /** Seine-Saint-Denis (93) */
@@ -336,10 +370,8 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
   path: '/formation-ia-btp-seine-saint-denis-93',
   deptCode: '93',
   departementNom: 'Seine-Saint-Denis',
-  h1: 'Formation IA BTP en Seine-Saint-Denis (93) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Seine-Saint-Denis (93)',
-  metaDescription:
-    'Formation IA & ChatGPT pour le BTP en Seine-Saint-Denis : Saint-Denis, Montreuil, Bobigny. Qualiopi, 4 h, 100% finançable Constructys selon dossier.',
+  chefLieuAgglo: 'Bobigny',
+  triVillesMeta: 'Bobigny, Saint-Denis et Montreuil',
   keywords: [
     'formation IA BTP 93',
     'formation ChatGPT Seine-Saint-Denis',
@@ -348,20 +380,17 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
     'formation IA Montreuil',
   ],
   badgeLine: 'Seine-Saint-Denis (93) · Île-de-France · Qualiopi',
-  cities: [
-    'Saint-Denis',
-    'Montreuil',
-    'Aubervilliers',
-    'Pantin',
-    'Bobigny',
-    'Drancy',
-    'Noisy-le-Grand',
-  ],
+  cities: ['Bobigny', 'Saint-Denis', 'Montreuil', 'Aubervilliers', 'Pantin', 'Drancy', 'Noisy-le-Grand'],
   chefLieu: 'Bobigny',
   perimetre:
     'Grand Paris, nombreux marchés publics de collectivités, entreprises de travaux et second œuvre très présentes',
   axes: 'A1, A3, Francilienne nord-est',
   temoignageZone: 'en Seine-Saint-Denis',
+  tissuBtpLocal: [
+    `La Seine-Saint-Denis est un moteur du Grand Paris : nombreux marchés publics, opérations de rénovation et grands projets d’aménagement. Le tissu BTP y mêle grandes entreprises, PME de travaux et artisans — avec une forte pression sur les délais et la coordination documentaire.`,
+    `Les secteurs dominants incluent le gros œuvre urbain, les réseaux, le second œuvre et les lots techniques sur opérations complexes. Les équipes gèrent souvent plusieurs chantiers en parallèle : la charge de mails, de comptes rendus et de réponses aux AO explose sans méthode.`,
+    `Les formations ${OFC} y déploient la même exigence Qualiopi qu’ailleurs : ChatGPT et Claude AI comme outils de brouillon, jamais comme substitut à la validation métier.`,
+  ],
 });
 
 /** Val-de-Marne (94) */
@@ -369,10 +398,8 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   path: '/formation-ia-btp-val-de-marne-94',
   deptCode: '94',
   departementNom: 'Val-de-Marne',
-  h1: 'Formation IA BTP dans le Val-de-Marne (94) — Qualiopi, finançable Constructys',
-  metaTitle: 'Formation IA BTP Val-de-Marne (94)',
-  metaDescription:
-    'Formation IA BTP & ChatGPT dans le 94 : Créteil, Vitry, Saint-Maur. Présentiel ou distanciel. Qualiopi, finançable Constructys pour entreprises BTP.',
+  chefLieuAgglo: 'Créteil',
+  triVillesMeta: 'Créteil, Vincennes et Vitry-sur-Seine',
   keywords: [
     'formation IA BTP 94',
     'formation ChatGPT Val-de-Marne',
@@ -383,18 +410,23 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   badgeLine: 'Val-de-Marne (94) · Île-de-France · Qualiopi',
   cities: [
     'Créteil',
+    'Vincennes',
     'Vitry-sur-Seine',
+    'Fontenay-sous-Bois',
     'Saint-Maur-des-Fossés',
     'Champigny-sur-Marne',
-    'Vincennes',
     'Ivry-sur-Seine',
-    'Nogent-sur-Marne',
   ],
   chefLieu: 'Créteil',
   perimetre:
     'lisière parisienne, rénovation urbaine, marchés mixtes public-privé, PME et artisans très sollicités',
   axes: 'A4, A86, boulevard périphérique sud-est',
   temoignageZone: 'dans le Val-de-Marne',
+  tissuBtpLocal: [
+    `Le Val-de-Marne forme une ceinture urbaine dense entre Paris et la grande couronne : Créteil, Vitry, Vincennes, Fontenay-sous-Bois — autant de bassins où les entreprises du bâtiment enchaînent rénovation, neuf et travaux en site occupé. Le tissu est majoritairement composé de PME et d’artisans, avec une part forte de marchés publics locaux.`,
+    `Les secteurs dominants incluent le second œuvre, les lots techniques, l’enveloppe et les travaux de réhabilitation. Les délais clients et la densité documentaire (relances, mémoires, CR) imposent des gains de temps sur l’écrit sans sacrifier la qualité.`,
+    `Les sessions ${OFC} y déploient la même approche : 4 h, Qualiopi, ChatGPT et Claude AI pour structurer vos brouillons — validation humaine systématique.`,
+  ],
 });
 
 /** Val-d’Oise (95) */
@@ -402,10 +434,8 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   path: '/formation-ia-btp-val-doise-95',
   deptCode: '95',
   departementNom: "Val-d'Oise",
-  h1: 'Formation IA BTP dans le Val-d’Oise (95) — Qualiopi, finançable Constructys',
-  metaTitle: "Formation IA BTP Val-d'Oise (95)",
-  metaDescription:
-    "Formation IA & ChatGPT BTP dans le Val-d'Oise : Cergy, Argenteuil, Sarcelles. Qualiopi, 4 h, finançable Constructys. Interventions en entreprise.",
+  chefLieuAgglo: 'Cergy',
+  triVillesMeta: 'Cergy, Pontoise et Argenteuil',
   keywords: [
     "formation IA BTP 95",
     "formation ChatGPT Val-d'Oise",
@@ -414,12 +444,17 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
     'formation IA Argenteuil',
   ],
   badgeLine: "Val-d'Oise (95) · Île-de-France · Qualiopi",
-  cities: ['Cergy', 'Argenteuil', 'Sarcelles', 'Garges-lès-Gonesse', 'Franconville', 'Ermont', 'Bezons'],
+  cities: ['Cergy', 'Pontoise', 'Argenteuil', 'Sarcelles', 'Garges-lès-Gonesse', 'Franconville', 'Ermont'],
   chefLieu: 'Cergy-Pontoise',
   perimetre:
     'pôles de Cergy et d’Argenteuil, tissu d’artisans et de PME du bâtiment, liaison avec le Grand Roissy et le nord francilien',
   axes: 'A15, A115, Francilienne nord',
   temoignageZone: "dans le Val-d'Oise",
+  tissuBtpLocal: [
+    `Le Val-d’Oise combine les pôles de Cergy-Pontoise, le bassin d’Argenteuil et les dynamiques du nord francilien vers Roissy : le BTP y repose sur un maillage dense de PME, d’artisans et de sous-traitants qui alimentent logements, tertiaire et équipements.`,
+    `Les secteurs dominants incluent le gros œuvre périphérique, le second œuvre, les réseaux et l’enveloppe — avec des enjeux forts de délais et de relation client / maître d’ouvrage. La documentation (devis, mémoires, relances) occupe une part croissante du temps des équipes.`,
+    `Les formations ${OFC} restent calibrées terrain : ChatGPT et Claude AI pour accélérer la mise en forme, cadre Qualiopi, déplacement depuis Guyancourt maîtrisé pour l’Île-de-France.`,
+  ],
 });
 
 /** URLs des 7 landings SEO « formation IA BTP » par département (sitemap, contrôle maillage). */

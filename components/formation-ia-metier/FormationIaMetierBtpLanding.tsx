@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
@@ -6,21 +7,34 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
-import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { getBreadcrumbSchema, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-config';
+import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 
 const OFC = "OFC Création d'Entreprise";
 
-const SOMMAIRE = [
-  { href: '#probleme', label: 'Le problème : charge documentaire et normes' },
-  { href: '#solution-ia', label: 'La solution IA : méthode et garde-fous' },
-  { href: '#prompts', label: 'Prompts ChatGPT spécifiques métier' },
-  { href: '#temoignage', label: 'Témoignage' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#liens-internes', label: 'Liens utiles' },
-  { href: '#rdv-1', label: 'Prendre rendez-vous (Calendly)' },
-];
+function sommaireForConfig(config: FormationIaMetierBtpConfig) {
+  const base: { href: string; label: string }[] = [
+    { href: '#probleme', label: 'Le problème : charge documentaire et normes' },
+    { href: '#solution-ia', label: 'La solution IA : méthode et garde-fous' },
+    ...(config.casUsageConcrets && config.casUsageConcrets.length > 0
+      ? [{ href: '#cas-usage', label: 'Cinq cas d’usage concrets' } as const]
+      : []),
+    { href: '#prompts', label: 'Prompts ChatGPT spécifiques métier' },
+    { href: '#temoignage', label: 'Témoignage' },
+    { href: '#faq', label: 'FAQ' },
+    { href: '#liens-internes', label: 'Liens utiles' },
+    { href: '#rdv-1', label: 'Calendly — rendez-vous découverte (1)' },
+    { href: '#rdv-2', label: 'Calendly — visio & financement (2)' },
+  ];
+  if (config.showAuthorBio) {
+    base.push(
+      { href: '#rdv-3', label: 'Calendly — dernier rappel (3)' },
+      { href: '#auteur', label: 'Laure Olivié — formatrice' },
+    );
+  }
+  return base;
+}
 
 function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; subtitle: string }) {
   return (
@@ -62,9 +76,15 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
   });
 
   const faqSchema = getFAQSchema(config.faq);
+  const breadcrumbJsonLd = getBreadcrumbSchema([
+    { name: 'Accueil', path: '/' },
+    { name: `Formation IA ${config.metierNomTitre} BTP`, path: config.path },
+  ]);
+  const sommaire = sommaireForConfig(config);
 
   return (
     <div className="bg-white text-slate-900">
+      <JsonLd id={`schema-breadcrumb-metier-${config.id}`} schema={breadcrumbJsonLd} />
       <JsonLd id={`schema-course-metier-${config.id}`} schema={courseJson} />
       <JsonLd id={`schema-faq-metier-${config.id}`} schema={faqSchema} />
 
@@ -92,6 +112,19 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {config.h1}
           </h1>
+          {config.coverImage ? (
+            <div className="relative mt-8 aspect-[1200/630] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
+              <Image
+                src={config.coverImage.url}
+                alt={config.coverImage.alt}
+                width={config.coverImage.width}
+                height={config.coverImage.height}
+                className="object-cover"
+                sizes="(max-width: 896px) 100vw, 896px"
+                priority
+              />
+            </div>
+          ) : null}
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
             Sessions 4 h, certifiées Qualiopi, finançable Constructys selon dossier. Plus de{' '}
@@ -108,17 +141,18 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           {config.csfePartnership && (
             <p className="mt-6 rounded-xl border border-blue-100 bg-[#F2F2F2] px-4 py-3 text-sm text-slate-700">
-              <strong className="text-slate-900">Partenariat CSFE :</strong> {OFC} est partenaire officiel de la Chambre
-              syndicale française de l&apos;étanchéité pour des actions de sensibilisation et de formation — un angle
-              unique pour les équipes étanchéité. L&apos;étude de cas FFB &amp; CSFE est accessible via le lien unique dans
-              la section « Liens utiles ».
+              <strong className="text-slate-900">Autorité métier :</strong> {OFC} est partenaire de la Chambre syndicale
+              française de l&apos;étanchéité (CSFE) pour la sensibilisation et la formation.{' '}
+              <strong className="text-slate-900">Laure Olivié a formé les équipes de la CSFE</strong> à l&apos;usage
+              responsable de l&apos;IA dans un contexte étanchéité — un repère fort pour les entreprises du secteur.
+              L&apos;étude de cas FFB &amp; CSFE est liée dans « Liens utiles ».
             </p>
           )}
 
           <nav aria-label="Sommaire" className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-              {SOMMAIRE.map(({ href, label }) => (
+              {sommaire.map(({ href, label }) => (
                 <li key={href}>
                   <a href={href} className="text-[#377CF3] underline hover:no-underline">
                     {label}
@@ -155,6 +189,23 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               ))}
             </ul>
           </section>
+
+          {config.casUsageConcrets && config.casUsageConcrets.length > 0 ? (
+            <section id="cas-usage" className="scroll-mt-24 mt-14">
+              <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+                Cinq cas d&apos;usage concrets
+              </h2>
+              <p className="mt-4 text-slate-600">
+                Exemples de tâches où les équipes gagnent du temps une fois les prompts et le cadre Qualiopi assimilés
+                — toujours avec relecture humaine.
+              </p>
+              <ol className="mt-8 list-decimal space-y-4 pl-5 text-slate-700 leading-relaxed">
+                {config.casUsageConcrets.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ol>
+            </section>
+          ) : null}
 
           <div className="mt-12">
             <CalendlyBlock
@@ -213,21 +264,43 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <section id="liens-internes" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Liens utiles</h2>
             <p className="mt-4 text-slate-600">
-              Catalogue des formations, retour d&apos;expérience étanchéité FFB/CSFE, et articles sur l&apos;IA dans le
-              BTP.
+              {config.liensUtilesIntro ??
+                "Catalogue des formations, retour d'expérience étanchéité FFB/CSFE, et articles sur l'IA dans le BTP."}
             </p>
+            {config.relatedMetierLinks && config.relatedMetierLinks.length > 0 ? (
+              <>
+                <h3 className="mt-10 font-display text-lg font-semibold text-slate-900">
+                  Formations IA — métiers proches
+                </h3>
+                <ul className="mt-4 grid gap-4 sm:grid-cols-1">
+                  {config.relatedMetierLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                      >
+                        <span className="text-slate-900">{link.title}</span>
+                        <span className="mt-3 text-sm font-normal text-slate-600">{link.description}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
             <ul className="mt-8 grid gap-4 sm:grid-cols-1">
-              <li>
-                <Link
-                  href={LINKS.etudesCas}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
-                >
-                  <span className="text-slate-900">Étude de cas FFB &amp; CSFE</span>
-                  <span className="mt-3 text-sm font-normal text-slate-600">
-                    Étanchéité — retour d&apos;expérience et formation IA.
-                  </span>
-                </Link>
-              </li>
+              {config.csfePartnership ? (
+                <li>
+                  <Link
+                    href={LINKS.etudesCas}
+                    className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  >
+                    <span className="text-slate-900">Étude de cas FFB &amp; CSFE</span>
+                    <span className="mt-3 text-sm font-normal text-slate-600">
+                      Étanchéité — retour d&apos;expérience et formation IA.
+                    </span>
+                  </Link>
+                </li>
+              ) : null}
               <li>
                 <Link
                   href={LINKS.formations}
@@ -235,18 +308,40 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 >
                   <span className="text-slate-900">Catalogue des formations</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
-                    Modules BTP-01 à BTP-05, durées et objectifs Qualiopi.
+                    Modules BTP-01 à BTP-06, durées et objectifs Qualiopi.
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={LINKS.claudeAiBtp}
+                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                >
+                  <span className="text-slate-900">Claude AI &amp; BTP</span>
+                  <span className="mt-3 text-sm font-normal text-slate-600">
+                    Interfaces, prompts et usages professionnels (Anthropic).
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={LINKS.financement}
+                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                >
+                  <span className="text-slate-900">Financement Constructys</span>
+                  <span className="mt-3 text-sm font-normal text-slate-600">
+                    Guide OPCO, éligibilité et prise en charge selon dossier.
                   </span>
                 </Link>
               </li>
               <li>
                 <Link
                   href={LINKS.blog}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
                 >
                   <span className="text-slate-900">Blog IA &amp; BTP</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
-                    Guides, cas d&apos;usage, bonnes pratiques.
+                    Articles complémentaires et guides.
                   </span>
                 </Link>
               </li>
@@ -260,6 +355,46 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               subtitle="Réservez un créneau pour une visio découverte gratuite : démonstration sur un cas type et questions financement (Constructys, OPCO)."
             />
           </div>
+
+          {config.showAuthorBio ? (
+            <>
+              <div className="mt-14">
+                <CalendlyBlock
+                  id="rdv-3"
+                  title="Troisième appel à l’action — Calendly"
+                  subtitle="Une dernière occasion de réserver un créneau : appel découverte formation IA BTP (30 min), même lien Calendly officiel."
+                />
+              </div>
+
+              <section id="auteur" className="scroll-mt-24 mt-14 rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+                <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+                  Laure Olivié — formatrice IA &amp; BTP
+                </h2>
+                <p className="mt-4 text-slate-700 leading-relaxed">
+                  <strong>{SITE_CONFIG.name}</strong> est formatrice certifiée Qualiopi pour {OFC}. Elle accompagne les
+                  entreprises du bâtiment et des travaux publics sur ChatGPT, Claude et les usages responsables de
+                  l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning, elle a formé
+                  plus de {formatProfessionalsTrainedCount()} professionnels · note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.{' '}
+                  {config.authorBioClosingLine ??
+                    'Basée en Île-de-France, elle intervient en présentiel et à distance pour les entreprises du bâtiment et des travaux publics.'}
+                </p>
+                <p className="mt-4 text-sm text-slate-600">
+                  <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
+                    À propos de la formatrice
+                  </Link>
+                  {' · '}
+                  <a
+                    href={SITE_CONFIG.linkedinProfileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-[#377CF3] hover:underline"
+                  >
+                    LinkedIn
+                  </a>
+                </p>
+              </section>
+            </>
+          ) : null}
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">
             <p>

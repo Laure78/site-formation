@@ -3,40 +3,34 @@
  */
 const TIMELINE = [
   {
-    datetime: '2012',
-    title: 'Début de carrière — terrain BTP et travaux publics',
+    datetime: '2017-2024',
+    title: 'Fondatrice et conductrice de travaux — ALIA BTP (Guyancourt)',
     body:
-      "Entrée dans la vie professionnelle sur les enjeux du bâtiment et des travaux publics : conduite de chantier, coordination, lecture de pièces et relation avec les équipes. Cette première décennie sur le terrain forge le vocabulaire et le réalisme qui structure aujourd'hui les ateliers IA.",
-  },
-  {
-    datetime: '2017',
-    title: 'Conductrice de travaux — ALIA BTP (Guyancourt, 78)',
-    body:
-      'Expérience en conduite de travaux et coordination pour ALIA BTP : devis, planning, interfaces entre corps d’état — le socle opérationnel pour illustrer les cas d’usage IA (comptes rendus, relances, structuration des échanges).',
+      "ALIA BTP : entreprise de terrassement et de revêtements extérieurs (SIRET 853 687 317 00018). Conduite de travaux, coordination, interfaces entre corps d'état et relation client — le socle opérationnel pour les ateliers IA (devis, comptes rendus, relances, structuration des échanges).",
   },
   {
     datetime: '2022',
-    title: 'Fondation d’OFC Création d’Entreprise',
+    title: 'Création d’OFC Création d’Entreprise',
     body:
-      "Création de l'organisme pour répondre à un besoin net des PME et artisans : une IA utile sur le chantier et dans l'administratif, sans jargon inutile — sessions courtes, documents réels, méthode terrain.",
+      "Organisme de formation dédié à l'IA appliquée au BTP : sessions courtes, documents réels, méthode terrain — sans jargon inutile.",
   },
   {
     datetime: '2023',
     title: 'Certification Qualiopi (NDA 11788515078)',
     body:
-      "Certification Qualiopi de l'organisme : exigence de transparence sur les programmes et les résultats — référence pour les financeurs et les OPCO, dont Constructys pour le secteur BTP.",
+      "Certification Qualiopi de l'organisme : transparence sur les programmes et les résultats — référence pour les financeurs et les OPCO (dont Constructys pour le secteur BTP). Conforme au référentiel national qualité des organismes de formation.",
   },
   {
     datetime: '2024',
-    title: 'Deux cours LinkedIn Learning · partenariats FFB',
+    title: 'Présidence d’OFC · instructrice LinkedIn Learning · partenariats FFB',
     body:
-      "Publication en tant qu'instructrice officielle sur LinkedIn Learning — deux parcours en français sur l'IA appliquée au BTP et aux TPE. Renforcement des partenariats avec la FFB (dont FFB Grand Paris) pour des publics artisans et encadrement.",
+      "Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi). Publication de deux cours sur LinkedIn Learning (IA BTP et IA pour artisans / TPE). Renforcement des partenariats avec la FFB (dont FFB Grand Paris et fédérations régionales).",
   },
   {
     datetime: '2026',
-    title: '1 592 professionnels formés · note 4,85/5',
+    title: '1 592 professionnels formés · 4,85/5 (au 17 avril 2026)',
     body:
-      "Chiffres consolidés sur les sessions OFC : satisfaction mesurée sur les feuilles d'évaluation, parcours inter et intra en Île-de-France et au-delà selon les missions.",
+      "Chiffres consolidés sur les sessions OFC : effectifs et satisfaction mesurés sur les questionnaires de fin de formation — parcours inter et intra en Île-de-France et au-delà selon les missions.",
   },
 ] as const;
 
@@ -55,8 +49,8 @@ export function AProposParcoursTimeline() {
           Parcours
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">
-          Jalons datés — formation BTP, terrain, création d’OFC, Qualiopi, LinkedIn Learning et
-          partenariats sectoriels.
+          Parcours vérifiable : ALIA BTP (terrain), OFC (formation IA, Qualiopi), LinkedIn Learning et
+          partenariats institutionnels.
         </p>
         <ol
           aria-label="Parcours Laure Olivié"
@@ -64,12 +58,7 @@ export function AProposParcoursTimeline() {
         >
           {TIMELINE.map((item) => (
             <li key={item.datetime} className="relative">
-              <time
-                dateTime={item.datetime}
-                className="text-lg font-bold text-[#377CF3] md:text-xl"
-              >
-                {item.datetime}
-              </time>
+              <p className="text-lg font-bold text-[#377CF3] md:text-xl">{item.datetime}</p>
               <h3 className="mt-2 font-display text-lg font-bold text-slate-900">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-700 md:text-base">{item.body}</p>
             </li>

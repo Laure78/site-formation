@@ -1,326 +1,279 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
+import { createClient } from '@supabase/supabase-js';
 import { SITE_CONFIG } from '@/lib/seo';
 import { formationsData } from '@/src/data/formations';
-import { getAllArticles } from '@/lib/blog';
+import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
 import { FORMATION_IA_ALL_SLUGS } from '@/lib/seo-formation-ia-hub-data';
 import { FORMATION_IA_BTP_DEPT_LANDING_PATHS } from '@/lib/formation-ia-btp-departements-config';
+import { computeBlogListing } from '@/lib/blog-index-query';
+import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
+import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
 
 function normUrl(u: string): string {
   return u.replace(/\/$/, '');
 }
 
-/** Routes additionnelles (hors blocs prioritaires) — dédoublonnées par URL. */
-function getLegacyRoutes(baseUrl: string): MetadataRoute.Sitemap {
-  return [
-    {
-      url: `${baseUrl}/llms.txt`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/etudes-de-cas/ffb-csfe`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.82,
-    },
-    { url: `${baseUrl}/expert-ia-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-    {
-      url: `${baseUrl}/outils-ia-btp`,
-      lastModified: new Date('2026-04-10'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/claude-ai-btp`,
-      lastModified: new Date('2026-04-12'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    { url: `${baseUrl}/auteur/laure-olivie`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${baseUrl}/prendre-rdv`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
-    { url: `${baseUrl}/diagnostic-ia-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/checklist-ia-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/checklist-prompts-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.88 },
-    { url: `${baseUrl}/communaute-formateurs`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
-    {
-      url: `${baseUrl}/formation-ia-travaux-publics`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    { url: `${baseUrl}/financement-constructys-100-ia-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.88 },
-    { url: `${baseUrl}/ressources/ia-btp`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    {
-      url: `${baseUrl}/ressources/ia-btp/10-cas-usage-concrets`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/ressources/skill-ia-conducteur-travaux`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/formation-ia-btp-ile-de-france`,
-      lastModified: new Date('2026-05-19'),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/formation-ia-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.98,
-    },
-    ...FORMATION_IA_BTP_DEPT_LANDING_PATHS.map((path) => ({
-      url: `${baseUrl}${path}`,
-      lastModified: new Date('2026-04-16'),
+/** Entrées `/cours/[slug]` — cours publiés (Supabase, clé anon, sans cookies). */
+async function getCoursSitemapEntries(baseUrl: string): Promise<MetadataRoute.Sitemap> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) return [];
+  try {
+    const supabase = createClient(url, key);
+    const { data, error } = await supabase
+      .from('courses')
+      .select('slug, updated_at')
+      .eq('published', true);
+    if (error || !data?.length) return [];
+    return data.map((c) => ({
+      url: `${baseUrl}/cours/${c.slug as string}`,
+      lastModified: c.updated_at ? new Date(c.updated_at as string) : new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.88 as const,
-    })),
-    {
-      url: `${baseUrl}/repondre-appels-offres-ia-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/formation-ia-appels-offres-btp`,
-      lastModified: new Date('2026-05-01'),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    { url: `${baseUrl}/formations/ia-btp-paris`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    {
-      url: `${baseUrl}/formations/ia-btp-yvelines-78`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/formations/ia-btp-saint-quentin-en-yvelines`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/formation-ia-btp-yvelines`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    { url: `${baseUrl}/formations/ia-btp-lyon`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/formations/ia-btp-bordeaux`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${baseUrl}/formations/ia-btp-lille`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    {
-      url: `${baseUrl}/formations/ia-btp-morangis`,
-      lastModified: new Date('2026-04-15'),
-      changeFrequency: 'weekly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/formations/ia-btp-longjumeau`,
-      lastModified: new Date('2026-04-15'),
-      changeFrequency: 'weekly',
-      priority: 0.88,
-    },
-    { url: `${baseUrl}/formations/ia-pme-btp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${baseUrl}/formation-ia`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.92 },
-    { url: `${baseUrl}/formation-ia/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.88 },
-    ...FORMATION_IA_ALL_SLUGS.map((slug) => ({
-      url: `${baseUrl}/formation-ia/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: slug === 'btp-paris' ? 0.93 : 0.86,
-    })),
-    {
-      url: `${baseUrl}/formation-chatgpt-artisan-electricien`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.88,
-    },
-    {
-      url: `${baseUrl}/formation-ia-electricien-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-charpentier-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-ferrailleur-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-etancheur-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-couvreur-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-vitrier-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-plombier-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-plaquiste-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-peintre-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-menuisier-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-dirigeant-pme-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-conducteur-travaux-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-conducteur-travaux`,
-      lastModified: new Date('2026-05-19'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/formation-ia-charge-affaires-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-assistante-administrative-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-pisciniste-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-paysagiste-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-macon-paysagiste-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-cloturiste-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-carreleur-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-geometre-tp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-conducteur-engins-tp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-chef-chantier-tp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-canalisateur-tp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    {
-      url: `${baseUrl}/formation-ia-macon-btp`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.89,
-    },
-    { url: `${baseUrl}/mentions-legales`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${baseUrl}/politique-confidentialite`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${baseUrl}/cgv`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${baseUrl}/reglement-interieur`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${baseUrl}/offres`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/annuaire-handicap`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
-    { url: `${baseUrl}/install-pwa`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-  ];
+      priority: 0.75 as const,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 /**
- * Sitemap App Router — exposé sur `/sitemap.xml` (MetadataRoute.Sitemap).
- *
- * Priorités demandées :
- * - 1.0 + weekly : accueil, formations (index), à propos, contact, financement
- * - 0.9 + monthly : chaque `/formations/[slug]` du catalogue (`formationsData`)
- * - 0.8 + weekly : pages piliers métier
- * - 0.7 + daily : articles `/blog/[slug]` (lastModified = date de publication)
- * - index blog : daily
+ * Pages marketing listées explicitement (hors blocs générés depuis données / registres).
+ * À tenir à jour lors de l’ajout de nouvelles landing pages publiques.
  */
-export default function sitemap(): MetadataRoute.Sitemap {
+function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute.Sitemap {
+  const entries: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; lastModified?: Date }[] = [
+    { path: '/llms.txt', priority: 0.6, changeFrequency: 'monthly' },
+    { path: '/etudes-de-cas/ffb-csfe', priority: 0.82, changeFrequency: 'monthly' },
+    { path: '/expert-ia-btp', priority: 0.85, changeFrequency: 'monthly' },
+    {
+      path: '/outils-ia-btp',
+      priority: 0.9,
+      changeFrequency: 'monthly',
+      lastModified: new Date('2026-04-10'),
+    },
+    {
+      path: '/claude-ai-btp',
+      priority: 0.9,
+      changeFrequency: 'monthly',
+      lastModified: new Date('2026-04-12'),
+    },
+    { path: '/auteur/laure-olivie', priority: 0.85, changeFrequency: 'monthly' },
+    { path: '/prendre-rdv', priority: 0.95, changeFrequency: 'weekly' },
+    { path: '/diagnostic-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/checklist-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/checklist-prompts-btp', priority: 0.88, changeFrequency: 'weekly' },
+    { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },
+    { path: '/formation-ia-travaux-publics', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/financement-constructys-100-ia-btp', priority: 0.88, changeFrequency: 'monthly' },
+    { path: '/ressources/ia-btp', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
+    { path: '/ressources/skill-ia-conducteur-travaux', priority: 0.9, changeFrequency: 'weekly' },
+    {
+      path: '/formation-ia-btp-ile-de-france',
+      priority: 0.9,
+      changeFrequency: 'weekly',
+      lastModified: new Date('2026-05-19'),
+    },
+    { path: '/formation-ia-btp', priority: 0.98, changeFrequency: 'weekly' },
+    {
+      path: '/formation-ia-btp-paris-2026',
+      priority: 0.9,
+      changeFrequency: 'weekly',
+      lastModified: new Date(),
+    },
+    { path: '/formation-ia-analyse-cctp', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/formation-ia-et-chatgpt', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/ia-conducteur-travaux', priority: 0.88, changeFrequency: 'monthly' },
+    { path: '/repondre-appels-offres-ia-btp', priority: 0.88, changeFrequency: 'weekly' },
+    {
+      path: '/formation-ia-appels-offres-btp',
+      priority: 0.9,
+      changeFrequency: 'weekly',
+      lastModified: new Date('2026-05-01'),
+    },
+    { path: '/formations/ia-btp-paris', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/formations/ia-btp-yvelines-78', priority: 0.9, changeFrequency: 'weekly' },
+    {
+      path: '/formations/ia-btp-saint-quentin-en-yvelines',
+      priority: 0.88,
+      changeFrequency: 'weekly',
+    },
+    { path: '/formation-ia-btp-yvelines', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/formations/ia-btp-lyon', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/formations/ia-btp-bordeaux', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/formations/ia-btp-lille', priority: 0.9, changeFrequency: 'weekly' },
+    {
+      path: '/formations/ia-btp-morangis',
+      priority: 0.88,
+      changeFrequency: 'weekly',
+      lastModified: new Date('2026-04-15'),
+    },
+    {
+      path: '/formations/ia-btp-longjumeau',
+      priority: 0.88,
+      changeFrequency: 'weekly',
+      lastModified: new Date('2026-04-15'),
+    },
+    { path: '/formations/ia-pme-btp', priority: 0.85, changeFrequency: 'monthly' },
+    { path: '/formation-ia', priority: 0.92, changeFrequency: 'weekly' },
+    { path: '/formation-ia/faq', priority: 0.88, changeFrequency: 'monthly' },
+    { path: '/formation-chatgpt-artisan-electricien', priority: 0.88, changeFrequency: 'monthly' },
+    { path: '/formation-ia-electricien-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-charpentier-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-ferrailleur-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-etancheur-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-couvreur-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-vitrier-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-plombier-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-plaquiste-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-peintre-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-menuisier-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-dirigeant-pme-btp', priority: 0.89, changeFrequency: 'monthly' },
+    {
+      path: '/formation-ia-dirigeant-btp',
+      priority: 0.9,
+      changeFrequency: 'monthly',
+      lastModified: new Date('2026-04-19'),
+    },
+    { path: '/formation-ia-conducteur-travaux-btp', priority: 0.89, changeFrequency: 'monthly' },
+    {
+      path: '/formation-ia-conducteur-travaux',
+      priority: 0.9,
+      changeFrequency: 'monthly',
+      lastModified: new Date('2026-05-19'),
+    },
+    { path: '/formation-ia-charge-affaires-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-assistante-administrative-btp', priority: 0.89, changeFrequency: 'monthly' },
+    {
+      path: '/formation-ia-assistante-btp',
+      priority: 0.89,
+      changeFrequency: 'monthly',
+      lastModified: new Date('2026-04-17'),
+    },
+    { path: '/formation-ia-pisciniste-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-paysagiste-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-macon-paysagiste-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-cloturiste-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-carreleur-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-geometre-tp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-conducteur-engins-tp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-chef-chantier-tp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-canalisateur-tp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-macon-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/cgv', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/reglement-interieur', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/offres', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/annuaire-handicap', priority: 0.5, changeFrequency: 'yearly' },
+    { path: '/install-pwa', priority: 0.7, changeFrequency: 'monthly' },
+  ];
+
+  return entries.map((e) => ({
+    url: `${baseUrl}${e.path}`,
+    lastModified: e.lastModified ?? now,
+    changeFrequency: e.changeFrequency,
+    priority: e.priority,
+  }));
+}
+
+function buildBlogSitemapEntries(baseUrl: string, now: Date): MetadataRoute.Sitemap {
+  const out: MetadataRoute.Sitemap = [];
+
+  out.push({
+    url: `${baseUrl}/blog`,
+    lastModified: now,
+    changeFrequency: 'daily',
+    priority: 0.75,
+  });
+
+  out.push(
+    ...getAllArticles().map((article) => ({
+      url: `${baseUrl}/blog/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: 'daily' as const,
+      priority: 0.7 as const,
+    }))
+  );
+
+  const mainListing = computeBlogListing({
+    page: 1,
+    categoryId: null,
+    q: null,
+    excludeFeatured: true,
+  });
+  for (let p = 2; p <= mainListing.totalPages; p++) {
+    out.push({
+      url: `${baseUrl}/blog/page/${p}`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.72,
+    });
+  }
+
+  for (const id of Object.keys(BLOG_CATEGORIES) as BlogCategoryId[]) {
+    const pathSlug = BLOG_CATEGORY_PATH_SLUGS[id];
+    const { totalPages } = computeBlogListing({
+      page: 1,
+      categoryId: id,
+      q: null,
+      excludeFeatured: false,
+    });
+    out.push({
+      url: `${baseUrl}/blog/categorie/${pathSlug}`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.68,
+    });
+    for (let p = 2; p <= totalPages; p++) {
+      out.push({
+        url: `${baseUrl}/blog/categorie/${pathSlug}/${p}`,
+        lastModified: now,
+        changeFrequency: 'daily',
+        priority: 0.66,
+      });
+    }
+  }
+
+  return out;
+}
+
+function dedupeByUrl(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
+  const map = new Map<string, MetadataRoute.Sitemap[number]>();
+  for (const e of entries) {
+    const key = normUrl(e.url);
+    const prev = map.get(key);
+    if (!prev) {
+      map.set(key, { ...e, url: key });
+      continue;
+    }
+    const pNew = e.priority ?? 0;
+    const pOld = prev.priority ?? 0;
+    const lmNew = e.lastModified;
+    const lmOld = prev.lastModified;
+    if (pNew > pOld) {
+      map.set(key, { ...e, url: key });
+    } else if (pNew === pOld && lmNew && lmOld && lmNew > lmOld) {
+      map.set(key, { ...e, url: key });
+    }
+  }
+  return [...map.values()];
+}
+
+/**
+ * Sitemap App Router — `/sitemap.xml` (MetadataRoute.Sitemap).
+ * Sources : catalogue formations, hub /formation-ia/[slug], landings départements, blog (+ pagination + catégories),
+ * pages marketing, cours en ligne (Supabase), métiers dynamiques `formation-ia-[metier]-btp` (registre).
+ */
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = normUrl(SITE_CONFIG.url);
-  const ts = new Date();
+  const now = new Date();
 
   const tier1Static: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: ts, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/formations`, lastModified: ts, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/a-propos`, lastModified: ts, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/contact`, lastModified: ts, changeFrequency: 'weekly', priority: 1 },
+    { url: baseUrl, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/formations`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/a-propos`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
     {
       url: `${baseUrl}/financement-constructys-formation-ia-btp`,
       lastModified: new Date('2026-04-18'),
@@ -331,44 +284,60 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const formationCatalog: MetadataRoute.Sitemap = Object.keys(formationsData).map((slug) => ({
     url: `${baseUrl}/formations/${slug}`,
-    lastModified: ts,
+    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.9 as const,
   }));
 
   const pillarPages: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/ia-devis-batiment`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/formation-ia-artisans-btp`, lastModified: ts, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/ia-devis-batiment`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/formation-ia-artisans-btp`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     {
       url: `${baseUrl}/formations/formation-ia-cctp-analyse-dce-btp`,
-      lastModified: ts,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.92,
     },
   ];
 
-  const blogIndex: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/blog`, lastModified: ts, changeFrequency: 'daily', priority: 0.75 },
-  ];
-
-  const blogArticles: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
-    url: `${baseUrl}/blog/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: 'daily' as const,
-    priority: 0.7 as const,
+  const formationIaHub: MetadataRoute.Sitemap = FORMATION_IA_ALL_SLUGS.map((slug) => ({
+    url: `${baseUrl}/formation-ia/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: slug === 'btp-paris' ? 0.93 : 0.86,
   }));
 
-  const prioritized = [
+  const deptLandings: MetadataRoute.Sitemap = FORMATION_IA_BTP_DEPT_LANDING_PATHS.map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date('2026-04-16'),
+    changeFrequency: 'weekly' as const,
+    priority: 0.88 as const,
+  }));
+
+  const dynamicMetierBtp: MetadataRoute.Sitemap = Object.keys(FORMATION_IA_METIER_DYNAMIC_REGISTRY).map(
+    (metier) => ({
+      url: `${baseUrl}/formation-ia-${metier}-btp`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.88 as const,
+    })
+  );
+
+  const blogEntries = buildBlogSitemapEntries(baseUrl, now);
+  const additional = getAdditionalMarketingRoutes(baseUrl, now);
+  const coursEntries = await getCoursSitemapEntries(baseUrl);
+
+  const merged = dedupeByUrl([
     ...tier1Static,
     ...formationCatalog,
     ...pillarPages,
-    ...blogIndex,
-    ...blogArticles,
-  ];
+    ...formationIaHub,
+    ...deptLandings,
+    ...blogEntries,
+    ...additional,
+    ...dynamicMetierBtp,
+    ...coursEntries,
+  ]);
 
-  const taken = new Set(prioritized.map((e) => normUrl(e.url)));
-
-  const legacyFiltered = getLegacyRoutes(baseUrl).filter((e) => !taken.has(normUrl(e.url)));
-
-  return [...prioritized, ...legacyFiltered];
+  return merged;
 }

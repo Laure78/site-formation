@@ -8,6 +8,7 @@ const LINKS: { href: string; label: string }[] = [
   { href: '#certifications-reconnaissances', label: 'Certifications' },
   { href: '#formations-linkedin-learning', label: 'LinkedIn Learning' },
   { href: '#clients-partenaires', label: 'Clients' },
+  { href: '#publications-interventions', label: 'Publications' },
   { href: '#zone-intervention', label: 'Zone d’intervention' },
   { href: '#faq', label: 'FAQ' },
 ];

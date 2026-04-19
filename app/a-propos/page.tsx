@@ -24,6 +24,8 @@ import { AProposParcoursTimeline } from '@/components/a-propos/AProposParcoursTi
 import { AProposStickyToc } from '@/components/a-propos/AProposStickyToc';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { A_PROPOS_NARRATIVE_PARAGRAPHS } from '@/lib/a-propos-narrative';
+import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
+import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
 
 const MALT_PROFILE_URL = 'https://www.malt.fr/profile/laureoli' as const;
 
@@ -33,19 +35,22 @@ const FAQ_A_PROPOS_COMPLET = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 const CHIFFRES_CLES_BLOCS: { highlight: string; description: string }[] = [
   {
     highlight: `${Number(SOCIAL_PROOF.PROFESSIONALS_TRAINED).toLocaleString('fr-FR')}`,
-    description: 'professionnels BTP formés (OFC — statistique officielle)',
+    description:
+      'professionnels BTP formés par OFC (chiffre consolidé au 17 avril 2026)',
   },
   {
     highlight: SOCIAL_PROOF.AVERAGE_RATING,
-    description: 'note de satisfaction moyenne (sessions évaluées)',
+    description: 'note moyenne sur les questionnaires de fin de formation',
+  },
+  {
+    highlight: '100 %',
+    description:
+      'du coût pédagogique pouvant être pris en charge par l’OPCO Constructys lorsque l’entreprise est éligible et que le dossier est conforme au barème en vigueur',
   },
   {
     highlight: 'Qualiopi',
-    description: "certification qualité depuis 2023 — NDA 11788515078 (vérifiable sur data.gouv.fr)",
-  },
-  {
-    highlight: 'Constructys',
-    description: 'formations finançables par l’OPCO du BTP selon éligibilité et dossier',
+    description:
+      'NDA 11788515078 — certification vérifiable sur l’annuaire des entreprises (data.gouv.fr)',
   },
 ];
 
@@ -120,7 +125,9 @@ export default function AProposPage() {
                 </h1>
                 <p className="mt-3 text-xl text-slate-600">
                   {formatProfessionalsTrainedCount()} professionnels du bâtiment et des travaux publics formés
-                  depuis 2022. Note {SOCIAL_PROOF.AVERAGE_RATING}. Instructrice officielle LinkedIn Learning.
+                  (au 17 avril 2026). Note {SOCIAL_PROOF.AVERAGE_RATING} sur les évaluations fin de formation.
+                  Fondatrice et présidente d&apos;OFC Création d&apos;Entreprise (Qualiopi), instructrice LinkedIn
+                  Learning. Ancienne fondatrice et conductrice de travaux chez ALIA BTP (Guyancourt).
                 </p>
 
                 <aside
@@ -144,6 +151,12 @@ export default function AProposPage() {
                       <dt className="text-sm text-slate-500">Entreprise</dt>
                       <dd className="font-semibold text-slate-900">OFC Création d&apos;Entreprise (SASU)</dd>
                     </div>
+                    <div className="sm:col-span-2">
+                      <dt className="text-sm text-slate-500">Parcours</dt>
+                      <dd className="font-semibold text-slate-900">
+                        ALIA BTP (2017-2024, SIRET 853 687 317 00018) · OFC depuis 2022 — présidence depuis 2024
+                      </dd>
+                    </div>
                     <div>
                       <dt className="text-sm text-slate-500">Certification</dt>
                       <dd className="font-semibold text-slate-900">Qualiopi (NDA 11788515078)</dd>
@@ -151,7 +164,7 @@ export default function AProposPage() {
                     <div>
                       <dt className="text-sm text-slate-500">Depuis</dt>
                       <dd className="font-semibold text-slate-900">
-                        2022 · {formatProfessionalsTrainedCount()} pros formés
+                        OFC depuis 2022 · présidence depuis 2024 · {formatProfessionalsTrainedCount()} pros formés
                       </dd>
                     </div>
                     <div>
@@ -235,6 +248,10 @@ export default function AProposPage() {
                   </li>
                 ))}
               </ul>
+              <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-slate-500">
+                Les effectifs et la satisfaction sont mis à jour périodiquement ; date de consolidation affichée :
+                <time dateTime="2026-04-17"> 17 avril 2026</time>.
+              </p>
             </div>
           </section>
 
@@ -309,9 +326,14 @@ export default function AProposPage() {
                   Constructys selon éligibilité.
                 </li>
                 <li>
-                  Laure Olivié a accompagné plus de {formatProfessionalsTrainedCount()} professionnels du secteur
-                  depuis 2022, avec une note de satisfaction moyenne affichée de {SOCIAL_PROOF.AVERAGE_RATING} sur
-                  les sessions évaluées.
+                  Laure Olivié a accompagné {formatProfessionalsTrainedCount()} professionnels du secteur via OFC
+                  au 17 avril 2026, avec une note moyenne de {SOCIAL_PROOF.AVERAGE_RATING} sur les questionnaires de
+                  fin de formation.
+                </li>
+                <li>
+                  De 2017 à 2024, elle était fondatrice et conductrice de travaux chez ALIA BTP (SIRET 853 687 317
+                  00018, Guyancourt) — terrassement et revêtements extérieurs. Depuis 2024, elle est fondatrice et
+                  présidente d&apos;OFC Création d&apos;Entreprise (organisme certifié Qualiopi, NDA 11788515078).
                 </li>
                 <li>
                   Les deux cours LinkedIn Learning de Laure Olivié — « L&apos;IA pour le BTP : des solutions
@@ -341,6 +363,21 @@ export default function AProposPage() {
               <h2 className="font-display text-center text-2xl font-bold text-slate-900 md:text-3xl">
                 Certification &amp; labels
               </h2>
+              <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600">
+                Numéro de déclaration d&apos;activité (NDA) :{' '}
+                <strong className="text-slate-800">11788515078</strong> — organisme conforme au référentiel national
+                qualité des actions de formation.
+              </p>
+              <p className="mx-auto mt-2 max-w-xl text-center text-sm">
+                <a
+                  href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+                >
+                  {EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.label}
+                </a>
+              </p>
               <div className="mt-10 flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-12">
                 <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
                   <Image
@@ -582,19 +619,58 @@ export default function AProposPage() {
             </div>
           </section>
 
-          {/* Médias — emplacement */}
+          {/* Publications & interventions (E-E-A-T) */}
           <section
-            id="medias-presse"
-            className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-0 py-12"
-            aria-labelledby="titre-medias"
+            id="publications-interventions"
+            className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-0 py-16"
+            aria-labelledby="titre-publications"
           >
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 id="titre-medias" className="font-display text-2xl font-bold text-slate-900">
-                Médias &amp; presse
+            <div className="mx-auto max-w-3xl px-4">
+              <h2
+                id="titre-publications"
+                className="font-display text-center text-2xl font-bold text-slate-900 md:text-3xl"
+              >
+                Publications &amp; interventions
               </h2>
-              <p className="mt-3 text-slate-600">
-                Section réservée aux mentions presse, podcasts et articles — logos et liens à ajouter lorsque les
-                supports seront listés.
+              <p className="mt-3 text-center text-sm text-slate-600">
+                Contenus publics vérifiables — priorité aux sources primaires (plateforme éditoriale, organismes
+                partenaires).
+              </p>
+
+              <h3 className="mt-10 font-display text-lg font-bold text-slate-900">Cours LinkedIn Learning</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                Laure Olivié est instructrice officielle sur{' '}
+                <a
+                  href="https://www.linkedin.com/learning/instructors/laure-olivie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+                >
+                  LinkedIn Learning
+                </a>{' '}
+                — deux parcours en français :
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-800">
+                {LINKEDIN_LEARNING_A_PROPOS_EMBEDS.map((c) => (
+                  <li key={c.courseHref}>
+                    <a
+                      href={c.courseHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+                    >
+                      {c.courseLabel}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <h3 className="mt-10 font-display text-lg font-bold text-slate-900">Conférences &amp; médias</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                Les interventions en présentiel (réseau FFB, fédérations, organismes listés dans « Ils me font
+                confiance ») donnent lieu à des feuilles d&apos;émargement et bilans côté partenaire. Les reprises
+                presse ou podcasts pourront être référencées ici avec lien source dès qu&apos;un inventaire
+                consolidé sera publié.
               </p>
             </div>
           </section>
@@ -659,7 +735,7 @@ export default function AProposPage() {
 
           <footer className="border-t border-slate-200 bg-white px-0 py-8 text-center text-sm text-slate-500">
             Profil mis à jour le{' '}
-            <time dateTime="2026-04-18">18 avril 2026</time> · Version 2.3
+            <time dateTime="2026-04-17">17 avril 2026</time> · Version 2.3
           </footer>
 
           <section className="bg-white px-0 py-12">

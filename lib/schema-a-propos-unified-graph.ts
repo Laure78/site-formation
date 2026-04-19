@@ -50,7 +50,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     honorificPrefix: 'Mme',
     jobTitle: 'Formatrice IA BTP',
     description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
-    url: `${PAGE_URL}/`,
+    url: PAGE_URL,
     image: `${BASE}/images/laure-portrait-pro-2026.png`,
     telephone: SCHEMA_CONTACT.phone,
     email: SCHEMA_CONTACT.email,
@@ -66,26 +66,30 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       addressCountry: SCHEMA_GEO.addressCountry,
     },
     worksFor: { '@id': `${BASE}/#organization` },
+    alumniOf: {
+      '@type': 'Organization',
+      name: 'ALIA BTP',
+      identifier: '85368731700018',
+    },
     sameAs: [
       'https://fr.linkedin.com/in/laure-olivie',
-      'https://www.malt.fr/profile/laureoli',
       'https://www.linkedin.com/learning/instructors/laure-olivie',
     ],
     knowsAbout: [
-      'Intelligence artificielle générative',
-      'ChatGPT pour le BTP',
-      'Formation professionnelle bâtiment',
+      'Intelligence artificielle',
+      'ChatGPT',
+      'Claude AI',
+      'Formation BTP',
+      'Devis BTP',
       "Appels d'offres BTP",
-      'Mémoire technique',
-      'Devis bâtiment',
-      'Constructys OPCO',
+      'Qualiopi',
     ],
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Formatrice IA spécialisée BTP',
       occupationLocation: { '@type': 'City', name: 'Guyancourt' },
       skills:
-        'Intelligence artificielle, ChatGPT, formation professionnelle, appels d’offres BTP, devis bâtiment, Qualiopi',
+        'Intelligence artificielle, ChatGPT, Claude AI, formation BTP, appels d’offres BTP, devis BTP, Qualiopi',
     },
     award: [
       'Certification Qualiopi — organisme de formation (NDA 11788515078)',
@@ -97,8 +101,8 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     hasCredential: [
       {
         '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Certification qualité',
-        name: 'Qualiopi',
+        credentialCategory: 'Certification',
+        name: 'Certification Qualiopi',
         recognizedBy: { '@type': 'Organization', name: 'État français' },
       },
     ],
@@ -166,10 +170,10 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
   const profilePage: Record<string, unknown> = {
     '@type': 'ProfilePage',
     '@id': PROFILE_PAGE_ID,
-    url: `${PAGE_URL}/`,
+    url: PAGE_URL,
     name: 'Laure Olivié — Formatrice IA BTP (Qualiopi, FFB, LinkedIn Learning)',
     dateCreated: '2022-01-15T12:00:00+01:00',
-    dateModified: '2026-04-18T12:00:00+01:00',
+    dateModified: '2026-04-17T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },
     speakable: {
       '@type': 'SpeakableSpecification',

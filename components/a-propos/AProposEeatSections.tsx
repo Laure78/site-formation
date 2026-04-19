@@ -7,6 +7,7 @@ import {
   LINKEDIN_LEARNING_A_PROPOS_EMBEDS,
   LINKEDIN_LEARNING_INSTRUCTOR_HREF,
 } from '@/lib/linkedin-learning-a-propos-embeds';
+import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { SOCIAL_PROOF } from '@/lib/constants';
 
@@ -21,40 +22,35 @@ const formesNombreAffiche =
 
 const PARCOURS = [
   {
-    year: '2014',
-    text: 'Début de carrière en formation professionnelle BTP',
-  },
-  {
-    year: '2017',
-    text: "Création d'ALIA BTP — conduite de chantier travaux publics",
+    year: '2017-2024',
+    text: "ALIA BTP (SIRET 853 687 317 00018, Guyancourt) — fondatrice et conductrice de travaux : terrassement et revêtements extérieurs.",
   },
   {
     year: '2022',
-    text: "OFC Création d'Entreprise — spécialisation formation IA",
+    text: "Création d'OFC Création d'Entreprise — formation IA BTP, démarche Qualiopi.",
   },
   {
     year: '2023',
-    text: 'Certification Qualiopi obtenue',
+    text: 'Certification Qualiopi (NDA 11788515078) — référentiel national qualité.',
   },
   {
     year: '2024',
-    text: 'Partenariats FFB Grand Paris et FFB Île-de-France',
-  },
-  {
-    year: '2025',
-    text: 'Publication de 2 cours sur LinkedIn Learning',
+    text: "Présidence d'OFC — instructrice LinkedIn Learning (2 cours) — partenariats FFB.",
   },
   {
     year: '2026',
-    text: `${formesNombreAffiche} professionnels formés — note ${SOCIAL_PROOF.AVERAGE_RATING}`,
+    text: `${formesNombreAffiche} professionnels formés au 17 avril 2026 — note ${SOCIAL_PROOF.AVERAGE_RATING} (évaluations fin de formation).`,
   },
 ] as const;
 
 const REF_TABLE = [
-  { label: 'Professionnels formés', value: formesNombreAffiche },
-  { label: 'Note de satisfaction', value: SOCIAL_PROOF.AVERAGE_RATING },
+  { label: 'Professionnels formés (arrêté au 17 avril 2026)', value: formesNombreAffiche },
+  { label: 'Note de satisfaction (questionnaires fin de formation)', value: SOCIAL_PROOF.AVERAGE_RATING },
+  {
+    label: 'Financement OPCO Constructys',
+    value: "Jusqu'à 100 % du coût pédagogique selon barème et éligibilité",
+  },
   { label: 'Partenaires institutionnels', value: '8+' },
-  { label: "Années d'expérience BTP", value: '10+' },
   { label: 'Cours LinkedIn Learning', value: '2' },
 ] as const;
 
@@ -131,6 +127,17 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
                 Certifiée Qualiopi (NDA 11788515078)
               </p>
+              <p className="mt-2 max-w-xs text-xs leading-relaxed text-slate-600">
+                Conforme au référentiel national qualité des actions de formation.
+              </p>
+              <Link
+                href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 text-xs font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                {EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.label}
+              </Link>
             </li>
             <li className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
               <div className="flex h-20 w-full max-w-[220px] items-center justify-center">

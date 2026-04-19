@@ -1,38 +1,13 @@
 /**
  * Landings « formation IA BTP » par métier — contenu + métadonnées + FAQ + teaches (Course JSON-LD).
  */
-import type { FAQItem } from '@/lib/faq';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { SITE_CONFIG } from '@/lib/seo';
 import { createPageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
+import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 
-export type FormationIaMetierBtpConfig = {
-  /** ex. etancheur — pour IDs JSON-LD */
-  id: string;
-  path: `/formation-ia-${string}-btp`;
-  h1: string;
-  metaTitle: string;
-  metaDescription: string;
-  keywords: string[];
-  metierNom: string;
-  metierNomTitre: string;
-  /** Référence normative affichée (DTU, NF C, etc.) */
-  normeRef: string;
-  problemParagraphs: string[];
-  solutionIntro: string;
-  prompts: { title: string; body: string }[];
-  /** Bloc partenariat CSFE (uniquement étancheur) */
-  csfePartnership: boolean;
-  testimonialQuote: string;
-  testimonialAttribution: string;
-  faq: FAQItem[];
-  courseName: string;
-  courseDescription: string;
-  courseTeaches: string[];
-  /** Image OG optionnelle */
-  ogImage?: { url: string; width: number; height: number; alt: string };
-};
+export type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -59,41 +34,20 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
   });
 }
 
-function faqNormeTriple(opts: {
-  normeRef: string;
-  metierNom: string;
-  docTypes: string;
-}): FAQItem[] {
-  const { normeRef, metierNom, docTypes } = opts;
-  return [
-    {
-      q: `ChatGPT connaît-il ${normeRef} ?`,
-      a: `Non de façon fiable : les modèles généralistes peuvent résumer des principes ou proposer une structure, mais ils hallucinent sur les paragraphes, les versions et les exceptions. Il faut toujours croiser avec le texte officiel, les avis techniques du CSTB et les notices fabricants. L’IA sert à structurer vos notes et brouillons — la conformité reste votre responsabilité en tant que professionnel ${metierNom}.`,
-    },
-    {
-      q: `Comment l’IA aide pour les avis techniques et ${docTypes} ?`,
-      a: `Elle peut : lister des questions à poser au MOE, reformuler une synthèse de risques, préparer un plan de mémoire technique ou un sommaire de PPSPS à partir de vos bullet points — jamais remplacer la lecture des pièces. Pour les dossiers sensibles, on travaille sur extraits anonymisés et poste professionnel adapté (confidentialité).`,
-    },
-    {
-      q: `Mes données chantier (${metierNom}) sont-elles sécurisées avec ChatGPT ?`,
-      a: `Les offres grand public peuvent réutiliser les contenus pour l’entraînement : évitez d’y coller des données nominatives, des plans complets identifiables ou des montants de marché. Préférez ChatGPT Team / Enterprise avec option « no training », ou des solutions françaises — c’est un point systématique des sessions ${OFC}.`,
-    },
-  ];
-}
-
-/** Étancheur — angle CSFE + DTU 43 */
+/** Étancheur — angle CSFE + DTU 43 + vocabulaire produits (Soprema, Siplast, Axter cités sans préférence) */
 export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   id: 'etancheur',
   path: '/formation-ia-etancheur-btp',
-  h1: 'Formation IA pour étancheurs — Partenariat CSFE, Qualiopi',
-  metaTitle: 'Formation IA étancheur BTP — CSFE & Qualiopi',
+  h1: 'Formation IA étancheur BTP — ChatGPT, CSFE & Qualiopi',
+  metaTitle: 'Formation IA étancheur BTP — ChatGPT étanchéité, IA bardage, CSFE',
   metaDescription:
-    'Formation IA & ChatGPT pour étancheurs BTP : DTU 43, avis techniques, mémoires, PPSPS, CR chantier. Partenaire CSFE. Qualiopi, finançable Constructys. Île-de-France.',
+    'Formation IA étancheur BTP : ChatGPT pour l’étanchéité bitumineuse (SEL, SBS), membranes EPDM, relevés, bardage. Laure Olivié a formé la CSFE. Mémoires, DTU 43, AO. Qualiopi, Constructys.',
   keywords: [
-    'formation IA étancheur',
+    'formation IA étancheur BTP',
     'ChatGPT étanchéité',
-    'DTU 43 IA',
-    'CSFE formation IA',
+    'IA bardage',
+    'formation IA CSFE',
+    'DTU 43',
     'mémoire technique étanchéité',
     'Qualiopi étancheur',
     'Constructys BTP',
@@ -102,39 +56,36 @@ export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   metierNomTitre: 'étancheur',
   normeRef: 'le DTU 43',
   problemParagraphs: [
-    `Les entreprises d’étanchéité jonglent entre chantier et bureau : mémoires techniques qui citent le ${'`'}DTU 43${'`'} et les avis techniques (CSTB, systèmes), plans de prévention (PPSPS) alignés sur les interfaces avec le gros œuvre et le second œuvre, comptes rendus de réunion ou de contrôle après intempéries, relances et courriers pour les réserves.`,
-    `Chaque dossier mobilise des pièces lourdes : CCTP étanchéité, prescriptions sur relevés, points singuliers (solin, lanterneau, équipements techniques), parfois plusieurs langues ou versions de notice. Sans méthode, l’équipe recopie, reformule à la main ou éparpille les brouillons dans des fils de mails.`,
-    `Les marchés publics et les donneurs d’ordre exigeants demandent des écrits clairs et traçables : une IA mal utilisée produit du texte « lisse » mais faux sur un détail de nappe ou de protection mécanique ; une formation encadrée Qualiopi apprend à poser le cadre : sources, relecture humaine, interdiction de soumettre un texte non validé.`,
-    `Enfin, le temps perdu sur Word et Excel le soir se traduit par moins de réponses aux appels d’offres et plus de stress sur les délais. L’objectif des sessions ${OFC} est de récupérer plusieurs heures par semaine sur la structuration et la reformulation, sans compromettre le référentiel technique.`,
+    `Les entreprises d’étanchéité jonglent entre chantier et bureau : mémoires techniques qui citent le ${'`'}DTU 43${'`'} et les avis techniques (CSTB, systèmes), plans de prévention (PPSPS) alignés sur les interfaces avec le gros œuvre et le second œuvre, comptes rendus après intempéries, relances et courriers pour les réserves. Le vocabulaire métier est dense : étanchéité bitumineuse (feutres SEL, SBS), membranes synthétiques type EPDM, relevés, platines, chéneaux, points singuliers — chaque dossier doit rester précis.`,
+    `Chaque pièce mobilise des prescriptions lourdes : CCTP étanchéité, notices fabricants (Soprema, Siplast, Axter sont des marques couramment rencontrées sur les chantiers — sans ordre de préférence), plans de détail. Sans méthode, l’équipe recopie ou éparpille les brouillons dans des fils de mails.`,
+    `Les marchés publics et bardage / second œuvre exigent des écrits clairs : une IA mal cadrée produit du texte « lisse » mais faux sur un détail de nappe ou de fixation. La formation Qualiopi apprend à poser le cadre : sources, relecture humaine, texte jamais envoyé sans validation.`,
+    `Le temps perdu le soir sur Word se traduit par moins de réponses aux appels d’offres. Les sessions ${OFC} visent à récupérer plusieurs heures par semaine sur la structuration et la reformulation, sans compromettre le référentiel technique.`,
   ],
-  solutionIntro: `La formation « L’IA au service du bâtiment » (et modules du catalogue) s’adapte aux cas étanchéité : vous importez vos contraintes réelles (toiture-terrasse, végétalisée, infrastructure) et vous apprenez à produire des brouillons exploitables — tableaux de risques, listes de contrôles, plans de mémoire — avec validation systématique par le chef de travaux ou le dirigeant.`,
+  solutionIntro: `La formation « L’IA au service du bâtiment » (et modules du catalogue) s’adapte aux cas étanchéité et toiture-terrasse : vous importez vos contraintes réelles (végétalisée, infrastructure, bardage) et vous apprenez à produire des brouillons exploitables — tableaux de risques, listes de contrôles, plans de mémoire — avec validation par le chef de travaux ou le dirigeant.`,
   prompts: [
     {
-      title: 'Chiffrage indicatif toiture-terrasse (métré + couches)',
-      body: `Tu es chef de projet étanchéité en France. À partir des données suivantes, propose UNIQUEMENT un ordre de grandeur et une liste de postes à vérifier (pas d’engagement contractuel) :
-- Surface horizontale : [X] m², relevés [H] cm en moyenne, périmètre [P] ml
-- Système : [bitume / synthétique / résine — préciser]
-- Points singuliers : [liste : acrotères, équipements, passages]
-Calcule surfaces avec taux de chutes indicatif [10–15 %] selon complexité, linéaires de joints/solins à prévoir en ordre de grandeur, et un tableau matière/MO à compléter avec nos prix internes. Rappelle : vérifier DTU 43.x, notices fabricant et CCTP.`,
+      title: 'Analyse CCTP — exigences étanchéité (lot courants / points singuliers)',
+      body: `Voici un extrait de CCTP étanchéité (texte) : [COLLEZ L’EXTRAIT].
+Liste les exigences par sous-partie : performances, interfaces avec autres corps, essais, relevés, platines, chéneaux, essais d’étanchéité. Sous chaque point ambigu, propose 2–3 questions à poser au maître d’œuvre. Rappel : ne pas conclure sur la conformité — validation sur fascicule DTU 43.x et avis techniques.`,
+    },
+    {
+      title: 'Devis et méthode — toiture-terrasse (ordre de grandeur)',
+      body: `Tu es chef de projet étanchéité en France. Données : surface [X] m², relevés [H] cm, périmètre [P] ml, type de système [bitume SBS/APP, EPDM, résine — préciser], points singuliers [liste].
+Propose UNIQUEMENT un ordre de grandeur des postes (m², ml, taux de chutes indicatif 10–15 %), un tableau des vérifications à faire sur plan, et les lignes à compléter avec nos prix internes. Rappelle : croiser CCTP, DTU 43.x et notices fabricants (ex. gammes du type Soprema, Siplast, Axter selon le marché — sans recommander une marque).`,
+    },
+    {
+      title: 'Mémoire technique — appel d’offres bardage / étanchéité associée',
+      body: `Marché public : lot bardage ou enveloppe avec interface étanchéité. Critères notés : [LISTE]. Mon entreprise : [taille, moyens, références anonymisées].
+Propose un plan de mémoire technique (titres + 2 bullets par titre) : méthode d’exécution, coordination avec l’étanchéité, sécurité, délais, environnement. Reformuler sans copier le CCAP. Prévoir une section interfaces relevés / platines si le CCTP l’exige.`,
     },
     {
       title: 'Compte rendu de visite étanchéité (humide / réserves)',
-      body: `Rédige un compte rendu professionnel de visite d’étanchéité à partir de ces notes brutes : [NOTES].
-Structure : contexte chantier, observations par zone (avec références plan si fourni), réserves formulées de façon factuelle, demandes de précisions MOE, prochaines étapes et délais. Ton sec, sans attribution de faute. Ne pas inventer de références normatives : insérer [à compléter] si une norme est mentionnée sans numéro.`,
+      body: `Rédige un compte rendu professionnel à partir de ces notes brutes : [NOTES].
+Structure : contexte chantier, observations par zone, réserves factuelles, demandes de précisions MOE, prochaines étapes. Ton sec. Ne pas inventer de références normatives : [à compléter] si besoin.`,
     },
     {
-      title: 'Analyse CCTP — extraction exigences étanchéité',
-      body: `Voici un extrait de CCTP étanchéité (texte) : [COLLEZ L’EXTRAIT].
-Liste les exigences par lot/sous-partie : performances attendues, interfaces avec autres corps, essais, remises de plans/DOE. Sous chaque point, propose 2–3 questions de clarification à poser au maître d’œuvre si la rédaction est ambiguë. Rappel : ne pas conclure sur la conformité : je valide sur le document complet et le DTU applicable.`,
-    },
-    {
-      title: 'Plan de section pour mémoire technique (méthode)',
-      body: `Je réponds à un marché public étanchéité. Critères notés : [LISTE]. Mon entreprise : [TAILLE, savoir-faire, références anonymisées].
-Propose un plan de mémoire (titres + 2 bullets par titre) qui répond aux critères, avec renvois types « moyens humains / méthode / sécurité / environnement ». Pas de copier-coller de texte du CCAP : reformuler.`,
-    },
-    {
-      title: 'PPSPS — aide à la structuration (brouillon)',
-      body: `À partir du périmètre suivant : [TYPE DE CHANTIER, durée, effectifs], propose une structure de PPSPS (titres et sous-parties) adaptée au lot étanchéité : risques spécifiques (feu, produits, hauteur), coordination avec autres lots, plan de reprise des étanchéités. Je compléterai avec les données réelles et la validation de l’OPPBTP.`,
+      title: 'PPSPS — structure (lot étanchéité / hauteur)',
+      body: `Périmètre : [TYPE DE CHANTIER, durée, effectifs]. Propose une structure de PPSPS (titres) adaptée au lot étanchéité : produits, feu, hauteur, coordination. Je compléterai avec les données réelles et l’OPPBTP.`,
     },
   ],
   csfePartnership: true,
@@ -142,346 +93,355 @@ Propose un plan de mémoire (titres + 2 bullets par titre) qui répond aux crit�
   testimonialAttribution: `${CSFE_NOM_LIBRE} — message de cadre partenarial pédagogique (OFC partenaire formation)`,
   faq: [
     {
-      q: 'ChatGPT connaît-il la DTU 43 ?',
-      a: `Non de façon fiable : il peut résumer des principes ou proposer un plan de lecture, mais il invente parfois des références ou des versions. Il faut toujours travailler avec le fascicule officiel, les avis techniques CSTB et les notices des systèmes. L’IA sert à structurer vos brouillons et listes de contrôle — la conformité reste votre responsabilité.`,
+      q: 'ChatGPT connaît-il la DTU 43 et le vocabulaire étanchéité (SEL, SBS, EPDM) ?',
+      a: `Non de façon fiable pour trancher seul : il peut proposer une structure ou un plan de lecture, mais il hallucine sur les paragraphes, versions et exceptions. Travaillez avec le fascicule officiel, les avis techniques CSTB et les notices des systèmes (bitumineux SEL/SBS, membranes EPDM, etc.). L’IA sert à structurer vos brouillons — la conformité reste votre responsabilité.`,
     },
     {
-      q: 'Comment l’IA aide pour les avis techniques ?',
-      a: `Elle peut : extraire des questions à poser au bureau d’études, classer des risques par priorité, reformuler une synthèse pour un courrier — à partir d’extraits que vous fournissez. Elle ne substitue pas l’examen du dossier technique ni la décision sur le système à proposer.`,
+      q: 'Comment utiliser ChatGPT pour l’étanchéité et l’IA bardage sur un même dossier ?',
+      a: `En séparant les lots dans vos prompts : interfaces entre bardage et étanchéité (relevés, platines, solins), planning de coordination et questions MOE. L’IA aide à lister les points à clarifier ; elle ne remplace pas la lecture du CCTP ni le choix des systèmes validés par avis.`,
     },
     {
-      q: 'Mes données chantier étanchéité sont-elles sécurisées ?',
-      a: `Avec un outil grand public sans cadre entreprise, il faut éviter d’y coller des plans complets nominatifs, des adresses précises ou des montants de marché. Utilisez des extraits anonymisés, des comptes professionnels (Team/Enterprise sans entraînement) ou des offres françaises — c’est détaillé en formation ${OFC}.`,
+      q: 'Laure Olivié a-t-elle formé la CSFE (Chambre syndicale française de l’étanchéité) ?',
+      a: `Oui : des sessions de formation IA ont été dispensées pour les équipes et le réseau ${CSFE_NOM_LIBRE}, ce qui renforce la cohérence des exemples avec les enjeux des étanchéistes — le dispositif reste certifié Qualiopi et les validations techniques en entreprise.`,
     },
     {
-      q: 'En quoi le partenariat CSFE change-t-il la formation ?',
-      a: `Il permet d’aligner les exemples sur les enjeux des étanchéistes (interfaces, marchés publics, documentation) et de valoriser un cadre professionnel reconnu — le programme reste certifié Qualiopi et les validations techniques restent en entreprise.`,
+      q: 'Mes données chantier (plans, relevés) sont-elles sécurisées avec ChatGPT ?',
+      a: `Évitez les plans nominatifs complets et les montants dans un outil grand public sans cadre entreprise. Utilisez des extraits anonymisés, ChatGPT Team / offres sans entraînement, ou des solutions européennes — c’est détaillé en formation ${OFC}.`,
+    },
+    {
+      q: 'En quoi le partenariat CSFE et la formation IA CSFE sur cette page sont-ils liés ?',
+      a: `Le partenariat permet d’aligner les cas d’usage sur la réalité des adhérents (documentation, marchés publics, étanchéité bitumineuse et synthétique). La formation proposée ici est la même offre Qualiopi ${OFC}, avec un angle métier étancheur — pas un cours « CSFE » distinct, mais un contenu cohérent avec le réseau professionnel.`,
+    },
+    {
+      q: 'Soprema, Siplast ou Axter : l’IA peut-elle choisir la bonne gamme ?',
+      a: `Non : les choix de systèmes et de gammes relèvent du bureau d’études, des avis techniques et de votre entreprise. L’IA peut aider à structurer un comparatif de critères ou des questions à poser au fabricant — jamais à substituer la notice ou l’avis CSTB.`,
     },
   ],
-  courseName: 'Formation IA pour étancheurs BTP — partenariat CSFE, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, avis techniques, PPSPS, comptes rendus. Partenaire ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier. Île-de-France et France.`,
+  courseName: 'Formation IA étancheur BTP — partenariat CSFE, Qualiopi',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier. Île-de-France et France.`,
   courseTeaches: [
     'ChatGPT pour étancheurs BTP',
     'Méthodes IA et DTU 43 (relecture humaine)',
-    'Mémoires techniques et CCTP étanchéité',
+    'Mémoires techniques, CCTP étanchéité et interfaces bardage',
     'Comptes rendus et PPSPS (structuration)',
     'Avis techniques CSTB — usage assisté',
     'Qualiopi — confidentialité des données chantier',
   ],
+  ogImage: {
+    url: '/images/formation-ia-etancheur-btp-og.png',
+    width: 1200,
+    height: 630,
+    alt: 'Étanchéité sur toiture-terrasse — formation IA BTP Laure Olivié',
+  },
+  coverImage: {
+    url: '/images/formation-ia-etancheur-btp-og.png',
+    width: 1200,
+    height: 630,
+    alt: 'Technicien en étanchéité sur toiture-terrasse — contexte formation IA BTP',
+  },
+  showAuthorBio: true,
+  authorBioClosingLine:
+    'Basée en Île-de-France, elle intervient notamment auprès des équipes étanchéité et du réseau CSFE (partenariat).',
+  relatedMetierLinks: [
+    {
+      href: '/formation-ia-couvreur-btp',
+      title: 'Formation IA couvreur zingueur',
+      description: 'Toiture, zinguerie et interfaces avec l’étanchéité.',
+    },
+    {
+      href: '/formation-ia-macon-btp',
+      title: 'Formation IA maçon BTP',
+      description: 'Gros œuvre, dalles et relevés avant systèmes d’étanchéité.',
+    },
+    {
+      href: '/formation-ia-charpentier-btp',
+      title: 'Formation IA charpentier BTP',
+      description: 'Structure bois et coordination avec l’enveloppe.',
+    },
+  ],
+  liensUtilesIntro:
+    'Métiers proches (couverture, gros œuvre, charpente), catalogue Qualiopi, Claude AI BTP, financement, blog.',
 };
 
-function metierTemplate(
-  id: FormationIaMetierBtpConfig['id'],
-  opts: Omit<
-    FormationIaMetierBtpConfig,
-    | 'id'
-    | 'path'
-    | 'h1'
-    | 'metaTitle'
-    | 'metaDescription'
-    | 'keywords'
-    | 'metierNom'
-    | 'metierNomTitre'
-    | 'normeRef'
-    | 'problemParagraphs'
-    | 'solutionIntro'
-    | 'prompts'
-    | 'csfePartnership'
-    | 'testimonialQuote'
-    | 'testimonialAttribution'
-    | 'faq'
-    | 'courseName'
-    | 'courseDescription'
-    | 'courseTeaches'
-    | 'ogImage'
-  > & {
-    path: FormationIaMetierBtpConfig['path'];
-    h1: string;
-    metaTitle: string;
-    metaDescription: string;
-    keywords: string[];
-    metierNom: string;
-    metierNomTitre: string;
-    normeRef: string;
-    normeLabelCourt: string;
-    problemFocus: string;
-    promptTitles: [string, string, string, string, string];
-    testimonialQuote: string;
-    testimonialAttribution: string;
-    courseTeaches: string[];
-    ogImage?: FormationIaMetierBtpConfig['ogImage'];
-  }
-): FormationIaMetierBtpConfig {
-  const path = opts.path;
-  const [p1, p2, p3, p4, p5] = opts.promptTitles;
-  return {
-    id,
-    path,
-    h1: opts.h1,
-    metaTitle: opts.metaTitle,
-    metaDescription: opts.metaDescription,
-    keywords: opts.keywords,
-    metierNom: opts.metierNom,
-    metierNomTitre: opts.metierNomTitre,
-    normeRef: opts.normeRef,
-    problemParagraphs: [
-      `Les ${opts.metierNom} en BTP savent que le terrain ne pardonne pas une erreur de lecture : pourtant une part croissante du temps part en documentation — devis détaillés, courriers, comptes rendus, réponses marchés, relecture de ${opts.problemFocus}.`,
-      `Les prescriptions techniques (${opts.normeLabelCourt}, notices fabricants, avis CSTB selon les matériaux) exigent précision et traçabilité. Recopier à la main ou jongler entre modèles Word obsolètes coûte des heures chaque semaine.`,
-      `Sur les chantiers d’Île-de-France, les délais courts et la concurrence poussent à produire vite des écrits propres ; sans cadre, l’IA devient source d’erreurs sur un détail de norme. La formation Qualiopi encadre : prompts, relecture humaine, règles de confidentialité.`,
-      `L’objectif n’est pas d’« automatiser la technique » mais de gagner du temps sur la mise en forme, la structuration et les itérations — pour libérer du temps sur le chantier et la relation client.`,
-    ],
-    solutionIntro: `Les sessions ${OFC} combinent démonstration et ateliers sur vos cas (anonymisés) : devis, mails, synthèses, plans de réponses. Références normatives citées à titre de rappel — validation métier obligatoire avant envoi.`,
-    prompts: [
-      {
-        title: p1,
-        body: `Tu es ${opts.metierNomTitre} qualifié en France. À partir des données : [DÉCRIRE CHANTIER / LOT / COTES], propose un tableau de quantités indicatif et les postes à vérifier au plan. Rappelle les points à contrôler selon ${opts.normeLabelCourt} sans inventer de paragraphes : indiquer [à vérifier fascicule] si besoin. Prix : nos tarifs internes uniquement.`,
-      },
-      {
-        title: p2,
-        body: `Notes de réunion brutes : [NOTES]. Rédige un compte rendu structuré (décisions, porteurs, délais, réserves) pour le lot ${opts.metierNomTitre}. Ton factuel. Ne pas attribuer de faute sans élément du texte.`,
-      },
-      {
-        title: p3,
-        body: `Extrait CCTP : [TEXTE]. Liste les exigences techniques et les questions à poser au MOE si ambiguïté. Croiser avec ${opts.normeLabelCourt} : ne pas conclure sur la conformité.`,
-      },
-      {
-        title: p4,
-        body: `Marché public — critères : [LISTE]. Plan de mémoire technique (titres + bullets) pour une entreprise de ${opts.metierNom} : moyens, méthode, sécurité, délais. Pas de copier-coller du CCAP.`,
-      },
-      {
-        title: p5,
-        body: `Client demande une explication sur [SUJET TECHNIQUE]. Rédige une réponse professionnelle de 200 mots maximum, avec rappel que les prescriptions définitives sont dans le CCTP et les documents normatifs. Vocabulaire ${opts.metierNomTitre} BTP.`,
-      },
-    ],
-    csfePartnership: false,
-    testimonialQuote: opts.testimonialQuote,
-    testimonialAttribution: opts.testimonialAttribution,
-    faq: faqNormeTriple({
-      normeRef: opts.normeRef,
-      metierNom: opts.metierNomTitre,
-      docTypes: docTypesForMetier(id),
-    }),
-    courseName: opts.h1.replace(/ — .*/, '') + ' — Qualiopi',
-    courseDescription: `${OFC} : formation IA et ChatGPT pour ${opts.metierNom} du BTP (${opts.normeLabelCourt}). Sessions 4 h, Qualiopi, financement OPCO Constructys selon dossier. Île-de-France.`,
-    courseTeaches: opts.courseTeaches,
-    ogImage: opts.ogImage,
-  };
-}
-
-function docTypesForMetier(id: string): string {
-  switch (id) {
-    case 'electricien':
-      return 'les schémas et notices NFC';
-    case 'plombier':
-      return 'les notices sanitaires et DTU eau';
-    default:
-      return 'les mémoires techniques et CCTP';
-  }
-}
-
-export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = metierTemplate('couvreur', {
-  path: '/formation-ia-couvreur-btp',
-  h1: 'Formation IA pour couvreurs — DTU 40, Qualiopi',
-  metaTitle: 'Formation IA couvreur BTP — DTU 40 & Qualiopi',
+/** Électricien — NF C 15-100, tableautage, marques Schneider / Legrand / Hager (sans préférence) */
+export const FORMATION_IA_METIER_ELECTRICIEN: FormationIaMetierBtpConfig = {
+  id: 'electricien',
+  path: '/formation-ia-electricien-btp',
+  h1: 'Formation IA électricien BTP — ChatGPT, NF C 15-100 & Qualiopi',
+  metaTitle: 'Formation IA électricien BTP — ChatGPT, tableau, CONSUEL',
   metaDescription:
-    'Formation IA pour couvreurs : métrés toiture, zinguerie, devis ardoise/zinc. Prompts ChatGPT BTP. Qualiopi, Constructys. Île-de-France.',
-  keywords: ['formation IA couvreur', 'ChatGPT couverture', 'DTU 40', 'devis toiture IA', 'Qualiopi couvreur'],
-  metierNom: 'couvreurs',
-  metierNomTitre: 'couvreur',
-  normeRef: 'le DTU 40',
-  normeLabelCourt: 'DTU 40 et fascicules couverture',
-  problemFocus: 'plans de calepinage, métrés de pans, devis ardoise ou zinc',
-  promptTitles: [
-    'Métré toiture multi-pans (brouillon)',
-    'CR visite couverture / zinguerie',
-    'Lecture CCTP couverture — questions MOE',
-    'Mémoire technique — plan méthodo',
-    'Mail client — explication technique',
+    'Formation IA électricien BTP : devis tableau, calcul de puissance, rapport CONSUEL, mémoire AO installation électrique. NF C 15-100, DPE, domotique. Qualiopi, Constructys.',
+  keywords: [
+    'formation IA électricien BTP',
+    'ChatGPT électricien',
+    'NF C 15-100 IA',
+    'devis tableau électrique',
+    'rapport CONSUEL',
+    'mémoire technique électricité BTP',
+    'Qualiopi électricien',
   ],
+  metierNom: 'électriciens',
+  metierNomTitre: 'électricien',
+  normeRef: 'la NF C 15-100',
+  problemParagraphs: [
+    `Les entreprises d’électricité jonglent entre tableautage, câblage, VMC et domotique : chaque dossier mobilise le tableau électrique, les disjoncteurs, les différentiels, parfois la rénovation énergétique et le DPE en contexte. La norme ${'`'}NF C 15-100${'`'} impose rigueur et traçabilité ; les notices des fabricants (Schneider Electric, Legrand, Hager — marques fréquentes sur le marché, citées sans ordre de préférence) complètent le CCTP.`,
+    `Le temps part aussi en rédaction : comptes rendus après visite technique électrique, relances SAV pour un défaut de réglage ou une mise aux normes incomplète, courriers pour le CONSUEL ou synthèses avant passage du contrôle. Sans méthode, on reformule tard le soir les mêmes paragraphes.`,
+    `Les appels d’offres sur l’installation électrique (second œuvre, tertiaire, logement) demandent des mémoires clairs sur la méthode, le câblage et la coordination — l’IA mal utilisée invente des références ou des sections de câbles : la formation Qualiopi encadre prompts, relecture et confidentialité.`,
+    `L’objectif des sessions ${OFC} est de gagner plusieurs heures par semaine sur la structure des documents (devis, rapports, mémoires), pas de remplacer le calcul de puissance, le choix des protections ou la validation par une personne compétente.`,
+  ],
+  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis de tableau électrique, listes de grandeurs pour dimensionnement, structure de rapport CONSUEL ou de dossier de conformité — toujours avec validation métier. Cas d’usage fréquents : rédiger un compte rendu après visite technique à partir de notes brutes ; envoyer une relance client SAV (ton ferme, rappel des mesures, prochaines étapes) sans copier-coller un modèle obsolète.`,
+  prompts: [
+    {
+      title: 'Devis — rénovation / création de tableau électrique (postes)',
+      body: `Tu es électricien qualifié en France. À partir de : type de local [résidentiel / tertiaire], nombre de rangées [N], circuits [éclairage, prises, VMC, domotique], niveau de rénovation [partielle / complète].
+Propose la STRUCTURE détaillée d’un devis (intitulés de postes, pas les prix) : tableau, disjoncteurs, différentiels, répartition des circuits, points à clarifier avec le client. Rappelle de croiser la NF C 15-100 et les fiches techniques des matériels (gammes type Schneider, Legrand, Hager selon votre choix d’entreprise — sans recommander une marque). Ne pas inventer de sections de câbles ni de calibres définitifs : indiquer [à dimensionner par le BE].`,
+    },
+    {
+      title: 'Calcul de puissance — liste des entrées et vérifications (sans chiffrer à votre place)',
+      body: `Contexte : [DÉCRIRE INSTALLATION : usages, puissances souscrites ou à estimer, présence triphasé oui/non].
+Sans donner de verdict définitif, liste les grandeurs à renseigner pour un calcul de puissance et un choix de protections (courants, simultanéité, sources, selectivity). Format tableau : donnée / source habituelle / risque si omis. Terminer par : quels outils ou documents internes utiliser pour le calcul final (logiciel, NF C 15-100).`,
+    },
+    {
+      title: 'Rapport / dossier type CONSUEL — structure de brouillon',
+      body: `Je prépare un dossier pour instruction type CONSUEL (extrait anonymisé). Données : [LISTE : schéma, plans, photos, mesures].
+Propose un plan de rapport (titres + sous-parties) : identification de l’installation, tableautage, principes de protection, mesures essentielles, réserves éventuelles. Rappel : toute valeur et toute conformité sont validées sur place et par le référentiel — l’IA ne signe pas le dossier.`,
+    },
+    {
+      title: 'Mémoire technique — appel d’offres installation électrique',
+      body: `Critères du CCAP / CCTP notés : [LISTE]. Notre entreprise : [TAILLE, qualifications, références anonymisées].
+Rédige un plan de mémoire technique (titres + 2 bullets par titre) : méthode de câblage et tableautage, coordination avec autres lots, sécurité, planning, ressources. Pas de copier-coller du règlement de consultation. Vocabulaire : tableau, câblage, NF C 15-100, essais.`,
+    },
+    {
+      title: 'Compte rendu après visite technique électrique',
+      body: `Notes de visite brutes : [NOTES : constats, mesures, photos mentionnées].
+Rédige un CR professionnel : contexte, observations par zone ou par tableau, écarts éventuels par rapport au descriptif, recommandations en termes généraux, suite proposée (devis séparé, intervention, etc.). Ton factuel, sans attribuer de faute sans preuve. Ne pas inventer de références normatives : [à compléter] si besoin.`,
+    },
+    {
+      title: 'Relance client — SAV électrique (délai, clarté, ton)',
+      body: `Situation : [PROBLÈME SIGNALÉ], historique : [COURT], action déjà faite : [LISTE].
+Rédige un mail de relance pour client [particulier / pro] : rappel du contexte, ce qui a été fait, ce qui reste à planifier, délai de réponse souhaité. Ton courtois mais ferme. Ajouter une phrase de rappel sur la nécessité d’accès ou de validation selon NF C 15-100 pour toute modification.`,
+    },
+  ],
+  csfePartnership: false,
   testimonialQuote:
-    '« On a divisé par deux le temps sur les gros devis tôlerie-zinc — surtout quand il faut expliquer les relevés au client. »',
-  testimonialAttribution: 'Chef d’entreprise couverture — Île-de-France (retour de formation OFC, anonymisé)',
-  courseTeaches: [
-    'ChatGPT pour couvreurs BTP',
-    'Métrés et devis couverture (relecture humaine)',
-    'DTU 40 — usage documentaire assisté',
-    'Mémoires techniques toiture',
-    'Qualiopi — données chantier',
+    '« Les premiers jets de mémoire et les CR de visite sortent beaucoup plus vite — le dimensionnement et le CONSUEL, ça reste notre validation. »',
+  testimonialAttribution: 'Gérant PME électricité — petite couronne (retour OFC, anonymisé)',
+  faq: [
+    {
+      q: 'ChatGPT peut-il appliquer la NF C 15-100 à la place de mon équipe ?',
+      a: `Non : la norme et les calculs de courants, sections et protections relèvent de votre qualification et de vos outils. L’IA peut structurer des listes de contrôle, des questions à trancher et des brouillons de courriers — jamais remplacer la lecture des fascicules et la signature du dossier.`,
+    },
+    {
+      q: 'Comment utiliser l’IA pour un rapport CONSUEL ou un dossier de conformité ?',
+      a: `Pour organiser les pièces, titrer les sections et reformuler vos constats à partir de notes — pas pour inventer des mesures ou des conclusions réglementaires. Vous validez chaque donnée avant envoi.`,
+    },
+    {
+      q: 'Schneider, Legrand ou Hager : l’IA choisit-elle la bonne gamme ?',
+      a: `Non : ce sont des marques courantes ; le choix dépend du marché, des agréments et de votre politique d’achats. L’IA peut aider à comparer des critères génériques ou à rédiger des questions au distributeur — pas à substituer la notice ou le bureau d’études.`,
+    },
+    {
+      q: 'Mes données clients et plans de tableau sont-elles protégées dans ChatGPT ?',
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${OFC}.`,
+    },
+    {
+      q: 'La formation IA électricien BTP est-elle finançable Constructys ?',
+      a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+    },
+    {
+      q: 'Quelle différence avec la formation « IA au service du bâtiment » (BTP-01) ?',
+      a: `BTP-01 pose les bases ; cette page métier aligne exemples et prompts sur le tableau, le câblage, le CONSUEL et les AO installation électrique. Les deux se complètent.`,
+    },
   ],
-});
+  courseName: 'Formation IA électricien BTP — NF C 15-100, Qualiopi',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier.`,
+  courseTeaches: [
+    'ChatGPT pour électriciens BTP',
+    'Devis et descriptifs tableautage (relecture humaine)',
+    'NF C 15-100 — usage documentaire assisté',
+    'Dossiers type CONSUEL / conformité (structure)',
+    'Mémoires techniques installation électrique',
+    'Qualiopi — confidentialité des données',
+  ],
+  ogImage: {
+    url: '/images/formation-ia-electricien-btp.png',
+    width: 1024,
+    height: 682,
+    alt: 'Formation IA BTP — électriciens, session avec Laure Olivié',
+  },
+  coverImage: {
+    url: '/images/formation-ia-electricien-btp.png',
+    width: 1024,
+    height: 682,
+    alt: 'Électriciens en formation — tableau et installation BTP',
+  },
+  showAuthorBio: true,
+  authorBioClosingLine:
+    'Basée en Île-de-France, elle accompagne notamment les équipes installation électrique et les directions d’entreprise du BTP.',
+  relatedMetierLinks: [
+    {
+      href: '/formation-ia-plombier-btp',
+      title: 'Formation IA plombier BTP',
+      description: 'Devis sanitaire, DTU 60, SAV — même démarche IA encadrée Qualiopi.',
+    },
+    {
+      href: '/formation-ia-dirigeant-btp',
+      title: 'Formation IA dirigeant BTP',
+      description: 'ROI, pilotage projet IA et déploiement équipes pour décideurs PME bâtiment.',
+    },
+    {
+      href: '/formation-ia-assistante-btp',
+      title: 'Formation IA assistante administrative BTP',
+      description: 'Courriers, relances et productivité administrative au service des chantiers.',
+    },
+  ],
+  liensUtilesIntro:
+    'Formations par métier proches, catalogue Qualiopi et ressources pour aller plus loin sur l’IA dans le BTP.',
+};
 
-/** Page dynamique : `app/formation-ia-[metier]-btp` — électricien migré dans `lib/formation-ia-metier-dynamic-registry`. */
+export {
+  FORMATION_IA_METIER_ASSISTANTE,
+  FORMATION_IA_METIER_CARRELEUR,
+  FORMATION_IA_METIER_CHARPENTIER,
+  FORMATION_IA_METIER_COUVREUR,
+  FORMATION_IA_METIER_MACON,
+  FORMATION_IA_METIER_MENUISIER,
+  FORMATION_IA_METIER_PEINTRE,
+  FORMATION_IA_METIER_PLAQUISTE,
+} from './formation-ia-metier-eight-rich';
 
-export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = metierTemplate('plombier', {
+/** Page dynamique : `app/formation-ia-[metier]-btp` — slugs additionnels dans `lib/formation-ia-metier-dynamic-registry`. */
+
+/** Plombier chauffagiste — PER, cuivre, DTU 60.11, MaPrimeRénov’ / CEE (2026) */
+export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = {
+  id: 'plombier',
   path: '/formation-ia-plombier-btp',
-  h1: 'Formation IA pour plombiers — DTU 60, Qualiopi',
-  metaTitle: 'Formation IA plombier BTP — DTU 60 & Qualiopi',
+  h1: 'Formation IA plombier chauffagiste — ChatGPT, DTU 60.11 & Qualiopi',
+  metaTitle: 'Formation IA plombier chauffagiste — BTP, Qualiopi',
   metaDescription:
-    'Formation IA pour plombiers chauffagistes : devis sanitaire, notices, planning interventions. DTU 60. Qualiopi, finançable Constructys.',
-  keywords: ['formation IA plombier', 'ChatGPT plomberie', 'DTU 60', 'devis sanitaire IA'],
-  metierNom: 'plombiers',
+    'Formation IA plombier chauffagiste : devis salle de bain, chaudière, évacuation, PER, cuivre, VMC double flux, PAC. Aides MaPrimeRénov’, CEE — brouillons encadrés. Qualiopi, Constructys.',
+  keywords: [
+    'formation IA plombier chauffagiste',
+    'formation IA plombier BTP',
+    'ChatGPT plomberie chauffage',
+    'DTU 60.11',
+    'MaPrimeRénov IA',
+    'certificats économie énergie CEE',
+    'devis sanitaire IA',
+    'Qualiopi plombier',
+  ],
+  metierNom: 'plombiers chauffagistes',
   metierNomTitre: 'plombier',
-  normeRef: 'le DTU 60',
-  normeLabelCourt: 'DTU 60 et prescriptions sanitaires',
-  problemFocus: 'devis détaillés, périodes de garantie, dossiers SAV et réception',
-  promptTitles: [
-    'Devis salle de bains / réseaux',
-    'CR intervention fuite / mise aux normes',
-    'Lecture CCTP plomberie',
-    'Mail client — explication réglementaire',
-    'Planning équipe (semis de tâches)',
+  normeRef: 'le DTU 60.11 et prescriptions sanitaires',
+  problemParagraphs: [
+    `Les entreprises de plomberie-chauffage enchaînent salle de bains, réseaux PER ou cuivre, évacuations, raccordements VMC double flux, chaudières à condensation et pompes à chaleur. Chaque dossier mobilise le ${'`'}DTU 60.11${'`'} (et fascicules associés), des notices fabricants et parfois des exigences DPE ou de rénovation énergétique — sans compter les courriers pour les aides et attestations.`,
+    `En 2026, les dossiers clients mêlent devis détaillés, relances SAV, comptes rendus de dépannage et demandes de précisions sur ${'`'}MaPrimeRénov’${'`'}, primes CEE ou éligibilité : l’IA peut aider à structurer des brouillons et des listes de pièces à fournir, jamais à substituer le conseiller financement, le décret en vigueur ou votre responsabilité sur la conformité.`,
+    `Sans méthode, on réécrit tard le soir les mêmes paragraphes sur diamètres d’évacuation, pentes ou matériaux — l’IA mal cadrée invente des références ou des montants d’aides. La formation Qualiopi encadre : prompts, relecture humaine, règles de confidentialité.`,
+    `L’objectif des sessions ${OFC} est de gagner du temps sur la mise en forme (devis, rapports, mails) tout en gardant la validation technique sur le terrain et dans les tableaux de vos logiciels.`,
   ],
-  testimonialQuote: '« Moins de temps sur les mails techniques le soir — plus pour les chantiers urgents. »',
-  testimonialAttribution: 'Artisan plombier — 92 (retour anonymisé)',
+  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis salle de bain, projets chaudière / PAC, rapports de dépannage et synthèses d’évacuation — toujours avec validation métier. Spécificité 2026 : l’expertise documentaire assistée pour les dossiers liés aux aides MaPrimeRénov’ et aux opérations relevant des certificats d’économie d’énergie (CEE) : l’IA aide à lister les formulations types, pièces jointes et questions à poser à un interlocuteur habilité — pas à garantir une éligibilité ou un montant.`,
+  prompts: [
+    {
+      title: 'Devis — rénovation salle de bain complète (postes)',
+      body: `Tu es plombier chauffagiste en France. Données : surface [X] m², remplacement baignoire/douche, meuble, robinetterie, évacuation existante [PER / cuivre / à préciser], présence VMC [simple flux / double flux / à créer].
+Propose la STRUCTURE détaillée d’un devis (intitulés de postes, pas les prix) : dépose, alimentation, évacuation, étanchéité, raccordements, essais. Rappelle de croiser le DTU 60.11 et les fiches fabricants. Ne pas inventer de diamètres définitifs : [à dimensionner].`,
+    },
+    {
+      title: 'Devis — remplacement chaudière / PAC, mentions crédit d’impôt et aides (cadre)',
+      body: `Contexte : [type de logement], équipement cible [chaudière condensation / PAC air-eau], travaux associés [liste].
+Rédige la STRUCTURE d’un devis (sections + libellés) avec emplacements pour : description technique, options, délais, garanties. Ajoute un encadré « informations réglementaires et aides » avec formulations génériques invitant le client à vérifier auprès de l’administration ou de son conseiller MaPrimeRénov’ / opérateur CEE, sans chiffrer de prime ni d’éligibilité. Rappel : les montants et conditions 2026 sont hors périmètre du modèle.`,
+    },
+    {
+      title: 'Rapport de dépannage (intervention)',
+      body: `Notes brutes : [NOTES : symptômes, constats, mesures, pièces changées].
+Rédige un rapport professionnel : contexte, diagnostic, interventions réalisées, pièces, essais, recommandations, suites éventuelles (devis séparé). Ton factuel. Ne pas attribuer de faute sans élément. Si une norme est citée sans référence : [à compléter].`,
+    },
+    {
+      title: 'Calcul / dimensionnement — évacuation (liste des entrées à vérifier)',
+      body: `Sans donner un dimensionnement définitif, à partir de : [débit équipements, longueurs, pentes], liste les grandeurs à renseigner pour un calcul d’évacuation (diamètres, pentes, ventilations de colonnes, matériaux PER / PVC / cuivre selon usage). Format tableau : donnée / source habituelle / risque si omis. Terminer par : validation par logiciel ou méthode interne + DTU 60.11.`,
+    },
+    {
+      title: 'Mail client — MaPrimeRénov’ / CEE : pièces et prochaines étapes (sans promesse)',
+      body: `Situation : [type de travaux], stade du dossier : [en cours / demande de complément].
+Rédige un mail clair listant les pièces souvent demandées (déclarations, attestations, fiches techniques) et les prochaines étapes, avec formulation prudente : aucune garantie d’éligibilité. Rappeler de vérifier les barèmes et textes officiels en vigueur. Ton professionnel.`,
+    },
+    {
+      title: 'Synthèse — VMC double flux et interface avec le sanitaire (questions MOE)',
+      body: `CCTP ou mail MOE (extrait anonymisé) : [TEXTE].
+Liste les points d’interface plomberie / VMC double flux (prises d’air, condensats, pénétrations) et 4–6 questions à poser au maître d’œuvre si le texte est incomplet. Ne pas conclure sur la conformité : renvoi DTU 60.11 et notices.`,
+    },
+  ],
+  csfePartnership: false,
+  testimonialQuote:
+    '« Les premiers jets de devis salle de bain et les rapports de dépannage sont plus homogènes — on relit avant envoi, surtout sur les aides et le CEE. »',
+  testimonialAttribution: 'Artisan plombier-chauffagiste — IDF (retour OFC, anonymisé)',
+  faq: [
+    {
+      q: 'L’IA peut-elle calculer une évacuation ou un dimensionnement à la place du DTU 60.11 ?',
+      a: `Non : le dimensionnement définitif et la conformité relèvent de votre qualification, de vos outils et de la lecture des fascicules. L’IA peut lister les entrées à vérifier et structurer un tableau de brouillon — à valider par une personne compétente.`,
+    },
+    {
+      q: 'Comment utiliser ChatGPT pour MaPrimeRénov’ et les CEE sans se tromper ?',
+      a: `Pour organiser des listes de pièces, reformuler des courriers ou préparer des questions à votre financeur ou délégataire — jamais pour afficher des montants ou éligibilités sans vérification sur les textes officiels et portails à jour. Les règles évoluent : la formation ${OFC} insiste sur la prudence et la relecture.`,
+    },
+    {
+      q: 'PER vs cuivre, VMC double flux, PAC : l’IA choisit-elle les matériaux ?',
+      a: `Non : ce sont des choix techniques et contractuels. L’IA peut aider à structurer un comparatif de critères ou des questions au fournisseur — pas à remplacer la notice ou le bureau d’études.`,
+    },
+    {
+      q: 'Mes données clients et plans de salle de bain sont-elles protégées dans ChatGPT ?',
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation.`,
+    },
+    {
+      q: 'La formation IA plombier BTP est-elle finançable Constructys ?',
+      a: `Oui selon éligibilité : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+    },
+    {
+      q: 'Quelle différence avec la formation « IA au service du bâtiment » (BTP-01) ?',
+      a: `BTP-01 pose les bases ; cette page métier aligne exemples et prompts sur le sanitaire, le chauffage, l’évacuation et les dossiers aides (MaPrimeRénov’, CEE) pour un vocabulaire plombier-chauffagiste.`,
+    },
+  ],
+  courseName: 'Formation IA plombier chauffagiste BTP — Qualiopi',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour plombiers chauffagistes — devis, PER, cuivre, DTU 60.11, évacuation, VMC, chaudière, PAC. Aides MaPrimeRénov’ et CEE : structuration documentaire. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier.`,
   courseTeaches: [
-    'ChatGPT pour plombiers BTP',
-    'Devis sanitaire et chauffage',
-    'DTU 60 — usage assisté',
-    'SAV et réception documentaire',
-    'Qualiopi',
+    'ChatGPT pour plombiers chauffagistes BTP',
+    'Devis sanitaire et chauffage (relecture humaine)',
+    'DTU 60.11 — usage documentaire assisté',
+    'Évacuation, VMC, chaudière, PAC — formulations et check-lists',
+    'MaPrimeRénov’ et CEE — brouillons prudents, pas de conseil fiscal',
+    'Qualiopi — confidentialité des données',
   ],
-});
-
-export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = metierTemplate('macon', {
-  path: '/formation-ia-macon-btp',
-  h1: 'Formation IA pour maçons — DTU 20, Qualiopi',
-  metaTitle: 'Formation IA maçon BTP — DTU 20 & Qualiopi',
-  metaDescription:
-    'Formation IA pour maçons : gros œuvre, métrés, méthodes, réponses marchés. DTU 20. Qualiopi, Constructys.',
-  keywords: ['formation IA maçon', 'ChatGPT gros œuvre', 'DTU 20', 'mémoire technique maçonnerie'],
-  metierNom: 'maçons',
-  metierNomTitre: 'maçon',
-  normeRef: 'le DTU 20',
-  normeLabelCourt: 'DTU 20',
-  problemFocus: 'métrés structure, phases, planning de grue, réponses techniques marchés publics',
-  promptTitles: [
-    'Métré gros œuvre (ordre de grandeur)',
-    'Méthodologie génie civil (brouillon)',
-    'CR réunion avec réserves',
-    'Plan mémoire technique',
-    'Courrier synthèse chantier',
+  ogImage: {
+    url: '/images/formation-ia-btp-entreprise.png',
+    width: 1024,
+    height: 571,
+    alt: 'Formation IA BTP — plombiers chauffagistes, session avec Laure Olivié',
+  },
+  coverImage: {
+    url: '/images/formation-ia-btp-entreprise.png',
+    width: 1024,
+    height: 571,
+    alt: 'Atelier formation IA BTP en entreprise — plomberie et chauffage',
+  },
+  showAuthorBio: true,
+  authorBioClosingLine:
+    'Basée en Île-de-France, elle accompagne notamment les équipes plomberie-chauffage et les entreprises du second œuvre.',
+  relatedMetierLinks: [
+    {
+      href: '/formation-ia-electricien-btp',
+      title: 'Formation IA électricien BTP',
+      description: 'Tableaux, NF C 15-100, CONSUEL — même approche IA encadrée Qualiopi.',
+    },
+    {
+      href: '/formation-ia-carreleur-btp',
+      title: 'Formation IA carreleur',
+      description: 'Pièces d’eau, interfaces après réseaux — coordination lots.',
+    },
+    {
+      href: '/formation-ia-dirigeant-btp',
+      title: 'Formation IA dirigeant BTP',
+      description: 'ROI, pilotage projet IA et déploiement équipes pour décideurs PME bâtiment.',
+    },
   ],
-  testimonialQuote: '« Les synthèses de réunion et les plans de mémoire partent plus vite — le fond reste notre savoir-faire. »',
-  testimonialAttribution: 'Conducteur de travaux gros œuvre — IDF (anonymisé)',
-  courseTeaches: ['ChatGPT pour maçons BTP', 'DTU 20 — aide à la rédaction', 'Mémoires techniques', 'Qualiopi'],
-});
-
-export const FORMATION_IA_METIER_PEINTRE: FormationIaMetierBtpConfig = metierTemplate('peintre', {
-  path: '/formation-ia-peintre-btp',
-  h1: 'Formation IA pour peintres — DTU 59, Qualiopi',
-  metaTitle: 'Formation IA peintre BTP — DTU 59 & Qualiopi',
-  metaDescription:
-    'Formation IA pour peintres en bâtiment : supports, finitions, devis, mémoires. DTU 59. Qualiopi, Constructys.',
-  keywords: ['formation IA peintre', 'ChatGPT peinture bâtiment', 'DTU 59', 'devis peinture IA'],
-  metierNom: 'peintres',
-  metierNomTitre: 'peintre',
-  normeRef: 'le DTU 59',
-  normeLabelCourt: 'DTU 59',
-  problemFocus: 'devis par pièce, gammes produits, comptes rendus de préparation des supports',
-  promptTitles: [
-    'Devis peinture intérieure détaillé',
-    'CR visite préparation support',
-    'Fiche conseil client entretien',
-    'Réponse appel d’offres courte',
-    'Mail litige finition',
-  ],
-  testimonialQuote: '« Les devis détaillés par pièce sont beaucoup moins longs à monter. »',
-  testimonialAttribution: 'Peintre en bâtiment — 78 (anonymisé)',
-  courseTeaches: ['ChatGPT pour peintres BTP', 'DTU 59', 'Devis et finitions', 'Qualiopi'],
-});
-
-export const FORMATION_IA_METIER_MENUISIER: FormationIaMetierBtpConfig = metierTemplate('menuisier', {
-  path: '/formation-ia-menuisier-btp',
-  h1: 'Formation IA pour menuisiers — DTU 36, Qualiopi',
-  metaTitle: 'Formation IA menuisier BTP — DTU 36',
-  metaDescription:
-    'Formation IA pour menuisiers : pose, menuiseries extérieures, devis, notices. DTU 36. Qualiopi, Constructys.',
-  keywords: ['formation IA menuisier', 'ChatGPT menuiserie', 'DTU 36', 'devis fenêtres'],
-  metierNom: 'menuisiers',
-  metierNomTitre: 'menuisier',
-  normeRef: 'le DTU 36',
-  normeLabelCourt: 'DTU 36',
-  problemFocus: 'prises de cotes, devis fournisseurs, pose en rénovation, SAV',
-  promptTitles: [
-    'Devis menuiseries + pose',
-    'Fiche relevé cotes (check-list)',
-    'CR pose / réserve',
-    'Mail fournisseur délai',
-    'Synthèse garanties',
-  ],
-  testimonialQuote: '« Les tableaux de comparatif fournisseurs et les mails clients sont plus clairs depuis la formation. »',
-  testimonialAttribution: 'Menuisier poseur — IDF (anonymisé)',
-  courseTeaches: ['ChatGPT pour menuisiers BTP', 'DTU 36', 'Devis menuiserie', 'Qualiopi'],
-});
-
-export const FORMATION_IA_METIER_CHARPENTIER: FormationIaMetierBtpConfig = metierTemplate('charpentier', {
-  path: '/formation-ia-charpentier-btp',
-  h1: 'Formation IA pour charpentiers — DTU 31, Qualiopi',
-  metaTitle: 'Formation IA charpentier BTP — DTU 31',
-  metaDescription:
-    'Formation IA pour charpentiers : coupes, structures bois, devis, méthodes. DTU 31. Qualiopi, Constructys.',
-  keywords: ['formation IA charpentier', 'ChatGPT charpente', 'DTU 31', 'devis bois'],
-  metierNom: 'charpentiers',
-  metierNomTitre: 'charpentier',
-  normeRef: 'le DTU 31',
-  normeLabelCourt: 'DTU 31',
-  problemFocus: 'métrés volume bois, nomenclatures, plans de phasage, dossiers technique bois',
-  promptTitles: [
-    'Nomenclature charpente (brouillon)',
-    'CR réunion structure',
-    'Mémoire technique ossature',
-    'Mail MOE — réserves',
-    'Synthèse essences et traitements',
-  ],
-  testimonialQuote: '« L’aide sur les structures de mémoire et les CR de réunion libère du temps sur le chantier. »',
-  testimonialAttribution: 'Charpentier — 91 (anonymisé)',
-  courseTeaches: ['ChatGPT pour charpentiers BTP', 'DTU 31', 'Mémoires techniques bois', 'Qualiopi'],
-});
-
-export const FORMATION_IA_METIER_CARRELEUR: FormationIaMetierBtpConfig = metierTemplate('carreleur', {
-  path: '/formation-ia-carreleur-btp',
-  h1: 'Formation IA pour carreleurs — DTU 52, Qualiopi',
-  metaTitle: 'Formation IA carreleur BTP — DTU 52',
-  metaDescription:
-    'Formation IA pour carreleurs : métrés, poses collées, délais, devis. DTU 52. Qualiopi, finançable Constructys.',
-  keywords: ['formation IA carreleur', 'ChatGPT carrelage', 'DTU 52', 'devis pose'],
-  metierNom: 'carreleurs',
-  metierNomTitre: 'carreleur',
-  normeRef: 'le DTU 52',
-  normeLabelCourt: 'DTU 52',
-  problemFocus: 'métrés avec découpes, joints, dossiers « grands formats » et réception',
-  promptTitles: [
-    'Métré carrelage avec découpes',
-    'CR réception de chape',
-    'Planning pose (jalons)',
-    'Mail client choix de joint',
-    'Réponse technique CCTP sol',
-  ],
-  testimonialQuote: '« Les brouillons de métré et les mails aux clients sont plus rapides à produire. »',
-  testimonialAttribution: 'Carreleur — petite couronne (anonymisé)',
-  courseTeaches: ['ChatGPT pour carreleurs BTP', 'DTU 52', 'Métrés et devis', 'Qualiopi'],
-});
-
-export const FORMATION_IA_METIER_PLAQUISTE: FormationIaMetierBtpConfig = metierTemplate('plaquiste', {
-  path: '/formation-ia-plaquiste-btp',
-  h1: 'Formation IA pour plaquistes — DTU 25, Qualiopi',
-  metaTitle: 'Formation IA plaquiste BTP — DTU 25',
-  metaDescription:
-    'Formation IA pour plaquistes : cloisons, doublages, devis, plans de coupe. DTU 25. Qualiopi, Constructys.',
-  keywords: ['formation IA plaquiste', 'ChatGPT plaque de plâtre', 'DTU 25', 'devis cloisons'],
-  metierNom: 'plaquistes',
-  metierNomTitre: 'plaquiste',
-  normeRef: 'le DTU 25',
-  normeLabelCourt: 'DTU 25',
-  problemFocus: 'métrés linéaires cloisons, détails acoustiques, plans de découpe',
-  promptTitles: [
-    'Métré cloisons / doublages',
-    'CR coordination avec autres lots',
-    'Devis détaillé par pièce',
-    'Mail demande de précision MOE',
-    'Liste contrôle avant peinture',
-  ],
-  testimonialQuote: '« Les quantitatifs et les mails de coordination avec l’électricien sortent plus structurés. »',
-  testimonialAttribution: 'Plaquiste — 93 (anonymisé)',
-  courseTeaches: ['ChatGPT pour plaquistes BTP', 'DTU 25', 'Devis cloisons', 'Qualiopi'],
-});
+  liensUtilesIntro:
+    'Formations par métier proches, catalogue Qualiopi et ressources pour aller plus loin sur l’IA dans le BTP.',
+};

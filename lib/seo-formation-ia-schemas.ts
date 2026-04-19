@@ -1,5 +1,5 @@
 import { SOCIAL_PROOF } from '@/lib/constants';
-import { SITE_CONFIG, getCourseSchema, getOrganizationSchema, getLocalBusinessSchema } from '@/lib/seo';
+import { SITE_CONFIG, getCourseSchema, getLocalBusinessSchema, getOrganizationSchema } from '@/lib/seo';
 
 const DEPTS_IDF = [
   'Paris (75)',
@@ -106,5 +106,30 @@ export function buildFormationIaServiceJsonLd(opts: {
     },
     areaServed: opts.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
     url: `${SITE_CONFIG.url}${opts.path}`,
+  };
+}
+
+/**
+ * LocalBusiness par page département — zone d’intervention principale = département (SEO local).
+ */
+export function buildFormationIaDeptPageLocalBusinessJsonLd(opts: {
+  path: string;
+  departementNom: string;
+  deptCode: string;
+  description: string;
+}): Record<string, unknown> {
+  const base = getLocalBusinessSchema() as Record<string, unknown>;
+  const deptLabel = `${opts.departementNom} (${opts.deptCode})`;
+  return {
+    ...base,
+    '@id': `${SITE_CONFIG.url}${opts.path}#localbusiness-dept-${opts.deptCode}`,
+    url: `${SITE_CONFIG.url}${opts.path}`,
+    name: `${SITE_CONFIG.legalName} — Formation IA BTP ${deptLabel}`,
+    description: opts.description,
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: deptLabel },
+      { '@type': 'State', name: 'Île-de-France' },
+      { '@type': 'Country', name: 'France' },
+    ],
   };
 }

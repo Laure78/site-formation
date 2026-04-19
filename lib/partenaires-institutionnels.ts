@@ -30,8 +30,8 @@ export const PARTENAIRES_INSTITUTIONNELS: PartenaireInstitutionnel[] = [
     logo: '/images/partenaires/ffb-logo-officiel.png',
   },
   {
-    name: 'IFRB 78',
-    desc: 'Institut de Formation Régional du Bâtiment',
+    name: 'IFRB (77, 78, 91, 95)',
+    desc: 'Institut de Formation Régional du Bâtiment — Île-de-France',
     href: 'https://www.ifrb-78-91-95.fr/',
     logo: '/images/partenaires/ifrb-78.jpg',
   },

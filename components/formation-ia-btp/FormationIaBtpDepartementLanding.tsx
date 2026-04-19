@@ -13,6 +13,7 @@ import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import {
   buildFormationIaCourseJsonLd,
+  buildFormationIaDeptPageLocalBusinessJsonLd,
   buildFormationIaServiceJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
 import {
@@ -55,11 +56,20 @@ export type FormationIaBtpDeptLandingConfig = {
   financeTitle: string;
   financeBody: string[];
   faq: FAQItem[];
+  /** Présentation du tissu BTP local (2–3 paragraphes) */
+  tissuBtpLocal: string[];
+  /** Cinq cas d’usage types travaillés en formation */
+  casUsageStandard: string[];
+  /** Déplacement depuis Guyancourt, inclus, 30 min IDF */
+  deplacementGuyancourt: string;
+  /** Réseau FFB / cas client selon département */
+  casClientFfb: string;
 };
 
 export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConfig) {
   return createPageMetadata({
     title: config.metaTitle,
+    titleAbsolute: config.metaTitle,
     description: config.metaDescription,
     path: config.path,
     keywords: config.keywords,
@@ -95,6 +105,13 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
     areaServed: config.areaServedService,
   });
 
+  const localBusinessJson = buildFormationIaDeptPageLocalBusinessJsonLd({
+    path: config.path,
+    departementNom: config.departementNom,
+    deptCode: config.deptCode,
+    description: config.metaDescription,
+  });
+
   const crumbDept = `${config.departementNom} (${config.deptCode})`;
   const breadcrumbItems = breadcrumbItemsFromPaths([
     { name: 'Accueil', path: '/' },
@@ -111,6 +128,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
     <div className="bg-white text-slate-900">
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-course`} schema={courseJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-service`} schema={serviceJson} />
+      <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-localbusiness`} schema={localBusinessJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-breadcrumb`} schema={breadcrumbJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-faq`} schema={faqSchema} />
 
@@ -180,6 +198,19 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <section className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
         <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            BTP dans le {config.departementNom} ({config.deptCode}) : un tissu d&apos;entreprises et des défis communs
+          </h2>
+          <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
+            {config.tissuBtpLocal.map((p, i) => (
+              <p key={`tissu-${i}`}>{p}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
+        <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.problemTitle}</h2>
           <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
             {config.problemBody.map((p, i) => (
@@ -225,6 +256,10 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               <p key={`vf-${i}`}>{p}</p>
             ))}
           </div>
+          <aside className="mt-10 rounded-2xl border border-[#377CF3]/30 bg-white p-6 shadow-sm md:p-8">
+            <h3 className="font-display text-lg font-bold text-slate-900">Déplacement depuis Guyancourt (78)</h3>
+            <p className="mt-3 text-slate-700 leading-relaxed">{config.deplacementGuyancourt}</p>
+          </aside>
         </div>
       </section>
 
@@ -236,6 +271,34 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               <p key={`pg-${i}`}>{p}</p>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Cinq cas d&apos;usage standard travaillés en formation
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Ces usages sont adaptés au vocabulaire du BTP ; chaque sortie reste une base de relecture, jamais un envoi
+            sans validation interne.
+          </p>
+          <ol className="mt-8 list-decimal space-y-4 pl-5 text-slate-700 marker:font-semibold">
+            {config.casUsageStandard.map((item, i) => (
+              <li key={`cas-${i}`} className="leading-relaxed pl-1">
+                {item}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white px-4 py-14">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Réseau FFB et ancrage dans le territoire
+          </h2>
+          <p className="mt-6 text-slate-700 leading-relaxed">{config.casClientFfb}</p>
         </div>
       </section>
 
