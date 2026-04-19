@@ -105,7 +105,7 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const mdxMeta = buildMdxBlogMetadata(slug);
   if (mdxMeta) {
-    const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
+    const authorUrl = `${SITE_CONFIG.url}/a-propos`;
     const fm = getMdxFrontmatter(slug);
     return {
       ...mdxMeta,
@@ -119,7 +119,7 @@ export async function generateMetadata({ params }: Props) {
   const article = getArticle(slug);
   if (!article) return { title: 'Article non trouvé' };
   const metaTitle = article.seoTitle ?? article.title;
-  const authorUrl = `${SITE_CONFIG.url}/auteur/laure-olivie`;
+  const authorUrl = `${SITE_CONFIG.url}/a-propos`;
   const category = ARTICLE_SECTION_GEO;
   const ogImageUrl = `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(metaTitle)}&category=${encodeURIComponent(category)}`;
   const base = createPageMetadata({
@@ -218,7 +218,7 @@ export default async function BlogArticlePage({ params }: Props) {
             </span>
             <address className="not-italic">
               Par{' '}
-              <Link href="/auteur/laure-olivie" className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline" rel="author">
+              <Link href="/a-propos" className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline" rel="author">
                 {SITE_CONFIG.name}
               </Link>
             </address>

@@ -362,7 +362,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <div className="mt-10">
         <AllerPlusLoin
           links={[
-            { href: '/repondre-appels-offres-ia-btp', label: 'Répondre aux AO BTP avec l’IA (guide)' },
+            { href: '/formation-ia-appels-offres-btp', label: 'Répondre aux AO BTP avec l’IA (guide)' },
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

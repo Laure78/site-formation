@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { CalendlyInlineWidget } from '@/components/CalendlyInlineWidget';
 import { QualiopiLogoInline, QualiopiWordmark } from '@/components/QualiopiLogo';
+import { CALENDLY_INLINE_WIDGET_URL } from '@/lib/calendly';
 import type { FormationIaRawMetier, FormationIaRawVille } from '@/lib/seo-formation-ia-hub-data';
 import {
   getMetierLinkedVilles,
@@ -17,6 +19,32 @@ function hashSlug(s: string): number {
 function capitalizeFirst(text: string): string {
   if (!text) return text;
   return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+/** Widget Calendly inline (URL hide_gdpr_banner) — pages hub ville /formation-ia/btp-* */
+function FormationIaVilleCalendlySection() {
+  return (
+    <section
+      className="not-prose my-12 rounded-2xl border border-slate-200/80 bg-[#F2F2F2] px-4 py-10 md:px-8 md:py-12"
+      aria-labelledby="hub-ville-calendly-heading"
+    >
+      <div className="mx-auto max-w-5xl">
+        <h2
+          id="hub-ville-calendly-heading"
+          className="font-display text-center text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
+        >
+          Réservez votre visio découverte gratuite
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600 md:text-lg">
+          Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA BTP, financement
+          Constructys, format intra ou inter).
+        </p>
+        <div className="mt-8">
+          <CalendlyInlineWidget url={CALENDLY_INLINE_WIDGET_URL} heightPx={700} />
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function FormationIaMetierBody({
@@ -284,7 +312,7 @@ export function FormationIaVilleBody({
         </Link>
       </p>
 
-      {sisters.length > 0 && (
+      {sisters.length > 0 ? (
         <>
           <h3 className="text-lg font-semibold text-slate-800">Autres villes du {ville.deptName}</h3>
           <ul>
@@ -297,7 +325,25 @@ export function FormationIaVilleBody({
             ))}
           </ul>
         </>
+      ) : (
+        <>
+          <h2 className="font-display text-xl font-semibold text-slate-900">Formation IA BTP en Île-de-France</h2>
+          <p>
+            Laure Olivié intervient dans tous les départements d&apos;Île-de-France. Découvrez la vue
+            régionale et réservez une session sur mesure pour votre entreprise BTP.
+          </p>
+          <p>
+            <Link
+              href="/formation-ia-btp-ile-de-france"
+              className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+            >
+              Voir toutes les formations IA BTP en Île-de-France →
+            </Link>
+          </p>
+        </>
       )}
+
+      <FormationIaVilleCalendlySection />
 
       <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
         <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
@@ -426,6 +472,8 @@ function FormationIaParisBody() {
         . L&apos;objectif est de concilier <strong>SEO local</strong> et utilité réelle : chaque page
         reste lisible, avec des exemples concrets.
       </p>
+
+      <FormationIaVilleCalendlySection />
 
       <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
         <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />

@@ -430,7 +430,7 @@ export default function FormationIaChefChantierTpPage() {
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
             { href: '/formations/ia-travaux-publics', label: 'Formation IA travaux publics' },
-            { href: '/formation-ia-conducteur-travaux-btp', label: 'Formation IA conducteur de travaux BTP' },
+            { href: '/formation-ia-conducteur-travaux', label: 'Formation IA conducteur de travaux BTP' },
             { href: '/formation-ia-conducteur-engins-tp', label: 'Formation IA conducteur d’engins TP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },

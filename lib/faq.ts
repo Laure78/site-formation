@@ -357,7 +357,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
 export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   {
     q: 'Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?',
-    a: 'Oui. Sessions en présentiel dans vos locaux ou sur chantier : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Pour le département tout entier, voir aussi la page <a href="/formations/ia-btp-yvelines-78">formation IA BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
+    a: 'Oui. Sessions en présentiel dans vos locaux ou sur chantier : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Pour le département tout entier, voir aussi la page <a href="/formation-ia-btp-yvelines">formation IA BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -386,7 +386,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Vous intervenez à domicile dans le 78 ?',
     a:
-      "Oui. Les sessions se font en présentiel : dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Pour le détail des programmes, voir aussi la page <a href=\"/formations/ia-btp-yvelines-78\">formation IA BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
+      "Oui. Les sessions se font en présentiel : dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Pour le détail des programmes, voir aussi la page <a href=\"/formation-ia-btp-yvelines\">formation IA BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
   },
   {
     q: 'La formation est-elle disponible le samedi ?',

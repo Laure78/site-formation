@@ -1,6 +1,6 @@
 /**
- * Configuration des pages formation IA BTP par ville
- * Cluster SEO local : Lyon, Bordeaux, Lille
+ * Configuration des pages formation IA BTP par ville (Île-de-France).
+ * Pages hors IDF (Lyon, Bordeaux, Lille) retirées — redirection 301 vers /formation-ia-btp-ile-de-france.
  */
 
 export interface ZoneIntervention {
@@ -29,38 +29,6 @@ export interface CityFormationConfig {
 }
 
 export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
-  lyon: {
-    ville: 'Lyon',
-    path: '/formations/ia-btp-lyon',
-    regionLabel: 'Auvergne-Rhône-Alpes',
-    zones: [
-      { num: '69', nom: 'Lyon', contenu: 'Tous arrondissements • Sessions en présentiel • Métropole de Lyon' },
-      { num: '69', nom: 'Villeurbanne', contenu: 'Deuxième ville de la métropole • Formation intra-entreprise' },
-      { num: '69', nom: 'Vénissieux', contenu: 'Artisans et PME du bâtiment • Devis, appels d\'offres, administratif' },
-      { num: '69', nom: 'Saint-Priest', contenu: 'Formations sur mesure • Financement Constructys 100%' },
-      { num: '69', nom: 'Bron', contenu: 'Intervention dans vos locaux ou en salle' },
-      { num: '69', nom: 'Vaulx-en-Velin', contenu: 'Sessions adaptées aux entreprises du BTP' },
-      { num: '69', nom: 'Caluire-et-Cuire', contenu: 'Formation IA générative • ChatGPT pour le bâtiment' },
-    ],
-    departements: ['Rhône (69)', 'Ain (01)', 'Isère (38)', 'Loire (42)'],
-    areaServed: ['Lyon', 'Auvergne-Rhône-Alpes', 'Rhône', 'Ain', 'Isère', 'Loire'],
-  },
-  bordeaux: {
-    ville: 'Bordeaux',
-    path: '/formations/ia-btp-bordeaux',
-    regionLabel: 'Nouvelle-Aquitaine',
-    zones: [
-      { num: '33', nom: 'Bordeaux', contenu: 'Tous quartiers • Sessions en présentiel • Métropole bordelaise' },
-      { num: '33', nom: 'Mérignac', contenu: 'Deuxième ville de l\'agglomération • Formation intra-entreprise' },
-      { num: '33', nom: 'Pessac', contenu: 'Artisans et PME du bâtiment • Automatisation devis et emails' },
-      { num: '33', nom: 'Talence', contenu: 'Formations sur mesure • Financement OPCO Constructys' },
-      { num: '33', nom: 'Bègles', contenu: 'Intervention dans vos locaux ou en salle' },
-      { num: '33', nom: 'Bruges', contenu: 'ChatGPT pour les entreprises du BTP' },
-      { num: '33', nom: 'Le Bouscat', contenu: 'Formation IA générative • Gestion administrative BTP' },
-    ],
-    departements: ['Gironde (33)', 'Charente (16)', 'Dordogne (24)', 'Landes (40)'],
-    areaServed: ['Bordeaux', 'Nouvelle-Aquitaine', 'Gironde', 'Charente', 'Dordogne', 'Landes'],
-  },
   morangis: {
     ville: 'Morangis',
     path: '/formations/ia-btp-morangis',
@@ -99,22 +67,6 @@ export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
     departements: ['Essonne (91)', 'Hauts-de-Seine (92)', "Val-de-Marne (94)"],
     areaServed: ['Longjumeau', 'Essonne', 'Morangis', 'Les Ulis', 'Montlhéry', 'Île-de-France'],
   },
-  lille: {
-    ville: 'Lille',
-    path: '/formations/ia-btp-lille',
-    regionLabel: 'Hauts-de-France',
-    zones: [
-      { num: '59', nom: 'Lille', contenu: 'Métropole Lilloise • Sessions en présentiel' },
-      { num: '59', nom: 'Roubaix', contenu: 'Formation intra-entreprise • Devis et appels d\'offres avec l\'IA' },
-      { num: '59', nom: 'Tourcoing', contenu: 'Artisans et PME du bâtiment • Automatisation administrative' },
-      { num: '59', nom: 'Villeneuve-d\'Ascq', contenu: 'Formations sur mesure • Financement Constructys 100%' },
-      { num: '59', nom: 'Marcq-en-Barœul', contenu: 'Intervention dans vos locaux ou en salle' },
-      { num: '59', nom: 'Wasquehal', contenu: 'ChatGPT pour les entreprises du BTP' },
-      { num: '59', nom: 'Armentières', contenu: 'Formation IA générative • Gains de temps garantis' },
-    ],
-    departements: ['Nord (59)', 'Pas-de-Calais (62)', 'Somme (80)'],
-    areaServed: ['Lille', 'Hauts-de-France', 'Nord', 'Pas-de-Calais', 'Somme'],
-  },
 };
 
 export const ILE_DE_FRANCE = {
@@ -149,8 +101,5 @@ export const ILE_DE_FRANCE = {
   areaServed: ['Île-de-France', 'Guyancourt', 'Yvelines', 'Paris', 'Hauts-de-Seine', 'Seine-Saint-Denis', 'Val-de-Marne', 'Seine-et-Marne', 'Essonne', "Val-d'Oise"],
 };
 
-export const LYON = FORMATION_CITIES.lyon;
-export const BORDEAUX = FORMATION_CITIES.bordeaux;
-export const LILLE = FORMATION_CITIES.lille;
 export const MORANGIS = FORMATION_CITIES.morangis;
 export const LONGJUMEAU = FORMATION_CITIES.longjumeau;

@@ -72,7 +72,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation finançable OPCO Constructys. Gain de temps sur chiffrages.' },
   {
-    path: '/formation-chatgpt-artisan-electricien',
+    path: '/formation-ia-electricien-btp',
     title: 'ChatGPT artisan électricien BTP',
     content:
       'Formation IA et ChatGPT pour artisans électriciens et TPE électricité bâtiment : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi, finançable Constructys. Laure Olivié.',
@@ -144,7 +144,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
       'Landing SEO : dirigeants PME BTP, devis, prospection, relances, synthèses rentabilité avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Validation humaine des engagements et des chiffres.',
   },
   {
-    path: '/formation-ia-conducteur-travaux-btp',
+    path: '/formation-ia-conducteur-travaux',
     title: 'Formation IA conducteur de travaux BTP',
     content:
       'Landing SEO : rapports multi-lots, mails sous-traitants, variations, planning hebdo avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Décisions et contrats restent au conducteur de travaux.',

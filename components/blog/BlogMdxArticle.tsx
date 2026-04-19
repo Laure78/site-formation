@@ -68,7 +68,7 @@ export async function BlogMdxArticle({ slug }: Props) {
             <address className="not-italic">
               Par{' '}
               <Link
-                href="/auteur/laure-olivie"
+                href="/a-propos"
                 className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline"
                 rel="author"
               >

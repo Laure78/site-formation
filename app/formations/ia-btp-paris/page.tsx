@@ -177,7 +177,7 @@ export default function FormationIABTPParisPage() {
             {' '}Cette expérience garantit une approche pédagogique concrète adaptée aux entreprises du bâtiment.
           </p>
           <Link
-            href="/auteur/laure-olivie"
+            href="/a-propos"
             className="mt-6 inline-flex font-medium text-[var(--accent)] hover:underline"
           >
             Découvrir le profil de Laure Olivié →

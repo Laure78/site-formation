@@ -8,6 +8,7 @@ import { FORMATION_IA_BTP_DEPT_LANDING_PATHS } from '@/lib/formation-ia-btp-depa
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
+import { GSC_EXCLUDED_SITEMAP_PATHS, GSC_HUB_MERGED_SLUGS } from '@/lib/gsc-redirects-2026';
 
 function normUrl(u: string): string {
   return u.replace(/\/$/, '');
@@ -57,7 +58,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       changeFrequency: 'monthly',
       lastModified: new Date('2026-04-12'),
     },
-    { path: '/auteur/laure-olivie', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/prendre-rdv', priority: 0.95, changeFrequency: 'weekly' },
     { path: '/diagnostic-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/checklist-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
@@ -84,7 +84,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/formation-ia-analyse-cctp', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/formation-ia-et-chatgpt', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/ia-conducteur-travaux', priority: 0.88, changeFrequency: 'monthly' },
-    { path: '/repondre-appels-offres-ia-btp', priority: 0.88, changeFrequency: 'weekly' },
     {
       path: '/formation-ia-appels-offres-btp',
       priority: 0.9,
@@ -92,16 +91,12 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       lastModified: new Date('2026-05-01'),
     },
     { path: '/formations/ia-btp-paris', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/formations/ia-btp-yvelines-78', priority: 0.9, changeFrequency: 'weekly' },
     {
       path: '/formations/ia-btp-saint-quentin-en-yvelines',
       priority: 0.88,
       changeFrequency: 'weekly',
     },
     { path: '/formation-ia-btp-yvelines', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/formations/ia-btp-lyon', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/formations/ia-btp-bordeaux', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/formations/ia-btp-lille', priority: 0.9, changeFrequency: 'weekly' },
     {
       path: '/formations/ia-btp-morangis',
       priority: 0.88,
@@ -117,7 +112,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/formations/ia-pme-btp', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/formation-ia', priority: 0.92, changeFrequency: 'weekly' },
     { path: '/formation-ia/faq', priority: 0.88, changeFrequency: 'monthly' },
-    { path: '/formation-chatgpt-artisan-electricien', priority: 0.88, changeFrequency: 'monthly' },
     { path: '/formation-ia-electricien-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-charpentier-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-ferrailleur-btp', priority: 0.89, changeFrequency: 'monthly' },
@@ -135,7 +129,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       changeFrequency: 'monthly',
       lastModified: new Date('2026-04-19'),
     },
-    { path: '/formation-ia-conducteur-travaux-btp', priority: 0.89, changeFrequency: 'monthly' },
     {
       path: '/formation-ia-conducteur-travaux',
       priority: 0.9,
@@ -306,7 +299,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const formationIaHub: MetadataRoute.Sitemap = FORMATION_IA_ALL_SLUGS.map((slug) => ({
+  const formationIaHub: MetadataRoute.Sitemap = FORMATION_IA_ALL_SLUGS.filter(
+    (slug) => !GSC_HUB_MERGED_SLUGS.has(slug)
+  ).map((slug) => ({
     url: `${baseUrl}/formation-ia/${slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,
@@ -345,5 +340,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...coursEntries,
   ]);
 
-  return merged;
+  return merged.filter((e) => {
+    const pathOnly = normUrl(e.url.replace(baseUrl, '') || '/');
+    return !GSC_EXCLUDED_SITEMAP_PATHS.has(pathOnly);
+  });
 }

@@ -15,12 +15,8 @@ const BASE = SITE_CONFIG.url.replace(/\/$/, '');
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
   '/formations/ia-btp-paris': 'Formation IA BTP Paris',
   '/formations/formation-ia-cctp-analyse-dce-btp': 'Formation IA CCTP & DCE',
-  '/formations/ia-btp-bordeaux': 'Formation IA BTP à Bordeaux',
-  '/formations/ia-btp-lyon': 'Formation IA BTP à Lyon',
-  '/formations/ia-btp-lille': 'Formation IA BTP à Lille',
   '/formations/ia-btp-morangis': 'Formation IA BTP à Morangis',
   '/formations/ia-btp-longjumeau': 'Formation IA BTP à Longjumeau',
-  '/formations/ia-btp-yvelines-78': 'Formation IA BTP Versailles & Yvelines (78)',
   '/formations/ia-btp-saint-quentin-en-yvelines': 'Formation IA BTP Saint-Quentin-en-Yvelines',
   '/formations/ia-pme-btp': 'IA pour PME du BTP',
 };

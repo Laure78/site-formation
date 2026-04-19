@@ -145,9 +145,9 @@ export default function HomePage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-6xl">
-          {/* items-start : évite le vide en haut à droite (items-center centrait l’image dans toute la hauteur du texte gauche) */}
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-8 xl:gap-12">
-            <div className="min-w-0">
+          {/* Colonne unique : texte sur toute la largeur du conteneur, vidéo en dessous — évite la moitié droite vide (grille 2 cols + iframe peu visible) */}
+          <div className="flex flex-col gap-10 md:gap-12">
+            <div className="min-w-0 w-full">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
                 <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
                 <span>Formation IA BTP · bâtiment & travaux publics</span>
@@ -258,7 +258,10 @@ export default function HomePage() {
               </div>
               <CitationSentence text="La formation IA BTP animée par Laure Olivié aide artisans et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
             </div>
-            <div className="min-w-0 w-full lg:sticky lg:top-24 lg:z-10 lg:self-start">
+            <div className="w-full">
+              <p className="mb-3 text-center text-sm font-medium text-slate-600 md:text-left">
+                Présentation vidéo — les 6 parcours formation IA BTP
+              </p>
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-2xl">
                 <div className="relative aspect-video w-full">
                   <iframe
@@ -303,25 +306,25 @@ export default function HomePage() {
 
       <ClientsLogosMarquee />
 
-      {/* Référence clients — bande sombre */}
-      <section className="border-b border-slate-200 bg-slate-900 px-4 py-16 text-white">
+      {/* Référence clients — bande charte OFC (#377CF3, alignée sur le CTA Calendly) */}
+      <section className="border-b border-slate-200 bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
             <div className="max-w-xl shrink-0">
-              <p className="inline-flex rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-blue-200">
+              <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">
                 Référence & partenaires
               </p>
               <h3 className="mt-4 font-display text-2xl font-bold md:text-3xl">
                 FFB, CSFE… la formation IA BTP terrain plébiscitée par le réseau pro
               </h3>
-              <p className="mt-4 text-slate-300">
+              <p className="mt-4 text-white/90">
                 Interventions en intelligence artificielle bâtiment et formation IA travaux publics
                 auprès de fédérations et d&apos;entreprises : cas réels (devis, chantier, appels
                 d&apos;offres), gain de temps mesurable — zéro gadget.
               </p>
               <Link
                 href="/a-propos#clients-partenaires"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15"
               >
                 Voir les clients & partenaires
               </Link>
@@ -333,15 +336,15 @@ export default function HomePage() {
                 ].map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-2xl border border-white/10 bg-slate-800/80 px-2 py-3 text-center sm:px-4 sm:py-4"
+                    className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 text-center backdrop-blur-sm sm:px-4 sm:py-4"
                   >
-                    <p className="text-lg font-bold text-cyan-300 sm:text-xl md:text-2xl">{s.val}</p>
-                    <p className="mt-1 text-[0.6rem] leading-tight text-slate-400 sm:text-xs">{s.label}</p>
+                    <p className="text-lg font-bold text-white sm:text-xl md:text-2xl">{s.val}</p>
+                    <p className="mt-1 text-[0.6rem] leading-tight text-white/80 sm:text-xs">{s.label}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/10 bg-slate-800 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
+            <div className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/25 bg-black/10 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
               <Image
                 src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
                 alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}

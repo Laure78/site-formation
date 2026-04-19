@@ -34,7 +34,7 @@ export function AuthorBlock({ className }: { className?: string }) {
             Formatrice LinkedIn Learning.
           </p>
           <Link
-            href="/auteur/laure-olivie"
+            href="/a-propos"
             className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)] hover:underline"
           >
             <Award size={16} strokeWidth={1.5} />

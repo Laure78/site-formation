@@ -1644,7 +1644,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content: 'Réservez votre formation appels d\'offres BTP à Lille. Devis sur demande.',
-        formationHref: '/formations/ia-btp-lille',
+        formationHref: '/formation-ia-btp-ile-de-france',
       },
     ],
     relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp'],

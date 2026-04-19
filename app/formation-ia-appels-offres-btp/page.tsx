@@ -654,7 +654,10 @@ export default function FormationIAAppelsOffresBTPPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations/ia-appels-offre-btp', label: 'Fiche catalogue BTP-02' },
-            { href: '/repondre-appels-offres-ia-btp', label: 'Guide répondre aux AO avec l’IA' },
+            {
+              href: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
+              label: 'Article : analyser un CCTP avec l’IA (méthode)',
+            },
             { href: '/blog/ia-analyse-cctp-methode', label: 'Article : analyser un CCTP avec l’IA' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

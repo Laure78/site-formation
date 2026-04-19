@@ -56,7 +56,7 @@ const CHIFFRES_CLES_BLOCS: { highlight: string; description: string }[] = [
 
 const ZONES_VILLES: { label: string; href: string }[] = [
   { label: 'Paris', href: '/formations/ia-btp-paris' },
-  { label: 'Versailles', href: '/formations/ia-btp-yvelines-78' },
+  { label: 'Versailles', href: '/formation-ia-btp-yvelines' },
   { label: 'Nanterre', href: '/formation-ia-btp-ile-de-france' },
   { label: 'Créteil', href: '/formation-ia-btp-ile-de-france' },
   { label: 'Cergy-Pontoise', href: '/formation-ia-btp-ile-de-france' },

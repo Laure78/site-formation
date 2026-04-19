@@ -765,7 +765,7 @@ Propose un plan (jalons j0, j+10…) et des intitulés de mails par étape — s
   authorBioClosingLine: 'Elle forme les fonctions support des entreprises du bâtiment sur une IA utile au quotidien, sans remplacer la validation métier.',
   relatedMetierLinks: [
     { href: '/formation-ia-charge-affaires-btp', title: 'Formation IA chargé d’affaires BTP', description: 'Appels d’offres et suivi commercial.' },
-    { href: '/formation-ia-conducteur-travaux-btp', title: 'Formation IA conducteur de travaux BTP', description: 'Pilotage de chantier et documentation.' },
+    { href: '/formation-ia-conducteur-travaux', title: 'Formation IA conducteur de travaux BTP', description: 'Pilotage de chantier et documentation.' },
     { href: '/formation-ia-dirigeant-btp', title: 'Formation IA dirigeant BTP', description: 'Pilotage et déploiement IA en entreprise.' },
   ],
   liensUtilesIntro: 'Métiers proches, catalogue Qualiopi, Claude AI BTP, financement, blog.',

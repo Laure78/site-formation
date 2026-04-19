@@ -1,8 +1,14 @@
 import type { NextConfig } from "next";
+import {
+  gscHubMergeRedirects,
+  gscRedirects2026April,
+  GSC_HUB_MERGED_SLUGS,
+} from "./lib/gsc-redirects-2026";
 import { FORMATION_IA_ALL_SLUGS } from "./lib/seo-formation-ia-hub-data";
 
+/** Anciennes URLs /formation-ia-{slug} → /formation-ia/{slug} (sauf slugs fusionnés GSC vers landing métier). */
 const formationIaLegacyRedirects = () =>
-  FORMATION_IA_ALL_SLUGS.map((slug) => ({
+  FORMATION_IA_ALL_SLUGS.filter((slug) => !GSC_HUB_MERGED_SLUGS.has(slug)).map((slug) => ({
     source: `/formation-ia-${slug}`,
     destination: `/formation-ia/${slug}`,
     permanent: true as const,
@@ -39,6 +45,9 @@ const nextConfig: NextConfig = {
         destination: '/formation-ia-conducteur-travaux',
         permanent: true,
       },
+      // GSC avril 2026 — 28 URLs (blog parasites, géo, doublons hub & landings)
+      ...gscRedirects2026April(),
+      ...gscHubMergeRedirects(),
       ...formationIaLegacyRedirects(),
       {
         source: '/formations/ia-btp-ile-de-france',
@@ -154,9 +163,6 @@ const nextConfig: NextConfig = {
         destination: '/blog/chatgpt-devis-electricien-btp',
         permanent: true,
       },
-      // Articles supprimés — redirection vers le blog
-      { source: '/blog/ia-btp-lyon', destination: '/blog', statusCode: 301 },
-      { source: '/blog/chatgpt-btp-bordeaux', destination: '/blog', statusCode: 301 },
 
       // Blog : filtres ?categorie= → URLs canoniques /blog/categorie/*
       {
@@ -244,6 +250,35 @@ const nextConfig: NextConfig = {
         destination: '/blog/adoption-ia-btp-2026-chiffres-freins-leviers',
         permanent: true,
       },
+
+      // Nettoyage pages villes IDF non différenciées — Avril 2026
+      // (Template générique, non indexé par Google — cf. audit SEO)
+      { source: '/formation-ia/btp-argenteuil', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-aubervilliers', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-aulnay-sous-bois', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-boulogne-billancourt', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-champigny-sur-marne', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-chelles', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-colombes', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-courbevoie-la-defense', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-evry-courcouronnes', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-issy-les-moulineaux', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-longjumeau', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-mantes-la-jolie', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-massy', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-meaux', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-montreuil', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-noisy-le-grand', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-palaiseau', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-pantin', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-poissy', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-pontault-combault', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-saint-denis', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-saint-maur-des-fosses', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-sarcelles', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-savigny-le-temple', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-villiers-le-bel', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+      { source: '/formation-ia/btp-vitry-sur-seine', destination: '/formation-ia-btp-ile-de-france', permanent: true },
     ];
   },
 };

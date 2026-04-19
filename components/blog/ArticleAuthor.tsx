@@ -16,7 +16,7 @@ const poppins = Poppins({
 const JOB_TITLE_MICRO = 'formatrice IA et ChatGPT spécialisée BTP';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
-const personProfileUrl = `${baseUrl}/auteur/laure-olivie`;
+const personProfileUrl = `${baseUrl}/a-propos`;
 const authorImageAbsoluteUrl = `${baseUrl}${PHOTOS.linkedinGraz.src}`;
 
 const personJsonLd = {

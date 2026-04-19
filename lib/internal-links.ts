@@ -38,7 +38,7 @@ export const LINKS = {
   formationMorangis: '/formations/ia-btp-morangis',
   formationLongjumeau: '/formations/ia-btp-longjumeau',
   formationIleDeFrance: '/formation-ia-btp-ile-de-france',
-  formationYvelines: '/formations/ia-btp-yvelines-78',
+  formationYvelines: '/formation-ia-btp-yvelines',
   /** Page SEO locale Saint-Quentin-en-Yvelines (CA SQY, 78) */
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
   /** Landing SEO local Yvelines (78) — pilier */
@@ -58,7 +58,7 @@ export const LINKS = {
   /** Canonique SEO — ancien `/ia-conducteur-travaux` redirige en 301 */
   iaCDT: '/formation-ia-conducteur-travaux',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
-  formationConducteurTravaux: '/formation-ia-conducteur-travaux-btp',
+  formationConducteurTravaux: '/formation-ia-conducteur-travaux',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
   /** Décideurs — ROI, pilotage IA PME bâtiment */
@@ -79,7 +79,7 @@ export const LINKS = {
   /** Lead magnet — Guide PDF Skill IA conducteur de travaux */
   skillIaConducteurTravaux: '/ressources/skill-ia-conducteur-travaux',
 
-  repondreAoLanding: '/repondre-appels-offres-ia-btp',
+  repondreAoLanding: '/formation-ia-appels-offres-btp',
   /** Landing SEO — analyse CCTP / DCE avec ChatGPT (appels d'offres BTP) */
   formationIaAnalyseCctp: '/formation-ia-analyse-cctp',
   /** Article — prompts et méthode analyse CCTP avec l'IA */
