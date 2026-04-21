@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Check, Users, HardHat, Building2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { SkillIaLeadMagnetForm } from '@/components/ressources/SkillIaLeadMagnetForm';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
@@ -66,6 +66,25 @@ const learningResourceJsonLd = {
   },
 };
 
+const howToSkillJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  '@id': `${CANONICAL}#howto`,
+  name: 'Créer son 1er skill IA conducteur de travaux en 30 minutes',
+  description:
+    'Tutoriel pas à pas pour créer un skill IA BTP : déclencheur, contexte, instructions et format de sortie.',
+  totalTime: 'PT30M',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Choisir une tâche répétitive', text: 'Sélectionnez une tâche exécutée au moins 3 fois par semaine.' },
+    { '@type': 'HowToStep', position: 2, name: 'Lister les ingrédients', text: 'Notez les informations d’entrée nécessaires à chaque exécution.' },
+    { '@type': 'HowToStep', position: 3, name: 'Définir le rôle IA', text: 'Décrivez le rôle métier de l’IA en 2 lignes.' },
+    { '@type': 'HowToStep', position: 4, name: 'Écrire les instructions', text: 'Détaillez les étapes de traitement de manière numérotée.' },
+    { '@type': 'HowToStep', position: 5, name: 'Fixer le format de sortie', text: 'Imposez le format final (doc, mail, tableau) et les contraintes.' },
+    { '@type': 'HowToStep', position: 6, name: 'Tester sur 3 cas réels', text: 'Testez puis corrigez les instructions selon les retours.' },
+    { '@type': 'HowToStep', position: 7, name: 'Documenter le déclencheur', text: 'Formalisez la commande d’appel du skill et partagez-la à l’équipe.' },
+  ],
+};
+
 const FAQ_ITEMS = [
   {
     q: 'Quel format est le guide ?',
@@ -87,9 +106,12 @@ const FAQ_ITEMS = [
 ];
 
 export default function SkillIaConducteurTravauxPage() {
+  const faqSchema = getFAQSchema(FAQ_ITEMS);
   return (
     <div className="min-h-screen bg-white" style={{ color: '#1A1A1A' }}>
       <JsonLd id="schema-learning-resource-skill-ia" schema={learningResourceJsonLd} />
+      <JsonLd id="schema-howto-skill-ia" schema={howToSkillJsonLd} />
+      {faqSchema ? <JsonLd id="schema-faq-skill-ia" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-skill-ia">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1fr_minmax(0,400px)] md:items-start md:py-20 lg:gap-14">
@@ -177,6 +199,83 @@ export default function SkillIaConducteurTravauxPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="tutorial-7-etapes">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 id="tutorial-7-etapes" className="font-display text-2xl font-bold md:text-3xl">
+            Tutoriel — créer son 1er skill en 7 étapes (30 minutes)
+          </h2>
+          <ol className="mt-8 grid gap-4 md:grid-cols-2">
+            {[
+              'Choisissez UNE tâche répétitive (CR, relance ST, reporting…).',
+              'Listez les informations à fournir à chaque lancement.',
+              'Décrivez le rôle métier de l’IA en 2 lignes.',
+              'Écrivez les instructions pas à pas (numérotées).',
+              'Précisez le format final (mail, .docx, tableau).',
+              'Testez sur 3 cas réels puis corrigez.',
+              'Documentez le déclencheur et partagez-le à l’équipe.',
+            ].map((step, idx) => (
+              <li key={step} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="text-sm font-semibold text-[#377CF3]">Étape {idx + 1}</p>
+                <p className="mt-2 text-slate-700">{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="py-14" aria-labelledby="cas-usage-btp">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 id="cas-usage-btp" className="font-display text-2xl font-bold md:text-3xl">
+            5 cas d’usage BTP concrets
+          </h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {[
+              'Skill CR chantier hebdo : 45 min → 8 min par CR.',
+              'Skill relance sous-traitant : ton adapté (souple, ferme, mise en demeure).',
+              'Skill reporting hebdo direction : synthèse multi-chantiers standardisée.',
+              'Skill réponse client mécontent : posture pro, factuelle, sans engagement risqué.',
+              'Skill note de réserve OPR : format prêt à signer + version de suivi.',
+            ].map((item) => (
+              <article key={item} className="rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5">
+                <p className="text-slate-800">{item}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white py-14" aria-labelledby="template-skill">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 id="template-skill" className="font-display text-2xl font-bold md:text-3xl">
+            Template universel de paramétrage (copier-coller)
+          </h2>
+          <pre className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-[#0F172A] p-5 text-xs leading-relaxed text-slate-100 md:text-sm">{`# SKILL : [NOM DU SKILL]
+## ROLE
+Tu es [TITRE] chez [ENTREPRISE], specialise en [DOMAINE BTP].
+Ton style : factuel, professionnel, sans jargon marketing.
+
+## DECLENCHEUR
+Active ce skill quand l'utilisateur ecrit : "[MOT-CLE]"
+suivi de : [LISTE DES INFOS]
+
+## INSTRUCTIONS PAS-A-PAS
+1. Reformule les infos brutes en phrases completes
+2. [ETAPE SPECIFIQUE 2]
+3. [ETAPE SPECIFIQUE 3]
+4. Verifie les manques et redemande si besoin
+
+## FORMAT DE SORTIE
+Format : [.docx / mail / tableau / .pdf]
+Longueur : [X lignes / 1 page max]
+Signature : [NOM] — [TITRE] — [ENTREPRISE]
+
+## CONTRAINTES
+- Jamais d'engagement non couvert par le marche
+- Toujours dater le document
+- Toujours mentionner le numero de chantier`}</pre>
         </div>
       </section>
 
@@ -291,6 +390,10 @@ export default function SkillIaConducteurTravauxPage() {
         {' · '}
         <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
           Catalogue formations
+        </Link>
+        {' · '}
+        <Link href={LINKS.claudeAiBtp} className="text-[#377CF3] hover:underline">
+          Guide Claude AI BTP
         </Link>
       </div>
     </div>

@@ -114,6 +114,7 @@ const quickLinks = [
   { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
   { href: LINKS.financement, label: 'Financement Constructys' },
   { href: LINKS.chatgptArtisans, label: 'ChatGPT pour PME BTP' },
+  { href: LINKS.skillIaConducteurTravaux, label: 'Tutoriel Skill IA conducteur de travaux' },
   { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
   { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
   { href: LINKS.blog, label: 'Blog IA & guides BTP' },
@@ -244,6 +245,33 @@ export default function ClaudeAiBtpPillarPage() {
                   <strong className="font-semibold text-[#0F172A]">IA chantier &amp; automatisation BTP</strong> — ce guide
                   prolonge ces parcours.
                 </p>
+              </section>
+
+              <section className="scroll-mt-24" aria-labelledby="tuto-skill-ia">
+                <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 md:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">Tutoriel opérationnel</p>
+                  <h2 id="tuto-skill-ia" className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                    Créer son 1er skill IA conducteur de travaux
+                  </h2>
+                  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569] md:text-base">
+                    Vous voulez une méthode ultra-pratique ? Le guide dédié reprend le process en 7 étapes, 5 cas
+                    d&apos;usage chantier et un template prêt à copier-coller dans Claude ou ChatGPT.
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Link
+                      href={LINKS.guideSkillIaConducteurTravaux}
+                      className="inline-flex items-center rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                    >
+                      Voir la version tutoriel SEO
+                    </Link>
+                    <Link
+                      href={LINKS.skillIaConducteurTravaux}
+                      className="inline-flex items-center rounded-xl border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-white"
+                    >
+                      Ouvrir la ressource complète
+                    </Link>
+                  </div>
+                </div>
               </section>
 
               <section aria-labelledby="nav-rapide">

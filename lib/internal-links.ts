@@ -82,6 +82,8 @@ export const LINKS = {
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
   /** Lead magnet — Guide PDF Skill IA conducteur de travaux */
   skillIaConducteurTravaux: '/ressources/skill-ia-conducteur-travaux',
+  /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
+  guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
 
   repondreAoLanding: '/formation-ia-appels-offres-btp',
   /** Landing SEO — analyse CCTP / DCE avec ChatGPT (appels d'offres BTP) */
