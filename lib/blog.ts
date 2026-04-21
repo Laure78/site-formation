@@ -278,7 +278,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pourquoi ça bloque encore ? Cinq freins majeurs',
         content:
-          'L\'Observatoire des métiers du BTP identifie des obstacles récurrents. Premièrement, la méconnaissance : le mot « IA » reste abstrait ou réservé aux grandes entreprises tech. Deuxièmement, une résistance culturelle : le secteur valorise le savoir-faire manuel et la transmission ; l\'idée qu\'un algorithme « aide » à la décision peut heurter des habitudes. Troisièmement, la qualité des données : les informations sont souvent éparpillées, peu structurées — l\'IA ne produit de bonnes sorties qu\'avec des entrées fiables. Quatrièmement, le coût et le ROI : selon des benchmarks internationaux, une très large part des expérimentations ne passe pas en production ; pour un artisan, justifier l\'investissement reste difficile. Cinquièmement, l\'âge des dirigeants : une partie des patrons proches de la retraite hésite à investir dans une technologie dont le retour complet se jouera sur le long terme.',
+          'L\'Observatoire des métiers du BTP identifie des obstacles récurrents. Premièrement, la méconnaissance : le mot « IA » reste abstrait ou réservé aux grandes entreprises tech. Deuxièmement, une résistance culturelle : le secteur valorise le savoir-faire manuel et la transmission ; l\'idée qu\'un algorithme « aide » à la décision peut heurter des habitudes. Troisièmement, la qualité des données : les informations sont souvent éparpillées, peu structurées — l\'IA ne produit de bonnes sorties qu\'avec des entrées fiables. Quatrièmement, le coût et le ROI : selon des benchmarks internationaux, une très large part des expérimentations ne passe pas en production ; pour une TPE, justifier l\'investissement reste difficile. Cinquièmement, l\'âge des dirigeants : une partie des patrons proches de la retraite hésite à investir dans une technologie dont le retour complet se jouera sur le long terme.',
       },
       {
         type: 'list',
@@ -340,7 +340,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     keywords: [
       'ChatGPT devis bâtiment',
       'devis BTP IA',
-      'automatiser devis artisan',
+      'automatiser devis BTP',
       'ChatGPT devis chiffrage',
       'prompt devis BTP',
       'IA devis bâtiment',
@@ -351,13 +351,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          'Je forme des artisans et des dirigeants du bâtiment depuis des années : ce qui revient le plus souvent, c’est le temps perdu sur les devis. Avec une bonne préparation et un prompt clair, ChatGPT peut vous livrer une base de devis exploitable en une vingtaine de minutes — pas à la place de votre cerveau, mais pour vous éviter la page blanche et la mise en forme. Ce guide reprend exactement ce que je fais valider en formation : préparer ses données, coller le bon modèle, relire les prix à la main, puis adapter selon le type de chantier. Les montants restent votre responsabilité : l’outil propose une structure, vous validez chaque chiffre.',
+          'Je forme des professionnels du BTP et des dirigeants du bâtiment depuis des années : ce qui revient le plus souvent, c’est le temps perdu sur les devis. Avec une bonne préparation et un prompt clair, ChatGPT peut vous livrer une base de devis exploitable en une vingtaine de minutes — pas à la place de votre cerveau, mais pour vous éviter la page blanche et la mise en forme. Ce guide reprend exactement ce que je fais valider en formation : préparer ses données, coller le bon modèle, relire les prix à la main, puis adapter selon le type de chantier. Les montants restent votre responsabilité : l’outil propose une structure, vous validez chaque chiffre.',
       },
       {
         type: 'paragraph',
         title: 'Le vrai problème : ce n’est pas le chantier, c’est le papier',
         content:
-          'Sur le terrain, vous savez ce que vous allez faire : déposer les câbles, passer les sous-couches, monter les cloisons. Le client, lui, veut un papier qui rassure : un devis détaillé, lisible, avec des lots clairs et des totaux cohérents. Dans les TPE que j’accompagne, on voit souvent 3 à 5 heures par semaine absorbées par la rédaction et la mise au propre des devis — parfois plus quand il y a plusieurs variantes ou un marché un peu technique. Souvent, le blocage n’est même pas le calcul : c’est de reformuler proprement ce que vous avez déjà en tête, de répéter les mêmes mentions légales, d’aligner les libellés pour que le client comprenne ce qu’il paie. La solution que je propose n’est pas magique : c’est ChatGPT utilisé comme assistant de rédaction pour un devis BTP IA, avec une règle d’or que je répète en salle : on automatise le devis artisan pour gagner du temps sur la forme, jamais pour laisser un robot décider du chiffrage à votre place. Quand la méthode est propre, le premier jet sort en environ vingt minutes ; le reste, c’est votre relecture et votre grille tarifaire. C’est exactement l’objectif d’un bon usage de l’outil : moins de fatigue administrative, plus de disponibilité pour les chantiers et les clients.',
+          'Sur le terrain, vous savez ce que vous allez faire : déposer les câbles, passer les sous-couches, monter les cloisons. Le client, lui, veut un papier qui rassure : un devis détaillé, lisible, avec des lots clairs et des totaux cohérents. Dans les TPE que j’accompagne, on voit souvent 3 à 5 heures par semaine absorbées par la rédaction et la mise au propre des devis — parfois plus quand il y a plusieurs variantes ou un marché un peu technique. Souvent, le blocage n’est même pas le calcul : c’est de reformuler proprement ce que vous avez déjà en tête, de répéter les mêmes mentions légales, d’aligner les libellés pour que le client comprenne ce qu’il paie. La solution que je propose n’est pas magique : c’est ChatGPT utilisé comme assistant de rédaction pour un devis BTP IA, avec une règle d’or que je répète en salle : on automatise le devis BTP pour gagner du temps sur la forme, jamais pour laisser un robot décider du chiffrage à votre place. Quand la méthode est propre, le premier jet sort en environ vingt minutes ; le reste, c’est votre relecture et votre grille tarifaire. C’est exactement l’objectif d’un bon usage de l’outil : moins de fatigue administrative, plus de disponibilité pour les chantiers et les clients.',
       },
       {
         type: 'paragraph',
@@ -394,7 +394,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Étape 4 — Les variantes : rapide vs détaillé, rénovation vs neuf',
         content:
-          'Pas besoin du même niveau de détail pour chaque prospect. Pour un petit entretien ou une réparation ciblée, je demande un « devis rapide » : peu de lots, phrases courtes, focus sur déplacement, MO, fourniture principale — le but est d’envoyer vite pour débloquer le planning. Pour une rénovation lourde ou une extension, on passe en « devis détaillé » : lots découpés (dépose, reprise d’étanchéité, isolation, finitions), parce que le client compare souvent plusieurs artisans et que la transparence du poste rassure. Neuf et rénovation ne se traitent pas pareil : en rénovation, j’insiste dans le prompt sur l’imprévu (prises en sous-œuvre, état des supports) pour que le devis dise clairement ce qui est mesuré sur place — ça évite les disputes à l’avancement. Pour le neuf, la structuration par phase ou par corps d’état est souvent plus lisible pour le maître d’ouvrage. Vous pouvez dupliquer le prompt magique et ajouter une ligne « mode : devis synthétique » ou « mode : mémoire technique léger » selon le cas.',
+          'Pas besoin du même niveau de détail pour chaque prospect. Pour un petit entretien ou une réparation ciblée, je demande un « devis rapide » : peu de lots, phrases courtes, focus sur déplacement, MO, fourniture principale — le but est d’envoyer vite pour débloquer le planning. Pour une rénovation lourde ou une extension, on passe en « devis détaillé » : lots découpés (dépose, reprise d’étanchéité, isolation, finitions), parce que le client compare souvent plusieurs entreprises et que la transparence du poste rassure. Neuf et rénovation ne se traitent pas pareil : en rénovation, j’insiste dans le prompt sur l’imprévu (prises en sous-œuvre, état des supports) pour que le devis dise clairement ce qui est mesuré sur place — ça évite les disputes à l’avancement. Pour le neuf, la structuration par phase ou par corps d’état est souvent plus lisible pour le maître d’ouvrage. Vous pouvez dupliquer le prompt magique et ajouter une ligne « mode : devis synthétique » ou « mode : mémoire technique léger » selon le cas.',
       },
       {
         type: 'prompts',
@@ -433,7 +433,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pour conclure',
         content:
-          'Automatiser devis artisan avec ChatGPT, ce n’est pas tricher : c’est arrêter de partir de zéro à chaque fois. La méthode qui tient la route, je la répète en formation : données propres, prompt magique, relecture des prix, adaptation au type de chantier. Si vous maîtrisez ça, le gain de temps devient réel sans vous exposer sur le fond. Je préfère toujours qu’on travaille sur vos propres exemples (anonymisés) : un devis type de votre métier, une rénovation récurrente, un petit entretien — comme ça, personne ne repart avec un modèle « scolaire » qui ne colle pas à votre entreprise. Et si vous voulez que ce soit votre équipe qui gagne ce réflexe — avec des cas concrets du bâtiment et des consignes pour ne pas coller d’informations sensibles dans l’outil — c’est tout le sens de ma formation IA BTP chez OFC Création d’Entreprise, certifiée Qualiopi et finançable par l’OPCO Constructys dans les conditions habituelles des entreprises du secteur.',
+          'Automatiser un devis BTP avec ChatGPT, ce n’est pas tricher : c’est arrêter de partir de zéro à chaque fois. La méthode qui tient la route, je la répète en formation : données propres, prompt magique, relecture des prix, adaptation au type de chantier. Si vous maîtrisez ça, le gain de temps devient réel sans vous exposer sur le fond. Je préfère toujours qu’on travaille sur vos propres exemples (anonymisés) : un devis type de votre métier, une rénovation récurrente, un petit entretien — comme ça, personne ne repart avec un modèle « scolaire » qui ne colle pas à votre entreprise. Et si vous voulez que ce soit votre équipe qui gagne ce réflexe — avec des cas concrets du bâtiment et des consignes pour ne pas coller d’informations sensibles dans l’outil — c’est tout le sens de ma formation IA BTP chez OFC Création d’Entreprise, certifiée Qualiopi et finançable par l’OPCO Constructys dans les conditions habituelles des entreprises du secteur.',
       },
       {
         type: 'cta',
@@ -458,7 +458,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'comparatif ChatGPT Claude Gemini BTP',
       'ChatGPT vs Claude BTP',
       'Gemini ou ChatGPT bâtiment',
-      'IA artisan BTP',
+      'IA PME BTP',
       'Claude mémoire technique',
       'ChatGPT devis BTP',
     ],
@@ -467,7 +467,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          'Ce comparatif ChatGPT Claude Gemini BTP part de la pratique : ce que j’observe en formation avec des artisans, des conducteurs de travaux et des dirigeants de TPE du bâtiment. Aucun outil ne « gagne » sur tout : chacun a des forces selon que vous rédigez un devis, un courrier tendu, un mémoire technique ou un post LinkedIn. L’objectif est de vous éviter de jongler au hasard entre trois abonnements sans critères.',
+          'Ce comparatif ChatGPT Claude Gemini BTP part de la pratique : ce que j’observe en formation avec des professionnels du BTP, des conducteurs de travaux et des dirigeants de TPE du bâtiment. Aucun outil ne « gagne » sur tout : chacun a des forces selon que vous rédigez un devis, un courrier tendu, un mémoire technique ou un post LinkedIn. L’objectif est de vous éviter de jongler au hasard entre trois abonnements sans critères.',
       },
       {
         type: 'html',
@@ -1024,7 +1024,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Étape 2 : Structurer le prompt pour ChatGPT',
         content:
-          'La qualité du devis généré dépend de la précision du prompt. Format recommandé : "Tu es [métier BTP]. Contexte : [description projet]. Rédige un devis détaillé incluant : [liste postes]. Contraintes : [normes, prix HT, TVA 10%]." Exemple : "Tu es artisan électricien. Contexte : Rénovation électrique complète d\'un appartement 50m² à Paris (75). Tableau électrique à remplacer, 10 prises, 5 éclairages. Rédige un devis détaillé avec fournitures et main-d\'œuvre. Prix HT, TVA 10%."',
+          'La qualité du devis généré dépend de la précision du prompt. Format recommandé : "Tu es [métier BTP]. Contexte : [description projet]. Rédige un devis détaillé incluant : [liste postes]. Contraintes : [normes, prix HT, TVA 10%]." Exemple : "Tu es électricien professionnel BTP. Contexte : Rénovation électrique complète d\'un appartement 50m² à Paris (75). Tableau électrique à remplacer, 10 prises, 5 éclairages. Rédige un devis détaillé avec fournitures et main-d\'œuvre. Prix HT, TVA 10%."',
       },
       {
         type: 'prompts',
@@ -1033,19 +1033,19 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           {
             titre: 'Prompt devis plomberie — Installation salle de bain',
             prompt:
-              'Tu es artisan plombier spécialisé en rénovation. Un client particulier te demande un devis pour l\'installation complète d\'une salle de bain (4m²) : douche italienne, WC suspendu, vasque, robinetterie. Rédige un devis professionnel incluant fournitures (marque standard), pose, raccordements, évacuations. Prix HT avec TVA à 10%. Délai d\'exécution 5 jours ouvrés. Acompte 30% à la commande.',
+              'Tu es plombier professionnel BTP spécialisé en rénovation. Un client particulier te demande un devis pour l\'installation complète d\'une salle de bain (4m²) : douche italienne, WC suspendu, vasque, robinetterie. Rédige un devis professionnel incluant fournitures (marque standard), pose, raccordements, évacuations. Prix HT avec TVA à 10%. Délai d\'exécution 5 jours ouvrés. Acompte 30% à la commande.',
             usage: 'Adapter surface, équipements, marque selon projet client',
           },
           {
             titre: 'Prompt devis électricité — Mise aux normes tableau',
             prompt:
-              'Tu es artisan électricien en Île-de-France. Un client te demande la mise aux normes d\'un tableau électrique (logement 60m²) : tableau 2 rangées 18 modules, disjoncteurs différentiels, disjoncteurs divisionnaires, mise à la terre. Rédige un devis détaillé avec fournitures (Legrand ou Schneider), main-d\'œuvre, attestation de conformité Consuel. Prix HT, TVA 10%. Délai 1 journée.',
+              'Tu es électricien professionnel BTP en Île-de-France. Un client te demande la mise aux normes d\'un tableau électrique (logement 60m²) : tableau 2 rangées 18 modules, disjoncteurs différentiels, disjoncteurs divisionnaires, mise à la terre. Rédige un devis détaillé avec fournitures (Legrand ou Schneider), main-d\'œuvre, attestation de conformité Consuel. Prix HT, TVA 10%. Délai 1 journée.',
             usage: 'Préciser marques, surface logement, nombre de circuits',
           },
           {
             titre: 'Prompt devis maçonnerie — Extension parpaing',
             prompt:
-              'Tu es artisan maçon en Île-de-France. Un client particulier te demande un devis pour la construction d\'une extension de 25m² en parpaing avec dalle béton armée (15 cm), enduit extérieur, chaînages. Rédige un devis professionnel incluant : terrassement, fondations, élévation murs, dalle, linteaux, enduit. Fournitures et main-d\'œuvre séparés. Prix HT, TVA 10%. Délai d\'exécution 3 semaines. Conditions de paiement échelonnées (30% / 40% / 30%).',
+              'Tu es maçon professionnel BTP en Île-de-France. Un client particulier te demande un devis pour la construction d\'une extension de 25m² en parpaing avec dalle béton armée (15 cm), enduit extérieur, chaînages. Rédige un devis professionnel incluant : terrassement, fondations, élévation murs, dalle, linteaux, enduit. Fournitures et main-d\'œuvre séparés. Prix HT, TVA 10%. Délai d\'exécution 3 semaines. Conditions de paiement échelonnées (30% / 40% / 30%).',
             usage: 'Adapter surface, type extension, nature sol selon projet',
           },
         ],
@@ -1124,7 +1124,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pourquoi se former à l’IA dans le BTP en 2026 ?',
         content:
-          'L’IA générative est déjà utilisée sur le terrain et au bureau : mémoires techniques et synthèses de DCE, automatisation des devis et des pièces chiffrées, comptes rendus de chantier, relances et emails. Une formation courte et opérationnelle permet d’encadrer l’usage des outils, d’éviter les erreurs de fond et de gagner souvent plusieurs heures par semaine sur l’administratif — sous réserve de méthode et de relecture humaine. Les formations proposées par OFC Création d’Entreprise sont pensées pour les artisans, PME, conducteurs de travaux et fonctions support.',
+          'L’IA générative est déjà utilisée sur le terrain et au bureau : mémoires techniques et synthèses de DCE, automatisation des devis et des pièces chiffrées, comptes rendus de chantier, relances et emails. Une formation courte et opérationnelle permet d’encadrer l’usage des outils, d’éviter les erreurs de fond et de gagner souvent plusieurs heures par semaine sur l’administratif — sous réserve de méthode et de relecture humaine. Les formations proposées par OFC Création d’Entreprise sont pensées pour les professionnels du BTP, les PME, les conducteurs de travaux et les fonctions support.',
       },
       {
         type: 'list',
@@ -1145,13 +1145,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'TPE et très petites structures : dispositifs « objectif compétences »',
         content:
-          'Les entreprises de moins de onze salariés peuvent bénéficier, sous conditions, de dispositifs renforcés (programme Objectif compétences et règles associées) : prise en charge élevée du coût pédagogique et mécanismes limitant l’avance de trésorerie selon les modalités du dossier. C’est souvent le levier le plus efficace pour les artisans qui veulent monter en compétence sur l’IA sans bloquer la caisse — montez le dossier avec votre conseiller Constructys et un organisme de formation référencé.',
+          'Les entreprises de moins de onze salariés peuvent bénéficier, sous conditions, de dispositifs renforcés (programme Objectif compétences et règles associées) : prise en charge élevée du coût pédagogique et mécanismes limitant l’avance de trésorerie selon les modalités du dossier. C’est souvent le levier le plus efficace pour les dirigeants de TPE qui veulent monter en compétence sur l’IA sans bloquer la caisse — montez le dossier avec votre conseiller Constructys et un organisme de formation référencé.',
       },
       {
         type: 'list',
         title: 'Ordre de grandeur du reste à charge (indicatif)',
         content: [
-          'Artisan ou TPE éligible à un dispositif renforcé — reste à charge souvent nul ou très faible sur le coût pédagogique, sous réserve d’accord préalable.',
+          'Dirigeant ou TPE éligible à un dispositif renforcé — reste à charge souvent nul ou très faible sur le coût pédagogique, sous réserve d’accord préalable.',
           'PME sous le seuil des 50 salariés — financement mutualisé via le PDC : dans de nombreux cas, le reste à charge entreprise est limité si le dossier est complet et dans les plafonds.',
           'Entreprises plus grandes — combinaison PDC et leviers type FNE selon projets numériques et accords : reste à charge variable ; anticipez le cadrage avec votre service RH et Constructys.',
         ],

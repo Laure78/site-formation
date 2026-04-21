@@ -15,7 +15,7 @@ const ETUDE_CAS_THUMBNAILS = [
   {
     src: '/images/ffb-logo-moss-mur.png',
     alt:
-      'Logo FFB sur mur de mousse en accueil : Fédération Française du Bâtiment — réseau artisans et entreprises du bâtiment, formations IA BTP (ChatGPT, Claude AI) en Île-de-France.',
+      'Logo FFB sur mur de mousse en accueil : Fédération Française du Bâtiment — réseau de professionnels et entreprises du bâtiment, formations IA BTP (ChatGPT, Claude AI) en Île-de-France.',
     title: 'FFB — formation IA BTP & réseau national du bâtiment',
     subtitle: 'Interventions Grand Paris, IDF Est & Ouest · Laure Olivié, OFC Qualiopi',
     href: '#ffb',
@@ -252,7 +252,7 @@ export default function EtudeDeCasFfbCsfePage() {
             <figure className="border-b border-slate-200 bg-slate-100">
               <Image
                 src="/images/rencontres-artisans-ia-ffb-atelier.jpg"
-                alt="Atelier « Les Rencontres des Artisans » — L'IA au service des artisans du bâtiment : participants en salle de formation avec ordinateurs portables, sous le bandeau FFB."
+                alt="Atelier « Les Rencontres des Artisans » — L'IA au service des équipes du bâtiment : participants en salle de formation avec ordinateurs portables, sous le bandeau FFB."
                 width={1024}
                 height={764}
                 className="h-auto w-full object-cover"
@@ -260,7 +260,7 @@ export default function EtudeDeCasFfbCsfePage() {
                 priority
               />
               <figcaption className="px-4 py-3 text-center text-xs text-slate-500 md:px-10">
-                « Les Rencontres des Artisans » — L&apos;IA au service des artisans du bâtiment
+                « Les Rencontres des Artisans » — L&apos;IA au service des équipes du bâtiment
                 (intervention réseau FFB).
               </figcaption>
             </figure>
@@ -370,7 +370,7 @@ export default function EtudeDeCasFfbCsfePage() {
                   </p>
                   <p className="mt-2 text-slate-700">
                     Sessions sur mesure : même socle de cas d&apos;usage que pour la FFB,
-                    ajusté aux publics artisans, dirigeants et équipes support selon le
+                    ajusté aux publics professionnels du BTP, dirigeants et équipes support selon le
                     dispositif local de la CSFE.
                   </p>
                 </div>

@@ -20,7 +20,7 @@ export function getArticleTemplate(idea: {
 }): ArticleTemplate {
   return {
     shortAnswer: `L'IA et ChatGPT permettent aux professionnels du BTP de gagner du temps sur les devis, emails et documents administratifs. Une formation courte de 4h à 7h suffit pour des résultats concrets. La formation IA Constructys est 100% finançable par l'OPCO.`,
-    definition: `L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les artisans et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents.`,
+    definition: `L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents.`,
     keyTakeaways: [
       'Gain de temps moyen : 3 à 5h par semaine sur devis, emails et CR',
       'Formation 4h à 7h suffisante pour démarrer et être opérationnel',
@@ -41,7 +41,7 @@ export function getArticleTemplate(idea: {
     faq: [
       { q: 'Faut-il des compétences techniques pour utiliser l\'IA en BTP ?', a: 'Non. Une formation de 4h à 7h suffit. On travaille sur vos vrais documents (devis, emails, CR), sans code ni logiciel complexe. Méthode 100% pratique.' },
       { q: 'La formation IA BTP est-elle finançable ?', a: 'Oui, 100% par l\'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.' },
-      { q: 'Combien de temps un artisan gagne-t-il avec l\'IA ?', a: 'En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus. Les gains sont mesurables dès la première semaine.' },
+      { q: 'Combien de temps un professionnel du BTP gagne-t-il avec l\'IA ?', a: 'En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus. Les gains sont mesurables dès la première semaine.' },
       { q: 'Comment prendre rendez-vous pour une formation ?', a: 'Réservez un créneau de 30 minutes gratuit sur notre page Prendre RDV. Vous recevrez un devis personnalisé sous 24h.' },
     ],
   };
@@ -58,7 +58,7 @@ export interface LinkedInPostTemplate {
 export function getLinkedInTemplate(articleTitle: string): LinkedInPostTemplate {
   return {
     hook: 'Vous passez encore 2h à rédiger un devis ?',
-    problem: 'Les artisans du BTP perdent un temps fou sur l\'administratif : devis, emails, comptes rendus. Des heures qui pourraient être passées sur le chantier.',
+    problem: 'Les entreprises du BTP perdent un temps fou sur l\'administratif : devis, emails, comptes rendus. Des heures qui pourraient être passées sur le chantier.',
     insight: 'L\'IA change la donne. En 4h de formation, vous apprenez à utiliser ChatGPT pour diviser par 10 le temps de rédaction. Sans compétence technique.',
     example: 'Un plombier que j\'ai formé : devis de rénovation complète en 15 min au lieu de 2h. Il ajuste les prix, envoie. Le client signe. Simple.',
     cta: `Découvrez la formation IA BTP — 100% finançable Constructys. Lien en bio.`,

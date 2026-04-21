@@ -1,0 +1,72 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { Award } from 'lucide-react';
+import { PHOTOS } from '@/lib/photos';
+
+type Props = {
+  lead: string;
+  qualiopiText: string;
+  catalogueHref: string;
+  calendlyHeroHref: string;
+};
+
+export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroHref }: Props) {
+  return (
+    <section
+      id="essentiel-retour"
+      className="scroll-mt-24 rounded-3xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_10px_40px_rgba(15,23,42,0.06)] md:px-8 md:py-12"
+    >
+      <div className="grid gap-10 lg:grid-cols-5 lg:items-center">
+        <article className="lg:col-span-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
+            Formatrice IA BTP · Guyancourt · Depuis 2014
+          </p>
+          <h1 className="mt-3 font-display text-4xl font-bold leading-tight text-[#0F172A] md:text-5xl lg:text-6xl">
+            Laure Olivié — Formatrice IA BTP (Qualiopi, FFB, LinkedIn Learning)
+          </h1>
+          <p className="mt-4 text-2xl font-normal text-[#475569]">
+            Formatrice IA et ChatGPT pour les entreprises du BTP
+          </p>
+          <p className="mt-6 text-lg leading-relaxed text-[#334155]">{lead}</p>
+          <div className="mt-6 rounded-2xl border border-[#E2E8F0] border-l-4 border-l-[#377CF3] bg-[#F8FAFC] px-6 py-5 text-[#334155]">
+            <p className="font-medium">
+              1 592 professionnels formés · Note 4,85/5 · 10 ans d&apos;expérience · Qualiopi · LinkedIn Learning
+            </p>
+          </div>
+          <p className="mt-5 text-base leading-relaxed text-[#334155]">{qualiopiText}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href={catalogueHref}
+              className="inline-flex items-center rounded-xl bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(55,124,243,0.35)] transition hover:scale-[1.02]"
+            >
+              Voir le catalogue →
+            </Link>
+            <a
+              href={calendlyHeroHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Prendre rendez-vous"
+              className="inline-flex items-center rounded-xl border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]"
+            >
+              Prendre RDV
+            </a>
+          </div>
+        </article>
+        <div className="relative order-first lg:order-none lg:col-span-2">
+          <Image
+            src={PHOTOS.portraitPro2026.src}
+            alt={PHOTOS.portraitPro2026.alt}
+            width={PHOTOS.portraitPro2026.width}
+            height={PHOTOS.portraitPro2026.height}
+            className="h-[420px] w-full rounded-3xl object-cover shadow-[0_16px_48px_rgba(15,23,42,0.22)] md:h-[500px]"
+            priority
+          />
+          <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3 shadow-lg">
+            <Award className="h-4 w-4 text-[#377CF3]" />
+            <span className="text-xs font-bold text-[#377CF3]">Qualiopi · Certifié</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

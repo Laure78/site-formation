@@ -501,7 +501,7 @@ export default async function BlogArticlePage({ params }: Props) {
               <Link
                 href={LINKS.chatgptArtisans}
                 className="text-[var(--accent)] font-medium hover:underline"
-                title="ChatGPT pour artisans et entreprises du BTP"
+                title="ChatGPT pour entreprises du BTP"
               >
                 ChatGPT pour entreprises BTP
               </Link>

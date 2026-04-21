@@ -13,13 +13,13 @@ const PATH = '/outils-ia-btp';
 export const metadata = createPageMetadata({
   title: 'Outils IA BTP : ChatGPT, Claude, Gemini — comparatif & ressources',
   description:
-    'Page pilier : comparatif ChatGPT, Claude et Gemini pour artisans et PME du BTP. Articles, tutoriels et bonnes pratiques. OFC Création d’Entreprise, Qualiopi.',
+    'Page pilier : comparatif ChatGPT, Claude et Gemini pour les professionnels du BTP et les PME. Articles, tutoriels et bonnes pratiques. OFC Création d’Entreprise, Qualiopi.',
   path: PATH,
   keywords: [
     'outils IA BTP ChatGPT Claude Gemini',
     'comparatif ChatGPT Claude Gemini',
     'IA générative bâtiment',
-    'ChatGPT artisans BTP',
+    'ChatGPT PME BTP',
     'Claude AI BTP',
     'Gemini Google Workspace BTP',
   ],
@@ -42,7 +42,7 @@ const ARTICLES_OUTILS = [
     badge: 'Claude — Chat, Cowork, Code…',
   },
   {
-    titre: 'ChatGPT pour artisans BTP : 10 prompts prêts à l’emploi par corps de métier',
+    titre: 'ChatGPT pour PME BTP : 10 prompts prêts à l’emploi par corps de métier',
     href: '/blog/chatgpt-prompts-artisans-btp',
     badge: 'Prompts',
   },

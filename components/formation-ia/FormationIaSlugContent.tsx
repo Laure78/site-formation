@@ -257,7 +257,7 @@ export function FormationIaVilleBody({
       </h1>
       <p className="lead text-lg text-slate-700">
         Vous êtes basé·e à <strong>{ville.label}</strong> ({ville.deptName}, département{' '}
-        {ville.dept}) et vous voulez une <strong>formation IA BTP</strong> concrète pour artisans,
+        {ville.dept}) et vous voulez une <strong>formation IA BTP</strong> concrète pour des professionnels du BTP,
         chefs d&apos;équipe et dirigeants ? Cette page présente l&apos;approche OFC : ateliers sur{' '}
         <strong>ChatGPT</strong> et <strong>Claude AI</strong>, cas réels de chantier et pièces
         administratives, avec une perspective locale Île-de-France.
@@ -267,7 +267,7 @@ export function FormationIaVilleBody({
         Ce que vous travaillerez avec ChatGPT et Claude AI
       </h2>
       <p>
-        La <strong>formation ChatGPT artisans</strong> et la <strong>formation Claude AI artisans du bâtiment</strong>{' '}
+        La <strong>formation ChatGPT pour PME BTP</strong> et la <strong>formation Claude AI pour équipes du bâtiment</strong>{' '}
         ne sont pas des « cours généralistes » : nous appliquons les assistants à vos livrables :
         devis, mails, synthèses, préparation de réponses, relecture de documents. À {ville.label},
         les enjeux sont souvent liés au rythme des chantiers et à la densité des échanges : l&apos;IA
@@ -383,7 +383,7 @@ function FormationIaParisBody() {
       </h1>
       <p className="lead text-lg text-slate-700">
         Accroche : <strong>Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France</strong>{' '}
-        — pour dirigeants, conducteurs de travaux, responsables techniques et artisans qui veulent
+        — pour dirigeants, conducteurs de travaux, responsables techniques et professionnels du BTP qui veulent
         gagner du temps sur l&apos;écrit sans baisser la qualité. Paris intra-muros, Grand Paris et
         Métropole du Grand Paris : les flux documentaires sont intenses ; cette page pose un cadre
         clair pour une montée en compétence utile immédiatement.

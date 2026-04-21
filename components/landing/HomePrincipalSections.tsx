@@ -32,7 +32,7 @@ const cards = [
   },
   {
     href: LINKS.claudeAiBtp,
-    title: 'Claude AI BTP',
+    title: 'Formation Claude AI BTP',
     desc: 'Guide complet Claude — Chat, Cowork, Code, Chrome',
     Icon: Sparkles,
   },

@@ -152,8 +152,8 @@ export const EXTERNAL_AUTHORITY_LINKS = {
   },
   linkedinLearningRh: {
     href: 'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
-    label: 'L\'IA pour les artisans et TPE : Recruter sa main-d\'œuvre efficacement',
+    label: 'L\'IA pour PME et TPE : Recruter sa main-d\'œuvre efficacement',
     title:
-      "Formation LinkedIn Learning — L'IA pour les artisans et TPE : Recruter sa main-d'œuvre efficacement",
+      "Formation LinkedIn Learning — recrutement PME et TPE du BTP avec l'IA",
   },
 } as const;

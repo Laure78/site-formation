@@ -54,13 +54,13 @@ export function FFBIAAccrocheSection() {
             </p>
             <p className="mt-6 text-slate-600">
               Les organisations professionnelles du bâtiment portent le message : l&apos;IA
-              touche artisans, entreprises et acteurs de la filière. Les formations avec{' '}
+              touche les professionnels du BTP, les entreprises et les acteurs de la filière. Les formations avec{' '}
               <span className="font-medium text-slate-800">Laure Olivié</span> s&apos;alignent
               sur cette exigence : pas de gadget — uniquement des usages mesurables (devis,
               chantier, marchés, administratif).
             </p>
             <p className="mt-4 text-sm text-slate-500">
-              Première organisation patronale représentative des artisans et entrepreneurs du
+              Première organisation patronale représentative des professionnels et entrepreneurs du
               bâtiment —{' '}
               <ExternalLinkAnchor
                 href="https://www.ffbatiment.fr"

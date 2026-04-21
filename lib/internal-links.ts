@@ -22,6 +22,10 @@ export const LINKS = {
   formationIaBtp: '/formation-ia-btp',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
+  /** Landing SEO cluster Claude AI */
+  formationClaudeAiBtp: '/formation-claude-ai-btp',
+  formationClaudeAiBatiment: '/formation-claude-ai-batiment',
+  formationClaudeAiTravauxPublics: '/formation-claude-ai-travaux-publics',
 
   // Tier 2 — Formations (catalogue)
   formationBatiment: '/formations/ia-au-service-du-batiment',

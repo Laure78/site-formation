@@ -3,7 +3,6 @@
  */
 import { formationsData } from '@/src/data/formations';
 import { SITE_CONFIG } from '@/lib/seo';
-import { SCHEMA_AGGREGATE_RATING_HOME } from '@/lib/schema-constants';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
@@ -29,7 +28,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-au-service-du-batiment',
     name: "L'IA au service du bâtiment",
     description:
-      "Formation pratique de 4 heures pour artisans et PME du BTP : automatiser les devis, comptes rendus de chantier, emails et administratif avec ChatGPT et l'IA. Finançable Constructys.",
+      "Formation pratique de 4 heures pour professionnels du BTP et PME : automatiser les devis, comptes rendus de chantier, emails et administratif avec ChatGPT et l'IA. Finançable Constructys.",
     teaches: [
       'Utilisation de ChatGPT dans le BTP',
       'Automatisation des devis bâtiment',
@@ -320,17 +319,11 @@ function buildDedicatedFormationCourseObject(opts: {
       category: 'Formation professionnelle finançable Constructys',
     },
     teaches: [...teaches],
-    aggregateRating: {
-      '@type': 'AggregateRating' as const,
-      ratingValue: SCHEMA_AGGREGATE_RATING_HOME.ratingValue,
-      ratingCount: SCHEMA_AGGREGATE_RATING_HOME.ratingCount,
-      bestRating: SCHEMA_AGGREGATE_RATING_HOME.bestRating,
-    },
   };
 }
 
 /**
- * Course dédiée pour les fiches formation listées (provider / instructor en @id, AggregateRating OFC).
+ * Course dédiée pour les fiches formation listées (provider / instructor en @id).
  */
 export function getDedicatedFormationCoursePageJsonLd(
   path: DedicatedFormationCoursePath

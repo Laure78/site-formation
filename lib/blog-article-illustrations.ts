@@ -47,7 +47,7 @@ function buildArticleIllustrationAlt(articleTitle: string, slug: string): string
 
 /**
  * Pools thématiques (ordre = préférence de rotation).
- * Visuels blog 2026 (chantier, salle « L'IA dans le BTP », convention / flipchart, artisans)
+ * Visuels blog 2026 (chantier, salle « L'IA dans le BTP », convention / flipchart, équipes BTP)
  * : voir PHOTOS.blog* dans lib/photos.ts.
  */
 const POOLS: Record<BlogCategoryId, PhotoKey[]> = {

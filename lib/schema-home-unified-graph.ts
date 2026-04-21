@@ -4,7 +4,6 @@
  * Données alignées sur `lib/schema-constants.ts`.
  */
 import {
-  SCHEMA_AGGREGATE_RATING_HOME,
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_LINKEDIN_PROFILE_URL,
@@ -104,13 +103,6 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           credentialCategory: 'Certification qualité organisme de formation',
           recognizedBy: { '@type': 'Organization', name: 'République française' },
           url: ANNUAIRE_LABELS_CERT,
-        },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: SCHEMA_AGGREGATE_RATING_HOME.ratingValue,
-          bestRating: SCHEMA_AGGREGATE_RATING_HOME.bestRating,
-          worstRating: SCHEMA_AGGREGATE_RATING_HOME.worstRating,
-          ratingCount: SCHEMA_AGGREGATE_RATING_HOME.ratingCount,
         },
         sameAs: [
           SCHEMA_LINKEDIN_PROFILE_URL,

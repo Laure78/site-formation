@@ -317,7 +317,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
               ).
             </p>
             <p>
-              Pour les chefs d&apos;entreprise artisans non salariés, des dispositifs complémentaires peuvent
+              Pour les chefs d&apos;entreprise non salariés, des dispositifs complémentaires peuvent
               exister (ex. FAFCEA) : renseignez-vous auprès de votre Chambre des Métiers et de l&apos;Artisanat
               des Yvelines.
             </p>

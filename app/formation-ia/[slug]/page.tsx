@@ -56,7 +56,7 @@ export default async function FormationIaSlugPage({ params }: Props) {
     entry.kind === 'metier' && entry.metier
       ? `Formation IA BTP pour ${entry.metier.label} (${entry.metier.categorie}) : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, OFC Création d'Entreprise.`
       : entry.kind === 'ville' && entry.ville
-        ? `Formation IA BTP à ${entry.ville.label} (${entry.ville.deptName}) : ChatGPT et Claude AI pour artisans et entreprises. Qualiopi, financement OPCO Constructys.`
+        ? `Formation IA BTP à ${entry.ville.label} (${entry.ville.deptName}) : ChatGPT et Claude AI pour les professionnels du BTP et les entreprises. Qualiopi, financement OPCO Constructys.`
         : SITE_CONFIG.description;
 
   const courseJson = buildFormationIaCourseJsonLd({

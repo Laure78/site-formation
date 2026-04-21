@@ -55,17 +55,14 @@ import { HomePrincipalSections } from '@/components/landing/HomePrincipalSection
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
-/** Meta + Open Graph / Twitter (sans suffixe auteur — ≤ 155 car. description SERP) */
-const HOME_META_DESCRIPTION =
-  "1 592 pros BTP formés à l'IA. Qualiopi finançable Constructys. ChatGPT devis, DCE, mémoire technique. Visio découverte gratuite.";
+/** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≈ 155 car., phrase entière sans coupure) */
+const HOME_META_DESCRIPTION = `Formation IA BTP : devis, administratif, appels d'offres avec ChatGPT. ${formatProfessionalsTrainedCount()} pros formés. Qualiopi, Constructys. Visio gratuite.`;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — ChatGPT, Devis & Chantier',
   description: HOME_META_DESCRIPTION,
   path: '/',
   appendAuthorSuffix: false,
-  openGraphDescription:
-    "1 592 pros BTP formés à l'IA. Qualiopi finançable Constructys. ChatGPT devis, DCE, mémoire technique. Visio découverte gratuite.",
   openGraphTitle: 'Formation IA BTP — ChatGPT, Devis & Chantier',
   keywords: [
     'formation IA BTP',
@@ -210,6 +207,30 @@ export default function HomePage() {
                 </Link>
                 {' · '}
                 <Link
+                  href={LINKS.formationClaudeAiBtp}
+                  className="text-[var(--accent)] hover:underline"
+                  title="Formation Claude AI BTP dédiée"
+                >
+                  formation Claude AI BTP
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationClaudeAiBatiment}
+                  className="text-[var(--accent)] hover:underline"
+                  title="Formation Claude AI bâtiment"
+                >
+                  formation Claude bâtiment
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationClaudeAiTravauxPublics}
+                  className="text-[var(--accent)] hover:underline"
+                  title="Formation Claude AI travaux publics"
+                >
+                  formation Claude travaux publics
+                </Link>
+                {' · '}
+                <Link
                   href={LINKS.financement}
                   className="text-[var(--accent)] hover:underline"
                   title="Financement Constructys — formation IA BTP"
@@ -256,7 +277,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <CitationSentence text="La formation IA BTP animée par Laure Olivié aide artisans et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
+              <CitationSentence text="La formation IA BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
             </div>
             <div className="w-full">
               <p className="mb-3 text-center text-sm font-medium text-slate-600 md:text-left">
@@ -387,7 +408,7 @@ export default function HomePage() {
               </h3>
               <p className="mt-3 max-w-2xl text-slate-600">
                 Une formation IA BTP sérieuse automatise devis, emails et suivi administratif sans
-                remplacer le métier. Les artisans et conducteurs de travaux gagnent en productivité
+                remplacer le métier. Les professionnels du BTP et conducteurs de travaux gagnent en productivité
                 et retrouvent du temps sur le chantier et les appels d&apos;offres.
               </p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -528,7 +549,7 @@ export default function HomePage() {
                 className="mx-auto mt-3 max-w-2xl text-center text-slate-600"
                 itemProp="description"
               >
-                Méthodes éprouvées en formation IA BTP avec artisans, conducteurs de travaux et
+                Méthodes éprouvées en formation IA BTP avec des professionnels du BTP, conducteurs de travaux et
                 entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au
                 quotidien.
               </p>
@@ -891,7 +912,7 @@ export default function HomePage() {
               L&apos;IA pour recruter dans le BTP
             </h4>
             <p className="mt-3 text-slate-600">
-              Pour les <strong>artisans et TPE</strong> du bâtiment : annonces, tri de CV, entretiens,
+              Pour les <strong>PME BTP et TPE</strong> du bâtiment : annonces, tri de CV, entretiens,
               fidélisation. Cours{' '}
               <strong>
                 L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement

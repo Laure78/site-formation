@@ -3,7 +3,6 @@
  * Pas de nœud Organization dupliqué : références par @id uniquement.
  */
 
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG, getArticleSchema, getFAQSchema } from '@/lib/seo';
@@ -123,13 +122,6 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
       },
     ],
     areaServed: [{ '@type': 'State', name: 'Île-de-France' }, { '@type': 'Country', name: 'France' }],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.85',
-      ratingCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 
   const course: Record<string, unknown> = {

@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         url: `${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`,
         width: 1024,
         height: 682,
-        alt: 'Laure Olivié, formatrice IA BTP, animation d\'une session « L\'IA au service des artisans du bâtiment »',
+        alt: 'Laure Olivié, formatrice IA BTP, animation d\'une session « L\'IA au service du bâtiment »',
       },
     ],
   },

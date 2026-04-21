@@ -21,6 +21,9 @@ export function Footer() {
     { href: LINKS.formations, label: 'Catalogue' },
     { href: LINKS.financement, label: 'Financement' },
     { href: LINKS.chatgptArtisans, label: 'ChatGPT BTP' },
+    { href: LINKS.formationClaudeAiBtp, label: 'Formation Claude AI BTP' },
+    { href: LINKS.formationClaudeAiBatiment, label: 'Formation Claude bâtiment' },
+    { href: LINKS.formationClaudeAiTravauxPublics, label: 'Formation Claude TP' },
     { href: LINKS.formationAO, label: "Appels d'offres" },
     { href: LINKS.formationParis, label: 'Paris' },
   ];
@@ -85,7 +88,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-3 max-w-xs text-sm leading-snug text-slate-600">
-              IA pour artisans et PME du bâtiment — méthode terrain, Qualiopi.
+              IA pour PME du bâtiment et équipes BTP — méthode terrain, Qualiopi.
             </p>
             <div className="mt-4 space-y-2">
               {/*

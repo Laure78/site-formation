@@ -73,9 +73,9 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation finançable OPCO Constructys. Gain de temps sur chiffrages.' },
   {
     path: '/formation-ia-electricien-btp',
-    title: 'ChatGPT artisan électricien BTP',
+    title: 'ChatGPT pour électriciens BTP',
     content:
-      'Formation IA et ChatGPT pour artisans électriciens et TPE électricité bâtiment : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi, finançable Constructys. Laure Olivié.',
+      'Formation IA et ChatGPT pour entreprises d\'électricité bâtiment et TPE : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi, finançable Constructys. Laure Olivié.',
   },
   {
     path: '/formation-ia-electricien-btp',

@@ -17,7 +17,7 @@ const CARTES = [
   },
   {
     title: 'Bureaux d’études',
-    desc: "Accélérez l'analyse documentaire, la synthèse technique et la production de rapports grâce à l'IA.",
+    desc: "Accélérez l'analyse documentaire, la synthèse technique et la production de rapports avec ChatGPT et Claude AI.",
   },
 ] as const;
 

@@ -3,14 +3,13 @@
  * fusionnés sur @id #organization.
  *
  * Avis (Review) :
- * - Option A (défaut) : uniquement aggregateRating (note agrégée + nombre d’avis) — pas de tableau
- *   `review` pour limiter le risque d’avis non vérifiables (guidelines Google sur les extraits).
+ * - Option A (défaut) : pas d’`aggregateRating` dans le JSON-LD (les chiffres marketing type
+ *   « personnes formées » ne doivent pas être présentés comme un nombre d’avis documentés).
  * - Option B : témoignages individuels + publisher (fiche Google Business) — activer
  *   `HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD`, remplir `HOME_VERIFIED_REVIEWS_FOR_SCHEMA`,
  *   puis `getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved()`.
  */
 import {
-  SCHEMA_AGGREGATE_RATING_HOME,
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_ORGANIZATION_OFC,
@@ -40,7 +39,7 @@ function reviewPublisherOrganization(): Record<string, unknown> {
 function mapVerifiedReviewToSchema(entry: HomeVerifiedReviewForSchema): Record<string, unknown> {
   return {
     '@type': 'Review',
-    /** Entité évaluée (cohérent avec aggregateRating sur la même @id) */
+    /** Entité évaluée (cohérent avec l’organisation #organization) */
     itemReviewed: { '@id': ORG_ID },
     /** Source de publication de l’avis (fiche Google Business = traçabilité) */
     publisher: reviewPublisherOrganization(),
@@ -63,7 +62,7 @@ function mapVerifiedReviewToSchema(entry: HomeVerifiedReviewForSchema): Record<s
   };
 }
 
-/** Cœur du schéma (sans tableau review) — aggregateRating 4,85 / reviewCount aligné SOCIAL_PROOF (1592). */
+/** Cœur du schéma (sans tableau review par défaut). */
 function getHomeOrganizationLocalBusinessCore(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
@@ -92,7 +91,6 @@ function getHomeOrganizationLocalBusinessCore(): Record<string, unknown> {
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     openingHours: SCHEMA_OPENING_HOURS,
-    aggregateRating: SCHEMA_AGGREGATE_RATING_HOME,
   };
 }
 
@@ -103,14 +101,13 @@ function getHomeOrganizationLocalBusinessCore(): Record<string, unknown> {
 export const HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD = false;
 
 /**
- * Option A — Recommandé par défaut : pas de `review[]`, seulement aggregateRating
- * (ratingValue 4,85, reviewCount issu de SCHEMA_AGGREGATE_RATING_HOME / ~1592).
+ * Option A — Recommandé par défaut : pas de `review[]` ni d’`aggregateRating` dans le JSON-LD.
  */
 export function getHomeOrganizationLocalBusinessEnrichmentJsonLd(): Record<string, unknown> {
   return getHomeOrganizationLocalBusinessCore();
 }
 
-/** Schéma accueil : option A (aggregate seul) ou option B (aggregate + `review[]` vérifiables). */
+/** Schéma accueil : option A (sans avis structurés) ou option B (`review[]` vérifiables). */
 export function getHomeOrganizationLocalBusinessEnrichmentJsonLdResolved(): Record<string, unknown> {
   return HOME_USE_VERIFIED_REVIEWS_IN_JSON_LD
     ? getHomeOrganizationLocalBusinessEnrichmentJsonLdWithVerifiedReviews()

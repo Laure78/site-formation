@@ -29,3 +29,11 @@ export function calendlyClaudeBtpGuideUrl(campaign: 'hero' | 'bottom-cta'): stri
   u.searchParams.set('utm_campaign', campaign);
   return u.href;
 }
+
+/** Page /a-propos — tracking Calendly (hero, approche, CTA final). */
+export function calendlyAboutUrl(campaign: 'hero' | 'approach' | 'bottom-cta'): string {
+  const u = new URL(CALENDLY_BOOKING_URL);
+  u.searchParams.set('utm_source', 'about');
+  u.searchParams.set('utm_campaign', campaign);
+  return u.href;
+}

@@ -77,7 +77,12 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
     mainEntityOfPage: { '@id': `${CANONICAL}#webpage` },
     keywords: [
       'formation Claude AI BTP',
+      'formation Claude BTP',
+      'formation Claude bâtiment',
+      'formation Claude travaux publics',
       'Claude Cowork conducteur de travaux',
+      'Claude bâtiment',
+      'Claude travaux publics',
       'Claude AI chantier',
       'IA BTP',
       'Anthropic',

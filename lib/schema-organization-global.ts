@@ -1,4 +1,4 @@
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -60,11 +60,5 @@ export function buildGlobalOrganizationEducationalJsonLd(): Record<string, unkno
       { '@type': 'AdministrativeArea', name: 'Essonne' },
       { '@type': 'AdministrativeArea', name: 'Seine-et-Marne' },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.85',
-      reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-      bestRating: '5',
-    },
   };
 }

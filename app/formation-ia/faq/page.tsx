@@ -6,7 +6,7 @@ import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 
 const FAQ_ITEMS_LONG_TAIL = [
   {
-    q: 'Comment utiliser ChatGPT et Claude AI quand on est artisan du bâtiment ?',
+    q: 'Comment utiliser ChatGPT et Claude AI quand on est professionnel du bâtiment ?',
     a: "On commence par des usages à faible risque : structurer un mail, reformuler un compte rendu, préparer un plan de réponse. ChatGPT est très efficace pour itérer vite sur des formats courts ; Claude AI est souvent plus confortable sur des pièces longues (CCTP, extraits de règlement). En formation, vous apprenez des trames de prompts, l'anonymisation des données et la relecture systématique avant envoi.",
   },
   {
@@ -60,11 +60,11 @@ const FAQ_ITEMS = [...FAQ_IA_BTP_METIERS_CHANTIER_SEO, ...FAQ_ITEMS_LONG_TAIL];
 export const metadata = createPageMetadata({
   title: 'FAQ formation IA BTP — ChatGPT, Claude AI, Constructys',
   description:
-    'Réponses aux questions longue traîne : ChatGPT et Claude AI pour artisans, financement Constructys, IA pour AO et devis. Qualiopi. OFC Laure Olivié, Île-de-France.',
+    'Réponses aux questions longue traîne : ChatGPT et Claude AI pour le BTP, financement Constructys, IA pour AO et devis. Qualiopi. OFC Laure Olivié, Île-de-France.',
   path: '/formation-ia/faq',
   keywords: [
     'FAQ formation IA BTP',
-    'ChatGPT artisan bâtiment',
+    'ChatGPT PME bâtiment',
     'Claude AI BTP',
     'Constructys formation',
     'Qualiopi',

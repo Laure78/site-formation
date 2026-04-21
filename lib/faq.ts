@@ -13,7 +13,7 @@ import { LINKS } from '@/lib/internal-links';
 export type FAQItem = { q: string; a: string };
 
 /**
- * Intentions sectorielles BTP (chantier, devis / métrés, BIM, sécurité, administratif, artisans & PME).
+ * Intentions sectorielles BTP (chantier, devis / métrés, BIM, sécurité, administratif, professionnels du BTP & PME).
  * Réponses originales OFC — SEO / GEO ; pas de reprise de contenu tiers.
  */
 export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
@@ -45,9 +45,9 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
       "Emails, relances, modèles de courriers, synthèses de réunion, brouillons de rapports et classement d'informations — avec anonymisation et bonnes pratiques de confidentialité enseignées en session. Idéal pour dirigeants, conducteurs de travaux et fonctions support. Point d'entrée : <a href=\"/formation-ia-artisans-btp\">ChatGPT pour entreprises BTP</a>, <a href=\"/checklist-ia-btp\">checklist prompts IA BTP</a> et <a href=\"/formations\">catalogue Qualiopi</a>.",
   },
   {
-    q: "La formation convient-elle aux artisans et PME du BTP ?",
+    q: "La formation convient-elle aux PME du BTP et aux équipes terrain ?",
     a:
-      "Oui : c'est le cœur du public visé — artisans, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche), en présentiel en Île-de-France ou en intra dans vos locaux. Financement possible via OPCO Constructys selon éligibilité — <a href=\"" +
+      "Oui : c'est le cœur du public visé — professionnels du BTP, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche), en présentiel en Île-de-France ou en intra dans vos locaux. Financement possible via OPCO Constructys selon éligibilité — <a href=\"" +
       LINKS.financement +
       "\">guide financement Constructys</a> et fiche <a href=\"/formations/ia-au-service-du-batiment\">BTP-01</a>.",
   },

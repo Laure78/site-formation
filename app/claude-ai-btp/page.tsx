@@ -12,7 +12,8 @@ import { ClaudeBtpStatsSection } from '@/components/claude/ClaudeBtpStatsSection
 import { ClaudePromptBlock } from '@/components/claude/ClaudePromptBlock';
 import { ClaudeSkillTutorialBtpSection } from '@/components/claude/ClaudeSkillTutorialBtpSection';
 import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsLeadMagnetSection';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
@@ -25,7 +26,7 @@ const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 export const metadata = createPageMetadata({
   title: 'Formation Claude AI BTP 2026 : guide Chat, Cowork, Code & Chrome',
   description:
-    `Claude AI BTP : guide Chat, Cowork, Code & Chrome — chantier, DCE, CR et administratif. Formation IA Qualiopi, Île-de-France, Constructys. +${formatProfessionalsTrainedCount()} formés, ${SOCIAL_PROOF.AVERAGE_RATING}. Laure Olivié.`,
+    `Formation Claude BTP : guide Chat, Cowork, Code & Chrome — chantier, DCE, CR et administratif. Formation IA Qualiopi, Île-de-France, Constructys. +${formatProfessionalsTrainedCount()} formés, ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: PATH,
   keywords: null,
   openGraphType: 'article',
@@ -46,6 +47,11 @@ export const metadata = createPageMetadata({
 });
 
 const claudeAiBtpJsonLdGraph = buildClaudeAiBtpJsonLdGraph();
+const claudeBreadcrumb = breadcrumbItemsFromPaths([
+  { name: 'Accueil', path: '/' },
+  { name: 'Formation Claude AI BTP', path: '/formation-claude-ai-btp' },
+  { name: 'Guide', path: PATH },
+]);
 
 const PROMPT_PROJET = `# Projet [NOM ENTREPRISE] — 2026
 Je suis [Prénom NOM], [fonction] chez [entreprise].
@@ -107,7 +113,7 @@ const idfLinks = [
 const quickLinks = [
   { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
   { href: LINKS.financement, label: 'Financement Constructys' },
-  { href: LINKS.chatgptArtisans, label: 'ChatGPT pour artisans BTP' },
+  { href: LINKS.chatgptArtisans, label: 'ChatGPT pour PME BTP' },
   { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
   { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
   { href: LINKS.blog, label: 'Blog IA & guides BTP' },
@@ -183,6 +189,11 @@ export default function ClaudeAiBtpPillarPage() {
       />
 
       <div className="min-h-screen bg-[#F8FAFC]">
+        <div className="border-b border-slate-100 bg-slate-50/80">
+          <div className="mx-auto max-w-6xl px-4 py-3">
+            <Breadcrumb items={claudeBreadcrumb} showVisual omitJsonLd className="text-sm" />
+          </div>
+        </div>
         <ClaudeAiBtpHero />
 
         <div className="mx-auto max-w-6xl px-4 pb-24 pt-8 md:pb-32 md:pt-12">
@@ -205,7 +216,7 @@ export default function ClaudeAiBtpPillarPage() {
                     Formation en Île-de-France
                   </h2>
                   <p className="max-w-md text-sm text-[#64748B]">
-                    Sessions inter ou intra — même programme Qualiopi, aligné terrain (CR, devis, emails).
+                    Formation Claude AI BTP en sessions inter ou intra — même programme Qualiopi, aligné terrain (CR, devis, emails).
                   </p>
                 </div>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -282,6 +293,34 @@ export default function ClaudeAiBtpPillarPage() {
                       Page mise à jour lors des évolutions d’outil — méthode OFC terrain, testée avec des pros du BTP.
                     </p>
                   </div>
+                </div>
+              </section>
+
+              <section className="scroll-mt-24" id="claude-batiment-vs-tp" aria-labelledby="claude-batiment-vs-tp-title">
+                <h2 id="claude-batiment-vs-tp-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                  Claude bâtiment vs Claude travaux publics : quelles différences ?
+                </h2>
+                <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-[#475569] md:text-base">
+                  <p>
+                    Sur un contexte <strong className="text-[#0F172A]">Claude bâtiment</strong>, les usages les plus fréquents
+                    concernent la rédaction de devis détaillés, la structuration des réponses clients, la relecture de pièces
+                    techniques et la normalisation des comptes rendus de chantier. Les équipes travaillent souvent sur des lots
+                    second oeuvre, gros oeuvre, couverture ou étanchéité, avec un besoin fort de clarté documentaire et de
+                    vitesse d&apos;exécution.
+                  </p>
+                  <p>
+                    Côté <strong className="text-[#0F172A]">Claude travaux publics</strong>, l&apos;accent se déplace vers
+                    l&apos;analyse de CCTP/DCE plus volumineux, la coordination multi-intervenants, la planification, le suivi
+                    de sous-traitance et la préparation de mémoires techniques orientés marchés publics. Les prompts et les
+                    formats de sortie sont adaptés à cette complexité (tableaux de critères, synthèses Go/No-Go, trames de
+                    pilotage).
+                  </p>
+                  <p>
+                    En formation OFC, la logique est la même : <strong className="text-[#0F172A]">Claude AI et ChatGPT sont
+                    complémentaires</strong>. On règle d&apos;abord les objectifs opérationnels de l&apos;entreprise, puis on
+                    choisit l&apos;outil et la méthode selon le cas d&apos;usage réel. Résultat : des gains de temps concrets, sans
+                    déconnexion du terrain.
+                  </p>
                 </div>
               </section>
 

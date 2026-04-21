@@ -12,12 +12,12 @@ import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA artisans BTP : ChatGPT, devis, emails, comptes rendus',
+  title: 'Formation IA BTP : ChatGPT, devis, emails, comptes rendus',
   description:
-    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi, finançable Constructys. TPE, PME et artisans du bâtiment.',
+    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi, finançable Constructys. TPE, PME et professionnels du bâtiment.',
   path: '/formation-ia-artisans-btp',
   keywords: [
-    'formation IA artisans BTP',
+    'formation IA PME BTP',
     'formation IA BTP',
     'ChatGPT entreprises BTP',
     'rédaction mémoire technique',
@@ -54,7 +54,7 @@ const serviceJsonLd = {
   provider: { '@id': `${baseUrl}/#organization` },
   areaServed: { '@type': 'State', name: 'Île-de-France' },
   description:
-    'Formation ChatGPT 4h pour TPE/PME et artisans du BTP : devis, emails, comptes rendus de chantier. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT 4h pour TPE/PME et professionnels du BTP : devis, emails, comptes rendus de chantier. Qualiopi, finançable Constructys.',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Formation IA BTP',
@@ -66,12 +66,6 @@ const serviceJsonLd = {
         priceCurrency: 'EUR',
       },
     ],
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.85',
-    reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-    bestRating: '5',
   },
 };
 
@@ -117,7 +111,7 @@ export default function FormationIAArtisansBTPPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
   const breadcrumbJsonLd = getBreadcrumbSchema([
     { name: 'Accueil', path: '/' },
-    { name: 'Formation IA artisans BTP', path: '/formation-ia-artisans-btp' },
+    { name: 'Formation IA pour entreprises BTP', path: '/formation-ia-artisans-btp' },
   ]);
 
   return (
@@ -130,7 +124,7 @@ export default function FormationIAArtisansBTPPage() {
           Accueil
         </Link>
         {' / '}
-        <span className="text-slate-900">Formation IA artisans BTP</span>
+        <span className="text-slate-900">Formation IA pour entreprises BTP</span>
       </nav>
 
       <article>
@@ -140,7 +134,7 @@ export default function FormationIAArtisansBTPPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
-          activité artisanale du bâtiment : devis, emails, comptes rendus. Notre{' '}
+          activité dans le bâtiment : devis, emails, comptes rendus. Notre{' '}
           <Link href={LINKS.formationIaBtp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>
@@ -281,8 +275,8 @@ export default function FormationIAArtisansBTPPage() {
             </table>
           </div>
           <p className="mt-4 text-sm italic text-slate-500">
-            Mesures réalisées en sessions OFC avec des dirigeants de TPE/PME BTP, artisans électriciens,
-            plombiers, maçons et peintres. +{formatProfessionalsTrainedCount()} professionnels formés, note{' '}
+            Mesures réalisées en sessions OFC avec des dirigeants de TPE/PME BTP, entreprises
+            d&apos;électricité, plomberie, maçonnerie et peinture. +{formatProfessionalsTrainedCount()} professionnels formés, note{' '}
             {SOCIAL_PROOF.AVERAGE_RATING}.
           </p>
         </section>

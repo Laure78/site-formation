@@ -1,4 +1,3 @@
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { SITE_CONFIG, getCourseSchema, getLocalBusinessSchema, getOrganizationSchema } from '@/lib/seo';
 
 const DEPTS_IDF = [
@@ -38,20 +37,12 @@ export function buildFormationIaCourseJsonLd(opts: {
   });
 }
 
-/** LocalBusiness renforcé : zone Île-de-France + note agrégée */
+/** LocalBusiness renforcé : zone Île-de-France */
 export function buildFormationIaLocalBusinessJsonLd() {
   const base = getLocalBusinessSchema() as Record<string, unknown>;
   return {
     ...base,
     name: `${SITE_CONFIG.legalName} — ${SITE_CONFIG.name}`,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: 4.85,
-      bestRating: 5,
-      worstRating: 1,
-      ratingCount: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
-      reviewCount: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
-    },
     areaServed: [
       { '@type': 'City', name: 'Paris' },
       ...DEPTS_IDF.map((d) => ({ '@type': 'State', name: d })),

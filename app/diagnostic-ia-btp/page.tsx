@@ -64,7 +64,7 @@ export default function DiagnosticIABTPPage() {
           <h3 className="mt-6 font-display text-lg font-bold text-slate-900">Ce que le diagnostic évalue</h3>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              <strong>Votre métier et contexte</strong> : artisan, conducteur de travaux, dirigeant, assistant(e)
+              <strong>Votre métier et contexte</strong> : professionnel du BTP, conducteur de travaux, dirigeant, assistant(e)
               administratif(ve) — l&apos;IA n&apos;a pas les mêmes gains selon votre rôle.
             </li>
             <li>

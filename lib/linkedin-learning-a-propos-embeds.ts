@@ -20,14 +20,14 @@ export const LINKEDIN_LEARNING_A_PROPOS_EMBEDS = [
     embedSrc:
       'https://www.linkedin.com/learning/embed/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement?autoplay=false&claim=AQH45jl6UPho-gAAAZ2NEmIzCmu2Cv40hHrawjBzn6d6rIg_RlwokAtbO6uvZOTgKgslHH0ndowzUid46Pl1p24wohrHO8KOOXqi4xAPww6Qz-JBcenXjwfYNfP4f-Q3I8tVpN8GtKLnu_7BhBj16O39P6OI_8kwf8mKMDkuTZUU1CHvlWwbIL0alPTA94ptdwyFVKmbQsqwvLFrEbUtz5VTXdincet9LKAQAlEq7HLASqfjLWTvHGAC6vK9p_awOWHpEGrst8c100WtJsqxxO0gFrbWBF2bKJWFV2UNmX_Rmbq4BpSpxIVuhV1wm_4J4NwiqXK863paoJQWdagcHOedXFVQFQtwz2YdM35Y5h_Xere0XG20U6OBXZC8e8CoExNJvQ0yT_SVwHUeXTK0cmjoxInyUIV3C1vZ-4YKr9Cj-bR6nlZGj63DAVfde_Dp0tH0wUv_4-Eg99IA0rdPWSseucfLFy_mSlB5ja_hJcUepfsHedyxRC-TjhZhHFBa6LFdmc7eYIbCmElizm1p47KRlmTHjFkfrEHucNkkS2Wo0zK0IurG8fOnYjHPdC7PM2snqn2gqj9fud_Ro_1l2k6ac8vxhkpM-N2plZHs6jbJH6CmT_j0WV-mw831qarzD3BagZfqyjCaj8FynIi3g6VvdRPDZBJ1r29pucipym0tbJKbIyPoZMcDXAk2K3CSUhIEZ10XTlJN6ThTdsVPLGI9s4FQMqSuGWiR77E0naxh6wQCnnxVqCLkBZp9RvNeljHqbOuC4EwBxNQx2k_O-YbR308ElqccHCsPsCIcUMdX9hdLAJjbNMT8h99A3Xe5nODQdltQzk_6unOwDjZ_eZhET4AC90qMA9IC0UK2zn5JtXCta2q3QgBdVZx5NdZTv4bhft5kO1P9PMvK0vCLyzN7l8m48AT4CpsHjqVSCBObx1vgjGIdeV2SLi4Jx7Nh6KLCg6ARU-UFeViyyIcu4pQ4l-t5neHgjr4YytjMBMMSyaofw7YCc-lGRmtcI3eV0OaoSyfZQmpCEjBW4w6K29ubf2TQAqmanWLY6OE8JmR-nMUcjkRLmjK7y7iPDMhQHnG1_t9cwkSPTQVV0VeFXqOc5PBLSoFX-mS2pgwGqSeKrXM6iJxUb5zZO_asVktbT63_qBU5d2el9H_Q225baX3KUvWgz1uksBSku51ewGvBxelkxeYUS5jV8EOaeS5MH5ewqkLwGSch54xP0cVNE7XFjUfZsu1C4rNQDMd5vVvnR3-r5bnhTwRpVKBoxniwFgSL9z8',
     iframeTitle:
-      'Extrait LinkedIn Learning — Bienvenue dans le cours IA pour les artisans et TPE',
+      'Extrait LinkedIn Learning — Bienvenue dans le cours IA pour PME et TPE du BTP',
     lessonHref:
       'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement?trk=embed_lil',
     lessonLabel:
-      'Bienvenue dans « L’IA pour les artisans et TPE : recruter sa main-d’œuvre efficacement »',
+      'Bienvenue dans le cours LinkedIn Learning — recrutement PME et TPE du BTP',
     courseHref:
       'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement?trk=embed_lil',
-    courseLabel: 'L’IA pour les artisans et TPE : recruter sa main-d’œuvre efficacement',
+    courseLabel: 'L’IA pour PME et TPE : recruter sa main-d’œuvre efficacement',
   },
 ] as const;
 

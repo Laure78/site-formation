@@ -94,7 +94,7 @@ const FAQ_ITEMS = [
     a: "Elle peut produire un brouillon structuré (plan, formulations) à partir de vos données réelles. Les chiffres, références de chantiers et engagements contractuels doivent être vérifiés et signés par vous.",
   },
   {
-    q: 'Comment financer la formation si je suis artisan maçon paysagiste ?',
+    q: 'Comment financer la formation en tant que maçon paysagiste ?',
     a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
@@ -347,7 +347,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
         <section id="a-propos" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> artisans et dirigeants du BTP pour
+            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> professionnels du BTP et dirigeants pour
             utiliser ChatGPT sur la productivité (devis, communication, appels d’offres).{' '}
             <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
             <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}

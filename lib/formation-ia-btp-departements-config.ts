@@ -55,7 +55,7 @@ const DEPLACEMENT_GUYANCOURT = `Le siège d’${OFC} est à Guyancourt (Yvelines
 
 function ffbCasClient(deptCode: string): string {
   const idf = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; la FFB Île-de-France et les retours de terrain franciliens alimentent les mises en situation près de chez vous.`;
-  const idfEst = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; en Seine-et-Marne, les échanges avec la FFB IDF Est nourrissent les exemples de formation (artisans, PME, marchés publics locaux).`;
+  const idfEst = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; en Seine-et-Marne, les échanges avec la FFB IDF Est nourrissent les exemples de formation (professionnels du BTP, PME, marchés publics locaux).`;
   const grandParis = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; dans ce département, les échanges avec la FFB Grand Paris nourrissent les exemples de formation (PME, grands marchés, rénovation urbaine).`;
   if (deptCode === '77') return idfEst;
   if (deptCode === '92' || deptCode === '93' || deptCode === '94') return grandParis;
@@ -124,7 +124,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   villesFooter: [
     `De Versailles et Saint-Germain-en-Laye aux zones d’activité de Saint-Quentin-en-Yvelines et Vélizy, la diversité des tissus économiques impose des exemples d’atelier différents : bâtiment tertiaire, rénovation, réseaux, gros œuvre ou second œuvre. J’adapte les prompts et les cas pratiques à votre réalité — pas de « one size fits all ».`,
     `Pour les entreprises qui travaillent aussi à Paris ou en petite couronne, il est utile de croiser cette page avec la fiche « formation IA BTP à Paris » du catalogue : les enjeux de marchés publics y sont souvent voisins, même si la logistique interne diffère.`,
-    `Poissy, Sartrouville et les communes riveraines des grands axes restent des zones où l’on croise artisans de proximité et filiales de grands groupes : la formation reste la même sur le fond (4 h, Qualiopi), mais les cas d’usage privilégient tantôt la relation client grand compte, tantôt le cycle de devis rapide auprès des particuliers.`,
+    `Poissy, Sartrouville et les communes riveraines des grands axes restent des zones où l’on croise des entreprises de proximité et des filiales de grands groupes : la formation reste la même sur le fond (4 h, Qualiopi), mais les cas d’usage privilégient tantôt la relation client grand compte, tantôt le cycle de devis rapide auprès des particuliers.`,
   ],
   programmeTitle: 'Ce que contiennent concrètement les 4 heures (aperçu)',
   programmeBody: [
@@ -158,7 +158,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Si vous hésitez encore entre une sensibilisation courte et un module « AO » plus dense, l’appel découverte Calendly permet d’arbitrer : on croise votre secteur (public/privé), votre effectif cible et vos délais de marché — puis on verrouille une date intra ou une inscription inter selon le calendrier.`,
   ],
   tissuBtpLocal: [
-    `Les Yvelines concentrent un tissu très large de PME et d’artisans du bâtiment et des travaux : entre bassins d’emploi denses (Versailles, Saint-Quentin-en-Yvelines), corridor vers Mantes-la-Jolie et zones mixtes autour de Poissy. Les secteurs dominants vont du second œuvre et de l’enveloppe au gros œuvre local, en passant par les réseaux et la rénovation tertiaire.`,
+    `Les Yvelines concentrent un tissu très large de PME et de professionnels du bâtiment et des travaux : entre bassins d’emploi denses (Versailles, Saint-Quentin-en-Yvelines), corridor vers Mantes-la-Jolie et zones mixtes autour de Poissy. Les secteurs dominants vont du second œuvre et de l’enveloppe au gros œuvre local, en passant par les réseaux et la rénovation tertiaire.`,
     `La proximité avec le Grand Paris et La Défense se traduit par des marchés exigeants sur les délais et la documentation : mémoires techniques, comptes rendus, réponses aux appels d’offres. Les équipes jonglent entre chantier et bureau ; sans méthode commune, les relances et les dossiers s’accumulent.`,
     `Les sessions ${OFC} s’appuient sur ce réel : exercices sur devis, CCTP et courriers — avec ChatGPT et Claude AI dans un cadre Qualiopi, relecture humaine systématique et règles de confidentialité.`,
   ],
@@ -295,7 +295,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
   axes: 'A4, Francilienne, grands pôles de Meaux et de la Vallée',
   temoignageZone: 'en Seine-et-Marne',
   tissuBtpLocal: [
-    `La Seine-et-Marne concentre un tissu très étendu de PME et d’artisans du bâtiment : entre Marne-la-Vallée (Chessy, secteurs à fort enjeu touristique et tertiaire), les pôles de Meaux et de Melun, et les bassins de Fontainebleau ou plus à l’est. Les entreprises y enchaînent marchés publics et privés, avec une forte composante « grands projets » et réseaux.`,
+    `La Seine-et-Marne concentre un tissu très étendu de PME et de professionnels du bâtiment : entre Marne-la-Vallée (Chessy, secteurs à fort enjeu touristique et tertiaire), les pôles de Meaux et de Melun, et les bassins de Fontainebleau ou plus à l’est. Les entreprises y enchaînent marchés publics et privés, avec une forte composante « grands projets » et réseaux.`,
     `Les secteurs dominants vont du gros œuvre et des terrassements aux lots second œuvre, enveloppes et rénovation. La densité d’établissements reste élevée : la concurrence sur les offres et la charge documentaire (mémoires, CR, relances) pèsent sur les équipes comme ailleurs en Île-de-France.`,
     `Les sessions ${OFC} s’alignent sur ce réel : prompts sur vos devis et CCTP, usage de ChatGPT et Claude AI avec garde-fous Qualiopi — jamais d’envoi sans validation interne.`,
   ],
@@ -323,7 +323,7 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
   axes: 'A6, Francilienne sud, liaison Massy–Évry',
   temoignageZone: 'en Essonne',
   tissuBtpLocal: [
-    `L’Essonne combine pôles d’ingénierie et d’enseignement supérieur (Massy, Palaiseau) avec un maillage dense de PME du bâtiment, de sous-traitance et d’artisans autour d’Évry-Courcouronnes et de Corbeil-Essonnes. Le département accueille des zones d’activité actives et des opérations de rénovation et de neuf.`,
+    `L’Essonne combine pôles d’ingénierie et d’enseignement supérieur (Massy, Palaiseau) avec un maillage dense de PME du bâtiment, de sous-traitance et d’entreprises de proximité autour d’Évry-Courcouronnes et de Corbeil-Essonnes. Le département accueille des zones d’activité actives et des opérations de rénovation et de neuf.`,
     `Les secteurs dominants incluent le second œuvre, les lots techniques, le gros œuvre périphérique et les travaux publics sur les grands axes. Les entreprises cherchent à tenir des délais serrés tout en produisant des devis et des dossiers marchés de qualité — d’où l’intérêt d’une méthode IA encadrée.`,
     `Les formations ${OFC} restent ancrées sur vos documents : ChatGPT et Claude AI pour structurer les brouillons, Qualiopi pour le cadre pédagogique, relecture humaine obligatoire.`,
   ],
@@ -359,7 +359,7 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   axes: 'A86, A15, boulevard périphérique ouest',
   temoignageZone: 'dans les Hauts-de-Seine',
   tissuBtpLocal: [
-    `Les Hauts-de-Seine concentrent une concentration élevée d’entreprises du bâtiment et des travaux : entre La Défense, Nanterre et les communes riveraines, le département mêle grands marchés tertiaires, rénovation urbaine et artisanat de proximité. Le nombre d’établissements BTP y reste parmi les plus élevés d’Île-de-France.`,
+    `Les Hauts-de-Seine concentrent une concentration élevée d’entreprises du bâtiment et des travaux : entre La Défense, Nanterre et les communes riveraines, le département mêle grands marchés tertiaires, rénovation urbaine et entreprises de proximité. Le nombre d’établissements BTP y reste parmi les plus élevés d’Île-de-France.`,
     `Les secteurs dominants incluent le second œuvre technique, les lots courants forts, l’enveloppe et les travaux en milieu occupé — avec des exigences fortes sur les délais et la qualité documentaire (mémoires, planning, CR).`,
     `Les sessions ${OFC} s’adaptent à ce rythme : 4 h, exemples sur vos propres modèles, ChatGPT et Claude AI avec cadre Qualiopi et règles de confidentialité.`,
   ],
@@ -387,7 +387,7 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
   axes: 'A1, A3, Francilienne nord-est',
   temoignageZone: 'en Seine-Saint-Denis',
   tissuBtpLocal: [
-    `La Seine-Saint-Denis est un moteur du Grand Paris : nombreux marchés publics, opérations de rénovation et grands projets d’aménagement. Le tissu BTP y mêle grandes entreprises, PME de travaux et artisans — avec une forte pression sur les délais et la coordination documentaire.`,
+    `La Seine-Saint-Denis est un moteur du Grand Paris : nombreux marchés publics, opérations de rénovation et grands projets d’aménagement. Le tissu BTP y mêle grandes entreprises, PME de travaux et professionnels du BTP — avec une forte pression sur les délais et la coordination documentaire.`,
     `Les secteurs dominants incluent le gros œuvre urbain, les réseaux, le second œuvre et les lots techniques sur opérations complexes. Les équipes gèrent souvent plusieurs chantiers en parallèle : la charge de mails, de comptes rendus et de réponses aux AO explose sans méthode.`,
     `Les formations ${OFC} y déploient la même exigence Qualiopi qu’ailleurs : ChatGPT et Claude AI comme outils de brouillon, jamais comme substitut à la validation métier.`,
   ],
@@ -419,11 +419,11 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   ],
   chefLieu: 'Créteil',
   perimetre:
-    'lisière parisienne, rénovation urbaine, marchés mixtes public-privé, PME et artisans très sollicités',
+    'lisière parisienne, rénovation urbaine, marchés mixtes public-privé, PME et professionnels du BTP très sollicités',
   axes: 'A4, A86, boulevard périphérique sud-est',
   temoignageZone: 'dans le Val-de-Marne',
   tissuBtpLocal: [
-    `Le Val-de-Marne forme une ceinture urbaine dense entre Paris et la grande couronne : Créteil, Vitry, Vincennes, Fontenay-sous-Bois — autant de bassins où les entreprises du bâtiment enchaînent rénovation, neuf et travaux en site occupé. Le tissu est majoritairement composé de PME et d’artisans, avec une part forte de marchés publics locaux.`,
+    `Le Val-de-Marne forme une ceinture urbaine dense entre Paris et la grande couronne : Créteil, Vitry, Vincennes, Fontenay-sous-Bois — autant de bassins où les entreprises du bâtiment enchaînent rénovation, neuf et travaux en site occupé. Le tissu est majoritairement composé de PME et de professionnels du BTP, avec une part forte de marchés publics locaux.`,
     `Les secteurs dominants incluent le second œuvre, les lots techniques, l’enveloppe et les travaux de réhabilitation. Les délais clients et la densité documentaire (relances, mémoires, CR) imposent des gains de temps sur l’écrit sans sacrifier la qualité.`,
     `Les sessions ${OFC} y déploient la même approche : 4 h, Qualiopi, ChatGPT et Claude AI pour structurer vos brouillons — validation humaine systématique.`,
   ],
@@ -447,11 +447,11 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   cities: ['Cergy', 'Pontoise', 'Argenteuil', 'Sarcelles', 'Garges-lès-Gonesse', 'Franconville', 'Ermont'],
   chefLieu: 'Cergy-Pontoise',
   perimetre:
-    'pôles de Cergy et d’Argenteuil, tissu d’artisans et de PME du bâtiment, liaison avec le Grand Roissy et le nord francilien',
+    'pôles de Cergy et d’Argenteuil, tissu de PME du bâtiment et de professionnels du BTP, liaison avec le Grand Roissy et le nord francilien',
   axes: 'A15, A115, Francilienne nord',
   temoignageZone: "dans le Val-d'Oise",
   tissuBtpLocal: [
-    `Le Val-d’Oise combine les pôles de Cergy-Pontoise, le bassin d’Argenteuil et les dynamiques du nord francilien vers Roissy : le BTP y repose sur un maillage dense de PME, d’artisans et de sous-traitants qui alimentent logements, tertiaire et équipements.`,
+    `Le Val-d’Oise combine les pôles de Cergy-Pontoise, le bassin d’Argenteuil et les dynamiques du nord francilien vers Roissy : le BTP y repose sur un maillage dense de PME, de professionnels du BTP et de sous-traitants qui alimentent logements, tertiaire et équipements.`,
     `Les secteurs dominants incluent le gros œuvre périphérique, le second œuvre, les réseaux et l’enveloppe — avec des enjeux forts de délais et de relation client / maître d’ouvrage. La documentation (devis, mémoires, relances) occupe une part croissante du temps des équipes.`,
     `Les formations ${OFC} restent calibrées terrain : ChatGPT et Claude AI pour accélérer la mise en forme, cadre Qualiopi, déplacement depuis Guyancourt maîtrisé pour l’Île-de-France.`,
   ],

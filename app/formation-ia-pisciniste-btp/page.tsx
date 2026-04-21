@@ -106,7 +106,7 @@ const FAQ_ITEMS = [
     a: "Non. L'IA accélère la rédaction et la structuration ; la visite terrain, le geste, la sécurité et la relation client restent humains.",
   },
   {
-    q: 'Comment financer la formation si je suis artisan pisciniste ?',
+    q: 'Comment financer la formation en tant que pisciniste ?',
     a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
@@ -356,8 +356,8 @@ export default function FormationIaPiscinisteBtpPage() {
         <section id="a-propos" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> les professionnels du BTP (artisans,
-            dirigeants, fonctions techniques) pour utiliser ChatGPT sur la productivité (devis, documentation, appels
+            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> les professionnels du BTP (dirigeants,
+            fonctions techniques) pour utiliser ChatGPT sur la productivité (devis, documentation, appels
             d’offres). <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
             <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}
             <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.

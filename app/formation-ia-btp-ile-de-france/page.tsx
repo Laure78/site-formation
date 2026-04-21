@@ -449,7 +449,7 @@ export default function FormationIaBtpIleDeFrancePage() {
           </h2>
           <div className="mt-8 space-y-6 text-slate-700 leading-relaxed">
             <p>
-              <strong>FFB Grand Paris</strong> — Sessions inter artisans et conducteurs de travaux, Paris et petite
+              <strong>FFB Grand Paris</strong> — Sessions inter entreprises et conducteurs de travaux, Paris et petite
               couronne. Référence OFC : {formatProfessionalsTrainedCount()} professionnels formés, note{' '}
               {SOCIAL_PROOF.AVERAGE_RATING}.
             </p>

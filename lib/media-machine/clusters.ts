@@ -27,7 +27,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       {
         id: 'artisans-devis',
         name: 'Devis et chiffrages',
-        keywords: ['devis plombier IA', 'devis électricien ChatGPT', 'chiffrage artisan IA'],
+        keywords: ['devis plombier IA', 'devis électricien ChatGPT', 'chiffrage BTP IA'],
         articleTemplates: [
           'Comment rédiger un devis {metier} avec ChatGPT',
           'Devis {metier} : gain de temps avec l\'IA',
@@ -37,10 +37,10 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
       {
         id: 'artisans-emails',
         name: 'Emails et relation client',
-        keywords: ['emails artisans', 'relance client IA', 'email professionnel ChatGPT'],
+        keywords: ['emails professionnels BTP', 'relance client IA', 'email professionnel ChatGPT'],
         articleTemplates: [
           'Emails clients : automatiser avec ChatGPT',
-          'Relances et prospection : l\'IA pour les artisans',
+          'Relances et prospection : l\'IA pour les PME BTP',
         ],
       },
       {

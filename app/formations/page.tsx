@@ -2,13 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
-import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
@@ -108,6 +106,20 @@ export default function FormationsPage() {
         <Breadcrumbs items={[{ label: 'Formations', href: '/formations' }]} />
 
         <div className="mt-8">
+          <p className="mb-5 max-w-4xl text-sm text-[#64748B]">
+            Toutes nos formations couvrent ChatGPT et Claude AI. Voir aussi :{' '}
+            <Link href={LINKS.formationClaudeAiBtp} className="font-medium text-[#377CF3] hover:underline">
+              Formation Claude AI BTP dédiée
+            </Link>{' '}
+            |{' '}
+            <Link href={LINKS.formationClaudeAiBatiment} className="font-medium text-[#377CF3] hover:underline">
+              Formation Claude AI bâtiment
+            </Link>{' '}
+            |{' '}
+            <Link href={LINKS.formationClaudeAiTravauxPublics} className="font-medium text-[#377CF3] hover:underline">
+              Formation Claude AI travaux publics
+            </Link>
+          </p>
           <section
             className="rounded-2xl border-2 border-[#377CF3] bg-[#EFF6FF] p-5 md:p-6"
             aria-label="Réponse synthétique"

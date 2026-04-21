@@ -14,7 +14,7 @@ const QUESTIONS = [
     key: 'metier' as const,
     label: 'Votre métier dans le BTP',
     options: [
-      { value: 'artisan', label: 'Artisan (électricien, plombier, maçon...)' },
+      { value: 'professionnel_btp', label: 'Professionnel du BTP (électricien, plombier, maçon...)' },
       { value: 'conducteur_travaux', label: 'Conducteur de travaux' },
       { value: 'chef_entreprise', label: "Chef d'entreprise / dirigeant" },
       { value: 'assistant', label: 'Assistant(e) administratif(ve)' },

@@ -160,11 +160,11 @@ export default function FormationIABTPYvelinesLandingPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Pourquoi les artisans et PME du 78 choisissent la formation IA
+            Pourquoi les professionnels du BTP et PME du 78 choisissent la formation IA
           </h2>
           <div className="mt-6 space-y-4 text-slate-600 leading-relaxed">
             <p>
-              Le département des Yvelines concentre une filière construction dense : artisans,
+              Le département des Yvelines concentre une filière construction dense : professionnels du BTP,
               entreprises de taille intermédiaire, acteurs des travaux publics et second œuvre.
               Beaucoup jonglent entre chantier, appels d&apos;offres et suivi administratif. La
               pression sur les délais et la marge ne diminue pas ; en revanche, les outils
@@ -197,7 +197,7 @@ export default function FormationIABTPYvelinesLandingPage() {
               <strong className="text-slate-800">Guyancourt</strong>, c&apos;est aussi limiter
               l&apos;aléa logistique : déplacement dans vos locaux dans tout le 78, créneaux
               discutés avec votre équipe, et une connaissance des enjeux locaux (marchés publics en
-              zone urbaine dense, artisans en périphérie, entreprises industrielles près des
+              zone urbaine dense, professionnels du BTP en périphérie, entreprises industrielles près des
               vallées). Plus de{' '}
               <strong className="text-slate-800">
                 {formatProfessionalsTrainedCount()} professionnels du BTP

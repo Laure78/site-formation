@@ -6,7 +6,7 @@
 export const ALT_LOGO_FFB_OFFICIEL =
   'Logo FFB — Fédération Française du Bâtiment, partenaire formation IA BTP Île-de-France' as const;
 export const ALT_LOGO_FFB_GRAND_PARIS_IDF =
-  'Logo FFB Grand Paris Île-de-France — partenaire sessions formation IA artisans BTP' as const;
+  'Logo FFB Grand Paris Île-de-France — partenaire sessions formation IA BTP' as const;
 export const ALT_LOGO_CSFE =
   "Logo CSFE — Chambre Syndicale Française de l'Étanchéité, partenaire formation IA BTP" as const;
 export const ALT_LOGO_CNAM_ENTREPRISES =

@@ -57,7 +57,7 @@ Email 1 — À un bâtiment collectif (syndic) :
 Tu as lu qu'ils vont remplacer le chauffage. Propose-leur : "Audit gratuit du chauffage, on vous calcule économies possible, zero engagement."
 
 Email 2 — À une agence immobilière locale :
-Propose-leur : "Vous recommandez des artisans chauffage/plomberie à vos clients ? On peut être référent local, garantie 5 ans, devis rapide."
+Propose-leur : "Vous recommandez des entreprises chauffage/plomberie à vos clients ? On peut être référent local, garantie 5 ans, devis rapide."
 
 Email 3 — À un précédent client (chantier 3 ans ago) :
 Relance soft : "Ça va depuis nos travaux ? On vous propose diagnostic gratuit annuel si vous le souhaitez + conseil économies énergie."
@@ -203,7 +203,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
             Le problème : du chantier à la paperasse BTP
           </h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Vous êtes <strong>chef d’entreprise BTP</strong> (artisan devenu dirigeant) en Île-de-France ou Grand Paris :
+            Vous êtes <strong>chef d’entreprise BTP</strong> (professionnel devenu dirigeant) en Île-de-France ou Grand Paris :
             PME avec souvent plusieurs salariés et chantiers en parallèle — devis, facturation, coordination, RH,
             prospection.
           </p>

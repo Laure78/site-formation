@@ -130,7 +130,7 @@ export function FormationCityPage({
           </div>
         ) : (
           <p>
-            Formation IA bâtiment adaptée aux <strong>artisans et PME du BTP</strong> à {ville} et dans les
+            Formation IA bâtiment adaptée aux <strong>professionnels du BTP et PME</strong> à {ville} et dans les
             environs. <strong>Productivité</strong> : ChatGPT pour <strong>devis, emails et relances</strong>.
             Automatisez vos <strong>appels d&apos;offres</strong> et votre gestion administrative —{' '}
             <strong>aucun jargon inutile</strong>.
@@ -170,7 +170,7 @@ export function FormationCityPage({
           <p className="mt-3 max-w-2xl text-slate-600">
             Les entreprises du bâtiment à {ville} et en {regionLabel} gagnent plusieurs heures par semaine
             en automatisant devis, appels d&apos;offres et emails clients. L&apos;IA générative n&apos;est pas
-            réservée aux grands groupes : artisans et PME du BTP en profitent déjà.
+            réservée aux grands groupes : les PME du BTP en profitent déjà.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[

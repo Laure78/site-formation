@@ -512,7 +512,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
     keywords: [
       'prompts LinkedIn BTP',
       'carrousel LinkedIn bâtiment',
-      'posts LinkedIn artisans',
+      'posts LinkedIn BTP',
       'formation IA BTP communication',
       'Qualiopi LinkedIn',
       'OPCO Constructys communication',

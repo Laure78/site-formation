@@ -15,7 +15,6 @@ import {
 import { getFAQSchema } from '@/lib/seo';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
 import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
-import { A_PROPOS_PROFILE_PERSON_DESCRIPTION } from '@/lib/schema-a-propos';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const PAGE_PATH = '/a-propos';
@@ -48,8 +47,9 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     '@id': PERSON_ID,
     name: 'Laure Olivié',
     honorificPrefix: 'Mme',
-    jobTitle: 'Formatrice IA BTP',
-    description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
+    jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
+    description:
+      "Formatrice en intelligence artificielle spécialisée dans le secteur BTP. Ancienne conductrice de travaux et dirigeante d'entreprise (ALIA BTP, 2017-2026). 1 592 professionnels du BTP formés avec une note moyenne de 4,85/5.",
     url: PAGE_URL,
     image: `${BASE}/images/laure-portrait-pro-2026.png`,
     telephone: SCHEMA_CONTACT.phone,
@@ -68,21 +68,26 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     worksFor: { '@id': `${BASE}/#organization` },
     alumniOf: {
       '@type': 'Organization',
-      name: 'ALIA BTP',
+      name: 'ALIA BTP (ancienne dirigeante 2017-2026)',
       identifier: '85368731700018',
     },
     sameAs: [
       'https://fr.linkedin.com/in/laure-olivie',
       'https://www.linkedin.com/learning/instructors/laure-olivie',
+      'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281',
+      'https://share.google/kuzjL3D0CaVMgQS8i',
     ],
     knowsAbout: [
-      'Intelligence artificielle',
-      'ChatGPT',
+      'Intelligence artificielle générative',
+      'ChatGPT pour le BTP',
       'Claude AI',
-      'Formation BTP',
-      'Devis BTP',
-      "Appels d'offres BTP",
-      'Qualiopi',
+      'Formation professionnelle BTP',
+      'Automatisation des devis BTP',
+      'Automatisation des comptes rendus de chantier',
+      'Analyse de DCE avec l’IA',
+      "Mémoires techniques appels d'offres BTP",
+      'Construction et travaux publics',
+      'Conduite de travaux',
     ],
     hasOccupation: {
       '@type': 'Occupation',
@@ -91,19 +96,20 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       skills:
         'Intelligence artificielle, ChatGPT, Claude AI, formation BTP, appels d’offres BTP, devis BTP, Qualiopi',
     },
-    award: [
-      'Certification Qualiopi — organisme de formation (NDA 11788515078)',
-      'Instructrice officielle LinkedIn Learning',
-      'Labellisée Activateur France Num',
-    ],
+    award: ['1 592 professionnels formés (2026)', 'Note moyenne 4,85/5', 'Organisme partenaire FFB Grand Paris'],
     workLocation: [{ '@type': 'AdministrativeArea', name: 'Île-de-France' }],
     memberOf: [{ '@type': 'Organization', name: 'FFB Grand Paris — organisme de formation référencé' }],
     hasCredential: [
       {
         '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Certification',
-        name: 'Certification Qualiopi',
-        recognizedBy: { '@type': 'Organization', name: 'État français' },
+        credentialCategory: 'Qualiopi',
+        name: 'Certification Qualiopi - Action de formation',
+        recognizedBy: { '@type': 'GovernmentOrganization', name: 'République Française' },
+      },
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'LinkedIn Learning Instructor',
+        name: 'LinkedIn Learning Instructor',
       },
     ],
   };
@@ -158,13 +164,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     },
     taxID: SCHEMA_CONTACT.siretFormatted,
     vatID: SCHEMA_CONTACT.vatId,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.85',
-      ratingCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 
   const profilePage: Record<string, unknown> = {

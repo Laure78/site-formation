@@ -102,7 +102,7 @@ const FAQ_ITEMS = [
     a: "Elle peut aider à structurer un texte ou une liste de pièces à partir de vos informations. La décision des services compétents et la conformité juridique ne peuvent pas être remplacées par un outil généraliste.",
   },
   {
-    q: 'Comment financer la formation si je suis artisan clôturiste ?',
+    q: 'Comment financer la formation en tant que clôturiste ?',
     a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
@@ -353,7 +353,7 @@ export default function FormationIaCloturisteBtpPage() {
         <section id="a-propos" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> artisans et dirigeants du BTP pour
+            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> professionnels du BTP et dirigeants pour
             utiliser ChatGPT sur la productivité (devis, communication, appels d’offres).{' '}
             <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
             <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}

@@ -45,7 +45,7 @@ export function buildVilleMetadata(v: FormationIaRawVille, _path: string) {
   const description = truncate(
     isParis
       ? `Formation IA, ChatGPT et Claude AI pour le BTP à Paris et Grand Paris : devis, administratif, mémoires. Qualiopi, financement Constructys. OFC Laure Olivié.`
-      : `Formation IA BTP à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour artisans et PME. Qualiopi, OPCO Constructys. Interventions Île-de-France.`,
+      : `Formation IA BTP à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour professionnels du BTP et PME. Qualiopi, OPCO Constructys. Interventions Île-de-France.`,
     155
   );
   const keywords = [

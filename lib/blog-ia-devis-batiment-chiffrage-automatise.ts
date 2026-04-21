@@ -64,9 +64,9 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
         'Pas avec les offres grand public par défaut. Pour des données nominatives, utilisez des offres Team / Enterprise avec option « no training » ou des solutions françaises adaptées. C’est traité en formation.',
     },
     {
-      question: "L'IA pour les devis bâtiment est-elle adaptée aux artisans seuls ?",
+      question: "L'IA pour les devis bâtiment est-elle adaptée aux TPE et dirigeants seuls ?",
       answer:
-        'Oui : gagner du temps sur les devis libère du créneau pour le terrain. Les pages dédiées ChatGPT artisans et IA devis bâtiment du site détaillent les usages.',
+        'Oui : gagner du temps sur les devis libère du créneau pour le terrain. Les pages dédiées ChatGPT pour entreprises BTP et IA devis bâtiment du site détaillent les usages.',
     },
   ],
   sections: [
@@ -97,7 +97,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
       type: 'html',
       title: 'Le problème terrain : 3 heures par devis, et 4 devis par semaine',
       content: `
-<p>J'ai dirigé une entreprise de travaux publics pendant 8 ans (ALIA BTP, à Guyancourt). Les devis, je les ai faits moi-même, le soir, après 19h, pendant des années. Et ce que je vois aujourd'hui chez les artisans et chargés d'affaires que je forme à la FFB Grand Paris ou à la CSFE, c'est exactement la même chose : <strong>le devis, c'est l'angle mort administratif du BTP</strong>.</p>
+<p>J'ai dirigé une entreprise de travaux publics pendant 8 ans (ALIA BTP, à Guyancourt). Les devis, je les ai faits moi-même, le soir, après 19h, pendant des années. Et ce que je vois aujourd'hui chez les professionnels du BTP et chargés d'affaires que je forme à la FFB Grand Paris ou à la CSFE, c'est exactement la même chose : <strong>le devis, c'est l'angle mort administratif du BTP</strong>.</p>
 <p>Un devis bâtiment correctement chiffré demande :</p>
 <ul class="list-disc space-y-2 pl-5">
 <li>30 à 45 minutes pour relire les pièces du marché ou la demande client</li>
@@ -112,7 +112,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
       type: 'html',
       title: 'La méthode IA en 4 étapes pour un devis bâtiment en 15 minutes',
       content: `
-<p>Voici la méthode que je transmets en formation IA BTP, testée sur des centaines de devis réels avec des artisans, électriciens, étancheurs et conducteurs de travaux.</p>
+<p>Voici la méthode que je transmets en formation IA BTP, testée sur des centaines de devis réels avec des entreprises d'électricité, des étancheurs et des conducteurs de travaux.</p>
 <h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Étape 1 — Structurer le besoin avant d'ouvrir ChatGPT (3 minutes)</h3>
 <p>Avant de solliciter l'IA, prenez 3 minutes pour rassembler : le métier, le type de chantier, les prestations, les quantités approximatives, le contexte client.</p>
 <p>Cette étape n'est pas optionnelle. Un prompt mal contextualisé donne un devis générique inutilisable.</p>
@@ -128,7 +128,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
       title: 'Les 3 prompts IA devis bâtiment à garder en favoris',
       content: [
         {
-          titre: 'Prompt 1 — Devis rénovation salle de bain (artisan plombier)',
+          titre: 'Prompt 1 — Devis rénovation salle de bain (plombier BTP)',
           prompt: `Tu es plombier-chauffagiste basé en Île-de-France.
 
 Rédige un devis professionnel pour la rénovation complète d'une salle de bain de 7 m² chez un particulier :
@@ -158,7 +158,7 @@ Structure : descriptif sommaire, détail des 6 postes numérotés avec ratios pa
 Ne mets pas de prix.`,
         },
         {
-          titre: 'Prompt 3 — Devis dépannage urgent (artisan)',
+          titre: 'Prompt 3 — Devis dépannage urgent (intervention rapide)',
           prompt: `Tu es maçon basé en Yvelines.
 
 Rédige un devis de dépannage rapide pour :
@@ -243,8 +243,8 @@ Ne mets pas de prix.`,
 <p class="mt-2">OFC propose une formation de 4 h, finançable selon dossier. Voir le <a href="${LINKS.formations}" class="font-medium text-[var(--accent)] underline hover:no-underline">catalogue des formations IA BTP</a> ou <a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline hover:no-underline">demander un diagnostic gratuit</a> de 30 minutes.</p>
 <h3 class="font-display mt-6 text-lg font-semibold text-slate-900">Mes données client sont-elles protégées ?</h3>
 <p class="mt-2">Pas avec les offres grand public par défaut. Utilisez des offres professionnelles ou des solutions françaises adaptées.</p>
-<h3 class="font-display mt-6 text-lg font-semibold text-slate-900">L'IA pour les devis est-elle adaptée aux artisans seuls ?</h3>
-<p class="mt-2">Oui. Voir la page <a href="${LINKS.chatgptArtisans}" class="font-medium text-[var(--accent)] underline hover:no-underline">ChatGPT pour artisans BTP</a>.</p>`,
+<h3 class="font-display mt-6 text-lg font-semibold text-slate-900">L'IA pour les devis est-elle adaptée aux TPE et dirigeants seuls ?</h3>
+<p class="mt-2">Oui. Voir la page <a href="${LINKS.chatgptArtisans}" class="font-medium text-[var(--accent)] underline hover:no-underline">ChatGPT pour entreprises BTP</a>.</p>`,
     },
     {
       type: 'html',

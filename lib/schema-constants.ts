@@ -48,19 +48,6 @@ export const SCHEMA_STATS = {
   personnesFormees: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
 } as const;
 
-/**
- * AggregateRating — page d'accueil / entité OFC (JSON-LD).
- * Ne pas modifier les chiffres hors validation métier.
- */
-/** ratingCount uniquement (pas de reviewCount sans avis individuels exposés — rich results Google). */
-export const SCHEMA_AGGREGATE_RATING_HOME = {
-  '@type': 'AggregateRating' as const,
-  ratingValue: '4.85',
-  bestRating: '5',
-  worstRating: '1',
-  ratingCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-};
-
 /** Person — Laure Olivié (fragments réutilisables JSON-LD). */
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
@@ -78,7 +65,7 @@ export const SCHEMA_ORGANIZATION_OFC = {
   /** Dénomination juridique complète (JSON-LD layout #ofc). */
   legalNameSasu: "OFC Création d'Entreprise SASU",
   description:
-    "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et artisans. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
+    "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
   descriptionShortGraph:
     `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${formatProfessionalsTrainedCount()} professionnels formés. Finançable Constructys.`,
   foundingYear: '2021',

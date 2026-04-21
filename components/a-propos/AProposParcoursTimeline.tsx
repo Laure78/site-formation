@@ -24,7 +24,7 @@ const TIMELINE = [
     datetime: '2024',
     title: 'Présidence d’OFC · instructrice LinkedIn Learning · partenariats FFB',
     body:
-      "Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi). Publication de deux cours sur LinkedIn Learning (IA BTP et IA pour artisans / TPE). Renforcement des partenariats avec la FFB (dont FFB Grand Paris et fédérations régionales).",
+      "Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi). Publication de deux cours sur LinkedIn Learning (IA BTP et IA pour PME et TPE). Renforcement des partenariats avec la FFB (dont FFB Grand Paris et fédérations régionales).",
   },
   {
     datetime: '2026',

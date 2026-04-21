@@ -44,7 +44,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     pitch: 'La base opérationnelle pour toute équipe bâtiment.',
     profileTags: ['debutant'],
     objectifs: [
-      "Identifier les usages IA utiles dans le BTP",
+      "Identifier les usages IA utiles dans le BTP avec ChatGPT et Claude AI",
       "Accélérer la rédaction de devis et messages clients",
       "Structurer l'administratif (CR, relances, modèles)",
       "Repartir avec des trames et prompts prêts à l'emploi",
@@ -108,10 +108,10 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     visuel: PHOTOS.btpFormationChantierEquipe2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
-    pitch: 'DCE, CCTP, reporting TP : l’IA appliquée aux travaux publics.',
+    pitch: 'DCE, CCTP, reporting TP : l’IA appliquée aux travaux publics avec Claude AI.',
     profileTags: ['debutant'],
     objectifs: [
-      'Réponse aux consultations : DCE, trames, synthèses et check-lists',
+      'Réponse aux consultations : DCE, trames, synthèses et check-lists avec Claude AI pour le DCE TP',
       'Documents de chantier et reporting avec protocole de validation',
       "Templates TP, assistants par rôle et charte d'usage IA en entreprise",
     ],

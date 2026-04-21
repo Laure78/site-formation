@@ -10,12 +10,12 @@ export const carrouselAFormationArticle: BlogArticle = {
   slug: 'formation-ia-artisans-batiment-programme-objectifs-livrables',
   seoTitle: 'Formation IA bâtiment : programme 4h Qualiopi | Laure Olivié',
   title:
-    '« L’IA au service des artisans du bâtiment » : présentation complète (infos pratiques, programme, livrables)',
+    '« L’IA au service du bâtiment » : présentation complète (infos pratiques, programme, livrables)',
   description:
     'Programme 4 h, 70 % pratique : fondamentaux IA, devis, administratif chantier, visibilité. Qualiopi ; financement Constructys. Diagnostic gratuit 30 min.',
   date: '2026-04-07',
   keywords: [
-    'formation IA artisans bâtiment',
+    'formation IA équipes BTP',
     'formation IA bâtiment',
     'programme formation IA BTP',
     'objectifs pédagogiques IA BTP',
@@ -42,7 +42,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'La formation en une slide',
       content: `<figure class="my-6">
-<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service des artisans du bâtiment : 4h de pratique, 70% exercices réels, 100€ net de TVA, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service du bâtiment : 4h de pratique, 70% exercices réels, 100€ net de TVA, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Promesse : gain de temps sur les tâches quotidiennes — dès la première heure.</figcaption>
 </figure>`,
     },
@@ -58,7 +58,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Public et prérequis',
       content: `<figure class="my-6">
-<img src="${A}/slide-03.png" alt="Public formation IA BTP : artisans, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-03.png" alt="Public formation IA BTP : professionnels du BTP, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Si vous savez écrire un SMS, vous pouvez démarrer avec l’IA — avec encadrement et bonnes pratiques.</figcaption>
 </figure>`,
     },
@@ -98,7 +98,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Inscriptions et contact',
       content: `<figure class="my-6">
-<img src="${A}/slide-08.png" alt="Inscriptions ouvertes formation IA artisans du bâtiment : 4h 70% pratique Qualiopi OPCO Constructys — laureolivie.fr contact" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-08.png" alt="Inscriptions ouvertes formation IA pour équipes du bâtiment : 4h 70% pratique Qualiopi OPCO Constructys — laureolivie.fr contact" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Prêt à utiliser l’IA sur votre prochain chantier ? Passer par le site ou la prise de rendez-vous.</figcaption>
 </figure>`,
     },

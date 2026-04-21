@@ -48,8 +48,8 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
   if (title.includes('Financement Constructys')) {
     return "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.".slice(0, MAX_META_LENGTH);
   }
-  if (title.includes('ChatGPT pour artisans : erreurs')) {
-    return "ChatGPT artisans BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.".slice(0, MAX_META_LENGTH);
+  if (title.includes('erreurs à éviter') && title.includes('ChatGPT pour')) {
+    return "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Automatiser vos emails clients')) {
     return "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.".slice(0, MAX_META_LENGTH);

@@ -158,7 +158,7 @@ export function IleDeFranceSeoSections() {
             .
           </p>
           <p className="mt-3 text-slate-600">
-            Public : artisans, PME, conducteurs de travaux, fonctions support —{' '}
+            Public : professionnels du BTP, PME, conducteurs de travaux, fonctions support —{' '}
             <Link href="/formations" className="font-medium text-[var(--accent)] hover:underline">
               voir le catalogue des formations
             </Link>

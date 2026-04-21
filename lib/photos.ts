@@ -94,7 +94,7 @@ export const PHOTOS = {
   rencontresArtisansIaFfbBtp: {
     src: '/images/rencontres-artisans-ia-ffb-btp.jpg',
     alt:
-      'Atelier FFB Les Rencontres des Artisans — intelligence artificielle au service des artisans du bâtiment, formation animée par Laure Olivié',
+      'Atelier FFB Les Rencontres des Artisans — intelligence artificielle au service des équipes du bâtiment, formation animée par Laure Olivié',
     width: 1024,
     height: 682,
   },
@@ -151,7 +151,7 @@ export const PHOTOS = {
   // Ouvrier chantier confiant (carré)
   ouvrierConfiant: {
     src: '/images/ouvrier-chantier-confiant.png',
-    alt: 'Artisan ou ouvrier qualifié du bâtiment — formation IA BTP pour gagner du temps sur les tâches administratives',
+    alt: 'Professionnel du bâtiment ou ouvrier qualifié — formation IA BTP pour gagner du temps sur les tâches administratives',
     width: 1024,
     height: 1024,
   },
@@ -181,10 +181,10 @@ export const PHOTOS = {
     height: 790,
   },
 
-  /** Cours LinkedIn Learning — extrait vidéo (recrutement artisans & TPE) */
+  /** Cours LinkedIn Learning — extrait vidéo (recrutement PME & TPE) */
   coursRecrutementVideo1: {
     src: '/images/laure-cours-ia-artisans-tpe-video-1.png',
-    alt: 'Extrait du cours LinkedIn Learning « L’IA pour les artisans et TPE : recruter sa main-d’œuvre efficacement », animé par Laure Olivié',
+    alt: 'Extrait du cours LinkedIn Learning sur le recrutement (PME et TPE du BTP), animé par Laure Olivié',
     width: 1024,
     height: 670,
   },
@@ -207,7 +207,7 @@ export const PHOTOS = {
   /** Interface cours — sommaire des leçons */
   linkedinSommaireCours: {
     src: '/images/laure-linkedin-learning-sommaire-cours.png',
-    alt: 'Sommaire du cours LinkedIn Learning IA pour artisans et TPE du BTP — leçons vidéo par Laure Olivié',
+    alt: 'Sommaire du cours LinkedIn Learning IA pour PME et TPE du BTP — leçons vidéo par Laure Olivié',
     width: 1024,
     height: 621,
   },
@@ -237,7 +237,7 @@ export const PHOTOS = {
   },
   formationIAArtisans2026: {
     src: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
-    alt: 'Laure Olivié animant une formation « L’IA au service des artisans du bâtiment » — présentation projetée, public BTP',
+    alt: 'Laure Olivié animant une formation « L’IA au service du bâtiment » — présentation projetée, public BTP',
     width: 1024,
     height: 682,
   },
@@ -340,12 +340,12 @@ export const PHOTOS = {
   },
 
   /**
-   * Carte catalogue « IA au service du bâtiment » (BTP-01) — présentation en salle, écran « L’IA au service des artisans du bâtiment ».
+   * Carte catalogue « IA au service du bâtiment » (BTP-01) — présentation en salle, écran « L’IA au service du bâtiment ».
    */
   formationIABtpVisioBureau2026: {
     src: '/images/formation-btp-01-ia-artisans-batiment-2026.png',
     alt:
-      'Formation catalogue BTP-01 — L\'IA au service du bâtiment, niveau débutant ; Laure Olivié en présentation, écran « L’IA au service des artisans du bâtiment », public du BTP',
+      'Formation catalogue BTP-01 — L\'IA au service du bâtiment, niveau débutant ; Laure Olivié en présentation, écran « L’IA au service du bâtiment », public du BTP',
     width: 1024,
     height: 682,
   },
@@ -375,10 +375,10 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** Page d'accueil — présentation en salle, écran « L'IA au service des artisans du bâtiment » */
+  /** Page d'accueil — présentation en salle, écran « L'IA au service du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
-    alt: 'Laure Olivié, formatrice IA BTP, présentation « L’IA au service des artisans du bâtiment » — session en salle avec professionnels du BTP',
+    alt: 'Laure Olivié, formatrice IA BTP, présentation « L’IA au service du bâtiment » — session en salle avec professionnels du BTP',
     width: 1024,
     height: 682,
   },
@@ -387,7 +387,7 @@ export const PHOTOS = {
   accueilReferencePartenairesLaureOFC2026: {
     src: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
     alt:
-      'Laure Olivié, formatrice IA BTP OFC — échange avec un dirigeant artisan ; formation entreprise Qualiopi, réseau FFB',
+      'Laure Olivié, formatrice IA BTP OFC — échange avec un dirigeant d\'entreprise ; formation entreprise Qualiopi, réseau FFB',
     width: 1024,
     height: 682,
   },
@@ -413,7 +413,7 @@ export const PHOTOS = {
   blogFormationIaDansLeBtpSalle2026: {
     src: '/images/blog-formation-ia-dans-btp-salle-2026.png',
     alt:
-      'Formation IA en salle : présentation « L\'IA dans le BTP » à un public d\'artisans et de professionnels du bâtiment',
+      'Formation IA en salle : présentation « L\'IA dans le BTP » à un public de professionnels du bâtiment',
     width: 1024,
     height: 682,
   },
@@ -427,7 +427,7 @@ export const PHOTOS = {
   blogIaAuServiceArtisansBatiment2026: {
     src: '/images/blog-ia-au-service-artisans-batiment-2026.png',
     alt:
-      'Formation « L\'IA au service des artisans du bâtiment » — intervenante face à un public BTP en gilet de chantier',
+      'Formation « L\'IA au service du bâtiment » — intervenante face à un public BTP en gilet de chantier',
     width: 1024,
     height: 682,
   },

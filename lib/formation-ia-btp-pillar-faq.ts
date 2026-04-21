@@ -25,7 +25,7 @@ export const FAQ_FORMATION_IA_BTP_PILLAR: FAQItem[] = [
       'Oui. En intra-entreprise, la session se déroule dans vos locaux en Île-de-France, sur vos documents réels. Les sessions inter du catalogue ont lieu en présentiel sur des lieux en Île-de-France — détail sur <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
   },
   {
-    q: "L'IA va-t-elle remplacer les conducteurs de travaux ou les artisans ?",
+    q: "L'IA va-t-elle remplacer les conducteurs de travaux ou les équipes terrain ?",
     a:
       "Non. L'IA ne remplace pas l'expertise technique, le geste professionnel, la relation client ou le jugement terrain. Elle prend en charge les tâches rédactionnelles et de mise en forme : vous gardez la validation et la responsabilité.",
   },

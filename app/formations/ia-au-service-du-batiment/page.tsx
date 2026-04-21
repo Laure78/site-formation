@@ -72,7 +72,7 @@ export const metadata = createPageMetadata({
     'rédaction mémoire technique',
     'appel d\'offre BTP',
     'formation intelligence artificielle construction',
-    'IA pour artisans bâtiment',
+    'IA pour équipes BTP',
     'IA chantier',
     'automatisation devis BTP',
     'IA appels d\'offres',
@@ -150,7 +150,7 @@ const MODALITES = [
   {
     icon: Users,
     title: 'Public cible',
-    primary: 'Entreprises du bâtiment et artisans',
+    primary: 'Entreprises du bâtiment et professionnels du BTP',
     secondary: 'Dirigeants, conducteurs de travaux, équipes terrain et administratives',
   },
   {
@@ -338,15 +338,15 @@ export default function FormationIAuServiceDuBatimentPage() {
             L&apos;intelligence artificielle sert ici de <strong>levier de productivité</strong> : vous
             apprenez à formuler des demandes claires, à structurer vos documents et à réutiliser des
             modèles adaptés au vocabulaire des corps d&apos;état. Les exemples viennent du quotidien des
-            artisans et des PME : petits travaux, rénovation, lots techniques, suivi de chantier,
+            professionnels du BTP et des PME : petits travaux, rénovation, lots techniques, suivi de chantier,
             coordination avec la maîtrise d&apos;ouvrage ou les sous-traitants.
           </p>
 
           <h3 className="mt-10 font-display text-xl font-bold text-slate-900">
-            IA pour artisans bâtiment : concret et sans promesse irréaliste
+            IA pour équipes BTP : concret et sans promesse irréaliste
           </h3>
           <p className="mt-3 text-slate-700 leading-relaxed">
-            L&apos;<strong>IA pour artisans bâtiment</strong> commence par des usages simples : préparer
+            L&apos;<strong>IA pour équipes BTP</strong> commence par des usages simples : préparer
             un email client, reformuler un compte rendu, classer des idées avant une réunion de chantier.
             Vous découvrez comment éviter les pièges (données sensibles, chiffres non vérifiés) et instaurer
             une <strong>relecture humaine</strong> systématique. C&apos;est une progression courte, en

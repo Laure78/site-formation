@@ -1,4 +1,3 @@
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 
 /**
@@ -34,13 +33,6 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
         '@type': 'GeoCoordinates',
         latitude: 48.7739,
         longitude: 2.0688,
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.85',
-        reviewCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-        bestRating: '5',
-        worstRating: '1',
       },
       priceRange: '€€',
       openingHours: 'Mo-Fr 09:00-18:00',

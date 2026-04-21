@@ -25,6 +25,13 @@
 - [Catégorie: Productivité & emails](https://www.laureolivie.fr/blog/categorie/productivite-emails): This section focuses on enhancing productivity through effective email management and communication strategies. It is aimed at professionals looking to optimize their time and improve workflow efficiency.
 - [Catégorie: RH & recrutement](https://www.laureolivie.fr/blog/categorie/rh-recrutement): This category provides insights into human resources and recruitment practices within the construction industry. It is beneficial for professionals involved in hiring and team management, offering strategies for attracting and retaining talent.
 
+## Cluster SEO — Formation Claude AI BTP
+
+- [Formation Claude AI BTP](https://www.laureolivie.fr/formation-claude-ai-btp): Landing canonique dédiée au cluster « formation Claude AI » pour les professionnels du BTP, avec programme, comparaison Claude/ChatGPT, financement Constructys et FAQ.
+- [Formation Claude AI bâtiment](https://www.laureolivie.fr/formation-claude-ai-batiment): Variante sectorielle orientée bâtiment (gros œuvre, second œuvre, étanchéité, couverture, charpente), cas d’usage terrain et maillage vers le guide Claude.
+- [Formation Claude AI travaux publics](https://www.laureolivie.fr/formation-claude-ai-travaux-publics): Variante TP (VRD, terrassement, génie civil) avec usages CCTP, DCE, mémoire technique et coordination sous-traitants.
+- [Guide Claude AI BTP](https://www.laureolivie.fr/claude-ai-btp): Page pilier complète (Chat, Cowork, Code, Chrome) enrichie pour les intentions Claude bâtiment et Claude travaux publics.
+
 # llms.txt spec v1.0 — generated via https://llmstxtgenerator.org
 # Build-Hash: 8273-D077-F27F
 # Required for AI compatibility checks.

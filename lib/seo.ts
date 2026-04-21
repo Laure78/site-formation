@@ -30,8 +30,9 @@ export const LINKEDIN_PROFILE_URL = SCHEMA_LINKEDIN_PROFILE_URL;
 export const SITE_CONFIG = {
   name: 'Laure Olivié',
   legalName: 'OFC Création d\'Entreprise',
+  /** ≤ ~120 car. — le layout ajoute « Laure Olivié, formatrice IA BTP. » (meta SERP totale ≈ 155 car.) */
   description:
-    `Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — +${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Île-de-France & France.`,
+    `Formation IA BTP : ChatGPT pour devis, administratif et appels d'offres. ${formatProfessionalsTrainedCount()}+ pros formés, Qualiopi, OPCO Constructys, France.`,
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: SCHEMA_CONTACT.email,
@@ -55,7 +56,7 @@ export const SITE_CONFIG = {
     'formation IA BTP',
     'formation ChatGPT entreprise BTP',
     'IA pour PME bâtiment',
-    'formation IA artisan',
+    'formation IA PME BTP',
     'automatisation tâches administratives BTP',
     'IA devis bâtiment',
     'IA gestion chantier',
@@ -70,10 +71,10 @@ export const SITE_CONFIG = {
     'IA conducteur de travaux',
     'IA compte rendu chantier',
     'IA mémoire technique',
-    'formation ChatGPT artisan',
-    'IA pour artisans',
-    'IA entreprise artisanale',
-    'IA PME artisanale',
+    'formation ChatGPT PME BTP',
+    'IA pour PME BTP',
+    'IA entreprise du bâtiment',
+    'IA PME du bâtiment',
     'IA TPE bâtiment',
     'formation IA PME BTP',
     'formation IA entreprise bâtiment',
@@ -82,7 +83,7 @@ export const SITE_CONFIG = {
     'comment utiliser ChatGPT dans une entreprise du bâtiment',
     'gagner du temps administratif BTP IA',
     'IA pour conducteur de travaux',
-    'IA pour PME artisanale',
+    'IA pour PME du bâtiment',
     // Géographie (SEO local / GEO)
     'formation IA Guyancourt',
     'formation IA Île-de-France',
@@ -211,7 +212,7 @@ export function getMainCourseSchema() {
     '@id': `${SITE_CONFIG.url}/#course`,
     name: 'Formation IA BTP',
     description:
-      "Formation ChatGPT entreprise BTP : IA pour devis, chantier, mémoires techniques et administratif. Public : PME bâtiment, artisans, conducteurs de travaux, fédérations (FFB). Qualiopi, OPCO Constructys.",
+      "Formation ChatGPT entreprise BTP : IA pour devis, chantier, mémoires techniques et administratif. Public : PME bâtiment, professionnels du BTP, conducteurs de travaux, fédérations (FFB). Qualiopi, OPCO Constructys.",
     url: `${SITE_CONFIG.url}/formations`,
     provider: {
       '@type': 'Person',
@@ -224,7 +225,7 @@ export function getMainCourseSchema() {
       'IA devis bâtiment',
       'IA gestion chantier',
       'Automatisation tâches administratives BTP',
-      'IA pour PME artisanale',
+      'IA pour PME du bâtiment',
     ],
     educationalLevel: 'Professionnel',
     inLanguage: 'fr-FR',
@@ -341,7 +342,7 @@ export function getOrganizationSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
     description:
-      "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et artisans. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
+      "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
     ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),

@@ -55,7 +55,7 @@ const PROMPTS_PAR_METIER = [
   {
     label: 'Électricien',
     prompt:
-      "Rédige un devis professionnel pour un artisan électricien. Chantier : mise aux normes d'un tableau électrique et ajout de 8 circuits (éclairage, prises 16A, prises dédiées four). Précise un tableau avec 3 colonnes : désignation des fournitures (avec références types si génériques), main d'œuvre par poste, sous-totaux HT. Mentionne déplacement, diagnostic, mise en conformité NF C 15-100. TVA à 10 % pour la rénovation sur logement de plus de 2 ans. Ajoute validité du devis 30 jours, délais d'exécution indicatifs, conditions de paiement 30 % à la commande / solde à la réception. Ton : professionnel BTP, vocabulaire métier.",
+      "Rédige un devis professionnel pour une entreprise d'électricité du bâtiment. Chantier : mise aux normes d'un tableau électrique et ajout de 8 circuits (éclairage, prises 16A, prises dédiées four). Précise un tableau avec 3 colonnes : désignation des fournitures (avec références types si génériques), main d'œuvre par poste, sous-totaux HT. Mentionne déplacement, diagnostic, mise en conformité NF C 15-100. TVA à 10 % pour la rénovation sur logement de plus de 2 ans. Ajoute validité du devis 30 jours, délais d'exécution indicatifs, conditions de paiement 30 % à la commande / solde à la réception. Ton : professionnel BTP, vocabulaire métier.",
     resultat:
       'Un devis structuré avec postes séparés fournitures / pose, ligne pour le tableau et les protections, mention des essais et réception, totaux HT et TTC avec TVA 10 %.',
     temps: '1 h 30',
@@ -264,7 +264,7 @@ export default function IADevisBatimentPage() {
           <p className="mt-6 text-slate-600 leading-relaxed">
             Sur les moteurs comme Google, les requêtes{' '}
             <strong className="text-slate-800">ChatGPT devis BTP</strong> et{' '}
-            <strong className="text-slate-800">IA devis bâtiment</strong> regroupent des artisans,
+            <strong className="text-slate-800">IA devis bâtiment</strong> regroupent des professionnels du BTP,
             chefs d&apos;entreprise et conducteurs de travaux qui cherchent un gain de temps concret :
             moins de blanc sur la page, des postes mieux structurés, des variantes pour négocier avec le
             client. L&apos;objectif n&apos;est pas de &laquo; générer un prix &raquo; sans contrôle, mais
@@ -390,7 +390,7 @@ export default function IADevisBatimentPage() {
             <strong className="text-slate-800">devis intelligents bâtiment</strong>.
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Beaucoup d&apos;artisans découvrent l&apos;<strong className="text-slate-800">IA devis
+            Beaucoup de professionnels du BTP découvrent l&apos;<strong className="text-slate-800">IA devis
             bâtiment</strong> par essai-erreur : le premier jet semble convaincant, puis un détail
             (marge, norme, confidentialité) crée un problème en phase d&apos;exécution ou de relation
             client. Anticiper ces erreurs permet de traiter l&apos;IA comme un{' '}

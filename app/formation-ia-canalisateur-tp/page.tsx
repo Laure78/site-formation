@@ -368,7 +368,7 @@ export default function FormationIaCanalisateurTpPage() {
         <section id="a-propos" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> artisans et équipes du BTP / TP pour
+            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> les professionnels du BTP et les équipes TP pour
             utiliser ChatGPT sur la productivité (devis, mémoires techniques, communication).{' '}
             <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
             <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}

@@ -24,7 +24,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: 'Faut-il être informaticien pour utiliser ChatGPT dans le BTP ?',
-    a: "Non. ChatGPT et Claude AI fonctionnent en français naturel, sans code. Les formations de Laure Olivié sont conçues pour des professionnels BTP sans compétence technique : artisans, conducteurs de travaux, assistantes administratives, dirigeants de PME. La prise en main se fait en moins d'une heure.",
+    a: "Non. ChatGPT et Claude AI fonctionnent en français naturel, sans code. Les formations de Laure Olivié sont conçues pour des professionnels BTP sans compétence technique : équipes terrain, conducteurs de travaux, assistantes administratives, dirigeants de PME. La prise en main se fait en moins d'une heure.",
   },
   {
     q: "Laure Olivié intervient-elle en dehors de l'Île-de-France ?",
