@@ -1,13 +1,13 @@
 {
-  "slug": "l-ia-va-t-elle-remplacer-les-couvreurs",
-  "title": "L'IA va-t-elle remplacer les couvreurs ?",
-  "description": "L'IA remplace-t-elle les couvreurs ? Non : elle assiste le métier. Formation BTP finançable.",
+  "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
+  "title": "ChatGPT pour PME BTP : erreurs à éviter",
+  "description": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "date": "2026-04-22",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "L'IA va-t-elle remplacer les couvreurs ?",
-  "metaDescription": "L'IA remplace-t-elle les couvreurs ? Non : elle assiste le métier. Formation BTP finançable.",
+  "seoTitle": "ChatGPT pour PME BTP : erreurs à éviter",
+  "metaDescription": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
