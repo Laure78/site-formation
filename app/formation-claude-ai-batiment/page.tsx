@@ -40,13 +40,22 @@ const courseSchema = {
   keywords: ['formation Claude AI bâtiment', 'formation Claude bâtiment', 'formation IA Claude bâtiment'],
 };
 
+const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier-2026.png';
+
 export const metadata = createPageMetadata({
   title: 'Formation Claude AI bâtiment 2026 — devis, CR, appels d\'offres',
   description:
     "Formation Claude AI bâtiment : devis, comptes rendus chantier et réponses AO. Qualiopi, Constructys, sessions inter/intra.",
   path: PATH,
   appendAuthorSuffix: false,
+  openGraphType: 'website',
   keywords: ['formation Claude AI bâtiment', 'formation Claude bâtiment', 'formation IA Claude bâtiment'],
+  image: {
+    url: OG_CLAUDE_FORMATION,
+    width: 1200,
+    height: 630,
+    alt: 'Formation Claude AI bâtiment — terrain et bureau',
+  },
 });
 
 export default function FormationClaudeAiBatimentPage() {

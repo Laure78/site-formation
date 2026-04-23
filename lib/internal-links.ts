@@ -14,6 +14,8 @@ export const LINKS = {
   blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',
   /** Article MDX — guide pratique formation IA BTP 2026 (calendrier éditorial) */
   blogFormationIaBtpGuide2026Mdx: '/blog/formation-ia-btp-guide-complet-2026',
+  /** Article SEO/GEO — tutoriel skill IA conducteur de travaux */
+  blogGuideSkillIaConducteurTravaux: '/blog/guide-skill-ia-conducteur-travaux-btp',
   aPropos: '/a-propos',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',

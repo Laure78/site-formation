@@ -473,7 +473,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'Claude sur laureolivie.fr',
         content:
-          '<p class="text-slate-600">Pour une vue dédiée à <strong>Claude</strong> : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a> (guides Chat, Cowork, Code, MCP).</p>',
+          '<p class="text-slate-600">Pour le guide pratique (interfaces, prompts) : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Les formations restent multi-outils : ChatGPT et Claude AI se complètent. Pour cadrer une <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">formation Claude AI BTP</a> (programme, tableau comparatif, financement), c’est la landing dédiée.</p>',
       },
       {
         type: 'paragraph',
@@ -565,10 +565,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     sections: [
       {
-        type: 'definition',
+        type: 'html',
         title: 'En bref',
         content:
-          'Ce guide sur l\'IA mémoire technique appel d\'offres s\'adresse aux dirigeants et chargés d\'affaires des PME du bâtiment et des travaux publics qui répondent à des marchés publics ou privés : comment utiliser ChatGPT ou un assistant IA pour accélérer l\'analyse du DCE et la rédaction du mémoire, sans jamais déléguer la responsabilité du fond. Je m\'appuie sur le Module 5 de ma formation « Répondre aux appels d\'offres avec l\'IA » : analyse DCE, plan aligné sur la note technique, sections clés, relecture. Les pièces officielles (RC, CCTP, DPGF) restent votre référence ; l\'IA structure et reformule à partir de ce que vous lui fournissez.',
+          '<div class="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6"><p class="text-slate-700 leading-relaxed">Ce guide sur l&apos;IA mémoire technique appel d&apos;offres s&apos;adresse aux dirigeants et chargés d&apos;affaires des PME du bâtiment et des travaux publics qui répondent à des marchés publics ou privés : comment utiliser ChatGPT ou un assistant IA pour accélérer l&apos;analyse du DCE et la rédaction du mémoire, sans jamais déléguer la responsabilité du fond. Je m&apos;appuie sur le Module 5 de ma formation « Répondre aux appels d&apos;offres avec l&apos;IA » : analyse DCE, plan aligné sur la note technique, sections clés, relecture. Les pièces officielles (RC, CCTP, DPGF) restent votre référence ; l&apos;IA structure et reformule à partir de ce que vous lui fournissez. Pour les parcours multi-outils, voir aussi comment <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">se former à Claude AI dans les travaux publics</a> en complément de ChatGPT — la landing résume programme et financement.</p></div>',
       },
       {
         type: 'paragraph',
@@ -916,10 +916,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           `Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment avec une note moyenne de ${SOCIAL_PROOF.AVERAGE_RATING}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Quelles formations IA BTP sont proposées en 2026 ?',
         content:
-          'Le catalogue 2026 propose des sessions de 4 h en présentiel : "L\'IA au service du bâtiment" pour découvrir ChatGPT appliqué aux devis, emails et CR chantier ; "Répondre aux appels d\'offres avec l\'IA" pour l\'analyse DCE/CCTP et les mémoires techniques ; "IA pour la fonction RH" (recrutement, GEPP) ; « L\'IA au service des Travaux Publics » pour les conducteurs de travaux et bureaux d\'études — notamment en Île-de-France, intra sur la France. Paris, Lyon, Bordeaux, Lille.',
+          '<p class="text-slate-600 leading-relaxed">Le catalogue 2026 propose des sessions de 4 h en présentiel : &quot;L&apos;IA au service du bâtiment&quot; pour découvrir ChatGPT appliqué aux devis, emails et CR chantier ; &quot;Répondre aux appels d&apos;offres avec l&apos;IA&quot; pour l&apos;analyse DCE/CCTP et les mémoires techniques ; &quot;IA pour la fonction RH&quot; (recrutement, GEPP) ; « L&apos;IA au service des Travaux Publics » pour les conducteurs de travaux et bureaux d&apos;études — notamment en Île-de-France, intra sur la France. Paris, Lyon, Bordeaux, Lille. Côté bâtiment, si vous voulez une entrée dédiée Claude AI + ChatGPT sur la même logique terrain, voir la page <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">formation Claude bâtiment</a> : multi-outils, pas de substitution.</p>',
       },
       {
         type: 'list',

@@ -86,50 +86,57 @@ export function BlogIndexView({
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
+    <div className="min-h-screen bg-[#F8FAFC]">
       <JsonLd id="schema-blog-listing" schema={listingLd} />
       {faqSchema ? <JsonLd id="schema-blog-faq" schema={faqSchema} /> : null}
 
-      <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-        {mode === 'category' && categoryId
-          ? `Articles IA BTP — ${BLOG_CATEGORIES[categoryId]}`
-          : 'Blog Formation IA BTP : ressources et articles'}
-      </h1>
-      <p className="mt-4 text-xl text-slate-600">
-        Guides pratiques sur l&apos;IA pour le BTP, le financement des formations et les gains de productivité.
-      </p>
-      <p className="mt-2 text-sm font-medium text-slate-700">
-        {allCount} articles · {SOCIAL_PROOF.AVERAGE_RATING} · {formatProfessionalsTrainedCount()} professionnels formés
-        (OFC)
-      </p>
+      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">Blog expert IA BTP</p>
+          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+            {mode === 'category' && categoryId
+              ? `Articles IA BTP — ${BLOG_CATEGORIES[categoryId]}`
+              : 'Blog Formation IA BTP : ressources et articles'}
+          </h1>
+          <p className="mt-4 max-w-3xl text-lg text-slate-600 md:text-xl">
+            Guides pratiques sur l&apos;IA pour le BTP, le financement des formations et les gains de productivité.
+          </p>
+          <p className="mt-2 text-sm font-medium text-slate-700">
+            {allCount} articles · {SOCIAL_PROOF.AVERAGE_RATING} · {formatProfessionalsTrainedCount()} professionnels
+            formés (OFC)
+          </p>
 
-      <nav
-        className="mt-8 flex flex-wrap gap-2 rounded-2xl border border-slate-200 bg-[#F2F2F2] p-4 text-sm"
-        aria-label="Accès rapide aux thématiques"
-      >
-        <span className="font-semibold text-slate-800">Aller à :</span>
-        <a href="#a-la-une" className="text-[#377CF3] hover:underline">
-          À la une
-        </a>
-        <span>·</span>
-        <a href="#commencer" className="text-[#377CF3] hover:underline">
-          Par où commencer
-        </a>
-        <span>·</span>
-        <a href="#liste-articles" className="text-[#377CF3] hover:underline">
-          Tous les articles
-        </a>
-        <span>·</span>
-        <a href="#chiffres-blog" className="text-[#377CF3] hover:underline">
-          En chiffres
-        </a>
-        <span>·</span>
-        <a href="#faq" className="text-[#377CF3] hover:underline">
-          FAQ
-        </a>
-      </nav>
+          <nav
+            className="mt-8 flex flex-wrap gap-2 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-sm"
+            aria-label="Accès rapide aux thématiques"
+          >
+            <span className="font-semibold text-slate-800">Aller à :</span>
+            <a href="#a-la-une" className="text-[#377CF3] hover:underline">
+              À la une
+            </a>
+            <span>·</span>
+            <a href="#commencer" className="text-[#377CF3] hover:underline">
+              Par où commencer
+            </a>
+            <span>·</span>
+            <a href="#liste-articles" className="text-[#377CF3] hover:underline">
+              Tous les articles
+            </a>
+            <span>·</span>
+            <a href="#chiffres-blog" className="text-[#377CF3] hover:underline">
+              En chiffres
+            </a>
+            <span>·</span>
+            <a href="#faq" className="text-[#377CF3] hover:underline">
+              FAQ
+            </a>
+          </nav>
+        </div>
+      </section>
 
-      <form method="get" action="/blog" className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="mx-auto max-w-6xl px-4 pb-20 pt-10 md:pb-28 md:pt-12">
+
+      <form method="get" action="/blog" className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <label htmlFor="blog-search" className="sr-only">
           Rechercher un article
         </label>
@@ -161,7 +168,7 @@ export function BlogIndexView({
         />
       </div>
 
-      <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <section className="mt-10 rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
         <h2 className="font-display text-lg font-bold text-slate-900">Newsletter & ressource</h2>
         <p className="mt-2 text-slate-600">
           Recevez le guide gratuit <strong>Créez votre 1er Skill IA</strong> (PDF) et les prochains articles
@@ -177,7 +184,7 @@ export function BlogIndexView({
       </section>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl border-2 border-[#377CF3] bg-[#D4E3FC]/20 p-6">
+        <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6">
           <p className="font-semibold text-slate-900">
             Formations IA BTP — Devis et chiffrage · Appels d&apos;offres · Productivité chantier
           </p>
@@ -189,7 +196,7 @@ export function BlogIndexView({
             <ArrowRight size={18} strokeWidth={1.5} />
           </Link>
         </div>
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6">
           <p className="font-semibold text-slate-900">Guides pratiques</p>
           <div className="mt-3 flex flex-wrap gap-3">
             <Link href="/claude-ai-btp" className="text-sm font-medium text-[#377CF3] hover:underline">
@@ -250,7 +257,7 @@ export function BlogIndexView({
       )}
 
       {mode === 'all' && !searchQuery && (
-        <section id="commencer" className="mt-14 scroll-mt-24 border-t border-slate-200 pt-10">
+        <section id="commencer" className="mt-14 scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">Par où commencer ?</h2>
           <p className="mt-2 text-sm text-slate-600">Trois articles pour cadrer votre projet IA BTP.</p>
           <ol className="mt-6 list-decimal space-y-3 pl-6 text-slate-800">
@@ -266,7 +273,7 @@ export function BlogIndexView({
       )}
 
       {mode === 'all' && !searchQuery && (
-        <section id="chiffres-blog" className="mt-12 scroll-mt-24 rounded-2xl border border-slate-200 bg-[#F2F2F2] p-6">
+        <section id="chiffres-blog" className="mt-12 scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-6">
           <h2 className="font-display text-lg font-bold text-slate-900">IA BTP en chiffres (blog)</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700">
             <li>{allCount} articles publiés sur l&apos;IA dans le BTP (guides, prompts, cas d&apos;usage).</li>
@@ -364,6 +371,7 @@ export function BlogIndexView({
           secondaryLabel="Voir le financement"
           secondaryHref="/financement-constructys-formation-ia-btp"
         />
+      </div>
       </div>
     </div>
   );

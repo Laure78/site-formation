@@ -292,6 +292,10 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
     q: "Comment savoir si mon OPCO est Constructys ?",
     a: 'Constructys est l\'OPCO du BTP : entreprises du bâtiment, des travaux publics et activités assimilées, négoce de matériaux. Si votre activité principale est dans ce périmètre, c\'est bien Constructys qui gère votre contribution et vos demandes de financement — voir aussi <a href="/formation-ia-travaux-publics">formation IA travaux publics</a>.',
   },
+  {
+    q: "Comment retrouver mon OPCO de rattachement si je ne suis pas sûr ?",
+    a: 'Faites un contrôle en 2 temps : (1) récupérez votre SIRET complet (14 chiffres), code APE et convention collective via l\'annuaire officiel <a href="https://annuaire-entreprises.data.gouv.fr/" rel="noopener nofollow" target="_blank">annuaire-entreprises.data.gouv.fr</a> ; (2) comparez ensuite avec la liste officielle des 11 OPCO du Ministère du Travail <a href="https://travail-emploi.gouv.fr/formation-professionnelle/acteurs-cadre-et-qualite-de-la-formation-professionnelle/liste-des-opco" rel="noopener nofollow" target="_blank">liste des OPCO</a>. Si votre activité est BTP, votre OPCO est généralement Constructys.',
+  },
 ];
 
 export const FAQ_A_PROPOS: FAQItem[] = [

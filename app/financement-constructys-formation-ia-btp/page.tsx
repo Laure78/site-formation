@@ -51,6 +51,7 @@ const FINANCEMENT_TOC = [
   { label: 'Grille commerciale OFC', anchor: 'grille-ofc' },
   { label: 'Combien Constructys rembourse ?', anchor: 'combien-rembourse' },
   { label: 'Étapes du financement', anchor: 'etapes' },
+  { label: 'Trouver son OPCO', anchor: 'trouver-opco' },
   { label: 'Mon cas : prise en charge', anchor: 'mon-cas' },
   { label: 'OFC vous accompagne', anchor: 'ofc-accompagne' },
   { label: 'Définitions clés', anchor: 'definitions' },
@@ -344,6 +345,62 @@ export default function FinancementConstructysFormationIABTPPage() {
                   </li>
                 ))}
               </ol>
+            </section>
+
+            <section id="trouver-opco" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 md:px-8">
+              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                Trouver son OPCO de rattachement (avant de déposer)
+              </h2>
+              <p className="mt-4 max-w-3xl text-[#334155] leading-relaxed">
+                Vous ne savez pas encore si votre entreprise dépend de Constructys ou d&apos;un autre OPCO ? Faites ce
+                check rapide en 2 étapes : d&apos;abord récupérer vos données d&apos;entreprise officielles (SIRET complet,
+                code APE, convention collective), puis comparer avec la liste officielle des OPCO.
+              </p>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <article className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
+                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">Étape 1</p>
+                  <h3 className="mt-2 font-semibold text-[#0F172A]">
+                    Récupérer le SIRET complet (14 chiffres) et le code APE
+                  </h3>
+                  <p className="mt-2 text-sm text-[#475569]">
+                    Utilisez l&apos;annuaire officiel des entreprises. Ex. avec un SIREN comme{' '}
+                    <strong>838 267 359</strong>, vous retrouvez le SIRET complet, le code APE officiel et la convention
+                    collective applicable.
+                  </p>
+                  <a
+                    href="https://annuaire-entreprises.data.gouv.fr/"
+                    target="_blank"
+                    rel="noopener nofollow"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#377CF3] hover:underline"
+                  >
+                    Annuaire des entreprises (data.gouv.fr)
+                    <ArrowUpRight className="h-4 w-4" aria-hidden />
+                  </a>
+                </article>
+                <article className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
+                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">Étape 2</p>
+                  <h3 className="mt-2 font-semibold text-[#0F172A]">
+                    Vérifier votre OPCO dans la liste officielle des 11 OPCO
+                  </h3>
+                  <p className="mt-2 text-sm text-[#475569]">
+                    Le Ministère du Travail publie la liste complète des OPCO. Comparez votre activité (code APE +
+                    convention collective) pour confirmer votre organisme de rattachement.
+                  </p>
+                  <a
+                    href="https://travail-emploi.gouv.fr/formation-professionnelle/acteurs-cadre-et-qualite-de-la-formation-professionnelle/liste-des-opco"
+                    target="_blank"
+                    rel="noopener nofollow"
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#377CF3] hover:underline"
+                  >
+                    Liste officielle des OPCO (Ministère du Travail)
+                    <ArrowUpRight className="h-4 w-4" aria-hidden />
+                  </a>
+                </article>
+              </div>
+              <p className="mt-5 text-sm text-[#64748B]">
+                Si vous êtes BTP, votre OPCO est généralement Constructys. En cas de doute, validez d&apos;abord ce point
+                avant le dépôt eGestion pour éviter les erreurs de circuit.
+              </p>
             </section>
 
             <section id="mon-cas" className="scroll-mt-24">

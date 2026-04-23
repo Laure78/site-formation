@@ -40,13 +40,22 @@ const courseSchema = {
   keywords: ['formation Claude AI travaux publics', 'formation Claude travaux publics', 'formation IA Claude travaux publics'],
 };
 
+const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier-2026.png';
+
 export const metadata = createPageMetadata({
   title: 'Formation Claude AI travaux publics 2026 — DCE, mémoires techniques',
   description:
     'Formation Claude AI travaux publics : CCTP TP, DCE, planning et mémoire technique. Qualiopi, Constructys, sessions inter/intra.',
   path: PATH,
   appendAuthorSuffix: false,
+  openGraphType: 'website',
   keywords: ['formation Claude AI travaux publics', 'formation Claude travaux publics', 'formation IA Claude travaux publics'],
+  image: {
+    url: OG_CLAUDE_FORMATION,
+    width: 1200,
+    height: 630,
+    alt: 'Formation Claude AI travaux publics — marchés et dossiers TP',
+  },
 });
 
 export default function FormationClaudeAiTravauxPublicsPage() {

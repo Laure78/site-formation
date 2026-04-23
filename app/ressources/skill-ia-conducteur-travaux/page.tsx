@@ -14,9 +14,9 @@ const PATH = '/ressources/skill-ia-conducteur-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata = createPageMetadata({
-  title: 'Créez votre 1er Skill IA — Guide gratuit Conducteur de Travaux BTP',
+  title: 'Créez votre 1er Skill IA — Guide pratique Conducteur de Travaux BTP',
   description:
-    'Guide PDF gratuit pour créer votre 1er skill IA en 30 min. Tutoriel + 5 cas d’usage BTP + template prêt à l’emploi. Par Laure Olivié, formatrice IA BTP.',
+    'Guide pratique pour créer votre 1er skill IA en 30 min. Tutoriel + 5 cas d’usage BTP + template prêt à l’emploi. Par Laure Olivié, formatrice IA BTP.',
   path: PATH,
   keywords: [
     'skill IA BTP',
@@ -88,15 +88,15 @@ const howToSkillJsonLd = {
 const FAQ_ITEMS = [
   {
     q: 'Quel format est le guide ?',
-    a: 'Un fichier PDF : vous pouvez le télécharger directement depuis la page (sans inscription) ou recevoir une copie par e-mail après inscription. Compatible ordinateur et tablette.',
+    a: 'Le guide est disponible en article blog optimisé SEO/GEO, consultable immédiatement sans formulaire.',
   },
   {
     q: 'Combien de temps pour le parcourir ?',
     a: 'Prévoyez environ 30 minutes pour appliquer le tutoriel pas à pas. Les cas d’usage peuvent être lus séparément.',
   },
   {
-    q: 'Comment sont utilisées mes données ?',
-    a: 'Uniquement pour vous envoyer ce guide et des contenus BTP & IA en lien avec votre inscription. Vous pouvez vous désabonner en un clic à tout moment.',
+    q: 'Y a-t-il une inscription obligatoire ?',
+    a: 'Non. L’accès au guide se fait directement via le bouton vers l’article blog, sans saisie de données.',
   },
   {
     q: 'Proposez-vous une formation professionnelle sur le même thème ?',
