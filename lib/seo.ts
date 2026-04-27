@@ -388,7 +388,7 @@ export function getLocalBusinessSchema() {
     '@id': `${SITE_CONFIG.url}/#localbusiness`,
     name: 'Laure Olivié — Formation IA BTP',
     description:
-      "Formation IA BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Artisans, PME bâtiment, conducteurs de travaux. Guyancourt (78), Île-de-France et France.",
+      "Formation IA BTP et ChatGPT entreprise : automatisation des tâches administratives, IA devis bâtiment, IA gestion chantier. Professionnels du BTP, PME bâtiment, conducteurs de travaux. Guyancourt (78), Île-de-France et France.",
     url: SITE_CONFIG.url,
     ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     email: SITE_CONFIG.email,

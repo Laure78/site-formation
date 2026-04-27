@@ -336,7 +336,7 @@ export default function FormationIaPiscinisteBtpPage() {
               conformité — mais j’ai plus de disponibilité pour le client et les prospects. »
             </p>
             <footer className="mt-4 text-sm font-medium text-slate-900">
-              — Artisan pisciniste, témoignage de formation (FFB Île-de-France)
+              — Professionnel pisciniste, témoignage de formation (FFB Île-de-France)
             </footer>
           </blockquote>
         </section>

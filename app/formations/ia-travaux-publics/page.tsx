@@ -22,13 +22,12 @@ import {
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
+import { CourseSchema } from '@/components/seo/CourseSchema';
 import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_TRAVAUX_PUBLICS } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -73,8 +72,6 @@ export const metadata = createPageMetadata({
     alt: PHOTOS.btpFormationChantierEquipe2026.alt,
   },
 });
-
-const formationCourseGraph = getDedicatedFormationCoursePageJsonLd('/formations/ia-travaux-publics');
 
 const faqSchema = getFAQSchema(FAQ_TRAVAUX_PUBLICS);
 
@@ -195,7 +192,14 @@ const LIVRABLES = [
 export default function FormationIATravauxPublicsPage() {
   return (
     <div>
-      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
+      <CourseSchema
+        name="L'IA au service des Travaux Publics (BTP-04)"
+        description={`Formation IA travaux publics et BTP : appels d'offre, DCE, mémoire technique terrain, documents chantier.`}
+        url="https://laureolivie.fr/formations/ia-travaux-publics"
+        duration="PT4H"
+        price={100}
+        level="Beginner"
+      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

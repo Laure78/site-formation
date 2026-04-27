@@ -6,13 +6,12 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
+import { CourseSchema } from '@/components/seo/CourseSchema';
 import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
@@ -54,10 +53,6 @@ export const metadata = createPageMetadata({
     alt: PHOTOS.formationIABtpArchiClaudePresentielGroupe2026.alt,
   },
 });
-
-const formationCourseGraph = getDedicatedFormationCoursePageJsonLd(
-  '/formations/ia-architecture-claude-dpgf'
-);
 
 const MODULES = [
   {
@@ -134,7 +129,14 @@ export default function FormationIAArchitectureClaudePage() {
 
   return (
     <div>
-      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
+      <CourseSchema
+        name="Formation IA architecture Claude AI DPGF"
+        description={`Formation IA BTP pour cabinets : DPGF, métrés, mémoire technique, CR chantier et documents avec Claude AI.`}
+        url="https://laureolivie.fr/formations/ia-architecture-claude-dpgf"
+        duration="PT4H"
+        price={100}
+        level="Intermediate"
+      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

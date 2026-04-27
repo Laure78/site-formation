@@ -6,14 +6,13 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
+import { CourseSchema } from '@/components/seo/CourseSchema';
 import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
   siteHasPublicPhone,
 } from '@/lib/seo';
-import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -58,8 +57,6 @@ export const metadata = createPageMetadata({
     alt: PHOTOS.btpFormationChantierPlans2026.alt,
   },
 });
-
-const formationCourseGraph = getDedicatedFormationCoursePageJsonLd('/formations/ia-appels-offre-btp');
 
 const OUTILS_IA_LINE =
   'ChatGPT, Claude, Perplexity, Mistral, Gemini, NotebookLM — selon modules.';
@@ -134,7 +131,14 @@ export default function FormationIAAppelsOffreBTPPage() {
 
   return (
     <div>
-      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
+      <CourseSchema
+        name="Formation IA appels d'offre BTP"
+        description={`Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage.`}
+        url="https://laureolivie.fr/formations/ia-appels-offre-btp"
+        duration="PT4H"
+        price={100}
+        level="Intermediate"
+      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

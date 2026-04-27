@@ -29,9 +29,10 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
+import { FAQSchema } from '@/components/seo/FAQSchema';
 import { PHOTOS } from '@/lib/photos';
 import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
@@ -103,7 +104,10 @@ export const metadata = createPageMetadata({
 const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 
 export default function HomePage() {
-  const faqSchema = getFAQSchema(FAQ_ITEMS_HOME);
+  const faqItems = FAQ_ITEMS_HOME.map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
 
   return (
     <div>
@@ -1000,13 +1004,13 @@ export default function HomePage() {
                   Partenaires
                 </div>
                 <p className="mt-2 text-sm text-slate-600">
-                  Interventions et actions de formation avec la FFB (Artisans, Île-de-France) et
+                  Interventions et actions de formation avec la FFB (Île-de-France) et
                   la {CSFE_NOM_LIBRE}.
                 </p>
                 <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                   {[
                     {
-                      label: 'FFB Artisans',
+                      label: 'FFB Bâtiment',
                       href: 'https://www.ffbatiment.fr',
                       title: 'Fédération Française du Bâtiment',
                     },
@@ -1318,7 +1322,7 @@ export default function HomePage() {
       </section>
 
       <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
-      {faqSchema ? <JsonLd id="schema-home-faq" schema={faqSchema} /> : null}
+      <FAQSchema id="schema-home-faq" items={faqItems} />
     </div>
   );
 }

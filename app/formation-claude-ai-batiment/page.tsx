@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Calendar, CheckCircle2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
+import { CourseSchema } from '@/components/seo/CourseSchema';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
@@ -21,24 +22,6 @@ const FAQ_ITEMS = [
     a: 'Oui : analyse de pièces, trame mémoire technique, vérification des exigences et formulation des réponses.',
   },
 ] as const;
-
-const courseSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  name: 'Formation Claude AI bâtiment',
-  description:
-    'Formation Claude AI bâtiment pour équipes gros œuvre, second œuvre et étanchéité : devis, CR chantier et appels d’offres.',
-  provider: {
-    '@type': 'Organization',
-    '@id': `${SITE_CONFIG.url}/#organization`,
-    name: "OFC Création d'Entreprise",
-    taxID: '905 244 281 00010',
-  },
-  inLanguage: 'fr-FR',
-  url: `${SITE_CONFIG.url}${PATH}`,
-  teaches: ['Claude AI', 'Claude Chat', 'Claude Cowork', 'Claude Code', 'Claude Chrome', 'IA BTP', 'ChatGPT BTP'],
-  keywords: ['formation Claude AI bâtiment', 'formation Claude bâtiment', 'formation IA Claude bâtiment'],
-};
 
 const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier-2026.png';
 
@@ -67,7 +50,14 @@ export default function FormationClaudeAiBatimentPage() {
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
-      <JsonLd id="schema-formation-claude-ai-batiment-course" schema={courseSchema} />
+      <CourseSchema
+        name="Formation Claude AI bâtiment"
+        description="Formation Claude AI bâtiment pour équipes gros œuvre, second œuvre et étanchéité : devis, CR chantier et appels d’offres."
+        url="https://laureolivie.fr/formation-claude-ai-batiment"
+        duration="PT4H"
+        price={100}
+        level="Intermediate"
+      />
       <JsonLd id="schema-formation-claude-ai-batiment-breadcrumb" schema={breadcrumbSchema} />
       {faqSchema ? <JsonLd id="schema-formation-claude-ai-batiment-faq" schema={faqSchema} /> : null}
 

@@ -6,13 +6,12 @@ import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
+import { CourseSchema } from '@/components/seo/CourseSchema';
 import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
@@ -51,10 +50,6 @@ export const metadata = createPageMetadata({
     alt: PHOTOS.formationSensibilisationAssistantsIaBtp2026.alt,
   },
 });
-
-const formationCourseGraph = getDedicatedFormationCoursePageJsonLd(
-  '/formations/sensibilisation-ia-assistants-personnalises'
-);
 
 const MODULES = [
   {
@@ -127,7 +122,14 @@ export default function SensibilisationIAAssistantsPage() {
 
   return (
     <div>
-      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
+      <CourseSchema
+        name="Sensibilisation IA et assistants personnalisés (BTP-05)"
+        description={`Sensibilisation IA BTP et bâtiment : prompts métier, assistants IA, usages terrain.`}
+        url="https://laureolivie.fr/formations/sensibilisation-ia-assistants-personnalises"
+        duration="PT4H"
+        price={100}
+        level="Beginner"
+      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

@@ -258,7 +258,7 @@ export function FormationCityPage({
             Cas concrets d&apos;utilisation de l&apos;IA pour les entreprises du bâtiment
           </h2>
           <p className="mt-3 text-slate-600">
-            Artisans et PME du BTP à {ville} utilisent déjà l&apos;IA pour gagner du temps.
+            Professionnels du BTP et PME à {ville} utilisent déjà l&apos;IA pour gagner du temps.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {[

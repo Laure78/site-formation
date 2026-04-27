@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { AllerPlusLoin } from "@/components/AllerPlusLoin";
+import { CourseSchema } from "@/components/seo/CourseSchema";
 
 /* ---------------------------------------------------------------- METADATA */
 
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   keywords: [
     "formation Claude AI BTP",
     "Claude AI bâtiment",
-    "Claude AI artisan",
+    "Claude AI PME BTP",
     "Claude Pro BTP",
     "formation Anthropic BTP",
     "IA Claude pour le BTP",
@@ -88,70 +89,6 @@ const breadcrumbSchema = {
     { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.laureolivie.fr/" },
     { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.laureolivie.fr/formations" },
     { "@type": "ListItem", position: 3, name: "Formation Claude AI BTP" },
-  ],
-};
-
-const courseSchema = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "@id": `${PAGE_URL}#course`,
-  name: "Formation Claude AI BTP",
-  description:
-    "Formation de 4 heures sur Claude AI (Anthropic) appliquée au BTP : devis, analyse de CCTP, mémoires techniques, rédaction de comptes rendus de chantier. Qualiopi, finançable Constructys.",
-  url: PAGE_URL,
-  provider: { "@id": "https://www.laureolivie.fr/#organization" },
-  teaches: [
-    "Maîtriser Claude AI pour le BTP",
-    "Analyser un CCTP BTP avec Claude",
-    "Rédiger un mémoire technique BTP avec Claude",
-    "Automatiser des devis bâtiment",
-    "Comparer Claude AI, ChatGPT et Gemini pour le BTP",
-  ],
-  educationalLevel: "Professionnel",
-  inLanguage: "fr-FR",
-  audience: {
-    "@type": "EducationalAudience",
-    educationalRole: "professional",
-    audienceType:
-      "Artisans, conducteurs de travaux, chargés d'affaires, dirigeants PME BTP",
-  },
-  hasCourseInstance: [
-    {
-      "@type": "CourseInstance",
-      courseMode: "onsite",
-      courseWorkload: "PT4H",
-      inLanguage: "fr-FR",
-      location: {
-        "@type": "Place",
-        name: "Île-de-France",
-        address: {
-          "@type": "PostalAddress",
-          addressRegion: "Île-de-France",
-          addressCountry: "FR",
-        },
-      },
-    },
-  ],
-  educationalCredentialAwarded: "Attestation de formation Qualiopi",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Niveau débutant",
-      price: "100",
-      priceCurrency: "EUR",
-      category: "Formation initiale Claude AI BTP",
-      availability: "https://schema.org/InStock",
-      url: PAGE_URL,
-    },
-    {
-      "@type": "Offer",
-      name: "Niveau avancé (Claude Pro requis)",
-      price: "175",
-      priceCurrency: "EUR",
-      category: "Formation avancée Claude AI BTP",
-      availability: "https://schema.org/InStock",
-      url: PAGE_URL,
-    },
   ],
 };
 
@@ -235,11 +172,13 @@ export default function FormationClaudeAiBtpPage() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <Script
-        id="schema-course-claude"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      <CourseSchema
+        name="Formation Claude AI BTP"
+        description="Formation de 4 heures sur Claude AI (Anthropic) appliquée au BTP : devis, analyse de CCTP, mémoires techniques et comptes rendus de chantier."
+        url="https://laureolivie.fr/formation-claude-ai-btp"
+        duration="PT4H"
+        price={100}
+        level="Intermediate"
       />
       <Script
         id="schema-service-claude"

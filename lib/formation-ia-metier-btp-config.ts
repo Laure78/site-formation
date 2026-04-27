@@ -373,7 +373,7 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
   csfePartnership: false,
   testimonialQuote:
     '« Les premiers jets de devis salle de bain et les rapports de dépannage sont plus homogènes — on relit avant envoi, surtout sur les aides et le CEE. »',
-  testimonialAttribution: 'Artisan plombier-chauffagiste — IDF (retour OFC, anonymisé)',
+  testimonialAttribution: 'Plombier-chauffagiste — IDF (retour OFC, anonymisé)',
   faq: [
     {
       q: 'L’IA peut-elle calculer une évacuation ou un dimensionnement à la place du DTU 60.11 ?',

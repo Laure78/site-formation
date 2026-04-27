@@ -23,14 +23,13 @@ import {
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { FormationCourseScriptJsonLd } from '@/components/seo/FormationCourseScriptJsonLd';
+import { CourseSchema } from '@/components/seo/CourseSchema';
 import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
   siteHasPublicPhone,
 } from '@/lib/seo';
-import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_BATIMENT } from '@/lib/faq';
 import {
   FormationCourseHero,
@@ -89,10 +88,6 @@ export const metadata = createPageMetadata({
     alt: PHOTOS.formationIABtpVisioBureau2026.alt,
   },
 });
-
-const formationCourseGraph = getDedicatedFormationCoursePageJsonLd(
-  '/formations/ia-au-service-du-batiment'
-);
 
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
 
@@ -245,7 +240,14 @@ const PUBLIC_CIBLE = [
 export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
-      <FormationCourseScriptJsonLd schema={formationCourseGraph} />
+      <CourseSchema
+        name="L'IA au service du bâtiment (BTP-01)"
+        description={SEO_DESCRIPTION}
+        url="https://laureolivie.fr/formations/ia-au-service-du-batiment"
+        duration="PT4H"
+        price={100}
+        level="Beginner"
+      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero

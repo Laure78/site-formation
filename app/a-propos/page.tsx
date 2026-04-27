@@ -4,6 +4,7 @@ import { ArrowUpRight, Award, Building2, GraduationCap, HardHat, ShieldCheck, St
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
+import { FAQSchema } from '@/components/seo/FAQSchema';
 import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
@@ -59,6 +60,10 @@ export const metadata = createPageMetadata({
 export default function AProposPage() {
   const unifiedSchema = getAProposUnifiedJsonLd();
   const faqItems = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
+  const faqSchemaItems = faqItems.map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
   const aboutHeroUrl = calendlyAboutUrl('hero');
   const aboutApproachUrl = calendlyAboutUrl('approach');
   const aboutBottomUrl = calendlyAboutUrl('bottom-cta');
@@ -77,6 +82,7 @@ export default function AProposPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       <JsonLd id="schema-a-propos-unified-graph" schema={unifiedSchema} />
+      <FAQSchema id="schema-a-propos-faq" items={faqSchemaItems} />
 
       <PillarPageHero
         variant="splitImage"

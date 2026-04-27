@@ -33,6 +33,19 @@ const outfit = Outfit({
 });
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
+const llmsTxtSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DigitalDocument',
+  name: 'Fichier llms.txt (assistants IA)',
+  url: `${baseUrl}/llms.txt`,
+  encodingFormat: 'text/plain',
+  inLanguage: 'fr',
+  isPartOf: {
+    '@type': 'WebSite',
+    url: baseUrl,
+    name: SITE_CONFIG.name,
+  },
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -128,6 +141,10 @@ export default function RootLayout({
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
         <OrganizationSchema />
         <GlobalSitelinksJsonLd />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(llmsTxtSchema) }}
+        />
         <GoogleAnalytics />
         <CalendlyScriptLoader />
         <CalendlyClickTracker />

@@ -1,21 +1,21 @@
 {
   "slug": "chatgpt-prompts-artisans-btp",
-  "title": "ChatGPT pour artisans BTP : 10 prompts prêts à l'emploi par corps de métier",
-  "seoTitle": "ChatGPT artisans BTP : 10 prompts par métier | Laure Olivié",
+  "title": "ChatGPT pour professionnels du BTP BTP : 10 prompts prêts à l'emploi par corps de métier",
+  "seoTitle": "ChatGPT professionnels du BTP BTP : 10 prompts par métier | Laure Olivié",
   "description": "10 prompts ChatGPT testés pour électriciens, plombiers, couvreurs, maçons et métiers du bâtiment. Devis, CR chantier, relances — copier-coller. Qualiopi, OFC.",
   "date": "2026-04-10",
   "dateModified": "2026-04-12",
   "keywords": [
-    "ChatGPT artisans BTP",
+    "ChatGPT professionnels du BTP BTP",
     "prompts BTP par métier",
-    "IA devis artisan",
+    "IA devis professionnel du BTP",
     "prompts électricien plombier",
     "outils IA BTP ChatGPT Claude Gemini"
   ],
   "relatedSlugs": [
     "outils-ia-btp-chatgpt-claude-gemini",
     "confidentialite-donnees-ia-btp",
-    "5-cas-usage-chatgpt-artisans-btp",
+    "5-cas-usage-chatgpt-professionnels du BTP-btp",
     "chatgpt-btp-guide-complet"
   ],
   "sections": [
@@ -70,7 +70,7 @@
         },
         {
           "titre": "Dirigeant TPE — ordre du jour réunion interne IA",
-          "prompt": "Propose un ordre du jour de 45 min pour sensibiliser mon équipe à l'IA : objectifs, démo live sur cas [devis / email], règles de confidentialité, prochaines étapes. Public : artisans et administratif.",
+          "prompt": "Propose un ordre du jour de 45 min pour sensibiliser mon équipe à l'IA : objectifs, démo live sur cas [devis / email], règles de confidentialité, prochaines étapes. Public : professionnels du BTP et administratif.",
           "usage": "À combiner avec une formation OFC si besoin."
         },
         {

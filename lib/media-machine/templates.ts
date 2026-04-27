@@ -77,6 +77,6 @@ export function formatLinkedInPost(template: LinkedInPostTemplate): string {
     '',
     '➡️ ' + template.cta,
     '',
-    '#IABTP #ChatGPT #Artisans #Formation #Constructys',
+    '#IABTP #ChatGPT #PMEBTP #Formation #Constructys',
   ].join('\n');
 }

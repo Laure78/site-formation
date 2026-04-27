@@ -8,7 +8,7 @@
     "ChatGPT emails BTP",
     "relance client IA",
     "automatisation administrative BTP",
-    "formation IA artisan"
+    "formation IA professionnel du BTP"
   ],
   "sections": [
     {
@@ -31,7 +31,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez la formation ChatGPT pour artisans et PME du BTP.",
+      "content": "Découvrez la formation ChatGPT pour professionnels du BTP et PME du BTP.",
       "formationHref": "/chatgpt-artisans-btp"
     }
   ],

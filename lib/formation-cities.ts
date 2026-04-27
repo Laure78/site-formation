@@ -59,7 +59,7 @@ export const FORMATION_CITIES: Record<string, CityFormationConfig> = {
     ],
     zones: [
       { num: '91', nom: 'Longjumeau', contenu: 'Centre-ville et zones d’activités • formation intra en entreprise' },
-      { num: '91', nom: 'Morangis', contenu: 'Zone industrielle et artisans • regroupement d’équipes possible' },
+      { num: '91', nom: 'Morangis', contenu: 'Zone industrielle et PME du bâtiment • regroupement d’équipes possible' },
       { num: '91', nom: 'Les Ulis', contenu: 'Voisinage direct • inter selon calendrier' },
       { num: '91', nom: 'Montlhéry', contenu: 'Professionnels du BTP et PME sur la RD20 / accès A6' },
       { num: '91', nom: 'Yerres', contenu: 'Entreprises locales et sous-traitants BTP' },

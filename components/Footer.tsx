@@ -43,6 +43,7 @@ export function Footer() {
     { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
     { href: LINKS.reglementInterieur, label: 'Règlement' },
     { href: LINKS.annuaireHandicap, label: 'Handicap' },
+    { href: '/llms.txt', label: 'Fichier llms.txt (assistants IA)' },
   ];
 
   return (

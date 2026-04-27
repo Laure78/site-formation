@@ -7,7 +7,7 @@
   "dateModified": "2026-04-12",
   "keywords": [
     "outils IA BTP ChatGPT Claude Gemini",
-    "formation ia artisans btp",
+    "formation ia pme btp",
     "chatgpt btp gratuit",
     "ia générative bâtiment",
     "Claude AI CCTP BTP",
@@ -66,7 +66,7 @@
     },
     {
       "type": "html",
-      "title": "Pourquoi les artisans du BTP perdent du temps sans ces outils",
+      "title": "Pourquoi les professionnels du BTP perdent du temps sans ces outils",
       "content": "<p>Le chiffre est constant dans les sessions que j&apos;anime : <strong>35 % du temps</strong> d&apos;un professionnel du BTP est consacré à des tâches administratives — emails, comptes rendus de chantier, devis, courriers fournisseurs, réponses aux appels d&apos;offres. Selon les données McKinsey (2024), ce n&apos;est pas une perception, c&apos;est une réalité mesurée.</p><p>Un électricien qui rédige un devis passe en moyenne entre 2 et 4 heures s&apos;il part d&apos;une page blanche. Un conducteur de travaux consacre 1h30 à 2h à la rédaction d&apos;un compte rendu de réunion de chantier. Une chargée d&apos;affaires passe 2 à 4 heures sur l&apos;analyse d&apos;un CCTP de 80 pages avant de pouvoir estimer la faisabilité d&apos;un appel d&apos;offres.</p><p>Avec les bons outils IA, ces mêmes tâches prennent entre 5 et 20 minutes. La méthode ne change pas — c&apos;est la vitesse d&apos;exécution qui change radicalement.</p>"
     },
     {
@@ -105,7 +105,7 @@
         },
         {
           "titre": "Prompt 4 — Description d'entreprise pour les réseaux sociaux",
-          "prompt": "Tu es un rédacteur spécialisé dans la communication des artisans du BTP.\nRédige une présentation courte de mon entreprise à publier sur LinkedIn.\nMon activité : [préciser votre corps de métier — ex : couverture, plomberie, électricité]\nMes points forts : [préciser — ex : 15 ans d'expérience, certifié RGE, intervention rapide]\nTonalité : sérieuse et accessible, pas de jargon.\nFormat : 3 paragraphes de 4 lignes maximum, hashtags pertinents en fin de post.",
+          "prompt": "Tu es un rédacteur spécialisé dans la communication des professionnels du BTP.\nRédige une présentation courte de mon entreprise à publier sur LinkedIn.\nMon activité : [préciser votre corps de métier — ex : couverture, plomberie, électricité]\nMes points forts : [préciser — ex : 15 ans d'expérience, certifié RGE, intervention rapide]\nTonalité : sérieuse et accessible, pas de jargon.\nFormat : 3 paragraphes de 4 lignes maximum, hashtags pertinents en fin de post.",
           "usage": "Complétez les crochets avec votre fiche entreprise."
         }
       ]
@@ -117,7 +117,7 @@
     },
     {
       "type": "faq",
-      "title": "FAQ — Les questions que posent les artisans BTP",
+      "title": "FAQ — Les questions que posent les professionnels du BTP",
       "content": [
         "Est-ce que ChatGPT, Claude et Gemini sont vraiment gratuits ? — Oui, les trois outils proposent une version entièrement gratuite accessible avec un simple compte email. Les versions payantes (entre 20 et 25 €/mois) débloquent l'analyse de gros fichiers PDF et des fonctionnalités avancées utiles dès lors que vous avez un volume régulier de documents à traiter.",
         "Mes données de chantier sont-elles confidentielles quand j'utilise ces outils ? — Par défaut, vos échanges peuvent être utilisés pour améliorer les modèles. Pour éviter cela : désactivez cette option dans les paramètres de chaque outil (OpenAI, Anthropic, Google proposent tous cette option). Ne saisissez jamais de données personnelles de clients (nom complet, adresse, IBAN) dans un outil IA. Pour les CCTP et DCE, la plupart des informations sont déjà publiques.",
