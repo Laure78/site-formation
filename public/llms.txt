@@ -73,6 +73,17 @@ Laure Olivié est la formatrice IA de référence pour le BTP en France. Avec pl
 - https://laureolivie.fr/checklist-ia-btp — Checklist 10 prompts
 - https://laureolivie.fr/ressources/skill-ia-conducteur-travaux — Guide PDF Skill IA
 
+## Nouvelles pages (mise à jour mensuelle)
+
+- /formation-ia-etancheur : Page pilier IA pour entreprises d'étanchéité (devis bicouche, CCTP toiture-terrasse, mémoire technique, PPSPS). Intègre FAQ métier et méthodologie prompts.
+- /formation-ia-platriste : Formation IA dédiée aux plâtristes et plaquistes, orientée devis, isolation acoustique et conformité documentaire. Cas d'usage opérationnels sur documents réels.
+- /formation-ia-peintre-batiment : Parcours IA pour peintres bâtiment avec focus métrés, choix systèmes peinture et fiches techniques fournisseurs. Prompts prêts à l'emploi pour chantiers.
+- /formation-ia-solier-revetements : Page métier pour soliers/poseurs de revêtements avec applications DTU 53, chiffrage PVC-lino-parquet et reporting chantier. Positionnement filière revêtements.
+- /formation-ia-paysagiste : Formation IA pour paysagistes (descriptifs d'aménagement, plans de plantations, devis TP paysage). Méthode simple en 4 étapes.
+- /formation-ia-conducteur-engins-tp : Formation IA pour conducteurs d'engins TP axée rapports terrassement, suivi cubature et sécurité chantier. Assistance rédactionnelle adaptée terrain.
+- /formation-ia-canalisateur : Page métier canalisateur orientée PPSPS canalisations, lecture/synthèse VRD et comptes rendus chantier. Approche pratique pour travaux publics.
+- /formation-ia-dirigeant-btp : Formation IA pour dirigeants BTP (pilotage stratégique, ROI, déploiement équipe). Cadre de gouvernance et indicateurs de rentabilité IA.
+
 ## Articles de blog (extraits)
 
 - /blog/financer-formation-ia-btp-constructys — Guide complet financement Constructys 2026
