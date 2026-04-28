@@ -2,12 +2,12 @@
   "slug": "ia-et-peintre-5-gains-de-temps-concrets",
   "title": "IA et peintre : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et peintre. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-04-19",
+  "date": "2026-04-28",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "emails professionnels BTP",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -18,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

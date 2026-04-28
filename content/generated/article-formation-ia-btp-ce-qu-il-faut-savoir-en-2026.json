@@ -1,13 +1,13 @@
 {
   "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "description": "Formation IA BTP 2026 : comparez programmes, coûts et financements en 5 minutes. Choisissez le bon parcours Qualiopi finançable Constructys.",
-  "date": "2026-04-27",
+  "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
+  "date": "2026-04-28",
   "keywords": [
-    "gain temps devis",
-    "automatisation administrative",
-    "IA bureau",
-    "productivité IA"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
   "seoTitle": "Formation IA BTP : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA BTP 2026 : comparez programmes, coûts et financements en 5 minutes. Choisissez le bon parcours Qualiopi finançable Constructys.",
+  "metaDescription": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

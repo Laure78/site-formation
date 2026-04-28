@@ -2,13 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-carreleur",
   "title": "Comment utiliser ChatGPT pour vos devis carreleur",
   "description": "Devis carreleur avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-04-19",
+  "date": "2026-04-28",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT entreprises BTP"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -19,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -62,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -75,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

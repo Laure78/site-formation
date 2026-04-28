@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-chauffagiste",
   "title": "Devis en 15 min : le guide chauffagiste",
   "description": "Devis chauffagiste en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
-  "date": "2026-04-19",
+  "date": "2026-04-28",
   "keywords": [
-    "devis plombier IA",
-    "devis électricien ChatGPT",
-    "chiffrage professionnel du BTP IA",
-    "ChatGPT entreprises BTP"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -18,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

@@ -1,13 +1,13 @@
 {
   "slug": "automatiser-vos-emails-clients-avec-l-ia",
   "title": "Automatiser vos emails clients avec l'IA",
-  "description": "Emails clients BTP : rédigez relances et réponses en 2 min au lieu de 20. Scripts prêts à l'emploi, méthode terrain finançable Constructys.",
-  "date": "2026-04-27",
+  "description": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.",
+  "date": "2026-04-28",
   "keywords": [
-    "gain temps devis",
-    "automatisation administrative",
-    "IA bureau",
-    "productivité IA"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -66,7 +66,7 @@
   ],
   "relatedSlugs": [],
   "seoTitle": "Automatiser vos emails clients avec l'IA",
-  "metaDescription": "Emails clients BTP : rédigez relances et réponses en 2 min au lieu de 20. Scripts prêts à l'emploi, méthode terrain finançable Constructys.",
+  "metaDescription": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

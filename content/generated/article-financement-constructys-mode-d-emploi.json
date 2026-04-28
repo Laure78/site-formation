@@ -1,13 +1,13 @@
 {
   "slug": "financement-constructys-mode-d-emploi",
   "title": "Financement Constructys : mode d'emploi",
-  "description": "Financement Constructys : obtenez jusqu'à 100% de prise en charge pour votre formation IA BTP. Étapes clés et dossier prêt plus vite.",
-  "date": "2026-04-27",
+  "description": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
+  "date": "2026-04-28",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
   "seoTitle": "Financement Constructys : mode d'emploi",
-  "metaDescription": "Financement Constructys : obtenez jusqu'à 100% de prise en charge pour votre formation IA BTP. Étapes clés et dossier prêt plus vite.",
+  "metaDescription": "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
