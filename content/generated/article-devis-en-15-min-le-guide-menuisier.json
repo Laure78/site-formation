@@ -1,13 +1,13 @@
 {
   "slug": "devis-en-15-min-le-guide-menuisier",
   "title": "Devis en 15 min : le guide menuisier",
-  "description": "Devis menuisier en 15 min : automatisez la rédaction avec ChatGPT sans perdre la maîtrise des prix. Méthode terrain Qualiopi Constructys.",
-  "date": "2026-04-20",
+  "description": "Devis menuisier en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
+  "date": "2026-04-29",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
+    "relance client IA",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -18,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -66,7 +66,7 @@
   ],
   "relatedSlugs": [],
   "seoTitle": "Devis en 15 min : le guide menuisier",
-  "metaDescription": "Devis menuisier en 15 min : automatisez la rédaction avec ChatGPT sans perdre la maîtrise des prix. Méthode terrain Qualiopi Constructys.",
+  "metaDescription": "Devis menuisier en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",

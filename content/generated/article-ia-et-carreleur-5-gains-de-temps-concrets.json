@@ -1,13 +1,13 @@
 {
   "slug": "ia-et-carreleur-5-gains-de-temps-concrets",
   "title": "IA et carreleur : 5 gains de temps concrets",
-  "description": "IA et carreleur : 5 gains concrets pour devis, relances et comptes rendus, jusqu'à 5h gagnées/semaine. Cas terrain, méthode Qualiopi.",
-  "date": "2026-04-20",
+  "description": "5 gains de temps : IA et carreleur. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
+  "date": "2026-04-29",
   "keywords": [
-    "emails professionnels du BTP",
-    "relance client IA",
-    "email professionnel ChatGPT",
-    "ChatGPT entreprises BTP"
+    "offre emploi IA",
+    "recruter BTP",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -18,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
   "seoTitle": "IA et carreleur : 5 gains de temps concrets",
-  "metaDescription": "IA et carreleur : 5 gains concrets pour devis, relances et comptes rendus, jusqu'à 5h gagnées/semaine. Cas terrain, méthode Qualiopi.",
+  "metaDescription": "5 gains de temps : IA et carreleur. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

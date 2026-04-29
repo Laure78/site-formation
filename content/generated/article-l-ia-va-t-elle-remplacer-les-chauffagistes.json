@@ -2,13 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-chauffagistes",
   "title": "L'IA va-t-elle remplacer les chauffagistes ?",
   "description": "L'IA remplace-t-elle les chauffagistes ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-04-20",
+  "date": "2026-04-29",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT entreprises BTP"
+    "offre emploi IA",
+    "recruter BTP",
+    "annonce BTP ChatGPT",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -19,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -62,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -80,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
