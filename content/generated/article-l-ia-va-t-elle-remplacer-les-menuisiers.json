@@ -1,13 +1,13 @@
 {
   "slug": "l-ia-va-t-elle-remplacer-les-menuisiers",
   "title": "L'IA va-t-elle remplacer les menuisiers ?",
-  "description": "L'IA va-t-elle remplacer les menuisiers ? Non : elle accélère devis, mails et suivi client avec 3 à 5h gagnées/semaine. Méthode terrain.",
-  "date": "2026-04-21",
+  "description": "L'IA remplace-t-elle les menuisiers ? Non : elle assiste le métier. Formation BTP finançable.",
+  "date": "2026-04-30",
   "keywords": [
-    "offre emploi IA",
-    "recruter BTP",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "LinkedIn BTP",
+    "post IA",
+    "contenu réseaux BTP",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -18,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -66,7 +66,7 @@
   ],
   "relatedSlugs": [],
   "seoTitle": "L'IA va-t-elle remplacer les menuisiers ?",
-  "metaDescription": "L'IA va-t-elle remplacer les menuisiers ? Non : elle accélère devis, mails et suivi client avec 3 à 5h gagnées/semaine. Méthode terrain.",
+  "metaDescription": "L'IA remplace-t-elle les menuisiers ? Non : elle assiste le métier. Formation BTP finançable.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
