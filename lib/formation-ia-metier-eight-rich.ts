@@ -232,7 +232,7 @@ Propose la STRUCTURE des postes (sans prix) : dépose, écran sous-toiture, isol
     'Elle forme les équipes toiture, zinguerie et second œuvre sur des usages IA responsables.',
   relatedMetierLinks: [
     { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Gros œuvre et interfaces avant couverture.' },
-    { href: '/formation-ia-etancheur-btp', title: 'Formation IA étancheur BTP', description: 'Étanchéité, toiture-terrasse, complément toiture.' },
+    { href: '/formation-ia-etancheur', title: 'Formation IA étancheur BTP', description: 'Étanchéité, toiture-terrasse, complément toiture.' },
     { href: '/formation-ia-charpentier-btp', title: 'Formation IA charpentier BTP', description: 'Charpente bois et coordination avec la couverture.' },
   ],
   liensUtilesIntro:

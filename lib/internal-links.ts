@@ -71,6 +71,15 @@ export const LINKS = {
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
   /** Landing SEO — assistante administrative BTP (URL courte) */
   formationIaAssistanteBtp: '/formation-ia-assistante-btp',
+  /** Page pilier SEO — étancheurs (partenaire CSFE) */
+  formationIaEtancheur: '/formation-ia-etancheur',
+  // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
+  formationIaPlatriste: '/formation-ia-plaquiste-btp',
+  formationIaPeintreBatiment: '/formation-ia-peintre-btp',
+  formationIaSolierRevetements: '/formation-ia-solier-revetements',
+  formationIaPaysagiste: '/formation-ia-paysagiste-btp',
+  formationIaConducteurEnginsTp: '/formation-ia-conducteur-engins-tp',
+  formationIaCanalisateur: '/formation-ia-canalisateur-tp',
 
   // Utilitaires
   diagnostic: '/diagnostic-ia-btp',

@@ -96,7 +96,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
       'Landing SEO : quantitatifs ferraillage, tonnages HA/treillis, devis acier béton, bons de commande avec ChatGPT. Qualiopi, Constructys. Validation humaine des plans et Eurocodes. Grand Paris, Île-de-France.',
   },
   {
-    path: '/formation-ia-etancheur-btp',
+    path: '/formation-ia-etancheur',
     title: 'Formation IA étancheur BTP Île-de-France',
     content:
       'Landing SEO : surfaces étanchéité, relevés, joints, devis membrane/bitume, variantes systèmes avec ChatGPT. Qualiopi, Constructys. Validation notices et DTU. Grand Paris, Île-de-France.',

@@ -20,7 +20,7 @@ const HUB_MERGE_DEST: Record<string, string> = {
   electricite: '/formation-ia-electricien-btp',
   'plomberie-sanitaire': '/formation-ia-plombier-btp',
   'maconnerie-gros-oeuvre': '/formation-ia-macon-btp',
-  etancheite: '/formation-ia-etancheur-btp',
+  etancheite: '/formation-ia-etancheur',
   'peinture-batiment': '/formation-ia-peintre-btp',
   'carrelage-faience': '/formation-ia-carreleur-btp',
   menuiserie: '/formation-ia-menuisier-btp',
@@ -127,6 +127,33 @@ export function gscRedirects2026April(): RedirectEntry[] {
       permanent: true,
     },
     { source: '/auteur/laure-olivie', destination: '/a-propos', permanent: true },
+    // --- Dédup métiers (doublons canonique/suffixée — mai 2026) ---
+    // 5 paires auditées : on garde la version la plus mature (contenu, prompts, JSON-LD).
+    {
+      source: '/formation-ia-etancheur-btp',
+      destination: '/formation-ia-etancheur',
+      permanent: true,
+    },
+    {
+      source: '/formation-ia-canalisateur',
+      destination: '/formation-ia-canalisateur-tp',
+      permanent: true,
+    },
+    {
+      source: '/formation-ia-paysagiste',
+      destination: '/formation-ia-paysagiste-btp',
+      permanent: true,
+    },
+    {
+      source: '/formation-ia-peintre-batiment',
+      destination: '/formation-ia-peintre-btp',
+      permanent: true,
+    },
+    {
+      source: '/formation-ia-platriste',
+      destination: '/formation-ia-plaquiste-btp',
+      permanent: true,
+    },
   ];
 }
 
@@ -151,6 +178,12 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/repondre-appels-offres-ia-btp',
   '/formations/ia-btp-yvelines-78',
   '/auteur/laure-olivie',
+  // Dédup métiers mai 2026 (sources des 5 redirections ajoutées dans gscRedirects2026April)
+  '/formation-ia-etancheur-btp',
+  '/formation-ia-canalisateur',
+  '/formation-ia-paysagiste',
+  '/formation-ia-peintre-batiment',
+  '/formation-ia-platriste',
   ...Array.from(GSC_HUB_MERGED_SLUGS).flatMap((slug) => [
     `/formation-ia/${slug}`,
     `/formation-ia-${slug}`,

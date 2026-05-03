@@ -480,7 +480,7 @@ export default function FormationIaVitrierBtpPage() {
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
             { href: '/formation-ia-couvreur-btp', label: 'Formation IA couvreur BTP' },
-            { href: '/formation-ia-etancheur-btp', label: 'Formation IA étancheur BTP' },
+            { href: '/formation-ia-etancheur', label: 'Formation IA étancheur BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
           ]}
