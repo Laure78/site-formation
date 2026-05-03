@@ -12,6 +12,7 @@ import { ClaudeBtpStatsSection } from '@/components/claude/ClaudeBtpStatsSection
 import { ClaudePromptBlock } from '@/components/claude/ClaudePromptBlock';
 import { ClaudeSkillTutorialBtpSection } from '@/components/claude/ClaudeSkillTutorialBtpSection';
 import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsLeadMagnetSection';
+import { FAQSchema } from '@/components/seo/FAQSchema';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
@@ -182,12 +183,17 @@ const relatedQuestions = [
 ] as const;
 
 export default function ClaudeAiBtpPillarPage() {
+  const faqSchemaItems = [...faqItems, ...relatedQuestions].map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(claudeAiBtpJsonLdGraph) }}
       />
+      <FAQSchema id="schema-claude-ai-btp-faq" items={faqSchemaItems} />
 
       <div className="min-h-screen bg-[#F8FAFC]">
         <div className="border-b border-slate-100 bg-slate-50/80">

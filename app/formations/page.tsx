@@ -19,6 +19,7 @@ import { FormationsWhyMotifs } from '@/components/formations/FormationsWhyMotifs
 import { FormationsCatalogueMidCta } from '@/components/formations/FormationsCatalogueMidCta';
 import { FormationsPartnersStrip } from '@/components/formations/FormationsPartnersStrip';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
+import { FAQSchema } from '@/components/seo/FAQSchema';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -96,9 +97,11 @@ const chipLinkClass =
   'inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition duration-200 hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]';
 
 export default function FormationsPage() {
+  const faqSchemaItems = FAQ_FORMATIONS.map((item) => ({ question: item.q, answer: item.a }));
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
+      <FAQSchema id="schema-formations-faq" items={faqSchemaItems} />
       <FormationsHero />
       <FormationsStatsBand />
 
@@ -153,6 +156,25 @@ export default function FormationsPage() {
         <div className="mt-12">
           <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
         </div>
+
+        <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
+          <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
+            Formations IA BTP finançables pour dirigeants, <strong>professionnels du BTP</strong>, PME bâtiment et
+            fonctions support : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
+            <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
+              ChatGPT pour entreprises BTP
+            </Link>{' '}
+            au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. Sessions en 4 h uniquement
+            — forfait 100 € HT par participant (niveau débutant) ou 175 € HT par participant (niveau avancé). Groupe de
+            12 participants maximum. Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini. Formations en présentiel
+            uniquement (sessions inter en Île-de-France, intra dans vos locaux). Méthode 100 % terrain, orientée
+            productivité.{' '}
+            <a href={CALENDLY_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-[#377CF3] hover:underline">
+              Prenez rendez-vous
+            </a>{' '}
+            pour un diagnostic personnalisé.
+          </p>
+        </section>
 
         <FormationsComparisonTable formations={FORMATIONS_CATALOGUE} />
 

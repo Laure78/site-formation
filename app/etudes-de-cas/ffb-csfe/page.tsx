@@ -477,6 +477,16 @@ export default function EtudeDeCasFfbCsfePage() {
             Fédération, OPCO, groupement ou entreprise : discutons de vos objectifs et d&apos;un
             format adapté.
           </p>
+          <p className="mt-4 text-slate-300">
+            Vous dirigez une entreprise d&apos;étanchéité ?{' '}
+            <Link
+              href="/formation-ia-etancheur"
+              className="font-semibold text-white underline hover:no-underline"
+            >
+              Découvrez la formation IA dédiée aux étancheurs
+            </Link>
+            .
+          </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RdvLink className="inline-flex rounded-xl bg-white px-8 py-3 font-semibold text-slate-900 hover:bg-slate-100">
               Demander un échange
