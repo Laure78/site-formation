@@ -14,6 +14,27 @@ export const CALENDLY_INLINE_WIDGET_URL =
   process.env.NEXT_PUBLIC_CALENDLY_INLINE_WIDGET_URL ??
   'https://calendly.com/formation-ia-artisans-btp-appel-decouverte?hide_gdpr_banner=1';
 
+type CalendlyUtmParams = {
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+};
+
+/**
+ * Construit une URL Calendly standardisée avec UTM.
+ */
+export function buildCalendlyUrlWithUtm({
+  utmSource,
+  utmMedium = 'cta',
+  utmCampaign,
+}: CalendlyUtmParams = {}): string {
+  const u = new URL(CALENDLY_BOOKING_URL);
+  if (utmSource) u.searchParams.set('utm_source', utmSource);
+  if (utmMedium) u.searchParams.set('utm_medium', utmMedium);
+  if (utmCampaign) u.searchParams.set('utm_campaign', utmCampaign);
+  return u.href;
+}
+
 /** UTM catalogue — page /formations et cartes (ne pas modifier l’URL de base Calendly). */
 export function calendlyCatalogueUrl(utmCampaign: string): string {
   const u = new URL(CALENDLY_BOOKING_URL);
