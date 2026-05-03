@@ -15,6 +15,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { OG_SITE_NAME, withOgDescriptionSuffix } from '@/utils/metadata';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
 import { OrganizationSchema } from '@/components/schema/OrganizationSchema';
+import { PersonSchema } from '@/components/schema/PersonSchema';
 import { SitelinksHub } from '@/components/layout/SitelinksHub';
 import { AutoBreadcrumb } from '@/components/layout/AutoBreadcrumb';
 
@@ -140,6 +141,7 @@ export default function RootLayout({
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
         <OrganizationSchema />
+        <PersonSchema />
         <GlobalSitelinksJsonLd />
         <script
           type="application/ld+json"
