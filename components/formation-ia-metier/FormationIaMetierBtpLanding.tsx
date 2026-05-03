@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
-import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { LINKS } from '@/lib/internal-links';
-import { getBreadcrumbSchema, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 
 const OFC = "OFC Création d'Entreprise";
@@ -45,48 +45,47 @@ function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; sub
       <h2 className="font-display text-xl font-bold md:text-2xl">{title}</h2>
       <p className="mt-3 text-sm leading-relaxed text-blue-100 md:text-base">{subtitle}</p>
       <div className="mt-6 flex flex-wrap gap-3">
-        <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#377CF3] hover:bg-blue-50">
-          Ouvrir Calendly — rendez-vous découverte
+        <RdvLink
+          ctaPosition="middle"
+          className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
+        >
+          Réservez votre visio découverte gratuite
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
         </RdvLink>
-        <a
-          href={CALENDLY_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
-        >
-          {CALENDLY_BOOKING_URL}
-        </a>
+        <Link href={LINKS.financement} className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10">
+          Voir les options de financement
+        </Link>
       </div>
     </section>
   );
 }
 
 export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMetierBtpConfig }) {
-  const courseJson = getCourseSchema({
-    name: config.courseName,
-    description: config.courseDescription,
-    path: config.path,
-    providerName: SITE_CONFIG.legalName,
-    instructorName: SITE_CONFIG.name,
-    teaches: config.courseTeaches,
-    educationalLevel: 'Professionnel',
-    timeRequired: 'PT4H',
-    areaServed: ['Île-de-France', 'France'],
-  });
-
-  const faqSchema = getFAQSchema(config.faq);
-  const breadcrumbJsonLd = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: `Formation IA ${config.metierNomTitre} BTP`, path: config.path },
-  ]);
   const sommaire = sommaireForConfig(config);
+
+  const faqItems = config.faq.map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
 
   return (
     <div className="bg-white text-slate-900">
-      <JsonLd id={`schema-breadcrumb-metier-${config.id}`} schema={breadcrumbJsonLd} />
-      <JsonLd id={`schema-course-metier-${config.id}`} schema={courseJson} />
-      <JsonLd id={`schema-faq-metier-${config.id}`} schema={faqSchema} />
+      <FormationMetierJsonLd
+        metierLabel={`${config.metierNomTitre} BTP`}
+        path={config.path}
+        courseName={config.courseName}
+        courseDescription={config.courseDescription}
+        duration="PT4H"
+        price={TARIF_FORFAIT_DEBUTANT_HT}
+        level="Professionnel"
+        teaches={config.courseTeaches}
+        faqItems={faqItems}
+        breadcrumbItems={[
+          { name: 'Accueil', path: '/' },
+          { name: `Formation IA ${config.metierNomTitre} BTP`, path: config.path },
+        ]}
+        scriptId={`schema-formation-metier-${config.id}`}
+      />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <nav aria-label="Fil d&apos;Ariane" className="text-sm text-slate-600">
