@@ -13,7 +13,7 @@ import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
 const PATH = '/formation-ia-conducteur-travaux';
 
-const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP | CR, CCTP, Emails';
+const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP';
 
 const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -93,17 +93,8 @@ const BREADCRUMB_JSON_LD: Record<string, unknown> = {
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    `Formation IA pour conducteurs de travaux BTP. CR chantier, analyse CCTP, emails MOA, situations de travaux. Qualiopi, finançable Constructys. ${formatProfessionalsTrainedCount()} pros formés.`,
+    `Formation IA pour conducteurs de travaux BTP : CR chantier, CCTP, emails MOA/MOE, situations. Qualiopi, finançable Constructys. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
-  keywords: [
-    'formation IA conducteur de travaux',
-    'ChatGPT conducteur de travaux',
-    'intelligence artificielle chantier',
-    'automatiser CR chantier',
-    'formation Qualiopi BTP',
-    'Constructys formation conducteur travaux',
-    'IA CCTP BTP',
-  ],
   openGraphType: 'article',
   appendAuthorSuffix: false,
   article: {
