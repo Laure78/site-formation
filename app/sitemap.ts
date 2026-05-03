@@ -133,7 +133,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/formation-ia-electricien-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-charpentier-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-ferrailleur-btp', priority: 0.89, changeFrequency: 'monthly' },
-    { path: '/formation-ia-etancheur-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-couvreur-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-vitrier-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-plombier-btp', priority: 0.89, changeFrequency: 'monthly' },
@@ -177,6 +176,11 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/formation-ia-chef-chantier-tp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-canalisateur-tp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-macon-btp', priority: 0.89, changeFrequency: 'monthly' },
+    // Pages métier canoniques (sans suffixe) — landings B1 partagées via FormationMetierB1Page
+    // Note : canalisateur/paysagiste/peintre-batiment/platriste redirigent 301 vers leurs variantes
+    // suffixées plus matures (cf. gscRedirects2026April), donc exclues du sitemap.
+    { path: '/formation-ia-etancheur', priority: 0.88, changeFrequency: 'monthly' },
+    { path: '/formation-ia-solier-revetements', priority: 0.88, changeFrequency: 'monthly' },
     { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/cgv', priority: 0.3, changeFrequency: 'yearly' },
@@ -277,6 +281,68 @@ function dedupeByUrl(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
   return [...map.values()];
 }
 
+function applySeoPriorityRules(
+  baseUrl: string,
+  entry: MetadataRoute.Sitemap[number]
+): MetadataRoute.Sitemap[number] {
+  const pathOnly = normUrl(entry.url.replace(baseUrl, '') || '/');
+
+  const mainPages = new Set<string>(['/', '/formations', '/blog', '/a-propos', '/prendre-rdv']);
+  const legalPages = new Set<string>([
+    '/mentions-legales',
+    '/politique-confidentialite',
+    '/cgv',
+    '/reglement-interieur',
+    '/annuaire-handicap',
+  ]);
+
+  if (mainPages.has(pathOnly)) {
+    return {
+      ...entry,
+      priority: 1.0,
+      changeFrequency: 'weekly',
+    };
+  }
+
+  // Articles blog (/blog/[slug]) : priorité contenu
+  if (pathOnly.startsWith('/blog/') && !pathOnly.includes('/categorie/')) {
+    return {
+      ...entry,
+      priority: 0.8,
+      changeFrequency: 'weekly',
+    };
+  }
+
+  // Pages métier (/formation-ia-[metier] ou /formation-ia-[metier]-btp)
+  if (/^\/formation-ia-[^/]+$/.test(pathOnly) || /^\/formation-ia-[^/]+-btp$/.test(pathOnly)) {
+    return {
+      ...entry,
+      priority: 0.8,
+      changeFrequency: 'monthly',
+    };
+  }
+
+  // Pages financement
+  if (pathOnly.includes('financement-constructys')) {
+    return {
+      ...entry,
+      priority: 0.8,
+      changeFrequency: 'monthly',
+    };
+  }
+
+  // Pages légales et secondaires
+  if (legalPages.has(pathOnly)) {
+    return {
+      ...entry,
+      priority: 0.6,
+      changeFrequency: 'yearly',
+    };
+  }
+
+  return entry;
+}
+
 /**
  * Sitemap App Router — `/sitemap.xml` (MetadataRoute.Sitemap).
  * Sources : catalogue formations, hub /formation-ia/[slug], landings départements, blog (+ pagination + catégories),
@@ -356,7 +422,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...additional,
     ...dynamicMetierBtp,
     ...coursEntries,
-  ]);
+  ]).map((entry) => applySeoPriorityRules(baseUrl, entry));
 
   return merged.filter((e) => {
     const pathOnly = normUrl(e.url.replace(baseUrl, '') || '/');
