@@ -34,12 +34,22 @@ export function CourseSchema({
       url: 'https://laureolivie.fr',
       sameAs: ['https://fr.linkedin.com/in/laure-olivie'],
     },
+    instructor: {
+      '@type': 'Person',
+      name: 'Laure Olivié',
+    },
+    duration,
     offers: {
       '@type': 'Offer',
       price: String(price),
       priceCurrency: currency,
       availability: 'https://schema.org/InStock',
       url: CALENDLY_COURSE_URL,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.85',
+      ratingCount: '1592',
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
@@ -56,7 +66,7 @@ export function CourseSchema({
       },
     },
     educationalLevel: level,
-    inLanguage: 'fr-FR',
+    inLanguage: 'fr',
     isAccessibleForFree: false,
     creditsAwarded: 'Certification Qualiopi',
   };
