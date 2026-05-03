@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
+import { sendGTMEvent } from '@next/third-parties/google';
 
 /**
- * Événement GA4 `click_calendly` sur les clics Calendly (équivalent snippet WP functions.php).
+ * Événement GA4/GTM `calendly_click` sur tous les clics Calendly.
  */
 export function CalendlyClickTracker() {
   useEffect(() => {
@@ -16,14 +17,23 @@ export function CalendlyClickTracker() {
         target.closest('.calendly-popup-content') ||
         target.closest('a[href*="calendly.com"]');
       if (!hit) return;
+      if ((hit as HTMLElement).dataset?.calendlyTracked === 'component') return;
+
+      const ctaPosition = (hit as HTMLElement).dataset?.ctaPosition ?? 'unknown';
+      const location = window.location.pathname;
+
+      sendGTMEvent({
+        event: 'calendly_click',
+        location,
+        cta_position: ctaPosition,
+      });
 
       const w = window as Window & { gtag?: (...args: unknown[]) => void };
       if (typeof w.gtag !== 'function') return;
 
-      w.gtag('event', 'click_calendly', {
-        event_category: 'conversion',
-        event_label: window.location.pathname,
-        value: 1,
+      w.gtag('event', 'calendly_click', {
+        location,
+        cta_position: ctaPosition,
       });
     };
 

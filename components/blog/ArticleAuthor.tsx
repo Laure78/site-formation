@@ -2,7 +2,7 @@ import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 import { LINKEDIN_PROFILE_URL, SITE_CONFIG } from '@/lib/seo';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
@@ -23,11 +23,13 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA et ChatGPT spécialisée BTP',
-  url: personProfileUrl,
   image: authorImageAbsoluteUrl,
+  jobTitle: 'Formatrice IA & ChatGPT Spécialisée BTP',
+  description: 'Formatrice experte en IA et ChatGPT pour les professionnels du bâtiment.',
+  url: personProfileUrl,
   sameAs: [
     LINKEDIN_PROFILE_URL,
+    'https://twitter.com/LaureOlivie',
     'https://www.linkedin.com/learning/instructors/laure-olivie',
   ],
   worksFor: {
@@ -35,6 +37,8 @@ const personJsonLd = {
     name: SITE_CONFIG.legalName,
     url: `${baseUrl}/a-propos`,
   },
+  knowsAbout: ['ChatGPT', 'Claude AI', 'Gemini', 'Formation IA', 'BTP'],
+  award: ['1 592+ professionnels formés', 'Note satisfaction 4.85/5'],
 };
 
 type Props = {
@@ -86,15 +90,17 @@ export function ArticleAuthor({ className }: Props) {
           est certifié Qualiopi et finançable Constructys.
         </p>
         <p className="mb-5">
-          <a
-            href={CALENDLY_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-calendly
-            className="cta-calendly-inline inline-block rounded-lg bg-[#377CF3] px-6 py-3 text-center text-sm font-semibold text-white !text-white shadow-sm transition hover:bg-[#2a62c8] hover:shadow-md md:text-base motion-safe:hover:-translate-y-0.5"
+          <CTACalendly
+            page="blog"
+            ctaPosition="footer"
+            ctaId="author-bio"
+            utmSource="blog"
+            utmMedium="article"
+            utmCampaign="author-bio"
+            className="inline-block rounded-lg bg-[#377CF3] px-8 py-4 text-center text-base font-bold text-white !text-white shadow-sm transition hover:bg-[#2d6ab8] hover:shadow-md motion-safe:hover:-translate-y-0.5"
           >
             Réservez votre visio découverte gratuite
-          </a>
+          </CTACalendly>
         </p>
         <div className="author-social">
           <a

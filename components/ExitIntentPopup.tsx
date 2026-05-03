@@ -5,7 +5,7 @@ import { X } from 'lucide-react';
 import { Poppins } from 'next/font/google';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -170,15 +170,17 @@ export function ExitIntentPopup() {
         </p>
 
         <div className="mt-6 flex flex-col gap-3">
-          <a
-            href={CALENDLY_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-calendly
-            className="inline-flex w-full items-center justify-center rounded-lg bg-[#377CF3] px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          <CTACalendly
+            page="exit-intent"
+            ctaPosition="middle"
+            ctaId="exit-intent-popup"
+            utmSource="site"
+            utmMedium="popup"
+            utmCampaign="exit-intent"
+            className="inline-flex w-full items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-center text-base font-bold text-white shadow-sm transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
           >
-            Réservez votre visio gratuite
-          </a>
+            Réservez votre visio découverte gratuite
+          </CTACalendly>
           <button
             type="button"
             onClick={handleClose}

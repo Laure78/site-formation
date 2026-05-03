@@ -3,9 +3,9 @@
 import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 import { QualiopiLogoInline } from '@/components/QualiopiLogo';
+import { CTACalendly } from '@/components/CTACalendly';
 
 const SESSION_DISMISS_KEY = 'ofc-sticky-formation-rdv-banner-dismissed';
 const SCROLL_SHOW_PX = 300;
@@ -111,15 +111,17 @@ export function StickyBlogMetierRdvBar() {
           <span className="truncate">Formation IA BTP — Qualiopi · Constructys</span>
         </p>
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:flex-none sm:justify-end">
-          <a
-            href={CALENDLY_BOOKING_URL}
-            data-calendly
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 max-w-full flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:h-10 sm:flex-none sm:px-5"
+          <CTACalendly
+            page={pathname}
+            ctaPosition="footer"
+            ctaId="sticky-blog-metier"
+            utmSource="blog"
+            utmMedium="sticky"
+            utmCampaign="blog-metier"
+            className="inline-flex h-10 max-w-full flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-8 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:h-10 sm:flex-none sm:px-5 sm:text-sm"
           >
-            Prendre RDV →
-          </a>
+            Réservez votre visio découverte gratuite
+          </CTACalendly>
         </div>
         <button
           type="button"

@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
+import { CTACalendly } from '@/components/CTACalendly';
 
 /**
  * Barre CTA fixe en bas après ~30 % de scroll — visio découverte Calendly (charte OFC).
@@ -58,15 +58,18 @@ export function CTASticky() {
         </p>
         <p className="text-center text-sm font-semibold text-white md:hidden">Visio découverte gratuite</p>
         <div className="flex shrink-0 justify-center md:justify-end">
-          <a
-            href={CALENDLY_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-[#377CF3] shadow-sm hover:bg-blue-50 md:px-6 md:text-base"
+          <CTACalendly
+            page={pathname}
+            ctaPosition="footer"
+            ctaId="sticky-cta-desktop"
+            utmSource="site"
+            utmMedium="sticky"
+            utmCampaign="sticky-cta-desktop"
+            className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
           >
-            <span className="hidden md:inline">→ Je réserve ma visio</span>
+            <span className="hidden md:inline">→ Réservez votre visio découverte gratuite</span>
             <span className="md:hidden">Réserver</span>
-          </a>
+          </CTACalendly>
         </div>
       </div>
     </div>

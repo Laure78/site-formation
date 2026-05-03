@@ -1,6 +1,6 @@
 import { Calendar, Mail, Phone } from 'lucide-react';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 
 interface ContactDirectProps {
   /** Ex. paramètre d’URL ?formation=… (slug ou libellé) */
@@ -35,15 +35,18 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
           <span className="font-medium">{SITE_CONFIG.phoneDisplay}</span>
         </a>
       ) : null}
-      <a
-        href={CALENDLY_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+      <CTACalendly
+        page="contact"
+        ctaPosition="footer"
+        ctaId="contact-direct"
+        utmSource="contact"
+        utmMedium="cta"
+        utmCampaign="contact-direct"
+        className="flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8]"
       >
         <Calendar className="h-5 w-5" strokeWidth={1.5} />
-        Prendre rendez-vous en ligne
-      </a>
+        Prendre rendez-vous (30 min, gratuit)
+      </CTACalendly>
     </div>
   );
 }

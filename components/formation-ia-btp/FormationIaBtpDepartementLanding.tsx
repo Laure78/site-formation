@@ -8,7 +8,6 @@ import { Calendar, Check, MapPin, Quote } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -183,15 +182,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            Réservation en ligne :{' '}
-            <a
-              href={CALENDLY_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-            >
-              {CALENDLY_BOOKING_URL}
-            </a>
+            Réservation en ligne via visio découverte gratuite (Calendly), sans engagement.
           </p>
         </div>
       </section>

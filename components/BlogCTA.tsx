@@ -1,5 +1,5 @@
 import { Poppins } from 'next/font/google';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -33,14 +33,17 @@ export function BlogCTA({ className = '', idSuffix = 'end' }: BlogCTAProps) {
         Formation de 4h finançable à 100% par Constructys. Zéro théorie, 100% pratique sur vos documents réels.
       </p>
       <div className="mt-5">
-        <a
-          href={CALENDLY_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        <CTACalendly
+          page="blog"
+          ctaPosition={idSuffix === 'mid' ? 'middle' : 'footer'}
+          ctaId={`blog-cta-${idSuffix}`}
+          utmSource="blog"
+          utmMedium="article"
+          utmCampaign={idSuffix === 'mid' ? 'mid-cta' : 'end-cta'}
+          className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
-          Réserver une visio découverte gratuite
-        </a>
+          Réservez votre visio découverte gratuite
+        </CTACalendly>
       </div>
       <p className="mt-3 text-center text-xs text-slate-500 md:text-left">
         Gratuit et sans engagement · Réponse sous 24h

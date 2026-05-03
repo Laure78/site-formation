@@ -4,7 +4,6 @@ import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { getBreadcrumbSchema, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -41,18 +40,16 @@ function AuditCalendlyBlock({ id }: { id: string }) {
         décideurs.
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
-        <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#377CF3] hover:bg-blue-50">
+        <RdvLink
+          ctaPosition="middle"
+          className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
+        >
           Réserver l&apos;audit IA gratuit
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
         </RdvLink>
-        <a
-          href={CALENDLY_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
-        >
-          {CALENDLY_BOOKING_URL}
-        </a>
+        <Link href={LINKS.financement} className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10">
+          Financement Constructys
+        </Link>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 import Link from 'next/link';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 
 function CtaHref({
   href,
@@ -49,7 +50,7 @@ export function CTABlock({
   description,
   primaryLabel = 'Découvrir la formation IA BTP',
   primaryHref = '/formations',
-  secondaryLabel = 'Prendre rendez-vous',
+  secondaryLabel = 'Prendre rendez-vous (30 min, gratuit)',
   secondaryHref = CALENDLY_BOOKING_URL,
   variant = 'default',
 }: CTABlockProps) {
@@ -77,12 +78,25 @@ export function CTABlock({
         >
           {primaryLabel}
         </CtaHref>
-        <CtaHref
-          href={secondaryHref}
-          className="inline-flex items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
-        >
-          {secondaryLabel}
-        </CtaHref>
+        {secondaryHref === CALENDLY_BOOKING_URL ? (
+          <CTACalendly
+            ctaPosition="footer"
+            ctaId="cta-block-secondary"
+            utmSource="site"
+            utmMedium="cta-block"
+            utmCampaign="secondary"
+            className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
+          >
+            {secondaryLabel}
+          </CTACalendly>
+        ) : (
+          <CtaHref
+            href={secondaryHref}
+            className="inline-flex items-center justify-center rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
+          >
+            {secondaryLabel}
+          </CtaHref>
+        )}
       </div>
     </div>
   );

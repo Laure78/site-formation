@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { RdvLink } from '@/components/RdvLink';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
@@ -31,19 +29,6 @@ export function FormationsHero() {
         >
           Catalogue formation IA BTP : 6 formations Qualiopi de 4 h, bâtiment et travaux publics
         </h1>
-        <p className="mt-5 max-w-[680px] text-base leading-relaxed text-white/80 md:text-base">
-          Formations IA BTP finançables pour dirigeants,{' '}
-          <strong className="font-semibold text-white">professionnels du BTP</strong>, PME bâtiment et fonctions support
-          : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
-          <Link href={LINKS.chatgptArtisans} className="font-medium text-white underline-offset-2 hover:underline">
-            ChatGPT pour entreprises BTP
-          </Link>{' '}
-          au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. {ENCART_TARIFS_COMMERCIAUX}{' '}
-          Méthode 100&nbsp;% terrain, orientée productivité — sessions en présentiel, inter en Île-de-France ou intra dans
-          vos locaux.{' '}
-          <RdvLink className="font-medium text-white underline-offset-2 hover:underline">Prenez rendez-vous</RdvLink> pour
-          un diagnostic personnalisé.
-        </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
           <a
             href={visioHeroUrl}

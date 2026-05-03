@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Calendar, X } from 'lucide-react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
+import { CTACalendly } from '@/components/CTACalendly';
 
 /** CTA sticky au scroll — accès rapide au catalogue et à la prise de RDV */
 export function StickyRDVCTA() {
@@ -61,15 +61,18 @@ export function StickyRDVCTA() {
               Coordonnées
             </Link>
           )}
-          <a
-            href={CALENDLY_BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+          <CTACalendly
+            page={pathname}
+            ctaPosition="footer"
+            ctaId="sticky-rdv-desktop"
+            utmSource="site"
+            utmMedium="sticky"
+            utmCampaign="sticky-rdv-desktop"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8]"
           >
             <Calendar size={18} strokeWidth={1.5} />
-            Prendre RDV gratuit
-          </a>
+            Prendre rendez-vous (30 min, gratuit)
+          </CTACalendly>
           <button
             type="button"
             onClick={() => setDismissed(true)}

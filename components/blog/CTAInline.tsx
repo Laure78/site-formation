@@ -1,6 +1,5 @@
 import { Calendar } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 
 type Variant = 'primary' | 'soft' | 'outline';
 
@@ -15,7 +14,7 @@ const variantClass: Record<Variant, string> = {
  * CTA Calendly inline pour articles MDX (2–3 par article recommandé).
  */
 export function CTAInline({
-  label = 'Prendre rendez-vous découverte',
+  label = 'Vous voulez appliquer cette méthode sur vos documents BTP ?',
   variant = 'primary',
   className = '',
 }: {
@@ -32,17 +31,13 @@ export function CTAInline({
         <span>{label}</span>
       </p>
       <div className="flex flex-wrap gap-3">
-        <RdvLink className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#377CF3] shadow-sm hover:bg-blue-50">
-          Calendly — réserver
-        </RdvLink>
-        <a
-          href={CALENDLY_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-medium underline underline-offset-2 opacity-90 hover:opacity-100"
+        <RdvLink
+          page="blog"
+          ctaPosition="middle"
+          className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition hover:bg-[#2d6ab8]"
         >
-          {CALENDLY_BOOKING_URL}
-        </a>
+          Réservez votre visio découverte gratuite
+        </RdvLink>
       </div>
     </div>
   );

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
+import { CTACalendly } from '@/components/CTACalendly';
 
 const SESSION_KEY = 'cta-dismissed';
 
@@ -44,15 +44,17 @@ export function StickyCTA() {
         <p className="text-xs opacity-90">Finançable Constructys à 100 %</p>
       </div>
       <div className="flex shrink-0 items-center gap-2">
-        <a
-          href={CALENDLY_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whitespace-nowrap rounded-lg bg-white px-3 py-2 text-xs font-bold text-[var(--accent)]"
-          data-analytics="cta_sticky_mobile"
+        <CTACalendly
+          page={pathname}
+          ctaPosition="footer"
+          ctaId="sticky-mobile"
+          utmSource="site"
+          utmMedium="sticky"
+          utmCampaign="sticky-mobile"
+          className="whitespace-nowrap rounded-lg bg-white px-6 py-4 text-base font-bold text-[#377CF3]"
         >
-          Prendre RDV →
-        </a>
+          Prendre rendez-vous (30 min, gratuit)
+        </CTACalendly>
         <button
           type="button"
           onClick={dismiss}

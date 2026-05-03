@@ -1,23 +1,19 @@
 import type { AnchorHTMLAttributes } from 'react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 
 type RdvLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   'href' | 'target' | 'rel'
->;
+> & {
+  page?: string;
+  ctaPosition?: 'hero' | 'middle' | 'footer' | 'inline' | 'unknown';
+};
 
 /** Lien vers la prise de RDV Calendly (nouvel onglet). */
-export function RdvLink({ className, children, ...rest }: RdvLinkProps) {
+export function RdvLink({ className, children, page, ctaPosition = 'unknown', ...rest }: RdvLinkProps) {
   return (
-    <a
-      href={CALENDLY_BOOKING_URL}
-      data-calendly
-      target="_blank"
-      rel="noopener noreferrer"
-      className={className}
-      {...rest}
-    >
+    <CTACalendly className={className} page={page} ctaPosition={ctaPosition} {...rest}>
       {children}
-    </a>
+    </CTACalendly>
   );
 }
