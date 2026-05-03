@@ -3,7 +3,12 @@ import type { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: '*', allow: '/', disallow: ['/api/', '/auth/', '/admin/'] },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/private/', '/*.pdf$'],
+        crawlDelay: 1,
+      },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
       { userAgent: 'Claude-Web', allow: '/' },
@@ -16,7 +21,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'CCBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
     ],
-    sitemap: 'https://laureolivie.fr/sitemap.xml',
+    sitemap: ['https://laureolivie.fr/sitemap.xml', 'https://www.laureolivie.fr/sitemap.xml'],
     host: 'https://laureolivie.fr',
   };
 }
