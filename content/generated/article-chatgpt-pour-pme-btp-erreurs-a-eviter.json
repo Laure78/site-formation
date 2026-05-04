@@ -2,12 +2,12 @@
   "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
   "title": "ChatGPT pour PME BTP : erreurs à éviter",
   "description": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
-  "date": "2026-05-03",
+  "date": "2026-05-04",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

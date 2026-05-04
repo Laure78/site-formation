@@ -2,12 +2,12 @@
   "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
   "title": "Recrutement BTP : l'IA pour attirer les talents",
   "description": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
-  "date": "2026-05-03",
+  "date": "2026-05-04",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-macon",
   "title": "Devis en 15 min : le guide maçon",
   "description": "Devis maçon en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.",
-  "date": "2026-04-24",
+  "date": "2026-05-04",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

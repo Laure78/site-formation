@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-menuisier",
   "title": "Comment utiliser ChatGPT pour vos devis menuisier",
   "description": "Devis menuisier avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-05-03",
+  "date": "2026-05-04",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
