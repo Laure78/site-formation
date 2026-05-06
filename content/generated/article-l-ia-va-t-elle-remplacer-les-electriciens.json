@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
   "title": "L'IA va-t-elle remplacer les électriciens ?",
   "description": "L'IA remplace-t-elle les électriciens ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-04-26",
+  "date": "2026-05-06",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -79,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

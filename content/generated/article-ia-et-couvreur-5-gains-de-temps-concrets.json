@@ -2,12 +2,12 @@
   "slug": "ia-et-couvreur-5-gains-de-temps-concrets",
   "title": "IA et couvreur : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et couvreur. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-04-26",
+  "date": "2026-05-06",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA PME bâtiment",
+    "productivité BTP",
+    "automatisation TPE",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
