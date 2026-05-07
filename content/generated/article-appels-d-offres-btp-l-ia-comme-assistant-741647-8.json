@@ -1,13 +1,13 @@
 {
-  "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
-  "title": "ChatGPT pour PME BTP : erreurs à éviter",
-  "description": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
+  "slug": "appels-d-offres-btp-l-ia-comme-assistant-741647-8",
+  "title": "Appels d'offres BTP : l'IA comme assistant",
+  "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
   "date": "2026-05-07",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "devis plombier IA",
+    "devis électricien ChatGPT",
+    "chiffrage BTP IA",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "ChatGPT pour PME BTP : erreurs à éviter",
-  "metaDescription": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
+  "seoTitle": "Appels d'offres BTP : l'IA comme assistant",
+  "metaDescription": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

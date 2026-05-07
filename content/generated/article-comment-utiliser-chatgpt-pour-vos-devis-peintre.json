@@ -2,13 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-peintre",
   "title": "Comment utiliser ChatGPT pour vos devis peintre",
   "description": "Devis peintre avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-04-27",
+  "date": "2026-05-07",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT entreprises BTP"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -62,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -80,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
