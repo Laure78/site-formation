@@ -2,12 +2,12 @@
   "slug": "ia-et-carreleur-5-gains-de-temps-concrets",
   "title": "IA et carreleur : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et carreleur. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-04-30",
+  "date": "2026-05-08",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
