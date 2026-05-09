@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Calendar, Coins, GraduationCap, Sparkles, User } from 'lucide-react';
+import { Layers, Calendar, Coins, GraduationCap, User } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 
 const items = [
@@ -16,16 +16,10 @@ const items = [
     Icon: Coins,
   },
   {
-    href: LINKS.blog,
-    title: 'Blog',
-    line: 'Guides IA BTP',
-    Icon: BookOpen,
-  },
-  {
-    href: LINKS.claudeAiBtp,
-    title: 'Claude AI BTP',
-    line: 'Guide complet',
-    Icon: Sparkles,
+    href: LINKS.ressources,
+    title: 'Ressources',
+    line: 'Blog, Claude AI, tutos PDF',
+    Icon: Layers,
   },
   {
     href: LINKS.aPropos,

@@ -9,6 +9,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import type { TutoBlock, TutoData, TutoStep } from '@/lib/tutos/types';
+import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
 
 const SITE_BASE = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -94,7 +95,7 @@ function Block({ block }: { block: TutoBlock }) {
 
 function StepBlock({ step }: { step: TutoStep }) {
   return (
-    <article id={`etape-${step.number}`} className="mt-12">
+    <article id={`etape-${step.number}`} className="mt-12 scroll-mt-28">
       <div className="flex items-stretch overflow-hidden rounded-2xl bg-[#377CF3] text-white shadow-md">
         <div className="flex w-20 shrink-0 items-center justify-center bg-white/10 sm:w-24">
           <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-2xl font-bold text-[#377CF3] sm:h-16 sm:w-16 sm:text-3xl">
@@ -231,6 +232,7 @@ function buildJsonLdGraph(tuto: TutoData) {
 export function TutoPage({ tuto }: { tuto: TutoData }) {
   const pdfUrl = pdfUrlFor(tuto);
   const graph = buildJsonLdGraph(tuto);
+  const heroAnchors = computeHeroLearnAnchorIds(tuto);
 
   return (
     <div className="min-h-screen bg-white">
@@ -257,18 +259,26 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
               Ce que tu vas apprendre
             </p>
-            <ul className="mt-4 space-y-2.5">
-              {tuto.heroLearnPoints.map((p, idx) => (
-                <li key={idx} className="flex gap-3 text-white/95 leading-relaxed">
-                  <ChevronRight
-                    size={18}
-                    className="mt-1 shrink-0 text-white"
-                    strokeWidth={2.5}
-                    aria-hidden
-                  />
-                  <span>{p}</span>
-                </li>
-              ))}
+            <ul className="mt-4 space-y-1">
+              {tuto.heroLearnPoints.map((p, idx) => {
+                const frag = heroAnchors[idx] ?? `intro-${tuto.slug}`;
+                return (
+                  <li key={`${frag}-${idx}`}>
+                    <a
+                      href={`#${frag}`}
+                      className="group flex gap-3 rounded-lg px-1 py-1.5 text-white/95 leading-relaxed transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    >
+                      <ChevronRight
+                        size={18}
+                        className="mt-1 shrink-0 text-white transition-transform group-hover:translate-x-0.5"
+                        strokeWidth={2.5}
+                        aria-hidden
+                      />
+                      <span className="underline-offset-4 group-hover:underline">{p}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -304,7 +314,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
         <div className="mx-auto max-w-4xl px-4">
           <h2
             id={`intro-${tuto.slug}`}
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            className="scroll-mt-28 font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
             {tuto.introTitle}
           </h2>

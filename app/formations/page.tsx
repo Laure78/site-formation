@@ -108,52 +108,7 @@ export default function FormationsPage() {
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-10 md:pt-12">
         <Breadcrumbs items={[{ label: 'Formations', href: '/formations' }]} />
 
-        <div className="mt-8">
-          <p className="mb-5 max-w-4xl text-sm text-[#64748B]">
-            Toutes nos formations couvrent ChatGPT et Claude AI. Voir aussi :{' '}
-            <Link href={LINKS.formationClaudeAiBtp} className="font-medium text-[#377CF3] hover:underline">
-              Formation Claude AI BTP dédiée
-            </Link>{' '}
-            |{' '}
-            <Link href={LINKS.formationClaudeAiBatiment} className="font-medium text-[#377CF3] hover:underline">
-              Formation Claude AI bâtiment
-            </Link>{' '}
-            |{' '}
-            <Link href={LINKS.formationClaudeAiTravauxPublics} className="font-medium text-[#377CF3] hover:underline">
-              Formation Claude AI travaux publics
-            </Link>
-          </p>
-          <section
-            className="rounded-2xl border-2 border-[#377CF3] bg-[#EFF6FF] p-5 md:p-6"
-            aria-label="Réponse synthétique"
-            itemScope
-            itemType="https://schema.org/Answer"
-          >
-            <p
-              className="citation-sentence text-lg font-medium leading-relaxed text-[#0F172A] md:text-xl"
-              data-citation="catalogue-formations-ia-btp-2026"
-              itemProp="text"
-            >
-              Le catalogue OFC propose 6 formations IA BTP de 4 heures, certifiées Qualiopi et
-              finançables par Constructys : L&apos;IA au service du bâtiment (BTP-01), des travaux
-              publics (BTP-04), pour la fonction RH (BTP-03), pour l&apos;architecte (BTP-06), pour
-              répondre aux appels d&apos;offre (BTP-02) et la sensibilisation aux assistants IA
-              personnalisés (BTP-05). Tarifs : 100 € HT par participant en niveau débutant, 175 € HT
-              en niveau avancé. Sessions en inter en Île-de-France ou en intra dans vos locaux, 12
-              participants maximum.
-            </p>
-          </section>
-        </div>
-
-        <p className="mt-6 max-w-3xl text-sm text-[#64748B]">
-          Pilier complémentaire (analyse CCTP / DCE, marchés publics) :{' '}
-          <Link href={LINKS.formationIaCctpAnalyseDceBtp} className="font-medium text-[#377CF3] hover:underline">
-            formation IA analyse CCTP avec ChatGPT
-          </Link>
-          .
-        </p>
-
-        <div className="mt-12">
+        <div className="mt-8 md:mt-10">
           <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
         </div>
 

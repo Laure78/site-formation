@@ -59,6 +59,11 @@ export type TutoData = {
 
   /** Items « CE QUE TU VAS APPRENDRE » du hero (4 puces) */
   heroLearnPoints: string[];
+  /**
+   * Fragments d’URL des ancres (sans #). Le mot-clé `intro` → `intro-{slug}` au rendu.
+   * Si absent ou taille différente de `heroLearnPoints`, les cibles sont déduites (intro + étapes).
+   */
+  heroLearnPointTargets?: readonly string[];
 
   /** Section introductive : titre + blocs */
   introTitle: string;

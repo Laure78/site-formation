@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Download, ArrowRight, Clock, Sparkles } from 'lucide-react';
+import { Download, ArrowRight, Clock, Sparkles, BookOpen } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -77,6 +77,20 @@ export default function RessourcesIndexPage() {
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
             >
               Guide 1er Skill IA
+            </Link>
+            <Link
+              href={LINKS.blog}
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
+            >
+              <BookOpen size={16} aria-hidden />
+              Blog formation IA BTP
+            </Link>
+            <Link
+              href={LINKS.claudeAiBtp}
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
+            >
+              <Sparkles size={16} aria-hidden />
+              Guide Claude AI BTP
             </Link>
           </div>
         </div>

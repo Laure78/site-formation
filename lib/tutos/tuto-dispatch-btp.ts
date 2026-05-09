@@ -50,6 +50,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
     'Les pièges à éviter sur les chantiers',
     "Comment économiser 3h de paperasse par jour",
   ],
+  heroLearnPointTargets: ['intro', 'etape-2', 'etape-4', 'etape-5'],
 
   introTitle: 'Pourquoi Dispatch change tout pour le BTP ?',
   introBlocks: [

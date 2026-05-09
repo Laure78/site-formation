@@ -156,6 +156,22 @@ function formationsDropdownActive(pathname: string): boolean {
 }
 
 function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
+  const blogLinks: MegaLink[] = [
+    {
+      href: LINKS.blog,
+      label: 'Blog Formation IA BTP',
+      description: 'Articles longs, guides et prompts métier',
+      icon: BookOpen,
+    },
+  ];
+  const claudeHubLinks: MegaLink[] = [
+    {
+      href: LINKS.claudeAiBtp,
+      label: 'Claude AI BTP',
+      description: 'Guide complet : interfaces, limites techniques, parcours formations',
+      icon: Sparkles,
+    },
+  ];
   const tutoLinks: MegaLink[] = TUTOS.map((t) => ({
     href: `/ressources/${t.slug}`,
     label: t.shortTitle,
@@ -175,7 +191,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
       <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
         <div className="border-b border-slate-100 px-4 pb-3">
           <Link
-            href="/ressources"
+            href={LINKS.ressources}
             className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent)]/90"
           >
             Voir toutes les ressources
@@ -187,6 +203,78 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
           </Link>
         </div>
         <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Blog
+          </p>
+          <ul className="space-y-0.5 pb-2">
+            {blogLinks.map((link) => {
+              const ItemIcon = link.icon;
+              const linkActive = isActive(link.href, pathname);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                      linkActive
+                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`}
+                  >
+                    <ItemIcon
+                      size={20}
+                      strokeWidth={1.75}
+                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                      aria-hidden
+                    />
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                      {link.description ? (
+                        <span className="mt-1 block text-xs text-slate-500">
+                          {link.description}
+                        </span>
+                      ) : null}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Claude AI BTP
+          </p>
+          <ul className="space-y-0.5 pb-2">
+            {claudeHubLinks.map((link) => {
+              const ItemIcon = link.icon;
+              const linkActive = isActive(link.href, pathname);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                      linkActive
+                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`}
+                  >
+                    <ItemIcon
+                      size={20}
+                      strokeWidth={1.75}
+                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                      aria-hidden
+                    />
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                      {link.description ? (
+                        <span className="mt-1 block text-xs text-slate-500">
+                          {link.description}
+                        </span>
+                      ) : null}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
             Tutos
           </p>
@@ -265,7 +353,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
   );
 }
 
-/** Barre de navigation unique — pages site et blog (pas de liens espace apprenant dans le header public). */
+/** Barre de navigation unique — blog et guide Claude AI BTP accessibles via « Ressources ». */
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -330,12 +418,14 @@ export function Navbar() {
   }, []);
 
   const homeActive = pathname === '/';
-  const blogActive = pathname === '/blog' || pathname.startsWith('/blog/');
+  const resourcesNavActive =
+    pathname.startsWith('/ressources') ||
+    pathname === LINKS.blog ||
+    pathname.startsWith(`${LINKS.blog}/`) ||
+    pathname === LINKS.claudeAiBtp;
   const aProposActive = pathname.startsWith('/a-propos');
   const financementActive =
     pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
-  const claudeAiBtpActive = pathname === '/claude-ai-btp';
-  const resourcesActive = pathname.startsWith('/ressources');
 
   return (
     <>
@@ -427,19 +517,6 @@ export function Navbar() {
               Financement
             </Link>
 
-            <Link
-              href="/blog"
-              aria-current={blogActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
-                blogActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <BookOpen size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
-              Blog
-            </Link>
-
             <div
               className="relative"
               onMouseEnter={handleEnterResources}
@@ -447,8 +524,9 @@ export function Navbar() {
             >
               <button
                 type="button"
+                aria-current={resourcesNavActive ? 'page' : undefined}
                 className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
-                  resourcesActive || openResources
+                  resourcesNavActive || openResources
                     ? 'bg-white text-slate-900 shadow-sm'
                     : 'text-slate-700 hover:text-slate-900'
                 }`}
@@ -467,19 +545,6 @@ export function Navbar() {
               </button>
               {openResources && <ResourcesDropdownPanel pathname={pathname} />}
             </div>
-
-            <Link
-              href="/claude-ai-btp"
-              aria-current={claudeAiBtpActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
-                claudeAiBtpActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <Sparkles size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
-              Claude AI BTP
-            </Link>
 
             <Link
               href="/a-propos"
@@ -634,31 +699,20 @@ export function Navbar() {
             </div>
 
             <div className="border-b border-slate-100 py-1">
-              <Link
-                href="/blog"
-                aria-current={blogActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  blogActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <BookOpen
-                  size={18}
-                  strokeWidth={1.75}
-                  className={blogActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                Blog
-              </Link>
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
               <button
                 type="button"
                 onClick={() => setMobileResourcesOpen((v) => !v)}
-                className="flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left text-[0.9375rem] font-medium text-slate-900"
+                aria-current={resourcesNavActive ? 'page' : undefined}
+                className={`flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left text-[0.9375rem] font-medium ${
+                  resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
               >
                 <span className="flex items-center gap-2">
-                  <Layers size={18} strokeWidth={1.75} className="text-slate-400" />
+                  <Layers
+                    size={18}
+                    strokeWidth={1.75}
+                    className={resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                  />
                   Ressources
                 </span>
                 <ChevronDown
@@ -671,12 +725,52 @@ export function Navbar() {
               {mobileResourcesOpen && (
                 <div className="pb-2 pl-1">
                   <Link
-                    href="/ressources"
+                    href={LINKS.ressources}
                     onClick={() => setMobileOpen(false)}
                     className="mb-3 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-[var(--accent)]"
                   >
                     Voir toutes les ressources
                     <ArrowRight size={14} />
+                  </Link>
+                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Blog
+                  </p>
+                  <Link
+                    href={LINKS.blog}
+                    onClick={() => setMobileOpen(false)}
+                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
+                      isActive(LINKS.blog, pathname)
+                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                        : 'text-slate-800'
+                    }`}
+                  >
+                    <BookOpen size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Blog Formation IA BTP</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">
+                        Articles longs, guides et prompts métier
+                      </span>
+                    </span>
+                  </Link>
+                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Claude AI BTP
+                  </p>
+                  <Link
+                    href={LINKS.claudeAiBtp}
+                    onClick={() => setMobileOpen(false)}
+                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
+                      isActive(LINKS.claudeAiBtp, pathname)
+                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                        : 'text-slate-800'
+                    }`}
+                  >
+                    <Sparkles size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Guide Claude AI BTP</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">
+                        Interfaces BTP, limites et parcours formation
+                      </span>
+                    </span>
                   </Link>
                   <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Tutos
@@ -718,24 +812,6 @@ export function Navbar() {
                   </Link>
                 </div>
               )}
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <Link
-                href="/claude-ai-btp"
-                aria-current={claudeAiBtpActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  claudeAiBtpActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <Sparkles
-                  size={18}
-                  strokeWidth={1.75}
-                  className={claudeAiBtpActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                Claude AI BTP
-              </Link>
             </div>
 
             <div className="border-b border-slate-100 py-1">
