@@ -169,18 +169,6 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
       description: 'PDF gratuit · conducteurs de travaux',
       icon: Sparkles,
     },
-    {
-      href: '/ressources/ia-btp/10-cas-usage-concrets',
-      label: '10 cas d’usage concrets',
-      description: 'Article hub IA BTP 2026',
-      icon: Layers,
-    },
-    {
-      href: '/ressources/ia-btp',
-      label: 'Hub ressources IA BTP',
-      description: 'Guides et cas d’usage',
-      icon: BookOpen,
-    },
   ];
   return (
     <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,24rem)] max-w-[min(100vw-2rem,28rem)] pt-2">
@@ -200,7 +188,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
         </div>
         <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Tutos PDF offerts
+            Tutos
           </p>
           <ul className="space-y-0.5 pb-2">
             {tutoLinks.map((link) => {
@@ -236,7 +224,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
             })}
           </ul>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Guides & hubs
+            Guide conducteurs de travaux
           </p>
           <ul className="space-y-0.5 pb-2">
             {otherLinks.map((link) => {
@@ -690,22 +678,31 @@ export function Navbar() {
                     Voir toutes les ressources
                     <ArrowRight size={14} />
                   </Link>
-                  {TUTOS.map((tuto) => (
-                    <Link
-                      key={tuto.slug}
-                      href={`/ressources/${tuto.slug}`}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                    >
-                      <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                      <span>
-                        <span className="block text-[0.9375rem]">{tuto.shortTitle}</span>
-                        <span className="mt-0.5 block text-xs text-slate-500">
-                          Tuto PDF · {tuto.totalTimeMinutes} min
-                        </span>
-                      </span>
-                    </Link>
-                  ))}
+                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Tutos
+                  </p>
+                  <ul className="space-y-0.5">
+                    {TUTOS.map((tuto) => (
+                      <li key={tuto.slug}>
+                        <Link
+                          href={`/ressources/${tuto.slug}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                        >
+                          <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                          <span>
+                            <span className="block text-[0.9375rem]">{tuto.shortTitle}</span>
+                            <span className="mt-0.5 block text-xs text-slate-500">
+                              Tuto PDF · {tuto.totalTimeMinutes} min
+                            </span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="px-3 pb-2 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Guide conducteurs de travaux
+                  </p>
                   <Link
                     href={LINKS.skillIaConducteurTravaux}
                     onClick={() => setMobileOpen(false)}
@@ -717,17 +714,6 @@ export function Navbar() {
                       <span className="mt-0.5 block text-xs text-slate-500">
                         PDF gratuit · conducteurs de travaux
                       </span>
-                    </span>
-                  </Link>
-                  <Link
-                    href="/ressources/ia-btp"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                  >
-                    <BookOpen size={18} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Hub ressources IA BTP</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">Guides &amp; cas d&apos;usage</span>
                     </span>
                   </Link>
                 </div>
