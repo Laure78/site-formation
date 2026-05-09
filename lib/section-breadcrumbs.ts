@@ -6,6 +6,7 @@ import { FORMATION_CITIES } from '@/lib/formation-cities';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SITE_CONFIG, type BreadcrumbListItem } from '@/lib/seo';
 import { formationsData } from '@/src/data/formations';
+import { TUTOS } from '@/lib/tutos';
 
 export type SectionBreadcrumbZone = 'formations' | 'blog' | 'etudes-de-cas' | 'ressources';
 
@@ -26,10 +27,12 @@ const ETUDES_TITLES: Record<string, string> = {
 };
 
 const RESSOURCES_TITLES: Record<string, string> = {
-  '/ressources/ia-btp': 'Ressources IA BTP',
+  '/ressources': 'Ressources',
+  '/ressources/ia-btp': 'Hub ressources IA BTP',
   '/ressources/ia-btp/10-cas-usage-concrets': 'IA dans le BTP : 10 cas d’usage concrets (2026)',
   '/ressources/skill-ia-conducteur-travaux': 'Guide : 1er Skill IA — conducteurs de travaux',
   '/ressources/skill-ia-conducteur-travaux/merci': 'Confirmation — guide envoyé',
+  ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 
 function home(): BreadcrumbListItem {
@@ -98,8 +101,8 @@ export function getSectionBreadcrumbItems(zone: SectionBreadcrumbZone, pathname:
       return [home(), { name: title, url: `${BASE}${pathNorm}` }];
     }
     case 'ressources': {
-      const hub: BreadcrumbListItem = { name: 'Ressources IA BTP', url: `${BASE}/ressources/ia-btp` };
-      if (pathNorm === '/ressources/ia-btp') {
+      const hub: BreadcrumbListItem = { name: 'Ressources', url: `${BASE}/ressources` };
+      if (pathNorm === '/ressources') {
         return [home(), hub];
       }
       if (pathNorm === '/ressources/skill-ia-conducteur-travaux/merci') {
@@ -111,6 +114,18 @@ export function getSectionBreadcrumbItems(zone: SectionBreadcrumbZone, pathname:
           home(),
           hub,
           guide,
+          { name: RESSOURCES_TITLES[pathNorm], url: `${BASE}${pathNorm}` },
+        ];
+      }
+      if (pathNorm === '/ressources/ia-btp/10-cas-usage-concrets') {
+        const cluster: BreadcrumbListItem = {
+          name: RESSOURCES_TITLES['/ressources/ia-btp'],
+          url: `${BASE}/ressources/ia-btp`,
+        };
+        return [
+          home(),
+          hub,
+          cluster,
           { name: RESSOURCES_TITLES[pathNorm], url: `${BASE}${pathNorm}` },
         ];
       }

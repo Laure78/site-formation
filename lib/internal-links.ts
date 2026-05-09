@@ -95,6 +95,19 @@ export const LINKS = {
   skillIaConducteurTravaux: '/ressources/skill-ia-conducteur-travaux',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
+  /** Hub Ressources — index tutos OFC */
+  ressources: '/ressources',
+  /** Tutos Ressources OFC — pages individuelles */
+  tutoMemoireTechnique: '/ressources/tuto-memoire-technique',
+  tutoAnalyseDce: '/ressources/tuto-analyse-dce',
+  tutoTriDceClaudeChrome: '/ressources/tuto-tri-dce-claude-chrome',
+  tutoCrChantier: '/ressources/tuto-cr-chantier',
+  tutoPpsps: '/ressources/tuto-ppsps',
+  tutoDuerp: '/ressources/tuto-duerp',
+  tutoConstatRetard: '/ressources/tuto-constat-retard',
+  tutoDispatchBtp: '/ressources/tuto-dispatch-btp',
+  tutoDoeDossierOuvragesExecutes: '/ressources/tuto-doe-dossier-ouvrages-executes',
+  tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
   repondreAoLanding: '/formation-ia-appels-offres-btp',
   /** Landing SEO — analyse CCTP / DCE avec ChatGPT (appels d'offres BTP) */

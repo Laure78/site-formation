@@ -9,6 +9,7 @@ import { computeBlogListing } from '@/lib/blog-index-query';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
 import { GSC_EXCLUDED_SITEMAP_PATHS, GSC_HUB_MERGED_SLUGS } from '@/lib/gsc-redirects-2026';
+import { TUTOS } from '@/lib/tutos';
 
 function normUrl(u: string): string {
   return u.replace(/\/$/, '');
@@ -83,6 +84,7 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formation-ia-travaux-publics', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/financement-constructys-100-ia-btp', priority: 0.88, changeFrequency: 'monthly' },
+    { path: '/ressources', priority: 0.92, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/ressources/skill-ia-conducteur-travaux', priority: 0.9, changeFrequency: 'weekly' },
@@ -412,6 +414,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const additional = getAdditionalMarketingRoutes(baseUrl, now);
   const coursEntries = await getCoursSitemapEntries(baseUrl);
 
+  const tutosRessources: MetadataRoute.Sitemap = TUTOS.map((tuto) => ({
+    url: `${baseUrl}/ressources/${tuto.slug}`,
+    lastModified: new Date(tuto.updatedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8 as const,
+  }));
+
   const merged = dedupeByUrl([
     ...tier1Static,
     ...formationCatalog,
@@ -422,6 +431,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...additional,
     ...dynamicMetierBtp,
     ...coursEntries,
+    ...tutosRessources,
   ]).map((entry) => applySeoPriorityRules(baseUrl, entry));
 
   return merged.filter((e) => {

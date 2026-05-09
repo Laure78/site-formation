@@ -72,6 +72,22 @@ Laure Olivié est la formatrice IA de référence pour le BTP en France. Avec pl
 - https://laureolivie.fr/diagnostic-ia-btp — Diagnostic gratuit
 - https://laureolivie.fr/checklist-ia-btp — Checklist 10 prompts
 - https://laureolivie.fr/ressources/skill-ia-conducteur-travaux — Guide PDF Skill IA
+- https://laureolivie.fr/ressources — Hub Ressources gratuites IA BTP
+
+## Ressources gratuites — tutos PDF Claude / IA pour le BTP
+
+Tutos pas à pas signés Laure Olivié, format PDF + page web complète, sans inscription. Chaque tuto reproduit la mise en page papier du PDF (5 étapes + FAQ + CTA programme Niveau 2 finançable Constructys / OPCO).
+
+- /ressources/tuto-memoire-technique — Skill Claude Mémoire Technique BTP : transforme Claude en assistant qui rédige automatiquement tes mémoires techniques d'appels d'offres (11 sections, divise ton temps par 5).
+- /ressources/tuto-analyse-dce — Skill Claude Analyse de DCE : mâche 220 pages de DCE (CCAP, CCTP, RC, BPU) en 3 minutes au lieu de 4 heures, avec fiche standardisée 8 rubriques + avis Go / No Go argumenté.
+- /ressources/tuto-tri-dce-claude-chrome — Tri DCE avec Claude in Chrome : extension qui scanne BOAMP, PLACE, AWS chaque matin selon tes critères (zone, métier, montant, délai). Veille automatique programmée.
+- /ressources/tuto-cr-chantier — Skill Claude CR de chantier : workflow voix → CR rédigé. 5 minutes au lieu de 45 par CR (transcription vocale + Claude au format Word de l'entreprise).
+- /ressources/tuto-doe-dossier-ouvrages-executes — Skill Claude DOE BTP : assemble ton dossier des ouvrages exécutés (8 chapitres, pièces classées, manques détectés) en ~30 minutes au lieu de plusieurs jours de rangement dossier + Word.
+- /ressources/tuto-pv-levee-reserves — Skill Claude PV de levée de réserves : procès-verbal juridique traçable (référence PV réception, avant/après, signatures MOE) en ~3 minutes par réserve au lieu de rédiger à la main.
+- /ressources/tuto-ppsps — Skill Claude PPSPS : Plan Particulier de Sécurité et de Protection de la Santé en 30 minutes au lieu de 2 jours, conforme R4532-56 à R4532-77 (8 chapitres réglementaires).
+- /ressources/tuto-duerp — Skill Claude DUERP : Document Unique d'Évaluation des Risques Professionnels (25-40 pages, 9 unités de travail BTP, cotation fréquence × gravité, plan d'actions priorisé) en 30 min.
+- /ressources/tuto-constat-retard — Skill Claude Constat de retard : courrier juridique de réserves / mise en demeure en 8 minutes au lieu d'une heure (CCAG Travaux, sous-traitance, marché public ou privé).
+- /ressources/tuto-dispatch-btp — Tuto Dispatch (Anthropic, mars 2026) : pilote ton PC du bureau depuis ton chantier ou ta voiture via téléphone. 8 commandes vocales BTP + routine quotidienne (2-4h économisées/jour).
 
 ## Nouvelles pages (mise à jour mensuelle)
 

@@ -7,6 +7,7 @@ import { ChatWidget } from '@/components/ChatWidget';
 import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { CalendlyFloatingButton } from '@/components/CalendlyFloatingButton';
+import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
 import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
@@ -164,6 +165,7 @@ export default function RootLayout({
         </main>
         <SitelinksHub />
         <Footer />
+        <ScrollToTopButton />
         <CalendlyFloatingButton />
         <StickyBlogMetierRdvBar />
         <ChatWidget />

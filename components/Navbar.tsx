@@ -22,6 +22,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
+import { TUTOS } from '@/lib/tutos';
 import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 
 import type { LucideIcon } from 'lucide-react';
@@ -155,35 +156,41 @@ function formationsDropdownActive(pathname: string): boolean {
 }
 
 function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
-  const links: MegaLink[] = [
-    {
-      href: '/ressources/ia-btp',
-      label: 'Hub ressources IA BTP',
-      description: 'Guides et cas d’usage',
-      icon: BookOpen,
-    },
-    {
-      href: '/ressources/ia-btp/10-cas-usage-concrets',
-      label: '10 cas d’usage concrets',
-      description: '2026',
-      icon: Layers,
-    },
+  const tutoLinks: MegaLink[] = TUTOS.map((t) => ({
+    href: `/ressources/${t.slug}`,
+    label: t.shortTitle,
+    description: `Tuto PDF · ${t.totalTimeMinutes} min`,
+    icon: Sparkles,
+  }));
+  const otherLinks: MegaLink[] = [
     {
       href: LINKS.skillIaConducteurTravaux,
       label: 'Guide : 1er Skill IA',
       description: 'PDF gratuit · conducteurs de travaux',
       icon: Sparkles,
     },
+    {
+      href: '/ressources/ia-btp/10-cas-usage-concrets',
+      label: '10 cas d’usage concrets',
+      description: 'Article hub IA BTP 2026',
+      icon: Layers,
+    },
+    {
+      href: '/ressources/ia-btp',
+      label: 'Hub ressources IA BTP',
+      description: 'Guides et cas d’usage',
+      icon: BookOpen,
+    },
   ];
   return (
-    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,26rem)] pt-2">
+    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,24rem)] max-w-[min(100vw-2rem,28rem)] pt-2">
       <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
         <div className="border-b border-slate-100 px-4 pb-3">
           <Link
-            href="/ressources/ia-btp"
+            href="/ressources"
             className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent)]/90"
           >
-            Toutes les ressources
+            Voir toutes les ressources
             <ArrowRight
               size={15}
               className="transition-transform group-hover:translate-x-0.5"
@@ -191,46 +198,80 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
             />
           </Link>
         </div>
-        <ul className="max-h-[min(70vh,28rem)] space-y-0.5 overflow-y-auto overscroll-contain px-2 pt-1">
-          {links.map((link) => {
-            const ItemIcon = link.icon;
-            const linkActive = isActive(link.href, pathname);
-            return (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                    linkActive
-                      ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                      : 'text-slate-800 hover:bg-slate-50'
-                  }`}
-                >
-                  <ItemIcon
-                    size={20}
-                    strokeWidth={1.75}
-                    className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                    aria-hidden
-                  />
-                  <span className="min-w-0 flex-1">
-                    <span className="flex flex-wrap items-center gap-2">
+        <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Tutos PDF offerts
+          </p>
+          <ul className="space-y-0.5 pb-2">
+            {tutoLinks.map((link) => {
+              const ItemIcon = link.icon;
+              const linkActive = isActive(link.href, pathname);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                      linkActive
+                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`}
+                  >
+                    <ItemIcon
+                      size={20}
+                      strokeWidth={1.75}
+                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                      aria-hidden
+                    />
+                    <span className="min-w-0 flex-1">
                       <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      {link.href === LINKS.skillIaConducteurTravaux ? (
-                        <span className="rounded-full bg-[#D4E3FC] px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-[#377CF3]">
-                          Nouveau
+                      {link.description ? (
+                        <span className="mt-1 block text-xs text-slate-500">
+                          {link.description}
                         </span>
                       ) : null}
                     </span>
-                    {link.description ? (
-                      <span className="mt-1 block text-sm leading-relaxed text-slate-600">
-                        {link.description}
-                      </span>
-                    ) : null}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Guides & hubs
+          </p>
+          <ul className="space-y-0.5 pb-2">
+            {otherLinks.map((link) => {
+              const ItemIcon = link.icon;
+              const linkActive = isActive(link.href, pathname);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                      linkActive
+                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`}
+                  >
+                    <ItemIcon
+                      size={20}
+                      strokeWidth={1.75}
+                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                      aria-hidden
+                    />
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                      {link.description ? (
+                        <span className="mt-1 block text-xs text-slate-500">
+                          {link.description}
+                        </span>
+                      ) : null}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -642,6 +683,43 @@ export function Navbar() {
               {mobileResourcesOpen && (
                 <div className="pb-2 pl-1">
                   <Link
+                    href="/ressources"
+                    onClick={() => setMobileOpen(false)}
+                    className="mb-3 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-[var(--accent)]"
+                  >
+                    Voir toutes les ressources
+                    <ArrowRight size={14} />
+                  </Link>
+                  {TUTOS.map((tuto) => (
+                    <Link
+                      key={tuto.slug}
+                      href={`/ressources/${tuto.slug}`}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                    >
+                      <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                      <span>
+                        <span className="block text-[0.9375rem]">{tuto.shortTitle}</span>
+                        <span className="mt-0.5 block text-xs text-slate-500">
+                          Tuto PDF · {tuto.totalTimeMinutes} min
+                        </span>
+                      </span>
+                    </Link>
+                  ))}
+                  <Link
+                    href={LINKS.skillIaConducteurTravaux}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                  >
+                    <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Guide : 1er Skill IA</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">
+                        PDF gratuit · conducteurs de travaux
+                      </span>
+                    </span>
+                  </Link>
+                  <Link
                     href="/ressources/ia-btp"
                     onClick={() => setMobileOpen(false)}
                     className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
@@ -650,32 +728,6 @@ export function Navbar() {
                     <span>
                       <span className="block text-[0.9375rem]">Hub ressources IA BTP</span>
                       <span className="mt-0.5 block text-xs text-slate-500">Guides &amp; cas d&apos;usage</span>
-                    </span>
-                  </Link>
-                  <Link
-                    href="/ressources/ia-btp/10-cas-usage-concrets"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                  >
-                    <Layers size={18} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">10 cas d&apos;usage concrets</span>
-                    </span>
-                  </Link>
-                  <Link
-                    href={LINKS.skillIaConducteurTravaux}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                  >
-                    <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                    <span>
-                      <span className="flex flex-wrap items-center gap-2">
-                        <span className="block text-[0.9375rem]">Guide : 1er Skill IA</span>
-                        <span className="rounded-full bg-[#D4E3FC] px-2 py-0.5 text-[0.65rem] font-semibold uppercase text-[#377CF3]">
-                          Nouveau
-                        </span>
-                      </span>
-                      <span className="mt-0.5 block text-xs text-slate-500">PDF gratuit</span>
                     </span>
                   </Link>
                 </div>
