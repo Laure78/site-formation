@@ -4,18 +4,23 @@ import { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import { VisioDecouverteCalendlyLink } from '@/components/VisioDecouverteCalendlyLink';
 
+/** Durée déclarée de l’animation (pack) ; marge avant relance pour laisser finir la dernière slide. */
+const PRESENTATION_LOOP_MS = 43_000;
+const LOOP_SRC_QUERY = '?loop=auto';
+
 /**
  * Animation de présentation des 6 formations IA BTP.
- * Lazy-loaded : l'iframe (~4,7 Mo) ne se charge qu'au clic,
- * pour ne pas impacter les perfs / LCP de la home.
+ * À la première apparition dans le viewport : chargement léger puis lecture.
+ * Après démarrage, l’iframe se recharge en boucle (même origine) pour un visionnage continu.
  *
  * Le fichier source se trouve dans : public/presentation-formations.html
  */
 export function PresentationAnimee() {
   const [loaded, setLoaded] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  // Précharge doucement le HTML en arrière-plan dès que la section devient visible
+  // Précharge + chargement automatique dès que la section approche du viewport
   useEffect(() => {
     if (loaded) return;
     if (typeof IntersectionObserver === 'undefined') return;
@@ -26,66 +31,81 @@ export function PresentationAnimee() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Prefetch discret
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.href = '/presentation-formations.html';
-            link.as = 'document';
-            document.head.appendChild(link);
-            observer.disconnect();
-          }
+          if (!entry.isIntersecting) return;
+          const link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = '/presentation-formations.html';
+          link.as = 'document';
+          document.head.appendChild(link);
+          window.setTimeout(() => setLoaded(true), 320);
+          observer.disconnect();
         });
       },
-      { rootMargin: '200px' },
+      { rootMargin: '120px', threshold: 0.06 },
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, [loaded]);
 
+  // Boucle continue : même origine → reload pour relancer l’animation
+  useEffect(() => {
+    if (!loaded || !iframeRef.current) return;
+    const id = window.setInterval(() => {
+      const frame = iframeRef.current;
+      if (!frame) return;
+      try {
+        frame.contentWindow?.location.reload();
+      } catch {
+        const base = frame.src.split('?')[0] || '/presentation-formations.html';
+        frame.src = `${base}${LOOP_SRC_QUERY}&t=${Date.now()}`;
+      }
+    }, PRESENTATION_LOOP_MS);
+    return () => window.clearInterval(id);
+  }, [loaded]);
+
   return (
     <section
-      className="border-b border-slate-200 bg-gradient-to-b from-white via-slate-50/40 to-white px-4 py-20"
+      className="border-b border-slate-200 bg-gradient-to-b from-white via-slate-50/40 to-white px-4 py-14 md:py-16"
       aria-labelledby="presentation-animee-heading"
     >
-      <div ref={sectionRef} className="mx-auto max-w-6xl">
+      <div ref={sectionRef} className="mx-auto max-w-7xl">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <span>PRÉSENTATION ANIMÉE · 40 s</span>
+            <span>PRÉSENTATION ANIMÉE · BOUCLE</span>
           </div>
           <h2
             id="presentation-animee-heading"
-            className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
+            className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl"
           >
             Découvrez les 6 formations IA BTP en 40 secondes
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-600">
+          <p className="mx-auto mt-3 max-w-3xl text-slate-600">
             Un tour rapide du catalogue : bâtiment, travaux publics, appels
-            d&apos;offres, RH, architecte, assistants IA sur-mesure.
+            d&apos;offres, RH, architecte, assistants IA sur-mesure. Elle se rejoue
+            automatiquement en continu.
           </p>
         </div>
 
         <div
-          className="relative mx-auto mt-10 w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-xl shadow-slate-900/5"
+          className="relative mx-auto mt-8 w-full max-w-sm overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-lg shadow-slate-900/5 sm:max-w-md md:max-w-lg lg:max-w-3xl"
           style={{ aspectRatio: '16 / 9' }}
         >
           {loaded ? (
             <iframe
-              src="/presentation-formations.html"
-              title="Présentation animée — 6 formations IA BTP"
+              ref={iframeRef}
+              src={`/presentation-formations.html${LOOP_SRC_QUERY}`}
+              title="Présentation animée — 6 formations IA BTP (lecture en boucle)"
               className="absolute inset-0 h-full w-full border-0"
               allowFullScreen
-              loading="lazy"
             />
           ) : (
             <button
               type="button"
               onClick={() => setLoaded(true)}
-              aria-label="Lancer la présentation animée des 6 formations IA BTP"
+              aria-label="Charger tout de suite la présentation animée des 6 formations IA BTP"
               className="group absolute inset-0 flex cursor-pointer items-center justify-center border-0 bg-white transition-colors hover:bg-slate-50"
             >
-              {/* Fond décoratif style thumbnail */}
               <div className="absolute inset-0 opacity-40">
                 <svg
                   viewBox="0 0 1200 800"
@@ -104,17 +124,16 @@ export function PresentationAnimee() {
                 </svg>
               </div>
 
-              {/* Contenu centré */}
-              <div className="relative z-10 flex flex-col items-center gap-5 text-center">
-                <span className="flex h-20 w-20 items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-xl shadow-blue-500/30 transition-transform group-hover:scale-105">
-                  <Play size={32} strokeWidth={1.5} fill="currentColor" className="ml-1" />
+              <div className="relative z-10 flex flex-col items-center gap-4 text-center">
+                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent)] text-white shadow-xl shadow-blue-500/30 transition-transform group-hover:scale-105 md:h-20 md:w-20">
+                  <Play size={28} strokeWidth={1.5} fill="currentColor" className="ml-1 md:h-8 md:w-8" />
                 </span>
                 <div>
-                  <p className="font-display text-2xl font-semibold text-slate-900 md:text-3xl">
-                    Lancer la présentation
+                  <p className="font-display text-xl font-semibold text-slate-900 md:text-2xl">
+                    Charger la présentation
                   </p>
                   <p className="mt-2 text-sm text-slate-500">
-                    Animation · 40 secondes · sans son
+                    Animation · ~40 s · sans son · lecture en boucle
                   </p>
                 </div>
               </div>
@@ -122,10 +141,10 @@ export function PresentationAnimee() {
           )}
         </div>
 
-        <div className="mt-8 flex flex-col items-center gap-4">
+        <div className="mt-6 flex flex-col items-center gap-3">
           <VisioDecouverteCalendlyLink />
           <p className="text-center text-xs text-slate-400">
-            Astuce : cliquez sur play dans le lecteur pour dérouler l&apos;animation.
+            La présentation se lance dès que le bloc est visible ; sinon cliquez pour charger immédiatement.
           </p>
         </div>
       </div>
