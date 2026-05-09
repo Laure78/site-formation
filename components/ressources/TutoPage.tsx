@@ -430,7 +430,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               </ul>
             </div>
             <div className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-3">
-              <CtaStat value={`${SOCIAL_PROOF.AVERAGE_RATING}/5`} label="Satisfaction" />
+              <CtaStat value={SOCIAL_PROOF.AVERAGE_RATING} label="Satisfaction" />
               <CtaStat
                 value={formatProfessionalsTrainedCount()}
                 label="Personnes formées"

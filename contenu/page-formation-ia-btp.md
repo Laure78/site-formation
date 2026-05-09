@@ -217,7 +217,7 @@ Oui. La formation couvre les usages transversaux (devis, emails, AO, communicati
 
 **Texte court** :
 
-Laure Olivié est la formatrice IA de référence pour les **professionnels du BTP** en France. Elle a créé **OFC Création d’Entreprise** (certifié Qualiopi) avec une conviction : l’IA peut transformer le quotidien des PME du bâtiment, à condition d’être enseignée avec le **bon vocabulaire** et les **bons cas d’usage**.
+Laure Olivié est **formatrice IA et ChatGPT pour le BTP**. Elle a créé **OFC Création d’Entreprise** (certifié Qualiopi) avec une conviction : l’IA peut transformer le quotidien des PME du bâtiment, à condition d’être enseignée avec le **bon vocabulaire** et les **bons cas d’usage**.
 
 - Interventions : **Île-de-France** (Paris et départements limitrophes), intra / inter / distanciel.
 - **Méthode** : 70 % de pratique, prompts réutilisables, zéro jargon inutile.

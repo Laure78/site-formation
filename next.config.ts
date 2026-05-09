@@ -45,6 +45,26 @@ const nextConfig: NextConfig = {
         destination: '/formation-ia-conducteur-travaux',
         permanent: true,
       },
+      {
+        source: '/ressources/skill-ia-conducteur-travaux',
+        destination: '/ressources/guide-conducteur-de-travaux',
+        permanent: true,
+      },
+      {
+        source: '/ressources/skill-ia-conducteur-travaux/',
+        destination: '/ressources/guide-conducteur-de-travaux',
+        permanent: true,
+      },
+      {
+        source: '/ressources/skill-ia-conducteur-travaux/merci',
+        destination: '/ressources/guide-conducteur-de-travaux/merci',
+        permanent: true,
+      },
+      {
+        source: '/ressources/skill-ia-conducteur-travaux/merci/',
+        destination: '/ressources/guide-conducteur-de-travaux/merci',
+        permanent: true,
+      },
       // GSC avril 2026 — 28 URLs (blog parasites, géo, doublons hub & landings)
       ...gscRedirects2026April(),
       ...gscHubMergeRedirects(),

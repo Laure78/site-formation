@@ -28,10 +28,11 @@ const ETUDES_TITLES: Record<string, string> = {
 
 const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources': 'Ressources',
+  '/ressources/tutos': 'Tutos PDF IA BTP',
   '/ressources/ia-btp': 'Hub ressources IA BTP',
   '/ressources/ia-btp/10-cas-usage-concrets': 'IA dans le BTP : 10 cas d’usage concrets (2026)',
-  '/ressources/skill-ia-conducteur-travaux': 'Guide : 1er Skill IA — conducteurs de travaux',
-  '/ressources/skill-ia-conducteur-travaux/merci': 'Confirmation — guide envoyé',
+  '/ressources/guide-conducteur-de-travaux': 'Pack conducteur de travaux — 6 tutos Claude BTP',
+  '/ressources/guide-conducteur-de-travaux/merci': 'Confirmation — guide envoyé',
   ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 
@@ -105,10 +106,10 @@ export function getSectionBreadcrumbItems(zone: SectionBreadcrumbZone, pathname:
       if (pathNorm === '/ressources') {
         return [home(), hub];
       }
-      if (pathNorm === '/ressources/skill-ia-conducteur-travaux/merci') {
+      if (pathNorm === '/ressources/guide-conducteur-de-travaux/merci') {
         const guide: BreadcrumbListItem = {
-          name: RESSOURCES_TITLES['/ressources/skill-ia-conducteur-travaux'],
-          url: `${BASE}/ressources/skill-ia-conducteur-travaux`,
+          name: RESSOURCES_TITLES['/ressources/guide-conducteur-de-travaux'],
+          url: `${BASE}/ressources/guide-conducteur-de-travaux`,
         };
         return [
           home(),

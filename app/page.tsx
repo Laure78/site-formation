@@ -145,10 +145,10 @@ export default function HomePage() {
             ))}
           </svg>
         </div>
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-7xl">
           <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
-            <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-10 xl:gap-14">
-              <div className="min-w-0 lg:col-span-7">
+            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+              <div className="min-w-0">
                 <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
                   <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
                   <span>Formation IA BTP · bâtiment & travaux publics</span>
@@ -156,7 +156,7 @@ export default function HomePage() {
                   <span className="hidden sm:inline">Qualiopi · Constructys</span>
                 </div>
                 <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-slate-900 md:mt-5 md:text-5xl lg:text-6xl">
-                  Laure Olivié — Formatrice IA BTP de référence en France
+                  Laure Olivié — Formatrice IA &amp; ChatGPT pour le BTP
                 </h1>
                 <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-800 md:text-3xl lg:text-4xl">
                   Formation IA BTP en Île-de-France pour vos équipes du bâtiment
@@ -179,7 +179,7 @@ export default function HomePage() {
                   <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi), est finançable à
                   100 % par Constructys et a déjà accompagné {formatProfessionalsTrainedCount()}{' '}
                   professionnels du bâtiment et des travaux publics en Île-de-France (note{' '}
-                  {SOCIAL_PROOF.AVERAGE_RATING}/5 en 2026).
+                  {SOCIAL_PROOF.AVERAGE_RATING} en 2026).
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
@@ -252,9 +252,9 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <aside className="w-full lg:col-span-5 lg:sticky lg:top-24 xl:top-28">
-                <div className="mx-auto max-w-xl lg:ml-auto lg:mr-0 lg:max-w-[min(100%,400px)]">
-                  <p className="mb-3 text-center text-sm font-medium text-slate-600 lg:text-right">
+              <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24 xl:top-28">
+                <div className="w-full">
+                  <p className="mb-3 text-center text-sm font-medium text-slate-600 lg:text-left">
                     Présentation vidéo — les 6 parcours formation IA BTP
                   </p>
                   <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-xl lg:shadow-2xl">
@@ -317,14 +317,17 @@ export default function HomePage() {
         className="border-b border-slate-200 bg-white px-4 py-12"
         aria-labelledby="couverture-geo"
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <h2
             id="couverture-geo"
             className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
             Une formation IA BTP accessible partout en France
           </h2>
-          <p className="mt-3 max-w-3xl text-slate-600" data-citation="true">
+          <p
+            className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg"
+            data-citation="true"
+          >
             Basée à Guyancourt (Yvelines), Laure Olivié intervient principalement en présentiel en{' '}
             <strong>Île-de-France (Paris, 78, 91, 92, 93, 94, 95, 77)</strong> auprès des entreprises
             du bâtiment et des travaux publics. Pour les entreprises hors Île-de-France ou pour les
@@ -340,7 +343,7 @@ export default function HomePage() {
 
       {/* Référence clients — bande charte OFC (#377CF3, alignée sur le CTA Calendly) */}
       <section className="border-b border-slate-200 bg-[var(--accent)] px-4 py-16 text-white">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
             <div className="max-w-xl shrink-0">
               <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">
@@ -402,7 +405,7 @@ export default function HomePage() {
         aria-labelledby="benefices-formation-ia-heading"
       >
         <div className="bg-white px-4 pb-12 pt-16 md:pb-16 md:pt-20">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
             <h2
               id="benefices-formation-ia-heading"
               className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl"
@@ -417,7 +420,7 @@ export default function HomePage() {
               <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
                 Pourquoi l&apos;IA change le quotidien des entreprises du BTP
               </h3>
-              <p className="mt-3 max-w-2xl text-slate-600">
+              <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
                 Une formation IA BTP sérieuse automatise devis, emails et suivi administratif sans
                 remplacer le métier. Les professionnels du BTP et conducteurs de travaux gagnent en productivité
                 et retrouvent du temps sur le chantier et les appels d&apos;offres.
@@ -618,7 +621,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-20">
-          <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -676,14 +679,14 @@ export default function HomePage() {
 
       {/* Catalogue formations */}
       <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <span>FORMATIONS IA BTP</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Nos formations IA spécialisées BTP
           </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
             Formations IA finançables Qualiopi / OPCO — présentiel.
           </p>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
@@ -799,7 +802,7 @@ export default function HomePage() {
 
       {/* Thématiques abordées — H3 sous « Nos formations IA spécialisées BTP » */}
       <section id="programme" className="border-b border-slate-200 bg-white px-4 py-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <span>THÉMATIQUES ABORDÉES</span>
           </div>
@@ -835,7 +838,7 @@ export default function HomePage() {
               prendre rendez-vous
             </Link>
           </p>
-          <p className="mt-3 max-w-3xl text-slate-600">
+          <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
             Voici les <strong className="font-semibold text-slate-800">quatre grands axes</strong> sur
             lesquels s&apos;appuient les formations IA BTP : devis et chiffrage, réponses aux appels
             d&apos;offres, comptes rendus et DOE, gestion des emails et relation client. Selon le
@@ -948,7 +951,7 @@ export default function HomePage() {
         className="border-b border-slate-200 bg-white px-4 py-16"
         aria-labelledby="pourquoi-laure-heading"
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
               <ProfilePhoto
@@ -1066,7 +1069,7 @@ export default function HomePage() {
               <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
                 Formation finançable par Constructys
               </h3>
-              <p className="mt-3 max-w-2xl text-slate-600">
+              <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
                 Cette formation peut être{' '}
                 <span className="font-semibold text-[var(--accent)]">
                   prise en charge à 100% par Constructys
@@ -1169,7 +1172,7 @@ export default function HomePage() {
 
       {/* FAQ */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-7xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
             <span>FAQ</span>
           </div>
@@ -1255,7 +1258,7 @@ export default function HomePage() {
         aria-labelledby="rdv-creneau-heading"
         className="border-b border-slate-200 bg-slate-50 px-4 py-16"
       >
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">

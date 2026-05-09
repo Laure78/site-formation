@@ -9,7 +9,7 @@ export function MerciSkillIaDownload() {
     if (typeof window === 'undefined') return;
     const w = window as Window & { dataLayer?: Record<string, unknown>[] };
     w.dataLayer = w.dataLayer || [];
-    w.dataLayer.push({ event: 'lead_magnet_download', resource: 'skill-ia-conducteur-travaux' });
+    w.dataLayer.push({ event: 'lead_magnet_download', resource: 'guide-conducteur-de-travaux' });
   }
 
   return (
@@ -19,7 +19,7 @@ export function MerciSkillIaDownload() {
       onClick={onClick}
       className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-8 py-4 text-base font-semibold text-white shadow-md transition hover:bg-[#2d66d6]"
     >
-      📥 Télécharger le guide (PDF, ~49 Ko)
+      📥 Télécharger le pack PDF (~400&nbsp;Ko, 52 pages)
     </a>
   );
 }

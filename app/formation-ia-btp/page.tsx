@@ -568,8 +568,8 @@ export default function FormationIaBtpPillarPage() {
         <section id="a-propos" className="not-prose mt-16 scroll-mt-24 space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
-            Laure Olivié est la <strong>formatrice IA de référence pour les professionnels du BTP en France</strong>.
-            Elle a créé OFC Création d&apos;Entreprise (certifié Qualiopi, SIRET 905 244 281 00010) avec une conviction
+            Laure Olivié est <strong>formatrice IA et ChatGPT pour le BTP</strong> et fondatrice d&apos;OFC Création
+            d&apos;Entreprise (certifié Qualiopi, SIRET 905 244 281 00010). Elle porte une conviction
             : l&apos;intelligence artificielle peut transformer le quotidien des PME du bâtiment — à condition d&apos;être
             enseignée avec le bon vocabulaire, les bons exemples et les bons cas d&apos;usage.
           </p>

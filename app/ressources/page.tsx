@@ -35,7 +35,7 @@ const collectionJsonLd = {
     itemListElement: TUTOS.map((t, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      url: `${SITE_CONFIG.url.replace(/\/$/, '')}/ressources/${t.slug}`,
+      url: `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.ressources}/${t.slug}`,
       name: t.title,
     })),
   },
@@ -47,7 +47,7 @@ export default function RessourcesIndexPage() {
       <JsonLd id="schema-ressources-collection" schema={collectionJsonLd} />
 
       <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-6xl px-4 pb-12 pt-10 md:pb-16 md:pt-14">
+        <div className="mx-auto max-w-7xl px-4 pb-12 pt-10 md:pb-16 md:pt-14">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
             Tutos & Guides offerts
           </p>
@@ -79,6 +79,12 @@ export default function RessourcesIndexPage() {
               Guide 1er Skill IA
             </Link>
             <Link
+              href={LINKS.ressourcesTutos}
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
+            >
+              Index liste des tutos PDF
+            </Link>
+            <Link
               href={LINKS.blog}
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
             >
@@ -97,11 +103,11 @@ export default function RessourcesIndexPage() {
       </section>
 
       <section className="bg-[#F8FAFC] py-14 md:py-20">
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {TUTOS.map((tuto) => {
-              const tutoUrl = `/ressources/${tuto.slug}`;
-              const pdfUrl = `/ressources/pdf/${tuto.pdfFile}`;
+              const tutoUrl = `${LINKS.ressources}/${tuto.slug}`;
+              const pdfUrl = `${LINKS.ressources}/pdf/${tuto.pdfFile}`;
               return (
                 <article
                   key={tuto.slug}

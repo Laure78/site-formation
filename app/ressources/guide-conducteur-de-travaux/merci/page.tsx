@@ -2,13 +2,14 @@ import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { LINKS } from '@/lib/internal-links';
 import { MerciSkillIaDownload } from '@/components/ressources/MerciSkillIaDownload';
 
 export const metadata = createPageMetadata({
   title: 'Merci — votre guide Skill IA est prêt',
   description:
     'Téléchargez votre guide PDF « Créez votre 1er Skill IA » pour conducteurs de travaux BTP.',
-  path: '/ressources/skill-ia-conducteur-travaux/merci',
+  path: '/ressources/guide-conducteur-de-travaux/merci',
   robots: { index: false, follow: false },
   appendAuthorSuffix: false,
 });
@@ -57,7 +58,7 @@ export default function MerciSkillIaPage() {
       </section>
 
       <p className="mt-10 text-sm text-slate-500">
-        <Link href="/ressources/skill-ia-conducteur-travaux" className="text-[#377CF3] hover:underline">
+        <Link href={LINKS.skillIaConducteurTravaux} className="text-[#377CF3] hover:underline">
           Retour au guide
         </Link>
         {' · '}

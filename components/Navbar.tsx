@@ -172,12 +172,20 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
       icon: Sparkles,
     },
   ];
-  const tutoLinks: MegaLink[] = TUTOS.map((t) => ({
-    href: `/ressources/${t.slug}`,
-    label: t.shortTitle,
-    description: `Tuto PDF · ${t.totalTimeMinutes} min`,
-    icon: Sparkles,
-  }));
+  const tutoLinks: MegaLink[] = [
+    {
+      href: LINKS.ressourcesTutos,
+      label: 'Index de tous les tutos',
+      description: `${TUTOS.length} parcours — liste web + PDF`,
+      icon: Layers,
+    },
+    ...TUTOS.map((t) => ({
+      href: `${LINKS.ressources}/${t.slug}`,
+      label: t.shortTitle,
+      description: `Tuto PDF · ${t.totalTimeMinutes} min`,
+      icon: Sparkles,
+    })),
+  ];
   const otherLinks: MegaLink[] = [
     {
       href: LINKS.skillIaConducteurTravaux,
@@ -775,11 +783,28 @@ export function Navbar() {
                   <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Tutos
                   </p>
+                  <Link
+                    href={LINKS.ressourcesTutos}
+                    onClick={() => setMobileOpen(false)}
+                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
+                      isActive(LINKS.ressourcesTutos, pathname)
+                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                        : 'text-slate-800'
+                    }`}
+                  >
+                    <Layers size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Index de tous les tutos</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">
+                        {TUTOS.length} parcours — pages + PDF
+                      </span>
+                    </span>
+                  </Link>
                   <ul className="space-y-0.5">
                     {TUTOS.map((tuto) => (
                       <li key={tuto.slug}>
                         <Link
-                          href={`/ressources/${tuto.slug}`}
+                          href={`${LINKS.ressources}/${tuto.slug}`}
                           onClick={() => setMobileOpen(false)}
                           className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
                         >

@@ -7,7 +7,7 @@ import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 
 const PATH = '/guide-skill-ia-conducteur-travaux';
-const RESOURCE_PATH = '/ressources/skill-ia-conducteur-travaux';
+const RESOURCE_PATH = '/ressources/guide-conducteur-de-travaux';
 
 export const metadata: Metadata = {
   title: 'Tutoriel Skill IA conducteur de travaux BTP | Laure Olivié',

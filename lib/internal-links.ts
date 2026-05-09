@@ -92,11 +92,15 @@ export const LINKS = {
   etudesCas: '/etudes-de-cas/ffb-csfe',
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
   /** Lead magnet — Guide PDF Skill IA conducteur de travaux */
-  skillIaConducteurTravaux: '/ressources/skill-ia-conducteur-travaux',
+  skillIaConducteurTravaux: '/ressources/guide-conducteur-de-travaux',
+  /** PDF gratuit — Pack conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
+  pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
-  /** Hub Ressources — index tutos OFC */
+  /** Hub Ressources — index général (tutos, guides…) */
   ressources: '/ressources',
+  /** Index listing — tous les tutos PDF Claude & IA BTP */
+  ressourcesTutos: '/ressources/tutos',
   /** Tutos Ressources OFC — pages individuelles */
   tutoMemoireTechnique: '/ressources/tuto-memoire-technique',
   tutoAnalyseDce: '/ressources/tuto-analyse-dce',

@@ -138,7 +138,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   temoignages: [
     {
       text: `On cherchait un format court sans bullshit tech. En quatre heures, on a posé des prompts sur nos vrais modèles de devis : le gain a été visible dès la semaine suivante sur les relances clients.`,
-      attribution: `Dirigeant, entreprise de second œuvre — périphérie de Versailles (${SOCIAL_PROOF.AVERAGE_RATING}/5 à chaud)`,
+      attribution: `Dirigeant, entreprise de second œuvre — périphérie de Versailles (${SOCIAL_PROOF.AVERAGE_RATING} à chaud)`,
     },
     {
       text: `Nos conducteurs de travaux traînaient les comptes rendus. La méthode dictée → structuration avec relecture humaine nous a permis de fermer le sujet sans recruter.`,

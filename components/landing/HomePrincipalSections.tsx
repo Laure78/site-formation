@@ -39,7 +39,7 @@ const cards = [
   {
     href: LINKS.aPropos,
     title: 'À propos',
-    desc: `Laure Olivié — ${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}/5`,
+    desc: `Laure Olivié — ${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}`,
     Icon: User,
   },
   {

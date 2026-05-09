@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Download, Sparkles } from 'lucide-react';
 import { SKILL_IA_LEAD_MAGNET } from '@/lib/lead-magnet-skill-ia';
+import { LINKS } from '@/lib/internal-links';
 
 type Props = {
   title?: string;
@@ -14,7 +15,7 @@ type Props = {
 export function LeadMagnetCTA({
   title = 'Créez votre 1er Skill IA en 30 min',
   description = 'Tutoriel + 5 cas d’usage BTP + template prêt à copier-coller.',
-  href = '/ressources/skill-ia-conducteur-travaux',
+  href = LINKS.skillIaConducteurTravaux,
 }: Props) {
   return (
     <aside

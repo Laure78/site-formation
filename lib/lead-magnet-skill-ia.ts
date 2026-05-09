@@ -1,10 +1,12 @@
-/** Lead magnet PDF — Skill IA conducteur de travaux (URL publique + tag analytics) */
+import { LINKS } from '@/lib/internal-links';
+
+/** Lead magnet PDF — Pack conducteur de travaux OFC (URL publique + tag analytics) */
 export const SKILL_IA_LEAD_MAGNET = {
-  pdfPublicPath: '/leadmagnets/Guide_1er_Skill_IA_Conducteur_Travaux_OFC.pdf',
-  fileName: 'Guide_1er_Skill_IA_Conducteur_Travaux_OFC.pdf',
+  pdfPublicPath: LINKS.pdfPackConducteurTravauxOfc,
+  fileName: 'Pack_CDT_OFC.pdf',
   tag: 'leadmagnet-skill-ia-conducteur-travaux',
-  landingPath: '/ressources/skill-ia-conducteur-travaux',
-  merciPath: '/ressources/skill-ia-conducteur-travaux/merci',
+  landingPath: '/ressources/guide-conducteur-de-travaux',
+  merciPath: '/ressources/guide-conducteur-de-travaux/merci',
 } as const;
 
 /** Articles MDX où afficher l’encart CTA (SEO / GEO). */

@@ -4,7 +4,7 @@
 
 ## À propos
 
-Laure Olivié est la formatrice IA de référence pour le BTP en France. Avec plus de 10 ans d'expérience en conduite de chantier dans les travaux publics, elle a pivoté vers la formation à l'intelligence artificielle générative pour les professionnels du bâtiment. Son organisme OFC Création d'Entreprise (certifié Qualiopi) forme dirigeants de PME, conducteurs de travaux, équipes administratives et chargés d'affaires à utiliser ChatGPT, Claude AI et Gemini sur leurs cas réels : rédaction de devis, mémoires techniques, comptes rendus de chantier, emails, analyse de dossiers d'appels d'offres.
+Laure Olivié est formatrice IA et ChatGPT pour le BTP. Avec plus de 10 ans d'expérience en conduite de chantier dans les travaux publics, elle a pivoté vers la formation à l'intelligence artificielle générative pour les professionnels du bâtiment. Son organisme OFC Création d'Entreprise (certifié Qualiopi) forme dirigeants de PME, conducteurs de travaux, équipes administratives et chargés d'affaires à utiliser ChatGPT, Claude AI et Gemini sur leurs cas réels : rédaction de devis, mémoires techniques, comptes rendus de chantier, emails, analyse de dossiers d'appels d'offres.
 
 ## Expertise
 
@@ -71,8 +71,9 @@ Laure Olivié est la formatrice IA de référence pour le BTP en France. Avec pl
 - https://laureolivie.fr/blog — Articles et guides IA BTP
 - https://laureolivie.fr/diagnostic-ia-btp — Diagnostic gratuit
 - https://laureolivie.fr/checklist-ia-btp — Checklist 10 prompts
-- https://laureolivie.fr/ressources/skill-ia-conducteur-travaux — Guide PDF Skill IA
+- https://laureolivie.fr/ressources/guide-conducteur-de-travaux — Pack PDF CDT : 6 tutos Claude (DCE, PPSPS, CR, constat retard, PV réserves, DOE) téléchargeables sans inscription ; article blog détaillé en complément.
 - https://laureolivie.fr/ressources — Hub Ressources gratuites IA BTP
+- https://laureolivie.fr/ressources/tutos — Index de tous les tutos PDF (pages web + téléchargements)
 
 ## Ressources gratuites — tutos PDF Claude / IA pour le BTP
 

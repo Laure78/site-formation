@@ -94,7 +94,7 @@ const HAS_PART = [
     '@id': `${base}/a-propos#webpage`,
     url: `${base}/a-propos`,
     name: 'À propos',
-    description: 'Formatrice IA référence BTP en France',
+    description: 'Formatrice IA & ChatGPT pour le BTP — Qualiopi, OFC Création d’Entreprise',
   },
   {
     '@type': 'WebPage',
@@ -107,7 +107,7 @@ const HAS_PART = [
 
 export function buildGlobalSitelinksGraphJsonLd(): Record<string, unknown> {
   const pros = formatProfessionalsTrainedCount();
-  const desc = `Formation IA et ChatGPT pour le BTP par Laure Olivié. Qualiopi, finançable Constructys. ${pros} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}/5.`;
+  const desc = `Formation IA et ChatGPT pour le BTP par Laure Olivié. Qualiopi, finançable Constructys. ${pros} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`;
 
   const webSite = {
     '@type': 'WebSite',

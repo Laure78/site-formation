@@ -1,6 +1,6 @@
 # Architecture SEO & GEO — laureolivie.fr — Plateforme média IA BTP
 
-Objectif : positionner laureolivie.fr comme **référence en France** sur l’IA pour la construction, artisans, PME et formations professionnelles.
+Objectif : renforcer la visibilité de laureolivie.fr sur l’IA pour la construction, artisans, PME et formations professionnelles (contenu utile, données structurées, maillage interne).
 
 ---
 

@@ -85,9 +85,10 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/formation-ia-travaux-publics', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/financement-constructys-100-ia-btp', priority: 0.88, changeFrequency: 'monthly' },
     { path: '/ressources', priority: 0.92, changeFrequency: 'weekly' },
+    { path: '/ressources/tutos', priority: 0.91, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
-    { path: '/ressources/skill-ia-conducteur-travaux', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/ressources/guide-conducteur-de-travaux', priority: 0.9, changeFrequency: 'weekly' },
     {
       path: '/formation-ia-btp-ile-de-france',
       priority: 0.9,
