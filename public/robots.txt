@@ -1,0 +1,41 @@
+# robots.txt — laureolivie.fr
+# Autorise les moteurs de recherche classiques et tous les bots IA pour le GEO.
+
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Bloquer uniquement les chemins techniques inutiles
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://www.laureolivie.fr/sitemap.xml

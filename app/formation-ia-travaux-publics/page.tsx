@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import {
   Sparkles,
   Route,
@@ -361,7 +361,7 @@ export default function FormationIATravauxPublicsLandingPage() {
                 { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
                 { href: '/formations/ia-appels-offre-btp', label: "IA appels d'offres BTP" },
                 { href: '/blog', label: 'Blog IA BTP' },
-                { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+                { href: buildSiteCalendlyCtaUrl('formation-ia-travaux-publics-footer-rdv'), label: 'Prendre rendez-vous' },
               ]}
             />
           </div>

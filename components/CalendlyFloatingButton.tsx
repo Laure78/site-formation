@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Calendar } from 'lucide-react';
-import { buildCalendlyUrlWithUtm } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 
 /**
@@ -21,11 +21,7 @@ export function CalendlyFloatingButton() {
     ? 'bottom-32 right-6 md:bottom-28'
     : 'bottom-24 right-6';
 
-  const href = buildCalendlyUrlWithUtm({
-    utmSource: 'site',
-    utmMedium: 'cta',
-    utmCampaign: 'floating-button',
-  });
+  const href = buildSiteCalendlyCtaUrl('footer-floating-button');
 
   return (
     <a

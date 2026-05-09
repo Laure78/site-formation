@@ -3,7 +3,7 @@
  * Anchors optimisés par mot-clé cible
  */
 
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 
@@ -17,7 +17,7 @@ export const INTERNAL_LINKS = {
   },
   /** Prise de RDV — lien direct Calendly (nouvel onglet côté UI) */
   prendreRdv: {
-    path: CALENDLY_BOOKING_URL,
+    path: buildSiteCalendlyCtaUrl('maillage-seo-prendre-rdv'),
     anchors: ['prendre rendez-vous', 'réserver un RDV gratuit', 'devis personnalisé formation'],
   },
   chatgptArtisans: {

@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import {
   EFFECTIF_GROUPE_MAX,
@@ -45,7 +45,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
     price: String(TARIF_FORFAIT_AVANCE_HT),
     priceCurrency: 'EUR',
     availability: 'https://schema.org/InStock',
-    url: CALENDLY_BOOKING_URL,
+    url: buildSiteCalendlyCtaUrl('formation-ia-assistante-gestion-btp-schema-offer'),
   },
   timeRequired: 'PT4H',
   educationalLevel: 'Advanced',
@@ -352,7 +352,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
               Réservez votre diagnostic IA back-office gratuit — 30 minutes en visio.
             </p>
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl('formation-ia-assistante-gestion-btp-contact-rdv-page-calendly')}
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"

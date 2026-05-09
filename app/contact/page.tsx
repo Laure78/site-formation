@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -280,7 +280,7 @@ export default async function ContactPage({
                 links={[
                   { href: '/formations', label: 'Formation IA BTP' },
                   { href: '/formation-ia-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
-                  { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous pour un diagnostic' },
+                  { href: buildSiteCalendlyCtaUrl('contact-footer-rdv-diagnostic'), label: 'Prendre rendez-vous pour un diagnostic' },
                 ]}
               />
             </div>

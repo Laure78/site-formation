@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ExternalLink } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -282,7 +282,7 @@ export default function FormationIAAppelsOffresBTPPage() {
             <blockquote className="mt-8 rounded-xl border-l-4 border-[var(--accent)] bg-slate-50 px-5 py-4 text-slate-800">
               <p className="font-semibold">Réservez votre diagnostic IA BTP gratuit — 30 minutes en visio.</p>
               <a
-                href={CALENDLY_BOOKING_URL}
+                href={buildSiteCalendlyCtaUrl('formation-ia-appels-offres-btp-contact-rdv-page-calendly')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 inline-flex items-center gap-1 font-medium text-[var(--accent)] hover:underline"
@@ -659,7 +659,7 @@ export default function FormationIAAppelsOffresBTPPage() {
               label: 'Article : analyser un CCTP avec l’IA (méthode)',
             },
             { href: '/blog/ia-analyse-cctp-methode', label: 'Article : analyser un CCTP avec l’IA' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formation-ia-appels-offres-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/formations', label: 'Catalogue formations' },
           ]}

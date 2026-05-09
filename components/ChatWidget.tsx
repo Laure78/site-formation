@@ -4,7 +4,9 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { SUGGESTED_QUESTIONS } from '@/lib/agent/suggestions';
 import { SITE_CONFIG } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+
+const CHAT_WIDGET_CALENDLY = buildSiteCalendlyCtaUrl('chat-widget-rdv');
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -36,7 +38,7 @@ interface Message {
 }
 
 const CTAS = [
-  { label: 'Prendre rendez-vous', href: CALENDLY_BOOKING_URL, intent: 'rdv' as const },
+  { label: 'Prendre rendez-vous', href: CHAT_WIDGET_CALENDLY, intent: 'rdv' as const },
   { label: 'Recevoir le programme', intent: 'programme' as const },
   { label: 'Être recontacté', intent: 'recontact' as const },
 ];
@@ -128,7 +130,7 @@ export function ChatWidget() {
       }),
     });
     window.location.href =
-      cta.intent === 'programme' ? '/contact' : CALENDLY_BOOKING_URL;
+      cta.intent === 'programme' ? '/contact' : CHAT_WIDGET_CALENDLY;
   };
 
   return (

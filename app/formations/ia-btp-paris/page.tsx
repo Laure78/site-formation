@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -253,7 +253,7 @@ export default function FormationIABTPParisPage() {
               { href: '/formations', label: 'Catalogue des formations IA BTP' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+              { href: buildSiteCalendlyCtaUrl('formations-ia-btp-paris-footer-rdv'), label: 'Prendre rendez-vous' },
             ]}
           />
         </div>

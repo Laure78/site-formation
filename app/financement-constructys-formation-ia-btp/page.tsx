@@ -7,7 +7,7 @@ import {
   ExternalLink,
   ListOrdered,
 } from 'lucide-react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { JsonLd } from '@/components/JsonLd';
@@ -142,7 +142,7 @@ export default function FinancementConstructysFormationIABTPPage() {
           </p>
         }
         primaryCta={{ href: '/contact', label: 'Demander un devis', external: false }}
-        secondaryCta={{ href: CALENDLY_BOOKING_URL, label: 'Réserver un RDV', external: true }}
+        secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-hero-secondary-rdv'), label: 'Réserver un RDV', external: true }}
         credibilityLine={
           <span className="text-white/85">
             {formatProfessionalsTrainedCount()} formés · 92 % de dossiers acceptés au 1<sup>er</sup> dépôt ·{' '}
@@ -555,7 +555,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               title="Demandez votre devis + accompagnement dossier gratuit"
               description="Décrivez votre projet et recevez un devis adapté. Nous vous accompagnons pour le volet financement Constructys sans surcoût caché sur votre demande de prise en charge."
               primaryCta={{ href: '/contact', label: 'Demander un devis', external: false }}
-              secondaryCta={{ href: CALENDLY_BOOKING_URL, label: 'Réserver un rendez-vous', external: true }}
+              secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-bloc-secondary-rdv'), label: 'Réserver un rendez-vous', external: true }}
             />
           </article>
         </div>
@@ -577,7 +577,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                 { href: '/formation-ia-travaux-publics', label: 'IA travaux publics' },
                 { href: LINKS.skillIaConducteurTravaux, label: 'Guide Skill IA (PDF)' },
                 { href: '/blog', label: 'Tous les articles' },
-                { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+                { href: buildSiteCalendlyCtaUrl('financement-constructys-formation-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
               ]}
             />
           </div>

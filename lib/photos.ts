@@ -26,7 +26,7 @@ export const PHOTOS = {
     height: 509,
   },
 
-  // Photo auteur blog — bloc « À propos de l'auteure » (ArticleAuthor)
+  // Photo legacy — bloc auteur précédent ; le composant `@/components/AuthorBio` utilise `siteAvatar`.
   linkedinGraz: {
     src: '/images/laure-olivie-linkedin-graz.png',
     alt: 'Laure Olivié, formatrice IA BTP — auteure articles intelligence artificielle bâtiment',

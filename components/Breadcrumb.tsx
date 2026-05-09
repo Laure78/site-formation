@@ -1,64 +1,139 @@
-import Link from 'next/link';
-import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
-import { type BreadcrumbListItem } from '@/lib/seo';
+'use client';
 
-export type BreadcrumbItem = BreadcrumbListItem;
+import Script from 'next/script';
+import Link from 'next/link';
+import {
+  buildBreadcrumbListJsonLd,
+  siteAbsoluteUrl,
+  type BreadcrumbListItem,
+} from '@/lib/seo';
+
+/** Chemins relatifs (slug) — template page intérieure. */
+export type BreadcrumbHrefEntry = { label: string; href: string };
+
+/** URLs absolues Schema.org — même forme que `breadcrumbItemsFromPaths`. */
+export type BreadcrumbCanonicalEntry = BreadcrumbListItem;
+
+export type BreadcrumbItemProp = BreadcrumbHrefEntry | BreadcrumbCanonicalEntry;
 
 export type BreadcrumbProps = {
-  items: BreadcrumbItem[];
-  /** id du script JSON-LD */
+  items: BreadcrumbItemProp[];
+  /** id du bloc JSON-LD (éviter les doublons sur une même page). */
   jsonLdId?: string;
-  /** Affiche le fil d'Ariane (HTML + liens internes) */
   showVisual?: boolean;
   className?: string;
-  /** Si true, pas de script JSON-LD (ex. JSON-LD déjà fourni par `<BreadcrumbJsonLd />`) */
+  /** Si true : pas de `<Script>` JSON-LD (ex. `BreadcrumbJsonLd` à part). */
   omitJsonLd?: boolean;
 };
 
-function hrefFromCanonicalUrl(canonicalUrl: string): string {
+function isHrefEntry(item: BreadcrumbItemProp): item is BreadcrumbHrefEntry {
+  return (
+    'href' in item &&
+    'label' in item &&
+    typeof (item as BreadcrumbHrefEntry).href === 'string' &&
+    typeof (item as BreadcrumbHrefEntry).label === 'string'
+  );
+}
+
+function pathnameFromCanonicalUrl(url: string): string {
   try {
-    const u = new URL(canonicalUrl);
-    return `${u.pathname}${u.search}${u.hash}`;
+    const u = new URL(url);
+    const path = `${u.pathname}${u.search}${u.hash}`;
+    return path || '/';
   } catch {
     return '/';
   }
 }
 
+function normalizeTrail(items: BreadcrumbItemProp[]): {
+  label: string;
+  href: string;
+  absoluteUrl: string;
+}[] {
+  return items.map((item) => {
+    if (isHrefEntry(item)) {
+      const href = item.href.startsWith('/') ? item.href : `/${item.href}`;
+      return {
+        label: item.label.trim(),
+        href,
+        absoluteUrl: siteAbsoluteUrl(href),
+      };
+    }
+    const href = pathnameFromCanonicalUrl(item.url);
+    return {
+      label: item.name.trim(),
+      href,
+      absoluteUrl: item.url,
+    };
+  });
+}
+
+function schemaScriptId(
+  jsonLdId: string | undefined,
+  trail: ReturnType<typeof normalizeTrail>
+): string {
+  if (jsonLdId?.trim()) return jsonLdId.trim();
+  const slug = trail
+    .map((t) => t.href.replace(/\//g, '_').replace(/^_|_$/g, ''))
+    .filter(Boolean)
+    .join('_')
+    .slice(0, 100);
+  return slug ? `breadcrumb-schema-${slug}` : 'breadcrumb-schema-root';
+}
+
+function inferDefaultShowVisual(items: BreadcrumbItemProp[]): boolean {
+  if (!items.length) return false;
+  return isHrefEntry(items[0]);
+}
+
 /**
- * Fil d'Ariane : JSON-LD BreadcrumbList + option visuelle.
- * La home (/) n'utilise pas ce composant.
+ * Fil d’Ariane visuel + JSON-LD `BreadcrumbList` (`next/script`).
+ *
+ * - `{ label, href }` : chemins relatifs (ex. `'/'`, `/formations`).
+ * - `{ name, url }` : URLs absolues (rétrocompatibilité `breadcrumbItemsFromPaths`).
  */
 export function Breadcrumb({
   items,
-  jsonLdId = 'schema-breadcrumb',
-  showVisual = false,
+  jsonLdId,
+  showVisual: showVisualProp,
   className,
   omitJsonLd = false,
 }: BreadcrumbProps) {
   if (items.length === 0) return null;
+
+  const trail = normalizeTrail(items);
+  const listForSchema: BreadcrumbListItem[] = trail.map((t) => ({
+    name: t.label,
+    url: t.absoluteUrl,
+  }));
+
+  const schema = buildBreadcrumbListJsonLd(listForSchema);
+  const scriptId = schemaScriptId(jsonLdId, trail);
+  const showVisual = showVisualProp ?? inferDefaultShowVisual(items);
+
   return (
     <>
-      {!omitJsonLd && <BreadcrumbJsonLd id={jsonLdId} items={items} />}
-      {showVisual && (
-        <nav aria-label="Fil d'Ariane" className={className}>
-          <ol className="flex flex-wrap items-center gap-1 text-sm text-slate-600">
-            {items.map((item, i) => {
-              const isLast = i === items.length - 1;
-              const href = hrefFromCanonicalUrl(item.url);
+      {showVisual ? (
+        <nav
+          aria-label="Fil d'Ariane"
+          className={className ?? 'mb-4 text-sm text-slate-600'}
+        >
+          <ol className="flex flex-wrap items-center gap-2">
+            {trail.map((item, index) => {
+              const isLast = index === trail.length - 1;
               return (
-                <li key={`bc-${i}-${item.name}`} className="flex items-center gap-1">
-                  {i > 0 && (
-                    <span aria-hidden className="text-slate-400">
-                      /
-                    </span>
-                  )}
+                <li key={`${item.href}-${index}`} className="flex items-center gap-2">
+                  {index > 0 ? <span aria-hidden>/</span> : null}
                   {isLast ? (
                     <span className="font-medium text-slate-900" aria-current="page">
-                      {item.name}
+                      {item.label}
                     </span>
                   ) : (
-                    <Link href={href} className="text-[var(--accent)] hover:underline">
-                      {item.name}
+                    <Link
+                      href={item.href}
+                      className="text-[var(--accent)] underline hover:text-[#377CF3]"
+                    >
+                      {item.label}
                     </Link>
                   )}
                 </li>
@@ -66,7 +141,17 @@ export function Breadcrumb({
             })}
           </ol>
         </nav>
-      )}
+      ) : null}
+
+      {!omitJsonLd ? (
+        <Script
+          id={scriptId}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ) : null}
     </>
   );
 }
+
+export default Breadcrumb;

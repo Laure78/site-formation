@@ -3,10 +3,12 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CourseSchema } from '@/components/seo/CourseSchema';
+import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -29,10 +31,15 @@ const LMS_SLUG = 'formation-ia-sensibilisation-prompt-engineering-assistants';
 const PDF_HREF =
   '/formations/pitel-ia-sensibilisation-prompts-assistants/PITEL_Formation_IA_Modules1et2.pdf';
 
+const PAGE_META_DESCRIPTION = `Sensibilisation IA BTP et bâtiment : prompts métier, assistants IA, usages terrain. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Ressources LMS. Qualiopi, Constructys.`;
+
+const CATALOG_ENTRY_BTP05 = getFormationCatalogEntryByPath(
+  '/formations/sensibilisation-ia-assistants-personnalises'
+)!;
+
 export const metadata = createPageMetadata({
   title: "Sensibilisation à l'IA & assistants personnalisés — Formation LMS BTP",
-  description:
-    `Sensibilisation IA BTP et bâtiment : prompts métier, assistants IA, usages terrain. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Ressources LMS. Qualiopi, Constructys.`,
+  description: PAGE_META_DESCRIPTION,
   path: '/formations/sensibilisation-ia-assistants-personnalises',
   keywords: [
     'sensibilisation IA BTP',
@@ -122,17 +129,22 @@ export default function SensibilisationIAAssistantsPage() {
 
   return (
     <div>
-      <CourseSchema
-        name="Sensibilisation IA et assistants personnalisés (BTP-05)"
-        description={`Sensibilisation IA BTP et bâtiment : prompts métier, assistants IA, usages terrain.`}
-        url="https://laureolivie.fr/formations/sensibilisation-ia-assistants-personnalises"
-        duration="PT4H"
-        price={100}
-        level="Beginner"
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        breadcrumb={
+          <Breadcrumb
+            jsonLdId="schema-breadcrumb-formation-sensibilisation-assistants"
+            items={[
+              { label: 'Accueil', href: '/' },
+              { label: 'Formations', href: '/formations' },
+              {
+                label: "Sensibilisation à l'IA & Assistants IA personnalisés",
+                href: '/formations/sensibilisation-ia-assistants-personnalises',
+              },
+            ]}
+          />
+        }
         refLine={`Session ${SESSION_DUREE_LIBELLE} · Débutant · BTP-05 · LMS en prolongement`}
         title={"Sensibilisation à l'IA & Assistants IA personnalisés"}
         subtitle="Prompts par métier, assistants sur mesure — aligné sur le socle « IA au service du bâtiment »"
@@ -316,12 +328,14 @@ export default function SensibilisationIAAssistantsPage() {
           links={[
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formations-sensibilisation-ia-assistants-personnalises-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
       </div>
       </div>
+
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP05} pageDescription={PAGE_META_DESCRIPTION} />
     </div>
   );
 }

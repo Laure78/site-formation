@@ -7,12 +7,27 @@ type RdvLinkProps = Omit<
 > & {
   page?: string;
   ctaPosition?: 'hero' | 'middle' | 'footer' | 'inline' | 'unknown';
+  /** Nom explicite pour utm_campaign (recommandé sur chaque emplacement). */
+  campaign?: string;
 };
 
 /** Lien vers la prise de RDV Calendly (nouvel onglet). */
-export function RdvLink({ className, children, page, ctaPosition = 'unknown', ...rest }: RdvLinkProps) {
+export function RdvLink({
+  className,
+  children,
+  page,
+  ctaPosition = 'unknown',
+  campaign,
+  ...rest
+}: RdvLinkProps) {
   return (
-    <CTACalendly className={className} page={page} ctaPosition={ctaPosition} {...rest}>
+    <CTACalendly
+      className={className}
+      page={page}
+      ctaPosition={ctaPosition}
+      utmCampaign={campaign}
+      {...rest}
+    >
       {children}
     </CTACalendly>
   );

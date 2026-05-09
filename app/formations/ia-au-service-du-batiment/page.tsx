@@ -23,7 +23,8 @@ import {
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CourseSchema } from '@/components/seo/CourseSchema';
+import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
+import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -44,9 +45,11 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
+
+const CATALOG_ENTRY_BTP01 = getFormationCatalogEntryByPath('/formations/ia-au-service-du-batiment')!;
 
 /** Title ≤ 60 car. — requête « formation IA bâtiment » */
 const SEO_TITLE =
@@ -240,22 +243,19 @@ const PUBLIC_CIBLE = [
 export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
-      <CourseSchema
-        name="L'IA au service du bâtiment (BTP-01)"
-        description={SEO_DESCRIPTION}
-        url="https://laureolivie.fr/formations/ia-au-service-du-batiment"
-        duration="PT4H"
-        price={100}
-        level="Beginner"
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
         breadcrumb={
-          <Breadcrumbs
+          <Breadcrumb
+            jsonLdId="schema-breadcrumb-formation-ia-au-service-du-batiment"
             items={[
+              { label: 'Accueil', href: '/' },
               { label: 'Formations', href: '/formations' },
-              { label: 'IA au service du bâtiment' },
+              {
+                label: "L'IA au service du bâtiment",
+                href: '/formations/ia-au-service-du-batiment',
+              },
             ]}
           />
         }
@@ -783,6 +783,8 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
         </div>
       </section>
+
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP01} pageDescription={SEO_DESCRIPTION} />
     </div>
   );
 }

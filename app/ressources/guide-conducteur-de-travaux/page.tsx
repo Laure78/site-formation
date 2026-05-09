@@ -5,7 +5,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { SkillIaLeadMagnetForm } from '@/components/ressources/SkillIaLeadMagnetForm';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
@@ -454,7 +454,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl('ressources-guide-conducteur-de-travaux-contact-rdv-page-calendly')}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] shadow-sm hover:bg-[#F2F2F2]"

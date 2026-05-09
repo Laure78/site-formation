@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Check, Calendar, Download, FileText } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
@@ -180,7 +180,7 @@ export default function FinancementConstructys100IABTPPage() {
               { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+              { href: buildSiteCalendlyCtaUrl('financement-constructys-100-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
               { href: '/blog', label: 'Articles sur le financement' },
             ]}
           />

@@ -35,26 +35,49 @@ export function buildCalendlyUrlWithUtm({
   return u.href;
 }
 
-/** UTM catalogue — page /formations et cartes (ne pas modifier l’URL de base Calendly). */
+/** Lien Calendly site — utm_source=site, utm_medium=cta, campagne explicite. */
+export function buildSiteCalendlyCtaUrl(campaign: string): string {
+  return buildCalendlyUrlWithUtm({
+    utmSource: 'site',
+    utmMedium: 'cta',
+    utmCampaign: campaign,
+  });
+}
+
+/** Indique si l’URL pointe vers la page événement de réservation (sans tenir compte des query params). */
+export function isCalendlyBookingHref(href: string): boolean {
+  try {
+    const u = new URL(href);
+    const base = new URL(CALENDLY_BOOKING_URL);
+    return (
+      u.hostname === base.hostname &&
+      u.pathname.replace(/\/$/, '') === base.pathname.replace(/\/$/, '')
+    );
+  } catch {
+    return false;
+  }
+}
+
+/** UTM catalogue — aligné maillage site (utm_source=site). */
 export function calendlyCatalogueUrl(utmCampaign: string): string {
-  const u = new URL(CALENDLY_BOOKING_URL);
-  u.searchParams.set('utm_source', 'catalogue');
-  u.searchParams.set('utm_campaign', utmCampaign);
-  return u.href;
+  return buildSiteCalendlyCtaUrl(utmCampaign);
 }
 
 /** Page pilier /claude-ai-btp — tracking Calendly (hero vs bloc conversion). */
-export function calendlyClaudeBtpGuideUrl(campaign: 'hero' | 'bottom-cta'): string {
-  const u = new URL(CALENDLY_BOOKING_URL);
-  u.searchParams.set('utm_source', 'claude-btp-guide');
-  u.searchParams.set('utm_campaign', campaign);
-  return u.href;
+export function calendlyClaudeBtpGuideUrl(segment: 'hero' | 'bottom-cta'): string {
+  const map = {
+    hero: 'claude-btp-guide-hero',
+    'bottom-cta': 'claude-btp-guide-fin',
+  } as const;
+  return buildSiteCalendlyCtaUrl(map[segment]);
 }
 
 /** Page /a-propos — tracking Calendly (hero, approche, CTA final). */
-export function calendlyAboutUrl(campaign: 'hero' | 'approach' | 'bottom-cta'): string {
-  const u = new URL(CALENDLY_BOOKING_URL);
-  u.searchParams.set('utm_source', 'about');
-  u.searchParams.set('utm_campaign', campaign);
-  return u.href;
+export function calendlyAboutUrl(section: 'hero' | 'approach' | 'bottom-cta'): string {
+  const map = {
+    hero: 'a-propos-hero',
+    approach: 'a-propos-approche',
+    'bottom-cta': 'a-propos-fin',
+  } as const;
+  return buildSiteCalendlyCtaUrl(map[section]);
 }

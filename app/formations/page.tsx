@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import CalendlyButton from '@/components/CalendlyButton';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
 import { FormationsHero } from '@/components/formations/FormationsHero';
@@ -106,7 +107,14 @@ export default function FormationsPage() {
       <FormationsStatsBand />
 
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-10 md:pt-12">
-        <Breadcrumbs items={[{ label: 'Formations', href: '/formations' }]} />
+        <Breadcrumb
+          jsonLdId="schema-breadcrumb-formations-catalogue"
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: 'Formations', href: '/formations' },
+          ]}
+          className="mb-6 text-sm text-slate-600"
+        />
 
         <div className="mt-8 md:mt-10">
           <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
@@ -124,9 +132,9 @@ export default function FormationsPage() {
             12 participants maximum. Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini. Formations en présentiel
             uniquement (sessions inter en Île-de-France, intra dans vos locaux). Méthode 100 % terrain, orientée
             productivité.{' '}
-            <a href={CALENDLY_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-[#377CF3] hover:underline">
+            <CalendlyButton variant="small" campaign="formations-intro-rdv" className="font-medium">
               Prenez rendez-vous
-            </a>{' '}
+            </CalendlyButton>{' '}
             pour un diagnostic personnalisé.
           </p>
         </section>
@@ -236,7 +244,7 @@ export default function FormationsPage() {
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formations-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </div>

@@ -3,7 +3,7 @@ import { Calendar, CheckCircle2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CourseSchema } from '@/components/seo/CourseSchema';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 
 const PATH = '/formation-claude-ai-batiment';
@@ -72,7 +72,7 @@ export default function FormationClaudeAiBatimentPage() {
             accélérer les réponses techniques et mieux exploiter Claude AI sur des dossiers bâtiment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={CALENDLY_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white hover:bg-blue-700">
+            <a href={buildSiteCalendlyCtaUrl('formation-claude-ai-batiment-contact-rdv-page-calendly')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white hover:bg-blue-700">
               <Calendar className="h-4 w-4" />
               Demander un créneau
             </a>

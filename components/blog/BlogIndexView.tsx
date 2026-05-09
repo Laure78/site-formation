@@ -163,6 +163,7 @@ export function BlogIndexView({
           description="Réservez un échange de 30 minutes gratuit pour discuter de votre projet. Formation certifiée Qualiopi · 100% finançable Constructys."
           primaryLabel="Prendre rendez-vous"
           primaryHref={CALENDLY_BOOKING_URL}
+          primaryCalendlyCampaign="blog-index-block-top"
           secondaryLabel="Découvrir les formations"
           secondaryHref="/formations"
         />
@@ -368,6 +369,7 @@ export function BlogIndexView({
           description="Réservez un échange de 30 minutes gratuit. Devis personnalisé sous 24h. Formation 100% finançable Constructys."
           primaryLabel="Prendre rendez-vous"
           primaryHref={CALENDLY_BOOKING_URL}
+          primaryCalendlyCampaign="blog-index-block-bottom"
           secondaryLabel="Voir le financement"
           secondaryHref="/financement-constructys-formation-ia-btp"
         />

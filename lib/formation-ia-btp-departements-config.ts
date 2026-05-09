@@ -4,7 +4,7 @@
  */
 import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
 import type { FAQItem } from '@/lib/faq';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 const OFC = 'OFC Création d\'Entreprise';
@@ -34,7 +34,7 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
     },
     {
       q: 'Combien de temps à l’avance réserver une date ?',
-      a: `Les agendas intra se remplissent souvent 3 à 6 semaines à l'avance en Île-de-France. Pour une date urgente (lancement chantier, montée en compétence avant un marché), indiquez-le lors de la réservation Calendly : ${CALENDLY_BOOKING_URL}.`,
+      a: `Les agendas intra se remplissent souvent 3 à 6 semaines à l'avance en Île-de-France. Pour une date urgente (lancement chantier, montée en compétence avant un marché), indiquez-le lors de la réservation Calendly : ${buildSiteCalendlyCtaUrl('faq-dept-calendly-urgence')}.`,
     },
     {
       q: 'Puis-je combiner deux thèmes (ex. devis + appels d’offres) sur une journée ?',

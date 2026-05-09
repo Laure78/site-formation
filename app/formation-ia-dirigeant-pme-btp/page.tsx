@@ -6,7 +6,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SITE_CONFIG } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
@@ -449,7 +449,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
             { href: '/formations/ia-pme-btp', label: 'Formation IA PME BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/formation-ia-electricien-btp', label: 'Formation IA électricien BTP' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formation-ia-dirigeant-pme-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

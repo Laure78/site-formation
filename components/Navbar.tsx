@@ -18,7 +18,7 @@ import {
   Sparkles,
   Layers,
 } from 'lucide-react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CTACalendly } from '@/components/CTACalendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -58,10 +58,8 @@ const FORMATIONS_MEGA: NavMega = {
 };
 
 /** Calendly — appel découverte (charte : bouton #377CF3) */
-const RDV_CTA = {
-  href: CALENDLY_BOOKING_URL,
-  label: 'Prendre RDV' as const,
-};
+const NAV_RDV_CLASSES =
+  'inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#377cf3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]';
 
 function isActive(href: string, pathname: string) {
   if (href === '/') return pathname === '/';
@@ -212,6 +210,40 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
         </div>
         <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Tutos
+          </p>
+          <ul className="space-y-0.5 pb-2">
+            {tutoLinks.map((link) => {
+              const ItemIcon = link.icon;
+              const linkActive = isActive(link.href, pathname);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                      linkActive
+                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                        : 'text-slate-800 hover:bg-slate-50'
+                    }`}
+                  >
+                    <ItemIcon
+                      size={20}
+                      strokeWidth={1.75}
+                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                      aria-hidden
+                    />
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                      {link.description ? (
+                        <span className="mt-1 block text-xs text-slate-500">{link.description}</span>
+                      ) : null}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
             Blog
           </p>
           <ul className="space-y-0.5 pb-2">
@@ -252,42 +284,6 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
           </p>
           <ul className="space-y-0.5 pb-2">
             {claudeHubLinks.map((link) => {
-              const ItemIcon = link.icon;
-              const linkActive = isActive(link.href, pathname);
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                      linkActive
-                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                        : 'text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <ItemIcon
-                      size={20}
-                      strokeWidth={1.75}
-                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      {link.description ? (
-                        <span className="mt-1 block text-xs text-slate-500">
-                          {link.description}
-                        </span>
-                      ) : null}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Tutos
-          </p>
-          <ul className="space-y-0.5 pb-2">
-            {tutoLinks.map((link) => {
               const ItemIcon = link.icon;
               const linkActive = isActive(link.href, pathname);
               return (
@@ -465,7 +461,7 @@ export function Navbar() {
           </Link>
 
           <nav
-            className="hidden items-center gap-0.5 rounded-full border border-slate-200/80 bg-slate-100/90 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] lg:flex"
+            className="mx-3 hidden min-w-0 flex-1 items-center justify-between gap-1 px-2 sm:gap-2 sm:px-3 rounded-full border border-slate-200/80 bg-slate-100/90 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] lg:flex lg:mx-6"
             aria-label="Navigation principale"
           >
             <Link
@@ -569,14 +565,18 @@ export function Navbar() {
           </nav>
 
           <div className="hidden shrink-0 items-center lg:flex">
-            <a
-              href={RDV_CTA.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#377cf3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]"
+            <CTACalendly
+              ctaPosition="inline"
+              ctaId="nav-rdv-desktop"
+              utmSource="site"
+              utmMedium="cta"
+              utmCampaign="nav-prendre-rdv"
+              page="navbar"
+              unstyled
+              className={NAV_RDV_CLASSES}
             >
-              {RDV_CTA.label}
-            </a>
+              Prendre RDV
+            </CTACalendly>
           </div>
 
           <button
@@ -741,6 +741,45 @@ export function Navbar() {
                     <ArrowRight size={14} />
                   </Link>
                   <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Tutos
+                  </p>
+                  <Link
+                    href={LINKS.ressourcesTutos}
+                    onClick={() => setMobileOpen(false)}
+                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
+                      isActive(LINKS.ressourcesTutos, pathname)
+                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                        : 'text-slate-800'
+                    }`}
+                  >
+                    <Layers size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Index de tous les tutos</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">
+                        {TUTOS.length} parcours — pages + PDF
+                      </span>
+                    </span>
+                  </Link>
+                  <ul className="space-y-0.5">
+                    {TUTOS.map((tuto) => (
+                      <li key={tuto.slug}>
+                        <Link
+                          href={`${LINKS.ressources}/${tuto.slug}`}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
+                        >
+                          <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
+                          <span>
+                            <span className="block text-[0.9375rem]">{tuto.shortTitle}</span>
+                            <span className="mt-0.5 block text-xs text-slate-500">
+                              Tuto PDF · {tuto.totalTimeMinutes} min
+                            </span>
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Blog
                   </p>
                   <Link
@@ -780,45 +819,6 @@ export function Navbar() {
                       </span>
                     </span>
                   </Link>
-                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Tutos
-                  </p>
-                  <Link
-                    href={LINKS.ressourcesTutos}
-                    onClick={() => setMobileOpen(false)}
-                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
-                      isActive(LINKS.ressourcesTutos, pathname)
-                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                        : 'text-slate-800'
-                    }`}
-                  >
-                    <Layers size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Index de tous les tutos</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">
-                        {TUTOS.length} parcours — pages + PDF
-                      </span>
-                    </span>
-                  </Link>
-                  <ul className="space-y-0.5">
-                    {TUTOS.map((tuto) => (
-                      <li key={tuto.slug}>
-                        <Link
-                          href={`${LINKS.ressources}/${tuto.slug}`}
-                          onClick={() => setMobileOpen(false)}
-                          className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                        >
-                          <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                          <span>
-                            <span className="block text-[0.9375rem]">{tuto.shortTitle}</span>
-                            <span className="mt-0.5 block text-xs text-slate-500">
-                              Tuto PDF · {tuto.totalTimeMinutes} min
-                            </span>
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
                   <p className="px-3 pb-2 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Guide conducteurs de travaux
                   </p>
@@ -858,15 +858,19 @@ export function Navbar() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
-              <a
-                href={RDV_CTA.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CTACalendly
+                ctaPosition="inline"
+                ctaId="nav-rdv-mobile"
+                utmSource="site"
+                utmMedium="cta"
+                utmCampaign="nav-prendre-rdv-mobile"
+                page="navbar"
+                unstyled
                 onClick={() => setMobileOpen(false)}
                 className="rounded-full bg-[#377cf3] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform hover:bg-[#2d66d6] active:scale-[0.99]"
               >
-                {RDV_CTA.label}
-              </a>
+                Prendre RDV
+              </CTACalendly>
             </div>
           </nav>
         </div>

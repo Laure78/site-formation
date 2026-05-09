@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { Check, Calendar } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -36,6 +36,9 @@ export function FormationCityPage({
   afterHero,
 }: FormationCityPageProps) {
   const { ville, path, zones, regionLabel } = config;
+  const cityCamp = path.replace(/^\/+|\/$/g, '').replace(/\//g, '-');
+  const diagnosticUrl = buildSiteCalendlyCtaUrl(`${cityCamp}-aller-plus-loin-diagnostic`);
+  const cityFinCtaCampaign = `${cityCamp}-fin-cta`;
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA BTP ${ville}`)}`;
   const summaryVille = [
     `Formation IA BTP à ${ville} — devis, emails, appels d'offres, administratif.`,
@@ -90,7 +93,7 @@ export function FormationCityPage({
         }
         ctas={
           <>
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+            <RdvLink campaign={`${cityCamp}-hero`} className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
               Prendre rendez-vous
             </RdvLink>
             <a
@@ -229,7 +232,7 @@ export function FormationCityPage({
               disponibilité dans votre secteur.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
+              <RdvLink campaign={`${cityCamp}-zones-cta`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
                 <Calendar size={20} strokeWidth={1.5} />
                 Prendre rendez-vous
               </RdvLink>
@@ -312,7 +315,7 @@ export function FormationCityPage({
               links={[
                 { href: '/formations', label: 'Formation IA BTP' },
                 { href: '/formation-ia-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
-                { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous pour un diagnostic' },
+                { href: diagnosticUrl, label: 'Prendre rendez-vous pour un diagnostic' },
               ]}
             />
           </div>
@@ -330,7 +333,7 @@ export function FormationCityPage({
             Financement OPCO Constructys 100% possible.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink campaign={cityFinCtaCampaign} className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
             </RdvLink>

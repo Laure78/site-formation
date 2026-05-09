@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Target, Users, TrendingUp } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_OFFRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -73,7 +73,7 @@ export default function OffresPage() {
           { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
           { href: '/blog', label: 'Articles et guides' },
-          { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+          { href: buildSiteCalendlyCtaUrl('offres-footer-rdv'), label: 'Prendre rendez-vous' },
           { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
         ]}
       />

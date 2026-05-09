@@ -1,6 +1,6 @@
+import CalendlyButton from '@/components/CalendlyButton';
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
@@ -49,15 +49,13 @@ export default function PrendreRDVPage() {
               Prise de rendez-vous en ligne
             </p>
             <div className="mt-6 flex justify-center">
-              <a
-                href={CALENDLY_BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <CalendlyButton
+                campaign="prendre-rdv-page"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 transition-colors hover:bg-blue-600"
               >
                 <ExternalLink size={20} strokeWidth={1.5} aria-hidden />
                 Réserver sur Calendly
-              </a>
+              </CalendlyButton>
             </div>
             <p className="mt-4 text-center text-xs text-slate-500">
               Le lien s&apos;ouvre dans un nouvel onglet — service sécurisé Calendly.

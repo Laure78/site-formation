@@ -1,6 +1,6 @@
 /**
  * JSON-LD @graph unique — page d'accueil uniquement (Organization + WebSite + Course + HowTo + Service + WebPage).
- * Le FAQPage est injecté séparément dans `app/page.tsx` via `getFAQSchema(FAQ_ITEMS_HOME)` pour rester aligné sur la FAQ visuelle.
+ * Le FAQPage est injecté séparément dans `app/page.tsx` via `buildHomeFAQPageJsonLd()` + `<Script>` pour rester aligné sur la FAQ visuelle (toutes les entrées).
  * Données alignées sur `lib/schema-constants.ts`.
  */
 import {

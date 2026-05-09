@@ -5,7 +5,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
@@ -407,7 +407,7 @@ export default function FormationIaCloturisteBtpPage() {
             { href: '/formation-ia-paysagiste-btp', label: 'Formation IA paysagiste BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formation-ia-cloturiste-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

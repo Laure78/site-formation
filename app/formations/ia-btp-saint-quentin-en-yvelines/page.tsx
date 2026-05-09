@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Calendar, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -473,7 +473,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
               { href: LINKS.formationParis, label: 'Formation IA BTP Paris' },
               { href: LINKS.formations, label: 'Catalogue formations' },
               { href: LINKS.financement, label: 'Financement Constructys' },
-              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+              { href: buildSiteCalendlyCtaUrl('formations-ia-btp-saint-quentin-en-yvelines-footer-rdv'), label: 'Prendre rendez-vous' },
             ]}
           />
         </div>

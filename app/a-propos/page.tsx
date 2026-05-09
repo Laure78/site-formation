@@ -10,7 +10,7 @@ import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { A_PROPOS_NARRATIVE_PARAGRAPHS } from '@/lib/a-propos-narrative';
 import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
-import { calendlyAboutUrl, CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { calendlyAboutUrl, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PHOTOS } from '@/lib/photos';
 import { StatsCards } from '@/components/a-propos/StatsCards';
 import { Timeline } from '@/components/a-propos/Timeline';
@@ -95,7 +95,7 @@ export default function AProposPage() {
     { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
     { href: LINKS.blog, label: 'Blog' },
     { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
-    { href: CALENDLY_BOOKING_URL, label: 'Calendly — prendre rendez-vous' },
+    { href: buildSiteCalendlyCtaUrl('a-propos-aller-plus-loin-calendly'), label: 'Calendly — prendre rendez-vous' },
   ] as const;
 
   return (

@@ -6,7 +6,7 @@ import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
 } from '@/lib/tarifs-sessions';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
@@ -54,7 +54,8 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 ];
 
 /**
- * FAQ page d'accueil — même source que le JSON-LD FAQPage (`getFAQSchema(FAQ_ITEMS_HOME)` dans `app/page.tsx`).
+ * FAQ page d'accueil — même source que l’accordion (`FAQAccordion`) et le JSON-LD FAQPage via
+ * `<Script>` dans `app/page.tsx`.
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
@@ -99,6 +100,29 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   },
   ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
+
+/** Texte utilisateur sans balises HTML (réponses riches en lien — JSON-LD `Answer.text`). */
+export function faqAnswerPlainTextForJsonLd(htmlOrText: string): string {
+  return htmlOrText.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/** Toutes les questions/réponses visibles section « Questions fréquentes » accueil. */
+export function buildHomeFAQPageJsonLd(): Record<string, unknown> {
+  const mainEntity = FAQ_ITEMS_HOME.map((item) => ({
+    '@type': 'Question',
+    name: item.q.trim(),
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faqAnswerPlainTextForJsonLd(item.a),
+    },
+  }));
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity,
+  };
+}
 
 export const FAQ_ITEMS: readonly FAQItem[] = [
   {
@@ -320,7 +344,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Comment se déroule le RDV ?",
-    a: `Vous réservez un créneau via <a href="${CALENDLY_BOOKING_URL}" rel="noopener noreferrer">Calendly</a> (agenda en ligne). L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement Constructys — <a href="/financement-constructys-formation-ia-btp">guide OPCO</a>.`,
+    a: `Vous réservez un créneau via <a href="${buildSiteCalendlyCtaUrl('prendre-rdv-faq-calendly')}" rel="noopener noreferrer">Calendly</a> (agenda en ligne). L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement Constructys — <a href="/financement-constructys-formation-ia-btp">guide OPCO</a>.`,
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
@@ -600,7 +624,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui. Formation IA BTP 100 % finançable Constructys. Prenez rendez-vous pour un devis personnalisé : <a href="${CALENDLY_BOOKING_URL}" rel="noopener noreferrer">Calendly</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Formation IA BTP 100 % finançable Constructys. Prenez rendez-vous pour un devis personnalisé : <a href="${buildSiteCalendlyCtaUrl('faq-checklist-prompts-rdv')}" rel="noopener noreferrer">Calendly</a> ou <a href="/contact">contact</a>.`,
   },
 ];
 
@@ -692,7 +716,7 @@ export const FAQ_DIAGNOSTIC: FAQItem[] = [
   },
   {
     q: "Que faire après le diagnostic ?",
-    a: `Prenez rendez-vous pour un échange de 30 minutes : <a href="${CALENDLY_BOOKING_URL}" rel="noopener noreferrer">Calendly</a> ou <a href="/prendre-rdv">prendre rendez-vous</a>. Nous identifions ensemble vos besoins et vous envoyons un devis personnalisé sous 24h.`,
+    a: `Prenez rendez-vous pour un échange de 30 minutes : <a href="${buildSiteCalendlyCtaUrl('faq-diagnostic-apres')}" rel="noopener noreferrer">Calendly</a> ou <a href="/prendre-rdv">prendre rendez-vous</a>. Nous identifions ensemble vos besoins et vous envoyons un devis personnalisé sous 24h.`,
   },
   {
     q: "L'IA peut-elle vraiment m'aider sur mes devis et emails ?",

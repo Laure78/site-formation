@@ -17,7 +17,7 @@ import {
   buildFormationIaCourseJsonLd,
   getFormationIleDeFrancePageLocalBusinessJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
@@ -391,7 +391,7 @@ export default function FormationIaBtpIleDeFrancePage() {
           <blockquote className="mt-8 rounded-xl border-l-4 border-[#377CF3] bg-white p-6 text-slate-700 shadow-sm">
             <p className="font-medium text-slate-900">Réservez une session intra pour votre équipe BTP.</p>
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl('formation-ia-btp-ile-de-france-contact-rdv-page-calendly')}
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"

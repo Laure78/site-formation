@@ -21,7 +21,7 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF } from '@/lib/constants';
 
 export type FormationMetierFaqItem = {
@@ -197,7 +197,7 @@ function buildServiceNode(params: {
         valueAddedTaxIncluded: false,
       },
       availability: 'https://schema.org/InStock',
-      url: CALENDLY_BOOKING_URL,
+      url: buildSiteCalendlyCtaUrl('schema-formation-metier-service-offer'),
       eligibleRegion: { '@type': 'Country', name: 'France' },
     },
   };
@@ -239,7 +239,7 @@ function buildCourseNode(params: {
       price: String(price),
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      url: CALENDLY_BOOKING_URL,
+      url: buildSiteCalendlyCtaUrl('schema-formation-metier-course-offer'),
       category: 'Formation professionnelle continue',
     },
     hasCourseInstance: {

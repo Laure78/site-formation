@@ -3,7 +3,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Check, Download, Users } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
@@ -416,7 +416,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
           <span aria-hidden className="text-slate-300">
             |
           </span>
-          <a href={CALENDLY_BOOKING_URL} className="font-medium text-[var(--accent)] hover:underline">
+          <a href={buildSiteCalendlyCtaUrl('formations-formation-ia-cctp-analyse-dce-btp-contact-rdv-page-calendly')} className="font-medium text-[var(--accent)] hover:underline">
             Calendly — prise de rendez-vous
           </a>
         </section>

@@ -3,16 +3,18 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
   siteHasPublicPhone,
 } from '@/lib/seo';
-import { getFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { FAQ_RH_BTP } from '@/lib/faq';
 import {
   SESSION_DUREE_LIBELLE,
@@ -30,10 +32,13 @@ const LMS_SLUG = 'ia-rh-btp';
 /** À déposer dans public/formations/ia-rh-btp/ si besoin */
 const PDF_HREF = '/formations/ia-rh-btp/Programme_Formation_IA_RH_BTP.pdf';
 
+const PAGE_META_DESCRIPTION = `Formation IA RH BTP et bâtiment : recrutement, GEPP, tableaux de bord, assistants IA. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`;
+
+const CATALOG_ENTRY_BTP03 = getFormationCatalogEntryByPath('/formations/ia-rh-btp')!;
+
 export const metadata = createPageMetadata({
   title: 'Formation IA RH BTP : Recrutement & GEPP efficaces',
-  description:
-    `Formation IA RH BTP et bâtiment : recrutement, GEPP, tableaux de bord, assistants IA. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
+  description: PAGE_META_DESCRIPTION,
   path: '/formations/ia-rh-btp',
   keywords: [
     'formation IA RH BTP',
@@ -53,8 +58,6 @@ export const metadata = createPageMetadata({
     alt: PHOTOS.btpFormationBureauConseil2026.alt,
   },
 });
-
-const formationCourseGraph = getFormationCoursePageJsonLd('/formations/ia-rh-btp')!;
 
 const MODULES = [
   {
@@ -108,10 +111,22 @@ export default function FormationIARHBTPPage() {
 
   return (
     <div>
-      <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        breadcrumb={
+          <Breadcrumb
+            jsonLdId="schema-breadcrumb-formation-ia-rh-btp"
+            items={[
+              { label: 'Accueil', href: '/' },
+              { label: 'Formations', href: '/formations' },
+              {
+                label: 'Formation IA pour la Fonction RH dans le BTP',
+                href: '/formations/ia-rh-btp',
+              },
+            ]}
+          />
+        }
         refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-03`}
         title="Formation IA pour la fonction RH dans le BTP"
         subtitle="Recrutement, GEPP, tableaux de bord et assistants IA — entreprises du bâtiment"
@@ -319,12 +334,14 @@ export default function FormationIARHBTPPage() {
           links={[
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formations-ia-rh-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
       </div>
       </div>
+
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP03} pageDescription={PAGE_META_DESCRIPTION} />
     </div>
   );
 }

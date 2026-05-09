@@ -3,7 +3,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Mail, Calculator, Users } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import {
   createPageMetadata,
@@ -191,7 +191,7 @@ export default function FormationIAPMEBTPPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formations-ia-pme-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
           ]}

@@ -3,10 +3,12 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CourseSchema } from '@/components/seo/CourseSchema';
+import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -32,10 +34,13 @@ const PDF_HREF = '/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP
 /** Lead magnet — 8 pages, impression navigateur → PDF */
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
+const PAGE_META_DESCRIPTION = `Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`;
+
+const CATALOG_ENTRY_BTP02 = getFormationCatalogEntryByPath('/formations/ia-appels-offre-btp')!;
+
 export const metadata = createPageMetadata({
   title: "IA appel d'offres BTP — DCE, CCTP, mémoire technique | Formation",
-  description:
-    `Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`,
+  description: PAGE_META_DESCRIPTION,
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appel d\'offres BTP DCE CCTP',
@@ -131,17 +136,22 @@ export default function FormationIAAppelsOffreBTPPage() {
 
   return (
     <div>
-      <CourseSchema
-        name="Formation IA appels d'offre BTP"
-        description={`Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage.`}
-        url="https://laureolivie.fr/formations/ia-appels-offre-btp"
-        duration="PT4H"
-        price={100}
-        level="Intermediate"
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        breadcrumb={
+          <Breadcrumb
+            jsonLdId="schema-breadcrumb-formation-ia-appels-offre-btp"
+            items={[
+              { label: 'Accueil', href: '/' },
+              { label: 'Formations', href: '/formations' },
+              {
+                label: "Répondre aux appels d'offre avec l'IA",
+                href: '/formations/ia-appels-offre-btp',
+              },
+            ]}
+          />
+        }
         refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-02`}
         title="Répondre aux appels d'offre avec l'IA"
         subtitle="Mémoire technique, DCE et chiffrage — entreprises du bâtiment et marchés publics"
@@ -369,13 +379,15 @@ export default function FormationIAAppelsOffreBTPPage() {
             { href: '/formation-ia-appels-offres-btp', label: 'Répondre aux AO BTP avec l’IA (guide)' },
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formations-ia-appels-offre-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/blog/analyse-dce-notebooklm-claude-btp', label: 'Article : analyser un DCE avec l’IA' },
           ]}
         />
       </div>
       </div>
+
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP02} pageDescription={PAGE_META_DESCRIPTION} />
     </div>
   );
 }

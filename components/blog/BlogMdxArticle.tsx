@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
-import { AuthorBio } from '@/components/blog/AuthorBio';
+import AuthorBio from '@/components/AuthorBio';
 import { RelatedArticles } from '@/components/blog/RelatedArticles';
 import { TableOfContents } from '@/components/blog/TableOfContents';
 import {

@@ -29,10 +29,10 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
+import Script from 'next/script';
 import { createPageMetadata } from '@/lib/seo';
-import { FAQ_ITEMS_HOME } from '@/lib/faq';
+import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
-import { FAQSchema } from '@/components/seo/FAQSchema';
 import { PHOTOS } from '@/lib/photos';
 import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
@@ -58,6 +58,8 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
 
 /** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≈ 155 car., phrase entière sans coupure) */
 const HOME_META_DESCRIPTION = `Formation IA BTP : devis, administratif, appels d'offres avec ChatGPT. ${formatProfessionalsTrainedCount()} pros formés. Qualiopi, Constructys. Visio gratuite.`;
+
+const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP — ChatGPT, Devis & Chantier',
@@ -104,11 +106,6 @@ export const metadata = createPageMetadata({
 const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 
 export default function HomePage() {
-  const faqItems = FAQ_ITEMS_HOME.map((item) => ({
-    question: item.q,
-    answer: item.a,
-  }));
-
   return (
     <div>
       {/* Hero — Formation IA BTP */}
@@ -182,7 +179,7 @@ export default function HomePage() {
                   {SOCIAL_PROOF.AVERAGE_RATING} en 2026).
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <RdvLink className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
+                  <RdvLink campaign="accueil-hero" className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
                     Organiser une formation
                   </RdvLink>
                   <Link
@@ -1207,7 +1204,7 @@ export default function HomePage() {
                 <Mail size={20} strokeWidth={1.5} />
                 {SCHEMA_CONTACT.email}
               </a>
-              <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50">
+              <RdvLink campaign="accueil-faq" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50">
                 <Calendar size={20} strokeWidth={1.5} />
                 Prendre RDV
               </RdvLink>
@@ -1243,7 +1240,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink campaign="accueil-fin-page" className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
               Réserver ma formation
             </RdvLink>
@@ -1275,7 +1272,7 @@ export default function HomePage() {
                 Choisissez le jour et l&apos;heure qui vous conviennent pour un échange
                 de 30 minutes. Devis personnalisé sous 24h après notre rendez-vous.
               </p>
-              <RdvLink className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
+              <RdvLink campaign="accueil-section-rdv" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
                 <Calendar size={20} strokeWidth={1.5} />
                 Voir le calendrier
               </RdvLink>
@@ -1332,7 +1329,11 @@ export default function HomePage() {
       </section>
 
       <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
-      <FAQSchema id="schema-home-faq" items={faqItems} />
+      <Script
+        id="faq-schema-home"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: HOME_FAQ_PAGE_JSON_LD }}
+      />
     </div>
   );
 }

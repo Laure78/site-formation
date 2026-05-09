@@ -34,10 +34,10 @@ export function CTACalendly({
   ...rest
 }: CTACalendlyProps) {
   const href = buildCalendlyUrlWithUtm({
-    utmSource:
-      utmSource ?? ((page || 'site').replaceAll('/', '-').replace(/^-+|-+$/g, '') || 'site'),
-    utmMedium,
-    utmCampaign: utmCampaign ?? ctaPosition,
+    utmSource: utmSource ?? 'site',
+    utmMedium: utmMedium ?? 'cta',
+    utmCampaign:
+      utmCampaign ?? (ctaPosition === 'unknown' ? 'cta-unspecified' : ctaPosition),
   });
 
   const trackingClass = `cta-calendly cta-calendly--${ctaPosition}`;

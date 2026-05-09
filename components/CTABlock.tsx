@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 import Link from 'next/link';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl, isCalendlyBookingHref } from '@/lib/calendly';
 import { CTACalendly } from '@/components/CTACalendly';
 
 function CtaHref({
@@ -40,8 +40,12 @@ interface CTABlockProps {
   description?: ReactNode;
   primaryLabel?: string;
   primaryHref?: string;
+  /** utm_campaign lorsque primaryHref pointe vers Calendly */
+  primaryCalendlyCampaign?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  /** utm_campaign lorsque secondaryHref pointe vers Calendly */
+  secondaryCalendlyCampaign?: string;
   variant?: 'default' | 'compact';
 }
 
@@ -50,8 +54,10 @@ export function CTABlock({
   description,
   primaryLabel = 'Découvrir la formation IA BTP',
   primaryHref = '/formations',
+  primaryCalendlyCampaign = 'cta-block-primary',
   secondaryLabel = 'Prendre rendez-vous (30 min, gratuit)',
-  secondaryHref = CALENDLY_BOOKING_URL,
+  secondaryHref = buildSiteCalendlyCtaUrl('cta-block-secondary'),
+  secondaryCalendlyCampaign = 'cta-block-secondary',
   variant = 'default',
 }: CTABlockProps) {
   return (
@@ -72,19 +78,32 @@ export function CTABlock({
         )}
       </div>
       <div className="mt-6 flex flex-wrap gap-4">
-        <CtaHref
-          href={primaryHref}
-          className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-slate-50"
-        >
-          {primaryLabel}
-        </CtaHref>
-        {secondaryHref === CALENDLY_BOOKING_URL ? (
+        {isCalendlyBookingHref(primaryHref) ? (
+          <CTACalendly
+            ctaPosition="footer"
+            ctaId="cta-block-primary"
+            utmSource="site"
+            utmMedium="cta"
+            utmCampaign={primaryCalendlyCampaign}
+            className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-slate-50"
+          >
+            {primaryLabel}
+          </CTACalendly>
+        ) : (
+          <CtaHref
+            href={primaryHref}
+            className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-slate-50"
+          >
+            {primaryLabel}
+          </CtaHref>
+        )}
+        {isCalendlyBookingHref(secondaryHref) ? (
           <CTACalendly
             ctaPosition="footer"
             ctaId="cta-block-secondary"
             utmSource="site"
-            utmMedium="cta-block"
-            utmCampaign="secondary"
+            utmMedium="cta"
+            utmCampaign={secondaryCalendlyCampaign}
             className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
           >
             {secondaryLabel}

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Calendar, CheckCircle2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG, getBreadcrumbSchema } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 
 const PATH = '/guide-skill-ia-conducteur-travaux';
@@ -64,7 +64,7 @@ export default function GuideSkillIaConducteurTravauxPage() {
             <Link href={LINKS.skillIaConducteurTravaux} className="rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white hover:bg-blue-700">
               Ouvrir la ressource complète
             </Link>
-            <a href={CALENDLY_BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] hover:bg-[#EFF6FF]">
+            <a href={buildSiteCalendlyCtaUrl('guide-skill-ia-conducteur-travaux-contact-rdv-page-calendly')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] hover:bg-[#EFF6FF]">
               <Calendar className="h-4 w-4" />
               Réserver un échange
             </a>

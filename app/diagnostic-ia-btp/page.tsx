@@ -1,7 +1,7 @@
 import { DiagnosticIABTPWizard } from '@/components/diagnostic/DiagnosticIABTPWizard';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { JsonLd } from '@/components/JsonLd';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_DIAGNOSTIC } from '@/lib/faq';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -112,7 +112,7 @@ export default function DiagnosticIABTPPage() {
               { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
               { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
               { href: LINKS.blog, label: 'Articles et guides' },
-              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+              { href: buildSiteCalendlyCtaUrl('diagnostic-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             ]}
           />
         </div>

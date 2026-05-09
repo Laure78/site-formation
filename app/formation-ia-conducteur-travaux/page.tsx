@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -41,7 +41,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
     price: String(TARIF_FORFAIT_DEBUTANT_HT),
     priceCurrency: 'EUR',
     availability: 'https://schema.org/InStock',
-    url: CALENDLY_BOOKING_URL,
+    url: buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-schema-offer'),
   },
   timeRequired: 'PT4H',
   educationalLevel: 'Beginner',
@@ -336,7 +336,7 @@ export default function FormationIaConducteurTravauxPage() {
               Réservez votre diagnostic IA BTP gratuit — 30 minutes en visio.
             </p>
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-contact-rdv-page-calendly')}
               className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
               target="_blank"
               rel="noopener noreferrer"

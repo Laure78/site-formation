@@ -22,7 +22,9 @@ import {
 import { ProgrammeAccordionTP } from '@/components/formations/ProgrammeAccordionTP';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CourseSchema } from '@/components/seo/CourseSchema';
+import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -48,10 +50,13 @@ const MAIL_PROGRAMME_TP =
 const MAIL_RAPPEL_TP =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA Travaux publics')}`;
 
+const PAGE_META_DESCRIPTION = `Formation IA travaux publics et BTP : appels d'offre, DCE, mémoire technique terrain, documents chantier. Session ${SESSION_DUREE_LIBELLE}. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO.`;
+
+const CATALOG_ENTRY_BTP04 = getFormationCatalogEntryByPath('/formations/ia-travaux-publics')!;
+
 export const metadata = createPageMetadata({
   title: "L'IA au service des Travaux Publics : DCE, AO, chantier & industrialisation",
-  description:
-    `Formation IA travaux publics et BTP : appels d'offre, DCE, mémoire technique terrain, documents chantier. Session ${SESSION_DUREE_LIBELLE}. Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant). Qualiopi, OPCO.`,
+  description: PAGE_META_DESCRIPTION,
   path: '/formations/ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',
@@ -192,17 +197,22 @@ const LIVRABLES = [
 export default function FormationIATravauxPublicsPage() {
   return (
     <div>
-      <CourseSchema
-        name="L'IA au service des Travaux Publics (BTP-04)"
-        description={`Formation IA travaux publics et BTP : appels d'offre, DCE, mémoire technique terrain, documents chantier.`}
-        url="https://laureolivie.fr/formations/ia-travaux-publics"
-        duration="PT4H"
-        price={100}
-        level="Beginner"
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        breadcrumb={
+          <Breadcrumb
+            jsonLdId="schema-breadcrumb-formation-ia-travaux-publics"
+            items={[
+              { label: 'Accueil', href: '/' },
+              { label: 'Formations', href: '/formations' },
+              {
+                label: "L'IA au service des Travaux Publics",
+                href: '/formations/ia-travaux-publics',
+              },
+            ]}
+          />
+        }
         refLine="Réf. catalogue BTP-04 · Débutant"
         title={
           <>
@@ -478,6 +488,8 @@ export default function FormationIATravauxPublicsPage() {
           </div>
         </div>
       </section>
+
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP04} pageDescription={PAGE_META_DESCRIPTION} />
     </div>
   );
 }

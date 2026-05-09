@@ -29,8 +29,8 @@ import { BlogCTA } from '@/components/BlogCTA';
 import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
-import { ArticleAuthor } from '@/components/blog/ArticleAuthor';
+import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import AuthorBio from '@/components/AuthorBio';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { Check, ExternalLink } from 'lucide-react';
@@ -282,6 +282,7 @@ export default async function BlogArticlePage({ params }: Props) {
             description="Réservez un échange de 30 minutes gratuit pour découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP."
             primaryLabel="Prendre rendez-vous"
             primaryHref={CALENDLY_BOOKING_URL}
+            primaryCalendlyCampaign={`blog-article-${slug}-cta-block-early`}
             secondaryLabel="Découvrir les formations"
             secondaryHref="/formations"
           />
@@ -409,7 +410,7 @@ export default async function BlogArticlePage({ params }: Props) {
                         Rejoindre la communauté
                       </ExternalLinkAnchor>
                     )}
-                    <RdvLink className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50">
+                    <RdvLink campaign={`blog-article-${slug}-section-cta`} className="inline-block rounded-xl bg-white px-6 py-2 font-semibold text-[var(--accent)] hover:bg-blue-50">
                       Prendre rendez-vous
                     </RdvLink>
                     <Link
@@ -449,16 +450,16 @@ export default async function BlogArticlePage({ params }: Props) {
               )}
             </section>
             {showMidBlogCTA && midCtaAfterIndex === i ? (
-              <BlogCTA idSuffix="mid" className="mt-10 scroll-mt-8" />
+              <BlogCTA articleSlug={slug} idSuffix="mid" className="mt-10 scroll-mt-8" />
             ) : null}
           </Fragment>
           );
         })}
         </div>
 
-        <BlogCTA className="mt-12" />
+        <BlogCTA articleSlug={slug} className="mt-12" />
 
-        <ArticleAuthor />
+        <AuthorBio />
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-slate-200 pt-12">
@@ -552,6 +553,7 @@ export default async function BlogArticlePage({ params }: Props) {
             description="Vous souhaitez découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP ? Prenez rendez-vous pour échanger sur votre projet — 30 minutes gratuites."
             primaryLabel="Prendre rendez-vous"
             primaryHref={CALENDLY_BOOKING_URL}
+            primaryCalendlyCampaign={`blog-article-${slug}-cta-block-late`}
             secondaryLabel="Programme « L'IA au service du bâtiment »"
             secondaryHref={LINKS.formationBatiment}
           />
@@ -564,7 +566,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA BTP à Paris et Île-de-France">
             Formation IA BTP Paris
           </Link>
-          <RdvLink className="text-[var(--accent)] hover:underline">
+          <RdvLink campaign={`blog-article-${slug}-footer-maillage`} className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous
           </RdvLink>
           <Link href={LINKS.financement} className="text-[var(--accent)] hover:underline" title="Financement OPCO Constructys">
@@ -581,7 +583,7 @@ export default async function BlogArticlePage({ params }: Props) {
             { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
             { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl(`blog-article-${slug}-aller-plus-loin`), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

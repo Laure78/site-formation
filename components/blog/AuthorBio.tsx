@@ -1,4 +1,5 @@
 /**
- * Bio auteure — alias du bloc auteur article (Qualiopi, LinkedIn, Calendly).
+ * Bio auteure articles — même implémentation que `@/components/AuthorBio`.
  */
-export { ArticleAuthor as AuthorBio } from '@/components/blog/ArticleAuthor';
+export { default as AuthorBio } from '@/components/AuthorBio';
+export { default } from '@/components/AuthorBio';

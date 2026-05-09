@@ -8,7 +8,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { AuthorBio } from '@/components/blog/AuthorBio';
 import { createPageMetadata, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
@@ -571,7 +571,7 @@ export default function FormationIaEtancheurPage() {
             { href: LINKS.formationClaudeAiBatiment, label: 'Formation Claude AI bâtiment' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formation-ia-etancheur-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Check, FileText, Calculator, Clock, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
@@ -465,7 +465,7 @@ export default function IADevisBatimentPage() {
           <p className="mt-6 text-sm text-slate-600">
             Lien direct agenda :{' '}
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl('ia-devis-batiment-contact-rdv-page-calendly')}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[var(--accent)] hover:underline"
@@ -566,7 +566,7 @@ export default function IADevisBatimentPage() {
             { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('ia-devis-batiment-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

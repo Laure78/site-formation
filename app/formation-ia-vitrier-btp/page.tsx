@@ -11,7 +11,7 @@ import {
   siteHasPublicPhone,
   sitePhoneDisplaySuffix,
 } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { InlinePublicPhoneLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
@@ -482,7 +482,7 @@ export default function FormationIaVitrierBtpPage() {
             { href: '/formation-ia-couvreur-btp', label: 'Formation IA couvreur BTP' },
             { href: '/formation-ia-etancheur', label: 'Formation IA étancheur BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formation-ia-vitrier-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

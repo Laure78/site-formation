@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Download, ChevronRight, ArrowRight, Phone, Mail } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
@@ -441,7 +441,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl(`ressources-tuto-${tuto.slug}-rdv`)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-[0.95rem] font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98]"

@@ -3,10 +3,12 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CourseSchema } from '@/components/seo/CourseSchema';
+import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -29,11 +31,14 @@ const LMS_SLUG = 'ia-architecture-claude-dpgf';
 const PDF_HREF =
   '/formations/ia-architecture-claude-dpgf/Programme_Formation_IA_Architecture_Marquis_FINAL.pdf';
 
+const PAGE_META_DESCRIPTION = `Formation IA BTP pour cabinets : DPGF, métrés, mémoire technique, CR chantier et documents avec Claude AI. ${SESSION_DUREE_LIBELLE} présentiel. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (avancé). Qualiopi.`;
+
+const CATALOG_ENTRY_BTP06 = getFormationCatalogEntryByPath('/formations/ia-architecture-claude-dpgf')!;
+
 export const metadata = createPageMetadata({
   title:
     'Formation IA architecture — Claude AI, DPGF, chantier, documents | Qualiopi',
-  description:
-    `Formation IA BTP pour cabinets : DPGF, métrés, mémoire technique, CR chantier et documents avec Claude AI. ${SESSION_DUREE_LIBELLE} présentiel. Forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (avancé). Qualiopi.`,
+  description: PAGE_META_DESCRIPTION,
   path: '/formations/ia-architecture-claude-dpgf',
   keywords: [
     'formation IA architecture',
@@ -129,17 +134,22 @@ export default function FormationIAArchitectureClaudePage() {
 
   return (
     <div>
-      <CourseSchema
-        name="Formation IA architecture Claude AI DPGF"
-        description={`Formation IA BTP pour cabinets : DPGF, métrés, mémoire technique, CR chantier et documents avec Claude AI.`}
-        url="https://laureolivie.fr/formations/ia-architecture-claude-dpgf"
-        duration="PT4H"
-        price={100}
-        level="Intermediate"
-      />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        breadcrumb={
+          <Breadcrumb
+            jsonLdId="schema-breadcrumb-formation-ia-architecture-claude-dpgf"
+            items={[
+              { label: 'Accueil', href: '/' },
+              { label: 'Formations', href: '/formations' },
+              {
+                label: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
+                href: '/formations/ia-architecture-claude-dpgf',
+              },
+            ]}
+          />
+        }
         refLine="Formation intra-entreprise · Présentiel · BTP-06 · Niveau avancé"
         title="Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI"
         subtitle="Claude AI, Google Drive, Sheets et Docs — cabinets et entreprises du bâtiment"
@@ -312,12 +322,14 @@ export default function FormationIAArchitectureClaudePage() {
           links={[
             { href: '/formations', label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formations-ia-architecture-claude-dpgf-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
           ]}
         />
       </div>
       </div>
+
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP06} pageDescription={PAGE_META_DESCRIPTION} />
     </div>
   );
 }

@@ -17,6 +17,7 @@ import {
 import { FAQSection } from "@/components/landing/FAQSection";
 import { AllerPlusLoin } from "@/components/AllerPlusLoin";
 import { CourseSchema } from "@/components/seo/CourseSchema";
+import { buildSiteCalendlyCtaUrl } from "@/lib/calendly";
 
 /* ---------------------------------------------------------------- METADATA */
 
@@ -79,8 +80,9 @@ export const metadata: Metadata = {
 
 /* ------------------------------------------------------------------ SCHEMAS */
 
-const CALENDLY_URL =
-  "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation";
+const CALENDLY_HERO = buildSiteCalendlyCtaUrl("formation-claude-ai-btp-hero");
+const CALENDLY_FIN_SECTION = buildSiteCalendlyCtaUrl("formation-claude-ai-btp-fin-section");
+const CALENDLY_ALLER_PLUS = buildSiteCalendlyCtaUrl("formation-claude-ai-btp-aller-plus-loin");
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -237,7 +239,7 @@ export default function FormationClaudeAiBtpPage() {
               </p>
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
                 <a
-                  href={CALENDLY_URL}
+                  href={CALENDLY_HERO}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
@@ -699,7 +701,7 @@ export default function FormationClaudeAiBtpPage() {
                 Demander un devis
               </Link>
               <a
-                href={CALENDLY_URL}
+                href={CALENDLY_FIN_SECTION}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-xl border-2 border-white/70 px-8 py-4 font-semibold text-white transition-colors hover:bg-white/10"
@@ -728,7 +730,7 @@ export default function FormationClaudeAiBtpPage() {
                     label: "Financement Constructys 2026",
                   },
                   { href: "/blog", label: "Tous les articles du blog" },
-                  { href: CALENDLY_URL, label: "Prendre rendez-vous" },
+                  { href: CALENDLY_ALLER_PLUS, label: "Prendre rendez-vous" },
                 ]}
               />
             </div>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Calendar, Check, MapPin } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -374,7 +374,7 @@ export default function FormationIABTPYvelinesLandingPage() {
           <p className="mt-6 text-sm text-blue-100">
             Lien direct Calendly :{' '}
             <a
-              href={CALENDLY_BOOKING_URL}
+              href={buildSiteCalendlyCtaUrl('formation-ia-btp-yvelines-contact-rdv-page-calendly')}
               className="underline underline-offset-2 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"

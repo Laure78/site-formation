@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { MerciSkillIaDownload } from '@/components/ressources/MerciSkillIaDownload';
@@ -31,7 +31,7 @@ export default function MerciSkillIaPage() {
         <h2 className="font-display text-xl font-bold text-slate-900">La prochaine étape</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <a
-            href={CALENDLY_BOOKING_URL}
+            href={buildSiteCalendlyCtaUrl('ressources-guide-conducteur-de-travaux-merci-contact-rdv-page-calendly')}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-xl border-2 border-[#377CF3] bg-white p-5 transition hover:bg-[#D4E3FC]/40"

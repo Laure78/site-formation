@@ -1,4 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 
 type CourseSchemaProps = {
   name: string;
@@ -10,8 +11,7 @@ type CourseSchemaProps = {
   level: string;
 };
 
-const CALENDLY_COURSE_URL =
-  'https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation';
+const CALENDLY_OFFER_URL = buildSiteCalendlyCtaUrl('schema-jsonld-course-offer');
 
 export function CourseSchema({
   name,
@@ -44,7 +44,7 @@ export function CourseSchema({
       price: String(price),
       priceCurrency: currency,
       availability: 'https://schema.org/InStock',
-      url: CALENDLY_COURSE_URL,
+      url: CALENDLY_OFFER_URL,
     },
     aggregateRating: {
       '@type': 'AggregateRating',

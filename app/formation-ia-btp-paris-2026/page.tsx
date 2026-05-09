@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -248,7 +248,7 @@ export default function FormationIABTPParis2026Page() {
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement 100 % IA BTP' },
-              { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+              { href: buildSiteCalendlyCtaUrl('formation-ia-btp-paris-2026-footer-rdv'), label: 'Prendre rendez-vous' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic gratuit' },
               { href: '/blog', label: 'Articles et guides' },
             ]}

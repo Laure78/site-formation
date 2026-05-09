@@ -7,7 +7,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { AuthorBio } from '@/components/blog/AuthorBio';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -44,6 +44,8 @@ export function FormationMetierB1Page({
 }: Props) {
   const courseName = `Formation IA ${metierLabel} — ChatGPT BTP`;
   const slugId = metierLabel.toLowerCase().replace(/\s+/g, '-');
+  const slugFromPath = path.replace(/^\/+|\/$/g, '').replace(/\//g, '-');
+  const allerPlusCalendlyHref = buildSiteCalendlyCtaUrl(`${slugFromPath}-aller-plus-loin`);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
@@ -118,7 +120,10 @@ export function FormationMetierB1Page({
             30 minutes pour analyser vos besoins et bâtir un plan de formation IA adapté à votre activité.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink
+              campaign={`${slugFromPath}-visio-encart`}
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
               Prendre un rendez-vous découverte
               <ArrowRight size={20} strokeWidth={1.5} />
             </RdvLink>
@@ -201,7 +206,10 @@ export function FormationMetierB1Page({
             Prendre un rendez-vous découverte pour cadrer votre plan de formation IA.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink
+              campaign={`${slugFromPath}-fin-rdv`}
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
               Réserver votre visio découverte
               <ArrowRight size={20} strokeWidth={1.5} />
             </RdvLink>
@@ -235,7 +243,7 @@ export function FormationMetierB1Page({
           links={[
             { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: allerPlusCalendlyHref, label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

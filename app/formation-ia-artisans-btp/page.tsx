@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
-import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
@@ -353,7 +353,7 @@ export default function FormationIAArtisansBTPPage() {
             { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
             { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
             { href: LINKS.blog, label: 'Articles et guides' },
-            { href: CALENDLY_BOOKING_URL, label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('formation-ia-artisans-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

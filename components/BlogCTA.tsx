@@ -9,6 +9,8 @@ const poppins = Poppins({
 
 type BlogCTAProps = {
   className?: string;
+  /** Identifiant d’article (slug) pour utm_campaign. */
+  articleSlug: string;
   /** Suffixe unique pour id du titre (évite doublon quand 2 encarts sur la même page). */
   idSuffix?: 'mid' | 'end';
 };
@@ -16,8 +18,10 @@ type BlogCTAProps = {
 /**
  * Encart CTA blog — charte OFC (fond bleu clair, bouton primaire #377CF3).
  */
-export function BlogCTA({ className = '', idSuffix = 'end' }: BlogCTAProps) {
+export function BlogCTA({ className = '', articleSlug, idSuffix = 'end' }: BlogCTAProps) {
   const titleId = `blog-cta-title-${idSuffix}`;
+  const campaignMid = `blog-article-${articleSlug}`;
+  const campaign = idSuffix === 'mid' ? campaignMid : `${campaignMid}-fin`;
   return (
     <aside
       className={`rounded-[12px] bg-[#D4E3FC] p-6 ${poppins.className} ${className}`.trim()}
@@ -34,12 +38,12 @@ export function BlogCTA({ className = '', idSuffix = 'end' }: BlogCTAProps) {
       </p>
       <div className="mt-5">
         <CTACalendly
-          page="blog"
+          page={`blog-${articleSlug}`}
           ctaPosition={idSuffix === 'mid' ? 'middle' : 'footer'}
-          ctaId={`blog-cta-${idSuffix}`}
-          utmSource="blog"
-          utmMedium="article"
-          utmCampaign={idSuffix === 'mid' ? 'mid-cta' : 'end-cta'}
+          ctaId={`blog-cta-${idSuffix}-${articleSlug}`}
+          utmSource="site"
+          utmMedium="cta"
+          utmCampaign={campaign}
           className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
         >
           Réservez votre visio découverte gratuite
