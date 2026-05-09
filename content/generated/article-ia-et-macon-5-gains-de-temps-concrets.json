@@ -1,13 +1,13 @@
 {
   "slug": "ia-et-macon-5-gains-de-temps-concrets",
   "title": "IA et maçon : 5 gains de temps concrets",
-  "description": "IA et maçon : 5 cas d'usage pour devis, suivi chantier et relances, jusqu'à 5h gagnées/semaine. Méthode terrain Qualiopi Constructys.",
-  "date": "2026-04-20",
+  "description": "5 gains de temps : IA et maçon. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
+  "date": "2026-05-09",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -18,7 +18,7 @@
     {
       "type": "paragraph",
       "title": "Définition",
-      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
+      "content": "L'intelligence artificielle pour le BTP désigne l'utilisation d'outils comme ChatGPT pour automatiser la rédaction de devis, emails, comptes rendus et documents techniques. Sans remplacer l'expertise métier, l'IA accélère les tâches répétitives. Les professionnels du BTP et les PME du bâtiment peuvent ainsi se recentrer sur le chantier et la relation client, tout en gardant une qualité professionnelle pour leurs documents."
     },
     {
       "type": "list",
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
   "seoTitle": "IA et maçon : 5 gains de temps concrets",
-  "metaDescription": "IA et maçon : 5 cas d'usage pour devis, suivi chantier et relances, jusqu'à 5h gagnées/semaine. Méthode terrain Qualiopi Constructys.",
+  "metaDescription": "5 gains de temps : IA et maçon. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",

@@ -1,13 +1,13 @@
 {
-  "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
-  "title": "Recrutement BTP : l'IA pour attirer les talents",
-  "description": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
+  "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026-741649-8",
+  "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
+  "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
   "date": "2026-05-09",
   "keywords": [
-    "GEPP IA",
-    "RH BTP",
-    "gestion prévisionnelle IA",
-    "IA recrutement BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Recrutement BTP : l'IA pour attirer les talents",
-  "metaDescription": "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.",
+  "seoTitle": "Formation IA BTP : ce qu'il faut savoir en 2026",
+  "metaDescription": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
