@@ -1,7 +1,7 @@
 {
-  "slug": "automatiser-vos-emails-clients-avec-l-ia",
-  "title": "Automatiser vos emails clients avec l'IA",
-  "description": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.",
+  "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter-741650-8",
+  "title": "ChatGPT pour PME BTP : erreurs à éviter",
+  "description": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "date": "2026-05-10",
   "keywords": [
     "prospection BTP IA",
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Automatiser vos emails clients avec l'IA",
-  "metaDescription": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.",
+  "seoTitle": "ChatGPT pour PME BTP : erreurs à éviter",
+  "metaDescription": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "prendre rendez-vous"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
