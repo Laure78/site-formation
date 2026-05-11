@@ -2,12 +2,12 @@
   "slug": "ia-et-plombier-5-gains-de-temps-concrets",
   "title": "IA et plombier : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et plombier. Devis, CR, emails. Formation 4h pratique, finançable Constructys.",
-  "date": "2026-05-02",
+  "date": "2026-05-11",
   "keywords": [
-    "devis plombier IA",
-    "devis électricien ChatGPT",
-    "chiffrage BTP IA",
-    "ChatGPT entreprises BTP"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -73,16 +73,12 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "prendre rendez-vous"
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
