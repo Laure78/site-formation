@@ -136,7 +136,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
         badges={HERO_BULLETS}
         summaryItems={[
           `Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING} sur les évaluations OFC.`,
-          `Forfait catalogue niveau avancé : ${TARIF_FORFAIT_AVANCE_HT} € HT / participant (session ${SESSION_DUREE_LIBELLE}).`,
+          `Forfait catalogue niveau avancé : ${TARIF_FORFAIT_AVANCE_HT} € HT / session (${SESSION_DUREE_LIBELLE}, jusqu'à 12 participants).`,
           `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
         ]}
         image={
@@ -276,8 +276,8 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Tarifs et financement</h2>
           <p className="mt-3 text-slate-700">
-            <strong>Tarif intra indicatif :</strong> à partir de 800 € HT pour une session de {SESSION_DUREE_LIBELLE}{' '}
-            (jusqu’à 12 participants, selon cahier des charges).
+            <strong>Tarif intra indicatif :</strong> à partir de {TARIF_FORFAIT_AVANCE_HT} € HT pour une session de{' '}
+            {SESSION_DUREE_LIBELLE} (jusqu&apos;à 12 participants, selon cahier des charges).
           </p>
           <p className="mt-3 text-slate-700">
             <strong>Tarif inter :</strong> selon organisme partenaire et dispositif (FFB, CSFE, CNAM, etc.).
@@ -296,16 +296,16 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
               </thead>
               <tbody>
                 <tr className="border-t border-slate-200">
-                  <td className="px-3 py-2">PME 8 salariés, intra 4 h</td>
-                  <td className="px-3 py-2">800 € HT</td>
+                  <td className="px-3 py-2">PME 8 salariés, intra 4 h (grille OFC)</td>
+                  <td className="px-3 py-2">{TARIF_FORFAIT_AVANCE_HT} € HT</td>
                 </tr>
                 <tr className="border-t border-slate-200">
-                  <td className="px-3 py-2">Prise en charge illustrative Constructys (1 jour / participant)</td>
+                  <td className="px-3 py-2">Prise en charge illustrative Constructys (ex. 3 participants, 4 h)</td>
                   <td className="px-3 py-2">− 288 € HT</td>
                 </tr>
                 <tr className="border-t border-slate-200">
                   <td className="px-3 py-2 font-medium">Reste à charge indicatif</td>
-                  <td className="px-3 py-2 font-medium">512 € HT</td>
+                  <td className="px-3 py-2 font-medium">962 € HT</td>
                 </tr>
               </tbody>
             </table>

@@ -29,13 +29,13 @@ export const LINKS = {
   formationClaudeAiBatiment: '/formation-claude-ai-batiment',
   formationClaudeAiTravauxPublics: '/formation-claude-ai-travaux-publics',
 
-  // Tier 2 — Formations (catalogue)
-  formationBatiment: '/formations/ia-au-service-du-batiment',
-  formationTP: '/formations/ia-travaux-publics',
-  formationSensibilisation: '/formations/sensibilisation-ia-assistants-personnalises',
+  // Tier 2 — Formations (catalogue officiel — 2 niveaux)
+  /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
+  formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
+  /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */
   formationAO: '/formations/ia-appels-offre-btp',
-  formationRH: '/formations/ia-rh-btp',
-  formationArchitecture: '/formations/ia-architecture-claude-dpgf',
+  pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
+  pdfProgrammeIaBtpNiveau2AppelsOffre: '/formations/pdf/programme-niveau-2-ia-appels-offre-btp.pdf',
   /** Page locale Paris (canonique SEO) */
   formationParis: '/formations/ia-btp-paris',
   /** Alias court (301 → formationParis) — maillage explicite possible */

@@ -220,7 +220,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             ))}
           </div>
           <p className="mt-8 text-slate-700 leading-relaxed">
-            Pour une vue d&apos;ensemble des modules (BTP-01 à BTP-05), le catalogue des formations, la page Paris et
+            Pour une vue d&apos;ensemble des deux parcours (NIV-01 et NIV-02), le catalogue des formations, la page Paris et
             l&apos;angle pédagogique Qualiopi, reportez-vous au bloc « Liens utiles » un peu plus bas : tout y est regroupé
             pour éviter les doublons de navigation et garder une lecture fluide.
           </p>
@@ -334,7 +334,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               >
                 <span className="text-slate-900">Catalogue des formations</span>
                 <span className="mt-2 text-sm font-normal text-slate-600">
-                  Modules BTP-01 à BTP-05, durées 4 h, objectifs Qualiopi.
+                  NIV-01 et NIV-02, durées 4 h, objectifs Qualiopi, programmes PDF.
                 </span>
               </Link>
             </li>

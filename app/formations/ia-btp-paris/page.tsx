@@ -20,13 +20,14 @@ import {
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
 const MAIL_RAPPEL_PARIS =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA BTP Paris')}`;
 
 const HERO_RESUME_PARIS = [
   'Formation IA BTP Paris et Île-de-France — devis, emails, appels d\'offres, administratif.',
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant) — Qualiopi.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) — Qualiopi.`,
   'Présentiel — Paris (75) et 8 départements : inter ou intra selon convention.',
   'Financement OPCO Constructys selon éligibilité.',
 ];
@@ -148,10 +149,10 @@ export default function FormationIABTPParisPage() {
               Voir les zones d&apos;intervention
             </a>
             <Link
-              href="/formations/ia-au-service-du-batiment"
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
             >
-              Fiche formation catalogue (BTP-01)
+              Fiche formation catalogue (NIV-01)
             </Link>
             <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>

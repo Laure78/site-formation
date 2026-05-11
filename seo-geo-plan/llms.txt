@@ -9,14 +9,15 @@ Site officiel de **Laure Olivié**, formatrice **IA & ChatGPT** pour le **BTP** 
 - Public : dirigeants et PME du BTP, conducteurs de travaux, fonctions support — formulation « entreprises du bâtiment et des travaux publics » préférable à « artisans » comme seul public
 
 ## Catalogue formations (`/formations`)
-- **6 formations** de **4 h** chacune, certifiées **Qualiopi**, éligibles **Constructys** : BTP-01 bâtiment, BTP-02 appels d’offres (avancé), BTP-03 RH (avancé), BTP-04 travaux publics, BTP-05 sensibilisation & assistants IA, BTP-06 architecte / Claude AI (avancé).
-- Tarifs indicatifs catalogue : **100 € HT** / participant (niveau débutant) ou **175 € HT** / participant (niveau avancé). **12 participants** maximum par session.
+- **2 formations** de **4 h** chacune, certifiées **Qualiopi**, éligibles **Constructys** : **NIV-01** bâtiment & travaux publics (débutant), **NIV-02** appels d’offre BTP (avancé). Programme PDF téléchargeable sur chaque fiche.
+- Tarifs indicatifs catalogue : **1 000 € HT** / session (niveau débutant) ou **1 250 € HT** / session (niveau avancé). **12 participants** maximum par session.
 - Complément hors catalogue sur la même page : fiche **analyse CCTP & DCE** (marchés publics) — URL `/formations/formation-ia-cctp-analyse-dce-btp`.
 
 ## Pages prioritaires
 - https://www.laureolivie.fr/ — accueil, proposition de valeur, preuves (FFB, CSFE, volume de stagiaires, note)
-- https://www.laureolivie.fr/formations — catalogue formations IA BTP (6 programmes + lien complémentaire CCTP/DCE)
-- https://www.laureolivie.fr/formations/ia-au-service-du-batiment — formation phare « L’IA au service du bâtiment »
+- https://www.laureolivie.fr/formations — catalogue formations IA BTP (2 parcours + lien complémentaire CCTP/DCE le cas échéant)
+- https://www.laureolivie.fr/formations/ia-batiment-travaux-publics — formation NIV-01 « L’IA au service des pros du Bâtiment Travaux Publics »
+- https://www.laureolivie.fr/formations/ia-appels-offre-btp — formation NIV-02 « L’IA au service des appels d’offre BTP »
 - https://www.laureolivie.fr/financement-constructys-formation-ia-btp — financement OPCO Constructys (plafonds, mécanisme 2026)
 - https://www.laureolivie.fr/blog — articles et guides IA BTP
 - https://www.laureolivie.fr/a-propos — parcours Laure Olivié, OFC, Qualiopi

@@ -555,7 +555,7 @@ export default async function BlogArticlePage({ params }: Props) {
             primaryHref={CALENDLY_BOOKING_URL}
             primaryCalendlyCampaign={`blog-article-${slug}-cta-block-late`}
             secondaryLabel="Programme « L'IA au service du bâtiment »"
-            secondaryHref={LINKS.formationBatiment}
+            secondaryHref={LINKS.formationIaBtpNiveau1BatimentTp}
           />
         </div>
 

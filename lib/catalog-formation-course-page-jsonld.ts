@@ -1,5 +1,5 @@
 /**
- * JSON-LD Course + Offer pour les fiches catalogue BTP-01 … BTP-06 (Script next/script).
+ * JSON-LD Course + Offer pour les fiches catalogue (BTP-01, BTP-02, BTP-04, etc.) (Script next/script).
  */
 
 import {

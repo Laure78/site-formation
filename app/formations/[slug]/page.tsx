@@ -10,7 +10,7 @@ type Props = {
 
 /**
  * Route dynamique pour les slugs présents dans `formationsData` sans dossier statique
- * dédié sous `app/formations/<slug>/`. Les fiches BTP-01…BTP-06 ont chacune une page
+ * dédié sous `app/formations/<slug>/`. Les fiches catalogue ont chacune une page
  * statique qui prend le dessus sur la même URL ; le JSON-LD Course est alors injecté
  * via `getFormationCoursePageJsonLd` sur ces pages.
  */

@@ -36,13 +36,13 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'paragraph',
       title: 'Modalité présentiel / distanciel',
       content:
-        'Certaines présentations commerciales peuvent mentionner une session à distance. Sur le catalogue en ligne à date, les formations référencées (BTP-01, etc.) sont pour l’essentiel proposées en présentiel — inter en Île-de-France ou intra dans vos locaux. Vérifiez toujours la mention figurant sur votre proposition de formation et la convention signée.',
+        'Certaines présentations commerciales peuvent mentionner une session à distance. Sur le catalogue en ligne à date, les formations référencées (NIV-01, NIV-02) sont pour l’essentiel proposées en présentiel — inter en Île-de-France ou intra dans vos locaux. Vérifiez toujours la mention figurant sur votre proposition de formation et la convention signée.',
     },
     {
       type: 'html',
       title: 'La formation en une slide',
       content: `<figure class="my-6">
-<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service du bâtiment : 4h de pratique, 70% exercices réels, 100€ net de TVA, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service du bâtiment : 4h de pratique, 70% exercices réels, forfait session 1 000 € HT, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Promesse : gain de temps sur les tâches quotidiennes — dès la première heure.</figcaption>
 </figure>`,
     },
@@ -50,7 +50,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Informations pratiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-02.png" alt="Informations pratiques formation IA bâtiment : durée 4h, tarif 100€ net de TVA, effectif 12 max, inscription J-7, prérequis navigation web — Qualiopi OPCO Constructys" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-02.png" alt="Informations pratiques formation IA bâtiment : durée 4h, forfait session 1 000 € HT, effectif 12 max, inscription J-7, prérequis navigation web — Qualiopi OPCO Constructys" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Durée, tarif, format, effectif, inscription et prérequis — synthèse à valider sur convention.</figcaption>
 </figure>`,
     },
@@ -112,13 +112,13 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'paragraph',
       title: 'Lien avec le catalogue du site',
       content:
-        'La formation « L’IA au service du bâtiment » (réf. BTP-01) reprend ces grands enseignements dans le cadre catalogue actuel : forfait par participant, session en 4 h, certification Qualiopi et financement possible via l’OPCO Constructys selon éligibilité. Pour les travaux publics ou les parcours « sensibilisation / assistants », voir les autres fiches du catalogue.',
+        'La formation « NIV-01 — L’IA au service des pros du Bâtiment Travaux Publics » reprend ces grands enseignements dans le cadre catalogue actuel : forfait par session, session en 4 h, certification Qualiopi et financement possible via l’OPCO Constructys selon éligibilité. Pour les appels d’offres, voir la fiche NIV-02.',
     },
     {
       type: 'cta',
       content:
         'Découvrez la fiche catalogue, le programme détaillé et les modalités de financement.',
-      formationHref: '/formations/ia-au-service-du-batiment',
+      formationHref: '/formations/ia-batiment-travaux-publics',
     },
   ],
   relatedSlugs: [

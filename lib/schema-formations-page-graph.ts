@@ -5,6 +5,7 @@
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -34,9 +35,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@type': 'WebPage',
         '@id': `${BASE}/formations#webpage`,
         url: `${BASE}/formations`,
-        name: 'Catalogue formation IA BTP — 6 formations Qualiopi 4 h',
+        name: 'Catalogue formation IA BTP — 2 formations Qualiopi 4 h',
         description:
-          "Catalogue 6 formations IA BTP de 4 h finançables Constructys : bâtiment, travaux publics, appels d'offres, RH, architecture, sensibilisation aux assistants IA.",
+          "Catalogue 2 formations IA BTP de 4 h finançables Constructys : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre.",
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -53,7 +54,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'Service',
         '@id': `${BASE}/formations#service`,
-        name: 'Formation IA BTP en présentiel — 6 programmes Qualiopi',
+        name: 'Formation IA BTP en présentiel — 2 parcours Qualiopi',
         serviceType: 'Formation professionnelle continue',
         provider: { '@id': `${BASE}/#organization` },
         areaServed: [
@@ -70,7 +71,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         audience: {
           '@type': 'BusinessAudience',
           audienceType:
-            'Entreprises du BTP, PME bâtiment, fédérations professionnelles, cabinets d\'architecture, dirigeants et fonctions support',
+            'Entreprises du BTP, PME bâtiment, fédérations professionnelles, dirigeants et fonctions support',
         },
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
@@ -79,84 +80,28 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             {
               '@type': 'Offer',
               itemOffered: {
-                '@id': `${BASE}/formations/ia-au-service-du-batiment#course`,
+                '@id': `${BASE}/formations/ia-batiment-travaux-publics#course`,
               },
-              price: 100,
+              price: TARIF_SESSION_DEBUTANT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: 100,
+                price: TARIF_SESSION_DEBUTANT_HT,
                 priceCurrency: 'EUR',
-                unitText: 'par participant',
-                valueAddedTaxIncluded: false,
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: { '@id': `${BASE}/formations/ia-travaux-publics#course` },
-              price: 100,
-              priceCurrency: 'EUR',
-              priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: 100,
-                priceCurrency: 'EUR',
-                unitText: 'par participant',
-                valueAddedTaxIncluded: false,
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@id': `${BASE}/formations/sensibilisation-ia-assistants-personnalises#course`,
-              },
-              price: 100,
-              priceCurrency: 'EUR',
-              priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: 100,
-                priceCurrency: 'EUR',
-                unitText: 'par participant',
+                unitText: 'par session',
                 valueAddedTaxIncluded: false,
               },
             },
             {
               '@type': 'Offer',
               itemOffered: { '@id': `${BASE}/formations/ia-appels-offre-btp#course` },
-              price: 175,
+              price: TARIF_SESSION_AVANCE_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: 175,
+                price: TARIF_SESSION_AVANCE_HT,
                 priceCurrency: 'EUR',
-                unitText: 'par participant',
-                valueAddedTaxIncluded: false,
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: { '@id': `${BASE}/formations/ia-rh-btp#course` },
-              price: 175,
-              priceCurrency: 'EUR',
-              priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: 175,
-                priceCurrency: 'EUR',
-                unitText: 'par participant',
-                valueAddedTaxIncluded: false,
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@id': `${BASE}/formations/ia-architecture-claude-dpgf#course`,
-              },
-              price: 175,
-              priceCurrency: 'EUR',
-              priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: 175,
-                priceCurrency: 'EUR',
-                unitText: 'par participant',
+                unitText: 'par session',
                 valueAddedTaxIncluded: false,
               },
             },
@@ -166,32 +111,32 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'ItemList',
         '@id': `${BASE}/formations#course-list`,
-        name: 'Catalogue 6 formations IA BTP',
+        name: 'Catalogue 2 formations IA BTP',
         description:
-          '6 formations IA BTP de 4 heures, certifiées Qualiopi, finançables Constructys, en inter en Île-de-France ou intra dans les locaux du client.',
-        numberOfItems: 6,
+          '2 formations IA BTP de 4 heures, certifiées Qualiopi, finançables Constructys, en inter en Île-de-France ou intra dans les locaux du client.',
+        numberOfItems: 2,
         itemListElement: [
           {
             '@type': 'ListItem',
             position: 1,
             item: {
               '@type': 'Course',
-              '@id': `${BASE}/formations/ia-au-service-du-batiment#course`,
-              name: "L'IA au service du bâtiment",
-              alternateName: 'Formation ChatGPT pour le bâtiment',
+              '@id': `${BASE}/formations/ia-batiment-travaux-publics#course`,
+              name: "L'IA au service des pros du bâtiment et des travaux publics",
+              alternateName: 'Formation IA niveau 1 BTP',
               description:
-                "Formation pratique de 4 heures pour PME et entreprises du bâtiment : automatiser devis, comptes rendus de chantier, emails et administratif avec ChatGPT et l'IA. Finançable Constructys.",
-              url: `${BASE}/formations/ia-au-service-du-batiment`,
-              courseCode: 'BTP-01',
+                "Formation niveau 1 — 4 h : IA pour bâtiment et travaux publics, devis, chantier, documents. Qualiopi, Constructys.",
+              url: `${BASE}/formations/ia-batiment-travaux-publics`,
+              courseCode: 'NIV-01',
               educationalLevel: 'Beginner',
               inLanguage: 'fr-FR',
               teaches: [
-                'Identifier les usages IA utiles dans le BTP',
-                'Accélérer la rédaction de devis et messages clients',
-                "Structurer l'administratif : CR, relances, modèles",
-                "Repartir avec des trames et prompts prêts à l'emploi",
+                'Usages de l’IA pour équipes bâtiment et travaux publics',
+                'Devis, comptes rendus et courriers avec ChatGPT / Claude',
+                'Structuration de l’administratif et prompts métier',
+                'Bonnes pratiques et validation humaine',
               ],
-              occupationalCategory: 'BTP, Bâtiment',
+              occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
@@ -210,10 +155,10 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: 100,
+                price: TARIF_SESSION_DEBUTANT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/ia-au-service-du-batiment`,
+                url: `${BASE}/formations/ia-batiment-travaux-publics`,
                 category: 'Formation professionnelle continue',
               },
             },
@@ -223,103 +168,12 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             position: 2,
             item: {
               '@type': 'Course',
-              '@id': `${BASE}/formations/ia-travaux-publics#course`,
-              name: "L'IA au service des Travaux Publics",
-              description:
-                'Formation 4 h pour les équipes TP : consultations, documents de chantier, reporting, templates et assistants IA par rôle. Qualiopi, Constructys.',
-              url: `${BASE}/formations/ia-travaux-publics`,
-              courseCode: 'BTP-04',
-              educationalLevel: 'Beginner',
-              inLanguage: 'fr-FR',
-              teaches: [
-                'Réponse aux consultations TP : DCE, trames, synthèses',
-                'Documents de chantier et reporting avec validation',
-                "Templates TP et charte d'usage IA en entreprise",
-              ],
-              occupationalCategory: 'BTP, Travaux Publics',
-              provider: { '@id': `${BASE}/#organization` },
-              hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OnsiteEventAttendanceMode',
-                courseWorkload: 'PT4H',
-                location: {
-                  '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra',
-                  address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Île-de-France',
-                    addressCountry: 'FR',
-                  },
-                },
-                instructor: { '@id': `${BASE}/#laure-olivie` },
-              },
-              offers: {
-                '@type': 'Offer',
-                price: 100,
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/ia-travaux-publics`,
-                category: 'Formation professionnelle continue',
-              },
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            item: {
-              '@type': 'Course',
-              '@id': `${BASE}/formations/sensibilisation-ia-assistants-personnalises#course`,
-              name: "Sensibilisation à l'IA & Assistants IA personnalisés",
-              description:
-                "Sensibilisation 4 h : usages terrain BTP, banque de prompts par métier, conception d'assistants IA personnalisés. Qualiopi, Constructys.",
-              url: `${BASE}/formations/sensibilisation-ia-assistants-personnalises`,
-              courseCode: 'BTP-05',
-              educationalLevel: 'Beginner',
-              inLanguage: 'fr-FR',
-              teaches: [
-                "Sensibilisation à l'IA et usages terrain BTP",
-                'Banque de prompts par métier',
-                'Concevoir des assistants IA personnalisés',
-                'Ressources et prolongement pédagogique',
-              ],
-              occupationalCategory: 'BTP',
-              provider: { '@id': `${BASE}/#organization` },
-              hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OnsiteEventAttendanceMode',
-                courseWorkload: 'PT4H',
-                location: {
-                  '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra',
-                  address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Île-de-France',
-                    addressCountry: 'FR',
-                  },
-                },
-                instructor: { '@id': `${BASE}/#laure-olivie` },
-              },
-              offers: {
-                '@type': 'Offer',
-                price: 100,
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/sensibilisation-ia-assistants-personnalises`,
-                category: 'Formation professionnelle continue',
-              },
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: 4,
-            item: {
-              '@type': 'Course',
               '@id': `${BASE}/formations/ia-appels-offre-btp#course`,
-              name: "Répondre aux appels d'offre avec l'IA",
+              name: "L'IA au service des appels d'offre BTP",
               description:
-                "Formation avancée 4 h : analyser un DCE, rédiger mémoires techniques et chiffrages avec l'IA, bibliothèque de prompts BTP, assistant DCE sur mesure. Qualiopi, Constructys.",
+                "Formation niveau 2 — 4 h : DCE, mémoires techniques, chiffrage, bibliothèque de prompts BTP. Qualiopi, Constructys.",
               url: `${BASE}/formations/ia-appels-offre-btp`,
-              courseCode: 'BTP-02',
+              courseCode: 'NIV-02',
               educationalLevel: 'Advanced',
               inLanguage: 'fr-FR',
               teaches: [
@@ -348,102 +202,10 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: 175,
+                price: TARIF_SESSION_AVANCE_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-appels-offre-btp`,
-                category: 'Formation professionnelle continue',
-              },
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: 5,
-            item: {
-              '@type': 'Course',
-              '@id': `${BASE}/formations/ia-rh-btp#course`,
-              name: 'Formation IA pour la Fonction RH dans le BTP',
-              description:
-                'Session 4 h pour les RH du BTP : recrutement, GEPP, tableaux de bord et assistant IA RH sur mesure. Qualiopi, Constructys.',
-              url: `${BASE}/formations/ia-rh-btp`,
-              courseCode: 'BTP-03',
-              educationalLevel: 'Advanced',
-              inLanguage: 'fr-FR',
-              teaches: [
-                'Automatiser le recrutement et la sélection',
-                'Piloter la GEPP et anticiper les compétences',
-                'Tableaux de bord RH opérationnels',
-                'Assistant IA RH sur mesure',
-              ],
-              occupationalCategory: 'BTP, fonction RH',
-              provider: { '@id': `${BASE}/#organization` },
-              hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OnsiteEventAttendanceMode',
-                courseWorkload: 'PT4H',
-                location: {
-                  '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra',
-                  address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Île-de-France',
-                    addressCountry: 'FR',
-                  },
-                },
-                instructor: { '@id': `${BASE}/#laure-olivie` },
-              },
-              offers: {
-                '@type': 'Offer',
-                price: 175,
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/ia-rh-btp`,
-                category: 'Formation professionnelle continue',
-              },
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: 6,
-            item: {
-              '@type': 'Course',
-              '@id': `${BASE}/formations/ia-architecture-claude-dpgf#course`,
-              name: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
-              description:
-                'Formation avancée 4 h pour cabinets d\'architecture et MOE : DPGF, métrés, planning, CR de chantier, courriers et actes de marché avec Claude AI et Google Workspace.',
-              url: `${BASE}/formations/ia-architecture-claude-dpgf`,
-              courseCode: 'BTP-06',
-              educationalLevel: 'Advanced',
-              inLanguage: 'fr-FR',
-              teaches: [
-                'DPGF, métrés et planning Gantt avec Claude AI',
-                'Comptes rendus de chantier et PV de réception',
-                'Courriers et actes de marché via Google Drive',
-                "Bibliothèque de prompts pour le cabinet d'architecture",
-              ],
-              occupationalCategory: 'Architecture, MOE, BTP',
-              provider: { '@id': `${BASE}/#organization` },
-              hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OnsiteEventAttendanceMode',
-                courseWorkload: 'PT4H',
-                location: {
-                  '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra',
-                  address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Île-de-France',
-                    addressCountry: 'FR',
-                  },
-                },
-                instructor: { '@id': `${BASE}/#laure-olivie` },
-              },
-              offers: {
-                '@type': 'Offer',
-                price: 175,
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                url: `${BASE}/formations/ia-architecture-claude-dpgf`,
                 category: 'Formation professionnelle continue',
               },
             },
@@ -474,13 +236,13 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Précisez la fonction des participants : opérationnel chantier (BTP-01 ou BTP-04), bureau d\'études et appels d\'offre (BTP-02), ressources humaines (BTP-03), architecte ou MOE (BTP-06), ou découverte généraliste (BTP-05).',
+            text: 'Choisissez le niveau : NIV-01 (bâtiment & travaux publics, entrée de gamme) ou NIV-02 (appels d\'offre, niveau avancé).',
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Évaluer le niveau IA des participants',
-            text: "Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant (100 € HT/pers). Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée (175 € HT/pers).",
+            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant (${TARIF_SESSION_DEBUTANT_HT} € HT par session, jusqu'à 12 participants). Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée (${TARIF_SESSION_AVANCE_HT} € HT par session).`,
           },
           {
             '@type': 'HowToStep',

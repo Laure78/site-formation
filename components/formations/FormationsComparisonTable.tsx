@@ -20,7 +20,7 @@ export function FormationsComparisonTable({
           id="comparatif-formations-heading"
           className="font-display text-[32px] font-bold text-[#0F172A]"
         >
-          Comparez les 6 formations IA BTP d&apos;un coup d&apos;œil
+          Comparez les 2 formations IA BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
           Toutes Qualiopi, toutes 4h présentiel, toutes finançables Constructys.
@@ -38,7 +38,7 @@ export function FormationsComparisonTable({
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Niveau</th>
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Public</th>
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Durée</th>
-              <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Prix HT</th>
+              <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Forfait session HT</th>
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide last:rounded-tr-2xl">
                 Cas d&apos;usage
               </th>
@@ -76,7 +76,8 @@ export function FormationsComparisonTable({
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.publicLabel}</td>
                 <td className="px-[18px] py-3 align-top text-[#334155]">{row.duree}</td>
                 <td className="px-[18px] py-3 align-top text-base font-bold text-[#377CF3]">
-                  {tarifHtDepuisBadgeCatalogue(row.level)} € HT
+                  {tarifHtDepuisBadgeCatalogue(row.level)} € HT{' '}
+                  <span className="block text-xs font-normal text-[#64748B]">/ session</span>
                 </td>
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.casUsage}</td>
               </tr>
@@ -96,7 +97,7 @@ export function FormationsComparisonTable({
                 {row.ref}
               </span>
               <span className="font-bold text-[#377CF3]">
-                {tarifHtDepuisBadgeCatalogue(row.level)} € HT
+                {tarifHtDepuisBadgeCatalogue(row.level)} € HT / session
               </span>
             </div>
             <h3 className="mt-3 font-display text-base font-semibold text-[#0F172A]">

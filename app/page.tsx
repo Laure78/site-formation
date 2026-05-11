@@ -43,6 +43,7 @@ import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_DEBUTANT_HT,
+  TARIF_FORFAIT_AVANCE_HT,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
@@ -192,19 +193,11 @@ export default function HomePage() {
                 <p className="mt-6 text-sm text-slate-500">
                   <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
                   <Link
-                    href={LINKS.formationBatiment}
+                    href={LINKS.formationIaBtpNiveau1BatimentTp}
                     className="text-[var(--accent)] hover:underline"
-                    title="Formation IA bâtiment — L'IA au service du bâtiment"
+                    title="Formation IA niveau 1 — bâtiment et travaux publics"
                   >
-                    formation IA bâtiment
-                  </Link>
-                  {' · '}
-                  <Link
-                    href={LINKS.formationTP}
-                    className="text-[var(--accent)] hover:underline"
-                    title="Formation IA travaux publics"
-                  >
-                    formation IA travaux publics
+                    formation IA bâtiment &amp; travaux publics (niveau 1)
                   </Link>
                   {' · '}
                   <Link
@@ -252,13 +245,13 @@ export default function HomePage() {
               <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24 xl:top-28">
                 <div className="w-full">
                   <p className="mb-3 text-center text-sm font-medium text-slate-600 lg:text-left">
-                    Présentation vidéo — les 6 parcours formation IA BTP
+                    Présentation vidéo — les 2 parcours formation IA BTP
                   </p>
                   <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-xl lg:shadow-2xl">
                     <div className="relative aspect-video w-full">
                       <iframe
                         src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
-                        title="Présentation animée — 6 formations IA BTP"
+                        title="Présentation animée — 2 formations IA BTP"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         loading="lazy"
@@ -686,50 +679,36 @@ export default function HomePage() {
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
             Formations IA finançables Qualiopi / OPCO — présentiel.
           </p>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
             {[
               {
-                ref: 'BTP-01',
-                level: 'DÉBUTANT',
-                title: "L'IA au service du bâtiment",
-                href: LINKS.formationBatiment,
+                ref: 'NIV-01',
+                level: 'NIVEAU 1',
+                title: "L'IA au service des pros du bâtiment et des travaux publics",
+                href: LINKS.formationIaBtpNiveau1BatimentTp,
+                pdf: LINKS.pdfProgrammeIaBtpNiveau1BatimentTp,
                 visuel: PHOTOS.formationIABtpVisioBureau2026,
-                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
+                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
-                  'Identifier les usages IA utiles dans le BTP',
-                  'Accélérer la rédaction de devis et messages clients',
-                  "Structurer l'administratif (CR, relances, modèles)",
-                  "Repartir avec des trames et prompts prêts à l'emploi",
+                  'IA générative pour bâtiment et travaux publics — devis, chantier, administratif',
+                  'Accélérer comptes rendus, courriers et suivi client',
+                  'Repartir avec des prompts et trames prêts à l’emploi',
                 ],
               },
               {
-                ref: 'BTP-04',
-                level: 'DÉBUTANT',
-                title: "L'IA au service des Travaux Publics",
-                href: LINKS.formationTP,
-                visuel: PHOTOS.btpFormationChantierEquipe2026,
-                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
+                ref: 'NIV-02',
+                level: 'NIVEAU 2',
+                title: "L'IA au service des appels d'offre BTP",
+                href: LINKS.formationAO,
+                pdf: LINKS.pdfProgrammeIaBtpNiveau2AppelsOffre,
+                visuel: PHOTOS.btpFormationChantierPlans2026,
+                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_AVANCE_HT} € HT/session`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
-                  'Analyser DCE, CCTP et comptes rendus chantier',
-                  "Rédiger rapports et réponses appels d'offres",
-                  'Créer votre assistant IA métier TP',
-                ],
-              },
-              {
-                ref: 'BTP-05',
-                level: 'DÉBUTANT',
-                title: "Sensibilisation à l'IA & Assistants IA personnalisés",
-                href: LINKS.formationSensibilisation,
-                visuel: PHOTOS.formationSensibilisationAssistantsIaBtp2026,
-                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part.`,
-                effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
-                objectifs: [
-                  "Sensibilisation à l'IA et usages terrain (supports PDF)",
-                  'Banque de prompts par métier (Excel)',
-                  'Concevoir des assistants IA personnalisés',
-                  'Ressources plateforme en prolongement — Qualiopi, OPCO Constructys',
+                  'DCE, mémoires techniques et chiffrage avec méthode et assistant IA',
+                  'Bibliothèque de prompts et modèles pour marchés BTP',
+                  'Sécuriser le process : confidentialité et relecture humaine',
                 ],
               },
             ].map((cours) => (
@@ -781,8 +760,15 @@ export default function HomePage() {
                   href={cours.href}
                   className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700"
                 >
-                  Voir le programme
+                  Voir la fiche formation
                 </Link>
+                <a
+                  href={cours.pdf}
+                  download
+                  className="mt-3 block w-full rounded-xl border-2 border-slate-200 py-3 text-center text-sm font-semibold text-slate-800 hover:border-[var(--accent)]"
+                >
+                  Télécharger le programme (PDF)
+                </a>
                 </div>
               </div>
             ))}
@@ -808,11 +794,11 @@ export default function HomePage() {
           </h3>
           <p className="mt-3 text-sm text-slate-600">
             <Link
-              href={LINKS.formationBatiment}
+              href={LINKS.formations}
               className="font-medium text-[var(--accent)] hover:underline"
-              title="Fiche formation BTP-01 — L’IA au service du bâtiment"
+              title="Catalogue — 2 formations, programmes PDF"
             >
-              programme détaillé
+              catalogue &amp; programmes PDF
             </Link>
             {' — '}
             <Link href={LINKS.blog} className="font-medium text-[var(--accent)] hover:underline" title="Articles et guides IA BTP">
@@ -836,12 +822,13 @@ export default function HomePage() {
             </Link>
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Voici les <strong className="font-semibold text-slate-800">quatre grands axes</strong> sur
-            lesquels s&apos;appuient les formations IA BTP : devis et chiffrage, réponses aux appels
-            d&apos;offres, comptes rendus et DOE, gestion des emails et relation client. Selon le
-            programme choisi dans le catalogue, l&apos;accent est mis sur l&apos;un ou l&apos;autre de ces
-            sujets — toujours en <strong className="font-semibold text-slate-800">sessions de 4 h</strong>,
-            avec un forfait par participant selon le niveau (débutant ou avancé).
+            Deux parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> (bâtiment
+            &amp; travaux publics) et <strong className="font-semibold text-slate-800">niveau 2</strong> (appels
+            d&apos;offres). Les thèmes couverts incluent devis et chiffrage, réponses aux marchés, comptes
+            rendus, DOE, emails et relation client — en{' '}
+            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau, jusqu&apos;à{' '}
+            12 participants. Téléchargez les <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
+            depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>
           <div className="mt-8">
             <Link

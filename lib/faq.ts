@@ -5,6 +5,9 @@
 import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+  TARIF_SESSION_DEBUTANT_HT,
+  TARIF_SESSION_AVANCE_HT,
+  EFFECTIF_GROUPE_MAX,
 } from '@/lib/tarifs-sessions';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -25,14 +28,18 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "Comment l'IA améliore-t-elle les devis et métrés ?",
     a:
-      "Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href=\"/ia-devis-batiment\">IA devis bâtiment</a> et formation <a href=\"/formations/ia-au-service-du-batiment\">L'IA au service du bâtiment (BTP-01)</a>.",
+      `Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href="/ia-devis-batiment">IA devis bâtiment</a> et formation <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — L'IA au service des pros du Bâtiment Travaux Publics</a>.`,
   },
   {
     q: "La formation aborde-t-elle le BIM et l'IA ?",
     a:
-      "La session BTP-01 « L'IA au service du bâtiment » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment. Le BIM n'est pas un module dédié dans cette session. Pour DPGF, documents de projet et approche architecte / MOE avec Claude, le programme <a href=\"" +
-      LINKS.formationArchitecture +
-      "\">Architecte augmenté — BTP-06</a> complète le parcours ; le <a href=\"/formations\">catalogue</a> permet de choisir le bon niveau.",
+      "La session NIV-01 « L'IA au service des pros du Bâtiment Travaux Publics » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment et des travaux publics. Le BIM n'est pas un module dédié dans cette session. Pour les documents longs (CCTP, DCE) et les réponses à marchés, le programme <a href=\"" +
+      LINKS.formationAO +
+      "\">NIV-02 — L'IA au service des appels d'offre BTP</a> ou la page <a href=\"" +
+      LINKS.formationClaudeAiBtp +
+      "\">formation Claude AI BTP</a> complètent le parcours — le <a href=\"" +
+      LINKS.formations +
+      "\">catalogue</a> permet de choisir le bon niveau.",
   },
   {
     q: "L'IA peut-elle aider à la sécurité sur chantier ?",
@@ -49,7 +56,9 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
     a:
       "Oui : c'est le cœur du public visé — professionnels du BTP, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche), en présentiel en Île-de-France ou en intra dans vos locaux. Financement possible via OPCO Constructys selon éligibilité — <a href=\"" +
       LINKS.financement +
-      "\">guide financement Constructys</a> et fiche <a href=\"/formations/ia-au-service-du-batiment\">BTP-01</a>.",
+      "\">guide financement Constructys</a> et fiche <a href=\"" +
+      LINKS.formationIaBtpNiveau1BatimentTp +
+      "\">NIV-01</a>.",
   },
 ];
 
@@ -96,7 +105,8 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: "Quelle est la différence entre une formation IA BTP en intra et en inter ?",
     a:
-      "L'inter-entreprises regroupe plusieurs entreprises sur une session catalogue (idéal pour 1 à 3 collaborateurs). L'intra-entreprise est dédiée à votre seule équipe, sur vos documents et vos cas d'usage spécifiques (idéal à partir de 4 participants). Les deux formats durent 4 heures et coûtent 100 € HT par participant.",
+      "L'inter-entreprises regroupe plusieurs entreprises sur une session catalogue (idéal pour 1 à 3 collaborateurs). L'intra-entreprise est dédiée à votre seule équipe, sur vos documents et vos cas d'usage spécifiques (idéal à partir de 4 participants). Les deux formats durent 4 heures : forfait de session " +
+      `${TARIF_SESSION_DEBUTANT_HT} € HT (niveau débutant) ou ${TARIF_SESSION_AVANCE_HT} € HT (niveau avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants.` ,
   },
   ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
@@ -143,7 +153,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: 'Toutes nos sessions sont proposées au format unique de 4 heures, en présentiel. Le contenu est adapté au niveau (débutant ou avancé) avec un forfait par participant — voir les programmes sur la page <a href="/formations">formations IA BTP</a>.',
+    a: 'Toutes nos sessions sont proposées au format unique de 4 heures, en présentiel. Le contenu est adapté au niveau (débutant ou avancé) avec un forfait par session — voir les programmes sur la page <a href="/formations">formations IA BTP</a>.',
   },
   {
     q: "La formation se fait-elle en présentiel ou en distanciel ?",
@@ -184,7 +194,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
-    a: `Sessions de 4 h avec forfait 100 € HT par participant (niveau débutant) ou 175 € HT par participant (niveau avancé). 100 % finançable OPCO Constructys selon barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note ${SOCIAL_PROOF.AVERAGE_RATING} — voir les <a href="/formations">formations IA BTP</a>.`,
+    a: `Sessions de 4 h : forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session (niveau débutant) ou ${TARIF_SESSION_AVANCE_HT} € HT par session (niveau avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. 100 % finançable OPCO Constructys selon barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note ${SOCIAL_PROOF.AVERAGE_RATING} — voir les <a href="/formations">formations IA BTP</a>.`,
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
@@ -208,15 +218,15 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Quelles formations IA BTP sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose 6 formations IA BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service du bâtiment (BTP-01, débutant, 100 € HT/pers), (2) Répondre aux appels d&apos;offre avec l&apos;IA (BTP-02, avancé, 175 € HT/pers), (3) Formation IA pour la fonction RH dans le BTP (BTP-03, avancé, 175 € HT/pers), (4) L&apos;IA au service des Travaux Publics (BTP-04, débutant, 100 € HT/pers), (5) Sensibilisation à l&apos;IA et assistants IA personnalisés (BTP-05, débutant, 100 € HT/pers), (6) Architecte augmenté avec Claude AI, DPGF, chantier et documents (BTP-06, avancé, 175 € HT/pers). En présentiel, inter en Île-de-France ou intra dans les locaux du client. Toutes finançables Constructys. Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
+    a: `Le catalogue OFC propose 2 formations IA BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (NIV-01, débutant, ${TARIF_SESSION_DEBUTANT_HT} € HT/session), (2) L&apos;IA au service des appels d&apos;offre BTP — niveau 2 (NIV-02, avancé, ${TARIF_SESSION_AVANCE_HT} € HT/session). En présentiel, inter en Île-de-France ou intra dans les locaux du client. Toutes finançables Constructys. Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
     q: 'Comment choisir la bonne formation IA BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. Si vos équipes débutent avec l&apos;IA, partez sur BTP-01 (bâtiment) ou BTP-04 (TP). Si vous voulez gagner sur la production de mémoires techniques et chiffrages, BTP-02 (appels d&apos;offre, avancé). Pour vos équipes RH, BTP-03. Pour un cabinet d&apos;architecture ou MOE, BTP-06. Pour découvrir le potentiel de l&apos;IA et créer vos premiers assistants, BTP-05. Un diagnostic gratuit de 30 minutes en visio permet de cibler le programme adapté — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : niveau 1 (NIV-01). Pour la réponse aux marchés, mémoires techniques et DCE : niveau 2 (NIV-02). Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Combien coûte une formation IA BTP du catalogue ?',
-    a: `Deux tarifs : 100 € HT par participant pour les formations de niveau débutant (BTP-01 bâtiment, BTP-04 travaux publics, BTP-05 sensibilisation), et 175 € HT par participant pour les formations de niveau avancé (BTP-02 appels d&apos;offre, BTP-03 RH, BTP-06 architecture). Toutes les formations durent 4 heures, en groupe de 12 participants maximum. Toutes éligibles au financement Constructys (plafond pédagogique 24 € HT/h/stagiaire pour les entreprises BTP cotisantes). Détail : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `Forfait par session : ${TARIF_SESSION_DEBUTANT_HT} € HT pour le niveau 1 (NIV-01 bâtiment &amp; travaux publics), et ${TARIF_SESSION_AVANCE_HT} € HT pour le niveau 2 (NIV-02 appels d&apos;offre). Chaque session dure 4 heures, avec un groupe de ${EFFECTIF_GROUPE_MAX} participants maximum. Toutes éligibles au financement Constructys (plafond pédagogique 24 € HT/h/stagiaire pour les entreprises BTP cotisantes). Détail : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Les formations IA BTP sont-elles certifiées Qualiopi ?',
@@ -240,7 +250,7 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: "Combien coûte une formation IA BTP ?",
-    a: 'Nous proposons uniquement des sessions de 4 heures, en forfait par participant : 100 € HT (niveau débutant) ou 175 € HT (niveau avancé). Selon votre entreprise, le financement OPCO Constructys peut couvrir tout ou partie du coût — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.',
+    a: `Nous proposons uniquement des sessions de 4 heures, en forfait par session : ${TARIF_SESSION_DEBUTANT_HT} € HT (niveau débutant) ou ${TARIF_SESSION_AVANCE_HT} € HT (niveau avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. Selon votre entreprise, le financement OPCO Constructys peut couvrir tout ou partie du coût — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
   },
   {
     q: "Comment financer ma formation IA ?",
@@ -255,7 +265,7 @@ export const FAQ_TARIFS: FAQItem[] = [
 export const FAQ_OFFRES: FAQItem[] = [
   {
     q: "Quels formats de formation proposez-vous ?",
-    a: 'Sessions de 4 heures en présentiel (inter ou intra-entreprise). Tarif forfaitaire par participant selon le niveau (débutant ou avancé). Nous nous adaptons à la taille de votre groupe — parcours sur la page <a href="/formations">formations IA BTP</a>.',
+    a: 'Sessions de 4 heures en présentiel (inter ou intra-entreprise). Forfait par session selon le niveau (débutant ou avancé), jusqu\'à 12 participants. Parcours sur la page <a href="/formations">formations IA BTP</a>.',
   },
   {
     q: "Comment accéder à l'espace apprenant ?",
@@ -439,7 +449,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
   {
     q: "Quel est le format de la formation IA BTP Paris ?",
-    a: 'Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait par participant selon le niveau — parcours <a href="/formations/ia-au-service-du-batiment">L\'IA au service du bâtiment</a>.',
+    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait ${TARIF_SESSION_DEBUTANT_HT} € HT ou ${TARIF_SESSION_AVANCE_HT} € HT par session selon le programme — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — pros Bâtiment & travaux publics</a>.`,
   },
 ];
 
@@ -503,36 +513,20 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
     a:
-      "BTP-02 couvre l'ensemble du processus de réponse à un AO, y compris l'analyse du BPU et du DQE avec l'IA. Le chiffrage proprement dit (calcul des prix, marges) fait l'objet d'un module spécifique qui peut être combiné selon vos besoins. Programme : <a href=\"/formations/ia-appels-offre-btp\">Répondre aux appels d'offres avec l'IA</a>.",
+      "NIV-02 couvre l'ensemble du processus de réponse à un AO, y compris l'analyse du BPU et du DQE avec l'IA. Le chiffrage proprement dit (calcul des prix, marges) fait l'objet d'un module spécifique qui peut être combiné selon vos besoins. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA au service des appels d'offre BTP</a>.",
   },
 ];
 
-/** FAQ Formation IA RH BTP */
-export const FAQ_RH_BTP: FAQItem[] = [
-  {
-    q: "La formation IA RH BTP s'adresse à qui ?",
-    a: `DRH, chargés de recrutement, responsables RH et assistants RH du secteur BTP. Aucune compétence technique requise. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Programme : <a href="/formations/ia-rh-btp">formation IA RH BTP</a>.`,
-  },
-  {
-    q: "Quelle est la durée de la formation IA fonction RH ?",
-    a: 'Session de 4 heures (niveau avancé). Automatisation recrutement, GEPP, tableaux de bord RH et création d\'assistants IA personnalisés — contenus condensés sur une demi-journée. Voir le <a href="/formations">catalogue</a>.',
-  },
-  {
-    q: "Les données RH sont-elles sécurisées avec l'IA ?",
-    a: 'Nous formons aux bonnes pratiques RGPD : ne pas saisir de données personnelles dans des outils non validés par votre organisation, anonymiser les exemples en session, et cadrer les usages avec votre direction ou votre référent conformité. Guide de sécurité inclus — <a href="/contact">contact</a> pour un cadrage entreprise.',
-  },
-];
-
-/** FAQ — formation L'IA au service du bâtiment (BTP-01) */
+/** FAQ — formation NIV-01 (fusion bâtiment & TP) */
 export const FAQ_BATIMENT: FAQItem[] = [
   ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
   {
     q: "Quels comptes IA pour cette formation (niveau débutant) ?",
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Page formation : <a href="/formations/ia-au-service-du-batiment">L'IA au service du bâtiment</a>.`,
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Page formation : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — L'IA au service des pros du Bâtiment Travaux Publics</a>.`,
   },
   {
     q: "Proposez-vous plusieurs durées de session ?",
-    a: 'Non : toutes nos sessions d\'accompagnement catalogue sont calibrées sur 4 heures. La différence se joue sur le niveau (débutant ou avancé) et le forfait par participant, pas sur la durée — voir le <a href="/formations">catalogue</a>.',
+    a: 'Non : toutes nos sessions d\'accompagnement catalogue sont calibrées sur 4 heures. La différence se joue sur le niveau (débutant ou avancé) et le forfait par session, pas sur la durée — voir le <a href="/formations">catalogue</a>.',
   },
   {
     q: "La formation est-elle finançable ?",
@@ -545,7 +539,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
 export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   {
     q: "Pourquoi une formation « IA travaux publics » plutôt qu'une formation bâtiment générique ?",
-    a: 'Les enjeux TP (VRD, terrassement, enrobés, ouvrages d\'art, maître d\'ouvrage public, marchés publics) ne sont pas ceux du gros œuvre ou de la second œuvre. Les documents, délais et interlocuteurs diffèrent : une formation dédiée aligne les cas d\'usage et les prompts sur vos chantiers routes et réseaux — voir <a href="/formations/ia-travaux-publics">catalogue TP</a> et la page <a href="/formation-ia-travaux-publics">formation IA travaux publics</a>.',
+    a: `Les enjeux TP (VRD, terrassement, enrobés, ouvrages d'art, maître d'ouvrage public, marchés publics) diffèrent du seul gros œuvre : le niveau 1 du catalogue intègre désormais bâtiment et travaux publics dans une même session de 4 h, avec prompts et cas TP. Voir la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a> et la page <a href="/formation-ia-travaux-publics">formation IA travaux publics</a> (SEO).`,
   },
   {
     q: "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
@@ -557,14 +551,14 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   },
   {
     q: "Quelle est la durée de la formation IA travaux publics ?",
-    a: 'Nous proposons une session unique de 4 heures (niveau débutant), avec forfait par participant. Le programme condense consultations / DCE, documents de chantier et bases d\'industrialisation (templates, assistants) — <a href="/formations/ia-travaux-publics">programme travaux publics</a>.',
+    a: `Nous proposons une session unique de 4 heures (niveau débutant), avec forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session (jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants) — <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">programme NIV-01 (PDF sur la fiche)</a>.`,
   },
 ];
 
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
     q: "Quels outils IA sont prévus pour le niveau débutant ?",
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir <a href="/formations/ia-travaux-publics">formation IA travaux publics</a>.`,
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">fiche NIV-01 — Bâtiment & travaux publics</a>.`,
   },
   {
     q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",
@@ -620,7 +614,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "Ces prompts fonctionnent-ils avec d'autres outils IA ?",
-    a: 'Oui. Les prompts sont conçus pour ChatGPT mais fonctionnent avec Mistral, Claude, Gemini ou Perplexity. La structure reste identique — voir aussi <a href="/formations/ia-architecture-claude-dpgf">IA architecture Claude & DPGF</a>.',
+    a: `Oui. Les prompts sont conçus pour ChatGPT mais fonctionnent avec Mistral, Claude, Gemini ou Perplexity. La structure reste identique — voir le <a href="${LINKS.formations}">catalogue formations IA BTP</a> et la page <a href="${LINKS.formationClaudeAiBtp}">formation Claude AI BTP</a>.`,
   },
   {
     q: "La formation est-elle finançable ?",

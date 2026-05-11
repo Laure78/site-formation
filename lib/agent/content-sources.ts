@@ -27,30 +27,17 @@ const BASE_URL = SITE_CONFIG.url;
 
 // Formations (données statiques du site)
 const FORMATIONS_DATA = [
-  { path: '/formations', title: 'Catalogue formations IA BTP', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (avancé). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
+  { path: '/formations', title: 'Catalogue formations IA BTP', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
   {
-    path: '/formations/ia-au-service-du-batiment',
-    title: "L'IA au service du bâtiment",
-    desc: `Formation BTP-01 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails, CR, administratif. Qualiopi, Constructys.`,
+    path: '/formations/ia-batiment-travaux-publics',
+    title: "L'IA au service des pros du bâtiment et des travaux publics",
+    desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
-  { path: '/formations/ia-travaux-publics', title: "L'IA au service des Travaux Publics", desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} DCE, CCTP, comptes rendus chantier TP.` },
-  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. DCE, mémoires, marchés. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
-  { path: '/formations/ia-rh-btp', title: 'IA pour la fonction RH BTP', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. Recrutement, GEPP, RH. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}` },
-  { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par participant.' },
-  {
-    path: '/formations/sensibilisation-ia-assistants-personnalises',
-    title: "Sensibilisation à l'IA & Assistants IA personnalisés",
-    desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Sensibilisation, prompts, assistants. Qualiopi, Constructys.`,
-  },
-  {
-    path: '/formations/ia-architecture-claude-dpgf',
-    title: 'Architecte augmenté — Claude AI, DPGF, chantier et documents',
-    desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/part. DPGF, métrés, documents. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Claude AI + Google Workspace.`,
-  },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/session. DCE, mémoires, marchés. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
+  { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par session (12 participants max).' },
 ];
 
-// Pages clés + contenu synthétique
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
@@ -61,7 +48,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email} — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
-  { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/part. (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (avancé). Prise en charge OPCO Constructys selon barèmes. Qualiopi. eGestion, délais 15 jours.` },
+  { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). Prise en charge OPCO Constructys selon barèmes. Qualiopi. eGestion, délais 15 jours.` },
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
   { path: '/formation-ia-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
   {
@@ -225,7 +212,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
     path: '/formation-ia-travaux-publics',
     title: 'Formation IA travaux publics',
     content:
-      "Landing SEO : formation IA et ChatGPT pour routes, VRD, génie civil. Cas d'usage TP (planification, études de sol, marchés publics, rapports chantier). Qualiopi, OPCO Constructys. Fiche détaillée : /formations/ia-travaux-publics (21 h).",
+      "Landing SEO : formation IA et ChatGPT pour routes, VRD, génie civil. Cas d'usage TP (planification, études de sol, marchés publics, rapports chantier). Qualiopi, OPCO Constructys. Fiche catalogue niveau 1 : /formations/ia-batiment-travaux-publics ; page pilier SEO : /formation-ia-travaux-publics.",
   },
   { path: '/ia-conducteur-travaux', title: 'IA conducteur de travaux', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE.' },
   { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIRET 905 244 281 00010. Hébergement O2switch.' },

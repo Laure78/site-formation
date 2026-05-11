@@ -176,9 +176,9 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
       {
         '@type': 'Course',
         '@id': courseId,
-        name: "Formation IA BTP — L'IA au service du bâtiment",
-        description: `Formation pratique de 4 heures pour former les équipes BTP à ChatGPT et Claude AI : devis, comptes rendus de chantier, appels d'offres, mémoires techniques, administratif. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
-        url: `${base}${LINKS.formationBatiment}`,
+        name: "Formation IA BTP — niveau 1 bâtiment & travaux publics",
+        description: `Formation pratique de 4 heures pour former les équipes BTP à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
+        url: `${base}${LINKS.formationIaBtpNiveau1BatimentTp}`,
         provider: { '@id': orgId },
         instructor: { '@id': laureId },
         inLanguage: 'fr-FR',
@@ -237,13 +237,10 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           itemListElement: [
             {
               '@type': 'Offer',
-              itemOffered: { '@type': 'Service', name: 'L\'IA au service du bâtiment (BTP-01)' },
-              price: priceStr,
-              priceCurrency: 'EUR',
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: { '@type': 'Service', name: 'L\'IA au service des Travaux Publics (BTP-04)' },
+              itemOffered: {
+                '@type': 'Service',
+                name: "L'IA au service des pros du bâtiment et des travaux publics (niveau 1)",
+              },
               price: priceStr,
               priceCurrency: 'EUR',
             },
@@ -251,7 +248,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
               '@type': 'Offer',
               itemOffered: {
                 '@type': 'Service',
-                name: 'Sensibilisation IA & Assistants personnalisés (BTP-05)',
+                name: "L'IA au service des appels d'offre BTP (niveau 2)",
               },
               price: priceStr,
               priceCurrency: 'EUR',

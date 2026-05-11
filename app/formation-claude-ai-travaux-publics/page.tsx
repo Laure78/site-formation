@@ -118,7 +118,7 @@ export default function FormationClaudeAiTravauxPublicsPage() {
           <p className="mt-6 text-sm text-slate-600">
             Voir aussi : <Link href={LINKS.formationClaudeAiBtp} className="text-[#377CF3] hover:underline">formation Claude AI BTP</Link> ·{' '}
             <Link href={LINKS.formationClaudeAiBatiment} className="text-[#377CF3] hover:underline">formation Claude AI bâtiment</Link> ·{' '}
-            <Link href={LINKS.formationTP} className="text-[#377CF3] hover:underline">formation IA travaux publics</Link>.
+            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="text-[#377CF3] hover:underline">formation IA niveau 1 bâtiment &amp; travaux publics</Link>.
           </p>
         </div>
       </section>

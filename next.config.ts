@@ -70,6 +70,56 @@ const nextConfig: NextConfig = {
       ...gscHubMergeRedirects(),
       ...formationIaLegacyRedirects(),
       {
+        source: '/formations/ia-rh-btp',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-rh-btp/:path*',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-architecture-claude-dpgf',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-architecture-claude-dpgf/:path*',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-au-service-du-batiment',
+        destination: '/formations/ia-batiment-travaux-publics',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-au-service-du-batiment/:path*',
+        destination: '/formations/ia-batiment-travaux-publics',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-travaux-publics',
+        destination: '/formations/ia-batiment-travaux-publics',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-travaux-publics/:path*',
+        destination: '/formations/ia-batiment-travaux-publics',
+        permanent: true,
+      },
+      {
+        source: '/formations/sensibilisation-ia-assistants-personnalises',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
+        source: '/formations/sensibilisation-ia-assistants-personnalises/:path*',
+        destination: '/formations',
+        permanent: true,
+      },
+      {
         source: '/formations/ia-btp-ile-de-france',
         destination: '/formation-ia-btp-ile-de-france',
         permanent: true,

@@ -75,7 +75,7 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: 'Peut-on panacher plusieurs formations en une demi-journée ?',
-    a: "Non. Chaque formation dure 4 heures complètes et couvre un thème spécifique. Il est possible d'organiser deux sessions en deux demi-journées consécutives sur des thèmes différents (ex. : BTP-01 le matin, BTP-02 l'après-midi) pour maximiser l'impact.",
+    a: "Non. Chaque formation dure 4 heures complètes et couvre un thème spécifique. Il est possible d'organiser deux sessions en deux demi-journées consécutives sur des thèmes différents (ex. : NIV-01 le matin, NIV-02 l'après-midi) pour maximiser l'impact.",
   },
   {
     q: 'Les formations sont-elles disponibles en dehors des heures ouvrées ?',
@@ -239,85 +239,37 @@ export default function FormationIaBtpIleDeFrancePage() {
           </h2>
           <div className="mt-10 space-y-10">
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">BTP-01 — L&apos;IA au service du bâtiment</h3>
+              <h3 className="font-display text-xl font-bold text-slate-900">
+                NIV-01 — L&apos;IA au service des pros du Bâtiment Travaux Publics
+              </h3>
               <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant
+                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session
               </p>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                Devis, emails, comptes rendus de chantier, administratif. La formation d&apos;entrée pour toute équipe
-                bâtiment qui n&apos;a jamais utilisé l&apos;IA. Applicable dès le lendemain.
+                Devis, emails, comptes rendus de chantier, administratif — pour les équipes bâtiment et travaux publics
+                qui démarrent avec l&apos;IA. Programme PDF sur la fiche catalogue.
               </p>
             </article>
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <h3 className="font-display text-xl font-bold text-slate-900">
-                BTP-02 — Répondre aux appels d&apos;offres avec l&apos;IA
+                NIV-02 — L&apos;IA au service des appels d&apos;offre BTP
               </h3>
               <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant
+                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/session
               </p>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                Analyse DCE, mémoire technique, chiffrage, vérification cohérence. Pour les chargés d&apos;affaires et
-                conducteurs de travaux qui répondent régulièrement à des marchés publics ou privés.
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">
-                BTP-03 — Formation IA pour la Fonction RH dans le BTP
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant
-              </p>
-              <p className="mt-4 text-slate-700 leading-relaxed">
-                Recrutement, GEPP, tableaux de bord RH, assistant RH personnalisé. Pour les DRH et dirigeants de PME BTP
-                gérant leurs ressources humaines.
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">
-                BTP-04 — L&apos;IA au service des Travaux Publics
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant
-              </p>
-              <p className="mt-4 text-slate-700 leading-relaxed">
-                DCE, comptes rendus chantier TP, rapports d&apos;avancement, réponses consultations. Spécifique au
-                vocabulaire et aux documents des travaux publics.
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">
-                BTP-05 — Sensibilisation IA & Assistants IA personnalisés
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant
-              </p>
-              <p className="mt-4 text-slate-700 leading-relaxed">
-                Découvrir l&apos;IA, comprendre ses usages BTP, créer son premier assistant IA d&apos;entreprise. Idéal
-                pour sensibiliser une équipe avant une formation plus technique.
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">
-                BTP-06 — Architecte augmenté : Claude AI, DPGF, chantier
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant
-              </p>
-              <p className="mt-4 text-slate-700 leading-relaxed">
-                DPGF, métrés, planning GANTT, CR de chantier, situations de travaux. Pour les architectes et bureaux
-                d&apos;études qui gèrent des phases chantier.
+                Analyse DCE, mémoire technique, structuration de réponse marché. Pour les chargés d&apos;affaires et
+                conducteurs de travaux qui répondent aux appels d&apos;offres. Programme PDF sur la fiche catalogue.
               </p>
             </article>
           </div>
           <p className="mt-8">
-            <a
-              href="https://www.laureolivie.fr/formations"
+            <Link
+              href={LINKS.formations}
               className="font-semibold text-[#377CF3] underline hover:no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
             >
-              Voir les programmes détaillés →
-            </a>
+              Voir les programmes détaillés et télécharger les PDF →
+            </Link>
           </p>
         </div>
       </section>

@@ -21,13 +21,13 @@ export function FormationsHero() {
       />
       <div className="relative mx-auto max-w-6xl px-4">
         <p className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-[13px] font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
-          Catalogue 2026 · 6 formations Qualiopi
+          Catalogue 2026 · 2 formations Qualiopi
         </p>
         <h1
           id="formations-catalogue-hero-h1"
           className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl md:leading-[1.1] lg:text-[56px]"
         >
-          Catalogue formation IA BTP : 6 formations Qualiopi de 4 h, bâtiment et travaux publics
+          Catalogue formation IA BTP : 2 formations Qualiopi de 4 h (niveaux 1 et 2), programmes PDF
         </h1>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
           <a

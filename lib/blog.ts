@@ -936,7 +936,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Combien coûte une formation IA BTP ?',
         content:
-          'Les sessions catalogue sont calibrées sur 4 h, avec un forfait par participant selon le niveau (débutant ou avancé). Pour les entreprises du BTP de moins de 50 salariés, la formation est 100% finançable par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. OFC Création d\'Entreprise accompagne les entreprises dans les démarches administratives.',
+          'Les sessions catalogue sont calibrées sur 4 h, avec un forfait par session selon le niveau (débutant ou avancé), jusqu\'à 12 participants. Pour les entreprises du BTP de moins de 50 salariés, la formation est 100% finançable par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. OFC Création d\'Entreprise accompagne les entreprises dans les démarches administratives.',
       },
       {
         type: 'paragraph',
@@ -964,7 +964,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'faq',
         title: 'Questions fréquentes sur la formation IA BTP',
         content: [
-          'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par participant). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
+          'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'La formation inclut-elle un suivi post-formation ? — Oui. Support WhatsApp, accès 1 an aux ressources pédagogiques, suivi personnalisé pour garantir l\'application des acquis.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
           `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans d'expérience en travaux publics et conduite de chantier. Méthode 100% pratique sur vrais documents. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certification Qualiopi.`,
@@ -2072,7 +2072,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       break;
     case 'rh':
       links.push(
-        { href: LINKS.formationRH, label: 'formation IA RH BTP' },
+        { href: LINKS.formations, label: 'catalogue formations IA BTP' },
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;

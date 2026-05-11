@@ -5,6 +5,7 @@ import { Check, Calendar, Download, FileText } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { breadcrumbItemsFromPaths, createPageMetadata } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title: 'Financement Constructys 100% IA BTP — Guide complet 2026',
@@ -90,32 +91,20 @@ export default function FinancementConstructys100IABTPPage() {
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <Link
-              href="/formations"
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service du bâtiment</h3>
-              <p className="mt-1 text-sm text-slate-600">4 h · Devis, emails, CR</p>
+              <h3 className="font-semibold text-[var(--accent)]">
+                Niveau 1 — Bâtiment &amp; travaux publics
+              </h3>
+              <p className="mt-1 text-sm text-slate-600">4 h · Programme PDF</p>
             </Link>
             <Link
-              href="/formations/ia-appels-offre-btp"
+              href={LINKS.formationAO}
               className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
             >
-              <h3 className="font-semibold text-[var(--accent)]">Appels d&apos;offres et IA</h3>
-              <p className="mt-1 text-sm text-slate-600">4 h · DCE, mémoires techniques</p>
-            </Link>
-            <Link
-              href="/formations/ia-rh-btp"
-              className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
-            >
-              <h3 className="font-semibold text-[var(--accent)]">IA fonction RH</h3>
-              <p className="mt-1 text-sm text-slate-600">4 h · Recrutement, GEPP</p>
-            </Link>
-            <Link
-              href="/formations/ia-travaux-publics"
-              className="rounded-xl border border-slate-200 bg-white p-6 transition-shadow hover:shadow-md"
-            >
-              <h3 className="font-semibold text-[var(--accent)]">L&apos;IA au service des Travaux Publics</h3>
-              <p className="mt-1 text-sm text-slate-600">4 h · Métiers TP</p>
+              <h3 className="font-semibold text-[var(--accent)]">Niveau 2 — Appels d&apos;offre BTP</h3>
+              <p className="mt-1 text-sm text-slate-600">4 h · DCE, mémoires techniques · Programme PDF</p>
             </Link>
           </div>
         </div>

@@ -188,7 +188,7 @@ const SOMMAIRE = [
   { href: '#usages', label: 'Les 8 usages commerciaux les plus impactants' },
   { href: '#prompts', label: '3 prompts prêts à l\'emploi' },
   { href: '#resultats', label: 'Gains mesurés : taux de transformation et temps/AO' },
-  { href: '#programme', label: 'Programme des formations BTP-02 (AO avancé) et BTP-06 (architecture/Claude)' },
+  { href: '#programme', label: 'Programme catalogue : BTP-02 (appels d\'offre, avancé)' },
   { href: '#financement', label: 'Financement Constructys 2026' },
   { href: '#faq', label: 'FAQ chargés d\'affaires' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
@@ -451,31 +451,19 @@ export default function FormationIaChargeAffairesBtpPage() {
 
         <section id="programme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Programmes des formations BTP-02 et BTP-06
+            Programme catalogue : formation BTP-02
           </h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
             Formation BTP-02 — IA et appels d&apos;offres BTP : avancé
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-02 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant ·{' '}
+            Référence : BTP-02 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/session ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Axée sur les <strong>AO publics</strong> : analyse de DCE, lecture CCTP, mémoire technique,
             cohérence avec la DPGF et critères d&apos;attribution.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            Formation BTP-06 — Architecture, Claude AI et DPGF : avancé
-          </h3>
-          <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-06 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant ·{' '}
-            {EFFECTIF_GROUPE_MAX} participants max
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Axée sur <strong>Claude AI</strong>, les analyses documentaires complexes et les{' '}
-            <strong>DPGF élaborés</strong> (gros volumes de lignes, comparaisons de variantes).
           </p>
 
           <p className="mt-6 font-medium text-slate-900">Les formations sont disponibles :</p>

@@ -201,7 +201,7 @@ const SOMMAIRE = [
   { href: '#prompts', label: '3 prompts prêts à l\'emploi' },
   { href: '#resultats', label: 'Gains mesurés : temps et DSO (délai de paiement)' },
   { href: '#specificites', label: 'Spécificités BTP : TVA, sous-traitance, paie chantier' },
-  { href: '#programme', label: 'Programme de la formation BTP-03 (RH-admin) et BTP-05 (assistants IA)' },
+  { href: '#programme', label: 'Programme catalogue : BTP-01 (IA au service du bâtiment)' },
   { href: '#financement', label: 'Financement Constructys 2026' },
   { href: '#faq', label: 'FAQ assistantes de gestion BTP' },
   { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
@@ -513,31 +513,19 @@ export default function FormationIaAssistanteGestionBtpPage() {
 
         <section id="programme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Programmes des formations BTP-03 et BTP-05
+            Programme catalogue : formation BTP-01
           </h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Formation BTP-03 — IA pour les fonctions RH-administratives BTP : avancé
+            Formation BTP-01 — L&apos;IA au service du bâtiment : débutant
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-03 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/participant ·{' '}
+            Référence : BTP-01 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Conçue pour les fonctions support : facturation, sous-traitance, dossiers administratifs,
-            coordination avec la paie et le dirigeant — avec des prompts calibrés sur les contraintes BTP.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            Formation BTP-05 — Sensibilisation IA + assistants personnalisés : débutant
-          </h3>
-          <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-05 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant ·{' '}
-            {EFFECTIF_GROUPE_MAX} participants max
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Premiers pas sur ChatGPT / Claude, création d&apos;assistants personnalisés pour relances,
-            courriers types et check-lists métiers — avant d&apos;enchaîner sur BTP-03 si besoin.
+            Premiers pas sur ChatGPT / Claude : devis, emails, relances et comptes rendus — base idéale pour une
+            équipe support avant d&apos;aborder des modules plus avancés (appels d&apos;offres, etc.).
           </p>
 
           <p className="mt-6 font-medium text-slate-900">Les formations sont disponibles :</p>
@@ -637,7 +625,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Elle ne forme pas depuis un manuel théorique : elle sait ce qui bloque une relance, un DC4 ou un
-            DGD quand le dirigeant attend une réponse le même jour. Les parcours BTP-03 et BTP-05 reprennent
+            DGD quand le dirigeant attend une réponse le même jour. Le parcours BTP-01 reprend
             cette réalité de bureau.
           </p>
           <p className="mt-4 text-sm font-medium text-slate-800">

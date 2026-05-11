@@ -22,6 +22,7 @@ import {
 } from '@/lib/seo';
 import { FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title:
@@ -207,12 +208,12 @@ export default function FormationIATravauxPublicsLandingPage() {
           <p className="mt-4 text-slate-600">
             Le parcours catalogue détaillé est présenté sur la fiche{' '}
             <Link
-              href="/formations/ia-travaux-publics"
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="font-semibold text-[var(--accent)] underline-offset-2 hover:underline"
             >
-              L&apos;IA au service des Travaux Publics
+              NIV-01 — L&apos;IA au service des pros du Bâtiment Travaux Publics
             </Link>{' '}
-            (21 h sur 3 jours). Voici la logique en six modules, pensée pour une{' '}
+            (4 h, programme PDF). Voici la logique en six modules, pensée pour une{' '}
             <strong>formation IA TP</strong> exigeante.
           </p>
           <ol className="mt-10 space-y-6">
@@ -233,10 +234,10 @@ export default function FormationIATravauxPublicsLandingPage() {
           </ol>
           <p className="mt-8 text-center">
             <Link
-              href="/formations/ia-travaux-publics#programme"
+              href={`${LINKS.formationIaBtpNiveau1BatimentTp}#programme`}
               className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
             >
-              Voir le programme détaillé et les journées
+              Voir le programme détaillé sur la fiche NIV-01
               <ArrowRight className="h-4 w-4" strokeWidth={1.5} aria-hidden />
             </Link>
           </p>
@@ -357,9 +358,9 @@ export default function FormationIATravauxPublicsLandingPage() {
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                { href: '/formations/ia-travaux-publics', label: 'Fiche formation TP (21 h)' },
-                { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-                { href: '/formations/ia-appels-offre-btp', label: "IA appels d'offres BTP" },
+                { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Fiche catalogue NIV-01 (4 h, PDF)' },
+                { href: LINKS.financement, label: 'Financement Constructys' },
+                { href: LINKS.formationAO, label: "IA appels d'offres BTP (NIV-02)" },
                 { href: '/blog', label: 'Blog IA BTP' },
                 { href: buildSiteCalendlyCtaUrl('formation-ia-travaux-publics-footer-rdv'), label: 'Prendre rendez-vous' },
               ]}

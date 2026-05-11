@@ -9,6 +9,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
 const PATH = '/formation-ia-chef-chantier-tp';
 
@@ -429,7 +430,7 @@ export default function FormationIaChefChantierTpPage() {
         <AllerPlusLoin
           links={[
             { href: '/formations', label: 'Catalogue formations IA BTP' },
-            { href: '/formations/ia-travaux-publics', label: 'Formation IA travaux publics' },
+            { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: '/formation-ia-conducteur-travaux', label: 'Formation IA conducteur de travaux BTP' },
             { href: '/formation-ia-conducteur-engins-tp', label: 'Formation IA conducteur d’engins TP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

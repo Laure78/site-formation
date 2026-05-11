@@ -475,7 +475,7 @@ export default function FormationIaConducteurTravauxPage() {
             Formation BTP-01 — L&apos;IA au service du bâtiment
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-01 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant ·{' '}
+            Référence : BTP-01 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
@@ -492,7 +492,7 @@ export default function FormationIaConducteurTravauxPage() {
             Formation BTP-04 — L&apos;IA au service des Travaux Publics
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-04 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/participant ·{' '}
+            Référence : BTP-04 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

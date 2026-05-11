@@ -21,18 +21,19 @@ import { FormationsCatalogueMidCta } from '@/components/formations/FormationsCat
 import { FormationsPartnersStrip } from '@/components/formations/FormationsPartnersStrip';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
 import { FAQSchema } from '@/components/seo/FAQSchema';
+import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const OG_TITLE = 'Catalogue formation IA BTP — 6 formations Qualiopi 4 h';
+const OG_TITLE = 'Catalogue formation IA BTP — 2 formations Qualiopi 4 h';
 const OG_DESCRIPTION =
-  "6 formations IA BTP de 4 h finançables Constructys : bâtiment, TP, appels d'offres, RH, architecture, sensibilisation. Inter Île-de-France ou intra dans vos locaux.";
+  "2 formations IA BTP de 4 h finançables Constructys : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre. Programmes PDF. Inter Île-de-France ou intra.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Formation IA BTP : catalogue 6 formations Qualiopi',
+    title: 'Formation IA BTP : catalogue 2 formations Qualiopi',
     description:
-      "Catalogue 6 formations IA BTP : ChatGPT bâtiment, travaux publics, appels d'offres, RH, architecture. 4 h, 100 ou 175 € HT/pers, finançable Constructys. Île-de-France.",
+      "Catalogue 2 formations IA BTP : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre BTP. 4 h, forfait 1000 ou 1250 € HT/session (12 pers. max), finançable Constructys. Île-de-France.",
     path: '/formations',
     appendAuthorSuffix: false,
     openGraphTitle: OG_TITLE,
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt:
-        'Catalogue formation IA BTP — 6 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+        'Catalogue formation IA BTP — 2 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
     },
   }),
   openGraph: {
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          'Catalogue formation IA BTP — 6 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+          'Catalogue formation IA BTP — 2 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
       },
     ],
   },
@@ -79,7 +80,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: OG_TITLE,
     description:
-      "6 formations IA BTP finançables Constructys. Inter Île-de-France ou intra. Bâtiment, TP, appels d'offres, RH, architecture.",
+      "2 formations IA BTP finançables Constructys. Inter Île-de-France ou intra. Niveau 1 et niveau 2.",
     images: [`${baseUrl}${PHOTOS.formationIaBtpSalleInteractive2026.src}`],
   },
   alternates: {
@@ -127,10 +128,8 @@ export default function FormationsPage() {
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>{' '}
-            au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. Sessions en 4 h uniquement
-            — forfait 100 € HT par participant (niveau débutant) ou 175 € HT par participant (niveau avancé). Groupe de
-            12 participants maximum. Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini. Formations en présentiel
-            uniquement (sessions inter en Île-de-France, intra dans vos locaux). Méthode 100 % terrain, orientée
+            au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. {ENCART_TARIFS_COMMERCIAUX}{' '}
+            Méthode 100 % terrain, orientée
             productivité.{' '}
             <CalendlyButton variant="small" campaign="formations-intro-rdv" className="font-medium">
               Prenez rendez-vous

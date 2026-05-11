@@ -6,7 +6,6 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import {
   ArrowRight,
   BookOpen,
-  Building2,
   Check,
   Clock,
   Euro,
@@ -16,8 +15,9 @@ import {
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { sortFormationsCatalogue, tarifLabel } from '@/lib/formations-catalogue-display';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
-type ProfileId = 'debutant' | 'ao' | 'archi';
+type ProfileId = 'debutant' | 'ao';
 
 const PROFILES: {
   id: ProfileId;
@@ -28,24 +28,17 @@ const PROFILES: {
 }[] = [
   {
     id: 'debutant',
-    label: 'Je débute avec l’IA',
-    short: 'BTP-01, BTP-04, BTP-05',
+    label: 'Niveau 1 — bâtiment & travaux publics',
+    short: 'NIV-01',
     icon: BookOpen,
-    refs: ['BTP-01', 'BTP-04', 'BTP-05'],
+    refs: ['NIV-01'],
   },
   {
     id: 'ao',
-    label: 'Je veux gagner des appels d’offres',
-    short: 'BTP-02',
+    label: 'Niveau 2 — appels d’offre BTP',
+    short: 'NIV-02',
     icon: FileText,
-    refs: ['BTP-02'],
-  },
-  {
-    id: 'archi',
-    label: 'Je suis architecte ou chef de projet',
-    short: 'BTP-06',
-    icon: Building2,
-    refs: ['BTP-06'],
+    refs: ['NIV-02'],
   },
 ];
 
@@ -122,21 +115,28 @@ function FormationCard({
             </li>
           ))}
         </ul>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-6 flex flex-col gap-3">
           <Link
             href={cours.href}
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-medium text-white transition hover:bg-[#2563EB]"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-medium text-white transition hover:bg-[#2563EB]"
           >
-            Voir le programme
+            Voir la fiche formation
             <ArrowRight size={18} aria-hidden />
           </Link>
+          <a
+            href={cours.programmePdfHref}
+            download
+            className="inline-flex items-center justify-center gap-2 rounded-lg border-[1.5px] border-slate-300 bg-white px-5 py-3 text-center text-sm font-medium text-[#0F172A] transition hover:border-[#377CF3] hover:text-[#377CF3]"
+          >
+            Télécharger le programme (PDF)
+          </a>
           <a
             href={intraUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-1 items-center justify-center rounded-lg border-[1.5px] border-[#377CF3] px-5 py-3 text-center text-sm font-medium text-[#377CF3] transition hover:bg-[#EFF6FF]"
+            className="inline-flex items-center justify-center rounded-lg border-[1.5px] border-[#377CF3] px-5 py-3 text-center text-sm font-medium text-[#377CF3] transition hover:bg-[#EFF6FF]"
           >
-            Intra
+            Demander une session intra
           </a>
         </div>
       </div>
@@ -185,7 +185,7 @@ export function FormationsCatalogueInteractive({
   const renderGroup = (badge: ReactNode, list: FormationCatalogueEntry[]) => (
     <div className="space-y-6">
       <div className="flex justify-center">{badge}</div>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2">
         {list.map((cours) => (
           <FormationCard
             key={cours.ref}
@@ -212,7 +212,7 @@ export function FormationsCatalogueInteractive({
             Cliquez sur votre profil pour voir les formations recommandées
           </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {PROFILES.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -243,13 +243,13 @@ export function FormationsCatalogueInteractive({
 
       {renderGroup(
         <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-          Niveau débutant · 100 € HT/pers
+          Niveau débutant · {TARIF_SESSION_DEBUTANT_HT} € HT / session
         </span>,
         debutants
       )}
       {renderGroup(
         <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-          Niveau avancé · 175 € HT/pers
+          Niveau avancé · {TARIF_SESSION_AVANCE_HT} € HT / session
         </span>,
         avances
       )}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LINKS } from '@/lib/internal-links';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -30,11 +31,11 @@ import {
 
 const LMS_SLUG = 'ia-appels-offre-btp';
 /** Programme officiel — aligné seed SQL supports */
-const PDF_HREF = '/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP_2026.pdf';
+const PDF_HREF = LINKS.pdfProgrammeIaBtpNiveau2AppelsOffre;
 /** Lead magnet — 8 pages, impression navigateur → PDF */
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
-const PAGE_META_DESCRIPTION = `Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé). Qualiopi, Constructys.`;
+const PAGE_META_DESCRIPTION = `Rédaction mémoire technique et réponse aux appels d'offre BTP avec l'IA : analyse DCE, CCTP, chiffrage. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé). Qualiopi, Constructys.`;
 
 const CATALOG_ENTRY_BTP02 = getFormationCatalogEntryByPath('/formations/ia-appels-offre-btp')!;
 
@@ -125,8 +126,8 @@ const MODULES = [
 ];
 
 const HERO_RESUME_AO = [
-  `Parcours catalogue BTP-02 : DCE, CCTP, mémoire technique, chiffrage.`,
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/part. (niveau avancé).`,
+  `Parcours catalogue NIV-02 : DCE, CCTP, mémoire technique, chiffrage.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé).`,
   `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité.',
 ];
@@ -146,15 +147,15 @@ export default function FormationIAAppelsOffreBTPPage() {
               { label: 'Accueil', href: '/' },
               { label: 'Formations', href: '/formations' },
               {
-                label: "Répondre aux appels d'offre avec l'IA",
+                label: "L'IA au service des appels d'offre BTP",
                 href: '/formations/ia-appels-offre-btp',
               },
             ]}
           />
         }
-        refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé · BTP-02`}
-        title="Répondre aux appels d'offre avec l'IA"
-        subtitle="Mémoire technique, DCE et chiffrage — entreprises du bâtiment et marchés publics"
+        refLine={`Présentiel · ${SESSION_DUREE_LIBELLE} · Niveau 2 · NIV-02`}
+        title="L'IA au service des appels d'offre BTP"
+        subtitle="Mémoire technique, DCE et chiffrage — niveau avancé"
         badges={['Analyse DCE & CCTP', 'Mémoire technique assistée', 'Qualiopi']}
         summaryItems={HERO_RESUME_AO}
         image={
@@ -218,10 +219,10 @@ export default function FormationIAAppelsOffreBTPPage() {
           l&apos;IA. Formation opérationnelle pour entreprises du bâtiment, chargés d&apos;affaires et
           bureaux d&apos;études — même exigence de clarté que sur une{' '}
           <Link
-            href="/formations/ia-architecture-claude-dpgf"
+            href={LINKS.formationClaudeAiBtp}
             className="font-medium text-[var(--accent)] hover:underline"
           >
-            fiche programme détaillée
+            formation Claude AI dédiée au BTP
           </Link>
           . Outils :{' '}
           {OUTILS_IA_LINE}
@@ -243,9 +244,9 @@ export default function FormationIAAppelsOffreBTPPage() {
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
               <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en présentiel.
-              Forfait <strong>{TARIF_FORFAIT_AVANCE_HT} € HT par participant</strong> (niveau
+              Forfait <strong>{TARIF_FORFAIT_AVANCE_HT} € HT par session</strong> (niveau
               avancé). Ressources complémentaires sur la plateforme selon convention — réf.{' '}
-              <strong>BTP-02</strong>.
+              <strong>NIV-02</strong>.
             </span>
           </li>
           <li className="flex gap-2">
@@ -336,7 +337,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
           convention). <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
-          éligibilité — référence <strong>BTP-02</strong>.
+          éligibilité — référence <strong>NIV-02</strong>.
         </p>
         <p className="mt-4">
           <Link

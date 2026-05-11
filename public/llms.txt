@@ -42,25 +42,20 @@ Laure Olivié est formatrice IA et ChatGPT pour le BTP. Avec plus de 10 ans d'ex
 
 ## Catalogue formations
 
-- BTP-01 : L'IA au service du bâtiment (4h, niveau débutant, 100€ HT/participant)
-- BTP-04 : L'IA au service des Travaux Publics (4h, débutant, 100€ HT/participant)
-- BTP-05 : Sensibilisation IA et Assistants IA personnalisés (4h, débutant)
+- NIV-01 : L'IA au service des pros du Bâtiment Travaux Publics (4 h, niveau débutant, 1 000 € HT/session, max 12 participants) — programme PDF sur la fiche
+- NIV-02 : L'IA au service des appels d'offre BTP (4 h, niveau avancé, 1 250 € HT/session, max 12 participants) — programme PDF sur la fiche
 - Formation Claude AI BTP (parcours dédié)
 - Formation Claude AI bâtiment (gros œuvre, second œuvre, étanchéité, couverture, charpente)
 - Formation Claude AI travaux publics (VRD, terrassement, génie civil, CCTP)
 - Formation IA appels d'offres BTP (mémoire technique, DCE, CCTP)
-- Formation IA architecture (Claude AI et DPGF)
 - Formation IA conducteur de travaux
 
 ## Pages clés du site
 
 - https://laureolivie.fr/ — Page d'accueil
 - https://laureolivie.fr/formations — Catalogue complet
-- https://laureolivie.fr/formations/ia-au-service-du-batiment — Formation BTP-01
-- https://laureolivie.fr/formations/ia-travaux-publics — Formation BTP-04
-- https://laureolivie.fr/formations/sensibilisation-ia-assistants-personnalises — Formation BTP-05
-- https://laureolivie.fr/formations/ia-appels-offre-btp — Formation appels d'offres
-- https://laureolivie.fr/formations/ia-architecture-claude-dpgf — Formation architecture
+- https://laureolivie.fr/formations/ia-batiment-travaux-publics — Formation NIV-01 (bâtiment & travaux publics)
+- https://laureolivie.fr/formations/ia-appels-offre-btp — Formation NIV-02 (appels d'offre BTP)
 - https://laureolivie.fr/formation-claude-ai-btp — Cluster Claude AI BTP
 - https://laureolivie.fr/formation-claude-ai-batiment — Claude AI bâtiment
 - https://laureolivie.fr/formation-claude-ai-travaux-publics — Claude AI TP

@@ -12,7 +12,7 @@ export const FAQ_FORMATION_IA_BTP_PILLAR: FAQItem[] = [
   {
     q: 'Quelle est la durée des sessions au catalogue ?',
     a:
-      'Chaque programme du catalogue (BTP-01 à BTP-06) est proposé en session de 4 heures, en présentiel en Île-de-France (inter ou intra). Les objectifs et le niveau (débutant ou avancé) varient selon la fiche — voir le <a href="/formations">catalogue formations IA BTP</a>.',
+      'Chaque programme du catalogue (NIV-01 et NIV-02) est proposé en session de 4 heures, en présentiel en Île-de-France (inter ou intra). Le niveau 1 cible bâtiment et travaux publics ; le niveau 2, les appels d\'offre — voir le <a href="/formations">catalogue formations IA BTP</a>.',
   },
   {
     q: 'Comment est financée la formation avec Constructys ?',

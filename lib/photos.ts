@@ -249,19 +249,19 @@ export const PHOTOS = {
   },
   formationIASensibilisation2026: {
     src: '/images/formation-ia-sensibilisation-2026.png',
-    alt: "Carte formation catalogue BTP-05 — Sensibilisation à l'IA et assistants IA personnalisés, niveau débutant",
+    alt: 'Illustration formation IA — sensibilisation et usages pratiques pour équipes du BTP',
     width: 866,
     height: 856,
   },
   formationIAClaude2026: {
     src: '/images/formation-ia-claude-2026.png',
-    alt: 'Session « Architecte augmenté : automatiser DPGF, chantier et documents avec Claude AI »',
+    alt: 'Illustration formation — IA générative et Claude AI pour entreprises du bâtiment et des travaux publics',
     width: 1024,
     height: 768,
   },
   formationIARH2026: {
     src: '/images/formation-ia-rh-2026.png',
-    alt: "Session « Formation IA pour la fonction RH dans le BTP » animée par Laure Olivié",
+    alt: 'Illustration formation — enjeux RH, recrutement et organisation en entreprise du BTP',
     width: 1024,
     height: 768,
   },
@@ -308,7 +308,7 @@ export const PHOTOS = {
   },
 
   /**
-   * BTP-05 — Sensibilisation IA & assistants personnalisés (écran « Création d\'Assistants IA BTP »).
+   * Visuel formation IA — assistants et prompts métier BTP (écran type « assistants personnalisés »).
    */
   formationSensibilisationAssistantsIaBtp2026: {
     src: '/images/formation-sensibilisation-assistants-ia-btp-2026.png',

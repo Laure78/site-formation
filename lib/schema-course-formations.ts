@@ -20,94 +20,35 @@ export type FormationCatalogEntry = {
   occupationalCategory: string;
 };
 
-/** Données alignées sur le catalogue (BTP-01 … BTP-06). */
+/** Données alignées sur le catalogue (NIV-01, NIV-02). */
 export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   {
-    ref: 'BTP-01',
+    ref: 'NIV-01',
     level: 'DÉBUTANT',
-    path: '/formations/ia-au-service-du-batiment',
-    name: "L'IA au service du bâtiment",
+    path: '/formations/ia-batiment-travaux-publics',
+    name: "L'IA au service des pros du bâtiment et des travaux publics",
     description:
-      "Formation pratique de 4 heures pour professionnels du BTP et PME : automatiser les devis, comptes rendus de chantier, emails et administratif avec ChatGPT et l'IA. Finançable Constructys.",
+      "Formation niveau 1 — 4 h : IA pour bâtiment et travaux publics, devis, chantier, documents et administratif. Qualiopi, Constructys.",
     teaches: [
-      'Utilisation de ChatGPT dans le BTP',
-      'Automatisation des devis bâtiment',
-      'Comptes rendus de chantier avec l’IA',
-      'Réponses aux appels d’offres',
+      'Usages de l’IA sur chantier et en bureau d’études',
+      'Devis, comptes rendus et courriers avec ChatGPT / Claude',
+      'Structuration de l’administratif et prompts métier BTP / TP',
+      'Bonnes pratiques, RGPD et validation humaine',
     ],
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
   {
-    ref: 'BTP-02',
+    ref: 'NIV-02',
     level: 'AVANCÉ',
     path: '/formations/ia-appels-offre-btp',
-    name: "Répondre aux appels d'offre avec l'IA",
+    name: "L'IA au service des appels d'offre BTP",
     description:
-      "Formation avancée 4 h : analyser un DCE, rédiger mémoires techniques et chiffrages avec l'IA, bibliothèque de prompts BTP, assistant DCE sur mesure — Qualiopi, OPCO Constructys.",
+      "Formation niveau 2 — 4 h : DCE, mémoires techniques, chiffrages, bibliothèque de prompts et assistant sur mesure — Qualiopi, OPCO Constructys.",
     teaches: [
       'Analyse rapide de DCE et critères d’évaluation',
       'Mémoires techniques et chiffrages avec méthode et IA',
       'Templates et prompts par métier pour marchés BTP',
       'Assistant IA DCE / mémoire adapté à l’entreprise',
-    ],
-    occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
-  },
-  {
-    ref: 'BTP-03',
-    level: 'AVANCÉ',
-    path: '/formations/ia-rh-btp',
-    name: 'Formation IA pour la Fonction RH dans le BTP',
-    description:
-      "Session 4 h pour les RH du BTP : recrutement, GEPP, tableaux de bord et assistant IA RH sur mesure — finançable Constructys.",
-    teaches: [
-      'Automatiser le recrutement et la sélection',
-      'Piloter la GEPP et anticiper les compétences',
-      'Tableaux de bord RH opérationnels',
-      'Assistant IA RH sur mesure',
-    ],
-    occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
-  },
-  {
-    ref: 'BTP-04',
-    level: 'DÉBUTANT',
-    path: '/formations/ia-travaux-publics',
-    name: "L'IA au service des Travaux Publics",
-    description:
-      "Formation 4 h débutant : consultations TP, documents de chantier, reporting, templates et assistants par rôle — Qualiopi, Constructys.",
-    teaches: [
-      'Réponse aux consultations : DCE, trames, synthèses',
-      'Documents de chantier et reporting avec validation',
-      'Templates TP et charte d’usage IA en entreprise',
-    ],
-    occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
-  },
-  {
-    ref: 'BTP-05',
-    level: 'DÉBUTANT',
-    path: '/formations/sensibilisation-ia-assistants-personnalises',
-    name: "Sensibilisation à l'IA & Assistants IA personnalisés",
-    description:
-      "Sensibilisation 4 h : usages terrain, banque de prompts par métier, conception d’assistants IA personnalisés — Qualiopi, OPCO Constructys.",
-    teaches: [
-      'Sensibilisation à l’IA et usages terrain',
-      'Banque de prompts par métier',
-      'Concevoir des assistants IA personnalisés',
-      'Ressources et prolongement pédagogique',
-    ],
-    occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
-  },
-  {
-    ref: 'BTP-06',
-    level: 'AVANCÉ',
-    path: '/formations/ia-architecture-claude-dpgf',
-    name: 'Architecte augmenté : Claude AI, DPGF, chantier et documents',
-    description:
-      "Formation avancée 4 h : DPGF, métrés, planning, CR de chantier, courriers et actes de marché avec Claude AI et Google Workspace — cabinet d’architecture et BTP.",
-    teaches: [
-      'DPGF, métrés et planning avec Claude AI',
-      'Comptes rendus de chantier et PV de réception',
-      'Courriers et actes de marché via Google Drive',
-      'Bibliothèque de prompts pour le cabinet',
     ],
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
@@ -243,11 +184,8 @@ export function getFormationCoursePageJsonLd(
 
 /** Fiches catalogue prioritaires — Course JSON-LD enrichi (références @id organisation / formatrice, offre, avis). */
 export const DEDICATED_FORMATION_COURSE_PATHS = [
-  '/formations/ia-au-service-du-batiment',
-  '/formations/ia-travaux-publics',
-  '/formations/sensibilisation-ia-assistants-personnalises',
+  '/formations/ia-batiment-travaux-publics',
   '/formations/ia-btp-paris',
-  '/formations/ia-architecture-claude-dpgf',
   '/formations/ia-appels-offre-btp',
   '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;

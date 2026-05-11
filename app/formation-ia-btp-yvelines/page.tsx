@@ -285,7 +285,7 @@ export default function FormationIABTPYvelinesLandingPage() {
               </Link>{' '}
               résume l&apos;esprit du dispositif ; le programme détaillé du parcours « L&apos;IA au
               service du bâtiment » est présenté sur{' '}
-              <Link href={LINKS.formationBatiment} className="font-medium text-[var(--accent)] hover:underline">
+              <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="font-medium text-[var(--accent)] hover:underline">
                 la fiche formation associée
               </Link>
               .

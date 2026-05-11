@@ -38,7 +38,7 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
     },
     {
       q: 'Puis-je combiner deux thèmes (ex. devis + appels d’offres) sur une journée ?',
-      a: "Chaque référence catalogue (BTP-01, BTP-02, etc.) correspond à 4 h complètes. Il est possible d'enchaîner deux demi-journées sur deux thèmes différents sur deux jours consécutifs ou la même semaine — à voir selon disponibilités et effectifs.",
+      a: "Chaque référence catalogue (NIV-01, NIV-02) correspond à 4 h complètes. Il est possible d'enchaîner deux demi-journées sur deux thèmes différents sur deux jours consécutifs ou la même semaine — à voir selon disponibilités et effectifs.",
     },
   ];
 }
@@ -222,7 +222,7 @@ function buildDeptConfig(opts: {
     solutionBody: [
       `La proposition de ${OFC} pour le ${d} combine un format court (4 h), des exercices sur vos documents réels, et un positionnement « terrain BTP » : pas de jargon startup, pas de promesse irréaliste sur l’automatisation totale. Nous travaillons des cas concrets — devis, mails, synthèses, brouillons de mémoires — avec des itérations guidées pour améliorer le ton et la structure.`,
       `Le siège à Guyancourt (78) permet d’organiser des déplacements en Île-de-France avec des créneaux réalistes : pour les entreprises ${opts.temoignageZone}, nous ajustons la journée pour limiter l’impact sur le chantier. Le distanciel reste possible si vos équipes sont réparties sur plusieurs sites du département.`,
-      `Les modules du catalogue (BTP-01 à BTP-05) couvrent les besoins courants : entrée de gamme « IA au service du bâtiment », appels d’offres, RH BTP, travaux publics, sensibilisation aux assistants IA. Vous choisissez la séquence en fonction de votre maturité et de vos priorités business.`,
+      `Le catalogue comporte deux parcours : NIV-01 (bases bâtiment & travaux publics) et NIV-02 (appels d’offre BTP). Vous choisissez la séquence en fonction de votre maturité et de vos priorités business ; les programmes PDF sont sur chaque fiche.`,
       `Après la session, l’objectif est simple : chaque participant repart avec des modèles réutilisables et une feuille de route sur deux semaines — quoi tester en premier, quoi mesurer (temps gagné sur une relance, sur un compte rendu), et comment faire remonter les bonnes pratiques dans l’équipe.`,
       `Pour les directions qui gèrent à la fois ${opts.chefLieu} et des chantiers périphériques, nous pouvons intégrer un module « coordination distante » : mêmes prompts pour les comptes rendus, mêmes critères de relecture, afin que le siège et le terrain parlent le même langage documentaire.`,
       `Enfin, la logique Qualiopi impose des objectifs pédagogiques explicites : la session n’est pas une démonstration marketing, mais un parcours évaluable — un atout lorsque le service RH doit justifier la ligne OPCO et le retour sur investissement attendu.`,

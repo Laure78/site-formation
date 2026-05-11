@@ -91,11 +91,11 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
     'btpFormationChantierPlans2026',
   ],
   metiers: [
-    'formationSensibilisationAssistantsIaBtp2026',
+    'blogFormationIaDansLeBtpSalle2026',
     'blogBtpChantierEncadrement2026',
     'blogBtpChantierPlansEchange2026',
     'formationIATP2026',
-    'formationIAClaude2026',
+    'interventionClaude',
     'formationIASensibilisation2026',
     'architecteConcentration',
     'formationIABtpArchiClaudePresentielGroupe2026',
@@ -103,7 +103,7 @@ const POOLS: Record<BlogCategoryId, PhotoKey[]> = {
   ],
   rh: [
     'blogFormationIaBtpHandshakeFlipchart2026',
-    'formationIARH2026',
+    'btpFormationSalleIntervention2026',
     'bannerRecrutement',
     'linkedinLeconFideliser',
     'coursRecrutementVideo1',

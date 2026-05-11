@@ -26,7 +26,7 @@ const MAIL_RAPPEL_PME =
 
 const HERO_RESUME_PME = [
   `Programme sur-mesure PME bâtiment : devis, chiffrages, emails, comptes rendus.`,
-  `Sessions ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € ou ${TARIF_FORFAIT_AVANCE_HT} € HT/part. selon niveau.`,
+  `Sessions ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session selon niveau.`,
   'Interventions Île-de-France et France — Qualiopi, financement OPCO Constructys selon éligibilité.',
   "Sans prérequis technique — trames prêtes à l'emploi.",
 ];

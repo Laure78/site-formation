@@ -10,6 +10,7 @@ import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT } from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP : ChatGPT, devis, emails, comptes rendus',
@@ -61,7 +62,7 @@ const serviceJsonLd = {
     itemListElement: [
       {
         '@type': 'Offer',
-        itemOffered: { '@id': `${baseUrl}/formations/ia-au-service-du-batiment#course` },
+        itemOffered: { '@id': `${baseUrl}/formations/ia-batiment-travaux-publics#course` },
         price: '100',
         priceCurrency: 'EUR',
       },
@@ -292,7 +293,7 @@ export default function FormationIAArtisansBTPPage() {
             des prompts prêts à l&apos;emploi. 100 % finançable OPCO Constructys.
           </p>
           <p className="mt-3 text-sm text-blue-100">
-            À partir de 100 € HT/participant · Sessions de 4h · Groupe de 12 max.
+            À partir de {TARIF_SESSION_DEBUTANT_HT} € HT/session · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
           </p>
           <ul className="mt-6 space-y-2">
             {[
@@ -349,7 +350,7 @@ export default function FormationIAArtisansBTPPage() {
 
         <AllerPlusLoin
           links={[
-            { href: LINKS.formationBatiment, label: 'Formation IA bâtiment (4 h)' },
+            { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Formation niveau 1 bâtiment & TP (4 h)' },
             { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
             { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
             { href: LINKS.blog, label: 'Articles et guides' },

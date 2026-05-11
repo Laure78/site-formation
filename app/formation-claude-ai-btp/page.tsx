@@ -18,6 +18,7 @@ import { FAQSection } from "@/components/landing/FAQSection";
 import { AllerPlusLoin } from "@/components/AllerPlusLoin";
 import { CourseSchema } from "@/components/seo/CourseSchema";
 import { buildSiteCalendlyCtaUrl } from "@/lib/calendly";
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from "@/lib/tarifs-sessions";
 
 /* ---------------------------------------------------------------- METADATA */
 
@@ -121,7 +122,7 @@ const faqItems = [
   },
   {
     q: "Faut-il un abonnement Claude Pro pour suivre la formation ?",
-    a: 'Le niveau débutant (100 € HT) fonctionne avec le plan gratuit de Claude AI. Le niveau avancé (175 € HT) nécessite Claude Pro (environ 20 $/mois) pour accéder à Claude Sonnet 4.5/Opus et à l\'upload de documents volumineux. Ce coût est modeste au regard du temps gagné — détails sur la <a href="/financement-constructys-formation-ia-btp">page financement</a>.',
+    a: `Le niveau débutant (forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session) fonctionne avec le plan gratuit de Claude AI. Le niveau avancé (${TARIF_SESSION_AVANCE_HT} € HT par session) nécessite Claude Pro (environ 20 $/mois) pour accéder à Claude Sonnet 4.5/Opus et à l'upload de documents volumineux. Ce coût est modeste au regard du temps gagné — détails sur la <a href="/financement-constructys-formation-ia-btp">page financement</a>.`,
   },
   {
     q: "Cette formation Claude AI est-elle finançable par Constructys ?",
@@ -179,7 +180,7 @@ export default function FormationClaudeAiBtpPage() {
         description="Formation de 4 heures sur Claude AI (Anthropic) appliquée au BTP : devis, analyse de CCTP, mémoires techniques et comptes rendus de chantier."
         url="https://laureolivie.fr/formation-claude-ai-btp"
         duration="PT4H"
-        price={100}
+        price={TARIF_SESSION_AVANCE_HT}
         level="Intermediate"
       />
       <Script
@@ -543,16 +544,17 @@ export default function FormationClaudeAiBtpPage() {
               Tarifs — Session Claude AI BTP de 4 h
             </h2>
             <p className="mt-3 text-slate-700">
-              Forfait par participant selon le niveau pédagogique. Formation finançable à 100 % par
+              Forfait par session selon le niveau pédagogique ({TARIF_SESSION_DEBUTANT_HT} ou {TARIF_SESSION_AVANCE_HT}{' '}
+              € HT). Formation finançable à 100 % par
               Constructys pour les entreprises BTP de moins de 50 salariés.
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
               <li>
-                <strong>Niveau débutant :</strong> 100 € HT par participant — Compte gratuit Claude
+                <strong>Niveau débutant :</strong> {TARIF_SESSION_DEBUTANT_HT} € HT par session — Compte gratuit Claude
                 AI suffisant.
               </li>
               <li>
-                <strong>Niveau avancé :</strong> 175 € HT par participant — Abonnement Claude Pro
+                <strong>Niveau avancé :</strong> {TARIF_SESSION_AVANCE_HT} € HT par session — Abonnement Claude Pro
                 requis (environ 20 $/mois) pour accéder à Claude Sonnet 4.5 et à l&apos;upload de
                 documents volumineux.
               </li>

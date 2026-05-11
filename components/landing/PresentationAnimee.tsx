@@ -9,7 +9,7 @@ const PRESENTATION_LOOP_MS = 43_000;
 const LOOP_SRC_QUERY = '?loop=auto';
 
 /**
- * Animation de présentation des 6 formations IA BTP.
+ * Animation de présentation des 2 parcours formation IA BTP (niveaux 1 et 2).
  * À la première apparition dans le viewport : chargement léger puis lecture.
  * Après démarrage, l’iframe se recharge en boucle (même origine) pour un visionnage continu.
  *
@@ -78,12 +78,11 @@ export function PresentationAnimee() {
             id="presentation-animee-heading"
             className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl"
           >
-            Découvrez les 6 formations IA BTP en 40 secondes
+            Découvrez les 2 formations IA BTP en 40 secondes
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-slate-600">
             Un tour rapide du catalogue : bâtiment, travaux publics, appels
-            d&apos;offres, RH, architecte, assistants IA sur-mesure. Elle se rejoue
-            automatiquement en continu.
+            d&apos;offres. Elle se rejoue automatiquement en continu.
           </p>
         </div>
 
@@ -95,7 +94,7 @@ export function PresentationAnimee() {
             <iframe
               ref={iframeRef}
               src={`/presentation-formations.html${LOOP_SRC_QUERY}`}
-              title="Présentation animée — 6 formations IA BTP (lecture en boucle)"
+              title="Présentation animée — 2 formations IA BTP (lecture en boucle)"
               className="absolute inset-0 h-full w-full border-0"
               allowFullScreen
             />
@@ -103,7 +102,7 @@ export function PresentationAnimee() {
             <button
               type="button"
               onClick={() => setLoaded(true)}
-              aria-label="Charger tout de suite la présentation animée des 6 formations IA BTP"
+              aria-label="Charger tout de suite la présentation animée des 2 formations IA BTP"
               className="group absolute inset-0 flex cursor-pointer items-center justify-center border-0 bg-white transition-colors hover:bg-slate-50"
             >
               <div className="absolute inset-0 opacity-40">

@@ -19,6 +19,7 @@ import {
   ArrowRight,
   Sparkles,
   UserCircle,
+  Download,
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -46,27 +47,28 @@ import {
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { Breadcrumb } from '@/components/Breadcrumb';
+import { LINKS } from '@/lib/internal-links';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
-const CATALOG_ENTRY_BTP01 = getFormationCatalogEntryByPath('/formations/ia-au-service-du-batiment')!;
+const CATALOG_ENTRY_NIV01 = getFormationCatalogEntryByPath('/formations/ia-batiment-travaux-publics')!;
 
-/** Title ≤ 60 car. — requête « formation IA bâtiment » */
+/** Title ≤ 60 car. — catalogue niveau 1 bâtiment & TP */
 const SEO_TITLE =
-  'Formation IA bâtiment : gagnez du temps sur chantiers | OFC';
+  'Formation IA bâtiment & travaux publics (niveau 1) | Laure Olivié';
 
-/** Meta description — mots-clés BTP : mémoire technique, appels d'offre, formation IA */
-const SEO_DESCRIPTION = `Formation IA BTP et bâtiment ${SESSION_DUREE_LIBELLE} : devis, appels d'offre, mémoire technique, chantier, administratif. Qualiopi, OPCO Constructys. Sans prérequis technique.`;
+/** Meta description — formation IA BTP */
+const SEO_DESCRIPTION = `Formation IA BTP niveau 1 (${SESSION_DUREE_LIBELLE}) : bâtiment et travaux publics, devis, chantier, administratif. Qualiopi, formation IA BTP, ChatGPT BTP.`;
 
 const MAIL_PROGRAMME =
-  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA bâtiment (BTP-01)')}`;
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA niveau 1 bâtiment & TP')}`;
 const MAIL_RAPPEL =
-  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA bâtiment')}`;
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA niveau 1 bâtiment & TP')}`;
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description: SEO_DESCRIPTION,
-  path: '/formations/ia-au-service-du-batiment',
+  path: '/formations/ia-batiment-travaux-publics',
   keywords: [
     'formation IA bâtiment',
     'formation IA BTP',
@@ -95,22 +97,22 @@ export const metadata = createPageMetadata({
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
 
 const POINTS_MARQUANTS = [
-  'Parcours catalogue BTP-01 : devis, emails, comptes rendus et administratif — prompts et trames prêts à l’emploi.',
-  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par participant (niveau débutant).`,
+  'Parcours catalogue niveau 1 (réf. NIV-01) : bâtiment et travaux publics — devis, chantier, administratif.',
+  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par session (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité — sessions en présentiel uniquement.',
 ];
 
 const OBJECTIFS_FORMATION = [
-  'Identifier les usages de l’IA générative utiles dans le bâtiment (sans prérequis technique).',
-  'Accélérer la rédaction de devis, propositions et messages clients.',
-  'Structurer l’administratif : comptes rendus, relances, modèles et check-lists.',
-  'Repartir avec des trames, prompts et bonnes pratiques adaptés à votre métier.',
+  'Identifier les usages de l’IA générative utiles dans le bâtiment et les travaux publics (sans prérequis technique).',
+  'Accélérer devis, propositions, comptes rendus chantier et messages clients.',
+  'Structurer l’administratif : relances, modèles et check-lists.',
+  'Repartir avec des trames et prompts adaptés à votre métier (BTP / TP).',
 ];
 
 const MOYENS_PEDAGOGIQUES = [
   `Formation animée par une formatrice experte en IA appliquée au BTP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
-  'Exercices guidés et cas concrets sur des situations types du bâtiment.',
+  'Exercices guidés et cas concrets sur des situations types bâtiment et travaux publics.',
   'Atelier sur vos documents réels (anonymisés ou fictifs si besoin).',
   'Supports pédagogiques et ressources téléchargeables selon la convention.',
 ];
@@ -148,7 +150,7 @@ const MODALITES = [
   {
     icon: Users,
     title: 'Public cible',
-    primary: 'Entreprises du bâtiment et professionnels du BTP',
+    primary: 'Entreprises du bâtiment, travaux publics et BTP',
     secondary: 'Dirigeants, conducteurs de travaux, équipes terrain et administratives',
   },
   {
@@ -248,20 +250,20 @@ export default function FormationIAuServiceDuBatimentPage() {
       <FormationCourseHero
         breadcrumb={
           <Breadcrumb
-            jsonLdId="schema-breadcrumb-formation-ia-au-service-du-batiment"
+            jsonLdId="schema-breadcrumb-formation-ia-batiment-travaux-publics"
             items={[
               { label: 'Accueil', href: '/' },
               { label: 'Formations', href: '/formations' },
               {
-                label: "L'IA au service du bâtiment",
-                href: '/formations/ia-au-service-du-batiment',
+                label: "L'IA au service des pros du bâtiment et des travaux publics",
+                href: '/formations/ia-batiment-travaux-publics',
               },
             ]}
           />
         }
-        refLine="Réf. catalogue BTP-01 · Débutant"
-        title="Formation IA bâtiment : gagnez du temps sur vos chantiers"
-        subtitle="L&apos;IA au service du bâtiment — devis, administratif et relation client"
+        refLine="Réf. catalogue NIV-01 · Niveau 1 · Débutant"
+        title="L'IA au service des pros du bâtiment et des travaux publics"
+        subtitle="Niveau 1 — devis, chantier, administratif et documents (bâtiment & travaux publics)"
         badges={[
           'OPCO / plan de développement des compétences',
           'Accessible débutant',
@@ -316,11 +318,32 @@ export default function FormationIAuServiceDuBatimentPage() {
           quotidien : <strong>devis, emails, comptes rendus et suivi</strong>, avec des trames et prompts
           prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
           issus du terrain BTP.{' '}
-          <strong>Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par participant</strong> (niveau débutant).
+          <strong>Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par session</strong> (niveau débutant).
           Financement possible via <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation
           certifiée Qualiopi).
         </p>
       </FormationCourseHero>
+
+      <section className="border-b border-slate-200 bg-white px-4 py-8" aria-label="Téléchargement du programme officiel PDF">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-soft)] px-6 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div className="flex items-start gap-3">
+            <Download className="h-8 w-8 shrink-0 text-[var(--accent)]" aria-hidden />
+            <div>
+              <p className="font-semibold text-slate-900">Programme officiel (PDF)</p>
+              <p className="mt-1 text-sm text-slate-600">
+                Téléchargez le programme détaillé de la formation niveau 1 — bâtiment & travaux publics.
+              </p>
+            </div>
+          </div>
+          <a
+            href={LINKS.pdfProgrammeIaBtpNiveau1BatimentTp}
+            download
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 font-semibold text-white hover:bg-blue-700"
+          >
+            Télécharger le PDF
+          </a>
+        </div>
+      </section>
 
       {/* Contenu SEO long */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
@@ -734,7 +757,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_BATIMENT}
-            title="Questions fréquentes — formation IA bâtiment (BTP-01)"
+            title="Questions fréquentes — formation IA niveau 1 bâtiment & TP (NIV-01)"
           />
         </div>
       </section>
@@ -784,7 +807,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP01} pageDescription={SEO_DESCRIPTION} />
+      <CatalogFormationCourseScript entry={CATALOG_ENTRY_NIV01} pageDescription={SEO_DESCRIPTION} />
     </div>
   );
 }

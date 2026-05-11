@@ -46,7 +46,7 @@ type Props = {
   courseDescription: string;
   /** Durée ISO 8601, ex. "PT4H" pour 4 heures, "PT7H" pour journée. */
   duration: string;
-  /** Prix HT par participant en EUR. */
+  /** Prix HT de la session catalogue en EUR (forfait groupe). */
   price: number;
   /**
    * Niveau pédagogique. Schema.org accepte une chaîne libre, mais

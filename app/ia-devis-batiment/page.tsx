@@ -7,6 +7,7 @@ import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA Devis BTP — Auto Devis Bâtiment',
@@ -450,10 +451,10 @@ export default function IADevisBatimentPage() {
               Réserver un appel découverte (Calendly)
             </RdvLink>
             <Link
-              href="/formations/ia-au-service-du-batiment"
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
             >
-              Voir le programme « IA au service du bâtiment »
+              Voir le programme NIV-01 (PDF sur la fiche)
             </Link>
             <Link
               href="/financement-constructys-formation-ia-btp"

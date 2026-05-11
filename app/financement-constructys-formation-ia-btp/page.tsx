@@ -243,7 +243,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               <h2 className="font-display text-xl font-bold text-[#0F172A] md:text-2xl">Grille commerciale OFC — sessions de formation</h2>
               <p className="mt-3 text-[#334155]">
                 L&apos;organisme propose un format unique : <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
-                <strong>forfait par participant</strong> selon le niveau pédagogique :
+                <strong>forfait par session</strong> (jusqu&apos;à 12 participants) selon le niveau pédagogique :
               </p>
               <div className="mt-8 grid gap-6 md:grid-cols-2">
                 <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_6px_24px_rgba(15,23,42,0.05)]">

@@ -6,6 +6,7 @@ import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
@@ -214,17 +215,17 @@ export default function ExpertIABTPPage() {
             Catalogue complet de formations IA adaptées à votre métier
           </p>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {[
-              { title: 'Formation IA BTP', href: '/formations', desc: 'Sessions 4 h — Forfaits par participant' },
-              { title: 'IA pour appels d\'offres', href: '/formations/ia-appels-offre-btp', desc: '4 h — Niveau avancé' },
-              { title: 'IA Fonction RH BTP', href: '/formations/ia-rh-btp', desc: '4 h — Recrutement & GEPP' },
-              { title: "L'IA au service des Travaux Publics", href: '/formations/ia-travaux-publics', desc: '4 h — Spécialisation TP' },
-              { title: 'ChatGPT & IA pour entreprises BTP', href: '/formation-ia-artisans-btp', desc: '4 h — TPE & PME' },
               {
-                title: "Sensibilisation IA & assistants",
-                href: '/formations/sensibilisation-ia-assistants-personnalises',
-                desc: '4 h — Débutant + ressources LMS',
+                title: "Niveau 1 — L'IA au service des pros du bâtiment et des travaux publics",
+                href: LINKS.formationIaBtpNiveau1BatimentTp,
+                desc: '4 h — débutant · Programme PDF',
+              },
+              {
+                title: "Niveau 2 — L'IA au service des appels d'offre BTP",
+                href: LINKS.formationAO,
+                desc: '4 h — avancé · Programme PDF',
               },
             ].map((formation) => (
               <Link

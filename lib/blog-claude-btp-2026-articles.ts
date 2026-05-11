@@ -114,7 +114,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'cta',
         content:
           'Vous voulez passer du visuel à la pratique en salle avec vos équipes ? La formation « L’IA au service du bâtiment » (4 h) pose les bases et les bons réflexes — Qualiopi, financement possible selon éligibilité OPCO.',
-        formationHref: '/formations/ia-au-service-du-batiment',
+        formationHref: '/formations/ia-batiment-travaux-publics',
       },
     ],
     relatedSlugs: [
@@ -425,7 +425,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'cta',
         content:
           'Vous voulez passer à la pratique encadrée sur vos cas réels (devis, chantier, administratif) ? Réservez un échange ou découvrez le catalogue des formations IA BTP.',
-        formationHref: '/formations/ia-au-service-du-batiment',
+        formationHref: '/formations/ia-batiment-travaux-publics',
       },
     ],
     relatedSlugs: [
@@ -492,7 +492,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'cta',
         content:
           'Vous souhaitez une mise en œuvre encadrée avec votre équipe ? Les formations catalogue OFC intègrent les bonnes pratiques et des ateliers sur vos documents.',
-        formationHref: '/formations/sensibilisation-ia-assistants-personnalises',
+        formationHref: '/formations',
       },
     ],
     relatedSlugs: [

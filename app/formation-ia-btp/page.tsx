@@ -593,7 +593,7 @@ export default function FormationIaBtpPillarPage() {
             <span className="text-slate-400" aria-hidden>
               |
             </span>
-            <Link href={LINKS.formationBatiment} className="font-semibold text-[var(--accent)] hover:underline">
+            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="font-semibold text-[var(--accent)] hover:underline">
               Fiche catalogue : L&apos;IA au service du bâtiment (programme détaillé)
             </Link>
           </p>

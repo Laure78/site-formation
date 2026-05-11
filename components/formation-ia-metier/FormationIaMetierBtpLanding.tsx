@@ -307,7 +307,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 >
                   <span className="text-slate-900">Catalogue des formations</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
-                    Modules BTP-01 à BTP-06, durées et objectifs Qualiopi.
+                    Modules du catalogue BTP (références BTP-01 à BTP-04), durées et objectifs Qualiopi.
                   </span>
                 </Link>
               </li>
