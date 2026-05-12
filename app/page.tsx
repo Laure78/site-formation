@@ -109,19 +109,23 @@ const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 export default function HomePage() {
   return (
     <div>
-      {/* Hero — Formation IA BTP */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-14 md:py-20 lg:py-24">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
-        {/* Réseau léger type « constellation » (inspiration landing pro) */}
+      {/* Hero — Formation IA BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
+      <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F2F2F2] via-[#f5f9ff] to-white px-4 py-14 md:py-20 lg:py-24">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.14]"
+          className="pointer-events-none absolute -right-24 top-1/2 h-[min(480px,70vh)] w-[min(560px,55vw)] -translate-y-1/2 rounded-full bg-[#377CF3]/[0.06] blur-3xl md:right-0"
+          aria-hidden
+        />
+        {/* Réseau léger aligné couleur primaire OFC */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.12] md:opacity-[0.14]"
           aria-hidden
         >
           <svg className="absolute left-1/2 top-0 h-[min(520px,75vh)] w-[min(900px,100%)] -translate-x-1/2" viewBox="0 0 400 280" fill="none">
             <defs>
               <linearGradient id="heroMesh" x1="200" y1="0" x2="200" y2="280" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#2563eb" stopOpacity="0.5" />
-                <stop offset="1" stopColor="#2563eb" stopOpacity="0" />
+                <stop stopColor="#377CF3" stopOpacity="0.45" />
+                <stop offset="1" stopColor="#377CF3" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path
@@ -139,7 +143,7 @@ export default function HomePage() {
               [200, 220],
               [280, 160],
             ].map(([cx, cy], i) => (
-              <circle key={i} cx={cx} cy={cy} r="2.5" fill="#2563eb" fillOpacity="0.35" />
+              <circle key={i} cx={cx} cy={cy} r="2.5" fill="#377CF3" fillOpacity="0.28" />
             ))}
           </svg>
         </div>
@@ -147,27 +151,27 @@ export default function HomePage() {
           <div className="flex flex-col gap-10 md:gap-12 lg:gap-14">
             <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
               <div className="min-w-0">
-                <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-blue-100/90 bg-white/90 px-3 py-1.5 text-xs font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
-                  <Sparkles size={14} strokeWidth={1.5} className="shrink-0 sm:h-4 sm:w-4" aria-hidden />
+                <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-[#377CF3]/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-[#377CF3] shadow-[0_1px_6px_-2px_rgba(55,124,243,0.25)] backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
+                  <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-[#377CF3] sm:h-4 sm:w-4" aria-hidden />
                   <span>Formation IA BTP · bâtiment & travaux publics</span>
                   <span className="hidden text-slate-300 sm:inline" aria-hidden>
                     ·
                   </span>
-                  <span className="hidden sm:inline">Qualiopi · Constructys</span>
+                  <span className="hidden font-medium text-slate-600 sm:inline">Qualiopi · Constructys</span>
                 </div>
-                <h1 className="mt-5 font-display text-[1.65rem] font-bold leading-[1.15] tracking-tight text-slate-900 sm:text-[1.85rem] md:text-[2.125rem] lg:text-[2.375rem] lg:leading-[1.12]">
+                <h1 className="mt-6 text-balance font-display text-[1.7rem] font-bold leading-[1.14] tracking-tight text-slate-900 sm:text-[1.95rem] md:text-[2.2rem] lg:text-[2.45rem] lg:leading-[1.11]">
                   Laure Olivié — Formatrice IA pour le BTP
                 </h1>
-                <h2 className="mt-4 font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
+                <h2 className="mt-4 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
                   Formation IA BTP en Île-de-France pour vos équipes du bâtiment
                 </h2>
-                <p className="mt-3 text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                   Devis, chantier, appels d&apos;offres :{' '}
-                  <span className="font-serif italic text-[var(--accent)]">Claude AI et l&apos;IA générative</span>{' '}
+                  <span className="font-serif italic text-[#377CF3]">Claude AI et l&apos;IA générative</span>{' '}
                   au service de votre productivité
                 </p>
                 <p
-                  className="citation-sentence mt-5 rounded-xl border border-slate-200/80 bg-slate-50/90 p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_var(--accent)] ring-1 ring-slate-100 md:p-5 md:text-base"
+                  className="citation-sentence mt-6 rounded-2xl border border-slate-200/70 bg-white p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_#377CF3,0_12px_40px_-18px_rgba(15,23,42,0.12)] md:p-5 md:text-lg"
                   data-citation="true"
                   itemProp="description"
                 >
@@ -179,21 +183,22 @@ export default function HomePage() {
                   bâtiment et des travaux publics en Île-de-France (note {SOCIAL_PROOF.AVERAGE_RATING} en
                   2026).
                 </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <RdvLink
                     campaign="accueil-hero"
-                    className="inline-flex justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition hover:bg-[#2d66d6] md:px-7"
+                    className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full bg-[#377CF3] px-7 py-3 text-center text-[0.95rem] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(55,124,243,0.65)] ring-2 ring-[#377CF3]/90 ring-offset-2 ring-offset-[#f5f9ff] transition hover:bg-[#2d66d6] hover:shadow-[0_6px_22px_-6px_rgba(55,124,243,0.55)] md:min-w-[auto]"
                   >
                     Organiser une formation
                   </RdvLink>
                   <Link
                     href="#programme"
-                    className="inline-flex justify-center rounded-full border border-[var(--accent)] bg-white px-6 py-3 text-center text-[0.9375rem] font-semibold text-[var(--accent)] ring-1 ring-slate-200/60 transition hover:bg-[var(--accent-soft)] md:px-7"
+                    className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
                   >
                     Voir le programme
                   </Link>
                 </div>
-                <p className="mt-6 text-sm text-slate-500">
+                <div className="mt-8 rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
+                <p className="text-sm leading-relaxed text-slate-600">
                   <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
                   <Link
                     href={LINKS.formationIaBtpNiveau1BatimentTp}
@@ -243,14 +248,24 @@ export default function HomePage() {
                     IA appels d&apos;offres BTP
                   </Link>
                 </p>
+                </div>
               </div>
 
               <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24 xl:top-28">
-                <div className="w-full">
-                  <p className="mb-3 text-center text-xs font-medium leading-relaxed text-slate-500 lg:text-left sm:text-sm">
-                    Présentation vidéo — les 2 parcours formation IA BTP
+                <div className="w-full rounded-3xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
+                  <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
+                  <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-[0.7rem]">
+                      Présentation vidéo
+                    </p>
+                    <span className="inline-flex w-fit items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.7rem] font-semibold text-[#377CF3] ring-1 ring-[#377CF3]/15">
+                      2 parcours · programme
+                    </span>
+                  </div>
+                  <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
+                    Les 2 parcours formation IA BTP
                   </p>
-                  <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-900 shadow-lg ring-1 ring-slate-900/5 lg:shadow-xl">
+                  <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-950 shadow-inner ring-1 ring-slate-900/10">
                     <div className="relative aspect-video w-full">
                       <iframe
                         src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
@@ -261,6 +276,7 @@ export default function HomePage() {
                         className="absolute inset-0 h-full w-full border-0"
                       />
                     </div>
+                  </div>
                   </div>
                 </div>
               </aside>
@@ -286,9 +302,9 @@ export default function HomePage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center"
+                    className="rounded-2xl border border-slate-200/90 bg-white p-4 text-center shadow-sm ring-1 ring-slate-100 transition hover:border-[#377CF3]/25 hover:shadow-md"
                   >
-                    <p className="text-2xl font-bold text-[var(--accent)] md:text-3xl">
+                    <p className="text-2xl font-bold text-[#377CF3] md:text-3xl tabular-nums">
                       {stat.val}
                     </p>
                     <small className="mt-1 block text-[0.65rem] text-slate-400">

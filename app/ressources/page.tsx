@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, Sparkles, BookOpen } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -59,54 +59,8 @@ export default function RessourcesIndexPage() {
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
             Tutos PDF, guides et fiches pratiques pour appliquer l&apos;IA dans ton entreprise BTP.
             Téléchargement libre, sans inscription. Tous les contenus sont signés Laure Olivié,
-            formatrice IA × BTP — OFC Création d&apos;Entreprise (Qualiopi).
+            formatrice IA × BTP —             OFC Création d&apos;Entreprise (Qualiopi).
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm">
-            <Link
-              href={LINKS.formations}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              <Sparkles size={16} aria-hidden /> Voir les formations
-            </Link>
-            <Link
-              href={LINKS.financement}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              Financement Constructys
-            </Link>
-            <Link
-              href={LINKS.skillIaConducteurTravaux}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              Guide 1er Skill IA
-            </Link>
-            <a
-              href="#hub-par-theme"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              Vue par thématiques
-            </a>
-            <Link
-              href={LINKS.ressourcesTutos}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              Index liste des tutos PDF
-            </Link>
-            <Link
-              href={LINKS.blog}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              <BookOpen size={16} aria-hidden />
-              Blog formation IA BTP
-            </Link>
-            <Link
-              href={LINKS.claudeAiBtp}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
-            >
-              <Sparkles size={16} aria-hidden />
-              Guide Claude AI BTP
-            </Link>
-          </div>
         </div>
       </section>
 
