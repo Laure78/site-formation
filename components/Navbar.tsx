@@ -151,7 +151,7 @@ function tutosInCategory(cat: TutoCategoryId) {
 
 type TutoNavContext = 'desktop' | 'mobile';
 
-/** Liste Tutos : index puis blocs par thématique (aligné `/ressources/tutos`). */
+/** Liste Tutos groupée par thématique (alignée sur les rubriques `/ressources/tutos`). */
 function ResourcesTutosNavBlocks({
   pathname,
   ctx,
@@ -166,46 +166,6 @@ function ResourcesTutosNavBlocks({
   const paddingY = dense ? 'py-3' : 'py-2.5';
   const iconSz = dense ? 18 : 20;
   const strokeW = dense ? undefined : (1.75 as const);
-
-  const indexLinkActive = isActive(LINKS.ressourcesTutos, pathname);
-
-  const indexRow = dense ? (
-    <Link
-      href={LINKS.ressourcesTutos}
-      onClick={onNavigate}
-      className={`mb-3 flex gap-3 rounded-xl px-3 ${paddingY} ${
-        indexLinkActive ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]' : 'text-slate-800'
-      }`}
-    >
-      <Layers size={iconSz} strokeWidth={strokeW ?? 1.75} className="mt-0.5 shrink-0 text-slate-400" />
-      <span>
-        <span className="block text-[0.9375rem]">Index de tous les tutos</span>
-        <span className="mt-0.5 block text-xs text-slate-500">{TUTOS.length} parcours — pages + PDF</span>
-      </span>
-    </Link>
-  ) : (
-    <div className="pb-2">
-      <Link
-        href={LINKS.ressourcesTutos}
-        className={`flex gap-3 rounded-xl px-3 ${paddingY} transition-colors ${
-          indexLinkActive ? 'bg-white font-medium text-[var(--accent)] shadow-sm' : 'text-slate-800 hover:bg-white/95'
-        }`}
-      >
-        <Layers
-          size={iconSz}
-          strokeWidth={1.75}
-          className={`mt-0.5 shrink-0 ${indexLinkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-          aria-hidden
-        />
-        <span className="min-w-0 flex-1">
-          <span className="block text-[0.9375rem] leading-snug">Index de tous les tutos</span>
-          <span className="mt-1 block text-xs leading-relaxed text-slate-500">
-            {TUTOS.length} parcours — liste web + PDF
-          </span>
-        </span>
-      </Link>
-    </div>
-  );
 
   const categoryBlocks = TUTO_CATEGORY_ORDER.map((catId) => {
     const items = tutosInCategory(catId);
@@ -261,12 +221,7 @@ function ResourcesTutosNavBlocks({
     );
   });
 
-  return (
-    <>
-      {indexRow}
-      {categoryBlocks}
-    </>
-  );
+  return <>{categoryBlocks}</>;
 }
 
 function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
@@ -289,7 +244,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
   const otherLinks: MegaLink[] = [
     {
       href: LINKS.skillIaConducteurTravaux,
-      label: 'Guide : 1er Skill IA',
+      label: 'Guide Conducteur de travaux',
       description: 'PDF gratuit · conducteurs de travaux',
       icon: Sparkles,
     },
@@ -390,7 +345,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
             })}
           </ul>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Guide conducteurs de travaux
+            Guide conducteur de travaux
           </p>
           <ul className="space-y-0.5 pb-2">
             {otherLinks.map((link) => {
@@ -901,7 +856,7 @@ export function Navbar() {
                     </span>
                   </Link>
                   <p className="px-3 pb-2 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Guide conducteurs de travaux
+                    Guide conducteur de travaux
                   </p>
                   <Link
                     href={LINKS.skillIaConducteurTravaux}
@@ -910,7 +865,7 @@ export function Navbar() {
                   >
                     <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
                     <span>
-                      <span className="block text-[0.9375rem]">Guide : 1er Skill IA</span>
+                      <span className="block text-[0.9375rem]">Guide Conducteur de travaux</span>
                       <span className="mt-0.5 block text-xs text-slate-500">
                         PDF gratuit · conducteurs de travaux
                       </span>

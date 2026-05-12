@@ -34,8 +34,6 @@ const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
 const H1 =
   'Financer une formation IA BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
 
-const HERO_BG = '/images/claude-btp-hero-chantier-2026.png';
-
 const HERO_FINANCEMENT = {
   src: '/images/financement-constructys-formation-ia-btp-hero-2026.jpg',
   width: 1024,
@@ -114,38 +112,37 @@ export default function FinancementConstructysFormationIABTPPage() {
       <PillarPageHero
         variant="splitImage"
         layoutDensity="compact"
-        backgroundImageSrc={HERO_BG}
-        backgroundImageAlt=""
+        surface="muted"
         eyebrow="Constructys · OPCO BTP"
         title={H1}
         titleId="financement-hero-title"
         metaLine="Mis à jour le 18 avril 2026 · Temps de lecture : 6 min"
         tags={['Constructys', 'OPCO', 'Qualiopi', 'BTP', 'eGestion', '2026']}
         subtitle={
-          <p className="text-sm leading-relaxed text-white/90 md:text-base">
+          <p className="text-sm leading-relaxed text-[#475569] md:text-base">
             D&apos;après notre suivi interne 2023-2025 sur{' '}
-            <strong className="font-semibold text-white">1 592 stagiaires</strong> formés,{' '}
-            <strong className="font-semibold text-white">92 %</strong> des demandes ont obtenu une prise en charge
+            <strong className="font-semibold text-[#0F172A]">1 592 stagiaires</strong> formés,{' '}
+            <strong className="font-semibold text-[#0F172A]">92 %</strong> des demandes ont obtenu une prise en charge
             Constructys au 1<sup>er</sup> dépôt. Ce guide vous aide à comprendre les règles, sans vous noyer dans le
             jargon administratif — que vous visiez une{' '}
-            <Link href="/formation-ia-artisans-btp" className="font-medium text-white underline-offset-2 hover:underline">
+            <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
               formation IA pour PME BTP
             </Link>
             , l&apos;
-            <Link href="/ia-devis-batiment" className="font-medium text-white underline-offset-2 hover:underline">
+            <Link href={LINKS.iaDevis} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
               IA pour les devis bâtiment
             </Link>{' '}
             ou un{' '}
-            <Link href="/formations/ia-appels-offre-btp" className="font-medium text-white underline-offset-2 hover:underline">
+            <Link href={LINKS.formationAO} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
               programme IA appels d&apos;offres
             </Link>
             .
           </p>
         }
-        primaryCta={{ href: '/contact', label: 'Demander un devis', external: false }}
+        primaryCta={{ href: LINKS.contact, label: 'Demander un devis', external: false }}
         secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-hero-secondary-rdv'), label: 'Réserver un RDV', external: true }}
         credibilityLine={
-          <span className="text-white/85">
+          <span className="font-medium text-[#475569]">
             {formatProfessionalsTrainedCount()} formés · 92 % de dossiers acceptés au 1<sup>er</sup> dépôt ·{' '}
             {SOCIAL_PROOF.AVERAGE_RATING}
           </span>
@@ -577,7 +574,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/formations/ia-appels-offre-btp', label: 'Programme IA appels d’offres BTP' },
                 { href: '/formation-ia-travaux-publics', label: 'IA travaux publics' },
-                { href: LINKS.skillIaConducteurTravaux, label: 'Guide Skill IA (PDF)' },
+                { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
                 { href: '/blog', label: 'Tous les articles' },
                 { href: buildSiteCalendlyCtaUrl('financement-constructys-formation-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
               ]}

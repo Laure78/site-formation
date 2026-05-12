@@ -115,7 +115,7 @@ const quickLinks = [
   { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
   { href: LINKS.financement, label: 'Financement Constructys' },
   { href: LINKS.chatgptArtisans, label: 'ChatGPT pour PME BTP' },
-  { href: LINKS.skillIaConducteurTravaux, label: 'Tutoriel Skill IA conducteur de travaux' },
+  { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux' },
   { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
   { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
   { href: LINKS.blog, label: 'Blog IA & guides BTP' },

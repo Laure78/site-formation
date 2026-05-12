@@ -32,7 +32,7 @@ export function Footer() {
     { href: LINKS.blog, label: 'Blog' },
     { href: LINKS.diagnostic, label: 'Diagnostic' },
     { href: LINKS.checklist, label: 'Checklist' },
-    { href: LINKS.skillIaConducteurTravaux, label: 'Guide Skill IA (PDF)' },
+    { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
     { href: LINKS.etudesCas, label: 'Étude de cas' },
     { href: LINKS.casUsage, label: "Cas d'usage" },
   ];
@@ -61,7 +61,7 @@ export function Footer() {
               href={LINKS.skillIaConducteurTravaux}
               className="mt-3 inline-flex text-sm font-medium text-[var(--accent)] hover:underline"
             >
-              Guide gratuit : créez votre 1er Skill IA →
+              Guide Conducteur de travaux — PDF gratuit →
             </Link>
           </div>
           <Link
