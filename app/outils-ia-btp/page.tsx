@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen, Scale, Shield } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { RdvLink } from '@/components/RdvLink';
+import { LINKS } from '@/lib/internal-links';
 import {
   breadcrumbItemsFromPaths,
   createPageMetadata,
@@ -31,6 +32,13 @@ const breadcrumbJson = getBreadcrumbSchema([
 ]);
 
 const ARTICLES_OUTILS = [
+  {
+    titre:
+      'Sélecteur interactif : cas d’usage IA par métier (conducteur de travaux, chargé d’affaires, dirigeant PME BTP)',
+    href: LINKS.casUsageIaMetierBtp,
+    badge: 'Outil interactif',
+    linkLabel: 'Ouvrir l’outil',
+  },
   {
     titre: 'ChatGPT, Claude, Gemini : le guide complet pour démarrer avec l’IA dans le BTP',
     href: '/blog/outils-ia-btp-chatgpt-claude-gemini',
@@ -216,7 +224,7 @@ export default function OutilsIABTPPage() {
                     </p>
                   </div>
                   <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-[var(--accent)]">
-                    Lire l’article
+                    {'linkLabel' in article ? article.linkLabel : 'Lire l’article'}
                     <ArrowRight size={18} strokeWidth={2} aria-hidden />
                   </span>
                 </Link>

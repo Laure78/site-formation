@@ -5,6 +5,7 @@ import {
   Coins,
   GraduationCap,
   Sparkles,
+  Target,
   User,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
@@ -23,6 +24,12 @@ const cards = [
     title: 'Financement Constructys',
     desc: '100 % finançable OPCO BTP — plafonds 2026, dossier eGestion',
     Icon: Coins,
+  },
+  {
+    href: LINKS.casUsageIaMetierBtp,
+    title: 'Cas d’usage IA par métier',
+    desc: 'Conducteur de travaux, chargé d’affaires, dirigeant PME BTP — exemples et documents',
+    Icon: Target,
   },
   {
     href: LINKS.blog,

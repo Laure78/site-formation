@@ -54,6 +54,12 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       lastModified: new Date('2026-04-10'),
     },
     {
+      path: '/outils/cas-usage-ia-btp',
+      priority: 0.88,
+      changeFrequency: 'monthly',
+      lastModified: new Date(),
+    },
+    {
       path: '/claude-ai-btp',
       priority: 0.9,
       changeFrequency: 'monthly',

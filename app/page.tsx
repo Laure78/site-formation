@@ -52,6 +52,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
+import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
@@ -316,6 +317,28 @@ export default function HomePage() {
               </div>
               <CitationSentence text="La formation IA BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-labelledby="home-selecteur-cas-usage-ia"
+        className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="home-selecteur-cas-usage-ia"
+            className="text-center font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
+          >
+            Que peut faire l&apos;IA pour votre métier dans le BTP ?
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-[#5A5A5A] md:text-[17px]">
+            Conducteurs de travaux, chargés d&apos;affaires et dirigeants de PME BTP : sélectionnez votre profil pour
+            voir des exemples concrets, les documents que l&apos;IA peut préparer et les formations les plus adaptées —
+            apprentissage encadré Qualiopi, gains de temps toujours soumis à votre validation métier.
+          </p>
+          <div className="mt-10">
+            <SelecteurMetier showDedicatedPageLink />
           </div>
         </div>
       </section>

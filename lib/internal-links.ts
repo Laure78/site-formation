@@ -86,6 +86,8 @@ export const LINKS = {
   // Utilitaires
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
+  /** Sélecteur interactif — cas d'usage IA par métier BTP */
+  casUsageIaMetierBtp: '/outils/cas-usage-ia-btp',
   checklist: '/checklist-ia-btp',
   /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',
