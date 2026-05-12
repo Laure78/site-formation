@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { LINKS } from '@/lib/internal-links';
+
 export function AnthropicAuthorityLinks() {
   return (
     <p className="mt-3 text-xs text-slate-500">
@@ -31,6 +34,15 @@ export function AnthropicAuthorityLinks() {
       >
         Actualités Anthropic
       </a>
+      <span className="mx-1.5 text-slate-300" aria-hidden>
+        ·
+      </span>
+      <Link
+        href={LINKS.blogCoursGratuitsClaudeAiPmeBtp}
+        className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+      >
+        Cours gratuits Academy — guide BTP (blog)
+      </Link>
     </p>
   );
 }

@@ -67,6 +67,7 @@ Laure Olivié est formatrice IA et ChatGPT pour le BTP. Avec plus de 10 ans d'ex
 - https://laureolivie.fr/diagnostic-ia-btp — Diagnostic gratuit
 - https://laureolivie.fr/checklist-ia-btp — Checklist 10 prompts
 - https://laureolivie.fr/ressources/guide-conducteur-de-travaux — Pack PDF CDT : 6 tutos Claude (DCE, PPSPS, CR, constat retard, PV réserves, DOE) téléchargeables sans inscription ; article blog détaillé en complément.
+- https://laureolivie.fr/ressources/guide-conducteur-travaux-ia-btp — Guide long SEO / GEO : IA pour conducteur de travaux BTP (6 livrables CR, PPSPS, DCE, DOE), prompts, tableau des gains, FAQ, financement Constructys, Île-de-France & France.
 - https://laureolivie.fr/ressources — Hub Ressources gratuites IA BTP
 - https://laureolivie.fr/ressources/tutos — Index de tous les tutos PDF (pages web + téléchargements)
 
@@ -117,6 +118,7 @@ Tutos pas à pas signés Laure Olivié, format PDF + page web complète, sans in
 - /blog/l-ia-va-t-elle-remplacer-les-serruriers — IA et avenir des serruriers
 - /blog/recrutement-btp-l-ia-pour-attirer-les-talents — Recrutement BTP avec IA
 - /blog/formation-ia-btp-ce-qu-il-faut-savoir-en-2026 — Guide formation IA BTP 2026
+- /blog/cours-gratuits-claude-ai-conducteur-travaux-pme-btp — Cours gratuits Anthropic Academy (Claude AI) : parcours conducteur de travaux et PME BTP, prompts, comparaison formation IA BTP Qualiopi
 
 ## Catégories de blog
 

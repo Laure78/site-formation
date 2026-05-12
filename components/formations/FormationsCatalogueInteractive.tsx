@@ -180,16 +180,16 @@ export function FormationsCatalogueInteractive({
   };
 
   return (
-    <div className="space-y-12 lg:space-y-16">
-      <section aria-labelledby="parcours-guide-heading" className="space-y-6">
+    <div className="space-y-8 lg:space-y-10">
+      <section aria-labelledby="parcours-guide-heading" className="space-y-4">
         <div className="text-center">
           <h2
             id="parcours-guide-heading"
-            className="font-display text-[32px] font-bold leading-tight text-[#0F172A]"
+            className="font-display text-2xl font-bold leading-tight text-[#0F172A] sm:text-[1.65rem] md:text-[1.75rem]"
           >
             Quelle formation choisir ?
           </h2>
-          <p className="mt-3 text-lg text-[#64748B]">
+          <p className="mt-2 text-sm text-[#64748B] sm:text-base">
             Les deux parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
             vous correspond.
           </p>
@@ -203,19 +203,19 @@ export function FormationsCatalogueInteractive({
                 key={p.id}
                 type="button"
                 onClick={() => applyProfile(p.id)}
-                className={`flex flex-col items-center rounded-2xl border p-6 text-center transition duration-200 ${
+                className={`flex flex-col items-center rounded-xl border p-4 text-center transition duration-200 sm:p-5 ${
                   isActive
                     ? 'border-[#377CF3] bg-white shadow-md'
                     : 'border-[#E2E8F0] bg-white shadow-sm hover:-translate-y-0.5 hover:border-[#377CF3] hover:shadow-md'
                 }`}
               >
                 <span
-                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#EFF6FF] text-[#377CF3]"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#EFF6FF] text-[#377CF3] sm:h-11 sm:w-11"
                   aria-hidden
                 >
-                  <Icon className="h-6 w-6" strokeWidth={1.75} />
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
-                <span className="mt-4 block text-base font-semibold text-[#0F172A]">{p.label}</span>
+                <span className="mt-3 block text-sm font-semibold leading-snug text-[#0F172A] sm:text-base">{p.label}</span>
                 <span className="mt-1 block text-sm text-[#64748B]">{p.short}</span>
               </button>
             );
@@ -223,7 +223,7 @@ export function FormationsCatalogueInteractive({
         </div>
       </section>
 
-      <section aria-labelledby="catalogue-deux-formations-heading" className="space-y-6">
+      <section aria-labelledby="catalogue-deux-formations-heading" className="space-y-5">
         <div className="text-center">
           <h2 id="catalogue-deux-formations-heading" className="sr-only">
             Catalogue : niveau 1 et niveau 2

@@ -53,8 +53,9 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Tuto — constat de retard', href: LINKS.tutoConstatRetard },
     ],
     guides: [
+      { label: 'Guide — 6 outils IA pour conducteur de travaux', href: LINKS.guideConducteurTravauxIaBtp },
       { label: '10 cas d’usage IA BTP (ressource synthèse)', href: LINKS.casUsage },
-      { label: 'Landing — IA conducteur de travaux', href: LINKS.formationConducteurTravaux },
+      { label: 'Landing formation — IA conducteur de travaux', href: LINKS.formationConducteurTravaux },
       { label: 'PDF gratuit — pack conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
     ],
     articles: [
@@ -86,7 +87,12 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Formation SEO — Claude AI bâtiment', href: LINKS.formationClaudeAiBatiment },
       { label: 'Formation SEO — Claude AI travaux publics', href: LINKS.formationClaudeAiTravauxPublics },
     ],
-    articles: [],
+    articles: [
+      {
+        label: 'Blog — cours gratuits Anthropic Academy (Claude AI, CDT & PME BTP)',
+        href: LINKS.blogCoursGratuitsClaudeAiPmeBtp,
+      },
+    ],
     blogCategory: 'chatgpt',
   },
   {

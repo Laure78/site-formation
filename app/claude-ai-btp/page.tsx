@@ -473,8 +473,13 @@ export default function ClaudeAiBtpPillarPage() {
                 <h2 id="cluster" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
                   Ressources approfondies
                 </h2>
-                <div className="mt-8 grid gap-4 md:grid-cols-3">
+                <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                   {[
+                    {
+                      href: LINKS.blogCoursGratuitsClaudeAiPmeBtp,
+                      title: 'Cours gratuits Anthropic Academy',
+                      desc: 'Parcours CDT & PME BTP · prompts · 4 modules utiles',
+                    },
                     {
                       href: '/blog/claude-ai-btp-5-interfaces-chat-cowork-code',
                       title: 'Les 5 interfaces expliquées',

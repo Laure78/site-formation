@@ -107,17 +107,17 @@ export default function FormationsPage() {
       <FormationsHero />
       <FormationsStatsBand />
 
-      <div className="mx-auto max-w-6xl px-4 pb-20 pt-10 md:pt-12">
+      <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
         <Breadcrumb
           jsonLdId="schema-breadcrumb-formations-catalogue"
           items={[
             { label: 'Accueil', href: '/' },
             { label: 'Formations', href: '/formations' },
           ]}
-          className="mb-6 text-sm text-slate-600"
+          className="mb-4 text-sm text-slate-600"
         />
 
-        <div className="mt-8 md:mt-10">
+        <div className="mt-4 md:mt-5">
           <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
         </div>
 

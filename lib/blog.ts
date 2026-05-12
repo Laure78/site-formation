@@ -2102,6 +2102,7 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
 /** Détermine la catégorie d'un article à partir du slug */
 export function getArticleCategory(slug: string): BlogCategoryId {
   const s = slug.toLowerCase();
+  if (s.includes('cours-gratuits-claude')) return 'chatgpt';
   if (s.includes('appels-d-offres') || s.includes('appels-offres') || s.includes('cctp') || s.includes('memoire-technique') || s.includes('repondre-appel') || s.includes('analyse-dce')) return 'appels-offres';
   if (s.includes('financement') || s.includes('financer-formation') || s.includes('formation-ia-btp-ce-qu-il') || s.includes('intra-btp-constructys') || s.includes('dossier-constructys')) return 'financement';
   if (s.includes('recrutement')) return 'rh';

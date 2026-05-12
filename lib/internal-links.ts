@@ -16,6 +16,8 @@ export const LINKS = {
   blogFormationIaBtpGuide2026Mdx: '/blog/formation-ia-btp-guide-complet-2026',
   /** Article SEO/GEO — tutoriel skill IA conducteur de travaux */
   blogGuideSkillIaConducteurTravaux: '/blog/guide-skill-ia-conducteur-travaux-btp',
+  /** Article — cours gratuits Anthropic Academy (Claude AI) pour CDT & PME BTP */
+  blogCoursGratuitsClaudeAiPmeBtp: '/blog/cours-gratuits-claude-ai-conducteur-travaux-pme-btp',
   aPropos: '/a-propos',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
@@ -93,6 +95,8 @@ export const LINKS = {
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
   /** Lead magnet — Guide PDF Skill IA conducteur de travaux */
   skillIaConducteurTravaux: '/ressources/guide-conducteur-de-travaux',
+  /** Guide long SEO / GEO — 6 livrables IA pour conducteur de travaux BTP */
+  guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-travaux-ia-btp',
   /** PDF gratuit — Pack conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
   pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */

@@ -90,6 +90,12 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/ressources/guide-conducteur-de-travaux', priority: 0.9, changeFrequency: 'weekly' },
     {
+      path: '/ressources/guide-conducteur-travaux-ia-btp',
+      priority: 0.88,
+      changeFrequency: 'weekly',
+      lastModified: new Date('2026-05-12'),
+    },
+    {
       path: '/formation-ia-btp-ile-de-france',
       priority: 0.9,
       changeFrequency: 'weekly',
