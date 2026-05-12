@@ -56,7 +56,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Guide — 6 outils IA pour conducteur de travaux', href: LINKS.guideConducteurTravauxIaBtp },
       { label: '10 cas d’usage IA BTP (ressource synthèse)', href: LINKS.casUsage },
       { label: 'Landing formation — IA conducteur de travaux', href: LINKS.formationConducteurTravaux },
-      { label: 'PDF gratuit — pack conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
+      { label: 'PDF gratuit — guide conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
     ],
     articles: [
       { label: 'Guide skill IA — conducteur de travaux (article)', href: LINKS.blogGuideSkillIaConducteurTravaux },

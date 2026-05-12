@@ -19,7 +19,7 @@ export function MerciSkillIaDownload() {
       onClick={onClick}
       className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-8 py-4 text-base font-semibold text-white shadow-md transition hover:bg-[#2d66d6]"
     >
-      📥 Télécharger le pack PDF (~400&nbsp;Ko, 52 pages)
+      📥 Télécharger le guide PDF (~400&nbsp;Ko, 52 pages)
     </a>
   );
 }

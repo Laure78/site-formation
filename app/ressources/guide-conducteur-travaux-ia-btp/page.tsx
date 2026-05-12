@@ -895,7 +895,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
             <ul className="mt-4 list-disc space-y-2 pl-5 text-[#1A1A1A]">
               <li>
                 <Link href={LINKS.skillIaConducteurTravaux} className="font-medium text-[#377CF3] underline">
-                  Pack PDF gratuit — 6 tutos Claude pour conducteur de travaux (DCE, PPSPS, CR…)
+                  Guide PDF gratuit — 6 tutos Claude pour conducteur de travaux (DCE, PPSPS, CR…)
                 </Link>
               </li>
               <li>

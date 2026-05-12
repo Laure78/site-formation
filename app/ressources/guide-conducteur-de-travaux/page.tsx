@@ -14,9 +14,9 @@ const PATH = '/ressources/guide-conducteur-de-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata = createPageMetadata({
-  title: 'Pack conducteur travaux : 6 tutos Claude BTP (PDF gratuit)',
+  title: 'Guide conducteur travaux : 6 tutos Claude BTP (PDF gratuit)',
   description:
-    'Pack PDF gratuit pour conducteurs de travaux : analyse DCE, PPSPS, CR chantier, constat retard, PV levée réserves, DOE Claude. Prompts inclus. Formation IA BTP.',
+    'Guide PDF gratuit pour conducteurs de travaux : analyse DCE, PPSPS, CR chantier, constat retard, PV levée réserves, DOE Claude. Prompts inclus. Formation IA BTP.',
   path: PATH,
   keywords: [
     'skill IA BTP',
@@ -27,7 +27,7 @@ export const metadata = createPageMetadata({
     'formation IA BTP',
   ],
   openGraphType: 'article',
-  openGraphTitle: 'Pack CDT — 6 tutos Claude pour piloter le chantier (PDF gratuit)',
+  openGraphTitle: 'Guide CDT — 6 tutos Claude pour piloter le chantier (PDF gratuit)',
   openGraphDescription: 'DCE, PPSPS, CR, constat retard, PV réserves, DOE — méthodes et prompts inclus.',
   image: {
     url: '/og/skill-ia-og.png',
@@ -42,9 +42,9 @@ const learningResourceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LearningResource',
   '@id': `${CANONICAL}#resource`,
-  name: 'Pack conducteur de travaux — 6 tutos Claude BTP (PDF gratuit)',
+  name: 'Guide conducteur de travaux — 6 tutos Claude BTP (PDF gratuit)',
   description:
-    'Pack PDF gratuit OFC / Laure Olivié : analyse de DCE, PPSPS, compte rendu chantier, constat de retard, PV levée des réserves, DOE livraison — méthode Claude, prompts à copier-coller. Conducteurs et directions exploitation BTP.',
+    'Guide PDF gratuit OFC / Laure Olivié : analyse de DCE, PPSPS, compte rendu chantier, constat de retard, PV levée des réserves, DOE livraison — méthode Claude, prompts à copier-coller. Conducteurs et directions exploitation BTP.',
   url: CANONICAL,
   inLanguage: 'fr-FR',
   educationalLevel: 'intermediate',
@@ -70,9 +70,9 @@ const howToSkillJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   '@id': `${CANONICAL}#howto`,
-  name: 'Créer un skill Claude métier chantier avec le pack CDT',
+  name: 'Créer un skill Claude métier chantier avec le guide CDT',
   description:
-    'Méthode pas à pas (préparation, instructions, export document) utilisée dans le pack Claude conducteur de travaux — chaque livrable BTP peut être encapsulé en skill réutilisable.',
+    'Méthode pas à pas (préparation, instructions, export document) utilisée dans le guide Claude conducteur de travaux — chaque livrable BTP peut être encapsulé en skill réutilisable.',
   totalTime: 'PT30M',
   step: [
     { '@type': 'HowToStep', position: 1, name: 'Choisir une tâche répétitive', text: 'Sélectionnez une tâche exécutée au moins 3 fois par semaine.' },
@@ -88,14 +88,14 @@ const howToSkillJsonLd = {
 const FAQ_ITEMS = [
   {
     q: 'Quel fichier est téléchargeable depuis cette page ?',
-    a: 'Le fichier « Pack_CDT_OFC.pdf » (~400 Ko, environ 52 pages) rassemble les 6 tutos : analyse DCE, PPSPS, compte rendu de chantier, constat de retard, PV levée des réserves, DOE livraison. Aucune inscription obligatoire pour le téléchargement depuis cette page.',
+    a: 'Le guide PDF téléchargeable (« Pack_CDT_OFC.pdf », ~400 Ko, environ 52 pages) rassemble les 6 tutos : analyse DCE, PPSPS, compte rendu de chantier, constat de retard, PV levée des réserves, DOE livraison. Aucune inscription obligatoire pour le téléchargement depuis cette page.',
   },
   {
-    q: 'Faut-il un abonnement Claude pour appliquer le pack ?',
+    q: 'Faut-il un abonnement Claude pour appliquer ce guide ?',
     a: 'Pour utiliser les skills personnalisés Claude, un abonnement Pro est nécessaire. Le fichier explique également comment activer les capacités « Skills », « Code execution » et création de fichiers — indispensable pour exporter des livrables (Word par exemple).',
   },
   {
-    q: 'Le pack remplace une formation présentielle ?',
+    q: 'Ce guide remplace une formation présentielle ?',
     a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA BTP certifiée Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
   },
   {
@@ -117,7 +117,7 @@ export default function SkillIaConducteurTravauxPage() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-start md:gap-12 md:py-20 lg:grid-cols-2">
           <div className="min-w-0">
             <h1 id="hero-skill-ia" className="font-display text-3xl font-bold leading-tight md:text-4xl lg:text-[2.35rem]">
-              Pack du conducteur de travaux : 6&nbsp;skills Claude pour piloter le chantier
+              Guide du conducteur de travaux : 6&nbsp;skills Claude pour piloter le chantier
             </h1>
             <p className="mt-5 max-w-none text-lg leading-relaxed text-white/95 lg:max-w-[42rem] xl:max-w-none">
               Ce guide PDF gratuit regroupe préparation (DCE, sécurité), exécution (CR chantier, constats) et livraison
@@ -155,15 +155,15 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16" aria-labelledby="article-pack-cdt">
+      <section className="py-14 md:py-16" aria-labelledby="article-guide-cdt">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="article-pack-cdt" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Présentation du pack ressources
+          <h2 id="article-guide-cdt" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+            Présentation du guide ressources
           </h2>
           <div className="mt-6 xl:grid xl:grid-cols-2 xl:gap-x-12 xl:gap-y-6">
             <div className="space-y-4">
               <p className="leading-relaxed text-slate-700">
-                Ce pack est destiné aux conducteurs de travaux qui enchaînent les livrables écrits : appels d&apos;offres,
+                Ce guide est destiné aux conducteurs de travaux qui enchaînent les livrables écrits : appels d&apos;offres,
                 sécurité, suivi chantier et clôtures contractuelles. L&apos;enjeu n&apos;est pas de « remplacer » le métier —
                 c&apos;est de gagner les heures de préparation où l&apos;on reformate toujours les mêmes structures (grilles
                 CCAP/CCTP, trames PV, dossiers livraison) pendant que les imprévus restent votre priorité chantier.
@@ -200,8 +200,8 @@ export default function SkillIaConducteurTravauxPage() {
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { k: '30–50 h', v: 'de bureau récupérables sur un chantier moyen (ordre de grandeur pack)' },
-              { k: '0 €', v: 'pack PDF complet — pas d’inscription sur cette page' },
+              { k: '30–50 h', v: 'de bureau récupérables sur un chantier moyen (ordre de grandeur guide)' },
+              { k: '0 €', v: 'guide PDF complet — pas d’inscription sur cette page' },
               { k: '52 p.', v: 'fichier structuré comme un mode d’emploi terrain' },
               { k: '6', v: 'livrables critiques couverts (prép. / exécution / livraison)' },
             ].map((c) => (
@@ -247,7 +247,7 @@ export default function SkillIaConducteurTravauxPage() {
             Schéma générique — construire un skill (rappel hors PDF)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Le pack détaille ses propres prompts par livrable&nbsp;; ce rappel résume la logique qui se répète avant
+            Le guide détaille ses propres prompts par livrable&nbsp;; ce rappel résume la logique qui se répète avant
             d&apos;adapter chaque cas à votre entreprise.
           </p>
           <ol className="mt-8 grid gap-4 md:grid-cols-2">
@@ -269,13 +269,13 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="py-14" aria-labelledby="six-livrables-pack">
+      <section className="py-14" aria-labelledby="six-livrables-guide">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="six-livrables-pack" className="font-display text-2xl font-bold md:text-3xl">
+          <h2 id="six-livrables-guide" className="font-display text-2xl font-bold md:text-3xl">
             Les 6 livrables couverts dans le fichier PDF
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Chaque ligne renvoie vers la fiche web détaillée du même thème (version longue, FAQ, étapes) — le pack PDF
+            Chaque ligne renvoie vers la fiche web détaillée du même thème (version longue, FAQ, étapes) — le guide PDF
             reste le document unique à conserver hors-ligne.
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -337,7 +337,7 @@ export default function SkillIaConducteurTravauxPage() {
             Squelette de skill (bonus rapide hors PDF détaillé)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Le fichier « Pack_CDT_OFC.pdf » inclut prompts et consignes spécifiques par livrable. Ce cadre générique aide
+            Le fichier téléchargeable « Pack_CDT_OFC.pdf » (contenu du guide) inclut prompts et consignes spécifiques par livrable. Ce cadre générique aide
             quand vous devez improviser une nouvelle automatisation chantier avant de la figer dans un skill définitif.
           </p>
           <pre className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-[#0F172A] p-5 text-xs leading-relaxed text-slate-100 md:text-sm">{`# SKILL : [NOM DU SKILL]

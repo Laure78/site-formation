@@ -103,7 +103,7 @@ export default function RessourcesTutosIndexPage() {
                 <li>
                   Même périmètre sur le{' '}
                   <Link href={LINKS.skillIaConducteurTravaux} className="font-medium text-[#377CF3] hover:underline">
-                    pack PDF conducteurs de travaux
+                    guide PDF conducteurs de travaux
                   </Link>
                   {' '}
                   (ressource compilée séparément).

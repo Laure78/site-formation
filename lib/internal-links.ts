@@ -97,7 +97,7 @@ export const LINKS = {
   skillIaConducteurTravaux: '/ressources/guide-conducteur-de-travaux',
   /** Guide long SEO / GEO — 6 livrables IA pour conducteur de travaux BTP */
   guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-travaux-ia-btp',
-  /** PDF gratuit — Pack conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
+  /** PDF gratuit — Guide conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
   pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',

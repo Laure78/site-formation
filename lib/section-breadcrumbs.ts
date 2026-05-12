@@ -31,7 +31,7 @@ const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources/tutos': 'Tutos PDF IA BTP',
   '/ressources/ia-btp': 'Hub ressources IA BTP',
   '/ressources/ia-btp/10-cas-usage-concrets': 'IA dans le BTP : 10 cas d’usage concrets (2026)',
-  '/ressources/guide-conducteur-de-travaux': 'Pack conducteur de travaux — 6 tutos Claude BTP',
+  '/ressources/guide-conducteur-de-travaux': 'Guide conducteur de travaux — 6 tutos Claude BTP',
   '/ressources/guide-conducteur-travaux-ia-btp':
     'Guide IA conducteur de travaux — 6 outils CR, PPSPS, DCE, DOE',
   '/ressources/guide-conducteur-de-travaux/merci': 'Confirmation — guide envoyé',

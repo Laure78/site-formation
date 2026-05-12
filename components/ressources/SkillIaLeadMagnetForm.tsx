@@ -19,7 +19,7 @@ export function SkillIaLeadMagnetForm() {
       style={{ color: '#1A1A1A' }}
     >
       <p className="font-display text-lg font-bold" style={{ color: '#1A1A1A' }}>
-        Télécharger le pack PDF
+        Télécharger le guide PDF
       </p>
       <p className="mt-1 text-sm text-slate-600">
         Conducteur de travaux — environ 52 pages · ~400&nbsp;Ko · sans inscription

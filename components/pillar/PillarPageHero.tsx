@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Award, Calendar } from 'lucide-react';
 
 export type PillarHeroCta = {
   href: string;
@@ -12,7 +12,12 @@ export type PillarHeroCta = {
 
 export type PillarPageHeroProps = {
   variant: 'immersive' | 'splitImage';
-  /** Image de fond plein écran (variant immersive, ou split si besoin) */
+  /**
+   * `brand` : photo chantier + dégradé bleu (pages pilier classiques).
+   * `muted` : fond neutre charte (#F2F2F2), texte foncé, accent #377CF3 — évite le « plein bleu ».
+   */
+  surface?: 'brand' | 'muted';
+  /** Image de fond plein écran (variant immersive, ou split si besoin) — ignorée si surface === muted */
   backgroundImageSrc?: string;
   backgroundImageAlt?: string;
   eyebrow: string;
@@ -39,10 +44,11 @@ export type PillarPageHeroProps = {
 };
 
 /**
- * Hero page pilier — même langage visuel que `/claude-ai-btp` (dégradé OFC, CTA, tags).
+ * Hero page pilier — fond bleu « brand » ou variante sobre `surface="muted"` (charte OFC).
  */
 export function PillarPageHero({
   variant,
+  surface = 'brand',
   backgroundImageSrc = '/images/claude-btp-hero-chantier-2026.png',
   backgroundImageAlt = '',
   eyebrow,
@@ -59,14 +65,23 @@ export function PillarPageHero({
   layoutDensity = 'default',
 }: PillarPageHeroProps) {
   const compact = layoutDensity === 'compact';
+  const muted = surface === 'muted';
 
-  const primaryBtnClass = compact
-    ? 'inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#1E40AF] shadow-md shadow-black/15 transition hover:bg-white/95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
-    : 'inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-[#1E40AF] shadow-lg shadow-black/20 transition hover:scale-[1.02] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+  const primaryBtnClass = muted
+    ? compact
+      ? 'inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-6px_rgba(55,124,243,0.45)] transition hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]'
+      : 'inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-8 py-4 text-base font-semibold text-white shadow-[0_12px_36px_-8px_rgba(55,124,243,0.5)] transition hover:bg-[#2d66d6] hover:shadow-[0_14px_40px_-8px_rgba(55,124,243,0.45)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]'
+    : compact
+      ? 'inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#1E40AF] shadow-md shadow-black/15 transition hover:bg-white/95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+      : 'inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-[#1E40AF] shadow-lg shadow-black/20 transition hover:scale-[1.02] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
 
-  const secondaryBtnClass = compact
-    ? 'inline-flex items-center justify-center rounded-xl border border-white/45 bg-transparent px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
-    : 'inline-flex items-center justify-center rounded-2xl border border-white/40 bg-transparent px-8 py-4 text-base font-semibold text-white transition hover:scale-[1.01] hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+  const secondaryBtnClass = muted
+    ? compact
+      ? 'inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] bg-white px-5 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]'
+      : 'inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] bg-white px-8 py-4 text-base font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]'
+    : compact
+      ? 'inline-flex items-center justify-center rounded-xl border border-white/45 bg-transparent px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+      : 'inline-flex items-center justify-center rounded-2xl border border-white/40 bg-transparent px-8 py-4 text-base font-semibold text-white transition hover:scale-[1.01] hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
 
   const primaryEl =
     primaryCta.external === false ? (
@@ -101,14 +116,26 @@ export function PillarPageHero({
 
   const contentBlock = (
     <>
-      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/80 md:text-xs">{eyebrow}</p>
+      <p
+        className={
+          muted
+            ? 'font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-[#377CF3] md:text-xs md:tracking-[0.26em]'
+            : 'text-[11px] font-semibold uppercase tracking-[0.28em] text-white/80 md:text-xs'
+        }
+      >
+        {eyebrow}
+      </p>
 
       <h1
         id={titleId}
         className={
-          compact
-            ? 'mt-4 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight md:text-4xl lg:text-[42px] lg:leading-[1.08]'
-            : 'mt-5 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[56px] lg:leading-[1.06]'
+          muted
+            ? compact
+              ? 'font-display mt-4 max-w-4xl text-3xl font-bold leading-[1.14] tracking-tight text-[#0F172A] md:text-4xl lg:text-[2.625rem]'
+              : 'font-display mt-5 max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-[#0F172A] md:text-5xl lg:text-[2.85rem]'
+            : compact
+              ? 'mt-4 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight md:text-4xl lg:text-[42px] lg:leading-[1.08]'
+              : 'mt-5 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[56px] lg:leading-[1.06]'
         }
       >
         {title}
@@ -117,9 +144,13 @@ export function PillarPageHero({
       {subtitle ? (
         <div
           className={
-            compact
-              ? 'mt-4 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:text-lg'
-              : 'mt-6 max-w-2xl text-lg font-normal leading-relaxed text-white/90 md:text-xl md:leading-relaxed'
+            muted
+              ? compact
+                ? 'mt-5 max-w-2xl text-base font-normal leading-relaxed text-[#475569] md:text-lg'
+                : 'mt-6 max-w-2xl text-lg font-normal leading-relaxed text-[#475569]'
+              : compact
+                ? 'mt-4 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:text-lg'
+                : 'mt-6 max-w-2xl text-lg font-normal leading-relaxed text-white/90 md:text-xl md:leading-relaxed'
           }
         >
           {subtitle}
@@ -127,20 +158,34 @@ export function PillarPageHero({
       ) : null}
 
       {metaLine ? (
-        <p className={compact ? 'mt-4 text-xs text-white/80 md:text-sm' : 'mt-6 text-sm text-white/80 md:text-base'}>
+        <p
+          className={
+            muted
+              ? compact
+                ? 'mt-4 text-xs text-[#64748B] md:text-sm'
+                : 'mt-5 text-sm text-[#64748B] md:text-base'
+              : compact
+                ? 'mt-4 text-xs text-white/80 md:text-sm'
+                : 'mt-6 text-sm text-white/80 md:text-base'
+          }
+        >
           {metaLine}
         </p>
       ) : null}
 
       {tags && tags.length > 0 ? (
-        <ul className={compact ? 'mt-4 flex flex-wrap gap-1.5' : 'mt-6 flex flex-wrap gap-2'} aria-label="Thématiques de la page">
+        <ul className={compact ? 'mt-5 flex flex-wrap gap-2' : 'mt-7 flex flex-wrap gap-2'} aria-label="Thématiques de la page">
           {tags.map((tag) => (
             <li key={tag}>
               <span
                 className={
-                  compact
-                    ? 'inline-flex rounded-full border border-white/28 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/95 backdrop-blur-sm md:text-xs'
-                    : 'inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/95 backdrop-blur-sm'
+                  muted
+                    ? compact
+                      ? 'inline-flex rounded-full border border-slate-200/90 bg-white px-2.5 py-1 text-[11px] font-medium text-[#475569] shadow-[0_1px_2px_rgba(15,23,42,0.05)] md:text-xs'
+                      : 'inline-flex rounded-full border border-slate-200/90 bg-white px-3 py-1.5 text-xs font-medium text-[#475569] shadow-[0_1px_2px_rgba(15,23,42,0.06)]'
+                    : compact
+                      ? 'inline-flex rounded-full border border-white/28 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/95 backdrop-blur-sm md:text-xs'
+                      : 'inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/95 backdrop-blur-sm'
                 }
               >
                 #{tag}
@@ -158,9 +203,13 @@ export function PillarPageHero({
       {credibilityLine ? (
         <div
           className={
-            compact
-              ? 'mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-5 text-xs text-white/75 md:text-sm'
-              : 'mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-8 text-sm text-white/70'
+            muted
+              ? compact
+                ? 'mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-slate-200/90 pt-5 text-xs text-[#475569] md:text-sm'
+                : 'mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-slate-200/90 pt-8 text-sm text-[#475569]'
+              : compact
+                ? 'mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-5 text-xs text-white/75 md:text-sm'
+                : 'mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-8 text-sm text-white/70'
           }
         >
           {credibilityLine}
@@ -168,7 +217,15 @@ export function PillarPageHero({
       ) : null}
 
       {bottomNote ? (
-        <p className="mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/65 md:text-left">{bottomNote}</p>
+        <p
+          className={
+            muted
+              ? 'mt-8 max-w-3xl text-center text-xs leading-relaxed text-[#64748B] md:text-left'
+              : 'mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/65 md:text-left'
+          }
+        >
+          {bottomNote}
+        </p>
       ) : null}
     </>
   );
@@ -176,30 +233,45 @@ export function PillarPageHero({
   return (
     <section
       className={
-        compact
-          ? 'relative min-h-0 overflow-hidden border-b border-white/10 text-white'
-          : 'relative min-h-[520px] overflow-hidden border-b border-white/10 text-white md:min-h-[560px]'
+        muted
+          ? compact
+            ? 'relative min-h-0 overflow-hidden border-b border-slate-200/80 bg-[#F2F2F2] text-[#0F172A]'
+            : 'relative min-h-0 overflow-hidden border-b border-slate-200/80 bg-[#F2F2F2] pb-6 text-[#0F172A] md:pb-8'
+          : compact
+            ? 'relative min-h-0 overflow-hidden border-b border-white/10 text-white'
+            : 'relative min-h-[520px] overflow-hidden border-b border-white/10 text-white md:min-h-[560px]'
       }
       aria-labelledby={titleId}
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
-        <Image
-          src={backgroundImageSrc}
-          alt={backgroundImageAlt}
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/85 via-[#377CF3]/82 to-[#2563EB]/85"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,rgba(255,255,255,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.35)_1px,transparent_1px)] [background-size:32px_32px]"
-          aria-hidden
-        />
-      </div>
+      {muted ? (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <div className="absolute -right-24 -top-28 h-[22rem] w-[22rem] rounded-full bg-[#377CF3]/[0.07] blur-2xl" />
+          <div className="absolute -bottom-40 -left-20 h-[24rem] w-[24rem] rounded-full bg-[#D4E3FC]/60 blur-3xl" />
+          <div
+            className="absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,rgba(55,124,243,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(55,124,243,0.06)_1px,transparent_1px)] [background-size:48px_48px]"
+            aria-hidden
+          />
+        </div>
+      ) : (
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <Image
+            src={backgroundImageSrc}
+            alt={backgroundImageAlt}
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            priority
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/85 via-[#377CF3]/82 to-[#2563EB]/85"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(to_right,rgba(255,255,255,0.35)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.35)_1px,transparent_1px)] [background-size:32px_32px]"
+            aria-hidden
+          />
+        </div>
+      )}
 
       <div
         className={
@@ -220,12 +292,16 @@ export function PillarPageHero({
           >
             <div className="min-w-0">{contentBlock}</div>
             {sideImage ? (
-              <figure className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+              <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
                 <div
                   className={
-                    compact
-                      ? 'overflow-hidden rounded-xl border border-white/25 bg-white/10 shadow-lg shadow-black/20 ring-1 ring-white/15'
-                      : 'overflow-hidden rounded-2xl border border-white/25 bg-white/10 shadow-2xl shadow-black/25 ring-1 ring-white/20'
+                    muted
+                      ? compact
+                        ? 'relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_20px_48px_-16px_rgba(15,23,42,0.14)] ring-4 ring-white'
+                        : 'relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_56px_-18px_rgba(15,23,42,0.16)] ring-4 ring-white'
+                      : compact
+                        ? 'overflow-hidden rounded-xl border border-white/25 bg-white/10 shadow-lg shadow-black/20 ring-1 ring-white/15'
+                        : 'overflow-hidden rounded-2xl border border-white/25 bg-white/10 shadow-2xl shadow-black/25 ring-1 ring-white/20'
                   }
                 >
                   <Image
@@ -237,9 +313,21 @@ export function PillarPageHero({
                     sizes="(max-width: 1024px) 100vw, 400px"
                     priority
                   />
+                  {muted ? (
+                    <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl border border-slate-200/90 bg-white/95 px-3 py-2 shadow-md backdrop-blur-sm">
+                      <Award className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden strokeWidth={2} />
+                      <span className="text-[11px] font-bold uppercase tracking-wide text-[#377CF3] md:text-xs">Qualiopi</span>
+                    </div>
+                  ) : null}
                 </div>
                 {sideImage.caption ? (
-                  <figcaption className="mt-3 text-center text-xs leading-relaxed text-white/75 lg:text-left">
+                  <figcaption
+                    className={
+                      muted
+                        ? 'mt-4 text-center text-xs leading-relaxed text-[#64748B] lg:text-left'
+                        : 'mt-3 text-center text-xs leading-relaxed text-white/75 lg:text-left'
+                    }
+                  >
                     {sideImage.caption}
                   </figcaption>
                 ) : null}

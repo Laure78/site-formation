@@ -23,8 +23,6 @@ import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 
-const HERO_BG = '/images/claude-btp-hero-chantier-2026.png';
-
 const A_PROPOS_TOC = [
   { label: 'Qui suis-je ?', anchor: 'qui-suis-je' },
   { label: 'Mon parcours', anchor: 'mon-parcours' },
@@ -105,17 +103,16 @@ export default function AProposPage() {
       <PillarPageHero
         variant="splitImage"
         layoutDensity="compact"
-        backgroundImageSrc={HERO_BG}
-        backgroundImageAlt=""
+        surface="muted"
         eyebrow="Formatrice IA BTP · Guyancourt · Depuis 2014"
         title="À Propos de Laure Olivié — Formatrice IA BTP"
         titleId="a-propos-hero-title"
         subtitle={
           <>
-            <p className="text-sm font-normal text-white/95 md:text-base">
+            <p className="text-sm font-semibold text-[#334155] md:text-base">
               Formatrice IA et ChatGPT pour les entreprises du BTP
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-white/90 md:text-[15px]">{lead}</p>
+            <p className="mt-3 text-sm leading-relaxed md:text-[15px]">{lead}</p>
           </>
         }
         tags={['Qualiopi', 'FFB', 'LinkedInLearning', 'BTP', 'Formation']}
@@ -123,15 +120,15 @@ export default function AProposPage() {
         secondaryCta={{ href: LINKS.formations, label: 'Voir le catalogue →', external: false }}
         credibilityLine={
           <>
-            <span className="inline-flex items-center gap-1.5 font-medium text-white/85">
-              <Award className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
+            <span className="inline-flex items-center gap-1.5 font-semibold text-[#0F172A]">
+              <Award className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
               OFC Création d&apos;Entreprise
             </span>
-            <span className="hidden sm:inline text-white/35" aria-hidden>
+            <span className="hidden sm:inline text-slate-300" aria-hidden>
               ·
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Star className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            <span className="inline-flex items-center gap-1.5 text-[#475569]">
+              <Star className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" aria-hidden />
               Qualiopi · Constructys · {formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
             </span>
           </>

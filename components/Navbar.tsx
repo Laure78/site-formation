@@ -17,14 +17,27 @@ import {
   CircleDollarSign,
   Sparkles,
   Layers,
+  FileText,
+  HardHat,
+  ShieldCheck,
+  Cpu,
 } from 'lucide-react';
 import { CTACalendly } from '@/components/CTACalendly';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
-import { TUTOS } from '@/lib/tutos';
+import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 
 import type { LucideIcon } from 'lucide-react';
+import type { TutoCategoryId } from '@/lib/tutos';
+
+/** Icône par rubrique pour le mega-menu Tutos — cohérent desktop / mobile. */
+const TUTO_NAV_SECTION_ICON: Record<TutoCategoryId, LucideIcon> = {
+  'marches-et-veille': FileText,
+  'chantier-livrables': HardHat,
+  'qse-conformite': ShieldCheck,
+  productivite: Cpu,
+};
 
 type MegaLink = {
   href: string;
@@ -132,6 +145,130 @@ function formationsDropdownActive(pathname: string): boolean {
   return CATALOGUE_FORMATIONS_NAV_LINKS.some((l) => isActive(l.href, pathname));
 }
 
+function tutosInCategory(cat: TutoCategoryId) {
+  return TUTOS.filter((t) => t.category === cat);
+}
+
+type TutoNavContext = 'desktop' | 'mobile';
+
+/** Liste Tutos : index puis blocs par thématique (aligné `/ressources/tutos`). */
+function ResourcesTutosNavBlocks({
+  pathname,
+  ctx,
+  onNavigate,
+}: {
+  pathname: string;
+  ctx: TutoNavContext;
+  /** Fermeture drawer mobile après clic lien */
+  onNavigate?: () => void;
+}) {
+  const dense = ctx === 'mobile';
+  const paddingY = dense ? 'py-3' : 'py-2.5';
+  const iconSz = dense ? 18 : 20;
+  const strokeW = dense ? undefined : (1.75 as const);
+
+  const indexLinkActive = isActive(LINKS.ressourcesTutos, pathname);
+
+  const indexRow = dense ? (
+    <Link
+      href={LINKS.ressourcesTutos}
+      onClick={onNavigate}
+      className={`mb-3 flex gap-3 rounded-xl px-3 ${paddingY} ${
+        indexLinkActive ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]' : 'text-slate-800'
+      }`}
+    >
+      <Layers size={iconSz} strokeWidth={strokeW ?? 1.75} className="mt-0.5 shrink-0 text-slate-400" />
+      <span>
+        <span className="block text-[0.9375rem]">Index de tous les tutos</span>
+        <span className="mt-0.5 block text-xs text-slate-500">{TUTOS.length} parcours — pages + PDF</span>
+      </span>
+    </Link>
+  ) : (
+    <div className="pb-2">
+      <Link
+        href={LINKS.ressourcesTutos}
+        className={`flex gap-3 rounded-xl px-3 ${paddingY} transition-colors ${
+          indexLinkActive ? 'bg-white font-medium text-[var(--accent)] shadow-sm' : 'text-slate-800 hover:bg-white/95'
+        }`}
+      >
+        <Layers
+          size={iconSz}
+          strokeWidth={1.75}
+          className={`mt-0.5 shrink-0 ${indexLinkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+          aria-hidden
+        />
+        <span className="min-w-0 flex-1">
+          <span className="block text-[0.9375rem] leading-snug">Index de tous les tutos</span>
+          <span className="mt-1 block text-xs leading-relaxed text-slate-500">
+            {TUTOS.length} parcours — liste web + PDF
+          </span>
+        </span>
+      </Link>
+    </div>
+  );
+
+  const categoryBlocks = TUTO_CATEGORY_ORDER.map((catId) => {
+    const items = tutosInCategory(catId);
+    if (!items.length) return null;
+    const SectionIcon = TUTO_NAV_SECTION_ICON[catId];
+    const label = TUTO_CATEGORY_META[catId].pillLabel;
+
+    return (
+      <div
+        key={catId}
+        className="mb-2 rounded-xl border border-slate-200/80 bg-[#F2F2F2] px-1.5 py-1.5 last:mb-0"
+      >
+        <p className="px-2.5 pb-1 pt-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
+          {label}
+        </p>
+        <ul className="space-y-0.5">
+          {items.map((tuto) => {
+            const href = `${LINKS.ressources}/${tuto.slug}`;
+            const linkActive = isActive(href, pathname);
+            return (
+              <li key={tuto.slug}>
+                <Link
+                  href={href}
+                  onClick={onNavigate}
+                  className={`flex gap-3 rounded-lg px-2.5 ${paddingY} transition-colors ${
+                    dense
+                      ? linkActive
+                        ? 'bg-white font-medium text-[var(--accent)] shadow-sm'
+                        : 'text-slate-800 hover:bg-white/80'
+                      : linkActive
+                        ? 'bg-white font-medium text-[var(--accent)] shadow-sm'
+                        : 'text-slate-800 hover:bg-white/90'
+                  }`}
+                >
+                  <SectionIcon
+                    size={iconSz}
+                    strokeWidth={strokeW ?? 1.75}
+                    className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
+                    aria-hidden
+                  />
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[0.9375rem] leading-snug">{tuto.shortTitle}</span>
+                    <span className={`mt-1 block text-xs text-slate-500`}>
+                      Tuto PDF · {tuto.totalTimeMinutes} min
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  });
+
+  return (
+    <>
+      {indexRow}
+      {categoryBlocks}
+    </>
+  );
+}
+
 function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
   const blogLinks: MegaLink[] = [
     {
@@ -148,20 +285,6 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
       description: 'Guide complet : interfaces, limites techniques, parcours formations',
       icon: Sparkles,
     },
-  ];
-  const tutoLinks: MegaLink[] = [
-    {
-      href: LINKS.ressourcesTutos,
-      label: 'Index de tous les tutos',
-      description: `${TUTOS.length} parcours — liste web + PDF`,
-      icon: Layers,
-    },
-    ...TUTOS.map((t) => ({
-      href: `${LINKS.ressources}/${t.slug}`,
-      label: t.shortTitle,
-      description: `Tuto PDF · ${t.totalTimeMinutes} min`,
-      icon: Sparkles,
-    })),
   ];
   const otherLinks: MegaLink[] = [
     {
@@ -188,40 +311,12 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
           </Link>
         </div>
         <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Tutos
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
+            Tutos par thème
           </p>
-          <ul className="space-y-0.5 pb-2">
-            {tutoLinks.map((link) => {
-              const ItemIcon = link.icon;
-              const linkActive = isActive(link.href, pathname);
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                      linkActive
-                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                        : 'text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <ItemIcon
-                      size={20}
-                      strokeWidth={1.75}
-                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      {link.description ? (
-                        <span className="mt-1 block text-xs text-slate-500">{link.description}</span>
-                      ) : null}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="space-y-1 pb-2">
+            <ResourcesTutosNavBlocks pathname={pathname} ctx="desktop" />
+          </div>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
             Blog
           </p>
@@ -757,45 +852,14 @@ export function Navbar() {
                     Voir toutes les ressources
                     <ArrowRight size={14} />
                   </Link>
-                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Tutos
+                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
+                    Tutos par thème
                   </p>
-                  <Link
-                    href={LINKS.ressourcesTutos}
-                    onClick={() => setMobileOpen(false)}
-                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
-                      isActive(LINKS.ressourcesTutos, pathname)
-                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                        : 'text-slate-800'
-                    }`}
-                  >
-                    <Layers size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Index de tous les tutos</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">
-                        {TUTOS.length} parcours — pages + PDF
-                      </span>
-                    </span>
-                  </Link>
-                  <ul className="space-y-0.5">
-                    {TUTOS.map((tuto) => (
-                      <li key={tuto.slug}>
-                        <Link
-                          href={`${LINKS.ressources}/${tuto.slug}`}
-                          onClick={() => setMobileOpen(false)}
-                          className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                        >
-                          <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                          <span>
-                            <span className="block text-[0.9375rem]">{tuto.shortTitle}</span>
-                            <span className="mt-0.5 block text-xs text-slate-500">
-                              Tuto PDF · {tuto.totalTimeMinutes} min
-                            </span>
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <ResourcesTutosNavBlocks
+                    pathname={pathname}
+                    ctx="mobile"
+                    onNavigate={() => setMobileOpen(false)}
+                  />
                   <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Blog
                   </p>

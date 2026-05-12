@@ -1,6 +1,6 @@
 import { LINKS } from '@/lib/internal-links';
 
-/** Lead magnet PDF — Pack conducteur de travaux OFC (URL publique + tag analytics) */
+/** Lead magnet PDF — Guide conducteur de travaux OFC (URL publique + tag analytics) */
 export const SKILL_IA_LEAD_MAGNET = {
   pdfPublicPath: LINKS.pdfPackConducteurTravauxOfc,
   fileName: 'Pack_CDT_OFC.pdf',
