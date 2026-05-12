@@ -457,26 +457,40 @@ export function Navbar() {
             </Link>
 
             <div
-              className="relative"
+              className="relative flex items-stretch"
               onMouseEnter={handleEnterFormations}
               onMouseLeave={scheduleCloseAll}
             >
-              <button
-                type="button"
+              <Link
+                href={LINKS.formations}
                 aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
-                className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-3 pr-1.5 text-sm font-medium transition-all xl:pl-3.5 xl:text-[0.9375rem] ${
                   formationsDropdownActive(pathname) || openFormations
                     ? 'bg-white text-slate-900 shadow-sm'
                     : 'text-slate-700 hover:text-slate-900'
                 }`}
-                aria-expanded={openFormations}
-                aria-haspopup="true"
               >
                 {FORMATIONS_MEGA.label}
+              </Link>
+              <button
+                type="button"
+                aria-expanded={openFormations}
+                aria-haspopup="true"
+                aria-label="Ouvrir le menu des formations"
+                className={`flex items-center rounded-full py-2 pr-2.5 pl-0.5 text-slate-500 transition-colors xl:pr-3 ${
+                  openFormations ? 'text-slate-800' : 'hover:text-slate-700'
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  clearCloseTimer();
+                  setOpenFormations((v) => !v);
+                  setOpenResources(false);
+                }}
+              >
                 <ChevronDown
                   size={15}
                   strokeWidth={2}
-                  className={`shrink-0 text-slate-500 transition-transform duration-200 ${
+                  className={`shrink-0 transition-transform duration-200 ${
                     openFormations ? 'rotate-180' : ''
                   }`}
                   aria-hidden
@@ -501,26 +515,40 @@ export function Navbar() {
             </Link>
 
             <div
-              className="relative"
+              className="relative flex items-stretch"
               onMouseEnter={handleEnterResources}
               onMouseLeave={scheduleCloseAll}
             >
-              <button
-                type="button"
+              <Link
+                href={LINKS.ressources}
                 aria-current={resourcesNavActive ? 'page' : undefined}
-                className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-3 pr-1.5 text-sm font-medium transition-all xl:pl-3.5 xl:text-[0.9375rem] ${
                   resourcesNavActive || openResources
                     ? 'bg-white text-slate-900 shadow-sm'
                     : 'text-slate-700 hover:text-slate-900'
                 }`}
-                aria-expanded={openResources}
-                aria-haspopup="true"
               >
                 Ressources
+              </Link>
+              <button
+                type="button"
+                aria-expanded={openResources}
+                aria-haspopup="true"
+                aria-label="Ouvrir le menu Ressources"
+                className={`flex items-center rounded-full py-2 pr-2.5 pl-0.5 text-slate-500 transition-colors xl:pr-3 ${
+                  openResources ? 'text-slate-800' : 'hover:text-slate-700'
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  clearCloseTimer();
+                  setOpenResources((v) => !v);
+                  setOpenFormations(false);
+                }}
+              >
                 <ChevronDown
                   size={15}
                   strokeWidth={2}
-                  className={`shrink-0 text-slate-500 transition-transform duration-200 ${
+                  className={`shrink-0 transition-transform duration-200 ${
                     openResources ? 'rotate-180' : ''
                   }`}
                   aria-hidden
@@ -608,23 +636,35 @@ export function Navbar() {
             </div>
 
             <div className="border-b border-slate-100 py-1">
-              <button
-                type="button"
-                aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
-                onClick={() => setMobileFormationsOpen((v) => !v)}
-                className="flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left"
-              >
-                <span className="flex items-center gap-2 text-[0.9375rem] font-semibold text-slate-900">
-                  <GraduationCap size={18} strokeWidth={1.75} className="text-[var(--accent)]" />
-                  {FORMATIONS_MEGA.label}
-                </span>
-                <ChevronDown
-                  size={18}
-                  className={`shrink-0 text-slate-400 transition-transform ${
-                    mobileFormationsOpen ? 'rotate-180' : ''
+              <div className="flex items-stretch">
+                <Link
+                  href={LINKS.formations}
+                  aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-semibold ${
+                    formationsDropdownActive(pathname) ? 'text-[var(--accent)]' : 'text-slate-900'
                   }`}
-                />
-              </button>
+                >
+                  <GraduationCap
+                    size={18}
+                    strokeWidth={1.75}
+                    className={formationsDropdownActive(pathname) ? 'text-[var(--accent)]' : 'text-slate-400'}
+                  />
+                  {FORMATIONS_MEGA.label}
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileFormationsOpen((v) => !v)}
+                  aria-expanded={mobileFormationsOpen}
+                  aria-label="Afficher le catalogue des formations"
+                  className="flex shrink-0 items-center px-2 text-slate-400"
+                >
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform ${mobileFormationsOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+              </div>
               {mobileFormationsOpen && (
                 <div className="pb-2 pl-1">
                   <ul className="space-y-0.5">
@@ -678,29 +718,35 @@ export function Navbar() {
             </div>
 
             <div className="border-b border-slate-100 py-1">
-              <button
-                type="button"
-                onClick={() => setMobileResourcesOpen((v) => !v)}
-                aria-current={resourcesNavActive ? 'page' : undefined}
-                className={`flex w-full items-center justify-between gap-2 rounded-lg px-2 py-3 text-left text-[0.9375rem] font-medium ${
-                  resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <span className="flex items-center gap-2">
+              <div className="flex items-stretch">
+                <Link
+                  href={LINKS.ressources}
+                  aria-current={resourcesNavActive ? 'page' : undefined}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-semibold ${
+                    resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                  }`}
+                >
                   <Layers
                     size={18}
                     strokeWidth={1.75}
                     className={resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-400'}
                   />
                   Ressources
-                </span>
-                <ChevronDown
-                  size={18}
-                  className={`shrink-0 text-slate-400 transition-transform ${
-                    mobileResourcesOpen ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setMobileResourcesOpen((v) => !v)}
+                  aria-expanded={mobileResourcesOpen}
+                  aria-label="Afficher le détail des ressources"
+                  className="flex shrink-0 items-center px-2 text-slate-400"
+                >
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform ${mobileResourcesOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+              </div>
               {mobileResourcesOpen && (
                 <div className="pb-2 pl-1">
                   <Link
