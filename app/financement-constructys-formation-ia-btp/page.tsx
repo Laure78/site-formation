@@ -102,7 +102,7 @@ export const metadata = createPageMetadata({
 });
 
 const tableWrap =
-  'overflow-x-auto rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_8px_30px_rgba(15,23,42,0.05)]';
+  'overflow-x-auto rounded-xl border border-slate-200/90 bg-white shadow-sm';
 
 export default function FinancementConstructysFormationIABTPPage() {
   const unifiedSchema = getFinancementConstructysUnifiedJsonLd();
@@ -113,6 +113,7 @@ export default function FinancementConstructysFormationIABTPPage() {
 
       <PillarPageHero
         variant="splitImage"
+        layoutDensity="compact"
         backgroundImageSrc={HERO_BG}
         backgroundImageAlt=""
         eyebrow="Constructys · OPCO BTP"
@@ -121,7 +122,7 @@ export default function FinancementConstructysFormationIABTPPage() {
         metaLine="Mis à jour le 18 avril 2026 · Temps de lecture : 6 min"
         tags={['Constructys', 'OPCO', 'Qualiopi', 'BTP', 'eGestion', '2026']}
         subtitle={
-          <p className="text-base leading-relaxed text-white/90 md:text-lg">
+          <p className="text-sm leading-relaxed text-white/90 md:text-base">
             D&apos;après notre suivi interne 2023-2025 sur{' '}
             <strong className="font-semibold text-white">1 592 stagiaires</strong> formés,{' '}
             <strong className="font-semibold text-white">92 %</strong> des demandes ont obtenu une prise en charge
@@ -159,22 +160,22 @@ export default function FinancementConstructysFormationIABTPPage() {
         }}
       />
 
-      <div className="mx-auto max-w-6xl px-4 pb-24 pt-8 md:pb-32 md:pt-12">
-        <div className="lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-10 xl:gap-12">
+      <div className="mx-auto max-w-6xl px-4 pb-16 pt-6 md:pb-24 md:pt-8">
+        <div className="lg:grid lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)] lg:gap-8 xl:gap-10">
           <div className="mb-8 lg:mb-0">
             <PillarTableOfContents items={FINANCEMENT_TOC} instanceId="financement-constructys" />
           </div>
 
-          <article className="min-w-0 space-y-20 md:space-y-28">
+          <article className="min-w-0 space-y-12 md:space-y-14">
             <aside
               id="tldr"
               aria-labelledby="tldr-title"
-              className="scroll-mt-24 rounded-2xl border-l-4 border-[#377CF3] bg-[#D4E3FC]/25 p-6 shadow-sm md:p-8"
+              className="scroll-mt-24 rounded-xl border border-[#377CF3]/35 bg-[#EFF6FF]/80 p-4 shadow-sm md:p-5"
             >
-              <h2 id="tldr-title" className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
+              <h2 id="tldr-title" className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#377CF3]">
                 En résumé (TL;DR)
               </h2>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-[#334155] md:text-base">
+              <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-snug text-slate-700">
                 <li>
                   <strong>Qui peut financer ?</strong> Toute entreprise BTP adhérente Constructys
                 </li>
@@ -204,12 +205,12 @@ export default function FinancementConstructysFormationIABTPPage() {
               </ExternalLinkAnchor>
             </p>
 
-            <section id="retenir-2026" className="scroll-mt-24 rounded-2xl border border-amber-200/80 bg-amber-50/90 px-6 py-8 md:px-8">
-              <h2 className="flex items-center gap-2 font-display text-xl font-bold text-[#0F172A] md:text-2xl">
-                <AlertTriangle size={24} strokeWidth={1.5} className="shrink-0 text-amber-600" aria-hidden />
+            <section id="retenir-2026" className="scroll-mt-24 rounded-xl border border-amber-200/70 bg-amber-50/80 px-4 py-5 md:px-5 md:py-6">
+              <h2 className="flex items-center gap-2 font-display text-lg font-bold text-slate-900 md:text-xl">
+                <AlertTriangle size={20} strokeWidth={1.75} className="shrink-0 text-amber-600" aria-hidden />
                 À retenir pour 2026 (demandes Constructys)
               </h2>
-              <p className="mt-4 text-[#334155] leading-relaxed">
+              <p className="mt-3 text-sm leading-relaxed text-slate-700 md:text-[15px]">
                 Depuis le 1er janvier 2026, les règles sont claires : votre dossier doit être{' '}
                 <strong className="text-[#0F172A]">complet</strong>, déposé sur <strong className="text-[#0F172A]">eGestion</strong>, et parvenu à Constructys au moins{' '}
                 <strong className="text-[#0F172A]">15 jours calendaires avant le premier jour de formation</strong>. Une demande incomplète, une pièce manquante ou un envoi après la date limite : la formation ne sera pas financée. Vérifiez aussi que vous avez bien saisi coûts pédagogiques et autres dépenses attendues. La formation ne doit pas avoir commencé avant la réception de la demande. Ce cadre strict, c&apos;est pour vous aussi une garantie : vous savez à quoi vous tenir dès que vous planifiez une session{' '}
@@ -222,10 +223,10 @@ export default function FinancementConstructysFormationIABTPPage() {
             </section>
 
             <section id="quest-ce-que-constructys" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+              <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 Qu&apos;est-ce que Constructys ?
               </h2>
-              <div className="prose-custom mt-6 max-w-3xl space-y-4 text-[17px] leading-relaxed text-[#334155] md:text-lg">
+              <div className="prose-custom mt-5 max-w-3xl space-y-4 text-[15px] leading-relaxed text-slate-700 md:text-base">
                 <p>
                   <strong>Constructys</strong> est l&apos;OPCO — l&apos;opérateur de compétences — du secteur BTP. Concrètement : si vous travaillez dans le bâtiment, les travaux publics ou une activité proche (par exemple le négoce de matériaux), c&apos;est cet organisme qui collecte les contributions et qui peut <strong>participer au financement</strong> de vos formations dans le cadre du plan de développement des compétences. Vous n&apos;avez pas à &quot;négocier&quot; avec Constructys comme avec un client : vous montez un dossier conforme, avec un organisme certifié Qualiopi, et vous suivez les plafonds et les délais. Pour une <strong>Constructys formation IA</strong> ciblant ChatGPT et le gain de temps sur devis, emails ou suivi de chantier, la logique est la même que pour toute action éligible au plan de développement des compétences, avec une exigence renforcée depuis 2026 sur les <strong>dépôts dans les temps</strong>.
                 </p>
@@ -239,80 +240,80 @@ export default function FinancementConstructysFormationIABTPPage() {
               </div>
             </section>
 
-            <section id="grille-ofc" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] px-6 py-8 md:px-8">
-              <h2 className="font-display text-xl font-bold text-[#0F172A] md:text-2xl">Grille commerciale OFC — sessions de formation</h2>
-              <p className="mt-3 text-[#334155]">
+            <section id="grille-ofc" className="scroll-mt-24 rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-5 md:px-5 md:py-6">
+              <h2 className="font-display text-lg font-bold text-slate-900 md:text-xl">Grille commerciale OFC — sessions de formation</h2>
+              <p className="mt-2 text-sm text-slate-700">
                 L&apos;organisme propose un format unique : <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
                 <strong>forfait par session</strong> (jusqu&apos;à 12 participants) selon le niveau pédagogique :
               </p>
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_6px_24px_rgba(15,23,42,0.05)]">
-                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#377CF3]">
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
                     4 h
                   </span>
-                  <p className="mt-4 font-display text-3xl font-bold text-[#1E40AF]">{TARIF_FORFAIT_DEBUTANT_HT} € HT</p>
+                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{TARIF_FORFAIT_DEBUTANT_HT} € HT</p>
                   <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau débutant</p>
                   <p className="mt-3 text-sm text-[#64748B]">{COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}</p>
                 </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_6px_24px_rgba(15,23,42,0.05)]">
-                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#377CF3]">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
                     4 h
                   </span>
-                  <p className="mt-4 font-display text-3xl font-bold text-[#1E40AF]">{TARIF_FORFAIT_AVANCE_HT} € HT</p>
+                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{TARIF_FORFAIT_AVANCE_HT} € HT</p>
                   <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau avancé</p>
                   <p className="mt-3 text-sm text-[#64748B]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</p>
                 </div>
               </div>
-              <p className="mt-6 text-sm text-[#64748B]">
+              <p className="mt-4 text-xs text-slate-600">
                 Le montant facturé par OFC peut ensuite être couvert en tout ou partie par votre OPCO (Constructys pour le BTP) dans la limite des plafonds et de votre éligibilité — voir le tableau ci-dessous.
               </p>
             </section>
 
             <section id="combien-rembourse" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+              <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 Combien Constructys rembourse pour une formation IA ?
               </h2>
-              <p className="mt-3 text-sm text-[#64748B] md:text-base">
+              <p className="mt-2 text-xs text-slate-600 md:text-sm">
                 Les montants ci-dessous reprennent les repères usuels pour les entreprises du BTP ; le détail peut varier selon votre taille et le type d&apos;action. Pour <strong>financer formation IA BTP</strong> ou une <strong>OPCO BTP formation ChatGPT</strong>, retenez surtout les plafonds pédagogiques et le plafond jour en intra.
               </p>
-              <div className={`mt-8 ${tableWrap}`}>
-                <table className="w-full min-w-[320px] border-collapse text-left text-sm">
+              <div className={`mt-5 ${tableWrap}`}>
+                <table className="w-full min-w-[300px] border-collapse text-left text-sm">
                   <caption className="sr-only">Plafonds Constructys 2026 pour formation IA BTP</caption>
                   <thead>
                     <tr className="bg-[#377CF3] text-white">
-                      <th className="px-4 py-3.5 text-xs font-semibold uppercase tracking-wider">Poste</th>
-                      <th className="px-4 py-3.5 text-xs font-semibold uppercase tracking-wider">Repère 2026</th>
+                      <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider md:px-4 md:text-xs">Poste</th>
+                      <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider md:px-4 md:text-xs">Repère 2026</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#F1F5F9] text-[#334155]">
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
                     <tr className="bg-white">
-                      <th scope="row" className="px-4 py-3.5 font-semibold text-[#0F172A]">
+                      <th scope="row" className="px-3 py-2.5 text-left text-xs font-semibold text-slate-900 md:px-4 md:text-sm">
                         Coût pédagogique (plafond horaire)
                       </th>
-                      <td className="px-4 py-3.5 font-medium">24 € HT / h / participant</td>
+                      <td className="px-3 py-2.5 text-xs font-medium md:px-4 md:text-sm">24 € HT / h / participant</td>
                     </tr>
-                    <tr className="bg-[#F8FAFC]/80">
-                      <th scope="row" className="px-4 py-3.5 font-semibold text-[#0F172A]">
+                    <tr className="bg-slate-50/90">
+                      <th scope="row" className="px-3 py-2.5 text-left text-xs font-semibold text-slate-900 md:px-4 md:text-sm">
                         Session intra-entreprise (plafond par jour)
                       </th>
-                      <td className="px-4 py-3.5 font-medium">840 € HT / jour / groupe</td>
+                      <td className="px-3 py-2.5 text-xs font-medium md:px-4 md:text-sm">840 € HT / jour / groupe</td>
                     </tr>
                     <tr className="bg-white">
-                      <th scope="row" className="px-4 py-3.5 font-semibold text-[#0F172A]">
+                      <th scope="row" className="px-3 py-2.5 text-left text-xs font-semibold text-slate-900 md:px-4 md:text-sm">
                         Frais de salaires — TPE &lt; 11 salariés
                       </th>
-                      <td className="px-4 py-3.5 font-medium">15 € HT / h / stagiaire (sauf cas FEEBAT)</td>
+                      <td className="px-3 py-2.5 text-xs font-medium md:px-4 md:text-sm">15 € HT / h / stagiaire (sauf cas FEEBAT)</td>
                     </tr>
-                    <tr className="bg-[#F8FAFC]/80">
-                      <th scope="row" className="px-4 py-3.5 font-semibold text-[#0F172A]">
+                    <tr className="bg-slate-50/90">
+                      <th scope="row" className="px-3 py-2.5 text-left text-xs font-semibold text-slate-900 md:px-4 md:text-sm">
                         Dépôt du dossier
                       </th>
-                      <td className="px-4 py-3.5 font-medium">Plateforme eGestion, au moins 15 jours avant le début</td>
+                      <td className="px-3 py-2.5 text-xs font-medium md:px-4 md:text-sm">Plateforme eGestion, au moins 15 jours avant le début</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <p className="mt-6 text-[#334155] leading-relaxed">
+              <p className="mt-4 text-sm leading-relaxed text-slate-700">
                 <strong>Reste à charge et coût réel</strong> : les plafonds ci-dessus indiquent ce que Constructys peut prendre en charge dans la limite des règles. Selon votre taille d&apos;entreprise, une participation peut aussi couvrir une partie des frais de salaires du temps passé en formation et, dans certains cas, des frais annexes. Le tableau généraliste ne remplace pas votre interlocuteur régional : il vous donne un ordre de grandeur pour budgétiser une <strong>OPCO BTP formation ChatGPT</strong> ou un atelier sur l&apos;IA appliquée à vos chantiers. Pour une session intra avec plusieurs personnes, le plafond journalier groupe (840 € HT) peut structurer votre choix de durée et de nombre de participants.
               </p>
               <p className="mt-4 text-sm text-[#64748B]">
@@ -328,41 +329,41 @@ export default function FinancementConstructysFormationIABTPPage() {
             </section>
 
             <section id="etapes" className="scroll-mt-24">
-              <h2 className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                <ListOrdered className="h-7 w-7 text-[#377CF3]" strokeWidth={1.5} aria-hidden />
+              <h2 className="flex items-center gap-2 font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+                <ListOrdered className="h-6 w-6 shrink-0 text-[#377CF3]" strokeWidth={1.5} aria-hidden />
                 Les étapes pour obtenir le financement
               </h2>
-              <ol className="mt-8 space-y-6">
+              <ol className="mt-5 space-y-3">
                 {STEPS.map((step, i) => (
-                  <li key={step.title} className="flex gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#377CF3] text-sm font-bold text-white">
+                  <li key={step.title} className="flex gap-3">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#377CF3] text-xs font-bold text-white">
                       {i + 1}
                     </span>
                     <div>
-                      <p className="font-semibold text-[#0F172A]">{step.title}</p>
-                      <p className="mt-1 text-[#64748B] leading-relaxed">{step.text}</p>
+                      <p className="text-sm font-semibold text-slate-900">{step.title}</p>
+                      <p className="mt-0.5 text-sm leading-snug text-slate-600">{step.text}</p>
                     </div>
                   </li>
                 ))}
               </ol>
             </section>
 
-            <section id="trouver-opco" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 md:px-8">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+            <section id="trouver-opco" className="scroll-mt-24 rounded-xl border border-slate-200 bg-white px-4 py-5 md:px-5 md:py-6">
+              <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 Trouver son OPCO de rattachement (avant de déposer)
               </h2>
-              <p className="mt-4 max-w-3xl text-[#334155] leading-relaxed">
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-700">
                 Vous ne savez pas encore si votre entreprise dépend de Constructys ou d&apos;un autre OPCO ? Faites ce
                 check rapide en 2 étapes : d&apos;abord récupérer vos données d&apos;entreprise officielles (SIRET complet,
                 code APE, convention collective), puis comparer avec la liste officielle des OPCO.
               </p>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                <article className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">Étape 1</p>
-                  <h3 className="mt-2 font-semibold text-[#0F172A]">
+              <div className="mt-4 grid gap-3 md:grid-cols-2">
+                <article className="rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">Étape 1</p>
+                  <h3 className="mt-1.5 text-sm font-semibold text-slate-900">
                     Récupérer le SIRET complet (14 chiffres) et le code APE
                   </h3>
-                  <p className="mt-2 text-sm text-[#475569]">
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600 md:text-sm">
                     Utilisez l&apos;annuaire officiel des entreprises. Ex. avec un SIREN comme{' '}
                     <strong>838 267 359</strong>, vous retrouvez le SIRET complet, le code APE officiel et la convention
                     collective applicable.
@@ -371,18 +372,18 @@ export default function FinancementConstructysFormationIABTPPage() {
                     href="https://annuaire-entreprises.data.gouv.fr/"
                     target="_blank"
                     rel="noopener nofollow"
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#377CF3] hover:underline"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#377CF3] hover:underline md:text-sm"
                   >
                     Annuaire des entreprises (data.gouv.fr)
                     <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 </article>
-                <article className="rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">Étape 2</p>
-                  <h3 className="mt-2 font-semibold text-[#0F172A]">
+                <article className="rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">Étape 2</p>
+                  <h3 className="mt-1.5 text-sm font-semibold text-slate-900">
                     Vérifier votre OPCO dans la liste officielle des 11 OPCO
                   </h3>
-                  <p className="mt-2 text-sm text-[#475569]">
+                  <p className="mt-2 text-xs leading-relaxed text-slate-600 md:text-sm">
                     Le Ministère du Travail publie la liste complète des OPCO. Comparez votre activité (code APE +
                     convention collective) pour confirmer votre organisme de rattachement.
                   </p>
@@ -390,45 +391,45 @@ export default function FinancementConstructysFormationIABTPPage() {
                     href="https://travail-emploi.gouv.fr/formation-professionnelle/acteurs-cadre-et-qualite-de-la-formation-professionnelle/liste-des-opco"
                     target="_blank"
                     rel="noopener nofollow"
-                    className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#377CF3] hover:underline"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#377CF3] hover:underline md:text-sm"
                   >
                     Liste officielle des OPCO (Ministère du Travail)
                     <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 </article>
               </div>
-              <p className="mt-5 text-sm text-[#64748B]">
+              <p className="mt-4 text-xs text-slate-600">
                 Si vous êtes BTP, votre OPCO est généralement Constructys. En cas de doute, validez d&apos;abord ce point
                 avant le dépôt eGestion pour éviter les erreurs de circuit.
               </p>
             </section>
 
             <section id="mon-cas" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+              <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 Mon cas : quelle prise en charge Constructys espérer ?
               </h2>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">TPE</p>
-                  <p className="mt-3 text-sm leading-relaxed text-[#334155]">
+              <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">TPE</p>
+                  <p className="mt-2 text-xs leading-snug text-slate-700 md:text-sm">
                     <strong>Si vous êtes un professionnel du BTP seul (TPE &lt; 11 salariés) :</strong> Constructys couvre jusqu&apos;à 24 € HT/h pédagogique + 15 € HT/h pour les frais de salaires (sauf FEEBAT).
                   </p>
                 </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">PME 11–50</p>
-                  <p className="mt-3 text-sm leading-relaxed text-[#334155]">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">PME 11–50</p>
+                  <p className="mt-2 text-xs leading-snug text-slate-700 md:text-sm">
                     <strong>Si vous êtes PME BTP 11–50 salariés :</strong> prise en charge du coût pédagogique dans la limite des plafonds, frais de salaires selon barèmes.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-sm">
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#377CF3]">Intra</p>
-                  <p className="mt-3 text-sm leading-relaxed text-[#334155]">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">Intra</p>
+                  <p className="mt-2 text-xs leading-snug text-slate-700 md:text-sm">
                     <strong>Si vous formez toute l&apos;équipe en intra :</strong> plafond 840 € HT/jour/groupe — à arbitrer selon nombre de participants pour optimiser le coût par personne.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-red-200 bg-red-50/90 p-5 shadow-sm">
-                  <p className="text-xs font-bold uppercase tracking-wide text-red-700">Retard dossier</p>
-                  <p className="mt-3 text-sm leading-relaxed text-red-900/90">
+                <div className="rounded-xl border border-red-200/90 bg-red-50/80 p-4">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-red-700">Retard dossier</p>
+                  <p className="mt-2 text-xs leading-snug text-red-950/90 md:text-sm">
                     <strong>Si votre dossier arrive après J-15 :</strong> refus automatique depuis 2026. Aucune exception.
                   </p>
                 </div>
@@ -436,11 +437,11 @@ export default function FinancementConstructysFormationIABTPPage() {
             </section>
 
             <section id="ofc-accompagne" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+              <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 OFC vous accompagne dans le montage du dossier
               </h2>
-              <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
-                <div className="space-y-4 text-[#334155] leading-relaxed">
+              <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-start">
+                <div className="space-y-3 text-sm leading-relaxed text-slate-700">
                   <p>
                     <strong>OFC Création d&apos;Entreprise</strong> est certifié Qualiopi : c&apos;est une condition sérieuse pour rassurer les financeurs OPCO. Au-delà du certificat, nous vous aidons à aligner les intitulés, le programme et les heures avec les attentes de la <strong>prise en charge Constructys</strong>, pour éviter les allers-retours inutiles. Que vous visiez une formation courte sur ChatGPT ou un parcours plus large sur l&apos;IA au service du chantier, l&apos;objectif est le même : un dossier lisible, déposé dans les délais, pour que votre équipe se concentre sur le terrain.
                   </p>
@@ -448,14 +449,14 @@ export default function FinancementConstructysFormationIABTPPage() {
                     En pratique, vous n&apos;avez pas à deviner les intitulés : nous vous expliquons quoi envoyer, dans quel ordre, et comment éviter les oublis qui bloquent un dossier en ligne. L&apos;objectif est que la <strong>prise en charge Constructys</strong> soit une étape simple, pas un second métier. Si vous hésitez entre inter-entreprise et intra-entreprise, ou entre une demi-journée et une journée, nous pouvons vous aider à arbitrer en fonction des plafonds et de votre agenda chantier.
                   </p>
                 </div>
-                <ul className="space-y-3 text-[#334155]">
+                <ul className="space-y-2 text-sm text-slate-700">
                   {[
                     'Programme et devis cohérents avec votre besoin',
                     'Rappels sur les délais eGestion et les pièces courantes',
                     "Point d'étape avec votre référent formation si besoin",
                   ].map((line) => (
                     <li key={line} className="flex gap-2">
-                      <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" strokeWidth={1.5} aria-hidden />
+                      <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" strokeWidth={1.5} aria-hidden />
                       <span>{line}</span>
                     </li>
                   ))}
@@ -464,31 +465,31 @@ export default function FinancementConstructysFormationIABTPPage() {
             </section>
 
             <section id="definitions" className="scroll-mt-24" aria-labelledby="definitions-title">
-              <h2 id="definitions-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+              <h2 id="definitions-title" className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 Définitions clés
               </h2>
-              <dl className="mt-8 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-                  <dt className="font-bold text-[#377CF3]">Constructys</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-[#334155]">
+              <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <dt className="text-sm font-bold text-[#377CF3]">Constructys</dt>
+                  <dd className="mt-1.5 text-xs leading-snug text-slate-700 md:text-sm">
                     OPCO (Opérateur de Compétences) du secteur BTP, bâtiment et travaux publics : il encadre les contributions et les demandes de financement des actions de formation éligibles au plan de développement des compétences.
                   </dd>
                 </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-                  <dt className="font-bold text-[#377CF3]">eGestion</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-[#334155]">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <dt className="text-sm font-bold text-[#377CF3]">eGestion</dt>
+                  <dd className="mt-1.5 text-xs leading-snug text-slate-700 md:text-sm">
                     Plateforme numérique de dépôt des dossiers de financement Constructys : c&apos;est par ce canal que votre demande doit être complète et dans les délais.
                   </dd>
                 </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-                  <dt className="font-bold text-[#377CF3]">Qualiopi</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-[#334155]">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <dt className="text-sm font-bold text-[#377CF3]">Qualiopi</dt>
+                  <dd className="mt-1.5 text-xs leading-snug text-slate-700 md:text-sm">
                     Certification qualité obligatoire pour les organismes de formation dont les actions peuvent être prises en charge par les OPCO dans le cadre légal — gage de transparence sur le programme et les résultats attendus.
                   </dd>
                 </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm">
-                  <dt className="font-bold text-[#377CF3]">Plan de développement des compétences</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-[#334155]">
+                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                  <dt className="text-sm font-bold text-[#377CF3]">Plan de développement des compétences</dt>
+                  <dd className="mt-1.5 text-xs leading-snug text-slate-700 md:text-sm">
                     Dispositif employeur encadrant les formations prises en charge pour les salariés : budget, éligibilité, et règles de co-financement selon la taille d&apos;entreprise et l&apos;OPCO.
                   </dd>
                 </div>
@@ -504,10 +505,10 @@ export default function FinancementConstructysFormationIABTPPage() {
             />
 
             <section id="sources" className="scroll-mt-24" aria-labelledby="sources-title">
-              <h2 id="sources-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+              <h2 id="sources-title" className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
                 Sources et références officielles
               </h2>
-              <ul className="mt-6 space-y-3 text-[#334155]">
+              <ul className="mt-4 space-y-2 text-sm text-slate-700">
                 <li>
                   <a
                     href="https://www.constructys.fr/entreprises/nos-conditions-generales-de-prise-en-charge/"
@@ -542,7 +543,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   </a>
                 </li>
               </ul>
-              <p className="mt-6 text-sm text-[#64748B]">
+              <p className="mt-4 text-xs text-slate-600">
                 <em>
                   Page mise à jour le 18 avril 2026. Dernière vérification des plafonds Constructys sur le site officiel :
                   avril 2026.
@@ -551,6 +552,7 @@ export default function FinancementConstructysFormationIABTPPage() {
             </section>
 
             <PillarConversionCta
+              variant="compact"
               titleId="financement-cta-fin"
               title="Demandez votre devis + accompagnement dossier gratuit"
               description="Décrivez votre projet et recevez un devis adapté. Nous vous accompagnons pour le volet financement Constructys sans surcoût caché sur votre demande de prise en charge."
@@ -561,7 +563,7 @@ export default function FinancementConstructysFormationIABTPPage() {
         </div>
       </div>
 
-      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-10">
+      <div className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-4 py-8">
         <div className="mx-auto max-w-6xl">
           <Link href="/" className="font-medium text-[#377CF3] hover:underline">
             ← Retour à l&apos;accueil

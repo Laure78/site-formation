@@ -104,6 +104,7 @@ export default function AProposPage() {
 
       <PillarPageHero
         variant="splitImage"
+        layoutDensity="compact"
         backgroundImageSrc={HERO_BG}
         backgroundImageAlt=""
         eyebrow="Formatrice IA BTP · Guyancourt · Depuis 2014"
@@ -111,8 +112,10 @@ export default function AProposPage() {
         titleId="a-propos-hero-title"
         subtitle={
           <>
-            <p className="text-lg font-normal text-white/95 md:text-xl">Formatrice IA et ChatGPT pour les entreprises du BTP</p>
-            <p className="mt-4 text-base leading-relaxed text-white/90 md:text-lg">{lead}</p>
+            <p className="text-sm font-normal text-white/95 md:text-base">
+              Formatrice IA et ChatGPT pour les entreprises du BTP
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-white/90 md:text-[15px]">{lead}</p>
           </>
         }
         tags={['Qualiopi', 'FFB', 'LinkedInLearning', 'BTP', 'Formation']}
@@ -142,13 +145,13 @@ export default function AProposPage() {
         }}
       />
 
-      <div className="mx-auto max-w-6xl px-4 pb-24 pt-8 md:pb-32 md:pt-12">
-        <div className="lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-10 xl:gap-12">
+      <div className="mx-auto max-w-6xl px-4 pb-16 pt-6 md:pb-24 md:pt-8">
+        <div className="lg:grid lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)] lg:gap-8 xl:gap-10">
           <div className="mb-8 lg:mb-0">
             <PillarTableOfContents items={A_PROPOS_TOC} instanceId="a-propos" />
           </div>
 
-          <article className="min-w-0 space-y-20 md:space-y-28">
+          <article className="min-w-0 space-y-12 md:space-y-14">
             <section id="qui-suis-je" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
               <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Qui suis-je ?</h2>
               <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">

@@ -38,4 +38,8 @@ export function getTutoBySlug(slug: string): TutoData | undefined {
 /** Liste des slugs (utilisé par sitemap, navigation, etc.). */
 export const TUTO_SLUGS = TUTOS.map((t) => t.slug);
 
-export type { TutoData } from './types';
+export type { TutoData, TutoCategoryId } from './types';
+export {
+  TUTO_CATEGORY_ORDER,
+  TUTO_CATEGORY_META,
+} from './types';

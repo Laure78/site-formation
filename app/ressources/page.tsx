@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Download, ArrowRight, Clock, Sparkles, BookOpen } from 'lucide-react';
+import { ArrowRight, Sparkles, BookOpen } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { TUTOS } from '@/lib/tutos';
+import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
+import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
+import { RessourcesThematicHub } from '@/components/ressources/RessourcesThematicHub';
 
 const PATH = '/ressources';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -78,6 +80,12 @@ export default function RessourcesIndexPage() {
             >
               Guide 1er Skill IA
             </Link>
+            <a
+              href="#hub-par-theme"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
+            >
+              Vue par thématiques
+            </a>
             <Link
               href={LINKS.ressourcesTutos}
               className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 font-medium text-slate-700 hover:border-[#377CF3] hover:text-[#377CF3]"
@@ -102,53 +110,37 @@ export default function RessourcesIndexPage() {
         </div>
       </section>
 
+      <RessourcesThematicHub />
+
       <section className="bg-[#F8FAFC] py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {TUTOS.map((tuto) => {
-              const tutoUrl = `${LINKS.ressources}/${tuto.slug}`;
-              const pdfUrl = `${LINKS.ressources}/pdf/${tuto.pdfFile}`;
+          <div className="mb-10 max-w-3xl">
+            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Tutoriels PDF par thème</h2>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+              Les tutos sont regroupés pour t&apos;aider à trouver vite un parcours adapté à ton besoin du moment.
+            </p>
+          </div>
+          <nav
+            aria-label="Accès rapide aux rubriques de tutos"
+            className="mb-14 flex flex-wrap gap-2 border-b border-slate-200 pb-10"
+          >
+            {TUTO_CATEGORY_ORDER.map((id) => {
+              const meta = TUTO_CATEGORY_META[id];
+              const count = TUTOS.filter((t) => t.category === id).length;
+              if (count === 0) return null;
               return (
-                <article
-                  key={tuto.slug}
-                  className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg"
+                <a
+                  key={id}
+                  href={`#${meta.sectionId}`}
+                  className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3] md:text-sm"
                 >
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-                    <Clock size={14} aria-hidden />
-                    {tuto.totalTimeMinutes} min · Tuto offert
-                  </div>
-                  <h2 className="mt-3 font-display text-xl font-bold leading-tight text-slate-900">
-                    <Link
-                      href={tutoUrl}
-                      className="bg-gradient-to-r from-[#377CF3] to-[#377CF3] bg-[length:0_2px] bg-bottom bg-no-repeat transition-[background-size] group-hover:bg-[length:100%_2px]"
-                    >
-                      {tuto.title}
-                    </Link>
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                    {tuto.cardSummary}
-                  </p>
-                  <div className="mt-6 flex flex-col gap-2 border-t border-slate-100 pt-4">
-                    <Link
-                      href={tutoUrl}
-                      className="inline-flex items-center justify-between gap-2 rounded-xl bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2d66d6]"
-                    >
-                      Lire le tuto
-                      <ArrowRight size={16} aria-hidden />
-                    </Link>
-                    <a
-                      href={pdfUrl}
-                      download
-                      className="inline-flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/30"
-                    >
-                      Télécharger le PDF
-                      <Download size={16} aria-hidden />
-                    </a>
-                  </div>
-                </article>
+                  {meta.pillLabel}
+                  <span className="ml-1 text-slate-400">({count})</span>
+                </a>
               );
             })}
-          </div>
+          </nav>
+          <TutosGroupedByCategory tutos={TUTOS} badgeMode="offert" />
         </div>
       </section>
 
@@ -164,17 +156,17 @@ export default function RessourcesIndexPage() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
-              href={LINKS.formations}
+              href={LINKS.prendreRdv}
               className="inline-flex items-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-[0.95rem] font-semibold text-white shadow-sm hover:bg-[#2d66d6]"
             >
-              Voir le catalogue formations
+              Prendre un rendez-vous découverte
               <ArrowRight size={16} aria-hidden />
             </Link>
             <Link
-              href={LINKS.financement}
+              href={LINKS.diagnostic}
               className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] bg-white px-6 py-3 text-[0.95rem] font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/30"
             >
-              Financement Constructys / OPCO
+              Diagnostic IA BTP offert
             </Link>
           </div>
         </div>

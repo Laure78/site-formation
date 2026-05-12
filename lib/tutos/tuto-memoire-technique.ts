@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_MEMOIRE_TECHNIQUE: TutoData = {
   slug: 'tuto-memoire-technique',
+  category: 'marches-et-veille',
   pdfFile: 'tuto-memoire-technique.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

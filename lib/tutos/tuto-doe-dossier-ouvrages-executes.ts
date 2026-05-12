@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
   slug: 'tuto-doe-dossier-ouvrages-executes',
+  category: 'chantier-livrables',
   pdfFile: 'tuto-doe-dossier-ouvrages-executes.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

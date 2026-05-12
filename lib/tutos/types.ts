@@ -5,6 +5,53 @@
  * Le contenu textuel doit être repris **mot pour mot** depuis le PDF source.
  */
 
+/** Rubrique d’index (/ressources, /ressources/tutos) — ordre d’affichage fixe. */
+export type TutoCategoryId =
+  | 'marches-et-veille'
+  | 'chantier-livrables'
+  | 'qse-conformite'
+  | 'productivite';
+
+export const TUTO_CATEGORY_ORDER: readonly TutoCategoryId[] = [
+  'marches-et-veille',
+  'chantier-livrables',
+  'qse-conformite',
+  'productivite',
+];
+
+/** Titres et chapôs des blocs catégorie (UI uniquement). */
+export const TUTO_CATEGORY_META: Record<
+  TutoCategoryId,
+  { title: string; description: string; sectionId: string; pillLabel: string }
+> = {
+  'marches-et-veille': {
+    title: 'Appels d’offres & veille marchés',
+    description:
+      'Réponses aux marchés, structuration des offres et surveillance des dossiers (DCE, consultations).',
+    sectionId: 'tutos-marches-et-veille',
+    pillLabel: 'Marchés publics',
+  },
+  'chantier-livrables': {
+    title: 'Chantier, réception & livrables',
+    description:
+      'Suivi de chantier, comptes rendus, constats, dossiers de réception et documents de clôture.',
+    sectionId: 'tutos-chantier-livrables',
+    pillLabel: 'Chantier & livrables',
+  },
+  'qse-conformite': {
+    title: 'Prévention, santé au travail & conformité',
+    description: 'Plans de prévention, DUERP et obligations documentaires liées à la sécurité.',
+    sectionId: 'tutos-qse-conformite',
+    pillLabel: 'Prévention & conformité',
+  },
+  productivite: {
+    title: 'Productivité & outils terrain',
+    description: 'Automatisation et interfaces pour gagner du temps au bureau depuis le chantier.',
+    sectionId: 'tutos-productivite',
+    pillLabel: 'Productivité',
+  },
+};
+
 /** Bloc de contenu rendu dans une section ou une étape de tuto. */
 export type TutoBlock =
   | { kind: 'paragraph'; text: string }
@@ -31,6 +78,8 @@ export type TutoFaqItem = { q: string; a: string };
 export type TutoData = {
   /** Slug d'URL : `/ressources/[slug]` */
   slug: string;
+  /** Rubrique pour l’index ressources (grille groupée). */
+  category: TutoCategoryId;
   /** Nom du fichier PDF dans `/public/ressources/pdf/` */
   pdfFile: string;
 

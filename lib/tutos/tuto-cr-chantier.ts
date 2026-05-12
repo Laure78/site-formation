@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_CR_CHANTIER: TutoData = {
   slug: 'tuto-cr-chantier',
+  category: 'chantier-livrables',
   pdfFile: 'tuto-cr-chantier.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

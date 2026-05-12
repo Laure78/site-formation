@@ -23,7 +23,6 @@ import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { TUTOS } from '@/lib/tutos';
-import { QualiopiLogoInline } from '@/components/QualiopiLogo';
 
 import type { LucideIcon } from 'lucide-react';
 
@@ -37,8 +36,9 @@ type MegaLink = {
 type NavMega = {
   id: string;
   label: string;
-  allLabel: string;
-  allHref: string;
+  /** Lien « tout voir » sous le menu desktop (optionnel). */
+  allLabel?: string;
+  allHref?: string;
   columns: { title: string; links: MegaLink[] }[];
   navIcon: LucideIcon;
 };
@@ -46,8 +46,6 @@ type NavMega = {
 const FORMATIONS_MEGA: NavMega = {
   id: 'formations',
   label: 'Formations',
-  allLabel: 'Voir tout le catalogue',
-  allHref: '/formations',
   navIcon: GraduationCap,
   columns: [
     {
@@ -82,25 +80,6 @@ function FormationsDropdownPanel({
   return (
     <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,26rem)] pt-2">
       <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
-        <div className="border-b border-slate-100 px-4 pb-3">
-          <Link
-            href={mega.allHref}
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent)]/90"
-          >
-            {mega.allLabel}
-            <ArrowRight
-              size={15}
-              className="transition-transform group-hover:translate-x-0.5"
-              aria-hidden
-            />
-          </Link>
-          <p className="mt-2 flex items-start gap-2 text-xs leading-relaxed text-slate-600">
-            <QualiopiLogoInline heightPx={14} className="mt-0.5 shrink-0" />
-            <span>
-              Six parcours en présentiel — Qualiopi, financement OPCO Constructys selon éligibilité.
-            </span>
-          </p>
-        </div>
         <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain px-2 pt-1">
           {mega.columns.map((col) => (
             <div key={col.title}>
@@ -648,14 +627,6 @@ export function Navbar() {
               </button>
               {mobileFormationsOpen && (
                 <div className="pb-2 pl-1">
-                  <Link
-                    href={FORMATIONS_MEGA.allHref}
-                    onClick={() => setMobileOpen(false)}
-                    className="mb-3 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-[var(--accent)]"
-                  >
-                    {FORMATIONS_MEGA.allLabel}
-                    <ArrowRight size={14} />
-                  </Link>
                   <ul className="space-y-0.5">
                     {FORMATIONS_MEGA.columns[0].links.map((link) => {
                       const Icon = link.icon;

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Download, ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { TUTOS } from '@/lib/tutos';
+import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
+import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
 
 const PATH = LINKS.ressourcesTutos;
 const BASE = SITE_CONFIG.url.replace(/\/$/, '');
@@ -96,8 +97,8 @@ export default function RessourcesTutosIndexPage() {
                   aligné dessus.
                 </li>
                 <li>
-                  Thématiques : appels d&apos;offres, chantier (CR, retard), HSE (DUERP, PPSPS), livraison (DOE, PV réserves){' '}
-                  — prompts prêts à adapter.
+                  Quatre rubriques : marchés publics, chantier &amp; livrables, prévention &amp; conformité,
+                  productivité — repères aussi en jetons sous le titre ci-dessous.
                 </li>
                 <li>
                   Même périmètre sur le{' '}
@@ -115,47 +116,34 @@ export default function RessourcesTutosIndexPage() {
 
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="sr-only">Liste des {TUTOS.length} tutoriels</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {TUTOS.map((tuto, index) => (
-              <div key={tuto.slug}>
-                <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-lg">
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-                    <Clock size={14} aria-hidden />
-                    {tuto.totalTimeMinutes} min · Tutoriel {index + 1}/{TUTOS.length}
-                  </div>
-                  <h3 className="mt-3 font-display text-xl font-bold leading-tight text-slate-900 md:text-[1.125rem] lg:text-xl">
-                    <Link
-                      href={tutoPageHref(tuto.slug)}
-                      className="bg-gradient-to-r from-[#377CF3] to-[#377CF3] bg-[length:0_2px] bg-bottom bg-no-repeat transition-[background-size] group-hover:bg-[length:100%_2px]"
-                    >
-                      {tuto.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">
-                    {tuto.cardSummary}
-                  </p>
-                  <div className="mt-6 flex flex-col gap-2 border-t border-slate-100 pt-4">
-                    <Link
-                      href={tutoPageHref(tuto.slug)}
-                      className="inline-flex items-center justify-between gap-2 rounded-xl bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2d66d6]"
-                    >
-                      Ouvrir la page du tuto
-                      <ArrowRight size={16} aria-hidden />
-                    </Link>
-                    <a
-                      href={pdfHref(tuto.pdfFile)}
-                      download
-                      className="inline-flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/30"
-                    >
-                      Télécharger le PDF
-                      <Download size={16} aria-hidden />
-                    </a>
-                  </div>
-                </article>
-              </div>
-            ))}
-          </div>
+          <h2 className="sr-only">
+            Liste des {TUTOS.length} tutoriels répartis en {TUTO_CATEGORY_ORDER.length} rubriques
+          </h2>
+          <nav
+            aria-label="Accès rapide aux rubriques de tutos"
+            className="mb-14 flex flex-wrap gap-2"
+          >
+            {TUTO_CATEGORY_ORDER.map((id) => {
+              const meta = TUTO_CATEGORY_META[id];
+              const count = TUTOS.filter((t) => t.category === id).length;
+              if (count === 0) return null;
+              return (
+                <a
+                  key={id}
+                  href={`#${meta.sectionId}`}
+                  className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3] md:text-sm"
+                >
+                  {meta.pillLabel}
+                  <span className="ml-1 text-slate-400">({count})</span>
+                </a>
+              );
+            })}
+          </nav>
+          <TutosGroupedByCategory
+            tutos={TUTOS}
+            badgeMode="indexed"
+            readLinkLabel="Ouvrir la page du tuto"
+          />
         </div>
       </section>
 

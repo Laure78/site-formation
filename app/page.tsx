@@ -58,16 +58,16 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
 /** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≈ 155 car., phrase entière sans coupure) */
-const HOME_META_DESCRIPTION = `Formation IA BTP : devis, administratif, appels d'offres avec ChatGPT. ${formatProfessionalsTrainedCount()} pros formés. Qualiopi, Constructys. Visio gratuite.`;
+const HOME_META_DESCRIPTION = `Formation IA BTP : devis, administratif, appels d'offres avec l'IA (Claude AI). ${formatProfessionalsTrainedCount()} pros formés. Qualiopi, Constructys. Visio gratuite.`;
 
 const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — ChatGPT, Devis & Chantier',
+  title: 'Formation IA BTP — Devis, chantier & appels d\'offres',
   description: HOME_META_DESCRIPTION,
   path: '/',
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA BTP — ChatGPT, Devis & Chantier',
+  openGraphTitle: 'Formation IA BTP — Devis, chantier & appels d\'offres',
   keywords: [
     'formation IA BTP',
     'formation ChatGPT BTP',
@@ -110,7 +110,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero — Formation IA BTP */}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-24 md:py-32">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-[#f8fbff] via-white to-white px-4 py-14 md:py-20 lg:py-24">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.04\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-70" />
         {/* Réseau léger type « constellation » (inspiration landing pro) */}
         <div
@@ -144,48 +144,51 @@ export default function HomePage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
-            <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+          <div className="flex flex-col gap-10 md:gap-12 lg:gap-14">
+            <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
               <div className="min-w-0">
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-sm font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm">
-                  <Sparkles size={16} strokeWidth={1.5} className="shrink-0" />
+                <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-blue-100/90 bg-white/90 px-3 py-1.5 text-xs font-medium text-[var(--accent)] shadow-sm backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
+                  <Sparkles size={14} strokeWidth={1.5} className="shrink-0 sm:h-4 sm:w-4" aria-hidden />
                   <span>Formation IA BTP · bâtiment & travaux publics</span>
-                  <span className="hidden text-slate-300 sm:inline">·</span>
+                  <span className="hidden text-slate-300 sm:inline" aria-hidden>
+                    ·
+                  </span>
                   <span className="hidden sm:inline">Qualiopi · Constructys</span>
                 </div>
-                <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-slate-900 md:mt-5 md:text-5xl lg:text-6xl">
-                  Laure Olivié — Formatrice IA &amp; ChatGPT pour le BTP
+                <h1 className="mt-5 font-display text-[1.65rem] font-bold leading-[1.15] tracking-tight text-slate-900 sm:text-[1.85rem] md:text-[2.125rem] lg:text-[2.375rem] lg:leading-[1.12]">
+                  Laure Olivié — Formatrice IA pour le BTP
                 </h1>
-                <h2 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-800 md:text-3xl lg:text-4xl">
+                <h2 className="mt-4 font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
                   Formation IA BTP en Île-de-France pour vos équipes du bâtiment
                 </h2>
-                <p className="mt-3 text-xl font-semibold text-slate-700 md:text-2xl">
+                <p className="mt-3 text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                   Devis, chantier, appels d&apos;offres :{' '}
-                  <span className="font-serif italic text-[var(--accent)]">
-                    ChatGPT et Claude AI
-                  </span>{' '}
+                  <span className="font-serif italic text-[var(--accent)]">Claude AI et l&apos;IA générative</span>{' '}
                   au service de votre productivité
                 </p>
                 <p
-                  className="citation-sentence my-6 border-l-[3px] border-[var(--accent)] bg-[#F8F9FA] p-4 text-slate-800"
+                  className="citation-sentence mt-5 rounded-xl border border-slate-200/80 bg-slate-50/90 p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_var(--accent)] ring-1 ring-slate-100 md:p-5 md:text-base"
                   data-citation="true"
                   itemProp="description"
                 >
-                  <strong>Laure Olivié</strong> forme les équipes BTP à utiliser ChatGPT et Claude AI
-                  pour gagner 3 à 5 heures par semaine sur les devis, comptes rendus de chantier et
-                  réponses aux appels d&apos;offres. Sa formation, dispensée par l&apos;organisme{' '}
-                  <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi), est finançable à
-                  100 % par Constructys et a déjà accompagné {formatProfessionalsTrainedCount()}{' '}
-                  professionnels du bâtiment et des travaux publics en Île-de-France (note{' '}
-                  {SOCIAL_PROOF.AVERAGE_RATING} en 2026).
+                  <strong>Laure Olivié</strong> forme les équipes BTP à utiliser Claude AI et l&apos;IA
+                  générative pour gagner 3 à 5 heures par semaine sur les devis, comptes rendus de chantier
+                  et réponses aux appels d&apos;offres. Sa formation, dispensée par l&apos;organisme{' '}
+                  <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi), est finançable à 100 %
+                  par Constructys et a déjà accompagné {formatProfessionalsTrainedCount()} professionnels du
+                  bâtiment et des travaux publics en Île-de-France (note {SOCIAL_PROOF.AVERAGE_RATING} en
+                  2026).
                 </p>
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <RdvLink campaign="accueil-hero" className="rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white hover:bg-blue-600">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <RdvLink
+                    campaign="accueil-hero"
+                    className="inline-flex justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition hover:bg-[#2d66d6] md:px-7"
+                  >
                     Organiser une formation
                   </RdvLink>
                   <Link
                     href="#programme"
-                    className="rounded-xl border-2 border-[var(--accent)] px-8 py-4 text-center font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+                    className="inline-flex justify-center rounded-full border border-[var(--accent)] bg-white px-6 py-3 text-center text-[0.9375rem] font-semibold text-[var(--accent)] ring-1 ring-slate-200/60 transition hover:bg-[var(--accent-soft)] md:px-7"
                   >
                     Voir le programme
                   </Link>
@@ -244,10 +247,10 @@ export default function HomePage() {
 
               <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24 xl:top-28">
                 <div className="w-full">
-                  <p className="mb-3 text-center text-sm font-medium text-slate-600 lg:text-left">
+                  <p className="mb-3 text-center text-xs font-medium leading-relaxed text-slate-500 lg:text-left sm:text-sm">
                     Présentation vidéo — les 2 parcours formation IA BTP
                   </p>
-                  <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-xl lg:shadow-2xl">
+                  <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-900 shadow-lg ring-1 ring-slate-900/5 lg:shadow-xl">
                     <div className="relative aspect-video w-full">
                       <iframe
                         src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
@@ -270,7 +273,7 @@ export default function HomePage() {
               >
                 <strong>Définition.</strong> Une « formation IA BTP » est une formation professionnelle
                 qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
-                d&apos;intelligence artificielle générative (ChatGPT, Claude AI, Gemini) pour
+                d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
                 automatiser leurs tâches récurrentes : rédaction de devis, comptes rendus de
                 chantier, mémoires techniques, emails et analyse de dossiers d&apos;appel
                 d&apos;offres.
@@ -295,7 +298,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <CitationSentence text="La formation IA BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec ChatGPT BTP et l'intelligence artificielle adaptée au chantier." />
+              <CitationSentence text="La formation IA BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
             </div>
           </div>
         </div>

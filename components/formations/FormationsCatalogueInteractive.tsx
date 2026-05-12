@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ArrowRight,
   BookOpen,
@@ -150,9 +150,6 @@ export function FormationsCatalogueInteractive({
   formations: FormationCatalogueEntry[];
 }) {
   const sorted = sortFormationsCatalogue(formations);
-  const debutants = sorted.filter((c) => c.level === 'DÉBUTANT');
-  const avances = sorted.filter((c) => c.level === 'AVANCÉ');
-
   const refsMap = useRef<Record<string, HTMLDivElement | null>>({});
   const setRef = useCallback((ref: string) => (el: HTMLDivElement | null) => {
     refsMap.current[ref] = el;
@@ -182,24 +179,8 @@ export function FormationsCatalogueInteractive({
     }
   };
 
-  const renderGroup = (badge: ReactNode, list: FormationCatalogueEntry[]) => (
-    <div className="space-y-6">
-      <div className="flex justify-center">{badge}</div>
-        <div className="grid gap-8 sm:grid-cols-2">
-        {list.map((cours) => (
-          <FormationCard
-            key={cours.ref}
-            cours={cours}
-            highlighted={highlightedRefs.includes(cours.ref)}
-            cardRef={setRef(cours.ref)}
-          />
-        ))}
-      </div>
-    </div>
-  );
-
   return (
-    <div className="space-y-20 lg:space-y-24">
+    <div className="space-y-12 lg:space-y-16">
       <section aria-labelledby="parcours-guide-heading" className="space-y-6">
         <div className="text-center">
           <h2
@@ -209,7 +190,8 @@ export function FormationsCatalogueInteractive({
             Quelle formation choisir ?
           </h2>
           <p className="mt-3 text-lg text-[#64748B]">
-            Cliquez sur votre profil pour voir les formations recommandées
+            Les deux parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
+            vous correspond.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
@@ -241,18 +223,31 @@ export function FormationsCatalogueInteractive({
         </div>
       </section>
 
-      {renderGroup(
-        <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-          Niveau débutant · {TARIF_SESSION_DEBUTANT_HT} € HT / session
-        </span>,
-        debutants
-      )}
-      {renderGroup(
-        <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-          Niveau avancé · {TARIF_SESSION_AVANCE_HT} € HT / session
-        </span>,
-        avances
-      )}
+      <section aria-labelledby="catalogue-deux-formations-heading" className="space-y-6">
+        <div className="text-center">
+          <h2 id="catalogue-deux-formations-heading" className="sr-only">
+            Catalogue : niveau 1 et niveau 2
+          </h2>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
+              Niveau 1 · {TARIF_SESSION_DEBUTANT_HT} € HT / session
+            </span>
+            <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
+              Niveau 2 · {TARIF_SESSION_AVANCE_HT} € HT / session
+            </span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-stretch">
+          {sorted.map((cours) => (
+            <FormationCard
+              key={cours.ref}
+              cours={cours}
+              highlighted={highlightedRefs.includes(cours.ref)}
+              cardRef={setRef(cours.ref)}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

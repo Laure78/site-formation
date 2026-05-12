@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_CONSTAT_RETARD: TutoData = {
   slug: 'tuto-constat-retard',
+  category: 'chantier-livrables',
   pdfFile: 'tuto-constat-retard.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

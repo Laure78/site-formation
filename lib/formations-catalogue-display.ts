@@ -51,7 +51,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
       'Structurer l’administratif et repartir avec des prompts adaptés au BTP / TP',
     ],
     comparatif: {
-      publicLabel: 'Bâtiment, TP, fonctions support',
+      publicLabel: 'Dirigeants, conducteurs de travaux — bâtiment, TP, fonctions support',
       casUsage: 'Devis, CR, documents, terrain',
     },
   },
@@ -74,7 +74,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
       'Sécuriser le process : confidentialité, relecture humaine — Qualiopi, OPCO Constructys',
     ],
     comparatif: {
-      publicLabel: "Chargés d'affaires, bureau d'études, direction",
+      publicLabel: 'Dirigeants, conducteurs de travaux — chargés d\'affaires, bureau d\'études, direction',
       casUsage: 'Marchés publics et privés, mémoires',
     },
   },

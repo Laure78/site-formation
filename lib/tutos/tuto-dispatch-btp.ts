@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_DISPATCH_BTP: TutoData = {
   slug: 'tuto-dispatch-btp',
+  category: 'productivite',
   pdfFile: 'tuto-dispatch-btp.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_PV_LEVEE_RESERVES: TutoData = {
   slug: 'tuto-pv-levee-reserves',
+  category: 'chantier-livrables',
   pdfFile: 'tuto-pv-levee-reserves.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

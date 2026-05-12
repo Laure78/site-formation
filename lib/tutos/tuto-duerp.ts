@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_DUERP: TutoData = {
   slug: 'tuto-duerp',
+  category: 'qse-conformite',
   pdfFile: 'tuto-duerp.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

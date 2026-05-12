@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_TRI_DCE_CLAUDE_CHROME: TutoData = {
   slug: 'tuto-tri-dce-claude-chrome',
+  category: 'marches-et-veille',
   pdfFile: 'tuto-tri-dce-claude-chrome.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

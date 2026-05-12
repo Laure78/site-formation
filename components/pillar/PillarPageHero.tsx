@@ -34,6 +34,8 @@ export type PillarPageHeroProps = {
   };
   /** Ligne de pied sous la ligne crédibilité (ex. page Claude) */
   bottomNote?: ReactNode;
+  /** Hero moins haut, titres plus contenus (ex. page financement Constructys) */
+  layoutDensity?: 'default' | 'compact';
 };
 
 /**
@@ -54,9 +56,17 @@ export function PillarPageHero({
   secondaryCta,
   sideImage,
   bottomNote,
+  layoutDensity = 'default',
 }: PillarPageHeroProps) {
-  const primaryBtnClass =
-    'inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-[#1E40AF] shadow-lg shadow-black/20 transition hover:scale-[1.02] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+  const compact = layoutDensity === 'compact';
+
+  const primaryBtnClass = compact
+    ? 'inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#1E40AF] shadow-md shadow-black/15 transition hover:bg-white/95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+    : 'inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-[#1E40AF] shadow-lg shadow-black/20 transition hover:scale-[1.02] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+
+  const secondaryBtnClass = compact
+    ? 'inline-flex items-center justify-center rounded-xl border border-white/45 bg-transparent px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+    : 'inline-flex items-center justify-center rounded-2xl border border-white/40 bg-transparent px-8 py-4 text-base font-semibold text-white transition hover:scale-[1.01] hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
 
   const primaryEl =
     primaryCta.external === false ? (
@@ -77,9 +87,6 @@ export function PillarPageHero({
       </a>
     );
 
-  const secondaryBtnClass =
-    'inline-flex items-center justify-center rounded-2xl border border-white/40 bg-transparent px-8 py-4 text-base font-semibold text-white transition hover:scale-[1.01] hover:border-white/60 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
-
   const secondaryEl =
     secondaryCta &&
     (secondaryCta.external === true ? (
@@ -98,24 +105,44 @@ export function PillarPageHero({
 
       <h1
         id={titleId}
-        className="mt-5 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[56px] lg:leading-[1.06]"
+        className={
+          compact
+            ? 'mt-4 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight md:text-4xl lg:text-[42px] lg:leading-[1.08]'
+            : 'mt-5 max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[56px] lg:leading-[1.06]'
+        }
       >
         {title}
       </h1>
 
       {subtitle ? (
-        <div className="mt-6 max-w-2xl text-lg font-normal leading-relaxed text-white/90 md:text-xl md:leading-relaxed">
+        <div
+          className={
+            compact
+              ? 'mt-4 max-w-2xl text-base font-normal leading-relaxed text-white/90 md:text-lg'
+              : 'mt-6 max-w-2xl text-lg font-normal leading-relaxed text-white/90 md:text-xl md:leading-relaxed'
+          }
+        >
           {subtitle}
         </div>
       ) : null}
 
-      {metaLine ? <p className="mt-6 text-sm text-white/80 md:text-base">{metaLine}</p> : null}
+      {metaLine ? (
+        <p className={compact ? 'mt-4 text-xs text-white/80 md:text-sm' : 'mt-6 text-sm text-white/80 md:text-base'}>
+          {metaLine}
+        </p>
+      ) : null}
 
       {tags && tags.length > 0 ? (
-        <ul className="mt-6 flex flex-wrap gap-2" aria-label="Thématiques de la page">
+        <ul className={compact ? 'mt-4 flex flex-wrap gap-1.5' : 'mt-6 flex flex-wrap gap-2'} aria-label="Thématiques de la page">
           {tags.map((tag) => (
             <li key={tag}>
-              <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/95 backdrop-blur-sm">
+              <span
+                className={
+                  compact
+                    ? 'inline-flex rounded-full border border-white/28 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/95 backdrop-blur-sm md:text-xs'
+                    : 'inline-flex rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-medium text-white/95 backdrop-blur-sm'
+                }
+              >
                 #{tag}
               </span>
             </li>
@@ -123,13 +150,19 @@ export function PillarPageHero({
         </ul>
       ) : null}
 
-      <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+      <div className={compact ? 'mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap' : 'mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap'}>
         {primaryEl}
         {secondaryEl}
       </div>
 
       {credibilityLine ? (
-        <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-8 text-sm text-white/70">
+        <div
+          className={
+            compact
+              ? 'mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-5 text-xs text-white/75 md:text-sm'
+              : 'mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/20 pt-8 text-sm text-white/70'
+          }
+        >
           {credibilityLine}
         </div>
       ) : null}
@@ -142,7 +175,11 @@ export function PillarPageHero({
 
   return (
     <section
-      className="relative min-h-[520px] overflow-hidden border-b border-white/10 text-white md:min-h-[560px]"
+      className={
+        compact
+          ? 'relative min-h-0 overflow-hidden border-b border-white/10 text-white'
+          : 'relative min-h-[520px] overflow-hidden border-b border-white/10 text-white md:min-h-[560px]'
+      }
       aria-labelledby={titleId}
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -164,15 +201,33 @@ export function PillarPageHero({
         />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-14 md:py-20 lg:py-24">
+      <div
+        className={
+          compact
+            ? 'relative mx-auto max-w-6xl px-4 py-10 md:py-14 lg:py-16'
+            : 'relative mx-auto max-w-6xl px-4 py-14 md:py-20 lg:py-24'
+        }
+      >
         {variant === 'immersive' ? (
           <div className="max-w-4xl">{contentBlock}</div>
         ) : (
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:items-center lg:gap-12">
+          <div
+            className={
+              compact
+                ? 'grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,360px)] lg:items-center lg:gap-10'
+                : 'grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:items-center lg:gap-12'
+            }
+          >
             <div className="min-w-0">{contentBlock}</div>
             {sideImage ? (
               <figure className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
-                <div className="overflow-hidden rounded-2xl border border-white/25 bg-white/10 shadow-2xl shadow-black/25 ring-1 ring-white/20">
+                <div
+                  className={
+                    compact
+                      ? 'overflow-hidden rounded-xl border border-white/25 bg-white/10 shadow-lg shadow-black/20 ring-1 ring-white/15'
+                      : 'overflow-hidden rounded-2xl border border-white/25 bg-white/10 shadow-2xl shadow-black/25 ring-1 ring-white/20'
+                  }
+                >
                   <Image
                     src={sideImage.src}
                     alt={sideImage.alt}

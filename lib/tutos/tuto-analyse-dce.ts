@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_ANALYSE_DCE: TutoData = {
   slug: 'tuto-analyse-dce',
+  category: 'marches-et-veille',
   pdfFile: 'tuto-analyse-dce.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',

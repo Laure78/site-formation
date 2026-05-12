@@ -2,6 +2,7 @@ import type { TutoData } from './types';
 
 export const TUTO_PPSPS: TutoData = {
   slug: 'tuto-ppsps',
+  category: 'qse-conformite',
   pdfFile: 'tuto-ppsps.pdf',
 
   eyebrow: 'TUTO OFFERT PAR LAURE OLIVIÉ',
