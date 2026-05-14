@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-couvreur",
   "title": "Comment utiliser ChatGPT pour vos devis couvreur",
   "description": "Devis couvreur avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-05-05",
+  "date": "2026-05-14",
   "keywords": [
-    "IA appels offres BTP",
-    "DCE ChatGPT",
-    "mémoire technique IA",
-    "IA BTP"
+    "devis plombier IA",
+    "devis électricien ChatGPT",
+    "chiffrage BTP IA",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -73,12 +73,16 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "devis formation"
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

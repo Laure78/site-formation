@@ -2,12 +2,12 @@
   "slug": "formation-ia-btp-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA BTP : ce qu'il faut savoir en 2026",
   "description": "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.",
-  "date": "2026-05-12",
+  "date": "2026-05-14",
   "keywords": [
-    "offre emploi IA",
-    "recruter BTP",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
