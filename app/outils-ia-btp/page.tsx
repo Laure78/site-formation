@@ -258,6 +258,15 @@ export default function OutilsIABTPPage() {
               </div>
             </Link>
           </div>
+
+          <p className="mt-10 text-center text-xs text-slate-400">
+            <Link
+              href={LINKS.verificationDtuBeworkTest}
+              className="underline decoration-slate-300 underline-offset-2 hover:text-[var(--accent)]"
+            >
+              Prototype interne — rapprochement DTU × devis (non référencé)
+            </Link>
+          </p>
         </div>
       </section>
 

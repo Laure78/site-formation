@@ -88,6 +88,8 @@ export const LINKS = {
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */
   casUsageIaMetierBtp: '/outils/cas-usage-ia-btp',
+  /** Prototype noindex — test rapprochement devis / DTU (charte rapport BeWork) */
+  verificationDtuBeworkTest: '/outils/verification-dtu-bework',
   checklist: '/checklist-ia-btp',
   /** Lead magnet — 3 skills Claude AI BTP (fichier texte) */
   downloadClaudeSkillsBtp: '/downloads/3-skills-claude-ai-btp.txt',

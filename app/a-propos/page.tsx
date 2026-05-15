@@ -169,6 +169,14 @@ export default function AProposPage() {
             </section>
 
             <BeWorkHighlightSection id="bework" surface="card" />
+            <p className="mt-5 text-center text-sm text-[#64748B] md:text-left">
+              <Link
+                href={`${LINKS.home}#offre-bework-formations`}
+                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                Offre complète (BeWork et formations IA BTP) — voir la présentation détaillée sur l&apos;accueil
+              </Link>
+            </p>
 
             <section id="mon-parcours" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
               <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Mon parcours</h2>
