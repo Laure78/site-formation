@@ -18,6 +18,7 @@ import { PartnersGrid } from '@/components/a-propos/PartnersGrid';
 import { CaseStudyCard } from '@/components/a-propos/CaseStudyCard';
 import { ApproachSection } from '@/components/a-propos/ApproachSection';
 import { ConversionHero } from '@/components/a-propos/ConversionHero';
+import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents';
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
@@ -25,6 +26,7 @@ import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 
 const A_PROPOS_TOC = [
   { label: 'Qui suis-je ?', anchor: 'qui-suis-je' },
+  { label: 'BeWork — relais BTP', anchor: 'bework' },
   { label: 'Mon parcours', anchor: 'mon-parcours' },
   { label: "L'essentiel", anchor: 'essentiel' },
   { label: 'Portrait', anchor: 'portrait' },
@@ -165,6 +167,8 @@ export default function AProposPage() {
                 réels.
               </p>
             </section>
+
+            <BeWorkHighlightSection id="bework" surface="card" />
 
             <section id="mon-parcours" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
               <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Mon parcours</h2>

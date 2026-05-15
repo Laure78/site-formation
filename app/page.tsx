@@ -53,6 +53,7 @@ import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
+import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
@@ -344,6 +345,8 @@ export default function HomePage() {
       </section>
 
       <HomePrincipalSections />
+
+      <BeWorkHighlightSection />
 
       <section
         className="border-b border-slate-200 bg-white px-4 py-12"

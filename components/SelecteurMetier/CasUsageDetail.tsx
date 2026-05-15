@@ -53,6 +53,15 @@ export function CasUsageDetail({ metier, onChangeMetier }: Props) {
                     </span>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">{c.description}</p>
+                  <p className="mt-3">
+                    <Link
+                      href={c.tutoSkill.href}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3] focus-visible:ring-offset-1"
+                    >
+                      <BookOpen className="h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+                      {c.tutoSkill.libelle}
+                    </Link>
+                  </p>
                 </li>
               ))}
             </ul>
@@ -76,46 +85,28 @@ export function CasUsageDetail({ metier, onChangeMetier }: Props) {
           </div>
         </div>
 
-        {/* Tutoriels gratuits du hub Ressources — maillage vers les pages /ressources/tuto-* */}
+        {/* Un seul lien vers chaque URL de tuto : intégré dans les cartes ci-dessus ; ici hub + index. */}
         <section className="rounded-xl border border-[#F2F2F2] bg-[#FAFBFD] p-5 md:p-6" aria-labelledby={`tutos-skill-${metier.id}`}>
-          <div className="flex flex-wrap items-start justify-between gap-3">
-            <h4 id={`tutos-skill-${metier.id}`} className="text-sm font-semibold uppercase tracking-wide text-[#5A5A5A]">
-              Tutoriels Skill adaptés — gratuits (PDF + page web)
-            </h4>
+          <h4 id={`tutos-skill-${metier.id}`} className="text-sm font-semibold uppercase tracking-wide text-[#5A5A5A]">
+            Ressources gratuites (hub)
+          </h4>
+          <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">
+            Chaque cas d’usage ci-dessus renvoie vers un tuto Skill ou une ressource du site. Pour parcourir tout le catalogue PDF : rubrique Ressources et index des tutos.
+          </p>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
             <Link
               href={LINKS.ressources}
-              className="text-xs font-medium text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3]"
+              className="text-center text-sm font-semibold text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3]"
             >
-              Toutes les ressources laureolivie.fr — hub Ressources
+              Hub Ressources laureolivie.fr
             </Link>
-          </div>
-          <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">
-            Les mêmes pas à pas que dans la rubrique Ressources du site laureolivie.fr : téléchargement libre, sans inscription.
-          </p>
-          <ul className="mt-5 space-y-3">
-            {metier.tutosSkill.map((t) => (
-              <li key={t.href}>
-                <Link
-                  href={t.href}
-                  className="flex gap-3 rounded-xl border border-slate-100 bg-white p-4 shadow-sm transition-colors hover:border-[#377CF3]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3]"
-                >
-                  <BookOpen className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-                  <span>
-                    <span className="block font-semibold text-[#1A1A1A]">{t.titre}</span>
-                    <span className="mt-1 block text-sm text-[#5A5A5A]">{t.description}</span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-center">
             <Link
               href={LINKS.ressourcesTutos}
-              className="text-sm font-semibold text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3]"
+              className="text-center text-sm font-semibold text-[#377CF3] underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3]"
             >
               Index de tous les tutos PDF — /ressources/tutos
             </Link>
-          </p>
+          </div>
         </section>
 
         <div className="flex justify-center pt-2">
