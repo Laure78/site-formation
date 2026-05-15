@@ -4,6 +4,11 @@ import Link from 'next/link';
 import { useCallback, useMemo, useState } from 'react';
 import baseFile from '@/lib/dtu-verification/base-dtu.json';
 import { analyzeDevisText } from '@/lib/dtu-verification/analyze';
+import {
+  devisRectifiePlainLines,
+  devisRectifieToCsv,
+  devisRectifieToTxt,
+} from '@/lib/dtu-verification/export-devis-rectifie';
 import { construireMemoExplicatif } from '@/lib/dtu-verification/memo-explicatif';
 import type { DtuBaseFile, LigneAnalyse, RapportDtuPayload } from '@/lib/dtu-verification/types';
 import { LINKS } from '@/lib/internal-links';
@@ -24,6 +29,7 @@ export function VerificationDtuBeworkTool() {
   const [rows, setRows] = useState<LigneAnalyse[] | null>(null);
   const [exporting, setExporting] = useState(false);
   const [exportError, setExportError] = useState<string | null>(null);
+  const [copyLibellesOk, setCopyLibellesOk] = useState(false);
 
   const memoParagraphs = useMemo(() => {
     if (!rows?.length) return null;
@@ -82,6 +88,52 @@ export function VerificationDtuBeworkTool() {
       setExporting(false);
     }
   }, [rows, client, projet, memoParagraphs]);
+
+  const telechargerTxtDevisRectifie = useCallback(() => {
+    if (!rows?.length) return;
+    const slug =
+      `${client.trim().replace(/\s+/g, '_').replace(/[^\wÀ-ÿ-]/gu, '') || 'export'}_${todayFr().replace(/\//g, '')}`;
+    const txt = devisRectifieToTxt(rows, {
+      client: client.trim() || 'Client non renseigné',
+      projet: projet.trim() || 'Projet non renseigné',
+      date: todayFr(),
+    });
+    const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Devis_rectifie_${slug}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [rows, client, projet]);
+
+  const telechargerCsvDevisRectifie = useCallback(() => {
+    if (!rows?.length) return;
+    const slug =
+      `${client.trim().replace(/\s+/g, '_').replace(/[^\wÀ-ÿ-]/gu, '') || 'export'}_${todayFr().replace(/\//g, '')}`;
+    const csv = devisRectifieToCsv(rows);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Devis_rectifie_${slug}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [rows, client]);
+
+  const copierLibellesRectifies = useCallback(async () => {
+    if (!rows?.length) return;
+    setExportError(null);
+    try {
+      await navigator.clipboard.writeText(devisRectifiePlainLines(rows));
+      setCopyLibellesOk(true);
+      window.setTimeout(() => setCopyLibellesOk(false), 2500);
+    } catch {
+      setExportError(
+        'Impossible de copier dans le presse-papiers. Utilisez le téléchargement .txt ou .csv (navigateur en HTTPS recommandé).'
+      );
+    }
+  }, [rows]);
 
   return (
     <div className="space-y-10">
@@ -166,6 +218,40 @@ export function VerificationDtuBeworkTool() {
             </button>
           )}
         </div>
+        {rows && rows.length > 0 ? (
+          <div className="mt-6 rounded-xl border border-slate-200 bg-[#F2F2F2] p-5">
+            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-[#5A5A5A]">
+              Obtenir le devis rectifié
+            </h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Fichiers prêts à recoller dans un tableur (.csv) ou un éditeur texte (.txt). Les prix et quantités restent à
+              ressaisir depuis votre devis initial.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={telechargerTxtDevisRectifie}
+                className="rounded-xl border-2 border-[#377CF3] bg-white px-5 py-2.5 text-sm font-semibold text-[#377CF3] shadow-sm hover:bg-blue-50"
+              >
+                Télécharger .txt (libellés rectifiés)
+              </button>
+              <button
+                type="button"
+                onClick={telechargerCsvDevisRectifie}
+                className="rounded-xl border-2 border-[#377CF3] bg-white px-5 py-2.5 text-sm font-semibold text-[#377CF3] shadow-sm hover:bg-blue-50"
+              >
+                Télécharger .csv pour Excel (séparateur ; )
+              </button>
+              <button
+                type="button"
+                onClick={() => void copierLibellesRectifies()}
+                className="rounded-xl border-2 border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
+              >
+                {copyLibellesOk ? 'Libellés copiés ✓' : 'Copier les libellés rectifiés'}
+              </button>
+            </div>
+          </div>
+        ) : null}
         {exportError && (
           <p className="mt-3 text-sm text-red-600" role="alert">
             {exportError}

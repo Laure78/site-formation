@@ -19,6 +19,7 @@ disable-model-invocation: true
 - Base projet (non exhaustive, reformulations maison) : `lib/dtu-verification/base-dtu.json`
 - Logo rapport (fichier image) : `public/images/bework-logo-blueprint.png`
 - Export Word serveur : `app/api/verification-dtu-bework/docx/route.ts` (en-tête image + tagline pluriel, tableau analyse, tableau devis rectifié, mémo, pied de page officiel ; couleurs #1D4ED8 / #DBEAFE)
+- Export devis rectifié sans serveur : `lib/dtu-verification/export-devis-rectifie.ts` (.txt, .csv avec BOM pour Excel, copie libellés depuis l’UI « Obtenir le devis rectifié »)
 
 ## Règles juridiques (non négociables)
 
