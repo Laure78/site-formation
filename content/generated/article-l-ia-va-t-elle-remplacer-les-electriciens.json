@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
   "title": "L'IA va-t-elle remplacer les électriciens ?",
   "description": "L'IA remplace-t-elle les électriciens ? Non : elle assiste le métier. Formation BTP finançable.",
-  "date": "2026-05-06",
+  "date": "2026-05-15",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "emails professionnels BTP",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -73,12 +73,16 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
       "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
