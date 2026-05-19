@@ -2,12 +2,13 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-macon",
   "title": "Comment utiliser ChatGPT pour vos devis maçon",
   "description": "Devis maçon avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.",
-  "date": "2026-05-08",
+  "date": "2026-05-19",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,7 +62,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -73,12 +74,16 @@
       "anchor": "formation IA BTP"
     },
     {
-      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation",
-      "anchor": "réserver formation"
+      "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
