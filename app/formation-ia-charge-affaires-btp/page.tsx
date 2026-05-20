@@ -23,7 +23,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   '@type': 'Course',
   name: 'Formation IA pour Chargé d\'Affaires BTP',
   description:
-    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi. Financement possible selon éligibilité.',
   provider: {
     '@type': 'Organization',
     name: "OFC Création d'Entreprise",
@@ -93,7 +93,7 @@ const BREADCRUMB_JSON_LD: Record<string, unknown> = {
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis 5x plus vite, mémoire technique gagnant, relance prospects. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis 5x plus vite, mémoire technique gagnant, relance prospects. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA chargé d\'affaires BTP',

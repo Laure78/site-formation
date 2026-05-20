@@ -4,6 +4,7 @@ import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 
 /**
  * Bloc SEO / conversion — page Formation IA BTP Île-de-France uniquement.
@@ -143,13 +144,12 @@ export function IleDeFranceSeoSections() {
             id="idf-ou"
             className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
-            Formation IA BTP en Île-de-France (présentiel)
+            Formation IA BTP en Île-de-France
           </h2>
           <p className="mt-4 text-slate-600">
             Interventions en <strong className="text-slate-800">entreprise</strong> (intra) ou en{' '}
-            <strong className="text-slate-800">session inter</strong> selon le calendrier — pas de
-            distanciel sur le catalogue à date : le présentiel permet de travailler sur vos documents
-            dans un cadre confidentiel. Zones couvertes : Paris, Yvelines, Hauts-de-Seine, Essonne,
+            <strong className="text-slate-800">session inter</strong> selon le calendrier —{' '}
+            {MODALITE_FORMATIONS_STANDARD} Zones couvertes : Paris, Yvelines, Hauts-de-Seine, Essonne,
             Seine-Saint-Denis, Val-de-Marne, Val-d&apos;Oise, Seine-et-Marne — détail par département
             dans la section{' '}
             <a href="#zones" className="font-medium text-[var(--accent)] hover:underline">

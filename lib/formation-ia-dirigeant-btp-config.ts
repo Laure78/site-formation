@@ -42,7 +42,7 @@ export function formationIaDirigeantBtpMetadata(): Metadata {
 
 export const FORMATION_IA_DIRIGEANT_BTP_COURSE = {
   name: 'Formation IA pour dirigeants du BTP — stratégie, ROI et déploiement équipes',
-  description: `${SITE_CONFIG.legalName} : accompagner les décideurs de PME bâtiment sur l’IA générative — vision, gains de productivité, cadre Qualiopi, financement OPCO Constructys selon dossier. Île-de-France et France.`,
+  description: `${SITE_CONFIG.legalName} : accompagner les décideurs de PME bâtiment sur l’IA générative — vision, gains de productivité, cadre Qualiopi, financement possible selon éligibilité. Île-de-France et France.`,
   teaches: [
     'Pilotage stratégique de l’IA en entreprise BTP',
     'ROI et productivité par fonction (encadrement, support)',
@@ -103,6 +103,6 @@ export const FORMATION_IA_DIRIGEANT_BTP_FAQ: FAQItem[] = [
   },
   {
     q: 'Quel budget prévoir pour une transformation IA « réaliste » ?',
-    a: 'Le budget combine formation certifiée (forfaits par stagiaire selon catalogue), temps interne de cadrage et éventuellement outils (licences pro). Évitez les fourchettes marketing : le point de départ est un échange pour dimensionner le périmètre — créneau Calendly « audit IA » gratuit.',
+    a: 'Le budget combine formation certifiée (forfaits par session selon catalogue), temps interne de cadrage et éventuellement outils (licences pro). Évitez les fourchettes marketing : le point de départ est un échange pour dimensionner le périmètre — créneau Calendly « audit IA » gratuit.',
   },
 ];

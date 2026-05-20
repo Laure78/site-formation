@@ -28,11 +28,11 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
 
   if (title.includes('Comment utiliser ChatGPT pour vos devis')) {
     const metier = title.replace('Comment utiliser ChatGPT pour vos devis ', '').trim();
-    return `Devis ${metier} avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Formation 100% finançable Constructys.`.slice(0, MAX_META_LENGTH);
+    return `Devis ${metier} avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
   }
   if (title.includes('IA et ') && title.includes(' : 5 gains de temps')) {
     const metier = title.replace('IA et ', '').replace(' : 5 gains de temps concrets', '').trim();
-    return `5 gains de temps : IA et ${metier}. Devis, CR, emails. Formation 4h pratique, finançable Constructys.`.slice(0, MAX_META_LENGTH);
+    return `5 gains de temps : IA et ${metier}. Devis, CR, emails. Formation 4h pratique, financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Devis en 15 min : le guide')) {
     const metier = title.replace('Devis en 15 min : le guide ', '').trim();
@@ -40,19 +40,19 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
   }
   if (title.includes("L'IA va-t-elle remplacer les")) {
     const metier = title.replace("L'IA va-t-elle remplacer les ", '').replace(' ?', '').trim();
-    return `L'IA remplace-t-elle les ${metier} ? Non : elle assiste le métier. Formation BTP finançable.`.slice(0, MAX_META_LENGTH);
+    return `L'IA remplace-t-elle les ${metier} ? Non : elle assiste le métier. Financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Formation IA BTP : ce qu')) {
-    return "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys 100%.".slice(0, MAX_META_LENGTH);
+    return "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys selon éligibilité.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Financement Constructys')) {
-    return "Financement Constructys formation IA BTP : étapes, montant, démarches. 100% pris en charge. Guide complet.".slice(0, MAX_META_LENGTH);
+    return "Financement Constructys formation IA BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('erreurs à éviter') && title.includes('ChatGPT pour')) {
     return "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Automatiser vos emails clients')) {
-    return "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps garanti. Formation finançable.".slice(0, MAX_META_LENGTH);
+    return "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps mesurable. Formation éligible à un financement.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Appels d\'offres BTP')) {
     return "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.".slice(0, MAX_META_LENGTH);
@@ -61,7 +61,7 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
     return "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.".slice(0, MAX_META_LENGTH);
   }
 
-  return `${title}. ${kw}. Formation IA BTP finançable Constructys.`.slice(0, MAX_META_LENGTH);
+  return `${title}. ${kw}. Formation IA BTP financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
 }
 
 export function generateArticle(idea: ContentIdea): GeneratedArticle {

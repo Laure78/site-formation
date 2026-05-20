@@ -3,7 +3,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 const ITEMS = [
   `${formatProfessionalsTrainedCount()} pros formés`,
   `${SOCIAL_PROOF.AVERAGE_RATING} satisfaction`,
-  '100 % finançable Constructys',
+  'Financement possible selon éligibilité',
   'Qualiopi certifié',
 ] as const;
 

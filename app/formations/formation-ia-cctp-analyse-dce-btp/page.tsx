@@ -21,6 +21,7 @@ import {
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import type { FAQItem } from '@/lib/faq';
 
 const PATH = LINKS.formationIaCctpAnalyseDceBtp;
@@ -28,7 +29,7 @@ const PATH = LINKS.formationIaCctpAnalyseDceBtp;
 export const metadata = createPageMetadata({
   title: 'Formation IA CCTP & DCE BTP — Inter & Intra',
   description:
-    'Formation IA analyse CCTP/DCE pour entreprises BTP. 4h en visio ou présentiel. Qualiopi, finançable Constructys 100%. Inter & intra. RDV gratuit avec Laure Olivié.',
+    'Formation IA analyse CCTP/DCE pour entreprises BTP. 4h en visio ou présentiel. Qualiopi, financement possible selon éligibilité (Constructys). Inter & intra. RDV gratuit avec Laure Olivié.',
   path: PATH,
   appendAuthorSuffix: false,
   keywords: [
@@ -57,7 +58,7 @@ const FAQ_ITEMS: FAQItem[] = [
     a: 'Les deux conviennent. Claude Pro est souvent plus confortable sur les PDF longs. ChatGPT Plus suffit si vous découpez bien les pièces. Je vous aide à trancher selon vos habitudes en session.',
   },
   {
-    q: 'Constructys finance-t-il vraiment 100 % ?',
+    q: 'Constructys peut-il financer ma formation IA BTP ?',
     a: 'Le financement dépend de votre éligibilité au Plan de Développement des Compétences et de la validation du dossier. OFC est certifié Qualiopi et référencé Constructys : nous préparons les pièces adaptées.',
   },
   {
@@ -353,6 +354,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
             chiffrage et technique. Les évaluations agrégées OFC sont de {SOCIAL_PROOF.AVERAGE_RATING} sur les
             dossiers suivis.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
           <p className="mt-4 text-sm text-slate-600">
             Pour des cas d’étude documentés (FFB / CSFE), voir aussi la page{' '}
             <Link href={LINKS.etudesCas} className="font-medium text-[var(--accent)] hover:underline">

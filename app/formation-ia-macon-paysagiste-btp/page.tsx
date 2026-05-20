@@ -15,7 +15,7 @@ const PATH = '/formation-ia-macon-paysagiste-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Maçon Paysagiste BTP Île-de-France',
   description:
-    'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Formation Qualiopi finançable Constructys.',
+    'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA maçon paysagiste',
@@ -143,8 +143,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 2 h par semaine</strong> sur devis, mémoires techniques et mails de
-          coordination. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          coordination. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

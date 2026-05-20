@@ -5,6 +5,10 @@
  * @see docs/seo/netlinking-audit-2026-04-10.md
  */
 
+/** Programme PDF NIV-02 — fichier unique (alias catalogue + fiche détaillée AO). */
+export const PDF_PROGRAMME_NIV02_AO_BTP =
+  '/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP_2026.pdf' as const;
+
 export const LINKS = {
   // Tier 1 — Pages principales
   home: '/',
@@ -37,7 +41,9 @@ export const LINKS = {
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */
   formationAO: '/formations/ia-appels-offre-btp',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
-  pdfProgrammeIaBtpNiveau2AppelsOffre: '/formations/pdf/programme-niveau-2-ia-appels-offre-btp.pdf',
+  pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
+  /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
+  pdfProgrammeFormationAoBtpDetail2026: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Page locale Paris (canonique SEO) */
   formationParis: '/formations/ia-btp-paris',
   /** Alias court (301 → formationParis) — maillage explicite possible */

@@ -23,7 +23,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   '@type': 'Course',
   name: 'Formation IA pour Conducteur de Travaux BTP',
   description:
-    'Formation ChatGPT et Claude AI pour conducteurs de travaux : CR de chantier, analyse CCTP, emails MOA/MOE, situations de travaux. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour conducteurs de travaux : CR de chantier, analyse CCTP, emails MOA/MOE, situations de travaux. Qualiopi. Financement possible selon éligibilité.',
   provider: {
     '@type': 'Organization',
     name: "OFC Création d'Entreprise",
@@ -93,7 +93,7 @@ const BREADCRUMB_JSON_LD: Record<string, unknown> = {
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    `Formation IA pour conducteurs de travaux BTP : CR chantier, CCTP, emails MOA/MOE, situations. Qualiopi, finançable Constructys. ${formatProfessionalsTrainedCount()} pros formés.`,
+    `Formation IA pour conducteurs de travaux BTP : CR chantier, CCTP, emails MOA/MOE, situations. Qualiopi. Financement possible selon éligibilité. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   openGraphType: 'article',
   appendAuthorSuffix: false,

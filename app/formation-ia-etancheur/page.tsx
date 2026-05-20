@@ -17,7 +17,7 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 const SEO_TITLE = 'Formation IA pour Étancheur — ChatGPT BTP | Laure Olivié';
 const SEO_DESCRIPTION =
-  "Formation IA dédiée aux entreprises d'étanchéité : devis, mémoires techniques, CCTP. Qualiopi, finançable Constructys. Partenaire CSFE.";
+  "Formation IA dédiée aux entreprises d'étanchéité : devis, mémoires techniques, CCTP. Qualiopi. Financement possible selon éligibilité. Partenaire CSFE.";
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
@@ -238,7 +238,7 @@ export default function FormationIaEtancheurPage() {
           Devis multicouches, mémoires techniques pour marchés publics, analyse de CCTP toiture-terrasse,
           comptes rendus de chantier : <strong>ChatGPT et Claude AI</strong> automatisent les tâches
           rédactionnelles qui pèsent sur les entreprises d&apos;étanchéité. Formation{' '}
-          <strong>Qualiopi</strong>, finançable <strong>Constructys</strong>, conçue avec la sensibilité
+          <strong>Qualiopi</strong>, financement possible selon éligibilité, conçue avec la sensibilité
           terrain de la <strong>filière étanchéité</strong> — partenariat CSFE.
         </p>
 

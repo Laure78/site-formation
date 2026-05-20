@@ -6,7 +6,7 @@ const PATH = '/formation-ia-dirigeant-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA dirigeant BTP — ChatGPT PME',
   description:
-    "Formation IA pour dirigeants BTP : pilotage stratégique, formation d'équipe, ROI et rentabilité IA. Qualiopi, finançable Constructys.",
+    "Formation IA pour dirigeants BTP : pilotage stratégique, formation d'équipe, ROI et rentabilité IA. Qualiopi. Financement possible selon éligibilité.",
   path: PATH,
   keywords: ['formation IA dirigeant BTP', 'ROI IA PME BTP', "pilotage stratégique IA", "formation équipe IA"],
   openGraphType: 'article',

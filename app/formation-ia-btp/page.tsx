@@ -20,7 +20,6 @@ import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_STATS } from '@/lib/schema-constants';
 import { SOCIAL_PROOF } from '@/lib/constants';
-
 const PATH = '/formation-ia-btp';
 
 const visuelPilier = PHOTOS.formationIaBtpPillarCarteCatalogue2026;
@@ -31,12 +30,12 @@ const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocal
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Île-de-France — ChatGPT 2026',
   description:
-    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.',
+    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
   path: PATH,
   appendAuthorSuffix: false,
   openGraphTitle: 'Formation IA BTP Île-de-France — ChatGPT 2026',
   openGraphDescription:
-    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.',
+    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
   image: {
     url: ogImage.src,
     width: ogImage.width,
@@ -61,7 +60,7 @@ const courseName =
 const courseBase = getCourseSchema({
   name: courseName,
   description:
-    "Formation pratique à l'IA et ChatGPT pour les professionnels du BTP : devis, appels d'offres, gestion de chantier, communication. Certifiée Qualiopi, finançable Constructys selon dossier.",
+    "Formation pratique à l'IA et ChatGPT pour les professionnels du BTP : devis, appels d'offres, gestion de chantier, communication. Certifiée Qualiopi. Financement possible selon éligibilité.",
   path: PATH,
   providerName: SITE_CONFIG.legalName,
   areaServed: ['Île-de-France', 'Grand Paris', 'Yvelines', 'Paris', 'France'],
@@ -87,7 +86,7 @@ const courseJsonLd = {
     },
     offers: {
       '@type': 'Offer',
-      category: 'Formation professionnelle finançable Constructys',
+      category: 'Formation professionnelle continue — financement possible selon éligibilité',
       priceCurrency: 'EUR',
     },
   },
@@ -129,7 +128,7 @@ function BlocCtaHaut() {
   return (
     <div className="not-prose rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
       <p className="font-display text-lg font-bold text-slate-900">
-        Votre formation IA BTP, 100 % finançable Constructys.
+        Votre formation IA BTP, financement possible selon éligibilité.
       </p>
       <p className="mt-2 text-slate-700">
         Réservez votre visio découverte gratuite — 30 min pour savoir si la formation vous convient.
@@ -465,23 +464,24 @@ export default function FormationIaBtpPillarPage() {
         </section>
 
         <section id="financement" className="not-prose mt-16 scroll-mt-24 space-y-4 text-slate-700">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — 100 % pris en charge</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — selon éligibilité</h2>
           <p>
-            La formation IA BTP est <strong>certifiée Qualiopi</strong> et éligible au financement Constructys (OPCO du
-            secteur BTP).
+            La formation IA BTP est <strong>certifiée Qualiopi</strong> et éligible à une prise en charge par
+            Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en
+            vigueur.
           </p>
           <p>
-            <strong>Pour les entreprises de moins de 50 salariés</strong>, Constructys finance jusqu&apos;à 100 % des
-            coûts pédagogiques dans le cadre du Plan de Développement des Compétences (PDC) :
+            <strong>Barèmes indicatifs Constructys</strong> (Plan de Développement des Compétences) — à
+            confirmer sur votre dossier :
           </p>
           <ul className="list-inside list-disc space-y-1">
             <li>
               Plafond pédagogique : <strong>24 € HT/heure/participant</strong>
             </li>
             <li>
-              Soit : <strong>336 € HT</strong> pour une formation de 14 heures (2 jours)
+              Exemple indicatif : prise en charge pédagogique plafonnée selon effectif et durée de session
             </li>
-            <li>Financement direct à l&apos;organisme : zéro avance de trésorerie</li>
+            <li>Modalités de facturation : selon convention et dossier OPCO accepté</li>
           </ul>
           <p className="font-semibold text-slate-900">Comment ça marche :</p>
           <ol className="list-inside list-decimal space-y-1">

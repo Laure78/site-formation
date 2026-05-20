@@ -16,6 +16,7 @@ import {
   FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_HT } from '@/lib/tarifs-sessions';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -34,7 +35,7 @@ const HERO_RESUME_PME = [
 export const metadata = createPageMetadata({
   title: 'Formation IA PME BTP — Dirigeants Bâtiment',
   description:
-    'Formation IA pour dirigeants PME BTP. Transformez votre entreprise avec ChatGPT. 1 592 pros formés. Qualiopi finançable Constructys.',
+    'Formation IA pour dirigeants PME BTP. Transformez votre entreprise avec ChatGPT. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité.',
   path: '/formations/ia-pme-btp',
   appendAuthorSuffix: false,
   keywords: [
@@ -49,7 +50,7 @@ export const metadata = createPageMetadata({
 const courseSchema = getCourseSchema({
   name: "Formation IA pour PME du BTP",
   description:
-    "Formation IA PME bâtiment : devis, chiffrages, emails, comptes rendus. Paris, Île-de-France et France. Financement formation IA OPCO Constructys selon éligibilité. 100 % finançable Constructys.",
+    "Formation IA PME bâtiment : devis, chiffrages, emails, comptes rendus. Paris, Île-de-France et France. Financement formation IA OPCO Constructys selon éligibilité. Financement possible selon éligibilité.",
   path: '/formations/ia-pme-btp',
   providerName: SITE_CONFIG.legalName,
   areaServed: ['France', 'Île-de-France'],
@@ -69,7 +70,7 @@ const FAQ_PME = [
   },
   {
     q: "La formation IA PME est-elle finançable ?",
-    a: "Oui. 100 % finançable par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
+    a: "Oui. financement possible via Constructys ou OPCO selon éligibilité pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
   },
   {
     q: "Faut-il des compétences techniques ?",
@@ -155,6 +156,7 @@ export default function FormationIAPMEBTPPage() {
           </Link>{' '}
           et partout en France — <strong>financement OPCO Constructys</strong> selon dossier.
         </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
       </FormationCourseHero>
 
       <div className="mx-auto max-w-4xl px-4 py-16">

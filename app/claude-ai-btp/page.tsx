@@ -143,7 +143,7 @@ const faqItems = [
   },
   {
     q: "Claude AI est-il finançable dans le cadre d'une formation BTP ?",
-    a: "La formation à son usage l'est. OFC Création d'Entreprise propose une formation IA BTP finançable Constructys à 24 € HT/heure/stagiaire dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés bénéficient également de la prise en charge des salaires pendant la formation (15 € HT/h).",
+    a: "La formation à son usage peut faire l'objet d'une prise en charge selon éligibilité. OFC Création d'Entreprise propose une formation IA BTP éligible Constructys (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires pendant la formation (15 € HT/h), selon conditions en vigueur.",
   },
   {
     q: 'Combien de temps faut-il pour être opérationnel sur Claude AI ?',
@@ -223,7 +223,7 @@ export default function ClaudeAiBtpPillarPage() {
                     Formation en Île-de-France
                   </h2>
                   <p className="max-w-md text-sm text-[#64748B]">
-                    Formation Claude AI BTP en sessions inter ou intra — même programme Qualiopi, aligné terrain (CR, devis, emails).
+                    Formation Claude AI BTP en sessions intra ou inter — même programme Qualiopi, présentiel ou distanciel, aligné terrain (devis, DCE, CR, mémoires techniques).
                   </p>
                 </div>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

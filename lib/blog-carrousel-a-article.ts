@@ -3,8 +3,10 @@
  * /public/images/blog/carrousel-a-presentation-formation/slide-*.png
  */
 import type { BlogArticle } from './blog';
+import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 const A = '/images/blog/carrousel-a-presentation-formation';
+const tarifNiv01 = `${TARIF_SESSION_DEBUTANT_HT.toLocaleString('fr-FR')} € HT`;
 
 export const carrouselAFormationArticle: BlogArticle = {
   slug: 'formation-ia-artisans-batiment-programme-objectifs-livrables',
@@ -42,7 +44,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'La formation en une slide',
       content: `<figure class="my-6">
-<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service du bâtiment : 4h de pratique, 70% exercices réels, forfait session 1 000 € HT, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service du bâtiment : 4h de pratique, 70% exercices réels, forfait session ${tarifNiv01}, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Promesse : gain de temps sur les tâches quotidiennes — dès la première heure.</figcaption>
 </figure>`,
     },
@@ -50,7 +52,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Informations pratiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-02.png" alt="Informations pratiques formation IA bâtiment : durée 4h, forfait session 1 000 € HT, effectif 12 max, inscription J-7, prérequis navigation web — Qualiopi OPCO Constructys" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-02.png" alt="Informations pratiques formation IA bâtiment : durée 4h, forfait session ${tarifNiv01}, effectif 12 max, inscription J-7, prérequis navigation web — Qualiopi OPCO Constructys" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Durée, tarif, format, effectif, inscription et prérequis — synthèse à valider sur convention.</figcaption>
 </figure>`,
     },

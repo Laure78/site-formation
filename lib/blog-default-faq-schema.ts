@@ -1,10 +1,11 @@
 import { getFAQSchema } from '@/lib/seo';
+import { FINANCEMENT_FORMULATION_PRUDENTE, FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT } from '@/lib/financement-copy';
 
 /** FAQ générique BTP — utilisée sur les articles sans section FAQ dédiée */
 const DEFAULT_BLOG_FAQ_ITEMS = [
   {
     q: 'Comment financer une formation IA BTP avec Constructys ?',
-    a: "Les formations IA BTP de Laure Olivié sont certifiées Qualiopi et finançables à 100% par Constructys (OPCO BTP). Pour les entreprises de moins de 11 salariés, Constructys prend en charge jusqu'à 24 €HT/heure/stagiaire. La demande de financement doit être déposée sur eGestion (services.constructys.fr) au minimum 15 jours avant la formation.",
+    a: `Les formations IA BTP de Laure Olivié sont certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} La demande de financement doit être déposée sur eGestion (services.constructys.fr) au minimum 15 jours avant la formation.`,
   },
   {
     q: 'Quelle formation IA pour un conducteur de travaux ?',

@@ -1,18 +1,20 @@
 /**
  * JSON-LD @graph unique — page `/formations` uniquement.
- * Présentiel uniquement (OnsiteEventAttendanceMode) — pas de distanciel / online dans les schémas.
+ * Modalités présentiel ou distanciel (MixedEventAttendanceMode) — aligné catalogue.
  */
 import { FAQ_FORMATIONS } from '@/lib/faq';
-import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
+import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { getFAQSchema } from '@/lib/seo';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
 
 export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown> {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
+  const faqSchema = getFAQSchema(FAQ_FORMATIONS);
+
+  const graph: Record<string, unknown>[] = [
       {
         '@type': 'BreadcrumbList',
         '@id': `${BASE}/formations#breadcrumb`,
@@ -37,7 +39,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         url: `${BASE}/formations`,
         name: 'Catalogue formation IA BTP — 2 formations Qualiopi 4 h',
         description:
-          "Catalogue 2 formations IA BTP de 4 h finançables Constructys : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre.",
+          "Catalogue 2 formations IA BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre.",
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -54,7 +56,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'Service',
         '@id': `${BASE}/formations#service`,
-        name: 'Formation IA BTP en présentiel — 2 parcours Qualiopi',
+        name: 'Formation IA BTP — 2 parcours Qualiopi (présentiel ou distanciel)',
         serviceType: 'Formation professionnelle continue',
         provider: { '@id': `${BASE}/#organization` },
         areaServed: [
@@ -113,7 +115,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@id': `${BASE}/formations#course-list`,
         name: 'Catalogue 2 formations IA BTP',
         description:
-          '2 formations IA BTP de 4 heures, certifiées Qualiopi, finançables Constructys, en inter en Île-de-France ou intra dans les locaux du client.',
+          '2 formations IA BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, en inter en Île-de-France ou intra (présentiel ou distanciel).',
         numberOfItems: 2,
         itemListElement: [
           {
@@ -140,11 +142,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OnsiteEventAttendanceMode',
+                courseMode: 'https://schema.org/MixedEventAttendanceMode',
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra dans les locaux du client',
+                  name: 'Île-de-France — inter ou intra, présentiel ou distanciel',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -170,28 +172,21 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               '@type': 'Course',
               '@id': `${BASE}/formations/ia-appels-offre-btp#course`,
               name: "L'IA au service des appels d'offre BTP",
-              description:
-                "Formation niveau 2 — 4 h : DCE, mémoires techniques, chiffrage, bibliothèque de prompts BTP. Qualiopi, Constructys.",
+              description: NIV02_CATALOG.description,
               url: `${BASE}/formations/ia-appels-offre-btp`,
               courseCode: 'NIV-02',
               educationalLevel: 'Advanced',
               inLanguage: 'fr-FR',
-              teaches: [
-                "Analyse rapide de DCE et critères d'évaluation",
-                "Mémoires techniques et chiffrages avec méthode et IA",
-                'Templates et prompts par métier pour marchés BTP',
-                "Assistant IA DCE / mémoire adapté à l'entreprise",
-                'Sécurisation du process : confidentialité, relecture humaine',
-              ],
+              teaches: NIV02_CATALOG.teaches,
               occupationalCategory: 'BTP, marchés publics et privés',
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OnsiteEventAttendanceMode',
+                courseMode: 'https://schema.org/MixedEventAttendanceMode',
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra',
+                  name: 'Île-de-France — inter ou intra, présentiel ou distanciel',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -212,18 +207,15 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
           },
         ],
       },
-      {
-        '@type': 'FAQPage',
-        '@id': `${BASE}/formations#faq`,
-        mainEntity: FAQ_FORMATIONS.map((item) => ({
-          '@type': 'Question',
-          name: item.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faqAnswerPlainTextForSchema(item.a),
-          },
-        })),
-      },
+      ...(faqSchema
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${BASE}/formations#faq`,
+              mainEntity: faqSchema.mainEntity,
+            },
+          ]
+        : []),
       {
         '@type': 'HowTo',
         '@id': `${BASE}/formations#howto-choisir`,
@@ -258,6 +250,10 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
           },
         ],
       },
-    ],
+    ];
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
   };
 }

@@ -8,12 +8,12 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
-  title: 'Financement Constructys 100% IA BTP — Guide complet 2026',
+  title: 'Financement Constructys IA BTP — Guide complet 2026',
   description:
     "Guide financement Constructys 2026 pour formation IA BTP : modalités, eGestion, plafonds. TPE et PME du bâtiment et des travaux publics. Téléchargez les repères et lancez votre dossier.",
   path: '/financement-constructys-100-ia-btp',
   keywords: [
-    'financement Constructys 100% IA BTP',
+    'financement Constructys formation IA BTP',
     'formation IA BTP Constructys',
     'OPCO BTP 2026',
     'prise en charge formation IA bâtiment',
@@ -28,7 +28,7 @@ export default function FinancementConstructys100IABTPPage() {
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
           { name: 'Financement', path: '/financement-constructys-formation-ia-btp' },
-          { name: 'Financement Constructys 100% IA BTP', path: '/financement-constructys-100-ia-btp' },
+          { name: 'Financement Constructys formation IA BTP', path: '/financement-constructys-100-ia-btp' },
         ])}
       />
       {/* Hero */}
@@ -38,10 +38,10 @@ export default function FinancementConstructys100IABTPPage() {
             Modalités 2026 · eGestion
           </div>
           <h1 className="mt-6 font-display text-3xl font-bold md:text-4xl lg:text-5xl">
-            Financement Constructys 100% IA BTP
+            Financement Constructys formation IA BTP
           </h1>
           <p className="mt-6 text-lg text-slate-300">
-            Guide complet pour financer à 100% votre formation intelligence artificielle bâtiment via l&apos;OPCO Constructys en 2026.
+            Guide pour mobiliser un financement Constructys ou OPCO pour votre formation IA bâtiment en 2026, selon éligibilité et conditions en vigueur.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
@@ -67,7 +67,7 @@ export default function FinancementConstructys100IABTPPage() {
             {[
               'Constructys = OPCO dédié au BTP (bâtiment, négoce, travaux publics)',
               'Formations IA BTP certifiées Qualiopi = éligibles',
-              '100% possible pour entreprises de moins de 50 salariés',
+              'Financement possible selon éligibilité (Constructys, OPCO)',
               'Plafond pédagogique : 24 € HT / heure / stagiaire',
               'Dossier eGestion à envoyer 15 jours avant le démarrage',
             ].map((item) => (

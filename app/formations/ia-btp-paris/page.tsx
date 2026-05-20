@@ -35,7 +35,7 @@ const HERO_RESUME_PARIS = [
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Paris — ChatGPT en 4h',
   description:
-    'Formation IA BTP à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi finançable Constructys. RDV visio gratuit.',
+    'Formation IA BTP à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi. Financement possible selon éligibilité. RDV visio gratuit.',
   path: '/formations/ia-btp-paris',
   appendAuthorSuffix: false,
   keywords: [
@@ -268,7 +268,7 @@ export default function FormationIABTPParisPage() {
           </h2>
           <p className="mt-4 text-lg text-blue-100">
             Réservez votre formation IA à Paris ou en Île-de-France. Devis
-            personnalisé sous 24h. Financement OPCO Constructys 100% possible.
+            personnalisé sous 24h. Financement OPCO Constructys possible selon éligibilité.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RdvLink className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">

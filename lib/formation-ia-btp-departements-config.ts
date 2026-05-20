@@ -68,7 +68,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   h1: 'Formation IA BTP en Yvelines (78) — Versailles et agglomération',
   metaTitle: 'Formation IA BTP Yvelines — Laure Olivié · Qualiopi',
   metaDescription:
-    'Formation ChatGPT et Claude AI pour le BTP dans les Yvelines (78). Intervention à Versailles, Saint-Quentin-en-Yvelines et Mantes-la-Jolie. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour le BTP dans les Yvelines (78). Intervention à Versailles, Saint-Quentin-en-Yvelines et Mantes-la-Jolie. Qualiopi, financement possible selon éligibilité.',
   keywords: [
     'formation IA BTP Yvelines',
     'formation ChatGPT 78',
@@ -88,8 +88,8 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'Guyancourt',
     'Saint-Germain-en-Laye',
   ],
-  courseName: 'Formation IA BTP Yvelines (78) — Qualiopi, finançable Constructys',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, présentiel ou distanciel, devis et chantier. Certification Qualiopi, financement OPCO Constructys selon dossier. Guyancourt, Versailles, Mantes, SQY.`,
+  courseName: 'Formation IA BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, présentiel ou distanciel, devis et chantier. Certification Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
   serviceName: `Accompagnement formation IA BTP — département des Yvelines (78)`,
   serviceDescription: `Prestation de formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises implantées dans le département des Yvelines (78) : interventions intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
   areaServedCourse: [
@@ -191,8 +191,8 @@ function buildDeptConfig(opts: {
   const d = `${departementNom} (${deptCode})`;
   const h1 = `Formation IA BTP en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
   const metaTitle = `Formation IA BTP ${opts.departementNom} — Laure Olivié · Qualiopi`;
-  const metaDescription = `Formation ChatGPT et Claude AI pour le BTP dans ${opts.departementNom} (${opts.deptCode}). Intervention à ${opts.triVillesMeta}. Qualiopi, finançable Constructys.`;
-  const courseName = `Formation IA BTP ${d} — Qualiopi, finançable Constructys`;
+  const metaDescription = `Formation ChatGPT et Claude AI pour le BTP dans ${opts.departementNom} (${opts.deptCode}). Intervention à ${opts.triVillesMeta}. Qualiopi, financement possible selon éligibilité.`;
+  const courseName = `Formation IA BTP ${d} — Qualiopi, financement possible selon éligibilité`;
   return {
     path: opts.path,
     h1,
@@ -204,7 +204,7 @@ function buildDeptConfig(opts: {
     badgeLine: opts.badgeLine,
     cities: opts.cities,
     courseName,
-    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP dans le département ${d}. Sessions 4 h, présentiel ou distanciel. Qualiopi, financement OPCO Constructys selon dossier. ${opts.perimetre}`,
+    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP dans le département ${d}. Sessions 4 h, présentiel ou distanciel. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
     serviceName: `Accompagnement formation IA BTP — département ${d}`,
     serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du ${d} : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
     areaServedCourse: [departementNom, opts.chefLieu, 'Île-de-France', 'France'],

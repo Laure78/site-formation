@@ -326,7 +326,7 @@ Génère le CR de chantier au format Word de mon entreprise. Marque clairement l
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Skills BTP »',
     programItems: [
       'On construit ton skill CR sur tes vrais chantiers',

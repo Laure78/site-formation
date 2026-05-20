@@ -318,7 +318,7 @@ Génère le PPSPS complet en Word. Inclus la table des matières, l'organigramme
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Conducteurs de travaux »',
     programItems: [
       'On construit ton skill PPSPS sur tes vrais chantiers',

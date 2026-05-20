@@ -15,7 +15,7 @@ const PATH = '/formation-ia-ferrailleur-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Ferrailleur BTP Île-de-France',
   description:
-    'Optimisez vos calculs d\'armatures, factures et devis acier béton avec ChatGPT. Formation Qualiopi finançable Constructys. Gagnez 6h/semaine.',
+    'Optimisez vos calculs d\'armatures, factures et devis acier béton avec ChatGPT. Formation Qualiopi. Financement possible selon éligibilité. Gagnez 6h/semaine.',
   path: PATH,
   keywords: [
     'formation IA ferrailleur BTP',
@@ -123,8 +123,7 @@ export default function FormationIaFerrailleurBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Optimisez <strong>quantitatifs</strong>, <strong>factures</strong> et <strong>devis</strong> acier béton avec ChatGPT —{' '}
-          <strong>Île-de-France</strong> et <strong>Grand Paris</strong>. Formation <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          <strong>Île-de-France</strong> et <strong>Grand Paris</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

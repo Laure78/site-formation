@@ -10,7 +10,7 @@ import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/li
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Paris 2026 — 100% Constructys',
+  title: 'Formation IA BTP Paris 2026 — Constructys selon éligibilité',
   description:
     'Formation IA ChatGPT pour BTP à Paris et IDF. Sessions inter et intra. Qualiopi. Finançable Constructys (plafonds en vigueur). Réservez votre visio découverte gratuite.',
   path: '/formation-ia-btp-paris-2026',
@@ -74,7 +74,7 @@ export default function FormationIABTPParis2026Page() {
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             Sessions à Paris (75) et en présentiel en Île-de-France : 4 h pratiques,
-            100 % finançables par l&apos;OPCO Constructys.
+            éligibles à un financement Constructys ou OPCO selon conditions.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link
@@ -136,11 +136,11 @@ export default function FormationIABTPParis2026Page() {
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Financement Constructys 100 % en 2026
+            Financement Constructys selon éligibilité en 2026
           </h2>
           <p className="mt-3 text-slate-600">
             Les formations IA BTP à Paris sont éligibles au financement Constructys.
-            Entreprises de moins de 50 salariés : prise en charge possible à 100 %.
+            Financement possible via Constructys ou votre OPCO, selon statut, branche et barèmes en vigueur.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
@@ -247,7 +247,7 @@ export default function FormationIABTPParis2026Page() {
               { href: '/formation-ia-btp-ile-de-france', label: 'Formation Île-de-France' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-              { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement 100 % IA BTP' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement Constructys formation IA BTP' },
               { href: buildSiteCalendlyCtaUrl('formation-ia-btp-paris-2026-footer-rdv'), label: 'Prendre rendez-vous' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic gratuit' },
               { href: '/blog', label: 'Articles et guides' },

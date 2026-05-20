@@ -41,7 +41,7 @@ export function StickyCTA() {
         <p className="text-sm font-semibold">
           📅 Formation IA BTP — 30 min offertes
         </p>
-        <p className="text-xs opacity-90">Finançable Constructys à 100 %</p>
+        <p className="text-xs opacity-90">Financement possible selon éligibilité</p>
       </div>
       <div className="flex shrink-0 items-center gap-2">
         <CTACalendly

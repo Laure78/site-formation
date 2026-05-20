@@ -308,7 +308,7 @@ Génère le courrier de constat de retard en Word A4, à ma charte, prêt à imp
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Conducteurs de travaux »',
     programItems: [
       'On construit tes skills CR + Constat + Email MOE en direct',

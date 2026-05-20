@@ -27,7 +27,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   '@type': 'Course',
   name: 'Formation IA pour Assistante de Gestion BTP',
   description:
-    'Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation d\'avancement, relances impayés, DC4, DGD, paie chantier, TVA autoliquidation. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation d\'avancement, relances impayés, DC4, DGD, paie chantier, TVA autoliquidation. Qualiopi. Financement possible selon éligibilité.',
   provider: {
     '@type': 'Organization',
     name: "OFC Création d'Entreprise",
@@ -96,7 +96,7 @@ const BREADCRUMB_JSON_LD: Record<string, unknown> = {
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    'Formation ChatGPT pour assistantes de gestion BTP : facturation avancement, relances impayés, DGD, sous-traitance. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT pour assistantes de gestion BTP : facturation avancement, relances impayés, DGD, sous-traitance. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA assistante de gestion BTP',
@@ -243,8 +243,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
             Une assistante de gestion BTP produit chaque semaine 20 à 30 documents administratifs :
             factures d&apos;avancement, relances, attestations sous-traitants, DGD, éléments variables de
             paie. L&apos;IA automatise 70 % de cette production répétitive, soit 6 à 8 heures libérées par
-            semaine. Formation certifiée <strong>Qualiopi</strong>, finançable{' '}
-            <strong>Constructys</strong>.
+            semaine. Formation certifiée <strong>Qualiopi</strong>, financement possible selon éligibilité.
           </ShortAnswerBlock>
         </div>
 

@@ -47,6 +47,8 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
@@ -162,7 +164,7 @@ export default function HomePage() {
                   <span className="hidden font-medium text-slate-600 sm:inline">Qualiopi · Constructys</span>
                 </div>
                 <h1 className="mt-6 text-balance font-display text-[1.7rem] font-bold leading-[1.14] tracking-tight text-slate-900 sm:text-[1.95rem] md:text-[2.2rem] lg:text-[2.45rem] lg:leading-[1.11]">
-                  Laure Olivié — Formatrice IA pour le BTP
+                  Laure Olivié — formatrice IA spécialisée BTP
                 </h1>
                 <h2 className="mt-4 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
                   Formation IA BTP en Île-de-France pour vos équipes du bâtiment
@@ -180,10 +182,10 @@ export default function HomePage() {
                   <strong>Laure Olivié</strong> forme les équipes BTP à utiliser Claude AI et l&apos;IA
                   générative pour gagner 3 à 5 heures par semaine sur les devis, comptes rendus de chantier
                   et réponses aux appels d&apos;offres. Sa formation, dispensée par l&apos;organisme{' '}
-                  <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi), est finançable à 100 %
-                  par Constructys et a déjà accompagné {formatProfessionalsTrainedCount()} professionnels du
-                  bâtiment et des travaux publics en Île-de-France (note {SOCIAL_PROOF.AVERAGE_RATING} en
-                  2026).
+                  <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi).{' '}
+                  {FINANCEMENT_FORMULATION_PRUDENTE} Laure Olivié a déjà accompagné{' '}
+                  {formatProfessionalsTrainedCount()} professionnels du bâtiment et des travaux publics en
+                  Île-de-France (note {SOCIAL_PROOF.AVERAGE_RATING} en 2026).
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <RdvLink
@@ -292,14 +294,13 @@ export default function HomePage() {
                 <strong>Définition.</strong> Une « formation IA BTP » est une formation professionnelle
                 qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
                 d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
-                automatiser leurs tâches récurrentes : rédaction de devis, comptes rendus de
-                chantier, mémoires techniques, emails et analyse de dossiers d&apos;appel
-                d&apos;offres.
+                automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
+                techniques, comptes rendus de chantier, relances clients et documents administratifs.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
                   { val: formatProfessionalsTrainedCount(), label: 'PERSONNES FORMÉES' },
-                  { val: '100%', label: 'FINANÇABLE OPCO' },
+                  { val: 'OPCO', label: 'FINANCEMENT POSSIBLE' },
                   { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'NOTE MOYENNE' },
                 ].map((stat) => (
                   <div
@@ -402,7 +403,7 @@ export default function HomePage() {
                 {[
                   { val: `+${formatProfessionalsTrainedCount()}`, label: 'personnes formées' },
                   { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'note moyenne' },
-                  { val: '100%', label: 'finançable OPCO' },
+                  { val: 'OPCO', label: 'financement possible' },
                 ].map((s) => (
                   <div
                     key={s.label}
@@ -495,6 +496,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+              <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
             </div>
 
             <div
@@ -722,7 +724,7 @@ export default function HomePage() {
             Nos formations IA spécialisées BTP
           </h2>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Formations IA finançables Qualiopi / OPCO — présentiel.
+            Formations IA Qualiopi / OPCO — intra, présentiel ou distanciel. Financement possible selon éligibilité.
           </p>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {[
@@ -751,9 +753,9 @@ export default function HomePage() {
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_AVANCE_HT} € HT/session`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
-                  'DCE, mémoires techniques et chiffrage avec méthode et assistant IA',
-                  'Bibliothèque de prompts et modèles pour marchés BTP',
-                  'Sécuriser le process : confidentialité et relecture humaine',
+                  'Analyse DCE avec NotebookLM — critères, DPGF, règlement de consultation',
+                  'Go / No Go, mémoire technique et contrôle de chiffrage avec Claude AI',
+                  'Bibliothèque de prompts BTP — confidentialité et validation humaine',
                 ],
               },
             ].map((cours) => (
@@ -1096,22 +1098,17 @@ export default function HomePage() {
                 <span>FINANCEMENT</span>
               </div>
               <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-                Formation finançable par Constructys
+                Financement possible selon éligibilité
               </h3>
               <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-                Cette formation peut être{' '}
-                <span className="font-semibold text-[var(--accent)]">
-                  prise en charge à 100% par Constructys
-                </span>{' '}
-                dans le cadre du Plan de Développement des Compétences 2026 pour les
-                entreprises de moins de 50 salariés.
+                {FINANCEMENT_FORMULATION_PRUDENTE}
               </p>
               <div className="mt-12 grid gap-6 md:grid-cols-3">
                 {[
                   {
                     icon: Award,
-                    title: '100% finançable',
-                    desc: "Coût pédagogique pris en charge à hauteur de 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum.",
+                    title: 'Financement possible',
+                    desc: "Coût pédagogique : plafond indicatif 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum — selon barèmes Constructys en vigueur.",
                   },
                   {
                     icon: Target,
@@ -1260,7 +1257,7 @@ export default function HomePage() {
             {[
               { val: `+${formatProfessionalsTrainedCount()}`, label: 'Professionnels formés' },
               { val: '98%', label: 'Satisfaction' },
-              { val: '100%', label: 'Finançable OPCO' },
+              { val: 'OPCO', label: 'Financement possible' },
             ].map((s) => (
               <div key={s.label}>
                 <p className="text-3xl font-bold md:text-4xl">{s.val}</p>

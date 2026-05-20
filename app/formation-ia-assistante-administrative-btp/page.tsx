@@ -17,7 +17,7 @@ const PATH = '/formation-ia-assistante-administrative-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Assistante Administrative BTP Île-de-France',
   description:
-    'Automatisez courriers, facturations, devis, relances, suivi chantier. Formation Qualiopi finançable Constructys.',
+    'Automatisez courriers, facturations, devis, relances, suivi chantier. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA assistante administrative BTP',
@@ -166,8 +166,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 5 h par semaine</strong> sur courriers, relances, suivi et
-          synthèses. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          synthèses. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

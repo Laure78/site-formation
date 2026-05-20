@@ -65,7 +65,7 @@ const FAQ_ITEMS: FAQItem[] = [
     a: "Oui. La formation de Laure Olivié s'adresse aux entreprises BTP qui répondent aux appels d'offres — pas aux maîtres d'œuvre qui les rédigent. L'angle est : comment lire vite un CCTP, identifier les risques pour son lot, et préparer un mémoire technique percutant.",
   },
   {
-    q: 'Cette formation est-elle finançable par Constructys ?',
+    q: 'Cette formation est-elle financement possible selon éligibilité (Constructys) ?',
     a: "Oui. OFC Création d'Entreprise est certifié Qualiopi et référencé Constructys. Le plafond pédagogique 2026 est de 24 € HT/h/participant pour les entreprises du Bâtiment.",
   },
   {

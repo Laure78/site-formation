@@ -118,7 +118,7 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     },
   ],
   courseName: 'Formation IA étancheur BTP — partenariat CSFE, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier. Île-de-France et France.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour étancheurs — mémoires techniques, DTU 43, bardage, relevés, CCTP. Interventions auprès de ${CSFE_NOM_LIBRE}. Session 4 h, Qualiopi, financement possible selon éligibilité. Île-de-France et France.`,
   courseTeaches: [
     'ChatGPT pour étancheurs BTP',
     'Méthodes IA et DTU 43 (relecture humaine)',
@@ -244,7 +244,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
       a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${OFC}.`,
     },
     {
-      q: 'La formation IA électricien BTP est-elle finançable Constructys ?',
+      q: 'La formation IA électricien BTP est-elle financement possible selon éligibilité ?',
       a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
@@ -253,7 +253,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
     },
   ],
   courseName: 'Formation IA électricien BTP — NF C 15-100, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour électriciens du BTP — devis tableautage, puissance, rapports, mémoires AO, CR et SAV. Référence NF C 15-100. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour électriciens BTP',
     'Devis et descriptifs tableautage (relecture humaine)',
@@ -392,7 +392,7 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
       a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation.`,
     },
     {
-      q: 'La formation IA plombier BTP est-elle finançable Constructys ?',
+      q: 'La formation IA plombier BTP est-elle financement possible selon éligibilité ?',
       a: `Oui selon éligibilité : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
@@ -401,7 +401,7 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
     },
   ],
   courseName: 'Formation IA plombier chauffagiste BTP — Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour plombiers chauffagistes — devis, PER, cuivre, DTU 60.11, évacuation, VMC, chaudière, PAC. Aides MaPrimeRénov’ et CEE : structuration documentaire. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour plombiers chauffagistes — devis, PER, cuivre, DTU 60.11, évacuation, VMC, chaudière, PAC. Aides MaPrimeRénov’ et CEE : structuration documentaire. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour plombiers chauffagistes BTP',
     'Devis sanitaire et chauffage (relecture humaine)',

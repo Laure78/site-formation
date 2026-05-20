@@ -172,7 +172,7 @@ export default async function ContactPage({
             </blockquote>
             <p>
               Mes <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">formations IA BTP</Link> sont certifiées Qualiopi et peuvent être prises en
-              charge à 100% par votre OPCO (Constructys, etc.). Je vous
+              prise en charge par votre OPCO selon éligibilité (Constructys, etc.). Je vous
               accompagne également dans les démarches administratives pour
               faciliter le financement de votre formation.
             </p>

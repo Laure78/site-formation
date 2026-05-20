@@ -79,7 +79,7 @@ export function BeworkEtFormationsOffreSection() {
           <p className="mt-4 text-[15px] font-medium leading-relaxed text-[#1A1A1A] md:text-base">
             Deux directions possibles selon votre temps et votre priorité&nbsp;:{' '}
             <strong>déléguer le relais administratif avec BeWork</strong>, ou{' '}
-            <strong>monter en compétence avec des formations IA BTP certifiées Qualiopi</strong>, finançables auprès de
+            <strong>monter en compétence avec des formations IA BTP certifiées Qualiopi</strong>, éligibles à un financement auprès de
             votre OPCO (dont Constructys) lorsque les conditions sont remplies.
           </p>
         </header>

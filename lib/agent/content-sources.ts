@@ -34,12 +34,12 @@ const FORMATIONS_DATA = [
     desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
   { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
-  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/session. DCE, mémoires, marchés. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/session. DCE (NotebookLM), Go/No Go, mémoires, chiffrage (Claude AI). ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par session (12 participants max).' },
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. 100% finançable OPCO Constructys. Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
+  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',
@@ -49,7 +49,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email} — ${SITE_CONFIG.phoneDisplay}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). Prise en charge OPCO Constructys selon barèmes. Qualiopi. eGestion, délais 15 jours.` },
-  { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge jusqu\'à 100%. 24€ HT/heure/stagiaire.' },
+  { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge selon barèmes et éligibilité. 24€ HT/heure/stagiaire.' },
   { path: '/formation-ia-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
   {
     path: '/formation-ia-appels-offres-btp',
@@ -57,12 +57,12 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
     content:
       `Landing SEO BTP-02 : analyser un DCE avec l'IA, mémoire technique, prompts, financement Constructys, méthode en 5 étapes. Laure Olivié, Qualiopi, +${formatProfessionalsTrainedCount()} pros formés. Lien vers la fiche /formations/ia-appels-offre-btp.`,
   },
-  { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation finançable OPCO Constructys. Gain de temps sur chiffrages.' },
+  { path: '/ia-devis-batiment', title: 'IA devis automatique bâtiment', content: 'IA devis automatique bâtiment : prompts, trames, formation éligible à un financement OPCO, selon éligibilité. Gain de temps sur chiffrages.' },
   {
     path: '/formation-ia-electricien-btp',
     title: 'ChatGPT pour électriciens BTP',
     content:
-      'Formation IA et ChatGPT pour entreprises d\'électricité bâtiment et TPE : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi, finançable Constructys. Laure Olivié.',
+      'Formation IA et ChatGPT pour entreprises d\'électricité bâtiment et TPE : devis, appels d\'offres, emails, fiches techniques, posts réseaux. NF C 15-100, tableau, câblage. Qualiopi. Financement possible selon éligibilité. Laure Olivié.',
   },
   {
     path: '/formation-ia-electricien-btp',

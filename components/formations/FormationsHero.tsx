@@ -55,7 +55,7 @@ export function FormationsHero() {
           </span>
           <span className="inline-flex items-center gap-1">
             <Check className="h-3.5 w-3.5 shrink-0 opacity-90" strokeWidth={2.5} aria-hidden />
-            100% finançable
+            Financement possible selon éligibilité
           </span>
           <span className="text-white/35" aria-hidden>
             ·

@@ -13,8 +13,8 @@ export function ClaudeBtpConversionCta() {
       title="Formation Claude AI avec OFC"
       description={
         <>
-          4 h — Qualiopi — finançable Constructys. Chat, Projets, Cowork, Code, Chrome : présentiel en Île-de-France ou
-          distanciel.
+          4 h — Qualiopi — financement possible selon éligibilité. Chat, Projets, Cowork, Code, Chrome : intra ou inter,
+          en présentiel en Île-de-France ou en distanciel.
         </>
       }
       bullets={[

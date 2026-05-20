@@ -62,7 +62,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation est-elle finançable ?',
-    a: "Oui. La formation IA Constructys est 100 % finançable par l'OPCO Constructys pour les entreprises du BTP. Le module « L'IA au service du bâtiment » inclut un volet dédié aux CR et rapports chantier.",
+    a: "Oui. La formation IA Constructys est éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Le module « L'IA au service du bâtiment » inclut un volet dédié aux CR et rapports chantier.",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function IAConducteurTravauxPage() {
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
             formation IA BTP
           </Link>
-          {' '}pratique pour conducteurs BTP est finançable Constructys.
+          {' '}pratique pour conducteurs BTP est éligible à un financement selon dossier.
         </p>
 
         <div className="mt-8">
@@ -163,7 +163,7 @@ export default function IAConducteurTravauxPage() {
           </h2>
           <p className="mt-4 text-blue-100">
             Module CR et rapports dans la formation « L&apos;IA au service du bâtiment ».
-            Travail sur vos vrais documents. 100 % finançable Constructys.
+            Travail sur vos vrais documents. financement possible selon éligibilité.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link

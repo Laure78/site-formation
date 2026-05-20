@@ -15,7 +15,7 @@ const PATH = '/formation-ia-cloturiste-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Clôturiste BTP Île-de-France',
   description:
-    'Automatisez vos devis clôtures, portails, grillages. Formation Qualiopi finançable Constructys.',
+    'Automatisez vos devis clôtures, portails, grillages. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA clôturiste',
@@ -151,8 +151,7 @@ export default function FormationIaCloturisteBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 2 h par semaine</strong> sur devis, variantes et réponses aux
-          prospects. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          prospects. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

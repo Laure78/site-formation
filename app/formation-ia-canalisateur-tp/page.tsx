@@ -16,7 +16,7 @@ const PATH = '/formation-ia-canalisateur-tp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Canalisateur TP Île-de-France',
   description:
-    'Automatisez vos devis canalisations, rapports de chantier, conformité normes. Formation Qualiopi finançable Constructys.',
+    'Automatisez vos devis canalisations, rapports de chantier, conformité normes. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA canalisateur',
@@ -167,8 +167,7 @@ export default function FormationIaCanalisateurTpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 3 h par semaine</strong> sur devis, variantes et mémoires techniques.{' '}
-          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

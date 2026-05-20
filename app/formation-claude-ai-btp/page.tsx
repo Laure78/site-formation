@@ -28,7 +28,7 @@ const OG_IMAGE = "/images/claude-btp-hero-chantier-2026.png";
 export const metadata: Metadata = {
   title: "Formation Claude AI BTP — L'IA d'Anthropic pour le bâtiment",
   description:
-    "Formation Claude AI BTP : maîtrisez l'IA d'Anthropic pour devis, CCTP, mémoires techniques. 4h, Qualiopi, finançable Constructys. 1 592 pros BTP formés.",
+    "Formation Claude AI BTP : maîtrisez l'IA d'Anthropic pour devis, CCTP, mémoires techniques. 4h, Qualiopi. Financement possible selon éligibilité. 1 592 pros BTP formés.",
   keywords: [
     "formation Claude AI BTP",
     "Claude AI bâtiment",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: "article",
     title: "Formation Claude AI BTP — L'IA d'Anthropic pour le bâtiment",
     description:
-      "Maîtrisez Claude AI (Anthropic) pour vos devis, CCTP et mémoires techniques BTP. Session 4h, Qualiopi, finançable Constructys.",
+      "Maîtrisez Claude AI (Anthropic) pour vos devis, CCTP et mémoires techniques BTP. Session 4h, Qualiopi. Financement possible selon éligibilité.",
     url: PAGE_URL,
     siteName: "Laure Olivié — Formation IA BTP",
     locale: "fr_FR",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Formation Claude AI BTP — L'IA d'Anthropic pour le bâtiment",
-    description: "4h Qualiopi, finançable Constructys. Devis, CCTP, mémoires techniques.",
+    description: "4h Qualiopi. Financement possible selon éligibilité. Devis, CCTP, mémoires techniques.",
     images: [OG_IMAGE],
   },
   other: {
@@ -125,8 +125,8 @@ const faqItems = [
     a: `Le niveau débutant (forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session) fonctionne avec le plan gratuit de Claude AI. Le niveau avancé (${TARIF_SESSION_AVANCE_HT} € HT par session) nécessite Claude Pro (environ 20 $/mois) pour accéder à Claude Sonnet 4.5/Opus et à l'upload de documents volumineux. Ce coût est modeste au regard du temps gagné — détails sur la <a href="/financement-constructys-formation-ia-btp">page financement</a>.`,
   },
   {
-    q: "Cette formation Claude AI est-elle finançable par Constructys ?",
-    a: 'Oui, la formation Claude AI BTP est certifiée Qualiopi et finançable à 100 % par Constructys pour les entreprises BTP de moins de 50 salariés dans le cadre du Plan de Développement des Compétences 2026. Plafond pédagogique : 24 € HT par heure et par participant. Voir <a href="/financement-constructys-formation-ia-btp">le guide complet du financement Constructys</a>.',
+    q: "Cette formation Claude AI est-elle financement possible selon éligibilité (Constructys) ?",
+    a: 'Oui, la formation Claude AI BTP est certifiée Qualiopi et éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur pour les entreprises BTP de moins de 50 salariés dans le cadre du Plan de Développement des Compétences 2026. Plafond pédagogique : 24 € HT par heure et par participant. Voir <a href="/financement-constructys-formation-ia-btp">le guide complet du financement Constructys</a>.',
   },
   {
     q: "Combien de temps dure la formation Claude AI BTP ?",
@@ -234,7 +234,7 @@ export default function FormationClaudeAiBtpPage() {
               <p className="mt-6 text-lg text-slate-300">
                 <strong className="text-white">Claude AI</strong> est l&apos;IA qui lit vos CCTP de 100 pages
                 sans broncher, rédige vos mémoires techniques avec finesse et protège vos données
-                sensibles. Formation de 4 heures, certifiée Qualiopi, finançable Constructys.
+                sensibles. Formation de 4 heures, certifiée Qualiopi. Financement possible selon éligibilité.
                 Déjà <strong className="text-white">1 592 professionnels du BTP</strong> formés
                 (note 4,85/5).
               </p>
@@ -545,8 +545,7 @@ export default function FormationClaudeAiBtpPage() {
             </h2>
             <p className="mt-3 text-slate-700">
               Forfait par session selon le niveau pédagogique ({TARIF_SESSION_DEBUTANT_HT} ou {TARIF_SESSION_AVANCE_HT}{' '}
-              € HT). Formation finançable à 100 % par
-              Constructys pour les entreprises BTP de moins de 50 salariés.
+              € HT). Formation éligible à une prise en charge par Constructys ou votre OPCO, selon statut, branche professionnelle et conditions en vigueur.
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
               <li>

@@ -17,7 +17,7 @@ export const FAQ_FORMATION_IA_BTP_PILLAR: FAQItem[] = [
   {
     q: 'Comment est financée la formation avec Constructys ?',
     a:
-      'Constructys finance jusqu\'à 100 % des coûts pédagogiques pour les entreprises éligibles du BTP, dans la limite des barèmes (plafond pédagogique 24 € HT/h/stagiaire). La demande se dépose via eGestion au moins 15 jours avant le début. OFC est certifié Qualiopi — guide : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
+      'Constructys peut prendre en charge une partie ou la totalité des coûts pédagogiques selon éligibilité pour les entreprises éligibles du BTP, dans la limite des barèmes (plafond pédagogique 24 € HT/h/stagiaire). La demande se dépose via eGestion au moins 15 jours avant le début. OFC est certifié Qualiopi — guide : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
     q: 'La formation peut-elle se faire dans nos locaux ?',

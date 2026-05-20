@@ -23,8 +23,9 @@ export function ClaudeAiBtpHero() {
       titleId="claude-btp-hero-title"
       subtitle={
         <>
-          Interfaces, workflows et prompts pour conducteurs de travaux, chargés d&apos;affaires et dirigeants — gain de
-          temps mesurable sur DCE, comptes rendus et relances.
+          Interfaces, workflows et prompts pour artisans, TPE, PME, conducteurs de travaux, chargés d&apos;affaires,
+          dirigeants et équipes administratives — gain de temps mesurable sur devis, DCE, CCTP, mémoires techniques,
+          comptes rendus et relances.
         </>
       }
       metaLine={`Temps de lecture estimé : environ ${READING_MINUTES} minutes · guide mis à jour en avril 2026`}
@@ -35,7 +36,7 @@ export function ClaudeAiBtpHero() {
         <>
           <span className="inline-flex items-center gap-1.5 font-medium text-white/85">
             <Award className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
-            Laure Olivié · OFC Création d&apos;Entreprise
+            Laure Olivié · formatrice IA spécialisée BTP · OFC Création d&apos;Entreprise
           </span>
           <span className="hidden sm:inline text-white/35" aria-hidden>
             ·

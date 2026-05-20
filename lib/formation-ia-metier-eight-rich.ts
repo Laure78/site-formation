@@ -20,7 +20,7 @@ function faqStandard(metierLabel: string): FAQItem[] {
       a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits ou des offres professionnelles sans entraînement — c’est un point clé des sessions ${OFC}.`,
     },
     {
-      q: 'La formation est-elle finançable par Constructys ?',
+      q: 'La formation est-elle financement possible selon éligibilité (Constructys) ?',
       a: `Oui selon éligibilité : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
     },
     {
@@ -109,7 +109,7 @@ Rédige un mail court, clair, sans promettre un détail technique non validé en
     ...faqStandard('maçon'),
   ],
   courseName: 'Formation IA maçon BTP — DTU 20, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — gros œuvre, métrés, mémoires, réponses marchés. Session 4 h, Qualiopi, financement OPCO Constructys selon dossier.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — gros œuvre, métrés, mémoires, réponses marchés. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
     'ChatGPT pour maçons BTP',
     'DTU 20 — usage documentaire assisté',

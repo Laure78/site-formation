@@ -14,6 +14,7 @@ import {
   AI_TOOL_NOTEBOOKLM_URL,
 } from '@/lib/ai-tools-external-urls';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 
 const PATH = LINKS.guideConducteurTravauxIaBtp;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -245,8 +246,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
                 tableau des gains mesurés.
               </li>
               <li>
-                <strong>Formation OFC</strong> : 4 heures, finançable{' '}
-                <strong>Constructys 2026</strong> (24 € HT/h/stagiaire, plafonds du dispositif).
+                <strong>Formation OFC</strong> : 4 heures, financement possible selon éligibilité (Constructys 2026) (24 € HT/h/stagiaire, plafonds du dispositif).
               </li>
             </ul>
           </blockquote>
@@ -669,6 +669,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
             l’équivalent d’une semaine de travail par opération. Sur 10 chantiers par an, c’est entre 300 et
             500 heures rendues au pilotage terrain.
           </p>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
 
           <h2 id="prompts">3 prompts prêts à l’emploi pour conducteur de travaux</h2>
 

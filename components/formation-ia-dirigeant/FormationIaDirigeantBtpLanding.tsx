@@ -223,7 +223,7 @@ export function FormationIaDirigeantBtpLanding() {
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
               <p>
                 Le coût direct inclut les <strong className="text-slate-900">sessions certifiées</strong> (forfaits par
-                participant selon le module) et le <strong className="text-slate-900">temps interne</strong> de cadrage
+                session selon le module) et le <strong className="text-slate-900">temps interne</strong> de cadrage
                 et de conduite du changement — souvent sous-estimé. Les outils (licences pro, comptes entreprise)
                 s’ajoutent selon vos choix techniques.
               </p>

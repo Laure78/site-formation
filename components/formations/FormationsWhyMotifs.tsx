@@ -48,7 +48,7 @@ export function FormationsWhyMotifs() {
             <Wallet className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
           </div>
           <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
-            100 % finançable Constructys
+            Financement possible selon éligibilité
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
             Plafond pédagogique 24 € HT/h/stagiaire — demande à déposer 15 jours avant la session.

@@ -344,7 +344,7 @@ Et change le ton de la section "valeur ajoutée" : je ne veux pas du tout sonner
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS VITE ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Skills BTP »',
     programItems: [
       'On construit ton skill mémoire technique en direct',

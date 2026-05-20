@@ -70,7 +70,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     {
       type: 'definition',
       title: 'En bref',
-      content: `Un CCTP de 80 pages, c’est souvent 6 à 8 heures de lecture linéaire. Avec une méthode IA encadrée, je descends à environ 30 minutes pour en sortir une grille exploitable. J’ai formé plus de ${N} professionnels du BTP : je parle en direct, sans promesse magique. Je connais les pièges des DTU mal cités et des normes « inventées » par le modèle. Cet article décrit la formation IA CCTP comme un levier pour les entreprises qui répondent aux appels d’offres — pas pour les cabinets qui les rédigent. Vous trouverez la méthode en quatre temps, un comparatif ChatGPT et Claude, un cas anonymisé lot revêtements, puis la suite possible vers une formation courte et finançable OPCO Constructys lorsque votre dossier est éligible.`,
+      content: `Un CCTP de 80 pages, c’est souvent 6 à 8 heures de lecture linéaire. Avec une méthode IA encadrée, je descends à environ 30 minutes pour en sortir une grille exploitable. J’ai formé plus de ${N} professionnels du BTP : je parle en direct, sans promesse magique. Je connais les pièges des DTU mal cités et des normes « inventées » par le modèle. Cet article décrit la formation IA CCTP comme un levier pour les entreprises qui répondent aux appels d’offres — pas pour les cabinets qui les rédigent. Vous trouverez la méthode en quatre temps, un comparatif ChatGPT et Claude, un cas anonymisé lot revêtements, puis la suite possible vers une formation courte et financement possible selon éligibilité (OPCO Constructys) lorsque votre dossier est éligible.`,
     },
     {
       type: 'html',

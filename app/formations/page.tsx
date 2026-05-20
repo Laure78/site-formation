@@ -20,20 +20,21 @@ import { FormationsWhyMotifs } from '@/components/formations/FormationsWhyMotifs
 import { FormationsCatalogueMidCta } from '@/components/formations/FormationsCatalogueMidCta';
 import { FormationsPartnersStrip } from '@/components/formations/FormationsPartnersStrip';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
-import { FAQSchema } from '@/components/seo/FAQSchema';
 import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const OG_TITLE = 'Catalogue formation IA BTP — 2 formations Qualiopi 4 h';
 const OG_DESCRIPTION =
-  "2 formations IA BTP de 4 h finançables Constructys : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre. Programmes PDF. Inter Île-de-France ou intra.";
+  "2 formations IA BTP de 4 h (NIV-01 et NIV-02) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre. Programmes PDF. Intra, inter, présentiel ou distanciel. Financement possible selon éligibilité.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
     title: 'Formation IA BTP : catalogue 2 formations Qualiopi',
     description:
-      "Catalogue 2 formations IA BTP : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre BTP. 4 h, forfait 1000 ou 1250 € HT/session (12 pers. max), finançable Constructys. Île-de-France.",
+      "Catalogue 2 formations IA BTP : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre BTP. 4 h, forfait 1 000 ou 1 200 € HT/session (12 pers. max). Intra, inter, présentiel ou distanciel. Financement possible selon éligibilité.",
     path: '/formations',
     appendAuthorSuffix: false,
     openGraphTitle: OG_TITLE,
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: OG_TITLE,
     description:
-      "2 formations IA BTP finançables Constructys. Inter Île-de-France ou intra. Niveau 1 et niveau 2.",
+      "2 formations IA BTP Qualiopi (NIV-01 et NIV-02). Intra, inter, présentiel ou distanciel. Financement possible selon éligibilité.",
     images: [`${baseUrl}${PHOTOS.formationIaBtpSalleInteractive2026.src}`],
   },
   alternates: {
@@ -99,11 +100,9 @@ const chipLinkClass =
   'inline-flex items-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-4 py-2.5 text-sm font-medium text-[#0F172A] transition duration-200 hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]';
 
 export default function FormationsPage() {
-  const faqSchemaItems = FAQ_FORMATIONS.map((item) => ({ question: item.q, answer: item.a }));
   return (
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
-      <FAQSchema id="schema-formations-faq" items={faqSchemaItems} />
       <FormationsHero />
       <FormationsStatsBand />
 
@@ -123,12 +122,14 @@ export default function FormationsPage() {
 
         <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
           <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
-            Formations IA BTP finançables pour dirigeants, <strong>professionnels du BTP</strong>, PME bâtiment et
-            fonctions support : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
+            Formations IA BTP pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux, chargés
+            d&apos;affaires et équipes administratives : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>{' '}
-            au service des devis, emails, comptes rendus de chantier et appels d&apos;offres. {ENCART_TARIFS_COMMERCIAUX}{' '}
+            au service des devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier,
+            relances clients et documents administratifs. {ENCART_TARIFS_COMMERCIAUX}{' '}
+            {FINANCEMENT_FORMULATION_COURTE}{' '}
             Méthode 100 % terrain, orientée
             productivité.{' '}
             <CalendlyButton variant="small" campaign="formations-intro-rdv" className="font-medium">
@@ -136,6 +137,7 @@ export default function FormationsPage() {
             </CalendlyButton>{' '}
             pour un diagnostic personnalisé.
           </p>
+          <p className="mt-3 max-w-5xl text-sm leading-relaxed text-[#64748B]">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
         <FormationsComparisonTable formations={FORMATIONS_CATALOGUE} />
@@ -205,7 +207,7 @@ export default function FormationsPage() {
             </li>
             <li>
               <Link href={LINKS.financement} className={chipLinkClass}>
-                Financement Constructys 100 %
+                Financement Constructys selon éligibilité
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>

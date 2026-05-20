@@ -325,7 +325,7 @@ export default function AProposPage() {
                   {
                     icon: ShieldCheck,
                     title: 'Certification Qualiopi',
-                    desc: 'Cadre pédagogique structuré, finançable Constructys selon votre éligibilité.',
+                    desc: 'Cadre pédagogique structuré — financement possible selon éligibilité.',
                     ring: 'bg-[#EDE9FE]',
                   },
                 ].map((item) => {

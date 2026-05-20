@@ -16,7 +16,7 @@ const PATH = '/formation-ia-pisciniste-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Pisciniste BTP Île-de-France',
   description:
-    'Automatisez vos devis piscine, fiches techniques, relances clients. Formation Qualiopi finançable Constructys.',
+    'Automatisez vos devis piscine, fiches techniques, relances clients. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA pisciniste BTP',
@@ -151,8 +151,7 @@ export default function FormationIaPiscinisteBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 4 h par semaine</strong> sur devis techniques, variantes et
-          documentation client.           <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          documentation client.           <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

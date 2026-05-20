@@ -22,7 +22,7 @@ const cards = [
   {
     href: LINKS.financement,
     title: 'Financement Constructys',
-    desc: '100 % finançable OPCO BTP — plafonds 2026, dossier eGestion',
+    desc: 'Financement possible via Constructys ou OPCO — plafonds 2026, dossier eGestion',
     Icon: Coins,
   },
   {

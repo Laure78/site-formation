@@ -16,7 +16,7 @@ const PATH = '/formation-ia-chef-chantier-tp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Chef Chantier TP Île-de-France',
   description:
-    'Automatisez rapports chantier, coordination sous-traitants, PPSPS, planning. Formation Qualiopi finançable Constructys.',
+    'Automatisez rapports chantier, coordination sous-traitants, PPSPS, planning. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA chef de chantier TP',
@@ -172,8 +172,7 @@ export default function FormationIaChefChantierTpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 5 h par semaine</strong> sur rapports, mails et dossiers.{' '}
-          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

@@ -38,7 +38,7 @@ const ARTICLES = [
     title:
       'Financer sa formation IA dans le BTP : le guide Constructys pour les PME du bâtiment',
     excerpt:
-      "Constructys, l'OPCO de la construction, finance jusqu'à 100 % des formations IA…",
+      "Constructys, l'OPCO de la construction, peut financer une partie ou la totalité des formations IA selon éligibilité…",
   },
 ] as const;
 

@@ -306,7 +306,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: "On l'installe ensemble",
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: "Module « L'IA au service du BTP » — 4h",
     programItems: [
       'Setup Dispatch en direct sur ton PC et ton téléphone',

@@ -105,8 +105,7 @@ export default function RessourcesIndexPage() {
           </h2>
           <p className="mt-3 text-slate-700">
             Les tutos t&apos;ont mis le pied à l&apos;étrier. Pour passer au niveau supérieur — skill construit
-            sur ta vraie entreprise, équipe formée — découvre les programmes Niveau 2, finançables
-            Constructys / OPCO.
+            sur ta vraie entreprise, équipe formée — découvre les programmes Niveau 2, financement possible selon éligibilité (Constructys) / OPCO.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link

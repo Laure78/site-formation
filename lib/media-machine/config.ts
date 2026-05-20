@@ -32,7 +32,7 @@ export const MEDIA_CONFIG = {
     financement: { path: '/financement-constructys-formation-ia-btp', anchors: ['financement Constructys', 'tarifs formation'] },
   },
   ctaPhrases: [
-    'Découvrez notre formation IA BTP — 100% finançable Constructys.',
+    'Découvrez notre formation IA BTP — Financement possible selon éligibilité.',
     'Réservez un échange de 30 minutes gratuit pour une formation sur-mesure.',
     'Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails.',
   ],

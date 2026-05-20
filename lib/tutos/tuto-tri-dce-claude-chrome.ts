@@ -312,7 +312,7 @@ Ré-enregistre la nouvelle version sous le même nom.`,
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: "On l'installe ensemble",
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — DCE & Mémoire Technique »',
     programItems: [
       'On installe Claude in Chrome sur ton poste',

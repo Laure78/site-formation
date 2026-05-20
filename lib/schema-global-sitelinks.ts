@@ -107,7 +107,7 @@ const HAS_PART = [
 
 export function buildGlobalSitelinksGraphJsonLd(): Record<string, unknown> {
   const pros = formatProfessionalsTrainedCount();
-  const desc = `Formation IA et ChatGPT pour le BTP par Laure Olivié. Qualiopi, finançable Constructys. ${pros} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`;
+  const desc = `Formation IA et ChatGPT pour le BTP par Laure Olivié. Qualiopi. Financement possible selon éligibilité. ${pros} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`;
 
   const webSite = {
     '@type': 'WebSite',

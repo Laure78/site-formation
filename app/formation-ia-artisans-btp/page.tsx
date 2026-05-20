@@ -15,7 +15,7 @@ import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT } from '@/lib/
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP : ChatGPT, devis, emails, comptes rendus',
   description:
-    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi, finançable Constructys. TPE, PME et professionnels du bâtiment.',
+    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
   path: '/formation-ia-artisans-btp',
   keywords: [
     'formation IA PME BTP',
@@ -55,7 +55,7 @@ const serviceJsonLd = {
   provider: { '@id': `${baseUrl}/#organization` },
   areaServed: { '@type': 'State', name: 'Île-de-France' },
   description:
-    'Formation ChatGPT 4h pour TPE/PME et professionnels du BTP : devis, emails, comptes rendus de chantier. Qualiopi, finançable Constructys.',
+    'Formation ChatGPT 4h pour TPE/PME et professionnels du BTP : devis, emails, comptes rendus de chantier. Qualiopi. Financement possible selon éligibilité.',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Formation IA BTP',
@@ -104,7 +104,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation ChatGPT pour entreprises BTP est-elle finançable ?',
-    a: "Oui. La formation IA Constructys est certifiée Qualiopi et 100 % finançable par l'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
+    a: "Oui. La formation IA Constructys est certifiée Qualiopi et éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function FormationIAArtisansBTPPage() {
           <Link href={LINKS.formationIaBtp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>
-          {' '}est certifiée Qualiopi, 100 % finançable Constructys.
+          {' '}est certifiée Qualiopi, financement possible selon éligibilité.
         </p>
 
         {/* En bref unique : gains + définition */}
@@ -290,7 +290,7 @@ export default function FormationIAArtisansBTPPage() {
           <p className="mt-4 text-blue-100">
             Laure Olivié forme les dirigeants et équipes du bâtiment et des travaux publics à ChatGPT depuis 2024.
             Formation 4 h, 100 % pratique : vous repartez avec des trames et
-            des prompts prêts à l&apos;emploi. 100 % finançable OPCO Constructys.
+            des prompts prêts à l&apos;emploi. Financement possible selon éligibilité.
           </p>
           <p className="mt-3 text-sm text-blue-100">
             À partir de {TARIF_SESSION_DEBUTANT_HT} € HT/session · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}

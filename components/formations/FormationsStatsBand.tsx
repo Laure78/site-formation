@@ -7,7 +7,7 @@ export function FormationsStatsBand() {
   const stats: { value: string; label: string }[] = [
     { value: formatProfessionalsTrainedCount(), label: 'Pros formés' },
     { value: SOCIAL_PROOF.AVERAGE_RATING, label: 'Satisfaction' },
-    { value: '100%', label: 'Finançable' },
+    { value: 'OPCO', label: 'Financement possible' },
     { value: 'Qualiopi', label: 'Certifié' },
   ];
 

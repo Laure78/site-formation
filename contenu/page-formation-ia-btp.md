@@ -18,7 +18,7 @@ Domaine canonique : `https://www.laureolivie.fr/formation-ia-btp/`
 ### Rank Math (ou équivalent)
 
 - **Title SEO** : `Formation IA BTP Île-de-France — ChatGPT 2026 | Laure Olivié`
-- **Meta description** : `Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi finançable Constructys. Visio gratuite.`
+- **Meta description** : `Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.`
 - **Schema FAQPage** : activer sur cette page pour le bloc FAQ (section 8) — *Rank Math → Schema → FAQ* ou module FAQ Elementor compatible Rank Math.
 
 ### Schémas structurés
@@ -193,7 +193,7 @@ La formation est disponible en **4 heures** (demi-journée), **7 heures** (journ
 
 ### 3. Comment est financée la formation avec Constructys ?
 
-Constructys, l’OPCO du BTP, finance jusqu’à **100 %** des coûts pédagogiques pour les entreprises de moins de 50 salariés. Le plafond est de **24 € HT** par heure et par participant. OFC s’occupe du montage du dossier. La demande doit être déposée **au moins 15 jours** avant le début de la formation.
+Constructys, l’OPCO du BTP, peut prendre en charge les coûts pédagogiques selon éligibilité et barèmes en vigueur (plafond indicatif : **24 € HT** par heure et par participant). OFC s’occupe du montage du dossier. La demande doit être déposée **au moins 15 jours** avant le début de la formation.
 
 ### 4. La formation peut-elle se faire dans nos locaux ?
 

@@ -42,7 +42,7 @@ export const INTERNAL_LINKS = {
   },
   financement100: {
     path: LINKS.financement100,
-    anchors: ['financement 100% IA BTP', 'formation IA Constructys 100%', 'prise en charge totale'],
+    anchors: ['financement Constructys formation IA BTP', 'formation IA Constructys selon éligibilité', 'financement selon éligibilité'],
   },
   diagnostic: {
     path: LINKS.diagnostic,

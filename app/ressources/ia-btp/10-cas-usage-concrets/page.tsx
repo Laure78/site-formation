@@ -13,6 +13,7 @@ import {
   BookMarked,
 } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import {
   createPageMetadata,
   getArticleSchema,
@@ -20,6 +21,7 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
@@ -67,8 +69,7 @@ const DEMARRER_IA_BTP_STEPS = [
     body: (
       <>
         Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Nos
-        formations de 4&nbsp;h sont <strong>100&nbsp;% finançables par l&apos;OPCO Constructys</strong> (aucun reste à
-        charge).
+        formations de 4&nbsp;h sont certifiées Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
       </>
     ),
     Icon: GraduationCap,
@@ -108,7 +109,7 @@ const FAQ = [
   },
   {
     q: "Combien coûte l'intégration de l'IA dans une entreprise BTP ?",
-    a: "L'investissement de départ est très faible. ChatGPT coûte 24€/mois par utilisateur. La formation est 100% finançable par l'OPCO Constructys (aucun reste à charge). Le retour sur investissement est atteint en moins d'1 mois grâce au temps gagné.",
+    a: "L'investissement de départ est très faible. ChatGPT coûte 24€/mois par utilisateur. La formation est éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur — un reste à charge peut exister selon votre dossier. Le retour sur investissement est atteint en moins d'1 mois grâce au temps gagné.",
   },
   {
     q: "L'IA peut-elle analyser les documents techniques BTP (CCTP, DCE) ?",
@@ -265,6 +266,8 @@ export default function CasUsageIABTPPage() {
               <p className="text-sm text-slate-600">de retour sur investissement</p>
             </div>
           </div>
+
+          <p className="text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
 
           <p className="text-slate-700">
             Pourtant, <strong>78% des TPE et PME du BTP</strong> n'ont jamais testé l'IA, 

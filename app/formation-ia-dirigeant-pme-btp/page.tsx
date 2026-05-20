@@ -16,7 +16,7 @@ const PATH = '/formation-ia-dirigeant-pme-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Chef Entreprise BTP Île-de-France',
   description:
-    'Automatisez devis, relances clients, communication, rapports, prospection. Formation Qualiopi finançable Constructys.',
+    'Automatisez devis, relances clients, communication, rapports, prospection. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA chef entreprise BTP',
@@ -172,7 +172,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 8 h par semaine</strong> sur l’administratif (devis, relances,
           communication, synthèses, prospection). <strong>Île-de-France</strong> & <strong>Grand Paris</strong> —{' '}
-          <strong>Qualiopi</strong>, finançable <strong>Constructys</strong> selon éligibilité.
+          <strong>Qualiopi</strong>, financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

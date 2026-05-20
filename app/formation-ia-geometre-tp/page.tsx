@@ -16,7 +16,7 @@ const PATH = '/formation-ia-geometre-tp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Géomètre TP Île-de-France',
   description:
-    'Automatisez rapports levés topographiques, devis, documentation technique. Formation Qualiopi finançable Constructys.',
+    'Automatisez rapports levés topographiques, devis, documentation technique. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA géomètre',
@@ -164,8 +164,7 @@ export default function FormationIaGeometreTpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 4 h par semaine</strong> sur la rédaction et la structuration des
-          dossiers. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          dossiers. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

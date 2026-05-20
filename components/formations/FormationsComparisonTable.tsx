@@ -23,7 +23,7 @@ export function FormationsComparisonTable({
           Comparez les 2 formations IA BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
-          Toutes Qualiopi, toutes 4h présentiel, toutes finançables Constructys.
+          Toutes Qualiopi, toutes 4 h, intra ou inter, en présentiel ou en distanciel. Financement possible selon éligibilité.
         </p>
       </div>
 

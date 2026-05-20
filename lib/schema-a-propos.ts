@@ -24,7 +24,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}/images/laure-portrait-pro-2026.png`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA BTP finançable Constructys. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA BTP — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',

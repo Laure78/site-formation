@@ -95,8 +95,8 @@ export const SITE_CONFIG = {
     // Financement
     'OPCO Constructys',
     'formation Qualiopi BTP',
-    'formation finançable OPCO',
-    '100% finançable',
+    'formation éligible à un financement OPCO',
+    'financement possible selon éligibilité',
     'FFB formation IA',
     'IA acte de construire',
     'formation professionnels étanchéité BTP',
@@ -431,6 +431,8 @@ export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
       const q = item.q.trim();
       const a = item.a.trim();
       if (!q || !a) return null;
+      const answerPlain = faqAnswerPlainTextForSchema(a).trim();
+      if (!answerPlain) return null;
       return { q, a };
     })
     .filter((item): item is { q: string; a: string } => item != null)
@@ -446,7 +448,7 @@ export function getFAQSchema(faq: ReadonlyArray<{ q: string; a: string }>) {
       name: item.q,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faqAnswerPlainTextForSchema(item.a),
+        text: faqAnswerPlainTextForSchema(item.a).trim(),
       },
     })),
   };
@@ -828,7 +830,7 @@ export function getCourseListSchema(
     '@id': `${SITE_CONFIG.url}/formations#course-list`,
     name: 'Catalogue des formations IA BTP',
     description:
-      'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d\'offres, ChatGPT. 100% finançable Constructys.',
+      'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d\'offres, ChatGPT. financement possible selon éligibilité.',
     numberOfItems: courses.length,
     itemListElement: courses.map((c, i) => ({
       '@type': 'ListItem',

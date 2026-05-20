@@ -1,4 +1,5 @@
 import { PHOTOS } from '@/lib/photos';
+import { LINKS } from '@/lib/internal-links';
 import {
   SESSION_DUREE_LIBELLE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
@@ -61,17 +62,18 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     title: "L'IA au service des appels d'offre BTP",
     href: '/formations/ia-appels-offre-btp',
     slug: 'ia-appels-offre-btp',
-    programmePdfHref: '/formations/pdf/programme-niveau-2-ia-appels-offre-btp.pdf',
+    programmePdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
     visuel: PHOTOS.btpFormationChantierPlans2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
-    pitch: "Niveau 2 : DCE, mémoires techniques et chiffrage avec l'IA.",
+    pitch:
+      "Niveau 2 : analyse DCE (NotebookLM), Go / No Go, mémoire technique et contrôle de chiffrage avec Claude AI.",
     profileTags: ['appels-offres'],
     objectifs: [
-      "Analyser un DCE rapidement et structurer les critères d'évaluation",
-      'Rédiger mémoires techniques et chiffrages avec méthode et assistant IA',
-      'Bibliothèque de prompts et assistant DCE / mémoire adapté à votre entreprise',
-      'Sécuriser le process : confidentialité, relecture humaine — Qualiopi, OPCO Constructys',
+      'Analyser un DCE avec NotebookLM et structurer les critères (CCTP, DPGF, règlement de consultation)',
+      'Décider Go / No Go et estimer la rentabilité avec des prompts adaptés au BTP',
+      'Rédiger et relire un mémoire technique avec Claude AI (sections, cohérence, ton professionnel)',
+      'Contrôler un chiffrage avant dépôt — confidentialité, validation humaine, Qualiopi et OPCO Constructys',
     ],
     comparatif: {
       publicLabel: 'Dirigeants, conducteurs de travaux — chargés d\'affaires, bureau d\'études, direction',

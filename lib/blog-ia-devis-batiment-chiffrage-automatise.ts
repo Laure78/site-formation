@@ -54,7 +54,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
         "En pratique, 4 heures de formation suffisent pour prendre en main une méthode fiable sur les devis courants.",
     },
     {
-      question: 'La formation IA devis bâtiment est-elle finançable Constructys ?',
+      question: 'La formation IA devis bâtiment est-elle financement possible selon éligibilité ?',
       answer:
         "Oui. OFC Création d'Entreprise est certifiée Qualiopi et les actions peuvent être financées selon les règles Constructys en vigueur.",
     },
@@ -82,7 +82,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
         "L'IA ne remplace ni votre bibliothèque de prix ni votre validation métier : elle structure, rédige et sécurise la trame.",
         'La méthode terrain tient en 5 étapes : brief, trame, décomposition poste par poste, contrôle anti-oubli, mise en forme.',
         "Trois prompts couvrent 90 % des devis courants : tous corps d'état, électricité, vérification anti-oublis.",
-        `Le module est finançable Constructys 2026 (24 € HT/h/stagiaire) et s'appuie sur +${N} professionnels formés (note ${SOCIAL_PROOF.AVERAGE_RATING}).`,
+        `Le module est éligible à un financement selon dossier 2026 (24 € HT/h/stagiaire) et s'appuie sur +${N} professionnels formés (note ${SOCIAL_PROOF.AVERAGE_RATING}).`,
       ],
     },
     {

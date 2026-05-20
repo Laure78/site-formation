@@ -37,7 +37,7 @@ export const metadata = createPageMetadata({
   title:
     'Formation IA BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment',
   description:
-    'Formation IA BTP en Yvelines : Versailles, Guyancourt, Saint-Quentin-en-Yvelines, Poissy. Qualiopi, finançable Constructys. Formatrice basée à Guyancourt (78).',
+    'Formation IA BTP en Yvelines : Versailles, Guyancourt, Saint-Quentin-en-Yvelines, Poissy. Qualiopi. Financement possible selon éligibilité. Formatrice basée à Guyancourt (78).',
   path: PATH,
   keywords: [
     'formation IA BTP Yvelines',

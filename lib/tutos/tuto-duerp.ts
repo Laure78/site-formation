@@ -315,7 +315,7 @@ Génère le DUERP complet en Word. Inclus la table des matières, l'évaluation 
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Dirigeants & QHSE »',
     programItems: [
       'On construit ton skill DUERP sur ta vraie entreprise',

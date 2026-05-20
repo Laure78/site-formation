@@ -141,7 +141,7 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
         name: "Claude AI est-il finançable dans le cadre d'une formation BTP ?",
         acceptedAnswer: {
           '@type': 'Answer',
-          text: "La formation à son usage est finançable. OFC Création d'Entreprise propose une formation IA BTP finançable Constructys à 24 € HT/heure/stagiaire dans le cadre du Plan de Développement des Compétences 2026.",
+          text: "La formation à son usage peut faire l'objet d'une prise en charge selon éligibilité. OFC Création d'Entreprise propose une formation IA BTP éligible Constructys (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026.",
         },
       },
       {
@@ -320,14 +320,14 @@ export function buildClaudeAiBtpJsonLdGraph(): Record<string, unknown> {
     ],
     serviceType: 'Formation professionnelle IA',
     description:
-      'Formation pratique à Claude Chat, Projets, Cowork, Code et Chrome appliquée au BTP — Qualiopi, finançable Constructys.',
+      'Formation pratique à Claude Chat, Projets, Cowork, Code et Chrome appliquée au BTP — Qualiopi, financement possible selon éligibilité.',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Tarifs indicatifs formation IA BTP',
       itemListElement: [
         {
           '@type': 'Offer',
-          description: 'Tarif référence finançable Constructys PDC 2026 (plafond horaire)',
+          description: 'Tarif référence Constructys PDC 2026 (plafond horaire indicatif)',
           priceSpecification: {
             '@type': 'UnitPriceSpecification',
             price: 24,

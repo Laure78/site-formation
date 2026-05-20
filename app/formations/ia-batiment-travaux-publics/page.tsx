@@ -45,6 +45,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
 } from '@/lib/tarifs-sessions';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { PHOTOS } from '@/lib/photos';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { LINKS } from '@/lib/internal-links';
@@ -100,7 +101,7 @@ const POINTS_MARQUANTS = [
   'Parcours catalogue niveau 1 (réf. NIV-01) : bâtiment et travaux publics — devis, chantier, administratif.',
   `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par session (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE}.`,
-  'Qualiopi, financement OPCO Constructys selon éligibilité — sessions en présentiel uniquement.',
+  'Qualiopi, financement OPCO Constructys selon éligibilité.',
 ];
 
 const OBJECTIFS_FORMATION = [
@@ -133,13 +134,13 @@ const MODALITES = [
     icon: Clock,
     title: 'Durée',
     primary: SESSION_DUREE_LIBELLE,
-    secondary: `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant)`,
+    secondary: `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT / session (niveau débutant)`,
   },
   {
     icon: MapPin,
     title: 'Format',
-    primary: 'Présentiel',
-    secondary: 'Sessions inter en Île-de-France ou intra dans vos locaux',
+    primary: 'Intra · inter · présentiel ou distanciel',
+    secondary: 'Sessions inter en Île-de-France, intra dans vos locaux ou à distance',
   },
   {
     icon: UserCircle,
@@ -151,7 +152,7 @@ const MODALITES = [
     icon: Users,
     title: 'Public cible',
     primary: 'Entreprises du bâtiment, travaux publics et BTP',
-    secondary: 'Dirigeants, conducteurs de travaux, équipes terrain et administratives',
+    secondary: 'Artisans, TPE, PME, dirigeants, conducteurs de travaux, chargés d’affaires et équipes administratives',
   },
   {
     icon: FileText,
@@ -168,7 +169,7 @@ const MODALITES = [
   {
     icon: DollarSign,
     title: 'Tarif & financement',
-    primary: `${TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (débutant)`,
+    primary: `${TARIF_FORFAIT_DEBUTANT_HT} € HT / session (débutant)`,
     secondary: 'Financement OPCO selon éligibilité — Constructys, AKTO, OPCO EP',
   },
 ];
@@ -235,7 +236,8 @@ const AVANT_APRES = [
 ];
 
 const PUBLIC_CIBLE = [
-  'Dirigeants et responsables d’entreprises du bâtiment (TPE / PME)',
+  'Artisans, TPE et PME du bâtiment et des travaux publics',
+  'Dirigeants et responsables d’entreprises du bâtiment',
   'Conducteurs de travaux et chargés d’affaires',
   'Encadrement de chantier, chefs d’équipe, techniciens',
   'Assistantes et assistants administratifs, gestionnaires',
@@ -315,7 +317,7 @@ export default function FormationIAuServiceDuBatimentPage() {
       >
         <p>
           Formation pratique en <strong>{SESSION_DUREE_LIBELLE}</strong> pour intégrer l&apos;IA dans votre
-          quotidien : <strong>devis, emails, comptes rendus et suivi</strong>, avec des trames et prompts
+          quotidien : <strong>devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier, relances clients et documents administratifs</strong>, avec des trames et prompts
           prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
           issus du terrain BTP.{' '}
           <strong>Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par session</strong> (niveau débutant).
@@ -400,6 +402,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             pour les chantiers similaires. L&apos;objectif est un{' '}
             <strong>gain de temps mesurable</strong> sur les propositions commerciales.
           </p>
+          <p className="mt-2 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
 
           <h3 className="mt-8 font-display text-xl font-bold text-slate-900">
             IA et appels d&apos;offres : structurer avant d&apos;approfondir
@@ -773,7 +776,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-2 text-blue-100">
             Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
-            {TARIF_FORFAIT_DEBUTANT_HT} € HT / participant (niveau débutant).
+            {TARIF_FORFAIT_DEBUTANT_HT} € HT / session (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <RdvLink className="flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">

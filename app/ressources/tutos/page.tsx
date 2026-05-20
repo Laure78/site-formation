@@ -154,7 +154,7 @@ export default function RessourcesTutosIndexPage() {
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
               formation IA BTP Qualiopi en présentiel ou visio
             </Link>
-            — finançable OPCO Constructys selon éligibilité.
+            — financement possible selon éligibilité (OPCO Constructys) selon éligibilité.
           </p>
         </div>
       </section>

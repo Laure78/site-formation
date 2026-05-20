@@ -9,7 +9,7 @@ export const SESSION_DUREE_LIBELLE = '4 h';
 export const TARIF_SESSION_DEBUTANT_HT = 1000;
 
 /** Forfait HT pour la session complète — formations niveau avancé (catalogue) */
-export const TARIF_SESSION_AVANCE_HT = 1250;
+export const TARIF_SESSION_AVANCE_HT = 1200;
 
 /**
  * @deprecated Utiliser `TARIF_SESSION_DEBUTANT_HT` — conservé pour imports existants.
@@ -48,9 +48,13 @@ export const LIBELLE_EFFECTIF_GROUPE_COURT = `${EFFECTIF_GROUPE_MAX} participant
 /** Phrase complète pour modalités et encarts */
 export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
 
-/** Modalité d’intervention catalogue (pas de visioconférence pour les sessions formation) */
+/** Formulation standard — modalités (FAQ, pages, llms.txt) */
+export const MODALITE_FORMATIONS_STANDARD =
+  'Intra-entreprise, en présentiel ou en distanciel selon les besoins du client.';
+
+/** Modalités d’intervention catalogue : intra/inter, présentiel ou distanciel */
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  'Formations en présentiel uniquement (sessions inter en Île-de-France, intra dans vos locaux).';
+  `Sessions inter ou intra — ${MODALITE_FORMATIONS_STANDARD} (inter en Île-de-France, intra dans vos locaux ou à distance).`;
 
 /** Toutes les formations catalogue « niveau avancé » (ex. BTP-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =

@@ -15,7 +15,7 @@ import {
   FormationCourseHero,
   FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
@@ -73,7 +73,7 @@ export function FormationCityPage({
         }
         subtitle={
           config.customHeroSubtitle ??
-          'Devis, emails, administratif et appels d&apos;offres — présentiel'
+          'Devis, emails, administratif et appels d&apos;offres — présentiel ou distanciel'
         }
         badges={
           config.heroBadges ?? [
@@ -201,8 +201,7 @@ export function FormationCityPage({
             Zones d&apos;intervention autour de {ville}
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Formations disponibles à {ville} et dans les villes voisines. Sessions en présentiel
-            dans vos locaux ou en salle.
+            Formations disponibles à {ville} et dans les villes voisines. {MODALITE_FORMATIONS_STANDARD}
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {zones.map((zone) => (
@@ -331,7 +330,7 @@ export function FormationCityPage({
           </h2>
           <p className="mt-4 text-lg text-blue-100">
             Réservez votre formation IA. Devis personnalisé sous 24h.
-            Financement OPCO Constructys 100% possible.
+            Financement OPCO Constructys possible selon éligibilité.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RdvLink campaign={cityFinCtaCampaign} className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">

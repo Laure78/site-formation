@@ -8,10 +8,17 @@ import {
   TARIF_SESSION_DEBUTANT_HT,
   TARIF_SESSION_AVANCE_HT,
   EFFECTIF_GROUPE_MAX,
+  MODALITE_FORMATIONS_STANDARD,
 } from '@/lib/tarifs-sessions';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import {
+  FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT,
+  FINANCEMENT_FORMULATION_PRUDENTE,
+  FINANCEMENT_FORMULATION_COURTE,
+  FINANCEMENT_PAGE_LINK_LABEL,
+} from '@/lib/financement-copy';
 
 export type FAQItem = { q: string; a: string };
 
@@ -54,11 +61,15 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "La formation convient-elle aux PME du BTP et aux équipes terrain ?",
     a:
-      "Oui : c'est le cœur du public visé — professionnels du BTP, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche), en présentiel en Île-de-France ou en intra dans vos locaux. Financement possible via OPCO Constructys selon éligibilité — <a href=\"" +
+      "Oui : c'est le cœur du public visé — professionnels du BTP, TPE, PME du bâtiment et travaux publics, sans prérequis technique. Les sessions catalogue durent 4 h (niveau débutant ou avancé selon la fiche). " +
+      MODALITE_FORMATIONS_STANDARD +
+      " " +
+      FINANCEMENT_FORMULATION_COURTE +
+      ' — <a href="' +
       LINKS.financement +
-      "\">guide financement Constructys</a> et fiche <a href=\"" +
+      '">guide financement Constructys</a> et fiche <a href="' +
       LINKS.formationIaBtpNiveau1BatimentTp +
-      "\">NIV-01</a>.",
+      '">NIV-01</a>.',
   },
 ];
 
@@ -78,9 +89,8 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
       "L'IA générative (ChatGPT, Claude AI) permet d'automatiser la rédaction des comptes rendus de chantier, des devis, des emails et des réponses aux appels d'offres. En moyenne, les conducteurs de travaux et dirigeants BTP formés par Laure Olivié gagnent 3 à 5 heures par semaine dès la première semaine.",
   },
   {
-    q: 'La formation IA BTP est-elle vraiment prise en charge à 100 % par Constructys ?',
-    a:
-      'Oui, pour les entreprises du BTP de moins de 50 salariés éligibles au Plan de Développement des Compétences Constructys. Les coûts pédagogiques sont pris en charge à 24 € HT par heure et par stagiaire (plafond 2026), et les salaires des participants sont remboursés à 15 € HT par heure pour les entreprises de moins de 11 salariés.',
+    q: 'La formation IA BTP peut-elle être financée par Constructys ou mon OPCO ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}`,
   },
   {
     q: 'Faut-il des compétences techniques pour suivre cette formation IA BTP ?',
@@ -144,8 +154,8 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
     a: 'En automatisant relances, modèles et brouillons (devis, courriers, synthèses) avec ChatGPT ou un outil équivalent, sous votre contrôle — voir aussi nos <a href="/blog">articles et guides IA BTP</a>. Les stagiaires constatent souvent 3 à 5 h gagnées par semaine sur l\'administratif — utile pour dirigeants, conducteurs de travaux et équipes support.',
   },
   {
-    q: "La formation est-elle vraiment prise en charge à 100 % ?",
-    a: 'Oui, pour les entreprises de moins de 50 salariés, la formation peut être prise en charge à 100 % par Constructys dans le cadre du Plan de Développement des Compétences. Détails sur le <a href="/financement-constructys-formation-ia-btp">financement 100 % IA BTP</a> et le <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire.',
+    q: "La formation peut-elle être financée par Constructys ou mon OPCO ?",
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} Détails sur le <a href="/financement-constructys-formation-ia-btp">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
   },
   {
     q: "Faut-il des compétences techniques pour suivre cette formation ?",
@@ -153,11 +163,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Combien de temps dure la formation IA pour le BTP ?",
-    a: 'Toutes nos sessions sont proposées au format unique de 4 heures, en présentiel. Le contenu est adapté au niveau (débutant ou avancé) avec un forfait par session — voir les programmes sur la page <a href="/formations">formations IA BTP</a>.',
+    a: `Toutes nos sessions sont proposées au format unique de 4 heures. ${MODALITE_FORMATIONS_STANDARD} Le contenu est adapté au niveau (débutant ou avancé) avec un forfait par session — voir les programmes sur la page <a href="/formations">formations IA BTP</a>.`,
   },
   {
     q: "La formation se fait-elle en présentiel ou en distanciel ?",
-    a: 'Les formations catalogue se déroulent en présentiel : sessions inter en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95) ou intra dans vos locaux en Île-de-France. Nous nous adaptons à la taille de votre équipe ; pour un créneau, utilisez <a href="/prendre-rdv">prendre rendez-vous</a> ou la <a href="/contact">page contact</a>.',
+    a: `Les formations catalogue se déroulent en inter (Île-de-France) ou en intra dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -186,15 +196,15 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Comment financer une formation IA avec OPCO Constructys ?",
-    a: 'Les entreprises BTP de moins de 50 salariés peuvent financer à 100 % leur formation IA via Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises -11 salariés). Dossier à soumettre 15 jours avant via eGestion. Détails : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>. OFC est certifié Qualiopi, éligible au financement.',
+    a: 'Les entreprises BTP de moins de 50 salariés peuvent mobiliser un financement Constructys ou OPCO pour leur formation IA selon éligibilité : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises -11 salariés). Dossier à soumettre 15 jours avant via eGestion. Détails : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>. OFC est certifié Qualiopi, éligible au financement.',
   },
   {
     q: "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
-    a: 'Laure Olivié (OFC Création d\'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Programme « L\'IA au service du bâtiment » : session 4 h en présentiel. Interventions notamment à <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et dans l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. <a href="/financement-constructys-formation-ia-btp">Financement 100 % Constructys</a>.',
+    a: 'Laure Olivié (OFC Création d\'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Session catalogue 4 h. ' + MODALITE_FORMATIONS_STANDARD + ' Interventions : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. <a href="/financement-constructys-formation-ia-btp">Financement possible selon éligibilité</a>.',
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
-    a: `Sessions de 4 h : forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session (niveau débutant) ou ${TARIF_SESSION_AVANCE_HT} € HT par session (niveau avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. 100 % finançable OPCO Constructys selon barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note ${SOCIAL_PROOF.AVERAGE_RATING} — voir les <a href="/formations">formations IA BTP</a>.`,
+    a: `Sessions de 4 h : forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session (niveau débutant) ou ${TARIF_SESSION_AVANCE_HT} € HT par session (niveau avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. financement possible via Constructys ou votre OPCO selon éligibilité et barèmes en vigueur. Zéro prérequis technique pour le niveau débutant. Travail sur documents réels (devis, emails, CR chantier). Note ${SOCIAL_PROOF.AVERAGE_RATING} — voir les <a href="/formations">formations IA BTP</a>.`,
   },
   {
     q: "Quels sont les prérequis pour une formation ChatGPT BTP ?",
@@ -210,7 +220,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
-    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau avancé) : analyse DCE/CCTP, rédaction mémoires techniques, workflows de traitement. Public : chargés d'affaires, bureaux d'études. Financement 100 % Constructys selon éligibilité. Formatrice : Laure Olivié (${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}). Programme certifié Qualiopi.`,
+    a: `Formation <a href="/formations/ia-appels-offre-btp">IA appels d'offres BTP</a> (session 4 h, niveau avancé) : analyse DCE avec NotebookLM, mémoires techniques et chiffrage avec Claude AI, workflows de traitement. Public : dirigeants, conducteurs de travaux, chargés d'affaires, bureaux d'études. ${FINANCEMENT_FORMULATION_COURTE} Formatrice : Laure Olivié (${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}). Programme certifié Qualiopi.`,
   },
 ];
 
@@ -218,7 +228,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Quelles formations IA BTP sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose 2 formations IA BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (NIV-01, débutant, ${TARIF_SESSION_DEBUTANT_HT} € HT/session), (2) L&apos;IA au service des appels d&apos;offre BTP — niveau 2 (NIV-02, avancé, ${TARIF_SESSION_AVANCE_HT} € HT/session). En présentiel, inter en Île-de-France ou intra dans les locaux du client. Toutes finançables Constructys. Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
+    a: `Le catalogue OFC propose 2 formations IA BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (NIV-01, débutant, ${TARIF_SESSION_DEBUTANT_HT} € HT/session), (2) L&apos;IA au service des appels d&apos;offre BTP — niveau 2 (NIV-02, avancé, ${TARIF_SESSION_AVANCE_HT} € HT/session). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
     q: 'Comment choisir la bonne formation IA BTP pour mon entreprise ?',
@@ -226,15 +236,15 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA BTP du catalogue ?',
-    a: `Forfait par session : ${TARIF_SESSION_DEBUTANT_HT} € HT pour le niveau 1 (NIV-01 bâtiment &amp; travaux publics), et ${TARIF_SESSION_AVANCE_HT} € HT pour le niveau 2 (NIV-02 appels d&apos;offre). Chaque session dure 4 heures, avec un groupe de ${EFFECTIF_GROUPE_MAX} participants maximum. Toutes éligibles au financement Constructys (plafond pédagogique 24 € HT/h/stagiaire pour les entreprises BTP cotisantes). Détail : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `Forfait par session : ${TARIF_SESSION_DEBUTANT_HT} € HT pour le niveau 1 (NIV-01 bâtiment &amp; travaux publics), et ${TARIF_SESSION_AVANCE_HT} € HT pour le niveau 2 (NIV-02 appels d&apos;offre). Chaque session dure 4 heures, avec un groupe de ${EFFECTIF_GROUPE_MAX} participants maximum. ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Les formations IA BTP sont-elles certifiées Qualiopi ?',
-    a: `Oui. OFC Création d&apos;Entreprise est certifié Qualiopi (action de formation), certification valable jusqu&apos;en janvier 2028. Numéro de déclaration d&apos;activité : 11788515078. Toutes les formations du catalogue sont éligibles au financement OPCO Constructys pour les entreprises du BTP, dans les conditions du Plan de Développement des Compétences Bâtiment 2026. <a href="${LINKS.aPropos}">À propos de l&apos;organisme</a>.`,
+    a: `Oui. OFC Création d&apos;Entreprise est certifié Qualiopi (action de formation), certification valable jusqu&apos;en janvier 2028. Numéro de déclaration d&apos;activité : 11788515078. ${FINANCEMENT_FORMULATION_PRUDENTE} <a href="${LINKS.aPropos}">À propos de l&apos;organisme</a>.`,
   },
   {
     q: 'Les formations sont-elles disponibles en inter ou en intra ?',
-    a: `Les deux. En inter, les sessions ont lieu en Île-de-France (Paris, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). En intra, la formatrice se déplace dans vos locaux en Île-de-France pour une session dédiée à votre entreprise. Le format reste identique : 4 heures, 12 participants maximum, supports et ressources pédagogiques inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
+    a: `Inter ou intra : ${MODALITE_FORMATIONS_STANDARD} En inter, sessions en Île-de-France (Paris, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). En intra, session dédiée à votre entreprise. Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA BTP en Île-de-France</a>.`,
   },
   ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
@@ -254,18 +264,18 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: "Comment financer ma formation IA ?",
-    a: 'Via l\'OPCO Constructys pour les entreprises du BTP. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires (15€ HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement 100 % IA BTP</a>.',
+    a: 'Via l\'OPCO Constructys pour les entreprises du BTP. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires (15€ HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
     q: "Faut-il avancer des frais ?",
-    a: 'Non. Une fois votre dossier Constructys accepté, la formation est financée directement. Nous vous accompagnons pour monter le dossier et respecter les délais (15 jours avant le début de la formation) — <a href="/contact">nous contacter</a>.',
+    a: 'Selon les modalités de votre dossier et de la convention signée, la prise en charge peut être mobilisée sans avance de trésorerie dans certains cas — nous vous accompagnons pour monter le dossier et respecter les délais (15 jours avant le début de la formation) — <a href="/contact">nous contacter</a>.',
   },
 ];
 
 export const FAQ_OFFRES: FAQItem[] = [
   {
     q: "Quels formats de formation proposez-vous ?",
-    a: 'Sessions de 4 heures en présentiel (inter ou intra-entreprise). Forfait par session selon le niveau (débutant ou avancé), jusqu\'à 12 participants. Parcours sur la page <a href="/formations">formations IA BTP</a>.',
+    a: `Sessions de 4 heures, inter ou intra. ${MODALITE_FORMATIONS_STANDARD} Forfait par session selon le niveau (débutant ou avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. Parcours sur la page <a href="/formations">formations IA BTP</a>.`,
   },
   {
     q: "Comment accéder à l'espace apprenant ?",
@@ -284,7 +294,7 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
   },
   {
     q: "Quel plafond pour les coûts pédagogiques ?",
-    a: 'Plafond standard : 24€ HT/heure/stagiaire. Limite de 840€ HT/jour/groupe pour les sessions intra-entreprise. Pour les entreprises de moins de 11 salariés : 15€ HT/heure pour la prise en charge des salaires — voir aussi <a href="/financement-constructys-formation-ia-btp">financement 100 %</a>.',
+    a: 'Plafond standard : 24€ HT/heure/stagiaire. Limite de 840€ HT/jour/groupe pour les sessions intra-entreprise. Pour les entreprises de moins de 11 salariés : 15€ HT/heure pour la prise en charge des salaires — voir aussi <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
     q: "Quels documents fournir pour le financement ?",
@@ -300,7 +310,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Quel est le montant maximum remboursé ?",
-    a: 'Constructys applique un plafond de coûts pédagogiques de 24 € HT par heure et par participant. En session intra-entreprise, la prise en charge est plafonnée à 840 € HT par jour et par groupe. Le reste à charge dépend de la taille de l\'entreprise et des barèmes salaires et annexes en vigueur — synthèse sur <a href="/financement-constructys-formation-ia-btp">financement 100 % IA BTP</a>.',
+    a: 'Constructys applique un plafond de coûts pédagogiques de 24 € HT par heure et par participant. En session intra-entreprise, la prise en charge est plafonnée à 840 € HT par jour et par groupe. Le reste à charge dépend de la taille de l\'entreprise et des barèmes salaires et annexes en vigueur — synthèse sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
     q: "Combien de temps avant la formation faut-il déposer le dossier ?",
@@ -316,7 +326,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Constructys finance-t-il les formations en distanciel ?",
-    a: 'Les formations catalogue OFC se déroulent en présentiel. Pour toute question sur les règles Constructys et l\'éligibilité d\'une action au plan de développement des compétences, nous vous renseignons sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
+    a: `Oui. Les formations catalogue OFC peuvent se dérouler en distanciel (visioconférence) ou en présentiel, en intra ou en inter. ${FINANCEMENT_FORMULATION_PRUDENTE} Nous vous renseignons sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
@@ -335,7 +345,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
 export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Où intervenez-vous pour les formations IA BTP ?",
-    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter en salle ou intra-entreprise sur votre site).',
+    a: `Basée à Guyancourt (78), j'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. ${MODALITE_FORMATIONS_STANDARD}`,
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
@@ -367,7 +377,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
 export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   {
     q: 'La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?',
-    a: 'Oui. Les sessions en présentiel ont lieu dans vos locaux dans tout le département des Yvelines (78), sans frais de déplacement supplémentaires pour les entreprises du 78. Les sessions inter du catalogue sont également en présentiel — voir <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>. Pour des besoins spécifiques (intra, contraintes), le format se cadrage sur devis.',
+    a: 'Oui. Sessions en intra dans vos locaux ou sur chantier dans les Yvelines (78), en présentiel ou en distanciel selon vos contraintes. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -378,8 +388,8 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
     a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="/prendre-rdv">prendre rendez-vous</a>.',
   },
   {
-    q: "La formation IA BTP est-elle finançable par Constructys dans les Yvelines ?",
-    a: 'Oui. Les règles sont les mêmes pour les entreprises du BTP en Île-de-France : financement possible dans le cadre du plan de développement des compétences, selon votre éligibilité et les barèmes en vigueur. Détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a> et <a href="/financement-constructys-formation-ia-btp">financement 100 % IA BTP</a>.',
+    q: "La formation IA BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
+    a: 'Oui. Les règles sont les mêmes pour les entreprises du BTP en Île-de-France : financement possible dans le cadre du plan de développement des compétences, selon votre éligibilité et les barèmes en vigueur. Détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
     q: "Quelle différence avec une formation généraliste sur ChatGPT ?",
@@ -395,7 +405,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
 export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   {
     q: 'Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?',
-    a: 'Oui. Sessions en présentiel dans vos locaux ou sur chantier : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Pour le département tout entier, voir aussi la page <a href="/formation-ia-btp-yvelines">formation IA BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
+    a: 'Oui. Sessions intra dans vos locaux ou sur chantier (Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.), en présentiel ou en distanciel. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-yvelines">formation IA BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -406,7 +416,7 @@ export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
     a: 'Le format le plus courant est une session de 4 heures, adaptée au rythme des entreprises du BTP et aux règles de financement Constructys. Des formats de sensibilisation (2 h) ou d\'approfondissement peuvent être étudiés selon votre projet — <a href="/prendre-rdv">prendre rendez-vous</a>.',
   },
   {
-    q: "La formation IA BTP est-elle finançable par Constructys dans les Yvelines ?",
+    q: "La formation IA BTP est-elle financement possible selon éligibilité (Constructys) dans les Yvelines ?",
     a: 'Oui. Les règles sont les mêmes pour les entreprises du BTP en Île-de-France : financement possible dans le cadre du plan de développement des compétences, selon votre éligibilité et les barèmes en vigueur. Détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
@@ -424,7 +434,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Vous intervenez à domicile dans le 78 ?',
     a:
-      "Oui. Les sessions se font en présentiel : dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Pour le détail des programmes, voir aussi la page <a href=\"/formation-ia-btp-yvelines\">formation IA BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
+      "Oui. Les sessions se déroulent en intra dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78), en présentiel ou en distanciel. Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Voir <a href=\"/formation-ia-btp-yvelines\">formation IA BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
   },
   {
     q: 'La formation est-elle disponible le samedi ?',
@@ -434,18 +444,20 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Y a-t-il des sessions inter-entreprises à Versailles ?',
     a:
-      "Les sessions inter du catalogue ont lieu en présentiel en Île-de-France, avec des lieux qui peuvent inclure Versailles ou l'agglomération selon le calendrier et la session. Pour savoir quelle session correspond à votre secteur, consultez la page <a href=\"/formation-ia-btp-ile-de-france\">formation IA BTP Île-de-France</a> et le <a href=\"/formations\">catalogue</a>. Les entreprises des Yvelines peuvent aussi privilégier une session <strong>intra</strong> dans leurs locaux dans le 78.",
+      "Les sessions inter du catalogue ont lieu en Île-de-France (lieux selon calendrier : Versailles, Paris, etc.). En intra, " +
+      MODALITE_FORMATIONS_STANDARD +
+      ' Consultez <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
 ];
 
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP à Paris ?",
-    a: 'La formation se déroule en présentiel dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et départements 75, 77, 78, 91, 92, 93, 94, 95. Nous nous adaptons à vos contraintes — voir aussi <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.',
+    a: `La formation se déroule en intra dans vos locaux ou en salle en Île-de-France, en présentiel ou en distanciel : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
-    a: 'Oui, 100 % finançable par l\'OPCO Constructys pour les entreprises du BTP de moins de 50 salariés. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire — détails sur <a href="/financement-constructys-formation-ia-btp">financement 100 % IA BTP</a>.',
+    a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire — détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
   {
     q: "Quel est le format de la formation IA BTP Paris ?",
@@ -457,15 +469,15 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 export const FAQ_APPELS_OFFRE: FAQItem[] = [
   {
     q: "Qui peut suivre la formation IA appels d'offres BTP ?",
-    a: 'Chargés d\'affaires, bureaux d\'études, dirigeants d\'entreprises du BTP. Aucune compétence technique en IA requise. Connaissance du secteur BTP et expérience en appels d\'offres suffisantes — page <a href="/formations/ia-appels-offre-btp">formation IA appels d\'offres BTP</a>.',
+    a: 'Dirigeants, conducteurs de travaux, chargés d\'affaires, bureaux d\'études du BTP. Prérequis : pratique régulière de ChatGPT ou Claude ; l\'expérience en réponse aux appels d\'offres est fortement recommandée — voir la <a href="/formations/ia-appels-offre-btp">fiche formation NIV-02</a>.',
   },
   {
     q: "Combien de temps dure la formation ?",
-    a: 'Session unique de 4 heures, intensive et opérationnelle (niveau avancé). 100 % finançable OPCO Constructys selon éligibilité — voir <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>.',
+    a: 'Session unique de 4 heures, intensive et opérationnelle (niveau avancé). financement possible via Constructys ou votre OPCO selon éligibilité — voir <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>.',
   },
   {
     q: "Quels livrables sont inclus ?",
-    a: 'Bibliothèque de prompts spécialisés, templates de mémoires techniques, workflows de traitement DCE, guide RGPD, accès plateforme 1 an — complétez avec la <a href="/checklist-ia-btp">checklist prompts ChatGPT BTP</a>.',
+    a: 'Guide pratique « Répondre aux AO BTP avec l\'IA », bibliothèque de prompts (AO, mémoire technique, chiffrage), fiches outils NotebookLM / ChatGPT / Claude AI, accès aux supports sur la plateforme OFC selon convention — utile avec la <a href="/checklist-ia-btp">checklist prompts ChatGPT BTP</a>.',
   },
   {
     q: "Quel abonnement est requis pour le niveau avancé ?",
@@ -498,7 +510,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
     a:
-      "Non. Des outils gratuits (ChatGPT gratuit, Claude gratuit, Mistral Le Chat, NotebookLM) suffisent pour découvrir la méthode. Pour un usage professionnel intensif sur des CCTP longs, les versions payantes (environ 20 €/mois) offrent des capacités supérieures. La formation présente les deux niveaux.",
+      `${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Sur la session catalogue NIV-02, comptes gratuits insuffisants pour les modules mémoire technique et chiffrage ; voir la <a href="/formations/ia-appels-offre-btp">fiche formation appels d&apos;offres</a>. Pour une découverte générale de l&apos;IA hors ce parcours, des offres gratuites peuvent suffire — pas pour industrialiser la réponse aux AO.`,
   },
   {
     q: "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?",
@@ -530,7 +542,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: 'Oui, 100 % finançable par l\'OPCO Constructys (et autres OPCO selon éligibilité) pour les entreprises du BTP. Formation certifiée Qualiopi — attestation en fin de parcours. Détails : <a href="/financement-constructys-formation-ia-btp">financement 100 %</a>.',
+    a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Formation certifiée Qualiopi — attestation en fin de parcours. Détails : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a>.',
   },
 ];
 
@@ -578,11 +590,11 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA BTP ?",
-    a: 'En présentiel dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et les départements 75, 77, 78, 91, 92, 93, 94, 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
+    a: 'En intra dans vos locaux ou en salle en Île-de-France, en présentiel ou en distanciel : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
   },
   {
     q: "La formation est-elle finançable ?",
-    a: 'Oui, 100 % finançable OPCO Constructys pour les entreprises du BTP. Devis personnalisé sous 24h — <a href="/financement-constructys-formation-ia-btp">financement 100 %</a> et <a href="/contact">contact</a>.',
+    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Devis personnalisé sous 24h — <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a> et <a href="/contact">contact</a>.',
   },
   {
     q: "Faut-il des compétences techniques ?",
@@ -598,7 +610,7 @@ export const FAQ_CHECKLIST_IA_BTP: FAQItem[] = [
   },
   {
     q: "La formation IA BTP est-elle finançable ?",
-    a: 'Oui, 100 % finançable par l\'OPCO Constructys pour les entreprises du BTP. Formation Qualiopi, devis personnalisé sous 24h — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.',
+    a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Formation Qualiopi, devis personnalisé sous 24h — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.',
   },
   {
     q: "Puis-je personnaliser ces prompts ?",
@@ -618,7 +630,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "La formation est-elle finançable ?",
-    a: `Oui. Formation IA BTP 100 % finançable Constructys. Prenez rendez-vous pour un devis personnalisé : <a href="${buildSiteCalendlyCtaUrl('faq-checklist-prompts-rdv')}" rel="noopener noreferrer">Calendly</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. Formation IA BTP financement possible selon éligibilité. Prenez rendez-vous pour un devis personnalisé : <a href="${buildSiteCalendlyCtaUrl('faq-checklist-prompts-rdv')}" rel="noopener noreferrer">Calendly</a> ou <a href="/contact">contact</a>.`,
   },
 ];
 
@@ -630,11 +642,11 @@ export const FAQ_CONTACT: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter ou intra-entreprise).',
+    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. ' + MODALITE_FORMATIONS_STANDARD,
   },
   {
     q: "Comment financer ma formation IA BTP ?",
-    a: '100 % finançable par l\'OPCO Constructys pour les entreprises du BTP. Nous vous accompagnons pour monter le dossier et respecter les délais — <a href="/financement-constructys-formation-ia-btp">financement 100 % IA BTP</a> et <a href="/formations">catalogue</a>.',
+    a: 'éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Nous vous accompagnons pour monter le dossier et respecter les délais — <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA BTP</a> et <a href="/formations">catalogue</a>.',
   },
 ];
 
@@ -646,7 +658,7 @@ export const FAQ_CLIENTS_PARTENAIRES: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles certifiées Qualiopi ?",
-    a: 'Oui. OFC Création d\'Entreprise est certifié Qualiopi. Toutes nos formations IA BTP sont éligibles au financement OPCO Constructys — voir le <a href="/formations">catalogue formations</a>.',
+    a: `Oui. OFC Création d'Entreprise est certifié Qualiopi. ${FINANCEMENT_FORMULATION_COURTE} — voir le <a href="/formations">catalogue formations</a>.`,
   },
   {
     q: "Comment devenir partenaire ?",
@@ -662,11 +674,11 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Les formations sont-elles finançables ?",
-    a: 'Oui, 100 % finançable OPCO Constructys pour les entreprises du BTP. Prenez rendez-vous pour un devis personnalisé — <a href="/prendre-rdv">prendre rendez-vous</a> et <a href="/formations">catalogue</a>.',
+    a: 'Oui, financement possible via Constructys ou votre OPCO selon éligibilité. Prenez rendez-vous pour un devis personnalisé — <a href="/prendre-rdv">prendre rendez-vous</a> et <a href="/formations">catalogue</a>.',
   },
   {
     q: "Comment accéder aux formations IA BTP ?",
-    a: 'Catalogue des formations sur laureolivie.fr : page <a href="/formations">formations IA BTP</a>. Formations en présentiel en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, et les départements 75, 77, 78, 91, 92, 93, 94, 95 — voir <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>. Devis personnalisé via <a href="/contact">contact</a>.',
+    a: 'Catalogue des formations sur laureolivie.fr : page <a href="/formations">formations IA BTP</a>. ' + MODALITE_FORMATIONS_STANDARD + ' Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95 — voir <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>. Devis via <a href="/contact">contact</a>.',
   },
 ];
 
@@ -678,7 +690,7 @@ export const FAQ_AUTEUR: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: 'Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l\'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. Formations en présentiel (inter ou intra-entreprise) — <a href="/formations">catalogue</a> et <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
+    a: 'Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. ' + MODALITE_FORMATIONS_STANDARD + ' — <a href="/formations">catalogue</a> et <a href="/formation-ia-btp-ile-de-france">formation IA BTP Île-de-France</a>.',
   },
   {
     q: "Proposez-vous des formations LinkedIn Learning ?",

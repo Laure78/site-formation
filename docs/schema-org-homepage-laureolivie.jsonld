@@ -55,7 +55,7 @@
         "url": "https://www.laureolivie.fr/formations",
         "price": "1000",
         "priceCurrency": "EUR",
-        "description": "Tarif indicatif : à partir de 1 000 € HT par jour de formation — financement possible via OPCO Constructys selon éligibilité et règles en vigueur.",
+        "description": "Tarif indicatif : forfait 1 000 € HT par session (niveau 1) ou 1 200 € HT par session (niveau 2, 4 h, max 12 participants) — financement possible via OPCO Constructys selon éligibilité et règles en vigueur.",
         "availability": "https://schema.org/InStock",
         "eligibleRegion": { "@type": "Country", "name": "FR" },
         "seller": { "@id": "https://www.laureolivie.fr/#organization" }

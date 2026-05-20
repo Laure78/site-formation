@@ -122,7 +122,7 @@ export default function RessourcesIABTPPage() {
             Vous souhaitez former vos équipes à l'IA ?
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
-            Formations courtes et pratiques, 100% finançables par l'OPCO Constructys.
+            Formations courtes et pratiques — financement possible selon éligibilité.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link

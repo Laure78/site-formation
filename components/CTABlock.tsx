@@ -73,7 +73,7 @@ export function CTABlock({
             <span className="inline-flex shrink-0 items-center rounded-md bg-white px-1.5 py-1 shadow-sm">
               <QualiopiLogoInline heightPx={22} />
             </span>
-            <span>Formation certifiée Qualiopi · 100% finançable Constructys</span>
+            <span>Formation certifiée Qualiopi · financement possible selon éligibilité</span>
           </span>
         )}
       </div>

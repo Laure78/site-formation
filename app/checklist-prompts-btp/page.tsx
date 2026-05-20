@@ -115,7 +115,7 @@ export default function ChecklistDocumentPage() {
 
         <footer className="mt-12 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
           <p className="font-semibold text-[#166534]">Formation IA pour le BTP</p>
-          <p>100% finançable OPCO Constructys</p>
+          <p>Financement possible selon éligibilité (Constructys, OPCO)</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link href="/formations" className="font-medium text-[#166534] hover:underline">
               Formation IA BTP

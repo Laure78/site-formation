@@ -43,12 +43,13 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-appels-offre-btp',
     name: "L'IA au service des appels d'offre BTP",
     description:
-      "Formation niveau 2 — 4 h : DCE, mémoires techniques, chiffrages, bibliothèque de prompts et assistant sur mesure — Qualiopi, OPCO Constructys.",
+      "Formation niveau 2 — 4 h : analyse DCE avec NotebookLM, Go / No Go, mémoires techniques et contrôle de chiffrage avec Claude AI — Qualiopi, OPCO Constructys.",
     teaches: [
-      'Analyse rapide de DCE et critères d’évaluation',
-      'Mémoires techniques et chiffrages avec méthode et IA',
-      'Templates et prompts par métier pour marchés BTP',
-      'Assistant IA DCE / mémoire adapté à l’entreprise',
+      'Analyse d’un DCE avec NotebookLM (CCTP, DPGF, règlement de consultation)',
+      'Décision Go / No Go, prompts de chiffrage et lecture de rentabilité avec Claude AI',
+      'Structure et rédaction assistée d’un mémoire technique (sections, relecture, cohérence)',
+      'Contrôle de chiffrage, détection des risques et oublis avant dépôt d’offre',
+      'Gain de temps sur la chaîne complète de réponse aux appels d’offres BTP',
     ],
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
@@ -159,7 +160,7 @@ export function getCourseJsonLdFromFormationsData(
     availableLanguage: 'fr',
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: 'Onsite',
+      courseMode: [...COURSE_MODES],
       courseSchedule: {
         '@type': 'Schedule',
         duration: f.duration,
@@ -245,7 +246,7 @@ function buildDedicatedFormationCourseObject(opts: {
     courseMode: [...COURSE_MODES],
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: 'onsite',
+      courseMode: [...COURSE_MODES],
       location: { '@type': 'Place', name: 'Île-de-France' },
       courseWorkload: DURATION_ISO,
     },
@@ -254,7 +255,7 @@ function buildDedicatedFormationCourseObject(opts: {
       price: priceString,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      category: 'Formation professionnelle finançable Constructys',
+      category: 'Formation professionnelle continue — financement possible selon éligibilité',
     },
     teaches: [...teaches],
   };
@@ -293,7 +294,7 @@ export function getDedicatedFormationCoursePageJsonLd(
       courseUrl: `${base}${path}`,
       name: 'Formation IA analyse CCTP & DCE pour entreprises BTP',
       description:
-        'Session 4 h : analyser CCTP, DPGF et DCE avec l’IA, détecter les risques et préparer un mémoire technique aligné. Qualiopi, finançable Constructys selon dossier.',
+        'Session 4 h : analyser CCTP, DPGF et DCE avec l’IA, détecter les risques et préparer un mémoire technique aligné. Qualiopi, financement possible selon éligibilité (Constructys ou OPCO).',
       educationalLevel: 'Avancé',
       priceString: String(price),
       teaches: [

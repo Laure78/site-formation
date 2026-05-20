@@ -21,7 +21,7 @@ const PATH = '/formation-ia-vitrier-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Vitrier Miroitier BTP Île-de-France',
   description:
-    'Formation IA ChatGPT pour vitriers miroitiers. Automatisez devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi finançable Constructys. Laure Olivié.',
+    'Formation IA ChatGPT pour vitriers miroitiers. Automatisez devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi. Financement possible selon éligibilité. Laure Olivié.',
   path: PATH,
   keywords: [
     'formation IA vitrier BTP',
@@ -158,8 +158,7 @@ export default function FormationIaVitrierBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Automatisez <strong>devis vitrage</strong>, <strong>métrages</strong> et <strong>fiches techniques</strong> avec
-          ChatGPT — <strong>Île-de-France</strong>. Formation <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          ChatGPT — <strong>Île-de-France</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

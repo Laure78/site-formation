@@ -307,7 +307,7 @@ Génère le PV de levée au format Word, à ma charte, prêt à imprimer et sign
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — Conducteurs de travaux »',
     programItems: [
       'On construit ton skill PV de levée en direct',

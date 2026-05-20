@@ -15,7 +15,7 @@ const PATH = '/formation-ia-paysagiste-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Paysagiste BTP Île-de-France',
   description:
-    'Automatisez vos devis paysagers, briefs clients et plans d’aménagement. Formation Qualiopi finançable Constructys.',
+    'Automatisez vos devis paysagers, briefs clients et plans d’aménagement. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA paysagiste BTP',
@@ -140,8 +140,7 @@ export default function FormationIaPaysagisteBtpPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 3 h par semaine</strong> sur briefs, métrés et communication client.{' '}
-          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong>, finançable{' '}
-          <strong>Constructys</strong> selon éligibilité.
+          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

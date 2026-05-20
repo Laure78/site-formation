@@ -306,7 +306,7 @@ Génère ma fiche d'analyse standardisée. Cite la page exacte du DCE pour chaqu
   cta: {
     eyebrow: "ENVIE D'ALLER PLUS LOIN ?",
     title: 'On le construit ensemble',
-    subtitle: 'Atelier individuel ou en équipe — finançable Constructys / OPCO',
+    subtitle: 'Atelier individuel ou en équipe — financement possible selon éligibilité (Constructys / OPCO)',
     programTitle: 'Programme « Niveau 2 — DCE & Mémoire Technique »',
     programItems: [
       'On construit ton skill analyse DCE en direct',

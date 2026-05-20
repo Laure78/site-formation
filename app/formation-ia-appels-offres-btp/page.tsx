@@ -22,13 +22,15 @@ import {
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 
 const PATH = '/formation-ia-appels-offres-btp';
 
 export const metadata = createPageMetadata({
   title: "Formation IA Appels d'Offres BTP | DCE & Mémoire Technique",
   description:
-    `Répondez 5x plus vite aux appels d'offres BTP avec l'IA. Formation Qualiopi finançable Constructys. Analyse DCE, mémoire technique, chiffrage. ${formatProfessionalsTrainedCount()} pros formés.`,
+    `Répondez 5x plus vite aux appels d'offres BTP avec l'IA. Formation Qualiopi. Financement possible selon éligibilité. Analyse DCE, mémoire technique, chiffrage. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: [
     'formation IA appels offres BTP',
@@ -417,6 +419,7 @@ export default function FormationIAAppelsOffresBTPPage() {
               </tbody>
             </table>
           </div>
+          <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
         <section id="programme" className="scroll-mt-24 border-b border-slate-100 py-14">
@@ -425,7 +428,7 @@ export default function FormationIAAppelsOffresBTPPage() {
           </h2>
           <p className="mt-4 text-slate-700">
             <strong>Répondre aux appels d&apos;offres avec l&apos;IA</strong> — Réf. BTP-02 · Niveau
-            avancé · {SESSION_DUREE_LIBELLE} · {TARIF_FORFAIT_AVANCE_HT} € HT / participant · 12
+            avancé · {SESSION_DUREE_LIBELLE} · {TARIF_FORFAIT_AVANCE_HT} € HT / session · 12
             participants max · {LIBELLE_EFFECTIF_GROUPE_COURT}.
           </p>
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
@@ -479,7 +482,7 @@ export default function FormationIAAppelsOffresBTPPage() {
           </h2>
           <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
             <p>
-              Formation finançable dans le cadre du Plan de Développement des Compétences 2026 via
+              {FINANCEMENT_FORMULATION_PRUDENTE} Détails dans le cadre du Plan de Développement des Compétences 2026 via
               Constructys (OPCO BTP et travaux publics).
             </p>
             <ul className="list-disc space-y-2 pl-5">

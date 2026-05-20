@@ -126,7 +126,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           ) : null}
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
-            Sessions 4 h, certifiées Qualiopi, finançable Constructys selon dossier. Plus de{' '}
+            Sessions 4 h, certifiées Qualiopi. Financement possible selon éligibilité. Plus de{' '}
             <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>

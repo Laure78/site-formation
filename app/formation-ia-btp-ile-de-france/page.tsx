@@ -20,6 +20,7 @@ import {
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 
 const poppins = Poppins({
@@ -33,7 +34,7 @@ const PATH = '/formation-ia-btp-ile-de-france';
 export const metadata = createPageMetadata({
   title: 'Formation IA BTP Île-de-France | Qualiopi Constructys',
   description:
-    `Formation IA BTP en Île-de-France (75-78-91-92-93-94-95-77). Organisme Qualiopi, finançable Constructys. Inter et intra. ${formatProfessionalsTrainedCount()} professionnels formés. ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    `Formation IA BTP en Île-de-France (75-78-91-92-93-94-95-77). Organisme Qualiopi. Intra, inter, présentiel ou distanciel. ${FINANCEMENT_FORMULATION_PRUDENTE} ${formatProfessionalsTrainedCount()} professionnels formés. ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   path: PATH,
   keywords: [
     'formation IA BTP Île-de-France',
@@ -61,8 +62,8 @@ export const metadata = createPageMetadata({
 });
 
 const COURSE_JSON_LD = buildFormationIaCourseJsonLd({
-  name: 'Formation IA BTP Île-de-France — Qualiopi, finançable Constructys',
-  description: `${SITE_CONFIG.legalName} : formations IA BTP en Île-de-France (75 à 95, 77). Sessions 4 h inter ou intra, certifiées Qualiopi, éligibles OPCO Constructys. ChatGPT, Claude AI, comptes rendus, devis, appels d'offres.`,
+  name: 'Formation IA BTP Île-de-France — Qualiopi',
+  description: `${SITE_CONFIG.legalName} : formations IA BTP en Île-de-France (75 à 95, 77). Sessions 4 h intra ou inter, en présentiel ou en distanciel, certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ChatGPT, Claude AI — devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus, relances clients.`,
   path: PATH,
   areaServed: ['Île-de-France', 'France'],
 });
@@ -137,10 +138,12 @@ export default function FormationIaBtpIleDeFrancePage() {
             Laure Olivié · OFC Création d&apos;Entreprise · Guyancourt (78) · Île-de-France
           </p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
-            Formation IA BTP Île-de-France — Certifiée Qualiopi, finançable Constructys
+            Formation IA BTP Île-de-France — Certifiée Qualiopi
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            Formations courtes (4 h), sur vos documents réels, résultats dès le lendemain.{' '}
+            Formations courtes (4 h) pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux,
+            chargés d&apos;affaires et équipes administratives — sur vos documents réels (devis, DCE, CCTP, mémoires
+            techniques, comptes rendus, relances). Intra, inter, présentiel ou distanciel.{' '}
             <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
@@ -243,11 +246,11 @@ export default function FormationIaBtpIleDeFrancePage() {
                 NIV-01 — L&apos;IA au service des pros du Bâtiment Travaux Publics
               </h3>
               <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session
+                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
               </p>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                Devis, emails, comptes rendus de chantier, administratif — pour les équipes bâtiment et travaux publics
-                qui démarrent avec l&apos;IA. Programme PDF sur la fiche catalogue.
+                Devis, DCE, CCTP, comptes rendus de chantier, relances clients et documents administratifs — pour les
+                équipes bâtiment et travaux publics qui démarrent avec l&apos;IA. Programme PDF sur la fiche catalogue.
               </p>
             </article>
             <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -255,7 +258,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 NIV-02 — L&apos;IA au service des appels d&apos;offre BTP
               </h3>
               <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/session
+                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
               </p>
               <p className="mt-4 text-slate-700 leading-relaxed">
                 Analyse DCE, mémoire technique, structuration de réponse marché. Pour les chargés d&apos;affaires et
@@ -360,8 +363,8 @@ export default function FormationIaBtpIleDeFrancePage() {
             Financement Constructys par département d&apos;Île-de-France
           </h2>
           <p className="mt-6 text-slate-700 leading-relaxed">
-            Toutes les formations OFC sont éligibles au financement Constructys (PDC 2026) pour les entreprises du
-            bâtiment et des travaux publics de moins de 50 salariés relevant des conventions collectives BTP.
+            Toutes les formations OFC sont éligibles à une prise en charge Constructys (PDC 2026) pour les entreprises du
+            bâtiment et des travaux publics relevant des conventions collectives BTP — selon statut, branche et conditions en vigueur.
           </p>
           <p className="mt-6 font-semibold text-slate-900">Plafonds 2026 :</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
@@ -373,7 +376,7 @@ export default function FormationIaBtpIleDeFrancePage() {
           <p className="mt-6 text-slate-700 leading-relaxed">
             <strong>La règle à ne pas oublier :</strong> la demande doit être déposée sur eGestion
             (services.constructys.fr) au minimum 15 jours avant la formation. OFC accompagne chaque client dans la
-            constitution du dossier et peut facturer directement Constructys (subrogation — zéro avance de trésorerie).
+            constitution du dossier et peut facturer directement Constructys (subrogation possible selon dossier — sans garantie d'avance zéro).
           </p>
           <p className="mt-6 font-semibold text-slate-900">Délégations Constructys Île-de-France :</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
