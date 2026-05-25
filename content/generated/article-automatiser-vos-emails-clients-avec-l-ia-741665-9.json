@@ -1,13 +1,13 @@
 {
-  "slug": "ia-et-menuisier-5-gains-de-temps-concrets",
-  "title": "IA et menuisier : 5 gains de temps concrets",
-  "description": "5 gains de temps : IA et menuisier. Devis, CR, emails. Formation 4h pratique, financement possible selon éligibilité.",
+  "slug": "automatiser-vos-emails-clients-avec-l-ia-741665-9",
+  "title": "Automatiser vos emails clients avec l'IA",
+  "description": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps mesurable. Formation éligible à un financement.",
   "date": "2026-05-25",
   "keywords": [
-    "devis plombier IA",
-    "devis électricien ChatGPT",
-    "chiffrage BTP IA",
-    "ChatGPT entreprises BTP"
+    "GEPP IA",
+    "RH BTP",
+    "gestion prévisionnelle IA",
+    "IA recrutement BTP"
   ],
   "sections": [
     {
@@ -65,8 +65,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "IA et menuisier : 5 gains de temps concrets",
-  "metaDescription": "5 gains de temps : IA et menuisier. Devis, CR, emails. Formation 4h pratique, financement possible selon éligibilité.",
+  "seoTitle": "Automatiser vos emails clients avec l'IA",
+  "metaDescription": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps mesurable. Formation éligible à un financement.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
