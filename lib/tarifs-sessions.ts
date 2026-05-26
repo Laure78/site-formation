@@ -56,9 +56,9 @@ export const MODALITE_FORMATIONS_STANDARD =
 export const MODALITE_FORMATIONS_PRESENTIEL =
   `Sessions inter ou intra — ${MODALITE_FORMATIONS_STANDARD} (inter en Île-de-France, intra dans vos locaux ou à distance).`;
 
-/** Toutes les formations catalogue « niveau avancé » (ex. BTP-02 appels d'offres) */
+/** Toutes les formations catalogue « niveau avancé » (ex. NIV-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =
-  'Abonnement Claude Pro (version payante) requis pour le niveau avancé.';
+  'Abonnement Claude Pro (20 €/mois) et Cowork installé sur le poste requis pour le niveau avancé.';
 
 /** Formations catalogue « niveau débutant » (BTP-01, BTP-04, etc.) — comptes gratuits suffisants */
 export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =

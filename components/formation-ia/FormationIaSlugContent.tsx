@@ -36,7 +36,7 @@ function FormationIaVilleCalendlySection() {
           Réservez votre visio découverte gratuite
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600 md:text-lg">
-          Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA BTP, financement
+          Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA pour les pro du BTP, financement
           Constructys, format intra ou inter).
         </p>
         <div className="mt-8">
@@ -63,7 +63,7 @@ export function FormationIaMetierBody({
         Formation IA, ChatGPT et Claude AI — {capitalizeFirst(metier.label)}
       </h1>
       <p className="lead text-lg text-slate-700">
-        Vous cherchez une <strong>formation IA BTP</strong> alignée sur le lot{' '}
+        Vous cherchez une <strong>formation IA appliquée au bâtiment</strong> alignée sur le lot{' '}
         <strong>{metier.label}</strong> ({metier.categorie}) ? Cette page détaille comment{' '}
         <strong>ChatGPT</strong> et <strong>Claude AI</strong> s&apos;intègrent à votre quotidien :
         devis, réponses aux consultations, mémoires techniques, comptes rendus de chantier et
@@ -196,7 +196,7 @@ export function FormationIaMetierBody({
         {villes.map((v) => (
           <li key={v.slug}>
             <Link href={`/formation-ia/${v.slug}`} className="text-[#377CF3] underline-offset-2 hover:underline">
-              Formation IA BTP {v.label} ({v.deptName})
+              Formation IA pour le BTP {v.label} ({v.deptName})
             </Link>
           </li>
         ))}
@@ -218,7 +218,7 @@ export function FormationIaMetierBody({
       )}
       <p>
         <Link href="/financement-constructys-formation-ia-btp" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-          Financement Constructys / OPCO — formation IA BTP
+          Financement Constructys / OPCO — formation IA pour les pro du BTP
         </Link>
         {' · '}
         <Link href="/contact" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
@@ -226,11 +226,11 @@ export function FormationIaMetierBody({
         </Link>
         {' · '}
         <Link href="/formation-ia/faq" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-          FAQ formation IA BTP (longue traîne)
+          FAQ formation IA appliquée au bâtiment (longue traîne)
         </Link>
         {' · '}
         <Link href="/formation-ia" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-          Hub formation IA BTP
+          Hub formation IA pour le BTP
         </Link>
       </p>
     </article>
@@ -253,11 +253,11 @@ export function FormationIaVilleBody({
   return (
     <article className="prose prose-slate max-w-none">
       <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-        Formation IA BTP à {ville.label} — ChatGPT & Claude AI ({ville.deptName})
+        Formation IA pour les pro du BTP à {ville.label} — ChatGPT & Claude AI ({ville.deptName})
       </h1>
       <p className="lead text-lg text-slate-700">
         Vous êtes basé·e à <strong>{ville.label}</strong> ({ville.deptName}, département{' '}
-        {ville.dept}) et vous voulez une <strong>formation IA BTP</strong> concrète pour des professionnels du BTP,
+        {ville.dept}) et vous voulez une <strong>formation IA appliquée au bâtiment</strong> concrète pour des professionnels du BTP,
         chefs d&apos;équipe et dirigeants ? Cette page présente l&apos;approche OFC : ateliers sur{' '}
         <strong>ChatGPT</strong> et <strong>Claude AI</strong>, cas réels de chantier et pièces
         administratives, avec une perspective locale Île-de-France.
@@ -308,7 +308,7 @@ export function FormationIaVilleBody({
       </p>
       <p>
         <Link href="/formation-ia/btp-paris" className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-          Formation IA BTP Paris — ChatGPT & Claude AI
+          Formation IA pour le BTP Paris — ChatGPT & Claude AI
         </Link>
       </p>
 
@@ -319,7 +319,7 @@ export function FormationIaVilleBody({
             {sisters.map((s) => (
               <li key={s.slug}>
                 <Link href={`/formation-ia/${s.slug}`} className="text-[#377CF3] hover:underline">
-                  Formation IA BTP {s.label}
+                  Formation IA pour les pro du BTP {s.label}
                 </Link>
               </li>
             ))}
@@ -327,7 +327,7 @@ export function FormationIaVilleBody({
         </>
       ) : (
         <>
-          <h2 className="font-display text-xl font-semibold text-slate-900">Formation IA BTP en Île-de-France</h2>
+          <h2 className="font-display text-xl font-semibold text-slate-900">Formation IA appliquée au bâtiment en Île-de-France</h2>
           <p>
             Laure Olivié intervient dans tous les départements d&apos;Île-de-France. Découvrez la vue
             régionale et réservez une session sur mesure pour votre entreprise BTP.
@@ -337,7 +337,7 @@ export function FormationIaVilleBody({
               href="/formation-ia-btp-ile-de-france"
               className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
             >
-              Voir toutes les formations IA BTP en Île-de-France →
+              Voir toutes les formations IA appliquées au bâtiment en Île-de-France →
             </Link>
           </p>
         </>
@@ -467,7 +467,7 @@ function FormationIaParisBody() {
         Pour une recherche locale : consultez aussi les pages ville (Versailles, Créteil, Nanterre,
         Saint-Denis, Cergy-Pontoise, Évry-Courcouronnes, Melun, etc.) depuis le{' '}
         <Link href="/formation-ia" className="text-[#377CF3] hover:underline">
-          hub formation IA BTP
+          hub formation IA pour le BTP
         </Link>
         . L&apos;objectif est de concilier <strong>SEO local</strong> et utilité réelle : chaque page
         reste lisible, avec des exemples concrets.

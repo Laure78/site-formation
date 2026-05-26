@@ -13,7 +13,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
 
   metaTitle: 'Tuto Dispatch Claude BTP : ton téléphone pilote ton PC',
   metaDescription:
-    "Dispatch Claude BTP : transforme ton téléphone en télécommande de ton PC depuis ton chantier. Tuto pas à pas + 8 commandes vocales par Laure Olivié, formatrice IA BTP.",
+    "Dispatch Claude BTP : transforme ton téléphone en télécommande de ton PC depuis ton chantier. Tuto pas à pas + 8 commandes vocales par Laure Olivié, formatrice IA appliquée au bâtiment.",
   keywords: [
     'Dispatch Claude',
     'Claude Dispatch BTP',
@@ -29,7 +29,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
     'IA dirigeant BTP',
     'ChatGPT BTP',
     'Claude BTP',
-    'formation IA BTP',
+    'formation IA pour les pro du BTP',
     'Laure Olivié',
     "OFC Création d'Entreprise",
     'Constructys',

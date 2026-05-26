@@ -8,11 +8,11 @@ import { FAQ_OFFRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Nos offres de formation IA BTP',
+  title: 'Nos offres de formation IA pour le BTP',
   description:
     "Formations IA ciblées BTP : parcours personnalisés, suivi et certificats. Présentiel ou ligne. Qualiopi, Constructys. Choisissez l'offre adaptée à vos enjeux.",
   path: '/offres',
-  keywords: ['formation IA BTP', 'formation intelligence artificielle bâtiment', 'formation ChatGPT entreprises BTP'],
+  keywords: ['formation IA pour les pro du BTP', 'formation intelligence artificielle bâtiment', 'formation ChatGPT entreprises BTP'],
 });
 
 export default function OffresPage() {

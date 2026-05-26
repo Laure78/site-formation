@@ -14,7 +14,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
       <Breadcrumb
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
-          { name: 'Formation IA BTP (hub)', path: hubPath },
+          { name: 'Formation IA appliquée au bâtiment (hub)', path: hubPath },
         ])}
         showVisual
         className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 lg:px-8"
@@ -26,7 +26,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
           </h1>
           <p className="mt-4 text-lg text-slate-700">
             <Link href={LINKS.formationIaBtp} className="font-semibold text-[#377CF3] hover:underline">
-              Page pilier : formation IA BTP (programme, financement, FAQ)
+              Page pilier : formation IA pour le BTP (programme, financement, FAQ)
             </Link>
           </p>
           <p className="lead text-lg text-slate-700">
@@ -41,7 +41,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
             <p>
               <strong>Priorité locale : </strong>
               <Link href={`/formation-ia/${paris.slug}`} className="font-semibold text-[#377CF3] hover:underline">
-                Formation IA BTP à Paris — page renforcée
+                Formation IA pour les pro du BTP à Paris — page renforcée
               </Link>
             </p>
           )}
@@ -62,7 +62,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
             {FORMATION_IA_VILLES.map((v) => (
               <li key={v.slug} className="break-inside-avoid">
                 <Link href={`/formation-ia/${v.slug}`} className="text-[#377CF3] hover:underline">
-                  Formation IA BTP {v.label} ({v.deptName})
+                  Formation IA appliquée au bâtiment {v.label} ({v.deptName})
                 </Link>
               </li>
             ))}
@@ -71,7 +71,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
           <h2 className="font-display text-xl font-semibold text-slate-900">Aller plus loin</h2>
           <p>
             <Link href="/formation-ia/faq" className="text-[#377CF3] hover:underline">
-              FAQ formation IA BTP (longue traîne)
+              FAQ formation IA pour le BTP (longue traîne)
             </Link>
             {' · '}
             <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">

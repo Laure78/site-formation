@@ -35,11 +35,11 @@ export function StickyCTA() {
     <div
       className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-between bg-[var(--accent)] px-4 py-3 text-white shadow-lg md:hidden"
       role="region"
-      aria-label="Offre formation IA BTP"
+      aria-label="Offre formation IA pour le BTP"
     >
       <div className="min-w-0 pr-2">
         <p className="text-sm font-semibold">
-          📅 Formation IA BTP — 30 min offertes
+          📅 Formation IA pour les pro du BTP — 30 min offertes
         </p>
         <p className="text-xs opacity-90">Financement possible selon éligibilité</p>
       </div>

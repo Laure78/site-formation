@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
-import { RdvLink } from '@/components/RdvLink';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
@@ -45,13 +45,16 @@ function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; sub
       <h2 className="font-display text-xl font-bold md:text-2xl">{title}</h2>
       <p className="mt-3 text-sm leading-relaxed text-blue-100 md:text-base">{subtitle}</p>
       <div className="mt-6 flex flex-wrap gap-3">
-        <RdvLink
+        <CalendlyEmbed
+          type="popup"
+          variant="unstyled"
           ctaPosition="middle"
-          className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
+          campaign={`formation-metier-${id}`}
+          className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
         >
           Réservez votre visio découverte gratuite
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
-        </RdvLink>
+        </CalendlyEmbed>
         <Link href={LINKS.financement} className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10">
           Voir les options de financement
         </Link>
@@ -210,7 +213,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             <CalendlyBlock
               id="rdv-1"
               title="Premier rendez-vous — Calendly"
-              subtitle="30 minutes pour cadrer votre besoin (intra, inter, distanciel) et voir si la formation IA BTP correspond à votre équipe."
+              subtitle="30 minutes pour cadrer votre besoin (intra, inter, distanciel) et voir si la formation IA appliquée au bâtiment correspond à votre équipe."
             />
           </div>
 
@@ -361,7 +364,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 <CalendlyBlock
                   id="rdv-3"
                   title="Troisième appel à l’action — Calendly"
-                  subtitle="Une dernière occasion de réserver un créneau : appel découverte formation IA BTP (30 min), même lien Calendly officiel."
+                  subtitle="Une dernière occasion de réserver un créneau : appel découverte formation IA pour le BTP (30 min), même lien Calendly officiel."
                 />
               </div>
 

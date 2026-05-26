@@ -40,9 +40,9 @@ export function FormationCityPage({
   const cityCamp = path.replace(/^\/+|\/$/g, '').replace(/\//g, '-');
   const diagnosticUrl = buildSiteCalendlyCtaUrl(`${cityCamp}-aller-plus-loin-diagnostic`);
   const cityFinCtaCampaign = `${cityCamp}-fin-cta`;
-  const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA BTP ${ville}`)}`;
+  const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
-    `Formation IA BTP à ${ville} — devis, emails, appels d'offres, administratif.`,
+    `Formation IA pour le BTP à ${ville} — devis, emails, appels d'offres, administratif.`,
     `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) — Qualiopi.`,
     `Présentiel — ${regionLabel} : inter ou intra dans vos locaux selon convention.`,
     'Financement OPCO Constructys selon éligibilité.',
@@ -248,7 +248,7 @@ export function FormationCityPage({
           <div className="mx-auto max-w-4xl">
             <FAQSection
               items={faqItems}
-              title={`Questions fréquentes — Formation IA BTP à ${ville}`}
+              title={`Questions fréquentes — Formation IA pour les pro du BTP à ${ville}`}
             />
           </div>
         </section>
@@ -286,12 +286,12 @@ export function FormationCityPage({
             Aller plus loin
           </h2>
           <p className="mt-2 text-slate-600">
-            Découvrez aussi notre formation IA BTP à Paris, nos articles et notre catalogue complet.
+            Découvrez aussi notre formation IA appliquée au bâtiment à Paris, nos articles et notre catalogue complet.
           </p>
           <ul className="mt-6 flex flex-wrap gap-4">
             <li>
               <Link href="/formations/ia-btp-paris" className="font-medium text-[var(--accent)] hover:underline">
-                Formation IA BTP Paris
+                Formation IA pour le BTP Paris
               </Link>
             </li>
             <li>
@@ -313,7 +313,7 @@ export function FormationCityPage({
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                { href: '/formations', label: 'Formation IA BTP' },
+                { href: '/formations', label: 'Formation IA pour les pro du BTP' },
                 { href: '/formation-ia-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
                 { href: diagnosticUrl, label: 'Prendre rendez-vous pour un diagnostic' },
               ]}
@@ -326,7 +326,7 @@ export function FormationCityPage({
       <section className="bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">
-            Demander une formation IA BTP à {ville}
+            Demander une formation IA appliquée au bâtiment à {ville}
           </h2>
           <p className="mt-4 text-lg text-blue-100">
             Réservez votre formation IA. Devis personnalisé sous 24h.

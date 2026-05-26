@@ -15,7 +15,7 @@ import {
 const PATH = '/financement-constructys-formation-ia-btp' as const;
 
 const H1 =
-  'Financer une formation IA BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
+  'Financer une formation IA pour les pro du BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
 
 const HOWTO_STEPS: { name: string; text: string }[] = [
   {
@@ -61,7 +61,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const articleRaw = getArticleSchema({
     headline: H1,
     description:
-      'Plafonds Constructys 2026 pour une formation IA BTP : 24 € HT/h, 840 € HT/jour intra, dépôt eGestion J-15. Guide OPCO, Qualiopi, dossier OFC.',
+      'Plafonds Constructys 2026 pour une formation IA pour les pro du BTP : 24 € HT/h, 840 € HT/jour intra, dépôt eGestion J-15. Guide OPCO, Qualiopi, dossier OFC.',
     path: PATH,
     datePublished: '2026-01-15',
     dateModified: '2026-04-18',
@@ -74,9 +74,9 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const howTo: Record<string, unknown> = {
     '@type': 'HowTo',
     '@id': `${pageUrl}#howto`,
-    name: 'Comment obtenir le financement Constructys pour une formation IA BTP',
+    name: 'Comment obtenir le financement Constructys pour une formation IA appliquée au bâtiment',
     description:
-      'Cinq étapes pour financer votre formation IA BTP avec Constructys en 2026 : périmètre BTP, Qualiopi, pièces, eGestion, validation.',
+      'Cinq étapes pour financer votre formation IA pour le BTP avec Constructys en 2026 : périmètre BTP, Qualiopi, pièces, eGestion, validation.',
     totalTime: 'P15D',
     estimatedCost: {
       '@type': 'MonetaryAmount',
@@ -127,7 +127,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const course: Record<string, unknown> = {
     '@type': 'Course',
     '@id': `${pageUrl}#course`,
-    name: `Formation IA BTP — session ${SESSION_DUREE_LIBELLE}`,
+    name: `Formation IA pour les pro du BTP — session ${SESSION_DUREE_LIBELLE}`,
     description:
       'Session présentiel sur l’IA générative (ChatGPT, Claude) appliquée au BTP — devis, chantier, administratif. Niveaux débutant et avancé.',
     url: pageUrl,

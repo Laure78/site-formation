@@ -10,12 +10,12 @@ import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/li
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Paris 2026 — Constructys selon éligibilité',
+  title: 'Formation IA pour le BTP Paris 2026 — Constructys selon éligibilité',
   description:
     'Formation IA ChatGPT pour BTP à Paris et IDF. Sessions inter et intra. Qualiopi. Finançable Constructys (plafonds en vigueur). Réservez votre visio découverte gratuite.',
   path: '/formation-ia-btp-paris-2026',
   keywords: [
-    'formation IA BTP Paris 2026',
+    'formation IA appliquée au bâtiment Paris 2026',
     'formation IA bâtiment Île-de-France 2026',
     'ChatGPT BTP Paris',
     'formation Constructys Paris',
@@ -33,7 +33,7 @@ export default function FormationIABTPParis2026Page() {
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
           { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA BTP Paris 2026', path: '/formation-ia-btp-paris-2026' },
+          { name: 'Formation IA pour les pro du BTP Paris 2026', path: '/formation-ia-btp-paris-2026' },
         ])}
       />
       {/* Hero */}
@@ -43,7 +43,7 @@ export default function FormationIABTPParis2026Page() {
             Pillar page · Paris & Île-de-France · 2026
           </div>
           <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl">
-            Formation IA BTP Paris 2026
+            Formation IA appliquée au bâtiment Paris 2026
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-slate-600">
             Tout ce qu&apos;il faut savoir pour suivre une formation à l&apos;intelligence
@@ -70,7 +70,7 @@ export default function FormationIABTPParis2026Page() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Vos formations IA BTP à Paris en 2026
+            Vos formations IA pour les pro du BTP à Paris en 2026
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             Sessions à Paris (75) et en présentiel en Île-de-France : 4 h pratiques,
@@ -85,7 +85,7 @@ export default function FormationIABTPParis2026Page() {
                 75
               </span>
               <h3 className="mt-4 font-display text-lg font-semibold text-slate-900">
-                Formation IA BTP Paris
+                Formation IA pour le BTP Paris
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 Paris intramuros et agglomération. Tous arrondissements.
@@ -102,7 +102,7 @@ export default function FormationIABTPParis2026Page() {
                 IDF
               </span>
               <h3 className="mt-4 font-display text-lg font-semibold text-slate-900">
-                Formation IA BTP Île-de-France
+                Formation IA pour les pro du BTP Île-de-France
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 8 départements : 92, 93, 94, 77, 78, 91, 95.
@@ -139,7 +139,7 @@ export default function FormationIABTPParis2026Page() {
             Financement Constructys selon éligibilité en 2026
           </h2>
           <p className="mt-3 text-slate-600">
-            Les formations IA BTP à Paris sont éligibles au financement Constructys.
+            Les formations IA appliquées au bâtiment à Paris sont éligibles au financement Constructys.
             Financement possible via Constructys ou votre OPCO, selon statut, branche et barèmes en vigueur.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -210,7 +210,7 @@ export default function FormationIABTPParis2026Page() {
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_IA_BTP_PARIS}
-            title="Questions fréquentes — Formation IA BTP Paris 2026"
+            title="Questions fréquentes — Formation IA appliquée au bâtiment Paris 2026"
           />
         </div>
       </section>
@@ -243,11 +243,11 @@ export default function FormationIABTPParis2026Page() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
+              { href: '/formations/ia-btp-paris', label: 'Formation IA pour le BTP Paris' },
               { href: '/formation-ia-btp-ile-de-france', label: 'Formation Île-de-France' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-              { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement Constructys formation IA BTP' },
+              { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement Constructys formation IA pour le BTP' },
               { href: buildSiteCalendlyCtaUrl('formation-ia-btp-paris-2026-footer-rdv'), label: 'Prendre rendez-vous' },
               { href: '/diagnostic-ia-btp', label: 'Diagnostic gratuit' },
               { href: '/blog', label: 'Articles et guides' },

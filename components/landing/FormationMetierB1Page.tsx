@@ -241,7 +241,7 @@ export function FormationMetierB1Page({
 
         <AllerPlusLoin
           links={[
-            { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
+            { href: LINKS.formations, label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: allerPlusCalendlyHref, label: 'Prendre rendez-vous' },
           ]}

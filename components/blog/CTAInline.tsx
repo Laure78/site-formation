@@ -1,5 +1,5 @@
 import { Calendar } from 'lucide-react';
-import { RdvLink } from '@/components/RdvLink';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 type Variant = 'primary' | 'soft' | 'outline';
 
@@ -11,16 +11,18 @@ const variantClass: Record<Variant, string> = {
 };
 
 /**
- * CTA Calendly inline pour articles MDX (2–3 par article recommandé).
+ * CTA Calendly inline pour articles MDX — popup natif.
  */
 export function CTAInline({
   label = 'Vous voulez appliquer cette méthode sur vos documents BTP ?',
   variant = 'primary',
   className = '',
+  campaign = 'blog-mdx-inline',
 }: {
   label?: string;
   variant?: Variant;
   className?: string;
+  campaign?: string;
 }) {
   return (
     <div
@@ -31,13 +33,13 @@ export function CTAInline({
         <span>{label}</span>
       </p>
       <div className="flex flex-wrap gap-3">
-        <RdvLink
-          page="blog"
+        <CalendlyEmbed
+          type="popup"
+          variant="unstyled"
           ctaPosition="middle"
-          className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition hover:bg-[#2d6ab8]"
-        >
-          Réservez votre visio découverte gratuite
-        </RdvLink>
+          campaign={campaign}
+          className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition hover:bg-[#2d6ab8]"
+        />
       </div>
     </div>
   );

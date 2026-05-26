@@ -33,6 +33,16 @@ function stripAtContext(obj: Record<string, unknown>): Record<string, unknown> {
 /** Durées indicatives (cours complets LinkedIn Learning — à ajuster si besoin). */
 const LINKEDIN_COURSE_DURATION: [string, string] = ['PT2H', 'PT1H45M'];
 
+const AGGREGATE_RATING_VALUE = 4.85;
+
+const aggregateRating = {
+  '@type': 'AggregateRating',
+  ratingValue: AGGREGATE_RATING_VALUE,
+  ratingCount: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
+  bestRating: 5,
+  worstRating: 1,
+};
+
 export function getAProposUnifiedJsonLd(): Record<string, unknown> {
   const faqRaw = getFAQSchema(FAQ_COMPLET);
   if (!faqRaw) throw new Error('FAQ À propos : schéma invalide');
@@ -112,6 +122,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
         name: 'LinkedIn Learning Instructor',
       },
     ],
+    aggregateRating,
   };
 
   const localBusiness: Record<string, unknown> = {
@@ -122,7 +133,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}/images/laure-portrait-pro-2026.png`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA BTP — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pro du BTP — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',
@@ -164,19 +175,21 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     },
     taxID: SCHEMA_CONTACT.siretFormatted,
     vatID: SCHEMA_CONTACT.vatId,
+    aggregateRating,
+    founder: { '@id': PERSON_ID },
   };
 
   const profilePage: Record<string, unknown> = {
     '@type': 'ProfilePage',
     '@id': PROFILE_PAGE_ID,
     url: PAGE_URL,
-    name: 'Laure Olivié — Formatrice IA BTP (Qualiopi, FFB, LinkedIn Learning)',
+    name: 'Laure Olivié — Formatrice IA spécialisée BTP (Qualiopi, FFB, LinkedIn Learning)',
     dateCreated: '2022-01-15T12:00:00+01:00',
-    dateModified: '2026-04-17T12:00:00+02:00',
+    dateModified: '2026-05-22T12:00:00+02:00',
     mainEntity: { '@id': PERSON_ID },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', '.tldr-bio', '#parcours'],
+      cssSelector: ['h1', '.tldr-bio', '#experience'],
     },
   };
 

@@ -1,101 +1,103 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Award, Building2, GraduationCap, HardHat, ShieldCheck, Star, Target, Users } from 'lucide-react';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import type { ReactNode } from 'react';
+import { ArrowUpRight, Award, Building2, Mail, MapPin, Phone, ShieldCheck, Star, Users } from 'lucide-react';
+import { createPageMetadata } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
-import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { A_PROPOS_NARRATIVE_PARAGRAPHS } from '@/lib/a-propos-narrative';
 import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
-import { calendlyAboutUrl, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PHOTOS } from '@/lib/photos';
-import { StatsCards } from '@/components/a-propos/StatsCards';
+import {
+  A_PROPOS_AUTORITE_PARAGRAPHS,
+  A_PROPOS_CERTIFICATIONS,
+  A_PROPOS_CERTIFICATIONS_INTRO,
+  A_PROPOS_CLIENTS_CATEGORIES,
+  A_PROPOS_CLIENTS_INTRO,
+  A_PROPOS_CONTACT_INTRO,
+  A_PROPOS_EEAT_INTRO,
+  A_PROPOS_EXPERTISE_PARAGRAPHS,
+  A_PROPOS_MISSION,
+  A_PROPOS_TRUST_PARAGRAPH,
+} from '@/lib/a-propos-eeat-content';
 import { Timeline } from '@/components/a-propos/Timeline';
 import { PartnersGrid } from '@/components/a-propos/PartnersGrid';
-import { CaseStudyCard } from '@/components/a-propos/CaseStudyCard';
-import { ApproachSection } from '@/components/a-propos/ApproachSection';
-import { ConversionHero } from '@/components/a-propos/ConversionHero';
-import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
+import { EeatRichText } from '@/components/a-propos/EeatRichText';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents';
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 const A_PROPOS_TOC = [
-  { label: 'Qui suis-je ?', anchor: 'qui-suis-je' },
-  { label: 'BeWork — relais BTP', anchor: 'bework' },
-  { label: 'Mon parcours', anchor: 'mon-parcours' },
-  { label: "L'essentiel", anchor: 'essentiel' },
-  { label: 'Portrait', anchor: 'portrait' },
-  { label: 'Chiffres clés', anchor: 'chiffres-cles' },
-  { label: 'Résultats chiffrés', anchor: 'resultats-chiffres' },
-  { label: 'Parcours', anchor: 'parcours' },
-  { label: 'Méthodologie CARE', anchor: 'methodologie-care' },
-  { label: 'Références chiffrées', anchor: 'references-chiffrees' },
-  { label: 'Pourquoi Laure', anchor: 'pourquoi-laure' },
-  { label: 'Faits vérifiables', anchor: 'faits-verifiables' },
+  { label: 'Introduction', anchor: 'introduction' },
+  { label: 'Expertise', anchor: 'expertise' },
+  { label: 'Expérience', anchor: 'experience' },
+  { label: 'Autorité & références', anchor: 'autorite' },
   { label: 'Certifications', anchor: 'certifications' },
-  { label: 'Clients', anchor: 'clients-partenaires' },
+  { label: 'Mission & valeurs', anchor: 'mission-valeurs' },
+  { label: 'Clients & partenaires', anchor: 'clients-partenaires' },
   { label: 'LinkedIn Learning', anchor: 'linkedin-learning' },
-  { label: 'Ressources & preuves', anchor: 'ressources-preuves' },
-  { label: 'Zone d’intervention', anchor: 'zone-intervention' },
-  { label: 'Me contacter', anchor: 'me-contacter' },
+  { label: 'Contact & Calendly', anchor: 'contact-calendly' },
   { label: 'FAQ', anchor: 'faq' },
 ] as const;
 
-const CARE_ITEMS = [
-  {
-    title: 'ChatGPT',
-    desc: 'Maîtriser les fondamentaux IA et les prompts utiles au contexte BTP (devis, mails, CR, CCTP).',
-  },
-  {
-    title: 'Apprentissage',
-    desc: 'Cas pratiques 100 % métier avec vos documents réels (devis, DPGF, mémoire technique, suivi chantier).',
-  },
-  {
-    title: 'Résultats',
-    desc: 'Mesurer les gains concrets en temps, qualité et clarté documentaire pour les équipes opérationnelles.',
-  },
-  {
-    title: 'Évaluation',
-    desc: 'Ajuster la méthode, consolider les usages et itérer en fonction des retours terrain du groupe.',
-  },
-] as const;
+const A_PROPOS_META_TITLE = 'Laure Olivié - formatrice IA pour le BTP - 1 592 pros, Qualiopi';
+const A_PROPOS_META_DESCRIPTION =
+  'Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi. 1 592 professionnels formés, note 4,85/5. FFB, LinkedIn Learning. Appel découverte gratuit.';
 
 export const metadata = createPageMetadata({
-  title: 'Formatrice IA BTP — FFB, Qualiopi, LinkedIn Learning',
-  description:
-    'Laure Olivié — formatrice IA BTP en France, instructrice LinkedIn Learning. 1 592 pros formés (FFB, CNAM, CSFE, Lefebvre Dalloz). Qualiopi, Constructys. Guyancourt (78).',
+  title: A_PROPOS_META_TITLE,
+  titleAbsolute: A_PROPOS_META_TITLE,
+  description: A_PROPOS_META_DESCRIPTION,
   path: '/a-propos',
   keywords: null,
   appendAuthorSuffix: false,
+  openGraphTitle: A_PROPOS_META_TITLE,
+  openGraphDescription: A_PROPOS_META_DESCRIPTION,
   image: {
     url: '/og/a-propos-og.png',
     width: 1200,
     height: 630,
-    alt: 'Laure Olivié — formatrice IA BTP, Qualiopi, instructrice LinkedIn Learning',
+    alt: 'Laure Olivié — formatrice IA appliquée au bâtiment, Qualiopi, instructrice LinkedIn Learning',
   },
 });
+
+function EeatSection({
+  id,
+  title,
+  children,
+  className = '',
+}: {
+  id?: string;
+  title: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <section
+      id={id}
+      className={`scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8 ${className}`}
+    >
+      <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">{title}</h2>
+      {children}
+    </section>
+  );
+}
 
 export default function AProposPage() {
   const unifiedSchema = getAProposUnifiedJsonLd();
   const faqItems = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
-  const aboutHeroUrl = calendlyAboutUrl('hero');
-  const aboutApproachUrl = calendlyAboutUrl('approach');
-  const aboutBottomUrl = calendlyAboutUrl('bottom-cta');
-  const lead = `${formatProfessionalsTrainedCount()} professionnels du bâtiment et des travaux publics formés (au 17 avril 2026). Note ${SOCIAL_PROOF.AVERAGE_RATING} sur les évaluations fin de formation. Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi), instructrice LinkedIn Learning. Ancienne fondatrice et conductrice de travaux chez ALIA BTP (Guyancourt).`;
-  const qualiopiText = "Numéro de déclaration d'activité (NDA) : 11788515078 — organisme conforme au référentiel national qualité des actions de formation.";
 
   const allerPlusLoinLinks = [
-    { href: LINKS.formationIaBtp, label: 'Formation IA BTP (page pilier)' },
-    { href: LINKS.chatgptArtisans, label: 'ChatGPT pour PME BTP' },
-    { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
-    { href: LINKS.blog, label: 'Blog' },
-    { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
-    { href: buildSiteCalendlyCtaUrl('a-propos-aller-plus-loin-calendly'), label: 'Calendly — prendre rendez-vous' },
+    { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
+    { href: LINKS.formationIaBtp, label: 'Formation IA pour le BTP — page pilier' },
+    { href: LINKS.blog, label: 'Blog IA & ChatGPT BTP' },
+    { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
+    { href: LINKS.financement, label: 'Financement Constructys' },
   ] as const;
 
   return (
@@ -106,19 +108,20 @@ export default function AProposPage() {
         variant="splitImage"
         layoutDensity="compact"
         surface="muted"
-        eyebrow="Formatrice IA BTP · Guyancourt · Depuis 2014"
-        title="À Propos de Laure Olivié — Formatrice IA BTP"
+        eyebrow="OFC Création d'Entreprise · Qualiopi · Guyancourt"
+        title="Laure Olivié — Formatrice IA spécialisée BTP"
         titleId="a-propos-hero-title"
         subtitle={
-          <>
-            <p className="text-sm font-semibold text-[#334155] md:text-base">
-              Formatrice IA et ChatGPT pour les entreprises du BTP
-            </p>
-            <p className="mt-3 text-sm leading-relaxed md:text-[15px]">{lead}</p>
-          </>
+          <p className="tldr-bio mt-3 text-sm leading-relaxed text-[#334155] md:text-[15px]">
+            {A_PROPOS_EEAT_INTRO}
+          </p>
         }
         tags={['Qualiopi', 'FFB', 'LinkedInLearning', 'BTP', 'Formation']}
-        primaryCta={{ href: aboutHeroUrl, label: 'Prendre RDV' }}
+        primaryCta={{
+          href: LINKS.prendreRdv,
+          label: 'Prendre RDV',
+          external: false,
+        }}
         secondaryCta={{ href: LINKS.formations, label: 'Voir le catalogue →', external: false }}
         credibilityLine={
           <>
@@ -126,12 +129,12 @@ export default function AProposPage() {
               <Award className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
               OFC Création d&apos;Entreprise
             </span>
-            <span className="hidden sm:inline text-slate-300" aria-hidden>
+            <span className="hidden text-slate-300 sm:inline" aria-hidden>
               ·
             </span>
             <span className="inline-flex items-center gap-1.5 text-[#475569]">
               <Star className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" aria-hidden />
-              Qualiopi · Constructys · {formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
+              Qualiopi · {formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
             </span>
           </>
         }
@@ -151,267 +154,162 @@ export default function AProposPage() {
           </div>
 
           <article className="min-w-0 space-y-12 md:space-y-14">
-            <section id="qui-suis-je" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Qui suis-je ?</h2>
+            <EeatSection id="introduction" title="Introduction">
+              <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">{A_PROPOS_EEAT_INTRO}</p>
               <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
-                Je suis <strong>Laure Olivié</strong>, formatrice et consultante IA spécialisée dans la formation des
-                professionnels du bâtiment et des travaux publics à <strong>ChatGPT</strong>, <strong>Claude AI</strong>{' '}
-                et <strong>Gemini</strong>.
+                Vous cherchez une formatrice qui connaît vos contraintes de chantier ? Consultez le{' '}
+                <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
+                  catalogue des formations IA pour les pro du BTP
+                </Link>{' '}
+                ou parcourez le{' '}
+                <Link href={LINKS.blog} className="font-medium text-[#377CF3] hover:underline">
+                  blog pratique IA &amp; ChatGPT BTP
+                </Link>{' '}
+                pour des cas d&apos;usage concrets.
               </p>
-              <p className="mt-3 text-[16px] leading-relaxed text-[#334155]">
-                Depuis 2023, j&apos;ai formé plus de <strong>{formatProfessionalsTrainedCount()}</strong> artisans, chefs
-                d&apos;entreprise et conducteurs de travaux.
-              </p>
-              <p className="mt-3 text-[16px] leading-relaxed text-[#334155]">
-                Mes formations combinent fondamentaux IA, méthodologie CARE et cas pratiques 100 % BTP sur vos documents
-                réels.
-              </p>
-            </section>
+            </EeatSection>
 
-            <BeWorkHighlightSection id="bework" surface="card" />
-            <p className="mt-5 text-center text-sm text-[#64748B] md:text-left">
-              <Link
-                href={`${LINKS.home}#offre-bework-formations`}
-                className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
-              >
-                Offre complète (BeWork et formations IA BTP) — voir la présentation détaillée sur l&apos;accueil
-              </Link>
-            </p>
-
-            <section id="mon-parcours" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Mon parcours</h2>
-              <ul className="mt-6 space-y-3 text-[#334155]">
-                <li>
-                  <strong>2014</strong> : immersion opérationnelle en conduite de chantier et coordination travaux.
-                </li>
-                <li>
-                  <strong>2021</strong> : structuration d&apos;OFC Création d&apos;Entreprise (SASU).
-                </li>
-                <li>
-                  <strong>2023</strong> : lancement des premières formations IA appliquées au BTP.
-                </li>
-                <li>
-                  <strong>2024</strong> : certification Qualiopi (NDA 11788515078) et déploiement des parcours inter/intra.
-                </li>
-                <li>
-                  <strong>2025-2026</strong> : montée en puissance des modules ChatGPT, Claude AI, Gemini et interventions
-                  partenaires (FFB, CSFE, CNAM, Lefebvre Dalloz).
-                </li>
-              </ul>
-            </section>
-
-            <section id="essentiel" className="scroll-mt-24">
-              <div id="essentiel-retour" className="scroll-mt-24" aria-hidden />
+            <EeatSection id="expertise" title="Expertise">
+              <div className="mt-6 space-y-5 text-[16px] leading-relaxed text-[#334155]">
+                {A_PROPOS_EXPERTISE_PARAGRAPHS.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>
+                    <EeatRichText text={paragraph} />
+                  </p>
+                ))}
+              </div>
               <PillarStatGrid
-                titleId="essentiel-title"
-                title={"L'essentiel à retenir"}
-                description="Repères vérifiables — organisme, volume formé et certification."
+                className="mt-8"
+                titleId="expertise-chiffres"
+                title="Repères clés"
+                description="Volume formé, satisfaction et certification — données au 17 avril 2026."
                 columns={2}
                 items={[
-                  { label: 'Organisme', value: "OFC Création d'Entreprise (Qualiopi)", Icon: Building2 },
                   { label: 'Professionnels formés', value: formatProfessionalsTrainedCount(), Icon: Users },
-                  { label: 'Satisfaction', value: SOCIAL_PROOF.AVERAGE_RATING, Icon: Star },
-                  { label: 'LinkedIn Learning', value: 'Instructrice', Icon: GraduationCap },
+                  { label: 'Satisfaction Qualiopi', value: SOCIAL_PROOF.AVERAGE_RATING, Icon: Star },
+                  { label: 'Organisme', value: "OFC Création d'Entreprise", Icon: Building2 },
+                  { label: 'Certification', value: 'Qualiopi (jan. 2028)', Icon: ShieldCheck },
                 ]}
               />
-              <p className="mt-6 rounded-xl border border-[#E2E8F0] bg-white px-5 py-4 text-[15px] leading-relaxed text-[#334155] shadow-sm">
-                {qualiopiText}
-              </p>
-            </section>
-
-            <section id="portrait" className="scroll-mt-24">
-              <div id="portrait-narratif" className="scroll-mt-24" aria-hidden />
-              <div className="rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">Biographie</p>
-                <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Portrait</h2>
-                <div className="mt-6 h-px w-full bg-gradient-to-r from-[#D4E3FC] via-[#E2E8F0] to-transparent" aria-hidden />
-                <div className="tldr-bio mt-8 max-w-3xl space-y-6 text-[17px] leading-[1.9] text-[#334155] md:text-lg">
-                  {A_PROPOS_NARRATIVE_PARAGRAPHS.map((paragraph, index) => (
-                    <p
-                      key={`${index}-${paragraph}`}
-                      className={index === A_PROPOS_NARRATIVE_PARAGRAPHS.length - 1 ? 'pt-2 font-semibold text-[#475569]' : ''}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <StatsCards />
-
-            <section id="resultats-chiffres" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Résultats chiffrés</h2>
-              <ul className="mt-6 space-y-3 text-[#334155]">
-                <li>
-                  <strong>{formatProfessionalsTrainedCount()} professionnels formés</strong> dans le bâtiment et les travaux publics.
-                </li>
-                <li>
-                  <strong>Note de satisfaction : {SOCIAL_PROOF.AVERAGE_RATING}</strong>.
-                </li>
-                <li>
-                  <strong>Taux de recommandation</strong> : suivi en consolidation sur les cohortes 2026.
-                </li>
-                <li>
-                  <strong>Taux de conversion RDV → achat</strong> : pilotage interne, publication agrégée annuelle.
-                </li>
-              </ul>
-            </section>
+            </EeatSection>
 
             <Timeline />
 
-            <section id="methodologie-care" className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Ma méthodologie CARE</h2>
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {CARE_ITEMS.map((item) => (
-                  <article key={item.title} className="rounded-xl border border-[#E2E8F0] bg-[#F8F8F8] p-5">
-                    <h3 className="font-semibold text-[#0F172A]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#475569]">{item.desc}</p>
-                  </article>
+            <EeatSection id="autorite" title="Autorité &amp; références">
+              <div className="mt-6 space-y-5 text-[16px] leading-relaxed text-[#334155]">
+                {A_PROPOS_AUTORITE_PARAGRAPHS.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>
+                    <EeatRichText text={paragraph} />
+                  </p>
                 ))}
               </div>
-              <details className="mt-6 rounded-xl border border-[#E2E8F0] bg-[#F8F8F8] p-4">
-                <summary className="cursor-pointer text-sm font-semibold text-[#0F172A]">
-                  Voir le détail opérationnel de la méthode CARE
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-[#475569]">
-                  Chaque session alterne démonstration, pratique guidée et adaptation à vos cas réels. Les participants
-                  repartent avec des prompts validés, un protocole de relecture et un plan d&apos;usage sur 30 jours.
-                </p>
-              </details>
-            </section>
-
-            <section id="references-chiffrees" className="scroll-mt-24">
-              <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Cas d&apos;usage concrets</h2>
-                <p className="max-w-md text-sm text-[#64748B]">Ce que mes clients ont obtenu après formation.</p>
-              </div>
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <CaseStudyCard
-                  badge="PME BTP · ÎLE-DE-FRANCE"
-                  title="PME du BTP - Île-de-France"
-                  stats="👥 12 stagiaires formés · ⏱ 5h gain hebdomadaire"
-                />
-                <CaseStudyCard
-                  badge="BUREAU D'ÉTUDES · STRUCTURE"
-                  title="Bureau d'études structure"
-                  stats="👥 8 collaborateurs · 📈 30% gain de productivité"
-                />
-              </div>
-            </section>
-
-            <section id="pourquoi-laure" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Pourquoi choisir Laure</h2>
-              <div className="mt-8 grid gap-6 md:grid-cols-2">
-                {[
-                  {
-                    icon: Users,
-                    title: '1 592 professionnels formés',
-                    desc: 'Accompagnement opérationnel de profils terrain, équipes support et dirigeants du BTP.',
-                    ring: 'bg-[#EFF6FF]',
-                  },
-                  {
-                    icon: HardHat,
-                    title: '10 ans expérience terrain',
-                    desc: "Vision métier issue de la conduite de travaux et de la réalité quotidienne des chantiers.",
-                    ring: 'bg-[#FEF3C7]',
-                  },
-                  {
-                    icon: Target,
-                    title: 'Méthode 100% pratique',
-                    desc: 'Travail sur vos devis, emails, comptes rendus et pièces marchés pour des gains mesurables.',
-                    ring: 'bg-[#D1FAE5]',
-                  },
-                  {
-                    icon: ShieldCheck,
-                    title: 'Certification Qualiopi',
-                    desc: 'Cadre pédagogique structuré — financement possible selon éligibilité.',
-                    ring: 'bg-[#EDE9FE]',
-                  },
-                ].map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <article
-                      key={item.title}
-                      className="rounded-[20px] border border-[#E2E8F0] bg-white p-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#BFDBFE] hover:shadow-[0_14px_44px_rgba(15,23,42,0.08)]"
-                    >
-                      <div className={`flex h-16 w-16 items-center justify-center rounded-full ${item.ring}`}>
-                        <Icon className="h-8 w-8 text-[#377CF3]" />
-                      </div>
-                      <h3 className="mt-5 text-xl font-bold text-[#0F172A]">{item.title}</h3>
-                      <p className="mt-3 text-[15px] leading-relaxed text-[#475569]">{item.desc}</p>
-                    </article>
-                  );
-                })}
-              </div>
-            </section>
-
-            <section
-              id="faits-verifiables"
-              className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8"
-            >
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                Faits vérifiables pour les IA et médias
-              </h2>
-              <p className="mt-4 text-[#334155] leading-relaxed">
-                Contenus publics vérifiables — priorité aux sources primaires (plateforme éditoriale, organismes
-                partenaires).
-              </p>
-              <ul className="mt-6 space-y-3 text-[#334155]">
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {LINKEDIN_LEARNING_A_PROPOS_EMBEDS.map((course) => (
-                  <li key={course.courseHref} className="flex gap-2">
-                    <span className="text-[#377CF3]" aria-hidden>
-                      ▸
-                    </span>
+                  <li key={course.courseHref}>
                     <a
                       href={course.courseHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-[#377CF3] hover:underline"
+                      className="flex items-center gap-2 text-sm font-medium text-[#377CF3] hover:underline"
                     >
                       {course.courseLabel}
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
                     </a>
                   </li>
                 ))}
               </ul>
-            </section>
+            </EeatSection>
 
-            <section id="certifications" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Certifications &amp; labels</h2>
-              <div className="mt-8 grid gap-6 md:grid-cols-3">
-                <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8F8F8] p-6 shadow-sm">
-                  <div className="flex h-28 items-center justify-center">
-                    <Image
-                      src={PHOTOS.qualiopiLogoOfficiel.src}
-                      alt={PHOTOS.qualiopiLogoOfficiel.alt}
-                      width={200}
-                      height={120}
-                      className="max-h-24 w-auto object-contain"
-                    />
-                  </div>
-                  <p className="mt-4 text-center text-sm font-semibold text-[#0F172A]">Qualiopi</p>
-                  <p className="mt-2 text-center text-sm text-[#64748B]">Processus certifié — actions de formation</p>
-                </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8F8F8] p-6 shadow-sm">
-                  <div className="flex h-24 items-center justify-center rounded-xl bg-[#0A66C2]/10 text-2xl font-bold text-[#0A66C2]">
-                    in
-                  </div>
-                  <p className="mt-4 text-center text-sm font-semibold text-[#0F172A]">LinkedIn Learning</p>
-                  <p className="mt-2 text-center text-sm text-[#64748B]">Instructrice — cours IA appliqués au BTP</p>
-                </div>
-                <div className="rounded-2xl border border-[#E2E8F0] bg-[#F8F8F8] p-6 shadow-sm">
-                  <p className="text-center text-sm font-bold uppercase tracking-wide text-[#377CF3]">France Num</p>
-                  <p className="mt-4 text-center text-sm font-semibold text-[#0F172A]">Activateur France Num</p>
-                  <p className="mt-2 text-center text-sm text-[#64748B]">Accompagnement numérique des TPE/PME</p>
+            <EeatSection id="certifications" title="Certifications &amp; labels">
+              <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">{A_PROPOS_CERTIFICATIONS_INTRO}</p>
+              <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
+                <EeatRichText text={A_PROPOS_TRUST_PARAGRAPH} />
+              </p>
+              <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {A_PROPOS_CERTIFICATIONS.map((item) => (
+                  <li
+                    key={item.label}
+                    className="rounded-xl border border-[#E2E8F0] bg-[#F8F8F8] p-5"
+                  >
+                    <p className="font-semibold text-[#0F172A]">{item.label}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[#475569]">{item.detail}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-8 rounded-xl border border-[#E2E8F0] bg-[#F8F8F8] p-6">
+                <Image
+                  src={PHOTOS.qualiopiLogoOfficiel.src}
+                  alt={PHOTOS.qualiopiLogoOfficiel.alt}
+                  width={180}
+                  height={100}
+                  className="max-h-20 w-auto object-contain"
+                />
+                <div className="text-center sm:text-left">
+                  <p className="text-sm font-bold uppercase tracking-wide text-[#377CF3]">LinkedIn Learning</p>
+                  <p className="mt-1 text-sm text-[#475569]">Instructrice officielle — cours IA BTP</p>
                 </div>
               </div>
+            </EeatSection>
+
+            <EeatSection id="mission-valeurs" title="Mission &amp; valeurs">
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
+                {[
+                  { label: 'Mission', value: A_PROPOS_MISSION.mission },
+                  { label: 'Approche', value: A_PROPOS_MISSION.approach },
+                  { label: 'Philosophie', value: A_PROPOS_MISSION.philosophy },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-xl border border-[#D4E3FC] bg-[#EFF6FF] p-5">
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#377CF3]">{item.label}</p>
+                    <p className="mt-2 text-[15px] font-semibold leading-snug text-[#0F172A]">{item.value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 space-y-5 text-[16px] leading-relaxed text-[#334155]">
+                {A_PROPOS_MISSION.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 40)}>
+                    <EeatRichText text={paragraph} />
+                  </p>
+                ))}
+              </div>
+            </EeatSection>
+
+            <section id="clients-partenaires" className="scroll-mt-24 space-y-8">
+              <EeatSection title="Clients &amp; partenaires" className="shadow-none">
+                <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
+                  <EeatRichText text={A_PROPOS_CLIENTS_INTRO} />
+                </p>
+                <div className="mt-8 grid gap-6 md:grid-cols-2">
+                  {A_PROPOS_CLIENTS_CATEGORIES.map((category) => (
+                    <div key={category.title}>
+                      <h3 className="font-semibold text-[#0F172A]">{category.title}</h3>
+                      <ul className="mt-3 space-y-2 text-sm text-[#475569]">
+                        {category.items.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span className="text-[#377CF3]" aria-hidden>
+                              ▸
+                            </span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-6 text-sm text-[#64748B]">
+                  Retour d&apos;expérience détaillé :{' '}
+                  <Link href={LINKS.etudesCas} className="font-medium text-[#377CF3] hover:underline">
+                    étude de cas FFB &amp; CSFE
+                  </Link>
+                  .
+                </p>
+              </EeatSection>
+              <PartnersGrid />
             </section>
 
-            <PartnersGrid />
-
-            <section id="linkedin-learning" className="scroll-mt-24">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Formations LinkedIn Learning</h2>
-              <p className="mt-3 text-sm text-[#64748B]">Extraits intégrés — mêmes contenus que les fiches cours publiques.</p>
+            <EeatSection id="linkedin-learning" title="Formations LinkedIn Learning">
+              <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
+                Instructrice officielle LinkedIn Learning — cours publics vérifiables, complémentaires aux sessions OFC
+                en présentiel ou distanciel.
+              </p>
               <div className="mt-8 grid gap-6 md:grid-cols-2">
                 {LINKEDIN_LEARNING_A_PROPOS_EMBEDS.map((course) => (
                   <div
@@ -426,138 +324,76 @@ export default function AProposPage() {
                         allowFullScreen
                       />
                     </div>
-                    <p className="border-t border-[#E2E8F0] px-4 py-3 text-sm font-medium text-[#0F172A]">{course.courseLabel}</p>
+                    <p className="border-t border-[#E2E8F0] px-4 py-3 text-sm font-medium text-[#0F172A]">
+                      {course.courseLabel}
+                    </p>
                   </div>
                 ))}
               </div>
-            </section>
-
-            <ApproachSection
-              paragraphs={A_PROPOS_NARRATIVE_PARAGRAPHS.slice(4, 7)}
-              quote="« Mon rôle, ce n'est pas de faire du blabla sur l'IA. C'est de vous montrer en direct comment ChatGPT fait gagner 3 à 5 heures par semaine sur vos devis, vos comptes rendus chantier et vos relances clients. »"
-              calendlyHref={aboutApproachUrl}
-              formationsHref={LINKS.formations}
-            />
+            </EeatSection>
 
             <section
-              id="ressources-preuves"
+              id="contact-calendly"
               className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8"
             >
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Ressources &amp; preuves</h2>
-              <p className="mt-3 text-[#64748B]">Profils publics, contenus et références vérifiables.</p>
-              <ul className="mt-6 space-y-3 text-[#334155]">
-                <li>
-                  <a href={SCHEMA_LINKEDIN_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="font-medium text-[#377CF3] hover:underline">
-                    Mon LinkedIn
-                  </a>
+              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                Contact &amp; Calendly
+              </h2>
+              <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-[#334155]">
+                {A_PROPOS_CONTACT_INTRO}
+              </p>
+              <ul className="mt-8 space-y-4 text-[#334155]">
+                <li className="flex items-start gap-3">
+                  <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+                  <span>
+                    <strong>Email :</strong>{' '}
+                    <a href={`mailto:${SCHEMA_CONTACT.email}`} className="font-medium text-[#377CF3] hover:underline">
+                      {SCHEMA_CONTACT.email}
+                    </a>
+                  </span>
                 </li>
-                <li>
-                  <Link href={LINKS.blog} className="font-medium text-[#377CF3] hover:underline">
-                    Mes articles de blog
-                  </Link>
+                <li className="flex items-start gap-3">
+                  <Phone className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+                  <span>
+                    <strong>Téléphone :</strong>{' '}
+                    <a href={`tel:${SCHEMA_CONTACT.phone}`} className="font-medium text-[#377CF3] hover:underline">
+                      {SCHEMA_CONTACT.phoneDisplay}
+                    </a>
+                  </span>
                 </li>
-                <li>
-                  <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-                    Formations disponibles
-                  </Link>
-                </li>
-                <li>
-                  <Link href={LINKS.etudesCas} className="font-medium text-[#377CF3] hover:underline">
-                    Témoignages clients (étude de cas)
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/learning/instructors/laure-olivie"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-[#377CF3] hover:underline"
-                  >
-                    Podcasts / interviews / cours publics
-                  </a>
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+                  <span>
+                    <strong>Adresse :</strong> {SCHEMA_GEO.streetAddress}, {SCHEMA_GEO.postalCode}{' '}
+                    {SCHEMA_GEO.addressLocality}
+                  </span>
                 </li>
               </ul>
-            </section>
-
-            <section
-              id="zone-intervention"
-              className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8"
-            >
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Zone d&apos;intervention</h2>
-              <p className="mt-4 text-[#475569]">
-                Basée à Guyancourt (78), interventions en présentiel en{' '}
-                <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[#377CF3] hover:underline">
-                  Île-de-France
-                </Link>{' '}
-                : sessions inter ou intra sur site.
-              </p>
-              <p className="mt-4 text-sm text-[#64748B]">
-                <a
-                  href="https://maps.google.com/?q=6+Rue+Henri+Dunant+78280+Guyancourt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
-                >
-                  Voir sur Google Maps — Guyancourt
-                </a>
-              </p>
-            </section>
-
-            <section className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 text-center shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Retrouvez Laure en ligne</h2>
-              <p className="mt-3 text-[#64748B]">Profils publics — actualités et missions</p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <a
                   href={SCHEMA_LINKEDIN_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl border-2 border-[#0A66C2] px-6 py-3 font-semibold text-[#0A66C2]"
+                  className="rounded-xl border-2 border-[#0A66C2] px-5 py-2.5 text-sm font-semibold text-[#0A66C2] hover:bg-[#0A66C2]/5"
                 >
                   LinkedIn — Laure Olivié
                 </a>
-                <a
-                  href="https://www.malt.fr/profile/laureoli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl border-2 border-[#0F172A] px-6 py-3 font-semibold text-[#0F172A]"
+                <Link
+                  href={LINKS.contact}
+                  className="rounded-xl border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
                 >
-                  Malt — profil expert
-                </a>
+                  Page contact
+                </Link>
               </div>
-            </section>
-
-            <section
-              id="me-contacter"
-              className="scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8"
-            >
-              <h2 className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">Me contacter</h2>
-              <ul className="mt-6 space-y-3 text-[#334155]">
-                <li>
-                  <strong>Email :</strong>{' '}
-                  <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[#377CF3] hover:underline">
-                    laureolivie@yahoo.fr
-                  </a>
-                </li>
-                <li>
-                  <strong>Téléphone :</strong>{' '}
-                  <a href="tel:+33695661818" className="font-medium text-[#377CF3] hover:underline">
-                    06 95 66 18 18
-                  </a>
-                </li>
-                <li>
-                  <strong>Adresse :</strong> 6 rue Henri Dunant, 78280 Guyancourt
-                </li>
-              </ul>
-              <div className="mt-8">
-                <a
-                  href={aboutBottomUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white hover:bg-blue-600"
-                >
-                  Prendre rendez-vous
-                  <ArrowUpRight className="h-4 w-4" aria-hidden />
-                </a>
+              <div className="mt-10">
+                <CalendlyEmbed
+                  type="inline"
+                  campaign="a-propos-contact"
+                  ctaPosition="inline"
+                  sectionTitle="Réserver un appel découverte"
+                  sectionSubtitle="30 min · visio · sans engagement"
+                  heightPx={680}
+                />
               </div>
             </section>
 
@@ -565,7 +401,7 @@ export default function AProposPage() {
               id="faq"
               headingId="faq-a-propos-title"
               title="Questions fréquentes"
-              subtitle="Qualiopi, parcours, partenariats, zone d’intervention."
+              subtitle="Qualiopi, parcours, partenariats, zone d'intervention."
               items={faqItems}
             />
 
@@ -580,7 +416,9 @@ export default function AProposPage() {
                     href={item.href}
                     className="group flex flex-col rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_6px_24px_rgba(15,23,42,0.05)] transition hover:border-[#BFDBFE] hover:shadow-[0_14px_44px_rgba(15,23,42,0.08)]"
                   >
-                    <span className="font-display text-base font-bold text-[#0F172A] group-hover:text-[#377CF3]">{item.label}</span>
+                    <span className="font-display text-base font-bold text-[#0F172A] group-hover:text-[#377CF3]">
+                      {item.label}
+                    </span>
                     <span className="mt-6 flex items-center gap-1 text-sm font-medium text-[#377CF3]">
                       Ouvrir
                       <ArrowUpRight className="h-4 w-4" aria-hidden />
@@ -590,14 +428,9 @@ export default function AProposPage() {
               </div>
             </section>
 
-            <ConversionHero
-              calendlyHref={aboutBottomUrl}
-              phoneDisplay={SITE_CONFIG.phoneDisplay}
-              phoneHref={`tel:${SITE_CONFIG.phone}`}
-            />
-
             <footer className="text-center text-sm text-[#64748B]">
-              Profil mis à jour le <time dateTime="2026-04-17">17 avril 2026</time> · Version 3.0
+              Profil mis à jour le <time dateTime="2026-05-22">22 mai 2026</time> · OFC Création d&apos;Entreprise — SIRET{' '}
+              {SCHEMA_CONTACT.siretFormatted} · NDA {SCHEMA_CONTACT.nda}
             </footer>
           </article>
         </div>

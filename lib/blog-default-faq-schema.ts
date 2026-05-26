@@ -4,20 +4,20 @@ import { FINANCEMENT_FORMULATION_PRUDENTE, FINANCEMENT_CONSTRUCTYS_PLAFONDS_COUR
 /** FAQ générique BTP — utilisée sur les articles sans section FAQ dédiée */
 const DEFAULT_BLOG_FAQ_ITEMS = [
   {
-    q: 'Comment financer une formation IA BTP avec Constructys ?',
-    a: `Les formations IA BTP de Laure Olivié sont certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} La demande de financement doit être déposée sur eGestion (services.constructys.fr) au minimum 15 jours avant la formation.`,
+    q: 'Comment financer une formation IA appliquée au bâtiment avec Constructys ?',
+    a: `Les formations IA pour les pro du BTP de Laure Olivié sont certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT} La demande de financement doit être déposée sur eGestion (services.constructys.fr) au minimum 15 jours avant la formation.`,
   },
   {
     q: 'Quelle formation IA pour un conducteur de travaux ?',
-    a: "Le conducteur de travaux peut utiliser l'IA pour rédiger des comptes rendus de chantier, analyser les DCE et CCTP, automatiser ses emails et relances, et préparer des mémoires techniques. La formation IA BTP de Laure Olivié (4h, intra ou inter) couvre ces cas d'usage avec des prompts ChatGPT adaptés au vocabulaire chantier.",
+    a: "Le conducteur de travaux peut utiliser l'IA pour rédiger des comptes rendus de chantier, analyser les DCE et CCTP, automatiser ses emails et relances, et préparer des mémoires techniques. La formation IA pour le BTP de Laure Olivié (4h, intra ou inter) couvre ces cas d'usage avec des prompts ChatGPT adaptés au vocabulaire chantier.",
   },
   {
     q: "ChatGPT peut-il aider à rédiger un mémoire technique pour un appel d'offres BTP ?",
     a: "Oui. ChatGPT et Claude AI permettent de structurer et rédiger un mémoire technique en partant du CCTP et des documents du DCE. La méthode enseignée par Laure Olivié permet de produire un mémoire technique de qualité 3 à 5 fois plus rapidement, tout en conservant la validation métier de l'équipe BTP.",
   },
   {
-    q: 'Combien de temps dure la formation IA BTP ?',
-    a: "Les formations IA BTP de Laure Olivié durent 4 heures en format inter-entreprises ou intra-entreprise. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations sont réalisables en présentiel sur votre site ou dans les locaux des partenaires (FFB, CSFE).",
+    q: 'Combien de temps dure la formation IA pour les pro du BTP ?',
+    a: "Les formations IA appliquées au bâtiment de Laure Olivié durent 4 heures en format inter-entreprises ou intra-entreprise. Des modules combinés (2×4h) sont disponibles pour approfondir les appels d'offres ou le chiffrage. Les formations sont réalisables en présentiel sur votre site ou dans les locaux des partenaires (FFB, CSFE).",
   },
   {
     q: "L'IA va-t-elle remplacer les métiers du bâtiment ?",

@@ -55,7 +55,7 @@ export function SelecteurMetier({ showDedicatedPageLink }: Props) {
       {showDedicatedPageLink ? (
         <p className="mt-8 text-center text-sm text-[#5A5A5A]">
           <Link href={LINKS.casUsageIaMetierBtp} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-            Page dédiée — définitions, FAQ et références formation IA BTP
+            Page dédiée — définitions, FAQ et références formation IA pour le BTP
           </Link>
         </p>
       ) : null}

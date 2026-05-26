@@ -7,11 +7,11 @@ import { LINKS } from '@/lib/internal-links';
 import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 
 /**
- * Bloc SEO / conversion — page Formation IA BTP Île-de-France uniquement.
+ * Bloc SEO / conversion — page Formation IA pour les pro du BTP Île-de-France uniquement.
  */
 export function IleDeFranceSeoSections() {
   const mailProgramme = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(
-    'Demande de programme — formation IA BTP Île-de-France'
+    'Demande de programme — formation IA appliquée au bâtiment Île-de-France'
   )}`;
 
   return (
@@ -37,14 +37,14 @@ export function IleDeFranceSeoSections() {
               href={LINKS.formationYvelines}
               className="font-medium text-[var(--accent)] hover:underline"
             >
-              Formation IA BTP Versailles, Yvelines et 78
+              Formation IA pour le BTP Versailles, Yvelines et 78
             </Link>{' '}
             (Versailles, Saint-Quentin-en-Yvelines, Mantes, Rambouillet…). Page locale SQY :{' '}
             <Link
               href={LINKS.formationSaintQuentinYvelines}
               className="font-medium text-[var(--accent)] hover:underline"
             >
-              formation IA BTP Saint-Quentin-en-Yvelines
+              formation IA pour les pro du BTP Saint-Quentin-en-Yvelines
             </Link>
             .
           </p>
@@ -144,7 +144,7 @@ export function IleDeFranceSeoSections() {
             id="idf-ou"
             className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
-            Formation IA BTP en Île-de-France
+            Formation IA appliquée au bâtiment en Île-de-France
           </h2>
           <p className="mt-4 text-slate-600">
             Interventions en <strong className="text-slate-800">entreprise</strong> (intra) ou en{' '}

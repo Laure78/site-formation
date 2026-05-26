@@ -29,13 +29,13 @@ export function formationIaDirigeantBtpMetadata(): Metadata {
       publishedTime: '2026-04-19',
       modifiedTime: '2026-04-19',
       author: SITE_CONFIG.name,
-      section: 'Formation IA BTP — dirigeants',
+      section: 'Formation IA pour les pro du BTP — dirigeants',
     },
     image: {
       url: '/images/formation-ia-btp-entreprise.png',
       width: 1024,
       height: 571,
-      alt: 'Formation IA BTP pour dirigeants — Laure Olivié, OFC Qualiopi',
+      alt: 'Formation IA appliquée au bâtiment pour dirigeants — Laure Olivié, OFC Qualiopi',
     },
   });
 }
@@ -91,7 +91,7 @@ export const FORMATION_IA_DIRIGEANT_BTP_FAQ: FAQItem[] = [
   },
   {
     q: 'Comment financer une formation IA pour mon entreprise du BTP ?',
-    a: `OFC Création d'Entreprise est certifié Qualiopi ; les parcours sont éligibles aux dispositifs de formation professionnelle, notamment via l'OPCO Constructys selon barèmes et éligibilité en vigueur. Détail : <a href="/financement-constructys-formation-ia-btp">guide financement Constructys formation IA BTP</a>.`,
+    a: `OFC Création d'Entreprise est certifié Qualiopi ; les parcours sont éligibles aux dispositifs de formation professionnelle, notamment via l'OPCO Constructys selon barèmes et éligibilité en vigueur. Détail : <a href="/financement-constructys-formation-ia-btp">guide financement Constructys formation IA pour les pro du BTP</a>.`,
   },
   {
     q: 'L’IA va-t-elle remplacer des postes dans mon entreprise ?',

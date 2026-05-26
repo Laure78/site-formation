@@ -82,13 +82,13 @@ export default function IAConducteurTravauxPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA BTP : <span className="text-[var(--accent)]">conducteur de travaux</span> et CR chantier
+          Formation IA pour le BTP : <span className="text-[var(--accent)]">conducteur de travaux</span> et CR chantier
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           L&apos;IA pour gestion administrative BTP s&apos;adapte aux métiers chantier. Gagnez 2h par jour
           sur vos comptes rendus et rapports grâce à l&apos;intelligence artificielle. Notre{' '}
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
-            formation IA BTP
+            formation IA pour les pro du BTP
           </Link>
           {' '}pratique pour conducteurs BTP est éligible à un financement selon dossier.
         </p>
@@ -195,7 +195,7 @@ export default function IAConducteurTravauxPage() {
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Catalogue des formations IA BTP
+                Catalogue des formations IA pour le BTP
               </Link>
             </li>
             <li>
@@ -210,7 +210,7 @@ export default function IAConducteurTravauxPage() {
             </li>
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Formation IA BTP
+                Formation IA appliquée au bâtiment
               </Link>
             </li>
             <li>

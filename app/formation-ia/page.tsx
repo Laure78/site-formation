@@ -2,12 +2,12 @@ import { createPageMetadata } from '@/lib/seo';
 import { FormationIaHubContent } from '@/components/formation-ia/FormationIaHubContent';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Hub métiers & villes (ChatGPT, Claude AI)',
+  title: 'Formation IA pour le BTP — Hub métiers & villes (ChatGPT, Claude AI)',
   description:
-    'Hub formation IA BTP : ChatGPT & Claude AI par métier et par ville (Île-de-France). Qualiopi, Constructys. Visio découverte gratuite — Laure Olivié, OFC.',
+    'Hub formation IA pour les pro du BTP : ChatGPT & Claude AI par métier et par ville (Île-de-France). Qualiopi, Constructys. Visio découverte gratuite — Laure Olivié, OFC.',
   path: '/formation-ia',
   keywords: [
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
     'formation ChatGPT BTP',
     'formation Claude AI bâtiment',
     'formation intelligence artificielle bâtiment',

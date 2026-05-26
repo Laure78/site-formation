@@ -11,7 +11,7 @@ export const FINANCEMENT_FORMULATION_PRUDENTE =
 export const FINANCEMENT_FORMULATION_COURTE = 'Financement possible selon éligibilité.';
 
 /** Ancre lien interne vers la page financement (sans « 100 % ») */
-export const FINANCEMENT_PAGE_LINK_LABEL = 'financement Constructys formation IA BTP';
+export const FINANCEMENT_PAGE_LINK_LABEL = 'financement Constructys formation IA pour le BTP';
 
 /** Badge stats / cartes — libellé sans pourcentage absolu */
 export const FINANCEMENT_STAT_LABEL = 'FINANCEMENT POSSIBLE';

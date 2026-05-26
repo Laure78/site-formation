@@ -1,7 +1,7 @@
 import type { FormationIaRawMetier, FormationIaRawVille } from '@/lib/seo-formation-ia-hub-data';
 
 const BASE_KW = [
-  'formation IA BTP',
+  'formation IA appliquée au bâtiment',
   'formation ChatGPT BTP',
   'formation Claude AI BTP',
   'formation intelligence artificielle bâtiment',
@@ -38,18 +38,18 @@ export function buildVilleMetadata(v: FormationIaRawVille, _path: string) {
   const isParis = v.slug === 'btp-paris';
   const title = truncate(
     isParis
-      ? `Formation IA BTP Paris — ChatGPT & Claude AI | Qualiopi`
-      : `Formation IA BTP ${v.label} (${v.dept}) — ChatGPT, Claude`,
+      ? `Formation IA pour le BTP Paris — ChatGPT & Claude AI | Qualiopi`
+      : `Formation IA pour les pro du BTP ${v.label} (${v.dept}) — ChatGPT, Claude`,
     60
   );
   const description = truncate(
     isParis
       ? `Formation IA, ChatGPT et Claude AI pour le BTP à Paris et Grand Paris : devis, administratif, mémoires. Qualiopi, financement Constructys. OFC Laure Olivié.`
-      : `Formation IA BTP à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour professionnels du BTP et PME. Qualiopi, OPCO Constructys. Interventions Île-de-France.`,
+      : `Formation IA appliquée au bâtiment à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour professionnels du BTP et PME. Qualiopi, OPCO Constructys. Interventions Île-de-France.`,
     155
   );
   const keywords = [
-    `formation IA BTP ${v.label}`,
+    `formation IA pour le BTP ${v.label}`,
     'formation ChatGPT BTP',
     'formation Claude AI Île-de-France',
     `formation IA ${v.deptName}`,

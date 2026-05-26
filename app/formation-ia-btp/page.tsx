@@ -28,14 +28,14 @@ const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France — ChatGPT 2026',
+  title: 'Formation IA appliquée au bâtiment Île-de-France — ChatGPT 2026',
   description:
-    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
+    'Formation IA pour le BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
   path: PATH,
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA BTP Île-de-France — ChatGPT 2026',
+  openGraphTitle: 'Formation IA pour les pro du BTP Île-de-France — ChatGPT 2026',
   openGraphDescription:
-    'Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
+    'Formation IA appliquée au bâtiment en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
   image: {
     url: ogImage.src,
     width: ogImage.width,
@@ -43,7 +43,7 @@ export const metadata = createPageMetadata({
     alt: ogImage.alt,
   },
   keywords: [
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'formation ChatGPT BTP',
     'formation intelligence artificielle bâtiment',
     'Qualiopi',
@@ -55,7 +55,7 @@ export const metadata = createPageMetadata({
 });
 
 const courseName =
-  'Formation IA BTP — ChatGPT pour le Bâtiment en Île-de-France';
+  'Formation IA pour les pro du BTP — ChatGPT pour le Bâtiment en Île-de-France';
 
 const courseBase = getCourseSchema({
   name: courseName,
@@ -108,7 +108,7 @@ const faqJsonLd = getFAQSchema(FAQ_FORMATION_IA_BTP_PILLAR);
 
 const breadcrumbJsonLd = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
-  { name: 'Formation IA BTP', path: PATH },
+  { name: 'Formation IA appliquée au bâtiment', path: PATH },
 ]);
 
 function CtaVisio({ className }: { className?: string }) {
@@ -128,7 +128,7 @@ function BlocCtaHaut() {
   return (
     <div className="not-prose rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
       <p className="font-display text-lg font-bold text-slate-900">
-        Votre formation IA BTP, financement possible selon éligibilité.
+        Votre formation IA pour le BTP, financement possible selon éligibilité.
       </p>
       <p className="mt-2 text-slate-700">
         Réservez votre visio découverte gratuite — 30 min pour savoir si la formation vous convient.
@@ -165,7 +165,7 @@ export default function FormationIaBtpPillarPage() {
       <Breadcrumb
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
-          { name: 'Formation IA BTP', path: PATH },
+          { name: 'Formation IA pour les pro du BTP', path: PATH },
         ])}
         showVisual
         className="mx-auto max-w-4xl px-4 pt-8"
@@ -178,7 +178,7 @@ export default function FormationIaBtpPillarPage() {
               OFC Création d&apos;Entreprise · Qualiopi · Constructys
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.75rem] lg:leading-tight">
-              Formation IA BTP — ChatGPT pour le Bâtiment en Île-de-France
+              Formation IA appliquée au bâtiment — ChatGPT pour le Bâtiment en Île-de-France
             </h1>
             <p className="mt-4 text-base font-semibold text-slate-800">
               {Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')} · {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi
@@ -252,7 +252,7 @@ export default function FormationIaBtpPillarPage() {
                 priority
               />
               <figcaption className="border-t border-slate-100 px-4 py-3 text-center text-xs text-slate-500">
-                Parcours débutant catalogue — même esprit sur la page pilier formation IA BTP
+                Parcours débutant catalogue — même esprit sur la page pilier formation IA pour le BTP
               </figcaption>
             </figure>
           </div>
@@ -294,7 +294,7 @@ export default function FormationIaBtpPillarPage() {
         <section id="programme" className="not-prose mt-16 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que vous allez maîtriser</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            La formation IA BTP est une <strong>formation pratique, en petits groupes</strong>, conçue exclusivement
+            La formation IA pour les pro du BTP est une <strong>formation pratique, en petits groupes</strong>, conçue exclusivement
             pour les professionnels du bâtiment et des travaux publics. 70 % du temps est consacré à des exercices sur
             vos documents réels — vos devis, vos emails, vos appels d&apos;offres.
           </p>
@@ -466,7 +466,7 @@ export default function FormationIaBtpPillarPage() {
         <section id="financement" className="not-prose mt-16 scroll-mt-24 space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — selon éligibilité</h2>
           <p>
-            La formation IA BTP est <strong>certifiée Qualiopi</strong> et éligible à une prise en charge par
+            La formation IA appliquée au bâtiment est <strong>certifiée Qualiopi</strong> et éligible à une prise en charge par
             Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en
             vigueur.
           </p>
@@ -501,7 +501,7 @@ export default function FormationIaBtpPillarPage() {
           </p>
           <p>
             <Link href={LINKS.financement} className="font-semibold text-[var(--accent)] hover:underline">
-              Guide détaillé : financement Constructys formation IA BTP
+              Guide détaillé : financement Constructys formation IA pour le BTP
             </Link>
           </p>
           <div className="pt-6">
@@ -684,16 +684,16 @@ export default function FormationIaBtpPillarPage() {
       </article>
 
       <div className="mx-auto max-w-3xl px-4 pb-8">
-        <FAQSection items={FAQ_FORMATION_IA_BTP_PILLAR} title="Questions fréquentes — formation IA BTP" />
+        <FAQSection items={FAQ_FORMATION_IA_BTP_PILLAR} title="Questions fréquentes — formation IA pour les pro du BTP" />
       </div>
 
       <div className="border-t border-slate-200 bg-slate-50 px-4 py-12">
         <div className="mx-auto max-w-4xl">
           <AllerPlusLoin
             links={[
-              { href: LINKS.blogFormationIaBtpGuide2026, label: 'Guide blog : formation IA BTP 2026' },
-              { href: LINKS.formationParis, label: 'Formation IA BTP Paris' },
-              { href: LINKS.formationYvelines, label: 'Formation IA BTP Yvelines (78)' },
+              { href: LINKS.blogFormationIaBtpGuide2026, label: 'Guide blog : formation IA appliquée au bâtiment 2026' },
+              { href: LINKS.formationParis, label: 'Formation IA pour le BTP Paris' },
+              { href: LINKS.formationYvelines, label: 'Formation IA pour les pro du BTP Yvelines (78)' },
               { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
               { href: LINKS.checklist, label: 'Checklist IA BTP' },
             ]}

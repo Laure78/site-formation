@@ -5,7 +5,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'CGV — Conditions Générales de Vente — OFC Création d\'Entreprise',
   description:
-    "CGV formations OFC : vente, délais, annulations, paiement. Organisme Qualiopi. Lisez les conditions avant de réserver votre formation IA BTP.",
+    "CGV formations OFC : vente, délais, annulations, paiement. Organisme Qualiopi. Lisez les conditions avant de réserver votre formation IA pour les pro du BTP.",
   path: '/cgv',
   keywords: ['CGV formation professionnelle', 'conditions vente formation BTP', 'Qualiopi OFC'],
 });

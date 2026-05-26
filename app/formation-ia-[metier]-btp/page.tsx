@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { metier } = await params;
   const config = getFormationIaMetierDynamicConfig(metier);
   if (!config) {
-    return { title: 'Formation IA BTP par métier' };
+    return { title: 'Formation IA pour le BTP par métier' };
   }
 
   return createPageMetadata({

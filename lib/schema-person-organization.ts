@@ -77,7 +77,7 @@ export function getSchemaPersonOrganization() {
           'France',
         ],
         knowsAbout: [
-          'Formation IA BTP',
+          'Formation IA appliquée au bâtiment',
           'Formation ChatGPT bâtiment',
           'Formation intelligence artificielle construction',
         ],

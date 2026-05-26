@@ -445,7 +445,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: '/formations/ia-pme-btp', label: 'Formation IA PME BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/formation-ia-electricien-btp', label: 'Formation IA électricien BTP' },

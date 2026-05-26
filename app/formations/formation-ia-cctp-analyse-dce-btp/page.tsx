@@ -58,7 +58,7 @@ const FAQ_ITEMS: FAQItem[] = [
     a: 'Les deux conviennent. Claude Pro est souvent plus confortable sur les PDF longs. ChatGPT Plus suffit si vous découpez bien les pièces. Je vous aide à trancher selon vos habitudes en session.',
   },
   {
-    q: 'Constructys peut-il financer ma formation IA BTP ?',
+    q: 'Constructys peut-il financer ma formation IA appliquée au bâtiment ?',
     a: 'Le financement dépend de votre éligibilité au Plan de Développement des Compétences et de la validation du dossier. OFC est certifié Qualiopi et référencé Constructys : nous préparons les pièces adaptées.',
   },
   {
@@ -320,7 +320,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
               href={LINKS.financement}
               className="font-medium text-[var(--accent)] underline hover:no-underline"
             >
-              En savoir plus sur le financement Constructys formation IA BTP
+              En savoir plus sur le financement Constructys formation IA pour le BTP
             </Link>
           </p>
         </section>

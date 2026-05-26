@@ -6,7 +6,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Rendez-vous confirmé',
   description:
-    "Votre rendez-vous formation IA BTP est enregistré. Confirmation par email avec le lieu, les horaires ou les consignes selon le mode d’entretien choisi avec Laure Olivié.",
+    "Votre rendez-vous formation IA appliquée au bâtiment est enregistré. Confirmation par email avec le lieu, les horaires ou les consignes selon le mode d’entretien choisi avec Laure Olivié.",
   path: '/merci-rdv',
   keywords: ['confirmation rendez-vous formation'],
   robots: { index: false, follow: false },

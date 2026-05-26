@@ -8,7 +8,7 @@ import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } fr
 const PATH = LINKS.casUsageIaMetierBtp;
 
 const INTRO_COPY =
-  'Conducteur de travaux, chargé ou chargée d’affaires, dirigeant de PME du bâtiment ou des travaux publics : les usages de l’IA et de Claude AI ne sont pas les mêmes selon votre poste. Ce sélecteur gratuit présente cinq cas d’usage prioritaires, des exemples de documents et des gains de temps indicatifs issus de situations types observées en formation IA BTP ; pour chaque métier, il propose aussi des tutoriels Skill correspondants — les mêmes que dans la rubrique Ressources du site (PDF et pages web sans inscription). Les livrables listés sont des brouillons à valider humainement : réglementation, prix et signatures restent votre responsabilité. Pour une mise en pratique encadrée, voir une formation IA BTP certifiée Qualiopi et les programmes catalogue OFC.';
+  'Conducteur de travaux, chargé ou chargée d’affaires, dirigeant de PME du bâtiment ou des travaux publics : les usages de l’IA et de Claude AI ne sont pas les mêmes selon votre poste. Ce sélecteur gratuit présente cinq cas d’usage prioritaires, des exemples de documents et des gains de temps indicatifs issus de situations types observées en formation IA appliquée au bâtiment ; pour chaque métier, il propose aussi des tutoriels Skill correspondants — les mêmes que dans la rubrique Ressources du site (PDF et pages web sans inscription). Les livrables listés sont des brouillons à valider humainement : réglementation, prix et signatures restent votre responsabilité. Pour une mise en pratique encadrée, voir une formation IA pour le BTP certifiée Qualiopi et les programmes catalogue OFC.';
 
 const FAQ_ITEMS = [
   {
@@ -37,14 +37,14 @@ export const metadata = createPageMetadata({
   title:
     "Cas d'usage IA pour le BTP : conducteur, chargé d'affaires, dirigeant | Laure Olivié",
   description:
-    "Découvrez par métier les cas d'usage concrets de l'intelligence artificielle dans le BTP : documents générés, gains de temps indicatifs, exemples opérationnels. Formation IA BTP, Claude AI — Laure Olivié.",
+    "Découvrez par métier les cas d'usage concrets de l'intelligence artificielle dans le BTP : documents générés, gains de temps indicatifs, exemples opérationnels. Formation IA pour les pro du BTP, Claude AI — Laure Olivié.",
   path: PATH,
   keywords: [
     'cas usage IA BTP',
     'IA conducteur de travaux',
     'IA chargé affaires',
     'mémoire technique IA',
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
     'ChatGPT BTP',
     'Claude AI BTP',
   ],
@@ -127,7 +127,7 @@ export default function CasUsageIaMetierBtpPage() {
 
         <p className="mt-10 text-center text-sm text-[#5A5A5A]">
           <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-            Catalogue formations IA BTP Qualiopi
+            Catalogue formations IA pour les pro du BTP Qualiopi
           </Link>
           {' · '}
           <Link href={LINKS.contact} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">

@@ -9,7 +9,6 @@ import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
 import { FormationsHero } from '@/components/formations/FormationsHero';
@@ -26,21 +25,21 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const OG_TITLE = 'Catalogue formation IA BTP — 2 formations Qualiopi 4 h';
-const OG_DESCRIPTION =
-  "2 formations IA BTP de 4 h (NIV-01 et NIV-02) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre. Programmes PDF. Intra, inter, présentiel ou distanciel. Financement possible selon éligibilité.";
+const FORMATIONS_META_TITLE = 'Catalogue formation IA pour le BTP — 2 sessions Qualiopi';
+const FORMATIONS_META_DESCRIPTION =
+  "2 formations IA pour les pro du BTP (4 h) : devis, administratif, appels d'offres. Qualiopi, Constructys. 1 592 pros formés. RDV gratuit.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: 'Formation IA BTP : catalogue 2 formations Qualiopi',
-    description:
-      "Catalogue 2 formations IA BTP : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre BTP. 4 h, forfait 1 000 ou 1 200 € HT/session (12 pers. max). Intra, inter, présentiel ou distanciel. Financement possible selon éligibilité.",
+    title: FORMATIONS_META_TITLE,
+    titleAbsolute: FORMATIONS_META_TITLE,
+    description: FORMATIONS_META_DESCRIPTION,
     path: '/formations',
     appendAuthorSuffix: false,
-    openGraphTitle: OG_TITLE,
-    openGraphDescription: OG_DESCRIPTION,
+    openGraphTitle: FORMATIONS_META_TITLE,
+    openGraphDescription: FORMATIONS_META_DESCRIPTION,
     keywords: [
-      'catalogue formation IA BTP',
+      'catalogue formation IA pour les pro du BTP',
       'formation ChatGPT BTP',
       'formation IA bâtiment',
       'formation IA travaux publics',
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
       'formation IA architecte',
       'formation IA Qualiopi',
       'formation IA Constructys',
-      'formation IA BTP Île-de-France',
+      'formation IA appliquée au bâtiment Île-de-France',
     ],
     robots: { index: true, follow: true },
     image: {
@@ -57,14 +56,14 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt:
-        'Catalogue formation IA BTP — 2 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+        'Catalogue formation IA pour le BTP — 2 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
     },
   }),
   openGraph: {
-    title: OG_TITLE,
-    description: OG_DESCRIPTION,
+    title: FORMATIONS_META_TITLE,
+    description: FORMATIONS_META_DESCRIPTION,
     url: `${baseUrl}/formations`,
-    siteName: 'Laure Olivié — Formation IA BTP',
+    siteName: 'Laure Olivié — Formation IA pour les pro du BTP',
     locale: 'fr_FR',
     type: 'website',
     images: [
@@ -73,15 +72,14 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          'Catalogue formation IA BTP — 2 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+          'Catalogue formation IA appliquée au bâtiment — 2 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: OG_TITLE,
-    description:
-      "2 formations IA BTP Qualiopi (NIV-01 et NIV-02). Intra, inter, présentiel ou distanciel. Financement possible selon éligibilité.",
+    title: FORMATIONS_META_TITLE,
+    description: FORMATIONS_META_DESCRIPTION,
     images: [`${baseUrl}${PHOTOS.formationIaBtpSalleInteractive2026.src}`],
   },
   alternates: {
@@ -107,22 +105,13 @@ export default function FormationsPage() {
       <FormationsStatsBand />
 
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
-        <Breadcrumb
-          jsonLdId="schema-breadcrumb-formations-catalogue"
-          items={[
-            { label: 'Accueil', href: '/' },
-            { label: 'Formations', href: '/formations' },
-          ]}
-          className="mb-4 text-sm text-slate-600"
-        />
-
         <div className="mt-4 md:mt-5">
           <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
         </div>
 
         <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
           <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
-            Formations IA BTP pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux, chargés
+            Formations IA pour le BTP pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux, chargés
             d&apos;affaires et équipes administratives : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP
@@ -150,34 +139,34 @@ export default function FormationsPage() {
 
         <FormationsFaqSection
           items={FAQ_FORMATIONS}
-          title="Questions fréquentes sur les formations IA BTP"
+          title="Questions fréquentes sur les formations IA pour les pro du BTP"
           subtitle="Vous avez des questions ? Voici les réponses aux interrogations les plus fréquentes."
         />
 
         <section className="mt-12 border-t border-[#E2E8F0] pt-12">
           <h2 className="font-display text-lg font-semibold text-[#0F172A]">
-            Formations IA BTP par métier, sujet et géographie
+            Formations IA appliquées au bâtiment par métier, sujet et géographie
           </h2>
           <p className="mt-3 text-sm text-[#64748B]">
-            Vous cherchez une formation IA BTP ciblée sur un métier précis, un département
+            Vous cherchez une formation IA pour le BTP ciblée sur un métier précis, un département
             francilien ou un cas d&apos;usage opérationnel ? Voici les pages dédiées.
           </p>
           <ul className="mt-6 flex flex-wrap gap-3">
             <li>
               <Link href={LINKS.formationParis} className={chipLinkClass}>
-                Formation IA BTP Paris (75)
+                Formation IA pour les pro du BTP Paris (75)
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>
             <li>
               <Link href={LINKS.formationYvelines} className={chipLinkClass}>
-                Formation IA BTP Yvelines (78)
+                Formation IA appliquée au bâtiment Yvelines (78)
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>
             <li>
               <Link href={LINKS.formationSaintQuentinYvelines} className={chipLinkClass}>
-                Formation IA BTP Saint-Quentin-en-Yvelines
+                Formation IA pour le BTP Saint-Quentin-en-Yvelines
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>
@@ -241,10 +230,10 @@ export default function FormationsPage() {
         <AllerPlusLoin
           variant="chips"
           links={[
-            { href: LINKS.formationIaBtp, label: 'Formation IA BTP — page pilier' },
+            { href: LINKS.formationIaBtp, label: 'Formation IA pour les pro du BTP — page pilier' },
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
-            { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
+            { href: LINKS.formationIleDeFrance, label: 'Formation IA appliquée au bâtiment en Île-de-France' },
             { href: buildSiteCalendlyCtaUrl('formations-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />

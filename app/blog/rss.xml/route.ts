@@ -42,7 +42,7 @@ export async function GET() {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0">',
     '<channel>',
-    `<title>${escapeXml('Blog Formation IA BTP')}</title>`,
+    `<title>${escapeXml('Blog Formation IA pour le BTP')}</title>`,
     `<link>${escapeXml(`${base}/blog`)}</link>`,
     `<description>${escapeXml(
       'Articles et guides IA pour le BTP : devis, appels d\'offres, ChatGPT, financement Constructys.'

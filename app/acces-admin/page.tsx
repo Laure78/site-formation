@@ -7,7 +7,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Accès espace admin',
   description:
-    "Accès réservé administrateurs plateforme formation IA BTP. Connexion requise pour gérer cours, apprenants, contenus pédagogiques et paramètres.",
+    "Accès réservé administrateurs plateforme formation IA pour le BTP. Connexion requise pour gérer cours, apprenants, contenus pédagogiques et paramètres.",
   path: '/acces-admin',
   keywords: ['administration formation'],
   robots: { index: false, follow: false },

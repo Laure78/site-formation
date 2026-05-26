@@ -5,7 +5,7 @@
   "date": "2026-04-14",
   "keywords": [
     "ChatGPT professionnels du BTP BTP",
-    "formation IA BTP",
+    "formation IA appliquée au bâtiment",
     "IA professionnel du BTP bâtiment",
     "devis IA BTP",
     "compte rendu chantier IA",
@@ -97,7 +97,7 @@
     },
     {
       "type": "html",
-      "content": "<h2>Se former à ChatGPT pour professionnels du BTP BTP avec OFC Création d'Entreprise</h2>\n<p>OFC Création d'Entreprise propose une formation IA BTP de 4 heures, financement possible selon éligibilité, spécialement conçue pour les professionnels du bâtiment et des travaux publics — professionnels du BTP, conducteurs de travaux, chefs d'entreprise, et équipes support.</p>\n<p>Le module dédié à <strong>ChatGPT pour professionnels du BTP</strong> comprend : prise en main ChatGPT et Claude ; 7 usages concrets en pratique ; 5 prompts BTP calibrés ; confidentialité et RGPD ; intégration au workflow (ERP, devis, calendrier) ; Q&amp;R technique.</p>\n<p><strong>Format :</strong> présentiel en Île-de-France (75, 78, 91, 92, 93, 94, 95, 77) ou distanciel. Jusqu'à 12 participants par session.</p>\n<p><strong>Financement :</strong> jusqu'à <strong>24 € HT/heure/stagiaire</strong> pris en charge par Constructys (PDC 2026), sous conditions d'éligibilité.</p>\n<p><strong>Références :</strong> FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France, Lefebvre Dalloz, CAPEB — <strong>+1 592 professionnels formés, note moyenne 4,85/5.</strong></p>\n<p class=\"mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap\"><a class=\"inline-flex rounded-xl bg-[var(--accent)] px-5 py-3 font-semibold text-white hover:bg-blue-700\" href=\"https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation\" target=\"_blank\" rel=\"noopener noreferrer\">Prendre un rendez-vous — diagnostic gratuit 30 min</a><a class=\"inline-flex rounded-xl border-2 border-[var(--accent)] px-5 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]\" href=\"/formations\">Voir le catalogue des formations IA BTP</a><a class=\"inline-flex rounded-xl border border-slate-200 px-5 py-3 font-medium text-slate-700 hover:bg-slate-50\" href=\"/financement-constructys-formation-ia-btp\">Demander un financement Constructys</a></p>\n<p class=\"mt-8 text-sm text-slate-500\"><em>Laure Olivié — Formatrice IA BTP, OFC Création d'Entreprise · Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt</em></p>"
+      "content": "<h2>Se former à ChatGPT pour professionnels du BTP BTP avec OFC Création d'Entreprise</h2>\n<p>OFC Création d'Entreprise propose une formation IA pour le BTP de 4 heures, financement possible selon éligibilité, spécialement conçue pour les professionnels du bâtiment et des travaux publics — professionnels du BTP, conducteurs de travaux, chefs d'entreprise, et équipes support.</p>\n<p>Le module dédié à <strong>ChatGPT pour professionnels du BTP</strong> comprend : prise en main ChatGPT et Claude ; 7 usages concrets en pratique ; 5 prompts BTP calibrés ; confidentialité et RGPD ; intégration au workflow (ERP, devis, calendrier) ; Q&amp;R technique.</p>\n<p><strong>Format :</strong> présentiel en Île-de-France (75, 78, 91, 92, 93, 94, 95, 77) ou distanciel. Jusqu'à 12 participants par session.</p>\n<p><strong>Financement :</strong> jusqu'à <strong>24 € HT/heure/stagiaire</strong> pris en charge par Constructys (PDC 2026), sous conditions d'éligibilité.</p>\n<p><strong>Références :</strong> FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France, Lefebvre Dalloz, CAPEB — <strong>+1 592 professionnels formés, note moyenne 4,85/5.</strong></p>\n<p class=\"mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap\"><a class=\"inline-flex rounded-xl bg-[var(--accent)] px-5 py-3 font-semibold text-white hover:bg-blue-700\" href=\"https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation\" target=\"_blank\" rel=\"noopener noreferrer\">Prendre un rendez-vous — diagnostic gratuit 30 min</a><a class=\"inline-flex rounded-xl border-2 border-[var(--accent)] px-5 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]\" href=\"/formations\">Voir le catalogue des formations IA pour le BTP</a><a class=\"inline-flex rounded-xl border border-slate-200 px-5 py-3 font-medium text-slate-700 hover:bg-slate-50\" href=\"/financement-constructys-formation-ia-btp\">Demander un financement Constructys</a></p>\n<p class=\"mt-8 text-sm text-slate-500\"><em>Laure Olivié — Formatrice IA pour les pro du BTP, OFC Création d'Entreprise · Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078 · 6 rue Henri Dunant, 78280 Guyancourt</em></p>"
     },
     {
       "type": "faq",
@@ -113,7 +113,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation IA BTP certifiée Qualiopi — devis, emails, CR, appels d'offres. Réservez un échange gratuit de 30 minutes.",
+      "content": "Formation IA pour les pro du BTP certifiée Qualiopi — devis, emails, CR, appels d'offres. Réservez un échange gratuit de 30 minutes.",
       "formationHref": "/formations"
     }
   ]

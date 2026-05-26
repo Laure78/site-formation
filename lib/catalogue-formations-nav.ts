@@ -18,7 +18,7 @@ export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
   },
   {
     href: '/formations/ia-appels-offre-btp',
-    label: "L'IA au service des appels d'offre BTP",
+    label: "L'IA appliquée aux appels d'offres BTP",
     icon: FileText,
   },
 ];

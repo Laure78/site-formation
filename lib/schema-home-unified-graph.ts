@@ -45,7 +45,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         '@id': orgId,
         name: SCHEMA_ORGANIZATION_OFC.name,
         legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
-        alternateName: ['Laure Olivié Formation', 'OFC Formation IA BTP'],
+        alternateName: ['Laure Olivié Formation', 'OFC Formation IA appliquée au bâtiment'],
         url: base,
         logo: {
           '@type': 'ImageObject',
@@ -148,7 +148,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         '@type': 'WebPage',
         '@id': webpageId,
         url: base,
-        name: 'Formation IA BTP Île-de-France',
+        name: 'Formation IA pour le BTP Île-de-France',
         isPartOf: { '@id': websiteId },
         about: { '@id': courseId },
         primaryImageOfPage: { '@id': imageHeroId },
@@ -176,7 +176,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
       {
         '@type': 'Course',
         '@id': courseId,
-        name: "Formation IA BTP — niveau 1 bâtiment & travaux publics",
+        name: "Formation IA pour les pro du BTP — niveau 1 bâtiment & travaux publics",
         description: `Formation pratique de 4 heures pour former les équipes BTP à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
         url: `${base}${LINKS.formationIaBtpNiveau1BatimentTp}`,
         provider: { '@id': orgId },
@@ -233,7 +233,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         areaServed: { '@type': 'AdministrativeArea', name: 'Île-de-France' },
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Catalogue de formations IA BTP',
+          name: 'Catalogue de formations IA pour le BTP',
           itemListElement: [
             {
               '@type': 'Offer',
@@ -248,7 +248,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
               '@type': 'Offer',
               itemOffered: {
                 '@type': 'Service',
-                name: "L'IA au service des appels d'offre BTP (niveau 2)",
+                name: "L'IA appliquée aux appels d'offres BTP (niveau 2)",
               },
               price: priceStr,
               priceCurrency: 'EUR',

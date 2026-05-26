@@ -16,7 +16,7 @@ export function AuthorBlock({ className }: { className?: string }) {
           <Image
             src={AUTHOR_PHOTO.src}
             alt={AUTHOR_PHOTO.alt}
-            title="Laure Olivié — OFC Création d'Entreprise, formatrice IA BTP"
+            title="Laure Olivié — OFC Création d'Entreprise, formatrice IA appliquée au bâtiment"
             fill
             className={AUTHOR_HEADSHOT_IMAGE_CLASS}
             sizes="64px"

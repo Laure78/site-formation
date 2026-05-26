@@ -33,7 +33,7 @@ import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
 
 const H1 =
-  'Financer une formation IA BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
+  'Financer une formation IA pour le BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
 
 const HERO_FINANCEMENT = {
   src: '/images/financement-constructys-formation-ia-btp-hero-2026.jpg',
@@ -81,12 +81,19 @@ const STEPS = [
   },
 ] as const;
 
+const FINANCEMENT_META_TITLE = 'Financement Constructys — formation IA pour les pro du BTP 2026';
+const FINANCEMENT_META_DESCRIPTION =
+  'Financement formation IA appliquée au bâtiment Constructys 2026 : plafonds, délais eGestion, OFC Qualiopi. 1 592 pros formés. Visio gratuite.';
+
 export const metadata = createPageMetadata({
-  title: 'Financement formation IA OPCO Constructys — plafonds 2026',
-  description:
-    "Financement formation IA OPCO Constructys : plafonds 24 €/h, 840 €/jour intra, délai eGestion 15 jours. Financer formation IA BTP, prise en charge, dossier Qualiopi — OFC.",
+  title: FINANCEMENT_META_TITLE,
+  titleAbsolute: FINANCEMENT_META_TITLE,
+  description: FINANCEMENT_META_DESCRIPTION,
   path: '/financement-constructys-formation-ia-btp',
   keywords: null,
+  appendAuthorSuffix: false,
+  openGraphTitle: FINANCEMENT_META_TITLE,
+  openGraphDescription: FINANCEMENT_META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-01-15',
@@ -96,7 +103,7 @@ export const metadata = createPageMetadata({
     url: '/og/financement-constructys-og.jpg',
     width: 1200,
     height: 630,
-    alt: 'Financement Constructys 2026 — formation IA BTP, plafonds et OFC Qualiopi',
+    alt: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
   },
 });
 
@@ -212,7 +219,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                 Depuis le 1er janvier 2026, les règles sont claires : votre dossier doit être{' '}
                 <strong className="text-[#0F172A]">complet</strong>, déposé sur <strong className="text-[#0F172A]">eGestion</strong>, et parvenu à Constructys au moins{' '}
                 <strong className="text-[#0F172A]">15 jours calendaires avant le premier jour de formation</strong>. Une demande incomplète, une pièce manquante ou un envoi après la date limite : la formation ne sera pas financée. Vérifiez aussi que vous avez bien saisi coûts pédagogiques et autres dépenses attendues. La formation ne doit pas avoir commencé avant la réception de la demande. Ce cadre strict, c&apos;est pour vous aussi une garantie : vous savez à quoi vous tenir dès que vous planifiez une session{' '}
-                <strong className="text-[#0F172A]">financer formation IA BTP</strong> avec votre équipe — y compris pour une approche{' '}
+                <strong className="text-[#0F172A]">financer formation IA pour les pro du BTP</strong> avec votre équipe — y compris pour une approche{' '}
                 <Link href="/formation-ia-travaux-publics" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
                   IA pour travaux publics
                 </Link>
@@ -229,7 +236,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   <strong>Constructys</strong> est l&apos;OPCO — l&apos;opérateur de compétences — du secteur BTP. Concrètement : si vous travaillez dans le bâtiment, les travaux publics ou une activité proche (par exemple le négoce de matériaux), c&apos;est cet organisme qui collecte les contributions et qui peut <strong>participer au financement</strong> de vos formations dans le cadre du plan de développement des compétences. Vous n&apos;avez pas à &quot;négocier&quot; avec Constructys comme avec un client : vous montez un dossier conforme, avec un organisme certifié Qualiopi, et vous suivez les plafonds et les délais. Pour une <strong>Constructys formation IA</strong> ciblant ChatGPT et le gain de temps sur devis, emails ou suivi de chantier, la logique est la même que pour toute action éligible au plan de développement des compétences, avec une exigence renforcée depuis 2026 sur les <strong>dépôts dans les temps</strong>.
                 </p>
                 <p>
-                  Côté dirigeant BTP ou chef d&apos;entreprise, retenez surtout ceci : Constructys ne remplace pas votre décision de former quelqu&apos;un — il encadre un <strong>enveloppe</strong> de prise en charge dans le respect des barèmes. Une formation IA BTP (prompts, rédaction de mails, structuration de comptes rendus) est traitée comme une autre action de professionnalisation, à condition que le programme soit explicite et que le prestataire soit reconnu. Pour aller plus loin sur la mise en pratique, voir aussi le guide{' '}
+                  Côté dirigeant BTP ou chef d&apos;entreprise, retenez surtout ceci : Constructys ne remplace pas votre décision de former quelqu&apos;un — il encadre un <strong>enveloppe</strong> de prise en charge dans le respect des barèmes. Une formation IA appliquée au bâtiment (prompts, rédaction de mails, structuration de comptes rendus) est traitée comme une autre action de professionnalisation, à condition que le programme soit explicite et que le prestataire soit reconnu. Pour aller plus loin sur la mise en pratique, voir aussi le guide{' '}
                   <Link href={LINKS.skillIaConducteurTravaux} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
                     créer son 1<sup>er</sup> skill IA
                   </Link>
@@ -272,11 +279,11 @@ export default function FinancementConstructysFormationIABTPPage() {
                 Combien Constructys rembourse pour une formation IA ?
               </h2>
               <p className="mt-2 text-xs text-slate-600 md:text-sm">
-                Les montants ci-dessous reprennent les repères usuels pour les entreprises du BTP ; le détail peut varier selon votre taille et le type d&apos;action. Pour <strong>financer formation IA BTP</strong> ou une <strong>OPCO BTP formation ChatGPT</strong>, retenez surtout les plafonds pédagogiques et le plafond jour en intra.
+                Les montants ci-dessous reprennent les repères usuels pour les entreprises du BTP ; le détail peut varier selon votre taille et le type d&apos;action. Pour <strong>financer formation IA pour le BTP</strong> ou une <strong>OPCO BTP formation ChatGPT</strong>, retenez surtout les plafonds pédagogiques et le plafond jour en intra.
               </p>
               <div className={`mt-5 ${tableWrap}`}>
                 <table className="w-full min-w-[300px] border-collapse text-left text-sm">
-                  <caption className="sr-only">Plafonds Constructys 2026 pour formation IA BTP</caption>
+                  <caption className="sr-only">Plafonds Constructys 2026 pour formation IA pour les pro du BTP</caption>
                   <thead>
                     <tr className="bg-[#377CF3] text-white">
                       <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider md:px-4 md:text-xs">Poste</th>
@@ -569,8 +576,8 @@ export default function FinancementConstructysFormationIABTPPage() {
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                { href: '/formations', label: 'Catalogue des formations IA BTP' },
-                { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
+                { href: '/formations', label: 'Catalogue des formations IA pour les pro du BTP' },
+                { href: '/formations/ia-btp-paris', label: 'Formation IA appliquée au bâtiment Paris' },
                 { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/formations/ia-appels-offre-btp', label: 'Programme IA appels d’offres BTP' },

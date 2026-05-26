@@ -1,6 +1,6 @@
 import { Calendar, Mail, Phone } from 'lucide-react';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
-import { CTACalendly } from '@/components/CTACalendly';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 interface ContactDirectProps {
   /** Ex. paramètre d’URL ?formation=… (slug ou libellé) */
@@ -17,7 +17,7 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         </p>
       ) : null}
       <p className="text-sm text-slate-600">
-        Pour échanger sur votre projet de formation IA BTP, écrivez-moi ou réservez un créneau de 30 minutes.
+        Pour échanger sur votre projet de formation IA pour le BTP, écrivez-moi ou réservez un créneau de 30 minutes.
       </p>
       <a
         href={`mailto:${SITE_CONFIG.email}`}
@@ -35,18 +35,19 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
           <span className="font-medium">{SITE_CONFIG.phoneDisplay}</span>
         </a>
       ) : null}
-      <CTACalendly
-        page="contact"
+      <CalendlyEmbed
+        type="popup"
         ctaPosition="footer"
         ctaId="contact-direct"
         utmSource="contact"
         utmMedium="cta"
-        utmCampaign="contact-direct"
-        className="flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8]"
+        campaign="contact-direct"
+        variant="unstyled"
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8]"
       >
-        <Calendar className="h-5 w-5" strokeWidth={1.5} />
-        Prendre rendez-vous (30 min, gratuit)
-      </CTACalendly>
+        <Calendar className="h-5 w-5 shrink-0" strokeWidth={1.5} />
+        Réservez votre visio découverte gratuite
+      </CalendlyEmbed>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 import { QualiopiLogoInline } from '@/components/QualiopiLogo';
-import { CTACalendly } from '@/components/CTACalendly';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 const SESSION_DISMISS_KEY = 'ofc-sticky-formation-rdv-banner-dismissed';
 const SCROLL_SHOW_PX = 300;
@@ -101,27 +101,26 @@ export function StickyBlogMetierRdvBar() {
     <div
       className="fixed bottom-0 left-0 right-0 z-[60] flex h-[60px] items-stretch border-t border-[#D4E3FC] bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
       role="region"
-      aria-label="Formation IA BTP — prise de rendez-vous"
+      aria-label="Formation IA pour les pro du BTP — prise de rendez-vous"
     >
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4">
         <p className="hidden min-w-0 flex-1 items-center gap-2 truncate text-sm font-medium text-slate-800 sm:flex">
           <span className="inline-flex shrink-0 items-center rounded border border-slate-200 bg-white px-1 py-0.5">
             <QualiopiLogoInline heightPx={16} />
           </span>
-          <span className="truncate">Formation IA BTP — Qualiopi · Constructys</span>
+          <span className="truncate">Formation IA appliquée au bâtiment — Qualiopi · Constructys</span>
         </p>
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:flex-none sm:justify-end">
-          <CTACalendly
-            page={pathname}
+          <CalendlyEmbed
+            type="popup"
+            variant="unstyled"
             ctaPosition="footer"
             ctaId="sticky-blog-metier"
             utmSource="blog"
             utmMedium="sticky"
-            utmCampaign="blog-metier"
-            className="inline-flex h-10 max-w-full flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-8 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:h-10 sm:flex-none sm:px-5 sm:text-sm"
-          >
-            Réservez votre visio découverte gratuite
-          </CTACalendly>
+            campaign="blog-metier"
+            className="inline-flex h-10 max-w-full flex-1 items-center justify-center rounded-xl bg-[#377CF3] px-8 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:h-10 sm:flex-none sm:px-5 sm:text-sm"
+          />
         </div>
         <button
           type="button"

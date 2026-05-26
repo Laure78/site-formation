@@ -7,9 +7,9 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 export const MEDIA_CONFIG = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureolivie.fr',
   brandName: 'Laure Olivié',
-  niche: 'formation IA BTP',
+  niche: 'formation IA appliquée au bâtiment',
   targetKeywords: [
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'IA pour le BTP',
     'ChatGPT entreprises BTP',
     'intelligence artificielle bâtiment',
@@ -18,7 +18,7 @@ export const MEDIA_CONFIG = {
     'automatisation BTP',
   ],
   internalLinks: {
-    formations: { path: '/formations', anchors: ['formation IA BTP', 'formations IA bâtiment'] },
+    formations: { path: '/formations', anchors: ['formation IA pour les pro du BTP', 'formations IA bâtiment'] },
     chatgptArtisans: {
       path: '/formation-ia-artisans-btp',
       anchors: ['ChatGPT pour entreprises BTP', 'IA bâtiment et travaux publics'],
@@ -32,7 +32,7 @@ export const MEDIA_CONFIG = {
     financement: { path: '/financement-constructys-formation-ia-btp', anchors: ['financement Constructys', 'tarifs formation'] },
   },
   ctaPhrases: [
-    'Découvrez notre formation IA BTP — Financement possible selon éligibilité.',
+    'Découvrez notre formation IA appliquée au bâtiment — Financement possible selon éligibilité.',
     'Réservez un échange de 30 minutes gratuit pour une formation sur-mesure.',
     'Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails.',
   ],

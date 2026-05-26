@@ -4,7 +4,7 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Politique de confidentialité — OFC Création d\'Entreprise',
   description:
-    "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA BTP.",
+    "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA pour le BTP.",
   path: '/politique-confidentialite',
   keywords: ['RGPD formation', 'politique confidentialité organisme', 'données personnelles stagiaires'],
 });

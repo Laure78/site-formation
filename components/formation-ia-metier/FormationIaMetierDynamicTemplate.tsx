@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -47,12 +46,6 @@ export function FormationIaMetierDynamicTemplate({
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
-          <Breadcrumbs
-            items={[
-              { label: 'Formations', href: LINKS.formations },
-              { label: config.breadcrumbMetierLabel },
-            ]}
-          />
           <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             Formation IA pour {config.h1MetierPluriel} — Gagnez du temps sur devis, admin et chantier
           </h1>
@@ -107,7 +100,7 @@ export function FormationIaMetierDynamicTemplate({
       <section className="border-b border-slate-200 bg-[#377CF3] px-4 py-12 text-white">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-lg font-medium text-blue-100">
-            30 minutes pour cadrer votre besoin — formation IA BTP, financement, calendrier.
+            30 minutes pour cadrer votre besoin — formation IA pour les pro du BTP, financement, calendrier.
           </p>
           <div className="mt-6 flex justify-center">
             <Link

@@ -22,7 +22,7 @@ export const metadata = createPageMetadata({
     'ChatGPT devis paysager',
     'brief paysager IA',
     'métré jardin Île-de-France',
-    'formation IA BTP',
+    'formation IA pour les pro du BTP',
     'OPCO Constructys',
     'Qualiopi BTP',
     'aménagement extérieur IA',
@@ -391,7 +391,7 @@ export default function FormationIaPaysagisteBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour les pro du BTP' },
             { href: '/formation-ia-pisciniste-btp', label: 'Formation IA pisciniste BTP' },
             { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

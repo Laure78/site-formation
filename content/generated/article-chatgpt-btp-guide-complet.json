@@ -1,7 +1,7 @@
 {
   "slug": "chatgpt-btp-guide-complet",
   "title": "ChatGPT pour le BTP : guide complet",
-  "description": "Guide ChatGPT BTP : usages (devis, CR, emails), bonnes pratiques, confidentialité et financement formation Qualiopi Constructys. Par Laure Olivié, formatrice IA BTP.",
+  "description": "Guide ChatGPT BTP : usages (devis, CR, emails), bonnes pratiques, confidentialité et financement formation Qualiopi Constructys. Par Laure Olivié, formatrice IA pour le BTP.",
   "date": "2026-03-29",
   "keywords": [
     "ChatGPT BTP",
@@ -34,7 +34,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez le catalogue des formations IA BTP et réservez un échange gratuit de 30 minutes.",
+      "content": "Découvrez le catalogue des formations IA appliquées au bâtiment et réservez un échange gratuit de 30 minutes.",
       "formationHref": "/formations"
     }
   ],

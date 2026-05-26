@@ -16,7 +16,7 @@ const cards = [
   {
     href: LINKS.formations,
     title: 'Catalogue des formations',
-    desc: 'Formations IA BTP certifiées Qualiopi — devis, chantier, appels d’offres',
+    desc: 'Formations IA pour le BTP certifiées Qualiopi — devis, chantier, appels d’offres',
     Icon: GraduationCap,
   },
   {

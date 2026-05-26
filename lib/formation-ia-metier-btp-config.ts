@@ -1,5 +1,5 @@
 /**
- * Landings « formation IA BTP » par métier — contenu + métadonnées + FAQ + teaches (Course JSON-LD).
+ * Landings « formation IA pour le BTP » par métier — contenu + métadonnées + FAQ + teaches (Course JSON-LD).
  */
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -23,13 +23,13 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
       publishedTime: '2026-04-16',
       modifiedTime: '2026-04-16',
       author: SITE_CONFIG.name,
-      section: 'Formation IA BTP par métier',
+      section: 'Formation IA pour les pro du BTP par métier',
     },
     image: config.ogImage ?? {
       url: '/images/laure-olivie-formatrice.png',
       width: 1200,
       height: 630,
-      alt: `Formation IA BTP ${config.metierNomTitre} — Qualiopi, Laure Olivié`,
+      alt: `Formation IA appliquée au bâtiment ${config.metierNomTitre} — Qualiopi, Laure Olivié`,
     },
   });
 }
@@ -131,13 +131,13 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     url: '/images/formation-ia-etancheur-btp-og.png',
     width: 1200,
     height: 630,
-    alt: 'Étanchéité sur toiture-terrasse — formation IA BTP Laure Olivié',
+    alt: 'Étanchéité sur toiture-terrasse — formation IA pour le BTP Laure Olivié',
   },
   coverImage: {
     url: '/images/formation-ia-etancheur-btp-og.png',
     width: 1200,
     height: 630,
-    alt: 'Technicien en étanchéité sur toiture-terrasse — contexte formation IA BTP',
+    alt: 'Technicien en étanchéité sur toiture-terrasse — contexte formation IA pour les pro du BTP',
   },
   showAuthorBio: true,
   authorBioClosingLine:
@@ -266,7 +266,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
     url: '/images/formation-ia-electricien-btp.png',
     width: 1024,
     height: 682,
-    alt: 'Formation IA BTP — électriciens, session avec Laure Olivié',
+    alt: 'Formation IA appliquée au bâtiment — électriciens, session avec Laure Olivié',
   },
   coverImage: {
     url: '/images/formation-ia-electricien-btp.png',
@@ -414,13 +414,13 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
     url: '/images/formation-ia-btp-entreprise.png',
     width: 1024,
     height: 571,
-    alt: 'Formation IA BTP — plombiers chauffagistes, session avec Laure Olivié',
+    alt: 'Formation IA pour le BTP — plombiers chauffagistes, session avec Laure Olivié',
   },
   coverImage: {
     url: '/images/formation-ia-btp-entreprise.png',
     width: 1024,
     height: 571,
-    alt: 'Atelier formation IA BTP en entreprise — plomberie et chauffage',
+    alt: 'Atelier formation IA pour les pro du BTP en entreprise — plomberie et chauffage',
   },
   showAuthorBio: true,
   authorBioClosingLine:

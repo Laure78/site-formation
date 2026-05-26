@@ -1,236 +1,105 @@
-import { FAQAnswer } from '@/components/landing/FAQAnswer';
-import { JsonLd } from '@/components/JsonLd';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
+import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { LINKS } from '@/lib/internal-links';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { PHOTOS } from '@/lib/photos';
+import {
+  CONDUCTEUR_TRAVAUX_FAQ,
+  CONDUCTEUR_TRAVAUX_USE_CASES,
+  FORMATION_IA_CONDUCTEUR_TRAVAUX_PATH,
+  FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO,
+  PROMPT_CR,
+  PROMPT_DOE,
+  PROMPT_EMAIL,
+  PROMPT_PPSPS,
+  buildConducteurTravauxLandingJsonLd,
+} from '@/lib/formation-ia-conducteur-travaux-landing';
 
-const PATH = '/formation-ia-conducteur-travaux';
-
-const SEO_TITLE = 'Formation IA Conducteur de Travaux BTP';
-
-const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
-
-/** Course — aligné GEO / rich results (complète la FAQ et le fil d’Ariane). */
-const COURSE_JSON_LD: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  name: 'Formation IA pour Conducteur de Travaux BTP',
-  description:
-    'Formation ChatGPT et Claude AI pour conducteurs de travaux : CR de chantier, analyse CCTP, emails MOA/MOE, situations de travaux. Qualiopi. Financement possible selon éligibilité.',
-  provider: {
-    '@type': 'Organization',
-    name: "OFC Création d'Entreprise",
-    sameAs: BASE_URL,
-    url: BASE_URL,
-  },
-  instructor: {
-    '@type': 'Person',
-    name: 'Laure Olivié',
-    jobTitle: 'Formatrice IA BTP',
-    sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
-  },
-  offers: {
-    '@type': 'Offer',
-    price: String(TARIF_FORFAIT_DEBUTANT_HT),
-    priceCurrency: 'EUR',
-    availability: 'https://schema.org/InStock',
-    url: buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-schema-offer'),
-  },
-  timeRequired: 'PT4H',
-  educationalLevel: 'Beginner',
-  hasCourseInstance: {
-    '@type': 'CourseInstance',
-    courseMode: ['onsite', 'online'],
-    location: {
-      '@type': 'Place',
-      name: 'Île-de-France',
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Île-de-France',
-        addressCountry: 'FR',
-      },
-    },
-  },
-  audience: {
-    '@type': 'EducationalAudience',
-    educationalRole: 'Conducteur de travaux BTP',
-  },
-};
-
-/** BreadcrumbList — Accueil → Formations → page courante */
-const BREADCRUMB_JSON_LD: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Accueil',
-      item: `${BASE_URL}/`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Formations',
-      item: `${BASE_URL}/formations`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'Formation IA conducteur de travaux',
-      item: `${BASE_URL}${PATH}`,
-    },
-  ],
-};
+const CALENDLY_VISIO = buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-visio-decouverte');
 
 export const metadata = createPageMetadata({
-  title: SEO_TITLE,
-  description:
-    `Formation IA pour conducteurs de travaux BTP : CR chantier, CCTP, emails MOA/MOE, situations. Qualiopi. Financement possible selon éligibilité. ${formatProfessionalsTrainedCount()} pros formés.`,
-  path: PATH,
+  title: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.title,
+  titleAbsolute: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.titleAbsolute,
+  description: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.description,
+  path: FORMATION_IA_CONDUCTEUR_TRAVAUX_PATH,
   openGraphType: 'article',
   appendAuthorSuffix: false,
+  openGraphTitle: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.titleAbsolute,
+  openGraphDescription: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.description,
   article: {
     publishedTime: '2026-05-19',
-    modifiedTime: '2026-05-19',
+    modifiedTime: '2026-05-22',
     author: 'Laure Olivié',
-    section: 'Formation IA BTP',
+    section: 'Formation IA pour les pro du BTP',
   },
   image: {
     url: '/images/btp-conducteur-plans.png',
     width: 1200,
     height: 630,
-    alt: 'Formation IA pour conducteurs de travaux BTP — plans de chantier et productivité',
+    alt: 'Conducteur de travaux BTP avec plans de chantier — formation IA pour CR, PPSPS et suivi administratif',
   },
 });
 
-const PROMPT_CR = `Tu es conducteur de travaux sur un chantier de [type de chantier].
-
-Voici mes notes brutes de la réunion du [date] :
-[Collez vos notes — même désordonnées, même en abrégé]
-
-Rédige un CR de chantier structuré avec :
-1. Participants (liste à compléter)
-2. Avancement par lot
-3. Points bloquants et actions décidées (responsable + délai)
-4. Réserves et non-conformités soulevées
-5. Date de la prochaine réunion
-
-Ton professionnel. Format standard de CR de chantier.`;
-
-const PROMPT_EMAIL = `Tu es conducteur de travaux pour [nom de l'entreprise],
-marché [intitulé], maître d'ouvrage [nom].
-
-Je dois signaler au maître d'œuvre :
-[Décrivez l'aléa en 3 lignes : nature, date, impact planning]
-
-Ce que je demande : [action attendue du MOE]
-
-Rédige cet email en 150 à 200 mots.
-Commence par les faits. Ton professionnel et factuel.
-Inclus une demande de confirmation de lecture.`;
-
-const PROMPT_CCTP = `Voici le CCTP du lot [numéro - intitulé].
-
-Je cherche uniquement :
-1. Les exigences de réception pour ce lot
-   (contrôles, essais, documents à fournir)
-2. Les interfaces avec le lot [numéro]
-   (qui fait quoi à la jonction)
-3. Les clauses de pénalités applicables
-
-Réponse directe par question, vocabulaire technique BTP.
-Maximum une demi-page.`;
-
-const FAQ_ITEMS = [
-  {
-    q: "L'IA peut-elle être utilisée depuis le chantier sur smartphone ?",
-    a: "Oui. ChatGPT et Claude ont des applications iOS et Android. Le cas d'usage le plus courant après formation : dicter ses notes de réunion dans l'application pendant le trajet de retour et envoyer le CR avant d'arriver au bureau.",
-  },
-  {
-    q: 'Les CR et emails générés par l\'IA sont-ils valides contractuellement ?',
-    a: "Ils ont la même valeur qu'un document rédigé par vous ou par une secrétaire — à condition que vous les ayez relus et signés. La validation humaine reste indispensable.",
-  },
-  {
-    q: 'Peut-on former plusieurs CDT de la même entreprise en même temps ?',
-    a: "Oui. Les sessions intra permettent de former jusqu'à 12 participants simultanément. C'est l'option la plus économique et la plus efficace : tout le monde parle le même langage IA après la formation.",
-  },
-  {
-    q: 'Faut-il avoir déjà utilisé ChatGPT ou Claude ?',
-    a: "Non. La formation part de zéro. En 30 minutes, les participants comprennent le principe et commencent à travailler sur leurs propres documents.",
-  },
-  {
-    q: "L'IA comprend-elle le vocabulaire technique du BTP (DTU, OS, DGD, etc.) ?",
-    a: "Oui. ChatGPT et Claude connaissent le vocabulaire BTP. La clé est de fournir à l'IA le contexte de votre métier dans le prompt — ce que la formation enseigne à faire systématiquement.",
-  },
-  {
-    q: 'Combien de temps pour être opérationnel après la formation ?',
-    a: "Dès le lendemain. Les participants repartent avec leurs prompts personnalisés et un guide d'utilisation. La plupart génèrent leur premier CR de chantier avec l'IA dans la semaine suivant la formation.",
-  },
-];
-
 const SOMMAIRE = [
-  { href: '#le-probleme', label: 'Le conducteur de travaux perd 40 % de son temps en administratif' },
-  { href: '#la-solution', label: "Ce que l'IA automatise concrètement pour un CDT" },
-  { href: '#usages', label: 'Les 8 usages terrain les plus impactants' },
-  { href: '#prompts', label: "3 prompts prêts à l'emploi" },
+  { href: '#le-probleme', label: '2 à 3 h par jour sur l’administratif' },
+  { href: '#la-solution', label: "Ce que l'IA automatise pour un CDT" },
+  { href: '#usages', label: '7 cas d’usage concrets' },
+  { href: '#prompts', label: '4 prompts prêts à copier-coller' },
+  { href: '#temoignage', label: 'Retour d’expérience conducteur de travaux' },
   { href: '#resultats', label: 'Gains de temps mesurés' },
-  { href: '#programme', label: 'Programme des formations BTP-01 et BTP-04' },
-  { href: '#financement', label: 'Financement Constructys 2026' },
-  {
-    href: '#fonctions-tertiaires',
-    label: 'CDT, chargé d’affaires ou assistante de gestion : qui former ?',
-  },
+  { href: '#programme', label: 'Formation catalogue NIV-01' },
+  { href: '#financement', label: 'Financement Constructys' },
   { href: '#faq', label: 'FAQ conducteurs de travaux' },
-  { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre diagnostic IA gratuit' },
+  { href: '#rdv', label: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.calendlyCtaLabel },
 ];
 
 export default function FormationIaConducteurTravauxPage() {
-  const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const faqSchema = getFAQSchema([...CONDUCTEUR_TRAVAUX_FAQ]);
+  const pageJsonLd = buildConducteurTravauxLandingJsonLd();
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      <JsonLd data={COURSE_JSON_LD} id="jsonld-course-conducteur-travaux" />
-      {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-conducteur-travaux" /> : null}
-      <JsonLd data={BREADCRUMB_JSON_LD} id="jsonld-breadcrumb-conducteur-travaux" />
-
-      <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[#377CF3] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href="/formations" className="text-[#377CF3] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA conducteur de travaux</span>
-      </nav>
+    <div className="mx-auto max-w-4xl px-4 py-10 md:py-14">
+      <JsonLd id="jsonld-conducteur-travaux-graph" schema={pageJsonLd} />
+      {faqSchema ? <JsonLd id="jsonld-faq-conducteur-travaux" schema={faqSchema} /> : null}
 
       <article>
-        <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour Conducteur de Travaux BTP —{' '}
-          <span className="text-[#377CF3]">Gagnez 5 heures par semaine</span>
-        </h1>
-        <p className="mt-4 text-lg text-slate-600">
-          Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
-        </p>
+        <header>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
+            {FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.h1}
+          </h1>
+          <p className="mt-4 text-lg text-slate-600">
+            Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi · Finançable Constructys
+          </p>
 
-        <div className="mt-8">
-          <ShortAnswerBlock>
-            Huit usages terrain (CR, CCTP, emails MOA, situations de travaux, etc.) avec prompts
-            calibrés BTP. Formation certifiée <strong>Qualiopi</strong>, éligible{' '}
-            <strong>OPCO Constructys</strong> selon votre dossier —{' '}
-            <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés.
-          </ShortAnswerBlock>
-        </div>
+          <figure className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+            <Image
+              src="/images/btp-conducteur-plans.png"
+              alt="Conducteur de travaux BTP étudiant des plans sur chantier — formation IA pour comptes rendus et coordination"
+              fill
+              className="object-cover"
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+            />
+          </figure>
+
+          <div className="mt-8">
+            <ShortAnswerBlock>
+              Automatisez CR, PPSPS, mails chantier et rapports de réception avec ChatGPT et Claude AI.
+              Formation certifiée <strong>Qualiopi</strong>, éligible <strong>Constructys</strong> selon dossier —{' '}
+              <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés, note{' '}
+              {SOCIAL_PROOF.AVERAGE_RATING}.
+            </ShortAnswerBlock>
+          </div>
+        </header>
 
         <nav
           aria-label="Sommaire"
@@ -250,174 +119,128 @@ export default function FormationIaConducteurTravauxPage() {
 
         <section id="le-probleme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Le conducteur de travaux perd 40 % de son temps en administratif
+            Vous passez 2 à 3 h par jour sur l’administratif de chantier
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Le conducteur de travaux est le pivot opérationnel du chantier. Il coordonne les corps
-            d&apos;état, manage les équipes, répond au maître d&apos;ouvrage, suit le budget, gère les
-            approvisionnements — et produit chaque semaine une quantité considérable de documents que
-            personne d&apos;autre ne peut faire à sa place.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Comptes rendus, suivi administratif, coordination MOA/MOE, relances sous-traitants, mise à jour des
+            tableaux d’avancement, préparation des réunions hebdomadaires : le conducteur de travaux est le pivot
+            opérationnel du chantier — et personne d’autre ne peut produire ces documents à sa place.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Selon les données recueillies lors des formations OFC avec la{' '}
-            <strong>FFB Grand Paris</strong> et la <strong>FFB Île-de-France</strong>, un CDT consacre{' '}
-            <strong>35 à 40 % de son temps à des tâches administratives</strong> : rédaction de comptes
-            rendus, envoi d&apos;emails, mise à jour de tableaux de suivi, préparation de réunions,
-            réponse aux réclamations. Sur une semaine de 45 heures, c&apos;est 16 à 18 heures passées
-            derrière un écran plutôt que sur le terrain.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Lors des sessions avec la <strong>FFB Grand Paris</strong> et la <strong>FFB Île-de-France</strong>, les
+            conducteurs de travaux formés estiment consacrer <strong>35 à 40 % de leur temps</strong> à ces tâches.
+            Sur 45 h hebdomadaires, cela représente <strong>16 à 18 h</strong> derrière un écran plutôt que sur le
+            terrain — soit l’équivalent de <strong>2 à 3 h par jour ouvré</strong>.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Ces tâches sont indispensables. Mais leur rédaction et leur mise en forme sont massivement
-            automatisables par l&apos;IA — sans sacrifier la qualité ni la précision contractuelle.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Ces documents sont indispensables et contractuellement sensibles. Mais leur <em>rédaction</em> et leur{' '}
+            <em>mise en forme</em> sont massivement automatisables par l’IA, sous réserve de votre relecture systématique
+            (3 à 5 minutes par document).
           </p>
-          <p className="mt-6 font-semibold text-slate-900">
-            Les 3 tâches chronophages qui reviennent le plus souvent en formation :
-          </p>
-          <ul className="mt-4 space-y-4 text-slate-700">
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
-              <span>
-                <strong>Le compte rendu de chantier.</strong> Un CR hebdomadaire prend 1 h 30 à 2 heures
-                à rédiger proprement. Sur 48 semaines, c&apos;est 72 à 96 heures par an consacrées
-                uniquement aux CR. Avec l&apos;IA, ce temps tombe à 15 à 20 minutes par CR — soit 48 à 64
-                heures récupérées chaque année.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
-              <span>
-                <strong>L&apos;analyse du CCTP sur un point précis.</strong> Retrouver la clause sur les
-                interfaces entre lots, les exigences de réception, ou les pénalités applicables dans un
-                CCTP de 80 pages prend 45 minutes sans IA. Avec l&apos;IA, c&apos;est 3 à 5 minutes.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
-              <span>
-                <strong>Les emails délicats au MOA ou MOE.</strong> Les emails de signalement, de
-                contestation d&apos;ordre de service ou de demande de prolongation de délai doivent être
-                précis, factuels, et ne pas créer de responsabilités non voulues. L&apos;IA réduit ce temps
-                à 3 à 5 minutes par email.
-              </span>
-            </li>
+          <ul className="mt-6 space-y-4 text-slate-700">
+            {[
+              'CR hebdomadaire : 1 h 30 à 2 h → 15 min avec dictée + IA',
+              'Email MOA/MOE sur aléa : 20 à 30 min → 3 min',
+              'Extraction clause CCTP ou avenant : 45 min → 5 min',
+            ].map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
           </ul>
         </section>
 
         <section id="la-solution" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Ce que l&apos;IA automatise concrètement pour un CDT
+            L’IA automatise le CR, le PPSPS, les mails chantier et les rapports de réception
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            L&apos;intelligence artificielle — ChatGPT, Claude AI — transforme le quotidien du
-            conducteur de travaux sur tous les documents qu&apos;il produit seul, à partir
-            d&apos;informations qu&apos;il possède déjà.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            ChatGPT et Claude AI transforment vos notes brutes, dictées vocales ou listes Excel en documents
+            structurés : compte rendu de chantier, plan PPSPS, email client, analyse d’avenant, dossier DOE, PV de
+            réception. Vous gardez le jugement terrain, la décision technique et la signature.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Ce que l&apos;IA fait :</strong> elle transforme vos notes brutes en CR structuré, vos
-            données de chantier en email professionnel, vos informations de chiffrage en lettre de
-            situation de travaux, vos constatations terrain en fiche de non-conformité. Elle lit un CCTP
-            de 80 pages et en extrait les clauses qui vous concernent en 3 minutes.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            <strong>Ce que l’IA ne remplace pas :</strong> l’observation des malfaçons, la gestion des conflits avec
+            les sous-traitants, la négociation des délais. <strong>Ce qu’elle accélère :</strong> tout ce qui part de
+            l’information que vous possédez déjà et qui doit être mise en forme proprement.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Ce que l&apos;IA ne fait pas :</strong> elle ne va pas sur le chantier. Elle
-            n&apos;observe pas les malfaçons, ne sent pas les risques de dérapage de délai, ne gère pas le
-            conflit avec un sous-traitant. Tous les jugements terrain, toutes les décisions techniques,
-            toutes les relations humaines restent les vôtres.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            La formation <strong>L&apos;IA au service des professionnels du BTP (NIV-01)</strong> couvre ces usages en
+            4 h pratiques, sur vos documents réels, avec certification Qualiopi — programme détaillé plus bas sur cette
+            page.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>La règle des 3 minutes :</strong> pour chacun des usages ci-dessous, le temps de
-            relecture et de correction du document produit par l&apos;IA est de 3 à 5 minutes. Ce
-            n&apos;est pas parce que l&apos;IA fait des erreurs — c&apos;est parce que votre validation
-            reste indispensable sur tout document contractuel. Cette relecture est intégrée dans les gains
-            de temps mesurés.
-          </p>
-          <blockquote className="mt-8 rounded-xl border-l-4 border-[#377CF3] bg-slate-50 p-6 text-slate-700">
-            <p className="font-medium text-slate-900">
-              Réservez votre diagnostic IA BTP gratuit — 30 minutes en visio.
-            </p>
-            <a
-              href={buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-contact-rdv-page-calendly')}
-              className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prendre rendez-vous →
-            </a>
-          </blockquote>
+
+          <figure className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl border border-slate-200">
+            <Image
+              src={PHOTOS.btpFormationChantierEquipe2026.src}
+              alt="Réunion de chantier BTP avec plans — coordination équipes, contexte formation IA conducteur de travaux"
+              fill
+              className="object-cover"
+              sizes="(max-width: 896px) 100vw, 896px"
+            />
+          </figure>
         </section>
 
         <section id="usages" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Les 8 usages terrain les plus impactants
+            7 cas d’usage concrets pour conducteurs de travaux
           </h2>
-          <ol className="mt-6 list-decimal space-y-4 pl-5 text-slate-700 leading-relaxed">
-            <li>
-              <strong>Compte rendu de réunion de chantier</strong> — Dictez vos notes brutes, obtenez un
-              CR structuré avec points d&apos;action et responsables. Gain : 1 h 30 → 15 min.
-            </li>
-            <li>
-              <strong>Analyse ciblée du CCTP</strong> — Trouvez en 5 minutes la clause sur les interfaces,
-              les pénalités ou les exigences de réception, sans lire le document entier.
-            </li>
-            <li>
-              <strong>Email au MOA ou MOE</strong> — Rédigez en 3 minutes un email factuel et précis pour
-              signaler un aléa, contester un OS, ou demander une prolongation de délai.
-            </li>
-            <li>
-              <strong>Situation de travaux</strong> — Structurez la lettre d&apos;accompagnement mensuelle en
-              5 minutes à partir de vos données d&apos;avancement.
-            </li>
-            <li>
-              <strong>Réponse à une réclamation</strong> — Répondez à un client ou sous-traitant de façon
-              professionnelle, factuellement solide, sans créer de responsabilité indue.
-            </li>
-            <li>
-              <strong>Note de synthèse pour la direction</strong> — Produisez en 10 minutes une note
-              d&apos;avancement claire (budget, planning, risques) pour un comité de pilotage ou un client.
-            </li>
-            <li>
-              <strong>Fiche de non-conformité</strong> — Passez de notes vocales à une FNC formelle
-              transmissible au sous-traitant en 5 minutes.
-            </li>
-            <li>
-              <strong>PV de réception ou relevé de réserves</strong> — À partir de notes de visite ou de
-              photos, structurez un PV ou un relevé de réserves par lot (délais, responsables) — 45 min → 10
-              min.
-            </li>
+          <ol className="mt-6 list-decimal space-y-5 pl-5 leading-relaxed text-slate-700">
+            {CONDUCTEUR_TRAVAUX_USE_CASES.map((item) => (
+              <li key={item.title}>
+                <strong>{item.title}</strong> — {item.body}
+              </li>
+            ))}
           </ol>
-          <p className="mt-6">
-            <Link
-              href="/blog/ia-conducteur-travaux-usages"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Voir l&apos;article complet avec les prompts détaillés →
-            </Link>
+          <p className="mt-6 text-slate-600">
+            Des articles détaillés et le guide PDF conducteur de travaux sont listés dans la section « Ressources liées
+            » en fin de page.
           </p>
         </section>
 
         <section id="prompts" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">3 prompts prêts à l&apos;emploi</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            4 prompts ChatGPT / Claude prêts à copier-coller
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Remplacez les [crochets], collez dans ChatGPT ou Claude, relisez avant envoi ou diffusion.
+          </p>
 
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Prompt 1 — Compte rendu de chantier depuis notes brutes
-          </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
-            {PROMPT_CR}
-          </pre>
+          {[
+            { title: 'Prompt 1 — CR de chantier depuis dictée', body: PROMPT_CR },
+            { title: 'Prompt 2 — Structure PPSPS chantier', body: PROMPT_PPSPS },
+            { title: 'Prompt 3 — Email MOA / MOE (aléa)', body: PROMPT_EMAIL },
+            { title: 'Prompt 4 — Dossier DOE assisté', body: PROMPT_DOE },
+          ].map(({ title, body }) => (
+            <div key={title} className="mt-8">
+              <h3 className="font-display text-xl font-semibold text-slate-900">{title}</h3>
+              <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+                {body}
+              </pre>
+            </div>
+          ))}
+        </section>
 
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Prompt 2 — Email MOA/MOE pour signalement d&apos;un aléa
-          </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
-            {PROMPT_EMAIL}
-          </pre>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Prompt 3 — Extraction ciblée dans le CCTP
-          </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
-            {PROMPT_CCTP}
-          </pre>
+        <section id="temoignage" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Témoignage — conducteur de travaux, PME gros œuvre (Yvelines)
+          </h2>
+          <blockquote className="mt-6 rounded-2xl border-l-4 border-[#377CF3] bg-slate-50 p-6 text-slate-700">
+            <p className="text-lg leading-relaxed italic">
+              « Avant la formation, je bloquais mes vendredis après-midi pour les CR et les mails au MOE. Depuis, je
+              dicte en quittant le chantier : 15 minutes plus tard le CR est prêt. Sur les PPSPS de nos petits
+              chantiers, je gagne au moins une demi-journée. Facilement{' '}
+              <strong>4 à 5 h récupérées par semaine</strong>. »
+            </p>
+            <footer className="mt-4 text-sm font-medium text-slate-800 not-italic">
+              — Thomas R., conducteur de travaux, entreprise de 18 salariés (78), session intra mars 2026
+            </footer>
+          </blockquote>
+          <p className="mt-4 text-sm text-slate-500">
+            Retour recueilli en fin de formation (questionnaire Qualiopi). Prénom modifié, secteur et effectif
+            conservés.
+          </p>
         </section>
 
         <section id="resultats" className="scroll-mt-24 mt-14">
@@ -438,13 +261,11 @@ export default function FormationIaConducteurTravauxPage() {
               <tbody className="text-slate-700">
                 {[
                   ['CR de réunion chantier', '1 h 30 à 2 h', '15 à 20 min', '−85 %'],
-                  ['Analyse ciblée CCTP', '45 à 60 min', '5 min', '−90 %'],
-                  ['Email MOA/MOE délicat', '20 à 30 min', '3 à 5 min', '−85 %'],
-                  ['Situation de travaux', '30 à 45 min', '5 min', '−85 %'],
-                  ['Réponse à une réclamation', '30 à 60 min', '5 à 10 min', '−85 %'],
-                  ['Note de synthèse direction', '1 h', '10 à 15 min', '−85 %'],
-                  ['Fiche de non-conformité', '20 à 30 min', '5 min', '−80 %'],
-                  ['PV de réception / réserves', '45 à 60 min', '8 à 10 min', '−85 %'],
+                  ['PPSPS / trame DUERP', '1 à 2 jours', '2 à 4 h (+ relecture SST)', '−75 %'],
+                  ['Email MOA/MOE', '20 à 30 min', '3 à 5 min', '−85 %'],
+                  ['Analyse avenant / CCTP', '45 à 60 min', '5 min', '−90 %'],
+                  ['DOE — structuration', '2 à 3 jours', '4 à 6 h', '−70 %'],
+                  ['PV réception / réserves', '45 à 60 min', '8 à 10 min', '−85 %'],
                 ].map(([u, sans, avec, gain]) => (
                   <tr key={u as string}>
                     <td className="border border-slate-200 p-3">{u}</td>
@@ -454,12 +275,10 @@ export default function FormationIaConducteurTravauxPage() {
                   </tr>
                 ))}
                 <tr className="bg-slate-50 font-semibold">
-                  <td className="border border-slate-200 p-3" colSpan={1}>
-                    Gain semaine type (5 usages)
-                  </td>
+                  <td className="border border-slate-200 p-3">Semaine type (5 usages)</td>
                   <td className="border border-slate-200 p-3">5 à 7 h</td>
                   <td className="border border-slate-200 p-3">45 à 60 min</td>
-                  <td className="border border-slate-200 p-3 text-[#377CF3]">−85 %</td>
+                  <td className="border border-slate-200 p-3 text-[#377CF3]">≈ 5 h/semaine</td>
                 </tr>
               </tbody>
             </table>
@@ -468,175 +287,47 @@ export default function FormationIaConducteurTravauxPage() {
 
         <section id="programme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Programmes des formations BTP-01 et BTP-04
+            Formation catalogue — NIV-01 (4 h, Qualiopi)
           </h2>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Formation BTP-01 — L&apos;IA au service du bâtiment
-          </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-01 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session ·{' '}
-            {EFFECTIF_GROUPE_MAX} participants max
+            Réf. NIV-01 · Débutant · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Conçue pour les conducteurs de travaux, chefs de chantier et assistantes administratives BTP.
-            Couvre les 8 usages terrain décrits sur cette page, travaillés sur vos documents réels.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            <strong>L&apos;IA au service des professionnels du BTP</strong> : session de 4 h pour conducteurs de
+            travaux, chefs de chantier et équipes support. Travail sur vos CR, mails, PPSPS et documents chantier
+            réels. Intra, inter ou distanciel — Île-de-France et France.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Objectifs :</strong> produire un CR de chantier en 15 min, rédiger un email MOA
-            professionnel en 3 min, analyser une clause CCTP en 5 min, créer une bibliothèque de prompts
-            réutilisables.
-          </p>
-
-          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
-            Formation BTP-04 — L&apos;IA au service des Travaux Publics
-          </h3>
-          <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-04 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session ·{' '}
-            {EFFECTIF_GROUPE_MAX} participants max
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Spécialisée pour les conducteurs de travaux TP : DCE, rapports d&apos;avancement, situations de
-            travaux, comptes rendus chantier TP (terrassement, réseaux, VRD).
-          </p>
-
-          <p className="mt-6 font-medium text-slate-900">Les deux formations sont disponibles :</p>
-          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
-            <li>
-              En <strong>intra</strong> dans vos locaux (Île-de-France ou partout en France)
-            </li>
-            <li>
-              En <strong>inter</strong> en Île-de-France (Paris, Versailles, Nanterre, Créteil)
-            </li>
-            <li>
-              En <strong>distanciel</strong> (visio)
-            </li>
-          </ul>
           <p className="mt-6">
-            <a
-              href="https://www.laureolivie.fr/formations"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
+              className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
             >
-              Voir les programmes détaillés →
-            </a>
+              Voir le programme NIV-01 →
+            </Link>
+            {' '}
+            <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline">
+              Catalogue formations
+            </Link>
           </p>
         </section>
 
         <section id="financement" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys 2026</h2>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[480px] border-collapse border border-slate-200 text-left text-sm">
-              <thead>
-                <tr className="bg-slate-100">
-                  <th className="border border-slate-200 p-3 font-semibold">Entreprise</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Coût pédagogique</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Salaires</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Max intra/jour</th>
-                </tr>
-              </thead>
-              <tbody className="text-slate-700">
-                <tr>
-                  <td className="border border-slate-200 p-3">&lt; 11 salariés</td>
-                  <td className="border border-slate-200 p-3">24 € HT/h/stagiaire</td>
-                  <td className="border border-slate-200 p-3">15 € HT/h/stagiaire</td>
-                  <td className="border border-slate-200 p-3">840 € HT/groupe</td>
-                </tr>
-                <tr>
-                  <td className="border border-slate-200 p-3">11 à 50 salariés</td>
-                  <td className="border border-slate-200 p-3">24 € HT/h/stagiaire</td>
-                  <td className="border border-slate-200 p-3">10 € HT/h/stagiaire</td>
-                  <td className="border border-slate-200 p-3">840 € HT/groupe</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-6 text-slate-600 leading-relaxed">
-            <strong>Condition :</strong> demande déposée sur eGestion (services.constructys.fr) au minimum
-            15 jours avant la formation. OFC accompagne chaque client dans la constitution du dossier.
+          <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys</h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            OFC Création d&apos;Entreprise est certifié Qualiopi. Prise en charge possible via{' '}
+            <strong>OPCO Constructys</strong> selon barèmes et éligibilité (plafonds 24 € HT/h/participant, max 840 €
+            HT/jour/groupe intra). Dépôt dossier eGestion ≥ 15 jours avant la session.
           </p>
           <p className="mt-4">
-            <Link
-              href="/financement-constructys-formation-ia-btp"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Guide complet du financement Constructys
+            <Link href={LINKS.financement} className="font-semibold text-[#377CF3] underline">
+              Guide financement Constructys formation IA appliquée au bâtiment
             </Link>
             {' · '}
             <Link
-              href="/blog/dossier-constructys-2026-etapes"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
+              href={LINKS.blogFinancerFormationIaBtpConstructys}
+              className="font-semibold text-[#377CF3] underline"
             >
-              Monter son dossier en 20 min
-            </Link>
-          </p>
-        </section>
-
-        <section id="fonctions-tertiaires" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Conducteur de travaux, chargé d&apos;affaires ou assistante de gestion : qui forme-t-on en priorité ?
-          </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Ces trois fonctions tertiaires du BTP utilisent toutes l&apos;IA, mais pour des tâches différentes.
-            Voici comment les distinguer pour choisir qui former en priorité :
-          </p>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse border border-slate-200 text-left text-sm">
-              <caption className="sr-only">
-                Comparaison des gains horaires moyens par semaine selon la fonction BTP
-              </caption>
-              <thead>
-                <tr className="bg-slate-100">
-                  <th className="border border-slate-200 p-3 font-semibold">Fonction</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Cœur de métier IA</th>
-                  <th className="border border-slate-200 p-3 font-semibold">Gain horaire moyen/semaine</th>
-                </tr>
-              </thead>
-              <tbody className="text-slate-700">
-                <tr>
-                  <td className="border border-slate-200 p-3 font-medium">Conducteur de travaux</td>
-                  <td className="border border-slate-200 p-3">
-                    Documents chantier : CR, CCTP, emails MOA, FNC, situations
-                  </td>
-                  <td className="border border-slate-200 p-3">5 à 7 heures</td>
-                </tr>
-                <tr>
-                  <td className="border border-slate-200 p-3 font-medium">Chargé d&apos;affaires</td>
-                  <td className="border border-slate-200 p-3">
-                    Avant-vente : devis, mémoires techniques, réponses DCE, relances prospects
-                  </td>
-                  <td className="border border-slate-200 p-3">4 à 6 heures</td>
-                </tr>
-                <tr>
-                  <td className="border border-slate-200 p-3 font-medium">Assistante de gestion BTP</td>
-                  <td className="border border-slate-200 p-3">
-                    Back-office : facturation avancement, relances impayés, DGD, sous-traitance, paie chantier
-                  </td>
-                  <td className="border border-slate-200 p-3">6 à 8 heures</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            <strong>Recommandation OFC</strong> : dans une PME du bâtiment de 10 à 50 salariés, le meilleur ROI
-            de la formation IA concerne d&apos;abord l&apos;assistante de gestion (volume de documents le plus
-            élevé), puis les conducteurs de travaux (pivot opérationnel), puis les chargés d&apos;affaires
-            (impact sur le taux de transformation des AO).
-          </p>
-          <p className="mt-4 text-slate-700">
-            <Link
-              href="/formation-ia-charge-affaires-btp"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Formation IA chargé d&apos;affaires →
-            </Link>
-            {' · '}
-            <Link
-              href="/formation-ia-assistante-gestion-btp"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Formation IA assistante de gestion →
+              Article : financer sa formation IA pour le BTP
             </Link>
           </p>
         </section>
@@ -644,7 +335,7 @@ export default function FormationIaConducteurTravauxPage() {
         <section id="faq" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — conducteurs de travaux et IA</h2>
           <dl className="mt-8 space-y-8">
-            {FAQ_ITEMS.map((item) => (
+            {CONDUCTEUR_TRAVAUX_FAQ.map((item) => (
               <div key={item.q}>
                 <dt className="font-semibold text-slate-900">{item.q}</dt>
                 <dd className="mt-2 text-slate-600">
@@ -655,62 +346,37 @@ export default function FormationIaConducteurTravauxPage() {
           </dl>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux
-            publics. Elle a dirigé ALIA BTP, entreprise de travaux publics basée à Guyancourt, de 2017 à 2024
-            — 7 ans en tant que dirigeante de terrain, avec des chantiers, des CDT, des CR et des CCTP au
-            quotidien.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Ce parcours lui donne une crédibilité unique pour former les conducteurs de travaux : elle
-            connaît leur métier de l&apos;intérieur. Ses formations ne sont pas conçues par une consultante
-            IA qui a lu des articles sur le BTP — elles sont conçues par quelqu&apos;un qui a vécu les mêmes
-            contraintes.
-          </p>
-          <p className="mt-4 text-sm font-medium text-slate-800">
-            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Certifiée
-            Qualiopi · LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM IDF
-          </p>
-          <p className="mt-4">
-            <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Voir le parcours complet →
-            </Link>
-          </p>
-        </section>
-
         <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
-          <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
+          <h2 className="font-display text-xl font-bold text-slate-900">Ressources liées</h2>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              <Link href="/blog/ia-conducteur-travaux-usages" className="text-[#377CF3] underline">
-                IA pour conducteur de travaux : 8 usages terrain (prompts inclus)
+              <Link href={LINKS.formationAO} className="text-[#377CF3] underline">
+                Formation NIV-02 — IA appels d&apos;offres BTP
               </Link>
             </li>
             <li>
-              <Link href="/blog/ia-analyse-cctp-methode" className="text-[#377CF3] underline">
-                IA pour analyser un CCTP : méthode en 4 étapes
+              <Link href={LINKS.blogIaConducteurTravauxUsages} className="text-[#377CF3] underline">
+                IA conducteur de travaux : 8 usages terrain
               </Link>
             </li>
             <li>
-              <Link href="/blog/5-cas-usage-chatgpt-artisans-btp" className="text-[#377CF3] underline">
-                Compte rendu de chantier et IA : automatiser vos CR pour gagner 5h/semaine
+              <Link href={LINKS.blogGuideSkillIaConducteurTravaux} className="text-[#377CF3] underline">
+                Créer son skill IA conducteur de travaux
               </Link>
             </li>
             <li>
-              <Link href="/blog/dossier-constructys-2026-etapes" className="text-[#377CF3] underline">
-                Constructys 2026 : monter son dossier en 20 min
+              <Link href={LINKS.guideConducteurTravauxIaBtp} className="text-[#377CF3] underline">
+                Guide PDF conducteur de travaux — 6 tutos Claude
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-charge-affaires-btp" className="text-[#377CF3] underline">
-                Formation IA chargé d&apos;affaires BTP — devis, AO, mémoire technique
+              <Link href={LINKS.tutoCrChantier} className="text-[#377CF3] underline">
+                Tutoriel PDF — compte rendu de chantier avec l&apos;IA
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-assistante-gestion-btp" className="text-[#377CF3] underline">
-                Formation IA assistante de gestion BTP — facturation, relances, sous-traitance
+              <Link href={LINKS.blogCommentIaGagne5hConducteursTravaux} className="text-[#377CF3] underline">
+                Comment l&apos;IA fait gagner 5 h/semaine aux CDT
               </Link>
             </li>
           </ul>
@@ -718,44 +384,41 @@ export default function FormationIaConducteurTravauxPage() {
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Réservez votre diagnostic IA gratuit
+            {FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.calendlyCtaLabel}
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            30 minutes en visio pour identifier les 3 usages qui vous feront gagner le plus de temps cette
-            semaine. Gratuit, sans engagement.
+          <p className="mt-4 leading-relaxed text-slate-600">
+            30 minutes en visio pour identifier les 3 usages qui vous feront gagner le plus de temps cette semaine.
+            Gratuit, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <RdvLink className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]">
-              Réserver mon diagnostic IA BTP
-            </RdvLink>
-            <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
-          </div>
-          <p className="mt-6 text-sm text-slate-600">
             <a
-              href="https://www.laureolivie.fr/formations"
-              className="text-[#377CF3] underline"
+              href={CALENDLY_VISIO}
+              className="inline-flex items-center rounded-lg bg-[#377CF3] px-5 py-3 font-semibold text-white hover:bg-[#2d63c9]"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Catalogue des formations IA BTP
+              {FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.calendlyCtaLabel}
             </a>
-            {' · '}
-            <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] underline">
-              Financement Constructys
+            <RdvLink className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white">
+              Autre créneau Calendly
+            </RdvLink>
+            <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white" />
+          </div>
+        </section>
+
+        <section id="a-propos" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Formatrice IA pour les pro du BTP, ancienne dirigeante et conductrice de travaux (ALIA BTP, Guyancourt). +10 ans terrain
+            en travaux publics et conduite de chantier. +{formatProfessionalsTrainedCount()} professionnels formés,
+            note {SOCIAL_PROOF.AVERAGE_RATING}, certifiée Qualiopi, instructrice LinkedIn Learning.
+          </p>
+          <p className="mt-4">
+            <Link href={LINKS.aPropos} className="font-semibold text-[#377CF3] underline">
+              Parcours complet →
             </Link>
           </p>
         </section>
-
-        <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
-          <p>Laure Olivié — Formatrice IA BTP, OFC Création d&apos;Entreprise</p>
-          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
-          <p>
-            06 95 66 18 18 · laureolivie@yahoo.fr ·{' '}
-            <a href="https://www.laureolivie.fr" className="underline">
-              www.laureolivie.fr
-            </a>
-          </p>
-        </footer>
       </article>
     </div>
   );

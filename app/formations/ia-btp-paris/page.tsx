@@ -23,19 +23,19 @@ import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
 const MAIL_RAPPEL_PARIS =
-  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA BTP Paris')}`;
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA appliquée au bâtiment Paris')}`;
 
 const HERO_RESUME_PARIS = [
-  'Formation IA BTP Paris et Île-de-France — devis, emails, appels d\'offres, administratif.',
+  'Formation IA pour le BTP Paris et Île-de-France — devis, emails, appels d\'offres, administratif.',
   `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) — Qualiopi.`,
   'Présentiel — Paris (75) et 8 départements : inter ou intra selon convention.',
   'Financement OPCO Constructys selon éligibilité.',
 ];
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Paris — ChatGPT en 4h',
+  title: 'Formation IA pour les pro du BTP Paris — ChatGPT en 4h',
   description:
-    'Formation IA BTP à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi. Financement possible selon éligibilité. RDV visio gratuit.',
+    'Formation IA appliquée au bâtiment à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi. Financement possible selon éligibilité. RDV visio gratuit.',
   path: '/formations/ia-btp-paris',
   appendAuthorSuffix: false,
   keywords: [
@@ -241,7 +241,7 @@ export default function FormationIABTPParisPage() {
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_IA_BTP_PARIS}
-            title="Questions fréquentes — Formation IA BTP Paris"
+            title="Questions fréquentes — Formation IA pour le BTP Paris"
           />
         </div>
       </section>
@@ -251,7 +251,7 @@ export default function FormationIABTPParisPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations', label: 'Catalogue des formations IA BTP' },
+              { href: '/formations', label: 'Catalogue des formations IA pour les pro du BTP' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: buildSiteCalendlyCtaUrl('formations-ia-btp-paris-footer-rdv'), label: 'Prendre rendez-vous' },

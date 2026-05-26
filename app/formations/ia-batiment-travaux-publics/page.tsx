@@ -24,8 +24,6 @@ import {
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
-import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -47,19 +45,16 @@ import {
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { PHOTOS } from '@/lib/photos';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { LINKS } from '@/lib/internal-links';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
-
-const CATALOG_ENTRY_NIV01 = getFormationCatalogEntryByPath('/formations/ia-batiment-travaux-publics')!;
 
 /** Title ≤ 60 car. — catalogue niveau 1 bâtiment & TP */
 const SEO_TITLE =
   'Formation IA bâtiment & travaux publics (niveau 1) | Laure Olivié';
 
-/** Meta description — formation IA BTP */
-const SEO_DESCRIPTION = `Formation IA BTP niveau 1 (${SESSION_DUREE_LIBELLE}) : bâtiment et travaux publics, devis, chantier, administratif. Qualiopi, formation IA BTP, ChatGPT BTP.`;
+/** Meta description — formation IA pour les pro du BTP */
+const SEO_DESCRIPTION = `Formation IA appliquée au bâtiment niveau 1 (${SESSION_DUREE_LIBELLE}) : bâtiment et travaux publics, devis, chantier, administratif. Qualiopi, formation IA pour le BTP, ChatGPT BTP.`;
 
 const MAIL_PROGRAMME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA niveau 1 bâtiment & TP')}`;
@@ -72,7 +67,7 @@ export const metadata = createPageMetadata({
   path: '/formations/ia-batiment-travaux-publics',
   keywords: [
     'formation IA bâtiment',
-    'formation IA BTP',
+    'formation IA pour les pro du BTP',
     'IA BTP',
     'rédaction mémoire technique',
     'appel d\'offre BTP',
@@ -81,7 +76,7 @@ export const metadata = createPageMetadata({
     'IA chantier',
     'automatisation devis BTP',
     'IA appels d\'offres',
-    'formation IA BTP Paris',
+    'formation IA appliquée au bâtiment Paris',
     'formation IA bâtiment Île-de-France',
     'ChatGPT BTP',
     'Qualiopi',
@@ -250,19 +245,6 @@ export default function FormationIAuServiceDuBatimentPage() {
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
-        breadcrumb={
-          <Breadcrumb
-            jsonLdId="schema-breadcrumb-formation-ia-batiment-travaux-publics"
-            items={[
-              { label: 'Accueil', href: '/' },
-              { label: 'Formations', href: '/formations' },
-              {
-                label: "L'IA au service des pros du bâtiment et des travaux publics",
-                href: '/formations/ia-batiment-travaux-publics',
-              },
-            ]}
-          />
-        }
         refLine="Réf. catalogue NIV-01 · Niveau 1 · Débutant"
         title="L'IA au service des pros du bâtiment et des travaux publics"
         subtitle="Niveau 1 — devis, chantier, administratif et documents (bâtiment & travaux publics)"
@@ -351,11 +333,11 @@ export default function FormationIAuServiceDuBatimentPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Formation IA BTP : une méthode pensée pour le terrain
+            Formation IA pour le BTP : une méthode pensée pour le terrain
           </h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Dans une entreprise du bâtiment, le temps se joue sur trois tables : le chantier, le client et
-            l&apos;administratif. La <strong>formation IA BTP</strong> que nous proposons ne vise pas à
+            l&apos;administratif. La <strong>formation IA pour les pro du BTP</strong> que nous proposons ne vise pas à
             transformer vos équipes en experts informatiques : il s&apos;agit de{' '}
             <strong>gagner des heures chaque semaine</strong> sur des tâches répétitives — devis, relances,
             courriers, synthèses — tout en gardant la main sur le fond technique et la relation de
@@ -540,11 +522,11 @@ export default function FormationIAuServiceDuBatimentPage() {
           <div className="flex items-center gap-2 text-[var(--accent)]">
             <MapPin size={26} strokeWidth={1.5} aria-hidden />
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              Formation IA BTP Paris, Yvelines et Île-de-France
+              Formation IA appliquée au bâtiment Paris, Yvelines et Île-de-France
             </h2>
           </div>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Nous organisons des sessions <strong>formation IA BTP Paris</strong> et en{' '}
+            Nous organisons des sessions <strong>formation IA pour le BTP Paris</strong> et en{' '}
             <strong>formation IA bâtiment Île-de-France</strong> : présentiel en salle ou{' '}
             <strong>intra-entreprise</strong> dans vos locaux selon vos contraintes. Interventions possibles
             notamment en <strong>Yvelines</strong>, <strong>Essonne</strong>,{' '}
@@ -577,7 +559,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               href="/financement-constructys-formation-ia-btp"
               className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
             >
-              Guide financement Constructys — formation IA BTP
+              Guide financement Constructys — formation IA pour les pro du BTP
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </p>
@@ -810,7 +792,6 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
-      <CatalogFormationCourseScript entry={CATALOG_ENTRY_NIV01} pageDescription={SEO_DESCRIPTION} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PresentationAnimee } from '@/components/landing/PresentationAnimee';
 import { CitationSentence } from '@/components/seo/CitationSentence';
-import { RdvLink } from '@/components/RdvLink';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import {
   FileText,
   Award,
@@ -61,19 +61,23 @@ import { BeworkEtFormationsOffreSection } from '@/components/landing/BeworkEtFor
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
-/** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≈ 155 car., phrase entière sans coupure) */
-const HOME_META_DESCRIPTION = `Formation IA BTP : devis, administratif, appels d'offres avec l'IA (Claude AI). ${formatProfessionalsTrainedCount()} pros formés. Qualiopi, Constructys. Visio gratuite.`;
+/** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≤ 155 car.) */
+const HOME_META_TITLE = "Formation IA pour les pro du BTP — Devis, chantier, appels d'offres";
+const HOME_META_DESCRIPTION =
+  "Formation IA pour le BTP : devis, CR, appels d'offres. 1 592 pros formés, 4,85/5. Qualiopi, Constructys. Visio gratuite.";
 
 const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Devis, chantier & appels d\'offres',
+  title: HOME_META_TITLE,
+  titleAbsolute: HOME_META_TITLE,
   description: HOME_META_DESCRIPTION,
   path: '/',
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA BTP — Devis, chantier & appels d\'offres',
+  openGraphTitle: HOME_META_TITLE,
+  openGraphDescription: HOME_META_DESCRIPTION,
   keywords: [
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
     'formation ChatGPT BTP',
     'formation IA bâtiment',
     'formation IA travaux publics',
@@ -113,7 +117,7 @@ const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 export default function HomePage() {
   return (
     <div>
-      {/* Hero — Formation IA BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
+      {/* Hero — Formation IA pour le BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
       <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F2F2F2] via-[#f5f9ff] to-white px-4 py-14 md:py-20 lg:py-24">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
         <div
@@ -157,7 +161,7 @@ export default function HomePage() {
               <div className="min-w-0">
                 <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-[#377CF3]/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-[#377CF3] shadow-[0_1px_6px_-2px_rgba(55,124,243,0.25)] backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
                   <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-[#377CF3] sm:h-4 sm:w-4" aria-hidden />
-                  <span>Formation IA BTP · bâtiment & travaux publics</span>
+                  <span>Formation IA pour les pro du BTP · bâtiment & travaux publics</span>
                   <span className="hidden text-slate-300 sm:inline" aria-hidden>
                     ·
                   </span>
@@ -167,7 +171,7 @@ export default function HomePage() {
                   Laure Olivié — formatrice IA spécialisée BTP
                 </h1>
                 <h2 className="mt-4 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                  Formation IA BTP en Île-de-France pour vos équipes du bâtiment
+                  Formation IA appliquée au bâtiment en Île-de-France pour vos équipes du bâtiment
                 </h2>
                 <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                   Devis, chantier, appels d&apos;offres :{' '}
@@ -188,12 +192,13 @@ export default function HomePage() {
                   Île-de-France (note {SOCIAL_PROOF.AVERAGE_RATING} en 2026).
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                  <RdvLink
+                  <CalendlyEmbed
+                    type="popup"
+                    variant="unstyled"
                     campaign="accueil-hero"
+                    ctaPosition="hero"
                     className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full bg-[#377CF3] px-7 py-3 text-center text-[0.95rem] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(55,124,243,0.65)] ring-2 ring-[#377CF3]/90 ring-offset-2 ring-offset-[#f5f9ff] transition hover:bg-[#2d66d6] hover:shadow-[0_6px_22px_-6px_rgba(55,124,243,0.55)] md:min-w-[auto]"
-                  >
-                    Organiser une formation
-                  </RdvLink>
+                  />
                   <Link
                     href="#programme"
                     className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
@@ -239,7 +244,7 @@ export default function HomePage() {
                   <Link
                     href={LINKS.financement}
                     className="text-[var(--accent)] hover:underline"
-                    title="Financement Constructys — formation IA BTP"
+                    title="Financement Constructys — formation IA pour le BTP"
                   >
                     financement Constructys
                   </Link>
@@ -267,13 +272,13 @@ export default function HomePage() {
                     </span>
                   </div>
                   <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
-                    Les 2 parcours formation IA BTP
+                    Les 2 parcours de formation IA pour les pro du BTP
                   </p>
                   <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-950 shadow-inner ring-1 ring-slate-900/10">
                     <div className="relative aspect-video w-full">
                       <iframe
                         src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
-                        title="Présentation animée — 2 formations IA BTP"
+                        title="Présentation animée — 2 formations IA appliquées au bâtiment"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         loading="lazy"
@@ -291,7 +296,7 @@ export default function HomePage() {
                 className="mt-0 text-sm text-slate-600 italic lg:-mt-2"
                 data-citation="true"
               >
-                <strong>Définition.</strong> Une « formation IA BTP » est une formation professionnelle
+                <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
                 qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
                 d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
                 automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
@@ -317,7 +322,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <CitationSentence text="La formation IA BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
+              <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
             </div>
           </div>
         </div>
@@ -358,7 +363,7 @@ export default function HomePage() {
             id="couverture-geo"
             className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
-            Une formation IA BTP accessible partout en France
+            Une formation IA pour les pro du BTP accessible partout en France
           </h2>
           <p
             className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg"
@@ -377,6 +382,27 @@ export default function HomePage() {
 
       <ClientsLogosMarquee />
 
+      {/* CTA mi-page — visio découverte */}
+      <section className="border-y border-slate-200 bg-[#F2F2F2] px-4 py-12">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <div>
+            <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+              30 minutes pour cadrer votre formation IA appliquée au bâtiment
+            </h2>
+            <p className="mt-2 text-slate-600">
+              Devis personnalisé, financement Constructys, format intra ou inter — sans engagement.
+            </p>
+          </div>
+          <CalendlyEmbed
+            type="popup"
+            variant="primary"
+            campaign="accueil-mid-page"
+            ctaPosition="middle"
+            className="shrink-0"
+          />
+        </div>
+      </section>
+
       {/* Référence clients — bande charte OFC (#377CF3, alignée sur le CTA Calendly) */}
       <section className="border-b border-slate-200 bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-7xl">
@@ -386,7 +412,7 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h3 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, CSFE… la formation IA BTP terrain plébiscitée par le réseau pro
+                FFB, CSFE… la formation IA pour les pro du BTP, plébiscitée par le réseau pro
               </h3>
               <p className="mt-4 text-white/90">
                 Interventions en intelligence artificielle bâtiment et formation IA travaux publics
@@ -446,7 +472,7 @@ export default function HomePage() {
               id="benefices-formation-ia-heading"
               className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl"
             >
-              Les bénéfices d&apos;une formation IA BTP
+              Les bénéfices d&apos;une formation IA pour les pro du BTP
             </h2>
             <div className="mt-12">
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -457,7 +483,7 @@ export default function HomePage() {
                 Pourquoi l&apos;IA change le quotidien des entreprises du BTP
               </h3>
               <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-                Une formation IA BTP sérieuse automatise devis, emails et suivi administratif sans
+                Une formation IA appliquée au bâtiment, sérieuse, automatise devis, emails et suivi administratif sans
                 remplacer le métier. Les professionnels du BTP et conducteurs de travaux gagnent en productivité
                 et retrouvent du temps sur le chantier et les appels d&apos;offres.
               </p>
@@ -600,7 +626,7 @@ export default function HomePage() {
                 className="mx-auto mt-3 max-w-2xl text-center text-slate-600"
                 itemProp="description"
               >
-                Méthodes éprouvées en formation IA BTP avec des professionnels du BTP, conducteurs de travaux et
+                Méthodes éprouvées en formation IA pour le BTP avec des professionnels du BTP, conducteurs de travaux et
                 entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au
                 quotidien.
               </p>
@@ -718,7 +744,7 @@ export default function HomePage() {
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-7xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <span>FORMATIONS IA BTP</span>
+            <span>Formations IA pour le BTP</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
             Nos formations IA spécialisées BTP
@@ -746,16 +772,16 @@ export default function HomePage() {
               {
                 ref: 'NIV-02',
                 level: 'NIVEAU 2',
-                title: "L'IA au service des appels d'offre BTP",
+                title: "L'IA appliquée aux appels d'offres BTP",
                 href: LINKS.formationAO,
                 pdf: LINKS.pdfProgrammeIaBtpNiveau2AppelsOffre,
                 visuel: PHOTOS.btpFormationChantierPlans2026,
                 duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_AVANCE_HT} € HT/session`,
                 effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
                 objectifs: [
-                  'Analyse DCE avec NotebookLM — critères, DPGF, règlement de consultation',
-                  'Go / No Go, mémoire technique et contrôle de chiffrage avec Claude AI',
-                  'Bibliothèque de prompts BTP — confidentialité et validation humaine',
+                  'Claude AI Pro, Cowork & Skills — assistants IA pour DCE et mémoire technique',
+                  'Analyse DCE : 15 infos critiques, CCAP, CCTP, verdict Go / No Go',
+                  'Skills personnalisés réutilisables — bibliothèque de prompts AO BTP',
                 ],
               },
             ].map((cours) => (
@@ -881,9 +907,9 @@ export default function HomePage() {
             <Link
               href={LINKS.formations}
               className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
-              title="Catalogue des formations IA BTP Qualiopi"
+              title="Catalogue des formations IA pour les pro du BTP Qualiopi"
             >
-              catalogue des formations IA BTP
+              catalogue des formations IA appliquées au bâtiment
             </Link>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -986,7 +1012,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
               <ProfilePhoto
-                alt="Laure Olivié, formatrice IA BTP certifiée Qualiopi, spécialiste ChatGPT pour le bâtiment"
+                alt="Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi, spécialiste ChatGPT pour le bâtiment"
                 title="Sessions présentiel Île-de-France — Qualiopi, OPCO Constructys"
               />
             </div>
@@ -1137,7 +1163,7 @@ export default function HomePage() {
                 <Link
                   href={LINKS.financement}
                   className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-                  title="Financement OPCO Constructys — formation IA BTP"
+                  title="Financement OPCO Constructys — formation IA pour les pro du BTP"
                 >
                   financement Constructys
                 </Link>
@@ -1203,7 +1229,7 @@ export default function HomePage() {
             <span>FAQ</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900">
-            Questions fréquentes sur la formation IA BTP
+            Questions fréquentes sur la formation IA appliquée au bâtiment
           </h2>
           <p className="mt-3 text-slate-600">
             Vous avez des questions ? Voici les réponses aux interrogations les plus
@@ -1233,10 +1259,16 @@ export default function HomePage() {
                 <Mail size={20} strokeWidth={1.5} />
                 {SCHEMA_CONTACT.email}
               </a>
-              <RdvLink campaign="accueil-faq" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50">
+              <CalendlyEmbed
+                type="popup"
+                variant="unstyled"
+                campaign="accueil-faq"
+                ctaPosition="middle"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
+              >
                 <Calendar size={20} strokeWidth={1.5} />
-                Prendre RDV
-              </RdvLink>
+                Réservez votre visio découverte gratuite
+              </CalendlyEmbed>
             </div>
           </div>
         </div>
@@ -1269,10 +1301,16 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink campaign="accueil-fin-page" className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <CalendlyEmbed
+              type="popup"
+              variant="unstyled"
+              campaign="accueil-fin-page"
+              ctaPosition="footer"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
               <Calendar size={20} strokeWidth={1.5} />
-              Réserver ma formation
-            </RdvLink>
+              Réservez votre visio découverte gratuite
+            </CalendlyEmbed>
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
         </div>
@@ -1301,10 +1339,16 @@ export default function HomePage() {
                 Choisissez le jour et l&apos;heure qui vous conviennent pour un échange
                 de 30 minutes. Devis personnalisé sous 24h après notre rendez-vous.
               </p>
-              <RdvLink campaign="accueil-section-rdv" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
+              <CalendlyEmbed
+                type="popup"
+                variant="unstyled"
+                campaign="accueil-section-rdv"
+                ctaPosition="footer"
+                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600"
+              >
                 <Calendar size={20} strokeWidth={1.5} />
-                Voir le calendrier
-              </RdvLink>
+                Réservez votre visio découverte gratuite
+              </CalendlyEmbed>
               <p className="mt-4 text-sm text-slate-600">
                 Email :{' '}
                 <a
@@ -1347,11 +1391,13 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h4 className="font-display text-lg font-semibold text-slate-900">Me contacter</h4>
-              <div className="mt-4">
-                <ContactDirect />
-              </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
+              <CalendlyEmbed
+                type="inline"
+                campaign="accueil-rdv-inline"
+                ctaPosition="inline"
+                heightPx={620}
+              />
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${SITE_CONFIG.name} — Formations IA BTP`,
+    name: `${SITE_CONFIG.name} — Formations IA pour le BTP`,
     short_name: 'Formations LO',
     description: SITE_CONFIG.description,
     start_url: '/',

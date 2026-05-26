@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import AuthorBio from '@/components/AuthorBio';
@@ -14,6 +13,7 @@ import { getRelatedArticlesForDisplay } from '@/lib/blog';
 import { SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { shouldShowSkillLeadMagnetCta } from '@/lib/lead-magnet-skill-ia';
+import { BlogCTA } from '@/components/BlogCTA';
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA';
 
 type Props = { slug: string };
@@ -41,13 +41,6 @@ export async function BlogMdxArticle({ slug }: Props) {
         wordCount={wordCount}
       />
       <BlogArticleFaqJsonLd article={article} />
-
-      <Breadcrumbs
-        items={[
-          { label: 'Blog', href: '/blog' },
-          { label: frontmatter.title },
-        ]}
-      />
 
       <article>
         <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
@@ -111,6 +104,8 @@ export async function BlogMdxArticle({ slug }: Props) {
         </div>
 
         <div className="article-mdx mt-8 max-w-none">{content}</div>
+
+        <BlogCTA articleSlug={slug} idSuffix="end" className="mt-12" />
 
         {shouldShowSkillLeadMagnetCta(slug) ? (
           <LeadMagnetCTA href={LINKS.skillIaConducteurTravaux} />

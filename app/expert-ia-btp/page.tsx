@@ -22,7 +22,7 @@ export const metadata = createPageMetadata({
     'Laure Olivié',
     'LinkedIn Learning instructor',
     'formation IA entreprise',
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
   ],
   image: {
     url: PHOTOS.btpFormationVisioChantier2026.src,
@@ -223,7 +223,7 @@ export default function ExpertIABTPPage() {
                 desc: '4 h — débutant · Programme PDF',
               },
               {
-                title: "Niveau 2 — L'IA au service des appels d'offre BTP",
+                title: "Niveau 2 — L'IA appliquée aux appels d'offres BTP",
                 href: LINKS.formationAO,
                 desc: '4 h — avancé · Programme PDF',
               },

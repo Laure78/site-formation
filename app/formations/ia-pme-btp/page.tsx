@@ -152,7 +152,7 @@ export default function FormationIAPMEBTPPage() {
           Les PME du BTP gagnent souvent <strong>3 à 5 h par semaine</strong> par collaborateur sur
           l&apos;administratif. Interventions en{' '}
           <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
-            formation IA BTP Île-de-France
+            formation IA appliquée au bâtiment Île-de-France
           </Link>{' '}
           et partout en France — <strong>financement OPCO Constructys</strong> selon dossier.
         </p>
@@ -192,7 +192,7 @@ export default function FormationIAPMEBTPPage() {
       <div className="mt-12">
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: buildSiteCalendlyCtaUrl('formations-ia-pme-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },

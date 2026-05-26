@@ -13,7 +13,7 @@ export const TUTO_DUERP: TutoData = {
 
   metaTitle: 'Tuto skill DUERP : rédige ton Document Unique en 30 min',
   metaDescription:
-    "DUERP BTP en 30 minutes : crée ton skill Claude pour rédiger ton Document Unique au lieu de 3 jours. Tutoriel pas à pas par Laure Olivié, formatrice IA BTP.",
+    "DUERP BTP en 30 minutes : crée ton skill Claude pour rédiger ton Document Unique au lieu de 3 jours. Tutoriel pas à pas par Laure Olivié, formatrice IA pour les pro du BTP.",
   keywords: [
     'DUERP BTP',
     'Document Unique Évaluation Risques Professionnels',
@@ -30,7 +30,7 @@ export const TUTO_DUERP: TutoData = {
     'automatiser DUERP',
     'CSE DUERP',
     'risques psychosociaux BTP',
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

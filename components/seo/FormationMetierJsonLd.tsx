@@ -100,7 +100,7 @@ function buildPersonLaureNode() {
     '@type': 'Person',
     '@id': PERSON_LAURE_ID,
     name: 'Laure Olivié',
-    jobTitle: 'Formatrice IA BTP',
+    jobTitle: 'Formatrice IA pour les pro du BTP',
     url: `${SITE_BASE}/a-propos`,
     worksFor: { '@id': ORGANIZATION_ID },
     sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
@@ -176,7 +176,7 @@ function buildServiceNode(params: {
     name: courseName,
     description: courseDescription,
     url: pageUrl,
-    category: `Formation IA BTP — ${metierLabel}`,
+    category: `Formation IA pour le BTP — ${metierLabel}`,
     provider: { '@id': ORGANIZATION_ID },
     areaServed: [
       { '@type': 'Country', name: 'France' },

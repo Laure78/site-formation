@@ -1,45 +1,38 @@
 'use client';
 
-import type { AnchorHTMLAttributes, ReactNode } from 'react';
-import { CTACalendly } from '@/components/CTACalendly';
+import type { ReactNode } from 'react';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
-const variantStyles = {
-  primary:
-    'inline-block rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white transition hover:bg-[#2563EB]',
-  secondary:
-    'inline-block rounded-xl border-2 border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] transition hover:bg-[#377CF3] hover:text-white',
-  small: 'inline-block font-medium text-[#377CF3] underline hover:text-[#2563EB]',
+const variantMap = {
+  primary: 'primary',
+  secondary: 'secondary',
+  small: 'unstyled',
 } as const;
 
-export type CalendlyButtonProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'href'
-> & {
+export type CalendlyButtonProps = {
   campaign: string;
-  variant?: keyof typeof variantStyles;
+  variant?: keyof typeof variantMap;
   children: ReactNode;
+  className?: string;
 };
 
+/** Bouton popup Calendly avec campagne UTM. */
 export default function CalendlyButton({
   campaign,
   variant = 'primary',
   className,
   children,
-  ...rest
 }: CalendlyButtonProps) {
   return (
-    <CTACalendly
-      utmSource="site"
-      utmMedium="cta"
-      utmCampaign={campaign}
-      page={campaign}
+    <CalendlyEmbed
+      type="popup"
+      campaign={campaign}
       ctaPosition="inline"
       ctaId={`calendly-btn-${campaign}`}
-      unstyled
-      className={[variantStyles[variant], className].filter(Boolean).join(' ')}
-      {...rest}
+      variant={variantMap[variant]}
+      className={className}
     >
       {children}
-    </CTACalendly>
+    </CalendlyEmbed>
   );
 }

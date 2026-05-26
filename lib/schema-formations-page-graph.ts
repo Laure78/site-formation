@@ -37,9 +37,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@type': 'WebPage',
         '@id': `${BASE}/formations#webpage`,
         url: `${BASE}/formations`,
-        name: 'Catalogue formation IA BTP — 2 formations Qualiopi 4 h',
+        name: 'Catalogue formation IA appliquée au bâtiment — 2 formations Qualiopi 4 h',
         description:
-          "Catalogue 2 formations IA BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre.",
+          "Catalogue 2 formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre.",
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -56,7 +56,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'Service',
         '@id': `${BASE}/formations#service`,
-        name: 'Formation IA BTP — 2 parcours Qualiopi (présentiel ou distanciel)',
+        name: 'Formation IA pour le BTP — 2 parcours Qualiopi (présentiel ou distanciel)',
         serviceType: 'Formation professionnelle continue',
         provider: { '@id': `${BASE}/#organization` },
         areaServed: [
@@ -77,7 +77,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         },
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Catalogue formations IA BTP',
+          name: 'Catalogue formations IA appliquées au bâtiment',
           itemListElement: [
             {
               '@type': 'Offer',
@@ -113,9 +113,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'ItemList',
         '@id': `${BASE}/formations#course-list`,
-        name: 'Catalogue 2 formations IA BTP',
+        name: 'Catalogue 2 formations IA pour le BTP',
         description:
-          '2 formations IA BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, en inter en Île-de-France ou intra (présentiel ou distanciel).',
+          '2 formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, en inter en Île-de-France ou intra (présentiel ou distanciel).',
         numberOfItems: 2,
         itemListElement: [
           {
@@ -171,7 +171,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             item: {
               '@type': 'Course',
               '@id': `${BASE}/formations/ia-appels-offre-btp#course`,
-              name: "L'IA au service des appels d'offre BTP",
+              name: "L'IA appliquée aux appels d'offres BTP",
               description: NIV02_CATALOG.description,
               url: `${BASE}/formations/ia-appels-offre-btp`,
               courseCode: 'NIV-02',
@@ -219,9 +219,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'HowTo',
         '@id': `${BASE}/formations#howto-choisir`,
-        name: 'Comment choisir sa formation IA BTP',
+        name: 'Comment choisir sa formation IA pour les pro du BTP',
         description:
-          "Méthode en 4 étapes pour choisir la formation IA BTP adaptée à votre entreprise du bâtiment ou des travaux publics.",
+          "Méthode en 4 étapes pour choisir la formation IA appliquée au bâtiment adaptée à votre entreprise du bâtiment ou des travaux publics.",
         totalTime: 'PT15M',
         step: [
           {

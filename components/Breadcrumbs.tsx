@@ -1,34 +1,76 @@
-'use client';
-
-import { usePathname } from 'next/navigation';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import Link from 'next/link';
+import { JsonLd } from '@/components/JsonLd';
+import {
+  buildBreadcrumbListJsonLd,
+  siteAbsoluteUrl,
+  type BreadcrumbListItem,
+} from '@/lib/seo';
 
 export type BreadcrumbItem = {
   label: string;
-  href?: string;
+  href: string;
 };
 
-/** Préfixe automatiquement « Accueil », complète la dernière entrée avec l’URL courante si `href` manque — délégué à `<Breadcrumb />` (visuel + JSON-LD Script). */
-export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
-  const pathname = usePathname() || '/';
+type BreadcrumbsProps = {
+  items: BreadcrumbItem[];
+  /** id du script JSON-LD (éviter les doublons sur une page). */
+  jsonLdId?: string;
+  className?: string;
+};
 
-  const resolved = items.map((it, i, arr) => {
-    const isLast = i === arr.length - 1;
-    const href = it.href ?? (isLast ? pathname : '/');
-    return { label: it.label, href };
-  });
+/**
+ * Fil d'Ariane réutilisable — navigation visuelle + JSON-LD `BreadcrumbList`.
+ * Liens internes via `<Link />` (App Router).
+ */
+export function Breadcrumbs({ items, jsonLdId, className }: BreadcrumbsProps) {
+  if (items.length === 0) return null;
 
-  const full = [{ label: 'Accueil', href: '/' as const }, ...resolved];
-
-  const jsonLdSuffix =
-    pathname.replace(/^\/+|\/+$/g, '').replace(/\//g, '-') || 'home';
+  const schemaItems: BreadcrumbListItem[] = items.map((item) => ({
+    name: item.label,
+    url: siteAbsoluteUrl(item.href),
+  }));
+  const schema = buildBreadcrumbListJsonLd(schemaItems);
+  const scriptId =
+    jsonLdId ??
+    `schema-breadcrumb-${items
+      .map((i) => i.href.replace(/\//g, '_'))
+      .join('-')
+      .replace(/^_+|_+$/g, '')
+      .slice(0, 80) || 'root'}`;
 
   return (
-    <Breadcrumb
-      items={full}
-      showVisual
-      className="mb-6 text-sm text-slate-600"
-      jsonLdId={`schema-breadcrumbs-${jsonLdSuffix}`}
-    />
+    <>
+      <nav aria-label="Fil d'Ariane" className={className ?? 'text-sm text-[#64748B]'}>
+        <ol className="flex flex-wrap items-center gap-1.5">
+          {items.map((item, index) => {
+            const isLast = index === items.length - 1;
+            return (
+              <li key={`${item.href}-${index}`} className="flex items-center gap-1.5">
+                {index > 0 ? (
+                  <span aria-hidden className="select-none text-[#64748B]">
+                    ›
+                  </span>
+                ) : null}
+                {isLast ? (
+                  <span className="font-medium text-slate-800" aria-current="page">
+                    {item.label}
+                  </span>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-[#64748B] transition-colors hover:text-slate-900 hover:underline"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+      <JsonLd id={scriptId} schema={schema} />
+    </>
   );
 }
+
+export default Breadcrumbs;

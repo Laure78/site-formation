@@ -28,7 +28,7 @@ export const SITE_NAVIGATION_ITEMS: SiteNavItem[] = [
   {
     name: 'Financement',
     url: `${base}/financement-constructys-formation-ia-btp`,
-    description: 'Financement OPCO Constructys pour les formations IA BTP',
+    description: 'Financement OPCO Constructys pour les formations IA pour le BTP',
   },
   {
     name: 'Blog',
@@ -43,7 +43,7 @@ export const SITE_NAVIGATION_ITEMS: SiteNavItem[] = [
   {
     name: 'À propos',
     url: `${base}/a-propos`,
-    description: 'Laure Olivié — formatrice IA BTP, OFC Création d’Entreprise',
+    description: 'Laure Olivié — formatrice IA pour le BTP, OFC Création d’Entreprise',
   },
   {
     name: 'Contact',
@@ -65,7 +65,7 @@ const HAS_PART = [
     '@type': 'WebPage',
     '@id': `${base}/formations#webpage`,
     url: `${base}/formations`,
-    name: 'Formations IA BTP',
+    name: 'Formations IA appliquées au bâtiment',
     description: 'Catalogue de formations IA certifiées Qualiopi',
   },
   {
@@ -79,7 +79,7 @@ const HAS_PART = [
     '@type': 'WebPage',
     '@id': `${base}/blog#webpage`,
     url: `${base}/blog`,
-    name: 'Blog formation IA BTP',
+    name: 'Blog formation IA pour le BTP',
     description: 'Guides et articles sur l’IA dans le BTP',
   },
   {
@@ -112,7 +112,7 @@ export function buildGlobalSitelinksGraphJsonLd(): Record<string, unknown> {
   const webSite = {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
-    name: 'Laure Olivié — Formation IA BTP',
+    name: 'Laure Olivié — Formation IA pour les pro du BTP',
     alternateName: ['Laure Olivié', 'OFC Création d’Entreprise', 'Laure Olivie'],
     url: base,
     description: desc,

@@ -1,0 +1,131 @@
+---
+title: "Sécurité données ChatGPT en entreprise BTP : bonnes pratiques"
+seoTitle: "Sécurité données ChatGPT BTP : bonnes pratiques | Laure Olivié"
+description: "ChatGPT BTP : RGPD, fuites de données chantier, Enterprise vs gratuit. Anonymisation devis, PPSPS, mémoires. Bonnes pratiques formation IA pour les pro du BTP Qualiopi."
+slug: securite-donnees-chatgpt-btp
+publishedAt: "2026-05-22"
+updatedAt: "2026-05-22"
+cover: /images/btp-formation-ecran-ia-btp-2026.png
+coverAlt: "Formation IA appliquée au bâtiment en salle — sécurité des données et usage ChatGPT en entreprise du bâtiment"
+keywords:
+  - sécurité données ChatGPT BTP
+  - ChatGPT BTP
+  - RGPD IA BTP
+  - ChatGPT Enterprise BTP
+  - confidentialité chantier IA
+  - formation IA pour le BTP
+  - données entreprise bâtiment
+readingTime: "7 min"
+relatedSlugs:
+  - confidentialite-donnees-ia-btp
+  - outils-ia-btp-chatgpt-claude-gemini
+  - comparatif-chatgpt-claude-gemini-btp
+  - chatgpt-prompts-artisans-btp
+faqItems:
+  - q: "ChatGPT partage-t-il mes données avec des concurrents ?"
+    a: "Non au sens commercial direct : OpenAI ne revend pas vos conversations à d'autres entreprises BTP. En revanche, sur un compte gratuit ou Plus, vos contenus peuvent transiter sur les serveurs du fournisseur et, selon les paramètres, contribuer à l'amélioration des modèles. D'où l'intérêt d'Enterprise, d'une API avec DPA, ou d'une anonymisation stricte."
+  - q: "ChatGPT peut-il connaître ma marge ou mes prix ?"
+    a: "Seulement si vous les saisissez. L'IA n'a pas accès à votre logiciel de chiffrage ni à votre comptabilité. Si vous collez un devis détaillé avec marges, coefficients et prix fournisseurs, ces informations sont visibles par le traitement que vous déclenchez — traitez-les comme un email non chiffré envoyé à un tiers."
+  - q: "RGPD et IA générative : est-ce compatible ?"
+    a: "Oui, à condition de cadrage : finalité légitime, minimisation des données, information des personnes concernées, contrat ou base légale avec le sous-traitant (OpenAI, Anthropic…), registre des traitements à jour. Votre entreprise reste responsable de traitement. Cet article ne remplace pas un avis juridique ou un DPO."
+  - q: "Quelle responsabilité légale en cas de fuite via l'IA ?"
+    a: "En cas de données personnelles exposées, la CNIL peut sanctionner le responsable de traitement — votre entreprise — si les mesures de sécurité et la gouvernance étaient insuffisantes. Documentez une politique interne, formez les équipes, choisissez les offres professionnelles pour les données sensibles et conservez les traces de vos choix techniques."
+---
+
+*Par Laure Olivié — Formatrice IA pour les pro du BTP · OFC Création d'Entreprise · 7 min de lecture*
+
+Vous hésitez à utiliser **ChatGPT en chantier** par peur des fuites de données confidentielles ? Voici les **vraies règles RGPD** et les **outils sécurisés** adaptés aux PME du BTP — sans bloquer les gains de productivité sur devis, CR et mémoires techniques.
+
+![Session formation IA pour les pro du BTP — écran et participants, cadre sécurité des données en entreprise](/images/btp-formation-ecran-ia-btp-2026.png)
+
+## Les vrais risques
+
+Avant de parler solutions, clarifions ce qui pose problème en entreprise du bâtiment — et ce qui relève du mythe.
+
+**Copier un devis confidentiel = ChatGPT le « voit ».** Sur un compte grand public, le texte que vous collez transite chez **OpenAI** (serveurs tiers). Ce n'est pas automatiquement une « fuite vers vos concurrents », mais ce **n'est plus sous votre contrôle exclusif**. Grilles de prix, remises négociées, marges internes : à protéger.
+
+**Données clients et chiffrage = visibilité OpenAI (sauf offre Enterprise).** Noms, adresses, téléphones, montants de marché : ce sont souvent des **données personnelles** ou des **secrets d'affaires**. Sur ChatGPT **Plus** ou **gratuit**, les conditions d'usage et de rétention diffèrent de **ChatGPT Team / Enterprise**, où les contenus ne servent en principe **pas** à entraîner les modèles.
+
+**Sous-traitants = tiers externe.** Au sens RGPD, OpenAI (ou Anthropic, Google…) est un **sous-traitant** dès que vous lui confiez des données personnelles. Votre entreprise reste **responsable de traitement** : registre, information, sécurité, contrat (DPA) si nécessaire.
+
+**Réglementation RGPD stricte — et applicable.** Le BTP traite massivement des données clients, salariés, candidats, visiteurs chantier. L'IA n'exempte personne : une saisie mal cadrée dans ChatGPT peut constituer un traitement non conforme. Pour le panorama général (ChatGPT, Claude, Gemini), voir aussi le [guide confidentialité IA dans le BTP](/blog/confidentialite-donnees-ia-btp).
+
+## Solutions sécurisées
+
+### a) ChatGPT Enterprise / Team (OpenAI)
+
+**Recommandé dès que plusieurs personnes utilisent l'IA** sur des documents métier. Les données **ne sont pas utilisées pour entraîner** les modèles par défaut, avec des garanties contractuelles renforcées (espace admin, SSO, journaux). C'est l'option la plus simple pour une PME BTP qui veut encadrer l'usage sans déployer d'infrastructure.
+
+### b) Claude Pro / API (Anthropic)
+
+**Claude Pro** convient à un usage individuel encadré ; pour une entreprise, **Claude for Work** ou l'**API** avec accord de sous-traitance (DPA) offrent un cadre plus robuste. Anthropic indique ne **pas entraîner** les modèles sur les conversations des offres payantes consommateur — vérifiez la version en vigueur pour votre contrat. Très pertinent pour **CCTP, DCE et mémoires techniques** volumineux — voir la page [Claude AI BTP](/claude-ai-btp).
+
+### c) Google NotebookLM
+
+Utile pour **interroger vos propres documents** (notes, procédures, extraits anonymisés de CCTP) dans un périmètre Google Workspace. Intéressant quand votre entreprise est déjà sur **Google** et que vous voulez éviter de coller des PDF complets dans un chat ouvert.
+
+### d) Mode temporaire / contrôles des données (ChatGPT)
+
+Sur les comptes **Plus** et **Pro**, activez **Contrôles des données** → désactiver l'utilisation pour l'entraînement lorsque l'option existe. Utilisez les **conversations temporaires** pour les brouillons sensibles. Ce n'est **pas** équivalent à Enterprise, mais c'est mieux que le réflexe « coller tout le devis » sans réfléchir.
+
+### e) Solutions on-premise (moins BTP-friendly)
+
+Des modèles hébergés en interne existent (LLM open source sur serveur local). **Peu réalistes** pour la majorité des TPE/PME BTP : coût, maintenance, compétences IT. Réservez cette piste aux groupes avec un DSI structuré ; pour 95 % des artisans et PME, **Enterprise + anonymisation** suffit.
+
+![Échange sur chantier BTP — coordination et documents sensibles, bonnes pratiques IA](/images/blog-btp-chantier-encadrement-2026.png)
+
+## Bonnes pratiques BTP
+
+Ces règles sont celles que j'enseigne en [formation IA appliquée au bâtiment](/formations/ia-batiment-travaux-publics/) — applicables dès le premier prompt :
+
+- **Anonymiser les noms clients** — « Client A, rénovation maison individuelle, secteur 78 » plutôt que « M. et Mme Dupont, 12 rue des Lilas, Versailles ».
+- **Masquer les montants réels** — ordres de grandeur ou fourchettes (« lot carrelage ~ 15–18 k€ HT ») plutôt que prix d'achat et marge ligne par ligne.
+- **Pas de numéros de chantier internes** — remplacez par « Chantier réf. CH-2026-03 » générique ou « marché voirie commune X ».
+- **Pas de RGE, licences, numéros SIRET** inutiles dans le prompt — mentionnez seulement la qualification requise (« entreprise RGE ») sans identifiants.
+- **Utiliser une version sécurisée** — Enterprise, API avec DPA, ou au minimum compte avec entraînement désactivé + anonymisation systématique.
+
+Formalisez une **charte interne d'une page** : qui peut utiliser quoi, sur quels types de documents, avec quel outil. Les équipes terrain (conducteurs de travaux, chefs de chantier) adhèrent mieux quand la règle est simple : **« Pas de nom client + pas de prix d'achat dans le chat grand public. »**
+
+## Cas pratiques
+
+### a) Devis — OK avec anonymisation
+
+**Oui**, pour structurer les libellés, vérifier la cohérence des postes ou reformuler une note commerciale — **après anonymisation**. Exemple : « Devis rénovation SDB, 8 m², fourniture carrelage grès cérame, pose collée, client particulier zone IDF » sans nom ni adresse. **Non** : exporter le PDF complet avec en-tête, logo client et grille tarifaire fournisseur.
+
+### b) PPSPS — secret défense ? Non, mais prudence
+
+Un **PPSPS** n'est pas un document « secret défense ». C'est un document de **coordination sécurité** diffusé sur chantier. Vous **pouvez** utiliser l'IA pour structurer les chapitres (accès, EPI, risques par phase) à partir de données **génériques** sur le type de travaux. En revanche, évitez d'y associer des **données nominatives** de personnel ou des plans d'accès ultra-détaillés révélant un site sensible.
+
+### c) Mémoire technique — anonymiser MOA et références client
+
+Pour un **mémoire technique** ou une **réponse AO**, anonymisez le **MOA**, les contacts, les références chantier identifiables (« Réf. marché public voirie, collectivité 50 000 hab., 2024 »). Les extraits de **CCTP** déjà publics dans le DCE sont en général moins sensibles que vos **prix** et votre **organisation interne**.
+
+### d) Fiches chantier — OK si données non sensibles
+
+CR, fiches de non-conformité, comptes rendus de réunion : **OK** si vous retirez noms propres non indispensables et photos géolocalisées. Privilégiez la **dictée** de notes brutes plutôt que le copier-coller du dossier complet.
+
+Pour comparer ChatGPT, Claude et Gemini selon vos contraintes de confidentialité, consultez le [comparatif outils IA BTP](/blog/outils-ia-btp-chatgpt-claude-gemini).
+
+## FAQ
+
+### ChatGPT partage-t-il mes données avec des concurrents ?
+
+Non au sens « revente à un autre plâtrier de votre secteur ». Le risque réel est **contractuel et RGPD** : hébergement chez un tiers, rétention, entraînement des modèles sur compte gratuit, absence de DPA. **Enterprise** ou **anonymisation** réduisent ce risque.
+
+### ChatGPT peut-il connaître ma marge ou mes prix ?
+
+**Uniquement si vous les saisissez.** L'outil n'est pas branché sur votre ERP. Ne collez jamais une marge cible ou un prix d'achat fournisseur si vous n'acceptez pas qu'un tiers technique en ait connaissance.
+
+### RGPD et IA générative : compatible ?
+
+**Oui, avec gouvernance** : minimisation, information, sécurité, choix d'offres professionnelles, traçabilité. Votre entreprise reste responsable. En cas de doute, consultez votre référent juridique ou DPO.
+
+### Responsabilité légale en cas de fuite via l'IA ?
+
+La **CNIL** peut sanctionner le responsable de traitement (votre entreprise) si les mesures étaient insuffisantes. Documentez votre politique, formez les équipes — c'est l'objet des sessions OFC certifiées Qualiopi évoquées plus haut — et limitez les données saisies au strict nécessaire.
+
+<CTAInline label="Cadrer ChatGPT en entreprise BTP — visio découverte 30 min gratuite" variant="soft" />
+
+---
+
+**En résumé :** ChatGPT est un **levier de productivité** pour le BTP, pas un coffre-fort. Les PME qui réussissent combinent **outil adapté** (Team/Enterprise ou anonymisation), **charte interne** et **formation**. Cet article complète le guide transversal sur la confidentialité IA — les deux se lisent ensemble pour cadrer ChatGPT en conditions réelles de chantier et de bureau d'études.

@@ -38,9 +38,9 @@ export function buildHomePageImageObjectsJsonLd() {
         '@type': 'ImageObject',
         '@id': `${base}/#image-portrait-header-laure`,
         url: `${base}/images/laure-portrait-header-2026.png`,
-        name: "Laure Olivié, formatrice IA BTP certifiée Qualiopi — OFC Création d'Entreprise",
+        name: "Laure Olivié, formatrice IA pour les pro du BTP certifiée Qualiopi — OFC Création d'Entreprise",
         description:
-          "Portrait rond header — Laure Olivié, formatrice IA BTP certifiée Qualiopi, OFC Création d'Entreprise.",
+          "Portrait rond header — Laure Olivié, formatrice IA appliquée au bâtiment certifiée Qualiopi, OFC Création d'Entreprise.",
         contentUrl: `${base}/images/laure-portrait-header-2026.png`,
         license: `${base}/mentions-legales`,
         acquireLicensePage: `${base}/contact`,

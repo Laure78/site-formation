@@ -125,7 +125,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
       'règle 3 pourcent coût réponse AO',
       'Claude analyse AO BTP',
       'critères candidature marché',
-      'formation IA BTP',
+      'formation IA appliquée au bâtiment',
       'réponse marché revêtements sols',
       'synthèse direction AO',
     ],

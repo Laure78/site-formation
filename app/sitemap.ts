@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { createClient } from '@supabase/supabase-js';
 import { SITE_CONFIG } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
 import { formationsData } from '@/src/data/formations';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
 import { FORMATION_IA_ALL_SLUGS } from '@/lib/seo-formation-ia-hub-data';
@@ -10,6 +11,13 @@ import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
 import { GSC_EXCLUDED_SITEMAP_PATHS, GSC_HUB_MERGED_SLUGS } from '@/lib/gsc-redirects-2026';
 import { TUTOS } from '@/lib/tutos';
+import {
+  resolveSitemapPriority,
+  SITEMAP_FORMATION_CATALOG_PATHS,
+  SITEMAP_PRIORITY,
+  SITEMAP_TIER1_STATIC_PATHS,
+  normSitemapPath,
+} from '@/lib/sitemap-tiers';
 
 function normUrl(u: string): string {
   return u.replace(/\/$/, '');
@@ -219,16 +227,16 @@ function buildBlogSitemapEntries(baseUrl: string, now: Date): MetadataRoute.Site
   out.push({
     url: `${baseUrl}/blog`,
     lastModified: now,
-    changeFrequency: 'daily',
-    priority: 0.75,
+    changeFrequency: 'weekly',
+    priority: SITEMAP_PRIORITY.tier1Static,
   });
 
   out.push(
     ...getAllArticles().map((article) => ({
       url: `${baseUrl}/blog/${article.slug}`,
       lastModified: new Date(article.date),
-      changeFrequency: 'daily' as const,
-      priority: 0.7 as const,
+      changeFrequency: 'weekly' as const,
+      priority: SITEMAP_PRIORITY.blogArticle,
     }))
   );
 
@@ -300,9 +308,17 @@ function applySeoPriorityRules(
   baseUrl: string,
   entry: MetadataRoute.Sitemap[number]
 ): MetadataRoute.Sitemap[number] {
-  const pathOnly = normUrl(entry.url.replace(baseUrl, '') || '/');
+  const pathOnly = normSitemapPath(entry.url.replace(baseUrl, '') || '/');
+  const tierRule = resolveSitemapPriority(pathOnly);
 
-  const mainPages = new Set<string>(['/', '/formations', '/blog', '/a-propos', '/prendre-rdv']);
+  if (tierRule) {
+    return {
+      ...entry,
+      priority: tierRule.priority,
+      changeFrequency: tierRule.changeFrequency,
+    };
+  }
+
   const legalPages = new Set<string>([
     '/mentions-legales',
     '/politique-confidentialite',
@@ -311,42 +327,6 @@ function applySeoPriorityRules(
     '/annuaire-handicap',
   ]);
 
-  if (mainPages.has(pathOnly)) {
-    return {
-      ...entry,
-      priority: 1.0,
-      changeFrequency: 'weekly',
-    };
-  }
-
-  // Articles blog (/blog/[slug]) : priorité contenu
-  if (pathOnly.startsWith('/blog/') && !pathOnly.includes('/categorie/')) {
-    return {
-      ...entry,
-      priority: 0.8,
-      changeFrequency: 'weekly',
-    };
-  }
-
-  // Pages métier (/formation-ia-[metier] ou /formation-ia-[metier]-btp)
-  if (/^\/formation-ia-[^/]+$/.test(pathOnly) || /^\/formation-ia-[^/]+-btp$/.test(pathOnly)) {
-    return {
-      ...entry,
-      priority: 0.8,
-      changeFrequency: 'monthly',
-    };
-  }
-
-  // Pages financement
-  if (pathOnly.includes('financement-constructys')) {
-    return {
-      ...entry,
-      priority: 0.8,
-      changeFrequency: 'monthly',
-    };
-  }
-
-  // Pages légales et secondaires
   if (legalPages.has(pathOnly)) {
     return {
       ...entry,
@@ -367,25 +347,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = normUrl(SITE_CONFIG.url);
   const now = new Date();
 
-  const tier1Static: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/formations`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/a-propos`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    {
-      url: `${baseUrl}/financement-constructys-formation-ia-btp`,
-      lastModified: new Date('2026-04-18'),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-  ];
-
-  const formationCatalog: MetadataRoute.Sitemap = Object.keys(formationsData).map((slug) => ({
-    url: `${baseUrl}/formations/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly' as const,
-    priority: 0.9 as const,
+  const tier1Static: MetadataRoute.Sitemap = SITEMAP_TIER1_STATIC_PATHS.map((path) => ({
+    url: path === '/' ? baseUrl : `${baseUrl}${path}`,
+    lastModified:
+      path === LINKS.financement ? new Date('2026-04-18') : now,
+    changeFrequency: 'weekly' as const,
+    priority: SITEMAP_PRIORITY.tier1Static,
   }));
+
+  const formationCatalogPriority: MetadataRoute.Sitemap = SITEMAP_FORMATION_CATALOG_PATHS.map(
+    (path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: SITEMAP_PRIORITY.formationCatalog,
+    })
+  );
+
+  const formationCatalog: MetadataRoute.Sitemap = Object.keys(formationsData)
+    .filter(
+      (slug) =>
+        !SITEMAP_FORMATION_CATALOG_PATHS.some((p) => p.endsWith(`/${slug}`))
+    )
+    .map((slug) => ({
+      url: `${baseUrl}/formations/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.9 as const,
+    }));
 
   const pillarPages: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/ia-devis-batiment`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
@@ -436,6 +425,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const merged = dedupeByUrl([
     ...tier1Static,
+    ...formationCatalogPriority,
     ...formationCatalog,
     ...pillarPages,
     ...formationIaHub,

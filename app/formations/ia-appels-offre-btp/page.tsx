@@ -7,9 +7,6 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { CatalogFormationCourseScript } from '@/components/seo/CatalogFormationCourseScript';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { getFormationCatalogEntryByPath } from '@/lib/catalog-formation-course-page-jsonld';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -31,17 +28,13 @@ import {
 } from '@/components/formations/FormationCourseHero';
 
 const LMS_SLUG = 'ia-appels-offre-btp';
-/** Programme affiché — aligné sur le support PDF AO BTP 2026 (NotebookLM, Claude AI, ChatGPT). */
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
-/** Lead magnet — 8 pages, impression navigateur → PDF */
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
-const PAGE_META_DESCRIPTION = `Répondre aux appels d'offres BTP avec l'IA : analyse DCE (NotebookLM), Go / No Go, mémoire technique et contrôle de chiffrage (Claude AI). Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé). Qualiopi, Constructys.`;
-
-const CATALOG_ENTRY_BTP02 = getFormationCatalogEntryByPath('/formations/ia-appels-offre-btp')!;
+const PAGE_META_DESCRIPTION = `Formation IA appliquée aux appels d'offres BTP : DCE et mémoire technique avec Claude AI Pro, Cowork & Skills. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé). Qualiopi, Constructys.`;
 
 export const metadata = createPageMetadata({
-  title: "IA appel d'offres BTP — DCE, CCTP, mémoire technique | Formation",
+  title: "IA appels d'offres BTP — DCE, mémoire technique, Cowork",
   description: PAGE_META_DESCRIPTION,
   path: '/formations/ia-appels-offre-btp',
   keywords: [
@@ -51,7 +44,8 @@ export const metadata = createPageMetadata({
     'rédaction mémoire technique',
     'analyse CCTP IA',
     'répondre appel d\'offre travaux',
-    'ChatGPT appels d\'offres BTP',
+    'Claude AI appels d\'offres BTP',
+    'Claude Cowork DCE',
     'DCE IA',
     'analyse DCE IA',
     'IA marchés publics BTP',
@@ -66,7 +60,7 @@ export const metadata = createPageMetadata({
 });
 
 const OUTILS_IA_LINE =
-  'NotebookLM pour l’analyse de DCE ; Claude AI pour Go / No Go, mémoire technique et chiffrage ; ChatGPT possible selon contexte — prolongements Perplexity, Mistral ou Gemini selon besoins.';
+  'Claude AI Pro (Anthropic) — Cowork & Skills : analyse de DCE, rédaction de mémoires techniques, assistants réutilisables sur vos fichiers locaux.';
 
 type ProgrammeBloc = {
   heading: string;
@@ -78,78 +72,52 @@ type ProgrammeBloc = {
 
 const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   {
-    heading: 'Introduction — Tour de table & cadrage',
-    meta: '15 min · Accueil',
+    heading: 'Module 1 — Paramétrage de Claude AI Pro & Cowork',
+    meta: '60 min · Cowork · Projects · Skill Creator',
     objectifs: [
-      'Accueillir les participants et recueillir les attentes',
-      'Faire le point sur les pratiques IA actuelles et les objectifs de la session',
-      'Présenter le déroulé de la demi-journée, les exercices et les livrables',
+      'Créer son compte Claude Pro — interface, Projects, choix du modèle (Sonnet / Opus / Haiku)',
+      'Organiser ses Projects par client ou type d\'AO, rédiger ses instructions personnalisées (System Prompt)',
+      'Uploader sa base documentaire entreprise (MT types, références, procédures QSE)',
+      'Installer Cowork — comprendre la logique des skills (déclenchement, instructions, livrables)',
+      'Créer un premier skill personnalisé alimenté par ses données entreprise',
+      'Programmer un workflow complet : analyse DCE → plan MT → rédaction section par section',
     ],
-    livrable: 'Cadrage commun — attentes et feuille de route de travail',
+    livrable: 'Compte Claude Pro configuré + Project dédié AO + Cowork installé + premier skill créé',
     exercice:
-      'Tour de table rapide : usages actuels de l’IA, priorités métiers et exemples de dossiers en cours.',
+      'Configuration en direct du Project AO et création du premier skill sur les données du participant.',
   },
   {
-    heading: 'Module 1 — Analyse DCE avec NotebookLM',
-    meta: '60 min · NotebookLM · DCE / pièces',
+    heading: 'Module 2 — Analyse express de DCE avec Cowork',
+    meta: '1 h 15 · Skill « Analyse DCE »',
     objectifs: [
-      'Présenter NotebookLM : fonctionnement, intérêt pour l’analyse documentaire BTP, comparaison avec un usage « ChatGPT classique »',
-      'Importer un DCE réel et interroger le dossier (CCTP, DPGF, règlement de consultation)',
-      'Extraire délais, critères de sélection et points de vigilance pour préparer la réponse',
+      'Méthodologie d\'analyse : 3 niveaux de lecture, priorisation des pièces, 15 infos critiques à extraire',
+      'Upload du DCE complet dans Cowork → extraction automatique (critères, clauses, pénalités, délais)',
+      'Décortiquer le CCAP (risques financiers) et synthétiser le CCTP (normes, matériaux, moyens)',
+      'Adapter le skill à son métier (étanchéité, gros œuvre, VRD…) + veille AO automatique',
     ],
-    livrable: 'Fiche d’analyse DCE générée avec l’IA — réutilisable sur vos prochains dossiers',
+    livrable: 'Fiche synthèse DCE automatisée + skill d\'analyse DCE personnalisé',
     exercice:
-      'Les participants analysent un DCE avec NotebookLM et sortent une synthèse opérationnelle (délais, critères, alertes).',
+      'Atelier pratique — skill « Analyse DCE » : fiche synthèse + tableau des 15 infos critiques + verdict Go / No Go sur un AO concret du participant.',
   },
   {
-    heading: 'Module 2 — Décision Go / No Go et rentabilité',
-    meta: '45 min · Claude AI',
+    heading: 'Module 3 — Rédiger son mémoire technique avec Cowork',
+    meta: '1 h 30 · Skill « Mémoire Technique »',
     objectifs: [
-      'Construire une grille de décision Go / No Go avec l’IA : critères, pondération des risques, faisabilité',
-      'Utiliser des prompts pour estimer les coûts, identifier les risques financiers et calibrer les marges avant d’engager la réponse',
+      'Construire le plan de MT optimal adapté aux critères et pondérations du DCE — comparer 3 plans alternatifs',
+      'Rédiger les sections stratégiques : présentation entreprise, méthodologie, moyens et engagements QSE',
+      'Générer un MT Word complet (planning Gantt, organigramme, tableaux de moyens) via Cowork',
+      'Contrôler et humaniser les sorties IA : anti-hallucination et relecture experte',
+      'Créer son skill MT aux couleurs de l\'entreprise + skill productivité (CR chantier, emails, devis)',
     ],
-    livrable: 'Trame Go / No Go et prompts de chiffrage adaptés à votre métier BTP',
+    livrable: 'MT Word généré par Cowork + skills MT et productivité personnalisés + 15 prompts AO BTP',
     exercice:
-      'Application de la méthode Go / No Go sur un appel d’offres réel ou typique de votre secteur.',
-  },
-  {
-    heading: 'Module 3 — Rédaction de mémoire technique & relecture',
-    meta: '60 min · Claude AI · CCTP',
-    objectifs: [
-      'Structurer un mémoire technique aligné sur les attentes des acheteurs publics et privés (plan type, erreurs à éviter, niveau de détail)',
-      'Rédiger avec l’IA section par section : entreprise, moyens humains et matériels, méthodologie, QSE, références chantiers',
-      'Relire et renforcer cohérence, ton professionnel et arguments différenciants',
-    ],
-    livrable: 'Bibliothèque de prompts pour la rédaction complète de mémoires techniques BTP',
-    exercice:
-      'Rédaction d’une section de mémoire technique à partir d’éléments réels fournis par les participants.',
-  },
-  {
-    heading: 'Module 4 — Chiffrage & contrôle de rentabilité',
-    meta: '45 min · Claude AI · tableaux',
-    objectifs: [
-      'Utiliser l’IA avec vos tableaux de chiffrage : contrôle poste par poste, détection d’incohérences',
-      'Mettre en œuvre des prompts de vérification pour sécuriser l’offre financière avant dépôt',
-    ],
-    livrable: 'Checklist de contrôle de rentabilité assistée par IA',
-    exercice:
-      'Contrôle d’un chiffrage existant avec assistance IA — repérer les postes sous-estimés ou oubliés.',
-  },
-  {
-    heading: 'Clôture — Bilan, Q&R et remise des ressources',
-    meta: '15 min · Synthèse',
-    objectifs: [
-      'Synthétiser les acquis et les prochaines étapes sur vos dossiers',
-      'Répondre aux dernières questions et préciser les bonnes pratiques de confidentialité',
-      'Rappeler l’accès aux supports sur la plateforme OFC selon votre convention',
-    ],
-    livrable: 'Feuille de route personnelle — prolongements et accès ressources',
+      'Rédaction assistée et ajustement des skills en temps réel sur un AO concret du participant.',
   },
 ];
 
 const HERO_RESUME_AO = [
-  `Parcours catalogue NIV-02 : DCE (NotebookLM), Go / No Go, mémoire technique, contrôle de chiffrage.`,
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé).`,
+  `Parcours catalogue NIV-02 : assistants IA DCE & mémoire technique — Claude AI Pro, Cowork & Skills.`,
+  `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé).`,
   `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité.',
 ];
@@ -162,23 +130,10 @@ export default function FormationIAAppelsOffreBTPPage() {
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
-        breadcrumb={
-          <Breadcrumb
-            jsonLdId="schema-breadcrumb-formation-ia-appels-offre-btp"
-            items={[
-              { label: 'Accueil', href: '/' },
-              { label: 'Formations', href: '/formations' },
-              {
-                label: "L'IA au service des appels d'offre BTP",
-                href: '/formations/ia-appels-offre-btp',
-              },
-            ]}
-          />
-        }
         refLine={`Intra · inter · présentiel ou distanciel · ${SESSION_DUREE_LIBELLE} · Niveau 2 · NIV-02`}
-        title="L'IA au service des appels d'offre BTP"
-        subtitle="DCE (NotebookLM), mémoire technique, Go/No Go et chiffrage (Claude AI) — niveau avancé"
-        badges={['NotebookLM & DCE', 'Mémoire technique IA', 'Qualiopi']}
+        title="L'IA appliquée aux appels d'offres BTP"
+        subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"
+        badges={['Claude Pro & Cowork', 'Skills DCE / MT', 'Qualiopi']}
         summaryItems={HERO_RESUME_AO}
         image={
           <FormationHeroPhoto
@@ -236,11 +191,19 @@ export default function FormationIAAppelsOffreBTPPage() {
         }
       >
         <p>
-          <strong>IA appel d&apos;offres BTP</strong> : analyse de DCE et pièces avec{' '}
-          <strong>NotebookLM</strong>, décision <strong>Go / No Go</strong>, brouillons de{' '}
-          <strong>mémoire technique</strong> et <strong>contrôle de chiffrage</strong> avec Claude AI.
-          Formation opérationnelle pour artisans, TPE, PME, dirigeants, conducteurs de travaux, chargés d&apos;affaires,
-          équipes administratives et bureaux d&apos;études — sur le même niveau d&apos;exigence qu&apos;une{' '}
+          <strong>Formation IA appliquée aux appels d&apos;offres BTP</strong> : paramétrer{' '}
+          <strong>Claude AI Pro</strong>, installer <strong>Cowork</strong> et créer des{' '}
+          <strong>skills</strong> pour analyser les <strong>DCE</strong>, structurer et rédiger des{' '}
+          <strong>mémoires techniques</strong> alignés sur les critères du marché. Parcours opérationnel pour
+          responsables d&apos;affaires, chargés d&apos;études, conducteurs de travaux, dirigeants et bureaux
+          d&apos;études — complément idéal après le{' '}
+          <Link
+            href={LINKS.formationIaBtpNiveau1BatimentTp}
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            niveau 1
+          </Link>{' '}
+          ou une{' '}
           <Link
             href={LINKS.formationClaudeAiBtp}
             className="font-medium text-[var(--accent)] hover:underline"
@@ -258,27 +221,34 @@ export default function FormationIAAppelsOffreBTPPage() {
           <li className="flex gap-2">
             <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Public :</strong> artisans, TPE, PME, dirigeants, conducteurs de travaux, chargés d&apos;affaires,
-              équipes administratives et bureaux d&apos;études du BTP. Session calibrée pour des profils qui répondent déjà ou
-              préparent des dossiers d&apos;appels d&apos;offres.
+              <strong>Public :</strong> responsables d&apos;affaires, chargés d&apos;études, conducteurs de travaux,
+              dirigeants et directeurs techniques TPE/PME BTP, bureaux d&apos;études. Session calibrée pour des
+              profils qui répondent déjà ou préparent des dossiers d&apos;appels d&apos;offres.
             </span>
           </li>
           <li className="flex gap-2">
             <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en intra ou inter,
-              en présentiel ou en distanciel. Forfait <strong>{TARIF_FORFAIT_AVANCE_HT} € HT par session</strong> (niveau
-              avancé, {LIBELLE_EFFECTIF_GROUPE_COURT}). Ressources complémentaires sur la plateforme selon convention — réf.{' '}
+              <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> (75 % pratique /
+              25 % théorie) en intra ou inter, en présentiel ou en distanciel. Forfait{' '}
+              <strong>{TARIF_FORFAIT_AVANCE_HT} € HT par session</strong> (niveau avancé,{' '}
+              {LIBELLE_EFFECTIF_GROUPE_COURT}). Ressources complémentaires sur la plateforme selon convention — réf.{' '}
               <strong>NIV-02</strong>.
             </span>
           </li>
           <li className="flex gap-2">
             <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
             <span>
-              <strong>Prérequis :</strong> connaissance du secteur BTP et des dossiers type DCE / CCTP ;
-              <strong> pratique régulière</strong> de ChatGPT ou Claude. Pour les données sensibles :
-              privilégier des environnements professionnels (offres Team / entreprise) — rappels RGPD en
-              session. {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
+              <strong>Prérequis techniques :</strong> {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Documents à préparer :
+              DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de votre entreprise.
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+            <span>
+              <strong>Prérequis pédagogiques :</strong> avoir suivi la session niveau 1 « L&apos;IA au service des
+              professionnels du BTP » ou maîtriser les bases d&apos;une IA générative ; avoir rédigé au moins 3
+              mémoires techniques ou participé à des réponses à appels d&apos;offres.
             </span>
           </li>
         </ul>
@@ -305,11 +275,12 @@ export default function FormationIAAppelsOffreBTPPage() {
         <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
         <ul className="mt-4 space-y-2 text-slate-700">
           {[
-            'Analyser un DCE complet avec des outils d’IA générative (dont NotebookLM)',
-            'Décider d’aller ou non sur un dossier (Go / No Go) et estimer la rentabilité avec l’IA',
-            'Rédiger et améliorer un mémoire technique structuré grâce à Claude AI',
-            'Contrôler un chiffrage et sécuriser la rentabilité de l’offre avant dépôt',
-            'Gagner du temps sur l’ensemble du processus de réponse aux appels d’offres',
+            'Paramétrer Claude AI Pro (Projects, instructions personnalisées) pour l\'adapter à son métier et à ses appels d\'offres',
+            'Analyser un DCE complet via Cowork en extrayant les 15 informations critiques (critères, clauses éliminatoires, pénalités, délais)',
+            'Structurer un plan de mémoire technique adapté aux pondérations spécifiques du DCE avec l\'assistance de Claude',
+            'Rédiger les 5 sections clés d\'un mémoire technique (présentation, méthodologie, moyens, sécurité, environnement) avec les skills Cowork',
+            'Créer et configurer ses propres skills Cowork spécialisés DCE/MT, alimentés par ses données d\'entreprise',
+            'Évaluer la qualité des contenus générés par l\'IA et les personnaliser selon son expertise métier',
           ].map((o) => (
             <li key={o} className="flex gap-2">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
@@ -323,8 +294,8 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Répartition indicative (total {SESSION_DUREE_LIBELLE}) : introduction et clôture incluses —
-          ajustements possibles selon le groupe.
+          3 modules — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE et mémoires techniques réels des
+          participants. Chaque module s&apos;appuie sur un skill Cowork dédié.
         </p>
         <div className="mt-8 space-y-8">
           {PROGRAMME_BLOCS.map((bloc) => (
@@ -336,7 +307,7 @@ export default function FormationIAAppelsOffreBTPPage() {
                 <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.heading}</h3>
                 <span className="text-sm font-medium text-[var(--accent)]">{bloc.meta}</span>
               </div>
-              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Objectifs</p>
+              <p className="mt-3 text-xs font-semibold uppercase text-slate-500">Contenu</p>
               <ul className="mt-2 space-y-1 text-sm text-slate-600">
                 {bloc.objectifs.map((o) => (
                   <li key={o}>▸ {o}</li>
@@ -344,7 +315,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               </ul>
               {bloc.exercice ? (
                 <p className="mt-3 text-sm text-slate-700">
-                  <span className="font-semibold text-slate-900">Exercice pratique.</span> {bloc.exercice}
+                  <span className="font-semibold text-slate-900">Atelier pratique.</span> {bloc.exercice}
                 </p>
               ) : null}
               <p className="mt-4 text-sm text-slate-700">
@@ -360,7 +331,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         className="mt-12 scroll-mt-24 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-6"
       >
         <h2 className="font-display text-xl font-bold text-slate-900">
-          Ressources sur la plateforme — assistant IA DCE &amp; mémoire technique
+          Ressources sur la plateforme — assistants IA DCE &amp; mémoire technique
         </h2>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
@@ -378,7 +349,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       </section>
 
       <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-        <h2 className="font-display text-xl font-bold text-slate-900">Conditions &amp; tarification</h2>
+        <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
@@ -386,13 +357,15 @@ export default function FormationIAAppelsOffreBTPPage() {
             (Constructys, etc.) selon éligibilité.
           </li>
           <li>
-            <strong>Supports remis :</strong> guide pratique « Répondre aux AO BTP avec l&apos;IA »,
-            bibliothèque de prompts BTP (AO, mémoire technique, chiffrage), fiches outils NotebookLM /
-            ChatGPT / Claude AI — accès plateforme OFC selon convention.
+            <strong>Supports remis :</strong> compte Claude Pro configuré avec Project dédié AO, Cowork installé
+            avec skills opérationnels, bibliothèque de 30 prompts spécialisés DCE/mémoire technique, template
+            Word structure MT (3 modèles), skills Cowork personnalisés (analyse DCE, mémoire technique, veille AO,
+            productivité) — accès plateforme OFC selon convention.
           </li>
           <li>
-            <strong>Évaluation :</strong> mise en situation continue via les exercices de chaque module,
-            questionnaire de satisfaction en fin de session, attestation individuelle de formation.
+            <strong>Évaluation :</strong> exercices pratiques et validation par le formateur en continu,
+            questionnaire de satisfaction à chaud et à froid (J+30), attestation de formation remise à l&apos;issue
+            de la session.
           </li>
         </ul>
       </section>
@@ -417,7 +390,6 @@ export default function FormationIAAppelsOffreBTPPage() {
       </div>
       </div>
 
-      <CatalogFormationCourseScript entry={CATALOG_ENTRY_BTP02} pageDescription={PAGE_META_DESCRIPTION} />
     </div>
   );
 }

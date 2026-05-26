@@ -477,7 +477,7 @@ export default function FormationIaVitrierBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
             { href: '/formation-ia-couvreur-btp', label: 'Formation IA couvreur BTP' },
             { href: '/formation-ia-etancheur', label: 'Formation IA étancheur BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

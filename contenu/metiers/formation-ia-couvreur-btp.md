@@ -111,7 +111,7 @@ Encadré **#377CF3**, texte blanc — **Visio gratuite — couverture & Construc
 
 ## Laure Olivié {#laure}
 
-Formatrice IA BTP — méthode terrain, prompts utiles. [À propos](/a-propos/)  
+Formatrice IA pour le BTP — méthode terrain, prompts utiles. [À propos](/a-propos/)  
 **Alt :** *Formation IA couvreur BTP — Laure Olivié, OFC*
 
 ---

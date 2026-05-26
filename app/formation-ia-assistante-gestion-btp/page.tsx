@@ -37,7 +37,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   instructor: {
     '@type': 'Person',
     name: 'Laure Olivié',
-    jobTitle: 'Formatrice IA BTP',
+    jobTitle: 'Formatrice IA pour le BTP',
     sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
   },
   offers: {
@@ -110,7 +110,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-04-17',
     modifiedTime: '2026-04-17',
     author: 'Laure Olivié',
-    section: 'Formation IA BTP',
+    section: 'Formation IA pour les pro du BTP',
   },
   image: {
     url: '/images/og/formation-ia-assistante-gestion-btp.png',
@@ -690,7 +690,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Catalogue des formations IA BTP
+              Catalogue des formations IA appliquées au bâtiment
             </a>
             {' · '}
             <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] underline">
@@ -700,7 +700,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
         </section>
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
-          <p>Laure Olivié — Formatrice IA BTP, OFC Création d&apos;Entreprise</p>
+          <p>Laure Olivié — Formatrice IA pour les pro du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             06 95 66 18 18 · laureolivie@yahoo.fr ·{' '}

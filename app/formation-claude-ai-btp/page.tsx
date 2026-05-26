@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "formation Anthropic BTP",
     "IA Claude pour le BTP",
     "Claude vs ChatGPT BTP",
-    "formation IA BTP Qualiopi",
+    "formation IA appliquée au bâtiment Qualiopi",
   ],
   authors: [{ name: "Laure Olivié", url: "https://www.laureolivie.fr/a-propos" }],
   creator: "Laure Olivié",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Maîtrisez Claude AI (Anthropic) pour vos devis, CCTP et mémoires techniques BTP. Session 4h, Qualiopi. Financement possible selon éligibilité.",
     url: PAGE_URL,
-    siteName: "Laure Olivié — Formation IA BTP",
+    siteName: "Laure Olivié — Formation IA pour le BTP",
     locale: "fr_FR",
     images: [
       {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-04-23T08:00:00+02:00",
     modifiedTime: new Date().toISOString(),
     authors: ["https://www.laureolivie.fr/a-propos"],
-    section: "Formation IA BTP",
+    section: "Formation IA pour les pro du BTP",
     tags: ["Claude AI", "Anthropic", "BTP", "formation IA", "Qualiopi", "Constructys"],
   },
   twitter: {
@@ -114,7 +114,7 @@ const serviceSchema = {
 const faqItems = [
   {
     q: "Qu'est-ce que Claude AI et pourquoi se former spécifiquement dessus pour le BTP ?",
-    a: 'Claude AI est l\'assistant d\'intelligence artificielle développé par Anthropic. Pour le BTP, Claude se distingue de ChatGPT sur les documents longs (CCTP de 80 pages, mémoires techniques, DCE complets) qu\'il analyse avec une précision supérieure grâce à sa fenêtre de contexte étendue. Notre formation cible ces cas d\'usage métier spécifiques — voir le <a href="/formations">catalogue complet des formations IA BTP</a>.',
+    a: 'Claude AI est l\'assistant d\'intelligence artificielle développé par Anthropic. Pour le BTP, Claude se distingue de ChatGPT sur les documents longs (CCTP de 80 pages, mémoires techniques, DCE complets) qu\'il analyse avec une précision supérieure grâce à sa fenêtre de contexte étendue. Notre formation cible ces cas d\'usage métier spécifiques — voir le <a href="/formations">catalogue complet des formations IA appliquées au bâtiment</a>.',
   },
   {
     q: "Claude AI est-il meilleur que ChatGPT pour les professionnels du BTP ?",
@@ -722,7 +722,7 @@ export default function FormationClaudeAiBtpPage() {
             <div className="mt-8">
               <AllerPlusLoin
                 links={[
-                  { href: "/formations", label: "Catalogue des formations IA BTP" },
+                  { href: "/formations", label: "Catalogue des formations IA pour le BTP" },
                   { href: "/formation-ia-artisans-btp", label: "ChatGPT pour entreprises BTP" },
                   { href: "/ia-devis-batiment", label: "IA devis bâtiment" },
                   { href: "/ia-conducteur-travaux", label: "IA conducteur de travaux" },

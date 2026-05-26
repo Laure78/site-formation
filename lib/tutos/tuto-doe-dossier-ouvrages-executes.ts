@@ -14,7 +14,7 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
   metaTitle:
     'Tuto skill DOE BTP : assembler ton dossier ouvrages exécutés en 30 min',
   metaDescription:
-    "Crée ton skill Claude pour assembler ton DOE BTP en 30 minutes au lieu de 2 week-ends. Tutoriel pas à pas gratuit par Laure Olivié, formatrice IA BTP.",
+    "Crée ton skill Claude pour assembler ton DOE BTP en 30 minutes au lieu de 2 week-ends. Tutoriel pas à pas gratuit par Laure Olivié, formatrice IA pour le BTP.",
   keywords: [
     'DOE BTP',
     'dossier ouvrages exécutés',
@@ -32,7 +32,7 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
     'IA BTP',
     'ChatGPT BTP',
     'Claude BTP',
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

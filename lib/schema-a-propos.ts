@@ -24,7 +24,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}/images/laure-portrait-pro-2026.png`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA BTP — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',
@@ -85,7 +85,7 @@ export function getAProposProfilePageJsonLd(): Record<string, unknown> {
     mainEntity: {
       '@type': 'Person',
       name: 'Laure Olivié',
-      jobTitle: 'Formatrice IA BTP',
+      jobTitle: 'Formatrice IA pour les pro du BTP',
       description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
       url: `${BASE}/a-propos`,
     },
@@ -100,7 +100,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA BTP',
+  jobTitle: 'Formatrice IA appliquée au bâtiment',
   description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
   url: `${BASE}/a-propos`,
   image: `${BASE}/images/laure-portrait-pro-2026.png`,

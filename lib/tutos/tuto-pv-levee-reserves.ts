@@ -14,7 +14,7 @@ export const TUTO_PV_LEVEE_RESERVES: TutoData = {
   metaTitle:
     'Tuto skill PV levée de réserves BTP : 3 min au lieu de 30 avec Claude',
   metaDescription:
-    "PV de levée de réserves BTP : crée ton skill Claude pour rédiger un procès-verbal juridique en 3 minutes au lieu de 30. Tutoriel par Laure Olivié, formatrice IA BTP.",
+    "PV de levée de réserves BTP : crée ton skill Claude pour rédiger un procès-verbal juridique en 3 minutes au lieu de 30. Tutoriel par Laure Olivié, formatrice IA pour les pro du BTP.",
   keywords: [
     'PV levée de réserves',
     'levée de réserves BTP',
@@ -30,7 +30,7 @@ export const TUTO_PV_LEVEE_RESERVES: TutoData = {
     'IA BTP',
     'ChatGPT BTP',
     'Claude BTP',
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

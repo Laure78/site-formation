@@ -49,14 +49,14 @@ export default async function FormationIaSlugPage({ params }: Props) {
     entry.kind === 'metier' && entry.metier
       ? `Formation IA — ${entry.metier.label} (ChatGPT & Claude AI)`
       : entry.kind === 'ville' && entry.ville
-        ? `Formation IA BTP ${entry.ville.label} (ChatGPT & Claude AI)`
-        : 'Formation IA BTP';
+        ? `Formation IA appliquée au bâtiment ${entry.ville.label} (ChatGPT & Claude AI)`
+        : 'Formation IA pour le BTP';
 
   const courseDescription =
     entry.kind === 'metier' && entry.metier
-      ? `Formation IA BTP pour ${entry.metier.label} (${entry.metier.categorie}) : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, OFC Création d'Entreprise.`
+      ? `Formation IA pour les pro du BTP pour ${entry.metier.label} (${entry.metier.categorie}) : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, OFC Création d'Entreprise.`
       : entry.kind === 'ville' && entry.ville
-        ? `Formation IA BTP à ${entry.ville.label} (${entry.ville.deptName}) : ChatGPT et Claude AI pour les professionnels du BTP et les entreprises. Qualiopi, financement OPCO Constructys.`
+        ? `Formation IA appliquée au bâtiment à ${entry.ville.label} (${entry.ville.deptName}) : ChatGPT et Claude AI pour les professionnels du BTP et les entreprises. Qualiopi, financement OPCO Constructys.`
         : SITE_CONFIG.description;
 
   const courseJson = buildFormationIaCourseJsonLd({
@@ -95,7 +95,7 @@ export default async function FormationIaSlugPage({ params }: Props) {
       <Breadcrumb
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
-          { name: 'Formation IA BTP (hub)', path: '/formation-ia' },
+          { name: 'Formation IA pour le BTP (hub)', path: '/formation-ia' },
           { name: breadcrumbLastName, path },
         ])}
       />

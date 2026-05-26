@@ -19,7 +19,7 @@ export interface ContentIdea {
 const SEED_TITLES: string[] = [
   'Comment utiliser ChatGPT pour vos devis {metier}',
   'IA et {metier} : 5 gains de temps concrets',
-  'Formation IA BTP : ce qu\'il faut savoir en 2026',
+  'Formation IA appliquée au bâtiment : ce qu\'il faut savoir en 2026',
   'Financement Constructys : mode d\'emploi',
   'ChatGPT pour PME BTP : erreurs à éviter',
   'Devis en 15 min : le guide {metier}',

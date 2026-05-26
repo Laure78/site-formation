@@ -1,8 +1,5 @@
 # robots.txt — laureolivie.fr
-# Autorise les moteurs de recherche classiques et tous les bots IA pour le GEO.
-
-User-agent: *
-Allow: /
+# Autorise les crawlers IA (GEO) ; /blog/ et /formations/ restent crawlables.
 
 User-agent: GPTBot
 Allow: /
@@ -34,7 +31,10 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
-# Bloquer uniquement les chemins techniques inutiles
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
 Disallow: /api/
 Disallow: /_next/
 

@@ -15,8 +15,8 @@ const ETUDE_CAS_THUMBNAILS = [
   {
     src: '/images/ffb-logo-moss-mur.png',
     alt:
-      'Logo FFB sur mur de mousse en accueil : Fédération Française du Bâtiment — réseau de professionnels et entreprises du bâtiment, formations IA BTP (ChatGPT, Claude AI) en Île-de-France.',
-    title: 'FFB — formation IA BTP & réseau national du bâtiment',
+      'Logo FFB sur mur de mousse en accueil : Fédération Française du Bâtiment — réseau de professionnels et entreprises du bâtiment, formations IA appliquées au bâtiment (ChatGPT, Claude AI) en Île-de-France.',
+    title: 'FFB — formation IA pour le BTP & réseau national du bâtiment',
     subtitle: 'Interventions Grand Paris, IDF Est & Ouest · Laure Olivié, OFC Qualiopi',
     href: '#ffb',
   },
@@ -31,7 +31,7 @@ const ETUDE_CAS_THUMBNAILS = [
 ] as const;
 
 export const metadata = createPageMetadata({
-  title: 'Étude de cas FFB & CSFE — Étanchéité | Formation IA BTP | Résultats concrets',
+  title: 'Étude de cas FFB & CSFE — Étanchéité | Formation IA pour les pro du BTP | Résultats concrets',
   description: `Retour d'expérience : interventions auprès de la FFB et de la ${CSFE_NOM_LIBRE}. Modules, objectifs pédagogiques et bénéfices pour les entreprises.`,
   path: '/etudes-de-cas/ffb-csfe',
   keywords: [

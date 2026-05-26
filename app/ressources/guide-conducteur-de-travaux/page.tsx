@@ -16,7 +16,7 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 export const metadata = createPageMetadata({
   title: 'Guide conducteur travaux : 6 tutos Claude BTP (PDF gratuit)',
   description:
-    'Guide PDF gratuit pour conducteurs de travaux : analyse DCE, PPSPS, CR chantier, constat retard, PV levée réserves, DOE Claude. Prompts inclus. Formation IA BTP.',
+    'Guide PDF gratuit pour conducteurs de travaux : analyse DCE, PPSPS, CR chantier, constat retard, PV levée réserves, DOE Claude. Prompts inclus. Formation IA appliquée au bâtiment.',
   path: PATH,
   keywords: [
     'skill IA BTP',
@@ -24,7 +24,7 @@ export const metadata = createPageMetadata({
     'ChatGPT BTP',
     'automatisation chantier',
     'guide IA BTP gratuit',
-    'formation IA BTP',
+    'formation IA pour le BTP',
   ],
   openGraphType: 'article',
   openGraphTitle: 'Guide CDT — 6 tutos Claude pour piloter le chantier (PDF gratuit)',
@@ -96,7 +96,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Ce guide remplace une formation présentielle ?',
-    a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA BTP certifiée Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
+    a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA pour les pro du BTP certifiée Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
   },
   {
     q: 'Où trouver d’autres tutos BTP en pages web ?',
@@ -143,7 +143,7 @@ export default function SkillIaConducteurTravauxPage() {
             <div className="relative aspect-[512/341] w-full overflow-hidden rounded-2xl border border-white/20 bg-[#D4E3FC]/20 shadow-lg">
               <Image
                 src="/images/skill-ia-conducteur-travaux-hero-formation-btp.png"
-                alt="Formation IA BTP : poignée de main en bureau, tableau Devis, Chantier et Organisation — accompagnement professionnels du bâtiment"
+                alt="Formation IA appliquée au bâtiment : poignée de main en bureau, tableau Devis, Chantier et Organisation — accompagnement professionnels du bâtiment"
                 width={1024}
                 height={682}
                 className="h-full w-full object-cover object-center"
@@ -450,7 +450,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
             Pas le temps de lire tout de suite ?
           </h2>
           <p className="mt-3 text-white/95">
-            Réservez 20 minutes d&apos;échange pour cadrer votre besoin formation IA BTP.
+            Réservez 20 minutes d&apos;échange pour cadrer votre besoin formation IA pour le BTP.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a

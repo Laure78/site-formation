@@ -6,23 +6,23 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Longjumeau (91) — devis & ChatGPT',
+  title: 'Formation IA appliquée au bâtiment Longjumeau (91) — devis & ChatGPT',
   description:
-    'Formation IA BTP à Longjumeau et en Essonne : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Professionnels du BTP et PME du bâtiment en Île-de-France.',
+    'Formation IA pour le BTP à Longjumeau et en Essonne : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Professionnels du BTP et PME du bâtiment en Île-de-France.',
   path: '/formations/ia-btp-longjumeau',
   keywords: [
-    'formation IA BTP Longjumeau',
+    'formation IA pour les pro du BTP Longjumeau',
     'formation ChatGPT BTP 91',
     'formation IA Essonne',
-    'formation IA BTP Morangis',
-    'formation IA BTP Les Ulis',
+    'formation IA pour les pro du BTP Morangis',
+    'formation IA appliquée au bâtiment Les Ulis',
     'OPCO Constructys Essonne',
     'Qualiopi formation IA bâtiment 91',
   ],
 });
 
 const courseSchema = getCourseSchema({
-  name: 'Formation IA BTP à Longjumeau',
+  name: 'Formation IA pour le BTP à Longjumeau',
   description:
     "Formation IA pour entreprises du BTP à Longjumeau et en Essonne (91). Devis, emails, appels d'offres, administratif. Qualiopi · Constructys · Île-de-France.",
   path: '/formations/ia-btp-longjumeau',
@@ -44,7 +44,7 @@ export default function FormationIABTPLongjumeauPage() {
           <div className="mx-auto max-w-4xl text-center text-sm text-slate-700 md:text-base">
             Ville voisine :{' '}
             <Link href={LINKS.formationMorangis} className="font-semibold text-[var(--accent)] hover:underline">
-              formation IA BTP à Morangis
+              formation IA pour les pro du BTP à Morangis
             </Link>
             {' · '}
             <Link href={LINKS.claudeAiBtp} className="font-semibold text-[var(--accent)] hover:underline">

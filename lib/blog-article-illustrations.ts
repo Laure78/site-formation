@@ -41,7 +41,7 @@ function buildArticleIllustrationAlt(articleTitle: string, slug: string): string
   const cat = getArticleCategory(slug);
   const metier = METIER_PAR_CATEGORIE[cat];
   return truncate125(
-    `${articleTitle} — ${metier} — formation IA BTP Laure Olivié`
+    `${articleTitle} — ${metier} — formation IA appliquée au bâtiment Laure Olivié`
   );
 }
 

@@ -11,13 +11,13 @@ export const formationsData = {
       'Formation niveau 1 : IA générative pour professionnels du bâtiment et des travaux publics — devis, chantier, administratif, documents. Sessions en présentiel.',
   },
   'ia-appels-offre-btp': {
-    name: "L'IA au service des appels d'offre BTP",
+    name: "L'IA appliquée aux appels d'offres BTP",
     ref: 'NIV-02',
     level: 'Avancé',
     duration: 'PT4H',
     price: TARIF_SESSION_AVANCE_HT,
     description:
-      'Formation niveau 2 : analyse DCE avec NotebookLM, décision Go / No Go, mémoire technique et contrôle de chiffrage avec Claude AI — méthode et prompts pour le BTP.',
+      'Formation niveau 2 : créer ses assistants IA pour DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — méthode opérationnelle pour le BTP.',
   },
 } as const;
 

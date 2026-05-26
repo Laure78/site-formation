@@ -84,7 +84,7 @@ export default function CommunauteFormateursPage() {
                 <BookOpen size={28} strokeWidth={1.5} />
               </div>
               <h3 className="mt-4 font-display text-xl font-bold text-slate-900">
-                Formation IA BTP
+                Formation IA pour le BTP
               </h3>
               <p className="mt-3 text-slate-600">
                 Formatrice spécialisée en intelligence artificielle pour le BTP.
@@ -163,7 +163,7 @@ export default function CommunauteFormateursPage() {
           <ul className="mt-6 flex flex-wrap justify-center gap-4">
             <li>
               <Link href="/formations" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
-                Formation IA BTP
+                Formation IA pour les pro du BTP
               </Link>
             </li>
             <li>
@@ -172,8 +172,8 @@ export default function CommunauteFormateursPage() {
               </RdvLink>
             </li>
             <li>
-              <Link href="/formations/ia-btp-paris" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Formation IA BTP Paris et Île-de-France">
-                Formation IA BTP Paris
+              <Link href="/formations/ia-btp-paris" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Formation IA appliquée au bâtiment Paris et Île-de-France">
+                Formation IA pour le BTP Paris
               </Link>
             </li>
             <li>

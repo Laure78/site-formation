@@ -72,7 +72,7 @@ export function buildBlogListingJsonLd(
     '@type': 'CollectionPage',
     '@id': webpageId,
     url: canonicalUrl,
-    name: 'Blog Formation IA BTP — guides, prompts & cas d’usage',
+    name: 'Blog Formation IA pour le BTP — guides, prompts & cas d’usage',
     description: `${articles.length} articles et guides sur l’IA dans le BTP (devis, appels d’offres, ChatGPT, Constructys).`,
     isPartOf: { '@id': `${BASE}/#website` },
     inLanguage: 'fr-FR',
@@ -98,7 +98,7 @@ export function buildBlogListingJsonLd(
   const blog: Record<string, unknown> = {
     '@type': 'Blog',
     '@id': blogId,
-    name: 'Blog Formation IA BTP',
+    name: 'Blog Formation IA pour les pro du BTP',
     url: `${BASE}/blog`,
     publisher: { '@id': ORG_ID },
     blogPost: enrichedPosts,

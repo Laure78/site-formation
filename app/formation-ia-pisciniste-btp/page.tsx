@@ -403,7 +403,7 @@ export default function FormationIaPiscinisteBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
             { href: '/formations/ia-appels-offre-btp', label: 'IA appels d’offres BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

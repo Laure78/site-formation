@@ -38,7 +38,7 @@ async function enrichWithAI(article: ReturnType<typeof generateArticle>): Promis
           {
             role: 'system',
             content:
-              "Tu enrichis du contenu pour un article de blog formation IA BTP. Garde le même ton professionnel. Réponds en 2-3 phrases max. Pas d'intro redondante.",
+              "Tu enrichis du contenu pour un article de blog formation IA appliquée au bâtiment. Garde le même ton professionnel. Réponds en 2-3 phrases max. Pas d'intro redondante.",
           },
           {
             role: 'user',

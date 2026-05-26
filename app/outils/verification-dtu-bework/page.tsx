@@ -9,7 +9,7 @@ const PATH = LINKS.verificationDtuBeworkTest;
 export const metadata = createPageMetadata({
   title: 'Prototype test DTU × devis BeWork (non indexé)',
   description:
-    'Espace de test interne sans indexation — rapprochement indicatif lignes de devis BTP et familles NF DTU. Formation IA BTP Laure Olivié.',
+    'Espace de test interne sans indexation — rapprochement indicatif lignes de devis BTP et familles NF DTU. Formation IA pour le BTP Laure Olivié.',
   path: PATH,
   robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
   appendAuthorSuffix: false,

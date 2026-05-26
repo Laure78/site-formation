@@ -27,14 +27,14 @@ const BASE_URL = SITE_CONFIG.url;
 
 // Formations (données statiques du site)
 const FORMATIONS_DATA = [
-  { path: '/formations', title: 'Catalogue formations IA BTP', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
+  { path: '/formations', title: 'Catalogue formations IA appliquées au bâtiment', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
   {
     path: '/formations/ia-batiment-travaux-publics',
     title: "L'IA au service des pros du bâtiment et des travaux publics",
     desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
-  { path: '/formations/ia-btp-paris', title: 'Formation IA BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
-  { path: '/formations/ia-appels-offre-btp', title: 'IA appel d\'offres BTP — DCE, CCTP, mémoire technique', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/session. DCE (NotebookLM), Go/No Go, mémoires, chiffrage (Claude AI). ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
+  { path: '/formations/ia-btp-paris', title: 'Formation IA pour le BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique, Cowork', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/session. Claude AI Pro, Cowork & Skills — DCE et mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par session (12 participants max).' },
 ];
 

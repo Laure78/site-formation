@@ -1,6 +1,5 @@
-import CalendlyButton from '@/components/CalendlyButton';
 import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 
@@ -9,9 +8,9 @@ import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Réserver un RDV gratuit',
+  title: 'Formation IA pour le BTP — Réserver un RDV gratuit',
   description:
-    "Réservez 30 minutes en ligne pour discuter formation IA BTP. Calendly sécurisé, puis proposition chiffrée. Qualiopi, Constructys. Ouvrez l'agenda maintenant.",
+    "Réservez 30 minutes en ligne pour discuter formation IA pour les pro du BTP. Calendly sécurisé, puis proposition chiffrée. Qualiopi, Constructys. Ouvrez l'agenda maintenant.",
   path: '/prendre-rdv',
 });
 
@@ -34,32 +33,23 @@ export default function PrendreRDVPage() {
           </h1>
           <p className="mt-4 max-w-xl text-slate-600">
             Réservez un créneau d&apos;environ 30 minutes pour discuter de votre projet de
-            formation IA et obtenir un devis personnalisé. Cliquez sur le bouton
-            ci-dessous pour ouvrir l&apos;agenda en ligne (Calendly) et choisir votre
-            créneau.
+            formation IA et obtenir un devis personnalisé.
           </p>
           <p className="mt-4">
             <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
-              Découvrir le catalogue des formations IA BTP →
+              Découvrir le catalogue des formations IA pour les pro du BTP →
             </Link>
           </p>
 
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-[var(--accent-soft)] p-8">
-            <p className="text-center text-sm font-medium text-slate-700">
-              Prise de rendez-vous en ligne
-            </p>
-            <div className="mt-6 flex justify-center">
-              <CalendlyButton
-                campaign="prendre-rdv-page"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-blue-500/20 transition-colors hover:bg-blue-600"
-              >
-                <ExternalLink size={20} strokeWidth={1.5} aria-hidden />
-                Réserver sur Calendly
-              </CalendlyButton>
-            </div>
-            <p className="mt-4 text-center text-xs text-slate-500">
-              Le lien s&apos;ouvre dans un nouvel onglet — service sécurisé Calendly.
-            </p>
+          <div className="mt-10">
+            <CalendlyEmbed
+              type="inline"
+              campaign="prendre-rdv-page"
+              ctaPosition="inline"
+              sectionTitle="Réservez votre visio découverte gratuite"
+              sectionSubtitle="Choisissez votre créneau — confirmation immédiate par email."
+              heightPx={720}
+            />
           </div>
 
           <FAQSection

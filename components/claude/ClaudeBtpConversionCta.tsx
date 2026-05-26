@@ -23,7 +23,7 @@ export function ClaudeBtpConversionCta() {
       ]}
       footnote={`FFB Grand Paris, FFB IDF, CSFE, CNAM, Lefebvre Dalloz · +${formatProfessionalsTrainedCount()} formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
       primaryCta={{ href: calendlyClaudeBtpGuideUrl('bottom-cta'), label: 'Prendre rendez-vous' }}
-      secondaryCta={{ href: LINKS.contact, label: 'Contact formation IA BTP', external: false }}
+      secondaryCta={{ href: LINKS.contact, label: 'Contact formation IA appliquée au bâtiment', external: false }}
     />
   );
 }

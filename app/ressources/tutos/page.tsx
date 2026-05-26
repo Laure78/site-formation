@@ -22,7 +22,7 @@ function pdfHref(pdfFile: string): string {
 export const metadata: Metadata = createPageMetadata({
   title: 'Tutos PDF IA BTP gratuits : Claude, mémoire technique, DCE',
   description:
-    'Tutos PDF Claude & ChatGPT BTP : mémoire technique, analyse DCE, DOE, DUERP, PPSPS, chantier — gratuit. Formation IA BTP — Laure Olivié.',
+    'Tutos PDF Claude & ChatGPT BTP : mémoire technique, analyse DCE, DOE, DUERP, PPSPS, chantier — gratuit. Formation IA appliquée au bâtiment — Laure Olivié.',
   path: PATH,
   openGraphType: 'website',
   appendAuthorSuffix: false,
@@ -82,7 +82,7 @@ export default function RessourcesTutosIndexPage() {
                   href={LINKS.financement}
                   className="inline-flex items-center gap-2 rounded-full border border-white bg-white px-4 py-2 font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3]"
                 >
-                  Financement formation IA BTP
+                  Financement formation IA pour le BTP
                 </Link>
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function RessourcesTutosIndexPage() {
           <p className="text-slate-700">
             Ces tutos complètent une{' '}
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-              formation IA BTP Qualiopi en présentiel ou visio
+              formation IA pour les pro du BTP Qualiopi en présentiel ou visio
             </Link>
             — financement possible selon éligibilité (OPCO Constructys) selon éligibilité.
           </p>

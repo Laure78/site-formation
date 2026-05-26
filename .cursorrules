@@ -56,7 +56,9 @@
 - **Maillage interne** : 3+ liens internes vers autres pages pertinentes par page
 - **CTA Calendly** : Intégrer naturellement dans le contenu (pas seulement en footer)
 - **Mots-clés principaux** :
-  - Formation IA BTP
+  - Formation IA pour le BTP
+  - Formation IA appliquée au bâtiment
+  - Formation IA pour les pro du BTP
   - ChatGPT bâtiment
   - IA artisan
   - Formation IA Île-de-France
@@ -78,7 +80,7 @@
 
 1. **Alt** : description factuelle + 1 mot-clé contextuel (page / thème) ; **max. 125 caractères** ; pas de « image de », « photo de » en tête ; pas de bourrage de mots-clés.
 2. **Décoratif** : `alt=""` (chaîne vide) — jamais « décoratif » en texte ; pas d’absence d’attribut `alt` sur `<img>` / `next/image`.
-3. **Logos** : `Logo [Organisation] — [contexte court]` (ex. partenaire formation IA BTP).
+3. **Logos** : `Logo [Organisation] — [contexte court]` (ex. partenaire formation IA pour le BTP).
 4. **Personnes** : `[Prénom Nom], [rôle], [contexte]` (ex. session de formation, lieu).
 5. **Title sur image** : optionnel ; **ne pas dupliquer l’alt** — info complémentaire au survol (tooltip).
 6. **Doublons visuels** (carrousel, marquee) : une seule bande avec textes alternatifs ; répétitions `aria-hidden` + `alt=""` sur les clones.
@@ -102,7 +104,7 @@
 
 6. **SEO** — **Title SEO** : format **`[Mot-clé principal] : [bénéfice] | Laure Olivié`**, **max. 65 caractères**.
 
-7. **SEO** — **Meta description** : **max. 160 caractères**, doit contenir **« formation IA BTP »** ou **« ChatGPT BTP »**.
+7. **SEO** — **Meta description** : **max. 160 caractères**, doit contenir **« formation IA pour le BTP »**, **« formation IA appliquée au bâtiment »**, **« formation IA pour les pro du BTP »** ou **« ChatGPT BTP »**.
 
 8. **SEO** — Chaque nouvelle page doit avoir **au moins un lien interne** depuis une page existante ; étendre **`lib/internal-links.ts`** si besoin (pas d’URL en dur hors ce fichier).
 

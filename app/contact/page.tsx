@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -12,9 +12,9 @@ import { FAQ_CONTACT } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP — Contact',
+  title: 'Formation IA pour les pro du BTP — Contact',
   description:
-    "Écrivez à Laure Olivié ou prenez rendez-vous pour une formation IA BTP sur mesure. Île-de-France et France. Financement Constructys pour PME.",
+    "Écrivez à Laure Olivié ou prenez rendez-vous pour une formation IA appliquée au bâtiment sur mesure. Île-de-France et France. Financement Constructys pour PME.",
   path: '/contact',
 });
 
@@ -74,9 +74,13 @@ export default async function ContactPage({
             >
               Me contacter
             </Link>
-            <RdvLink className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]">
-              Prendre rendez-vous
-            </RdvLink>
+            <CalendlyEmbed
+              type="popup"
+              variant="unstyled"
+              campaign="contact-hero"
+              ctaPosition="hero"
+              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
+            />
           </div>
             </div>
             <div className="shrink-0 lg:w-96">
@@ -98,6 +102,20 @@ export default async function ContactPage({
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <ContactDirect formationHint={formation} />
           </div>
+        </div>
+      </section>
+
+      {/* Widget Calendly complet */}
+      <section className="border-b border-slate-200 bg-white px-4 py-16">
+        <div className="mx-auto max-w-2xl">
+          <CalendlyEmbed
+            type="inline"
+            campaign="contact-inline"
+            ctaPosition="inline"
+            sectionTitle="Réservez votre visio découverte gratuite"
+            sectionSubtitle="30 minutes pour cadrer votre projet de formation IA pour le BTP — créneau au choix, confirmation immédiate."
+            heightPx={720}
+          />
         </div>
       </section>
 
@@ -171,7 +189,7 @@ export default async function ContactPage({
               relances clients. »
             </blockquote>
             <p>
-              Mes <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">formations IA BTP</Link> sont certifiées Qualiopi et peuvent être prises en
+              Mes <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">formations IA pour le BTP</Link> sont certifiées Qualiopi et peuvent être prises en
               prise en charge par votre OPCO selon éligibilité (Constructys, etc.). Je vous
               accompagne également dans les démarches administratives pour
               faciliter le financement de votre formation.
@@ -230,9 +248,13 @@ export default async function ContactPage({
             >
               Voir le catalogue formations
             </Link>
-            <RdvLink className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700">
-              Prendre rendez-vous
-            </RdvLink>
+            <CalendlyEmbed
+              type="popup"
+              variant="unstyled"
+              campaign="contact-mid"
+              ctaPosition="middle"
+              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+            />
           </div>
         </div>
       </section>
@@ -254,7 +276,7 @@ export default async function ContactPage({
             Prêt à gagner 3 à 5 heures par semaine ?
           </h2>
           <p className="mt-4 text-blue-100">
-            Contactez-moi pour discuter de votre projet de formation IA BTP et des
+            Contactez-moi pour discuter de votre projet de formation IA pour les pro du BTP et des
             modalités de financement.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
@@ -262,11 +284,15 @@ export default async function ContactPage({
               href="/formations"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
             >
-              Formation IA BTP
+              Formation IA appliquée au bâtiment
             </Link>
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
-              Prendre rendez-vous
-            </RdvLink>
+            <CalendlyEmbed
+              type="popup"
+              variant="unstyled"
+              campaign="contact-footer"
+              ctaPosition="footer"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            />
             <a
               href="mailto:laureolivie@yahoo.fr"
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"
@@ -278,7 +304,7 @@ export default async function ContactPage({
             <div className="rounded-xl bg-white/10 p-6">
               <AllerPlusLoin
                 links={[
-                  { href: '/formations', label: 'Formation IA BTP' },
+                  { href: '/formations', label: 'Formation IA pour le BTP' },
                   { href: '/formation-ia-artisans-btp', label: 'ChatGPT et IA pour votre entreprise BTP' },
                   { href: buildSiteCalendlyCtaUrl('contact-footer-rdv-diagnostic'), label: 'Prendre rendez-vous pour un diagnostic' },
                 ]}

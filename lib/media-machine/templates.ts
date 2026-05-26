@@ -40,7 +40,7 @@ export function getArticleTemplate(idea: {
     ],
     faq: [
       { q: 'Faut-il des compétences techniques pour utiliser l\'IA en BTP ?', a: 'Non. Une formation de 4h à 7h suffit. On travaille sur vos vrais documents (devis, emails, CR), sans code ni logiciel complexe. Méthode 100% pratique.' },
-      { q: 'La formation IA BTP est-elle finançable ?', a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.' },
+      { q: 'La formation IA pour le BTP est-elle finançable ?', a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.' },
       { q: 'Combien de temps un professionnel du BTP gagne-t-il avec l\'IA ?', a: 'En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus. Les gains sont mesurables dès la première semaine.' },
       { q: 'Comment prendre rendez-vous pour une formation ?', a: 'Réservez un créneau de 30 minutes gratuit sur notre page Prendre RDV. Vous recevrez un devis personnalisé sous 24h.' },
     ],
@@ -61,7 +61,7 @@ export function getLinkedInTemplate(articleTitle: string): LinkedInPostTemplate 
     problem: 'Les entreprises du BTP perdent un temps fou sur l\'administratif : devis, emails, comptes rendus. Des heures qui pourraient être passées sur le chantier.',
     insight: 'L\'IA change la donne. En 4h de formation, vous apprenez à utiliser ChatGPT pour diviser par 10 le temps de rédaction. Sans compétence technique.',
     example: 'Un plombier que j\'ai formé : devis de rénovation complète en 15 min au lieu de 2h. Il ajuste les prix, envoie. Le client signe. Simple.',
-    cta: `Découvrez la formation IA BTP — Financement possible selon éligibilité. Lien en bio.`,
+    cta: `Découvrez la formation IA pour les pro du BTP — Financement possible selon éligibilité. Lien en bio.`,
   };
 }
 

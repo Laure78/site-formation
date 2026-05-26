@@ -1,5 +1,5 @@
 /**
- * Pages locales « formation IA BTP » par département d’Île-de-France (+77).
+ * Pages locales « formation IA pour le BTP » par département d’Île-de-France (+77).
  * Contenus longs (SEO) — maillage : LINKS dans le composant.
  */
 import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
@@ -65,12 +65,12 @@ function ffbCasClient(deptCode: string): string {
 /** Yvelines (78) — contenu détaillé (pilote SEO). */
 export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-yvelines-78',
-  h1: 'Formation IA BTP en Yvelines (78) — Versailles et agglomération',
-  metaTitle: 'Formation IA BTP Yvelines — Laure Olivié · Qualiopi',
+  h1: 'Formation IA pour le BTP en Yvelines (78) — Versailles et agglomération',
+  metaTitle: 'Formation IA pour les pro du BTP Yvelines — Laure Olivié · Qualiopi',
   metaDescription:
     'Formation ChatGPT et Claude AI pour le BTP dans les Yvelines (78). Intervention à Versailles, Saint-Quentin-en-Yvelines et Mantes-la-Jolie. Qualiopi, financement possible selon éligibilité.',
   keywords: [
-    'formation IA BTP Yvelines',
+    'formation IA appliquée au bâtiment Yvelines',
     'formation ChatGPT 78',
     'Qualiopi Yvelines',
     'Constructys formation IA',
@@ -88,9 +88,9 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'Guyancourt',
     'Saint-Germain-en-Laye',
   ],
-  courseName: 'Formation IA BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
+  courseName: 'Formation IA pour le BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
   courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, présentiel ou distanciel, devis et chantier. Certification Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
-  serviceName: `Accompagnement formation IA BTP — département des Yvelines (78)`,
+  serviceName: `Accompagnement formation IA pour les pro du BTP — département des Yvelines (78)`,
   serviceDescription: `Prestation de formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises implantées dans le département des Yvelines (78) : interventions intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
   areaServedCourse: [
     'Yvelines',
@@ -111,7 +111,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Les chantiers « express » et les opérations de rénovation tertiaire autour de Versailles ou dans les zones d’activité de Saint-Quentin-en-Yvelines génèrent une documentation dispersée : pièces sur serveur, échanges de chantier, photos terrain. Sans cadre commun, l’IA devient un cinquième canal de bruit ; avec une formation encadrée Qualiopi, elle devient l’endroit où restructurer l’information avant archivage et envoi officiel.`,
     `Entre la vallée de la Mauldre et les secteurs plus ruraux du sud des Yvelines, le recrutement de profils administratifs reste tendu : chaque heure gagnée sur les modèles Word ou les mails répétitifs est une heure réinjectée sur le corps d’état critique. Les gains typiques observés après une première semaine d’application des méthodes vues en salle se situent souvent entre trois et cinq heures par semaine pour une petite équipe.`,
   ],
-  solutionTitle: 'La solution : une formation IA BTP courte, certifiée Qualiopi, centrée sur vos documents',
+  solutionTitle: 'La solution : une formation IA appliquée au bâtiment courte, certifiée Qualiopi, centrée sur vos documents',
   solutionBody: [
     `La réponse apportée aux équipes des Yvelines repose sur un format standard de quatre heures, en présentiel dans vos locaux (intra) ou à distance si vos équipes sont multi-sites. Le programme s’appuie sur les références du catalogue — notamment « L’IA au service du bâtiment » pour l’entrée de gamme, et des modules plus spécialisés pour les appels d’offres ou les fonctions RH selon vos besoins. Chaque séquence alterne démonstration, exercice guidé et mise en pratique sur des exemples réels : un extrait de devis, un courrier client, une trame de compte rendu de chantier, un sommaire de mémoire technique.`,
     `Le positionnement géographique du siège à Guyancourt facilite la logistique : pour une entreprise basée à Versailles, Poissy ou Sartrouville, le déplacement d’une formatrice habituée au vocabulaire BTP francilien limite les imprévus de calendrier. Pour les structures plus au nord-ouest (Mantes, limite des Yvelines), ou au sud (Rambouillet), nous planifions souvent des journées complètes ou des créneaux qui évitent les heures de pointe sur les grands axes — l’objectif est de protéger votre temps opérationnel.`,
@@ -123,7 +123,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   villesIntro: `Les sessions intra se déroulent chez vous ou sur le site que vous désignez. Voici des villes et bassins d’emploi fréquemment concernés dans le 78 — la liste n’est pas limitative : si votre commune n’y figure pas, un échange de 30 minutes permet de confirmer la faisabilité et les créneaux.`,
   villesFooter: [
     `De Versailles et Saint-Germain-en-Laye aux zones d’activité de Saint-Quentin-en-Yvelines et Vélizy, la diversité des tissus économiques impose des exemples d’atelier différents : bâtiment tertiaire, rénovation, réseaux, gros œuvre ou second œuvre. J’adapte les prompts et les cas pratiques à votre réalité — pas de « one size fits all ».`,
-    `Pour les entreprises qui travaillent aussi à Paris ou en petite couronne, il est utile de croiser cette page avec la fiche « formation IA BTP à Paris » du catalogue : les enjeux de marchés publics y sont souvent voisins, même si la logistique interne diffère.`,
+    `Pour les entreprises qui travaillent aussi à Paris ou en petite couronne, il est utile de croiser cette page avec la fiche « formation IA pour le BTP à Paris » du catalogue : les enjeux de marchés publics y sont souvent voisins, même si la logistique interne diffère.`,
     `Poissy, Sartrouville et les communes riveraines des grands axes restent des zones où l’on croise des entreprises de proximité et des filiales de grands groupes : la formation reste la même sur le fond (4 h, Qualiopi), mais les cas d’usage privilégient tantôt la relation client grand compte, tantôt le cycle de devis rapide auprès des particuliers.`,
   ],
   programmeTitle: 'Ce que contiennent concrètement les 4 heures (aperçu)',
@@ -153,7 +153,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   financeBody: [
     `Les entreprises du BTP adhérentes à Constructys peuvent examiner la prise en charge des actions de formation dans le cadre du plan de développement des compétences, selon les règles en vigueur (taille d’entreprise, plafonds pédagogiques, éligibilité des salariés concernés). Le département des Yvelines n’introduit pas de règle spécifique : en revanche, le fait d’avoir un organisme certifié Qualiopi facilite la cohérence des pièces attendues.`,
     `Pour une vision à jour des barèmes et des étapes administratives, reportez-vous au guide financement sur le site : les liens utiles et les précisions sur la TVA (intra / inter) y sont centralisés. Mon équipe et moi restons disponibles pour répondre aux questions de faisabilité avant signature du devis.`,
-    `En résumé : dans les Yvelines comme ailleurs, la valeur ajoutée d’une formation IA BTP tient à la combinaison d’un cadre certifié, d’exemples concrets sur vos documents, et d’une mise en œuvre progressive qui respecte votre charge de travail terrain.`,
+    `En résumé : dans les Yvelines comme ailleurs, la valeur ajoutée d’une formation IA pour les pro du BTP tient à la combinaison d’un cadre certifié, d’exemples concrets sur vos documents, et d’une mise en œuvre progressive qui respecte votre charge de travail terrain.`,
     `Pour les financements, la vigilance porte souvent sur la bonne catégorisation de l’action (intra vs inter), sur le respect des plafonds horaires Constructys et sur la cohérence entre effectifs déclarés et participants réels : ces points sont clarifiés avant signature pour éviter les surprises en fin de bilan pédagogique.`,
     `Si vous hésitez encore entre une sensibilisation courte et un module « AO » plus dense, l’appel découverte Calendly permet d’arbitrer : on croise votre secteur (public/privé), votre effectif cible et vos délais de marché — puis on verrouille une date intra ou une inscription inter selon le calendrier.`,
   ],
@@ -189,10 +189,10 @@ function buildDeptConfig(opts: {
 }): FormationIaBtpDeptLandingConfig {
   const { deptCode, departementNom } = opts;
   const d = `${departementNom} (${deptCode})`;
-  const h1 = `Formation IA BTP en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
-  const metaTitle = `Formation IA BTP ${opts.departementNom} — Laure Olivié · Qualiopi`;
+  const h1 = `Formation IA appliquée au bâtiment en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
+  const metaTitle = `Formation IA pour le BTP ${opts.departementNom} — Laure Olivié · Qualiopi`;
   const metaDescription = `Formation ChatGPT et Claude AI pour le BTP dans ${opts.departementNom} (${opts.deptCode}). Intervention à ${opts.triVillesMeta}. Qualiopi, financement possible selon éligibilité.`;
-  const courseName = `Formation IA BTP ${d} — Qualiopi, financement possible selon éligibilité`;
+  const courseName = `Formation IA pour les pro du BTP ${d} — Qualiopi, financement possible selon éligibilité`;
   return {
     path: opts.path,
     h1,
@@ -205,7 +205,7 @@ function buildDeptConfig(opts: {
     cities: opts.cities,
     courseName,
     courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP dans le département ${d}. Sessions 4 h, présentiel ou distanciel. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
-    serviceName: `Accompagnement formation IA BTP — département ${d}`,
+    serviceName: `Accompagnement formation IA appliquée au bâtiment — département ${d}`,
     serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du ${d} : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
     areaServedCourse: [departementNom, opts.chefLieu, 'Île-de-France', 'France'],
     areaServedService: [departementNom, 'Île-de-France', 'France'],
@@ -218,7 +218,7 @@ function buildDeptConfig(opts: {
       `Les opérations multi-intervenants (BET, architecte, coordinateur SPS) multiplient les circulaires et les versions de pièces : sans méthode, chaque relance devient un fil de mails interminable. L’IA aide à résumer et à reformuler, mais seulement si l’équipe partage les mêmes garde-fous — ce que la formation intra installe vite lorsque les décideurs sont présents.`,
       `Sur les axes ${opts.axes}, les créneaux « juste à temps » pèsent sur la disponibilité des conducteurs : réduire le temps passé sur les écrits administratifs, c’est aussi sécuriser la présence terrain et la qualité des réceptions.`,
     ],
-    solutionTitle: `Formation IA BTP dans le ${deptCode} : méthode, 4 h, résultats opérationnels`,
+    solutionTitle: `Formation IA pour le BTP dans le ${deptCode} : méthode, 4 h, résultats opérationnels`,
     solutionBody: [
       `La proposition de ${OFC} pour le ${d} combine un format court (4 h), des exercices sur vos documents réels, et un positionnement « terrain BTP » : pas de jargon startup, pas de promesse irréaliste sur l’automatisation totale. Nous travaillons des cas concrets — devis, mails, synthèses, brouillons de mémoires — avec des itérations guidées pour améliorer le ton et la structure.`,
       `Le siège à Guyancourt (78) permet d’organiser des déplacements en Île-de-France avec des créneaux réalistes : pour les entreprises ${opts.temoignageZone}, nous ajustons la journée pour limiter l’impact sur le chantier. Le distanciel reste possible si vos équipes sont réparties sur plusieurs sites du département.`,
@@ -231,7 +231,7 @@ function buildDeptConfig(opts: {
     villesIntro: `Les sessions intra se déroulent dans vos locaux ou sur site. Voici des villes représentatives du département — liste non exhaustive ; si votre commune n’apparaît pas, un court échange permet de confirmer la logistique et les dates.`,
     villesFooter: [
       `Les enjeux locaux varient : ${opts.perimetre}. J’adapte les exemples d’atelier (types de marchés, typologie de clients, part de public/privé) pour que l’équipe reconnaisse son quotidien.`,
-      `Pour une vision régionale, la page « formation IA BTP Île-de-France » et le catalogue des formations complètent cette approche départementale.`,
+      `Pour une vision régionale, la page « formation IA pour les pro du BTP Île-de-France » et le catalogue des formations complètent cette approche départementale.`,
     ],
     programmeTitle: 'Contenu pédagogique type sur une demi-journée (4 h)',
     programmeBody: [
@@ -281,7 +281,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
   chefLieuAgglo: 'Melun',
   triVillesMeta: 'Melun, Meaux et Chessy',
   keywords: [
-    'formation IA BTP 77',
+    'formation IA appliquée au bâtiment 77',
     'formation ChatGPT Seine-et-Marne',
     'Qualiopi 77',
     'formation IA Meaux',
@@ -309,7 +309,7 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
   chefLieuAgglo: 'Évry-Courcouronnes',
   triVillesMeta: 'Évry-Courcouronnes, Massy et Palaiseau',
   keywords: [
-    'formation IA BTP 91',
+    'formation IA pour le BTP 91',
     'formation ChatGPT Essonne',
     'Qualiopi 91',
     'formation IA Massy',
@@ -337,7 +337,7 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   chefLieuAgglo: 'Nanterre',
   triVillesMeta: 'Nanterre, Boulogne-Billancourt et Issy-les-Moulineaux',
   keywords: [
-    'formation IA BTP 92',
+    'formation IA pour les pro du BTP 92',
     'formation ChatGPT Hauts-de-Seine',
     'Qualiopi 92',
     'formation IA Nanterre',
@@ -373,7 +373,7 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
   chefLieuAgglo: 'Bobigny',
   triVillesMeta: 'Bobigny, Saint-Denis et Montreuil',
   keywords: [
-    'formation IA BTP 93',
+    'formation IA appliquée au bâtiment 93',
     'formation ChatGPT Seine-Saint-Denis',
     'Qualiopi 93',
     'formation IA Saint-Denis',
@@ -401,7 +401,7 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   chefLieuAgglo: 'Créteil',
   triVillesMeta: 'Créteil, Vincennes et Vitry-sur-Seine',
   keywords: [
-    'formation IA BTP 94',
+    'formation IA pour le BTP 94',
     'formation ChatGPT Val-de-Marne',
     'Qualiopi 94',
     'formation IA Créteil',
@@ -437,7 +437,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   chefLieuAgglo: 'Cergy',
   triVillesMeta: 'Cergy, Pontoise et Argenteuil',
   keywords: [
-    "formation IA BTP 95",
+    "formation IA pour les pro du BTP 95",
     "formation ChatGPT Val-d'Oise",
     'Qualiopi 95',
     'formation IA Cergy',
@@ -457,7 +457,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   ],
 });
 
-/** URLs des 7 landings SEO « formation IA BTP » par département (sitemap, contrôle maillage). */
+/** URLs des 7 landings SEO « formation IA appliquée au bâtiment » par département (sitemap, contrôle maillage). */
 export const FORMATION_IA_BTP_DEPT_LANDING_PATHS = [
   FORMATION_IA_BTP_SEINE_ET_MARNE_77.path,
   FORMATION_IA_BTP_YVELINES_78.path,

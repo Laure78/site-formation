@@ -78,13 +78,13 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
       publishedTime: '2026-04-15',
       modifiedTime: '2026-04-15',
       author: SITE_CONFIG.name,
-      section: 'Formation IA BTP',
+      section: 'Formation IA pour les pro du BTP',
     },
     image: {
       url: '/images/laure-olivie-formatrice.png',
       width: 1200,
       height: 630,
-      alt: `${config.departementNom} (${config.deptCode}) — formation IA BTP Qualiopi, Laure Olivié`,
+      alt: `${config.departementNom} (${config.deptCode}) — formation IA appliquée au bâtiment Qualiopi, Laure Olivié`,
     },
   });
 }
@@ -322,7 +322,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Liens utiles</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Accès direct aux ressources les plus consultées après une recherche « formation IA BTP » par département :
+            Accès direct aux ressources les plus consultées après une recherche « formation IA pour le BTP » par département :
             catalogue officiel, page Paris (alias court /formation-ia-btp-paris), présentation de la formatrice et
             articles de fond.
           </p>
@@ -343,7 +343,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
                 href={LINKS.formationIaBtpParis}
                 className="flex h-full flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3] hover:bg-white"
               >
-                <span className="text-slate-900">Formation IA BTP — Paris</span>
+                <span className="text-slate-900">Formation IA pour les pro du BTP — Paris</span>
                 <span className="mt-2 text-sm font-normal text-slate-600">
                   Paris &amp; petite couronne (redirection canonique vers la fiche catalogue).
                 </span>
@@ -407,7 +407,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       <FAQSection
         id={`faq-formation-ia-dept-${config.deptCode}`}
         items={config.faq}
-        title={`FAQ — formation IA BTP ${crumbDept}`}
+        title={`FAQ — formation IA appliquée au bâtiment ${crumbDept}`}
         subtitle="Déplacements, formats intra / inter, distanciel, financement et calendrier."
       />
 

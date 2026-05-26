@@ -56,7 +56,7 @@ En **Île-de-France**, la densité d’AO et la concurrence rendent la **véloci
 **Liens internes :**  
 → [Formation IA conducteur de travaux](/formation-ia-conducteur-travaux/)  
 → [Formation analyse CCTP / DCE](/formations/formation-ia-cctp-analyse-dce-btp)  
-→ [Guide blog formation IA BTP](/blog/formation-ia-btp-guide-complet-2026)
+→ [Guide blog formation IA appliquée au bâtiment](/blog/formation-ia-btp-guide-complet-2026)
 
 ---
 

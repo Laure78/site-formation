@@ -85,7 +85,7 @@ export function ArticlesFormationLies() {
                     <Image
                       src={PHOTOS.siteAvatar.src}
                       alt={PHOTOS.siteAvatar.alt}
-                      title="Laure Olivié — OFC Création d'Entreprise, formatrice IA BTP"
+                      title="Laure Olivié — OFC Création d'Entreprise, formatrice IA pour les pro du BTP"
                       width={36}
                       height={36}
                       className="h-9 w-9 rounded-full object-cover"

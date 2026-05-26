@@ -52,7 +52,7 @@ interface CTABlockProps {
 export function CTABlock({
   title = 'Prêt à vous former à l\'IA ?',
   description,
-  primaryLabel = 'Découvrir la formation IA BTP',
+  primaryLabel = 'Découvrir la formation IA appliquée au bâtiment',
   primaryHref = '/formations',
   primaryCalendlyCampaign = 'cta-block-primary',
   secondaryLabel = 'Prendre rendez-vous (30 min, gratuit)',

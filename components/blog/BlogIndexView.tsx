@@ -96,7 +96,7 @@ export function BlogIndexView({
           <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
             {mode === 'category' && categoryId
               ? `Articles IA BTP — ${BLOG_CATEGORIES[categoryId]}`
-              : 'Blog Formation IA BTP : ressources et articles'}
+              : 'Blog Formation IA pour le BTP : ressources et articles'}
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-slate-600 md:text-xl">
             Guides pratiques sur l&apos;IA pour le BTP, le financement des formations et les gains de productivité.
@@ -187,7 +187,7 @@ export function BlogIndexView({
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6">
           <p className="font-semibold text-slate-900">
-            Formations IA BTP — Devis et chiffrage · Appels d&apos;offres · Productivité chantier
+            Formations IA pour le BTP — Devis et chiffrage · Appels d&apos;offres · Productivité chantier
           </p>
           <Link
             href="/formations"
@@ -358,7 +358,7 @@ export function BlogIndexView({
         <FAQSectionServer
           id="faq"
           items={FAQ_BLOG}
-          title="Questions fréquentes — Blog formation IA BTP"
+          title="Questions fréquentes — Blog formation IA pour les pro du BTP"
         />
       </section>
 

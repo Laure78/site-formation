@@ -152,7 +152,7 @@ export function ChatWidget() {
           <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
             <div>
               <p className="font-display font-semibold text-slate-900">Assistant Laure</p>
-              <p className="text-xs text-slate-500">Formation IA BTP</p>
+              <p className="text-xs text-slate-500">Formation IA pour le BTP</p>
             </div>
             <button
               type="button"

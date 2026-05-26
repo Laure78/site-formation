@@ -431,9 +431,9 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
             { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
-            { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
+            { href: LINKS.formations, label: 'Catalogue formations IA pour les pro du BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-assistante-administrative-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}

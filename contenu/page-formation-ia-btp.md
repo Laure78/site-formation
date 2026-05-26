@@ -9,16 +9,16 @@ Domaine canonique : `https://www.laureolivie.fr/formation-ia-btp/`
 
 | Élément | Valeur |
 |--------|--------|
-| **Titre de page (admin)** | Formation IA BTP — ChatGPT pour le Bâtiment en Île-de-France *(peut être raccourci en admin ; le **H1** Elementor prime pour l’affichage)* |
+| **Titre de page (admin)** | Formation IA pour le BTP — ChatGPT pour le Bâtiment en Île-de-France *(peut être raccourci en admin ; le **H1** Elementor prime pour l’affichage)* |
 | **Slug** | `formation-ia-btp` |
 | **Modèle** | Page large — full-width, **sans sidebar** |
 | **Image à la une** | Photo d’ambiance formation BTP |
-| **Alt image à la une** | `Formation IA BTP en Île-de-France par Laure Olivié` |
+| **Alt image à la une** | `Formation IA pour les pro du BTP en Île-de-France par Laure Olivié` |
 
 ### Rank Math (ou équivalent)
 
-- **Title SEO** : `Formation IA BTP Île-de-France — ChatGPT 2026 | Laure Olivié`
-- **Meta description** : `Formation IA BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.`
+- **Title SEO** : `Formation IA appliquée au bâtiment Île-de-France — ChatGPT 2026 | Laure Olivié`
+- **Meta description** : `Formation IA pour le BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.`
 - **Schema FAQPage** : activer sur cette page pour le bloc FAQ (section 8) — *Rank Math → Schema → FAQ* ou module FAQ Elementor compatible Rank Math.
 
 ### Schémas structurés
@@ -69,7 +69,7 @@ Ancres HTML suggérées pour le **sommaire** (identifiants uniques, sans accents
 ### H1 (unique)
 
 ```text
-Formation IA BTP — ChatGPT pour le Bâtiment en Île-de-France
+Formation IA pour les pro du BTP — ChatGPT pour le Bâtiment en Île-de-France
 ```
 
 ### Chiffres clés (sous-titre ou ligne de badges)
@@ -117,7 +117,7 @@ Le problème : la plupart des formations IA généralistes **ne parlent pas** le
 
 **Titre H2** : Ce que vous allez maîtriser — cas d’usage concrets
 
-La formation IA BTP est une **formation pratique** : vous travaillez sur des situations réelles (devis, emails, appels d’offres, comptes rendus de chantier).
+La formation IA appliquée au bâtiment est une **formation pratique** : vous travaillez sur des situations réelles (devis, emails, appels d’offres, comptes rendus de chantier).
 
 **Exemples de gains :**
 
@@ -185,7 +185,7 @@ La formation IA BTP est une **formation pratique** : vous travaillez sur des sit
 
 ### 1. Faut-il être bon en informatique pour suivre cette formation ?
 
-Non. La formation IA BTP ne nécessite aucune compétence informatique particulière. ChatGPT fonctionne en français naturel — vous écrivez comme vous parleriez à un collègue compétent. Savoir utiliser un smartphone ou naviguer sur internet suffit.
+Non. La formation IA pour le BTP ne nécessite aucune compétence informatique particulière. ChatGPT fonctionne en français naturel — vous écrivez comme vous parleriez à un collègue compétent. Savoir utiliser un smartphone ou naviguer sur internet suffit.
 
 ### 2. Quelle est la durée de la formation ?
 
@@ -224,7 +224,7 @@ Laure Olivié est **formatrice IA et ChatGPT pour le BTP**. Elle a créé **OFC 
 
 **Schema Person** : renseigner dans Rank Math le nom, l’URL, le logo / photo, `sameAs` (LinkedIn, etc.), `jobTitle` (ex. *Formatrice IA & ChatGPT — BTP*).
 
-**Lien interne** : [Laure Olivié — formatrice IA BTP](/a-propos/)
+**Lien interne** : [Laure Olivié — formatrice IA pour le BTP](/a-propos/)
 
 ---
 

@@ -41,15 +41,15 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ref: 'NIV-02',
     level: 'AVANCÉ',
     path: '/formations/ia-appels-offre-btp',
-    name: "L'IA au service des appels d'offre BTP",
+    name: "L'IA appliquée aux appels d'offres BTP",
     description:
-      "Formation niveau 2 — 4 h : analyse DCE avec NotebookLM, Go / No Go, mémoires techniques et contrôle de chiffrage avec Claude AI — Qualiopi, OPCO Constructys.",
+      "Formation niveau 2 — 4 h : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — Qualiopi, OPCO Constructys.",
     teaches: [
-      'Analyse d’un DCE avec NotebookLM (CCTP, DPGF, règlement de consultation)',
-      'Décision Go / No Go, prompts de chiffrage et lecture de rentabilité avec Claude AI',
-      'Structure et rédaction assistée d’un mémoire technique (sections, relecture, cohérence)',
-      'Contrôle de chiffrage, détection des risques et oublis avant dépôt d’offre',
-      'Gain de temps sur la chaîne complète de réponse aux appels d’offres BTP',
+      'Paramétrage Claude AI Pro (Projects, instructions) et installation Cowork',
+      'Analyse DCE via Cowork — 15 informations critiques, CCAP, CCTP, verdict Go / No Go',
+      'Structure et rédaction assistée d’un mémoire technique (5 sections clés, relecture experte)',
+      'Création de skills Cowork personnalisés DCE / MT alimentés par les données entreprise',
+      'Évaluation et personnalisation des contenus générés — conformité technique BTP',
     ],
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
@@ -112,7 +112,7 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
       {
         '@type': 'ItemList',
         '@id': `${SITE_CONFIG.url}/formations#course-list`,
-        name: 'Catalogue des formations IA BTP',
+        name: 'Catalogue des formations IA pour le BTP',
         description:
           'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d’offres, ChatGPT. Finançable Constructys.',
         numberOfItems: list.length,
@@ -194,7 +194,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
 
 const PARIS_FORMATION_DEDICATED = {
-  name: 'Formation IA BTP à Paris',
+  name: 'Formation IA pour le BTP à Paris',
   description:
     'Formation de 4 h pour professionnels du BTP en Île-de-France : devis, chiffrages, ChatGPT. Paris (75) et huit départements. Qualiopi · Constructys.',
   educationalLevel: 'Débutant' as const,

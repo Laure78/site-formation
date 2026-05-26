@@ -16,9 +16,9 @@ import { createPageMetadata } from '@/lib/seo';
 export const metadata = createPageMetadata({
   title: 'Annuaire national des partenaires handicap — OFC Création d\'Entreprise',
   description:
-    "Annuaire handicap : AGEFIPH, MDPH, accompagnement. Contacts utiles pour stagiaires en situation de handicap en formation IA BTP organisée par OFC.",
+    "Annuaire handicap : AGEFIPH, MDPH, accompagnement. Contacts utiles pour stagiaires en situation de handicap en formation IA pour les pro du BTP organisée par OFC.",
   path: '/annuaire-handicap',
-  keywords: ['handicap formation professionnelle', 'AGEFIPH', 'MDPH', 'formation IA BTP'],
+  keywords: ['handicap formation professionnelle', 'AGEFIPH', 'MDPH', 'formation IA appliquée au bâtiment'],
 });
 
 export default function AnnuaireHandicapPage() {

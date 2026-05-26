@@ -13,7 +13,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureol
 export const INTERNAL_LINKS = {
   formations: {
     path: LINKS.formations,
-    anchors: ['formation IA BTP', 'catalogue formations IA', 'formations IA bâtiment'],
+    anchors: ['formation IA pour les pro du BTP', 'catalogue formations IA', 'formations IA bâtiment'],
   },
   /** Prise de RDV — lien direct Calendly (nouvel onglet côté UI) */
   prendreRdv: {
@@ -38,11 +38,11 @@ export const INTERNAL_LINKS = {
   },
   financementConstructys: {
     path: LINKS.financement,
-    anchors: ['financement Constructys', 'OPCO Constructys', 'financer formation IA BTP'],
+    anchors: ['financement Constructys', 'OPCO Constructys', 'financer formation IA appliquée au bâtiment'],
   },
   financement100: {
     path: LINKS.financement100,
-    anchors: ['financement Constructys formation IA BTP', 'formation IA Constructys selon éligibilité', 'financement selon éligibilité'],
+    anchors: ['financement Constructys formation IA pour le BTP', 'formation IA Constructys selon éligibilité', 'financement selon éligibilité'],
   },
   diagnostic: {
     path: LINKS.diagnostic,
@@ -50,7 +50,7 @@ export const INTERNAL_LINKS = {
   },
   blog: {
     path: LINKS.blog,
-    anchors: ['ressources IA BTP', 'articles formation IA', 'blog formation IA BTP'],
+    anchors: ['ressources IA BTP', 'articles formation IA', 'blog formation IA pour les pro du BTP'],
   },
   aPropos: {
     path: LINKS.aPropos,

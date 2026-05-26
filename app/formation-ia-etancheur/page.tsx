@@ -28,7 +28,7 @@ export const metadata = createPageMetadata({
     'formation IA étanchéité',
     'IA pour entreprise d\u2019étanchéité',
     'ChatGPT pour étancheur',
-    'formation IA BTP étanchéité',
+    'formation IA appliquée au bâtiment étanchéité',
     'devis étanchéité bicouche IA',
     'mémoire technique étanchéité',
     'CCTP toiture-terrasse ChatGPT',
@@ -566,7 +566,7 @@ export default function FormationIaEtancheurPage() {
 
         <AllerPlusLoin
           links={[
-            { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
+            { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
             { href: LINKS.repondreAoLanding, label: 'Formation IA appels d\u2019offres BTP' },
             { href: LINKS.formationClaudeAiBatiment, label: 'Formation Claude AI bâtiment' },
             { href: LINKS.financement, label: 'Financement Constructys' },

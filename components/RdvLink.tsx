@@ -1,34 +1,30 @@
-import type { AnchorHTMLAttributes } from 'react';
-import { CTACalendly } from '@/components/CTACalendly';
+import type { CalendlyEmbedProps } from '@/components/CalendlyEmbed';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
-type RdvLinkProps = Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  'href' | 'target' | 'rel'
-> & {
+type RdvLinkProps = Omit<CalendlyEmbedProps, 'type'> & {
   page?: string;
-  ctaPosition?: 'hero' | 'middle' | 'footer' | 'inline' | 'unknown';
-  /** Nom explicite pour utm_campaign (recommandé sur chaque emplacement). */
-  campaign?: string;
 };
 
-/** Lien vers la prise de RDV Calendly (nouvel onglet). */
+/** Bouton popup Calendly — alias métier pour prise de RDV. */
 export function RdvLink({
   className,
   children,
   page,
   ctaPosition = 'unknown',
   campaign,
+  variant = 'unstyled',
   ...rest
 }: RdvLinkProps) {
   return (
-    <CTACalendly
+    <CalendlyEmbed
+      type="popup"
       className={className}
-      page={page}
       ctaPosition={ctaPosition}
-      utmCampaign={campaign}
+      campaign={campaign}
+      variant={variant}
       {...rest}
     >
       {children}
-    </CTACalendly>
+    </CalendlyEmbed>
   );
 }

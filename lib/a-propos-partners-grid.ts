@@ -10,7 +10,7 @@ export type AProposPartner = {
 };
 
 export const A_PROPOS_PARTNERS_FACTUAL_SENTENCE =
-  "Laure Olivié a animé des formations IA BTP pour la FFB Grand Paris, la FFB Île-de-France Est, la FFB Île-de-France Ouest (78-91-95), la FFB Artisans, la Chambre Syndicale Française de l'Étanchéité (CSFE), le CNAM Entreprise, Lefebvre Dalloz, l'IFRB 77 et ARFAB." as const;
+  "Laure Olivié a animé des formations IA pour les pro du BTP pour la FFB Grand Paris, la FFB Île-de-France Est, la FFB Île-de-France Ouest (78-91-95), la FFB Artisans, la Chambre Syndicale Française de l'Étanchéité (CSFE), le CNAM Entreprise, Lefebvre Dalloz, l'IFRB 77 et ARFAB." as const;
 
 export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
   {

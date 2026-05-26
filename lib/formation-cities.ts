@@ -1,5 +1,5 @@
 /**
- * Configuration des pages formation IA BTP par ville (Île-de-France).
+ * Configuration des pages formation IA pour les pro du BTP par ville (Île-de-France).
  * Pages hors IDF (Lyon, Bordeaux, Lille) retirées — redirection 301 vers /formation-ia-btp-ile-de-france.
  */
 
@@ -75,7 +75,7 @@ export const ILE_DE_FRANCE = {
   regionLabel: 'Yvelines',
   customHeroRefLine: 'OFC Création d’Entreprise · Île-de-France · Présentiel · Qualiopi',
   customHeroTitle:
-    'Formation IA BTP en Île-de-France : gagnez du temps sur vos chantiers et vos dossiers',
+    'Formation IA appliquée au bâtiment en Île-de-France : gagnez du temps sur vos chantiers et vos dossiers',
   customHeroSubtitle:
     'Devis, emails, appels d’offres et organisation chantier — méthode terrain, sans jargon inutile',
   customHeroIntro: [

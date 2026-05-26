@@ -51,7 +51,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-04-16',
     modifiedTime: '2026-04-16',
     author: SITE_CONFIG.name,
-    section: 'Formation IA BTP',
+    section: 'Formation IA pour les pro du BTP',
   },
 });
 
@@ -95,7 +95,7 @@ const schemaGraph = {
       instructor: {
         '@type': 'Person',
         name: SCHEMA_PERSON_LAURE.name,
-        jobTitle: 'Formatrice IA BTP',
+        jobTitle: 'Formatrice IA pour le BTP',
         description:
           "Ancienne dirigeante d'entreprise de travaux publics (ALIA BTP), conductrice de travaux. Formatrice IA certifiée Qualiopi.",
       },
@@ -517,7 +517,7 @@ export default function FormationIaAnalyseCctpPage() {
             href={LINKS.financement}
             className="mt-6 inline-flex rounded-xl bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white hover:bg-[#2d6ae0]"
           >
-            Guide financement Constructys — formation IA BTP
+            Guide financement Constructys — formation IA appliquée au bâtiment
           </Link>
         </div>
       </section>
@@ -536,7 +536,7 @@ export default function FormationIaAnalyseCctpPage() {
             </Link>
             , page pilier{' '}
             <Link href={LINKS.formationIaBtp} className="font-medium text-[#377CF3] hover:underline">
-              formation IA BTP
+              formation IA pour le BTP
             </Link>
             . Les prompts détaillés sont accessibles via le lien « Télécharger les 5 prompts… » en tête de page.
           </p>

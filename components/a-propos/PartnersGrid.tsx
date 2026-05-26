@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle2 } from 'lucide-react';
+import { LINKS } from '@/lib/internal-links';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
   A_PROPOS_PARTNERS_FACTUAL_SENTENCE,
@@ -10,7 +11,7 @@ import { PHOTOS } from '@/lib/photos';
 
 export function PartnersGrid() {
   return (
-    <section id="clients-partenaires" className="scroll-mt-24">
+    <section className="scroll-mt-24">
       <div className="mx-auto max-w-6xl rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
         <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">Ils m&apos;ont fait confiance</h2>
         <p className="mt-3 text-base text-[#64748B]">
@@ -76,7 +77,7 @@ export function PartnersGrid() {
                   </li>
                 ))}
               </ul>
-              <Link href="/etudes-de-cas/ffb-csfe" className="mt-6 inline-block text-sm font-semibold text-[#377CF3] hover:underline">
+              <Link href={LINKS.etudesCas} className="mt-6 inline-block text-sm font-semibold text-[#377CF3] hover:underline">
                 Étude de cas FFB &amp; CSFE →
               </Link>
             </div>

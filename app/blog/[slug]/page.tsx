@@ -35,7 +35,6 @@ import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import TableOfContents from '@/components/TableOfContents';
 
 interface Props {
@@ -193,12 +192,6 @@ export default async function BlogArticlePage({ params }: Props) {
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}
-      <Breadcrumbs
-        items={[
-          { label: 'Blog', href: '/blog' },
-          { label: article.title },
-        ]}
-      />
 
       <article>
         <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
@@ -529,7 +522,7 @@ export default async function BlogArticlePage({ params }: Props) {
               <Link
                 href={LINKS.financement}
                 className="text-[var(--accent)] font-medium hover:underline"
-                title="Financement OPCO Constructys — formation IA BTP"
+                title="Financement OPCO Constructys — formation IA appliquée au bâtiment"
               >
                 Financement Constructys
               </Link>
@@ -563,8 +556,8 @@ export default async function BlogArticlePage({ params }: Props) {
           <Link href={LINKS.chatgptArtisans} className="text-[var(--accent)] hover:underline" title="ChatGPT pour entreprises BTP">
             ChatGPT pour entreprises BTP
           </Link>
-          <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA BTP à Paris et Île-de-France">
-            Formation IA BTP Paris
+          <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA pour le BTP à Paris et Île-de-France">
+            Formation IA pour les pro du BTP Paris
           </Link>
           <RdvLink campaign={`blog-article-${slug}-footer-maillage`} className="text-[var(--accent)] hover:underline">
             Prendre rendez-vous

@@ -116,22 +116,26 @@ export function Breadcrumb({
       {showVisual ? (
         <nav
           aria-label="Fil d'Ariane"
-          className={className ?? 'mb-4 text-sm text-slate-600'}
+          className={className ?? 'text-sm text-[#64748B]'}
         >
           <ol className="flex flex-wrap items-center gap-2">
             {trail.map((item, index) => {
               const isLast = index === trail.length - 1;
               return (
                 <li key={`${item.href}-${index}`} className="flex items-center gap-2">
-                  {index > 0 ? <span aria-hidden>/</span> : null}
+                  {index > 0 ? (
+                    <span aria-hidden className="select-none text-[#64748B]">
+                      ›
+                    </span>
+                  ) : null}
                   {isLast ? (
-                    <span className="font-medium text-slate-900" aria-current="page">
+                    <span className="font-medium text-slate-800" aria-current="page">
                       {item.label}
                     </span>
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-[var(--accent)] underline hover:text-[#377CF3]"
+                      className="text-[#64748B] transition-colors hover:text-slate-900 hover:underline"
                     >
                       {item.label}
                     </Link>

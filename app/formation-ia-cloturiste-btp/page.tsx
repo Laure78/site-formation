@@ -22,7 +22,7 @@ export const metadata = createPageMetadata({
     'ChatGPT devis clôture',
     'portail motorisé devis',
     'grillage poseur IA',
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'OPCO Constructys',
     'Qualiopi BTP',
     'automatisme portail',
@@ -401,7 +401,7 @@ export default function FormationIaCloturisteBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
             { href: '/formation-ia-macon-paysagiste-btp', label: 'Formation IA maçon paysagiste BTP' },
             { href: '/formation-ia-paysagiste-btp', label: 'Formation IA paysagiste BTP' },
             { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },

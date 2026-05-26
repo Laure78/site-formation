@@ -35,7 +35,7 @@ function buildAuthorBioPersonSchema(): Record<string, unknown> {
     '@type': 'Person',
     name: SCHEMA_PERSON_LAURE.name,
     jobTitle:
-      "Formatrice IA BTP, fondatrice et présidente d'OFC Création d'Entreprise",
+      "Formatrice IA pour le BTP, fondatrice et présidente d'OFC Création d'Entreprise",
     url: `${base}${LINKS.aPropos}`,
     image: portraitUrl,
     sameAs: [
@@ -50,7 +50,7 @@ function buildAuthorBioPersonSchema(): Record<string, unknown> {
       url: base,
     },
     alumniOf: 'ALIA BTP (2017-2024)',
-    knowsAbout: ['Formation IA BTP', 'ChatGPT', 'Claude AI', 'Construction', 'BTP'],
+    knowsAbout: ['Formation IA pour les pro du BTP', 'ChatGPT', 'Claude AI', 'Construction', 'BTP'],
   };
 }
 

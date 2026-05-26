@@ -12,7 +12,7 @@ export const PHOTOS = {
   /** Avatar site — même fichier que le portrait rond du header (fond clair, cohérence NAP / marque) */
   siteAvatar: {
     src: '/images/laure-portrait-header-2026.png',
-    alt: "Laure Olivié, formatrice IA BTP certifiée Qualiopi — OFC Création d'Entreprise",
+    alt: "Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi — OFC Création d'Entreprise",
     width: 682,
     height: 1024,
   },
@@ -29,7 +29,7 @@ export const PHOTOS = {
   // Photo legacy — bloc auteur précédent ; le composant `@/components/AuthorBio` utilise `siteAvatar`.
   linkedinGraz: {
     src: '/images/laure-olivie-linkedin-graz.png',
-    alt: 'Laure Olivié, formatrice IA BTP — auteure articles intelligence artificielle bâtiment',
+    alt: 'Laure Olivié, formatrice IA pour les pro du BTP — auteure articles intelligence artificielle bâtiment',
     width: 682,
     height: 1024,
   },
@@ -53,7 +53,7 @@ export const PHOTOS = {
   // Photo studio fond clair (portrait)
   studioLight: {
     src: '/images/laure-studio-light.png',
-    alt: 'Formation IA BTP animée par Laure Olivié pour automatiser les tâches administratives du bâtiment',
+    alt: 'Formation IA pour le BTP animée par Laure Olivié pour automatiser les tâches administratives du bâtiment',
     width: 912,
     height: 1024,
   },
@@ -69,7 +69,7 @@ export const PHOTOS = {
   // Photo formation en entreprise
   formationEntreprise: {
     src: '/images/formation-ia-btp-entreprise.png',
-    alt: 'Atelier formation IA BTP en entreprise — session pratique sur documents réels avec Laure Olivié',
+    alt: 'Atelier formation IA appliquée au bâtiment en entreprise — session pratique sur documents réels avec Laure Olivié',
     width: 1024,
     height: 571,
   },
@@ -119,7 +119,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Difficulté recrutement
   bannerRecrutementDifficile: {
     src: '/images/linkedin-learning-recrutement-difficile.png',
-    alt: 'Formation IA BTP : recruter efficacement avec l\'intelligence artificielle par Laure Olivié',
+    alt: 'Formation IA pour les pro du BTP : recruter efficacement avec l\'intelligence artificielle par Laure Olivié',
     width: 1024,
     height: 682,
   },
@@ -151,7 +151,7 @@ export const PHOTOS = {
   // Ouvrier chantier confiant (carré)
   ouvrierConfiant: {
     src: '/images/ouvrier-chantier-confiant.png',
-    alt: 'Professionnel du bâtiment ou ouvrier qualifié — formation IA BTP pour gagner du temps sur les tâches administratives',
+    alt: 'Professionnel du bâtiment ou ouvrier qualifié — formation IA appliquée au bâtiment pour gagner du temps sur les tâches administratives',
     width: 1024,
     height: 1024,
   },
@@ -223,7 +223,7 @@ export const PHOTOS = {
   /** Nouveau portrait principal 2026 (présentation Laure) — page À propos & blocs auteur */
   portraitPro2026: {
     src: '/images/laure-portrait-pro-2026.png',
-    alt: `Laure Olivié en formation IA BTP — 10 ans d'expérience terrain BTP, +${formatProfessionalsTrainedCount()} professionnels formés`,
+    alt: `Laure Olivié en formation IA pour le BTP — 10 ans d'expérience terrain BTP, +${formatProfessionalsTrainedCount()} professionnels formés`,
     width: 682,
     height: 1024,
   },
@@ -269,7 +269,7 @@ export const PHOTOS = {
   /** Photos terrain / pédagogie 2026 (sessions réelles BTP) */
   btpFormationSalleIntervention2026: {
     src: '/images/btp-formation-salle-intervention-2026.png',
-    alt: 'Formation IA BTP en salle : intervenante devant un groupe de professionnels du bâtiment et des travaux publics',
+    alt: 'Formation IA pour les pro du BTP en salle : intervenante devant un groupe de professionnels du bâtiment et des travaux publics',
     width: 1024,
     height: 682,
   },
@@ -327,14 +327,14 @@ export const PHOTOS = {
   },
   formationIaBtpSalleModerne2026: {
     src: '/images/formation-ia-btp-salle-moderne-2026.jpg',
-    alt: 'Formation IA BTP en salle lumineuse : intervenante et groupe de professionnels du bâtiment, travail sur ordinateurs',
+    alt: 'Formation IA pour le BTP en salle lumineuse : intervenante et groupe de professionnels du bâtiment, travail sur ordinateurs',
     width: 1024,
     height: 682,
   },
 
   btpFormationVisioChantier2026: {
     src: '/images/btp-formation-visio-chantier-2026.png',
-    alt: 'Formation IA BTP à distance : échange entre bureau et terrain, cas concrets entreprise du bâtiment',
+    alt: 'Formation IA appliquée au bâtiment à distance : échange entre bureau et terrain, cas concrets entreprise du bâtiment',
     width: 1024,
     height: 682,
   },
@@ -354,15 +354,15 @@ export const PHOTOS = {
   formationIaBtpPillarCarteCatalogue2026: {
     src: '/images/formation-ia-btp-carte-catalogue-btp-01-2026.png',
     alt:
-      'Carte catalogue formation IA BTP-01 débutant — L\'IA au service du bâtiment ; salle avec professionnels aux ordinateurs et formatrice',
+      'Carte catalogue formation IA pour le BTP-01 débutant — L\'IA au service du bâtiment ; salle avec professionnels aux ordinateurs et formatrice',
     width: 776,
     height: 602,
   },
 
-  /** Open Graph / partages — page pilier formation IA BTP (portrait formatrice). */
+  /** Open Graph / partages — page pilier formation IA pour les pro du BTP (portrait formatrice). */
   formationIaBtpOgPortrait2026: {
     src: '/images/formation-ia-btp-laure-olivie.jpg',
-    alt: 'Laure Olivié, formatrice IA BTP Qualiopi, portrait professionnel formation ChatGPT bâtiment',
+    alt: 'Laure Olivié, formatrice IA pour le BTP Qualiopi, portrait professionnel formation ChatGPT bâtiment',
     width: 682,
     height: 1024,
   },
@@ -370,7 +370,7 @@ export const PHOTOS = {
   /** Landing formation IA appels d’offres BTP — présentiel, écran « L’IA dans le BTP », public BTP (casque, gilet). */
   formationIaAppelsOffresBtpHero2026: {
     src: '/images/formation-ia-appels-offres-btp-hero-2026.jpg',
-    alt: 'Laure Olivié anime une formation IA BTP en salle : écran « L’IA dans le BTP », optimisation des devis, gestion de chantier et organisation — professionnels du bâtiment au premier plan',
+    alt: 'Laure Olivié anime une formation IA appliquée au bâtiment en salle : écran « L’IA dans le BTP », optimisation des devis, gestion de chantier et organisation — professionnels du bâtiment au premier plan',
     width: 1024,
     height: 682,
   },
@@ -378,7 +378,7 @@ export const PHOTOS = {
   /** Page d'accueil — présentation en salle, écran « L'IA au service du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
-    alt: 'Laure Olivié, formatrice IA BTP, présentation « L’IA au service du bâtiment » — session en salle avec professionnels du BTP',
+    alt: 'Laure Olivié, formatrice IA appliquée au bâtiment, présentation « L’IA au service du bâtiment » — session en salle avec professionnels du BTP',
     width: 1024,
     height: 682,
   },
@@ -387,7 +387,7 @@ export const PHOTOS = {
   accueilReferencePartenairesLaureOFC2026: {
     src: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
     alt:
-      'Laure Olivié, formatrice IA BTP OFC — échange avec un dirigeant d\'entreprise ; formation entreprise Qualiopi, réseau FFB',
+      'Laure Olivié, formatrice IA pour le BTP OFC — échange avec un dirigeant d\'entreprise ; formation entreprise Qualiopi, réseau FFB',
     width: 1024,
     height: 682,
   },
@@ -420,7 +420,7 @@ export const PHOTOS = {
   blogFormationIaBtpHandshakeFlipchart2026: {
     src: '/images/blog-formation-ia-btp-handshake-convention-2026.png',
     alt:
-      'Poignée de main en bureau — flipchart « Formation IA BTP » avec les thèmes Devis, Chantier et Organisation',
+      'Poignée de main en bureau — flipchart « Formation IA pour le BTP » avec les thèmes Devis, Chantier et Organisation',
     width: 1024,
     height: 682,
   },

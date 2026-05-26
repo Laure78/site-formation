@@ -35,25 +35,25 @@ const VILLES_YVELINES = [
 
 export const metadata = createPageMetadata({
   title:
-    'Formation IA BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment',
+    'Formation IA pour le BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment',
   description:
-    'Formation IA BTP en Yvelines : Versailles, Guyancourt, Saint-Quentin-en-Yvelines, Poissy. Qualiopi. Financement possible selon éligibilité. Formatrice basée à Guyancourt (78).',
+    'Formation IA pour les pro du BTP en Yvelines : Versailles, Guyancourt, Saint-Quentin-en-Yvelines, Poissy. Qualiopi. Financement possible selon éligibilité. Formatrice basée à Guyancourt (78).',
   path: PATH,
   keywords: [
-    'formation IA BTP Yvelines',
+    'formation IA appliquée au bâtiment Yvelines',
     'formation ChatGPT BTP 78',
     'formation IA Versailles',
     'formation IA Guyancourt',
     'OPCO Constructys Yvelines',
     'Qualiopi formation IA bâtiment 78',
-    'Laure Olivié formation IA BTP',
+    'Laure Olivié formation IA pour le BTP',
   ],
 });
 
 const courseSchema = getCourseSchema({
-  name: 'Formation IA BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment',
+  name: 'Formation IA pour les pro du BTP Yvelines (78) — ChatGPT pour entreprises du bâtiment',
   description:
-    "Formation IA BTP dans les Yvelines : ChatGPT et outils d'IA générative pour devis, comptes rendus de chantier et appels d'offres. Présentiel dans le 78. Qualiopi, financement Constructys.",
+    "Formation IA appliquée au bâtiment dans les Yvelines : ChatGPT et outils d'IA générative pour devis, comptes rendus de chantier et appels d'offres. Présentiel dans le 78. Qualiopi, financement Constructys.",
   path: PATH,
   providerName: SITE_CONFIG.legalName,
   areaServed: [
@@ -79,7 +79,7 @@ const faqSchema = getFAQSchema(FAQ_FORMATION_IA_BTP_YVELINES_LANDING);
 const breadcrumbJson = getBreadcrumbSchema([
   { name: 'Accueil', path: '/' },
   { name: 'Formations', path: '/formations' },
-  { name: 'Formation IA BTP Yvelines (78)', path: PATH },
+  { name: 'Formation IA pour le BTP Yvelines (78)', path: PATH },
 ]);
 
 export default function FormationIABTPYvelinesLandingPage() {
@@ -99,7 +99,7 @@ export default function FormationIABTPYvelinesLandingPage() {
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
           { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA BTP Yvelines (78)', path: PATH },
+          { name: 'Formation IA pour les pro du BTP Yvelines (78)', path: PATH },
         ])}
       />
 
@@ -110,7 +110,7 @@ export default function FormationIABTPYvelinesLandingPage() {
             Yvelines (78) · Présentiel · Qualiopi
           </div>
           <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
-            Formation IA BTP Yvelines (78) — votre formatrice basée à Guyancourt
+            Formation IA appliquée au bâtiment Yvelines (78) — votre formatrice basée à Guyancourt
           </h1>
           <p className="mt-6 max-w-3xl text-lg text-slate-600">
             Vous dirigez une TPE ou une PME du bâtiment dans les Yvelines : entreprise générale,
@@ -313,7 +313,7 @@ export default function FormationIABTPYvelinesLandingPage() {
             <p>
               Pour une vue d&apos;ensemble à jour (barèmes, étapes, liens utiles), reportez-vous au{' '}
               <Link href={LINKS.financement} className="font-medium text-[var(--accent)] hover:underline">
-                guide financement Constructys — formation IA BTP
+                guide financement Constructys — formation IA pour le BTP
               </Link>
               . Vous y trouverez aussi les précisions sur la TVA (intra / inter) lorsque vous
               commandez une formation pour votre équipe.
@@ -389,9 +389,9 @@ export default function FormationIABTPYvelinesLandingPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: LINKS.formationYvelines, label: 'Formation IA BTP Yvelines (78) — fiche détaillée' },
-              { href: LINKS.formationSaintQuentinYvelines, label: 'Formation IA BTP Saint-Quentin-en-Yvelines' },
-              { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP Île-de-France' },
+              { href: LINKS.formationYvelines, label: 'Formation IA pour les pro du BTP Yvelines (78) — fiche détaillée' },
+              { href: LINKS.formationSaintQuentinYvelines, label: 'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines' },
+              { href: LINKS.formationIleDeFrance, label: 'Formation IA pour le BTP Île-de-France' },
               { href: LINKS.formations, label: 'Catalogue formations' },
               { href: LINKS.financement, label: 'Financement Constructys' },
               { href: LINKS.chatgptArtisans, label: 'ChatGPT pour entreprises BTP' },

@@ -624,7 +624,7 @@ export default function FormationIAAppelsOffresBTPPage() {
               href="/formations"
               className="inline-flex items-center rounded-xl border-2 border-slate-200 px-6 py-3 font-semibold text-slate-800 hover:border-[var(--accent)]"
             >
-              Catalogue des formations IA BTP
+              Catalogue des formations IA pour les pro du BTP
             </Link>
           </p>
           <p className="mt-6 text-sm text-slate-600">
@@ -636,7 +636,7 @@ export default function FormationIAAppelsOffresBTPPage() {
 
         <footer className="border-t border-slate-200 pt-10 text-sm text-slate-500">
           <p>
-            Laure Olivié — Formatrice IA BTP, OFC Création d&apos;Entreprise · Organisme certifié
+            Laure Olivié — Formatrice IA appliquée au bâtiment, OFC Création d&apos;Entreprise · Organisme certifié
             Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078
           </p>
           <p className="mt-1">

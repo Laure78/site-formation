@@ -76,7 +76,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
       type: 'html',
       title: 'Pourquoi l’IA change la donne sur l’analyse CCTP en 2026',
       content: `
-<p class="text-sm text-slate-500">Dernière mise à jour : avril 2026 · Rédaction : Laure Olivié, formatrice IA BTP (OFC Création d’Entreprise, Qualiopi).</p>
+<p class="text-sm text-slate-500">Dernière mise à jour : avril 2026 · Rédaction : Laure Olivié, formatrice IA pour le BTP (OFC Création d’Entreprise, Qualiopi).</p>
 <p class="mt-4">Réponse courte : l’IA ne remplace pas votre expertise. Elle accélère la lecture, la structuration et le croisement avec le DPGF. Vous gardez la décision go / no go.</p>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Le coût caché d’une lecture CCTP manuelle (chiffres terrain)</h3>
 <p class="mt-3">Sur le terrain, je vois encore des équipes qui impriment 200 pages et surlignent à la main. Le coût n’est pas l’imprimante : c’est l’arrêt du chargé d’affaires, le retard sur le chiffrage et la mauvaise lecture d’une clause pénale.</p>
@@ -90,7 +90,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
 </ul>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Ce que l’IA ne fera jamais à votre place</h3>
 <p class="mt-3">Elle ne signe pas l’offre. Elle ne valide pas une solution technique contre un avis MOEX. Elle peut halluciner sur un DTU : vous devez garder le réflexe « source primaire » (PDF éditeur, notice produit, extrait norme).</p>
-<p class="mt-3">La <strong>formation IA CCTP</strong> sert à verrouiller ce cadre. Pour passer à l’action commerciale, j’ai regroupé le programme sur la page <a href="${LINKS.formationIaCctpAnalyseDceBtp}" class="font-medium text-[var(--accent)] underline hover:no-underline">formation IA CCTP analyse DCE</a>. Pour le contexte global de mon accompagnement, voir <a href="${LINKS.home}" class="font-medium text-[var(--accent)] underline hover:no-underline">Laure Olivié, formatrice IA BTP</a> sur l’accueil du site.</p>
+<p class="mt-3">La <strong>formation IA CCTP</strong> sert à verrouiller ce cadre. Pour passer à l’action commerciale, j’ai regroupé le programme sur la page <a href="${LINKS.formationIaCctpAnalyseDceBtp}" class="font-medium text-[var(--accent)] underline hover:no-underline">formation IA CCTP analyse DCE</a>. Pour le contexte global de mon accompagnement, voir <a href="${LINKS.home}" class="font-medium text-[var(--accent)] underline hover:no-underline">Laure Olivié, formatrice IA pour les pro du BTP</a> sur l’accueil du site.</p>
 <p class="mt-3">Sur un marché public, le CCAP fixe les règles du jeu. Le RC encadre la procédure. Le CCTP porte le technique. Le DPGF traduit le risque prix. Quand je forme des chargés d’affaires, je leur fais répéter cet ordre de lecture. L’IA aide à ne rien sauter.</p>
 <p class="mt-3">Sur un marché privé, la logique est proche. Les pièces portent d’autres noms. Le besoin reste identique : comprendre le périmètre avant d’écrire le mémoire. La <strong>formation IA bâtiment Constructys</strong> reste pertinente dès que vous passez par un financement OPCO.</p>
 <p class="mt-3">Je distingue trois familles d’erreurs. Première famille : oublier un lot annexe. Deuxième famille : surévaluer une exigence rare. Troisième famille : croire une norme citée par le modèle sans vérifier la référence.</p>
@@ -162,7 +162,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Formation inter-entreprise (FFB, fédérations)</h3>
 <p class="mt-3">Forces : échanges entre pairs, dynamique de groupe. Je suis intervenue pour des réseaux institutionnels : le format s’adapte aux calendriers des fédérations.</p>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Formation intra-entreprise sur mesure</h3>
-<p class="mt-3">Forces : vos PDF, vos lots, vos règles internes. Je recommande ce format si vous répondez souvent aux marchés. Le financement passe souvent par l’OPCO : je renvoie vers la page <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA BTP</a> pour les conditions.</p>
+<p class="mt-3">Forces : vos PDF, vos lots, vos règles internes. Je recommande ce format si vous répondez souvent aux marchés. Le financement passe souvent par l’OPCO : je renvoie vers la page <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA appliquée au bâtiment</a> pour les conditions.</p>
 <p class="mt-3">Pour des prompts prêts à l’emploi, je renvoie aussi vers les autres articles du blog sur l’analyse CCTP. Le programme structuré avec objectifs mesurables est sur la page formation dédiée (lien en tête d’article).</p>`,
     },
     {

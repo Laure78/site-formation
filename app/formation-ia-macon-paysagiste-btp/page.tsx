@@ -22,7 +22,7 @@ export const metadata = createPageMetadata({
     'ChatGPT devis dallage',
     'mémoire technique BTP',
     'maçonnerie paysagère IA',
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'OPCO Constructys',
     'Qualiopi BTP',
     'appel d’offres paysager',
@@ -395,7 +395,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
             { href: '/formations/ia-appels-offre-btp', label: 'Formation IA appels d’offres BTP' },
             { href: '/formation-ia-paysagiste-btp', label: 'Formation IA paysagiste BTP' },
             { href: '/formation-ia-charge-affaires-btp', label: 'Formation IA chargé d’affaires BTP' },

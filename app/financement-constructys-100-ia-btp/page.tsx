@@ -10,11 +10,11 @@ import { LINKS } from '@/lib/internal-links';
 export const metadata = createPageMetadata({
   title: 'Financement Constructys IA BTP — Guide complet 2026',
   description:
-    "Guide financement Constructys 2026 pour formation IA BTP : modalités, eGestion, plafonds. TPE et PME du bâtiment et des travaux publics. Téléchargez les repères et lancez votre dossier.",
+    "Guide financement Constructys 2026 pour formation IA pour le BTP : modalités, eGestion, plafonds. TPE et PME du bâtiment et des travaux publics. Téléchargez les repères et lancez votre dossier.",
   path: '/financement-constructys-100-ia-btp',
   keywords: [
-    'financement Constructys formation IA BTP',
-    'formation IA BTP Constructys',
+    'financement Constructys formation IA pour les pro du BTP',
+    'formation IA appliquée au bâtiment Constructys',
     'OPCO BTP 2026',
     'prise en charge formation IA bâtiment',
     'eGestion Constructys',
@@ -28,7 +28,7 @@ export default function FinancementConstructys100IABTPPage() {
         items={breadcrumbItemsFromPaths([
           { name: 'Accueil', path: '/' },
           { name: 'Financement', path: '/financement-constructys-formation-ia-btp' },
-          { name: 'Financement Constructys formation IA BTP', path: '/financement-constructys-100-ia-btp' },
+          { name: 'Financement Constructys formation IA pour le BTP', path: '/financement-constructys-100-ia-btp' },
         ])}
       />
       {/* Hero */}
@@ -38,7 +38,7 @@ export default function FinancementConstructys100IABTPPage() {
             Modalités 2026 · eGestion
           </div>
           <h1 className="mt-6 font-display text-3xl font-bold md:text-4xl lg:text-5xl">
-            Financement Constructys formation IA BTP
+            Financement Constructys formation IA pour les pro du BTP
           </h1>
           <p className="mt-6 text-lg text-slate-300">
             Guide pour mobiliser un financement Constructys ou OPCO pour votre formation IA bâtiment en 2026, selon éligibilité et conditions en vigueur.
@@ -66,7 +66,7 @@ export default function FinancementConstructys100IABTPPage() {
           <ul className="mt-6 space-y-3">
             {[
               'Constructys = OPCO dédié au BTP (bâtiment, négoce, travaux publics)',
-              'Formations IA BTP certifiées Qualiopi = éligibles',
+              'Formations IA pour le BTP certifiées Qualiopi = éligibles',
               'Financement possible selon éligibilité (Constructys, OPCO)',
               'Plafond pédagogique : 24 € HT / heure / stagiaire',
               'Dossier eGestion à envoyer 15 jours avant le démarrage',
@@ -84,7 +84,7 @@ export default function FinancementConstructys100IABTPPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Formations IA BTP éligibles
+            Formations IA pour les pro du BTP éligibles
           </h2>
           <p className="mt-3 text-slate-600">
             Toutes les formations Laure Olivié sont certifiées Qualiopi et éligibles au financement Constructys.
@@ -140,7 +140,7 @@ export default function FinancementConstructys100IABTPPage() {
       <section className="border-b border-slate-200 bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold">
-            Demander un devis formation IA BTP
+            Demander un devis formation IA appliquée au bâtiment
           </h2>
           <p className="mt-4 text-blue-100">
             Devis personnalisé sous 24h. Accompagnement financement Constructys.
@@ -165,8 +165,8 @@ export default function FinancementConstructys100IABTPPage() {
           <AllerPlusLoin
             links={[
               { href: '/financement-constructys-formation-ia-btp', label: 'Guide financement Constructys' },
-              { href: '/formations', label: 'Catalogue des formations IA BTP' },
-              { href: '/formations/ia-btp-paris', label: 'Formation IA BTP Paris' },
+              { href: '/formations', label: 'Catalogue des formations IA appliquées au bâtiment' },
+              { href: '/formations/ia-btp-paris', label: 'Formation IA pour le BTP Paris' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
               { href: buildSiteCalendlyCtaUrl('financement-constructys-100-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },

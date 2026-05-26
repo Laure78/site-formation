@@ -27,7 +27,7 @@ const PARCOURS = [
   },
   {
     year: '2022',
-    text: "Création d'OFC Création d'Entreprise — formation IA BTP, démarche Qualiopi.",
+    text: "Création d'OFC Création d'Entreprise — formation IA appliquée au bâtiment, démarche Qualiopi.",
   },
   {
     year: '2023',
@@ -196,7 +196,7 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">
             Deux cours publiés en tant qu&apos;instructrice officielle — extraits vidéo ci-dessous. Pour les sessions{' '}
             <strong>en entreprise</strong>, certifiées <QualiopiWordmark /> et finançables{' '}
-            <strong>Constructys</strong> (dont la formation IA BTP en présentiel ou à distance), consultez le{' '}
+            <strong>Constructys</strong> (dont la formation IA pour le BTP en présentiel ou à distance), consultez le{' '}
             <Link
               href={LINKS.formations}
               className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"
@@ -280,7 +280,7 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           <div className="mt-10 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
             <table className="w-full min-w-[320px] border-collapse text-left text-sm">
               <caption className="sr-only">
-                Références chiffrées — Laure Olivié, formatrice IA BTP
+                Références chiffrées — Laure Olivié, formatrice IA appliquée au bâtiment
               </caption>
               <thead>
                 <tr className="border-b border-[#D4E3FC] bg-[#F2F2F2]">

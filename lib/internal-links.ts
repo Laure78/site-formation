@@ -7,26 +7,34 @@
 
 /** Programme PDF NIV-02 — fichier unique (alias catalogue + fiche détaillée AO). */
 export const PDF_PROGRAMME_NIV02_AO_BTP =
-  '/formations/ia-appels-offre-btp/Programme_Formation_LSR_AO_BTP_2026.pdf' as const;
+  '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf' as const;
 
 export const LINKS = {
   // Tier 1 — Pages principales
   home: '/',
   formations: '/formations',
   blog: '/blog',
-  /** Article pilier GEO — guide formation IA BTP 2026 */
+  /** Article pilier GEO — guide formation IA appliquée au bâtiment 2026 */
   blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',
-  /** Article MDX — guide pratique formation IA BTP 2026 (calendrier éditorial) */
+  /** Article MDX — guide pratique formation IA pour le BTP 2026 (calendrier éditorial) */
   blogFormationIaBtpGuide2026Mdx: '/blog/formation-ia-btp-guide-complet-2026',
   /** Article SEO/GEO — tutoriel skill IA conducteur de travaux */
   blogGuideSkillIaConducteurTravaux: '/blog/guide-skill-ia-conducteur-travaux-btp',
   /** Article — cours gratuits Anthropic Academy (Claude AI) pour CDT & PME BTP */
   blogCoursGratuitsClaudeAiPmeBtp: '/blog/cours-gratuits-claude-ai-conducteur-travaux-pme-btp',
+  /** Article — 8 usages IA terrain pour conducteur de travaux BTP */
+  blogIaConducteurTravauxUsages: '/blog/ia-conducteur-travaux-usages',
+  /** Article — financer une formation IA pour les pro du BTP via Constructys */
+  blogFinancerFormationIaBtpConstructys: '/blog/financer-formation-ia-btp-constructys',
+  /** Article — méthode IA pour gagner 5 h/semaine (conducteurs de travaux BTP) */
+  blogCommentIaGagne5hConducteursTravaux: '/blog/comment-ia-gagne-5h-conducteurs-travaux',
+  /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
+  blogSecuriteDonneesChatgptBtp: '/blog/securite-donnees-chatgpt-btp',
   aPropos: '/a-propos',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
   prendreRdv: '/prendre-rdv',
-  /** Page pilier SEO — mot-clé « formation IA BTP » */
+  /** Page pilier SEO — mot-clé « formation IA appliquée au bâtiment » */
   formationIaBtp: '/formation-ia-btp',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',

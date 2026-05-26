@@ -8,7 +8,7 @@ export const metadata = createPageMetadata({
   path: '/formation-ia-et-chatgpt',
   appendAuthorSuffix: false,
   keywords: [
-    'formation IA BTP',
+    'formation IA pour les pro du BTP',
     'formation ChatGPT BTP',
     'formation Claude AI bâtiment',
     'formation intelligence artificielle bâtiment',

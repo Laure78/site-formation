@@ -118,7 +118,7 @@ export default function ChecklistDocumentPage() {
           <p>Financement possible selon éligibilité (Constructys, OPCO)</p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link href="/formations" className="font-medium text-[#166534] hover:underline">
-              Formation IA BTP
+              Formation IA pour le BTP
             </Link>
             <RdvLink className="font-medium text-[#166534] hover:underline">
               Prendre rendez-vous

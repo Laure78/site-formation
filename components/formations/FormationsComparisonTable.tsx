@@ -20,7 +20,7 @@ export function FormationsComparisonTable({
           id="comparatif-formations-heading"
           className="font-display text-[32px] font-bold text-[#0F172A]"
         >
-          Comparez les 2 formations IA BTP d&apos;un coup d&apos;œil
+          Comparez les 2 formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
           Toutes Qualiopi, toutes 4 h, intra ou inter, en présentiel ou en distanciel. Financement possible selon éligibilité.

@@ -21,7 +21,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
     'chatgpt devis btp',
     'ia chiffrage batiment',
     'devis automatique btp',
-    'formation IA BTP',
+    'formation IA pour le BTP',
     'Constructys 2026',
     'devis bâtiment',
     'chiffrage BTP',
@@ -72,7 +72,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   sections: [
     {
       type: 'paragraph',
-      content: "Par Laure Olivié — Formatrice IA BTP, OFC Création d'Entreprise · 12 min de lecture",
+      content: "Par Laure Olivié — Formatrice IA pour le BTP, OFC Création d'Entreprise · 12 min de lecture",
     },
     {
       type: 'list',
@@ -216,15 +216,15 @@ Ne réécris pas le devis, signale uniquement les manques.`,
       type: 'html',
       title: "Se former à l'IA devis bâtiment avec OFC Création d'Entreprise",
       content: `
-<p>Le module chiffrage est intégré à la formation IA BTP de 4 heures : méthode en 5 étapes, prompts prêts à l'emploi, vérification anti-oubli et intégration à vos outils.</p>
+<p>Le module chiffrage est intégré à la formation IA pour les pro du BTP de 4 heures : méthode en 5 étapes, prompts prêts à l'emploi, vérification anti-oubli et intégration à vos outils.</p>
 <p>Sessions en présentiel en Île-de-France ou à distance. Financement possible via Constructys selon barèmes en vigueur.</p>
 <p>Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Île-de-France, Lefebvre Dalloz — +${N} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.</p>
-<p class="mt-4">Pour aller plus loin : <a href="${LINKS.formations}" class="font-medium text-[var(--accent)] underline hover:no-underline">catalogue des formations IA BTP</a>, <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA BTP</a>, ou <a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline hover:no-underline">diagnostic IA BTP gratuit</a>.</p>`,
+<p class="mt-4">Pour aller plus loin : <a href="${LINKS.formations}" class="font-medium text-[var(--accent)] underline hover:no-underline">catalogue des formations IA appliquées au bâtiment</a>, <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA appliquée au bâtiment</a>, ou <a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline hover:no-underline">diagnostic IA BTP gratuit</a>.</p>`,
     },
     {
       type: 'html',
       content: `
-<p class="text-sm text-slate-600">Laure Olivié — Formatrice IA BTP, OFC Création d'Entreprise<br/>
+<p class="text-sm text-slate-600">Laure Olivié — Formatrice IA pour les pro du BTP, OFC Création d'Entreprise<br/>
 Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078<br/>
 <a href="mailto:laureolivie@yahoo.fr" class="text-[var(--accent)] underline">laureolivie@yahoo.fr</a> · www.laureolivie.fr</p>
 <p class="mt-4"><a href="${buildSiteCalendlyCtaUrl('blog-article-ia-devis-batiment-chiffrage-automatise-fin')}" class="font-medium text-[var(--accent)] underline" target="_blank" rel="noopener noreferrer">Prendre rendez-vous — diagnostic gratuit 30 min</a></p>`,

@@ -79,7 +79,7 @@ export function BeworkEtFormationsOffreSection() {
           <p className="mt-4 text-[15px] font-medium leading-relaxed text-[#1A1A1A] md:text-base">
             Deux directions possibles selon votre temps et votre priorité&nbsp;:{' '}
             <strong>déléguer le relais administratif avec BeWork</strong>, ou{' '}
-            <strong>monter en compétence avec des formations IA BTP certifiées Qualiopi</strong>, éligibles à un financement auprès de
+            <strong>monter en compétence avec des formations IA appliquées au bâtiment certifiées Qualiopi</strong>, éligibles à un financement auprès de
             votre OPCO (dont Constructys) lorsque les conditions sont remplies.
           </p>
         </header>
@@ -156,7 +156,7 @@ export function BeworkEtFormationsOffreSection() {
                   OFC · Création d&apos;entreprise · Qualiopi
                 </p>
                 <h3 className="mt-2 border-b border-[#377CF3]/35 pb-2 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
-                  Mes formations IA BTP
+                  Mes formations IA pour le BTP
                 </h3>
               </div>
             </div>
@@ -190,7 +190,8 @@ export function BeworkEtFormationsOffreSection() {
                   {` (${SESSION_DUREE_LIBELLE}, forfait ${TARIF_SESSION_AVANCE_HT} € HT / session groupe)`}
                 </p>
                 <p className="mt-1.5">
-                  Aller plus loin avec Claude&nbsp;: création de workflows et usages type Skills / Cowork selon vos comptes.{' '}
+                  Aller plus loin avec Claude AI Pro, Cowork &amp; Skills : analyse DCE, mémoire technique et
+                  assistants IA réutilisables pour vos appels d&apos;offres.{' '}
                   <span className="text-[#5A5A5A]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</span>
                 </p>
               </div>
@@ -286,7 +287,7 @@ export function BeworkEtFormationsOffreSection() {
                 campaign="home-offre-bework-formations-rdv"
                 className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
               >
-                Prendre un rendez-vous découverte (formations IA BTP)
+                Prendre un rendez-vous découverte (formations IA pour les pro du BTP)
               </RdvLink>
             </div>
           </div>

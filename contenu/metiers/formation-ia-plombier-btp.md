@@ -133,7 +133,7 @@ Fond **#377CF3**, texte blanc — **Titre :** Visio gratuite — plomberie + Con
 ## Laure {#laure}
 
 Laure Olivié accompagne les artisans et PME du BTP pour une IA **utile et responsable**. [À propos](/a-propos/)  
-**Alt photo :** *Formation IA BTP plomberie — Laure Olivié, OFC*
+**Alt photo :** *Formation IA pour le BTP plomberie — Laure Olivié, OFC*
 
 ---
 

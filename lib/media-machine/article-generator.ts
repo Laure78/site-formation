@@ -36,17 +36,17 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
   }
   if (title.includes('Devis en 15 min : le guide')) {
     const metier = title.replace('Devis en 15 min : le guide ', '').trim();
-    return `Devis ${metier} en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA BTP Constructys.`.slice(0, MAX_META_LENGTH);
+    return `Devis ${metier} en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA pour le BTP Constructys.`.slice(0, MAX_META_LENGTH);
   }
   if (title.includes("L'IA va-t-elle remplacer les")) {
     const metier = title.replace("L'IA va-t-elle remplacer les ", '').replace(' ?', '').trim();
     return `L'IA remplace-t-elle les ${metier} ? Non : elle assiste le métier. Financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
   }
-  if (title.includes('Formation IA BTP : ce qu')) {
-    return "Formation IA BTP 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys selon éligibilité.".slice(0, MAX_META_LENGTH);
+  if (title.includes('Formation IA pour les pro du BTP : ce qu')) {
+    return "Formation IA appliquée au bâtiment 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys selon éligibilité.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Financement Constructys')) {
-    return "Financement Constructys formation IA BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.".slice(0, MAX_META_LENGTH);
+    return "Financement Constructys formation IA pour le BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('erreurs à éviter') && title.includes('ChatGPT pour')) {
     return "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.".slice(0, MAX_META_LENGTH);
@@ -61,7 +61,7 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
     return "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.".slice(0, MAX_META_LENGTH);
   }
 
-  return `${title}. ${kw}. Formation IA BTP financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
+  return `${title}. ${kw}. Formation IA pour les pro du BTP financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
 }
 
 export function generateArticle(idea: ContentIdea): GeneratedArticle {

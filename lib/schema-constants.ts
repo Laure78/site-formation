@@ -52,8 +52,16 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA BTP',
+  jobTitle: 'Formatrice IA spécialisée BTP',
 } as const;
+
+/** Thématiques Person — schéma global layout (entité Laure Olivié). */
+export const SCHEMA_PERSON_KNOWS_ABOUT = [
+  'Intelligence artificielle',
+  'Formation professionnelle',
+  'Bâtiment',
+  'Travaux publics',
+] as const;
 
 /**
  * Organization — OFC Création d'Entreprise (champs stables hors @id / url dynamiques).
@@ -77,6 +85,9 @@ export const SCHEMA_LOGO_PATH = '/logo-lo.svg' as const;
 /** Image portrait par défaut — schémas globaux. */
 export const SCHEMA_DEFAULT_PERSON_IMAGE_PATH = '/images/laure-olivie-formatrice.png' as const;
 
+/** Portrait header — schéma Person global (layout). */
+export const SCHEMA_HEADER_PERSON_IMAGE_PATH = '/images/laure-portrait-header-2026.png' as const;
+
 /** URL absolue logo. */
 export function schemaLogoUrl(): string {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -87,4 +98,10 @@ export function schemaLogoUrl(): string {
 export function schemaDefaultPersonImageUrl(): string {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   return `${base}${SCHEMA_DEFAULT_PERSON_IMAGE_PATH}`;
+}
+
+/** URL absolue portrait header — schéma Person global. */
+export function schemaHeaderPersonImageUrl(): string {
+  const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+  return `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`;
 }

@@ -60,6 +60,11 @@ const ARTICLES_OUTILS = [
     badge: 'Confidentialité',
   },
   {
+    titre: 'Sécurité données ChatGPT en entreprise BTP : bonnes pratiques',
+    href: '/blog/securite-donnees-chatgpt-btp',
+    badge: 'ChatGPT & RGPD',
+  },
+  {
     titre: 'ChatGPT pour le BTP : guide complet',
     href: '/blog/chatgpt-btp-guide-complet',
     badge: 'Guide',

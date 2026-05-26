@@ -56,7 +56,7 @@ Pour les **PME** de maçonnerie, le dirigeant cumule souvent **chiffrage** et **
 **Liens internes :**  
 → [Formation IA couvreur](/formation-ia-couvreur-btp/) (interface toiture)  
 → [Formation IA étancheur](/formation-ia-etancheur-btp/)  
-→ [Pilier formation IA BTP](/formation-ia-btp/)
+→ [Pilier formation IA pour les pro du BTP](/formation-ia-btp/)
 
 ---
 
@@ -115,7 +115,7 @@ Encadré **#377CF3**, texte blanc — **Titre :** Cadrer votre formation gros œ
 ## Laure Olivié {#laure}
 
 Formatrice IA spécialisée BTP — méthode terrain, prompts utiles, garde-fous conformité. [À propos](/a-propos/)  
-**Alt image :** *Formation IA BTP maçonnerie gros œuvre — Laure Olivié*
+**Alt image :** *Formation IA appliquée au bâtiment maçonnerie gros œuvre — Laure Olivié*
 
 ---
 

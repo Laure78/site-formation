@@ -46,26 +46,25 @@ BEGIN
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Comptes rendus et DOE', 2);
   INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Gestion administrative', 3);
 
-  -- 2. Répondre aux appels d'offres BTP avec l'IA
+  -- 2. NIV-02 — L'IA appliquée aux AO (Claude Pro, Cowork & Skills)
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)
   VALUES (
     'ia-appels-offre-btp',
-    'Répondre aux appels d''offres BTP avec l''IA',
-    'Formation opérationnelle : analysez les DCE 5 fois plus vite avec NotebookLM, prenez des décisions Go/No Go, rédigez des mémoires techniques convaincants et optimisez vos chiffrages grâce à l''IA. Pour chargés d''affaires et bureaux d''études.',
-    'Analyser un DCE en 30 min au lieu de 3h · Décision Go/No Go et rentabilité · Rédiger mémoires techniques et relecture · Aide au chiffrage et contrôle de rentabilité',
-    'Connaissance du secteur BTP. Expérience en appels d''offres. Aucune compétence technique IA.',
-    'Introduction · Module 1 : Analyse DCE avec NotebookLM · Module 2 : Décision Go/No Go + Rentabilité · Module 3 : Rédaction mémoire technique et relecture · Module 4 : Aide au chiffrage et contrôle de rentabilité',
+    'NIVEAU 2 — L''IA appliquée aux AO : créer ses Assistants IA pour DCE et Mémoire Technique',
+    'Parcours catalogue NIV-02 (4 h, 75 % pratique) : paramétrer Claude AI Pro, installer Cowork et créer des skills pour analyser les DCE et rédiger des mémoires techniques. Pour responsables d''affaires, chargés d''études et bureaux d''études BTP.',
+    'Paramétrer Claude AI Pro (Projects, instructions) · Analyser un DCE via Cowork — 15 infos critiques · Structurer et rédiger un mémoire technique · Créer des skills DCE/MT personnalisés · Évaluer les contenus générés',
+    'Claude Pro + Cowork installé. DCE récent et 2-3 mémoires techniques à préparer. Niveau 1 ou bases IA ; expérience AO recommandée.',
+    'Module 1 — Paramétrage Claude AI Pro & Cowork (60 min) · Module 2 — Analyse express de DCE avec Cowork (1 h 15) · Module 3 — Rédiger son mémoire technique avec Cowork (1 h 30)',
     0,
     true,
-    7,
+    4,
     'intermediaire'
   ) RETURNING id INTO cid;
 
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Introduction', 0);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 1— Analyse DCE avec NotebookLM', 1);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 2— Décision Go/No Go + Rentabilité', 2);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 3— Rédaction mémoire technique et relecture', 3);
-  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'MODULE 4: Aide au chiffrage & contrôle de rentabilité', 4);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Programme & ressources', 0);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Module 1 — Paramétrage Claude AI Pro & Cowork', 1);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Module 2 — Analyse express de DCE avec Cowork', 2);
+  INSERT INTO modules (course_id, title, order_index) VALUES (cid, 'Module 3 — Rédiger son mémoire technique avec Cowork', 3);
 
   -- 3. Formation IA pour la Fonction RH dans le BTP
   INSERT INTO courses (slug, title, description, objectifs, prerequis, programme, price, published, duration_hours, level)

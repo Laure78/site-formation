@@ -10,7 +10,7 @@ import { JsonLd } from '@/components/JsonLd';
 export const metadata = createPageMetadata({
   title: '10 Prompts ChatGPT BTP Gratuits',
   description:
-    "Téléchargez 10 prompts ChatGPT gratuits pour le BTP : devis, emails, CR chantier. Par Laure Olivié, formatrice IA BTP certifiée Qualiopi.",
+    "Téléchargez 10 prompts ChatGPT gratuits pour le BTP : devis, emails, CR chantier. Par Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi.",
   path: '/checklist-ia-btp',
   appendAuthorSuffix: false,
   keywords: ['checklist ChatGPT BTP', 'prompts IA BTP', 'intelligence artificielle bâtiment', 'ChatGPT TPE PME'],
@@ -51,7 +51,7 @@ export default function ChecklistIABTPPage() {
                 href="/formations"
                 className="text-[#166534] font-medium hover:underline"
               >
-                Formation IA BTP →
+                Formation IA appliquée au bâtiment →
               </Link>
               <Link
                 href="/formation-ia-artisans-btp"

@@ -415,7 +415,7 @@ export default function FormationIaGeometreTpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA BTP' },
+            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: '/formation-ia-conducteur-travaux', label: 'Formation IA conducteur de travaux BTP' },
             { href: '/formation-ia-charge-affaires-btp', label: 'Formation IA chargé d’affaires BTP' },

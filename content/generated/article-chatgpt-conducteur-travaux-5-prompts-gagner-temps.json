@@ -2,11 +2,11 @@
   "slug": "chatgpt-conducteur-travaux-5-prompts-gagner-temps",
   "title": "ChatGPT conducteur de travaux : 5 prompts pour gagner 2 h par jour",
   "seoTitle": "ChatGPT conducteur de travaux : 5 prompts pour gagner 2 h/jour — Laure Olivié",
-  "description": "5 prompts ChatGPT pour CR de chantier, emails et synthèses DCE. Guide pratique par Laure Olivié, formatrice IA BTP Qualiopi — Île-de-France.",
+  "description": "5 prompts ChatGPT pour CR de chantier, emails et synthèses DCE. Guide pratique par Laure Olivié, formatrice IA pour les pro du BTP Qualiopi — Île-de-France.",
   "date": "2026-04-14",
   "keywords": [
     "ChatGPT conducteur de travaux",
-    "formation IA BTP",
+    "formation IA pour les pro du BTP",
     "compte rendu chantier IA",
     "conducteur de travaux BTP",
     "prompts ChatGPT BTP",
@@ -32,7 +32,7 @@
     },
     {
       "question": "Où suivre une formation complète Qualiopi sur le sujet ?",
-      "answer": "OFC propose des sessions certifiées Qualiopi, financement possible selon éligibilité selon dossier : voir la page formation IA BTP et le catalogue des formations — visio découverte gratuite sur demande."
+      "answer": "OFC propose des sessions certifiées Qualiopi, financement possible selon éligibilité selon dossier : voir la page formation IA appliquée au bâtiment et le catalogue des formations — visio découverte gratuite sur demande."
     }
   ],
   "relatedSlugs": [
@@ -95,7 +95,7 @@
     {
       "type": "html",
       "title": "Maillage utile",
-      "content": "<p>Pour aller plus loin : <a href=\"/formation-ia-btp\" class=\"text-[#377CF3] font-medium underline\">page pilier formation IA BTP</a>, <a href=\"/formation-ia-conducteur-travaux\" class=\"text-[#377CF3] font-medium underline\">formation IA conducteur de travaux BTP</a>, et l’article <a href=\"/blog/compte-rendu-chantier-ia-automatiser-gagner-temps\" class=\"text-[#377CF3] font-medium underline\">compte rendu de chantier et IA</a>.</p><p><strong>À propos de Laure Olivié</strong> : formatrice IA BTP, plus de 1 500 professionnels accompagnés, certifiée Qualiopi, références FFB Grand Paris, CNAM Entreprise, Lefebvre Dalloz — sessions en Île-de-France et Grand Paris.</p>"
+      "content": "<p>Pour aller plus loin : <a href=\"/formation-ia-btp\" class=\"text-[#377CF3] font-medium underline\">page pilier formation IA appliquée au bâtiment</a>, <a href=\"/formation-ia-conducteur-travaux\" class=\"text-[#377CF3] font-medium underline\">formation IA conducteur de travaux BTP</a>, et l’article <a href=\"/blog/compte-rendu-chantier-ia-automatiser-gagner-temps\" class=\"text-[#377CF3] font-medium underline\">compte rendu de chantier et IA</a>.</p><p><strong>À propos de Laure Olivié</strong> : formatrice IA pour le BTP, plus de 1 500 professionnels accompagnés, certifiée Qualiopi, références FFB Grand Paris, CNAM Entreprise, Lefebvre Dalloz — sessions en Île-de-France et Grand Paris.</p>"
     }
   ]
 }

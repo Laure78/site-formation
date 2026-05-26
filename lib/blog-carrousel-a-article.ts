@@ -19,7 +19,7 @@ export const carrouselAFormationArticle: BlogArticle = {
   keywords: [
     'formation IA équipes BTP',
     'formation IA bâtiment',
-    'programme formation IA BTP',
+    'programme formation IA pour le BTP',
     'objectifs pédagogiques IA BTP',
     'livrables formation IA',
     'Qualiopi',
@@ -60,7 +60,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Public et prérequis',
       content: `<figure class="my-6">
-<img src="${A}/slide-03.png" alt="Public formation IA BTP : professionnels du BTP, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-03.png" alt="Public formation IA pour les pro du BTP : professionnels du BTP, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Si vous savez écrire un SMS, vous pouvez démarrer avec l’IA — avec encadrement et bonnes pratiques.</figcaption>
 </figure>`,
     },
@@ -68,7 +68,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Objectifs pédagogiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-04.png" alt="Objectifs pédagogiques formation IA BTP : outils, automatisation administrative, devis et CR, visibilité en ligne, RGPD — exercices terrain" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-04.png" alt="Objectifs pédagogiques formation IA appliquée au bâtiment : outils, automatisation administrative, devis et CR, visibilité en ligne, RGPD — exercices terrain" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Cinq objectifs structurants + évaluation continue sur cas réels.</figcaption>
 </figure>`,
     },
@@ -76,7 +76,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Les 4 modules du programme',
       content: `<figure class="my-6">
-<img src="${A}/slide-05.png" alt="Programme détaillé formation IA BTP : 4 modules fondamentaux IA, devis et chiffrage, gestion administrative chantier, visibilité réseaux sociaux — ChatGPT Claude prompts" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-05.png" alt="Programme détaillé formation IA pour le BTP : 4 modules fondamentaux IA, devis et chiffrage, gestion administrative chantier, visibilité réseaux sociaux — ChatGPT Claude prompts" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Fondamentaux, devis, administratif chantier (DOE, planning), visibilité en ligne.</figcaption>
 </figure>`,
     },
@@ -84,7 +84,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Livrables : ce que vous repartez',
       content: `<figure class="my-6">
-<img src="${A}/slide-06.png" alt="Livrables formation IA BTP : kits de prompts BTP et réseaux sociaux, recrutement vente SEO juridique, attestation Qualiopi, ressources et suivi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-06.png" alt="Livrables formation IA pour les pro du BTP : kits de prompts BTP et réseaux sociaux, recrutement vente SEO juridique, attestation Qualiopi, ressources et suivi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Kits de prompts, attestations et ressources — selon modalités prévues à la convention.</figcaption>
 </figure>`,
     },
@@ -92,7 +92,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Méthodes pédagogiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-07.png" alt="Méthodes pédagogiques formation IA BTP : 70% pratique 30% théorie, vrais chantiers devis emails, évaluation continue attestation suivi post-formation" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-07.png" alt="Méthodes pédagogiques formation IA appliquée au bâtiment : 70% pratique 30% théorie, vrais chantiers devis emails, évaluation continue attestation suivi post-formation" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Ancrage terrain : pas de théorie abstraite seule.</figcaption>
 </figure>`,
     },

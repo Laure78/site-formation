@@ -22,7 +22,8 @@ import {
   ShieldCheck,
   Cpu,
 } from 'lucide-react';
-import { CTACalendly } from '@/components/CTACalendly';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { CALENDLY_BUTTON_VARIANT_CLASS } from '@/lib/calendly-embed-config';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -68,9 +69,8 @@ const FORMATIONS_MEGA: NavMega = {
   ],
 };
 
-/** Calendly — appel découverte (charte : bouton #377CF3) */
-const NAV_RDV_CLASSES =
-  'inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#377cf3] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98] xl:px-5 xl:text-[0.9375rem]';
+/** Calendly — appel découverte (charte : bouton #377CF3, popup natif) */
+const NAV_RDV_CLASSES = CALENDLY_BUTTON_VARIANT_CLASS.nav;
 
 function isActive(href: string, pathname: string) {
   if (href === '/') return pathname === '/';
@@ -228,7 +228,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
   const blogLinks: MegaLink[] = [
     {
       href: LINKS.blog,
-      label: 'Blog Formation IA BTP',
+      label: 'Blog Formation IA pour le BTP',
       description: 'Articles longs, guides et prompts métier',
       icon: BookOpen,
     },
@@ -478,7 +478,7 @@ export function Navbar() {
             <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70 sm:h-10 sm:w-10">
               <Image
                 src={PHOTOS.siteAvatar.src}
-                alt="Laure Olivié — formation IA BTP, organisme certifié Qualiopi"
+                alt="Laure Olivié — formation IA pour les pro du BTP, organisme certifié Qualiopi"
                 title="Retour à l'accueil — laureolivie.fr"
                 fill
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
@@ -622,18 +622,17 @@ export function Navbar() {
           </nav>
 
           <div className="hidden shrink-0 items-center lg:flex">
-            <CTACalendly
+            <CalendlyEmbed
+              type="popup"
+              variant="nav"
               ctaPosition="inline"
               ctaId="nav-rdv-desktop"
               utmSource="site"
               utmMedium="cta"
-              utmCampaign="nav-prendre-rdv"
-              page="navbar"
-              unstyled
+              campaign="nav-prendre-rdv"
               className={NAV_RDV_CLASSES}
-            >
-              Prendre RDV
-            </CTACalendly>
+              buttonText="Prendre RDV"
+            />
           </div>
 
           <button
@@ -829,7 +828,7 @@ export function Navbar() {
                   >
                     <BookOpen size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
                     <span>
-                      <span className="block text-[0.9375rem]">Blog Formation IA BTP</span>
+                      <span className="block text-[0.9375rem]">Blog Formation IA appliquée au bâtiment</span>
                       <span className="mt-0.5 block text-xs text-slate-500">
                         Articles longs, guides et prompts métier
                       </span>
@@ -894,19 +893,18 @@ export function Navbar() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
-              <CTACalendly
+              <CalendlyEmbed
+                type="popup"
+                variant="unstyled"
                 ctaPosition="inline"
                 ctaId="nav-rdv-mobile"
                 utmSource="site"
                 utmMedium="cta"
-                utmCampaign="nav-prendre-rdv-mobile"
-                page="navbar"
-                unstyled
+                campaign="nav-prendre-rdv-mobile"
                 onClick={() => setMobileOpen(false)}
                 className="rounded-full bg-[#377cf3] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform hover:bg-[#2d66d6] active:scale-[0.99]"
-              >
-                Prendre RDV
-              </CTACalendly>
+                buttonText="Prendre RDV"
+              />
             </div>
           </nav>
         </div>

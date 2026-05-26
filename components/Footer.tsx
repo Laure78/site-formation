@@ -62,7 +62,7 @@ export function Footer() {
         <div className="mb-8 flex flex-col gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <div>
             <p className="font-display text-base font-semibold text-slate-900">
-              Formations IA BTP &amp; ChatGPT entreprise
+              Formations IA pour les pro du BTP &amp; ChatGPT entreprise
             </p>
             <p className="mt-0.5 text-sm text-slate-600">
               Catalogue <QualiopiWordmark />, financement Constructys — sessions 4 h.
@@ -88,7 +88,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <img
                 src="/logo-lo.svg"
-                alt="Laure Olivié — formation IA BTP, organisme certifié Qualiopi"
+                alt="Laure Olivié — formation IA pour les pro du BTP, organisme certifié Qualiopi"
                 title="Retour à l’accueil — laureolivie.fr"
                 className="h-10 w-auto"
                 fetchPriority="high"

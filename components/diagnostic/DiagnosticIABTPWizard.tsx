@@ -221,7 +221,7 @@ export function DiagnosticIABTPWizard() {
                 href={LINKS.formationIaBtp}
                 className="inline-flex items-center justify-center rounded-xl border-2 border-slate-200 px-6 py-3 text-center font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]"
               >
-                Formation IA BTP — présentation de l&apos;offre
+                Formation IA pour le BTP — présentation de l&apos;offre
               </Link>
             </div>
           </div>

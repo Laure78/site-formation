@@ -13,7 +13,7 @@ export const TUTO_CONSTAT_RETARD: TutoData = {
 
   metaTitle: 'Tuto skill Constat de retard BTP : courrier en 8 min Claude',
   metaDescription:
-    "Constat de retard BTP : crée ton skill Claude pour rédiger un courrier juridique de réserves en 8 minutes au lieu d'1h. Tuto par Laure Olivié, formatrice IA BTP.",
+    "Constat de retard BTP : crée ton skill Claude pour rédiger un courrier juridique de réserves en 8 minutes au lieu d'1h. Tuto par Laure Olivié, formatrice IA pour le BTP.",
   keywords: [
     'constat de retard BTP',
     'courrier de réserves BTP',
@@ -31,7 +31,7 @@ export const TUTO_CONSTAT_RETARD: TutoData = {
     'conducteur de travaux',
     'IA conducteur de travaux',
     'IA juridique BTP',
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

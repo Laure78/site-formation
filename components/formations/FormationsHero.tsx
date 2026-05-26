@@ -1,10 +1,8 @@
 import Link from 'next/link';
 import { Check } from 'lucide-react';
-import { calendlyCatalogueUrl } from '@/lib/calendly';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-
-const visioHeroUrl = calendlyCatalogueUrl('hero');
 
 /**
  * Hero catalogue formations — texte SEO inchangé (H1 + paragraphe intro).
@@ -27,17 +25,16 @@ export function FormationsHero() {
           id="formations-catalogue-hero-h1"
           className="mt-3 max-w-3xl text-balance text-[1.35rem] font-bold leading-snug tracking-tight text-white sm:mt-3.5 sm:text-[1.45rem] md:text-[1.6rem] md:leading-[1.22] lg:text-[1.75rem]"
         >
-          Catalogue formation IA BTP : 2 formations Qualiopi de 4 h (niveaux 1 et 2), programmes PDF
+          Catalogue formation IA pour le BTP : 2 formations Qualiopi de 4 h (niveaux 1 et 2), programmes PDF
         </h1>
         <div className="mt-4 flex flex-col gap-2.5 sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-3">
-          <a
-            href={visioHeroUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <CalendlyEmbed
+            type="popup"
+            variant="unstyled"
+            ctaPosition="hero"
+            campaign="formations-hero"
             className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#1E40AF] shadow-md transition hover:bg-white/95 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:px-6"
-          >
-            Réserver ma visio gratuite
-          </a>
+          />
           <Link
             href={LINKS.financement}
             className="inline-flex items-center justify-center rounded-full border border-white/50 bg-transparent px-5 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:px-6"

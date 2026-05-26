@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 /** og:site_name — cohérence sur tout le site */
-export const OG_SITE_NAME = 'Laure Olivié — Formation IA BTP';
+export const OG_SITE_NAME = 'Laure Olivié — Formation IA pour le BTP';
 
-const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA BTP';
+const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA pour le BTP';
 
 /** Ajoute la mention formatrice aux descriptions OG/meta (évite les doublons) */
 export function withOgDescriptionSuffix(description: string): string {
@@ -32,7 +32,7 @@ export type BuildPageMetadataInput = {
   ogType?: 'website' | 'article';
   image?: { url: string; width?: number; height?: number; alt?: string };
   article?: ArticleMetaInput;
-  /** Par défaut true : suffixe « Laure Olivié, formatrice IA BTP » */
+  /** Par défaut true : suffixe « Laure Olivié, formatrice IA pour le BTP » */
   appendAuthorSuffix?: boolean;
   /** Remplace og:title et twitter:title (balise HTML <title> inchangée si non défini) */
   openGraphTitle?: string;
@@ -118,7 +118,7 @@ export function buildPageMetadata({
           publishedTime: toIso8601Utc(article.publishedTime),
           modifiedTime: toIso8601Utc(article.modifiedTime ?? article.publishedTime),
           authors: [article.author ?? 'Laure Olivié'],
-          section: article.section ?? 'Formation IA BTP',
+          section: article.section ?? 'Formation IA pour les pro du BTP',
         }
       : {};
 
@@ -138,7 +138,7 @@ export function buildPageMetadata({
     const pub = toIso8601Utc(article.publishedTime);
     const mod = toIso8601Utc(article.modifiedTime ?? article.publishedTime);
     const author = article.author ?? 'Laure Olivié';
-    const section = article.section ?? 'Formation IA BTP';
+    const section = article.section ?? 'Formation IA appliquée au bâtiment';
     other['article:author'] = author;
     other['og:author'] = author;
     other['article:published_time'] = pub;

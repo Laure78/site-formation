@@ -15,7 +15,7 @@ export function StatsCards() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">Chiffres clés</h2>
-          <p className="max-w-md text-sm text-[#64748B]">Indicateurs consolidés de formation IA BTP.</p>
+          <p className="max-w-md text-sm text-[#64748B]">Indicateurs consolidés de formation IA pour les pro du BTP.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {STATS.map((item) => {

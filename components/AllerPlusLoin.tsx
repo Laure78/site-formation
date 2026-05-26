@@ -10,7 +10,7 @@ export interface AllerPlusLoinLink {
 }
 
 const DEFAULT_LINKS: AllerPlusLoinLink[] = [
-  { href: '/formations', label: 'Formation IA BTP' },
+  { href: '/formations', label: 'Formation IA appliquée au bâtiment' },
   { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
   { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
   { href: '/blog', label: 'Articles et guides' },
@@ -19,7 +19,7 @@ const DEFAULT_LINKS: AllerPlusLoinLink[] = [
 ];
 
 interface AllerPlusLoinProps {
-  /** Liens personnalisés (optionnel). Par défaut : Formation IA BTP, IA métier, Prendre RDV */
+  /** Liens personnalisés (optionnel). Par défaut : Formation IA pour le BTP, IA métier, Prendre RDV */
   links?: AllerPlusLoinLink[];
   /** Variante compacte sans bordure */
   variant?: 'default' | 'compact' | 'chips';

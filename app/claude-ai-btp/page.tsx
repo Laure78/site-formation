@@ -35,7 +35,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-04-13',
     modifiedTime: '2026-04-18',
     author: SITE_CONFIG.name,
-    section: 'Formation IA BTP',
+    section: 'Formation IA pour les pro du BTP',
   },
   image: {
     url: ogClaudeBtpJpg,
@@ -112,7 +112,7 @@ const idfLinks = [
 ] as const;
 
 const quickLinks = [
-  { href: LINKS.formations, label: 'Catalogue formations IA BTP' },
+  { href: LINKS.formations, label: 'Catalogue formations IA pour les pro du BTP' },
   { href: LINKS.financement, label: 'Financement Constructys' },
   { href: LINKS.chatgptArtisans, label: 'ChatGPT pour PME BTP' },
   { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux' },
@@ -143,7 +143,7 @@ const faqItems = [
   },
   {
     q: "Claude AI est-il finançable dans le cadre d'une formation BTP ?",
-    a: "La formation à son usage peut faire l'objet d'une prise en charge selon éligibilité. OFC Création d'Entreprise propose une formation IA BTP éligible Constructys (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires pendant la formation (15 € HT/h), selon conditions en vigueur.",
+    a: "La formation à son usage peut faire l'objet d'une prise en charge selon éligibilité. OFC Création d'Entreprise propose une formation IA appliquée au bâtiment éligible Constructys (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires pendant la formation (15 € HT/h), selon conditions en vigueur.",
   },
   {
     q: 'Combien de temps faut-il pour être opérationnel sur Claude AI ?',
@@ -151,7 +151,7 @@ const faqItems = [
   },
   {
     q: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
-    a: "OFC Création d'Entreprise anime des formations IA BTP en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.) et en distanciel. Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
+    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.) et en distanciel. Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
   },
   {
     q: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',

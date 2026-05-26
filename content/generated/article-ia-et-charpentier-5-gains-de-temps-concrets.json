@@ -54,14 +54,14 @@
       "title": "Questions fréquentes",
       "content": [
         "Faut-il des compétences techniques pour utiliser l'IA en BTP ? — Non. Une formation de 4h à 7h suffit. On travaille sur vos vrais documents (devis, emails, CR), sans code ni logiciel complexe. Méthode 100% pratique.",
-        "La formation IA BTP est-elle finançable ? — Formation éligible à une prise en charge par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en vigueur. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.",
+        "La formation IA pour les pro du BTP est-elle finançable ? — Formation éligible à une prise en charge par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en vigueur. Consultez nos tarifs et prenez rendez-vous pour un devis personnalisé.",
         "Combien de temps un professionnel du BTP gagne-t-il avec l'IA ? — En moyenne 3 à 5h par semaine sur les devis, emails et comptes rendus. Les gains sont mesurables dès la première semaine.",
         "Comment prendre rendez-vous pour une formation ? — Réservez un créneau de 30 minutes gratuit sur notre page Prendre RDV. Vous recevrez un devis personnalisé sous 24h."
       ]
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA BTP — 100% finançable Constructys."
+      "content": "Découvrez notre formation IA appliquée au bâtiment — 100% finançable Constructys."
     }
   ],
   "relatedSlugs": [],
@@ -70,7 +70,7 @@
   "internalLinks": [
     {
       "path": "/formations",
-      "anchor": "formation IA BTP"
+      "anchor": "formation IA pour le BTP"
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",

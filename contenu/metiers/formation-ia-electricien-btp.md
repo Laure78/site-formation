@@ -63,7 +63,7 @@ L’intelligence artificielle générative sert d’**assistant de brouillon** p
 
 **Liens internes (exemples à insérer dans le corps de page) :**  
 → [Formation IA plombier BTP](/formation-ia-plombier-btp/) (autre corps de métier)  
-→ [Page pilier formation IA BTP](/formation-ia-btp/)  
+→ [Page pilier formation IA pour le BTP](/formation-ia-btp/)  
 → [Article : analyser un DCE avec l’IA](/blog/analyse-dce-notebooklm-claude-btp)
 
 ---
@@ -150,7 +150,7 @@ Ce parcours métier aligne exemples et exercices sur **devis élec, SAV, mails**
 
 Laure Olivié forme les équipes du BTP à une utilisation **responsable** de ChatGPT et des outils d’IA : gains de temps réels, garde-fous conformité, zéro promesse magique. **OFC Création d’Entreprise** est certifié Qualiopi (NDA 11788515078). [En savoir plus — page À propos](/a-propos/)
 
-**Photo :** portrait professionnel — alt : *Laure Olivié, formatrice IA BTP pour électriciens — OFC*
+**Photo :** portrait professionnel — alt : *Laure Olivié, formatrice IA pour les pro du BTP pour électriciens — OFC*
 
 ---
 

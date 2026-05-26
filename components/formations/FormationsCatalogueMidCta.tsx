@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import { calendlyCatalogueUrl } from '@/lib/calendly';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-
-const visioUrl = calendlyCatalogueUrl('mid-page');
 
 export function FormationsCatalogueMidCta() {
   return (
@@ -37,14 +35,13 @@ export function FormationsCatalogueMidCta() {
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <a
-              href={visioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <CalendlyEmbed
+              type="popup"
+              variant="unstyled"
+              ctaPosition="middle"
+              campaign="formations-mid-page"
               className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-center text-base font-bold text-[#1E40AF] shadow-xl transition hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Réserver ma visio →
-            </a>
+            />
             <Link
               href={LINKS.financement}
               className="inline-flex items-center justify-center rounded-xl border-[1.5px] border-white px-7 py-4 text-center text-base font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"

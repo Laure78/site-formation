@@ -110,7 +110,7 @@ Pour le **suivi de chantier**, les **réserves** et **levées** doivent être da
 
 ## Laure Olivié {#laure}
 
-Formatrice IA BTP — accompagnement des fédérations et PME. [À propos](/a-propos/)
+Formatrice IA appliquée au bâtiment — accompagnement des fédérations et PME. [À propos](/a-propos/)
 
 ---
 

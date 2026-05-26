@@ -6,23 +6,23 @@ import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '
 import { LINKS } from '@/lib/internal-links';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Morangis (91) — devis & ChatGPT',
+  title: 'Formation IA appliquée au bâtiment Morangis (91) — devis & ChatGPT',
   description:
-    'Formation IA BTP à Morangis et en Essonne : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Professionnels du BTP et PME du bâtiment en Île-de-France.',
+    'Formation IA pour le BTP à Morangis et en Essonne : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Professionnels du BTP et PME du bâtiment en Île-de-France.',
   path: '/formations/ia-btp-morangis',
   keywords: [
-    'formation IA BTP Morangis',
+    'formation IA pour le BTP Morangis',
     'formation ChatGPT BTP 91',
     'formation IA Essonne',
-    'formation IA BTP Les Ulis',
-    'formation IA BTP Longjumeau',
+    'formation IA pour les pro du BTP Les Ulis',
+    'formation IA appliquée au bâtiment Longjumeau',
     'OPCO Constructys Essonne',
     'Qualiopi formation IA bâtiment 91',
   ],
 });
 
 const courseSchema = getCourseSchema({
-  name: 'Formation IA BTP à Morangis',
+  name: 'Formation IA pour le BTP à Morangis',
   description:
     "Formation IA pour entreprises du BTP à Morangis et en Essonne (91). Devis, emails, appels d'offres, administratif. Qualiopi · Constructys · Île-de-France.",
   path: '/formations/ia-btp-morangis',
@@ -44,7 +44,7 @@ export default function FormationIABTPMorangisPage() {
           <div className="mx-auto max-w-4xl text-center text-sm text-slate-700 md:text-base">
             Ville voisine :{' '}
             <Link href={LINKS.formationLongjumeau} className="font-semibold text-[var(--accent)] hover:underline">
-              formation IA BTP à Longjumeau
+              formation IA pour les pro du BTP à Longjumeau
             </Link>
             {' · '}
             <Link href={LINKS.claudeAiBtp} className="font-semibold text-[var(--accent)] hover:underline">

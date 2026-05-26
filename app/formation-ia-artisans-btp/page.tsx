@@ -13,13 +13,13 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT } from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA BTP : ChatGPT, devis, emails, comptes rendus',
+  title: 'Formation IA pour les pro du BTP : ChatGPT, devis, emails, comptes rendus',
   description:
     'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
   path: '/formation-ia-artisans-btp',
   keywords: [
     'formation IA PME BTP',
-    'formation IA BTP',
+    'formation IA appliquée au bâtiment',
     'ChatGPT entreprises BTP',
     'rédaction mémoire technique',
     'appel d\'offre BTP',
@@ -58,7 +58,7 @@ const serviceJsonLd = {
     'Formation ChatGPT 4h pour TPE/PME et professionnels du BTP : devis, emails, comptes rendus de chantier. Qualiopi. Financement possible selon éligibilité.',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Formation IA BTP',
+    name: 'Formation IA pour le BTP',
     itemListElement: [
       {
         '@type': 'Offer',
@@ -96,7 +96,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'ChatGPT est-il sécurisé pour les données de mon entreprise ?',
-    a: "La version gratuite de ChatGPT ne garantit pas la confidentialité des données. Pour des informations clients ou chantier, utilisez ChatGPT Team ou Enterprise, ou ne collez jamais de données sensibles. La formation IA BTP vous apprend les bonnes pratiques (anonymisation, relecture, process interne).",
+    a: "La version gratuite de ChatGPT ne garantit pas la confidentialité des données. Pour des informations clients ou chantier, utilisez ChatGPT Team ou Enterprise, ou ne collez jamais de données sensibles. La formation IA pour les pro du BTP vous apprend les bonnes pratiques (anonymisation, relecture, process interne).",
   },
   {
     q: 'Combien de temps économise-t-on avec ChatGPT dans le BTP ?',
@@ -219,7 +219,7 @@ export default function FormationIAArtisansBTPPage() {
             pour les données sensibles, ou anonymisez avant de demander une
             aide. La{' '}
             <Link href={LINKS.formations} className="text-[var(--accent)] font-medium hover:underline">
-              formation IA BTP
+              formation IA appliquée au bâtiment
             </Link>
             {' '}vous apprend un process sécurisé.
           </p>
@@ -312,7 +312,7 @@ export default function FormationIAArtisansBTPPage() {
               href={LINKS.formationParis}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
             >
-              Voir la formation IA BTP
+              Voir la formation IA pour le BTP
               <ArrowRight size={20} strokeWidth={1.5} />
             </Link>
             <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10">

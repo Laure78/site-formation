@@ -197,7 +197,7 @@ export default function IADevisBatimentPage() {
           </Link>
           {' '}et gagner 2h à 4h par devis. Descriptifs techniques, chiffrages, variantes : productivité entreprise bâtiment garantie. Découvrez notre{' '}
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
-            formation IA BTP
+            formation IA pour le BTP
           </Link>
           {' '}financement possible selon éligibilité.
         </p>
@@ -545,7 +545,7 @@ export default function IADevisBatimentPage() {
             </li>
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Formation IA BTP
+                Formation IA pour les pro du BTP
               </Link>
             </li>
             <li>

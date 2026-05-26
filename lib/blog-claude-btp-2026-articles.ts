@@ -214,7 +214,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Qualiopi, OPCO et passage à l’action',
         content: `<figure class="my-6">
-<img src="${CAR5}/08-cta-qualiopi-opco.png" alt="Laure Olivié formatrice IA BTP Qualiopi financement OPCO formation 4h" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${CAR5}/08-cta-qualiopi-opco.png" alt="Laure Olivié formatrice IA appliquée au bâtiment Qualiopi financement OPCO formation 4h" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Formation 4 h, déploiement possible dès la semaine suivante selon votre organisation.</figcaption>
 </figure>`,
       },
@@ -295,7 +295,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Schéma : de la consigne au résultat',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-03.png" alt="Claude Code : flux instruction en français, interprétation, résultat sur fichiers et site — formation IA BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/slide-03.png" alt="Claude Code : flux instruction en français, interprétation, résultat sur fichiers et site — formation IA pour le BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Claude Code : vous tapez une instruction, le système interprète et agit sur vos fichiers ou votre site.</figcaption>
 </figure>`,
       },
@@ -424,7 +424,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Vous voulez passer à la pratique encadrée sur vos cas réels (devis, chantier, administratif) ? Réservez un échange ou découvrez le catalogue des formations IA BTP.',
+          'Vous voulez passer à la pratique encadrée sur vos cas réels (devis, chantier, administratif) ? Réservez un échange ou découvrez le catalogue des formations IA pour les pro du BTP.',
         formationHref: '/formations/ia-batiment-travaux-publics',
       },
     ],
@@ -513,7 +513,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
       'prompts LinkedIn BTP',
       'carrousel LinkedIn bâtiment',
       'posts LinkedIn BTP',
-      'formation IA BTP communication',
+      'formation IA pour les pro du BTP communication',
       'Qualiopi LinkedIn',
       'OPCO Constructys communication',
     ],
@@ -556,7 +556,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
           {
             titre: 'Post court « pourquoi se former à l’IA maintenant »',
             prompt:
-              'Rédige un post LinkedIn de 1200 caractères max pour une formatrice IA BTP. Inclure : une statistique d’usage du secteur (sans inventer de chiffre précis si non fourni), 3 bénéfices concrets (devis, mails, DCE), mention Qualiopi et Constructys une seule fois chacun. Terminer par une question ouverte.',
+              'Rédige un post LinkedIn de 1200 caractères max pour une formatrice IA pour le BTP. Inclure : une statistique d’usage du secteur (sans inventer de chiffre précis si non fourni), 3 bénéfices concrets (devis, mails, DCE), mention Qualiopi et Constructys une seule fois chacun. Terminer par une question ouverte.',
             usage: 'Remplacez la stat par votre source (étude, retour terrain).',
           },
           {

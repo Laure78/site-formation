@@ -218,7 +218,7 @@ export function FormationIaDirigeantBtpLanding() {
 
           <section id="budget" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              Budget réel d’une transformation IA BTP : combien, en combien de temps
+              Budget réel d’une transformation IA pour le BTP : combien, en combien de temps
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
               <p>
@@ -304,7 +304,7 @@ export function FormationIaDirigeantBtpLanding() {
                   href={LINKS.financement}
                   className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
                 >
-                  <span className="text-slate-900">Financement Constructys — formation IA BTP</span>
+                  <span className="text-slate-900">Financement Constructys — formation IA pour les pro du BTP</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
                     Barèmes, éligibilité, montage de dossier pour les entreprises du BTP.
                   </span>

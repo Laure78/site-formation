@@ -59,7 +59,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
   {
     ref: 'NIV-02',
     level: 'AVANCÉ',
-    title: "L'IA au service des appels d'offre BTP",
+    title: "L'IA appliquée aux appels d'offres BTP",
     href: '/formations/ia-appels-offre-btp',
     slug: 'ia-appels-offre-btp',
     programmePdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
@@ -67,17 +67,17 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     pitch:
-      "Niveau 2 : analyse DCE (NotebookLM), Go / No Go, mémoire technique et contrôle de chiffrage avec Claude AI.",
+      "Niveau 2 : Claude AI Pro, Cowork & Skills — analyse DCE, mémoire technique et assistants IA réutilisables.",
     profileTags: ['appels-offres'],
     objectifs: [
-      'Analyser un DCE avec NotebookLM et structurer les critères (CCTP, DPGF, règlement de consultation)',
-      'Décider Go / No Go et estimer la rentabilité avec des prompts adaptés au BTP',
-      'Rédiger et relire un mémoire technique avec Claude AI (sections, cohérence, ton professionnel)',
-      'Contrôler un chiffrage avant dépôt — confidentialité, validation humaine, Qualiopi et OPCO Constructys',
+      'Paramétrer Claude AI Pro (Projects, instructions) et installer Cowork sur le poste',
+      'Analyser un DCE complet via Cowork — 15 informations critiques, verdict Go / No Go',
+      'Structurer et rédiger un mémoire technique avec les skills Cowork dédiés',
+      'Créer des skills DCE / MT personnalisés, alimentés par les données de l\'entreprise',
     ],
     comparatif: {
-      publicLabel: 'Dirigeants, conducteurs de travaux — chargés d\'affaires, bureau d\'études, direction',
-      casUsage: 'Marchés publics et privés, mémoires',
+      publicLabel: 'Responsables d\'affaires, chargés d\'études, conducteurs de travaux, dirigeants, bureaux d\'études',
+      casUsage: 'DCE, mémoires techniques, skills Cowork',
     },
   },
 ];

@@ -116,7 +116,7 @@ const articleJsonLd = {
     'ppsps ia',
     'dce ia btp',
     'doe ia',
-    'formation IA BTP',
+    'formation IA pour les pro du BTP',
     'Guyancourt',
     'Île-de-France',
   ],
@@ -311,7 +311,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
             C’est cette ligne nette qui rend l’usage de l’IA professionnel — et c’est ce qu’on travaille
             en détail dans le module dédié à l’
             <Link href={LINKS.formationConducteurTravaux} className="font-medium underline">
-              IA pour conducteur de travaux en formation IA BTP
+              IA pour conducteur de travaux en formation IA appliquée au bâtiment
             </Link>
             .
           </p>
@@ -771,7 +771,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
 
           <h2 id="formation">Se former à l’IA chantier avec OFC Création d’Entreprise</h2>
           <p>
-            OFC Création d’Entreprise propose une <strong>formation IA BTP de 4 heures</strong>, éligible au
+            OFC Création d’Entreprise propose une <strong>formation IA pour le BTP de 4 heures</strong>, éligible au
             financement Constructys dans le cadre du Plan de Développement des Compétences, spécialement
             conçue pour les <strong>conducteurs de travaux</strong>, <strong>chargés d’affaires</strong> et{' '}
             <strong>dirigeants de PME BTP</strong>.
@@ -809,11 +809,11 @@ export default function GuideConducteurTravauxIaBtpPage() {
           <p>
             Découvrez le{' '}
             <Link href={LINKS.formations} className="font-medium underline">
-              catalogue des formations IA BTP
+              catalogue des formations IA appliquées au bâtiment
             </Link>{' '}
             et le détail du{' '}
             <Link href={LINKS.financement} className="font-medium underline">
-              financement Constructys 2026 pour la formation IA BTP
+              financement Constructys 2026 pour la formation IA pour les pro du BTP
             </Link>
             . Pour le programme dédié au terrain chantier, utilisez le lien « IA pour conducteur de travaux
             » placé plus haut dans ce guide (une seule entrée maillage pour éviter les doublons et garder une
@@ -855,7 +855,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
 
           <footer className="not-prose mt-14 rounded-xl border border-black/10 bg-white p-6 shadow-sm">
             <p className="m-0 font-display font-semibold text-[#377CF3]">
-              Laure Olivié — Formatrice IA BTP, OFC Création d’Entreprise
+              Laure Olivié — Formatrice IA pour les pro du BTP, OFC Création d’Entreprise
             </p>
             <p className="mt-2 text-sm">
               Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078 · Siège à{' '}
@@ -883,7 +883,7 @@ export default function GuideConducteurTravauxIaBtpPage() {
               </ExternalLinkAnchor>
               <span className="mx-2 text-neutral-400">·</span>
               <span className="text-neutral-600">
-                Catalogue formations : utilisez le lien « catalogue des formations IA BTP » dans la section
+                Catalogue formations : utilisez le lien « catalogue des formations IA pour le BTP » dans la section
                 formation ci-dessus (maillage unique).
               </span>
             </p>
