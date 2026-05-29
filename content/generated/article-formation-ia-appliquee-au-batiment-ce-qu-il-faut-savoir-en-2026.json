@@ -1,13 +1,13 @@
 {
   "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
-  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. prospection BTP IA. Formation IA pour les pro du BTP financement possible selon éligibilité",
-  "date": "2026-05-28",
+  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. devis plombier IA. Formation IA pour les pro du BTP financement possible selon éligibilité.",
+  "date": "2026-05-29",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "devis plombier IA",
+    "devis électricien ChatGPT",
+    "chiffrage BTP IA",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
   "seoTitle": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. prospection BTP IA. Formation IA pour les pro du BTP financement possible selon éligibilité",
+  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. devis plombier IA. Formation IA pour les pro du BTP financement possible selon éligibilité.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
