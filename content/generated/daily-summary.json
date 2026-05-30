@@ -1,29 +1,21 @@
 {
-  "date": "2026-05-29",
+  "date": "2026-05-30",
   "articles": [
     {
-      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
-      "title": "ChatGPT pour PME BTP : erreurs à éviter"
+      "slug": "l-ia-va-t-elle-remplacer-les-menuisiers",
+      "title": "L'IA va-t-elle remplacer les menuisiers ?"
     },
     {
-      "slug": "devis-en-15-min-le-guide-menuisier",
-      "title": "Devis en 15 min : le guide menuisier"
+      "slug": "automatiser-vos-emails-clients-avec-l-ia",
+      "title": "Automatiser vos emails clients avec l'IA"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-chauffagistes",
-      "title": "L'IA va-t-elle remplacer les chauffagistes ?"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-plombier",
+      "title": "Comment utiliser ChatGPT pour vos devis plombier"
     },
     {
-      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
-      "title": "Recrutement BTP : l'IA pour attirer les talents"
-    },
-    {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-electricien",
-      "title": "Comment utiliser ChatGPT pour vos devis électricien"
-    },
-    {
-      "slug": "ia-et-macon-5-gains-de-temps-concrets",
-      "title": "IA et maçon : 5 gains de temps concrets"
+      "slug": "ia-et-electricien-5-gains-de-temps-concrets",
+      "title": "IA et électricien : 5 gains de temps concrets"
     },
     {
       "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
@@ -34,12 +26,20 @@
       "title": "Financement Constructys : mode d'emploi"
     },
     {
-      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter-741669-8",
+      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
       "title": "ChatGPT pour PME BTP : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-couvreur",
-      "title": "Devis en 15 min : le guide couvreur"
+      "slug": "devis-en-15-min-le-guide-charpentier",
+      "title": "Devis en 15 min : le guide charpentier"
+    },
+    {
+      "slug": "l-ia-va-t-elle-remplacer-les-couvreurs",
+      "title": "L'IA va-t-elle remplacer les couvreurs ?"
+    },
+    {
+      "slug": "automatiser-vos-emails-clients-avec-l-ia-741670-9",
+      "title": "Automatiser vos emails clients avec l'IA"
     }
   ],
   "linkedinCount": 10
