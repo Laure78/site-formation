@@ -1,14 +1,6 @@
 {
-  "date": "2026-05-31",
+  "date": "2026-06-01",
   "articles": [
-    {
-      "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-      "title": "Appels d'offres BTP : l'IA comme assistant"
-    },
-    {
-      "slug": "ia-et-plombier-5-gains-de-temps-concrets",
-      "title": "IA et plombier : 5 gains de temps concrets"
-    },
     {
       "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
       "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026"
@@ -22,24 +14,32 @@
       "title": "ChatGPT pour PME BTP : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-peintre",
-      "title": "Devis en 15 min : le guide peintre"
+      "slug": "devis-en-15-min-le-guide-carreleur",
+      "title": "Devis en 15 min : le guide carreleur"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
-      "title": "L'IA va-t-elle remplacer les charpentiers ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-peintres",
+      "title": "L'IA va-t-elle remplacer les peintres ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
       "title": "Automatiser vos emails clients avec l'IA"
     },
     {
-      "slug": "appels-d-offres-btp-l-ia-comme-assistant-741671-8",
+      "slug": "appels-d-offres-btp-l-ia-comme-assistant",
       "title": "Appels d'offres BTP : l'IA comme assistant"
     },
     {
       "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
       "title": "Recrutement BTP : l'IA pour attirer les talents"
+    },
+    {
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "title": "Comment utiliser ChatGPT pour vos devis chauffagiste"
+    },
+    {
+      "slug": "ia-et-plombier-5-gains-de-temps-concrets",
+      "title": "IA et plombier : 5 gains de temps concrets"
     }
   ],
   "linkedinCount": 10
