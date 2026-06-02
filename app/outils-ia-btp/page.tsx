@@ -33,14 +33,13 @@ const breadcrumbJson = getBreadcrumbSchema([
 
 const ARTICLES_OUTILS = [
   {
-    titre:
-      'Sélecteur interactif : cas d’usage IA par métier (conducteur de travaux, chargé d’affaires, dirigeant PME BTP)',
+    titre: 'Sélecteur IA par métier BTP (conducteur, chargé d\'affaires, dirigeant)',
     href: LINKS.casUsageIaMetierBtp,
     badge: 'Outil interactif',
     linkLabel: 'Ouvrir l’outil',
   },
   {
-    titre: 'ChatGPT, Claude, Gemini : le guide complet pour démarrer avec l’IA dans le BTP',
+    titre: 'ChatGPT, Claude, Gemini : guide de démarrage IA BTP',
     href: '/blog/outils-ia-btp-chatgpt-claude-gemini',
     badge: 'Comparatif & tutoriel',
   },
@@ -110,14 +109,12 @@ export default function OutilsIABTPPage() {
             Outils IA pour le BTP : ChatGPT, Claude, Gemini
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-50">
-            Cette page regroupe les ressources pratiques pour choisir et utiliser les assistants IA les plus
-            courants dans le bâtiment et les travaux publics : devis, courriers, mémoires techniques, analyse de
-            documents. Méthode testée avec plus de 1&nbsp;592 professionnels formés (OFC Création d’Entreprise,
-            certification Qualiopi). Pour une vue dédiée à{' '}
+            ChatGPT, Claude, Gemini : choisir le bon outil pour devis, courriers et mémoires techniques
+            en BTP. Méthode testée avec 1&nbsp;592+ professionnels formés (OFC, Qualiopi). Page dédiée{' '}
             <Link href="/claude-ai-btp" className="font-semibold text-white underline decoration-white/80 hover:no-underline">
-              Claude AI (Anthropic) dans le BTP
+              Claude AI BTP
             </Link>
-            , consultez la page pilier associée.
+            .
           </p>
         </div>
       </section>
@@ -128,9 +125,8 @@ export default function OutilsIABTPPage() {
             Comparatif rapide (indicatif)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Tarifs et fonctionnalités évoluent souvent : vérifiez toujours les pages officielles des éditeurs avant
-            de vous engager. Ce tableau sert d’orientation pour les équipes terrain et le support.{' '}
-            <strong>Dernière mise à jour : avril 2026</strong> — révision prévue en juillet 2026 (trimestriel).
+            Orientation rapide pour équipes terrain et bureau. Tarifs et fonctions évoluent — vérifiez les pages
+            officielles. <strong>Mise à jour : avril 2026</strong> (révision trimestrielle).
           </p>
 
           <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
@@ -209,8 +205,7 @@ export default function OutilsIABTPPage() {
             </h2>
           </div>
           <p className="mt-4 max-w-3xl text-slate-600">
-            Maillage interne vers les contenus les plus utiles pour passer à l’action sur le terrain (devis, chantier,
-            réponses marchés).
+            Articles pour passer à l&apos;action : devis, chantier, réponses marchés.
           </p>
 
           <ul className="mt-10 space-y-4">
@@ -246,7 +241,7 @@ export default function OutilsIABTPPage() {
               <div>
                 <p className="font-semibold text-slate-900">Financer une formation IA (Constructys)</p>
                 <p className="mt-1 text-sm text-slate-600">
-                  Modalités OPCO et plafonds pour monter en compétence sur les outils avec un cadre Qualiopi.
+                  Plafonds OPCO et montage dossier — cadre Qualiopi.
                 </p>
               </div>
             </Link>
@@ -258,7 +253,7 @@ export default function OutilsIABTPPage() {
               <div>
                 <p className="font-semibold text-slate-900">Autres ressources IA BTP</p>
                 <p className="mt-1 text-sm text-slate-600">
-                  Guides complémentaires et cas d’usage pour dirigeants et équipes du bâtiment.
+                  Guides et cas d&apos;usage pour dirigeants et équipes BTP.
                 </p>
               </div>
             </Link>
@@ -278,15 +273,14 @@ export default function OutilsIABTPPage() {
       <section className="border-t border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Besoin d’un cadre terrain avec vos équipes ?
+            Former vos équipes sur le terrain
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Formations courtes, ateliers pratiques, certification Qualiopi — financement possible via l’OPCO
-            Constructys selon éligibilité.
+            Sessions courtes, ateliers pratiques Qualiopi — financement Constructys selon éligibilité.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <RdvLink className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700">
-              Prendre un rendez-vous découverte
+              Échanger sur vos besoins
             </RdvLink>
             <Link
               href="/formations"

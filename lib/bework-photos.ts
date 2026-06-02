@@ -29,7 +29,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'suivi-chantier',
     title: 'Suivi de chantier & coordination',
     intro:
-      'BeWork assure le suivi documentaire de vos chantiers : tableaux de bord, comptes rendus et relances, avec relecture humaine systématique.',
+      'Tableaux de bord, comptes rendus et relances — avec relecture humaine systématique.',
     photos: [
       {
         src: '/images/bework/assistante-suivi-chantier-tableau.png',
@@ -58,7 +58,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'bureau-chantier',
     title: 'Relais bureau-chantier',
     intro:
-      'Plans d’installation, consignes de sécurité et dossiers administratifs : BeWork tient le bureau pendant que vous êtes sur le terrain.',
+      'Plans, consignes sécurité et dossiers admin : le bureau tenu pendant que vous êtes sur le terrain.',
     photos: [
       {
         src: '/images/bework/assistante-plan-installation-chantier.png',
@@ -94,7 +94,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'planning-reporting',
     title: 'Planning & comptes rendus',
     intro:
-      'Organisation des plannings, comptes rendus et reporting : BeWork structure vos livrables pour sécuriser délais et trésorerie.',
+      'Plannings, CR et reporting structurés — pour sécuriser délais et trésorerie.',
     photos: [
       {
         src: '/images/bework/coordination-planning-chantier-bureau.png',
@@ -130,7 +130,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'maitre-oeuvre',
     title: 'Maître d’œuvre & marchés travaux',
     intro:
-      'Pour les entreprises titulaires de marchés publics, privés ou accords-cadres : relais administratif de bout en bout.',
+      'Marchés publics, privés ou accords-cadres : relais administratif de bout en bout.',
     photos: [
       {
         src: '/images/bework/guide-maitre-oeuvre-moe.png',

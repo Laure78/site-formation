@@ -159,11 +159,9 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             {config.h1}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            Organisme certifié <strong className="text-slate-800">Qualiopi</strong>, formations IA
-            &amp; ChatGPT pour le bâtiment et les travaux publics — sessions de 4 h, sur vos
-            documents réels. Plus de{' '}
-            <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong>{' '}
-            formés · note <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
+            Qualiopi · sessions 4 h · vos documents réels.{' '}
+            <strong className="text-slate-800">{formatProfessionalsTrainedCount()} pros</strong> formés · note{' '}
+            <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F2F2F2] px-4 py-2 text-sm text-slate-700">
             <MapPin size={16} className="text-[#377CF3]" aria-hidden />
@@ -172,7 +170,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-[#2d6ae0]">
               <Calendar size={20} strokeWidth={1.5} aria-hidden />
-              Prendre rendez-vous découverte (Calendly)
+              Échanger sur vos besoins
             </RdvLink>
             <Link
               href="#maillage-formation-ia-btp"
@@ -182,7 +180,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            Réservation en ligne via visio découverte gratuite (Calendly), sans engagement.
+            Visio découverte gratuite (Calendly), sans engagement.
           </p>
         </div>
       </section>
@@ -190,7 +188,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       <section className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            BTP dans le {config.departementNom} ({config.deptCode}) : un tissu d&apos;entreprises et des défis communs
+            BTP dans le {config.departementNom} ({config.deptCode}) : défis communs
           </h2>
           <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
             {config.tissuBtpLocal.map((p, i) => (
@@ -220,9 +218,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             ))}
           </div>
           <p className="mt-8 text-slate-700 leading-relaxed">
-            Pour une vue d&apos;ensemble des deux parcours (NIV-01 et NIV-02), le catalogue des formations, la page Paris et
-            l&apos;angle pédagogique Qualiopi, reportez-vous au bloc « Liens utiles » un peu plus bas : tout y est regroupé
-            pour éviter les doublons de navigation et garder une lecture fluide.
+            Parcours NIV-01 et NIV-02, catalogue, Paris et financement : voir le bloc « Liens utiles » ci-dessous.
           </p>
         </div>
       </section>

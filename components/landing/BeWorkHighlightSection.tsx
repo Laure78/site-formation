@@ -36,25 +36,23 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
               Assistant de gestion travaux · Relais BTP
             </p>
-            <p className="mt-1 text-sm font-medium text-[#377CF3]">Augmenté par l’IA · note chantier</p>
+            <p className="mt-1 text-sm font-medium text-[#377CF3]">Augmenté par l&apos;IA · note chantier</p>
 
             <h2
               id={headingId}
               className="mt-4 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
             >
-              Un assistant travaux à vos côtés pour tenir le rythme du chantier
+              Un assistant travaux pour tenir le rythme du chantier
             </h2>
 
             <p className="mt-4 text-base font-semibold leading-relaxed text-[#1A1A1A] md:text-lg">
-              Le relais BTP qui vous aide à produire vos documents, suivre vos chantiers et répondre plus vite.
+              CR, DCE, DOE, relances : BeWork produit vos livrables bureau pendant que vous êtes sur le terrain.
             </p>
 
             <p className="mt-4 text-[15px] leading-relaxed text-[#5A5A5A] md:text-base">
-              <span className="font-semibold text-[#1A1A1A]">BeWork</span> accompagne les pros du BTP sur les tâches
-              les plus chronophages : comptes rendus de chantier, analyse de DCE, PPSPS, mémoire technique, chiffrage de
-              devis, dossiers travaux, relances et suivi administratif. Proposition distincte des{' '}
-              <span className="text-[#334155]">formations certifiées Qualiopi OFC Création d’Entreprise</span> : un
-              relais opérationnel pour votre bureau pendant que vous êtes sur le terrain.
+              Service externalisé distinct des{' '}
+              <span className="text-[#334155]">formations Qualiopi OFC</span>. Comptes rendus, mémoires
+              techniques, dossiers travaux — relais opérationnel, pas de formation.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -63,14 +61,14 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
                 title="BeWork — site officiel bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(55,124,243,0.12)] transition-colors hover:bg-[#2A6BD9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3] focus-visible:ring-offset-2"
               >
-                Découvrir BeWork sur bework.fr
+                Demander un diagnostic
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
-                href={LINKS.bework}
+                href={`${LINKS.bework}#bework-missions`}
                 className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
               >
-                Présentation complète BeWork
+                Voir les missions prises en charge
               </Link>
             </div>
           </div>

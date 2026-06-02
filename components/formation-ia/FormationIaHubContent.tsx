@@ -22,19 +22,16 @@ export function FormationIaHubContent({ hubPath }: Props) {
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <article className="prose prose-slate max-w-none">
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Formation IA, ChatGPT et Claude AI pour le BTP — hub métiers & Île-de-France
+            Formation IA BTP — hub métiers & Île-de-France
           </h1>
           <p className="mt-4 text-lg text-slate-700">
             <Link href={LINKS.formationIaBtp} className="font-semibold text-[#377CF3] hover:underline">
-              Page pilier : formation IA pour le BTP (programme, financement, FAQ)
+              Page pilier : programme, financement, FAQ
             </Link>
           </p>
           <p className="lead text-lg text-slate-700">
-            Cette section regroupe des pages thématiques : une par <strong>lot / métier</strong> (pour
-            des exemples d&apos;atelier ciblés) et une par <strong>grande ville d&apos;Île-de-France</strong>{' '}
-            (pour le référencement local). Partout, nous enseignons <strong>ChatGPT</strong> et{' '}
-            <strong>Claude AI</strong> comme assistants de rédaction et de structuration — avec les
-            bonnes pratiques BTP et Qualiopi.
+            Pages par <strong>métier</strong> (ateliers ciblés) et par <strong>ville IDF</strong> (référencement
+            local). ChatGPT et Claude AI pour rédiger et structurer — avec les bonnes pratiques BTP et Qualiopi.
           </p>
 
           {paris && (

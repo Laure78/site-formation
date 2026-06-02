@@ -52,7 +52,7 @@ function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; sub
           campaign={`formation-metier-${id}`}
           className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
         >
-          Réservez votre visio découverte gratuite
+          Échanger sur vos besoins
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
         </CalendlyEmbed>
         <Link href={LINKS.financement} className="inline-flex items-center rounded-xl border-2 border-white/80 px-5 py-3.5 text-sm font-semibold text-white hover:bg-white/10">

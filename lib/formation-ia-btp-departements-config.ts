@@ -14,49 +14,49 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
   return [
     {
       q: `Intervenez-vous dans tout le département ${d} ?`,
-      a: `Oui. Les sessions intra-entreprise se font dans vos locaux ou sur un site que vous désignez dans les ${nomDept}, sous réserve de calendrier. Le siège de ${OFC} est à Guyancourt (78) : les déplacements vers ${villes} sont couramment planifiés. Pour les zones les plus éloignées, nous cadrons les créneaux ensemble (journée bloquée, demi-journées).`,
+      a: `Oui. Intra dans vos locaux ou sur site dans les ${nomDept}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
     },
     {
       q: 'Quelle est la différence entre session inter et intra pour mon équipe ?',
-      a: `En inter, vous rejoignez un groupe sur une date fixée (souvent en Île-de-France). En intra, la formation est réservée à votre entreprise : mêmes 4 h, mais les exemples sont vos devis, vos CCTP et vos modèles de courriers — ce qui est souvent préféré pour les PME du BTP dans le ${code}.`,
+      a: `Inter : groupe à date fixée en IDF. Intra : réservé à votre entreprise, 4 h sur vos devis, CCTP et courriers — souvent préféré des PME du ${code}.`,
     },
     {
       q: 'Les formations ont-elles lieu en présentiel dans le département ?',
-      a: "Oui. Les sessions se déroulent exclusivement en présentiel, dans vos locaux (intra) ou en salle (inter) en Île-de-France. La pédagogie est concrète : travail sur vos documents réels (devis, CCTP, courriers) avec exercices guidés.",
+      a: "Présentiel uniquement — intra dans vos locaux ou inter en salle en Île-de-France. Exercices sur vos documents réels (devis, CCTP, courriers).",
     },
     {
       q: 'Y a-t-il des frais de déplacement facturés pour une session dans mon département ?',
-      a: `Pour une première prise de contact et le cadrage, l'échange téléphonique (30 min) est gratuit. Pour les sessions intra dans l'Île-de-France, les conditions (déplacement, pause repas) sont précisées dans le devis — pas de surprise : tout est validé avant signature de la convention.`,
+      a: `Échange téléphonique 30 min gratuit pour cadrer. Intra IDF : déplacement et repas précisés au devis — tout validé avant convention.`,
     },
     {
       q: 'Le financement Constructys s’applique-t-il aux entreprises du département ?',
-      a: `Les règles Constructys sont nationales : éligibilité OPCO, plan de développement des compétences, plafonds pédagogiques. Le fait d'être dans le ${nomDept} ne change pas le barème ; en revanche, le programme Qualiopi et les objectifs pédagogiques sont alignés sur le guide financement Constructys publié sur le site laureolivie.fr.`,
+      a: `Règles Constructys nationales — éligibilité OPCO, plafonds pédagogiques. Le ${nomDept} ne change pas le barème ; programme Qualiopi aligné sur le guide financement du site.`,
     },
     {
       q: 'Combien de temps à l’avance réserver une date ?',
-      a: `Les agendas intra se remplissent souvent 3 à 6 semaines à l'avance en Île-de-France. Pour une date urgente (lancement chantier, montée en compétence avant un marché), indiquez-le lors de la réservation Calendly : ${buildSiteCalendlyCtaUrl('faq-dept-calendly-urgence')}.`,
+      a: `Agendas intra souvent pleins 3 à 6 semaines à l'avance en IDF. Date urgente ? Indiquez-le sur Calendly : ${buildSiteCalendlyCtaUrl('faq-dept-calendly-urgence')}.`,
     },
     {
       q: 'Puis-je combiner deux thèmes (ex. devis + appels d’offres) sur une journée ?',
-      a: "Chaque référence catalogue (NIV-01, NIV-02) correspond à 4 h complètes. Il est possible d'enchaîner deux demi-journées sur deux thèmes différents sur deux jours consécutifs ou la même semaine — à voir selon disponibilités et effectifs.",
+      a: "Chaque référence (NIV-01, NIV-02) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.",
     },
   ];
 }
 
 const CAS_USAGE_FORMATION_BTP: string[] = [
-  'Structurer des devis et des relances à partir de notes terrain ou de bons de commande — le chiffrage définitif reste interne.',
-  'Accélérer les comptes rendus de réunion et les synthèses hebdomadaires chantier, avec relecture avant envoi.',
-  'Préparer des brouillons de mémoires techniques et de réponses marchés, puis lister les questions au MOE à partir d’extraits de CCTP.',
-  'Formaliser les courriers récurrents (fournisseurs, assurances, sous-traitants) avec un ton homogène.',
-  'Reformuler tableaux de suivi et rapports à partir de données que vous fournissez — sans données personnelles non anonymisées.',
+  'Structurer devis et relances à partir de notes terrain — chiffrage définitif en interne.',
+  'Accélérer CR et synthèses hebdo chantier — relecture avant envoi.',
+  'Brouillons mémoires techniques et réponses marchés — questions MOE listées depuis le CCTP.',
+  'Courriers récurrents (fournisseurs, ST) au ton homogène.',
+  'Tableaux de suivi reformulés à partir de vos données — sans données perso non anonymisées.',
 ];
 
-const DEPLACEMENT_GUYANCOURT = `Le siège d’${OFC} est à Guyancourt (Yvelines) : pour une session intra dans votre département, le déplacement est inclus dans la proposition commerciale — les créneaux sont souvent calés sous trois à six semaines. En pratique, Guyancourt est à environ 30 minutes de route des principaux bassins de la petite couronne et du Grand Paris, ce qui facilite le calage des interventions en Île-de-France sans surcoût de distance disproportionné.`;
+const DEPLACEMENT_GUYANCOURT = `Siège ${OFC} à Guyancourt (78) : déplacement inclus au devis pour intra IDF. Créneaux souvent calés sous 3 à 6 semaines. Guyancourt est à ~30 min des principaux bassins franciliens.`;
 
 function ffbCasClient(deptCode: string): string {
-  const idf = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; la FFB Île-de-France et les retours de terrain franciliens alimentent les mises en situation près de chez vous.`;
-  const idfEst = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; en Seine-et-Marne, les échanges avec la FFB IDF Est nourrissent les exemples de formation (professionnels du BTP, PME, marchés publics locaux).`;
-  const grandParis = `Laure Olivié intervient régulièrement auprès des réseaux professionnels du BTP ; dans ce département, les échanges avec la FFB Grand Paris nourrissent les exemples de formation (PME, grands marchés, rénovation urbaine).`;
+  const idf = `Interventions FFB Île-de-France et retours terrain franciliens — exemples adaptés à votre secteur.`;
+  const idfEst = `Échanges FFB IDF Est (77) : exemples PME, marchés publics locaux.`;
+  const grandParis = `Échanges FFB Grand Paris : PME, grands marchés, rénovation urbaine.`;
   if (deptCode === '77') return idfEst;
   if (deptCode === '92' || deptCode === '93' || deptCode === '94') return grandParis;
   return idf;
@@ -102,37 +102,32 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'France',
   ],
   areaServedService: ['Yvelines', 'Île-de-France', 'France'],
-  problemTitle: 'Pourquoi le BTP des Yvelines (78) manque de temps — et pas d’outils',
+  problemTitle: 'Pourquoi le BTP des Yvelines (78) manque de temps — pas d’outils',
   problemBody: [
-    `Le département des Yvelines concentre à la fois des bassins d’emploi très denses (Versailles, Saint-Germain-en-Laye, parties proches de La Défense), des zones industrielles actives le long de la vallée de la Seine jusqu’à Mantes-la-Jolie, et des pôles périurbains comme Rambouillet ou les communes autour de Saint-Quentin-en-Yvelines. Les entreprises du bâtiment, du second œuvre et des travaux publics y subissent la même pression qu’ailleurs en Île-de-France : délais serrés sur les marchés publics et privés, concurrence sur les offres, et une charge administrative qui s’accumule entre le chantier, le bureau et la gestion des relances.`,
-    `Dans ce contexte, l’« efficacité » ne se joue pas seulement sur le terrain : elle se joue aussi sur la capacité à produire vite des documents fiables — devis détaillés, comptes rendus de réunion, synthèses de CCTP, brouillons de mémoires techniques. Beaucoup d’équipes utilisent encore des modèles Word vieillissants ou des copier-coller entre mails, faute de temps pour structurer une méthode. Résultat : des heures perdues chaque semaine, et une fatigue cognitive qui pèse sur les conducteurs de travaux, les chargés d’affaires et les fonctions support.`,
-    `L’IA générative (ChatGPT, Claude AI ou équivalents) ne remplace pas le métier : en revanche, elle accélère la mise en forme, la reformulation et la structuration lorsque l’on sait quoi demander — et quoi ne jamais mettre dans un outil grand public. Le risque, sans formation, est de croire que « tout peut être automatisé » : d’où l’importance d’un cadre pédagogique Qualiopi, avec des exercices sur vos propres documents et des rappels sur la confidentialité des données et la validation humaine des réponses soumises à un maître d’ouvrage ou à un juge d’offres.`,
-    `Les dirigeants de TPE et PME que je rencontre dans le 78 ne cherchent pas une transformation numérique de trois ans : ils veulent un gain de temps mesurable sur l’administratif et les dossiers, sans alourdir l’organisation. C’est exactement l’objectif des sessions proposées par ${OFC} : quatre heures, orientées terrain, avec des livrables utilisables dès le lendemain — pas une conférence généraliste sur l’IA.`,
-    `Les chantiers « express » et les opérations de rénovation tertiaire autour de Versailles ou dans les zones d’activité de Saint-Quentin-en-Yvelines génèrent une documentation dispersée : pièces sur serveur, échanges de chantier, photos terrain. Sans cadre commun, l’IA devient un cinquième canal de bruit ; avec une formation encadrée Qualiopi, elle devient l’endroit où restructurer l’information avant archivage et envoi officiel.`,
-    `Entre la vallée de la Mauldre et les secteurs plus ruraux du sud des Yvelines, le recrutement de profils administratifs reste tendu : chaque heure gagnée sur les modèles Word ou les mails répétitifs est une heure réinjectée sur le corps d’état critique. Les gains typiques observés après une première semaine d’application des méthodes vues en salle se situent souvent entre trois et cinq heures par semaine pour une petite équipe.`,
+    `Yvelines denses (Versailles, SQY, Mantes) et périurbaines (Rambouillet) : délais serrés, concurrence sur les offres, admin qui s'accumule entre chantier et bureau.`,
+    `L'efficacité se joue aussi sur les documents — devis, CR, CCTP, mémoires. Sans méthode, copier-coller et modèles Word vieillissants coûtent des heures chaque semaine.`,
+    `L'IA accélère mise en forme et structuration — si vous savez quoi demander et quoi ne jamais soumettre tel quel. Sans formation Qualiopi : risque d'automatisation naïve et de fuite de données.`,
+    `Les dirigeants du 78 veulent un gain mesurable sur l'admin, pas une transformation de trois ans. Objectif ${OFC} : 4 h terrain, livrables utilisables dès le lendemain.`,
   ],
-  solutionTitle: 'La solution : une formation IA appliquée au bâtiment courte, certifiée Qualiopi, centrée sur vos documents',
+  solutionTitle: 'Formation IA BTP 4 h, Qualiopi, centrée sur vos documents',
   solutionBody: [
-    `La réponse apportée aux équipes des Yvelines repose sur un format standard de quatre heures, exclusivement en présentiel dans vos locaux (intra) ou en salle (inter) en Île-de-France. Le programme s’appuie sur les références du catalogue — notamment « L’IA au service du bâtiment » pour l’entrée de gamme, et des modules plus spécialisés pour les appels d’offres ou les fonctions RH selon vos besoins. Chaque séquence alterne démonstration, exercice guidé et mise en pratique sur des exemples réels : un extrait de devis, un courrier client, une trame de compte rendu de chantier, un sommaire de mémoire technique.`,
-    `Le positionnement géographique du siège à Guyancourt facilite la logistique : pour une entreprise basée à Versailles, Poissy ou Sartrouville, le déplacement d’une formatrice habituée au vocabulaire BTP francilien limite les imprévus de calendrier. Pour les structures plus au nord-ouest (Mantes, limite des Yvelines), ou au sud (Rambouillet), nous planifions souvent des journées complètes ou des créneaux qui évitent les heures de pointe sur les grands axes — l’objectif est de protéger votre temps opérationnel.`,
-    `Sur le plan du financement, les entreprises du BTP relevant de l’OPCO Constructys peuvent mobiliser le plan de développement des compétences, sous réserve d’éligibilité et de montage de dossier. Les plafonds et règles nationales s’appliquent au 78 comme partout ailleurs ; mon rôle est de fournir les éléments pédagogiques (objectifs, programme, durée) cohérents avec une demande de prise en charge. La certification Qualiopi de l’organisme est un repère utile pour les services RH et les OPCO.`,
-    `Enfin, la démarche est compatible avec une montée en compétence progressive : commencer par automatiser les courriers et les relances, puis, dans un second temps, attaquer des usages plus sensibles (analyse de pièces marchés, mémoires techniques) lorsque l’équipe est prête. C’est souvent ainsi que les entreprises des Yvelines sécurisent l’adoption : petits gains immédiats, puis usage avancé lorsque les réflexes de relecture humaine sont ancrés.`,
-    `Pour les directions techniques qui pilotent plusieurs petits chantiers en parallèle (courants faibles, étanchéité, gros œuvre local), la session peut intégrer un volet « standardisation des consignes » : mêmes prompts pour les comptes rendus hebdomadaires, mêmes grilles de relecture, ce qui simplifie le contrôle qualité sans alourdir le reporting.`,
+    `Format standard 4 h, présentiel intra ou inter IDF. Alternance démo, exercice guidé, pratique sur vos devis, courriers et CR. Siège Guyancourt : logistique simple pour Versailles, Poissy, Mantes.`,
+    `Financement Constructys possible selon éligibilité — plafonds nationaux, pièces pédagogiques cohérentes Qualiopi fournies pour le dossier OPCO.`,
+    `Montée progressive : courriers et relances d'abord, puis DCE et mémoires quand l'équipe maîtrise la relecture humaine.`,
+    `Directions multi-chantiers : volet standardisation des consignes — mêmes prompts CR, mêmes grilles de relecture.`,
   ],
   villesTitle: 'Villes et bassins des Yvelines couverts (liste indicative)',
-  villesIntro: `Les sessions intra se déroulent chez vous ou sur le site que vous désignez. Voici des villes et bassins d’emploi fréquemment concernés dans le 78 — la liste n’est pas limitative : si votre commune n’y figure pas, un échange de 30 minutes permet de confirmer la faisabilité et les créneaux.`,
+  villesIntro: `Intra chez vous ou sur site. Villes et bassins fréquents dans le 78 — liste non exhaustive. Échange 30 min pour confirmer faisabilité.`,
   villesFooter: [
-    `De Versailles et Saint-Germain-en-Laye aux zones d’activité de Saint-Quentin-en-Yvelines et Vélizy, la diversité des tissus économiques impose des exemples d’atelier différents : bâtiment tertiaire, rénovation, réseaux, gros œuvre ou second œuvre. J’adapte les prompts et les cas pratiques à votre réalité — pas de « one size fits all ».`,
-    `Pour les entreprises qui travaillent aussi à Paris ou en petite couronne, il est utile de croiser cette page avec la fiche « formation IA pour le BTP à Paris » du catalogue : les enjeux de marchés publics y sont souvent voisins, même si la logistique interne diffère.`,
-    `Poissy, Sartrouville et les communes riveraines des grands axes restent des zones où l’on croise des entreprises de proximité et des filiales de grands groupes : la formation reste la même sur le fond (4 h, Qualiopi), mais les cas d’usage privilégient tantôt la relation client grand compte, tantôt le cycle de devis rapide auprès des particuliers.`,
+    `Versailles, SQY, Vélizy : exemples adaptés tertiaire, rénovation, réseaux ou gros œuvre — pas de one size fits all.`,
+    `Entreprises actives aussi à Paris ou en petite couronne : voir la fiche formation IA Paris du catalogue.`,
   ],
-  programmeTitle: 'Ce que contiennent concrètement les 4 heures (aperçu)',
+  programmeTitle: 'Contenu des 4 heures (aperçu)',
   programmeBody: [
-    `Le fil conducteur reste l’efficacité : comment formuler une consigne claire pour obtenir un premier jet exploitable (devis, mail, synthèse de réunion), comment itérer pour affiner le ton et la structure, et comment intégrer une relecture humaine systématique avant envoi au client ou soumission sur plateforme marchés. Nous travaillons aussi la « bibliothèque de prompts » : des modèles réutilisables par métier, adaptés au vocabulaire du CCTP et des bordereaux.`,
-    `Un temps est consacré aux limites : données personnelles, clauses confidentielles, pièces sensibles — quels comportements adopter selon que vous utilisez un outil grand public ou un espace professionnel. Ce volet est indispensable dans le BTP, où les dossiers peuvent contenir des informations sur des opérations non publiques ou des sous-traitants.`,
-    `Pour les équipes déjà à l’aise avec l’outil, nous poussons la logique vers l’industrialisation : modèles de relecture, check-list avant envoi, partage des prompts entre collègues (dans le respect de votre politique interne). L’objectif n’est pas d’ajouter une couche logicielle de plus, mais de rendre votre façon de travailler plus fluide.`,
-    `Après la session, vous repartez avec des supports réutilisables et une feuille de route simple pour la semaine suivante : quelles tâches automatiser en priorité, quels documents « pilotes » choisir pour tester l’IA sans disperser l’équipe.`,
-    `Une plage est réservée aux questions « terrain » : comment intégrer l’usage de l’IA dans une réunion de chantier hebdomadaire, comment imposer une relecture croisée conducteur / chargé d’affaires, comment tracer une version « brouillon IA » versus « version validée » dans votre gestion documentaire habituelle.`,
+    `Consignes claires pour un premier jet exploitable (devis, mail, CR) — itération et relecture humaine systématique.`,
+    `Bibliothèque de prompts réutilisables, vocabulaire CCTP et bordereaux.`,
+    `Limites : données perso, clauses confidentielles — comportements selon outil grand public ou espace pro.`,
+    `Feuille de route semaine suivante : tâches prioritaires et documents pilotes pour tester sans disperser l'équipe.`,
   ],
   temoignagesTitle: 'Témoignages de professionnels en Île-de-France (extraits anonymisés)',
   temoignages: [
@@ -151,16 +146,13 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   financeTitle: 'Financement et Qualiopi : ce qui s’applique aux entreprises du 78',
   financeBody: [
-    `Les entreprises du BTP adhérentes à Constructys peuvent examiner la prise en charge des actions de formation dans le cadre du plan de développement des compétences, selon les règles en vigueur (taille d’entreprise, plafonds pédagogiques, éligibilité des salariés concernés). Le département des Yvelines n’introduit pas de règle spécifique : en revanche, le fait d’avoir un organisme certifié Qualiopi facilite la cohérence des pièces attendues.`,
-    `Pour une vision à jour des barèmes et des étapes administratives, reportez-vous au guide financement sur le site : les liens utiles et les précisions sur la TVA (intra / inter) y sont centralisés. Mon équipe et moi restons disponibles pour répondre aux questions de faisabilité avant signature du devis.`,
-    `En résumé : dans les Yvelines comme ailleurs, la valeur ajoutée d’une formation IA pour les pro du BTP tient à la combinaison d’un cadre certifié, d’exemples concrets sur vos documents, et d’une mise en œuvre progressive qui respecte votre charge de travail terrain.`,
-    `Pour les financements, la vigilance porte souvent sur la bonne catégorisation de l’action (intra vs inter), sur le respect des plafonds horaires Constructys et sur la cohérence entre effectifs déclarés et participants réels : ces points sont clarifiés avant signature pour éviter les surprises en fin de bilan pédagogique.`,
-    `Si vous hésitez encore entre une sensibilisation courte et un module « AO » plus dense, l’appel découverte Calendly permet d’arbitrer : on croise votre secteur (public/privé), votre effectif cible et vos délais de marché — puis on verrouille une date intra ou une inscription inter selon le calendrier.`,
+    `Constructys : prise en charge possible selon éligibilité et plafonds nationaux. Qualiopi facilite la cohérence des pièces attendues.`,
+    `Barèmes et étapes : guide financement sur le site (TVA intra/inter centralisée). Questions de faisabilité avant signature du devis.`,
+    `Yvelines comme ailleurs : cadre certifié + vos documents + mise en œuvre progressive = adoption sécurisée.`,
   ],
   tissuBtpLocal: [
-    `Les Yvelines concentrent un tissu très large de PME et de professionnels du bâtiment et des travaux : entre bassins d’emploi denses (Versailles, Saint-Quentin-en-Yvelines), corridor vers Mantes-la-Jolie et zones mixtes autour de Poissy. Les secteurs dominants vont du second œuvre et de l’enveloppe au gros œuvre local, en passant par les réseaux et la rénovation tertiaire.`,
-    `La proximité avec le Grand Paris et La Défense se traduit par des marchés exigeants sur les délais et la documentation : mémoires techniques, comptes rendus, réponses aux appels d’offres. Les équipes jonglent entre chantier et bureau ; sans méthode commune, les relances et les dossiers s’accumulent.`,
-    `Les sessions ${OFC} s’appuient sur ce réel : exercices sur devis, CCTP et courriers — avec ChatGPT et Claude AI dans un cadre Qualiopi, relecture humaine systématique et règles de confidentialité.`,
+    `Yvelines : PME bâtiment, second œuvre et TP — Versailles, SQY, corridor Mantes, périphérie Poissy. Marchés exigeants, documentation lourde (mémoires, CR, AO).`,
+    `Sessions ${OFC} : exercices devis, CCTP, courriers — ChatGPT et Claude AI, cadre Qualiopi, relecture humaine et confidentialité.`,
   ],
   casUsageStandard: CAS_USAGE_FORMATION_BTP,
   deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
@@ -209,38 +201,32 @@ function buildDeptConfig(opts: {
     serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du ${d} : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
     areaServedCourse: [departementNom, opts.chefLieu, 'Île-de-France', 'France'],
     areaServedService: [departementNom, 'Île-de-France', 'France'],
-    problemTitle: `Le BTP dans le ${deptCode} : productivité attendue, temps administratif réel`,
+    problemTitle: `BTP ${deptCode} : productivité attendue, temps admin réel`,
     problemBody: [
-      `Dans le département ${d}, les entreprises du bâtiment, du second œuvre et des travaux publics naviguent entre chantiers exigeants, marchés publics ou privés, et une densité urbaine qui impose des délais courts. Les bassins autour de ${opts.chefLieu} et les axes ${opts.axes} structurent une partie des flux : entreprises de sous-traitance, PME de travaux, bureaux d’études — tous cherchent à tenir le planning sans laisser s’accumuler les relances, les comptes rendus et les dossiers de réponse.`,
-      `Le paradoxe est connu : plus le carnet de commandes est chargé, moins il reste de temps pour formaliser correctement les offres et les échanges écrits. L’IA générative peut réduire ce décalage, à condition d’être encadrée : prompts adaptés au vocabulaire du CCTP, relecture humaine obligatoire avant envoi, et règles claires sur les données sensibles. Sans cela, on ajoute un gadget de plus ; avec une formation courte certifiée Qualiopi, on transforme une plage de deux heures par semaine en temps récupérable sur le terrain.`,
-      `Les fonctions support et les conducteurs de travaux ne manquent pas de « volonté » : ils manquent de méthode partagée. D’où l’intérêt d’une session intra en présentiel dans vos locaux ${opts.temoignageZone} : tout le monde part avec les mêmes réflexes, les mêmes modèles de prompts et les mêmes garde-fous.`,
-      `Enfin, le financement via l’OPCO Constructys reste une question fréquente : les règles nationales s’appliquent au ${deptCode} comme ailleurs ; l’enjeu est de disposer d’un programme clair, d’objectifs mesurables et d’une convention conforme — ce que permet une structure certifiée Qualiopi.`,
-      `Les opérations multi-intervenants (BET, architecte, coordinateur SPS) multiplient les circulaires et les versions de pièces : sans méthode, chaque relance devient un fil de mails interminable. L’IA aide à résumer et à reformuler, mais seulement si l’équipe partage les mêmes garde-fous — ce que la formation intra installe vite lorsque les décideurs sont présents.`,
-      `Sur les axes ${opts.axes}, les créneaux « juste à temps » pèsent sur la disponibilité des conducteurs : réduire le temps passé sur les écrits administratifs, c’est aussi sécuriser la présence terrain et la qualité des réceptions.`,
+      `Dans le ${d}, entreprises bâtiment, second œuvre et TP : chantiers exigeants, délais courts autour de ${opts.chefLieu} et axes ${opts.axes}. Relances, CR et dossiers AO s'accumulent.`,
+      `Plus le carnet est chargé, moins il reste de temps pour formaliser offres et échanges. L'IA réduit ce décalage — avec prompts CCTP, relecture obligatoire et règles sur données sensibles.`,
+      `Support et conducteurs manquent de méthode partagée. Une intra ${opts.temoignageZone} aligne réflexes, prompts et garde-fous.`,
+      `Financement Constructys : règles nationales au ${deptCode} — programme clair, objectifs mesurables, convention conforme Qualiopi.`,
     ],
-    solutionTitle: `Formation IA pour le BTP dans le ${deptCode} : méthode, 4 h, résultats opérationnels`,
+    solutionTitle: `Formation IA BTP ${deptCode} : 4 h, résultats opérationnels`,
     solutionBody: [
-      `La proposition de ${OFC} pour le ${d} combine un format court (4 h), des exercices sur vos documents réels, et un positionnement « terrain BTP » : pas de jargon startup, pas de promesse irréaliste sur l’automatisation totale. Nous travaillons des cas concrets — devis, mails, synthèses, brouillons de mémoires — avec des itérations guidées pour améliorer le ton et la structure.`,
-      `Le siège à Guyancourt (78) permet d’organiser des déplacements en Île-de-France avec des créneaux réalistes : pour les entreprises ${opts.temoignageZone}, nous ajustons la journée pour limiter l’impact sur le chantier. Les sessions ont lieu exclusivement en présentiel, dans vos locaux ou en salle.`,
-      `Le catalogue comporte deux parcours : NIV-01 (bases bâtiment & travaux publics) et NIV-02 (appels d’offre BTP). Vous choisissez la séquence en fonction de votre maturité et de vos priorités business ; les programmes PDF sont sur chaque fiche.`,
-      `Après la session, l’objectif est simple : chaque participant repart avec des modèles réutilisables et une feuille de route sur deux semaines — quoi tester en premier, quoi mesurer (temps gagné sur une relance, sur un compte rendu), et comment faire remonter les bonnes pratiques dans l’équipe.`,
-      `Pour les directions qui gèrent à la fois ${opts.chefLieu} et des chantiers périphériques, nous pouvons intégrer un module « coordination distante » : mêmes prompts pour les comptes rendus, mêmes critères de relecture, afin que le siège et le terrain parlent le même langage documentaire.`,
-      `Enfin, la logique Qualiopi impose des objectifs pédagogiques explicites : la session n’est pas une démonstration marketing, mais un parcours évaluable — un atout lorsque le service RH doit justifier la ligne OPCO et le retour sur investissement attendu.`,
+      `${OFC} pour le ${d} : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
+      `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra ou inter uniquement.`,
+      `Catalogue NIV-01 (bases) et NIV-02 (AO). Programmes PDF sur chaque fiche.`,
+      `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
     villesTitle: `Villes et bassins d’emploi du ${d} (indicatif)`,
-    villesIntro: `Les sessions intra se déroulent dans vos locaux ou sur site. Voici des villes représentatives du département — liste non exhaustive ; si votre commune n’apparaît pas, un court échange permet de confirmer la logistique et les dates.`,
+    villesIntro: `Intra dans vos locaux ou sur site. Villes représentatives du ${d} — liste non exhaustive. Court échange pour confirmer logistique.`,
     villesFooter: [
-      `Les enjeux locaux varient : ${opts.perimetre}. J’adapte les exemples d’atelier (types de marchés, typologie de clients, part de public/privé) pour que l’équipe reconnaisse son quotidien.`,
-      `Pour une vision régionale, la page « formation IA pour les pro du BTP Île-de-France » et le catalogue des formations complètent cette approche départementale.`,
+      `Enjeux locaux : ${opts.perimetre}. Exemples d'atelier adaptés à votre mix public/privé.`,
+      `Vue régionale : page formation IA Île-de-France et catalogue des formations.`,
     ],
-    programmeTitle: 'Contenu pédagogique type sur une demi-journée (4 h)',
+    programmeTitle: 'Programme type — 4 h',
     programmeBody: [
-      `Mise à niveau rapide sur les usages de l’IA générative dans le BTP : ce qui est raisonnable d’automatiser, ce qui ne l’est pas, et comment organiser la relecture humaine.`,
-      `Ateliers sur vos documents : reformulation de courriers, structure de compte rendu, premières pistes pour analyser des extraits de CCTP ou de bordereaux — toujours avec des garde-fous confidentialité.`,
-      `Construction d’une mini-bibliothèque de prompts métier : modèles réutilisables par équipe, adaptés au vocabulaire de vos lots et à votre segmentation clients.`,
-      `Plan d’action 15 jours : tâches prioritaires, indicateurs simples (temps gagné, qualité perçue), et modalités pour partager les prompts en interne sans disperser les bonnes pratiques.`,
-      `Un temps est consacré aux situations « sous-traitance » : comment demander à l’IA de reformuler une consigne MOEX sans dénaturer l’intention, comment préparer un courrier de réserve ou une demande de précision CCTP sans ton conflictuel — le tout avec validation humaine.`,
-      `Pour les équipes déjà équipées d’outils collaboratifs (GED, Teams, Drive), nous discutons des points d’insertion : où coller le brouillon IA, comment versionner, qui signe — afin que la formation s’insère dans vos habitudes plutôt que de les contredire.`,
+      `Usages IA BTP : ce qui s'automatise, ce qui ne s'automatise pas — relecture humaine.`,
+      `Ateliers sur vos documents : courriers, CR, extraits CCTP — garde-fous confidentialité.`,
+      `Mini-bibliothèque de prompts métier, vocabulaire de vos lots.`,
+      `Plan d'action 15 jours : priorités, indicateurs simples, partage interne des prompts.`,
     ],
     temoignagesTitle: 'Témoignages de professionnels (extraits anonymisés)',
     temoignages: [
@@ -259,11 +245,9 @@ function buildDeptConfig(opts: {
     ],
     financeTitle: `Financement Constructys et Qualiopi — entreprises du ${deptCode}`,
     financeBody: [
-      `Les entreprises du BTP adhérentes à Constructys peuvent examiner la prise en charge des actions dans le cadre du plan de développement des compétences, selon les règles en vigueur. La certification Qualiopi de ${OFC} facilite la cohérence des pièces : programme, objectifs, durée, public concerné.`,
-      `Les plafonds pédagogiques et critères d’éligibilité sont nationaux : votre référent OPCO ou votre service RH confirme le montant applicable à votre structure. Mon rôle est de vous remettre un devis et une convention clairs avant engagement.`,
-      `Pour approfondir : le guide financement sur le site centralise les liens utiles et les précisions sur la TVA intra / inter selon le format de formation choisi.`,
-      `Les plannings intra dans le ${deptCode} se calent souvent sur des fenêtres sans production critique : nous anticipons avec vous les accès salle, les postes de démonstration et les extraits de documents anonymisés pour éviter de consommer la première heure sur des problèmes logistiques.`,
-      `Si plusieurs OPCO sont présents dans votre groupe (cas de filiales), le devis distingue les publics et les conventions : l’objectif est que chaque partie sache ce qu’elle finance avant le jour J.`,
+      `Constructys : prise en charge possible selon règles en vigueur. Qualiopi ${OFC} — programme, objectifs, durée, public.`,
+      `Plafonds nationaux — votre OPCO ou RH confirme le montant. Devis et convention clairs avant engagement.`,
+      `Guide financement sur le site : liens utiles et TVA intra/inter.`,
     ],
     tissuBtpLocal: opts.tissuBtpLocal,
     casUsageStandard: CAS_USAGE_FORMATION_BTP,
@@ -295,9 +279,8 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
   axes: 'A4, Francilienne, grands pôles de Meaux et de la Vallée',
   temoignageZone: 'en Seine-et-Marne',
   tissuBtpLocal: [
-    `La Seine-et-Marne concentre un tissu très étendu de PME et de professionnels du bâtiment : entre Marne-la-Vallée (Chessy, secteurs à fort enjeu touristique et tertiaire), les pôles de Meaux et de Melun, et les bassins de Fontainebleau ou plus à l’est. Les entreprises y enchaînent marchés publics et privés, avec une forte composante « grands projets » et réseaux.`,
-    `Les secteurs dominants vont du gros œuvre et des terrassements aux lots second œuvre, enveloppes et rénovation. La densité d’établissements reste élevée : la concurrence sur les offres et la charge documentaire (mémoires, CR, relances) pèsent sur les équipes comme ailleurs en Île-de-France.`,
-    `Les sessions ${OFC} s’alignent sur ce réel : prompts sur vos devis et CCTP, usage de ChatGPT et Claude AI avec garde-fous Qualiopi — jamais d’envoi sans validation interne.`,
+    `Seine-et-Marne étendue : Marne-la-Vallée, Meaux, Melun — grands projets, réseaux, marchés publics et privés.`,
+    `Sessions ${OFC} : prompts sur devis et CCTP — ChatGPT/Claude AI, Qualiopi, validation interne obligatoire.`,
   ],
 });
 
@@ -323,9 +306,8 @@ export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({
   axes: 'A6, Francilienne sud, liaison Massy–Évry',
   temoignageZone: 'en Essonne',
   tissuBtpLocal: [
-    `L’Essonne combine pôles d’ingénierie et d’enseignement supérieur (Massy, Palaiseau) avec un maillage dense de PME du bâtiment, de sous-traitance et d’entreprises de proximité autour d’Évry-Courcouronnes et de Corbeil-Essonnes. Le département accueille des zones d’activité actives et des opérations de rénovation et de neuf.`,
-    `Les secteurs dominants incluent le second œuvre, les lots techniques, le gros œuvre périphérique et les travaux publics sur les grands axes. Les entreprises cherchent à tenir des délais serrés tout en produisant des devis et des dossiers marchés de qualité — d’où l’intérêt d’une méthode IA encadrée.`,
-    `Les formations ${OFC} restent ancrées sur vos documents : ChatGPT et Claude AI pour structurer les brouillons, Qualiopi pour le cadre pédagogique, relecture humaine obligatoire.`,
+    `Essonne : Massy, Palaiseau, Évry, Corbeil — ingénierie, PME bâtiment, rénovation et neuf.`,
+    `Formations ${OFC} sur vos documents — ChatGPT/Claude AI, Qualiopi, relecture humaine.`,
   ],
 });
 
@@ -359,9 +341,8 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   axes: 'A86, A15, boulevard périphérique ouest',
   temoignageZone: 'dans les Hauts-de-Seine',
   tissuBtpLocal: [
-    `Les Hauts-de-Seine concentrent une concentration élevée d’entreprises du bâtiment et des travaux : entre La Défense, Nanterre et les communes riveraines, le département mêle grands marchés tertiaires, rénovation urbaine et entreprises de proximité. Le nombre d’établissements BTP y reste parmi les plus élevés d’Île-de-France.`,
-    `Les secteurs dominants incluent le second œuvre technique, les lots courants forts, l’enveloppe et les travaux en milieu occupé — avec des exigences fortes sur les délais et la qualité documentaire (mémoires, planning, CR).`,
-    `Les sessions ${OFC} s’adaptent à ce rythme : 4 h, exemples sur vos propres modèles, ChatGPT et Claude AI avec cadre Qualiopi et règles de confidentialité.`,
+    `Hauts-de-Seine : La Défense, Nanterre, Boulogne — grands marchés tertiaires, rénovation, PME de proximité.`,
+    `Sessions ${OFC} : 4 h, vos modèles, ChatGPT/Claude AI — Qualiopi et confidentialité.`,
   ],
 });
 
@@ -387,9 +368,8 @@ export const FORMATION_IA_BTP_SEINE_SAINT_DENIS_93 = buildDeptConfig({
   axes: 'A1, A3, Francilienne nord-est',
   temoignageZone: 'en Seine-Saint-Denis',
   tissuBtpLocal: [
-    `La Seine-Saint-Denis est un moteur du Grand Paris : nombreux marchés publics, opérations de rénovation et grands projets d’aménagement. Le tissu BTP y mêle grandes entreprises, PME de travaux et professionnels du BTP — avec une forte pression sur les délais et la coordination documentaire.`,
-    `Les secteurs dominants incluent le gros œuvre urbain, les réseaux, le second œuvre et les lots techniques sur opérations complexes. Les équipes gèrent souvent plusieurs chantiers en parallèle : la charge de mails, de comptes rendus et de réponses aux AO explose sans méthode.`,
-    `Les formations ${OFC} y déploient la même exigence Qualiopi qu’ailleurs : ChatGPT et Claude AI comme outils de brouillon, jamais comme substitut à la validation métier.`,
+    `Seine-Saint-Denis : Grand Paris, marchés publics, rénovation — gros œuvre, réseaux, second œuvre.`,
+    `Formations ${OFC} : brouillons IA, validation métier systématique — cadre Qualiopi.`,
   ],
 });
 
@@ -423,9 +403,8 @@ export const FORMATION_IA_BTP_VAL_DE_MARNE_94 = buildDeptConfig({
   axes: 'A4, A86, boulevard périphérique sud-est',
   temoignageZone: 'dans le Val-de-Marne',
   tissuBtpLocal: [
-    `Le Val-de-Marne forme une ceinture urbaine dense entre Paris et la grande couronne : Créteil, Vitry, Vincennes, Fontenay-sous-Bois — autant de bassins où les entreprises du bâtiment enchaînent rénovation, neuf et travaux en site occupé. Le tissu est majoritairement composé de PME et de professionnels du BTP, avec une part forte de marchés publics locaux.`,
-    `Les secteurs dominants incluent le second œuvre, les lots techniques, l’enveloppe et les travaux de réhabilitation. Les délais clients et la densité documentaire (relances, mémoires, CR) imposent des gains de temps sur l’écrit sans sacrifier la qualité.`,
-    `Les sessions ${OFC} y déploient la même approche : 4 h, Qualiopi, ChatGPT et Claude AI pour structurer vos brouillons — validation humaine systématique.`,
+    `Val-de-Marne : ceinture parisienne dense — rénovation, neuf, site occupé, marchés publics locaux.`,
+    `Sessions ${OFC} : 4 h Qualiopi, ChatGPT/Claude AI — validation humaine systématique.`,
   ],
 });
 
@@ -451,9 +430,8 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   axes: 'A15, A115, Francilienne nord',
   temoignageZone: "dans le Val-d'Oise",
   tissuBtpLocal: [
-    `Le Val-d’Oise combine les pôles de Cergy-Pontoise, le bassin d’Argenteuil et les dynamiques du nord francilien vers Roissy : le BTP y repose sur un maillage dense de PME, de professionnels du BTP et de sous-traitants qui alimentent logements, tertiaire et équipements.`,
-    `Les secteurs dominants incluent le gros œuvre périphérique, le second œuvre, les réseaux et l’enveloppe — avec des enjeux forts de délais et de relation client / maître d’ouvrage. La documentation (devis, mémoires, relances) occupe une part croissante du temps des équipes.`,
-    `Les formations ${OFC} restent calibrées terrain : ChatGPT et Claude AI pour accélérer la mise en forme, cadre Qualiopi, déplacement depuis Guyancourt maîtrisé pour l’Île-de-France.`,
+    `Val-d'Oise : Cergy, Argenteuil, Roissy — PME bâtiment, tertiaire, logements et équipements.`,
+    `Formations ${OFC} : mise en forme accélérée, Qualiopi, déplacements depuis Guyancourt maîtrisés.`,
   ],
 });
 

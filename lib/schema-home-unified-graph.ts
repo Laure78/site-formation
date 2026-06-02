@@ -16,6 +16,7 @@ import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PHOTOS } from '@/lib/photos';
 
 const ANNUAIRE_LABELS_CERT =
   'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281';
@@ -31,7 +32,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const imageHeroId = `${base}/#image-hero`;
 
   const heroImageUrl = `${base}/images/hero-accueil-formation-ia-btp-echange-2026.png`;
-  const personImageUrl = `${base}/images/laure-portrait-pro-2026.png`;
+  const personImageUrl = `${base}${PHOTOS.portraitPro2026.src}`;
   const dateModified = new Date().toISOString().split('T')[0];
 
   const priceStr = String(TARIF_FORFAIT_DEBUTANT_HT);

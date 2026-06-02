@@ -37,7 +37,7 @@ export function ProfilePhoto({ alt, title, priority = false }: Props) {
         title={title}
         width={PROFILE.width}
         height={PROFILE.height}
-        className="h-auto w-full"
+        className="h-auto w-full object-contain"
         sizes="(max-width: 768px) 100vw, 384px"
         priority={priority}
         onError={() => setError(true)}

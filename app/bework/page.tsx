@@ -108,12 +108,11 @@ export default function BeworkPage() {
               id="bework-hero-title"
               className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
             >
-              BeWork — le relais administratif de vos marchés travaux
+              BeWork — relais administratif de vos marchés travaux
             </h1>
             <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              <strong className="text-[#0F172A]">BeWork</strong> est un partenaire administratif externalisé pour le
-              BTP : vous envoyez vos demandes, l&apos;équipe exécute, vous validez le sensible, vous suivez tout sur une
-              plateforme simple.{' '}
+              Vous envoyez vos demandes. L&apos;équipe produit CR, DCE, DOE et relances. Vous validez le sensible.
+              Suivi sur une plateforme simple.{' '}
               <em className="not-italic text-[#334155]">On tient le bureau, vous tenez le chantier.</em>
             </p>
             <ul className="mt-6 space-y-2">
@@ -130,14 +129,14 @@ export default function BeworkPage() {
                 title="BeWork — site officiel bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
               >
-                Découvrir BeWork sur bework.fr
+                Demander un diagnostic
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
                 href={LINKS.formations}
                 className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
               >
-                Formations IA Qualiopi OFC
+                Formations IA Qualiopi
               </Link>
             </div>
             <p className="mt-4 text-xs text-[#64748B]">
@@ -167,13 +166,12 @@ export default function BeworkPage() {
       <section aria-labelledby="bework-probleme" className="border-b border-slate-200 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
           <h2 id="bework-probleme" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Pourquoi externaliser le relais administratif ?
+            30 à 40&nbsp;% du temps bureau, pas sur le chantier
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Un conducteur de travaux ou chargé d&apos;affaires BTP consacre souvent 30 à 40&nbsp;% de son temps au
-            bureau. Un chantier moyen génère une quarantaine de documents administratifs critiques. Chaque livrable en
-            retard expose à des pénalités, une retenue de garantie bloquée ou un solde impayé. BeWork prend en charge
-            cette charge documentaire pour que votre équipe terrain reste sur le chantier.
+            Un chantier moyen génère une quarantaine de documents critiques. Chaque retard expose à pénalités, retenue
+            de garantie ou solde impayé. BeWork prend en charge cette charge documentaire pour libérer votre équipe
+            terrain.
           </p>
         </div>
       </section>
@@ -225,11 +223,10 @@ export default function BeworkPage() {
       <section aria-labelledby="bework-missions" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <h2 id="bework-missions" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Missions prises en charge par BeWork
+            Missions prises en charge
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            Pour les entreprises BTP titulaires de marchés publics, privés, accords-cadres ou contrats récurrents — France,
-            Belgique, Suisse, Luxembourg.
+            Marchés publics, privés, accords-cadres — France, Belgique, Suisse, Luxembourg.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {MISSIONS.map((mission) => (
@@ -252,15 +249,14 @@ export default function BeworkPage() {
             On tient le bureau, vous tenez le chantier
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
-            Demandez un diagnostic sur le site officiel BeWork : audit de votre premier dossier sous 48&nbsp;h, démarrage
-            opérationnel en 3 à 5 jours.
+            Audit de votre premier dossier sous 48&nbsp;h. Opérationnel en 3 à 5 jours.
           </p>
           <ExternalLinkAnchor
             href={BEWORK_SITE}
             title="BeWork — demander un diagnostic sur bework.fr"
             className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
           >
-            Accéder à bework.fr
+            Demander un diagnostic
             <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
           </ExternalLinkAnchor>
           <p className="mt-6 text-sm text-white/80">

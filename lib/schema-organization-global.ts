@@ -1,4 +1,5 @@
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PHOTOS } from '@/lib/photos';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -21,7 +22,7 @@ export function buildGlobalOrganizationEducationalJsonLd(): Record<string, unkno
     alternateName: 'OFC',
     url: base,
     logo: `${base}/logo-lo.svg`,
-    image: `${base}/images/laure-portrait-pro-2026.png`,
+    image: `${base}${PHOTOS.portraitPro2026.src}`,
     description:
       "Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour le BTP. ChatGPT, Claude AI et IA générative pour les entreprises du bâtiment et des travaux publics.",
     address: {

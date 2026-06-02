@@ -41,16 +41,12 @@ export default async function ContactPage({
             Formation IA pour le BTP — Réponse sous 24h
           </p>
           <h2 className="mt-8 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Formatrice IA pour les{' '}
+            Formations IA pour les{' '}
             <span className="text-[var(--accent)]">entreprises du BTP</span>
           </h2>
           <p className="mt-6 max-w-xl text-slate-600">
-            J&apos;accompagne les dirigeants de TPE et PME du bâtiment et des travaux publics,
-            ainsi que les conducteurs de travaux et équipes support, pour intégrer l&apos;IA dans leurs tâches
-            quotidiennes et{' '}
-            <span className="font-semibold text-slate-900">
-              gagner 3 à 5 heures par semaine.
-            </span>
+            Dirigeants, conducteurs de travaux, équipes support : intégrez l&apos;IA dans vos tâches quotidiennes et{' '}
+            <span className="font-semibold text-slate-900">récupérez 3 à 5 h par semaine</span>.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {[
@@ -72,7 +68,7 @@ export default async function ContactPage({
               href="#contact"
               className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
             >
-              Me contacter
+              Échanger sur vos besoins
             </Link>
             <CalendlyEmbed
               type="popup"
@@ -94,10 +90,10 @@ export default async function ContactPage({
       <section id="contact" className="scroll-mt-24 border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-16">
         <div className="mx-auto max-w-2xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Discutons de votre projet de formation IA pour le BTP
+            Votre projet formation IA BTP
           </h2>
           <p className="mt-3 text-slate-600">
-            Écrivez-moi, appelez-moi ou réservez un créneau — je vous réponds sous 24h.
+            Email, téléphone ou créneau Calendly — réponse sous 24 h.
           </p>
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <ContactDirect formationHint={formation} />

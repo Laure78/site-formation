@@ -42,10 +42,10 @@ export function FormationCityPage({
   const cityFinCtaCampaign = `${cityCamp}-fin-cta`;
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
-    `Formation IA pour le BTP à ${ville} — devis, emails, appels d'offres, administratif.`,
-    `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) — Qualiopi.`,
-    `Présentiel — ${regionLabel} : inter ou intra dans vos locaux selon convention.`,
-    'Financement OPCO Constructys selon éligibilité.',
+    `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
+    `Session ${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT (débutant) · Qualiopi.`,
+    `Présentiel ${regionLabel} — intra ou inter selon convention.`,
+    'Financement Constructys selon éligibilité.',
   ];
   return (
     <div>
@@ -73,11 +73,11 @@ export function FormationCityPage({
         }
         subtitle={
           config.customHeroSubtitle ??
-          'Devis, emails, administratif et appels d&apos;offres — présentiel en Île-de-France'
+          'Devis, emails, admin, appels d&apos;offres — présentiel Île-de-France'
         }
         badges={
           config.heroBadges ?? [
-            'OPCO / plan de développement des compétences',
+            'OPCO / plan de compétences',
             'Accessible débutant',
             'Cas terrain',
           ]
@@ -95,7 +95,7 @@ export function FormationCityPage({
         ctas={
           <>
             <RdvLink campaign={`${cityCamp}-hero`} className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
-              Prendre rendez-vous
+              Échanger sur vos besoins
             </RdvLink>
             <a
               href="#zones"
@@ -134,10 +134,9 @@ export function FormationCityPage({
           </div>
         ) : (
           <p>
-            Formation IA bâtiment adaptée aux <strong>professionnels du BTP et PME</strong> à {ville} et dans les
-            environs. <strong>Productivité</strong> : ChatGPT pour <strong>devis, emails et relances</strong>.
-            Automatisez vos <strong>appels d&apos;offres</strong> et votre gestion administrative —{' '}
-            <strong>aucun jargon inutile</strong>.
+            Formation IA pour les <strong>PME et pros du BTP</strong> à {ville} et alentours.{' '}
+            <strong>ChatGPT</strong> pour devis, emails et relances. Appels d&apos;offres et admin
+            accélérés — <strong>sans jargon</strong>, sur vos documents.
           </p>
         )}
       </FormationCourseHero>
@@ -148,19 +147,17 @@ export function FormationCityPage({
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
-            Pourquoi cette formation est animée par une experte reconnue
+            Une formatrice reconnue par le réseau pro
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600 leading-relaxed">
-            Formatrice spécialisée dans l&apos;intégration de l&apos;IA générative dans les entreprises du BTP.
-            Intervenante et créatrice de contenus pédagogiques sur l&apos;IA.
-            <strong className="text-slate-900"> Formatrice LinkedIn Learning.</strong>
-            {' '}Cette expérience garantit une approche pédagogique concrète adaptée aux entreprises du bâtiment.
+            Spécialiste IA générative pour le BTP. <strong className="text-slate-900">Formatrice LinkedIn Learning.</strong>{' '}
+            Pédagogie concrète, adaptée aux entreprises du bâtiment.
           </p>
           <Link
             href="/a-propos"
             className="mt-6 inline-flex font-medium text-[var(--accent)] hover:underline"
           >
-            Découvrir le profil de Laure Olivié →
+            Profil Laure Olivié →
           </Link>
         </div>
       </section>
@@ -169,18 +166,17 @@ export function FormationCityPage({
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
-            Pourquoi utiliser l&apos;IA dans le BTP à {ville} ?
+            Pourquoi l&apos;IA dans le BTP à {ville}&nbsp;?
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Les entreprises du bâtiment à {ville} et en {regionLabel} gagnent plusieurs heures par semaine
-            en automatisant devis, appels d&apos;offres et emails clients. L&apos;IA générative n&apos;est pas
-            réservée aux grands groupes : les PME du BTP en profitent déjà.
+            Devis, appels d&apos;offres, emails : les PME du bâtiment à {ville} récupèrent plusieurs heures par
+            semaine. L&apos;IA n&apos;est pas réservée aux grands groupes.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              'Automatisation des devis et chiffrages',
-              'Analyse et réponse aux appels d\'offres',
-              'Emails clients et relances',
+              'Devis et chiffrages accélérés',
+              'Réponses aux appels d\'offres',
+              'Emails et relances clients',
               'Organisation administrative',
               'Comptes rendus de chantier',
               'Gestion documentaire',
@@ -224,17 +220,15 @@ export function FormationCityPage({
 
           <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
             <h3 className="font-display text-xl font-bold text-slate-900">
-              Votre ville n&apos;apparaît pas dans la liste ?
+              Votre ville n&apos;est pas listée&nbsp;?
             </h3>
             <p className="mt-4 text-slate-600">
-              Nous intervenons dans toute la {regionLabel}, y compris dans les
-              villes non mentionnées ci-dessus. Contactez-nous pour vérifier la
-              disponibilité dans votre secteur.
+              Interventions dans toute la {regionLabel}. Contactez-nous pour vérifier la disponibilité.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <RdvLink campaign={`${cityCamp}-zones-cta`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
                 <Calendar size={20} strokeWidth={1.5} />
-                Prendre rendez-vous
+                Échanger sur vos besoins
               </RdvLink>
               <PublicPhoneCta className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50" />
             </div>
@@ -258,17 +252,17 @@ export function FormationCityPage({
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">
-            Cas concrets d&apos;utilisation de l&apos;IA pour les entreprises du bâtiment
+            Cas concrets — entreprises du bâtiment
           </h2>
           <p className="mt-3 text-slate-600">
-            Professionnels du BTP et PME à {ville} utilisent déjà l&apos;IA pour gagner du temps.
+            Des pros à {ville} gagnent déjà du temps avec l&apos;IA.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {[
-              { titre: 'Devis en 15 minutes', desc: 'Un chargé d\'affaires génère un devis détaillé en quelques minutes au lieu de 2 heures.' },
-              { titre: 'Analyse DCE accélérée', desc: 'Un conducteur de travaux analyse un cahier des charges en 30 min au lieu de 3h.' },
-              { titre: 'Emails professionnels', desc: 'Relances clients, réponses aux réclamations : l\'IA rédige, vous validez.' },
-              { titre: 'Administratif simplifié', desc: 'CR de chantier, comptes rendus de réunion : moins de saisie, plus de terrain.' },
+              { titre: 'Devis en 15 min', desc: 'Un poste structuré en quelques minutes au lieu d\'une heure en routine.' },
+              { titre: 'DCE analysé vite', desc: 'Un CCTP décortiqué en 30 min — relecture métier obligatoire.' },
+              { titre: 'Emails pro', desc: 'Relances et réclamations : l\'IA rédige, vous validez.' },
+              { titre: 'Admin allégée', desc: 'CR et comptes rendus : moins de saisie, plus de terrain.' },
             ].map(({ titre, desc }) => (
               <div key={titre} className="rounded-2xl border border-slate-200 bg-white p-6">
                 <h3 className="font-semibold text-slate-900">{titre}</h3>
@@ -286,7 +280,7 @@ export function FormationCityPage({
             Aller plus loin
           </h2>
           <p className="mt-2 text-slate-600">
-            Découvrez aussi notre formation IA appliquée au bâtiment à Paris, nos articles et notre catalogue complet.
+            Paris, catalogue complet et articles pratiques.
           </p>
           <ul className="mt-6 flex flex-wrap gap-4">
             <li>
@@ -315,7 +309,7 @@ export function FormationCityPage({
               links={[
                 { href: '/formations', label: 'Formation IA pour les pro du BTP' },
                 { href: '/formation-ia-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
-                { href: diagnosticUrl, label: 'Prendre rendez-vous pour un diagnostic' },
+                { href: diagnosticUrl, label: 'Échanger sur vos besoins (30 min)' },
               ]}
             />
           </div>
@@ -326,16 +320,15 @@ export function FormationCityPage({
       <section className="bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-bold">
-            Demander une formation IA appliquée au bâtiment à {ville}
+            Formation IA à {ville}
           </h2>
           <p className="mt-4 text-lg text-blue-100">
-            Réservez votre formation IA. Devis personnalisé sous 24h.
-            Financement OPCO Constructys possible selon éligibilité.
+            Devis sous 24 h. Financement Constructys selon éligibilité.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RdvLink campaign={cityFinCtaCampaign} className="flex items-center gap-2 rounded-xl border-2 border-white/60 bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
               <Calendar size={20} strokeWidth={1.5} />
-              Réserver ma formation
+              Échanger sur vos besoins
             </RdvLink>
             <PublicPhoneCta className="flex items-center gap-2 rounded-xl border-2 border-white bg-transparent px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>

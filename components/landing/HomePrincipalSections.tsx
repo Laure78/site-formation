@@ -15,43 +15,43 @@ import { SOCIAL_PROOF } from '@/lib/constants';
 const cards = [
   {
     href: LINKS.formations,
-    title: 'Catalogue des formations',
-    desc: 'Formations IA pour le BTP certifiées Qualiopi — devis, chantier, appels d’offres',
+    title: 'Catalogue formations',
+    desc: 'IA BTP Qualiopi — devis, chantier, appels d\u2019offres',
     Icon: GraduationCap,
   },
   {
     href: LINKS.financement,
     title: 'Financement Constructys',
-    desc: 'Financement possible via Constructys ou OPCO — plafonds 2026, dossier eGestion',
+    desc: 'Plafonds 2026, dossier eGestion — selon éligibilité',
     Icon: Coins,
   },
   {
     href: LINKS.casUsageIaMetierBtp,
-    title: 'Cas d’usage IA par métier',
-    desc: 'Conducteur de travaux, chargé d’affaires, dirigeant PME BTP — exemples et documents',
+    title: 'Cas d\u2019usage par métier',
+    desc: 'Conducteur, chargé d\u2019affaires, dirigeant — exemples concrets',
     Icon: Target,
   },
   {
     href: LINKS.blog,
     title: 'Blog IA BTP',
-    desc: 'Guides pratiques — ChatGPT, Claude, devis, mémoires techniques',
+    desc: 'Guides ChatGPT, Claude, devis, mémoires techniques',
     Icon: BookOpen,
   },
   {
     href: LINKS.claudeAiBtp,
-    title: 'Formation Claude AI BTP',
-    desc: 'Guide complet Claude — Chat, Cowork, Code, Chrome',
+    title: 'Claude AI BTP',
+    desc: 'Chat, Cowork, Code, Chrome — guide complet',
     Icon: Sparkles,
   },
   {
     href: LINKS.aPropos,
     title: 'À propos',
-    desc: `Laure Olivié — ${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}`,
+    desc: `${formatProfessionalsTrainedCount()} pros formés · note ${SOCIAL_PROOF.AVERAGE_RATING}`,
     Icon: User,
   },
   {
     href: LINKS.prendreRdv,
-    title: 'Prendre RDV',
+    title: 'Échanger sur vos besoins',
     desc: 'Visio découverte gratuite — devis personnalisé',
     Icon: Calendar,
   },
@@ -74,10 +74,10 @@ export function HomePrincipalSections() {
           id="sections-principales"
           className="text-center font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl"
         >
-          Tout ce qu’il vous faut pour former vos équipes à l’IA
+          Tout pour former vos équipes à l&apos;IA
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-slate-600 md:text-base">
-          Accès direct aux formations, au financement, aux articles et à la prise de rendez-vous.
+          Formations, financement, articles et contact — accès direct.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {cards.map(({ href, title, desc, Icon }) => (

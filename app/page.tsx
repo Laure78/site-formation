@@ -164,35 +164,27 @@ export default function HomePage() {
               <div className="min-w-0">
                 <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-[#377CF3]/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-[#377CF3] shadow-[0_1px_6px_-2px_rgba(55,124,243,0.25)] backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
                   <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-[#377CF3] sm:h-4 sm:w-4" aria-hidden />
-                  <span>Formation IA pour les pro du BTP · bâtiment & travaux publics</span>
-                  <span className="hidden text-slate-300 sm:inline" aria-hidden>
-                    ·
-                  </span>
-                  <span className="hidden font-medium text-slate-600 sm:inline">Qualiopi · Constructys</span>
+                  <span>Formation IA BTP · Qualiopi · Constructys</span>
                 </div>
                 <h1 className="mt-6 text-balance font-display text-[1.7rem] font-bold leading-[1.14] tracking-tight text-slate-900 sm:text-[1.95rem] md:text-[2.2rem] lg:text-[2.45rem] lg:leading-[1.11]">
-                  Laure Olivié — formatrice IA spécialisée BTP
+                  Formation IA pour le BTP — devis, chantier, appels d&apos;offres
                 </h1>
                 <h2 className="mt-4 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                  Formation IA appliquée au bâtiment en Île-de-France pour vos équipes du bâtiment
+                  Sessions pratiques en présentiel, en Île-de-France
                 </h2>
                 <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                  Devis, chantier, appels d&apos;offres :{' '}
-                  <span className="font-serif italic text-[#377CF3]">Claude AI et l&apos;IA générative</span>{' '}
-                  au service de votre productivité
+                  Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
+                  <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
                 </p>
                 <p
                   className="citation-sentence mt-6 rounded-2xl border border-slate-200/70 bg-white p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_#377CF3,0_12px_40px_-18px_rgba(15,23,42,0.12)] md:p-5 md:text-lg"
                   data-citation="true"
                   itemProp="description"
                 >
-                  <strong>Laure Olivié</strong> forme les équipes BTP à utiliser Claude AI et l&apos;IA
-                  générative pour gagner 3 à 5 heures par semaine sur les devis, comptes rendus de chantier
-                  et réponses aux appels d&apos;offres. Sa formation, dispensée par l&apos;organisme{' '}
-                  <strong>OFC Création d&apos;Entreprise</strong> (certifié Qualiopi).{' '}
-                  {FINANCEMENT_FORMULATION_PRUDENTE} Laure Olivié a déjà accompagné{' '}
-                  {formatProfessionalsTrainedCount()} professionnels du bâtiment et des travaux publics en
-                  Île-de-France (note {SOCIAL_PROOF.AVERAGE_RATING} en 2026).
+                  <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
+                  — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
+                  certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}{' '}
+                  {formatProfessionalsTrainedCount()} professionnels formés · note {SOCIAL_PROOF.AVERAGE_RATING}.
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <CalendlyEmbed
@@ -340,12 +332,11 @@ export default function HomePage() {
             id="home-selecteur-cas-usage-ia"
             className="text-center font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
           >
-            Que peut faire l&apos;IA pour votre métier dans le BTP ?
+            Que peut faire l&apos;IA pour votre métier ?
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-base leading-relaxed text-[#5A5A5A] md:text-[17px]">
-            Conducteurs de travaux, chargés d&apos;affaires et dirigeants de PME BTP : sélectionnez votre profil pour
-            voir des exemples concrets, les documents que l&apos;IA peut préparer et les formations les plus adaptées —
-            apprentissage encadré Qualiopi, gains de temps toujours soumis à votre validation métier.
+          <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[#5A5A5A] md:text-[17px]">
+            Choisissez votre profil. Exemples concrets, documents concernés et formation adaptée — toujours avec
+            validation métier de votre côté.
           </p>
           <div className="mt-10">
             <SelecteurMetier showDedicatedPageLink />
@@ -366,17 +357,15 @@ export default function HomePage() {
             id="couverture-geo"
             className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
           >
-            Une formation IA pour les pro du BTP accessible partout en France
+            Formations IA en présentiel — Île-de-France
           </h2>
           <p
             className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg"
             data-citation="true"
           >
-            Basée à Guyancourt (Yvelines), Laure Olivié intervient exclusivement en présentiel en{' '}
-            <strong>Île-de-France (Paris, 78, 91, 92, 93, 94, 95, 77)</strong> auprès des entreprises
-            du bâtiment et des travaux publics. Les formations se déroulent dans vos locaux (intra) ou
-            en salle (inter), sur l&apos;ensemble de la région. La pédagogie reste 100 % opérationnelle :
-            on travaille directement sur vos documents BTP réels.
+            Basée à Guyancourt (78), Laure Olivié intervient en{' '}
+            <strong>présentiel en Île-de-France</strong> (Paris, 77, 78, 91, 92, 93, 94, 95). Intra dans vos locaux
+            ou inter en salle. On travaille sur vos documents BTP réels.
           </p>
         </div>
       </section>
@@ -388,10 +377,10 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-              30 minutes pour cadrer votre formation IA appliquée au bâtiment
+              30 min pour cadrer votre formation IA BTP
             </h2>
             <p className="mt-2 text-slate-600">
-              Devis personnalisé, financement Constructys, format intra ou inter — sans engagement.
+              Devis, financement Constructys, format intra ou inter — sans engagement.
             </p>
           </div>
           <CalendlyEmbed
@@ -413,12 +402,10 @@ export default function HomePage() {
                 Référence & partenaires
               </p>
               <h3 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, CSFE… la formation IA pour les pro du BTP, plébiscitée par le réseau pro
+                FFB, CSFE… une formation IA plébiscitée par le réseau pro
               </h3>
               <p className="mt-4 text-white/90">
-                Interventions en intelligence artificielle bâtiment et formation IA travaux publics
-                auprès de fédérations et d&apos;entreprises : cas réels (devis, chantier, appels
-                d&apos;offres), gain de temps mesurable — zéro gadget.
+                Devis, chantier, appels d&apos;offres : cas réels, gains concrets — pas de gadget.
               </p>
               <Link
                 href="/a-propos#clients-partenaires"
@@ -1012,10 +999,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             <div className="shrink-0 w-full space-y-4 sm:w-80 lg:w-96">
-              <ProfilePhoto
-                alt="Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi, spécialiste ChatGPT pour le bâtiment"
-                title="Sessions présentiel Île-de-France — Qualiopi, OPCO Constructys"
-              />
+              <ProfilePhoto title="Sessions présentiel Île-de-France — Qualiopi, Constructys" />
             </div>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">

@@ -220,10 +220,10 @@ export const PHOTOS = {
     height: 718,
   },
 
-  /** Nouveau portrait principal 2026 (présentation Laure) — page À propos & blocs auteur */
+  /** Portrait principal 2026 — accueil, contact, À propos (carte laureolivie.fr) */
   portraitPro2026: {
-    src: '/images/laure-portrait-pro-2026.png',
-    alt: `Laure Olivié en formation IA pour le BTP — 10 ans d'expérience terrain BTP, +${formatProfessionalsTrainedCount()} professionnels formés`,
+    src: '/images/laure-portrait-laureolivie-fr-2026.jpg',
+    alt: "Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi, OFC Création d'Entreprise",
     width: 682,
     height: 1024,
   },

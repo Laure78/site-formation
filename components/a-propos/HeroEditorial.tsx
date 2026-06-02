@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Award } from 'lucide-react';
 import { PHOTOS } from '@/lib/photos';
 
 type Props = {
@@ -58,13 +57,9 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
             alt={PHOTOS.portraitPro2026.alt}
             width={PHOTOS.portraitPro2026.width}
             height={PHOTOS.portraitPro2026.height}
-            className="h-[420px] w-full rounded-3xl object-cover shadow-[0_16px_48px_rgba(15,23,42,0.22)] md:h-[500px]"
+            className="mx-auto h-auto w-full max-w-sm object-contain drop-shadow-[0_16px_48px_rgba(15,23,42,0.18)] lg:max-w-none"
             priority
           />
-          <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3 shadow-lg">
-            <Award className="h-4 w-4 text-[#377CF3]" />
-            <span className="text-xs font-bold text-[#377CF3]">Qualiopi · Certifié</span>
-          </div>
         </div>
       </div>
     </section>
