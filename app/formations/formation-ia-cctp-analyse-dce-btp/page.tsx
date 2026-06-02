@@ -29,7 +29,7 @@ const PATH = LINKS.formationIaCctpAnalyseDceBtp;
 export const metadata = createPageMetadata({
   title: 'Formation IA CCTP & DCE BTP — Inter & Intra',
   description:
-    'Formation IA analyse CCTP/DCE pour entreprises BTP. 4h en visio ou présentiel. Qualiopi, financement possible selon éligibilité (Constructys). Inter & intra. RDV gratuit avec Laure Olivié.',
+    'Formation IA analyse CCTP/DCE pour entreprises BTP : 4h en présentiel, inter ou intra. Qualiopi, financement possible selon éligibilité. RDV gratuit.',
   path: PATH,
   appendAuthorSuffix: false,
   keywords: [
@@ -67,7 +67,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Comment se déroule une session intra ?',
-    a: 'Je me déplace dans vos locaux ou en visio selon le cahier des charges. Nous travaillons sur des extraits anonymisés de vos DCE pour ancrer la méthode.',
+    a: 'Je me déplace dans vos locaux, en présentiel (Île-de-France). Nous travaillons sur des extraits anonymisés de vos DCE pour ancrer la méthode.',
   },
   {
     q: 'Quel est le délai pour organiser une formation ?',
@@ -118,7 +118,7 @@ const MODULES = [
 const HERO_BULLETS = [
   'Qualiopi',
   'Finançable Constructys selon dossier',
-  'Inter & intra (visio ou présentiel)',
+  'Inter & intra (présentiel, Île-de-France)',
 ];
 
 export default function FormationIaCctpAnalyseDceBtpPage() {

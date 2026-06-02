@@ -1,11 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Building2, GraduationCap, ArrowUpRight, Check } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowUpRight, Check } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { RdvLink } from '@/components/RdvLink';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
+import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
+import { PHOTOS } from '@/lib/photos';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_SESSION_AVANCE_HT,
@@ -84,17 +87,43 @@ export function BeworkEtFormationsOffreSection() {
           </p>
         </header>
 
+        <figure className="mx-auto max-w-4xl overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+          <Link href={LINKS.bework} className="block">
+            <Image
+              src={BEWORK_PHOTO_HERO.src}
+              alt={BEWORK_PHOTO_HERO.alt}
+              width={BEWORK_PHOTO_HERO.width}
+              height={BEWORK_PHOTO_HERO.height}
+              className="h-auto w-full transition-opacity hover:opacity-95"
+              sizes="(min-width: 1024px) 896px, 100vw"
+            />
+          </Link>
+          <figcaption className="border-t border-slate-100 px-4 py-2.5 text-center text-xs text-[#5A5A5A]">
+            BeWork — relais administratif de vos marchés travaux.{' '}
+            <Link href={LINKS.bework} className="font-medium text-[#377CF3] hover:underline">
+              Présentation complète
+            </Link>
+            {' · '}
+            <ExternalLinkAnchor href={EXTERNAL_SITE_URLS.bework} title="Site officiel bework.fr" className="font-medium text-[#377CF3] hover:underline">
+              bework.fr
+            </ExternalLinkAnchor>
+          </figcaption>
+        </figure>
+
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           {/* BeWork */}
-          <article className="flex flex-col rounded-xl border border-slate-200/90 bg-white p-6 shadow-[0_4px_16px_rgba(55,124,243,0.08)] md:p-8">
-            <div className="flex items-start gap-4">
-              <div
-                className="flex shrink-0 items-center justify-center rounded-xl bg-white p-3 shadow-[0_4px_16px_rgba(55,124,243,0.08)] ring-1 ring-slate-100"
-                aria-hidden
-              >
-                <Building2 className="h-10 w-10 text-[#377CF3]" strokeWidth={1.5} />
-              </div>
-              <div className="min-w-0">
+          <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFF6FF]">
+              <Image
+                src={PHOTOS.beworkHeroRelaisAdministratif.src}
+                alt={PHOTOS.beworkHeroRelaisAdministratif.alt}
+                fill
+                className="object-cover object-top"
+                sizes="(min-width: 1024px) 480px, 100vw"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6 md:p-8">
+            <div className="min-w-0">
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
                   Assistant de gestion travaux · Relais BTP
                 </p>
@@ -104,7 +133,6 @@ export function BeworkEtFormationsOffreSection() {
                 <h3 className="mt-4 border-b border-[#377CF3]/35 pb-2 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
                   BeWork — l&apos;assistant travaux
                 </h3>
-              </div>
             </div>
             <p className="mt-4 text-lg font-semibold leading-snug text-[#1A1A1A]">
               Un assistant travaux à vos côtés pour tenir le rythme du chantier.
@@ -130,35 +158,44 @@ export function BeworkEtFormationsOffreSection() {
             <p className="mt-6 text-base font-semibold italic text-[#1A1A1A]">
               On tient le bureau, vous tenez le chantier.
             </p>
-            <div className="mt-6 mt-auto pt-2">
+            <div className="mt-6 mt-auto flex flex-wrap gap-3 pt-2">
               <ExternalLinkAnchor
                 href={EXTERNAL_SITE_URLS.bework}
                 title="BeWork — site officiel bework.fr (nouvel onglet)"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] sm:w-auto"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] sm:flex-none"
               >
-                Découvrir BeWork sur bework.fr
+                bework.fr
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
+              <Link
+                href={LINKS.bework}
+                className="inline-flex flex-1 items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF] sm:flex-none"
+              >
+                Présentation BeWork
+              </Link>
+            </div>
             </div>
           </article>
 
           {/* Formations OFC */}
-          <article className="flex flex-col rounded-xl border border-slate-200/90 bg-white p-6 shadow-[0_4px_16px_rgba(55,124,243,0.08)] md:p-8">
-            <div className="flex items-start gap-4">
-              <div
-                className="flex shrink-0 items-center justify-center rounded-xl bg-[#D4E3FC]/80 p-3 ring-1 ring-[#377CF3]/15"
-                aria-hidden
-              >
-                <GraduationCap className="h-10 w-10 text-[#377CF3]" strokeWidth={1.5} />
-              </div>
-              <div className="min-w-0">
+          <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2F2F2]">
+              <Image
+                src={PHOTOS.formationEntreprise.src}
+                alt={PHOTOS.formationEntreprise.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 1024px) 480px, 100vw"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6 md:p-8">
+            <div className="min-w-0">
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
                   OFC · Création d&apos;entreprise · Qualiopi
                 </p>
                 <h3 className="mt-2 border-b border-[#377CF3]/35 pb-2 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
                   Mes formations IA pour le BTP
                 </h3>
-              </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-[#5A5A5A]">
               Former les dirigeants et équipes de PME BTP à utiliser l&apos;IA générative pour récupérer du temps — sans
@@ -216,6 +253,7 @@ export function BeworkEtFormationsOffreSection() {
               >
                 Financement OPCO&nbsp;: modalités Constructys
               </Link>
+            </div>
             </div>
           </article>
         </div>

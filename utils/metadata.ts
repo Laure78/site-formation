@@ -32,7 +32,7 @@ export type BuildPageMetadataInput = {
   ogType?: 'website' | 'article';
   image?: { url: string; width?: number; height?: number; alt?: string };
   article?: ArticleMetaInput;
-  /** Par défaut true : suffixe « Laure Olivié, formatrice IA pour le BTP » */
+  /** Par défaut false : meta description telle quelle (la marque est déjà portée par og:site_name + le <title>). Passer true pour ajouter « Laure Olivié, formatrice IA pour le BTP ». */
   appendAuthorSuffix?: boolean;
   /** Remplace og:title et twitter:title (balise HTML <title> inchangée si non défini) */
   openGraphTitle?: string;
@@ -89,7 +89,7 @@ export function buildPageMetadata({
   ogType = 'website',
   image,
   article,
-  appendAuthorSuffix = true,
+  appendAuthorSuffix = false,
   openGraphTitle,
   openGraphDescription,
   robots,

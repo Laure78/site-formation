@@ -5,10 +5,13 @@ import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+export const revalidate = 3600;
+
 export const metadata = createPageMetadata({
   title: 'Formation IA appliquée au bâtiment Longjumeau (91) — devis & ChatGPT',
   description:
-    'Formation IA pour le BTP à Longjumeau et en Essonne : devis, emails, ChatGPT en 4 h. Qualiopi, Constructys. Professionnels du BTP et PME du bâtiment en Île-de-France.',
+    'Formation IA pour le BTP à Longjumeau et en Essonne (91) : devis, emails, ChatGPT en 4h. Qualiopi, Constructys. Visio découverte gratuite.',
   path: '/formations/ia-btp-longjumeau',
   keywords: [
     'formation IA pour les pro du BTP Longjumeau',

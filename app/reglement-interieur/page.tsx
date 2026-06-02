@@ -184,14 +184,10 @@ export default function ReglementInterieurPage() {
             mi-après-midi. Le déjeuner n&apos;est pas pris en charge par
             l&apos;Organisme sauf mention contraire.
           </p>
-          <p className="mt-4 font-medium text-slate-700">
-            Formations à distance
-          </p>
           <p className="mt-2 text-slate-600">
-            Les horaires des classes virtuelles sont précisés dans la convocation.
-            Les formations en e-learning peuvent être suivies selon la
-            disponibilité du Stagiaire, dans le respect du calendrier global de la
-            formation.
+            Les formations se déroulent exclusivement en présentiel, en
+            Île-de-France (sessions inter en salle ou intra dans les locaux du
+            client). Les horaires précis figurent dans la convocation.
           </p>
 
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
@@ -221,7 +217,7 @@ export default function ReglementInterieurPage() {
           </h3>
           <p className="mt-2 text-slate-600">
             Les Stagiaires doivent signer une feuille d&apos;émargement par
-            demi-journée (présentiel) ou un registre de connexion (à distance).
+            demi-journée (présentiel).
             L&apos;émargement conditionne la délivrance de l&apos;attestation et le
             versement des fonds par les financeurs. Tout refus d&apos;émargement
             est considéré comme une absence injustifiée.

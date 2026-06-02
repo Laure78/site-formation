@@ -139,7 +139,7 @@ export default function PolitiqueConfidentialitePage() {
           </ul>
 
           <p className="mt-4 font-medium text-slate-700">
-            Données de connexion (formations à distance) :
+            Données de connexion (espace apprenant et supports en ligne) :
           </p>
           <ul className="mt-1 list-disc space-y-1 pl-6 text-slate-600">
             <li>Adresse IP — Historique de connexion — Durée — Pages consultées</li>
@@ -346,7 +346,7 @@ export default function PolitiqueConfidentialitePage() {
           <p className="mt-2 text-slate-600">
             Vos données peuvent être transmises à : Organismes de financement
             (OPCO, Pôle Emploi, Régions, État/Caisse des Dépôts pour le CPF),
-            partenaires techniques (hébergeur, plateforme de formation à distance,
+            partenaires techniques (hébergeur, plateforme pédagogique en ligne,
             messagerie, CRM), autorités compétentes (DREETS, administration
             fiscale, Qualiopi, autorités judiciaires sur réquisition),
             prestataires (expert-comptable, prestataires de paiement).

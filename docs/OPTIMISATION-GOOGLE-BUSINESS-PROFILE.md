@@ -40,7 +40,7 @@ Centre de formation
 > 
 > Certifiée Qualiopi. 100 % finançable OPCO Constructys. Intervenante LinkedIn Learning.
 > 
-> Zones d'intervention : Paris, Yvelines, Hauts-de-Seine, Lyon, Bordeaux, Lille, distanciel France entière.
+> Zones d'intervention : Paris, Yvelines, Hauts-de-Seine et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — exclusivement en présentiel.
 
 ---
 
@@ -83,7 +83,6 @@ Adapter selon votre activité :
 - Formation appels d’offres BTP  
 - Formation IA conducteur de travaux  
 - Formation en présentiel Île-de-France  
-- Formation à distance  
 
 ---
 

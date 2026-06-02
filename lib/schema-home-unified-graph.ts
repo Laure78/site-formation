@@ -1,5 +1,6 @@
 /**
- * JSON-LD @graph unique — page d'accueil uniquement (Organization + WebSite + Course + HowTo + Service + WebPage).
+ * JSON-LD @graph unique — page d'accueil uniquement (Organization + Person + WebPage + BreadcrumbList + Course/Offer).
+ * Service et HowTo retirés (allègement). La couverture géo exhaustive vit sur les pages géo dédiées.
  * Le FAQPage est injecté séparément dans `app/page.tsx` via `buildHomeFAQPageJsonLd()` + `<Script>` pour rester aligné sur la FAQ visuelle (toutes les entrées).
  * Données alignées sur `lib/schema-constants.ts`.
  */
@@ -27,8 +28,6 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const webpageId = `${base}/#webpage`;
   const breadcrumbId = `${base}/#breadcrumb`;
   const courseId = `${base}/#course-pivot`;
-  const serviceId = `${base}/#service`;
-  const howToId = `${base}/#howto-cas-usage`;
   const imageHeroId = `${base}/#image-hero`;
 
   const heroImageUrl = `${base}/images/hero-accueil-formation-ia-btp-echange-2026.png`;
@@ -81,17 +80,11 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           latitude: SCHEMA_GEO.latitude,
           longitude: SCHEMA_GEO.longitude,
         },
+        // Couverture régionale synthétique sur l'accueil ; la couverture exhaustive
+        // (Paris + 7 départements) vit sur /formation-ia-btp-ile-de-france et les pages géo dédiées.
         areaServed: [
-          { '@type': 'Country', name: 'France' },
           { '@type': 'AdministrativeArea', name: 'Île-de-France' },
-          { '@type': 'City', name: 'Paris' },
-          { '@type': 'AdministrativeArea', name: 'Yvelines' },
-          { '@type': 'AdministrativeArea', name: 'Hauts-de-Seine' },
-          { '@type': 'AdministrativeArea', name: 'Essonne' },
-          { '@type': 'AdministrativeArea', name: 'Seine-Saint-Denis' },
-          { '@type': 'AdministrativeArea', name: 'Val-de-Marne' },
-          { '@type': 'AdministrativeArea', name: "Val-d'Oise" },
-          { '@type': 'AdministrativeArea', name: 'Seine-et-Marne' },
+          { '@type': 'Country', name: 'France' },
         ],
         identifier: [
           { '@type': 'PropertyValue', name: 'SIRET', value: SCHEMA_CONTACT.siretFormatted },
@@ -196,7 +189,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         timeRequired: 'PT4H',
         hasCourseInstance: {
           '@type': 'CourseInstance',
-          courseMode: ['onsite', 'online'],
+          courseMode: ['onsite'],
           location: {
             '@type': 'Place',
             address: {
@@ -223,78 +216,6 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           educationalRole:
             'Dirigeants PME BTP, conducteurs de travaux, chargés d\'affaires, équipes administratives BTP',
         },
-      },
-      {
-        '@type': 'Service',
-        '@id': serviceId,
-        name: 'Formation IA et ChatGPT pour le BTP',
-        serviceType: 'Formation professionnelle continue',
-        provider: { '@id': orgId },
-        areaServed: { '@type': 'AdministrativeArea', name: 'Île-de-France' },
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Catalogue de formations IA pour le BTP',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: "L'IA au service des pros du bâtiment et des travaux publics (niveau 1)",
-              },
-              price: priceStr,
-              priceCurrency: 'EUR',
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: "L'IA appliquée aux appels d'offres BTP (niveau 2)",
-              },
-              price: priceStr,
-              priceCurrency: 'EUR',
-            },
-          ],
-        },
-      },
-      {
-        '@type': 'HowTo',
-        '@id': howToId,
-        name: 'Comment utiliser l\'IA dans le BTP : 5 cas d\'usage concrets',
-        description:
-          'Méthode éprouvée par Laure Olivié pour intégrer l\'IA générative (ChatGPT, Claude AI) dans le quotidien d\'une entreprise du BTP.',
-        totalTime: 'PT4H',
-        step: [
-          {
-            '@type': 'HowToStep',
-            position: 1,
-            name: 'Mémoires techniques et dossiers d\'appel d\'offres',
-            text: 'Structurer et rédiger les mémoires techniques plus rapidement avec l\'IA, tout en gardant la validation métier de l\'expert BTP.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 2,
-            name: 'Analyse de CCTP et DCE',
-            text: 'Utiliser l\'IA pour synthétiser les pièces longues d\'un dossier de consultation et repérer automatiquement les exigences techniques clés.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 3,
-            name: 'Comptes rendus de chantier',
-            text: 'À partir de notes vocales ou écrites prises sur le chantier, l\'IA structure un compte rendu professionnel clair en quelques minutes.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 4,
-            name: 'Devis et chiffrage',
-            text: 'Mise en forme automatique des devis, génération de variantes et relecture orthographique pour gagner 2 à 4 heures par devis détaillé.',
-          },
-          {
-            '@type': 'HowToStep',
-            position: 5,
-            name: 'Emails et administratif',
-            text: 'Rédaction des relances clients, courriers fournisseurs et emails de gestion en quelques secondes avec le bon ton professionnel.',
-          },
-        ],
       },
     ],
   };

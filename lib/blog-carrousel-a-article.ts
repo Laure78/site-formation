@@ -36,9 +36,9 @@ export const carrouselAFormationArticle: BlogArticle = {
     },
     {
       type: 'paragraph',
-      title: 'Modalité présentiel / distanciel',
+      title: 'Modalité : présentiel uniquement',
       content:
-        'Certaines présentations commerciales peuvent mentionner une session à distance. Sur le catalogue en ligne à date, les formations référencées (NIV-01, NIV-02) sont pour l’essentiel proposées en présentiel — inter en Île-de-France ou intra dans vos locaux. Vérifiez toujours la mention figurant sur votre proposition de formation et la convention signée.',
+        'Les formations OFC (NIV-01, NIV-02) se déroulent exclusivement en présentiel, en Île-de-France — inter en salle ou intra dans vos locaux. Les modalités définitives figurent sur votre proposition de formation et la convention signée.',
     },
     {
       type: 'html',

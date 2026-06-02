@@ -106,7 +106,7 @@ export default function FormationClaudeAiTravauxPublicsPage() {
           <ul className="mt-6 space-y-3 text-slate-700">
             {[
               'Sessions orientées entreprise TP, avec documents réels.',
-              'Méthode compatible inter/intra et présentiel/distanciel.',
+              'Méthode adaptée aux sessions inter/intra en présentiel en Île-de-France.',
               'Références partenaires TP et réseaux professionnels.',
             ].map((line) => (
               <li key={line} className="flex items-start gap-2">

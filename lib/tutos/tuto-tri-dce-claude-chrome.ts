@@ -13,7 +13,7 @@ export const TUTO_TRI_DCE_CLAUDE_CHROME: TutoData = {
 
   metaTitle: 'Tuto Claude in Chrome BTP : trie tes DCE BOAMP en automatique',
   metaDescription:
-    "Claude in Chrome BTP : automatise ton tri DCE BOAMP chaque matin. 5 critères, raccourcis programmés. Tutoriel par Laure Olivié, formatrice IA appliquée au bâtiment.",
+    "Claude in Chrome BTP : automatise ton tri des DCE BOAMP chaque matin. 5 critères, raccourcis programmés. Tutoriel gratuit.",
   keywords: [
     'Claude in Chrome',
     'extension Claude Chrome',

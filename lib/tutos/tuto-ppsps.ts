@@ -13,7 +13,7 @@ export const TUTO_PPSPS: TutoData = {
 
   metaTitle: 'Tuto skill PPSPS BTP : Plan Particulier Sécurité 30 min',
   metaDescription:
-    "PPSPS BTP en 30 minutes : crée ton skill Claude pour rédiger ton Plan Particulier de Sécurité au lieu de 2 jours. Tutoriel par Laure Olivié, formatrice IA pour le BTP.",
+    "PPSPS BTP en 30 minutes : crée ton skill Claude pour rédiger ton Plan Particulier de Sécurité au lieu de 2 jours. Tuto gratuit.",
   keywords: [
     'PPSPS BTP',
     'Plan Particulier Sécurité Protection Santé',

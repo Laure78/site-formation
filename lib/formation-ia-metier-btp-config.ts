@@ -289,7 +289,7 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
       description: 'ROI, pilotage projet IA et déploiement équipes pour décideurs PME bâtiment.',
     },
     {
-      href: '/formation-ia-assistante-btp',
+      href: '/formation-ia-assistante-administrative-btp',
       title: 'Formation IA assistante administrative BTP',
       description: 'Courriers, relances et productivité administrative au service des chantiers.',
     },

@@ -196,7 +196,7 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">
             Deux cours publiés en tant qu&apos;instructrice officielle — extraits vidéo ci-dessous. Pour les sessions{' '}
             <strong>en entreprise</strong>, certifiées <QualiopiWordmark /> et finançables{' '}
-            <strong>Constructys</strong> (dont la formation IA pour le BTP en présentiel ou à distance), consultez le{' '}
+            <strong>Constructys</strong> (dont la formation IA pour le BTP en présentiel en Île-de-France), consultez le{' '}
             <Link
               href={LINKS.formations}
               className="font-semibold text-[#377CF3] underline-offset-2 hover:underline"

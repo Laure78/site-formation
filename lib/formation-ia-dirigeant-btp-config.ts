@@ -12,7 +12,7 @@ export function formationIaDirigeantBtpMetadata(): Metadata {
   return createPageMetadata({
     title: 'Formation IA dirigeant BTP — ROI, équipes, Qualiopi',
     description:
-      'Formation IA pour dirigeants de PME du bâtiment : ROI, productivité des équipes, avantage concurrentiel. Pilotage projet IA 10–50 salariés, budget réaliste. Qualiopi, Constructys.',
+      'Formation IA pour dirigeants de PME du bâtiment : ROI, productivité des équipes, projet IA 10–50 salariés. Qualiopi, Constructys. RDV gratuit.',
     path: FORMATION_IA_DIRIGEANT_BTP_PATH,
     keywords: [
       'formation IA dirigeant BTP',

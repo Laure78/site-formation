@@ -29,7 +29,7 @@ const STARTER_SLUGS = [
 ] as const;
 
 const TOP_SLUGS = [
-  'memoire-technique-btp-ia-gagner-temps-appels-offres',
+  'ia-memoire-technique-appel-offres-guide-2026',
   'formation-ia-btp-guide-complet-2026',
   'financer-formation-ia-btp-constructys',
   '5-cas-usage-chatgpt-artisans-btp',

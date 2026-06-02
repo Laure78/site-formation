@@ -47,7 +47,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   educationalLevel: 'Advanced',
   hasCourseInstance: {
     '@type': 'CourseInstance',
-    courseMode: ['onsite', 'online'],
+    courseMode: ['onsite'],
     location: {
       '@type': 'Place',
       name: 'Île-de-France',
@@ -93,7 +93,7 @@ const BREADCRUMB_JSON_LD: Record<string, unknown> = {
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis 5x plus vite, mémoire technique gagnant, relance prospects. Qualiopi. Financement possible selon éligibilité.',
+    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis plus rapides, mémoire technique gagnant, relances prospects. Qualiopi. RDV gratuit.',
   path: PATH,
   keywords: [
     'formation IA chargé d\'affaires BTP',
@@ -466,16 +466,13 @@ export default function FormationIaChargeAffairesBtpPage() {
             cohérence avec la DPGF et critères d&apos;attribution.
           </p>
 
-          <p className="mt-6 font-medium text-slate-900">Les formations sont disponibles :</p>
+          <p className="mt-6 font-medium text-slate-900">Les formations se déroulent exclusivement en présentiel, en Île-de-France :</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              En <strong>intra</strong> dans vos locaux (Île-de-France ou partout en France)
+              En <strong>intra</strong> dans vos locaux (Île-de-France)
             </li>
             <li>
               En <strong>inter</strong> en Île-de-France (Paris, Versailles, Nanterre, Créteil)
-            </li>
-            <li>
-              En <strong>distanciel</strong> (visio)
             </li>
           </ul>
           <p className="mt-6">
@@ -586,8 +583,8 @@ export default function FormationIaChargeAffairesBtpPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blog/memoire-technique-btp-ia-gagner-temps-appels-offres" className="text-[#377CF3] underline">
-                Mémoire technique BTP avec l&apos;IA : gagnez vos appels d&apos;offres en 2x moins de temps
+              <Link href="/blog/ia-memoire-technique-appel-offres-guide-2026" className="text-[#377CF3] underline">
+                Mémoire technique BTP avec l&apos;IA : le guide complet pour gagner vos appels d&apos;offres
               </Link>
             </li>
             <li>

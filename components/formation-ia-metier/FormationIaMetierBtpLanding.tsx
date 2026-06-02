@@ -213,7 +213,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             <CalendlyBlock
               id="rdv-1"
               title="Premier rendez-vous — Calendly"
-              subtitle="30 minutes pour cadrer votre besoin (intra, inter, distanciel) et voir si la formation IA appliquée au bâtiment correspond à votre équipe."
+              subtitle="30 minutes pour cadrer votre besoin (intra ou inter, en présentiel) et voir si la formation IA appliquée au bâtiment correspond à votre équipe."
             />
           </div>
 
@@ -378,7 +378,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning, elle a formé
                   plus de {formatProfessionalsTrainedCount()} professionnels · note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.{' '}
                   {config.authorBioClosingLine ??
-                    'Basée en Île-de-France, elle intervient en présentiel et à distance pour les entreprises du bâtiment et des travaux publics.'}
+                    'Basée en Île-de-France, elle intervient exclusivement en présentiel pour les entreprises du bâtiment et des travaux publics.'}
                 </p>
                 <p className="mt-4 text-sm text-slate-600">
                   <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">

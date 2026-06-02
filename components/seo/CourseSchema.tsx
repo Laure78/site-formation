@@ -53,7 +53,7 @@ export function CourseSchema({
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: ['Onsite', 'Online'],
+      courseMode: ['Onsite'],
       courseWorkload: duration,
       location: {
         '@type': 'Place',

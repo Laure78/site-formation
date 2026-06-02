@@ -19,15 +19,15 @@ const ARTICLES = [
       'Les comptes-rendus de chantier consomment entre 3 et 5 heures par…',
   },
   {
-    href: '/blog/ia-devis-gain-temps-pme-btp',
+    href: '/blog/ia-devis-batiment-chiffrage-automatise',
     image: PHOTOS.architecteConcentration,
     category: 'Formation',
-    date: '5 mars 2026',
-    dateTime: '2026-03-05',
+    date: '27 avril 2026',
+    dateTime: '2026-04-27',
     title:
-      'IA et devis dans le BTP : automatiser le chiffrage et la mise en forme pour gagner 10h par mois',
+      'IA et devis bâtiment : automatiser le chiffrage BTP en 15 minutes',
     excerpt:
-      'Le processus de devis dans le BTP consomme entre 15 et 25 heures par mois…',
+      'Rédigez vos devis BTP avec l’IA en 15 min au lieu de 3 heures : méthode en 5 étapes et prompts ChatGPT…',
   },
   {
     href: '/blog/financer-formation-ia-btp-constructys',

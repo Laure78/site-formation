@@ -51,7 +51,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   educationalLevel: 'Advanced',
   hasCourseInstance: {
     '@type': 'CourseInstance',
-    courseMode: ['onsite', 'online'],
+    courseMode: ['onsite'],
     location: {
       '@type': 'Place',
       name: 'Île-de-France',
@@ -96,7 +96,7 @@ const BREADCRUMB_JSON_LD: Record<string, unknown> = {
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
-    'Formation ChatGPT pour assistantes de gestion BTP : facturation avancement, relances impayés, DGD, sous-traitance. Qualiopi. Financement possible selon éligibilité.',
+    'Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation, relances impayés, DGD, sous-traitance. Qualiopi. RDV gratuit.',
   path: PATH,
   keywords: [
     'formation IA assistante de gestion BTP',
@@ -527,16 +527,13 @@ export default function FormationIaAssistanteGestionBtpPage() {
             équipe support avant d&apos;aborder des modules plus avancés (appels d&apos;offres, etc.).
           </p>
 
-          <p className="mt-6 font-medium text-slate-900">Les formations sont disponibles :</p>
+          <p className="mt-6 font-medium text-slate-900">Les formations se déroulent exclusivement en présentiel, en Île-de-France :</p>
           <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              En <strong>intra</strong> dans vos locaux (Île-de-France ou partout en France)
+              En <strong>intra</strong> dans vos locaux (Île-de-France)
             </li>
             <li>
               En <strong>inter</strong> en Île-de-France (Paris, Versailles, Nanterre, Créteil)
-            </li>
-            <li>
-              En <strong>distanciel</strong> (visio)
             </li>
           </ul>
           <p className="mt-6">

@@ -13,7 +13,7 @@ export const TUTO_CR_CHANTIER: TutoData = {
 
   metaTitle: 'Tuto skill CR de chantier : 5 min au lieu de 45 avec Claude',
   metaDescription:
-    "CR de chantier IA : transforme 23 min de dictée vocale en compte rendu Word en 5 min. Tutoriel pas à pas pour Claude par Laure Olivié, formatrice IA pour les pro du BTP.",
+    "CR de chantier IA : transforme 23 min de dictée vocale en compte rendu Word en 5 min. Tutoriel pas à pas Claude, gratuit.",
   keywords: [
     'CR de chantier IA',
     'compte rendu chantier Claude',

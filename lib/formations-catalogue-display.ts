@@ -3,6 +3,7 @@ import { LINKS } from '@/lib/internal-links';
 import {
   SESSION_DUREE_LIBELLE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
+  LIBELLE_EFFECTIF_GROUPE_NIV02,
   libelleTarifParticipant,
 } from '@/lib/tarifs-sessions';
 
@@ -65,7 +66,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     programmePdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
     visuel: PHOTOS.btpFormationChantierPlans2026,
     duree: SESSION_DUREE_LIBELLE,
-    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
+    effectif: LIBELLE_EFFECTIF_GROUPE_NIV02,
     pitch:
       "Niveau 2 : Claude AI Pro, Cowork & Skills — analyse DCE, mémoire technique et assistants IA réutilisables.",
     profileTags: ['appels-offres'],
@@ -76,7 +77,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
       'Créer des skills DCE / MT personnalisés, alimentés par les données de l\'entreprise',
     ],
     comparatif: {
-      publicLabel: 'Responsables d\'affaires, chargés d\'études, conducteurs de travaux, dirigeants, bureaux d\'études',
+      publicLabel: 'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux, directeurs techniques, bureaux d\'études',
       casUsage: 'DCE, mémoires techniques, skills Cowork',
     },
   },

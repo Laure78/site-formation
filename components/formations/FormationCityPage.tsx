@@ -73,7 +73,7 @@ export function FormationCityPage({
         }
         subtitle={
           config.customHeroSubtitle ??
-          'Devis, emails, administratif et appels d&apos;offres — présentiel ou distanciel'
+          'Devis, emails, administratif et appels d&apos;offres — présentiel en Île-de-France'
         }
         badges={
           config.heroBadges ?? [

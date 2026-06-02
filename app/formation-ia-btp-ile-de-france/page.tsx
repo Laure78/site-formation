@@ -31,10 +31,13 @@ const poppins = Poppins({
 
 const PATH = '/formation-ia-btp-ile-de-france';
 
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+export const revalidate = 3600;
+
 export const metadata = createPageMetadata({
   title: 'Formation IA appliquée au bâtiment Île-de-France | Qualiopi Constructys',
   description:
-    `Formation IA pour le BTP en Île-de-France (75-78-91-92-93-94-95-77). Organisme Qualiopi. Intra, inter, présentiel ou distanciel. ${FINANCEMENT_FORMULATION_PRUDENTE} ${formatProfessionalsTrainedCount()} professionnels formés. ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    `Formation IA pour le BTP en Île-de-France, en présentiel (inter ou intra). Qualiopi, Constructys. ${formatProfessionalsTrainedCount()} pros formés. Visio découverte gratuite.`,
   path: PATH,
   keywords: [
     'formation IA pour les pro du BTP Île-de-France',
@@ -63,7 +66,7 @@ export const metadata = createPageMetadata({
 
 const COURSE_JSON_LD = buildFormationIaCourseJsonLd({
   name: 'Formation IA pour les pro du BTP Île-de-France — Qualiopi',
-  description: `${SITE_CONFIG.legalName} : formations IA pour le BTP en Île-de-France (75 à 95, 77). Sessions 4 h intra ou inter, en présentiel ou en distanciel, certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ChatGPT, Claude AI — devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus, relances clients.`,
+  description: `${SITE_CONFIG.legalName} : formations IA pour le BTP en Île-de-France (75 à 95, 77). Sessions 4 h intra ou inter, exclusivement en présentiel, certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ChatGPT, Claude AI — devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus, relances clients.`,
   path: PATH,
   areaServed: ['Île-de-France', 'France'],
 });
@@ -72,7 +75,7 @@ const COURSE_JSON_LD = buildFormationIaCourseJsonLd({
 const FAQ_IDF: FAQItem[] = [
   {
     q: 'Les formations se font-elles uniquement en Île-de-France ?',
-    a: "Non. Les sessions inter sont organisées en Île-de-France. Les sessions intra peuvent se dérouler partout en France — Laure Olivié se déplace dans vos locaux ou anime en distanciel. Des sessions ont déjà été réalisées en Bretagne, Nouvelle-Aquitaine et Auvergne-Rhône-Alpes.",
+    a: "Oui. Les formations se déroulent exclusivement en présentiel, en Île-de-France : sessions inter en salle et sessions intra dans vos locaux. Laure Olivié, basée à Guyancourt (78), intervient sur l'ensemble de la région (75, 77, 78, 91, 92, 93, 94, 95).",
   },
   {
     q: 'Peut-on panacher plusieurs formations en une demi-journée ?',
@@ -91,8 +94,8 @@ const FAQ_IDF: FAQItem[] = [
     a: "Idéalement oui — un ordinateur ou une tablette par participant pour travailler sur leurs propres documents. Pour les sessions avec partage d'écran uniquement, un setup binôme est possible.",
   },
   {
-    q: "Les formations en distanciel sont-elles aussi efficaces qu'en présentiel ?",
-    a: `Selon les retours des participants (note identique : ${SOCIAL_PROOF.AVERAGE_RATING} en présentiel et distanciel), oui — à condition que chaque participant ait son propre écran et sa connexion. La méthode est la même, les documents travaillés sont les vôtres.`,
+    q: "Les formations se déroulent-elles partout en Île-de-France ?",
+    a: `Oui. Les sessions ont lieu exclusivement en présentiel, dans vos locaux (intra) ou en salle (inter), sur l'ensemble de l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Basée à Guyancourt (78), j'interviens sur toute la région — note participants : ${SOCIAL_PROOF.AVERAGE_RATING}.`,
   },
 ];
 
@@ -143,7 +146,7 @@ export default function FormationIaBtpIleDeFrancePage() {
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             Formations courtes (4 h) pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux,
             chargés d&apos;affaires et équipes administratives — sur vos documents réels (devis, DCE, CCTP, mémoires
-            techniques, comptes rendus, relances). Intra, inter, présentiel ou distanciel.{' '}
+            techniques, comptes rendus, relances). Intra ou inter, exclusivement en présentiel.{' '}
             <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
@@ -435,7 +438,7 @@ export default function FormationIaBtpIleDeFrancePage() {
       <FAQSection
         id="faq-idf"
         title="FAQ — formation IA pour les pro du BTP en Île-de-France"
-        subtitle="Modalités géographiques, inter/intra, devis et distanciel."
+        subtitle="Modalités géographiques, inter/intra, devis et présentiel."
         items={FAQ_IDF}
       />
 
@@ -444,8 +447,8 @@ export default function FormationIaBtpIleDeFrancePage() {
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Qui est Laure Olivié ?</h2>
           <p className="mt-6 text-slate-700 leading-relaxed">
             Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux publics. Basée à{' '}
-            <strong>Guyancourt (Yvelines, 78)</strong>, elle intervient principalement en Île-de-France et en
-            distanciel sur l&apos;ensemble du territoire national.
+            <strong>Guyancourt (Yvelines, 78)</strong>, elle intervient exclusivement en présentiel, sur l&apos;ensemble
+            de l&apos;Île-de-France.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Son parcours est unique : après 7 ans à la tête d&apos;ALIA BTP (entreprise de travaux publics, Guyancourt),
@@ -486,7 +489,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-appels-offres-btp" className="text-[#377CF3] underline">
+              <Link href="/formations/ia-appels-offre-btp" className="text-[#377CF3] underline">
                 Formation IA appels d&apos;offres BTP
               </Link>
             </li>

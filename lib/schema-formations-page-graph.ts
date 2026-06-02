@@ -1,6 +1,6 @@
 /**
  * JSON-LD @graph unique — page `/formations` uniquement.
- * Modalités présentiel ou distanciel (MixedEventAttendanceMode) — aligné catalogue.
+ * Modalités : présentiel uniquement (OfflineEventAttendanceMode) en Île-de-France — aligné catalogue.
  */
 import { FAQ_FORMATIONS } from '@/lib/faq';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
@@ -56,7 +56,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'Service',
         '@id': `${BASE}/formations#service`,
-        name: 'Formation IA pour le BTP — 2 parcours Qualiopi (présentiel ou distanciel)',
+        name: 'Formation IA pour le BTP — 2 parcours Qualiopi (présentiel en Île-de-France)',
         serviceType: 'Formation professionnelle continue',
         provider: { '@id': `${BASE}/#organization` },
         areaServed: [
@@ -115,7 +115,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@id': `${BASE}/formations#course-list`,
         name: 'Catalogue 2 formations IA pour le BTP',
         description:
-          '2 formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, en inter en Île-de-France ou intra (présentiel ou distanciel).',
+          '2 formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).',
         numberOfItems: 2,
         itemListElement: [
           {
@@ -142,11 +142,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/MixedEventAttendanceMode',
+                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, présentiel ou distanciel',
+                  name: 'Île-de-France — inter ou intra, en présentiel',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -182,11 +182,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/MixedEventAttendanceMode',
+                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, présentiel ou distanciel',
+                  name: 'Île-de-France — inter ou intra, en présentiel',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',

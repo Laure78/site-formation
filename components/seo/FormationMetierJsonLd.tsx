@@ -244,7 +244,7 @@ function buildCourseNode(params: {
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: ['Onsite', 'Online'],
+      courseMode: ['Onsite'],
       courseWorkload: duration,
       inLanguage: 'fr',
       location: {

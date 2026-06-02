@@ -15,7 +15,7 @@ const PATH = '/formation-ia-ferrailleur-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Ferrailleur BTP Île-de-France',
   description:
-    'Optimisez vos calculs d\'armatures, factures et devis acier béton avec ChatGPT. Formation Qualiopi. Financement possible selon éligibilité. Gagnez 6h/semaine.',
+    'Optimisez calculs d\'armatures, factures et devis acier-béton avec ChatGPT. Formation IA Qualiopi pour le BTP. Visio découverte gratuite.',
   path: PATH,
   keywords: [
     'formation IA ferrailleur BTP',

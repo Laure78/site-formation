@@ -335,7 +335,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title:
       'ChatGPT devis bâtiment : comment je fais tenir un devis en 20 minutes (sans brûler mes prix)',
     description:
-      'Premier jet de devis en ~20 min : données propres, prompt, relecture PU, variantes. Formation IA pour le BTP Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
+      'Premier jet de devis en ~20 min : données propres, prompt, relecture des PU, variantes. Formation IA Qualiopi, Constructys. Diagnostic gratuit.',
     date: '2026-04-07',
     keywords: [
       'ChatGPT devis bâtiment',
@@ -1222,7 +1222,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     relatedSlugs: [
       'formation-ia-btp-guide-complet-2026',
       '5-cas-usage-chatgpt-artisans-btp',
-      'ia-devis-gain-temps-pme-btp',
+      'ia-devis-batiment-chiffrage-automatise',
       'compte-rendu-chantier-ia-automatiser-gagner-temps',
     ],
   },
@@ -1475,7 +1475,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: 'Formation ChatGPT pour entreprises BTP — 4h pratiques, financement possible selon éligibilité.',
       },
     ],
-    relatedSlugs: ['financer-formation-ia-btp-constructys', 'ia-devis-gain-temps-pme-btp'],
+    relatedSlugs: ['financer-formation-ia-btp-constructys', 'ia-devis-batiment-chiffrage-automatise'],
   },
   {
     slug: 'ia-devis-gain-temps-pme-btp',
@@ -1575,7 +1575,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           "L'IA remplace-t-elle le métreur ? — Non. L'IA assiste la rédaction. Les prix, quantités et choix techniques restent sous votre responsabilité.",
           "Quels types de devis ? — Tous les corps de métier : gros œuvre, second œuvre, VRD. L'IA adapte le vocabulaire et la structure.",
           "La formation est-elle finançable ? — Oui. éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur.",
-          "Combien de temps faut-il pour maîtriser l'IA sur les devis ? — Comptez en général quelques séances ciblées pour être autonome sur une trame de devis : la première semaine sert à verrouiller structure et prompts, les suivantes à les appliquer sur de vrais dossiers. Une formation courte en présentiel ou à distance accélère nettement la courbe par rapport à l'auto-formation.",
+          "Combien de temps faut-il pour maîtriser l'IA sur les devis ? — Comptez en général quelques séances ciblées pour être autonome sur une trame de devis : la première semaine sert à verrouiller structure et prompts, les suivantes à les appliquer sur de vrais dossiers. Une formation courte en présentiel accélère nettement la courbe par rapport à l'auto-formation.",
           "L'IA fait-elle des erreurs de chiffrage ? — Oui, si on lui laisse inventer des prix ou des quantités sans contrôle. L'IA peut aussi mal interpréter une unité ou oublier une ligne de prestation liée. La règle simple : l'IA propose, vous validez chiffres, normes et périmètre avant signature.",
           "Comment convaincre mon associé d'utiliser l'IA pour nos devis ? — Partez d'un cas pilote mesurable (un type de chantier récurrent), comparez le temps passé avant/après sur deux semaines, et fixez des règles communes (relecture, pas de données sensibles dans le chat public, validation des montants). Montrer un premier gain concret bat souvent un long débat théorique.",
         ],
@@ -1848,7 +1848,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     relatedSlugs: [
-      'memoire-technique-btp-ia-gagner-temps-appels-offres',
+      'ia-memoire-technique-appel-offres-guide-2026',
       'analyse-dce-notebooklm-claude-btp',
       'financer-formation-ia-btp-constructys',
       'repondre-appel-offre-travaux',
@@ -2170,7 +2170,7 @@ export function getRelatedArticlesForDisplay(slug: string, limit = 6, extraRelat
  * Retirer un slug de cette liste le remet uniquement dans les blocs par catégorie.
  */
 export const BLOG_FEATURED_SLUGS: string[] = [
-  'memoire-technique-btp-ia-gagner-temps-appels-offres',
+  'ia-memoire-technique-appel-offres-guide-2026',
 ];
 
 /** Articles mis en avant (résolus depuis le catalogue ; slug inconnu ignoré) */
@@ -2213,12 +2213,24 @@ function mergeMdxIntoArticles(articles: BlogArticle[]): BlogArticle[] {
   return [...map.values()].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
+/**
+ * Articles fusionnés vers leur pilier (consolidation cannibalisation, juin 2026).
+ * Une redirection 308 vers le pilier est posée dans next.config.ts.
+ * Listés ici pour les exclure de l'index, du sitemap, des suggestions et de generateStaticParams.
+ */
+export const BLOG_CONSOLIDATED_REDIRECTED_SLUGS = new Set<string>([
+  'ia-devis-gain-temps-pme-btp', // → ia-devis-batiment-chiffrage-automatise
+  'memoire-technique-btp-ia-gagner-temps-appels-offres', // → ia-memoire-technique-appel-offres-guide-2026
+]);
+
 /** Tous les articles : statiques + générés (publiés automatiquement) + MDX */
 export function getAllArticles(): BlogArticle[] {
   const generated = loadGeneratedArticles();
   const staticSlugs = new Set(BLOG_ARTICLES.map((a) => a.slug));
   const generatedFiltered = generated.filter((a) => !staticSlugs.has(a.slug));
-  const all = [...BLOG_ARTICLES, ...generatedFiltered];
+  const all = [...BLOG_ARTICLES, ...generatedFiltered].filter(
+    (a) => !BLOG_CONSOLIDATED_REDIRECTED_SLUGS.has(a.slug)
+  );
   return mergeMdxIntoArticles(all);
 }
 

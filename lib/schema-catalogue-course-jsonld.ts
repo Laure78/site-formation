@@ -97,13 +97,13 @@ export function buildCatalogueCourseJsonLd(
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: ['Onsite', 'Online'],
+      courseMode: ['Onsite'],
       courseWorkload: DURATION_ISO,
       inLanguage: 'fr-FR',
       instructor: { '@id': `${base}/#person` },
       location: {
         '@type': 'Place',
-        name: 'Île-de-France — inter ou intra, présentiel ou distanciel',
+        name: 'Île-de-France — inter ou intra, en présentiel',
         address: {
           '@type': 'PostalAddress',
           addressRegion: 'Île-de-France',

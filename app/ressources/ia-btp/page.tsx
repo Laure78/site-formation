@@ -6,7 +6,7 @@ import { formatProfessionalsTrainedCount } from '@/lib/constants';
 export const metadata = createPageMetadata({
   title: 'Ressources IA BTP : Guides & Articles pratiques',
   description:
-    "Guides et ressources IA BTP : cas d'usage, ChatGPT, devis automatisés. Contenus pour dirigeants et équipes du BTP. Téléchargez les repères et avancez sereinement.",
+    "Guides et ressources IA pour le BTP : cas d'usage, ChatGPT, devis automatisés. Contenus pour dirigeants et équipes du bâtiment. Téléchargez-les.",
   path: '/ressources/ia-btp',
   keywords: [
     'ressources IA BTP',

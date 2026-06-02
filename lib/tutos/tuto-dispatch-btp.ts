@@ -13,7 +13,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
 
   metaTitle: 'Tuto Dispatch Claude BTP : ton téléphone pilote ton PC',
   metaDescription:
-    "Dispatch Claude BTP : transforme ton téléphone en télécommande de ton PC depuis ton chantier. Tuto pas à pas + 8 commandes vocales par Laure Olivié, formatrice IA appliquée au bâtiment.",
+    "Dispatch Claude BTP : transforme ton téléphone en télécommande de ton PC depuis le chantier. Tuto pas à pas + 8 commandes vocales. Gratuit.",
   keywords: [
     'Dispatch Claude',
     'Claude Dispatch BTP',

@@ -173,7 +173,7 @@ export default async function BlogArticlePage({ params }: Props) {
       : `${SITE_CONFIG.url}${article.coverImage.trim().startsWith('/') ? article.coverImage.trim() : `/${article.coverImage.trim()}`}`
     : defaultArticleImage;
   const howToSchema = getHowToFromArticle(article);
-  const showToc = slug === 'ia-devis-gain-temps-pme-btp';
+  const showToc = slug === 'ia-devis-batiment-chiffrage-automatise';
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">

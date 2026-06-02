@@ -76,7 +76,7 @@ export default async function AttestationPage({
             d&apos;une durée de <strong>{duration}</strong>, à hauteur de 100 % du programme.
           </p>
           <p className="text-slate-700">
-            Formation dispensée à distance via notre plateforme de formation en ligne.
+            Formation dispensée en présentiel, en Île-de-France.
           </p>
         </div>
 

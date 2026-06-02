@@ -61,10 +61,10 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const articleRaw = getArticleSchema({
     headline: H1,
     description:
-      'Plafonds Constructys 2026 pour une formation IA pour les pro du BTP : 24 € HT/h, 840 € HT/jour intra, dépôt eGestion J-15. Guide OPCO, Qualiopi, dossier OFC.',
+      'Plafonds Constructys 2026 pour une formation IA pour le BTP : 24 € HT/h (< 11 salariés) ou 19 € HT/h (11–50 salariés depuis le 1er juin 2026), 840/665 € HT/jour intra, dépôt eGestion J-15.',
     path: PATH,
     datePublished: '2026-01-15',
-    dateModified: '2026-04-18',
+    dateModified: '2026-06-01',
     authorName: SITE_CONFIG.name,
     image: '/og/financement-constructys-og.jpg',
   });

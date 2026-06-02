@@ -9,7 +9,7 @@ const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/prospectionfacile/';
 export const metadata = createPageMetadata({
   title: 'Communauté formateurs — Trouver vos premiers clients',
   description:
-    "Rejoignez une communauté de formateurs qui partagent prospection et développement d'activité. Plus de 4200 membres. Échangez pour trouver vos premiers clients.",
+    "Rejoignez une communauté de formateurs qui partagent prospection et développement d'activité. 4 200+ membres. Trouvez vos premiers clients.",
   path: '/communaute-formateurs',
   keywords: [
     'trouver clients formateur',

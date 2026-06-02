@@ -14,7 +14,7 @@ const PATH = '/outils-ia-btp';
 export const metadata = createPageMetadata({
   title: 'Outils IA BTP : ChatGPT, Claude, Gemini — comparatif & ressources',
   description:
-    'Page pilier : comparatif ChatGPT, Claude et Gemini pour les professionnels du BTP et les PME. Articles, tutoriels et bonnes pratiques. OFC Création d’Entreprise, Qualiopi.',
+    'Comparatif ChatGPT, Claude et Gemini pour les professionnels et PME du BTP : articles, tutoriels et bonnes pratiques. OFC, Qualiopi. Explorez le guide.',
   path: PATH,
   keywords: [
     'outils IA BTP ChatGPT Claude Gemini',

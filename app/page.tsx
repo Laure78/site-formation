@@ -64,9 +64,12 @@ const ANNUAIRE_ENTREPRISES_OFC_URL =
 /** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≤ 155 car.) */
 const HOME_META_TITLE = "Formation IA pour les pro du BTP — Devis, chantier, appels d'offres";
 const HOME_META_DESCRIPTION =
-  "Formation IA pour le BTP : devis, CR, appels d'offres. 1 592 pros formés, 4,85/5. Qualiopi, Constructys. Visio gratuite.";
+  "Formation IA appliquée au bâtiment : devis, appels d'offres, CR. BeWork ou Qualiopi. 1 592 pros, Constructys. RDV gratuit.";
 
 const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
+
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: HOME_META_TITLE,
@@ -369,13 +372,11 @@ export default function HomePage() {
             className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg"
             data-citation="true"
           >
-            Basée à Guyancourt (Yvelines), Laure Olivié intervient principalement en présentiel en{' '}
+            Basée à Guyancourt (Yvelines), Laure Olivié intervient exclusivement en présentiel en{' '}
             <strong>Île-de-France (Paris, 78, 91, 92, 93, 94, 95, 77)</strong> auprès des entreprises
-            du bâtiment et des travaux publics. Pour les entreprises hors Île-de-France ou pour les
-            équipes réparties sur plusieurs sites, toutes les formations sont également disponibles{' '}
-            <strong>en distanciel via visioconférence</strong>, sans perte d&apos;efficacité
-            pédagogique. La pédagogie reste 100 % opérationnelle : on travaille directement sur vos
-            documents BTP réels.
+            du bâtiment et des travaux publics. Les formations se déroulent dans vos locaux (intra) ou
+            en salle (inter), sur l&apos;ensemble de la région. La pédagogie reste 100 % opérationnelle :
+            on travaille directement sur vos documents BTP réels.
           </p>
         </div>
       </section>
@@ -750,7 +751,7 @@ export default function HomePage() {
             Nos formations IA spécialisées BTP
           </h2>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Formations IA Qualiopi / OPCO — intra, présentiel ou distanciel. Financement possible selon éligibilité.
+            Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
           </p>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {[

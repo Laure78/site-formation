@@ -37,7 +37,7 @@ export const metadata = createPageMetadata({
   title:
     "Cas d'usage IA pour le BTP : conducteur, chargé d'affaires, dirigeant | Laure Olivié",
   description:
-    "Découvrez par métier les cas d'usage concrets de l'intelligence artificielle dans le BTP : documents générés, gains de temps indicatifs, exemples opérationnels. Formation IA pour les pro du BTP, Claude AI — Laure Olivié.",
+    "Cas d'usage concrets de l'IA dans le BTP par métier : documents générés, gains de temps, prompts ChatGPT et Claude. Diagnostic IA gratuit.",
   path: PATH,
   keywords: [
     'cas usage IA BTP',

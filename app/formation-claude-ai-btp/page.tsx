@@ -28,7 +28,7 @@ const OG_IMAGE = "/images/claude-btp-hero-chantier-2026.png";
 export const metadata: Metadata = {
   title: "Formation Claude AI BTP — L'IA d'Anthropic pour le bâtiment",
   description:
-    "Formation Claude AI BTP : maîtrisez l'IA d'Anthropic pour devis, CCTP, mémoires techniques. 4h, Qualiopi. Financement possible selon éligibilité. 1 592 pros BTP formés.",
+    "Formation Claude AI pour le BTP : l'IA d'Anthropic pour devis, CCTP, mémoires techniques. Qualiopi, financement possible selon éligibilité. RDV gratuit.",
   keywords: [
     "formation Claude AI BTP",
     "Claude AI bâtiment",

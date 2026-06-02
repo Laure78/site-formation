@@ -32,6 +32,9 @@ const HERO_RESUME_PARIS = [
   'Financement OPCO Constructys selon éligibilité.',
 ];
 
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+export const revalidate = 3600;
+
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP Paris — ChatGPT en 4h',
   description:

@@ -9,10 +9,13 @@ import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+export const revalidate = 3600;
+
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP Paris 2026 — Constructys selon éligibilité',
   description:
-    'Formation IA ChatGPT pour BTP à Paris et IDF. Sessions inter et intra. Qualiopi. Finançable Constructys (plafonds en vigueur). Réservez votre visio découverte gratuite.',
+    'Formation IA et ChatGPT pour le BTP à Paris et en IDF : sessions inter et intra. Qualiopi, finançable Constructys. Visio découverte gratuite.',
   path: '/formation-ia-btp-paris-2026',
   keywords: [
     'formation IA appliquée au bâtiment Paris 2026',

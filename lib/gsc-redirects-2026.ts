@@ -118,12 +118,12 @@ export function gscRedirects2026April(): RedirectEntry[] {
     },
     {
       source: '/repondre-appels-offres-ia-btp',
-      destination: '/formation-ia-appels-offres-btp',
+      destination: '/formations/ia-appels-offre-btp',
       permanent: true,
     },
     {
       source: '/formations/ia-btp-yvelines-78',
-      destination: '/formation-ia-btp-yvelines',
+      destination: '/formation-ia-btp-yvelines-78',
       permanent: true,
     },
     { source: '/auteur/laure-olivie', destination: '/a-propos', permanent: true },
@@ -178,6 +178,9 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/repondre-appels-offres-ia-btp',
   '/formations/ia-btp-yvelines-78',
   '/auteur/laure-olivie',
+  // Anciennes URLs villes hub redirigées 308 vers /formations/ia-btp-[ville] (cf. next.config.ts)
+  '/formation-ia/btp-paris',
+  '/formation-ia/btp-saint-quentin-en-yvelines',
   // Dédup métiers mai 2026 (sources des 5 redirections ajoutées dans gscRedirects2026April)
   '/formation-ia-etancheur-btp',
   '/formation-ia-canalisateur',

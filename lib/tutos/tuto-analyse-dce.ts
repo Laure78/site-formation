@@ -13,7 +13,7 @@ export const TUTO_ANALYSE_DCE: TutoData = {
 
   metaTitle: 'Tuto skill Analyse DCE BTP : 220 pages en 3 minutes Claude',
   metaDescription:
-    "Analyse DCE BTP : crée ton skill Claude pour mâcher 220 pages de DCE en 3 minutes au lieu de 4h. Tutoriel par Laure Olivié, formatrice IA appliquée au bâtiment.",
+    "Analyse DCE BTP : crée ton skill Claude pour mâcher 220 pages de DCE en 3 minutes au lieu de 4h. Tutoriel gratuit.",
   keywords: [
     'analyse DCE BTP',
     'skill Claude DCE',

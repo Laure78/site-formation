@@ -47,7 +47,7 @@ export async function generateMetadata({
       section: 'Ressources IA BTP',
     },
     image: ogImageFor(tuto),
-    appendAuthorSuffix: true,
+    appendAuthorSuffix: false,
   });
 }
 

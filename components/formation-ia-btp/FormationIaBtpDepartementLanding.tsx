@@ -408,15 +408,15 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         id={`faq-formation-ia-dept-${config.deptCode}`}
         items={config.faq}
         title={`FAQ — formation IA appliquée au bâtiment ${crumbDept}`}
-        subtitle="Déplacements, formats intra / inter, distanciel, financement et calendrier."
+        subtitle="Déplacements, formats intra / inter en présentiel, financement et calendrier."
       />
 
       <section className="border-b border-slate-200 bg-[#377CF3] px-4 py-14 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">Réserver un créneau découverte</h2>
           <p className="mt-4 text-blue-100">
-            30 minutes pour cadrer votre besoin dans le {config.deptCode} — présentiel, intra-entreprise ou
-            distanciel selon vos contraintes.
+            30 minutes pour cadrer votre besoin dans le {config.deptCode} — en présentiel, intra ou inter
+            selon vos contraintes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[#377CF3] hover:bg-blue-50">

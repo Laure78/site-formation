@@ -52,6 +52,7 @@ async function getCoursSitemapEntries(baseUrl: string): Promise<MetadataRoute.Si
  */
 function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute.Sitemap {
   const entries: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; lastModified?: Date }[] = [
+    { path: LINKS.bework, priority: 0.88, changeFrequency: 'monthly', lastModified: new Date('2026-06-02') },
     { path: '/llms.txt', priority: 0.6, changeFrequency: 'monthly' },
     { path: '/etudes-de-cas/ffb-csfe', priority: 0.82, changeFrequency: 'monthly' },
     { path: '/expert-ia-btp', priority: 0.85, changeFrequency: 'monthly' },
@@ -94,21 +95,13 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/prendre-rdv', priority: 0.95, changeFrequency: 'weekly' },
     { path: '/diagnostic-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/checklist-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/checklist-prompts-btp', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formation-ia-travaux-publics', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/financement-constructys-100-ia-btp', priority: 0.88, changeFrequency: 'monthly' },
     { path: '/ressources', priority: 0.92, changeFrequency: 'weekly' },
     { path: '/ressources/tutos', priority: 0.91, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/ressources/guide-conducteur-de-travaux', priority: 0.9, changeFrequency: 'weekly' },
-    {
-      path: '/ressources/guide-conducteur-travaux-ia-btp',
-      priority: 0.88,
-      changeFrequency: 'weekly',
-      lastModified: new Date('2026-05-12'),
-    },
     {
       path: '/formation-ia-btp-ile-de-france',
       priority: 0.9,
@@ -122,22 +115,13 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       changeFrequency: 'weekly',
       lastModified: new Date(),
     },
-    { path: '/formation-ia-analyse-cctp', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/formation-ia-et-chatgpt', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/ia-conducteur-travaux', priority: 0.88, changeFrequency: 'monthly' },
-    {
-      path: '/formation-ia-appels-offres-btp',
-      priority: 0.9,
-      changeFrequency: 'weekly',
-      lastModified: new Date('2026-05-01'),
-    },
     { path: '/formations/ia-btp-paris', priority: 0.9, changeFrequency: 'weekly' },
     {
       path: '/formations/ia-btp-saint-quentin-en-yvelines',
       priority: 0.88,
       changeFrequency: 'weekly',
     },
-    { path: '/formation-ia-btp-yvelines', priority: 0.9, changeFrequency: 'weekly' },
     {
       path: '/formations/ia-btp-morangis',
       priority: 0.88,
@@ -183,12 +167,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
       lastModified: new Date('2026-04-17'),
     },
     { path: '/formation-ia-assistante-administrative-btp', priority: 0.89, changeFrequency: 'monthly' },
-    {
-      path: '/formation-ia-assistante-btp',
-      priority: 0.89,
-      changeFrequency: 'monthly',
-      lastModified: new Date('2026-04-17'),
-    },
     { path: '/formation-ia-pisciniste-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-paysagiste-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-macon-paysagiste-btp', priority: 0.89, changeFrequency: 'monthly' },
@@ -208,7 +186,6 @@ function getAdditionalMarketingRoutes(baseUrl: string, now: Date): MetadataRoute
     { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/cgv', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/reglement-interieur', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/offres', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/annuaire-handicap', priority: 0.5, changeFrequency: 'yearly' },
     { path: '/install-pwa', priority: 0.7, changeFrequency: 'monthly' },
   ];
@@ -387,8 +364,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  // Exclut les slugs fusionnés (GSC) ET les anciennes URLs villes redirigées 308
+  // vers /formations/ia-btp-[ville] (cf. next.config.ts + GSC_EXCLUDED_SITEMAP_PATHS).
   const formationIaHub: MetadataRoute.Sitemap = FORMATION_IA_ALL_SLUGS.filter(
-    (slug) => !GSC_HUB_MERGED_SLUGS.has(slug)
+    (slug) =>
+      !GSC_HUB_MERGED_SLUGS.has(slug) &&
+      !GSC_EXCLUDED_SITEMAP_PATHS.has(`/formation-ia/${slug}`)
   ).map((slug) => ({
     url: `${baseUrl}/formation-ia/${slug}`,
     lastModified: now,

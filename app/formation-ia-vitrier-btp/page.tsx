@@ -21,7 +21,7 @@ const PATH = '/formation-ia-vitrier-btp';
 export const metadata = createPageMetadata({
   title: 'Formation IA Vitrier Miroitier BTP Île-de-France',
   description:
-    'Formation IA ChatGPT pour vitriers miroitiers. Automatisez devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi. Financement possible selon éligibilité. Laure Olivié.',
+    'Formation IA et ChatGPT pour vitriers miroitiers : devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi. Visio découverte gratuite.',
   path: PATH,
   keywords: [
     'formation IA vitrier BTP',

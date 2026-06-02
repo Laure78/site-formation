@@ -27,7 +27,7 @@ const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 export const metadata = createPageMetadata({
   title: 'Formation Claude AI BTP 2026 : guide Chat, Cowork, Code & Chrome',
   description:
-    `Formation Claude BTP : guide Chat, Cowork, Code & Chrome — chantier, DCE, CR et administratif. Formation IA Qualiopi, Île-de-France, Constructys. +${formatProfessionalsTrainedCount()} formés, ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    `Claude AI pour le BTP : guide Chat, Cowork, Code & Chrome pour chantier, DCE, CR et administratif. Qualiopi, Île-de-France. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: null,
   openGraphType: 'article',
@@ -151,7 +151,7 @@ const faqItems = [
   },
   {
     q: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
-    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.) et en distanciel. Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
+    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment exclusivement en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.). Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
   },
   {
     q: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',
@@ -223,7 +223,7 @@ export default function ClaudeAiBtpPillarPage() {
                     Formation en Île-de-France
                   </h2>
                   <p className="max-w-md text-sm text-[#64748B]">
-                    Formation Claude AI BTP en sessions intra ou inter — même programme Qualiopi, présentiel ou distanciel, aligné terrain (devis, DCE, CR, mémoires techniques).
+                    Formation Claude AI BTP en sessions intra ou inter — même programme Qualiopi, en présentiel en Île-de-France, aligné terrain (devis, DCE, CR, mémoires techniques).
                   </p>
                 </div>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

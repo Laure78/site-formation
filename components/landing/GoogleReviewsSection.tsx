@@ -1,19 +1,18 @@
 import { getGoogleReviews, formatRating } from '@/lib/google-reviews';
-import {
-  googleReviewsToMarqueeItems,
-  STATIC_MARQUEE_REVIEWS,
-} from '@/lib/google-reviews-marquee';
+import { googleReviewsToMarqueeItems } from '@/lib/google-reviews-marquee';
 import { SITE_CONFIG } from '@/lib/seo';
 import { GoogleReviewsMarquee } from '@/components/landing/GoogleReviewsMarquee';
+import { Testimonial } from '@/components/testimonials/Testimonial';
+import { getFilledTestimonials } from '@/lib/testimonials';
 import { Star, Award, ExternalLink } from 'lucide-react';
 
 export async function GoogleReviewsSection() {
   const data = await getGoogleReviews();
 
   const hasGoogleApi = data && data.reviews.length > 0;
-  const marqueeItems = hasGoogleApi
-    ? googleReviewsToMarqueeItems(data.reviews)
-    : STATIC_MARQUEE_REVIEWS;
+  const marqueeItems = hasGoogleApi ? googleReviewsToMarqueeItems(data.reviews) : [];
+  // Repli sans API Google : uniquement de VRAIS témoignages renseignés (voir lib/testimonials.ts).
+  const testimonials = getFilledTestimonials();
 
   return (
     <section
@@ -61,9 +60,17 @@ export async function GoogleReviewsSection() {
           ) : null}
         </div>
 
-        <div className="mt-10">
-          <GoogleReviewsMarquee reviews={marqueeItems} />
-        </div>
+        {hasGoogleApi ? (
+          <div className="mt-10">
+            <GoogleReviewsMarquee reviews={marqueeItems} />
+          </div>
+        ) : testimonials.length > 0 ? (
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t, i) => (
+              <Testimonial key={`${t.firstNameInitial}-${i}`} {...t} />
+            ))}
+          </div>
+        ) : null}
 
         <div className="mt-10 text-center">
           <a

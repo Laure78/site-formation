@@ -60,11 +60,11 @@ export const LINKS = {
   formationMorangis: '/formations/ia-btp-morangis',
   formationLongjumeau: '/formations/ia-btp-longjumeau',
   formationIleDeFrance: '/formation-ia-btp-ile-de-france',
-  formationYvelines: '/formation-ia-btp-yvelines',
+  formationYvelines: '/formation-ia-btp-yvelines-78',
   /** Page SEO locale Saint-Quentin-en-Yvelines (CA SQY, 78) */
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
-  /** Landing SEO local Yvelines (78) — pilier */
-  formationIABTPYvelines: '/formation-ia-btp-yvelines',
+  /** Landing SEO local Yvelines (78) — pilier (l'ancien `/formation-ia-btp-yvelines` redirige en 308) */
+  formationIABTPYvelines: '/formation-ia-btp-yvelines-78',
   /** Pages pilier SEO par département Île-de-France (+77) */
   formationIaBtpYvelines78: '/formation-ia-btp-yvelines-78',
   formationIaBtpSeineEtMarne77: '/formation-ia-btp-seine-et-marne-77',
@@ -85,8 +85,8 @@ export const LINKS = {
   formationPlombierBtp: '/formation-ia-plombier-btp',
   /** Décideurs — ROI, pilotage IA PME bâtiment */
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
-  /** Landing SEO — assistante administrative BTP (URL courte) */
-  formationIaAssistanteBtp: '/formation-ia-assistante-btp',
+  /** Landing SEO — assistante administrative BTP (l'ancienne URL courte redirige en 308) */
+  formationIaAssistanteBtp: '/formation-ia-assistante-administrative-btp',
   /** Page pilier SEO — étancheurs (partenaire CSFE) */
   formationIaEtancheur: '/formation-ia-etancheur',
   // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
@@ -97,7 +97,8 @@ export const LINKS = {
   formationIaConducteurEnginsTp: '/formation-ia-conducteur-engins-tp',
   formationIaCanalisateur: '/formation-ia-canalisateur-tp',
 
-  // Utilitaires
+  /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */
+  bework: '/bework',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */
@@ -113,8 +114,8 @@ export const LINKS = {
   casUsage: '/ressources/ia-btp/10-cas-usage-concrets',
   /** Lead magnet — Guide PDF Skill IA conducteur de travaux */
   skillIaConducteurTravaux: '/ressources/guide-conducteur-de-travaux',
-  /** Guide long SEO / GEO — 6 livrables IA pour conducteur de travaux BTP */
-  guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-travaux-ia-btp',
+  /** Guide conducteur de travaux — maître (l'ancien `/ressources/guide-conducteur-travaux-ia-btp` redirige en 308) */
+  guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-de-travaux',
   /** PDF gratuit — Guide conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
   pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
@@ -135,9 +136,10 @@ export const LINKS = {
   tutoDoeDossierOuvragesExecutes: '/ressources/tuto-doe-dossier-ouvrages-executes',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
-  repondreAoLanding: '/formation-ia-appels-offres-btp',
-  /** Landing SEO — analyse CCTP / DCE avec ChatGPT (appels d'offres BTP) */
-  formationIaAnalyseCctp: '/formation-ia-analyse-cctp',
+  /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */
+  repondreAoLanding: '/formations/ia-appels-offre-btp',
+  /** Analyse CCTP/DCE — maître (l'ancien `/formation-ia-analyse-cctp` redirige en 308) */
+  formationIaAnalyseCctp: '/formations/formation-ia-cctp-analyse-dce-btp',
   /** Article — prompts et méthode analyse CCTP avec l'IA */
   blogIaAnalyseCctpMethode: '/blog/ia-analyse-cctp-methode',
   /** Article pilier SEO — formation IA CCTP, analyse DCE BTP */

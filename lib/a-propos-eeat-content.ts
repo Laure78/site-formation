@@ -37,7 +37,7 @@ export const A_PROPOS_TIMELINE = [
   {
     period: '2022',
     title: 'Création d\'OFC Création d\'Entreprise (SASU)',
-    body: `Organisme dédié à la **formation IA pour les pro du BTP** — sessions courtes (4 h), inter et intra, présentiel et distanciel. Premiers partenariats fédérations et montée en charge des programmes niveau 1 et 2. **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
+    body: `Organisme dédié à la **formation IA pour les pro du BTP** — sessions courtes (4 h), inter et intra, exclusivement en présentiel en Île-de-France. Premiers partenariats fédérations et montée en charge des programmes niveau 1 et 2. **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
   },
   {
     period: '2023',
@@ -55,7 +55,7 @@ export const A_PROPOS_AUTORITE_PARAGRAPHS = [
   `OFC Création d'Entreprise est **organisme de formation référencé FFB Grand Paris** depuis 2020 et intervient régulièrement avec la **FFB Île-de-France**, la **CSFE** (Chambre Syndicale de l'Étanchéité), la **CAPEB**, **CNAM Entreprise** et **Lefebvre Dalloz**. Ces partenariats ne sont pas des logos décoratifs : ce sont des cadres de confiance pour des sessions finançables **Constructys** selon éligibilité.`,
   `Les chiffres consolidés au **17 avril 2026** : **${formatProfessionalsTrainedCount()} professionnels formés**, note moyenne **${SOCIAL_PROOF.AVERAGE_RATING}** sur les questionnaires Qualiopi en fin de session. Je suis **instructrice officielle LinkedIn Learning** (cours IA BTP en français). Les retours **Google** et les réservations **Calendly** complètent cette preuve sociale — des dirigeants et conducteurs de travaux qui reviennent en intra ou recommandent la session à leur réseau.`,
   `Les retours les plus fréquents portent sur le **gain de temps immédiat** (5 à 8 h par semaine sur l'administratif), la **clarté des comptes rendus** et la **montée en compétence progressive** sans jargon. Les fédérations apprécient un contenu opérationnel, finançable et mesurable — critères que je documente dans chaque convention et bilan de fin de session.`,
-  `En tant qu'**instructrice LinkedIn Learning**, mes cours sont publics, vérifiables et complètent les sessions présentielles ou distancielles OFC. Cette double présence — plateforme internationale et terrain Île-de-France — renforce la crédibilité pour les entreprises qui hésitent encore entre « buzz IA » et outil utile au quotidien.`,
+  `En tant qu'**instructrice LinkedIn Learning**, mes cours en ligne sont publics, vérifiables et complètent les sessions OFC en présentiel. Cette double présence — plateforme internationale et terrain Île-de-France — renforce la crédibilité pour les entreprises qui hésitent encore entre « buzz IA » et outil utile au quotidien.`,
 ] as const;
 
 export const A_PROPOS_CLIENTS_INTRO = `Mes clients et partenaires couvrent l'écosystème BTP francilien : fédérations professionnelles qui référencent l'organisme, OPCO qui instruisent les dossiers, PME qui montent en compétence en intra, et bureaux d'études qui cherchent à accélérer la production documentaire sans sacrifier la qualité technique. Chaque collaboration est construite sur des **objectifs pédagogiques explicites** et un **suivi post-formation** adapté au niveau du groupe.`;

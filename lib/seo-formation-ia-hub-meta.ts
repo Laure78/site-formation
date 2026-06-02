@@ -21,7 +21,7 @@ export function buildMetierMetadata(m: FormationIaRawMetier, _path: string) {
     60
   );
   const description = truncate(
-    `Formation IA ${m.label} : ChatGPT et Claude AI pour devis, dossiers et chantier. ${m.categorie}. Qualiopi, financement OPCO Constructys. Île-de-France & France.`,
+    `Formation IA ${m.label} : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, Constructys. Visio découverte gratuite.`,
     155
   );
   const keywords = [
@@ -44,8 +44,8 @@ export function buildVilleMetadata(v: FormationIaRawVille, _path: string) {
   );
   const description = truncate(
     isParis
-      ? `Formation IA, ChatGPT et Claude AI pour le BTP à Paris et Grand Paris : devis, administratif, mémoires. Qualiopi, financement Constructys. OFC Laure Olivié.`
-      : `Formation IA appliquée au bâtiment à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour professionnels du BTP et PME. Qualiopi, OPCO Constructys. Interventions Île-de-France.`,
+      ? `Formation IA, ChatGPT et Claude AI pour le BTP à Paris et Grand Paris : devis, administratif, mémoires. Qualiopi, Constructys. Visio découverte gratuite.`
+      : `Formation IA pour le BTP à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour devis et chantier. Qualiopi, Constructys. Visio découverte gratuite.`,
     155
   );
   const keywords = [

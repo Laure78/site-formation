@@ -14,7 +14,7 @@ export function ClaudeBtpConversionCta() {
       description={
         <>
           4 h — Qualiopi — financement possible selon éligibilité. Chat, Projets, Cowork, Code, Chrome : intra ou inter,
-          en présentiel en Île-de-France ou en distanciel.
+          exclusivement en présentiel, en Île-de-France.
         </>
       }
       bullets={[

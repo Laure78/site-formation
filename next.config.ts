@@ -34,6 +34,52 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // --- Consolidation blog (juin 2026) — 2 doublons fusionnés vers leur article pilier (308) ---
+      {
+        source: '/blog/ia-devis-gain-temps-pme-btp',
+        destination: '/blog/ia-devis-batiment-chiffrage-automatise',
+        permanent: true,
+      },
+      {
+        source: '/blog/memoire-technique-btp-ia-gagner-temps-appels-offres',
+        destination: '/blog/ia-memoire-technique-appel-offres-guide-2026',
+        permanent: true,
+      },
+      // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
+      // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
+      { source: '/offres', destination: '/formations', permanent: true },
+      { source: '/formation-ia-et-chatgpt', destination: '/formations', permanent: true },
+      {
+        source: '/formation-ia-assistante-btp',
+        destination: '/formation-ia-assistante-administrative-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-appels-offres-btp',
+        destination: '/formations/ia-appels-offre-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-analyse-cctp',
+        destination: '/formations/formation-ia-cctp-analyse-dce-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-ia-btp-yvelines',
+        destination: '/formation-ia-btp-yvelines-78',
+        permanent: true,
+      },
+      {
+        source: '/financement-constructys-100-ia-btp',
+        destination: '/financement-constructys-formation-ia-btp',
+        permanent: true,
+      },
+      {
+        source: '/ressources/guide-conducteur-travaux-ia-btp',
+        destination: '/ressources/guide-conducteur-de-travaux',
+        permanent: true,
+      },
+      { source: '/checklist-prompts-btp', destination: '/checklist-ia-btp', permanent: true },
       // Canonique métier : ancienne landing courte → URL formation-
       {
         source: '/ia-conducteur-travaux',
@@ -147,15 +193,15 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: '/merci-devis', destination: '/contact', permanent: true },
-      { source: '/formation-ia-btp', destination: '/formations', permanent: false },
+      { source: '/formation-ia-btp', destination: '/formations', permanent: true },
       {
         source: '/documents/checklist-10-prompts-chatgpt-btp',
-        destination: '/checklist-prompts-btp',
+        destination: '/checklist-ia-btp',
         permanent: true,
       },
       {
         source: '/documents/checklist-10-prompts-chatgpt-btp.html',
-        destination: '/checklist-prompts-btp',
+        destination: '/checklist-ia-btp',
         permanent: true,
       },
       {
@@ -349,6 +395,15 @@ const nextConfig: NextConfig = {
       { source: '/formation-ia/btp-savigny-le-temple', destination: '/formation-ia-btp-ile-de-france', permanent: true },
       { source: '/formation-ia/btp-villiers-le-bel', destination: '/formation-ia-btp-ile-de-france', permanent: true },
       { source: '/formation-ia/btp-vitry-sur-seine', destination: '/formation-ia-btp-ile-de-france', permanent: true },
+
+      // Anciennes URLs villes hub /formation-ia/btp-[ville] → fiche catalogue /formations/ia-btp-[ville]
+      // (308 permanent). Uniquement les villes dont la page cible existe réellement.
+      { source: '/formation-ia/btp-paris', destination: '/formations/ia-btp-paris', permanent: true },
+      {
+        source: '/formation-ia/btp-saint-quentin-en-yvelines',
+        destination: '/formations/ia-btp-saint-quentin-en-yvelines',
+        permanent: true,
+      },
     ];
   },
 };

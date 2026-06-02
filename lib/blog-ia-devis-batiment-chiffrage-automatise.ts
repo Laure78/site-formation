@@ -28,6 +28,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   ],
   relatedSlugs: [
     'chatgpt-devis-btp-methode-2026',
+    'devis-btp-chatgpt-20-minutes',
     'formation-ia-btp-guide-complet-2026',
     'guide-skill-ia-conducteur-travaux-btp',
   ],
@@ -217,7 +218,7 @@ Ne réécris pas le devis, signale uniquement les manques.`,
       title: "Se former à l'IA devis bâtiment avec OFC Création d'Entreprise",
       content: `
 <p>Le module chiffrage est intégré à la formation IA pour les pro du BTP de 4 heures : méthode en 5 étapes, prompts prêts à l'emploi, vérification anti-oubli et intégration à vos outils.</p>
-<p>Sessions en présentiel en Île-de-France ou à distance. Financement possible via Constructys selon barèmes en vigueur.</p>
+<p>Sessions exclusivement en présentiel, en Île-de-France. Financement possible via Constructys selon barèmes en vigueur.</p>
 <p>Références : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Île-de-France, Lefebvre Dalloz — +${N} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.</p>
 <p class="mt-4">Pour aller plus loin : <a href="${LINKS.formations}" class="font-medium text-[var(--accent)] underline hover:no-underline">catalogue des formations IA appliquées au bâtiment</a>, <a href="${LINKS.financement}" class="font-medium text-[var(--accent)] underline hover:no-underline">financement Constructys formation IA appliquée au bâtiment</a>, ou <a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline hover:no-underline">diagnostic IA BTP gratuit</a>.</p>`,
     },

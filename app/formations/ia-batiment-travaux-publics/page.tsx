@@ -134,8 +134,8 @@ const MODALITES = [
   {
     icon: MapPin,
     title: 'Format',
-    primary: 'Intra · inter · présentiel ou distanciel',
-    secondary: 'Sessions inter en Île-de-France, intra dans vos locaux ou à distance',
+    primary: 'Intra · inter · présentiel en Île-de-France',
+    secondary: 'Sessions inter en Île-de-France, intra dans vos locaux — en présentiel',
   },
   {
     icon: UserCircle,

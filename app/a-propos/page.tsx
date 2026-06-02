@@ -31,6 +31,7 @@ import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 
 const A_PROPOS_TOC = [
   { label: 'Introduction', anchor: 'introduction' },
@@ -41,13 +42,14 @@ const A_PROPOS_TOC = [
   { label: 'Mission & valeurs', anchor: 'mission-valeurs' },
   { label: 'Clients & partenaires', anchor: 'clients-partenaires' },
   { label: 'LinkedIn Learning', anchor: 'linkedin-learning' },
+  { label: 'BeWork — relais admin BTP', anchor: 'bework' },
   { label: 'Contact & Calendly', anchor: 'contact-calendly' },
   { label: 'FAQ', anchor: 'faq' },
 ] as const;
 
 const A_PROPOS_META_TITLE = 'Laure Olivié - formatrice IA pour le BTP - 1 592 pros, Qualiopi';
 const A_PROPOS_META_DESCRIPTION =
-  'Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi. 1 592 professionnels formés, note 4,85/5. FFB, LinkedIn Learning. Appel découverte gratuit.';
+  'Formatrice IA pour le BTP (Qualiopi) et relais BeWork. 1 592 pros formés, 4,85/5. FFB, LinkedIn Learning. RDV gratuit.';
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,
@@ -94,6 +96,7 @@ export default function AProposPage() {
 
   const allerPlusLoinLinks = [
     { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
+    { href: LINKS.bework, label: 'BeWork — relais administratif BTP' },
     { href: LINKS.formationIaBtp, label: 'Formation IA pour le BTP — page pilier' },
     { href: LINKS.blog, label: 'Blog IA & ChatGPT BTP' },
     { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
@@ -143,7 +146,7 @@ export default function AProposPage() {
           alt: PHOTOS.portraitPro2026.alt,
           width: PHOTOS.portraitPro2026.width,
           height: PHOTOS.portraitPro2026.height,
-          caption: 'Laure Olivié — formatrice certifiée Qualiopi, sessions IA BTP en présentiel et distanciel.',
+          caption: 'Laure Olivié — formatrice certifiée Qualiopi, sessions IA BTP en présentiel en Île-de-France.',
         }}
       />
 
@@ -308,7 +311,7 @@ export default function AProposPage() {
             <EeatSection id="linkedin-learning" title="Formations LinkedIn Learning">
               <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
                 Instructrice officielle LinkedIn Learning — cours publics vérifiables, complémentaires aux sessions OFC
-                en présentiel ou distanciel.
+                en présentiel en Île-de-France.
               </p>
               <div className="mt-8 grid gap-6 md:grid-cols-2">
                 {LINKEDIN_LEARNING_A_PROPOS_EMBEDS.map((course) => (
@@ -331,6 +334,8 @@ export default function AProposPage() {
                 ))}
               </div>
             </EeatSection>
+
+            <BeWorkHighlightSection id="bework" surface="card" />
 
             <section
               id="contact-calendly"

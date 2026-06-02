@@ -21,8 +21,8 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
       a: `En inter, vous rejoignez un groupe sur une date fixée (souvent en Île-de-France). En intra, la formation est réservée à votre entreprise : mêmes 4 h, mais les exemples sont vos devis, vos CCTP et vos modèles de courriers — ce qui est souvent préféré pour les PME du BTP dans le ${code}.`,
     },
     {
-      q: 'Proposez-vous le distanciel depuis le département ?',
-      a: "Oui. Le distanciel est possible si chaque participant dispose d'un poste, d'une connexion stable et peut partager son écran. La méthode reste identique au présentiel : travail sur vos documents réels. Certaines entreprises du BTP combinent présentiel et visio selon les sites.",
+      q: 'Les formations ont-elles lieu en présentiel dans le département ?',
+      a: "Oui. Les sessions se déroulent exclusivement en présentiel, dans vos locaux (intra) ou en salle (inter) en Île-de-France. La pédagogie est concrète : travail sur vos documents réels (devis, CCTP, courriers) avec exercices guidés.",
     },
     {
       q: 'Y a-t-il des frais de déplacement facturés pour une session dans mon département ?',
@@ -79,7 +79,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   departementNom: 'Yvelines',
   deptCode: '78',
-  badgeLine: 'Yvelines (78) · Présentiel & distanciel · Qualiopi',
+  badgeLine: 'Yvelines (78) · Présentiel en Île-de-France · Qualiopi',
   cities: [
     'Versailles',
     'Saint-Quentin-en-Yvelines',
@@ -89,7 +89,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'Saint-Germain-en-Laye',
   ],
   courseName: 'Formation IA pour le BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, présentiel ou distanciel, devis et chantier. Certification Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, exclusivement en présentiel, devis et chantier. Certification Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
   serviceName: `Accompagnement formation IA pour les pro du BTP — département des Yvelines (78)`,
   serviceDescription: `Prestation de formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises implantées dans le département des Yvelines (78) : interventions intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
   areaServedCourse: [
@@ -113,7 +113,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   solutionTitle: 'La solution : une formation IA appliquée au bâtiment courte, certifiée Qualiopi, centrée sur vos documents',
   solutionBody: [
-    `La réponse apportée aux équipes des Yvelines repose sur un format standard de quatre heures, en présentiel dans vos locaux (intra) ou à distance si vos équipes sont multi-sites. Le programme s’appuie sur les références du catalogue — notamment « L’IA au service du bâtiment » pour l’entrée de gamme, et des modules plus spécialisés pour les appels d’offres ou les fonctions RH selon vos besoins. Chaque séquence alterne démonstration, exercice guidé et mise en pratique sur des exemples réels : un extrait de devis, un courrier client, une trame de compte rendu de chantier, un sommaire de mémoire technique.`,
+    `La réponse apportée aux équipes des Yvelines repose sur un format standard de quatre heures, exclusivement en présentiel dans vos locaux (intra) ou en salle (inter) en Île-de-France. Le programme s’appuie sur les références du catalogue — notamment « L’IA au service du bâtiment » pour l’entrée de gamme, et des modules plus spécialisés pour les appels d’offres ou les fonctions RH selon vos besoins. Chaque séquence alterne démonstration, exercice guidé et mise en pratique sur des exemples réels : un extrait de devis, un courrier client, une trame de compte rendu de chantier, un sommaire de mémoire technique.`,
     `Le positionnement géographique du siège à Guyancourt facilite la logistique : pour une entreprise basée à Versailles, Poissy ou Sartrouville, le déplacement d’une formatrice habituée au vocabulaire BTP francilien limite les imprévus de calendrier. Pour les structures plus au nord-ouest (Mantes, limite des Yvelines), ou au sud (Rambouillet), nous planifions souvent des journées complètes ou des créneaux qui évitent les heures de pointe sur les grands axes — l’objectif est de protéger votre temps opérationnel.`,
     `Sur le plan du financement, les entreprises du BTP relevant de l’OPCO Constructys peuvent mobiliser le plan de développement des compétences, sous réserve d’éligibilité et de montage de dossier. Les plafonds et règles nationales s’appliquent au 78 comme partout ailleurs ; mon rôle est de fournir les éléments pédagogiques (objectifs, programme, durée) cohérents avec une demande de prise en charge. La certification Qualiopi de l’organisme est un repère utile pour les services RH et les OPCO.`,
     `Enfin, la démarche est compatible avec une montée en compétence progressive : commencer par automatiser les courriers et les relances, puis, dans un second temps, attaquer des usages plus sensibles (analyse de pièces marchés, mémoires techniques) lorsque l’équipe est prête. C’est souvent ainsi que les entreprises des Yvelines sécurisent l’adoption : petits gains immédiats, puis usage avancé lorsque les réflexes de relecture humaine sont ancrés.`,
@@ -204,7 +204,7 @@ function buildDeptConfig(opts: {
     badgeLine: opts.badgeLine,
     cities: opts.cities,
     courseName,
-    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP dans le département ${d}. Sessions 4 h, présentiel ou distanciel. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
+    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP dans le département ${d}. Sessions 4 h, exclusivement en présentiel en Île-de-France. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
     serviceName: `Accompagnement formation IA appliquée au bâtiment — département ${d}`,
     serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du ${d} : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
     areaServedCourse: [departementNom, opts.chefLieu, 'Île-de-France', 'France'],
@@ -221,7 +221,7 @@ function buildDeptConfig(opts: {
     solutionTitle: `Formation IA pour le BTP dans le ${deptCode} : méthode, 4 h, résultats opérationnels`,
     solutionBody: [
       `La proposition de ${OFC} pour le ${d} combine un format court (4 h), des exercices sur vos documents réels, et un positionnement « terrain BTP » : pas de jargon startup, pas de promesse irréaliste sur l’automatisation totale. Nous travaillons des cas concrets — devis, mails, synthèses, brouillons de mémoires — avec des itérations guidées pour améliorer le ton et la structure.`,
-      `Le siège à Guyancourt (78) permet d’organiser des déplacements en Île-de-France avec des créneaux réalistes : pour les entreprises ${opts.temoignageZone}, nous ajustons la journée pour limiter l’impact sur le chantier. Le distanciel reste possible si vos équipes sont réparties sur plusieurs sites du département.`,
+      `Le siège à Guyancourt (78) permet d’organiser des déplacements en Île-de-France avec des créneaux réalistes : pour les entreprises ${opts.temoignageZone}, nous ajustons la journée pour limiter l’impact sur le chantier. Les sessions ont lieu exclusivement en présentiel, dans vos locaux ou en salle.`,
       `Le catalogue comporte deux parcours : NIV-01 (bases bâtiment & travaux publics) et NIV-02 (appels d’offre BTP). Vous choisissez la séquence en fonction de votre maturité et de vos priorités business ; les programmes PDF sont sur chaque fiche.`,
       `Après la session, l’objectif est simple : chaque participant repart avec des modèles réutilisables et une feuille de route sur deux semaines — quoi tester en premier, quoi mesurer (temps gagné sur une relance, sur un compte rendu), et comment faire remonter les bonnes pratiques dans l’équipe.`,
       `Pour les directions qui gèrent à la fois ${opts.chefLieu} et des chantiers périphériques, nous pouvons intégrer un module « coordination distante » : mêmes prompts pour les comptes rendus, mêmes critères de relecture, afin que le siège et le terrain parlent le même langage documentaire.`,

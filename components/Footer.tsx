@@ -6,16 +6,15 @@ import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
 import { LINKS } from '@/lib/internal-links';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 
 export function Footer() {
   const companyLinks = [
     { href: LINKS.aPropos, label: 'À propos' as const, external: false as const },
     {
-      href: EXTERNAL_SITE_URLS.bework,
+      href: LINKS.bework,
       label: 'BeWork — assistant travaux BTP' as const,
-      external: true as const,
-      linkTitle: 'BeWork — relais assistants travaux BTP (site officiel)',
+      external: false as const,
+      linkTitle: 'BeWork — relais assistants travaux BTP (présentation)',
     },
     { href: LINKS.contact, label: 'Contact' as const, external: false as const },
     { href: LINKS.prendreRdv, label: 'Rendez-vous' as const, external: false as const },

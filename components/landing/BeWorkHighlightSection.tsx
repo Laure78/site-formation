@@ -1,6 +1,10 @@
-import { Building2, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
+import { LINKS } from '@/lib/internal-links';
+import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
 
 type Props = {
   /** Ancre pour TOC / liens profonds (ex. a-propos#bework). */
@@ -27,17 +31,8 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
       }
     >
       <div className={isCard ? '' : 'mx-auto max-w-6xl'}>
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
-          <div
-            className={`flex shrink-0 items-center justify-center rounded-xl p-4 shadow-[0_4px_16px_rgba(55,124,243,0.08)] ${
-              isCard ? 'bg-[#D4E3FC]/80' : 'bg-white'
-            }`}
-            aria-hidden
-          >
-            <Building2 className="h-12 w-12 text-[#377CF3]" strokeWidth={1.5} />
-          </div>
-
-          <div className="min-w-0 flex-1">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+          <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
               Assistant de gestion travaux · Relais BTP
             </p>
@@ -62,17 +57,37 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               relais opérationnel pour votre bureau pendant que vous êtes sur le terrain.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <ExternalLinkAnchor
                 href={EXTERNAL_SITE_URLS.bework}
-                title="BeWork — assistants travaux BTP augmentés par l’IA (nouvel onglet)"
+                title="BeWork — site officiel bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(55,124,243,0.12)] transition-colors hover:bg-[#2A6BD9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3] focus-visible:ring-offset-2"
               >
                 Découvrir BeWork sur bework.fr
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
+              <Link
+                href={LINKS.bework}
+                className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
+              >
+                Présentation complète BeWork
+              </Link>
             </div>
           </div>
+
+          <figure className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+            <Image
+              src={BEWORK_PHOTO_HERO.src}
+              alt={BEWORK_PHOTO_HERO.alt}
+              width={BEWORK_PHOTO_HERO.width}
+              height={BEWORK_PHOTO_HERO.height}
+              className="h-auto w-full"
+              sizes="(min-width: 1024px) 480px, 50vw"
+            />
+            <figcaption className="border-t border-slate-100 px-4 py-2 text-xs text-[#5A5A5A]">
+              Déploiement rapide · sans recrutement · plateforme sécurisée · bework.fr
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

@@ -197,7 +197,7 @@ Constructys, l’OPCO du BTP, peut prendre en charge les coûts pédagogiques se
 
 ### 4. La formation peut-elle se faire dans nos locaux ?
 
-Oui. Les formations **intra** se déroulent dans vos locaux en **Île-de-France** (Paris, Yvelines, Essonne, Seine-et-Marne, Val-d’Oise, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne) ou à distance en visioconférence.
+Oui. Les formations se déroulent exclusivement en présentiel. Les sessions **intra** ont lieu dans vos locaux en **Île-de-France** (Paris, Yvelines, Essonne, Seine-et-Marne, Val-d’Oise, Hauts-de-Seine, Seine-Saint-Denis, Val-de-Marne).
 
 ### 5. L’IA va-t-elle remplacer les conducteurs de travaux ou les artisans ?
 
@@ -219,7 +219,7 @@ Oui. La formation couvre les usages transversaux (devis, emails, AO, communicati
 
 Laure Olivié est **formatrice IA et ChatGPT pour le BTP**. Elle a créé **OFC Création d’Entreprise** (certifié Qualiopi) avec une conviction : l’IA peut transformer le quotidien des PME du bâtiment, à condition d’être enseignée avec le **bon vocabulaire** et les **bons cas d’usage**.
 
-- Interventions : **Île-de-France** (Paris et départements limitrophes), intra / inter / distanciel.
+- Interventions : **Île-de-France** (Paris et départements limitrophes), intra / inter, exclusivement en présentiel.
 - **Méthode** : 70 % de pratique, prompts réutilisables, zéro jargon inutile.
 
 **Schema Person** : renseigner dans Rank Math le nom, l’URL, le logo / photo, `sameAs` (LinkedIn, etc.), `jobTitle` (ex. *Formatrice IA & ChatGPT — BTP*).

@@ -36,10 +36,13 @@ const HERO_RESUME = [
   `Plus de ${formatProfessionalsTrainedCount()} professionnels BTP formés · Note ${SOCIAL_PROOF.AVERAGE_RATING} · Organisme certifié Qualiopi.`,
 ];
 
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+export const revalidate = 3600;
+
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP Saint-Quentin-en-Yvelines : ChatGPT BTP',
   description:
-    'Formation IA pour les pro du BTP à Saint-Quentin-en-Yvelines (78) : Guyancourt, Montigny, Trappes, Élancourt. ChatGPT BTP, devis, CR chantier. Qualiopi, Constructys. Île-de-France. Laure Olivié, OFC.',
+    'Formation IA pour le BTP à Saint-Quentin-en-Yvelines (78) : ChatGPT, devis, CR chantier. Qualiopi, Constructys. Visio découverte gratuite.',
   path: PATH,
   keywords: [
     'formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',

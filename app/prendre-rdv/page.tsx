@@ -10,7 +10,7 @@ import { JsonLd } from '@/components/JsonLd';
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP — Réserver un RDV gratuit',
   description:
-    "Réservez 30 minutes en ligne pour discuter formation IA pour les pro du BTP. Calendly sécurisé, puis proposition chiffrée. Qualiopi, Constructys. Ouvrez l'agenda maintenant.",
+    "Réservez 30 min en ligne pour votre projet de formation IA pour le BTP. Calendly sécurisé, puis proposition chiffrée. Qualiopi. Ouvrez l'agenda.",
   path: '/prendre-rdv',
 });
 

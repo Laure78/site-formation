@@ -60,7 +60,7 @@ const FAQ_ITEMS = [...FAQ_IA_BTP_METIERS_CHANTIER_SEO, ...FAQ_ITEMS_LONG_TAIL];
 export const metadata = createPageMetadata({
   title: 'FAQ formation IA appliquée au bâtiment — ChatGPT, Claude AI, Constructys',
   description:
-    'Réponses aux questions longue traîne : ChatGPT et Claude AI pour le BTP, financement Constructys, IA pour AO et devis. Qualiopi. OFC Laure Olivié, Île-de-France.',
+    'Réponses aux questions longue traîne : ChatGPT et Claude AI pour le BTP, financement Constructys, IA pour AO et devis. Qualiopi, Île-de-France.',
   path: '/formation-ia/faq',
   keywords: [
     'FAQ formation IA pour le BTP',

@@ -11,11 +11,9 @@ const EXACT: Record<string, string> = {
   '/prendre-rdv': 'Prendre RDV',
   '/claude-ai-btp': 'Claude AI BTP',
   '/financement-constructys-formation-ia-btp': 'Financement Constructys',
-  '/financement-constructys-100-ia-btp': 'Financement Constructys IA BTP',
   '/outils-ia-btp': 'Outils IA BTP',
   '/diagnostic-ia-btp': 'Diagnostic IA BTP',
   '/checklist-ia-btp': 'Checklist IA BTP',
-  '/checklist-prompts-btp': 'Checklist prompts BTP',
   '/communaute-formateurs': 'Communauté formateurs',
   '/ressources/ia-btp': 'Ressources IA BTP',
 };

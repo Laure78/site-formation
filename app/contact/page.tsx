@@ -14,7 +14,7 @@ import { JsonLd } from '@/components/JsonLd';
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP — Contact',
   description:
-    "Écrivez à Laure Olivié ou prenez rendez-vous pour une formation IA appliquée au bâtiment sur mesure. Île-de-France et France. Financement Constructys pour PME.",
+    "Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou relais admin BeWork. RDV gratuit, Constructys. Île-de-France.",
   path: '/contact',
 });
 

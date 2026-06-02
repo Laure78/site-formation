@@ -172,11 +172,11 @@ export function buildConducteurTravauxLandingJsonLd(): Record<string, unknown> {
         },
         hasCourseInstance: {
           '@type': 'CourseInstance',
-          courseMode: ['onsite', 'online'],
+          courseMode: ['onsite'],
           courseWorkload: 'PT4H',
           location: {
             '@type': 'Place',
-            name: 'Île-de-France — intra ou inter, présentiel ou distanciel',
+            name: 'Île-de-France — intra ou inter, en présentiel',
             address: {
               '@type': 'PostalAddress',
               addressRegion: 'Île-de-France',

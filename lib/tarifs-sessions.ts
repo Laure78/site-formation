@@ -45,16 +45,19 @@ export function libelleTarifParticipant(level: 'DÉBUTANT' | 'AVANCÉ'): string 
 /** Libellé pour badges / cartes (icône « participants ») */
 export const LIBELLE_EFFECTIF_GROUPE_COURT = `${EFFECTIF_GROUPE_MAX} participants max`;
 
+/** Effectif formations niveau avancé NIV-02 (appels d'offres) — programme officiel */
+export const LIBELLE_EFFECTIF_GROUPE_NIV02 = '8 à 12 participants';
+
 /** Phrase complète pour modalités et encarts */
 export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
 
 /** Formulation standard — modalités (FAQ, pages, llms.txt) */
 export const MODALITE_FORMATIONS_STANDARD =
-  'Intra-entreprise, en présentiel ou en distanciel selon les besoins du client.';
+  'Formations exclusivement en présentiel, en Île-de-France (inter ou intra selon les besoins du client).';
 
-/** Modalités d’intervention catalogue : intra/inter, présentiel ou distanciel */
+/** Modalités d’intervention catalogue : présentiel uniquement, inter/intra */
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  `Sessions inter ou intra — ${MODALITE_FORMATIONS_STANDARD} (inter en Île-de-France, intra dans vos locaux ou à distance).`;
+  `Sessions inter ou intra, exclusivement en présentiel en Île-de-France (inter en salle, intra dans vos locaux).`;
 
 /** Toutes les formations catalogue « niveau avancé » (ex. NIV-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =

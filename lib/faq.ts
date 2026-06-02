@@ -100,7 +100,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Combien de temps dure la formation IA pour le BTP ?',
     a:
-      "Le module standard est de 4 heures, en présentiel dans vos locaux ou en distanciel via visioconférence. Ce format est calibré pour s'intégrer dans une demi-journée de travail et maximiser la prise en charge Constructys.",
+      "Le module standard est de 4 heures, exclusivement en présentiel dans vos locaux (intra) ou en salle en Île-de-France (inter). Ce format est calibré pour s'intégrer dans une demi-journée de travail et maximiser la prise en charge Constructys.",
   },
   {
     q: 'Mes données BTP confidentielles sont-elles sécurisées avec ChatGPT ?',
@@ -166,8 +166,8 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
     a: `Toutes nos sessions sont proposées au format unique de 4 heures. ${MODALITE_FORMATIONS_STANDARD} Le contenu est adapté au niveau (débutant ou avancé) avec un forfait par session — voir les programmes sur la page <a href="/formations">formations IA pour le BTP</a>.`,
   },
   {
-    q: "La formation se fait-elle en présentiel ou en distanciel ?",
-    a: `Les formations catalogue se déroulent en inter (Île-de-France) ou en intra dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
+    q: "La formation se fait-elle en présentiel ?",
+    a: `Oui, exclusivement en présentiel. Les formations catalogue se déroulent en inter (Île-de-France) ou en intra dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -310,7 +310,11 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   },
   {
     q: "Quel est le montant maximum remboursé ?",
-    a: 'Constructys applique un plafond de coûts pédagogiques de 24 € HT par heure et par participant. En session intra-entreprise, la prise en charge est plafonnée à 840 € HT par jour et par groupe. Le reste à charge dépend de la taille de l\'entreprise et des barèmes salaires et annexes en vigueur — synthèse sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
+    a: 'Le plafond pédagogique dépend de l\'effectif depuis le 1er juin 2026 : 24 € HT/heure/stagiaire pour les entreprises de moins de 11 salariés (limite 840 € HT/jour/groupe en intra) et 19 € HT/heure/stagiaire de 11 à moins de 50 salariés (limite 665 € HT/jour/groupe). Le reste à charge dépend de la taille de l\'entreprise et des barèmes salaires en vigueur — synthèse sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
+  },
+  {
+    q: "Le plafond Constructys a-t-il changé en 2026 ?",
+    a: 'Oui. Pour toutes les demandes de financement reçues à partir du 1er juin 2026, Constructys abaisse le plafond pédagogique horaire de 24 € à 19 € HT/heure/stagiaire pour les entreprises du Bâtiment de 11 à moins de 300 salariés. Les entreprises de moins de 11 salariés conservent 24 € HT/heure. Le dépôt eGestion reste exigé au moins 15 jours avant le début — détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
   },
   {
     q: "Combien de temps avant la formation faut-il déposer le dossier ?",
@@ -325,8 +329,8 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
     a: 'L\'éligibilité au Compte personnel de formation dépend de l\'enregistrement de l\'action sur France compétences et du catalogue. Pour le volet entreprise et OPCO, c\'est la prise en charge Constructys qui s\'applique dans le cadre du plan de développement des compétences. Nous vous indiquons la bonne combinaison selon votre situation — <a href="/prendre-rdv">prendre rendez-vous</a>.',
   },
   {
-    q: "Constructys finance-t-il les formations en distanciel ?",
-    a: `Oui. Les formations catalogue OFC peuvent se dérouler en distanciel (visioconférence) ou en présentiel, en intra ou en inter. ${FINANCEMENT_FORMULATION_PRUDENTE} Nous vous renseignons sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pro du BTP</a>.`,
+    q: "Constructys finance-t-il les formations en présentiel ?",
+    a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel, en intra dans vos locaux ou en inter en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Nous vous renseignons sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pro du BTP</a>.`,
   },
   {
     q: "Que se passe-t-il si ma demande est déposée en retard ?",
@@ -377,7 +381,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
 export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
   {
     q: 'La formation se déroule-t-elle en présentiel à Versailles ou dans les Yvelines ?',
-    a: 'Oui. Sessions en intra dans vos locaux ou sur chantier dans les Yvelines (78), en présentiel ou en distanciel selon vos contraintes. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.',
+    a: 'Oui. Sessions exclusivement en présentiel, en intra dans vos locaux ou sur chantier dans les Yvelines (78). Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -405,7 +409,7 @@ export const FAQ_IA_BTP_YVELINES: FAQItem[] = [
 export const FAQ_IA_BTP_SAINT_QUENTIN_YVELINES: FAQItem[] = [
   {
     q: 'Intervenez-vous dans toute la communauté d’agglomération de Saint-Quentin-en-Yvelines ?',
-    a: 'Oui. Sessions intra dans vos locaux ou sur chantier (Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.), en présentiel ou en distanciel. Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-yvelines">formation IA pour les pro du BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
+    a: 'Oui. Sessions exclusivement en présentiel, en intra dans vos locaux ou sur chantier (Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière, Coignières, Magny-les-Hameaux, etc.). Le siège OFC est à Guyancourt : pas de frais de déplacement supplémentaires pour les entreprises du 78. Voir <a href="/formation-ia-btp-yvelines-78">formation IA pour les pro du BTP Yvelines (78)</a> et le <a href="/formations">catalogue formations</a>.',
   },
   {
     q: "Faut-il des compétences informatiques pour suivre cette formation ?",
@@ -434,7 +438,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
   {
     q: 'Vous intervenez à domicile dans le 78 ?',
     a:
-      "Oui. Les sessions se déroulent en intra dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78), en présentiel ou en distanciel. Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Voir <a href=\"/formation-ia-btp-yvelines\">formation IA pour le BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
+      "Oui. Les sessions se déroulent exclusivement en présentiel, en intra dans vos locaux ou sur votre chantier dans tout le département des Yvelines (78). Je suis basée à Guyancourt (Saint-Quentin-en-Yvelines) : pour les entreprises du 78, il n'y a pas de frais de déplacement supplémentaires. Voir <a href=\"/formation-ia-btp-yvelines\">formation IA pour le BTP Yvelines (78)</a> et le <a href=\"/formations\">catalogue formations</a>.",
   },
   {
     q: 'La formation est-elle disponible le samedi ?',
@@ -453,7 +457,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
-    a: `La formation se déroule en intra dans vos locaux ou en salle en Île-de-France, en présentiel ou en distanciel : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
+    a: `La formation se déroule exclusivement en présentiel, en intra dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
@@ -469,7 +473,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 export const FAQ_APPELS_OFFRE: FAQItem[] = [
   {
     q: "Qui peut suivre la formation IA appels d'offres BTP ?",
-    a: 'Responsables d\'affaires, chargés d\'études, conducteurs de travaux, dirigeants et bureaux d\'études du BTP. Prérequis : avoir suivi le niveau 1 ou maîtriser les bases d\'une IA générative ; expérience en réponse aux appels d\'offres (au moins 3 mémoires techniques) — voir la <a href="/formations/ia-appels-offre-btp">fiche formation NIV-02</a>.',
+    a: 'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux, directeurs techniques TPE/PME BTP et bureaux d\'études. Prérequis : abonnement Claude Pro + Cowork installé, DCE complet récent et 2 à 3 mémoires techniques de l\'entreprise ; bases d\'une IA générative ou session niveau 1 — voir la <a href="/formations/ia-appels-offre-btp">fiche formation NIV-02</a>.',
   },
   {
     q: "Combien de temps dure la formation ?",
@@ -590,7 +594,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA pour les pro du BTP ?",
-    a: 'En intra dans vos locaux ou en salle en Île-de-France, en présentiel ou en distanciel : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pro du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
+    a: 'En présentiel uniquement, en intra dans vos locaux ou en salle en Île-de-France : <a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pro du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
   },
   {
     q: "La formation est-elle finançable ?",

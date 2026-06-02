@@ -30,12 +30,12 @@ const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocal
 export const metadata = createPageMetadata({
   title: 'Formation IA appliquée au bâtiment Île-de-France — ChatGPT 2026',
   description:
-    'Formation IA pour le BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
+    'Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Visio découverte gratuite.',
   path: PATH,
   appendAuthorSuffix: false,
   openGraphTitle: 'Formation IA pour les pro du BTP Île-de-France — ChatGPT 2026',
   openGraphDescription:
-    'Formation IA appliquée au bâtiment en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.',
+    'Formation IA appliquée au bâtiment en Île-de-France : ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Visio découverte gratuite.',
   image: {
     url: ogImage.src,
     width: ogImage.width,
@@ -79,7 +79,7 @@ const courseJsonLd = {
   hasCourseInstance: {
     '@type': 'CourseInstance',
     name: courseName,
-    courseMode: ['https://schema.org/OnSite', 'https://schema.org/Online'],
+    courseMode: ['https://schema.org/OnSite'],
     location: {
       '@type': 'Place',
       name: 'Île-de-France (Paris, 78, 91, 92, 93, 94, 95)',

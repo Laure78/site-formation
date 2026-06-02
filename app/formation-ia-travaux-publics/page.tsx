@@ -28,7 +28,7 @@ export const metadata = createPageMetadata({
   title:
     'Formation IA travaux publics — ChatGPT, VRD, génie civil',
   description:
-    "Formation IA travaux publics : planification TP, études de sol, VRD, appels d'offres publics, rapports génie civil. IA génie civil, ChatGPT TP — Qualiopi, OPCO Constructys.",
+    "Formation IA pour les travaux publics : planification TP, VRD, études de sol, appels d'offres publics, génie civil. Qualiopi, Constructys. RDV gratuit.",
   path: '/formation-ia-travaux-publics',
   keywords: [
     'formation IA travaux publics',

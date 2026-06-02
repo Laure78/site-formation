@@ -334,7 +334,7 @@ export const PHOTOS = {
 
   btpFormationVisioChantier2026: {
     src: '/images/btp-formation-visio-chantier-2026.png',
-    alt: 'Formation IA appliquée au bâtiment à distance : échange entre bureau et terrain, cas concrets entreprise du bâtiment',
+    alt: 'Formation IA appliquée au bâtiment en présentiel : échange entre bureau et terrain, cas concrets entreprise du bâtiment',
     width: 1024,
     height: 682,
   },
@@ -430,6 +430,33 @@ export const PHOTOS = {
       'Formation « L\'IA au service du bâtiment » — intervenante face à un public BTP en gilet de chantier',
     width: 1024,
     height: 682,
+  },
+
+  /** BeWork — relais administratif marchés travaux (support casque, site bework.fr) */
+  beworkHeroRelaisAdministratif: {
+    src: '/images/bework-hero-relais-administratif-support.png',
+    alt:
+      'BeWork — assistante travaux au casque devant un ordinateur, relais administratif BTP supervisé depuis la France',
+    width: 1024,
+    height: 629,
+  },
+
+  /** BeWork — bureau-chantier : plans, casque et poste de travail (site bework.fr) */
+  beworkHeroBureauChantier: {
+    src: '/images/bework-hero-bureau-chantier-plans.png',
+    alt:
+      'BeWork — assistante travaux au bureau avec plans de chantier et casque BTP, relais documents marchés travaux',
+    width: 1024,
+    height: 576,
+  },
+
+  /** BeWork — visuel produit : relais admin marchés travaux, DOE, situations, tableau de bord */
+  beworkRelaisMarchesTravaux: {
+    src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
+    alt:
+      'BeWork — relais administratif marchés travaux BTP, dossiers intervention, comptes rendus, DOE et situations',
+    width: 1024,
+    height: 1024,
   },
 
 };

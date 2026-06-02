@@ -63,7 +63,7 @@ export function buildCatalogFormationCoursePageSchema(
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: ['OnSite', 'Online'],
+      courseMode: ['OnSite'],
       courseWorkload: 'PT4H',
       location: {
         '@type': 'Place',

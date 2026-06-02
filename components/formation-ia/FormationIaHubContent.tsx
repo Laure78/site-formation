@@ -4,7 +4,7 @@ import { breadcrumbItemsFromPaths } from '@/lib/seo';
 import { FORMATION_IA_METIERS, FORMATION_IA_VILLES } from '@/lib/seo-formation-ia-hub-data';
 import { LINKS } from '@/lib/internal-links';
 
-type Props = { hubPath: '/formation-ia' | '/formation-ia-et-chatgpt' };
+type Props = { hubPath: '/formation-ia' };
 
 export function FormationIaHubContent({ hubPath }: Props) {
   const paris = FORMATION_IA_VILLES.find((v) => v.slug === 'btp-paris');

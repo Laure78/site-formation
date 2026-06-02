@@ -45,18 +45,18 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     description:
       "Formation niveau 2 — 4 h : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — Qualiopi, OPCO Constructys.",
     teaches: [
-      'Paramétrage Claude AI Pro (Projects, instructions) et installation Cowork',
+      'Paramétrage Claude AI Pro (Projects, instructions personnalisées) pour appels d\'offres',
       'Analyse DCE via Cowork — 15 informations critiques, CCAP, CCTP, verdict Go / No Go',
-      'Structure et rédaction assistée d’un mémoire technique (5 sections clés, relecture experte)',
-      'Création de skills Cowork personnalisés DCE / MT alimentés par les données entreprise',
-      'Évaluation et personnalisation des contenus générés — conformité technique BTP',
+      'Structure d\'un plan de mémoire technique adapté aux pondérations du DCE',
+      'Rédaction des 5 sections clés d\'un mémoire technique avec les skills Cowork',
+      'Création de skills Cowork DCE/MT réutilisables, alimentés par les données entreprise',
     ],
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
 ];
 
 const DURATION_ISO = 'PT4H';
-const COURSE_MODES = ['onsite', 'online'] as const;
+const COURSE_MODES = ['onsite'] as const;
 
 function educationalLevelSchema(level: NiveauCatalogue): string {
   return level === 'DÉBUTANT' ? 'Beginner' : 'Advanced';

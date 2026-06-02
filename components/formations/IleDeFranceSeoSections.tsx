@@ -130,7 +130,7 @@ export function IleDeFranceSeoSections() {
             </Link>
             {' · '}
             <Link
-              href="/blog/memoire-technique-btp-ia-gagner-temps-appels-offres"
+              href="/blog/ia-memoire-technique-appel-offres-guide-2026"
               className="font-medium text-[var(--accent)] hover:underline"
             >
               article mémoire technique BTP et IA

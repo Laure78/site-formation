@@ -12,7 +12,7 @@ import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlin
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
 import { SITE_CONFIG } from '@/lib/seo';
-import { OG_SITE_NAME, withOgDescriptionSuffix } from '@/utils/metadata';
+import { OG_SITE_NAME } from '@/utils/metadata';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
 import { OrganizationSchema } from '@/components/schema/OrganizationSchema';
 import { PersonSchema } from '@/components/schema/PersonSchema';
@@ -57,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: '%s | Laure Olivié',
       default: "Laure Olivié — Formatrice IA pour les pro du BTP | OFC Création d'Entreprise",
     },
-    description: withOgDescriptionSuffix(SITE_CONFIG.description),
+    description: SITE_CONFIG.description,
     authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
     creator: SITE_CONFIG.name,
     publisher: 'OFC Création d\'Entreprise',
@@ -69,7 +69,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: baseUrl,
       siteName: OG_SITE_NAME,
       title: 'Formation IA appliquée au bâtiment Île-de-France — Laure Olivié (Qualiopi)',
-      description: withOgDescriptionSuffix(SITE_CONFIG.description),
+      description: SITE_CONFIG.description,
       images: [
         {
           url: `${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`,
@@ -82,7 +82,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Formation IA pour le BTP — Laure Olivié (Qualiopi · Constructys)',
-      description: withOgDescriptionSuffix(SITE_CONFIG.description),
+      description: SITE_CONFIG.description,
       images: [`${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`],
     },
     robots: {

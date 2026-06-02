@@ -155,7 +155,7 @@ export function createPageMetadata({
   openGraphType = 'website',
   article,
   image,
-  appendAuthorSuffix = true,
+  appendAuthorSuffix = false,
   openGraphTitle,
   openGraphDescription,
   robots,
@@ -284,7 +284,7 @@ export function getCourseSchema({
     hasCourseInstance: {
       '@type': 'CourseInstance',
       name,
-      courseMode: 'online',
+      courseMode: 'onsite',
     },
     url: `${SITE_CONFIG.url}${path}`,
     ...(courseCode && { courseCode }),
