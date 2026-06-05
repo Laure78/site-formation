@@ -1,21 +1,13 @@
 {
-  "date": "2026-06-04",
+  "date": "2026-06-05",
   "articles": [
     {
-      "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-      "title": "Appels d'offres BTP : l'IA comme assistant"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-peintre",
+      "title": "Comment utiliser ChatGPT pour vos devis peintre"
     },
     {
-      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
-      "title": "Recrutement BTP : l'IA pour attirer les talents"
-    },
-    {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "title": "Comment utiliser ChatGPT pour vos devis charpentier"
-    },
-    {
-      "slug": "ia-et-couvreur-5-gains-de-temps-concrets",
-      "title": "IA et couvreur : 5 gains de temps concrets"
+      "slug": "ia-et-charpentier-5-gains-de-temps-concrets",
+      "title": "IA et charpentier : 5 gains de temps concrets"
     },
     {
       "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
@@ -30,16 +22,24 @@
       "title": "ChatGPT pour PME BTP : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-electricien",
-      "title": "Devis en 15 min : le guide électricien"
+      "slug": "devis-en-15-min-le-guide-plombier",
+      "title": "Devis en 15 min : le guide plombier"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-macons",
-      "title": "L'IA va-t-elle remplacer les maçons ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
+      "title": "L'IA va-t-elle remplacer les électriciens ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
       "title": "Automatiser vos emails clients avec l'IA"
+    },
+    {
+      "slug": "appels-d-offres-btp-l-ia-comme-assistant",
+      "title": "Appels d'offres BTP : l'IA comme assistant"
+    },
+    {
+      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
+      "title": "Recrutement BTP : l'IA pour attirer les talents"
     }
   ],
   "linkedinCount": 10
