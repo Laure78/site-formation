@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-menuisier",
   "title": "Devis en 15 min : le guide menuisier",
   "description": "Devis menuisier en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA pour le BTP Constructys.",
-  "date": "2026-06-07",
+  "date": "2026-06-08",
   "keywords": [
-    "offre emploi IA",
-    "recruter BTP",
-    "annonce BTP ChatGPT",
-    "IA recrutement BTP"
+    "LinkedIn BTP",
+    "post IA",
+    "contenu réseaux BTP",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
