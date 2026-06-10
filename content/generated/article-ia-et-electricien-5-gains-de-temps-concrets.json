@@ -2,12 +2,12 @@
   "slug": "ia-et-electricien-5-gains-de-temps-concrets",
   "title": "IA et électricien : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et électricien. Devis, CR, emails. Formation 4h pratique, financement possible selon éligibilité.",
-  "date": "2026-05-30",
+  "date": "2026-06-10",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
