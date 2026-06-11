@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-peintre",
   "title": "Devis en 15 min : le guide peintre",
   "description": "Devis peintre en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA pour le BTP Constructys.",
-  "date": "2026-05-31",
+  "date": "2026-06-11",
   "keywords": [
-    "IA appels offres BTP",
-    "DCE ChatGPT",
-    "mémoire technique IA",
-    "IA BTP"
+    "emails professionnels BTP",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
