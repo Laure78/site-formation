@@ -34,6 +34,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Apex sans www → www (filet de sécurité pour assets exclus du middleware matcher)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'laureolivie.fr' }],
+        destination: 'https://www.laureolivie.fr/:path*',
+        permanent: true,
+      },
       // --- Consolidation blog (juin 2026) — 2 doublons fusionnés vers leur article pilier (308) ---
       {
         source: '/blog/ia-devis-gain-temps-pme-btp',

@@ -51,13 +51,20 @@ export const LIBELLE_EFFECTIF_GROUPE_NIV02 = '8 à 12 participants';
 /** Phrase complète pour modalités et encarts */
 export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
 
+/** Badge court — header, footer, cartes */
+export const PERIMETRE_FORMATIONS_COURT =
+  'Présentiel uniquement · Île-de-France uniquement';
+
+/** Périmètre géographique et modalité — formulation standard avec exclusions explicites */
+export const PERIMETRE_FORMATIONS_STANDARD =
+  'Formations exclusivement en présentiel en Île-de-France (Paris et départements 77 à 95), en inter en salle ou en intra dans vos locaux. Pas de distanciel ni de visioconférence pour les sessions OFC. Pas de déplacement hors Île-de-France.';
+
 /** Formulation standard — modalités (FAQ, pages, llms.txt) */
-export const MODALITE_FORMATIONS_STANDARD =
-  'Formations exclusivement en présentiel, en Île-de-France (inter ou intra selon les besoins du client).';
+export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
 
 /** Modalités d’intervention catalogue : présentiel uniquement, inter/intra */
 export const MODALITE_FORMATIONS_PRESENTIEL =
-  `Sessions inter ou intra, exclusivement en présentiel en Île-de-France (inter en salle, intra dans vos locaux).`;
+  'Sessions inter ou intra, exclusivement en présentiel en Île-de-France. Pas de distanciel. Pas de déplacement hors Île-de-France.';
 
 /** Toutes les formations catalogue « niveau avancé » (ex. NIV-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =

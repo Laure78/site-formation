@@ -5,6 +5,7 @@ import { Plus, Minus } from 'lucide-react';
 import type { FAQItem } from '@/lib/faq';
 import { FAQ_ITEMS } from '@/lib/faq';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 type FAQAccordionProps = {
   items?: readonly FAQItem[];
@@ -18,7 +19,7 @@ export function FAQAccordion({ items = FAQ_ITEMS }: FAQAccordionProps) {
       {items.map((item, i) => (
         <div
           key={i}
-          className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+          className={`${OFC_CARD} rounded-xl p-5`}
         >
           <button
             type="button"
@@ -31,7 +32,7 @@ export function FAQAccordion({ items = FAQ_ITEMS }: FAQAccordionProps) {
             </span>
           </button>
           {open === i && (
-            <p className="mt-4 border-t border-slate-100 pt-4 text-sm text-slate-600">
+            <p className="mt-4 border-t border-slate-100 pt-4 text-base leading-relaxed text-slate-600">
               <FAQAnswer content={item.a} />
             </p>
           )}

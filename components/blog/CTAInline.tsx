@@ -35,10 +35,10 @@ export function CTAInline({
       <div className="flex flex-wrap gap-3">
         <CalendlyEmbed
           type="popup"
-          variant="unstyled"
+          variant="primary"
           ctaPosition="middle"
           campaign={campaign}
-          className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition hover:bg-[#2d6ab8]"
+          className="font-bold shadow-sm"
         />
       </div>
     </div>

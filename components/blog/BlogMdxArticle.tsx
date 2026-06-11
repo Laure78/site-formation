@@ -3,7 +3,8 @@ import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import AuthorBio from '@/components/AuthorBio';
 import { RelatedArticles } from '@/components/blog/RelatedArticles';
-import { TableOfContents } from '@/components/blog/TableOfContents';
+import { SommaireAncre } from '@/components/readability/SommaireAncre';
+import { shouldShowSommaireAncre } from '@/lib/sommaire-ancre';
 import {
   compileMdxBlogPostCached,
   mdxFrontmatterToBlogArticle,
@@ -25,9 +26,13 @@ export async function BlogMdxArticle({ slug }: Props) {
   const article = mdxFrontmatterToBlogArticle(frontmatter);
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
+  const sommaireItems = toc
+    .filter((entry) => entry.depth === 2)
+    .map((entry) => ({ label: entry.text, anchor: entry.id }));
+  const showSommaire = shouldShowSommaireAncre(sommaireItems);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16">
+    <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
       <ArticleJsonLd
         id="schema-blog-mdx-article"
         title={frontmatter.title}
@@ -42,7 +47,24 @@ export async function BlogMdxArticle({ slug }: Props) {
       />
       <BlogArticleFaqJsonLd article={article} />
 
-      <article>
+      <div
+        className={
+          showSommaire
+            ? 'lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:gap-10'
+            : undefined
+        }
+      >
+        {showSommaire ? (
+          <div className="mb-8 lg:mb-0">
+            <SommaireAncre
+              items={sommaireItems}
+              instanceId={`blog-${slug}`}
+              heading="Dans cet article"
+            />
+          </div>
+        ) : null}
+
+        <article className={showSommaire ? 'min-w-0 max-w-3xl' : undefined}>
         <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>
@@ -99,10 +121,6 @@ export async function BlogMdxArticle({ slug }: Props) {
         </h1>
         <p className="mt-4 text-lg text-slate-600">{frontmatter.description}</p>
 
-        <div className="mt-8">
-          <TableOfContents items={toc} />
-        </div>
-
         <div className="article-mdx mt-8 max-w-none">{content}</div>
 
         <BlogCTA articleSlug={slug} idSuffix="end" className="mt-12" />
@@ -114,7 +132,8 @@ export async function BlogMdxArticle({ slug }: Props) {
         <AuthorBio />
 
         <RelatedArticles articles={related} className="mt-16" />
-      </article>
+        </article>
+      </div>
     </div>
   );
 }

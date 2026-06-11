@@ -19,6 +19,9 @@ import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, MODALITE_FORMATIONS_S
 import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
+import { StatCallout } from '@/components/readability/StatCallout';
+import { KeyPoint } from '@/components/readability/KeyPoint';
+import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
 
 interface FormationCityPageProps {
   config: CityFormationConfig;
@@ -153,6 +156,20 @@ export function FormationCityPage({
             Spécialiste IA générative pour le BTP. <strong className="text-slate-900">Formatrice LinkedIn Learning.</strong>{' '}
             Pédagogie concrète, adaptée aux entreprises du bâtiment.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <StatCallout
+              variant="inline"
+              value={COUNT_UP_PROS_PLUS}
+              label="pros BTP formés"
+              freshnessLabel={STATS_FRESHNESS_LABEL}
+            />
+            <StatCallout
+              variant="inline"
+              value={COUNT_UP_RATING}
+              label="note moyenne"
+              freshnessLabel={STATS_FRESHNESS_LABEL}
+            />
+          </div>
           <Link
             href="/a-propos"
             className="mt-6 inline-flex font-medium text-[var(--accent)] hover:underline"
@@ -258,9 +275,12 @@ export function FormationCityPage({
             Des pros à {ville} gagnent déjà du temps avec l&apos;IA.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <KeyPoint label="Devis" subject="Un poste structuré" after="15 min" before="1 h en routine" />
+            <KeyPoint label="DCE">
+              Un CCTP décortiqué en{' '}
+              <strong className="font-semibold text-[#377CF3]">30 min</strong> — relecture métier obligatoire.
+            </KeyPoint>
             {[
-              { titre: 'Devis en 15 min', desc: 'Un poste structuré en quelques minutes au lieu d\'une heure en routine.' },
-              { titre: 'DCE analysé vite', desc: 'Un CCTP décortiqué en 30 min — relecture métier obligatoire.' },
               { titre: 'Emails pro', desc: 'Relances et réclamations : l\'IA rédige, vous validez.' },
               { titre: 'Admin allégée', desc: 'CR et comptes rendus : moins de saisie, plus de terrain.' },
             ].map(({ titre, desc }) => (

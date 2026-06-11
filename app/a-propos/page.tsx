@@ -146,7 +146,7 @@ export default function AProposPage() {
           alt: PHOTOS.portraitPro2026.alt,
           width: PHOTOS.portraitPro2026.width,
           height: PHOTOS.portraitPro2026.height,
-          caption: 'Formatrice IA BTP Qualiopi — sessions présentiel Île-de-France.',
+          caption: 'Formatrice IA BTP Qualiopi — présentiel en Île-de-France uniquement (pas de distanciel).',
         }}
       />
 

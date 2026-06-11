@@ -551,7 +551,7 @@ export default function FormationIaEtancheurPage() {
 
         <section className="mt-14">
           <h2 className="font-display text-lg font-bold text-slate-900">
-            Formation IA pour étancheur — Île-de-France &amp; toute la France
+            Formation IA pour étancheur — présentiel en Île-de-France uniquement
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
             OFC Création d&apos;Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}

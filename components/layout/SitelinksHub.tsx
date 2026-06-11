@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Layers, Calendar, Coins, GraduationCap, User } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const items = [
   {
@@ -40,7 +42,7 @@ const items = [
  */
 export function SitelinksHub() {
   return (
-    <section aria-labelledby="nav-hub" className="border-t border-slate-200 bg-slate-50 py-12">
+    <section aria-labelledby="nav-hub" className={OFC_SEC.mutedCompact}>
       <div className="mx-auto max-w-6xl px-4">
         <h2 id="nav-hub" className="sr-only">
           Navigation principale du site
@@ -50,14 +52,14 @@ export function SitelinksHub() {
             <Link
               key={href}
               href={href}
-              className="group rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition hover:border-[var(--accent)]/35 hover:shadow-md"
+              className={`${OFC_CARD} group block p-4`}
             >
               <Icon
                 className="h-5 w-5 text-[var(--accent)]"
                 strokeWidth={1.75}
                 aria-hidden
               />
-              <span className="mt-3 block text-sm font-semibold text-slate-900 group-hover:text-[var(--accent)]">
+              <span className="mt-3 block text-sm font-semibold text-slate-900 transition-colors duration-150 group-hover:text-[#377CF3]">
                 {title}
               </span>
               <p className="mt-1 text-xs text-slate-600">{line}</p>

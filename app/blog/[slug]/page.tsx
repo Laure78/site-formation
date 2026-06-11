@@ -35,26 +35,27 @@ import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import TableOfContents from '@/components/TableOfContents';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
+import { SommaireAncre } from '@/components/readability/SommaireAncre';
+import {
+  buildSommaireFromSectionTitles,
+  shouldShowSommaireAncre,
+  sommaireItemsToAnchorMap,
+} from '@/lib/sommaire-ancre';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-const IA_DEVIS_TOC_ITEMS = [
-  { label: 'Le constat', anchor: 'le-constat' },
-  { label: 'Les gains mesurés', anchor: 'les-gains' },
-  { label: 'Par où commencer ?', anchor: 'par-ou-commencer' },
-  { label: "Prompts devis prêts à l'emploi", anchor: 'prompts-devis' },
-  { label: 'Questions fréquentes', anchor: 'faq' },
-] as const;
-
-const IA_DEVIS_SECTION_ANCHORS: Record<string, string> = {
-  'Le constat': 'le-constat',
-  'Les gains mesurés': 'les-gains',
-  'Par où commencer ?': 'par-ou-commencer',
-  "Prompts devis et chiffrage — prêts à l'emploi": 'prompts-devis',
-  'Questions fréquentes': 'faq',
+/** Ancres stables — prioritaires sur le slug auto quand le titre diffère du libellé sommaire. */
+const BLOG_SECTION_ANCHOR_OVERRIDES: Record<string, Record<string, string>> = {
+  'ia-devis-batiment-chiffrage-automatise': {
+    'Le constat': 'le-constat',
+    'Les gains mesurés': 'les-gains',
+    'Par où commencer ?': 'par-ou-commencer',
+    "Prompts devis et chiffrage — prêts à l'emploi": 'prompts-devis',
+    'Questions fréquentes': 'faq',
+  },
 };
 
 /** Extrait le contenu texte pour l'affichage — gère string | string[] | ArticlePrompt[] */
@@ -173,10 +174,15 @@ export default async function BlogArticlePage({ params }: Props) {
       : `${SITE_CONFIG.url}${article.coverImage.trim().startsWith('/') ? article.coverImage.trim() : `/${article.coverImage.trim()}`}`
     : defaultArticleImage;
   const howToSchema = getHowToFromArticle(article);
-  const showToc = slug === 'ia-devis-batiment-chiffrage-automatise';
+  const sommaireItems = buildSommaireFromSectionTitles(
+    article.sections,
+    BLOG_SECTION_ANCHOR_OVERRIDES[slug]
+  );
+  const showSommaire = shouldShowSommaireAncre(sommaireItems);
+  const sectionAnchors = sommaireItemsToAnchorMap(sommaireItems);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16">
+    <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
       <ArticleJsonLd
         title={article.title}
         headline={article.seoTitle ?? article.title}
@@ -193,7 +199,24 @@ export default async function BlogArticlePage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}
 
-      <article>
+      <div
+        className={
+          showSommaire
+            ? 'lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:gap-10'
+            : undefined
+        }
+      >
+        {showSommaire ? (
+          <div className="mb-8 lg:mb-0">
+            <SommaireAncre
+              items={sommaireItems}
+              instanceId={`blog-${slug}`}
+              heading="Dans cet article"
+            />
+          </div>
+        ) : null}
+
+        <article className={showSommaire ? 'min-w-0 max-w-3xl' : undefined}>
         <div className="flex flex-col gap-1 text-sm text-slate-500 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span>
@@ -231,8 +254,6 @@ export default async function BlogArticlePage({ params }: Props) {
           {article.title}
         </h1>
         <p className="mt-4 text-lg text-slate-600">{article.description}</p>
-
-        {showToc && <TableOfContents items={[...IA_DEVIS_TOC_ITEMS]} />}
 
         {/* Bloc liens commerciaux contextuels — au moins 2-3 pages commerciales par article */}
         <section className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
@@ -284,14 +305,15 @@ export default async function BlogArticlePage({ params }: Props) {
         <div className="mt-12 space-y-10">
           {article.sections.map((section, i) => {
             const contentStr = getContentAsString(section.content);
-            const sectionAnchor =
-              showToc && section.title ? IA_DEVIS_SECTION_ANCHORS[section.title] : undefined;
+            const sectionAnchor = section.title ? sectionAnchors[section.title] : undefined;
+            const h2Class =
+              'scroll-mt-28 font-display text-xl font-bold text-slate-900';
             return (
               <Fragment key={i}>
               <section>
                 {section.type === 'definition' && section.title && (
                   <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
-                    <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
+                    <h2 id={sectionAnchor} className={h2Class}>
                       {section.title}
                     </h2>
                     <p className="mt-4 text-slate-700">{contentStr}</p>
@@ -300,7 +322,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 {section.type === 'paragraph' && (
                   <>
                     {section.title && (
-                      <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
+                      <h2 id={sectionAnchor} className={h2Class}>
                         {section.title}
                       </h2>
                     )}
@@ -310,7 +332,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 {section.type === 'html' && typeof section.content === 'string' && (
                   <>
                     {section.title && (
-                      <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
+                      <h2 id={sectionAnchor} className={h2Class}>
                         {section.title}
                       </h2>
                     )}
@@ -323,7 +345,7 @@ export default async function BlogArticlePage({ params }: Props) {
               {section.type === 'list' && (
                 <>
                   {section.title && (
-                    <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
+                    <h2 id={sectionAnchor} className={h2Class}>
                       {section.title}
                     </h2>
                   )}
@@ -344,7 +366,7 @@ export default async function BlogArticlePage({ params }: Props) {
               {section.type === 'prompts' && getPromptsFromContent(section.content).length > 0 && (
                 <>
                   {section.title && (
-                    <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
+                    <h2 id={sectionAnchor} className={h2Class}>
                       {section.title}
                     </h2>
                   )}
@@ -368,7 +390,7 @@ export default async function BlogArticlePage({ params }: Props) {
               )}
               {section.type === 'faq' && section.title && (
                 <>
-                  <h2 id={sectionAnchor} className="font-display text-xl font-bold text-slate-900">
+                  <h2 id={sectionAnchor} className={h2Class}>
                     {section.title}
                   </h2>
                   <div className="mt-6 space-y-6">
@@ -467,9 +489,9 @@ export default async function BlogArticlePage({ params }: Props) {
                 <Link
                   key={a.slug}
                   href={`/blog/${a.slug}`}
-                  className="group block rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md hover:border-[var(--accent)]"
+                  className={`${OFC_CARD} group block p-4`}
                 >
-                  <span className="font-medium text-slate-900 group-hover:text-[var(--accent)]">
+                  <span className="font-medium text-slate-900 transition-colors duration-150 group-hover:text-[#377CF3]">
                     {a.title}
                   </span>
                   {a.description && (
@@ -579,7 +601,8 @@ export default async function BlogArticlePage({ params }: Props) {
             { href: buildSiteCalendlyCtaUrl(`blog-article-${slug}-aller-plus-loin`), label: 'Prendre rendez-vous' },
           ]}
         />
-      </article>
+        </article>
+      </div>
     </div>
   );
 }

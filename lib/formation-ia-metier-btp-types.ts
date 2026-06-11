@@ -37,4 +37,6 @@ export type FormationIaMetierBtpConfig = {
   relatedMetierLinks?: { href: string; title: string; description: string }[];
   /** Intro surchargée pour la section Liens utiles */
   liensUtilesIntro?: string;
+  /** Puces « L’essentiel en 30 secondes » (3 à 5 phrases-clés déjà sur la page) */
+  essentielItems?: readonly string[];
 };

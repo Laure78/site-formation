@@ -1,14 +1,12 @@
 'use client';
 
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  type MouseEventHandler,
-  type ReactNode,
-} from 'react';
+import { useCallback, type MouseEventHandler, type ReactNode } from 'react';
 import { sendGTMEvent } from '@next/third-parties/google';
-import { CALENDLY_EMBED_URL, buildCalendlyUrlWithUtm } from '@/lib/calendly';
+import {
+  CALENDLY_EMBED_URL,
+  buildCalendlyInlineIframeUrl,
+  buildCalendlyUrlWithUtm,
+} from '@/lib/calendly';
 import {
   CALENDLY_BUTTON_VARIANT_CLASS,
   CALENDLY_DEFAULT_BUTTON_TEXT,
@@ -77,19 +75,11 @@ function tryOpenPopup(url: string): boolean {
   return false;
 }
 
-function openCalendlyPopup(url: string) {
-  if (tryOpenPopup(url)) return;
-  const started = Date.now();
-  const id = window.setInterval(() => {
-    if (tryOpenPopup(url)) {
-      window.clearInterval(id);
-      return;
-    }
-    if (Date.now() - started > 8000) {
-      window.clearInterval(id);
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
-  }, 150);
+/** Ouvre Calendly en popup si le widget est prêt, sinon nouvel onglet (même geste utilisateur). */
+function openCalendlyPopup(url: string): boolean {
+  if (tryOpenPopup(url)) return true;
+  const opened = window.open(url, '_blank', 'noopener,noreferrer');
+  return opened !== null;
 }
 
 function resolveCalendlyUrl({
@@ -101,6 +91,7 @@ function resolveCalendlyUrl({
 }: Pick<CalendlyEmbedProps, 'url' | 'utmSource' | 'utmMedium' | 'campaign' | 'ctaPosition'>) {
   const base = url ?? CALENDLY_EMBED_URL;
   return buildCalendlyUrlWithUtm({
+    baseUrl: base,
     utmSource,
     utmMedium,
     utmCampaign: campaign ?? (ctaPosition === 'unknown' ? 'cta-unspecified' : ctaPosition),
@@ -116,41 +107,36 @@ function CalendlyInlineBody({
   heightPx?: number;
   className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const parent = ref.current;
-    if (!parent) return;
-
-    const init = () => {
-      if (!window.Calendly?.initInlineWidget) return;
-      parent.innerHTML = '';
-      window.Calendly.initInlineWidget({ url, parentElement: parent });
-    };
-
-    if (window.Calendly?.initInlineWidget) {
-      init();
-      return;
-    }
-
-    const id = window.setInterval(() => {
-      if (window.Calendly?.initInlineWidget) {
-        window.clearInterval(id);
-        init();
-      }
-    }, 150);
-
-    return () => window.clearInterval(id);
-  }, [url]);
+  const iframeSrc = buildCalendlyInlineIframeUrl(url);
 
   return (
     <div
-      ref={ref}
       data-calendly
       data-cta-position="inline"
-      className={`calendly-inline-widget w-full max-w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm ${className}`}
-      style={{ minWidth: 320, height: heightPx, width: '100%', maxWidth: 600, margin: '0 auto' }}
-    />
+      className={`w-full max-w-full ${className}`}
+      style={{ minWidth: 320, width: '100%', maxWidth: 600, margin: '0 auto' }}
+    >
+      <div
+        className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
+        style={{ height: heightPx }}
+      >
+        <iframe
+          src={iframeSrc}
+          title="Réserver un créneau Calendly — formation IA BTP"
+          className="h-full w-full border-0"
+        />
+      </div>
+      <p className="mt-3 text-center text-sm text-slate-600">
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ofc-link font-semibold"
+        >
+          Ouvrir l&apos;agenda dans un nouvel onglet
+        </a>
+      </p>
+    </div>
   );
 }
 
@@ -190,15 +176,13 @@ export function CalendlyEmbed({
     trackCalendlyClick(location, ctaPosition, resolvedCtaId);
   }, [ctaPosition, resolvedCtaId]);
 
-  const handlePopupClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.preventDefault();
+  const handlePopupClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
     handleActivate();
-    onClick?.(e);
-    if (preferNewTab) {
-      window.open(resolvedUrl, '_blank', 'noopener,noreferrer');
-      return;
+    onClick?.(e as unknown as React.MouseEvent<HTMLButtonElement>);
+    if (preferNewTab) return;
+    if (openCalendlyPopup(resolvedUrl)) {
+      e.preventDefault();
     }
-    openCalendlyPopup(resolvedUrl);
   };
 
   const handleLinkClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
@@ -244,21 +228,32 @@ export function CalendlyEmbed({
     );
   }
 
+  const popupClassName = [
+    'cta-calendly',
+    `cta-calendly--${ctaPosition}`,
+    CALENDLY_BUTTON_VARIANT_CLASS[variant],
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <button
-      type="button"
+    <a
+      href={resolvedUrl}
       id={id}
       title={title}
-      disabled={disabled}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel ?? (typeof label === 'string' ? label : 'Prendre rendez-vous en ligne')}
+      target="_blank"
+      rel="noopener noreferrer"
       data-calendly
       data-calendly-tracked="component"
       data-cta-position={ctaPosition}
       data-cta-id={resolvedCtaId}
-      onClick={handlePopupClick}
-      className={`cta-calendly cta-calendly--${ctaPosition} ${CALENDLY_BUTTON_VARIANT_CLASS[variant]} ${className}`.trim()}
+      onClick={disabled ? (e) => e.preventDefault() : handlePopupClick}
+      aria-disabled={disabled || undefined}
+      className={`${popupClassName}${disabled ? ' pointer-events-none opacity-50' : ''}`.trim()}
     >
       {label}
-    </button>
+    </a>
   );
 }

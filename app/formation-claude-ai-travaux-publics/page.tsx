@@ -53,7 +53,7 @@ export default function FormationClaudeAiTravauxPublicsPage() {
       <CourseSchema
         name="Formation Claude AI travaux publics"
         description="Formation Claude AI TP pour VRD, terrassement et génie civil : analyse CCTP, planning, gestion sous-traitants et mémoires techniques."
-        url="https://laureolivie.fr/formation-claude-ai-travaux-publics"
+        url={`${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`}
         duration="PT4H"
         price={100}
         level="Intermediate"

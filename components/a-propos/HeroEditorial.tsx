@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { PHOTOS } from '@/lib/photos';
+import { StatCallout } from '@/components/readability/StatCallout';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 type Props = {
   lead: string;
@@ -27,11 +29,17 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
             Formatrice IA et ChatGPT pour les entreprises du BTP
           </p>
           <p className="mt-6 text-lg leading-relaxed text-[#334155]">{lead}</p>
-          <div className="mt-6 rounded-2xl border border-[#E2E8F0] border-l-4 border-l-[#377CF3] bg-[#F8FAFC] px-6 py-5 text-[#334155]">
-            <p className="font-medium">
-              1 592 professionnels formés · Note 4,85/5 · 10 ans d&apos;expérience · Qualiopi · LinkedIn Learning
-            </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <StatCallout
+              variant="inline"
+              value={formatProfessionalsTrainedCount()}
+              label="professionnels formés"
+            />
+            <StatCallout variant="inline" value={SOCIAL_PROOF.AVERAGE_RATING} label="note moyenne" />
           </div>
+          <p className="mt-4 text-sm font-medium text-[#475569]">
+            10 ans d&apos;expérience · Qualiopi · LinkedIn Learning
+          </p>
           <p className="mt-5 text-base leading-relaxed text-[#334155]">{qualiopiText}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

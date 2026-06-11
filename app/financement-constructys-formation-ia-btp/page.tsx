@@ -27,9 +27,11 @@ import {
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
-import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents';
+import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
+import { StatCallout } from '@/components/readability/StatCallout';
+import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
 
@@ -130,11 +132,8 @@ export default function FinancementConstructysFormationIABTPPage() {
         tags={['Constructys', 'OPCO', 'Qualiopi', 'BTP', 'eGestion', '2026']}
         subtitle={
           <p className="text-sm leading-relaxed text-[#475569] md:text-base">
-            D&apos;après notre suivi interne 2023-2025 sur{' '}
-            <strong className="font-semibold text-[#0F172A]">1 592 stagiaires</strong> formés,{' '}
-            <strong className="font-semibold text-[#0F172A]">92 %</strong> des demandes ont obtenu une prise en charge
-            Constructys au 1<sup>er</sup> dépôt. Ce guide vous aide à comprendre les règles, sans vous noyer dans le
-            jargon administratif — que vous visiez une{' '}
+            D&apos;après notre suivi interne 2023-2025 (voir chiffres ci-dessous). Ce guide vous aide à comprendre les
+            règles, sans vous noyer dans le jargon administratif — que vous visiez une{' '}
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
               formation IA pour PME BTP
             </Link>
@@ -152,10 +151,19 @@ export default function FinancementConstructysFormationIABTPPage() {
         primaryCta={{ href: LINKS.contact, label: 'Demander un devis', external: false }}
         secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-hero-secondary-rdv'), label: 'Réserver un RDV', external: true }}
         credibilityLine={
-          <span className="font-medium text-[#475569]">
-            {formatProfessionalsTrainedCount()} formés · 92 % de dossiers acceptés au 1<sup>er</sup> dépôt ·{' '}
-            {SOCIAL_PROOF.AVERAGE_RATING}
-          </span>
+          <div className="flex flex-wrap gap-3">
+            <StatCallout
+              variant="inline"
+              value={formatProfessionalsTrainedCount()}
+              label="stagiaires formés"
+            />
+            <StatCallout variant="inline" value="92 %" label="dossiers acceptés au 1er dépôt" />
+            <StatCallout
+              variant="inline"
+              value={SOCIAL_PROOF.AVERAGE_RATING}
+              label="note moyenne"
+            />
+          </div>
         }
         sideImage={{
           src: HERO_FINANCEMENT.src,
@@ -170,7 +178,7 @@ export default function FinancementConstructysFormationIABTPPage() {
       <div className="mx-auto max-w-6xl px-4 pb-16 pt-6 md:pb-24 md:pt-8">
         <div className="lg:grid lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)] lg:gap-8 xl:gap-10">
           <div className="mb-8 lg:mb-0">
-            <PillarTableOfContents items={FINANCEMENT_TOC} instanceId="financement-constructys" />
+            <SommaireAncre items={FINANCEMENT_TOC} instanceId="financement-constructys" />
           </div>
 
           <article className="min-w-0 space-y-12 md:space-y-14">
@@ -248,12 +256,14 @@ export default function FinancementConstructysFormationIABTPPage() {
             </section>
 
             <section id="grille-ofc" className="scroll-mt-24 rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-5 md:px-5 md:py-6">
+              <Reveal>
               <h2 className="font-display text-lg font-bold text-slate-900 md:text-xl">Grille commerciale OFC — sessions de formation</h2>
               <p className="mt-2 text-sm text-slate-700">
                 L&apos;organisme propose un format unique : <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
                 <strong>forfait par session</strong> (jusqu&apos;à 12 participants) selon le niveau pédagogique :
               </p>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              </Reveal>
+              <RevealGroup className="mt-5 grid gap-3 sm:grid-cols-2" staggerMs={50}>
                 <div className="rounded-xl border border-slate-200 bg-white p-4">
                   <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
                     4 h
@@ -270,10 +280,12 @@ export default function FinancementConstructysFormationIABTPPage() {
                   <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau avancé (NIV-02)</p>
                   <p className="mt-3 text-sm text-[#64748B]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</p>
                 </div>
-              </div>
+              </RevealGroup>
+              <Reveal>
               <p className="mt-4 text-xs text-slate-600">
-                {MODALITE_FORMATIONS_PRESENTIEL} Le montant facturé par OFC peut ensuite être couvert en tout ou partie par votre OPCO (Constructys pour le BTP) dans la limite des plafonds et de votre éligibilité — voir le tableau ci-dessous.
+                {MODALITE_FORMATIONS_PRESENTIEL}                 Le montant facturé par OFC peut ensuite être couvert en tout ou partie par votre OPCO (Constructys pour le BTP) dans la limite des plafonds et de votre éligibilité — voir le tableau ci-dessous.
               </p>
+              </Reveal>
             </section>
 
             <section id="combien-rembourse" className="scroll-mt-24">

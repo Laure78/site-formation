@@ -5,6 +5,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { getArticleCategory } from '@/lib/blog';
 import { BLOG_CATEGORIES } from '@/lib/blog';
 import { estimateWordCountForSection } from '@/lib/blog';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type CardArticle = Pick<
   BlogArticle,
@@ -51,10 +52,8 @@ export function BlogArticleCard({
 
   return (
     <article
-      className={`overflow-hidden rounded-2xl border bg-white shadow-sm transition-shadow hover:shadow-md ${
-        highlighted
-          ? 'border-2 border-[#377CF3] ring-1 ring-[#377CF3]/20'
-          : 'border border-slate-200'
+      className={`${OFC_CARD} overflow-hidden ${
+        highlighted ? 'border-2 border-[#377CF3] ring-1 ring-[#377CF3]/20' : ''
       }`}
     >
       <div className="p-6 md:p-8">
@@ -89,7 +88,7 @@ export function BlogArticleCard({
           <span>{BLOG_CATEGORIES[cat]}</span>
         </div>
         <h3 className="mt-3 font-display text-2xl font-bold text-slate-900">
-          <Link href={`/blog/${article.slug}`} className="hover:text-[#377CF3] hover:underline">
+          <Link href={`/blog/${article.slug}`} className={OFC_LINK}>
             {article.title}
           </Link>
         </h3>
@@ -108,7 +107,7 @@ export function BlogArticleCard({
         <p className="sr-only">Par {SITE_CONFIG.name}</p>
         <Link
           href={`/blog/${article.slug}`}
-          className="mt-4 inline-flex items-center gap-2 font-medium text-[#377CF3] hover:underline"
+          className={`mt-4 inline-flex items-center gap-2 ${OFC_LINK}`}
         >
           Lire l&apos;article
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />

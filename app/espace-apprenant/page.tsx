@@ -5,6 +5,7 @@ import { BookOpen, Award, ChevronRight, MessageCircle, LogOut } from 'lucide-rea
 import { getProfile } from '@/lib/auth';
 import { signOutAction } from './actions';
 import { SessionLogger } from '@/components/SessionLogger';
+import { OFC_CARD, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 export default async function EspaceApprenantPage() {
   const supabase = await createClient();
@@ -32,7 +33,7 @@ export default async function EspaceApprenantPage() {
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <Link
           href="/messages"
-          className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-[var(--accent)] hover:shadow-lg hover:shadow-[var(--accent-soft)]/30"
+          className={`${OFC_CARD} group block p-8`}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -50,7 +51,7 @@ export default async function EspaceApprenantPage() {
 
         <Link
           href="/espace-apprenant/mes-formations"
-          className="group rounded-2xl border border-slate-200 bg-white p-8 transition-shadow hover:shadow-md"
+          className={`${OFC_CARD} group block p-8`}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -93,7 +94,7 @@ export default async function EspaceApprenantPage() {
                 <Link
                   key={e.course_id}
                   href={`/espace-apprenant/cours/${c?.slug ?? ''}`}
-                  className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]"
+                  className={`${OFC_CARD} flex items-center justify-between rounded-xl px-4 py-3`}
                 >
                   <span className="font-medium text-slate-900">{c?.title ?? 'Formation'}</span>
                   <span className="text-sm text-slate-500">{e.progress_percent}%</span>
@@ -107,7 +108,7 @@ export default async function EspaceApprenantPage() {
       <div className="mt-10 flex flex-wrap gap-4">
         <Link
           href="/formations"
-          className="rounded-xl border-2 border-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
+          className={`${OFC_CTA_SECONDARY} px-6 py-3`}
         >
           Voir le catalogue
         </Link>

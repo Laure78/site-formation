@@ -40,11 +40,11 @@ export function BlogCTA({ className = '', articleSlug, idSuffix = 'end' }: BlogC
       <div className="mt-5">
         <CalendlyEmbed
           type="popup"
-          variant="unstyled"
+          variant="primary"
           ctaPosition={idSuffix === 'mid' ? 'middle' : 'footer'}
           ctaId={`blog-cta-${idSuffix}-${articleSlug}`}
           campaign={campaign}
-          className="inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-base font-bold text-white shadow-sm transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          className="font-bold shadow-sm"
         />
       </div>
       <p className="mt-3 text-center text-xs text-slate-500 md:text-left">

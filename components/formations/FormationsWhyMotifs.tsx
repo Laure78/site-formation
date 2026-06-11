@@ -1,5 +1,6 @@
 import { BookOpen, Trophy, Wallet } from 'lucide-react';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 export function FormationsWhyMotifs() {
   return (
@@ -15,7 +16,7 @@ export function FormationsWhyMotifs() {
         niveau 2 (appels d&apos;offre BTP) — avec programmes PDF téléchargeables sur chaque fiche.
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-3">
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm transition duration-200 hover:border-[#377CF3] hover:shadow-md">
+        <div className={`${OFC_CARD} p-8`}>
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
             <BookOpen className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
           </div>
@@ -29,7 +30,7 @@ export function FormationsWhyMotifs() {
             {TARIF_SESSION_DEBUTANT_HT} € HT / session (max 12 pers.)
           </p>
         </div>
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm transition duration-200 hover:border-[#377CF3] hover:shadow-md">
+        <div className={`${OFC_CARD} p-8`}>
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FEF3C7]">
             <Trophy className="h-8 w-8 text-[#F59E0B]" strokeWidth={1.75} aria-hidden />
           </div>
@@ -43,7 +44,7 @@ export function FormationsWhyMotifs() {
             {TARIF_SESSION_AVANCE_HT} € HT / session (max 12 pers.)
           </p>
         </div>
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm transition duration-200 hover:border-[#377CF3] hover:shadow-md">
+        <div className={`${OFC_CARD} p-8`}>
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
             <Wallet className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
           </div>

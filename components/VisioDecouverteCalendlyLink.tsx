@@ -1,6 +1,7 @@
 import type { AnchorHTMLAttributes } from 'react';
 import { Calendar } from 'lucide-react';
 import { CTACalendly } from '@/components/CTACalendly';
+import { OFC_CTA_PRIMARY_PILL } from '@/lib/ofc-interaction-classes';
 
 type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target' | 'rel' | 'children'>;
 
@@ -19,7 +20,7 @@ export function VisioDecouverteCalendlyLink({ className = '', ...rest }: Props) 
         utmSource="site"
         utmMedium="cta"
         utmCampaign="visio-decouverte"
-        className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white bg-[var(--accent)] px-8 py-4 text-base font-bold text-white transition hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        className={`${OFC_CTA_PRIMARY_PILL} gap-2 border-2 border-white font-bold`}
         {...rest}
       >
         <Calendar className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden />

@@ -5,7 +5,10 @@ import { ArrowRight, Building2, CheckCircle2, FileStack } from 'lucide-react';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { CountUp } from '@/components/motion/CountUp';
+import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
 
@@ -15,85 +18,89 @@ const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
 export function EtudeCasClientsSection() {
   return (
     <section
-      className="border-b border-slate-200 bg-gradient-to-b from-white via-[#f8fbff] to-white px-4 py-16 md:py-20"
+      className={`${OFC_SEC.waveMuted} scroll-mt-24`}
       aria-labelledby="etude-cas-titre"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="min-w-0 max-w-3xl lg:max-w-none">
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--accent)] shadow-sm">
-              <FileStack size={14} strokeWidth={2} aria-hidden />
-              Étude de cas clients
-            </div>
-            <h3
-              id="etude-cas-titre"
-              className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
-            >
-              FFB &amp; étanchéité :{' '}
-              <span className="font-serif italic text-slate-800">ce qui a été mis en place</span>
-            </h3>
-            <p className="mt-4 text-lg text-slate-600">
-              Retour d&apos;expérience détaillé : défis, dispositif pédagogique, modules (mémoires,
-              CCTP, devis, mails) et indicateurs — pour les fédérations, OPCO et entreprises du
-              bâtiment qui veulent du concret.
-            </p>
+            <Reveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--accent)] shadow-sm">
+                <FileStack size={14} strokeWidth={2} aria-hidden />
+                Étude de cas clients
+              </div>
+              <h3
+                id="etude-cas-titre"
+                className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
+              >
+                FFB &amp; étanchéité :{' '}
+                <span className="font-serif italic text-slate-800">ce qui a été mis en place</span>
+              </h3>
+              <p className="mt-4 text-lg text-slate-600">
+                Retour d&apos;expérience détaillé : défis, dispositif pédagogique, modules (mémoires,
+                CCTP, devis, mails) et indicateurs — pour les fédérations, OPCO et entreprises du
+                bâtiment qui veulent du concret.
+              </p>
+            </Reveal>
 
-            <ul className="mt-8 space-y-3 text-slate-700">
-              <li className="flex gap-3">
-                <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
-                  strokeWidth={2}
-                  aria-hidden
-                />
-                <span>
-                  Sessions courtes et opérationnelles avec la FFB (Grand Paris, IDF Est &amp; Ouest).
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
-                  strokeWidth={2}
-                  aria-hidden
-                />
-                <span>
-                  Même socle pédagogique avec la {CSFE_NOM_LIBRE} pour cohérence réseau.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
-                  strokeWidth={2}
-                  aria-hidden
-                />
-                <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
-                  <span>Financement OPCO /</span>
-                  <QualiopiWordmark />
-                  <span>lorsque les entreprises sont éligibles.</span>
-                </span>
-              </li>
-            </ul>
+            <Reveal className="mt-8">
+              <ul className="space-y-3 text-slate-700">
+                <li className="flex gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
+                  <span>
+                    Sessions courtes et opérationnelles avec la FFB (Grand Paris, IDF Est &amp; Ouest).
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
+                  <span>
+                    Même socle pédagogique avec la {CSFE_NOM_LIBRE} pour cohérence réseau.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <CheckCircle2
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
+                  <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                    <span>Financement OPCO /</span>
+                    <QualiopiWordmark />
+                    <span>lorsque les entreprises sont éligibles.</span>
+                  </span>
+                </li>
+              </ul>
+            </Reveal>
 
-            <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
+            <RevealGroup className="mt-8 grid grid-cols-3 gap-3 sm:gap-4" staggerMs={45}>
               {[
-                { val: `+${formatProfessionalsTrainedCount()}`, label: 'accompagnés' },
-                { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'satisfaction' },
-                { val: '5', label: 'modules clés' },
+                { kind: 'count' as const, config: COUNT_UP_PROS_PLUS, label: 'accompagnés' },
+                { kind: 'count' as const, config: COUNT_UP_RATING, label: 'satisfaction' },
+                { kind: 'static' as const, val: '5', label: 'modules clés' },
               ].map((k) => (
                 <div
                   key={k.label}
                   className="rounded-xl border border-slate-200/80 bg-white/90 px-3 py-4 text-center shadow-sm"
                 >
                   <p className="text-xl font-bold tabular-nums text-[var(--accent)] sm:text-2xl">
-                    {k.val}
+                    {k.kind === 'count' ? <CountUp {...k.config} /> : k.val}
                   </p>
                   <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
                     {k.label}
                   </p>
                 </div>
               ))}
-            </div>
+            </RevealGroup>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <Link
                 href={ETUDE_HREF}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-md shadow-blue-500/15 transition-colors hover:bg-blue-700"
@@ -105,10 +112,10 @@ export function EtudeCasClientsSection() {
                 <Building2 size={18} strokeWidth={1.75} aria-hidden />
                 Projet équivalent ?
               </RdvLink>
-            </div>
+            </Reveal>
           </div>
 
-          <figure className="min-w-0 lg:sticky lg:top-28">
+          <Reveal as="figure" className="min-w-0 lg:sticky lg:top-28">
             <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)]">
               <Image
                 src={PHOTOS.accueilEtudeCasFfbLaureIntervention.src}
@@ -124,7 +131,7 @@ export function EtudeCasClientsSection() {
               Laure Olivié — animation formation IA pour les pro du BTP en présentiel (réseau FFB, filière étanchéité /
               CSFE)
             </figcaption>
-          </figure>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -16,6 +16,7 @@ import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display
 import { sortFormationsCatalogue, tarifLabel } from '@/lib/formations-catalogue-display';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type ProfileId = 'debutant' | 'ao';
 
@@ -59,7 +60,7 @@ function FormationCard({
     <div
       ref={cardRef}
       id={`formation-card-${cours.ref}`}
-      className={`flex flex-col overflow-hidden rounded-[20px] border border-[#E2E8F0] bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+      className={`${OFC_CARD} flex flex-col overflow-hidden rounded-[20px] ${
         highlighted ? 'ring-2 ring-[#377CF3] ring-offset-2' : ''
       }`}
     >
@@ -86,7 +87,7 @@ function FormationCard({
           RÉF {cours.ref} · {cours.level}
         </p>
         <h3 className="mt-2 font-display text-[22px] font-semibold leading-snug text-[#0F172A]">
-          <Link href={cours.href} className="hover:text-[#377CF3]">
+          <Link href={cours.href} className={OFC_LINK}>
             {cours.title}
           </Link>
         </h3>
@@ -118,7 +119,7 @@ function FormationCard({
         <div className="mt-6 flex flex-col gap-3">
           <Link
             href={cours.href}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-medium text-white transition hover:bg-[#2563EB]"
+            className={`${OFC_CTA_PRIMARY} gap-2 rounded-lg px-5 py-3 text-sm`}
           >
             Voir la fiche formation
             <ArrowRight size={18} aria-hidden />
@@ -203,10 +204,8 @@ export function FormationsCatalogueInteractive({
                 key={p.id}
                 type="button"
                 onClick={() => applyProfile(p.id)}
-                className={`flex flex-col items-center rounded-xl border p-4 text-center transition duration-200 sm:p-5 ${
-                  isActive
-                    ? 'border-[#377CF3] bg-white shadow-md'
-                    : 'border-[#E2E8F0] bg-white shadow-sm hover:-translate-y-0.5 hover:border-[#377CF3] hover:shadow-md'
+                className={`${OFC_CARD} flex flex-col items-center rounded-xl p-4 text-center sm:p-5 ${
+                  isActive ? 'border-[#377CF3] shadow-md' : ''
                 }`}
               >
                 <span

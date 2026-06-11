@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import { VisioDecouverteCalendlyLink } from '@/components/VisioDecouverteCalendlyLink';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 /** Durée déclarée de l’animation (pack) ; marge avant relance pour laisser finir la dernière slide. */
 const PRESENTATION_LOOP_MS = 43_000;
@@ -66,7 +67,7 @@ export function PresentationAnimee() {
 
   return (
     <section
-      className="border-b border-slate-200 bg-gradient-to-b from-white via-slate-50/40 to-white px-4 py-14 md:py-16"
+      className={OFC_SEC.whiteMesh}
       aria-labelledby="presentation-animee-heading"
     >
       <div ref={sectionRef} className="mx-auto max-w-7xl">

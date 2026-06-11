@@ -48,6 +48,8 @@ import {
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -56,10 +58,65 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { BeworkEtFormationsOffreSection } from '@/components/landing/BeworkEtFormationsOffreSection';
+import { Essentiel } from '@/components/readability/Essentiel';
+import { Accordion } from '@/components/readability/Accordion';
+import { StatCallout } from '@/components/readability/StatCallout';
+import { KeyPoint } from '@/components/readability/KeyPoint';
+import { Citation } from '@/components/readability/Citation';
+import {
+  COUNT_UP_PROS,
+  COUNT_UP_PROS_PLUS,
+  COUNT_UP_RATING,
+  COUNT_UP_SATISFACTION,
+  STATS_FRESHNESS_LABEL,
+} from '@/lib/readability-presets';
+import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
+
+const GAINS_COMMERCIAUX_CARDS = [
+  {
+    icon: CircleDollarSign,
+    title: 'Augmentez votre rentabilité',
+    desc: "Réduisez vos coûts administratifs de 30 à 40 %. Répondez à plus d'appels d'offres avec les mêmes ressources.",
+  },
+  {
+    icon: Rocket,
+    title: 'Gagnez en réactivité commerciale',
+    keyPoint: (
+      <KeyPoint
+        variant="inverse"
+        label="Réactivité commerciale"
+        subject="Réponse aux devis"
+        after="15 minutes"
+        before="2 jours"
+      />
+    ),
+    desc: "Augmentez votre taux de transformation de 25 %.",
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Fidélisez vos équipes',
+    desc: "Libérez vos collaborateurs des tâches répétitives. Réduisez le turnover grâce à des conditions modernisées.",
+  },
+  {
+    icon: LineChart,
+    title: 'Développez votre CA sans embaucher',
+    desc: "Traitez 50 % de chantiers supplémentaires avec les mêmes effectifs. Optimisez vos marges.",
+  },
+  {
+    icon: Sparkles,
+    title: 'Professionnalisez votre image',
+    desc: "Démarquez-vous par votre rapidité. Proposez des documents ultra-professionnels.",
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Sécurisez vos process',
+    desc: "Standardisez vos documents. Assurez la traçabilité complète. Réduisez les litiges.",
+  },
+] as const;
 
 /** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≤ 155 car.) */
 const HOME_META_TITLE = "Formation IA pour les pro du BTP — Devis, chantier, appels d'offres";
@@ -115,13 +172,12 @@ export const metadata = createPageMetadata({
   },
 });
 
-const STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 
 export default function HomePage() {
   return (
     <div>
       {/* Hero — Formation IA pour le BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
-      <section className="relative overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F2F2F2] via-[#f5f9ff] to-white px-4 py-14 md:py-20 lg:py-24">
+      <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
         <div
           className="pointer-events-none absolute -right-24 top-1/2 h-[min(480px,70vh)] w-[min(560px,55vw)] -translate-y-1/2 rounded-full bg-[#377CF3]/[0.06] blur-3xl md:right-0"
@@ -170,8 +226,11 @@ export default function HomePage() {
                   Formation IA pour le BTP — devis, chantier, appels d&apos;offres
                 </h1>
                 <h2 className="mt-4 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                  Sessions pratiques en présentiel, en Île-de-France
+                  Sessions pratiques en présentiel — Île-de-France uniquement
                 </h2>
+                <p className="mt-2 max-w-xl text-sm font-medium text-slate-600 md:text-base">
+                  Pas de distanciel · pas de déplacement hors Île-de-France
+                </p>
                 <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                   Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
                   <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
@@ -183,16 +242,40 @@ export default function HomePage() {
                 >
                   <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
                   — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
-                  certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}{' '}
-                  {formatProfessionalsTrainedCount()} professionnels formés · note {SOCIAL_PROOF.AVERAGE_RATING}.
+                  certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
                 </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <StatCallout
+                    variant="inline"
+                    value={COUNT_UP_PROS}
+                    label="professionnels formés"
+                    freshnessLabel={STATS_FRESHNESS_LABEL}
+                  />
+                  <StatCallout
+                    variant="inline"
+                    value={COUNT_UP_RATING}
+                    label="note moyenne"
+                    freshnessLabel={STATS_FRESHNESS_LABEL}
+                  />
+                </div>
+                <Essentiel
+                  className="mt-8"
+                  idPrefix="accueil"
+                  items={[
+                    'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
+                    'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
+                    `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
+                    'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
+                    'Catalogue NIV-01 bâtiment & TP et NIV-02 appels d’offres — validation métier de votre côté.',
+                  ]}
+                />
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                   <CalendlyEmbed
                     type="popup"
-                    variant="unstyled"
+                    variant="pill"
                     campaign="accueil-hero"
                     ctaPosition="hero"
-                    className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full bg-[#377CF3] px-7 py-3 text-center text-[0.95rem] font-semibold text-white shadow-[0_4px_14px_-4px_rgba(55,124,243,0.65)] ring-2 ring-[#377CF3]/90 ring-offset-2 ring-offset-[#f5f9ff] transition hover:bg-[#2d66d6] hover:shadow-[0_6px_22px_-6px_rgba(55,124,243,0.55)] md:min-w-[auto]"
+                    className="min-w-[min(100%,240px)] md:min-w-[auto]"
                   />
                   <Link
                     href="#programme"
@@ -206,7 +289,7 @@ export default function HomePage() {
                   <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
                   <Link
                     href={LINKS.formationIaBtpNiveau1BatimentTp}
-                    className="text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title="Formation IA niveau 1 — bâtiment et travaux publics"
                   >
                     formation IA bâtiment &amp; travaux publics (niveau 1)
@@ -214,7 +297,7 @@ export default function HomePage() {
                   {' · '}
                   <Link
                     href={LINKS.formationClaudeAiBtp}
-                    className="text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title="Formation Claude AI BTP dédiée"
                   >
                     formation Claude AI BTP
@@ -222,7 +305,7 @@ export default function HomePage() {
                   {' · '}
                   <Link
                     href={LINKS.formationClaudeAiBatiment}
-                    className="text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title="Formation Claude AI bâtiment"
                   >
                     formation Claude bâtiment
@@ -230,7 +313,7 @@ export default function HomePage() {
                   {' · '}
                   <Link
                     href={LINKS.formationClaudeAiTravauxPublics}
-                    className="text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title="Formation Claude AI travaux publics"
                   >
                     formation Claude travaux publics
@@ -238,7 +321,7 @@ export default function HomePage() {
                   {' · '}
                   <Link
                     href={LINKS.financement}
-                    className="text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title="Financement Constructys — formation IA pour le BTP"
                   >
                     financement Constructys
@@ -246,7 +329,7 @@ export default function HomePage() {
                   {' · '}
                   <Link
                     href={LINKS.formationAO}
-                    className="text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title="IA et appels d'offres BTP"
                   >
                     IA appels d&apos;offres BTP
@@ -287,36 +370,31 @@ export default function HomePage() {
             </div>
 
             <div className="min-w-0 w-full">
-              <p
-                className="mt-0 text-sm text-slate-600 italic lg:-mt-2"
-                data-citation="true"
-              >
-                <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
-                qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
-                d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
-                automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
-                techniques, comptes rendus de chantier, relances clients et documents administratifs.
-              </p>
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
-                {[
-                  { val: formatProfessionalsTrainedCount(), label: 'PERSONNES FORMÉES' },
-                  { val: 'OPCO', label: 'FINANCEMENT POSSIBLE' },
-                  { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'NOTE MOYENNE' },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-slate-200/90 bg-white p-4 text-center shadow-sm ring-1 ring-slate-100 transition hover:border-[#377CF3]/25 hover:shadow-md"
-                  >
-                    <p className="text-2xl font-bold text-[#377CF3] md:text-3xl tabular-nums">
-                      {stat.val}
-                    </p>
-                    <small className="mt-1 block text-[0.65rem] text-slate-400">
-                      {STATS_FRESHNESS_LABEL}
-                    </small>
-                    <p className="mt-1 text-xs text-slate-600">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+              <Reveal>
+                <p
+                  className="mt-0 text-sm text-slate-600 italic lg:-mt-2"
+                  data-citation="true"
+                >
+                  <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
+                  qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
+                  d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
+                  automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
+                  techniques, comptes rendus de chantier, relances clients et documents administratifs.
+                </p>
+              </Reveal>
+              <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-3" staggerMs={50}>
+                <StatCallout
+                  value={COUNT_UP_PROS}
+                  label="PERSONNES FORMÉES"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                />
+                <StatCallout value="OPCO" label="FINANCEMENT POSSIBLE" />
+                <StatCallout
+                  value={COUNT_UP_RATING}
+                  label="NOTE MOYENNE"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                />
+              </RevealGroup>
               <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et équipes terrain à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
             </div>
           </div>
@@ -325,22 +403,24 @@ export default function HomePage() {
 
       <section
         aria-labelledby="home-selecteur-cas-usage-ia"
-        className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16"
+        className={OFC_SEC.muted}
       >
         <div className="mx-auto max-w-6xl">
-          <h2
-            id="home-selecteur-cas-usage-ia"
-            className="text-center font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
-          >
-            Que peut faire l&apos;IA pour votre métier ?
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-[#5A5A5A] md:text-[17px]">
-            Choisissez votre profil. Exemples concrets, documents concernés et formation adaptée — toujours avec
-            validation métier de votre côté.
-          </p>
-          <div className="mt-10">
+          <Reveal className="text-center">
+            <h2
+              id="home-selecteur-cas-usage-ia"
+              className="font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
+            >
+              Que peut faire l&apos;IA pour votre métier ?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[#5A5A5A] md:text-[17px]">
+              Choisissez votre profil. Exemples concrets, documents concernés et formation adaptée — toujours avec
+              validation métier de votre côté.
+            </p>
+          </Reveal>
+          <Reveal className="mt-10">
             <SelecteurMetier showDedicatedPageLink />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -349,32 +429,35 @@ export default function HomePage() {
       <BeworkEtFormationsOffreSection />
 
       <section
-        className="border-b border-slate-200 bg-white px-4 py-12"
+        className={`${OFC_SEC.whiteCompact} scroll-mt-24`}
         aria-labelledby="couverture-geo"
       >
         <div className="mx-auto max-w-7xl">
-          <h2
-            id="couverture-geo"
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
-          >
-            Formations IA en présentiel — Île-de-France
-          </h2>
-          <p
-            className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg"
-            data-citation="true"
-          >
-            Basée à Guyancourt (78), Laure Olivié intervient en{' '}
-            <strong>présentiel en Île-de-France</strong> (Paris, 77, 78, 91, 92, 93, 94, 95). Intra dans vos locaux
-            ou inter en salle. On travaille sur vos documents BTP réels.
-          </p>
+          <Reveal>
+            <h2
+              id="couverture-geo"
+              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            >
+              Formations IA en présentiel — Île-de-France
+            </h2>
+            <p
+              className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg"
+              data-citation="true"
+            >
+            Basée à Guyancourt (78), Laure Olivié anime des formations{' '}
+            <strong>exclusivement en présentiel en Île-de-France</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra
+            dans vos locaux ou inter en salle. <strong>Pas de distanciel</strong> et{' '}
+            <strong>pas de déplacement hors Île-de-France</strong>. On travaille sur vos documents BTP réels.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <ClientsLogosMarquee />
 
       {/* CTA mi-page — visio découverte */}
-      <section className="border-y border-slate-200 bg-[#F2F2F2] px-4 py-12">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
+      <section className={OFC_SEC.mutedCompact}>
+        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
             <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
               30 min pour cadrer votre formation IA BTP
@@ -390,46 +473,55 @@ export default function HomePage() {
             ctaPosition="middle"
             className="shrink-0"
           />
-        </div>
+        </Reveal>
       </section>
 
       {/* Référence clients — bande charte OFC (#377CF3, alignée sur le CTA Calendly) */}
-      <section className="border-b border-slate-200 bg-[var(--accent)] px-4 py-16 text-white">
+      <section className={OFC_SEC.accent}>
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
             <div className="max-w-xl shrink-0">
-              <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">
-                Référence & partenaires
-              </p>
-              <h3 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                FFB, CSFE… une formation IA plébiscitée par le réseau pro
-              </h3>
-              <p className="mt-4 text-white/90">
-                Devis, chantier, appels d&apos;offres : cas réels, gains concrets — pas de gadget.
-              </p>
-              <Link
-                href="/a-propos#clients-partenaires"
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15"
-              >
-                Voir les clients & partenaires
-              </Link>
-              <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 sm:gap-4">
-                {[
-                  { val: `+${formatProfessionalsTrainedCount()}`, label: 'personnes formées' },
-                  { val: SOCIAL_PROOF.AVERAGE_RATING, label: 'note moyenne' },
-                  { val: 'OPCO', label: 'financement possible' },
-                ].map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 text-center backdrop-blur-sm sm:px-4 sm:py-4"
-                  >
-                    <p className="text-lg font-bold text-white sm:text-xl md:text-2xl">{s.val}</p>
-                    <p className="mt-1 text-[0.6rem] leading-tight text-white/80 sm:text-xs">{s.label}</p>
-                  </div>
-                ))}
-              </div>
+              <Reveal>
+                <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">
+                  Référence & partenaires
+                </p>
+                <h3 className="mt-4 font-display text-2xl font-bold md:text-3xl">
+                  FFB, CSFE… une formation IA plébiscitée par le réseau pro
+                </h3>
+                <p className="mt-4 text-white/90">
+                  Devis, chantier, appels d&apos;offres : cas réels, gains concrets — pas de gadget.
+                </p>
+                <Link
+                  href="/a-propos#clients-partenaires"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15"
+                >
+                  Voir les clients & partenaires
+                </Link>
+              </Reveal>
+              <RevealGroup className="mt-8 grid max-w-xl grid-cols-3 gap-3 sm:gap-4" staggerMs={50}>
+                <StatCallout
+                  variant="inverse"
+                  className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
+                  value={COUNT_UP_PROS_PLUS}
+                  label="personnes formées"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                />
+                <StatCallout
+                  variant="inverse"
+                  className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
+                  value={COUNT_UP_RATING}
+                  label="note moyenne"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                />
+                <StatCallout
+                  variant="inverse"
+                  className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
+                  value="OPCO"
+                  label="financement possible"
+                />
+              </RevealGroup>
             </div>
-            <div className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/25 bg-black/10 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
+            <Reveal className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/25 bg-black/10 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
               <Image
                 src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
                 alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
@@ -438,7 +530,7 @@ export default function HomePage() {
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 100vw, 576px"
               />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -451,36 +543,49 @@ export default function HomePage() {
 
       {/* Les bénéfices — H2 unique + sous-sections H3 */}
       <section
-        className="border-b border-slate-200"
+        className={OFC_SEC.whiteMesh}
         aria-labelledby="benefices-formation-ia-heading"
       >
-        <div className="bg-white px-4 pb-12 pt-16 md:pb-16 md:pt-20">
-          <div className="mx-auto max-w-7xl">
-            <h2
-              id="benefices-formation-ia-heading"
-              className="text-center font-display text-3xl font-bold text-slate-900 md:text-4xl"
-            >
-              Les bénéfices d&apos;une formation IA pour les pro du BTP
-            </h2>
+        <div className="mx-auto max-w-7xl">
+            <Reveal className="text-center">
+              <h2
+                id="benefices-formation-ia-heading"
+                className="font-display text-3xl font-bold text-slate-900 md:text-4xl"
+              >
+                Les bénéfices d&apos;une formation IA pour les pro du BTP
+              </h2>
+            </Reveal>
             <div className="mt-12">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-                <Zap size={16} strokeWidth={1.5} />
-                <span>GAINS CONCRETS</span>
-              </div>
-              <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-                Pourquoi l&apos;IA change le quotidien des entreprises du BTP
-              </h3>
-              <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-                Une formation IA appliquée au bâtiment, sérieuse, automatise devis, emails et suivi administratif sans
-                remplacer le métier. Les professionnels du BTP et conducteurs de travaux gagnent en productivité
-                et retrouvent du temps sur le chantier et les appels d&apos;offres.
-              </p>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Reveal>
+                <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+                  <Zap size={16} strokeWidth={1.5} />
+                  <span>GAINS CONCRETS</span>
+                </div>
+                <h3 className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl">
+                  Pourquoi l&apos;IA change le quotidien des entreprises du BTP
+                </h3>
+                <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
+                  Une formation IA appliquée au bâtiment, sérieuse, automatise devis, emails et suivi administratif sans
+                  remplacer le métier. Les professionnels du BTP et conducteurs de travaux gagnent en productivité
+                  et retrouvent du temps sur le chantier et les appels d&apos;offres.
+                </p>
+              </Reveal>
+              <RevealGroup
+                className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+                staggerMs={60}
+              >
                 {[
                   {
                     icon: Clock,
                     title: 'Trop de temps sur les devis',
-                    desc: "Un devis détaillé prend 2h à 4h à rédiger. Avec l'IA, vous passez à 15 minutes chrono tout en gardant la qualité professionnelle.",
+                    keyPoint: (
+                      <KeyPoint label="Gain constaté">
+                        Un devis détaillé prend <span className="text-slate-500">2h à 4h</span> à rédiger. Avec
+                        l&apos;IA, vous passez à{' '}
+                        <strong className="font-semibold text-[#377CF3]">15 minutes chrono</strong> tout en gardant la
+                        qualité professionnelle.
+                      </KeyPoint>
+                    ),
                   },
                   {
                     icon: FileText,
@@ -497,19 +602,26 @@ export default function HomePage() {
                     title: "Trop d'emails à gérer",
                     desc: "Rédigez vos emails clients, fournisseurs et sous-traitants en quelques secondes avec le bon ton professionnel.",
                   },
-                ].map(({ icon: Icon, title, desc }) => (
+                ].map((card) => {
+                  const Icon = card.icon;
+                  return (
                   <div
-                    key={title}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6 transition-shadow hover:shadow-lg"
+                    key={card.title}
+                    className="h-full rounded-2xl border border-slate-200 bg-slate-50/50 p-6 transition-shadow hover:shadow-lg"
                   >
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent)] text-white shadow-lg shadow-blue-500/20">
                       <Icon size={24} strokeWidth={1.5} />
                     </div>
-                    <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
-                    <p className="mt-2 text-sm text-slate-600">{desc}</p>
+                    <h4 className="mt-4 font-semibold text-slate-900">{card.title}</h4>
+                    {'keyPoint' in card && card.keyPoint ? (
+                      <div className="mt-3">{card.keyPoint}</div>
+                    ) : (
+                      <p className="mt-2 text-sm text-slate-600">{card.desc}</p>
+                    )}
                   </div>
-                ))}
-              </div>
+                  );
+                })}
+              </RevealGroup>
               <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
             </div>
 
@@ -521,27 +633,29 @@ export default function HomePage() {
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(37,99,235,0.12),transparent)]"
                 aria-hidden
               />
-              <p className="text-center text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-slate-500">
-                Avant · Après
-              </p>
-              <h3
-                id="probleme-solution-heading"
-                className="mx-auto mt-4 max-w-4xl text-center font-display text-2xl font-bold leading-[1.15] tracking-tight text-slate-900 md:text-3xl"
-              >
-                Le BTP perd des heures sur des tâches que l&apos;IA{' '}
-                <span className="relative inline-block font-serif italic text-[var(--accent)]">
-                  automatise
-                  <span
-                    className="absolute -bottom-0.5 left-0 right-0 -z-10 h-2.5 rounded-md bg-blue-100/90"
-                    aria-hidden
-                  />
-                </span>
-              </h3>
-              <p className="mx-auto mt-4 max-w-2xl text-center text-sm font-medium text-slate-600 md:text-base">
-                Trois freins fréquents sur chantier et au bureau — et ce que change une formation IA
-                BTP encadrée (toujours sous votre validation métier).
-              </p>
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+              <Reveal className="text-center">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-slate-500">
+                  Avant · Après
+                </p>
+                <h3
+                  id="probleme-solution-heading"
+                  className="mx-auto mt-4 max-w-4xl font-display text-2xl font-bold leading-[1.15] tracking-tight text-slate-900 md:text-3xl"
+                >
+                  Le BTP perd des heures sur des tâches que l&apos;IA{' '}
+                  <span className="relative inline-block font-serif italic text-[var(--accent)]">
+                    automatise
+                    <span
+                      className="absolute -bottom-0.5 left-0 right-0 -z-10 h-2.5 rounded-md bg-blue-100/90"
+                      aria-hidden
+                    />
+                  </span>
+                </h3>
+                <p className="mx-auto mt-4 max-w-2xl text-sm font-medium text-slate-600 md:text-base">
+                  Trois freins fréquents sur chantier et au bureau — et ce que change une formation IA
+                  BTP encadrée (toujours sous votre validation métier).
+                </p>
+              </Reveal>
+              <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" staggerMs={50}>
                 {[
                   {
                     problem: 'Mémoires techniques et dossiers chronophages',
@@ -595,7 +709,7 @@ export default function HomePage() {
                     </div>
                   </article>
                 ))}
-              </div>
+              </RevealGroup>
             </div>
 
             <div
@@ -603,22 +717,24 @@ export default function HomePage() {
               itemScope
               itemType="https://schema.org/HowTo"
             >
-              <h3
-                className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl"
-                itemProp="name"
-              >
-                5 cas d&apos;usage concrets de l&apos;IA dans le{' '}
-                <span className="font-serif italic">BTP</span>
-              </h3>
-              <p
-                className="mx-auto mt-3 max-w-2xl text-center text-slate-600"
-                itemProp="description"
-              >
-                Méthodes éprouvées en formation IA pour le BTP avec des professionnels du BTP, conducteurs de travaux et
-                entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au
-                quotidien.
-              </p>
-              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Reveal className="text-center">
+                <h3
+                  className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+                  itemProp="name"
+                >
+                  5 cas d&apos;usage concrets de l&apos;IA dans le{' '}
+                  <span className="font-serif italic">BTP</span>
+                </h3>
+                <p
+                  className="mx-auto mt-3 max-w-2xl text-slate-600"
+                  itemProp="description"
+                >
+                  Méthodes éprouvées en formation IA pour le BTP avec des professionnels du BTP, conducteurs de travaux et
+                  entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au
+                  quotidien.
+                </p>
+              </Reveal>
+              <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
                 {[
                   {
                     title: 'Mémoires techniques & dossiers',
@@ -657,90 +773,116 @@ export default function HomePage() {
                     </p>
                   </div>
                 ))}
-              </div>
-              <div className="mt-10 text-center">
+              </RevealGroup>
+              <Reveal className="mt-10 text-center">
                 <Link
                   href={LINKS.casUsage}
-                  className="inline-flex items-center gap-2 font-medium text-[var(--accent)] hover:underline"
+                  className={`inline-flex items-center gap-2 ${OFC_LINK}`}
                   title="10 cas d’usage concrets de l’IA dans le BTP"
                 >
                   Voir le détail des 10 cas d&apos;usage
                   <span aria-hidden>→</span>
                 </Link>
-              </div>
+              </Reveal>
             </div>
-          </div>
         </div>
         <div className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-20">
           <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: CircleDollarSign,
-                title: 'Augmentez votre rentabilité',
-                desc: "Réduisez vos coûts administratifs de 30 à 40 %. Répondez à plus d'appels d'offres avec les mêmes ressources.",
-              },
-              {
-                icon: Rocket,
-                title: 'Gagnez en réactivité commerciale',
-                desc: "Répondez aux devis en 15 minutes au lieu de 2 jours. Augmentez votre taux de transformation de 25 %.",
-              },
-              {
-                icon: HeartHandshake,
-                title: 'Fidélisez vos équipes',
-                desc: "Libérez vos collaborateurs des tâches répétitives. Réduisez le turnover grâce à des conditions modernisées.",
-              },
-              {
-                icon: LineChart,
-                title: 'Développez votre CA sans embaucher',
-                desc: "Traitez 50 % de chantiers supplémentaires avec les mêmes effectifs. Optimisez vos marges.",
-              },
-              {
-                icon: Sparkles,
-                title: 'Professionnalisez votre image',
-                desc: "Démarquez-vous par votre rapidité. Proposez des documents ultra-professionnels.",
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Sécurisez vos process',
-                desc: "Standardisez vos documents. Assurez la traçabilité complète. Réduisez les litiges.",
-              },
-            ].map(({ icon: Icon, title, desc }) => (
-              <div
-                key={title}
-                className="group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30"
-              >
-                <div className="relative flex h-[3.75rem] w-[3.75rem] items-center justify-center" aria-hidden>
-                  <span className="benefit-icon-halo absolute -inset-1 z-0 rounded-2xl opacity-90 transition-opacity duration-300 group-hover/card:opacity-100" />
-                  <span className="benefit-icon-plate absolute inset-0 z-[1] rounded-2xl ring-1 ring-white/25" />
-                  <Icon
-                    size={26}
-                    strokeWidth={1.6}
-                    className="relative z-10 text-white drop-shadow-[0_2px_10px_rgba(56,189,248,0.45)] transition-transform duration-300 group-hover/card:scale-105"
-                  />
+            <Reveal>
+              <p className="max-w-3xl text-base leading-relaxed text-blue-100/95 md:text-lg">
+                Ce que vous gagnez concrètement après la formation : rentabilité, réactivité commerciale,
+                fidélisation des équipes et image professionnelle — sans embaucher à tout prix.
+              </p>
+            </Reveal>
+            <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2" staggerMs={60}>
+              {GAINS_COMMERCIAUX_CARDS.slice(0, 2).map((card) => {
+                const Icon = card.icon;
+                return (
+                <div
+                  key={card.title}
+                  className="group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30"
+                >
+                  <div className="relative flex h-[3.75rem] w-[3.75rem] items-center justify-center" aria-hidden>
+                    <span className="benefit-icon-halo absolute -inset-1 z-0 rounded-2xl opacity-90 transition-opacity duration-300 group-hover/card:opacity-100" />
+                    <span className="benefit-icon-plate absolute inset-0 z-[1] rounded-2xl ring-1 ring-white/25" />
+                    <Icon
+                      size={26}
+                      strokeWidth={1.6}
+                      className="relative z-10 text-white drop-shadow-[0_2px_10px_rgba(56,189,248,0.45)] transition-transform duration-300 group-hover/card:scale-105"
+                    />
+                  </div>
+                  <h3 className="mt-5 font-semibold tracking-tight text-white">{card.title}</h3>
+                  {'keyPoint' in card && card.keyPoint ? (
+                    <>
+                      <div className="mt-3">{card.keyPoint}</div>
+                      {card.desc ? (
+                        <p className="mt-2 text-sm leading-relaxed text-blue-100/95">{card.desc}</p>
+                      ) : null}
+                    </>
+                  ) : (
+                    <p className="mt-2 text-sm leading-relaxed text-blue-100/95">{card.desc}</p>
+                  )}
                 </div>
-                <h3 className="mt-5 font-semibold tracking-tight text-white">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-blue-100/95">{desc}</p>
-              </div>
-            ))}
+                );
+              })}
+            </RevealGroup>
+            <Accordion
+              id="benefices-gains-commerciaux"
+              variant="inverse"
+              summaryLabel="Lire la suite — 4 autres bénéfices"
+            >
+              <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
+                {GAINS_COMMERCIAUX_CARDS.slice(2).map((card) => {
+                  const Icon = card.icon;
+                  return (
+                  <div
+                    key={card.title}
+                    className="group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30"
+                  >
+                    <div className="relative flex h-[3.75rem] w-[3.75rem] items-center justify-center" aria-hidden>
+                      <span className="benefit-icon-halo absolute -inset-1 z-0 rounded-2xl opacity-90 transition-opacity duration-300 group-hover/card:opacity-100" />
+                      <span className="benefit-icon-plate absolute inset-0 z-[1] rounded-2xl ring-1 ring-white/25" />
+                      <Icon
+                        size={26}
+                        strokeWidth={1.6}
+                        className="relative z-10 text-white drop-shadow-[0_2px_10px_rgba(56,189,248,0.45)] transition-transform duration-300 group-hover/card:scale-105"
+                      />
+                    </div>
+                    <h3 className="mt-5 font-semibold tracking-tight text-white">{card.title}</h3>
+                    {'keyPoint' in card && card.keyPoint ? (
+                      <>
+                        <div className="mt-3">{card.keyPoint}</div>
+                        {card.desc ? (
+                          <p className="mt-2 text-sm leading-relaxed text-blue-100/95">{card.desc}</p>
+                        ) : null}
+                      </>
+                    ) : (
+                      <p className="mt-2 text-sm leading-relaxed text-blue-100/95">{card.desc}</p>
+                    )}
+                  </div>
+                  );
+                })}
+              </RevealGroup>
+            </Accordion>
           </div>
-        </div>
         </div>
       </section>
 
       {/* Catalogue formations */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
+      <section className={OFC_SEC.mutedMesh}>
         <div className="mx-auto max-w-7xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-            <span>Formations IA pour le BTP</span>
-          </div>
-          <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            Nos formations IA spécialisées BTP
-          </h2>
-          <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
-          </p>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
+              <span>Formations IA pour le BTP</span>
+            </div>
+            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+              Nos formations IA spécialisées BTP
+            </h2>
+            <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
+              Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
+            </p>
+          </Reveal>
+          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2" staggerMs={60}>
             {[
               {
                 ref: 'NIV-01',
@@ -775,7 +917,7 @@ export default function HomePage() {
             ].map((cours) => (
               <div
                 key={cours.ref}
-                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                className={`${OFC_CARD} flex flex-col overflow-hidden`}
               >
                 <div className="relative aspect-[4/3] w-full shrink-0 bg-slate-100">
                   <Image
@@ -819,7 +961,7 @@ export default function HomePage() {
                 </ul>
                 <Link
                   href={cours.href}
-                  className="mt-6 block w-full rounded-xl bg-[var(--accent)] py-3 text-center font-semibold text-white transition-colors hover:bg-blue-700"
+                  className={`${OFC_CTA_PRIMARY} mt-6 block w-full py-3`}
                 >
                   Voir la fiche formation
                 </Link>
@@ -833,7 +975,7 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 <PresentationAnimee />
@@ -845,8 +987,9 @@ export default function HomePage() {
       <ArticlesFormationLies />
 
       {/* Thématiques abordées — H3 sous « Nos formations IA spécialisées BTP » */}
-      <section id="programme" className="border-b border-slate-200 bg-white px-4 py-20">
+      <section id="programme" className={OFC_SEC.white}>
         <div className="mx-auto max-w-7xl">
+          <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
             <span>THÉMATIQUES ABORDÉES</span>
           </div>
@@ -856,29 +999,29 @@ export default function HomePage() {
           <p className="mt-3 text-sm text-slate-600">
             <Link
               href={LINKS.formations}
-              className="font-medium text-[var(--accent)] hover:underline"
+              className={OFC_LINK}
               title="Catalogue — 2 formations, programmes PDF"
             >
               catalogue &amp; programmes PDF
             </Link>
             {' — '}
-            <Link href={LINKS.blog} className="font-medium text-[var(--accent)] hover:underline" title="Articles et guides IA BTP">
+            <Link href={LINKS.blog} className={OFC_LINK} title="Articles et guides IA BTP">
               tous les articles
             </Link>
             {' · '}
-            <Link href={LINKS.claudeAiBtp} className="font-medium text-[var(--accent)] hover:underline" title="Guide Claude AI pour le BTP — interfaces, prompts, gains de temps">
+            <Link href={LINKS.claudeAiBtp} className={OFC_LINK} title="Guide Claude AI pour le BTP — interfaces, prompts, gains de temps">
               Claude AI BTP
             </Link>
             {' · '}
-            <Link href={LINKS.iaDevis} className="font-medium text-[var(--accent)] hover:underline" title="IA pour automatiser les devis bâtiment">
+            <Link href={LINKS.iaDevis} className={OFC_LINK} title="IA pour automatiser les devis bâtiment">
               IA devis bâtiment
             </Link>
             {' · '}
-            <Link href={LINKS.iaCDT} className="font-medium text-[var(--accent)] hover:underline" title="IA pour conducteurs de travaux">
+            <Link href={LINKS.iaCDT} className={OFC_LINK} title="IA pour conducteurs de travaux">
               IA conducteur de travaux
             </Link>
             {' · '}
-            <Link href={LINKS.prendreRdv} className="font-medium text-[var(--accent)] hover:underline" title="Prendre rendez-vous — diagnostic gratuit">
+            <Link href={LINKS.prendreRdv} className={OFC_LINK} title="Prendre rendez-vous — diagnostic gratuit">
               prendre rendez-vous
             </Link>
           </p>
@@ -900,100 +1043,103 @@ export default function HomePage() {
               catalogue des formations IA appliquées au bâtiment
             </Link>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                n: 1,
-                title: 'Devis & chiffrage avec l\'IA',
-                items: [
-                  'Créez des devis professionnels en 15 min',
-                  'Ajustez les prix selon vos marges',
-                  'Calculez automatiquement la rentabilité',
-                  'Générez des variantes en un clic',
-                ],
-              },
-              {
-                n: 2,
-                title: "Réponses aux appels d'offres",
-                items: [
-                  'Analysez un DCE rapidement',
-                  'Structurez votre mémoire technique',
-                  'Rédigez une proposition convaincante',
-                  'Sécurisez la confidentialité des données',
-                ],
-              },
-              {
-                n: 3,
-                title: 'Comptes rendus et DOE',
-                items: [
-                  'Générez vos CR de chantier automatiquement',
-                  'Structurez vos DOE',
-                  "Créez des rapports d'avancement",
-                  'Documentez vos réunions de chantier',
-                ],
-              },
-              {
-                n: 4,
-                title: 'Gestion des emails & relation client',
-                items: [
-                  'Rédigez vos emails professionnels',
-                  'Créez des modèles de relances',
-                  'Gérez les réclamations clients',
-                  'Communiquez avec les fournisseurs',
-                ],
-              },
-            ].map((mod) => (
-              <div
-                key={mod.n}
-                className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-lg font-bold text-white">
-                  {mod.n}
+          </Reveal>
+          <Accordion id="programme-modules-detail" summaryLabel="Lire la suite — modules et ressources">
+            <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={45}>
+              {[
+                {
+                  n: 1,
+                  title: 'Devis & chiffrage avec l\'IA',
+                  items: [
+                    'Créez des devis professionnels en 15 min',
+                    'Ajustez les prix selon vos marges',
+                    'Calculez automatiquement la rentabilité',
+                    'Générez des variantes en un clic',
+                  ],
+                },
+                {
+                  n: 2,
+                  title: "Réponses aux appels d'offres",
+                  items: [
+                    'Analysez un DCE rapidement',
+                    'Structurez votre mémoire technique',
+                    'Rédigez une proposition convaincante',
+                    'Sécurisez la confidentialité des données',
+                  ],
+                },
+                {
+                  n: 3,
+                  title: 'Comptes rendus et DOE',
+                  items: [
+                    'Générez vos CR de chantier automatiquement',
+                    'Structurez vos DOE',
+                    "Créez des rapports d'avancement",
+                    'Documentez vos réunions de chantier',
+                  ],
+                },
+                {
+                  n: 4,
+                  title: 'Gestion des emails & relation client',
+                  items: [
+                    'Rédigez vos emails professionnels',
+                    'Créez des modèles de relances',
+                    'Gérez les réclamations clients',
+                    'Communiquez avec les fournisseurs',
+                  ],
+                },
+              ].map((mod) => (
+                <div
+                  key={mod.n}
+                  className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-lg font-bold text-white">
+                    {mod.n}
+                  </div>
+                  <h4 className="mt-4 font-semibold text-slate-900">{mod.title}</h4>
+                  <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                    {mod.items.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className="text-[var(--accent)]">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h4 className="mt-4 font-semibold text-slate-900">{mod.title}</h4>
-                <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                  {mod.items.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="text-[var(--accent)]">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+              ))}
+            </RevealGroup>
 
-          <div className="mt-16 max-w-4xl rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-            <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-              LinkedIn Learning
-            </p>
-            <h4 className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl">
-              L&apos;IA pour recruter dans le BTP
-            </h4>
-            <p className="mt-3 text-slate-600">
-              Pour les <strong>PME BTP et TPE</strong> du bâtiment : annonces, tri de CV, entretiens,
-              fidélisation. Cours{' '}
-              <strong>
-                L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
-              </strong>{' '}
-              — accédez à la vidéo et au programme sur{' '}
-              <a
-                href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-[var(--accent)] hover:underline"
-              >
+            <Reveal className="mt-16 max-w-4xl rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+              <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
                 LinkedIn Learning
-              </a>
-              .
-            </p>
-          </div>
+              </p>
+              <h4 className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl">
+                L&apos;IA pour recruter dans le BTP
+              </h4>
+              <p className="mt-3 text-slate-600">
+                Pour les <strong>PME BTP et TPE</strong> du bâtiment : annonces, tri de CV, entretiens,
+                fidélisation. Cours{' '}
+                <strong>
+                  L&apos;IA pour les artisans et TPE&nbsp;: Recruter sa main-d&apos;œuvre efficacement
+                </strong>{' '}
+                — accédez à la vidéo et au programme sur{' '}
+                <a
+                  href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement/bienvenue-dans-l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={OFC_LINK}
+                >
+                  LinkedIn Learning
+                </a>
+                .
+              </p>
+            </Reveal>
+          </Accordion>
         </div>
       </section>
 
       {/* Pourquoi choisir Laure Olivié */}
       <section
-        className="border-b border-slate-200 bg-white px-4 py-16"
+        className={OFC_SEC.whiteMesh}
         aria-labelledby="pourquoi-laure-heading"
       >
         <div className="mx-auto max-w-7xl">
@@ -1002,6 +1148,7 @@ export default function HomePage() {
               <ProfilePhoto title="Sessions présentiel Île-de-France — Qualiopi, Constructys" />
             </div>
             <div>
+              <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <span>VOTRE FORMATRICE</span>
               </div>
@@ -1011,12 +1158,17 @@ export default function HomePage() {
               >
                 Pourquoi choisir Laure Olivié ?
               </h2>
-              <blockquote className="mt-6 rounded-2xl bg-[var(--accent-soft)] p-6 text-[var(--accent)]">
-                « Je forme les entreprises du BTP depuis 10 ans. Mon objectif : zéro
-                théorie, 100 % pratique. Vous repartez avec des outils opérationnels
-                dès le lendemain. »
-              </blockquote>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              </Reveal>
+              <Reveal>
+              <Citation
+                className="mt-6"
+                variant="formatrice"
+                quote="Je forme les entreprises du BTP depuis 10 ans. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
+                author="Laure Olivié"
+                role="Formatrice IA BTP — OFC Création d'Entreprise"
+              />
+              </Reveal>
+              <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" staggerMs={55}>
                 {[
                   {
                     icon: GraduationCap,
@@ -1048,7 +1200,7 @@ export default function HomePage() {
                     <p className="mt-1 text-sm text-slate-600">{desc}</p>
                   </div>
                 ))}
-              </div>
+              </RevealGroup>
 
               <div className="mt-8 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-[var(--accent-soft)] p-6 shadow-sm">
                 <div className="flex items-center gap-2 font-semibold text-slate-900">
@@ -1089,13 +1241,13 @@ export default function HomePage() {
                 <p className="mt-4 text-xs text-slate-500">
                   <Link
                     href="/etudes-de-cas/ffb-csfe"
-                    className="font-medium text-[var(--accent)] hover:underline"
+                    className={OFC_LINK}
                     title={CSFE_NOM_COMPLET}
                   >
                     Étude de cas FFB &amp; {CSFE_NOM_COMPLET}
                   </Link>
                   {' · '}
-                  <Link href="/a-propos#clients-partenaires" className="hover:underline">
+                  <Link href="/a-propos#clients-partenaires" className={OFC_LINK}>
                     Tous les partenaires
                   </Link>
                 </p>
@@ -1104,6 +1256,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16 space-y-16 border-t border-slate-200 pt-16">
+            <Reveal>
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <span>FINANCEMENT</span>
@@ -1114,47 +1267,51 @@ export default function HomePage() {
               <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
                 {FINANCEMENT_FORMULATION_PRUDENTE}
               </p>
-              <div className="mt-12 grid gap-6 md:grid-cols-3">
-                {[
-                  {
-                    icon: Award,
-                    title: 'Financement possible',
-                    desc: "Coût pédagogique : plafond indicatif 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum — selon barèmes Constructys en vigueur.",
-                  },
-                  {
-                    icon: Target,
-                    title: 'Salaires remboursés',
-                    desc: 'Pour les entreprises de moins de 11 salariés : 15€ HT/heure/stagiaire. Éligible si formation « gestion d\'entreprise ».',
-                  },
-                  {
-                    icon: Check,
-                    title: 'Certification Qualiopi',
-                    desc: "Organisme certifié Qualiopi. Démarches administratives simplifiées. Accompagnement complet pour monter le dossier.",
-                  },
-                ].map(({ icon: Icon, title, desc }) => (
-                  <div
-                    key={title}
-                    className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm"
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
-                      <Icon size={24} strokeWidth={1.5} />
+              <Accordion id="financement-constructys-detail" summaryLabel="Lire la suite — barèmes et démarches">
+                <RevealGroup className="grid gap-6 md:grid-cols-3" staggerMs={45}>
+                  {[
+                    {
+                      icon: Award,
+                      title: 'Financement possible',
+                      desc: "Coût pédagogique : plafond indicatif 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum — selon barèmes Constructys en vigueur.",
+                    },
+                    {
+                      icon: Target,
+                      title: 'Salaires remboursés',
+                      desc: 'Pour les entreprises de moins de 11 salariés : 15€ HT/heure/stagiaire. Éligible si formation « gestion d\'entreprise ».',
+                    },
+                    {
+                      icon: Check,
+                      title: 'Certification Qualiopi',
+                      desc: "Organisme certifié Qualiopi. Démarches administratives simplifiées. Accompagnement complet pour monter le dossier.",
+                    },
+                  ].map(({ icon: Icon, title, desc }) => (
+                    <div
+                      key={title}
+                      className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6 shadow-sm"
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                        <Icon size={24} strokeWidth={1.5} />
+                      </div>
+                      <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
+                      <p className="mt-2 text-sm text-slate-600">{desc}</p>
                     </div>
-                    <h4 className="mt-4 font-semibold text-slate-900">{title}</h4>
-                    <p className="mt-2 text-sm text-slate-600">{desc}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-10 text-center">
-                <Link
-                  href={LINKS.financement}
-                  className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-                  title="Financement OPCO Constructys — formation IA pour les pro du BTP"
-                >
-                  financement Constructys
-                </Link>
-              </div>
+                  ))}
+                </RevealGroup>
+                <div className="mt-10 text-center">
+                  <Link
+                    href={LINKS.financement}
+                    className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+                    title="Financement OPCO Constructys — formation IA pour les pro du BTP"
+                  >
+                    financement Constructys
+                  </Link>
+                </div>
+              </Accordion>
             </div>
+            </Reveal>
 
+            <Reveal>
             <div className="mx-auto max-w-4xl">
               <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-center">
                 <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -1177,7 +1334,7 @@ export default function HomePage() {
                   <ExternalLinkAnchor
                     href={ANNUAIRE_ENTREPRISES_OFC_URL}
                     title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"
-                    className="mt-4 inline-flex text-xs font-medium text-[var(--accent)] hover:underline"
+                    className={`mt-4 inline-flex text-xs ${OFC_LINK}`}
                   >
                     Vérifier l&apos;organisme sur annuaire-entreprises.data.gouv.fr →
                   </ExternalLinkAnchor>
@@ -1203,13 +1360,15 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
+      <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-7xl">
+          <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white">
             <span>FAQ</span>
           </div>
@@ -1220,15 +1379,16 @@ export default function HomePage() {
             Vous avez des questions ? Voici les réponses aux interrogations les plus
             fréquentes.
           </p>
-          <div className="mt-8">
+          </Reveal>
+          <Reveal className="mt-8">
             <FAQAccordion items={FAQ_ITEMS_HOME} />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Une autre question ? Contact CTA */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-2xl">
+      <section className={OFC_SEC.white}>
+        <Reveal className="mx-auto max-w-2xl">
           <div className="rounded-2xl bg-[var(--accent-soft)] p-10 text-center">
             <h3 className="font-display text-2xl font-bold text-slate-900">
               Une autre question ?
@@ -1246,23 +1406,23 @@ export default function HomePage() {
               </a>
               <CalendlyEmbed
                 type="popup"
-                variant="unstyled"
+                variant="secondary"
                 campaign="accueil-faq"
                 ctaPosition="middle"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 hover:bg-slate-50"
+                className="gap-2 px-6 py-3 text-slate-800"
               >
                 <Calendar size={20} strokeWidth={1.5} />
                 Réservez votre visio découverte gratuite
               </CalendlyEmbed>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* CTA final — Prêt à transformer */}
-      <section className="relative overflow-hidden bg-[var(--accent)] px-4 py-24">
+      <section className={`${OFC_SEC.accentLoose} relative overflow-hidden`}>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
-        <div className="relative mx-auto max-w-4xl text-center text-white">
+        <Reveal className="relative mx-auto max-w-4xl text-center text-white">
           <h2 className="font-display text-3xl font-bold md:text-4xl">
             Prêt à transformer votre métier avec l&apos;IA ?
           </h2>
@@ -1270,42 +1430,42 @@ export default function HomePage() {
             Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
             grâce à nos formations IA personnalisées pour le BTP.
           </p>
-          <div className="mt-12 flex flex-wrap justify-center gap-8">
-            {[
-              { val: `+${formatProfessionalsTrainedCount()}`, label: 'Professionnels formés' },
-              { val: '98%', label: 'Satisfaction' },
-              { val: 'OPCO', label: 'Financement possible' },
-            ].map((s) => (
-              <div key={s.label}>
-                <p className="text-3xl font-bold md:text-4xl">{s.val}</p>
-                <small className="mt-1 block text-[0.65rem] text-blue-200/80">
-                  {STATS_FRESHNESS_LABEL}
-                </small>
-                <p className="mt-1 text-sm text-blue-200">{s.label}</p>
-              </div>
-            ))}
-          </div>
+          <RevealGroup className="mt-12 flex flex-wrap justify-center gap-8 md:gap-12" staggerMs={50}>
+            <StatCallout
+              variant="inverse"
+              value={COUNT_UP_PROS_PLUS}
+              label="Professionnels formés"
+              freshnessLabel={STATS_FRESHNESS_LABEL}
+            />
+            <StatCallout
+              variant="inverse"
+              value={COUNT_UP_SATISFACTION}
+              label="Satisfaction"
+              freshnessLabel={STATS_FRESHNESS_LABEL}
+            />
+            <StatCallout variant="inverse" value="OPCO" label="Financement possible" />
+          </RevealGroup>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <CalendlyEmbed
               type="popup"
-              variant="unstyled"
+              variant="on-accent"
               campaign="accueil-fin-page"
               ctaPosition="footer"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
+              className="gap-2"
             >
               <Calendar size={20} strokeWidth={1.5} />
               Réservez votre visio découverte gratuite
             </CalendlyEmbed>
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10" />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Prise de RDV — H3 après le CTA final (#rdv conservé pour ancres) */}
       <section
         id="rdv"
         aria-labelledby="rdv-creneau-heading"
-        className="border-b border-slate-200 bg-slate-50 px-4 py-16"
+        className={OFC_SEC.muted}
       >
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -1326,10 +1486,10 @@ export default function HomePage() {
               </p>
               <CalendlyEmbed
                 type="popup"
-                variant="unstyled"
+                variant="primary"
                 campaign="accueil-section-rdv"
                 ctaPosition="footer"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600"
+                className="mt-6 gap-2 px-6 py-3"
               >
                 <Calendar size={20} strokeWidth={1.5} />
                 Réservez votre visio découverte gratuite
@@ -1338,7 +1498,7 @@ export default function HomePage() {
                 Email :{' '}
                 <a
                   href={`mailto:${SCHEMA_CONTACT.email}`}
-                  className="font-medium text-[var(--accent)] underline-offset-2 hover:underline"
+                  className={OFC_LINK}
                 >
                   {SCHEMA_CONTACT.email}
                 </a>

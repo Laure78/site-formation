@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { BlogArticle } from '@/lib/blog';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 type Props = {
   articles: BlogArticle[];
@@ -24,9 +25,11 @@ export function RelatedArticles({
           <Link
             key={a.slug}
             href={`/blog/${a.slug}`}
-            className="group block rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:border-[var(--accent)] hover:shadow-md"
+            className={`${OFC_CARD} group block p-4`}
           >
-            <span className="font-medium text-slate-900 group-hover:text-[var(--accent)]">{a.title}</span>
+            <span className="font-medium text-slate-900 transition-colors duration-150 group-hover:text-[#377CF3]">
+              {a.title}
+            </span>
             {a.description && (
               <p className="mt-2 line-clamp-2 text-sm text-slate-600">{a.description}</p>
             )}

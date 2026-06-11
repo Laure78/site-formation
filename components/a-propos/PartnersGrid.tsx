@@ -8,6 +8,7 @@ import {
   A_PROPOS_PARTNERS_GRID,
 } from '@/lib/a-propos-partners-grid';
 import { PHOTOS } from '@/lib/photos';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export function PartnersGrid() {
   return (
@@ -27,7 +28,7 @@ export function PartnersGrid() {
               <ExternalLinkAnchor
                 href={partner.href}
                 title={`Site officiel ${partner.name}`}
-                className="group flex h-full flex-col justify-between rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_6px_24px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:border-[#BFDBFE] hover:shadow-[0_12px_36px_rgba(15,23,42,0.07)]"
+                className={`${OFC_CARD} group flex h-full flex-col justify-between p-6`}
               >
                 <div className="flex h-28 items-center justify-center">
                   <Image
@@ -77,7 +78,7 @@ export function PartnersGrid() {
                   </li>
                 ))}
               </ul>
-              <Link href={LINKS.etudesCas} className="mt-6 inline-block text-sm font-semibold text-[#377CF3] hover:underline">
+              <Link href={LINKS.etudesCas} className={`${OFC_LINK} mt-6 inline-block text-sm font-semibold`}>
                 Étude de cas FFB &amp; CSFE →
               </Link>
             </div>

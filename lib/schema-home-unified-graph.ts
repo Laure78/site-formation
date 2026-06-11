@@ -1,5 +1,5 @@
 /**
- * JSON-LD @graph unique — page d'accueil uniquement (Organization + Person + WebPage + BreadcrumbList + Course/Offer).
+ * JSON-LD @graph unique — page d'accueil uniquement (Organization + Person + WebPage + BreadcrumbList + Course/Offer + AggregateRating).
  * Service et HowTo retirés (allègement). La couverture géo exhaustive vit sur les pages géo dédiées.
  * Le FAQPage est injecté séparément dans `app/page.tsx` via `buildHomeFAQPageJsonLd()` + `<Script>` pour rester aligné sur la FAQ visuelle (toutes les entrées).
  * Données alignées sur `lib/schema-constants.ts`.
@@ -16,6 +16,7 @@ import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { PHOTOS } from '@/lib/photos';
 
 const ANNUAIRE_LABELS_CERT =
@@ -217,6 +218,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           educationalRole:
             'Dirigeants PME BTP, conducteurs de travaux, chargés d\'affaires, équipes administratives BTP',
         },
+        aggregateRating: buildSchemaAggregateRating(),
       },
     ],
   };

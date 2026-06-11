@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
+import { Citation } from '@/components/readability/Citation';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
+import { Essentiel } from '@/components/readability/Essentiel';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -47,10 +50,10 @@ function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; sub
       <div className="mt-6 flex flex-wrap gap-3">
         <CalendlyEmbed
           type="popup"
-          variant="unstyled"
+          variant="on-accent"
           ctaPosition="middle"
           campaign={`formation-metier-${id}`}
-          className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
+          className="gap-2 font-bold shadow-sm"
         >
           Échanger sur vos besoins
           <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
@@ -133,6 +136,14 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
+
+          {config.essentielItems && config.essentielItems.length > 0 ? (
+            <Essentiel
+              className="mt-8"
+              idPrefix={`metier-${config.id}`}
+              items={config.essentielItems}
+            />
+          ) : null}
 
           <div className="mt-8">
             <ShortAnswerBlock>
@@ -243,10 +254,12 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
               {config.csfePartnership ? 'Témoignage — partenariat CSFE' : 'Témoignage'}
             </h2>
-            <blockquote className="mt-6 rounded-2xl border-l-4 border-[#377CF3] bg-slate-50 p-6 md:p-8">
-              <p className="text-slate-800 leading-relaxed italic">&laquo; {config.testimonialQuote} &raquo;</p>
-              <footer className="mt-4 text-sm font-medium text-slate-600">{config.testimonialAttribution}</footer>
-            </blockquote>
+            <Citation
+              className="mt-6"
+              quote={config.testimonialQuote}
+              role={config.testimonialAttribution}
+              variant="client"
+            />
           </section>
 
           <section id="faq" className="scroll-mt-24 mt-14">
@@ -279,7 +292,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                        className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                       >
                         <span className="text-slate-900">{link.title}</span>
                         <span className="mt-3 text-sm font-normal text-slate-600">{link.description}</span>
@@ -294,7 +307,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 <li>
                   <Link
                     href={LINKS.etudesCas}
-                    className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                    className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                   >
                     <span className="text-slate-900">Étude de cas FFB &amp; CSFE</span>
                     <span className="mt-3 text-sm font-normal text-slate-600">
@@ -306,7 +319,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               <li>
                 <Link
                   href={LINKS.formations}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">Catalogue des formations</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
@@ -317,7 +330,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               <li>
                 <Link
                   href={LINKS.claudeAiBtp}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">Claude AI &amp; BTP</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
@@ -328,7 +341,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               <li>
                 <Link
                   href={LINKS.financement}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">Financement Constructys</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
@@ -339,7 +352,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               <li>
                 <Link
                   href={LINKS.blog}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">Blog IA &amp; BTP</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">

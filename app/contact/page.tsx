@@ -10,6 +10,7 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP — Contact',
@@ -53,6 +54,7 @@ export default async function ContactPage({
               '10+ ans en formation',
               'Spécialisation BTP',
               '100% pratique',
+              'Présentiel IDF uniquement',
               'Qualiopi & OPCO',
             ].map((badge) => (
               <span
@@ -72,10 +74,10 @@ export default async function ContactPage({
             </Link>
             <CalendlyEmbed
               type="popup"
-              variant="unstyled"
+              variant="secondary"
               campaign="contact-hero"
               ctaPosition="hero"
-              className="inline-block rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
+              className="px-8 py-3"
             />
           </div>
             </div>
@@ -144,7 +146,7 @@ export default async function ContactPage({
             ].map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+                className={`${OFC_CARD} p-6`}
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent)] text-white shadow-lg shadow-blue-500/20">
                   <Icon size={24} strokeWidth={1.5} />
@@ -246,10 +248,10 @@ export default async function ContactPage({
             </Link>
             <CalendlyEmbed
               type="popup"
-              variant="unstyled"
+              variant="primary"
               campaign="contact-mid"
               ctaPosition="middle"
-              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+              className="px-8 py-3"
             />
           </div>
         </div>
@@ -284,10 +286,10 @@ export default async function ContactPage({
             </Link>
             <CalendlyEmbed
               type="popup"
-              variant="unstyled"
+              variant="on-accent"
               campaign="contact-footer"
               ctaPosition="footer"
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+              className="gap-2 px-6 py-3"
             />
             <a
               href="mailto:laureolivie@yahoo.fr"

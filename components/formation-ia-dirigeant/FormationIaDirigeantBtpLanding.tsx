@@ -5,6 +5,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
 import { getBreadcrumbSchema, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
@@ -65,7 +66,7 @@ export function FormationIaDirigeantBtpLanding() {
     teaches: FORMATION_IA_DIRIGEANT_BTP_COURSE.teaches,
     educationalLevel: 'Professionnel',
     timeRequired: 'PT4H',
-    areaServed: ['Île-de-France', 'France'],
+    areaServed: ['Île-de-France'],
   });
   const faqSchema = getFAQSchema(FORMATION_IA_DIRIGEANT_BTP_FAQ);
   const breadcrumbJsonLd = getBreadcrumbSchema([
@@ -211,7 +212,7 @@ export function FormationIaDirigeantBtpLanding() {
                 </strong>{' '}
                 (vision, ROI, risques) avec des{' '}
                 <strong className="text-slate-900">sessions métier</strong> sur le catalogue Qualiopi — le tout cohérent
-                avec votre organisation réelle (intra vs inter, Île-de-France ou France).
+                avec votre organisation réelle (intra vs inter, exclusivement en présentiel en Île-de-France).
               </p>
             </div>
           </section>
@@ -253,7 +254,7 @@ export function FormationIaDirigeantBtpLanding() {
             <div className="mt-8">
               <Link
                 href={LINKS.etudesCas}
-                className="inline-flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3] md:inline-flex md:min-w-[20rem]"
+                className={`${OFC_CARD_MUTED} inline-flex flex-col p-5 md:inline-flex md:min-w-[20rem]`}
               >
                 <span className="text-slate-900">Lire l&apos;étude de cas FFB &amp; CSFE</span>
                 <span className="mt-3 text-sm font-normal text-slate-600">
@@ -291,7 +292,7 @@ export function FormationIaDirigeantBtpLanding() {
               <li>
                 <Link
                   href={LINKS.aPropos}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">À propos — Laure Olivié</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
@@ -302,7 +303,7 @@ export function FormationIaDirigeantBtpLanding() {
               <li>
                 <Link
                   href={LINKS.financement}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">Financement Constructys — formation IA pour les pro du BTP</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
@@ -313,7 +314,7 @@ export function FormationIaDirigeantBtpLanding() {
               <li>
                 <Link
                   href={LINKS.etudesCas}
-                  className="flex flex-col rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 font-semibold text-[#377CF3] transition hover:border-[#377CF3]"
+                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
                   <span className="text-slate-900">Étude de cas FFB &amp; CSFE</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">

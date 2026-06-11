@@ -31,7 +31,7 @@ Placez ici vos fichiers PDF (slides) pour la formation appels d'offres.
 3. Via l'admin, créez chaque leçon et indiquez l'URL : `/formations/appels-offres/votre-fichier.pdf`
 
 Les fichiers dans `/public/` sont servis statiquement. Exemple :  
-`https://laureolivie.fr/formations/appels-offres/introduction.pdf`
+`/formations/appels-offres/introduction.pdf`
 
 ---
 

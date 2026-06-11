@@ -80,10 +80,10 @@ export const ILE_DE_FRANCE = {
     'Devis, emails, appels d’offres et organisation chantier — méthode terrain, sans jargon inutile',
   customHeroIntro: [
     'Vous perdez encore du temps sur vos devis, vos emails clients, vos mémoires techniques ou l’organisation de chantier ? L’intelligence artificielle permet aujourd’hui aux entreprises du BTP de gagner plusieurs heures par semaine sur l’administratif et les dossiers — à condition de savoir l’utiliser concrètement, sur des cas réels.',
-    'Les sessions sont animées en présentiel : inter en Île-de-France ou intra dans vos locaux. Objectif : repartir avec des prompts, trames et habitudes directement utilisables au bureau comme sur le terrain.',
+    'Les sessions sont animées exclusivement en présentiel en Île-de-France : inter en salle ou intra dans vos locaux. Pas de distanciel, pas de déplacement hors Île-de-France. Objectif : repartir avec des prompts, trames et habitudes directement utilisables au bureau comme sur le terrain.',
   ],
   heroBadges: [
-    'Présentiel inter & intra IDF',
+    'Présentiel IDF uniquement',
     'Cas réels BTP',
     'Qualiopi · OPCO Constructys',
   ],

@@ -20,6 +20,7 @@ import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_STATS } from '@/lib/schema-constants';
 import { SOCIAL_PROOF } from '@/lib/constants';
+import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 const PATH = '/formation-ia-btp';
 
 const visuelPilier = PHOTOS.formationIaBtpPillarCarteCatalogue2026;
@@ -260,7 +261,8 @@ export default function FormationIaBtpPillarPage() {
       </header>
 
       <article className="mx-auto max-w-3xl px-4 py-14 prose prose-slate max-w-none prose-headings:font-display prose-a:text-[var(--accent)]">
-        <section id="probleme" className="not-prose scroll-mt-24 space-y-5 text-base leading-relaxed text-slate-700">
+        <section id="probleme" className="not-prose scroll-mt-24">
+          <Reveal as="div" className="space-y-5 text-base leading-relaxed text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Pourquoi les PME du bâtiment perdent du temps sur l&apos;administratif
           </h2>
@@ -289,17 +291,20 @@ export default function FormationIaBtpPillarPage() {
             d&apos;exécution ni de délais Constructys. <strong>Elles ne sont pas faites pour vous.</strong>
           </p>
           <p>C&apos;est exactement pour ça que cette formation existe.</p>
+          </Reveal>
         </section>
 
         <section id="programme" className="not-prose mt-16 scroll-mt-24">
+          <Reveal>
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que vous allez maîtriser</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
             La formation IA pour les pro du BTP est une <strong>formation pratique, en petits groupes</strong>, conçue exclusivement
             pour les professionnels du bâtiment et des travaux publics. 70 % du temps est consacré à des exercices sur
             vos documents réels — vos devis, vos emails, vos appels d&apos;offres.
           </p>
+          </Reveal>
 
-          <div className="mt-10 space-y-10">
+          <RevealGroup className="mt-10 space-y-10" staggerMs={45}>
             <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-6">
               <h3 className="font-display text-lg font-semibold text-slate-900">
                 Module 1 — Comprendre l&apos;IA sans jargon technique
@@ -377,8 +382,9 @@ export default function FormationIaBtpPillarPage() {
                 précis.
               </p>
             </div>
-          </div>
+          </RevealGroup>
 
+          <Reveal>
           <h3 className="not-prose mt-12 font-display text-xl font-bold text-slate-900">Résultats mesurés après la formation</h3>
           <div className="not-prose mt-4 overflow-x-auto rounded-xl border border-slate-200">
             <table className="min-w-full border-collapse text-left text-sm text-slate-700">
@@ -430,9 +436,11 @@ export default function FormationIaBtpPillarPage() {
               </tbody>
             </table>
           </div>
+          </Reveal>
         </section>
 
-        <section id="public" className="not-prose mt-16 scroll-mt-24 space-y-4 text-slate-700">
+        <section id="public" className="not-prose mt-16 scroll-mt-24">
+          <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Pour qui est cette formation ?</h2>
           <p>
             Cette formation est conçue pour les professionnels du BTP{' '}
@@ -461,9 +469,11 @@ export default function FormationIaBtpPillarPage() {
             <strong>Ce n&apos;est pas fait pour vous si</strong> vous cherchez une formation théorique sur l&apos;IA en
             général, ou si vous êtes développeur ou data scientist. Cette formation est 100 % terrain, 100 % BTP.
           </p>
+          </Reveal>
         </section>
 
-        <section id="financement" className="not-prose mt-16 scroll-mt-24 space-y-4 text-slate-700">
+        <section id="financement" className="not-prose mt-16 scroll-mt-24">
+          <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — selon éligibilité</h2>
           <p>
             La formation IA appliquée au bâtiment est <strong>certifiée Qualiopi</strong> et éligible à une prise en charge par
@@ -507,11 +517,14 @@ export default function FormationIaBtpPillarPage() {
           <div className="pt-6">
             <BlocCtaMilieu />
           </div>
+          </Reveal>
         </section>
 
         <section id="temoignages" className="not-prose mt-16 scroll-mt-24">
+          <Reveal>
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que disent les participants</h2>
-          <div className="mt-8 space-y-6">
+          </Reveal>
+          <RevealGroup className="mt-8 space-y-6" staggerMs={45}>
             <blockquote className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800">
               <p className="italic">
                 « J&apos;ai utilisé ChatGPT pour analyser un CCTP de 95 pages lors de notre session avec la FFB. En 15
@@ -548,8 +561,8 @@ export default function FormationIaBtpPillarPage() {
               </p>
               <footer className="mt-3 text-sm font-semibold text-slate-600">— Directeur formation, FFB Île-de-France</footer>
             </blockquote>
-          </div>
-          <div className="not-prose mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
+          </RevealGroup>
+          <Reveal className="not-prose mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
             <p className="font-display font-semibold text-slate-900">Nos chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
@@ -562,10 +575,11 @@ export default function FormationIaBtpPillarPage() {
                 Clients : FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz
               </li>
             </ul>
-          </div>
+          </Reveal>
         </section>
 
-        <section id="a-propos" className="not-prose mt-16 scroll-mt-24 space-y-4 text-slate-700">
+        <section id="a-propos" className="not-prose mt-16 scroll-mt-24">
+          <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
             Laure Olivié est <strong>formatrice IA et ChatGPT pour le BTP</strong> et fondatrice d&apos;OFC Création
@@ -597,9 +611,11 @@ export default function FormationIaBtpPillarPage() {
               Fiche catalogue : L&apos;IA au service du bâtiment (programme détaillé)
             </Link>
           </p>
+          </Reveal>
         </section>
 
-        <section id="rdv" className="not-prose mt-16 scroll-mt-24 space-y-4 text-center text-slate-700">
+        <section id="rdv" className="not-prose mt-16 scroll-mt-24">
+          <Reveal as="div" className="space-y-4 text-center text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Prochaine étape — visio découverte gratuite (30 min)
           </h2>
@@ -632,6 +648,7 @@ export default function FormationIaBtpPillarPage() {
               </>
             ) : null}
           </p>
+          </Reveal>
         </section>
 
         <section className="not-prose mt-16 border-t border-slate-200 pt-12">

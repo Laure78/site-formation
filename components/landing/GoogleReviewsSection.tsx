@@ -5,6 +5,8 @@ import { GoogleReviewsMarquee } from '@/components/landing/GoogleReviewsMarquee'
 import { Testimonial } from '@/components/testimonials/Testimonial';
 import { getFilledTestimonials } from '@/lib/testimonials';
 import { Star, Award, ExternalLink } from 'lucide-react';
+import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 export async function GoogleReviewsSection() {
   const data = await getGoogleReviews();
@@ -17,11 +19,11 @@ export async function GoogleReviewsSection() {
   return (
     <section
       id="temoignages"
-      className="scroll-mt-24 border-b border-slate-200 bg-slate-50 px-4 py-16"
+      className={`${OFC_SEC.muted} scroll-mt-24`}
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <div>
+          <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
               <Award size={16} strokeWidth={1.5} />
               <span>{hasGoogleApi ? 'AVIS GOOGLE' : 'AVIS CLIENTS'}</span>
@@ -34,9 +36,10 @@ export async function GoogleReviewsSection() {
                 ? 'Avis authentiques sur Google Business Profile — défilant ci-dessous.'
                 : 'Découvrez comment des entreprises du BTP comme la vôtre utilisent l’IA au quotidien.'}
             </p>
-          </div>
+          </Reveal>
 
           {hasGoogleApi ? (
+            <Reveal>
             <div className="flex flex-col items-end rounded-2xl border-2 border-[var(--accent)] bg-white px-6 py-4">
               <div className="flex items-center gap-2">
                 <span className="text-4xl font-bold text-[var(--accent)]">
@@ -57,22 +60,23 @@ export async function GoogleReviewsSection() {
                 {data.user_ratings_total} avis Google
               </p>
             </div>
+            </Reveal>
           ) : null}
         </div>
 
         {hasGoogleApi ? (
-          <div className="mt-10">
+          <Reveal className="mt-10">
             <GoogleReviewsMarquee reviews={marqueeItems} />
-          </div>
+          </Reveal>
         ) : testimonials.length > 0 ? (
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
             {testimonials.map((t, i) => (
               <Testimonial key={`${t.firstNameInitial}-${i}`} {...t} />
             ))}
-          </div>
+          </RevealGroup>
         ) : null}
 
-        <div className="mt-10 text-center">
+        <Reveal className="mt-10 text-center">
           <a
             href={SITE_CONFIG.googleBusinessProfileUrl}
             target="_blank"
@@ -82,7 +86,7 @@ export async function GoogleReviewsSection() {
             {hasGoogleApi ? 'Voir la fiche et tous les avis sur Google' : 'Fiche Google & avis'}
             <ExternalLink size={18} strokeWidth={1.5} />
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

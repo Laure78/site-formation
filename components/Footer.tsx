@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Mail, Globe, Map, MapPin, GraduationCap } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { SITE_CONFIG } from '@/lib/seo';
+import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
 import { LINKS } from '@/lib/internal-links';
@@ -99,6 +100,9 @@ export function Footer() {
             </div>
             <p className="mt-3 max-w-xs text-sm leading-snug text-slate-600">
               IA pour PME du bâtiment et équipes BTP — méthode terrain, Qualiopi.
+            </p>
+            <p className="mt-2 max-w-xs text-xs font-medium leading-snug text-slate-500">
+              {PERIMETRE_FORMATIONS_COURT}
             </p>
             <div className="mt-4 space-y-2">
               {/*

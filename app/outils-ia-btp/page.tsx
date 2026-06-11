@@ -8,6 +8,7 @@ import {
   createPageMetadata,
   getBreadcrumbSchema,
 } from '@/lib/seo';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 const PATH = '/outils-ia-btp';
 
@@ -213,7 +214,7 @@ export default function OutilsIABTPPage() {
               <li key={article.href}>
                 <Link
                   href={article.href}
-                  className="group flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-[var(--accent)] hover:shadow-md sm:flex-row sm:items-center sm:justify-between"
+                  className={`${OFC_CARD} group flex flex-col gap-2 p-6 sm:flex-row sm:items-center sm:justify-between`}
                 >
                   <div>
                     <span className="inline-block rounded-full bg-[var(--accent-soft)] px-3 py-0.5 text-xs font-medium text-[var(--accent)]">

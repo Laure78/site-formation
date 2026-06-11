@@ -178,7 +178,7 @@ export default function FormationClaudeAiBtpPage() {
       <CourseSchema
         name="Formation Claude AI BTP"
         description="Formation de 4 heures sur Claude AI (Anthropic) appliquée au BTP : devis, analyse de CCTP, mémoires techniques et comptes rendus de chantier."
-        url="https://laureolivie.fr/formation-claude-ai-btp"
+        url={PAGE_URL}
         duration="PT4H"
         price={TARIF_SESSION_AVANCE_HT}
         level="Intermediate"

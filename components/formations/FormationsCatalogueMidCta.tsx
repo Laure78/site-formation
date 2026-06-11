@@ -37,10 +37,10 @@ export function FormationsCatalogueMidCta() {
           <div className="flex flex-col gap-4">
             <CalendlyEmbed
               type="popup"
-              variant="unstyled"
+              variant="on-accent"
               ctaPosition="middle"
               campaign="formations-mid-page"
-              className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 text-center text-base font-bold text-[#1E40AF] shadow-xl transition hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="font-bold shadow-xl"
             />
             <Link
               href={LINKS.financement}

@@ -4,6 +4,8 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { PHOTOS } from '@/lib/photos';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 /** Cartes « articles liés » — titres & accroches alignés maquette ; liens vers articles du blog. */
 const ARTICLES = [
@@ -44,7 +46,7 @@ const ARTICLES = [
 
 export function ArticlesFormationLies() {
   return (
-    <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
+    <section className={OFC_SEC.mutedMesh}>
       <div className="mx-auto max-w-6xl">
         <h3 className="text-center font-display text-2xl font-bold text-slate-900 md:text-3xl">
           Articles liés à cette formation
@@ -53,7 +55,7 @@ export function ArticlesFormationLies() {
           {ARTICLES.map((a) => (
             <article
               key={a.href}
-              className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+              className={`${OFC_CARD} flex flex-col overflow-hidden`}
             >
               <Link href={a.href} className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
@@ -75,7 +77,7 @@ export function ArticlesFormationLies() {
                   </time>
                 </div>
                 <h4 className="mt-3 font-display text-lg font-bold leading-snug text-slate-900">
-                  <Link href={a.href} className="hover:text-[var(--accent)] hover:underline">
+                  <Link href={a.href} className={OFC_LINK}>
                     {a.title}
                   </Link>
                 </h4>
@@ -104,7 +106,7 @@ export function ArticlesFormationLies() {
           ))}
         </div>
         <p className="mt-8 text-center">
-          <Link href="/blog" className="text-sm font-medium text-[var(--accent)] hover:underline">
+          <Link href="/blog" className={`text-sm ${OFC_LINK}`}>
             Tous les articles →
           </Link>
         </p>

@@ -2,7 +2,7 @@
 
 À placer à la racine du site (`/robots.txt`) **ou** laisser Yoast / Rank Math le générer en collant le contenu dans **Réglages → Lecture** (selon l’hébergeur) / éditeur de fichier du thème enfant / FTP.
 
-> **Important :** une seule URL canonique pour le domaine. Si le site est en **https://laureolivie.fr** (sans www), utilisez cette base partout dans le `Sitemap:` et les `Disallow` relatifs. Si vous êtes en **www**, remplacez par `https://www.laureolivie.fr`.
+> **Important :** URL canonique du site Next.js : **https://www.laureolivie.fr** (l’apex `laureolivie.fr` redirige en 301/308 vers www). Ci-dessous : archive WordPress — adapter le `Sitemap:` si vous réutilisez ce modèle.
 
 ---
 
@@ -51,8 +51,8 @@ User-agent: Googlebot-Image
 Allow: /
 
 # Sitemap — Yoast : souvent sitemap_index.xml | WordPress natif : wp-sitemap.xml
-Sitemap: https://laureolivie.fr/sitemap_index.xml
-Sitemap: https://laureolivie.fr/wp-sitemap.xml
+Sitemap: https://www.laureolivie.fr/sitemap_index.xml
+Sitemap: https://www.laureolivie.fr/wp-sitemap.xml
 ```
 
 ### Notes techniques
@@ -138,11 +138,11 @@ Exemple **`.htaccess`** (non-www canonique) :
 
 ```apache
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.laureolivie\.fr [NC]
-RewriteRule ^(.*)$ https://laureolivie.fr/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^laureolivie\.fr [NC]
+RewriteRule ^(.*)$ https://www.laureolivie.fr/$1 [L,R=301]
 ```
 
-(Inversez si le canonique est **www**.)
+(Aligné sur la canonique **www** du site Next.js actuel.)
 
 ---
 

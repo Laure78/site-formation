@@ -1,5 +1,6 @@
 import { Award, Clock3, GraduationCap, Star, Users } from 'lucide-react';
 import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 const STATS = [
   { icon: Users, value: formatProfessionalsTrainedCount(), label: 'PROS FORMÉS', ring: 'bg-[#EFF6FF]' },
@@ -23,7 +24,7 @@ export function StatsCards() {
             return (
               <article
                 key={item.label}
-                className="rounded-[20px] border border-[#E2E8F0] bg-white p-7 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#BFDBFE] hover:shadow-[0_14px_44px_rgba(15,23,42,0.08)]"
+                className={`${OFC_CARD} rounded-[20px] p-7`}
               >
                 <div className={`flex h-16 w-16 items-center justify-center rounded-full ${item.ring}`}>
                   <Icon className="h-8 w-8 text-[#377CF3]" />

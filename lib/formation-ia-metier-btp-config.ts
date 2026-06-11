@@ -55,6 +55,12 @@ export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   metierNom: 'étancheurs',
   metierNomTitre: 'étancheur',
   normeRef: 'le DTU 43',
+  essentielItems: [
+    'DTU 43, étanchéité bitumineuse (SEL, SBS), membranes EPDM, relevés et bardage — mémoires, CCTP et PPSPS.',
+    'Partenariat CSFE : Laure Olivié a formé les équipes du réseau étanchéité — cas d’usage alignés sur le terrain.',
+    'Session 4 h Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité normative.',
+    'Financement Constructys selon éligibilité — présentiel Île-de-France, validation chef de travaux ou dirigeant.',
+  ],
   problemParagraphs: [
     `Les entreprises d’étanchéité jonglent entre chantier et bureau : mémoires techniques qui citent le ${'`'}DTU 43${'`'} et les avis techniques (CSTB, systèmes), plans de prévention (PPSPS) alignés sur les interfaces avec le gros œuvre et le second œuvre, comptes rendus après intempéries, relances et courriers pour les réserves. Le vocabulaire métier est dense : étanchéité bitumineuse (feutres SEL, SBS), membranes synthétiques type EPDM, relevés, platines, chéneaux, points singuliers — chaque dossier doit rester précis.`,
     `Chaque pièce mobilise des prescriptions lourdes : CCTP étanchéité, notices fabricants (Soprema, Siplast, Axter sont des marques couramment rencontrées sur les chantiers — sans ordre de préférence), plans de détail. Sans méthode, l’équipe recopie ou éparpille les brouillons dans des fils de mails.`,
@@ -332,6 +338,12 @@ export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = {
   metierNom: 'plombiers chauffagistes',
   metierNomTitre: 'plombier',
   normeRef: 'le DTU 60.11 et prescriptions sanitaires',
+  essentielItems: [
+    'DTU 60.11, PER ou cuivre, évacuations, VMC double flux, chaudières et PAC — devis et rapports de dépannage.',
+    'Dossiers 2026 MaPrimeRénov’ et CEE : l’IA structure brouillons et listes de pièces, pas l’éligibilité ni les montants.',
+    'Session 4 h Qualiopi : prompts, relecture humaine, confidentialité — validation technique sur le terrain.',
+    'Financement Constructys selon éligibilité — présentiel Île-de-France, ateliers sur vos cas anonymisés.',
+  ],
   problemParagraphs: [
     `Les entreprises de plomberie-chauffage enchaînent salle de bains, réseaux PER ou cuivre, évacuations, raccordements VMC double flux, chaudières à condensation et pompes à chaleur. Chaque dossier mobilise le ${'`'}DTU 60.11${'`'} (et fascicules associés), des notices fabricants et parfois des exigences DPE ou de rénovation énergétique — sans compter les courriers pour les aides et attestations.`,
     `En 2026, les dossiers clients mêlent devis détaillés, relances SAV, comptes rendus de dépannage et demandes de précisions sur ${'`'}MaPrimeRénov’${'`'}, primes CEE ou éligibilité : l’IA peut aider à structurer des brouillons et des listes de pièces à fournir, jamais à substituer le conseiller financement, le décret en vigueur ou votre responsabilité sur la conformité.`,

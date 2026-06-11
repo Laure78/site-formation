@@ -39,7 +39,6 @@ Ce guide vous explique comment activer l'affichage automatique de vos avis Googl
 **Restrictions d'application :**
 - Pour le développement local : "Adresses IP" → Ajouter votre IP
 - Pour la production : "Références HTTP (sites web)" → Ajouter :
-  - `https://laureolivie.fr/*`
   - `https://www.laureolivie.fr/*`
 
 **Restrictions d'API :**

@@ -42,8 +42,8 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         utmSource="contact"
         utmMedium="cta"
         campaign="contact-direct"
-        variant="unstyled"
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8]"
+        variant="primary"
+        className="w-full gap-2"
       >
         <Calendar className="h-5 w-5 shrink-0" strokeWidth={1.5} />
         Réservez votre visio découverte gratuite

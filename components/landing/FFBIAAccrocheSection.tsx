@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { ALT_LOGO_CSFE, ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 /**
  * Aligné campagne FFB terrain : citation + visuel affiche + logos réseau (FFB / CSFE).
@@ -8,7 +9,7 @@ import { ALT_LOGO_CSFE, ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
 export function FFBIAAccrocheSection() {
   return (
     <section
-      className="border-b border-slate-200 bg-white px-4 py-16 md:py-20"
+      className={OFC_SEC.white}
       aria-labelledby="ffb-ia-accroche-titre"
     >
       <div className="mx-auto max-w-6xl">

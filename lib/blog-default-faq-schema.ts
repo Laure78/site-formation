@@ -28,8 +28,8 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
     a: "Non. ChatGPT et Claude AI fonctionnent en français naturel, sans code. Les formations de Laure Olivié sont conçues pour des professionnels BTP sans compétence technique : équipes terrain, conducteurs de travaux, assistantes administratives, dirigeants de PME. La prise en main se fait en moins d'une heure.",
   },
   {
-    q: "Laure Olivié intervient-elle en dehors de l'Île-de-France ?",
-    a: "Oui. Bien que basée à Guyancourt (78), Laure Olivié intervient dans toute la France pour des formations intra-entreprise. Elle a notamment animé des sessions à Bordeaux, Lyon, et dans les DOM-TOM pour des clients comme Lefebvre Dalloz. Les formations peuvent aussi être réalisées en visioconférence.",
+    q: "Laure Olivié intervient-elle en dehors de l'Île-de-France ou en distanciel ?",
+    a: "Non pour les sessions OFC : formations exclusivement en présentiel en Île-de-France (Paris et départements 77 à 95), en inter ou intra. Pas de distanciel ni de déplacement hors Île-de-France. L'échange préalable de cadrage (30 min) peut se faire en visio.",
   },
 ] as const;
 

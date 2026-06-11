@@ -53,7 +53,7 @@ export default function FormationClaudeAiBatimentPage() {
       <CourseSchema
         name="Formation Claude AI bâtiment"
         description="Formation Claude AI bâtiment pour équipes gros œuvre, second œuvre et étanchéité : devis, CR chantier et appels d’offres."
-        url="https://laureolivie.fr/formation-claude-ai-batiment"
+        url={`${SITE_CONFIG.url.replace(/\/$/, '')}/formation-claude-ai-batiment`}
         duration="PT4H"
         price={100}
         level="Intermediate"

@@ -22,7 +22,7 @@ import {
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 
 export type FormationMetierFaqItem = {
   question: string;
@@ -69,13 +69,6 @@ type Props = {
 
 /** Date d'expiration de la certification Qualiopi (action de formation). */
 const QUALIOPI_VALID_UNTIL = '2028-01-31';
-
-/**
- * Note moyenne en notation Schema.org (point décimal, sans suffixe « /5 »).
- * `SOCIAL_PROOF.AVERAGE_RATING` est formaté pour l'affichage FR (« 4,85/5 »)
- * donc inutilisable directement dans `ratingValue`.
- */
-const AGGREGATE_RATING_VALUE = '4.85';
 
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -227,13 +220,7 @@ function buildCourseNode(params: {
     isAccessibleForFree: false,
     creditsAwarded: 'Attestation de formation Qualiopi',
     timeRequired: duration,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: AGGREGATE_RATING_VALUE,
-      ratingCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
-      bestRating: '5',
-      worstRating: '1',
-    },
+    aggregateRating: buildSchemaAggregateRating(),
     offers: {
       '@type': 'Offer',
       price: String(price),

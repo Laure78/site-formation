@@ -19,7 +19,6 @@ Le bouton « Continuer avec Google » ne fonctionne pas. Cela signifie que Googl
 7. Nom : `site-formation` ou `laureolivie.fr`
 8. **Authorized JavaScript origins** :
    - `https://www.laureolivie.fr`
-   - `https://laureolivie.fr`
    - `http://localhost:3000` (pour tester en local)
 9. **Authorized redirect URIs** :
    - `https://xzwxtocaqffzwuylxvzl.supabase.co/auth/v1/callback`
@@ -45,7 +44,6 @@ Le bouton « Continuer avec Google » ne fonctionne pas. Cela signifie que Googl
 2. **Site URL** : `https://www.laureolivie.fr` (ou votre URL de production)
 3. **Redirect URLs** : ajoutez :
    - `https://www.laureolivie.fr/auth/callback`
-   - `https://laureolivie.fr/auth/callback`
    - `http://localhost:3000/auth/callback`
 
 ---

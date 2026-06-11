@@ -1,5 +1,7 @@
 import { JsonLd } from '@/components/JsonLd';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 
 type CourseSchemaProps = {
   name: string;
@@ -31,7 +33,7 @@ export function CourseSchema({
     provider: {
       '@type': 'Organization',
       name: "OFC Création d'Entreprise",
-      url: 'https://laureolivie.fr',
+      url: SCHEMA_PUBLIC_SITE_URL,
       sameAs: ['https://fr.linkedin.com/in/laure-olivie'],
     },
     instructor: {
@@ -46,11 +48,7 @@ export function CourseSchema({
       availability: 'https://schema.org/InStock',
       url: CALENDLY_OFFER_URL,
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.85',
-      ratingCount: '1592',
-    },
+    aggregateRating: buildSchemaAggregateRating(),
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: ['Onsite'],

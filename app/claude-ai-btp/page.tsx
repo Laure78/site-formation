@@ -18,6 +18,7 @@ import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 
 const PATH = '/claude-ai-btp';
@@ -289,7 +290,7 @@ export default function ClaudeAiBtpPillarPage() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="flex items-center justify-between gap-3 rounded-2xl border border-[#E2E8F0] bg-white px-4 py-3.5 text-sm font-medium text-[#0F172A] shadow-sm transition hover:border-[#377CF3]/30 hover:bg-[#EFF6FF]"
+                      className={`${OFC_CARD} flex items-center justify-between gap-3 px-4 py-3.5 text-sm font-medium text-[#0F172A]`}
                     >
                       {item.label}
                       <ArrowUpRight className="h-4 w-4 shrink-0 text-[#94A3B8]" aria-hidden />

@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 import { CTACalendly } from '@/components/CTACalendly';
+import { OFC_CTA_COMPACT } from '@/lib/ofc-interaction-classes';
 
 /**
  * Barre CTA fixe en bas après ~30 % de scroll — visio découverte Calendly (charte OFC).
@@ -65,7 +66,7 @@ export function CTASticky() {
             utmSource="site"
             utmMedium="sticky"
             utmCampaign="sticky-cta-desktop"
-            className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-bold text-[#377CF3] shadow-sm hover:bg-blue-50"
+            className={`${OFC_CTA_COMPACT} px-8 py-4 text-base md:px-8`}
           >
             <span className="hidden md:inline">→ Réservez votre visio découverte gratuite</span>
             <span className="md:hidden">Réserver</span>

@@ -19,6 +19,7 @@ import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
+import { KeyPoint } from '@/components/readability/KeyPoint';
 
 const MAIL_PROGRAMME_PME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA PME BTP')}`;
@@ -57,7 +58,14 @@ const courseSchema = getCourseSchema({
 });
 
 const CAS_USAGE = [
-  { icon: FileText, titre: 'Devis et chiffrages', desc: 'Générez des devis professionnels en 15 min au lieu de 2h. L\'IA structure les descriptifs et variantes ; vous gardez la maîtrise des prix.' },
+  {
+    icon: FileText,
+    titre: 'Devis et chiffrages',
+    keyPoint: (
+      <KeyPoint label="Gain terrain" subject="Devis professionnels" after="15 min" before="2h" />
+    ),
+    desc: "L'IA structure les descriptifs et variantes ; vous gardez la maîtrise des prix.",
+  },
   { icon: Mail, titre: 'Emails et relances', desc: 'Automatisez les emails clients, fournisseurs et sous-traitants. Ton professionnel adapté au BTP.' },
   { icon: Calculator, titre: 'Productivité sans embaucher', desc: 'Traitez plus de chantiers avec les mêmes effectifs. L\'IA libère du temps sur l\'administratif.' },
   { icon: Users, titre: 'Comptes rendus et coordination', desc: 'CR de chantier, rapports d\'avancement : l\'IA formalise vos notes en documents structurés.' },
@@ -154,7 +162,8 @@ export default function FormationIAPMEBTPPage() {
           <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
             formation IA appliquée au bâtiment Île-de-France
           </Link>{' '}
-          et partout en France — <strong>financement OPCO Constructys</strong> selon dossier.
+          — présentiel uniquement, pas de distanciel ni de déplacement hors Île-de-France —{' '}
+          <strong>financement OPCO Constructys</strong> selon dossier.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
       </FormationCourseHero>
@@ -165,15 +174,25 @@ export default function FormationIAPMEBTPPage() {
           Cas d&apos;usage : IA devis bâtiment et productivité PME
         </h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          {CAS_USAGE.map(({ icon: Icon, titre, desc }) => (
-            <div key={titre} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          {CAS_USAGE.map((item) => {
+            const Icon = item.icon;
+            return (
+            <div key={item.titre} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent)]">
                 <Icon size={24} strokeWidth={1.5} />
               </div>
-              <h3 className="mt-4 font-semibold text-slate-900">{titre}</h3>
-              <p className="mt-2 text-sm text-slate-600">{desc}</p>
+              <h3 className="mt-4 font-semibold text-slate-900">{item.titre}</h3>
+              {'keyPoint' in item && item.keyPoint ? (
+                <>
+                  <div className="mt-3">{item.keyPoint}</div>
+                  {item.desc ? <p className="mt-2 text-sm text-slate-600">{item.desc}</p> : null}
+                </>
+              ) : (
+                <p className="mt-2 text-sm text-slate-600">{item.desc}</p>
+              )}
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

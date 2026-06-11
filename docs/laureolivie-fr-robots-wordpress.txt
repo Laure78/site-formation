@@ -30,4 +30,4 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
-Sitemap: https://laureolivie.fr/sitemap_index.xml
+Sitemap: https://www.laureolivie.fr/sitemap_index.xml

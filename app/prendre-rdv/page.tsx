@@ -32,7 +32,12 @@ export default function PrendreRDVPage() {
             Échanger sur vos besoins
           </h1>
           <p className="mt-4 max-w-xl text-slate-600">
-            30 minutes en visio pour cadrer votre projet formation IA BTP et obtenir un devis personnalisé.
+            30 minutes en visio ou par téléphone pour cadrer votre projet formation IA BTP et obtenir un devis
+            personnalisé.
+          </p>
+          <p className="mt-3 max-w-xl rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+            <strong>À noter :</strong> les sessions OFC se déroulent exclusivement en présentiel en Île-de-France.
+            Pas de distanciel pour la formation · pas de déplacement hors Île-de-France.
           </p>
           <p className="mt-4">
             <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">

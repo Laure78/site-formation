@@ -167,7 +167,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui, exclusivement en présentiel. Les formations catalogue se déroulent en inter (Île-de-France) ou en intra dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui, exclusivement en présentiel en Île-de-France — inter en salle ou intra dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formations/ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
+  },
+  {
+    q: 'Proposez-vous des formations à distance ou hors Île-de-France ?',
+    a: `Non. Les sessions OFC se déroulent uniquement en présentiel en Île-de-France (Paris et départements 77 à 95). Pas de distanciel, pas de visioconférence pour la formation elle-même, et pas de déplacement hors Île-de-France. L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="/prendre-rdv">prendre rendez-vous</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -369,6 +373,10 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   {
     q: "Comment se déroule le RDV ?",
     a: `Vous réservez un créneau via <a href="${buildSiteCalendlyCtaUrl('prendre-rdv-faq-calendly')}" rel="noopener noreferrer">Calendly</a> (agenda en ligne). L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement Constructys — <a href="/financement-constructys-formation-ia-btp">guide OPCO</a>.`,
+  },
+  {
+    q: 'La formation se fait-elle en visio ou hors Île-de-France ?',
+    a: 'Non. Le RDV de cadrage est en visio ou par téléphone ; la formation OFC elle-même est exclusivement en présentiel en Île-de-France (inter ou intra). Pas de distanciel et pas de déplacement hors Île-de-France.',
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",

@@ -39,7 +39,7 @@ const FORMATIONS_DATA = [
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines), interventions en Île-de-France et partout en France.' },
+  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines). Formations exclusivement en présentiel en Île-de-France — pas de distanciel, pas de déplacement hors Île-de-France.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',

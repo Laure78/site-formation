@@ -110,7 +110,7 @@ Une seule action à la fois. Ne passez à l’étape suivante que quand la préc
 
 1. Dans Railway → projet → service → **Variables**.
 2. Vérifiez ou ajoutez :  
-   `NEXT_PUBLIC_SITE_URL` = `https://laureolivie.fr`
+   `NEXT_PUBLIC_SITE_URL` = `https://www.laureolivie.fr`
 3. Si Railway redéploie automatiquement, attendez la fin du déploiement.
 
 ---
@@ -118,7 +118,7 @@ Une seule action à la fois. Ne passez à l’étape suivante que quand la préc
 # ÉTAPE 11 : Attendre la propagation DNS
 
 1. La propagation DNS peut prendre entre **15 minutes** et **48 heures**.
-2. Pour tester : allez sur **https://laureolivie.fr** dans votre navigateur.
+2. Pour tester : allez sur **https://www.laureolivie.fr** dans votre navigateur.
 3. Si l’ancien site s’affiche encore : attendez ou videz le cache (Ctrl+F5 ou Cmd+Shift+R).
 4. Utilisez https://dnschecker.org pour voir si le domaine pointe bien vers Railway dans le monde entier.
 

@@ -15,8 +15,12 @@ import {
   TARIF_SESSION_DEBUTANT_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { StatCallout } from '@/components/readability/StatCallout';
+import { KeyPoint } from '@/components/readability/KeyPoint';
+import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const BEWORK_PILOTES = [
   'Comptes rendus de chantier',
@@ -29,7 +33,6 @@ const BEWORK_PILOTES = [
 ] as const;
 
 const CONCRET = [
-  'Devis : structurer un poste en quelques minutes, pas une heure',
   'Appels d\'offres : analyse DCE et mémoire technique assistés — relecture métier obligatoire',
   'Chantier : DOE, PV, CR à partir de vos notes — vous validez et signez',
   'Communication : visuels avant/après et posts réseaux pour vos chantiers',
@@ -37,8 +40,6 @@ const CONCRET = [
 ] as const;
 
 const POURQUOI = [
-  `+ ${formatProfessionalsTrainedCount()} pros BTP formés`,
-  `${SOCIAL_PROOF.AVERAGE_RATING} de satisfaction`,
   '10+ ans terrain (conductrice de travaux, dirigeante BTP)',
   'Qualiopi · actions déclarées',
   'Références : FFB Grand Paris, FFB IDF, CSFE, CAPEB',
@@ -65,26 +66,26 @@ export function BeworkEtFormationsOffreSection() {
     <section
       id="offre-bework-formations"
       aria-labelledby="offre-bework-formations-title"
-      className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-20"
+      className={OFC_SEC.muted}
     >
       <div className="mx-auto max-w-6xl space-y-12 md:space-y-14">
-        <header className="mx-auto max-w-3xl text-center">
+        <Reveal as="header" className="mx-auto max-w-3xl text-center">
           <h2
             id="offre-bework-formations-title"
             className="font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl lg:text-[2rem]"
           >
             5 à 10 h par semaine perdues en admin chantier&nbsp;?
           </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-[#5A5A5A] md:text-base">
+          <p className="mt-5 text-base leading-relaxed text-[#5A5A5A] md:text-base">
             Relances oubliées, dossiers AO lourds, pièces qui s&apos;accumulent. Ce n&apos;est pas un manque de
             volonté — c&apos;est un manque de bande passante bureau.
           </p>
-          <p className="mt-4 text-[15px] font-medium leading-relaxed text-[#1A1A1A] md:text-base">
+          <p className="mt-4 text-base font-medium leading-relaxed text-[#1A1A1A] md:text-base">
             Deux options&nbsp;:{' '}
             <strong>déléguer avec BeWork</strong> (relais administratif externalisé), ou{' '}
             <strong>former vos équipes</strong> (sessions IA Qualiopi, financement OPCO possible).
           </p>
-        </header>
+        </Reveal>
 
         <figure className="mx-auto max-w-4xl overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
           <Link href={LINKS.bework} className="block">
@@ -109,7 +110,7 @@ export function BeworkEtFormationsOffreSection() {
           </figcaption>
         </figure>
 
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <RevealGroup className="grid gap-6 lg:grid-cols-2 lg:gap-8" staggerMs={70}>
           {/* BeWork */}
           <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFF6FF]">
@@ -249,16 +250,24 @@ export function BeworkEtFormationsOffreSection() {
             </div>
             </div>
           </article>
-        </div>
+        </RevealGroup>
 
+        <Reveal>
         <div className="space-y-10 rounded-xl border border-slate-200 bg-white px-6 py-8 shadow-[0_4px_16px_rgba(55,124,243,0.06)] md:px-10 md:py-10">
           <div>
             <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
               Ce que vous gagnez concrètement
             </h3>
-            <ul className="mt-4 space-y-3">
+            <KeyPoint
+              label="Devis"
+              subject="Structurer un poste"
+              after="quelques minutes"
+              before="1 h en routine"
+              className="mb-4"
+            />
+            <ul className="space-y-3">
               {CONCRET.map((line) => (
-                <li key={line} className="flex gap-3 text-[15px] leading-relaxed text-[#5A5A5A]">
+                <li key={line} className="flex gap-3 text-base leading-relaxed text-[#5A5A5A]">
                   <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
                   <span>{line}</span>
                 </li>
@@ -271,7 +280,11 @@ export function BeworkEtFormationsOffreSection() {
               <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
                 Pourquoi Laure Olivié
               </h3>
-              <ul className="mt-4 space-y-2 text-[15px] leading-relaxed text-[#5A5A5A]">
+              <div className="mt-4 flex flex-wrap gap-3">
+                <StatCallout variant="inline" value={COUNT_UP_PROS_PLUS} label="pros BTP formés" />
+                <StatCallout variant="inline" value={COUNT_UP_RATING} label="satisfaction" />
+              </div>
+              <ul className="mt-4 space-y-2 text-base leading-relaxed text-[#5A5A5A]">
                 {POURQUOI.map((line) => (
                   <li key={line}>{line}</li>
                 ))}
@@ -281,7 +294,7 @@ export function BeworkEtFormationsOffreSection() {
               <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
                 Pour qui
               </h3>
-              <ul className="mt-4 space-y-2 text-[15px] leading-relaxed text-[#5A5A5A]">
+              <ul className="mt-4 space-y-2 text-base leading-relaxed text-[#5A5A5A]">
                 {POUR_QUI.map((line) => (
                   <li key={line}>— {line}</li>
                 ))}
@@ -293,10 +306,10 @@ export function BeworkEtFormationsOffreSection() {
             <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
               Contact
             </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-[#5A5A5A]">
+            <p className="mt-3 text-base leading-relaxed text-[#5A5A5A]">
               Formations en présentiel en Île-de-France (intra ou inter). Écrivez-moi ou prenez un créneau découverte.
             </p>
-            <div className="mt-4 flex flex-col gap-2 text-[15px] text-[#1A1A1A] sm:flex-row sm:flex-wrap sm:gap-x-6">
+            <div className="mt-4 flex flex-col gap-2 text-base text-[#1A1A1A] sm:flex-row sm:flex-wrap sm:gap-x-6">
               <a href={`mailto:${SITE_CONFIG.email}`} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
                 {SITE_CONFIG.email}
               </a>
@@ -322,6 +335,7 @@ export function BeworkEtFormationsOffreSection() {
             </div>
           </div>
         </div>
+        </Reveal>
       </div>
     </section>
   );

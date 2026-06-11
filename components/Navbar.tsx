@@ -23,7 +23,6 @@ import {
   Cpu,
 } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { CALENDLY_BUTTON_VARIANT_CLASS } from '@/lib/calendly-embed-config';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -68,9 +67,6 @@ const FORMATIONS_MEGA: NavMega = {
     },
   ],
 };
-
-/** Calendly — appel découverte (charte : bouton #377CF3, popup natif) */
-const NAV_RDV_CLASSES = CALENDLY_BUTTON_VARIANT_CLASS.nav;
 
 function isActive(href: string, pathname: string) {
   if (href === '/') return pathname === '/';
@@ -386,6 +382,9 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
   );
 }
 
+/** Seuil scroll (px) — fond compact + compression visuelle du header. */
+const HEADER_COMPACT_SCROLL_PX = 80;
+
 /** Barre de navigation unique — blog et guide Claude AI BTP accessibles via « Ressources ». */
 export function Navbar() {
   const pathname = usePathname();
@@ -394,7 +393,7 @@ export function Navbar() {
   const [openResources, setOpenResources] = useState(false);
   const [mobileFormationsOpen, setMobileFormationsOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [compact, setCompact] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const clearCloseTimer = () => {
@@ -444,7 +443,7 @@ export function Navbar() {
   useEffect(() => () => clearCloseTimer(), []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setCompact(window.scrollY > HEADER_COMPACT_SCROLL_PX);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -463,19 +462,13 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b bg-white/95 backdrop-blur-md transition-[box-shadow,border-color] duration-300 supports-[backdrop-filter]:bg-white/88 ${
-          scrolled
-            ? 'border-slate-200/90 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)]'
-            : 'border-[var(--header-border)] shadow-none'
-        }`}
+        className="site-header"
+        data-compact={compact ? 'true' : 'false'}
         onMouseLeave={scheduleCloseAll}
       >
-        <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[4.5rem] lg:min-h-[4.5rem]">
-          <Link
-            href="/"
-            className="group flex shrink-0 items-center gap-1 font-display text-lg font-bold tracking-tight text-slate-900 sm:gap-1.5 sm:text-xl"
-          >
-            <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70 sm:h-10 sm:w-10">
+        <div className="site-header__inner">
+          <Link href="/" className="site-header__brand">
+            <span className="site-header__logo-mark">
               <Image
                 src={PHOTOS.siteAvatar.src}
                 alt="Laure Olivié — formation IA pour les pro du BTP, organisme certifié Qualiopi"
@@ -490,7 +483,7 @@ export function Navbar() {
           </Link>
 
           <nav
-            className="mx-3 hidden min-w-0 flex-1 items-center justify-between gap-1 px-2 sm:gap-2 sm:px-3 rounded-full border border-slate-200/80 bg-slate-100/90 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] lg:flex lg:mx-6"
+            className="site-header__nav-pill"
             aria-label="Navigation principale"
           >
             <Link
@@ -621,16 +614,15 @@ export function Navbar() {
             </Link>
           </nav>
 
-          <div className="hidden shrink-0 items-center lg:flex">
+          <div className="site-header__rdv">
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="nav"
               ctaPosition="inline"
               ctaId="nav-rdv-desktop"
               utmSource="site"
               utmMedium="cta"
               campaign="nav-prendre-rdv"
-              className={NAV_RDV_CLASSES}
               buttonText="Prendre RDV"
             />
           </div>
@@ -894,7 +886,7 @@ export function Navbar() {
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
               <CalendlyEmbed
-                type="popup"
+                type="link"
                 variant="unstyled"
                 ctaPosition="inline"
                 ctaId="nav-rdv-mobile"

@@ -907,7 +907,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          `La formation IA appliquée au bâtiment proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). Basée à Guyancourt (78), intervention en Île-de-France et toute la France.`,
+          `La formation IA appliquée au bâtiment proposée par Laure Olivié (OFC Création d'Entreprise) permet aux dirigeants de TPE et PME du bâtiment et des travaux publics, ainsi qu'aux conducteurs de travaux et équipes support, d'intégrer ChatGPT et l'IA dans leurs tâches quotidiennes. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). Basée à Guyancourt (78), sessions exclusivement en présentiel en Île-de-France — pas de distanciel, pas de déplacement hors Île-de-France.`,
       },
       {
         type: 'paragraph',
@@ -919,7 +919,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'Quelles formations IA appliquées au bâtiment sont proposées en 2026 ?',
         content:
-          '<p class="text-slate-600 leading-relaxed">Le catalogue 2026 propose des sessions de 4 h en présentiel : &quot;L&apos;IA au service du bâtiment&quot; pour découvrir ChatGPT appliqué aux devis, emails et CR chantier ; &quot;Répondre aux appels d&apos;offres avec l&apos;IA&quot; pour l&apos;analyse DCE/CCTP et les mémoires techniques ; &quot;IA pour la fonction RH&quot; (recrutement, GEPP) ; « L&apos;IA au service des Travaux Publics » pour les conducteurs de travaux et bureaux d&apos;études — notamment en Île-de-France, intra sur la France. Paris, Lyon, Bordeaux, Lille. Côté bâtiment, si vous voulez une entrée dédiée Claude AI + ChatGPT sur la même logique terrain, voir la page <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">formation Claude bâtiment</a> : multi-outils, pas de substitution.</p>',
+          '<p class="text-slate-600 leading-relaxed">Le catalogue 2026 propose des sessions de 4 h exclusivement en présentiel en Île-de-France : &quot;L&apos;IA au service du bâtiment&quot; pour découvrir ChatGPT appliqué aux devis, emails et CR chantier ; &quot;Répondre aux appels d&apos;offres avec l&apos;IA&quot; pour l&apos;analyse DCE/CCTP et les mémoires techniques ; &quot;IA pour la fonction RH&quot; (recrutement, GEPP) ; « L&apos;IA au service des Travaux Publics » pour les conducteurs de travaux et bureaux d&apos;études. Pas de distanciel, pas de déplacement hors Île-de-France. Côté bâtiment, si vous voulez une entrée dédiée Claude AI + ChatGPT sur la même logique terrain, voir la page <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">formation Claude bâtiment</a> : multi-outils, pas de substitution.</p>',
       },
       {
         type: 'list',
@@ -958,7 +958,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Où se déroulent les formations IA pour le BTP en 2026 ?',
         content:
-          'Laure Olivié intervient en présentiel. Basée à Guyancourt (78), elle couvre toute l\'Île-de-France : Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95). Formations inter-entreprises et intra-entreprise. Sessions également à Lyon, Bordeaux, Lille.',
+          'Laure Olivié anime des formations exclusivement en présentiel en Île-de-France. Basée à Guyancourt (78), elle couvre Paris (75), Yvelines (78), Seine-et-Marne (77), Essonne (91), Hauts-de-Seine (92), Val-de-Marne (94), Seine-Saint-Denis (93), Val-d\'Oise (95) — inter en salle ou intra dans vos locaux. Pas de distanciel et pas de déplacement hors Île-de-France.',
       },
       {
         type: 'faq',
@@ -1065,7 +1065,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
         content:
-          `Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. Formation "L'IA au service du bâtiment" (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Présentiel en Île-de-France et interventions partout en France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.`,
+          `Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. Formation "L'IA au service du bâtiment" (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Exclusivement en présentiel en Île-de-France — pas de distanciel, pas de déplacement hors Île-de-France. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.`,
       },
       {
         type: 'faq',

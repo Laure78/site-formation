@@ -186,10 +186,12 @@ export default function CGVPage() {
             ARTICLE 6 — MODALITÉS DE RÉALISATION
           </h2>
           <p className="mt-4">
-            <strong>Présentiel :</strong> lieu dans la convention, horaires dans la
-            convocation (7 jours avant), matériel fourni. <strong>À distance :</strong>{" "}
-            accès par email, connexion stable requise. <strong>Intra-entreprise :</strong>{" "}
-            locaux du Client, programme adapté.
+            <strong>Présentiel en Île-de-France uniquement :</strong> lieu indiqué dans la
+            convention (inter en salle ou intra dans les locaux du Client en Île-de-France),
+            horaires dans la convocation (7 jours avant), matériel fourni.{" "}
+            <strong>Pas de distanciel</strong> ni de déplacement hors Île-de-France pour les
+            sessions catalogue OFC. <strong>Intra-entreprise :</strong> locaux du Client en
+            Île-de-France, programme adapté.
           </p>
         </section>
 

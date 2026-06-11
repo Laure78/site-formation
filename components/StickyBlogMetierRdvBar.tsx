@@ -83,13 +83,21 @@ export function StickyBlogMetierRdvBar() {
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
-    if (visible) {
-      document.body.style.paddingBottom = '60px';
-    } else {
+    if (!visible) {
       document.body.style.paddingBottom = '';
+      return;
     }
+
+    const mq = window.matchMedia('(min-width: 768px)');
+    const syncPadding = () => {
+      document.body.style.paddingBottom = mq.matches ? '60px' : '';
+    };
+    syncPadding();
+    mq.addEventListener('change', syncPadding);
+
     return () => {
       document.body.style.paddingBottom = '';
+      mq.removeEventListener('change', syncPadding);
     };
   }, [visible]);
 
@@ -99,7 +107,7 @@ export function StickyBlogMetierRdvBar() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[60] flex h-[60px] items-stretch border-t border-[#D4E3FC] bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
+      className="fixed bottom-0 left-0 right-0 z-[60] hidden h-[60px] items-stretch border-t border-[#D4E3FC] bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.06)] md:flex"
       role="region"
       aria-label="Formation IA pour les pro du BTP — prise de rendez-vous"
     >
@@ -113,13 +121,13 @@ export function StickyBlogMetierRdvBar() {
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:flex-none sm:justify-end">
           <CalendlyEmbed
             type="popup"
-            variant="unstyled"
+            variant="primary"
             ctaPosition="footer"
             ctaId="sticky-blog-metier"
             utmSource="blog"
             utmMedium="sticky"
             campaign="blog-metier"
-            className="inline-flex h-10 max-w-full flex-1 items-center justify-center rounded-xl bg-[#377CF3] px-8 text-base font-bold text-white transition-colors hover:bg-[#2d6ab8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:h-10 sm:flex-none sm:px-5 sm:text-sm"
+            className="h-10 max-w-full flex-1 rounded-xl px-8 text-base font-bold sm:flex-none sm:px-5 sm:text-sm"
           />
         </div>
         <button

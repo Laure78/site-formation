@@ -7,6 +7,7 @@ import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
@@ -231,7 +232,7 @@ export default function ExpertIABTPPage() {
               <Link
                 key={formation.href}
                 href={formation.href}
-                className="group rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-all hover:border-[var(--accent)] hover:shadow-md"
+                className={`${OFC_CARD} group p-6`}
               >
                 <h3 className="font-semibold text-slate-900 group-hover:text-[var(--accent)]">
                   {formation.title}
@@ -247,7 +248,7 @@ export default function ExpertIABTPPage() {
           <div className="mt-10 text-center">
             <Link
               href="/formations"
-              className="inline-block rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-700"
+              className={OFC_CTA_PRIMARY}
             >
               Voir toutes les formations
             </Link>
