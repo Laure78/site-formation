@@ -1,25 +1,17 @@
 {
-  "date": "2026-06-11",
+  "date": "2026-06-12",
   "articles": [
-    {
-      "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
-      "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026"
-    },
-    {
-      "slug": "financement-constructys-mode-d-emploi",
-      "title": "Financement Constructys : mode d'emploi"
-    },
     {
       "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
       "title": "ChatGPT pour PME BTP : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-peintre",
-      "title": "Devis en 15 min : le guide peintre"
+      "slug": "devis-en-15-min-le-guide-carreleur",
+      "title": "Devis en 15 min : le guide carreleur"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
-      "title": "L'IA va-t-elle remplacer les charpentiers ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-peintres",
+      "title": "L'IA va-t-elle remplacer les peintres ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
@@ -34,12 +26,20 @@
       "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026-741682-8",
-      "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "title": "Comment utiliser ChatGPT pour vos devis chauffagiste"
     },
     {
-      "slug": "financement-constructys-mode-d-emploi-741682-9",
+      "slug": "financement-constructys-mode-d-emploi",
       "title": "Financement Constructys : mode d'emploi"
+    },
+    {
+      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter-741683-8",
+      "title": "ChatGPT pour PME BTP : erreurs à éviter"
+    },
+    {
+      "slug": "devis-en-15-min-le-guide-macon",
+      "title": "Devis en 15 min : le guide maçon"
     }
   ],
   "linkedinCount": 10
