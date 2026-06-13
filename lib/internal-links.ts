@@ -48,6 +48,10 @@ export const LINKS = {
   formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */
   formationAO: '/formations/ia-appels-offre-btp',
+  /** NIV-03 — conduite de travaux & suivi chantier (catalogue) */
+  formationConduiteTravauxSuiviChantier: '/formations/ia-conduite-travaux-suivi-chantier',
+  pdfProgrammeConduiteTravauxNiv03:
+    '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */

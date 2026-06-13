@@ -118,6 +118,10 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'src/data/formations.ts',
   ],
   '/formations/ia-appels-offre-btp': ['app/formations/ia-appels-offre-btp/page.tsx', 'src/data/formations.ts'],
+  '/formations/ia-conduite-travaux-suivi-chantier': [
+    'app/formations/ia-conduite-travaux-suivi-chantier/page.tsx',
+    'lib/formations-catalogue-display.ts',
+  ],
   '/mentions-legales': ['app/mentions-legales/page.tsx'],
   '/politique-confidentialite': ['app/politique-confidentialite/page.tsx'],
   '/cgv': ['app/cgv/page.tsx'],

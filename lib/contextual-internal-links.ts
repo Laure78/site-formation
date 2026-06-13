@@ -105,7 +105,7 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Catalogue complet',
-    description: 'Comparatif des 2 sessions, tarifs et modalités.',
+    description: 'Comparatif des 3 sessions, tarifs et modalités.',
   },
 ];
 
@@ -184,6 +184,29 @@ export const GEO_PAGE_UTILITY_LINKS: ContextualLinkCard[] = [
     href: LINKS.aPropos,
     title: 'Laure Olivié — formatrice',
     description: 'Parcours terrain, Qualiopi, références FFB.',
+  },
+];
+
+export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
+  {
+    href: LINKS.formationIaBtpNiveau1BatimentTp,
+    title: 'Prérequis — NIV-01 bâtiment & TP',
+    description: 'Bases IA chantier et administratif avant le NIV-03.',
+  },
+  {
+    href: LINKS.formationConducteurTravaux,
+    title: 'Landing conducteur de travaux',
+    description: 'Cas d’usage terrain et visio découverte.',
+  },
+  {
+    href: LINKS.formationAO,
+    title: 'NIV-02 — Appels d’offres',
+    description: 'Mémoire technique et analyse DCE avec Cowork.',
+  },
+  {
+    href: LINKS.financement,
+    title: 'Financement Constructys',
+    description: 'OPCO, dossier et convention.',
   },
 ];
 

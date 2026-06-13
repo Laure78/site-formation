@@ -18,17 +18,23 @@ const INSTRUCTOR_PORTRAIT_PATH = '/images/laure-portrait-header-2026.png';
 
 export type CatalogueCourseJsonLdConfig = {
   /** Chemin interne (sans domaine) — source `lib/internal-links.ts` */
-  path: typeof LINKS.formationIaBtpNiveau1BatimentTp | typeof LINKS.formationAO;
+  path:
+    | typeof LINKS.formationIaBtpNiveau1BatimentTp
+    | typeof LINKS.formationAO
+    | typeof LINKS.formationConduiteTravauxSuiviChantier;
   name: string;
   description: string;
   price: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
 export type FormationCatalogueRichCourseConfig = {
-  path: typeof LINKS.formationIaBtpNiveau1BatimentTp | typeof LINKS.formationAO;
+  path:
+    | typeof LINKS.formationIaBtpNiveau1BatimentTp
+    | typeof LINKS.formationAO
+    | typeof LINKS.formationConduiteTravauxSuiviChantier;
   name: string;
   description: string;
   price: number;
@@ -83,6 +89,31 @@ export const FORMATION_RICH_COURSE_NIV02: FormationCatalogueRichCourseConfig = {
     'Rédaction mémoire technique BTP',
     "Claude Cowork & Skills pour appels d'offres",
     'Assistants IA réutilisables marchés publics',
+  ],
+};
+
+export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationConduiteTravauxSuiviChantier,
+  name: "L'IA appliquée à la conduite de travaux",
+  description:
+    'Formation NIV-03 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, finançable Constructys.',
+  price: TARIF_SESSION_AVANCE_HT,
+  keywords: ['CCTP', 'DPGF', 'PPSPS', 'skills Claude', 'conduite de travaux'],
+  courseCode: 'NIV-03',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV03: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationConduiteTravauxSuiviChantier,
+  name: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.name,
+  description: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.description,
+  price: TARIF_SESSION_AVANCE_HT,
+  educationalLevel: 'Avancé',
+  teaches: [
+    'Skills Claude pour conduite de travaux BTP',
+    'Analyse CCTP et DPGF chantier',
+    'PPSPS, CR et suivi sous-traitants',
+    'Réception, PV de réserves et DOE',
   ],
 };
 
@@ -160,7 +191,9 @@ export function buildCatalogueCourseJsonLd(
     teaches:
       config.courseCode === 'NIV-01'
         ? FORMATION_RICH_COURSE_NIV01.teaches
-        : FORMATION_RICH_COURSE_NIV02.teaches,
+        : config.courseCode === 'NIV-02'
+          ? FORMATION_RICH_COURSE_NIV02.teaches
+          : FORMATION_RICH_COURSE_NIV03.teaches,
   };
   return buildFormationCatalogueRichCourseJsonLd(richConfig);
 }
@@ -171,4 +204,8 @@ export function buildCatalogueCourseIaBtpNiv01JsonLd(): Record<string, unknown> 
 
 export function buildCatalogueCourseIaAppelsOffreNiv02JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV02);
+}
+
+export function buildCatalogueCourseConduiteTravauxNiv03JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV03);
 }

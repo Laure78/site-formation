@@ -53,6 +53,21 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ],
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
+  {
+    ref: 'NIV-03',
+    level: 'AVANCÉ',
+    path: '/formations/ia-conduite-travaux-suivi-chantier',
+    name: "L'IA appliquée à la conduite de travaux",
+    description:
+      'Formation NIV-03 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, Constructys.',
+    teaches: [
+      'Bibliothèque de skills Claude pour conducteurs de travaux',
+      'Analyse CCTP, DPGF et conformité DTU au démarrage chantier',
+      'PPSPS, CR, sous-traitants et suivi budget avec l’IA',
+      'Situations, PV de réserves, DOE et courriers de litige',
+    ],
+    occupationalCategory: 'BTP, conduite de travaux, suivi chantier',
+  },
 ];
 
 const DURATION_ISO = 'PT4H';
@@ -188,6 +203,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-batiment-travaux-publics',
   '/formations/ia-btp-paris',
   '/formations/ia-appels-offre-btp',
+  '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;
 

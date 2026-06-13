@@ -19,6 +19,15 @@ export const formationsData = {
     description:
       'Formation niveau 2 : créer ses assistants IA pour DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — méthode opérationnelle pour le BTP.',
   },
+  'ia-conduite-travaux-suivi-chantier': {
+    name: "L'IA appliquée à la conduite de travaux",
+    ref: 'NIV-03',
+    level: 'Avancé',
+    duration: 'PT4H',
+    price: TARIF_SESSION_AVANCE_HT,
+    description:
+      'Formation NIV-03 : conduite de travaux et suivi chantier avec skills Claude — CCTP, DPGF, PPSPS, CR, réception. Prix de lancement.',
+  },
 } as const;
 
 export type FormationSlug = keyof typeof formationsData;

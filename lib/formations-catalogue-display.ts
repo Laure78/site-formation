@@ -5,6 +5,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
   LIBELLE_EFFECTIF_GROUPE_NIV02,
   libelleTarifParticipant,
+  tarifHtDepuisBadgeCatalogue,
 } from '@/lib/tarifs-sessions';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
@@ -24,8 +25,10 @@ export type FormationCatalogueEntry = {
   slug: string;
   /** Programme officiel PDF */
   programmePdfHref: string;
-  /** Profils « Quelle formation choisir ? » : debutant | appels-offres */
-  profileTags: Array<'debutant' | 'appels-offres'>;
+  /** Profils « Quelle formation choisir ? » */
+  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux'>;
+  /** Badge « Prix de lancement » à côté du tarif session */
+  launchPrice?: boolean;
   /** Ligne tableau comparatif */
   comparatif: {
     publicLabel: string;
@@ -33,7 +36,7 @@ export type FormationCatalogueEntry = {
   };
 };
 
-/** Deux parcours officiels — niveaux 1 et 2 (programmes PDF). */
+/** Trois parcours officiels — NIV-01, NIV-02, NIV-03 (programmes PDF). */
 export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
   {
     ref: 'NIV-01',
@@ -81,6 +84,33 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
       casUsage: 'DCE, mémoires techniques, skills Cowork',
     },
   },
+  {
+    ref: 'NIV-03',
+    level: 'AVANCÉ',
+    title: "L'IA appliquée à la conduite de travaux",
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    slug: 'ia-conduite-travaux-suivi-chantier',
+    programmePdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
+    visuel: PHOTOS.btpFormationChantierPlans2026,
+    duree: SESSION_DUREE_LIBELLE,
+    effectif: '8 participants max',
+    launchPrice: true,
+    pitch:
+      "Niveau 2 : pilotez vos chantiers avec l'IA — une bibliothèque de 20+ skills Claude, de l'analyse du CCTP à la réception des travaux.",
+    profileTags: ['conduite-travaux'],
+    objectifs: [
+      'Comprendre le fonctionnement des skills Claude et accéder à la bibliothèque de skills BTP mise à disposition',
+      'Préparer et démarrer un chantier avec l\'IA : analyse du CCTP, génération de la DPGF, conformité DTU, DICT, ordre de service, planning',
+      'Sécuriser le chantier (PPSPS, DUERP, SOGED) et le piloter au quotidien : CR, suivi, approvisionnements, sous-traitants, métré, avenants, budget',
+      'Gérer l\'administratif de suivi jusqu\'à la réception : situations, PV de réserves, DOE, litiges',
+    ],
+    comparatif: {
+      publicLabel:
+        'Conducteurs de travaux — chefs de chantier, responsables travaux, assistant(e)s travaux',
+      casUsage:
+        'Analyse CCTP & DPGF, PPSPS, CR, sous-traitants (DC4), PV de réserves, DOE, bibliothèque de skills',
+    },
+  },
 ];
 
 const LEVEL_ORDER: Record<CatalogueLevel, number> = { DÉBUTANT: 0, AVANCÉ: 1 };
@@ -102,4 +132,13 @@ export function sortFormationsCatalogue(
 
 export function tarifLabel(level: CatalogueLevel): string {
   return libelleTarifParticipant(level);
+}
+
+/** Libellé tarif carte catalogue — sans « max 12 » si prix de lancement ou effectif dédié. */
+export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
+  const n = tarifHtDepuisBadgeCatalogue(entry.level);
+  if (entry.launchPrice) {
+    return `${n} € HT / session`;
+  }
+  return libelleTarifParticipant(entry.level);
 }

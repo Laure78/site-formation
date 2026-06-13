@@ -7,6 +7,7 @@ import {
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   TARIF_SESSION_DEBUTANT_HT,
   TARIF_SESSION_AVANCE_HT,
+  SESSION_DUREE_LIBELLE,
   EFFECTIF_GROUPE_MAX,
   MODALITE_FORMATIONS_STANDARD,
 } from '@/lib/tarifs-sessions';
@@ -232,15 +233,15 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose 2 formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (NIV-01, débutant, ${TARIF_SESSION_DEBUTANT_HT} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (NIV-02, avancé, ${TARIF_SESSION_AVANCE_HT} € HT/session). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
+    a: `Le catalogue OFC propose 3 formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (NIV-01, débutant, ${TARIF_SESSION_DEBUTANT_HT} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (NIV-02, avancé, ${TARIF_SESSION_AVANCE_HT} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau avancé (NIV-03, ${TARIF_SESSION_AVANCE_HT} € HT/session, prix de lancement). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : niveau 1 (NIV-01). Pour la réponse aux marchés, mémoires techniques et DCE : niveau 2 (NIV-02). Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : niveau 1 (NIV-01). Pour la réponse aux marchés, mémoires techniques et DCE : niveau 2 appels d&apos;offre (NIV-02). Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : NIV-03 conduite de travaux. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Combien coûte une formation IA pour les pro du BTP du catalogue ?',
-    a: `Forfait par session : ${TARIF_SESSION_DEBUTANT_HT} € HT pour le niveau 1 (NIV-01 bâtiment &amp; travaux publics), et ${TARIF_SESSION_AVANCE_HT} € HT pour le niveau 2 (NIV-02 appels d&apos;offre). Chaque session dure 4 heures, avec un groupe de ${EFFECTIF_GROUPE_MAX} participants maximum. ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
+    a: `Forfait par session : ${TARIF_SESSION_DEBUTANT_HT} € HT pour le niveau 1 (NIV-01 bâtiment &amp; travaux publics), ${TARIF_SESSION_AVANCE_HT} € HT pour le niveau 2 (NIV-02 appels d&apos;offre), et ${TARIF_SESSION_AVANCE_HT} € HT pour le NIV-03 conduite de travaux (prix de lancement). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (NIV-03 : 8 participants max). ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
   },
   {
     q: 'Les formations IA pour les pro du BTP sont-elles certifiées Qualiopi ?',
@@ -474,6 +475,26 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Quel est le format de la formation IA pour le BTP Paris ?",
     a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait ${TARIF_SESSION_DEBUTANT_HT} € HT ou ${TARIF_SESSION_AVANCE_HT} € HT par session selon le programme — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — pros Bâtiment & travaux publics</a>.`,
+  },
+];
+
+/** FAQ Formation IA conduite de travaux — NIV-03 */
+export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
+  {
+    q: 'Qui peut suivre la formation IA conduite de travaux (NIV-03) ?',
+    a: `Conducteurs de travaux, chefs de chantier, responsables travaux et assistant(e)s travaux en entreprise BTP. Prérequis : avoir suivi le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">niveau 1</a> ou pratiquer déjà une IA générative ; compte Claude Pro recommandé.`,
+  },
+  {
+    q: 'Combien de temps dure la session NIV-03 ?',
+    a: `Session unique de ${SESSION_DUREE_LIBELLE} en présentiel (intra ou inter en Île-de-France). Forfait ${TARIF_SESSION_AVANCE_HT} € HT / session — prix de lancement. Financement possible selon éligibilité (Constructys / OPCO) — voir <a href="${LINKS.financement}">financement Constructys</a>.`,
+  },
+  {
+    q: 'Quels livrables sont inclus ?',
+    a: 'Accès à la bibliothèque de 20+ skills Claude BTP, trames CR / PPSPS / courriers sous-traitants / PV de réserves / DOE, fiches méthode par module et un rendez-vous visio J+30.',
+  },
+  {
+    q: 'Quelle différence avec le NIV-02 appels d\'offres ?',
+    a: `Le NIV-02 cible la réponse aux marchés (DCE, mémoire technique, Cowork). Le NIV-03 couvre la conduite de travaux sur chantier : CCTP, DPGF, sécurité, suivi quotidien et réception — voir le <a href="${LINKS.formationAO}">catalogue NIV-02</a> et la <a href="${LINKS.formationConduiteTravauxSuiviChantier}">fiche NIV-03</a>.`,
   },
 ];
 

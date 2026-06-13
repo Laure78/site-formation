@@ -48,6 +48,9 @@ export const LIBELLE_EFFECTIF_GROUPE_COURT = `${EFFECTIF_GROUPE_MAX} participant
 /** Effectif formations niveau avancé NIV-02 (appels d'offres) — programme officiel */
 export const LIBELLE_EFFECTIF_GROUPE_NIV02 = '8 à 12 participants';
 
+/** Effectif formation NIV-03 conduite de travaux — création de skills */
+export const LIBELLE_EFFECTIF_GROUPE_NIV03 = '8 participants max';
+
 /** Phrase complète pour modalités et encarts */
 export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
 

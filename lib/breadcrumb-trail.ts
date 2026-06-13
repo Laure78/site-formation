@@ -12,6 +12,7 @@ const EXACT: Record<string, string> = {
   '/formations/ia-batiment-travaux-publics':
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': "L'IA appliquée aux appels d'offres BTP",
+  '/formations/ia-conduite-travaux-suivi-chantier': "L'IA appliquée à la conduite de travaux",
 };
 
 const METIER_TITLES: Record<string, string> = {
