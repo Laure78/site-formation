@@ -103,6 +103,11 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
     description: 'Skills Claude, CCTP, PPSPS, CR, réception chantier — prix de lancement.',
   },
   {
+    href: LINKS.formationMaitriserClaudeAiBtp,
+    title: 'NIV-04 — Maîtriser Claude AI',
+    description: 'Projets, Skills, Cowork, connecteurs, Claude Code — matin 9h–13h.',
+  },
+  {
     href: LINKS.financement,
     title: 'Financement Constructys',
     description: 'OPCO, plafonds pédagogiques, dossier et convention.',
@@ -110,7 +115,7 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Catalogue complet',
-    description: 'Comparatif des 3 sessions, tarifs et modalités.',
+    description: 'Comparatif des 4 sessions, tarifs et modalités.',
   },
 ];
 
@@ -184,7 +189,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
 ];
 
 export const GEO_PAGE_UTILITY_LINKS: ContextualLinkCard[] = [
-  ...FORMATION_CATALOGUE_CORE.slice(0, 3),
+  ...FORMATION_CATALOGUE_CORE.slice(0, 4),
   {
     href: LINKS.aPropos,
     title: 'Laure Olivié — formatrice',
@@ -215,12 +220,35 @@ export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
   },
 ];
 
+export const FORMATION_NIV04_RELATED: ContextualLinkCard[] = [
+  {
+    href: LINKS.formationAO,
+    title: 'NIV-02 — Appels d\'offres BTP',
+    description: 'DCE, mémoire technique, Cowork & Skills.',
+  },
+  {
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    title: 'NIV-03 — Conduite de travaux',
+    description: 'Skills Claude chantier, CCTP, CR, réception.',
+  },
+  {
+    href: LINKS.claudeAiBtp,
+    title: 'Guide Claude AI BTP',
+    description: 'Interfaces, prompts, Cowork et Claude Code.',
+  },
+  {
+    href: LINKS.financement,
+    title: 'Financement Constructys',
+    description: 'OPCO, dossier et convention.',
+  },
+];
+
 /** Hub global (SitelinksHub) — parcours utilisateur prioritaires. */
 export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Formations',
-    description: 'Catalogue Qualiopi — NIV-01 et NIV-02',
+    description: 'Catalogue Qualiopi — NIV-01 à NIV-04',
   },
   {
     href: LINKS.financement,

@@ -236,6 +236,20 @@ export function BeworkEtFormationsOffreSection() {
                 </p>
               </div>
               <div>
+                <p className="font-semibold text-[#1A1A1A]">
+                  <Link
+                    href={LINKS.formationMaitriserClaudeAiBtp}
+                    className="text-[#377CF3] underline-offset-2 hover:underline"
+                  >
+                    Niveau 4 — Maîtriser Claude AI pour le BTP
+                  </Link>
+                  {` (${SESSION_DUREE_LIBELLE} matin 9h–13h, forfait ${TARIF_SESSION_AVANCE_HT} € HT / session · 8 participants max · prix de lancement)`}
+                </p>
+                <p className="mt-1.5">
+                  Projets, Skills, Cowork, connecteurs Gmail/Drive, Claude Code — industrialiser Claude en entreprise.
+                </p>
+              </div>
+              <div>
                 <p className="font-semibold text-[#1A1A1A]">Sur mesure</p>
                 <p className="mt-1.5">
                   Webinaires et journées fil rouge pour fédérations et réseaux. Précisez votre besoin au RDV.

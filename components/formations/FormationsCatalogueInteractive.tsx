@@ -8,19 +8,20 @@ import {
   BookOpen,
   Check,
   Clock,
+  Cpu,
   Euro,
   FileText,
   Users,
   HardHat,
 } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { sortFormationsCatalogue, tarifLabelForEntry } from '@/lib/formations-catalogue-display';
+import { CATALOGUE_FORMATIONS_COUNT, sortFormationsCatalogue, tarifLabelForEntry } from '@/lib/formations-catalogue-display';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite';
+type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude';
 
 const PROFILES: {
   id: ProfileId;
@@ -49,6 +50,13 @@ const PROFILES: {
     short: 'NIV-03',
     icon: HardHat,
     refs: ['NIV-03'],
+  },
+  {
+    id: 'claude',
+    label: 'Je veux industrialiser Claude en entreprise',
+    short: 'NIV-04',
+    icon: Cpu,
+    refs: ['NIV-04'],
   },
 ];
 
@@ -201,11 +209,11 @@ export function FormationsCatalogueInteractive({
             Quelle formation choisir ?
           </h2>
           <p className="mt-2 text-sm text-[#64748B] sm:text-base">
-            Les trois parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
+            Les {CATALOGUE_FORMATIONS_COUNT} parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
             vous correspond.
           </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PROFILES.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -235,7 +243,7 @@ export function FormationsCatalogueInteractive({
       <section aria-labelledby="catalogue-formations-heading" className="space-y-5">
         <div className="text-center">
           <h2 id="catalogue-formations-heading" className="sr-only">
-            Catalogue : niveaux 1, 2 et 3
+            Catalogue : niveaux 1 à 4
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
@@ -248,9 +256,13 @@ export function FormationsCatalogueInteractive({
               NIV-03 conduite · {TARIF_SESSION_AVANCE_HT} € HT
               <LaunchPriceBadge className="!bg-white/90" />
             </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
+              NIV-04 Claude · {TARIF_SESSION_AVANCE_HT} € HT
+              <LaunchPriceBadge className="!bg-white/90" />
+            </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-stretch">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-2">
           {sorted.map((cours) => (
             <FormationCard
               key={cours.ref}

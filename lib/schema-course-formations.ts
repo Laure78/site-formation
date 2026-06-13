@@ -68,6 +68,21 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ],
     occupationalCategory: 'BTP, conduite de travaux, suivi chantier',
   },
+  {
+    ref: 'NIV-04',
+    level: 'AVANCÉ',
+    path: '/formations/maitriser-claude-ai-btp',
+    name: 'Maîtriser Claude AI pour le BTP',
+    description:
+      'Formation NIV-04 — 4 h le matin : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans l\'entreprise BTP. Qualiopi, Constructys.',
+    teaches: [
+      'Projets Claude et bibliothèque de Skills métier BTP',
+      'Cowork pour production documentaire supervisée (CR, mémoires, dossiers)',
+      'Connecteurs Gmail, Drive et agenda — sécurité RGPD',
+      'Claude Code pour automatisation et génération de documents en lot',
+    ],
+    occupationalCategory: 'BTP, référents IA, direction et fonctions support',
+  },
 ];
 
 const DURATION_ISO = 'PT4H';
@@ -204,6 +219,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-btp-paris',
   '/formations/ia-appels-offre-btp',
   '/formations/ia-conduite-travaux-suivi-chantier',
+  '/formations/maitriser-claude-ai-btp',
   '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;
 

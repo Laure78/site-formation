@@ -11,6 +11,8 @@ import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
 const NIV03_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-03')!;
+const NIV04_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-04')!;
+const CATALOGUE_COUNT = FORMATIONS_CATALOG_SCHEMA.length;
 
 export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown> {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
@@ -38,9 +40,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@type': 'WebPage',
         '@id': `${BASE}/formations#webpage`,
         url: `${BASE}/formations`,
-        name: 'Catalogue formation IA appliquée au bâtiment — 3 formations Qualiopi 4 h',
+        name: `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_COUNT} formations Qualiopi 4 h`,
         description:
-          "Catalogue 3 formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre, NIV-03 conduite de travaux.",
+          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre, NIV-03 conduite de travaux, NIV-04 Maîtriser Claude AI.`,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -57,7 +59,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'Service',
         '@id': `${BASE}/formations#service`,
-        name: 'Formation IA pour le BTP — 3 parcours Qualiopi (présentiel en Île-de-France)',
+        name: `Formation IA pour le BTP — ${CATALOGUE_COUNT} parcours Qualiopi (présentiel en Île-de-France)`,
         serviceType: 'Formation professionnelle continue',
         provider: { '@id': `${BASE}/#organization` },
         areaServed: [
@@ -123,16 +125,31 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 valueAddedTaxIncluded: false,
               },
             },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@id': `${BASE}/formations/maitriser-claude-ai-btp#course`,
+              },
+              price: TARIF_SESSION_AVANCE_HT,
+              priceCurrency: 'EUR',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: TARIF_SESSION_AVANCE_HT,
+                priceCurrency: 'EUR',
+                unitText: 'par session (prix de lancement, matin)',
+                valueAddedTaxIncluded: false,
+              },
+            },
           ],
         },
       },
       {
         '@type': 'ItemList',
         '@id': `${BASE}/formations#course-list`,
-        name: 'Catalogue 3 formations IA pour le BTP',
+        name: `Catalogue ${CATALOGUE_COUNT} formations IA pour le BTP`,
         description:
-          '3 formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).',
-        numberOfItems: 3,
+          `${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).`,
+        numberOfItems: CATALOGUE_COUNT,
         itemListElement: [
           {
             '@type': 'ListItem',
@@ -261,6 +278,46 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
             },
           },
+          {
+            '@type': 'ListItem',
+            position: 4,
+            item: {
+              '@type': 'Course',
+              '@id': `${BASE}/formations/maitriser-claude-ai-btp#course`,
+              name: NIV04_CATALOG.name,
+              description: NIV04_CATALOG.description,
+              url: `${BASE}/formations/maitriser-claude-ai-btp`,
+              courseCode: 'NIV-04',
+              educationalLevel: 'Advanced',
+              inLanguage: 'fr-FR',
+              teaches: NIV04_CATALOG.teaches,
+              occupationalCategory: NIV04_CATALOG.occupationalCategory,
+              provider: { '@id': `${BASE}/#organization` },
+              hasCourseInstance: {
+                '@type': 'CourseInstance',
+                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseWorkload: 'PT4H',
+                location: {
+                  '@type': 'Place',
+                  name: 'Île-de-France — inter ou intra, en présentiel (matin 9h–13h)',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'Île-de-France',
+                    addressCountry: 'FR',
+                  },
+                },
+                instructor: { '@id': `${BASE}/#laure-olivie` },
+              },
+              offers: {
+                '@type': 'Offer',
+                price: TARIF_SESSION_AVANCE_HT,
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
+                url: `${BASE}/formations/maitriser-claude-ai-btp`,
+                category: 'Formation professionnelle continue — prix de lancement',
+              },
+            },
+          },
         ],
       },
       ...(faqSchema
@@ -284,7 +341,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Choisissez le niveau : NIV-01 (bâtiment & travaux publics), NIV-02 (appels d\'offre) ou NIV-03 (conduite de travaux et suivi chantier).',
+            text: 'Choisissez le niveau : NIV-01 (bâtiment & travaux publics), NIV-02 (appels d\'offre), NIV-03 (conduite de travaux) ou NIV-04 Maîtriser Claude AI (industrialiser Projets, Skills, Cowork et Claude Code).',
           },
           {
             '@type': 'HowToStep',

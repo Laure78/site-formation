@@ -10,7 +10,7 @@ import { FAQ_FORMATIONS } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
-import { FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
+import { CATALOGUE_FORMATIONS_COUNT, FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
 import { FormationsHero } from '@/components/formations/FormationsHero';
 import { FormationsStatsBand } from '@/components/formations/FormationsStatsBand';
 import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
@@ -25,9 +25,9 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const FORMATIONS_META_TITLE = 'Catalogue formation IA pour le BTP : 3 formations Qualiopi de 4 h';
+const FORMATIONS_META_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
 const FORMATIONS_META_DESCRIPTION =
-  "3 formations IA pour les pro du BTP (4 h) : devis, administratif, appels d'offres, conduite de travaux. Qualiopi, Constructys. 1 592 pros formés. RDV gratuit.";
+  `${CATALOGUE_FORMATIONS_COUNT} formations IA pour les pro du BTP (4 h) : devis, AO, conduite de travaux, Claude AI. Qualiopi, Constructys. RDV gratuit.`;
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt:
-        'Catalogue formation IA pour le BTP — 3 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+        'Catalogue formation IA pour le BTP — 4 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
     },
   }),
   openGraph: {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          'Catalogue formation IA appliquée au bâtiment — 3 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+          'Catalogue formation IA appliquée au bâtiment — 4 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
       },
     ],
   },
@@ -185,6 +185,12 @@ export default function FormationsPage() {
             <li>
               <Link href={LINKS.iaCDT} className={chipLinkClass}>
                 IA pour conducteur de travaux
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationMaitriserClaudeAiBtp} className={chipLinkClass}>
+                Maîtriser Claude AI pour le BTP (NIV-04)
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>

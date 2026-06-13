@@ -26,4 +26,9 @@ export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     label: "L'IA appliquée à la conduite de travaux",
     icon: HardHat,
   },
+  {
+    href: '/formations/maitriser-claude-ai-btp',
+    label: 'Maîtriser Claude AI pour le BTP',
+    icon: FileText,
+  },
 ];

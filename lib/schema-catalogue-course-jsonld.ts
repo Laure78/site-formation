@@ -21,12 +21,13 @@ export type CatalogueCourseJsonLdConfig = {
   path:
     | typeof LINKS.formationIaBtpNiveau1BatimentTp
     | typeof LINKS.formationAO
-    | typeof LINKS.formationConduiteTravauxSuiviChantier;
+    | typeof LINKS.formationConduiteTravauxSuiviChantier
+    | typeof LINKS.formationMaitriserClaudeAiBtp;
   name: string;
   description: string;
   price: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -34,7 +35,8 @@ export type FormationCatalogueRichCourseConfig = {
   path:
     | typeof LINKS.formationIaBtpNiveau1BatimentTp
     | typeof LINKS.formationAO
-    | typeof LINKS.formationConduiteTravauxSuiviChantier;
+    | typeof LINKS.formationConduiteTravauxSuiviChantier
+    | typeof LINKS.formationMaitriserClaudeAiBtp;
   name: string;
   description: string;
   price: number;
@@ -117,6 +119,31 @@ export const FORMATION_RICH_COURSE_NIV03: FormationCatalogueRichCourseConfig = {
   ],
 };
 
+export const CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationMaitriserClaudeAiBtp,
+  name: 'Maîtriser Claude AI pour le BTP',
+  description:
+    'Formation NIV-04 — 4 h le matin : Projets, Skills, Cowork, connecteurs (Gmail/Drive) et Claude Code pour industrialiser Claude en entreprise BTP. Qualiopi, Constructys.',
+  price: TARIF_SESSION_AVANCE_HT,
+  keywords: ['Projets Claude', 'Skills', 'Cowork', 'Claude Code', 'connecteurs BTP'],
+  courseCode: 'NIV-04',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationMaitriserClaudeAiBtp,
+  name: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.name,
+  description: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.description,
+  price: TARIF_SESSION_AVANCE_HT,
+  educationalLevel: 'Avancé',
+  teaches: [
+    'Projets Claude et bibliothèque de Skills BTP',
+    'Cowork pour production documentaire supervisée',
+    'Connecteurs Gmail, Drive, agenda — RGPD et marchés publics',
+    'Claude Code — automatisation et documents en lot',
+  ],
+};
+
 /** JSON-LD `Course` enrichi — fiches catalogue NIV-01 / NIV-02 (Rich Results). */
 export function buildFormationCatalogueRichCourseJsonLd(
   config: FormationCatalogueRichCourseConfig
@@ -193,7 +220,9 @@ export function buildCatalogueCourseJsonLd(
         ? FORMATION_RICH_COURSE_NIV01.teaches
         : config.courseCode === 'NIV-02'
           ? FORMATION_RICH_COURSE_NIV02.teaches
-          : FORMATION_RICH_COURSE_NIV03.teaches,
+          : config.courseCode === 'NIV-03'
+            ? FORMATION_RICH_COURSE_NIV03.teaches
+            : FORMATION_RICH_COURSE_NIV04.teaches,
   };
   return buildFormationCatalogueRichCourseJsonLd(richConfig);
 }
@@ -208,4 +237,8 @@ export function buildCatalogueCourseIaAppelsOffreNiv02JsonLd(): Record<string, u
 
 export function buildCatalogueCourseConduiteTravauxNiv03JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV03);
+}
+
+export function buildCatalogueCourseMaitriserClaudeNiv04JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV04);
 }

@@ -5,6 +5,9 @@
 
 export const SESSION_DUREE_LIBELLE = '4 h';
 
+/** NIV-04 Maîtriser Claude AI — session matin uniquement */
+export const SESSION_DUREE_MATIN_NIV04 = '4 h · matin (9h00 – 13h00)';
+
 /** Forfait HT pour la session complète — formations niveau débutant (catalogue) */
 export const TARIF_SESSION_DEBUTANT_HT = 1000;
 

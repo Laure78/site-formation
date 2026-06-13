@@ -1,4 +1,7 @@
-import { BookOpen, HardHat, Trophy, Wallet } from 'lucide-react';
+import Link from 'next/link';
+import { BookOpen, Cpu, HardHat, Trophy, Wallet } from 'lucide-react';
+import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
+import { LINKS } from '@/lib/internal-links';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
@@ -7,17 +10,16 @@ export function FormationsWhyMotifs() {
   return (
     <section className="mt-16 rounded-2xl border border-[#E2E8F0] bg-white p-5 md:p-10">
       <h2 className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-        Pourquoi un catalogue de 3 formations spécialisées ?
+        Pourquoi un catalogue de {CATALOGUE_FORMATIONS_COUNT} formations spécialisées ?
       </h2>
       <p className="mt-4 max-w-3xl text-[#334155] leading-relaxed">
         L&apos;IA générative ne se travaille pas de la même manière selon que vous structurez une
-        journée terrain, rédigez un mémoire technique, analysez un DCE ou pilotez un chantier au
-        quotidien. Plutôt qu&apos;une formation généraliste, le catalogue OFC propose{' '}
-        <strong>trois parcours Qualiopi</strong> — niveau 1 (bases bâtiment &amp; travaux publics),
-        niveau 2 appels d&apos;offre (NIV-02) et conduite de travaux (NIV-03) — avec programmes PDF
-        téléchargeables sur chaque fiche.
+        journée terrain, rédigez un mémoire technique, analysez un DCE, pilotez un chantier ou
+        industrialisez Claude en entreprise. Plutôt qu&apos;une formation généraliste, le catalogue OFC
+        propose <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — NIV-01 à NIV-04 — avec
+        programmes PDF téléchargeables sur chaque fiche.
       </p>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <div className={`${OFC_CARD} p-8`}>
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
             <BookOpen className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
@@ -55,6 +57,23 @@ export function FormationsWhyMotifs() {
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
             CCTP, CR, PPSPS, réception — skills Claude chantier
+          </p>
+          <p className="mt-4 flex flex-wrap items-center gap-2 text-base font-bold text-[#F97316]">
+            {TARIF_SESSION_AVANCE_HT} € HT / session
+            <LaunchPriceBadge />
+          </p>
+        </div>
+        <div className={`${OFC_CARD} p-8`}>
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FEF3C7]">
+            <Cpu className="h-8 w-8 text-[#F97316]" strokeWidth={1.75} aria-hidden />
+          </div>
+          <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
+            <Link href={LINKS.formationMaitriserClaudeAiBtp} className="hover:text-[#377CF3] hover:underline">
+              NIV-04 — Maîtriser Claude AI
+            </Link>
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
+            Projets, Cowork, connecteurs, Claude Code — matin 9h–13h
           </p>
           <p className="mt-4 flex flex-wrap items-center gap-2 text-base font-bold text-[#F97316]">
             {TARIF_SESSION_AVANCE_HT} € HT / session

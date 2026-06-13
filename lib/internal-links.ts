@@ -52,6 +52,10 @@ export const LINKS = {
   formationConduiteTravauxSuiviChantier: '/formations/ia-conduite-travaux-suivi-chantier',
   pdfProgrammeConduiteTravauxNiv03:
     '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
+  /** NIV-04 — Maîtriser Claude AI pour le BTP (catalogue) */
+  formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
+  pdfProgrammeMaitriserClaudeBtpNiv04:
+    '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
   pdfProgrammeIaBtpNiveau1BatimentTp: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */

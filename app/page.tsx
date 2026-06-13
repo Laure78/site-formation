@@ -81,6 +81,7 @@ function catalogueLevelBadge(ref: string, level: CatalogueLevel): string {
   if (ref === 'NIV-01') return 'NIVEAU 1';
   if (ref === 'NIV-02') return 'NIVEAU 2';
   if (ref === 'NIV-03') return 'NIV-03 · AVANCÉ';
+  if (ref === 'NIV-04') return 'NIV-04 · AVANCÉ';
   return level;
 }
 
@@ -318,7 +319,7 @@ export default function HomePage() {
                   'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
                   `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
                   'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                  'Catalogue NIV-01 bâtiment & TP, NIV-02 appels d’offres et NIV-03 conduite de travaux — validation métier de votre côté.',
+                  'Catalogue NIV-01 à NIV-04 (bâtiment, AO, conduite de travaux, Claude AI) — validation métier de votre côté.',
                 ]}
               />
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -911,7 +912,7 @@ export default function HomePage() {
               Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
             </p>
           </Reveal>
-          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3" staggerMs={60}>
+          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-2" staggerMs={60}>
             {sortFormationsCatalogue(FORMATIONS_CATALOGUE).map((cours) => (
               <div
                 key={cours.ref}
@@ -1005,7 +1006,7 @@ export default function HomePage() {
             <Link
               href={LINKS.formations}
               className={OFC_LINK}
-              title="Catalogue — 3 formations, programmes PDF"
+              title="Catalogue — 4 formations, programmes PDF"
             >
               catalogue &amp; programmes PDF
             </Link>

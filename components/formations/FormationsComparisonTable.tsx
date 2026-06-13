@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { sortFormationsCatalogue } from '@/lib/formations-catalogue-display';
+import { CATALOGUE_FORMATIONS_COUNT, sortFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
@@ -21,7 +21,7 @@ export function FormationsComparisonTable({
           id="comparatif-formations-heading"
           className="font-display text-[32px] font-bold text-[#0F172A]"
         >
-          Comparez les 3 formations IA pour le BTP d&apos;un coup d&apos;œil
+          Comparez les {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
           Toutes Qualiopi, toutes 4 h, intra ou inter, exclusivement en présentiel en Île-de-France. Financement possible selon éligibilité.

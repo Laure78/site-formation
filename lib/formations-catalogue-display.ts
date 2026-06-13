@@ -26,7 +26,7 @@ export type FormationCatalogueEntry = {
   /** Programme officiel PDF */
   programmePdfHref: string;
   /** Profils « Quelle formation choisir ? » */
-  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux'>;
+  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude'>;
   /** Badge « Prix de lancement » à côté du tarif session */
   launchPrice?: boolean;
   /** Ligne tableau comparatif */
@@ -36,7 +36,7 @@ export type FormationCatalogueEntry = {
   };
 };
 
-/** Trois parcours officiels — NIV-01, NIV-02, NIV-03 (programmes PDF). */
+/** Quatre parcours officiels — NIV-01 à NIV-04 (programmes PDF). */
 export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
   {
     ref: 'NIV-01',
@@ -111,7 +111,37 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
         'Analyse CCTP & DPGF, PPSPS, CR, sous-traitants (DC4), PV de réserves, DOE, bibliothèque de skills',
     },
   },
+  {
+    ref: 'NIV-04',
+    level: 'AVANCÉ',
+    title: 'Maîtriser Claude AI pour le BTP',
+    href: LINKS.formationMaitriserClaudeAiBtp,
+    slug: 'maitriser-claude-ai-btp',
+    programmePdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
+    visuel: PHOTOS.formationIABtpVisioBureau2026,
+    duree: '4 h · matin (9h00 – 13h00)',
+    effectif: '8 participants max',
+    launchPrice: true,
+    pitch:
+      "Niveau avancé : industrialisez l'IA dans votre entreprise BTP — Projets, Skills, Cowork, connecteurs et Claude Code, sur vos cas réels.",
+    profileTags: ['maitriser-claude'],
+    objectifs: [
+      'Structurer l\'usage de Claude dans l\'entreprise avec les Projets et une bibliothèque de Skills',
+      'Déléguer la production documentaire à Cowork (CR, mémoires, dossiers) en autonomie supervisée',
+      'Connecter Claude à ses outils (Gmail, Drive, agenda) via les connecteurs, en sécurisant les données',
+      'Automatiser des tâches répétitives et générer des documents en lot avec Claude Code',
+      'Fiabiliser, sécuriser et réutiliser ses skills, connecteurs et automatisations Claude',
+    ],
+    comparatif: {
+      publicLabel:
+        'Référents IA, dirigeants, responsables digitaux, chargés d\'affaires et conducteurs de travaux',
+      casUsage: 'Projets Claude, Skills, Cowork, connecteurs (Gmail/Drive), Claude Code, automatisation',
+    },
+  },
 ];
+
+/** Nombre de parcours catalogue — source unique pour copy SEO et JSON-LD. */
+export const CATALOGUE_FORMATIONS_COUNT = FORMATIONS_CATALOGUE.length;
 
 const LEVEL_ORDER: Record<CatalogueLevel, number> = { DÉBUTANT: 0, AVANCÉ: 1 };
 
