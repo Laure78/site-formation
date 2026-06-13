@@ -16,7 +16,7 @@ const EXACT: Record<string, string> = {
 
 const METIER_TITLES: Record<string, string> = {
   '/formation-ia-electricien-btp': 'Formation IA Électricien BTP',
-  '/formation-ia-conducteur-travaux': 'Formation IA Conducteur de travaux',
+  '/formation-ia-conducteur-de-travaux-btp': 'Formation IA Conducteur de travaux',
   '/formation-ia-macon-btp': 'Formation IA Maçon BTP',
   '/formation-ia-plombier-btp': 'Formation IA Plombier BTP',
   '/formation-ia-charpentier-btp': 'Formation IA Charpentier BTP',

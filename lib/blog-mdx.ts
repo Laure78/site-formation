@@ -9,6 +9,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import GithubSlugger from 'github-slugger';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
+import { rehypeAutoLink } from '@/lib/autoLink';
 import matter from 'gray-matter';
 import { ARTICLE_SECTION_GEO, createPageMetadata, estimateWordCountFromPlainText, SITE_CONFIG } from '@/lib/seo';
 import { getBlogMdxComponents } from '@/components/blog/blog-mdx-components';
@@ -19,6 +20,8 @@ import type { ReactNode } from 'react';
 export const BLOG_MDX_DIR = join(process.cwd(), 'content', 'blog');
 
 export type BlogMdxFaqItem = { q: string; a: string } | { question: string; answer: string };
+
+export type BlogFaqFrontmatterPair = { question: string; answer: string };
 
 export type BlogMdxFrontmatter = {
   title: string;
@@ -32,17 +35,27 @@ export type BlogMdxFrontmatter = {
   coverAlt: string;
   keywords: string[];
   readingTime?: string;
+  /** FAQ structurée — source JSON-LD FAQPage */
+  faq?: BlogFaqFrontmatterPair[];
+  /** @deprecated Préférer `faq` ({ question, answer }) */
   faqItems?: BlogMdxFaqItem[];
   /** Slugs d’articles JSON existants pour RelatedArticles */
   relatedSlugs?: string[];
 };
 
-function normalizeFaqItems(items?: BlogMdxFaqItem[]): { question: string; answer: string }[] {
+function normalizeFaqItems(
+  items?: BlogMdxFaqItem[] | BlogFaqFrontmatterPair[]
+): BlogFaqFrontmatterPair[] {
   if (!items?.length) return [];
   return items.map((item) => {
     if ('q' in item && 'a' in item) return { question: item.q.trim(), answer: item.a.trim() };
     return { question: item.question.trim(), answer: item.answer.trim() };
   });
+}
+
+/** Paires FAQ depuis le frontmatter MDX (`faq` ou legacy `faqItems`). */
+export function getMdxBlogFaqFromFrontmatter(fm: BlogMdxFrontmatter): BlogFaqFrontmatterPair[] {
+  return normalizeFaqItems(fm.faq ?? fm.faqItems);
 }
 
 /** Sommaire — ids alignés sur `rehype-slug` / GitHub Slugger */
@@ -155,7 +168,7 @@ export async function compileMdxBlogPost(slug: string): Promise<CompiledMdxBlog 
       parseFrontmatter: false,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeSlug],
+        rehypePlugins: [rehypeSlug, rehypeAutoLink],
       },
     },
     components: getBlogMdxComponents(),
@@ -169,7 +182,7 @@ export const compileMdxBlogPostCached = cache(compileMdxBlogPost);
 
 /** BlogArticle minimal pour FAQ JSON-LD + extractFaqPairs */
 export function mdxFrontmatterToBlogArticle(fm: BlogMdxFrontmatter): BlogArticle {
-  const faq = normalizeFaqItems(fm.faqItems).map((x) => ({
+  const faq = getMdxBlogFaqFromFrontmatter(fm).map((x) => ({
     question: x.question,
     answer: x.answer,
   }));

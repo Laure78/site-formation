@@ -22,6 +22,7 @@ import { BlogMdxArticle } from '@/components/blog/BlogMdxArticle';
 import {
   buildMdxBlogMetadata,
   getMdxFrontmatter,
+  getMdxBlogFaqFromFrontmatter,
   hasMdxBlogFile,
   mergeBlogSlugsForStaticParams,
 } from '@/lib/blog-mdx';
@@ -30,7 +31,7 @@ import { CTABlock } from '@/components/CTABlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import AuthorBio from '@/components/AuthorBio';
+import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { Check, ExternalLink } from 'lucide-react';
@@ -42,6 +43,7 @@ import {
   shouldShowSommaireAncre,
   sommaireItemsToAnchorMap,
 } from '@/lib/sommaire-ancre';
+import { autoLink, createAutoLinkScope } from '@/lib/autoLink';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -156,7 +158,14 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
   if (hasMdxBlogFile(slug)) {
-    return <BlogMdxArticle slug={slug} />;
+    const fm = getMdxFrontmatter(slug);
+    const faq = fm ? getMdxBlogFaqFromFrontmatter(fm) : [];
+    return (
+      <>
+        <BlogArticleFaqJsonLd slug={slug} faq={faq} />
+        <BlogMdxArticle slug={slug} />
+      </>
+    );
   }
   const article = getArticle(slug);
   if (!article) notFound();
@@ -180,6 +189,7 @@ export default async function BlogArticlePage({ params }: Props) {
   );
   const showSommaire = shouldShowSommaireAncre(sommaireItems);
   const sectionAnchors = sommaireItemsToAnchorMap(sommaireItems);
+  const autoLinkScope = createAutoLinkScope();
 
   return (
     <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
@@ -194,7 +204,7 @@ export default async function BlogArticlePage({ params }: Props) {
         keywords={article.keywords}
         wordCount={wordCount}
       />
-      <BlogArticleFaqJsonLd article={article} />
+      <BlogArticleFaqJsonLd slug={slug} article={article} />
       {howToSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       )}
@@ -338,7 +348,9 @@ export default async function BlogArticlePage({ params }: Props) {
                     )}
                     <div
                       className={`article-html text-slate-700 ${section.title ? 'mt-4' : ''}`}
-                      dangerouslySetInnerHTML={{ __html: section.content }}
+                      dangerouslySetInnerHTML={{
+                        __html: autoLink(section.content, autoLinkScope),
+                      }}
                     />
                   </>
                 )}
@@ -404,7 +416,9 @@ export default async function BlogArticlePage({ params }: Props) {
                             className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
                           >
                             <h3 className="font-semibold text-slate-900">{q}</h3>
-                            <p className="mt-2 text-slate-600"><FAQAnswer content={a} /></p>
+                            <p className="mt-2 text-slate-600">
+                              <FAQAnswer content={autoLink(a, autoLinkScope)} />
+                            </p>
                           </div>
                         );
                       })}
@@ -474,7 +488,7 @@ export default async function BlogArticlePage({ params }: Props) {
 
         <BlogCTA articleSlug={slug} className="mt-12" />
 
-        <AuthorBio />
+        <ArticleAuthorBio />
 
         {related.length > 0 && (
           <section className="mt-16 border-t border-slate-200 pt-12">
@@ -575,19 +589,16 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link href={LINKS.chatgptArtisans} className="text-[var(--accent)] hover:underline" title="ChatGPT pour entreprises BTP">
-            ChatGPT pour entreprises BTP
+          <Link href={LINKS.formationIleDeFrance} className="text-[var(--accent)] hover:underline" title="Formation IA en Île-de-France">
+            Formation IA Île-de-France
           </Link>
-          <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA pour le BTP à Paris et Île-de-France">
-            Formation IA pour les pro du BTP Paris
+          <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA pour le BTP à Paris">
+            Formation IA Paris
           </Link>
-          <RdvLink campaign={`blog-article-${slug}-footer-maillage`} className="text-[var(--accent)] hover:underline">
-            Prendre rendez-vous
-          </RdvLink>
-          <Link href={LINKS.financement} className="text-[var(--accent)] hover:underline" title="Financement OPCO Constructys">
-            Financement Constructys
+          <Link href={LINKS.ressources} className="text-[var(--accent)] hover:underline" title="Guides et tutos PDF IA BTP">
+            Ressources &amp; tutos PDF
           </Link>
-          <Link href={LINKS.blog} className="text-[var(--accent)] hover:underline" title="Articles et guides IA BTP">
+          <Link href={LINKS.blog} className="text-[var(--accent)] hover:underline" title="Tous les articles IA BTP">
             Tous les articles
           </Link>
         </div>

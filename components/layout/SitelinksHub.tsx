@@ -1,41 +1,35 @@
 import Link from 'next/link';
-import { Layers, Calendar, Coins, GraduationCap, User } from 'lucide-react';
+import {
+  Calendar,
+  Coins,
+  GraduationCap,
+  MapPin,
+  User,
+  HardHat,
+  BookOpen,
+} from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
+import { SITE_NAV_HUB_ITEMS } from '@/lib/contextual-internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import type { LucideIcon } from 'lucide-react';
 
-const items = [
-  {
-    href: LINKS.formations,
-    title: 'Formations',
-    line: 'Catalogue Qualiopi',
-    Icon: GraduationCap,
-  },
-  {
-    href: LINKS.financement,
-    title: 'Financement',
-    line: 'Constructys 100 %',
-    Icon: Coins,
-  },
-  {
-    href: LINKS.ressources,
-    title: 'Ressources',
-    line: 'Blog, Claude AI, tutos PDF',
-    Icon: Layers,
-  },
-  {
-    href: LINKS.aPropos,
-    title: 'À propos',
-    line: 'Laure Olivié',
-    Icon: User,
-  },
-  {
-    href: LINKS.prendreRdv,
-    title: 'Prendre RDV',
-    line: 'Visio gratuite',
-    Icon: Calendar,
-  },
-] as const;
+const ICONS: Record<string, LucideIcon> = {
+  [LINKS.formations]: GraduationCap,
+  [LINKS.financement]: Coins,
+  [LINKS.formationConducteurTravaux]: HardHat,
+  [LINKS.blog]: BookOpen,
+  [LINKS.formationIleDeFrance]: MapPin,
+  [LINKS.prendreRdv]: Calendar,
+  [LINKS.aPropos]: User,
+};
+
+const items = SITE_NAV_HUB_ITEMS.map(({ href, title, description }) => ({
+  href,
+  title,
+  line: description ?? '',
+  Icon: ICONS[href] ?? GraduationCap,
+}));
 
 /**
  * Maillage interne vers les sections clés — présent sur toutes les pages (avant le footer).
@@ -47,7 +41,10 @@ export function SitelinksHub() {
         <h2 id="nav-hub" className="sr-only">
           Navigation principale du site
         </h2>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <p className="mb-6 text-center text-sm text-slate-600 md:text-base">
+          Pages les plus consultées — catalogue, financement, métiers et prise de contact.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {items.map(({ href, title, line, Icon }) => (
             <Link
               key={href}
@@ -62,7 +59,7 @@ export function SitelinksHub() {
               <span className="mt-3 block text-sm font-semibold text-slate-900 transition-colors duration-150 group-hover:text-[#377CF3]">
                 {title}
               </span>
-              <p className="mt-1 text-xs text-slate-600">{line}</p>
+              <p className="mt-1 text-xs leading-snug text-slate-600">{line}</p>
             </Link>
           ))}
         </div>

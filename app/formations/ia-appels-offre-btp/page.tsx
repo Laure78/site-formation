@@ -3,6 +3,8 @@ import { LINKS } from '@/lib/internal-links';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { FORMATION_NIV02_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -25,6 +27,7 @@ import {
   FormationCourseHero,
   FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
+import { buildCatalogueCourseIaAppelsOffreNiv02JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 
 const LMS_SLUG = 'ia-appels-offre-btp';
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
@@ -121,11 +124,14 @@ const HERO_RESUME_AO = [
   'Qualiopi, 100 % finançable OPCO Constructys selon éligibilité.',
 ];
 
+const courseSchema = buildCatalogueCourseIaAppelsOffreNiv02JsonLd();
+
 export default function FormationIAAppelsOffreBTPPage() {
   const faqSchema = getFAQSchema(FAQ_APPELS_OFFRE);
 
   return (
     <div>
+      <JsonLd id="schema-course-niv-02" schema={courseSchema} />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
@@ -388,14 +394,21 @@ export default function FormationIAAppelsOffreBTPPage() {
         subtitle="Public, durée, livrables."
       />
 
+      <ContextualLinksSection
+        title="Pages associées"
+        subtitle="NIV-01 productivité, formation CCTP, articles méthode et financement OPCO."
+        links={FORMATION_NIV02_RELATED}
+        tone="muted"
+      />
+
       <div className="mt-10">
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations' },
+            { href: LINKS.formations, label: 'Catalogue formations' },
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
             { href: buildSiteCalendlyCtaUrl('formations-ia-appels-offre-btp-footer-rdv'), label: 'Prendre rendez-vous' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: '/blog/analyse-dce-notebooklm-claude-btp', label: 'Article : analyser un DCE avec l’IA' },
+            { href: LINKS.financement, label: 'Financement Constructys' },
+            { href: LINKS.blogIaAnalyseCctpMethode, label: 'Article : analyser un DCE avec l’IA' },
           ]}
         />
       </div>

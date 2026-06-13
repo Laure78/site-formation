@@ -1,19 +1,13 @@
-# robots.txt — laureolivie.fr
-# Autorise les crawlers IA (GEO) ; /blog/ et /formations/ restent crawlables.
+# Bots moteurs de recherche standard
+User-agent: *
+Allow: /
+Crawl-delay: 1
 
+# Bots IA — autorisés explicitement pour le GEO
 User-agent: GPTBot
 Allow: /
 
-User-agent: ChatGPT-User
-Allow: /
-
 User-agent: Claude-Web
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
 Allow: /
 
 User-agent: PerplexityBot
@@ -25,17 +19,11 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-User-agent: cohere-ai
+User-agent: anthropic-ai
 Allow: /
 
-User-agent: meta-externalagent
+User-agent: CCBot
 Allow: /
 
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /private
-Disallow: /api/
-Disallow: /_next/
-
+# Sitemap
 Sitemap: https://www.laureolivie.fr/sitemap.xml

@@ -104,7 +104,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-ia-menuisier-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-dirigeant-pme-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-dirigeant-btp', priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/formation-ia-conducteur-travaux', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/formation-ia-conducteur-de-travaux-btp', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/formation-ia-charge-affaires-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-assistante-gestion-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-assistante-administrative-btp', priority: 0.89, changeFrequency: 'monthly' },

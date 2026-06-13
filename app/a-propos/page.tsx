@@ -6,6 +6,7 @@ import { createPageMetadata } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
+import { getAProposPersonJsonLd } from '@/lib/schema-a-propos-person-jsonld';
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -92,6 +93,7 @@ function EeatSection({
 
 export default function AProposPage() {
   const unifiedSchema = getAProposUnifiedJsonLd();
+  const personSchema = getAProposPersonJsonLd();
   const faqItems = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
   const allerPlusLoinLinks = [
@@ -105,6 +107,7 @@ export default function AProposPage() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
+      <JsonLd id="schema-a-propos-person" schema={personSchema} />
       <JsonLd id="schema-a-propos-unified-graph" schema={unifiedSchema} />
 
       <PillarPageHero

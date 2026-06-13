@@ -90,12 +90,12 @@ const nextConfig: NextConfig = {
       // Canonique métier : ancienne landing courte → URL formation-
       {
         source: '/ia-conducteur-travaux',
-        destination: '/formation-ia-conducteur-travaux',
+        destination: '/formation-ia-conducteur-de-travaux-btp',
         permanent: true,
       },
       {
         source: '/ia-conducteur-travaux/',
-        destination: '/formation-ia-conducteur-travaux',
+        destination: '/formation-ia-conducteur-de-travaux-btp',
         permanent: true,
       },
       {

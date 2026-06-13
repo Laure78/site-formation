@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { LINKS } from '@/lib/internal-links';
 
 export interface AllerPlusLoinLink {
   href: string;
@@ -10,12 +11,12 @@ export interface AllerPlusLoinLink {
 }
 
 const DEFAULT_LINKS: AllerPlusLoinLink[] = [
-  { href: '/formations', label: 'Formation IA appliquée au bâtiment' },
-  { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-  { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-  { href: '/blog', label: 'Articles et guides' },
+  { href: LINKS.formations, label: 'Formation IA appliquée au bâtiment' },
+  { href: LINKS.chatgptArtisans, label: 'ChatGPT pour entreprises BTP' },
+  { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
+  { href: LINKS.blog, label: 'Articles et guides' },
   { href: buildSiteCalendlyCtaUrl('aller-plus-loin'), label: 'Prendre rendez-vous' },
-  { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
+  { href: LINKS.financement, label: 'Financement Constructys' },
 ];
 
 interface AllerPlusLoinProps {

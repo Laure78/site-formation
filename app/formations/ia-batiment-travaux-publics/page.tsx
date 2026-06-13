@@ -46,6 +46,9 @@ import {
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
+import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
@@ -91,6 +94,7 @@ export const metadata = createPageMetadata({
 });
 
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
+const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
 const POINTS_MARQUANTS = [
   'Parcours catalogue niveau 1 (réf. NIV-01) : bâtiment et travaux publics — devis, chantier, administratif.',
@@ -242,6 +246,7 @@ const PUBLIC_CIBLE = [
 export default function FormationIAuServiceDuBatimentPage() {
   return (
     <div>
+      <JsonLd id="schema-course-niv-01" schema={courseSchema} />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
@@ -556,7 +561,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-6">
             <Link
-              href="/financement-constructys-formation-ia-btp"
+              href={LINKS.financement}
               className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
             >
               Guide financement Constructys — formation IA pour les pro du BTP
@@ -746,6 +751,14 @@ export default function FormationIAuServiceDuBatimentPage() {
           />
         </div>
       </section>
+
+      {/* Maillage interne — pages associées */}
+      <ContextualLinksSection
+        title="Pages associées"
+        subtitle="Poursuivre votre parcours : niveau 2 appels d'offres, métier conducteur de travaux, financement et guides."
+        links={FORMATION_NIV01_RELATED}
+        tone="muted"
+      />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">

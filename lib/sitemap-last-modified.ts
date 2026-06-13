@@ -91,7 +91,9 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'lib/formation-cities.ts',
   ],
   '/formations/ia-btp-paris': ['app/formations/ia-btp-paris/page.tsx', 'lib/formation-cities.ts'],
-  '/formation-ia-conducteur-travaux': ['app/formation-ia-conducteur-travaux/page.tsx'],
+  '/formation-ia-conducteur-de-travaux-btp': [
+    'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
+  ],
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
   '/formation-ia-assistante-gestion-btp': ['app/formation-ia-assistante-gestion-btp/page.tsx'],
   '/etudes-de-cas/ffb-csfe': ['app/etudes-de-cas/ffb-csfe/page.tsx'],

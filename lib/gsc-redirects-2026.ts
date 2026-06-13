@@ -113,7 +113,12 @@ export function gscRedirects2026April(): RedirectEntry[] {
     },
     {
       source: '/formation-ia-conducteur-travaux-btp',
-      destination: '/formation-ia-conducteur-travaux',
+      destination: '/formation-ia-conducteur-de-travaux-btp',
+      permanent: true,
+    },
+    {
+      source: '/formation-ia-conducteur-travaux',
+      destination: '/formation-ia-conducteur-de-travaux-btp',
       permanent: true,
     },
     {

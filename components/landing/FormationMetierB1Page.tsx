@@ -3,6 +3,8 @@ import { ArrowRight, Check } from 'lucide-react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { getMetierLandingCoreLinks } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
@@ -238,6 +240,14 @@ export function FormationMetierB1Page({
         <div className="mt-14">
           <AuthorBio />
         </div>
+
+        <ContextualLinksSection
+          title="Catalogue et ressources"
+          subtitle="Programmes Qualiopi, financement Constructys, Claude AI et articles pratiques."
+          links={getMetierLandingCoreLinks({ csfePartnership: false })}
+          tone="muted"
+          className="mt-14"
+        />
 
         <AllerPlusLoin
           links={[

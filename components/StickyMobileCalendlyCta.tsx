@@ -1,10 +1,12 @@
 'use client';
 
 import { X } from 'lucide-react';
-import { useCallback, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { CALENDLY_BOOKING_URL } from '@/lib/calendly';
 import { CALENDLY_DEFAULT_BUTTON_TEXT } from '@/lib/calendly-embed-config';
+import { isBlogPath } from '@/lib/is-blog-path';
 
 const SESSION_DISMISS_KEY = 'ofc-sticky-mobile-calendly-dismissed';
 /** Apparition après le premier scroll significatif (mobile). */
@@ -31,6 +33,9 @@ function setDismissedInSession(): void {
  * Fixed overlay : zéro CLS, masqué près du footer, fermeture session.
  */
 export function StickyMobileCalendlyCta() {
+  const pathname = usePathname();
+  const onBlog = useMemo(() => isBlogPath(pathname), [pathname]);
+
   const [dismissed, setDismissed] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
@@ -68,7 +73,7 @@ export function StickyMobileCalendlyCta() {
     setDismissed(true);
   }, []);
 
-  const show = mounted && !dismissed && scrolled && !footerVisible;
+  const show = mounted && !onBlog && !dismissed && scrolled && !footerVisible;
 
   return (
     <div

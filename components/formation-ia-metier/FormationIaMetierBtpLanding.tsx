@@ -7,7 +7,11 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
+import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import {
+  getMetierLandingCoreLinks,
+  getMetierRelatedLinks,
+} from '@/lib/contextual-internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
@@ -68,6 +72,8 @@ function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; sub
 
 export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMetierBtpConfig }) {
   const sommaire = sommaireForConfig(config);
+  const relatedMetierLinks = getMetierRelatedLinks(config);
+  const coreMetierLinks = getMetierLandingCoreLinks(config);
 
   const faqItems = config.faq.map((item) => ({
     question: item.q,
@@ -99,6 +105,14 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             <li>
               <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
                 Accueil
+              </Link>
+            </li>
+            <li className="flex items-center gap-1.5">
+              <span className="text-slate-400" aria-hidden>
+                /
+              </span>
+              <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
+                Formations
               </Link>
             </li>
             <li className="flex items-center gap-1.5">
@@ -276,92 +290,32 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             </div>
           </section>
 
-          <section id="liens-internes" className="scroll-mt-24 mt-14">
-            <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Liens utiles</h2>
-            <p className="mt-4 text-slate-600">
-              {config.liensUtilesIntro ??
-                "Catalogue des formations, retour d'expérience étanchéité FFB/CSFE, et articles sur l'IA dans le BTP."}
-            </p>
-            {config.relatedMetierLinks && config.relatedMetierLinks.length > 0 ? (
-              <>
-                <h3 className="mt-10 font-display text-lg font-semibold text-slate-900">
-                  Formations IA — métiers proches
-                </h3>
-                <ul className="mt-4 grid gap-4 sm:grid-cols-1">
-                  {config.relatedMetierLinks.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className={`${OFC_CARD_MUTED} flex flex-col p-5`}
-                      >
-                        <span className="text-slate-900">{link.title}</span>
-                        <span className="mt-3 text-sm font-normal text-slate-600">{link.description}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            <ul className="mt-8 grid gap-4 sm:grid-cols-1">
-              {config.csfePartnership ? (
-                <li>
-                  <Link
-                    href={LINKS.etudesCas}
-                    className={`${OFC_CARD_MUTED} flex flex-col p-5`}
-                  >
-                    <span className="text-slate-900">Étude de cas FFB &amp; CSFE</span>
-                    <span className="mt-3 text-sm font-normal text-slate-600">
-                      Étanchéité — retour d&apos;expérience et formation IA.
-                    </span>
-                  </Link>
-                </li>
-              ) : null}
-              <li>
-                <Link
-                  href={LINKS.formations}
-                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
-                >
-                  <span className="text-slate-900">Catalogue des formations</span>
-                  <span className="mt-3 text-sm font-normal text-slate-600">
-                    Modules du catalogue BTP (références BTP-01 à BTP-04), durées et objectifs Qualiopi.
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={LINKS.claudeAiBtp}
-                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
-                >
-                  <span className="text-slate-900">Claude AI &amp; BTP</span>
-                  <span className="mt-3 text-sm font-normal text-slate-600">
-                    Interfaces, prompts et usages professionnels (Anthropic).
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={LINKS.financement}
-                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
-                >
-                  <span className="text-slate-900">Financement Constructys</span>
-                  <span className="mt-3 text-sm font-normal text-slate-600">
-                    Guide OPCO, éligibilité et prise en charge selon dossier.
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={LINKS.blog}
-                  className={`${OFC_CARD_MUTED} flex flex-col p-5`}
-                >
-                  <span className="text-slate-900">Blog IA &amp; BTP</span>
-                  <span className="mt-3 text-sm font-normal text-slate-600">
-                    Articles complémentaires et guides.
-                  </span>
-                </Link>
-              </li>
-            </ul>
-          </section>
+          {relatedMetierLinks.length > 0 ? (
+            <ContextualLinksSection
+              id="liens-internes"
+              title="Formations IA — métiers proches"
+              subtitle={
+                config.liensUtilesIntro ??
+                `Autres métiers du BTP où la formation IA appliquée au bâtiment est adaptée au vocabulaire terrain.`
+              }
+              links={relatedMetierLinks}
+              className="mt-14 !bg-transparent !py-0"
+            />
+          ) : null}
+
+          <ContextualLinksSection
+            id={relatedMetierLinks.length === 0 ? 'liens-internes' : undefined}
+            title={relatedMetierLinks.length > 0 ? 'Catalogue et ressources' : 'Liens utiles'}
+            subtitle={
+              relatedMetierLinks.length > 0
+                ? 'Programmes Qualiopi, Claude AI, financement Constructys et articles de fond.'
+                : config.liensUtilesIntro ??
+                  'Catalogue des formations, financement Constructys, Claude AI BTP et articles pratiques.'
+            }
+            links={coreMetierLinks}
+            tone="muted"
+            className="mt-14"
+          />
 
           <div className="mt-14">
             <CalendlyBlock

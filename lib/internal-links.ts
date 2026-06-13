@@ -65,6 +65,7 @@ export const LINKS = {
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
   /** Landing SEO local Yvelines (78) — pilier (l'ancien `/formation-ia-btp-yvelines` redirige en 308) */
   formationIABTPYvelines: '/formation-ia-btp-yvelines-78',
+  formationIaBtpParis75: '/formation-ia-btp-paris-75',
   /** Pages pilier SEO par département Île-de-France (+77) */
   formationIaBtpYvelines78: '/formation-ia-btp-yvelines-78',
   formationIaBtpSeineEtMarne77: '/formation-ia-btp-seine-et-marne-77',
@@ -78,9 +79,11 @@ export const LINKS = {
   chatgptArtisans: '/formation-ia-artisans-btp',
   iaDevis: '/ia-devis-batiment',
   /** Canonique SEO — ancien `/ia-conducteur-travaux` redirige en 301 */
-  iaCDT: '/formation-ia-conducteur-travaux',
+  iaCDT: '/formation-ia-conducteur-de-travaux-btp',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
-  formationConducteurTravaux: '/formation-ia-conducteur-travaux',
+  formationConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',
+  /** Fiche SEO — formation IA chargé d'affaires BTP */
+  formationChargeAffairesBtp: '/formation-ia-charge-affaires-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
   /** Décideurs — ROI, pilotage IA PME bâtiment */
@@ -144,6 +147,10 @@ export const LINKS = {
   blogIaAnalyseCctpMethode: '/blog/ia-analyse-cctp-methode',
   /** Article pilier SEO — formation IA CCTP, analyse DCE BTP */
   blogFormationIaCctpAnalyseDceBtp: '/blog/formation-ia-cctp-analyse-dce-btp',
+  /** Article — IA devis bâtiment et chiffrage automatisé */
+  blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
+  /** Article — compte rendu de chantier IA */
+  blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
   /** Fiche formation conversion — IA analyse CCTP & DCE */
   formationIaCctpAnalyseDceBtp: '/formations/formation-ia-cctp-analyse-dce-btp',
 

@@ -12,7 +12,12 @@ import { StatCallout } from '@/components/readability/StatCallout';
 import { Citation } from '@/components/readability/Citation';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
+import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import {
+  FORMATION_CATALOGUE_CORE,
+  GEO_DEPARTMENT_EXTENDED,
+  getGeoSisterDepartmentLinks,
+} from '@/lib/contextual-internal-links';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import {
   buildFormationIaCourseJsonLd,
@@ -322,69 +327,35 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         </div>
       </section>
 
-      <section
+      <ContextualLinksSection
         id="maillage-formation-ia-btp"
-        className={`${OFC_SEC.white} scroll-mt-28`}
-      >
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Liens utiles</h2>
-          <p className="mt-4 text-base text-slate-700 leading-relaxed md:text-lg">
-            Accès direct aux ressources les plus consultées après une recherche « formation IA pour le BTP » par département :
-            catalogue officiel, page Paris (alias court /formation-ia-btp-paris), présentation de la formatrice et
-            articles de fond.
-          </p>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            <li>
-              <Link
-                href={LINKS.formations}
-                className={`${OFC_CARD_MUTED} flex h-full flex-col p-5`}
-              >
-                <span className="text-slate-900">Catalogue des formations</span>
-                <span className="mt-2 text-base font-normal text-slate-600">
-                  NIV-01 et NIV-02, durées 4 h, objectifs Qualiopi, programmes PDF.
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={LINKS.formationIaBtpParis}
-                className={`${OFC_CARD_MUTED} flex h-full flex-col p-5`}
-              >
-                <span className="text-slate-900">Formation IA pour les pro du BTP — Paris</span>
-                <span className="mt-2 text-base font-normal text-slate-600">
-                  Paris &amp; petite couronne (redirection canonique vers la fiche catalogue).
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={LINKS.aPropos}
-                className={`${OFC_CARD_MUTED} flex h-full flex-col p-5`}
-              >
-                <span className="text-slate-900">À propos</span>
-                <span className="mt-2 text-base font-normal text-slate-600">
-                  Parcours, Qualiopi, références FFB et méthode terrain.
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href={LINKS.blog}
-                className={`${OFC_CARD_MUTED} flex h-full flex-col p-5`}
-              >
-                <span className="text-slate-900">Blog IA &amp; BTP</span>
-                <span className="mt-2 text-base font-normal text-slate-600">
-                  Guides, cas d&apos;usage, bonnes pratiques Constructys.
-                </span>
-              </Link>
-            </li>
-          </ul>
-          <p className="mt-6 text-base text-slate-500">
-            Sur ce site, un rappel discret pour prendre rendez-vous et un accès rapide au blog restent visibles en bas
-            d&apos;écran sur la plupart des pages (layout global) — typographie Inter / Outfit, accent #377CF3.
-          </p>
-        </div>
-      </section>
+        title="Liens utiles"
+        subtitle="Accès direct aux ressources les plus consultées après une recherche « formation IA pour le BTP » par département."
+        links={[
+          ...FORMATION_CATALOGUE_CORE,
+          {
+            href: LINKS.aPropos,
+            title: 'À propos — Laure Olivié',
+            description: 'Parcours, Qualiopi, références FFB et méthode terrain.',
+          },
+          {
+            href: LINKS.blog,
+            title: 'Blog IA & BTP',
+            description: 'Guides, cas d’usage, bonnes pratiques Constructys.',
+          },
+        ]}
+      />
+
+      <ContextualLinksSection
+        title="Autres départements d'Île-de-France"
+        subtitle={`Sessions intra dans vos locaux — voir aussi les pages locales voisines du ${config.departementNom} (${config.deptCode}).`}
+        links={getGeoSisterDepartmentLinks(
+          config.path.replace('/formation-ia-btp-', ''),
+          4,
+          GEO_DEPARTMENT_EXTENDED,
+        )}
+        tone="muted"
+      />
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">

@@ -2085,9 +2085,9 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       break;
     case 'metiers':
       links.push(
+        { href: LINKS.formationConducteurTravaux, label: 'formation IA conducteur de travaux BTP' },
         { href: INTERNAL_LINKS.chatgptArtisans.path, label: getAnchor('chatgptArtisans') },
         { href: INTERNAL_LINKS.iaDevis.path, label: getAnchor('iaDevis') },
-        { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
       break;
     default:
@@ -2096,7 +2096,12 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
         { href: INTERNAL_LINKS.diagnostic.path, label: getAnchor('diagnostic') },
       );
   }
-  return links;
+  const seen = new Set<string>();
+  return links.filter((link) => {
+    if (seen.has(link.href)) return false;
+    seen.add(link.href);
+    return true;
+  });
 }
 
 /** Détermine la catégorie d'un article à partir du slug */

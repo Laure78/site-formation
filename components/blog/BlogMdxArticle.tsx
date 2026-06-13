@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
-import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
-import AuthorBio from '@/components/AuthorBio';
+import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
 import { RelatedArticles } from '@/components/blog/RelatedArticles';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { shouldShowSommaireAncre } from '@/lib/sommaire-ancre';
 import {
   compileMdxBlogPostCached,
-  mdxFrontmatterToBlogArticle,
   resolveMdxCoverUrl,
 } from '@/lib/blog-mdx';
 import { getRelatedArticlesForDisplay } from '@/lib/blog';
@@ -23,7 +21,6 @@ export async function BlogMdxArticle({ slug }: Props) {
   const compiled = await compileMdxBlogPostCached(slug);
   if (!compiled) return null;
   const { content, frontmatter, toc, wordCount } = compiled;
-  const article = mdxFrontmatterToBlogArticle(frontmatter);
   const schemaImage = resolveMdxCoverUrl(frontmatter.cover);
   const related = getRelatedArticlesForDisplay(slug, 6, frontmatter.relatedSlugs);
   const sommaireItems = toc
@@ -45,8 +42,6 @@ export async function BlogMdxArticle({ slug }: Props) {
         keywords={frontmatter.keywords}
         wordCount={wordCount}
       />
-      <BlogArticleFaqJsonLd article={article} />
-
       <div
         className={
           showSommaire
@@ -129,7 +124,7 @@ export async function BlogMdxArticle({ slug }: Props) {
           <LeadMagnetCTA href={LINKS.skillIaConducteurTravaux} />
         ) : null}
 
-        <AuthorBio />
+        <ArticleAuthorBio />
 
         <RelatedArticles articles={related} className="mt-16" />
         </article>

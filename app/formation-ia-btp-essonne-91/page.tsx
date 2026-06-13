@@ -1,14 +1,13 @@
 import {
-  FormationIaBtpDepartementLanding,
-  formationIaBtpDeptMetadata,
-} from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
-import { FORMATION_IA_BTP_ESSONNE_91 } from '@/lib/formation-ia-btp-departements-config';
+  GeoFormationPage,
+  geoFormationMetadata,
+} from '@/components/geo/GeoFormationPage';
+import { GEO_FORMATION_ESSONNE_91 } from '@/lib/geo-formation-config';
 
-// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 export const revalidate = 3600;
 
-export const metadata = formationIaBtpDeptMetadata(FORMATION_IA_BTP_ESSONNE_91);
+export const metadata = geoFormationMetadata(GEO_FORMATION_ESSONNE_91);
 
 export default function FormationIaBtpEssonne91Page() {
-  return <FormationIaBtpDepartementLanding config={FORMATION_IA_BTP_ESSONNE_91} />;
+  return <GeoFormationPage {...GEO_FORMATION_ESSONNE_91} />;
 }

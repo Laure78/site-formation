@@ -6,6 +6,8 @@ import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
 import { LINKS } from '@/lib/internal-links';
+import { FOOTER_GEO_LINKS, FOOTER_METIER_LINKS } from '@/lib/contextual-internal-links';
+import { FooterExploreStrip } from '@/components/layout/FooterExploreStrip';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 
 export function Footer() {
@@ -29,12 +31,12 @@ export function Footer() {
 
   const serviceLinks = [
     { href: LINKS.formations, label: 'Catalogue' },
+    { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 bâtiment & TP' },
+    { href: LINKS.formationAO, label: "Appels d'offres (NIV-02)" },
     { href: LINKS.financement, label: 'Financement' },
+    { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
     { href: LINKS.chatgptArtisans, label: 'ChatGPT BTP' },
     { href: LINKS.formationClaudeAiBtp, label: 'Formation Claude AI BTP' },
-    { href: LINKS.formationClaudeAiBatiment, label: 'Formation Claude bâtiment' },
-    { href: LINKS.formationClaudeAiTravauxPublics, label: 'Formation Claude TP' },
-    { href: LINKS.formationAO, label: "Appels d'offres" },
     { href: LINKS.formationParis, label: 'Paris' },
   ];
 
@@ -203,6 +205,11 @@ export function Footer() {
               ))}
             </ul>
           </nav>
+        </div>
+
+        <div className="mt-10 grid gap-8 rounded-2xl border border-slate-200 bg-slate-50/60 p-5 md:grid-cols-2 md:p-6">
+          <FooterExploreStrip title="Formations IA par métier" links={FOOTER_METIER_LINKS} />
+          <FooterExploreStrip title="Formations en Île-de-France" links={FOOTER_GEO_LINKS} />
         </div>
 
         <ExternalLinkAnchor
