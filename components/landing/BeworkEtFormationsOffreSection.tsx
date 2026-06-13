@@ -172,15 +172,6 @@ export function BeworkEtFormationsOffreSection() {
 
           {/* Formations OFC */}
           <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2F2F2]">
-              <Image
-                src={PHOTOS.formationEntreprise.src}
-                alt={PHOTOS.formationEntreprise.alt}
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 480px, 100vw"
-              />
-            </div>
             <div className="flex flex-1 flex-col p-6 md:p-8">
             <div className="min-w-0">
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
