@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { sortFormationsCatalogue } from '@/lib/formations-catalogue-display';
+import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export function FormationsComparisonTable({
@@ -20,7 +21,7 @@ export function FormationsComparisonTable({
           id="comparatif-formations-heading"
           className="font-display text-[32px] font-bold text-[#0F172A]"
         >
-          Comparez les 2 formations IA pour le BTP d&apos;un coup d&apos;œil
+          Comparez les 3 formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
           Toutes Qualiopi, toutes 4 h, intra ou inter, exclusivement en présentiel en Île-de-France. Financement possible selon éligibilité.
@@ -77,6 +78,7 @@ export function FormationsComparisonTable({
                 <td className="px-[18px] py-3 align-top text-[#334155]">{row.duree}</td>
                 <td className="px-[18px] py-3 align-top text-base font-bold text-[#377CF3]">
                   {tarifHtDepuisBadgeCatalogue(row.level)} € HT{' '}
+                  {row.launchPrice ? <LaunchPriceBadge className="ml-1 align-middle" /> : null}
                   <span className="block text-xs font-normal text-[#64748B]">/ session</span>
                 </td>
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.casUsage}</td>
@@ -98,6 +100,12 @@ export function FormationsComparisonTable({
               </span>
               <span className="font-bold text-[#377CF3]">
                 {tarifHtDepuisBadgeCatalogue(row.level)} € HT / session
+                {row.launchPrice ? (
+                  <>
+                    {' '}
+                    <LaunchPriceBadge className="ml-1 align-middle" />
+                  </>
+                ) : null}
               </span>
             </div>
             <h3 className="mt-3 font-display text-base font-semibold text-[#0F172A]">

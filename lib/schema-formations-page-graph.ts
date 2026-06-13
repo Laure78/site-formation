@@ -10,6 +10,7 @@ import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
+const NIV03_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-03')!;
 
 export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown> {
   const faqSchema = getFAQSchema(FAQ_FORMATIONS);
@@ -37,9 +38,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@type': 'WebPage',
         '@id': `${BASE}/formations#webpage`,
         url: `${BASE}/formations`,
-        name: 'Catalogue formation IA appliquée au bâtiment — 2 formations Qualiopi 4 h',
+        name: 'Catalogue formation IA appliquée au bâtiment — 3 formations Qualiopi 4 h',
         description:
-          "Catalogue 2 formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre.",
+          "Catalogue 3 formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre, NIV-03 conduite de travaux.",
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -56,7 +57,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'Service',
         '@id': `${BASE}/formations#service`,
-        name: 'Formation IA pour le BTP — 2 parcours Qualiopi (présentiel en Île-de-France)',
+        name: 'Formation IA pour le BTP — 3 parcours Qualiopi (présentiel en Île-de-France)',
         serviceType: 'Formation professionnelle continue',
         provider: { '@id': `${BASE}/#organization` },
         areaServed: [
@@ -107,16 +108,31 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 valueAddedTaxIncluded: false,
               },
             },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
+              },
+              price: TARIF_SESSION_AVANCE_HT,
+              priceCurrency: 'EUR',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: TARIF_SESSION_AVANCE_HT,
+                priceCurrency: 'EUR',
+                unitText: 'par session (prix de lancement)',
+                valueAddedTaxIncluded: false,
+              },
+            },
           ],
         },
       },
       {
         '@type': 'ItemList',
         '@id': `${BASE}/formations#course-list`,
-        name: 'Catalogue 2 formations IA pour le BTP',
+        name: 'Catalogue 3 formations IA pour le BTP',
         description:
-          '2 formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).',
-        numberOfItems: 2,
+          '3 formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).',
+        numberOfItems: 3,
         itemListElement: [
           {
             '@type': 'ListItem',
@@ -205,6 +221,46 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
             },
           },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            item: {
+              '@type': 'Course',
+              '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
+              name: NIV03_CATALOG.name,
+              description: NIV03_CATALOG.description,
+              url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
+              courseCode: 'NIV-03',
+              educationalLevel: 'Advanced',
+              inLanguage: 'fr-FR',
+              teaches: NIV03_CATALOG.teaches,
+              occupationalCategory: NIV03_CATALOG.occupationalCategory,
+              provider: { '@id': `${BASE}/#organization` },
+              hasCourseInstance: {
+                '@type': 'CourseInstance',
+                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseWorkload: 'PT4H',
+                location: {
+                  '@type': 'Place',
+                  name: 'Île-de-France — inter ou intra, en présentiel',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'Île-de-France',
+                    addressCountry: 'FR',
+                  },
+                },
+                instructor: { '@id': `${BASE}/#laure-olivie` },
+              },
+              offers: {
+                '@type': 'Offer',
+                price: TARIF_SESSION_AVANCE_HT,
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
+                url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
+                category: 'Formation professionnelle continue — prix de lancement',
+              },
+            },
+          },
         ],
       },
       ...(faqSchema
@@ -228,7 +284,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Choisissez le niveau : NIV-01 (bâtiment & travaux publics, entrée de gamme) ou NIV-02 (appels d\'offre, niveau avancé).',
+            text: 'Choisissez le niveau : NIV-01 (bâtiment & travaux publics), NIV-02 (appels d\'offre) ou NIV-03 (conduite de travaux et suivi chantier).',
           },
           {
             '@type': 'HowToStep',

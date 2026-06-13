@@ -11,14 +11,16 @@ import {
   Euro,
   FileText,
   Users,
+  HardHat,
 } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { sortFormationsCatalogue, tarifLabel } from '@/lib/formations-catalogue-display';
+import { sortFormationsCatalogue, tarifLabelForEntry } from '@/lib/formations-catalogue-display';
+import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao';
+type ProfileId = 'debutant' | 'ao' | 'conduite';
 
 const PROFILES: {
   id: ProfileId;
@@ -40,6 +42,13 @@ const PROFILES: {
     short: 'NIV-02',
     icon: FileText,
     refs: ['NIV-02'],
+  },
+  {
+    id: 'conduite',
+    label: 'Je pilote mes chantiers — conduite de travaux',
+    short: 'NIV-03',
+    icon: HardHat,
+    refs: ['NIV-03'],
   },
 ];
 
@@ -101,9 +110,10 @@ function FormationCard({
             <Users size={16} className="shrink-0 text-[#377CF3]" aria-hidden />
             {cours.effectif}
           </span>
-          <span className="inline-flex items-center gap-1.5 font-semibold text-[#334155]">
+          <span className="inline-flex flex-wrap items-center gap-1.5 font-semibold text-[#334155]">
             <Euro size={16} className="shrink-0 text-[#377CF3]" aria-hidden />
-            {tarifLabel(cours.level)}
+            {tarifLabelForEntry(cours)}
+            {cours.launchPrice ? <LaunchPriceBadge /> : null}
           </span>
         </div>
         <hr className="my-5 border-[#E2E8F0]" />
@@ -191,11 +201,11 @@ export function FormationsCatalogueInteractive({
             Quelle formation choisir ?
           </h2>
           <p className="mt-2 text-sm text-[#64748B] sm:text-base">
-            Les deux parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
+            Les trois parcours sont affichés ci-dessous — cliquez sur votre profil pour mettre en avant la fiche qui
             vous correspond.
           </p>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-3">
           {PROFILES.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -222,10 +232,10 @@ export function FormationsCatalogueInteractive({
         </div>
       </section>
 
-      <section aria-labelledby="catalogue-deux-formations-heading" className="space-y-5">
+      <section aria-labelledby="catalogue-formations-heading" className="space-y-5">
         <div className="text-center">
-          <h2 id="catalogue-deux-formations-heading" className="sr-only">
-            Catalogue : niveau 1 et niveau 2
+          <h2 id="catalogue-formations-heading" className="sr-only">
+            Catalogue : niveaux 1, 2 et 3
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
@@ -234,9 +244,13 @@ export function FormationsCatalogueInteractive({
             <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
               Niveau 2 · {TARIF_SESSION_AVANCE_HT} € HT / session
             </span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
+              NIV-03 conduite · {TARIF_SESSION_AVANCE_HT} € HT
+              <LaunchPriceBadge className="!bg-white/90" />
+            </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-stretch">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-stretch">
           {sorted.map((cours) => (
             <FormationCard
               key={cours.ref}

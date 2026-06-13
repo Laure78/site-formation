@@ -356,7 +356,7 @@ export default function HomePage() {
                     <div className="relative aspect-video w-full">
                       <iframe
                         src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
-                        title="Présentation animée — 2 formations IA appliquées au bâtiment"
+                        title="Présentation animée — 3 formations IA appliquées au bâtiment"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         loading="lazy"
@@ -1000,7 +1000,7 @@ export default function HomePage() {
             <Link
               href={LINKS.formations}
               className={OFC_LINK}
-              title="Catalogue — 2 formations, programmes PDF"
+              title="Catalogue — 3 formations, programmes PDF"
             >
               catalogue &amp; programmes PDF
             </Link>

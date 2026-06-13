@@ -20,13 +20,13 @@ export function FormationsHero() {
       />
       <div className="relative mx-auto max-w-6xl px-4">
         <p className="inline-flex rounded-full border border-white/25 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/95 backdrop-blur-sm sm:px-3 sm:text-[11px]">
-          Catalogue 2026 · 2 formations Qualiopi
+          Catalogue 2026 · 3 formations Qualiopi
         </p>
         <h1
           id="formations-catalogue-hero-h1"
           className="mt-3 max-w-3xl text-balance text-[1.35rem] font-bold leading-snug tracking-tight text-white sm:mt-3.5 sm:text-[1.45rem] md:text-[1.6rem] md:leading-[1.22] lg:text-[1.75rem]"
         >
-          Catalogue formation IA pour le BTP : 2 formations Qualiopi de 4 h (niveaux 1 et 2), programmes PDF
+          Catalogue formation IA pour le BTP : 3 formations Qualiopi de 4 h (niveaux 1, 2 et 3), programmes PDF
         </h1>
         <div className="mt-4 flex flex-col gap-2.5 sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-3">
           <CalendlyEmbed

@@ -14,8 +14,9 @@ Note de satisfaction : 4,85/5. Formations finançables par Constructys et les OP
 - Zone géographique : Île-de-France (Paris, 77, 78, 91, 92, 93, 94, 95)
 
 ## Formations proposées
-- Niveau 1 — L'IA au service des pros du bâtiment et des travaux publics (4 h, 1 000 € HT/session, 12 participants max, Qualiopi)
-- Niveau 2 — L'IA appliquée aux appels d'offres BTP (4 h, 1 200 € HT/session, 12 participants max, Qualiopi)
+- NIV-01 — L'IA au service des pros du bâtiment et des travaux publics (4 h, 1 000 € HT/session, 12 participants max, Qualiopi) — /formations/ia-batiment-travaux-publics
+- NIV-02 — L'IA appliquée aux appels d'offres BTP (4 h, 1 200 € HT/session, Qualiopi) — /formations/ia-appels-offre-btp
+- NIV-03 — L'IA appliquée à la conduite de travaux (4 h, 1 200 € HT/session, prix de lancement, 8 participants max, avancé, conducteurs de travaux) — /formations/ia-conduite-travaux-suivi-chantier — PDF : /formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf
 - Format : intra dans vos locaux ou inter en salle, exclusivement en présentiel en Île-de-France
 - Financement : Constructys (plafond 24 € HT/h/stagiaire en 2026), selon éligibilité
 
