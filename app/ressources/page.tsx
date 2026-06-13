@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CalendarCheck } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
+import { TUTOS } from '@/lib/tutos';
 import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
 import { RessourcesThematicHub } from '@/components/ressources/RessourcesThematicHub';
+import { RessourcesHero } from '@/components/ressources/RessourcesHero';
+import { RessourcesTutosNav } from '@/components/ressources/RessourcesTutosNav';
 
 const PATH = '/ressources';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -48,76 +50,53 @@ export default function RessourcesIndexPage() {
     <div className="min-h-screen bg-white">
       <JsonLd id="schema-ressources-collection" schema={collectionJsonLd} />
 
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 pb-12 pt-10 md:pb-16 md:pt-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
-            Tutos & Guides offerts
-          </p>
-          <h1 className="mt-3 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
-            Ressources gratuites IA BTP
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
-            Tutos PDF, guides et fiches pratiques pour appliquer l&apos;IA dans ton entreprise BTP.
-            Téléchargement libre, sans inscription. Tous les contenus sont signés Laure Olivié,
-            formatrice IA × BTP —             OFC Création d&apos;Entreprise (Qualiopi).
-          </p>
-        </div>
-      </section>
+      <RessourcesHero />
 
       <RessourcesThematicHub />
 
-      <section className="bg-[#F8FAFC] py-14 md:py-20">
+      <section id="tutoriels-pdf" className="scroll-mt-28 bg-[#F2F2F2] py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="mb-10 max-w-3xl">
+          <div className="mb-2 max-w-3xl">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Tutoriels PDF par thème</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-              Les tutos sont regroupés pour t&apos;aider à trouver vite un parcours adapté à ton besoin du moment.
+              Parcours pas à pas signés OFC — lis en ligne ou télécharge le PDF directement.
             </p>
           </div>
-          <nav
-            aria-label="Accès rapide aux rubriques de tutos"
-            className="mb-14 flex flex-wrap gap-2 border-b border-slate-200 pb-10"
-          >
-            {TUTO_CATEGORY_ORDER.map((id) => {
-              const meta = TUTO_CATEGORY_META[id];
-              const count = TUTOS.filter((t) => t.category === id).length;
-              if (count === 0) return null;
-              return (
-                <a
-                  key={id}
-                  href={`#${meta.sectionId}`}
-                  className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:border-[#377CF3] hover:text-[#377CF3] md:text-sm"
-                >
-                  {meta.pillLabel}
-                  <span className="ml-1 text-slate-400">({count})</span>
-                </a>
-              );
-            })}
-          </nav>
-          <TutosGroupedByCategory tutos={TUTOS} badgeMode="offert" />
+
+          <RessourcesTutosNav />
+
+          <div className="mt-6 md:mt-8">
+            <TutosGroupedByCategory tutos={TUTOS} badgeMode="offert" />
+          </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-white py-14">
+      <section
+        id="aller-plus-loin"
+        className="scroll-mt-28 border-t border-slate-200 bg-gradient-to-br from-[#377CF3] to-[#2d66d6] py-14 text-white md:py-16"
+      >
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Envie d&apos;aller plus loin ?
-          </h2>
-          <p className="mt-3 text-slate-700">
-            Les tutos t&apos;ont mis le pied à l&apos;étrier. Pour passer au niveau supérieur — skill construit
-            sur ta vraie entreprise, équipe formée — découvre les programmes Niveau 2, financement possible selon éligibilité (Constructys) / OPCO.
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
+            <CalendarCheck size={14} aria-hidden />
+            Prochaine étape
+          </span>
+          <h2 className="mt-4 font-display text-2xl font-bold md:text-3xl">Envie d&apos;aller plus loin ?</h2>
+          <p className="mt-3 text-base leading-relaxed text-white/90 md:text-lg">
+            Les tutos t&apos;ont mis le pied à l&apos;étrier. Pour passer au niveau supérieur — skill construit sur ta
+            vraie entreprise, équipe formée — découvre les programmes catalogue, financement possible selon éligibilité
+            (Constructys) / OPCO.
           </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href={LINKS.prendreRdv}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 text-[0.95rem] font-semibold text-white shadow-sm hover:bg-[#2d66d6]"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-[0.95rem] font-semibold text-[#377CF3] shadow-lg transition hover:bg-[#F2F2F2]"
             >
               Prendre un rendez-vous découverte
               <ArrowRight size={16} aria-hidden />
             </Link>
             <Link
               href={LINKS.diagnostic}
-              className="inline-flex items-center gap-2 rounded-xl border border-[#377CF3] bg-white px-6 py-3 text-[0.95rem] font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/30"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/80 bg-transparent px-6 py-3 text-[0.95rem] font-semibold text-white transition hover:bg-white/10"
             >
               Diagnostic IA BTP offert
             </Link>
