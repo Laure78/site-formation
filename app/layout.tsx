@@ -15,6 +15,7 @@ import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OG_SITE_NAME } from '@/utils/metadata';
+import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
 import { OrganizationSchema } from '@/components/schema/OrganizationSchema';
 import { PersonSchema } from '@/components/schema/PersonSchema';
@@ -53,13 +54,14 @@ const llmsTxtSchema = {
 
 /** Métadonnées globales — auteurs / publisher alignés sur l'entité Person (JSON-LD via `<PersonSchema />`). */
 export async function generateMetadata(): Promise<Metadata> {
+  const siteDescription = clampMetaDescription(SITE_CONFIG.description);
   return {
     metadataBase: new URL(SITE_CONFIG.url),
     title: {
       template: '%s | Laure Olivié',
       default: "Laure Olivié — Formatrice IA pour les pro du BTP | OFC Création d'Entreprise",
     },
-    description: SITE_CONFIG.description,
+    description: siteDescription,
     authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
     creator: SITE_CONFIG.name,
     publisher: 'OFC Création d\'Entreprise',
@@ -71,7 +73,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: baseUrl,
       siteName: OG_SITE_NAME,
       title: 'Formation IA appliquée au bâtiment Île-de-France — Laure Olivié (Qualiopi)',
-      description: SITE_CONFIG.description,
+      description: siteDescription,
       images: [
         {
           url: `${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`,
@@ -84,7 +86,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Formation IA pour le BTP — Laure Olivié (Qualiopi · Constructys)',
-      description: SITE_CONFIG.description,
+      description: siteDescription,
       images: [`${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`],
     },
     robots: {

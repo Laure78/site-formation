@@ -57,7 +57,7 @@ const SEO_TITLE =
   'Formation IA bâtiment & travaux publics (niveau 1) | Laure Olivié';
 
 /** Meta description — formation IA pour les pro du BTP */
-const SEO_DESCRIPTION = `Formation IA appliquée au bâtiment niveau 1 (${SESSION_DUREE_LIBELLE}) : bâtiment et travaux publics, devis, chantier, administratif. Qualiopi, formation IA pour le BTP, ChatGPT BTP.`;
+const SEO_DESCRIPTION = `Formation IA appliquée au bâtiment niveau 1 (${SESSION_DUREE_LIBELLE}) : BTP/TP, devis, chantier, admin. Qualiopi, formation IA pour le BTP.`;
 
 const MAIL_PROGRAMME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA niveau 1 bâtiment & TP')}`;

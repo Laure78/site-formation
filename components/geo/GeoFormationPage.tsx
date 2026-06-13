@@ -17,6 +17,7 @@ import {
 } from '@/lib/contextual-internal-links';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { COUNT_UP_PROS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { buildDeptMetaDescription } from '@/lib/meta-description';
 import {
   GEO_FORMATION_CAS_USAGE,
   geoFormationDepartementLabel,
@@ -26,17 +27,18 @@ import {
 
 export type { GeoFormationPageProps };
 
+function geoMetaDescription(departement: string, code: string, villes: readonly string[]): string {
+  const villesCourtes = villes.slice(0, 2).join(', ');
+  return buildDeptMetaDescription(departement, code, villesCourtes);
+}
+
 export function geoFormationMetadata(props: GeoFormationPageProps) {
   const { departement, code, villes, slug } = props;
-  const deptLabel = geoFormationDepartementLabel(departement, code);
-  const v0 = villes[0] ?? departement;
-  const v1 = villes[1] ?? v0;
-  const v2 = villes[2] ?? v1;
 
   return createPageMetadata({
     title: `Formation IA BTP ${departement} (${code}) — Qualiopi — Laure Olivié`,
     titleAbsolute: `Formation IA BTP ${departement} (${code}) — Qualiopi — Laure Olivié`,
-    description: `Formation IA pour entreprises BTP ${deptLabel} (${code}) : ${v0}, ${v1}, ${v2}. Intra dans vos locaux. Qualiopi, Constructys. RDV gratuit.`,
+    description: geoMetaDescription(departement, code, villes),
     path: geoFormationPath(slug),
     appendAuthorSuffix: false,
     openGraphType: 'article',
@@ -62,7 +64,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
   const deptPreposition = geoFormationDepartementLabel(departement, code);
   const villePrincipale = villes[0] ?? departement;
 
-  const metaDescription = `Formation IA pour entreprises BTP ${deptPreposition} (${code}) : ${villes.slice(0, 3).join(', ')}. Intra dans vos locaux. Qualiopi, Constructys. RDV gratuit.`;
+  const metaDescription = geoMetaDescription(departement, code, villes);
 
   const courseJsonLd = buildFormationIaCourseJsonLd({
     name: `Formation IA BTP ${deptLabel} — Qualiopi`,

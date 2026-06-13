@@ -4,6 +4,7 @@
  */
 import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
 import type { FAQItem } from '@/lib/faq';
+import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
@@ -68,7 +69,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   h1: 'Formation IA pour le BTP en Yvelines (78) — Versailles et agglomération',
   metaTitle: 'Formation IA pour les pro du BTP Yvelines — Laure Olivié · Qualiopi',
   metaDescription:
-    'Formation ChatGPT et Claude AI pour le BTP dans les Yvelines (78). Intervention à Versailles, Saint-Quentin-en-Yvelines et Mantes-la-Jolie. Qualiopi, financement possible selon éligibilité.',
+    'Formation IA pour le BTP en Yvelines (78) : Versailles, SQY, Guyancourt. Claude AI & ChatGPT. Qualiopi, Constructys.',
   keywords: [
     'formation IA appliquée au bâtiment Yvelines',
     'formation ChatGPT 78',
@@ -183,7 +184,7 @@ function buildDeptConfig(opts: {
   const d = `${departementNom} (${deptCode})`;
   const h1 = `Formation IA appliquée au bâtiment en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
   const metaTitle = `Formation IA pour le BTP ${opts.departementNom} — Laure Olivié · Qualiopi`;
-  const metaDescription = `Formation ChatGPT et Claude AI pour le BTP dans ${opts.departementNom} (${opts.deptCode}). Intervention à ${opts.triVillesMeta}. Qualiopi, financement possible selon éligibilité.`;
+  const metaDescription = buildDeptMetaDescription(departementNom, deptCode, opts.triVillesMeta);
   const courseName = `Formation IA pour les pro du BTP ${d} — Qualiopi, financement possible selon éligibilité`;
   return {
     path: opts.path,
@@ -284,8 +285,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   path: '/formation-ia-btp-seine-et-marne-77',
   h1: 'Formation IA appliquée au bâtiment en Seine-et-Marne (77) — Melun, Meaux et Marne-la-Vallée',
   metaTitle: 'Formation IA pour le BTP Seine-et-Marne — Laure Olivié · Qualiopi',
-  metaDescription:
-    'Formation ChatGPT et Claude AI pour le BTP en Seine-et-Marne (77). Intervention à Melun, Meaux et Marne-la-Vallée. Qualiopi, financement possible selon éligibilité.',
+  metaDescription: buildDeptMetaDescription('Seine-et-Marne', '77', 'Melun, Meaux'),
   keywords: [
     'formation IA appliquée au bâtiment 77',
     'formation ChatGPT Seine-et-Marne',

@@ -83,28 +83,26 @@ export function BeworkEtFormationsOffreSection() {
           </p>
         </Reveal>
 
-        <figure className="mx-auto max-w-4xl overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
-          <Link href={LINKS.bework} className="block">
+        <div className="flex justify-center">
+          <ExternalLinkAnchor
+            href={EXTERNAL_SITE_URLS.bework}
+            title="BeWork — site officiel bework.fr (nouvel onglet)"
+            className="group inline-flex flex-col items-center gap-2 rounded-xl border border-slate-200/90 bg-white p-2 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-[0_4px_16px_rgba(55,124,243,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+          >
             <Image
               src={BEWORK_PHOTO_HERO.src}
               alt={BEWORK_PHOTO_HERO.alt}
               width={BEWORK_PHOTO_HERO.width}
               height={BEWORK_PHOTO_HERO.height}
-              className="h-auto w-full transition-opacity hover:opacity-95"
-              sizes="(min-width: 1024px) 896px, 100vw"
+              className="h-auto w-24 rounded-lg object-cover transition group-hover:opacity-90 sm:w-32"
+              sizes="128px"
             />
-          </Link>
-          <figcaption className="border-t border-slate-100 px-4 py-2.5 text-center text-xs text-[#5A5A5A]">
-            BeWork — relais administratif de vos marchés travaux.{' '}
-            <Link href={LINKS.bework} className="font-medium text-[#377CF3] hover:underline">
-              Présentation complète
-            </Link>
-            {' · '}
-            <ExternalLinkAnchor href={EXTERNAL_SITE_URLS.bework} title="Site officiel bework.fr" className="font-medium text-[#377CF3] hover:underline">
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#377CF3]">
               bework.fr
-            </ExternalLinkAnchor>
-          </figcaption>
-        </figure>
+              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            </span>
+          </ExternalLinkAnchor>
+        </div>
 
         <RevealGroup className="grid gap-6 lg:grid-cols-2 lg:gap-8" staggerMs={70}>
           {/* BeWork */}
@@ -221,6 +219,20 @@ export function BeworkEtFormationsOffreSection() {
                 <p className="mt-1.5">
                   Analyse DCE, mémoire technique, assistants IA réutilisables.{' '}
                   <span className="text-[#5A5A5A]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</span>
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-[#1A1A1A]">
+                  <Link
+                    href={LINKS.formationConduiteTravauxSuiviChantier}
+                    className="text-[#377CF3] underline-offset-2 hover:underline"
+                  >
+                    Niveau 3 — L&apos;IA appliquée à la conduite de travaux
+                  </Link>
+                  {` (${SESSION_DUREE_LIBELLE}, forfait ${TARIF_SESSION_AVANCE_HT} € HT / session · 8 participants max · prix de lancement)`}
+                </p>
+                <p className="mt-1.5">
+                  Bibliothèque de skills Claude : CCTP, PPSPS, CR, sous-traitants, DOE. Pilotage chantier au quotidien.
                 </p>
               </div>
               <div>

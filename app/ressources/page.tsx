@@ -16,7 +16,7 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 export const metadata: Metadata = createPageMetadata({
   title: 'Ressources gratuites IA BTP : tutos, guides et fiches pratiques',
   description:
-    "Tutos PDF et guides IA pour le BTP : skills Claude (DUERP, PPSPS, mémoire technique, CR chantier), veille DCE. Téléchargements gratuits.",
+    'Formation IA pour le BTP : tutos PDF gratuits Claude (DUERP, PPSPS, CR, DCE). Guides OFC Qualiopi, téléchargement libre.',
   path: PATH,
   openGraphType: 'website',
   appendAuthorSuffix: false,

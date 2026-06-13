@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowUpRight, CheckCircle2, Cpu, Layers, MapPin, MinusCircle } from 'lucide-react';
 import { ClaudeAiBtpHero } from '@/components/claude/ClaudeAiBtpHero';
+import { ClaudeAiBtpQuickNav } from '@/components/claude/ClaudeAiBtpQuickNav';
 import { ClaudeAiBtpTableOfContents } from '@/components/claude/ClaudeAiBtpTableOfContents';
 import { ClaudeBtpCaseStudies } from '@/components/claude/ClaudeBtpCaseStudies';
 import { ClaudeBtpConversionCta } from '@/components/claude/ClaudeBtpConversionCta';
@@ -28,7 +29,7 @@ const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 export const metadata = createPageMetadata({
   title: 'Formation Claude AI BTP 2026 : guide Chat, Cowork, Code & Chrome',
   description:
-    `Claude AI pour le BTP : guide Chat, Cowork, Code & Chrome pour chantier, DCE, CR et administratif. Qualiopi, Île-de-France. ${formatProfessionalsTrainedCount()} pros formés.`,
+    `Guide Claude AI BTP : Chat, Cowork, Code & Chrome. Prompts chantier, DCE, CR. Qualiopi, IDF. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: null,
   openGraphType: 'article',
@@ -203,6 +204,7 @@ export default function ClaudeAiBtpPillarPage() {
           </div>
         </div>
         <ClaudeAiBtpHero />
+        <ClaudeAiBtpQuickNav />
 
         <div className="mx-auto max-w-6xl px-4 pb-24 pt-8 md:pb-32 md:pt-12">
           <div className="lg:grid lg:grid-cols-[minmax(0,240px)_minmax(0,1fr)] lg:gap-10 xl:gap-12">
@@ -213,161 +215,48 @@ export default function ClaudeAiBtpPillarPage() {
             <article className="min-w-0 space-y-20 md:space-y-28">
               <ClaudeBtpStatsSection />
 
-              <ClaudeSkillsLeadMagnetSection />
-
-              <section aria-labelledby="formation-claude-idf">
-                <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-                  <h2
-                    id="formation-claude-idf"
-                    className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
-                  >
-                    Formation en Île-de-France
+              <section id="en-bref" className="scroll-mt-28" aria-labelledby="en-bref-heading">
+                <div className="rounded-2xl border border-[#377CF3]/20 bg-gradient-to-br from-[#EFF6FF] to-white p-6 shadow-[inset_4px_0_0_0_#377CF3,0_8px_30px_rgba(15,23,42,0.04)] md:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">L&apos;essentiel</p>
+                  <h2 id="en-bref-heading" className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                    En bref
                   </h2>
-                  <p className="max-w-md text-sm text-[#64748B]">
-                    Formation Claude AI BTP en sessions intra ou inter — même programme Qualiopi, en présentiel en Île-de-France, aligné terrain (devis, DCE, CR, mémoires techniques).
+                  <p className="tldr mt-4 max-w-3xl text-sm leading-relaxed text-[#64748B] md:text-base">
+                    Ce guide regroupe les <strong className="font-semibold text-[#0F172A]">cinq interfaces Claude</strong>{' '}
+                    utiles au BTP, des <strong className="font-semibold text-[#0F172A]">prompts copiables</strong> et une
+                    méthode de skill réutilisable — pour gagner du temps sur les DCE, les comptes rendus et l&apos;administratif,
+                    sans remplacer le jugement métier.
                   </p>
-                </div>
-                <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {idfLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="group flex items-start justify-between gap-3 rounded-2xl border border-[#E2E8F0] bg-white p-4 shadow-[0_6px_24px_rgba(15,23,42,0.04)] transition hover:border-[#BFDBFE] hover:shadow-[0_12px_36px_rgba(15,23,42,0.07)]"
-                    >
-                      <span>
-                        <span className="flex items-center gap-2 font-display font-semibold text-[#0F172A]">
-                          <MapPin className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
-                          {item.label}
-                        </span>
-                        <span className="mt-1 block text-xs text-[#64748B]">{item.sub}</span>
-                      </span>
-                      <ArrowUpRight
-                        className="h-4 w-4 shrink-0 text-[#CBD5E1] transition group-hover:text-[#377CF3]"
-                        aria-hidden
-                      />
-                    </Link>
-                  ))}
-                </div>
-                <p className="mt-6 text-sm text-[#475569]">
-                  <strong className="font-semibold text-[#0F172A]">IA chantier &amp; automatisation BTP</strong> — ce guide
-                  prolonge ces parcours.
-                </p>
-              </section>
-
-              <section className="scroll-mt-24" aria-labelledby="tuto-skill-ia">
-                <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 md:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">Tutoriel opérationnel</p>
-                  <h2 id="tuto-skill-ia" className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                    Créer son 1er skill IA conducteur de travaux
-                  </h2>
-                  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569] md:text-base">
-                    Vous voulez une méthode ultra-pratique ? Le guide dédié reprend le process en 7 étapes, 5 cas
-                    d&apos;usage chantier et un template prêt à copier-coller dans Claude ou ChatGPT.
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <Link
-                      href={LINKS.guideSkillIaConducteurTravaux}
-                      className="inline-flex items-center rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-                    >
-                      Voir la version tutoriel SEO
-                    </Link>
-                    <Link
-                      href={LINKS.skillIaConducteurTravaux}
-                      className="inline-flex items-center rounded-xl border border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-white"
-                    >
-                      Ouvrir la ressource complète
-                    </Link>
-                  </div>
-                </div>
-              </section>
-
-              <section aria-labelledby="nav-rapide">
-                <h2 id="nav-rapide" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                  Ressources liées
-                </h2>
-                <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  {quickLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={`${OFC_CARD} flex items-center justify-between gap-3 px-4 py-3.5 text-sm font-medium text-[#0F172A]`}
-                    >
-                      {item.label}
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-[#94A3B8]" aria-hidden />
-                    </Link>
-                  ))}
-                </div>
-              </section>
-
-              <section aria-labelledby="en-bref">
-                <h2 id="en-bref" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                  En bref
-                </h2>
-                <p className="tldr mt-6 max-w-3xl text-sm leading-relaxed text-[#64748B] md:text-base">
-                  Ce guide regroupe les <strong className="font-semibold text-[#0F172A]">cinq interfaces Claude</strong>{' '}
-                  utiles au BTP, des <strong className="font-semibold text-[#0F172A]">prompts copiables</strong> et une
-                  méthode de skill réutilisable — pour gagner du temps sur les DCE, les comptes rendus et l&apos;administratif,
-                  sans remplacer le jugement métier.
-                </p>
-                <div className="mt-8 grid gap-4 md:grid-cols-2">
-                  <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0F172A] text-white">
-                      <Cpu className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-xl border border-white/80 bg-white/90 p-4 shadow-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0F172A] text-white">
+                        <Cpu className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                      </div>
+                      <h3 className="mt-3 font-display text-base font-bold text-[#0F172A]">Écosystème Anthropic</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-[#64748B]">
+                        Chat, Cowork, Code, desktop, Chrome — DCE, mémoires, CR, veille AO, devis.
+                      </p>
                     </div>
-                    <h3 className="mt-4 font-display text-lg font-bold text-[#0F172A]">Écosystème Anthropic</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#64748B]">
-                      Chat, Cowork, Code, desktop, Chrome — pour DCE, mémoires techniques, CR, veille AO, devis et relances.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)]">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] text-[#377CF3]">
-                      <Layers className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                    <div className="rounded-xl border border-white/80 bg-white/90 p-4 shadow-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] text-[#377CF3]">
+                        <Layers className="h-5 w-5" strokeWidth={1.75} aria-hidden />
+                      </div>
+                      <h3 className="mt-3 font-display text-base font-bold text-[#0F172A]">Ressource vivante</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-[#64748B]">
+                        Mise à jour lors des évolutions d&apos;outil — méthode OFC testée avec des pros du BTP.
+                      </p>
                     </div>
-                    <h3 className="mt-4 font-display text-lg font-bold text-[#0F172A]">Ressource vivante</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-[#64748B]">
-                      Page mise à jour lors des évolutions d’outil — méthode OFC terrain, testée avec des pros du BTP.
-                    </p>
                   </div>
                 </div>
               </section>
-
-              <section className="scroll-mt-24" id="claude-batiment-vs-tp" aria-labelledby="claude-batiment-vs-tp-title">
-                <h2 id="claude-batiment-vs-tp-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                  Claude bâtiment vs Claude travaux publics : quelles différences ?
-                </h2>
-                <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-[#475569] md:text-base">
-                  <p>
-                    Sur un contexte <strong className="text-[#0F172A]">Claude bâtiment</strong>, les usages les plus fréquents
-                    concernent la rédaction de devis détaillés, la structuration des réponses clients, la relecture de pièces
-                    techniques et la normalisation des comptes rendus de chantier. Les équipes travaillent souvent sur des lots
-                    second oeuvre, gros oeuvre, couverture ou étanchéité, avec un besoin fort de clarté documentaire et de
-                    vitesse d&apos;exécution.
-                  </p>
-                  <p>
-                    Côté <strong className="text-[#0F172A]">Claude travaux publics</strong>, l&apos;accent se déplace vers
-                    l&apos;analyse de CCTP/DCE plus volumineux, la coordination multi-intervenants, la planification, le suivi
-                    de sous-traitance et la préparation de mémoires techniques orientés marchés publics. Les prompts et les
-                    formats de sortie sont adaptés à cette complexité (tableaux de critères, synthèses Go/No-Go, trames de
-                    pilotage).
-                  </p>
-                  <p>
-                    En formation OFC, la logique est la même : <strong className="text-[#0F172A]">Claude AI et ChatGPT sont
-                    complémentaires</strong>. On règle d&apos;abord les objectifs opérationnels de l&apos;entreprise, puis on
-                    choisit l&apos;outil et la méthode selon le cas d&apos;usage réel. Résultat : des gains de temps concrets, sans
-                    déconnexion du terrain.
-                  </p>
-                </div>
-              </section>
-
-              <ClaudeSkillTutorialBtpSection />
 
               <ClaudeBtpInterfaceDecisionGrid />
-
               <ClaudeBtpInterfaceGallery />
-
+              <ClaudeSkillsLeadMagnetSection />
+              <ClaudeSkillTutorialBtpSection />
               <ClaudeBtpResourcesSection promptProjet={PROMPT_PROJET} />
 
-              <section className="scroll-mt-24" aria-labelledby="gains-temps">
+              <section className="scroll-mt-28" aria-labelledby="gains-temps">
                 <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                   <h2 id="gains-temps" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
                     Gains de temps mesurés
@@ -468,9 +357,114 @@ export default function ClaudeAiBtpPillarPage() {
 
               <ClaudeBtpCaseStudies />
 
-              <ClaudeBtpFaqSections faqItems={faqItems} relatedQuestions={relatedQuestions} />
+              <section className="scroll-mt-28" id="claude-batiment-vs-tp" aria-labelledby="claude-batiment-vs-tp-title">
+                <h2 id="claude-batiment-vs-tp-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                  Claude bâtiment vs Claude travaux publics : quelles différences ?
+                </h2>
+                <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-[#475569] md:text-base">
+                  <p>
+                    Sur un contexte <strong className="text-[#0F172A]">Claude bâtiment</strong>, les usages les plus fréquents
+                    concernent la rédaction de devis détaillés, la structuration des réponses clients, la relecture de pièces
+                    techniques et la normalisation des comptes rendus de chantier. Les équipes travaillent souvent sur des lots
+                    second oeuvre, gros oeuvre, couverture ou étanchéité, avec un besoin fort de clarté documentaire et de
+                    vitesse d&apos;exécution.
+                  </p>
+                  <p>
+                    Côté <strong className="text-[#0F172A]">Claude travaux publics</strong>, l&apos;accent se déplace vers
+                    l&apos;analyse de CCTP/DCE plus volumineux, la coordination multi-intervenants, la planification, le suivi
+                    de sous-traitance et la préparation de mémoires techniques orientés marchés publics. Les prompts et les
+                    formats de sortie sont adaptés à cette complexité (tableaux de critères, synthèses Go/No-Go, trames de
+                    pilotage).
+                  </p>
+                  <p>
+                    En formation OFC, la logique est la même : <strong className="text-[#0F172A]">Claude AI et ChatGPT sont
+                    complémentaires</strong>. On règle d&apos;abord les objectifs opérationnels de l&apos;entreprise, puis on
+                    choisit l&apos;outil et la méthode selon le cas d&apos;usage réel. Résultat : des gains de temps concrets, sans
+                    déconnexion du terrain.
+                  </p>
+                </div>
+              </section>
 
-              <section className="scroll-mt-24" aria-labelledby="cluster">
+              <section className="scroll-mt-28" aria-labelledby="formation-claude-idf">
+                <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                  <h2
+                    id="formation-claude-idf"
+                    className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                  >
+                    Formation en Île-de-France
+                  </h2>
+                  <p className="max-w-md text-sm text-[#64748B]">
+                    Sessions intra ou inter — programme Qualiopi, présentiel IDF (devis, DCE, CR, mémoires techniques).
+                  </p>
+                </div>
+                <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {idfLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group flex items-start justify-between gap-3 rounded-2xl border border-[#E2E8F0] bg-white p-4 shadow-[0_6px_24px_rgba(15,23,42,0.04)] transition hover:border-[#BFDBFE] hover:shadow-[0_12px_36px_rgba(15,23,42,0.07)]"
+                    >
+                      <span>
+                        <span className="flex items-center gap-2 font-display font-semibold text-[#0F172A]">
+                          <MapPin className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
+                          {item.label}
+                        </span>
+                        <span className="mt-1 block text-xs text-[#64748B]">{item.sub}</span>
+                      </span>
+                      <ArrowUpRight
+                        className="h-4 w-4 shrink-0 text-[#CBD5E1] transition group-hover:text-[#377CF3]"
+                        aria-hidden
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+
+              <section className="scroll-mt-28" aria-labelledby="tuto-skill-ia">
+                <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6 md:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#377CF3]">Tutoriel opérationnel</p>
+                  <h2 id="tuto-skill-ia" className="mt-3 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                    Créer son 1er skill IA conducteur de travaux
+                  </h2>
+                  <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569] md:text-base">
+                    Guide en 7 étapes, 5 cas d&apos;usage chantier et template prêt à copier dans Claude ou ChatGPT.
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Link
+                      href={LINKS.guideSkillIaConducteurTravaux}
+                      className="inline-flex items-center rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+                    >
+                      Voir le tutoriel SEO
+                    </Link>
+                    <Link
+                      href={LINKS.skillIaConducteurTravaux}
+                      className="inline-flex items-center rounded-xl border border-[#377CF3] bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-white"
+                    >
+                      Ressource complète
+                    </Link>
+                  </div>
+                </div>
+              </section>
+
+              <section className="scroll-mt-28" aria-labelledby="nav-rapide">
+                <h2 id="nav-rapide" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
+                  Ressources liées
+                </h2>
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {quickLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`${OFC_CARD} flex items-center justify-between gap-3 px-4 py-3.5 text-sm font-medium text-[#0F172A]`}
+                    >
+                      {item.label}
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-[#94A3B8]" aria-hidden />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+
+              <section className="scroll-mt-28" aria-labelledby="cluster">
                 <h2 id="cluster" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
                   Ressources approfondies
                 </h2>
@@ -519,6 +513,8 @@ export default function ClaudeAiBtpPillarPage() {
                   </Link>
                 </p>
               </section>
+
+              <ClaudeBtpFaqSections faqItems={faqItems} relatedQuestions={relatedQuestions} />
 
               <ClaudeBtpConversionCta />
             </article>

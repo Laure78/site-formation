@@ -118,24 +118,6 @@ export function ClaudeSkillsLeadMagnetSection() {
         </ul>
       </div>
 
-      <div className="mt-12">
-        <h3 className="font-display text-lg font-bold text-[#0F172A] md:text-xl">Les 3 compétences couvertes</h3>
-        <div className="mt-5 grid gap-4 md:grid-cols-3">
-          {SKILLS.map(({ title, description, Icon }) => (
-            <article
-              key={`${title}-covered`}
-              className="rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(15,23,42,0.08)]"
-            >
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#EFF6FF] bg-[#F8FAFC] text-[#377CF3]">
-                <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-              </div>
-              <h4 className="mt-4 font-display text-base font-semibold text-[#0F172A]">{title}</h4>
-              <p className="mt-2 text-sm leading-relaxed text-[#64748B]">{description}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-
       <div className="mt-10 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
         <h3 className="font-display text-lg font-bold text-[#0F172A]">Exemple de prompt inclus</h3>
         <pre className="mt-4 whitespace-pre-wrap break-words border-l-[3px] border-[#377CF3] pl-3 font-mono text-xs leading-relaxed text-[#334155] md:text-sm">

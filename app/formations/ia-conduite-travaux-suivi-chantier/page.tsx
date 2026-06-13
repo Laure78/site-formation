@@ -32,7 +32,8 @@ import { buildCatalogueCourseConduiteTravauxNiv03JsonLd } from '@/lib/schema-cat
 
 const PDF_HREF = LINKS.pdfProgrammeConduiteTravauxNiv03;
 
-const PAGE_META_DESCRIPTION = `Formation IA appliquée à la conduite de travaux BTP : CCTP, DPGF, PPSPS, CR, sous-traitants, réception. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (prix de lancement). Qualiopi, Constructys.`;
+const PAGE_META_DESCRIPTION =
+  'Formation IA pour le BTP — conduite de travaux : CCTP, PPSPS, CR, réception. Session 4 h, Qualiopi, Constructys.';
 
 export const metadata = createPageMetadata({
   title: 'IA conduite de travaux BTP — suivi chantier & skills Claude',

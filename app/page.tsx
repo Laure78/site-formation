@@ -252,47 +252,91 @@ export default function HomePage() {
                   — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
                   certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <StatCallout
-                    variant="inline"
-                    value={COUNT_UP_PROS}
-                    label="professionnels formés"
-                    freshnessLabel={STATS_FRESHNESS_LABEL}
-                  />
-                  <StatCallout
-                    variant="inline"
-                    value={COUNT_UP_RATING}
-                    label="note moyenne"
-                    freshnessLabel={STATS_FRESHNESS_LABEL}
+              </div>
+
+              <aside className="flex w-full min-w-0 flex-col gap-5 lg:sticky lg:top-24 xl:top-28">
+                <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_16px_40px_-20px_rgba(15,23,42,0.15)] ring-1 ring-slate-200/60">
+                  <Image
+                    src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
+                    alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
+                    width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
+                    height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
+                    className="h-auto w-full object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 560px"
                   />
                 </div>
-                <Essentiel
-                  className="mt-8"
-                  idPrefix="accueil"
-                  items={[
-                    'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
-                    'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
-                    `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
-                    'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                    'Catalogue NIV-01 bâtiment & TP, NIV-02 appels d’offres et NIV-03 conduite de travaux — validation métier de votre côté.',
-                  ]}
+                <div className="w-full rounded-3xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
+                  <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
+                    <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-[0.7rem]">
+                        Présentation vidéo
+                      </p>
+                      <span className="inline-flex w-fit items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.7rem] font-semibold text-[#377CF3] ring-1 ring-[#377CF3]/15">
+                        3 parcours · programme
+                      </span>
+                    </div>
+                    <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
+                      Les 3 parcours de formation IA pour les pro du BTP
+                    </p>
+                    <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-950 shadow-inner ring-1 ring-slate-900/10">
+                      <div className="relative aspect-video w-full">
+                        <iframe
+                          src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
+                          title="Présentation animée — 3 formations IA appliquées au bâtiment"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full border-0"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+
+            <div className="mt-10 min-w-0 w-full space-y-8 border-t border-slate-200/80 pt-10 md:mt-12 md:pt-12">
+              <div className="flex flex-wrap gap-3">
+                <StatCallout
+                  variant="inline"
+                  value={COUNT_UP_PROS}
+                  label="professionnels formés"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
                 />
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                  <CalendlyEmbed
-                    type="popup"
-                    variant="pill"
-                    campaign="accueil-hero"
-                    ctaPosition="hero"
-                    className="min-w-[min(100%,240px)] md:min-w-[auto]"
-                  />
-                  <Link
-                    href="#programme"
-                    className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
-                  >
-                    Voir le programme
-                  </Link>
-                </div>
-                <div className="mt-8 rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
+                <StatCallout
+                  variant="inline"
+                  value={COUNT_UP_RATING}
+                  label="note moyenne"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                />
+              </div>
+              <Essentiel
+                idPrefix="accueil"
+                items={[
+                  'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
+                  'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
+                  `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
+                  'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
+                  'Catalogue NIV-01 bâtiment & TP, NIV-02 appels d’offres et NIV-03 conduite de travaux — validation métier de votre côté.',
+                ]}
+              />
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <CalendlyEmbed
+                  type="popup"
+                  variant="pill"
+                  campaign="accueil-hero"
+                  ctaPosition="hero"
+                  className="min-w-[min(100%,240px)] md:min-w-[auto]"
+                />
+                <Link
+                  href="#programme"
+                  className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
+                >
+                  Voir le programme
+                </Link>
+              </div>
+              <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
                 <p className="text-sm leading-relaxed text-slate-600">
                   <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
                   <Link
@@ -351,38 +395,7 @@ export default function HomePage() {
                     IA conduite de travaux (NIV-03)
                   </Link>
                 </p>
-                </div>
               </div>
-
-              <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24 xl:top-28">
-                <div className="w-full rounded-3xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
-                  <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
-                  <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-[0.7rem]">
-                      Présentation vidéo
-                    </p>
-                    <span className="inline-flex w-fit items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.7rem] font-semibold text-[#377CF3] ring-1 ring-[#377CF3]/15">
-                      2 parcours · programme
-                    </span>
-                  </div>
-                  <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
-                    Les 2 parcours de formation IA pour les pro du BTP
-                  </p>
-                  <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-950 shadow-inner ring-1 ring-slate-900/10">
-                    <div className="relative aspect-video w-full">
-                      <iframe
-                        src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
-                        title="Présentation animée — 3 formations IA appliquées au bâtiment"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full border-0"
-                      />
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              </aside>
             </div>
 
             <div className="min-w-0 w-full">
@@ -904,15 +917,19 @@ export default function HomePage() {
                 key={cours.ref}
                 className={`${OFC_CARD} flex flex-col overflow-hidden`}
               >
-                <div className="relative aspect-[4/3] w-full shrink-0 bg-slate-100">
+                <Link
+                  href={cours.href}
+                  className="relative block aspect-[4/3] w-full shrink-0 bg-slate-100"
+                  title={`Fiche formation ${cours.ref} — ${cours.title}`}
+                >
                   <Image
                     src={cours.visuel.src}
                     alt={cours.visuel.alt}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-opacity hover:opacity-95"
                     sizes="(max-width: 767px) 100vw, 33vw"
                   />
-                </div>
+                </Link>
                 <div className="p-6">
                 <div className="flex items-start justify-between gap-2">
                   <span className="text-sm text-slate-500">RÉF: {cours.ref}</span>
@@ -921,7 +938,9 @@ export default function HomePage() {
                   </span>
                 </div>
                 <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">
-                  {cours.title}
+                  <Link href={cours.href} className={OFC_LINK} title={`Voir la fiche ${cours.ref}`}>
+                    {cours.title}
+                  </Link>
                 </h3>
                 <div className="mt-4 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
                   <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">

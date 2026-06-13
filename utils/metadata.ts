@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { clampMetaDescription } from '@/lib/meta-description';
 
 /** og:site_name — cohérence sur tout le site */
 export const OG_SITE_NAME = 'Laure Olivié — Formation IA pour le BTP';
@@ -103,9 +104,9 @@ export function buildPageMetadata({
       : `/${path}`
     : '';
   const canonical = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
-  const metaDescription = appendAuthorSuffix
-    ? withOgDescriptionSuffix(description)
-    : description.trim();
+  const metaDescription = clampMetaDescription(
+    appendAuthorSuffix ? withOgDescriptionSuffix(description) : description.trim(),
+  );
   const resolvedTitleAbsolute = titleAbsolute?.trim();
   const ogTitle = openGraphTitle?.trim() || resolvedTitleAbsolute || title;
   const ogDescription =

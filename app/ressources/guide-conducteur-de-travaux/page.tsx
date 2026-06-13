@@ -16,7 +16,7 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 export const metadata = createPageMetadata({
   title: 'Guide conducteur travaux : 6 tutos Claude BTP (PDF gratuit)',
   description:
-    'Guide PDF gratuit pour conducteurs de travaux : analyse DCE, PPSPS, CR chantier, PV réserves, DOE avec Claude. Prompts inclus. Téléchargez-le.',
+    'Formation IA pour le BTP : guide PDF gratuit conducteur — DCE, PPSPS, CR, DOE. 6 tutos Claude, prompts inclus.',
   path: PATH,
   keywords: [
     'skill IA BTP',

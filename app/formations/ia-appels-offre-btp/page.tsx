@@ -32,7 +32,8 @@ const LMS_SLUG = 'ia-appels-offre-btp';
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
-const PAGE_META_DESCRIPTION = `Formation IA appliquée aux appels d'offres BTP : DCE et mémoire technique avec Claude AI Pro, Cowork & Skills. Session ${SESSION_DUREE_LIBELLE}, forfait ${TARIF_FORFAIT_AVANCE_HT} € HT/session (niveau avancé). Qualiopi, Constructys.`;
+const PAGE_META_DESCRIPTION =
+  "Formation IA pour le BTP — appels d'offres : DCE, mémoire technique, Cowork & Skills. 4 h, Qualiopi, Constructys.";
 
 export const metadata = createPageMetadata({
   title: "IA appels d'offres BTP — DCE, mémoire technique, Cowork",

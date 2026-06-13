@@ -54,7 +54,7 @@ const A_PROPOS_TOC = [
 
 const A_PROPOS_META_TITLE = 'Laure Olivié - formatrice IA pour le BTP - 1 592 pros, Qualiopi';
 const A_PROPOS_META_DESCRIPTION =
-  'Formatrice IA pour le BTP (Qualiopi) et relais BeWork. 1 592 pros formés, 4,85/5. FFB, LinkedIn Learning. RDV gratuit.';
+  'Formation IA pour le BTP : +1 592 pros formés, note 4,85/5. Formatrice Qualiopi, FFB, LinkedIn Learning. RDV gratuit.';
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,
