@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Download, ChevronRight, ArrowRight, Phone, Mail } from 'lucide-react';
+import { Download, ChevronRight, ArrowRight, Mail } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -416,15 +416,6 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                     className="hover:underline"
                   >
                     {SITE_CONFIG.email}
-                  </a>
-                </li>
-                <li className="flex items-center gap-2 text-slate-700">
-                  <Phone size={14} aria-hidden className="text-slate-400" />
-                  <a
-                    href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-                    className="hover:underline"
-                  >
-                    {SITE_CONFIG.phoneDisplay}
                   </a>
                 </li>
               </ul>

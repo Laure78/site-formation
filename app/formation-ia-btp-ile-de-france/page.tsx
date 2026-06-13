@@ -217,7 +217,7 @@ export default function FormationIaBtpIleDeFrancePage() {
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {[
-              { href: LINKS.formationIaBtpSeineEtMarne77, label: 'Seine-et-Marne (77)' },
+              { href: LINKS.formationIaBtpSeineEtMarne77, label: 'Seine-et-Marne (77) — Melun, Meaux, Marne-la-Vallée' },
               { href: LINKS.formationIaBtpYvelines78, label: 'Yvelines (78)' },
               { href: LINKS.formationIaBtpEssonne91, label: 'Essonne (91)' },
               { href: LINKS.formationIaBtpHautsDeSeine92, label: 'Hauts-de-Seine (92)' },
@@ -538,7 +538,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         <p>Laure Olivié — Formatrice IA pour le BTP, OFC Création d&apos;Entreprise</p>
         <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078 · Guyancourt (78)</p>
         <p>
-          06 95 66 18 18 · laureolivie@yahoo.fr ·{' '}
+          laureolivie@yahoo.fr ·{' '}
           <a href="https://www.laureolivie.fr" className="underline">
             www.laureolivie.fr
           </a>

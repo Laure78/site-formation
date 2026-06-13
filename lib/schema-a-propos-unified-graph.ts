@@ -63,7 +63,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       "Formatrice en intelligence artificielle spécialisée dans le secteur BTP. Ancienne conductrice de travaux et dirigeante d'entreprise (ALIA BTP, 2017-2026). 1 592 professionnels du BTP formés avec une note moyenne de 4,85/5.",
     url: PAGE_URL,
     image: `${BASE}${PHOTOS.portraitPro2026.src}`,
-    telephone: SCHEMA_CONTACT.phone,
     email: SCHEMA_CONTACT.email,
     nationality: { '@type': 'Country', name: 'France' },
     knowsLanguage: ['fr', 'en'],

@@ -52,17 +52,17 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     title: 'Paris (75)',
     description: 'Paris intra-muros et petite couronne — présentiel intra.',
   },
+  {
+    slug: 'seine-et-marne-77',
+    href: LINKS.formationIaBtpSeineEtMarne77,
+    title: 'Seine-et-Marne (77)',
+    description: 'Melun, Meaux, Marne-la-Vallée — intra et inter.',
+  },
 ];
 
 /** Autres départements IDF (landings longues uniquement). */
 export const GEO_DEPARTMENT_EXTENDED: (ContextualLinkCard & { slug: string })[] = [
   ...GEO_DEPARTMENT_LINKS,
-  {
-    slug: 'seine-et-marne-77',
-    href: LINKS.formationIaBtpSeineEtMarne77,
-    title: 'Seine-et-Marne (77)',
-    description: 'Meaux, Melun, Marne-la-Vallée — marchés publics locaux.',
-  },
   {
     slug: 'seine-saint-denis-93',
     href: LINKS.formationIaBtpSeineSaintDenis93,
@@ -96,6 +96,11 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
     href: LINKS.formationAO,
     title: "NIV-02 — Appels d'offres BTP",
     description: 'DCE, mémoire technique, analyse CCTP avec Claude AI.',
+  },
+  {
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    title: 'NIV-03 — Conduite de travaux',
+    description: 'Skills Claude, CCTP, PPSPS, CR, réception chantier — prix de lancement.',
   },
   {
     href: LINKS.financement,
@@ -305,6 +310,6 @@ export const FOOTER_METIER_LINKS: ContextualLinkCard[] = [
 
 /** Footer — pages locales par département IDF. */
 export const FOOTER_GEO_LINKS: ContextualLinkCard[] = [
-  ...GEO_DEPARTMENT_LINKS.map(({ href, title }) => ({ href, title })),
+  ...GEO_DEPARTMENT_EXTENDED.map(({ href, title }) => ({ href, title })),
   { href: LINKS.formationIleDeFrance, title: 'Toute l’Île-de-France' },
 ];

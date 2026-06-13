@@ -1,12 +1,15 @@
+'use client';
+
 import { BadgeCheck, Briefcase, GraduationCap, HardHat, Rocket, Sparkles } from 'lucide-react';
 import { A_PROPOS_TIMELINE } from '@/lib/a-propos-eeat-content';
 import { EeatRichText } from '@/components/a-propos/EeatRichText';
+import { Reveal } from '@/components/motion/Reveal';
 
 const TIMELINE_ICONS = [HardHat, Briefcase, GraduationCap, Sparkles, Rocket, BadgeCheck, GraduationCap] as const;
 
 export function Timeline() {
   return (
-    <section id="experience" className="scroll-mt-24">
+    <Reveal as="section" id="experience" distance={16} className="scroll-mt-24">
       <div className="mx-auto max-w-6xl rounded-2xl border border-[#E2E8F0] bg-white px-6 py-10 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8">
         <h2 className="font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">
           Expérience professionnelle
@@ -19,10 +22,16 @@ export function Timeline() {
           {A_PROPOS_TIMELINE.map((step, index) => {
             const Icon = TIMELINE_ICONS[index] ?? BadgeCheck;
             return (
-              <li key={step.period} className={`relative lg:grid lg:grid-cols-2 ${index % 2 ? 'lg:text-right' : ''}`}>
+              <Reveal
+                as="li"
+                key={step.period}
+                delay={index * 80}
+                distance={12}
+                className={`relative lg:grid lg:grid-cols-2 ${index % 2 ? 'lg:text-right' : ''}`}
+              >
                 <div className={`hidden lg:block ${index % 2 ? 'lg:col-start-2' : ''}`} />
                 <div
-                  className={`rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:border-[#BFDBFE] hover:shadow-[0_14px_44px_rgba(15,23,42,0.08)] ${
+                  className={`group rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-0.5 hover:border-[#BFDBFE] hover:shadow-[0_14px_44px_rgba(15,23,42,0.08)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
                     index % 2 ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-2'
                   }`}
                 >
@@ -32,14 +41,14 @@ export function Timeline() {
                     <EeatRichText text={step.body} />
                   </p>
                 </div>
-                <div className="absolute -left-[48px] top-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF] lg:left-1/2 lg:-translate-x-1/2">
-                  <Icon className="h-7 w-7 text-[#377CF3]" />
+                <div className="absolute -left-[48px] top-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF] ring-4 ring-white transition-transform duration-300 group-hover:scale-110 motion-reduce:group-hover:scale-100 lg:left-1/2 lg:-translate-x-1/2">
+                  <Icon className="h-7 w-7 text-[#377CF3]" aria-hidden />
                 </div>
-              </li>
+              </Reveal>
             );
           })}
         </ol>
       </div>
-    </section>
+    </Reveal>
   );
 }

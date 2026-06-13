@@ -189,7 +189,11 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             Siège : Guyancourt (78) — interventions dans les {config.departementNom} ({config.deptCode})
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-base font-semibold text-white shadow-sm transition hover:bg-[#2d6ae0]">
+            <RdvLink
+              campaign={`dept-${config.path.replace('/formation-ia-btp-', '')}`}
+              ctaPosition="hero"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-base font-semibold text-white shadow-sm transition hover:bg-[#2d6ae0]"
+            >
               <Calendar size={20} strokeWidth={1.5} aria-hidden />
               Échanger sur vos besoins
             </RdvLink>
@@ -239,7 +243,8 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             ))}
           </div>
           <p className="mt-8 text-base text-slate-700 leading-relaxed md:text-lg">
-            Parcours NIV-01 et NIV-02, catalogue, Paris et financement : voir le bloc « Liens utiles » ci-dessous.
+            Parcours NIV-01, NIV-02 et NIV-03, catalogue, Île-de-France et financement : voir le bloc « Liens utiles »
+            ci-dessous.
           </p>
         </div>
       </section>
@@ -334,6 +339,11 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         links={[
           ...FORMATION_CATALOGUE_CORE,
           {
+            href: LINKS.formationIleDeFrance,
+            title: 'Formation IA Île-de-France',
+            description: 'Vue régionale : 8 départements, formats intra et inter.',
+          },
+          {
             href: LINKS.aPropos,
             title: 'À propos — Laure Olivié',
             description: 'Parcours, Qualiopi, références FFB et méthode terrain.',
@@ -397,7 +407,11 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             selon vos contraintes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[#377CF3] hover:bg-blue-50">
+            <RdvLink
+              campaign={`dept-${config.path.replace('/formation-ia-btp-', '')}-footer`}
+              ctaPosition="footer"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-[#377CF3] hover:bg-blue-50"
+            >
               <Calendar size={20} strokeWidth={1.5} aria-hidden />
               Ouvrir Calendly
             </RdvLink>

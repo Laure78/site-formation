@@ -11,7 +11,6 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
       '@id': 'https://www.laureolivie.fr/#business',
       name: "OFC Création d'Entreprise",
       url: 'https://www.laureolivie.fr',
-      telephone: '+33695661818',
       email: SCHEMA_CONTACT.email,
       contactPoint: [
         {

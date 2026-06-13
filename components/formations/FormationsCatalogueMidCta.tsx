@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export function FormationsCatalogueMidCta() {
   return (
@@ -49,7 +50,10 @@ export function FormationsCatalogueMidCta() {
               Voir le financement Constructys
             </Link>
             <p className="text-center text-sm italic text-white/70 md:text-left">
-              Ou appelez-moi au 06 95 66 18 18
+              Ou écrivez-moi à{' '}
+              <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">
+                {SITE_CONFIG.email}
+              </a>
             </p>
           </div>
         </div>

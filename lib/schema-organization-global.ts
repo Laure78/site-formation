@@ -36,10 +36,8 @@ export function buildGlobalOrganizationEducationalJsonLd(): Record<string, unkno
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Support',
-      telephone: SCHEMA_CONTACT.phone,
       email: SCHEMA_CONTACT.email,
     },
-    telephone: SCHEMA_CONTACT.phone,
     email: SCHEMA_CONTACT.email,
     founder: {
       '@type': 'Person',

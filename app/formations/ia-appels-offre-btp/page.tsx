@@ -13,7 +13,6 @@ import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
-  siteHasPublicPhone,
 } from '@/lib/seo';
 import { FAQ_APPELS_OFFRE } from '@/lib/faq';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
@@ -257,17 +256,6 @@ export default function FormationIAAppelsOffreBTPPage() {
           <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
             laureolivie@yahoo.fr
           </a>
-          {siteHasPublicPhone() ? (
-            <>
-              {' · '}
-              <a
-                href={`tel:${SITE_CONFIG.phone}`}
-                className="font-medium text-[var(--accent)] hover:underline"
-              >
-                {SITE_CONFIG.phoneDisplay}
-              </a>
-            </>
-          ) : null}
         </p>
       </section>
 

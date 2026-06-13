@@ -19,7 +19,7 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
-import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
+import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const BEWORK_PILOTES = [
@@ -58,10 +58,6 @@ const POUR_QUI = [
  * preuves et contact — tarifs alignés sur `lib/tarifs-sessions.ts`.
  */
 export function BeworkEtFormationsOffreSection() {
-  const telHref = siteHasPublicPhone()
-    ? `tel:${String(SITE_CONFIG.phone).replace(/\s/g, '')}`
-    : null;
-
   return (
     <section
       id="offre-bework-formations"
@@ -313,11 +309,6 @@ export function BeworkEtFormationsOffreSection() {
               <a href={`mailto:${SITE_CONFIG.email}`} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
                 {SITE_CONFIG.email}
               </a>
-              {telHref ? (
-                <a href={telHref} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-                  {SITE_CONFIG.phoneDisplay}
-                </a>
-              ) : null}
               <span className="font-medium text-[#5A5A5A]" title="Ouvert via le bouton « Découvrir BeWork » dans la carte BeWork ci-dessus">
                 bework.fr
               </span>

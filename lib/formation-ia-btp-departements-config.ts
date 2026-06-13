@@ -212,7 +212,7 @@ function buildDeptConfig(opts: {
     solutionBody: [
       `${OFC} pour le ${d} : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
       `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra ou inter uniquement.`,
-      `Catalogue NIV-01 (bases) et NIV-02 (AO). Programmes PDF sur chaque fiche.`,
+      `Catalogue NIV-01 (bases), NIV-02 (appels d'offres) et NIV-03 (conduite de travaux). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
     villesTitle: `Villes et bassins d’emploi du ${d} (indicatif)`,
@@ -257,32 +257,129 @@ function buildDeptConfig(opts: {
   };
 }
 
-/** Seine-et-Marne (77) */
-export const FORMATION_IA_BTP_SEINE_ET_MARNE_77 = buildDeptConfig({
+/** FAQ Seine-et-Marne (77) — nuance étendue ouest / est du département. */
+function faqSeineEtMarne77(): FAQItem[] {
+  const base = faqGeoBase('Seine-et-Marne', '77', 'Melun, Meaux, Marne-la-Vallée, Chelles');
+  return base.map((item, index) => {
+    if (index === 0) {
+      return {
+        ...item,
+        a: `Oui. Intra dans vos locaux ou sur site en Seine-et-Marne (77), selon calendrier. Siège à Guyancourt (78) : l'ouest du 77 (Marne-la-Vallée, Sénart, Melun, Meaux) est en général accessible sous 30 à 45 min ; l'est du département (Provins, Coulommiers, Fontainebleau, Nemours) mobilise plutôt une journée bloquée ou des demi-journées.`,
+      };
+    }
+    if (index === 6) {
+      return {
+        ...item,
+        a: 'Chaque référence catalogue (NIV-01, NIV-02, NIV-03) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.',
+      };
+    }
+    return item;
+  });
+}
+
+const DEPLACEMENT_GUYANCOURT_77 = `Siège ${OFC} à Guyancourt (78) : déplacement inclus au devis pour intra IDF, créneaux souvent calés sous 3 à 6 semaines. L'ouest du 77 (Marne-la-Vallée, Sénart, Melun) : logistique courante ; l'est (Provins, Coulommiers, Fontainebleau) : journée dédiée ou demi-journées à cadrer ensemble.`;
+
+/** Seine-et-Marne (77) — contenu localisé (SEO Marne-la-Vallée, Melun, Meaux). */
+export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-seine-et-marne-77',
-  deptCode: '77',
-  departementNom: 'Seine-et-Marne',
-  chefLieuAgglo: 'Melun',
-  triVillesMeta: 'Melun, Meaux et Chessy',
+  h1: 'Formation IA appliquée au bâtiment en Seine-et-Marne (77) — Melun, Meaux et Marne-la-Vallée',
+  metaTitle: 'Formation IA pour le BTP Seine-et-Marne — Laure Olivié · Qualiopi',
+  metaDescription:
+    'Formation ChatGPT et Claude AI pour le BTP en Seine-et-Marne (77). Intervention à Melun, Meaux et Marne-la-Vallée. Qualiopi, financement possible selon éligibilité.',
   keywords: [
     'formation IA appliquée au bâtiment 77',
     'formation ChatGPT Seine-et-Marne',
     'Qualiopi 77',
     'formation IA Meaux',
     'formation IA Melun',
+    'formation IA Marne-la-Vallée',
   ],
-  badgeLine: 'Seine-et-Marne (77) · Île-de-France · Qualiopi',
-  cities: ['Melun', 'Meaux', 'Chessy', 'Fontainebleau', 'Torcy', 'Chelles', 'Provins'],
-  chefLieu: 'Melun',
-  perimetre:
-    'de Marne-la-Vallée aux zones industrielles du nord et aux bassins plus ruraux au sud et à l’est',
-  axes: 'A4, Francilienne, grands pôles de Meaux et de la Vallée',
-  temoignageZone: 'en Seine-et-Marne',
+  departementNom: 'Seine-et-Marne',
+  deptCode: '77',
+  badgeLine: 'Seine-et-Marne (77) · Présentiel en Île-de-France · Qualiopi',
+  cities: [
+    'Melun',
+    'Meaux',
+    'Chelles',
+    'Pontault-Combault',
+    'Champs-sur-Marne (Cité Descartes — ville durable / génie urbain)',
+    'Savigny-le-Temple (Sénart)',
+    'Bussy-Saint-Georges (Marne-la-Vallée)',
+  ],
+  courseName:
+    'Formation IA pour le BTP Seine-et-Marne (77) — Qualiopi, financement possible selon éligibilité',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP en Seine-et-Marne (77). Sessions 4 h, exclusivement en présentiel en Île-de-France. Melun, Meaux, Marne-la-Vallée, Sénart. Qualiopi, financement possible selon éligibilité.`,
+  serviceName: 'Accompagnement formation IA appliquée au bâtiment — département Seine-et-Marne (77)',
+  serviceDescription:
+    'Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du Seine-et-Marne (77) : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.',
+  areaServedCourse: [
+    'Seine-et-Marne',
+    'Melun',
+    'Meaux',
+    'Marne-la-Vallée',
+    'Île-de-France',
+    'France',
+  ],
+  areaServedService: ['Seine-et-Marne', 'Île-de-France', 'France'],
+  problemTitle: 'BTP 77 : productivité attendue, temps admin réel',
+  problemBody: [
+    `Entreprises bâtiment, second œuvre et TP du 77 : forte activité autour de Marne-la-Vallée / Val d'Europe (tertiaire, logements, équipements), de la ville nouvelle de Sénart (logistique, zones d'activités) et des bassins de Melun Val de Seine et du Pays de Meaux. Axes A4, A5, A6, Francilienne (N104), RER A / D / E. Relances, CR et dossiers d'appels d'offres s'accumulent.`,
+    `Plus le carnet est chargé, moins il reste de temps pour formaliser offres et échanges. L'IA réduit ce décalage — avec prompts CCTP, relecture obligatoire et règles sur données sensibles.`,
+    `Support et conducteurs manquent de méthode partagée. Une intra en Seine-et-Marne aligne réflexes, prompts et garde-fous pour les équipes support et les conducteurs de travaux.`,
+    `Financement Constructys : règles nationales — programme clair, objectifs mesurables, convention conforme Qualiopi.`,
+  ],
+  solutionTitle: 'Formation IA BTP 77 : 4 h, résultats opérationnels',
+  solutionBody: [
+    `${OFC} pour la Seine-et-Marne : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons de mémoires — itérations guidées.`,
+    `Siège Guyancourt (78) : déplacements réalistes vers l'ouest du 77 (Marne-la-Vallée, Sénart, Melun) ; pour l'est (Provins, Coulommiers, Fontainebleau), journée bloquée ou demi-journées. Présentiel intra ou inter uniquement.`,
+    `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux). Programmes PDF sur chaque fiche.`,
+    `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
+  ],
+  villesTitle: "Villes et bassins d'emploi de la Seine-et-Marne (77) (indicatif)",
+  villesIntro:
+    'Intra dans vos locaux ou sur site. Villes et bassins fréquents dans le 77 — liste non exhaustive. Échange 30 min pour confirmer faisabilité et logistique.',
+  villesFooter: [
+    `Enjeux locaux : pôle de Marne-la-Vallée / Val d'Europe, logistique de Sénart, rénovation énergétique, logements collectifs, marchés publics des intercommunalités (Melun Val de Seine, Marne et Gondoire, Paris-Vallée de la Marne, Grand Paris Sud). Ateliers adaptés à votre mix public / privé.`,
+    `Vue régionale : page formation IA Île-de-France et catalogue des formations.`,
+  ],
+  programmeTitle: 'Programme type — 4 h',
+  programmeBody: [
+    `Usages IA BTP : ce qui s'automatise, ce qui ne s'automatise pas — relecture humaine systématique.`,
+    `Ateliers sur vos documents : courriers, CR, extraits CCTP — garde-fous confidentialité.`,
+    `Mini-bibliothèque de prompts métier, vocabulaire de vos lots.`,
+    `Plan d'action 15 jours : priorités, indicateurs simples, partage interne des prompts.`,
+  ],
+  temoignagesTitle: 'Témoignages de professionnels (extraits anonymisés)',
+  temoignages: [
+    {
+      text: `On voulait un format court et français, sans anglicismes inutiles. Les exemples sur nos mails et nos devis ont débloqué des collègues réfractaires aux « nouveaux outils ».`,
+      attribution: 'Chef d’entreprise — travaux, Seine-et-Marne (77)',
+    },
+    {
+      text: `La partie appels d’offres nous intéressait : on est repartis avec une méthode pour découpter les DCE et préparer des brouillons exploitables, puis relire avant envoi.`,
+      attribution: 'Conducteur de travaux — Seine-et-Marne (77)',
+    },
+    {
+      text: `Côté admin, on a réduit le temps passé sur les relances fournisseurs. Rien de magique : des prompts et de la discipline d’équipe.`,
+      attribution: 'Responsable administratif — PME BTP, secteur Marne-la-Vallée',
+    },
+  ],
+  financeTitle: 'Financement Constructys et Qualiopi — entreprises du 77',
+  financeBody: [
+    `Constructys : prise en charge possible selon règles en vigueur. Qualiopi ${OFC} — programme, objectifs, durée, public.`,
+    `Plafonds nationaux — votre OPCO ou RH confirme le montant. Devis et convention clairs avant engagement.`,
+    `Guide financement sur le site : liens utiles et TVA intra/inter.`,
+  ],
   tissuBtpLocal: [
-    `Seine-et-Marne étendue : Marne-la-Vallée, Meaux, Melun — grands projets, réseaux, marchés publics et privés.`,
-    `Sessions ${OFC} : prompts sur devis et CCTP — ChatGPT/Claude AI, Qualiopi, validation interne obligatoire.`,
+    `Seine-et-Marne : le plus vaste département francilien, à deux visages — ouest urbain dense (Marne-la-Vallée, Sénart, Melun, Meaux) et est plus rural (Provins, Coulommiers, Nemours, Fontainebleau). Neuf, rénovation, logements collectifs, logistique et marchés publics intercommunaux.`,
+    `Sessions ${OFC} : 4 h Qualiopi, ChatGPT / Claude AI — validation humaine systématique, présentiel uniquement en Île-de-France.`,
   ],
-});
+  casUsageStandard: CAS_USAGE_FORMATION_BTP,
+  deplacementGuyancourt: DEPLACEMENT_GUYANCOURT_77,
+  casClientFfb:
+    'Échanges FFB Grand Paris / FFB Seine-et-Marne — PME, marchés publics intercommunaux, rénovation.',
+  faq: faqSeineEtMarne77(),
+};
 
 /** Essonne (91) */
 export const FORMATION_IA_BTP_ESSONNE_91 = buildDeptConfig({

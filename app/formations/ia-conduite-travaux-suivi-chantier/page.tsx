@@ -14,7 +14,6 @@ import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
-  siteHasPublicPhone,
 } from '@/lib/seo';
 import { FAQ_CONDUITE_TRAVAUX_NIV03 } from '@/lib/faq';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
@@ -251,17 +250,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             <a href={`mailto:${SITE_CONFIG.email}`} className="font-medium text-[var(--accent)] hover:underline">
               {SITE_CONFIG.email}
             </a>
-            {siteHasPublicPhone() ? (
-              <>
-                {' · '}
-                <a
-                  href={`tel:${SITE_CONFIG.phone}`}
-                  className="font-medium text-[var(--accent)] hover:underline"
-                >
-                  {SITE_CONFIG.phoneDisplay}
-                </a>
-              </>
-            ) : null}
           </p>
         </section>
 

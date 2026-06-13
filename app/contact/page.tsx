@@ -88,14 +88,14 @@ export default async function ContactPage({
         </div>
       </section>
 
-      {/* Contact — sans formulaire : email, téléphone, RDV */}
+      {/* Contact — sans formulaire : email, RDV */}
       <section id="contact" className="scroll-mt-24 border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-16">
         <div className="mx-auto max-w-2xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Votre projet formation IA BTP
           </h2>
           <p className="mt-3 text-slate-600">
-            Email, téléphone ou créneau Calendly — réponse sous 24 h.
+            Email ou créneau Calendly — réponse sous 24 h.
           </p>
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <ContactDirect formationHint={formation} />

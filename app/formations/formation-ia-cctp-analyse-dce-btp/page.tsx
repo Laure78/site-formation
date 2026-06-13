@@ -6,7 +6,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -389,14 +389,6 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
               Écrire à {SITE_CONFIG.email}
             </a>
           </div>
-          {siteHasPublicPhone() ? (
-            <p className="mt-4 text-sm text-blue-100">
-              Téléphone :{' '}
-              <a href={`tel:${SITE_CONFIG.phone}`} className="font-medium underline">
-                {SITE_CONFIG.phoneDisplay}
-              </a>
-            </p>
-          ) : null}
           <p className="mt-4 text-xs text-blue-200">
             Données utilisées uniquement pour répondre à votre demande — pas de revente. Vous pouvez exercer vos
             droits RGPD en écrivant à {SITE_CONFIG.email}.

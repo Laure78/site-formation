@@ -105,7 +105,6 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
   url: `${BASE}/a-propos`,
   image: `${BASE}${PHOTOS.portraitPro2026.src}`,
-  telephone: '+33695661818',
   email: 'laureolivie@yahoo.fr',
   worksFor: {
     '@type': 'Organization',

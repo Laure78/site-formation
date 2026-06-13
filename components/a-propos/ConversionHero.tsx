@@ -1,12 +1,12 @@
-import { Phone } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 type Props = {
   calendlyHref: string;
-  phoneDisplay: string;
-  phoneHref: string;
+  emailDisplay: string;
+  emailHref: string;
 };
 
-export function ConversionHero({ calendlyHref, phoneDisplay, phoneHref }: Props) {
+export function ConversionHero({ calendlyHref, emailDisplay, emailHref }: Props) {
   return (
     <section className="px-4 py-8 md:py-10" aria-labelledby="a-propos-conversion-title">
       <div className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-[#1E40AF] via-[#377CF3] to-[#2563EB] px-5 py-8 text-white shadow-[0_10px_36px_-8px_rgba(30,64,175,0.35)] md:px-8 md:py-9">
@@ -43,11 +43,11 @@ export function ConversionHero({ calendlyHref, phoneDisplay, phoneHref }: Props)
               Réserver ma visio →
             </a>
             <a
-              href={phoneHref}
+              href={emailHref}
               className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-xl border border-white/65 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-[2px] transition hover:bg-white/15"
             >
-              <Phone className="h-4 w-4 shrink-0" aria-hidden />
-              {phoneDisplay}
+              <Mail className="h-4 w-4 shrink-0" aria-hidden />
+              {emailDisplay}
             </a>
           </div>
         </div>

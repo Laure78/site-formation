@@ -112,7 +112,6 @@ function buildOrganizationNode() {
       url: schemaLogoUrl(),
     },
     email: SCHEMA_CONTACT.email,
-    telephone: SCHEMA_CONTACT.phone,
     vatID: SCHEMA_CONTACT.vatId,
     taxID: SCHEMA_CONTACT.siretFormatted,
     founder: { '@id': PERSON_LAURE_ID },

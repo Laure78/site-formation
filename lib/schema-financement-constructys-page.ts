@@ -97,7 +97,6 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     name: SITE_CONFIG.legalName,
     image: `${base}/images/laure-olivie-formatrice.png`,
     url: base,
-    telephone: SCHEMA_CONTACT.phone,
     email: SCHEMA_CONTACT.email,
     priceRange: '€€',
     address: {

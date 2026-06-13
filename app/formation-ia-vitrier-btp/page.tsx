@@ -8,11 +8,10 @@ import {
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
-  siteHasPublicPhone,
   sitePhoneDisplaySuffix,
 } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { InlinePublicPhoneLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
+import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 
@@ -432,9 +431,7 @@ export default function FormationIaVitrierBtpPage() {
             <li>Financement Constructys et mise en pratique</li>
           </ul>
           <p className="mt-6 text-blue-100 text-sm">
-            Équipe ou session intra : contactez Laure {siteHasPublicPhone() ? 'au ' : 'à '}
-            <InlinePublicPhoneLink className="underline hover:text-white" />
-            {siteHasPublicPhone() ? ' ou ' : ''}
+            Équipe ou session intra : contactez Laure à{' '}
             <a href={`mailto:${SITE_CONFIG.email}`} className="underline hover:text-white">
               {SITE_CONFIG.email}
             </a>

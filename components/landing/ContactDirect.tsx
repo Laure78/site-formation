@@ -1,5 +1,5 @@
-import { Calendar, Mail, Phone } from 'lucide-react';
-import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
+import { Calendar, Mail } from 'lucide-react';
+import { SITE_CONFIG } from '@/lib/seo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 
 interface ContactDirectProps {
@@ -7,7 +7,7 @@ interface ContactDirectProps {
   formationHint?: string | null;
 }
 
-/** Bloc sans formulaire : email, téléphone (si configuré), prise de RDV */
+/** Bloc sans formulaire : email, prise de RDV */
 export function ContactDirect({ formationHint }: ContactDirectProps) {
   return (
     <div className="space-y-6">
@@ -26,15 +26,6 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         <Mail className="h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
         <span className="font-medium">{SITE_CONFIG.email}</span>
       </a>
-      {siteHasPublicPhone() ? (
-        <a
-          href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-          className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]"
-        >
-          <Phone className="h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-          <span className="font-medium">{SITE_CONFIG.phoneDisplay}</span>
-        </a>
-      ) : null}
       <CalendlyEmbed
         type="popup"
         ctaPosition="footer"

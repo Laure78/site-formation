@@ -41,11 +41,12 @@ import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection'
 import { ClientsLogosMarquee } from '@/components/landing/ClientsLogosMarquee';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import {
-  SESSION_DUREE_LIBELLE,
-  TARIF_FORFAIT_DEBUTANT_HT,
-  TARIF_FORFAIT_AVANCE_HT,
-  LIBELLE_EFFECTIF_GROUPE_COURT,
-} from '@/lib/tarifs-sessions';
+  FORMATIONS_CATALOGUE,
+  sortFormationsCatalogue,
+  tarifLabelForEntry,
+  type CatalogueLevel,
+} from '@/lib/formations-catalogue-display';
+import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -75,6 +76,13 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
+
+function catalogueLevelBadge(ref: string, level: CatalogueLevel): string {
+  if (ref === 'NIV-01') return 'NIVEAU 1';
+  if (ref === 'NIV-02') return 'NIVEAU 2';
+  if (ref === 'NIV-03') return 'NIV-03 · AVANCÉ';
+  return level;
+}
 
 const GAINS_COMMERCIAUX_CARDS = [
   {
@@ -266,7 +274,7 @@ export default function HomePage() {
                     'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
                     `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
                     'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                    'Catalogue NIV-01 bâtiment & TP et NIV-02 appels d’offres — validation métier de votre côté.',
+                    'Catalogue NIV-01 bâtiment & TP, NIV-02 appels d’offres et NIV-03 conduite de travaux — validation métier de votre côté.',
                   ]}
                 />
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -333,6 +341,14 @@ export default function HomePage() {
                     title="IA et appels d'offres BTP"
                   >
                     IA appels d&apos;offres BTP
+                  </Link>
+                  {' · '}
+                  <Link
+                    href={LINKS.formationConduiteTravauxSuiviChantier}
+                    className={OFC_LINK}
+                    title="Formation IA conduite de travaux — NIV-03"
+                  >
+                    IA conduite de travaux (NIV-03)
                   </Link>
                 </p>
                 </div>
@@ -882,39 +898,8 @@ export default function HomePage() {
               Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
             </p>
           </Reveal>
-          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2" staggerMs={60}>
-            {[
-              {
-                ref: 'NIV-01',
-                level: 'NIVEAU 1',
-                title: "L'IA au service des pros du bâtiment et des travaux publics",
-                href: LINKS.formationIaBtpNiveau1BatimentTp,
-                pdf: LINKS.pdfProgrammeIaBtpNiveau1BatimentTp,
-                visuel: PHOTOS.formationIABtpVisioBureau2026,
-                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session`,
-                effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
-                objectifs: [
-                  'IA générative pour bâtiment et travaux publics — devis, chantier, administratif',
-                  'Accélérer comptes rendus, courriers et suivi client',
-                  'Repartir avec des prompts et trames prêts à l’emploi',
-                ],
-              },
-              {
-                ref: 'NIV-02',
-                level: 'NIVEAU 2',
-                title: "L'IA appliquée aux appels d'offres BTP",
-                href: LINKS.formationAO,
-                pdf: LINKS.pdfProgrammeIaBtpNiveau2AppelsOffre,
-                visuel: PHOTOS.btpFormationChantierPlans2026,
-                duree: `${SESSION_DUREE_LIBELLE} · ${TARIF_FORFAIT_AVANCE_HT} € HT/session`,
-                effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
-                objectifs: [
-                  'Claude AI Pro, Cowork & Skills — assistants IA pour DCE et mémoire technique',
-                  'Analyse DCE : 15 infos critiques, CCAP, CCTP, verdict Go / No Go',
-                  'Skills personnalisés réutilisables — bibliothèque de prompts AO BTP',
-                ],
-              },
-            ].map((cours) => (
+          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3" staggerMs={60}>
+            {sortFormationsCatalogue(FORMATIONS_CATALOGUE).map((cours) => (
               <div
                 key={cours.ref}
                 className={`${OFC_CARD} flex flex-col overflow-hidden`}
@@ -929,19 +914,20 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="p-6">
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-2">
                   <span className="text-sm text-slate-500">RÉF: {cours.ref}</span>
                   <span className="rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
-                    {cours.level}
+                    {catalogueLevelBadge(cours.ref, cours.level)}
                   </span>
                 </div>
                 <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">
                   {cours.title}
                 </h3>
-                <div className="mt-4 flex gap-4 rounded-lg bg-slate-50 px-4 py-3">
-                  <span className="flex items-center gap-2 text-sm text-slate-600">
+                <div className="mt-4 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
+                  <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
                     <Clock size={16} strokeWidth={1.5} />
-                    {cours.duree}
+                    {cours.duree} · {tarifLabelForEntry(cours)}
+                    {cours.launchPrice ? <LaunchPriceBadge /> : null}
                   </span>
                   <span className="flex items-center gap-2 text-sm text-slate-600">
                     <Users size={16} strokeWidth={1.5} />
@@ -966,7 +952,7 @@ export default function HomePage() {
                   Voir la fiche formation
                 </Link>
                 <a
-                  href={cours.pdf}
+                  href={cours.programmePdfHref}
                   download
                   className="mt-3 block w-full rounded-xl border-2 border-slate-200 py-3 text-center text-sm font-semibold text-slate-800 hover:border-[var(--accent)]"
                 >
@@ -1026,12 +1012,13 @@ export default function HomePage() {
             </Link>
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Deux parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> (bâtiment
-            &amp; travaux publics) et <strong className="font-semibold text-slate-800">niveau 2</strong> (appels
-            d&apos;offres). Les thèmes couverts incluent devis et chiffrage, réponses aux marchés, comptes
+            Trois parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> (bâtiment
+            &amp; travaux publics), <strong className="font-semibold text-slate-800">niveau 2</strong> (appels
+            d&apos;offres) et <strong className="font-semibold text-slate-800">NIV-03</strong> (conduite de travaux
+            &amp; suivi chantier). Les thèmes couverts incluent devis et chiffrage, réponses aux marchés, comptes
             rendus, DOE, emails et relation client — en{' '}
-            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau, jusqu&apos;à{' '}
-            12 participants. Téléchargez les <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
+            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (NIV-03 : 8
+            participants max). Téléchargez les <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
             depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>
           <div className="mt-8">

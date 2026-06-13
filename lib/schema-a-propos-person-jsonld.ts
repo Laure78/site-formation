@@ -23,7 +23,6 @@ export function getAProposPersonJsonLd(): Record<string, unknown> {
     description: `Formatrice IA pour les professionnels du BTP. Ex-conductrice de travaux, ex-dirigeante ALIA BTP (travaux publics Île-de-France). ${formatProfessionalsTrainedCount()} professionnels formés, ${SOCIAL_PROOF.AVERAGE_RATING}. Organisme Qualiopi. Clients : FFB Grand Paris, FFB IDF, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz. Instructrice LinkedIn Learning.`,
     url: PAGE_URL,
     image: `${BASE}/images/laure-portrait-header-2026.png`,
-    telephone: SCHEMA_CONTACT.phone,
     email: SCHEMA_CONTACT.email,
     worksFor: {
       '@type': 'Organization',
