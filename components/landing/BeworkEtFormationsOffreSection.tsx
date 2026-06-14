@@ -2,12 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight, Briefcase, Check, Clock, GraduationCap } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { RdvLink } from '@/components/RdvLink';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
-import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
 import { PHOTOS } from '@/lib/photos';
 import {
   SESSION_DUREE_LIBELLE,
@@ -22,6 +21,7 @@ import { KeyPoint } from '@/components/readability/KeyPoint';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_CARD, OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
 import {
   formationCatalogueLinkLabel,
   getFormationCatalogueByRef,
@@ -72,51 +72,92 @@ export function BeworkEtFormationsOffreSection() {
     <section
       id="offre-bework-formations"
       aria-labelledby="offre-bework-formations-title"
-      className={OFC_SEC.muted}
+      className={OFC_SEC.mutedMesh}
     >
       <div className="mx-auto max-w-6xl space-y-12 md:space-y-14">
-        <Reveal as="header" className="mx-auto max-w-3xl text-center">
-          <h2
-            id="offre-bework-formations-title"
-            className="font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl lg:text-[2rem]"
-          >
-            5 à 10 h par semaine perdues en admin chantier&nbsp;?
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-[#5A5A5A] md:text-base">
-            Relances oubliées, dossiers AO lourds, pièces qui s&apos;accumulent. Ce n&apos;est pas un manque de
-            volonté — c&apos;est un manque de bande passante bureau.
-          </p>
-          <p className="mt-4 text-base font-medium leading-relaxed text-[#1A1A1A] md:text-base">
-            Deux options&nbsp;:{' '}
-            <strong>déléguer avec BeWork</strong> (relais administratif externalisé), ou{' '}
-            <strong>former vos équipes</strong> (sessions IA Qualiopi, financement OPCO possible).
-          </p>
-        </Reveal>
+        <Reveal as="header" className="mx-auto max-w-4xl">
+          <div className="text-center">
+            <p className="inline-flex items-center gap-2 rounded-full border border-[#377CF3]/20 bg-white px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#377CF3] shadow-sm sm:text-xs">
+              <Clock className="h-3.5 w-3.5 shrink-0" strokeWidth={2} aria-hidden />
+              Admin chantier · productivité
+            </p>
+            <h2
+              id="offre-bework-formations-title"
+              className="mt-5 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl lg:text-[2.15rem] lg:leading-[1.15]"
+            >
+              <span className="text-[#377CF3]">5 à 10 h</span> par semaine perdues en admin chantier&nbsp;?
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#5A5A5A] md:text-lg">
+              Relances oubliées, dossiers AO lourds, pièces qui s&apos;accumulent. Ce n&apos;est pas un manque de
+              volonté — c&apos;est un manque de{' '}
+              <strong className="font-semibold text-[#334155]">bande passante bureau</strong>.
+            </p>
+          </div>
 
-        <div className="flex justify-center">
-          <ExternalLinkAnchor
-            href={EXTERNAL_SITE_URLS.bework}
-            title="BeWork — site officiel bework.fr (nouvel onglet)"
-            className="group inline-flex flex-col items-center gap-2 rounded-xl border border-slate-200/90 bg-white p-2 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-[0_4px_16px_rgba(55,124,243,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-          >
-            <Image
-              src={BEWORK_PHOTO_HERO.src}
-              alt={BEWORK_PHOTO_HERO.alt}
-              width={BEWORK_PHOTO_HERO.width}
-              height={BEWORK_PHOTO_HERO.height}
-              className="h-auto w-24 rounded-lg object-cover transition group-hover:opacity-90 sm:w-32"
-              sizes="128px"
-            />
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#377CF3]">
-              bework.fr
-              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden />
-            </span>
-          </ExternalLinkAnchor>
-        </div>
+          <KeyPoint
+            label="Deux réponses concrètes"
+            subject="L'administratif chantier"
+            after="externalisé ou automatisé en interne"
+            before="s'accumule sans méthode"
+            className="mx-auto mt-8 max-w-2xl"
+          />
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5">
+            <a
+              href="#offre-bework"
+              className={`${OFC_CARD_MUTED} group flex flex-col rounded-2xl p-5 text-left sm:p-6`}
+            >
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-[#377CF3]">
+                <Briefcase className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                Option 1
+              </span>
+              <h3 className="mt-4 font-display text-lg font-bold text-[#1A1A1A] group-hover:text-[#377CF3] md:text-xl">
+                Déléguer avec BeWork
+              </h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-[#5A5A5A] md:text-base">
+                Relais administratif externalisé — CR, DCE, DOE, relances. Vous tenez le chantier, BeWork tient le
+                bureau.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#377CF3]">
+                Voir BeWork
+                <ArrowUpRight
+                  className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  aria-hidden
+                />
+              </span>
+            </a>
+
+            <a
+              href="#offre-formations"
+              className={`${OFC_CARD} group flex flex-col rounded-2xl border-[#377CF3]/25 bg-white p-5 text-left ring-1 ring-[#377CF3]/10 sm:p-6`}
+            >
+              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#D4E3FC]/80 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-[#2563EB]">
+                <GraduationCap className="h-3.5 w-3.5" strokeWidth={2} aria-hidden />
+                Option 2
+              </span>
+              <h3 className="mt-4 font-display text-lg font-bold text-[#1A1A1A] group-hover:text-[#377CF3] md:text-xl">
+                Former vos équipes
+              </h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-[#5A5A5A] md:text-base">
+                Sessions IA Qualiopi de 4 h sur vos vrais documents — autonomie en interne, financement OPCO possible.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#377CF3]">
+                Voir le catalogue
+                <ArrowUpRight
+                  className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  aria-hidden
+                />
+              </span>
+            </a>
+          </div>
+        </Reveal>
 
         <RevealGroup className="grid gap-6 lg:grid-cols-2 lg:gap-8" staggerMs={70}>
           {/* BeWork */}
-          <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+          <article
+            id="offre-bework"
+            className="flex scroll-mt-28 flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]"
+          >
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFF6FF]">
               <Image
                 src={PHOTOS.beworkHeroRelaisAdministratif.src}
@@ -181,7 +222,10 @@ export function BeworkEtFormationsOffreSection() {
           </article>
 
           {/* Formations OFC */}
-          <article className="flex flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+          <article
+            id="offre-formations"
+            className="flex scroll-mt-28 flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]"
+          >
             <div className="flex flex-1 flex-col p-6 md:p-8">
             <div className="min-w-0">
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">

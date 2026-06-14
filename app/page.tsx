@@ -259,17 +259,6 @@ export default function HomePage() {
               </div>
 
               <aside className="flex w-full min-w-0 flex-col gap-5 lg:sticky lg:top-24 xl:top-28">
-                <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_16px_40px_-20px_rgba(15,23,42,0.15)] ring-1 ring-slate-200/60">
-                  <Image
-                    src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
-                    alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
-                    width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
-                    height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
-                    className="h-auto w-full object-cover"
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 560px"
-                  />
-                </div>
                 <div className="w-full rounded-3xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
                   <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
                     <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
