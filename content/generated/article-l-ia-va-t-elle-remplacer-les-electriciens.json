@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
   "title": "L'IA va-t-elle remplacer les électriciens ?",
   "description": "L'IA remplace-t-elle les électriciens ? Non : elle assiste le métier. Financement possible selon éligibilité.",
-  "date": "2026-06-05",
+  "date": "2026-06-14",
   "keywords": [
-    "gain temps devis",
-    "automatisation administrative",
-    "IA bureau",
-    "productivité IA"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -79,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
