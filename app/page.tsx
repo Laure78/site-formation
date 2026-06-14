@@ -40,15 +40,14 @@ import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLie
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { ClientsLogosMarquee } from '@/components/landing/ClientsLogosMarquee';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import {
   FORMATIONS_CATALOGUE,
   cataloguePedagogicalLevelBadge,
   getFormationCatalogueByRef,
   sortFormationsCatalogue,
-  tarifLabelForEntry,
   type CatalogueLevel,
 } from '@/lib/formations-catalogue-display';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -903,6 +902,7 @@ export default function HomePage() {
             <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
               Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
             </p>
+            <CatalogueTarifStrip className="mt-5" />
           </Reveal>
           <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-2" staggerMs={60}>
             {sortFormationsCatalogue(FORMATIONS_CATALOGUE).map((cours) => (
@@ -922,6 +922,11 @@ export default function HomePage() {
                     className="object-cover transition-opacity hover:opacity-95"
                     sizes="(max-width: 767px) 100vw, 33vw"
                   />
+                  <CataloguePriceBadge
+                    level={cours.level}
+                    launchPrice={cours.launchPrice}
+                    variant="overlay"
+                  />
                 </Link>
                 <div className="p-6">
                 <div className="flex items-start justify-between gap-2">
@@ -935,11 +940,16 @@ export default function HomePage() {
                     {cours.title}
                   </Link>
                 </h3>
-                <div className="mt-4 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
+                <CataloguePriceBadge
+                  level={cours.level}
+                  launchPrice={cours.launchPrice}
+                  variant="banner"
+                  className="mt-4"
+                />
+                <div className="mt-3 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
                   <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
                     <Clock size={16} strokeWidth={1.5} />
-                    {cours.duree} · {tarifLabelForEntry(cours)}
-                    {cours.launchPrice ? <LaunchPriceBadge /> : null}
+                    {cours.duree}
                   </span>
                   <span className="flex items-center gap-2 text-sm text-slate-600">
                     <Users size={16} strokeWidth={1.5} />

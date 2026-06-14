@@ -4,6 +4,7 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
+import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 
 /**
@@ -29,6 +30,7 @@ export function FormationsHero() {
         >
           Catalogue formation IA pour le BTP : {CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h (niveau 1 et niveau 2), programmes PDF
         </h1>
+        <CatalogueTarifStrip onAccent className="mt-4 max-w-3xl" />
         <div className="mt-4 flex flex-col gap-2.5 sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-3">
           <CalendlyEmbed
             type="popup"

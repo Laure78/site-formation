@@ -252,6 +252,7 @@ export default function FormationIAuServiceDuBatimentPage() {
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-01"
         refLine="Réf. catalogue NIV-01 · Niveau 1 · Débutant"
         title="L'IA au service des pros du bâtiment et des travaux publics"
         subtitle="Niveau 1 — devis, chantier, administratif et documents (bâtiment & travaux publics)"

@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import { BookOpen, Cpu, HardHat, Trophy, Wallet } from 'lucide-react';
+import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import {
   CATALOGUE_FORMATIONS_COUNT,
   FORMATIONS_CATALOGUE,
   formationCatalogueLinkLabel,
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 export function FormationsWhyMotifs() {
@@ -61,16 +60,12 @@ export function FormationsWhyMotifs() {
                       ? 'CCTP, CR, PPSPS, réception — skills Claude chantier'
                       : 'Projets, Cowork, connecteurs, Claude Code — matin 9h–13h'}
               </p>
-              <p
-                className={`mt-4 flex flex-wrap items-center gap-2 text-base font-bold ${
-                  isDebutant ? 'text-[#10B981]' : 'text-[#F97316]'
-                }`}
-              >
-                {isDebutant
-                  ? `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session (max 12 pers.)`
-                  : `${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session`}
-                {entry.launchPrice ? <LaunchPriceBadge /> : null}
-              </p>
+              <CataloguePriceBadge
+                level={entry.level}
+                launchPrice={entry.launchPrice}
+                variant="banner"
+                className="mt-4"
+              />
             </div>
           );
         })}

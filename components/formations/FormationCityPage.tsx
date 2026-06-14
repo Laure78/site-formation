@@ -62,6 +62,7 @@ export function FormationCityPage({
         <JsonLd id="schema-faq-page" schema={faqSchema} />
       )}
       <FormationCourseHero
+        catalogueRef="NIV-01"
         refLine={
           config.customHeroRefLine ??
           `Formation ${ville} & ${regionLabel} · Financement OPCO`

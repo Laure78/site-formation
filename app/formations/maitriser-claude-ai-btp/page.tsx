@@ -138,6 +138,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
       <JsonLd id="schema-faq-niv-04" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-04"
         refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_MATIN_NIV04} · Niveau avancé · NIV-04`}
         title="Maîtriser Claude AI pour le BTP"
         subtitle="Industrialisez Claude dans votre entreprise — Projets, Skills, Cowork, connecteurs et Claude Code"

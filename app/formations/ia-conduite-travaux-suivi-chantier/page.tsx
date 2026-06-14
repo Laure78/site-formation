@@ -139,6 +139,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
       <JsonLd id="schema-faq-niv-03" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-03"
         refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau avancé · NIV-03`}
         title="L'IA appliquée à la conduite de travaux"
         subtitle="Pilotez vos chantiers avec l'IA — de l'analyse du CCTP à la réception des travaux"

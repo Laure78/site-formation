@@ -100,6 +100,7 @@ export default function FormationIAPMEBTPPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-01"
         refLine="PME bâtiment · Sur mesure · Qualiopi"
         title="Formation IA pour PME du BTP"
         subtitle="Devis, productivité et administratif — sans embaucher"

@@ -3,6 +3,10 @@ import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Building2 } from 'lucide-react';
+import {
+  CataloguePriceBadge,
+} from '@/components/formations/CataloguePriceBadge';
+import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
  * Hero standard des fiches formation : 2 colonnes (contenu + photo + « En résumé »),
@@ -21,6 +25,7 @@ export function FormationCourseHero({
   summaryIcon: SummaryIcon = Building2,
   summaryItems,
   breadcrumb,
+  catalogueRef,
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -35,7 +40,10 @@ export function FormationCourseHero({
   summaryItems: string[];
   /** Fil d'Ariane affiché avant le lien « Retour au catalogue » et le H1 */
   breadcrumb?: ReactNode;
+  /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-04). */
+  catalogueRef?: string;
 }) {
+  const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   return (
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
@@ -56,6 +64,14 @@ export function FormationCourseHero({
             </h1>
             {subtitle ? (
               <p className="mt-2 text-lg font-medium text-slate-700">{subtitle}</p>
+            ) : null}
+            {catalogueEntry ? (
+              <CataloguePriceBadge
+                level={catalogueEntry.level}
+                launchPrice={catalogueEntry.launchPrice}
+                variant="hero"
+                className="mt-5"
+              />
             ) : null}
             <div className="mt-6 max-w-xl text-slate-600 [&_strong]:font-semibold [&_a]:font-medium [&_a]:text-[var(--accent)] [&_a]:hover:underline">
               {children}

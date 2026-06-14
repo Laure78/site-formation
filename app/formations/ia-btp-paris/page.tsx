@@ -107,6 +107,7 @@ export default function FormationIABTPParisPage() {
       <FormationCourseScriptJsonLd schema={formationCourseGraph} />
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       <FormationCourseHero
+        catalogueRef="NIV-01"
         refLine="Formation Paris & Île-de-France · Financement OPCO"
         title={
           <>

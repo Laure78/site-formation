@@ -133,6 +133,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-02"
         refLine={`Visio ou présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé`}
         title="Formation IA Analyse CCTP & DCE — Pour les entreprises BTP qui répondent aux appels d'offres"
         subtitle={`Analysez un DCE de 80 pages en 30 minutes. Méthode testée par ${nPros} pros BTP.`}

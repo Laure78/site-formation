@@ -137,6 +137,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <JsonLd id="schema-faq" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-02"
         refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2 · NIV-02`}
         title="L'IA appliquée aux appels d'offres BTP"
         subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"

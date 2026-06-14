@@ -9,7 +9,6 @@ import {
   Check,
   Clock,
   Cpu,
-  Euro,
   FileText,
   Users,
   HardHat,
@@ -19,9 +18,9 @@ import {
   CATALOGUE_FORMATIONS_COUNT,
   FORMATIONS_CATALOGUE,
   sortFormationsCatalogue,
-  tarifLabelForEntry,
 } from '@/lib/formations-catalogue-display';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
+import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -88,6 +87,11 @@ function FormationCard({
         >
           {isDebutant ? 'DÉBUTANT' : 'AVANCÉ'}
         </span>
+        <CataloguePriceBadge
+          level={cours.level}
+          launchPrice={cours.launchPrice}
+          variant="overlay"
+        />
       </Link>
       <div className="flex flex-1 flex-col border-t border-[#E2E8F0] p-6">
         <p className="text-[11px] font-semibold uppercase tracking-widest text-[#64748B]">
@@ -99,7 +103,13 @@ function FormationCard({
           </Link>
         </h3>
         <p className="mt-2 text-base italic leading-snug text-[#475569]">{cours.pitch}</p>
-        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#475569]">
+        <CataloguePriceBadge
+          level={cours.level}
+          launchPrice={cours.launchPrice}
+          variant="banner"
+          className="mt-4"
+        />
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[#475569]">
           <span className="inline-flex items-center gap-1.5">
             <Clock size={16} className="shrink-0 text-[#377CF3]" aria-hidden />
             {cours.duree}
@@ -107,11 +117,6 @@ function FormationCard({
           <span className="inline-flex items-center gap-1.5">
             <Users size={16} className="shrink-0 text-[#377CF3]" aria-hidden />
             {cours.effectif}
-          </span>
-          <span className="inline-flex flex-wrap items-center gap-1.5 font-semibold text-[#334155]">
-            <Euro size={16} className="shrink-0 text-[#377CF3]" aria-hidden />
-            {tarifLabelForEntry(cours)}
-            {cours.launchPrice ? <LaunchPriceBadge /> : null}
           </span>
         </div>
         <hr className="my-5 border-[#E2E8F0]" />

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { CATALOGUE_FORMATIONS_COUNT, sortFormationsCatalogue } from '@/lib/formations-catalogue-display';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
-import { tarifHtDepuisBadgeCatalogue, formatTarifHt } from '@/lib/tarifs-sessions';
+import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 
 export function FormationsComparisonTable({
   formations,
@@ -76,10 +75,12 @@ export function FormationsComparisonTable({
                 </td>
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.publicLabel}</td>
                 <td className="px-[18px] py-3 align-top text-[#334155]">{row.duree}</td>
-                <td className="px-[18px] py-3 align-top text-base font-bold text-[#377CF3]">
-                  {formatTarifHt(tarifHtDepuisBadgeCatalogue(row.level))} € HT{' '}
-                  {row.launchPrice ? <LaunchPriceBadge className="ml-1 align-middle" /> : null}
-                  <span className="block text-xs font-normal text-[#64748B]">/ session</span>
+                <td className="px-[18px] py-3 align-top">
+                  <CataloguePriceBadge
+                    level={row.level}
+                    launchPrice={row.launchPrice}
+                    variant="pill"
+                  />
                 </td>
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.casUsage}</td>
               </tr>
@@ -98,15 +99,7 @@ export function FormationsComparisonTable({
               <span className="inline-block rounded-md bg-[#EFF6FF] px-2 py-0.5 text-xs font-bold text-[#1E40AF]">
                 {row.ref}
               </span>
-              <span className="font-bold text-[#377CF3]">
-                {formatTarifHt(tarifHtDepuisBadgeCatalogue(row.level))} € HT / session
-                {row.launchPrice ? (
-                  <>
-                    {' '}
-                    <LaunchPriceBadge className="ml-1 align-middle" />
-                  </>
-                ) : null}
-              </span>
+              <CataloguePriceBadge level={row.level} launchPrice={row.launchPrice} variant="pill" />
             </div>
             <h3 className="mt-3 font-display text-base font-semibold text-[#0F172A]">
               <Link href={row.href} className="hover:text-[#377CF3] hover:underline">

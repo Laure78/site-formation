@@ -9,7 +9,6 @@ import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import {
-  SESSION_DUREE_LIBELLE,
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
@@ -24,13 +23,9 @@ import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { OFC_CARD, OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
 import {
   formationCatalogueLinkLabel,
-  getFormationCatalogueByRef,
+  FORMATIONS_CATALOGUE,
 } from '@/lib/formations-catalogue-display';
-
-const NIV01 = getFormationCatalogueByRef('NIV-01')!;
-const NIV02 = getFormationCatalogueByRef('NIV-02')!;
-const NIV03 = getFormationCatalogueByRef('NIV-03')!;
-const NIV04 = getFormationCatalogueByRef('NIV-04')!;
+import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 
 const BEWORK_PILOTES = [
   'Comptes rendus de chantier',
@@ -141,6 +136,9 @@ export function BeworkEtFormationsOffreSection() {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-[#5A5A5A] md:text-base">
                 Sessions IA Qualiopi de 4 h sur vos vrais documents — autonomie en interne, financement OPCO possible.
               </p>
+              <p className="mt-3 text-xs font-semibold text-[#64748B]">
+                {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € ou {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session
+              </p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#377CF3]">
                 Voir le catalogue
                 <ArrowUpRight
@@ -239,64 +237,43 @@ export function BeworkEtFormationsOffreSection() {
               Formez vos équipes à l&apos;IA sur vos vrais documents. Exercices terrain, sans jargon. Financement OPCO
               (Constructys) selon éligibilité.
             </p>
-            <div className="mt-6 space-y-6 text-sm leading-relaxed text-[#334155]">
-              <div>
-                <p className="font-semibold text-[#1A1A1A]">
-                  <Link
-                    href={LINKS.formationIaBtpNiveau1BatimentTp}
-                    className="text-[#377CF3] underline-offset-2 hover:underline"
-                  >
-                    {formationCatalogueLinkLabel(NIV01)}
-                  </Link>
-                  {` (${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session groupe)`}
-                </p>
-                <p className="mt-1.5">
-                  Devis, mails, documents réglementaires. Prompts BTP prêts à l&apos;emploi. Vous repartez autonome.
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-[#1A1A1A]">
-                  <Link href={LINKS.formationAO} className="text-[#377CF3] underline-offset-2 hover:underline">
-                    {formationCatalogueLinkLabel(NIV02)}
-                  </Link>
-                  {` (${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session groupe)`}
-                </p>
-                <p className="mt-1.5">
-                  Analyse DCE, mémoire technique, assistants IA réutilisables.{' '}
-                  <span className="text-[#5A5A5A]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</span>
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-[#1A1A1A]">
-                  <Link
-                    href={LINKS.formationConduiteTravauxSuiviChantier}
-                    className="text-[#377CF3] underline-offset-2 hover:underline"
-                  >
-                    {formationCatalogueLinkLabel(NIV03)}
-                  </Link>
-                  {` (${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session · 8 participants max · prix de lancement)`}
-                </p>
-                <p className="mt-1.5">
-                  Bibliothèque de skills Claude : CCTP, PPSPS, CR, sous-traitants, DOE. Pilotage chantier au quotidien.
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold text-[#1A1A1A]">
-                  <Link
-                    href={LINKS.formationMaitriserClaudeAiBtp}
-                    className="text-[#377CF3] underline-offset-2 hover:underline"
-                  >
-                    {formationCatalogueLinkLabel(NIV04)}
-                  </Link>
-                  {` (${NIV04.duree}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session · 8 participants max · prix de lancement)`}
-                </p>
-                <p className="mt-1.5">
-                  Projets, Skills, Cowork, connecteurs Gmail/Drive, Claude Code — industrialiser Claude en entreprise.
-                </p>
-              </div>
-              <div>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#334155]">
+              {FORMATIONS_CATALOGUE.map((entry) => (
+                <div
+                  key={entry.ref}
+                  className="rounded-xl border border-[#E2E8F0] bg-[#FAFBFD] p-4"
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold text-[#1A1A1A]">
+                        <Link href={entry.href} className="text-[#377CF3] underline-offset-2 hover:underline">
+                          {formationCatalogueLinkLabel(entry)}
+                        </Link>
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-[#64748B]">
+                        {entry.duree} · {entry.effectif}
+                      </p>
+                    </div>
+                    <CataloguePriceBadge
+                      level={entry.level}
+                      launchPrice={entry.launchPrice}
+                      variant="pill"
+                    />
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">
+                    {entry.ref === 'NIV-01'
+                      ? 'Devis, mails, documents réglementaires. Prompts BTP prêts à l\u2019emploi. Vous repartez autonome.'
+                      : entry.ref === 'NIV-02'
+                        ? `Analyse DCE, mémoire technique, assistants IA réutilisables. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}`
+                        : entry.ref === 'NIV-03'
+                          ? 'Bibliothèque de skills Claude : CCTP, PPSPS, CR, sous-traitants, DOE. Pilotage chantier au quotidien.'
+                          : 'Projets, Skills, Cowork, connecteurs Gmail/Drive, Claude Code — industrialiser Claude en entreprise.'}
+                  </p>
+                </div>
+              ))}
+              <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-4">
                 <p className="font-semibold text-[#1A1A1A]">Sur mesure</p>
-                <p className="mt-1.5">
+                <p className="mt-1.5 text-sm text-[#5A5A5A]">
                   Webinaires et journées fil rouge pour fédérations et réseaux. Précisez votre besoin au RDV.
                 </p>
               </div>

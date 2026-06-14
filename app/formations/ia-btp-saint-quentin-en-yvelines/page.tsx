@@ -85,6 +85,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <FormationCourseHero
+        catalogueRef="NIV-01"
         refLine="Laure Olivié · OFC Création d'Entreprise · Guyancourt (78280) · Qualiopi · Constructys"
         title={
           <>
