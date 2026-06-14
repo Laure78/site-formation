@@ -42,6 +42,8 @@ import { ClientsLogosMarquee } from '@/components/landing/ClientsLogosMarquee';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import {
   FORMATIONS_CATALOGUE,
+  cataloguePedagogicalLevelBadge,
+  getFormationCatalogueByRef,
   sortFormationsCatalogue,
   tarifLabelForEntry,
   type CatalogueLevel,
@@ -77,12 +79,13 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
-function catalogueLevelBadge(ref: string, level: CatalogueLevel): string {
-  if (ref === 'NIV-01') return 'NIVEAU 1';
-  if (ref === 'NIV-02') return 'NIVEAU 2';
-  if (ref === 'NIV-03') return 'NIV-03 · AVANCÉ';
-  if (ref === 'NIV-04') return 'NIV-04 · AVANCÉ';
-  return level;
+const NIV01 = getFormationCatalogueByRef('NIV-01')!;
+const NIV02 = getFormationCatalogueByRef('NIV-02')!;
+const NIV03 = getFormationCatalogueByRef('NIV-03')!;
+const NIV04 = getFormationCatalogueByRef('NIV-04')!;
+
+function catalogueLevelBadge(ref: string, _level: CatalogueLevel): string {
+  return cataloguePedagogicalLevelBadge(ref);
 }
 
 const GAINS_COMMERCIAUX_CARDS = [
@@ -391,9 +394,9 @@ export default function HomePage() {
                   <Link
                     href={LINKS.formationConduiteTravauxSuiviChantier}
                     className={OFC_LINK}
-                    title="Formation IA conduite de travaux — NIV-03"
+                    title={NIV03.title}
                   >
-                    IA conduite de travaux (NIV-03)
+                    {NIV03.title} ({NIV03.ref})
                   </Link>
                 </p>
               </div>
@@ -1032,13 +1035,14 @@ export default function HomePage() {
             </Link>
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Trois parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> (bâtiment
-            &amp; travaux publics), <strong className="font-semibold text-slate-800">niveau 2</strong> (appels
-            d&apos;offres) et <strong className="font-semibold text-slate-800">NIV-03</strong> (conduite de travaux
-            &amp; suivi chantier). Les thèmes couverts incluent devis et chiffrage, réponses aux marchés, comptes
-            rendus, DOE, emails et relation client — en{' '}
-            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (NIV-03 : 8
-            participants max). Téléchargez les <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
+            Quatre parcours officiels : <strong className="font-semibold text-slate-800">NIV-01</strong> (
+            {NIV01.title}), <strong className="font-semibold text-slate-800">NIV-02</strong> ({NIV02.title}),{' '}
+            <strong className="font-semibold text-slate-800">NIV-03</strong> ({NIV03.title}) et{' '}
+            <strong className="font-semibold text-slate-800">NIV-04</strong> ({NIV04.title}). Les thèmes couverts
+            incluent devis et chiffrage, réponses aux marchés, comptes rendus, DOE, emails et relation client — en{' '}
+            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (NIV-03 et
+            NIV-04 : 8 participants max). Téléchargez les{' '}
+            <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
             depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>
           <div className="mt-8">

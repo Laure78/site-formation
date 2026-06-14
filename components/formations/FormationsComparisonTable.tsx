@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { CATALOGUE_FORMATIONS_COUNT, sortFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
-import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
+import { tarifHtDepuisBadgeCatalogue, formatTarifHt } from '@/lib/tarifs-sessions';
 
 export function FormationsComparisonTable({
   formations,
@@ -77,7 +77,7 @@ export function FormationsComparisonTable({
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.publicLabel}</td>
                 <td className="px-[18px] py-3 align-top text-[#334155]">{row.duree}</td>
                 <td className="px-[18px] py-3 align-top text-base font-bold text-[#377CF3]">
-                  {tarifHtDepuisBadgeCatalogue(row.level)} € HT{' '}
+                  {formatTarifHt(tarifHtDepuisBadgeCatalogue(row.level))} € HT{' '}
                   {row.launchPrice ? <LaunchPriceBadge className="ml-1 align-middle" /> : null}
                   <span className="block text-xs font-normal text-[#64748B]">/ session</span>
                 </td>
@@ -99,7 +99,7 @@ export function FormationsComparisonTable({
                 {row.ref}
               </span>
               <span className="font-bold text-[#377CF3]">
-                {tarifHtDepuisBadgeCatalogue(row.level)} € HT / session
+                {formatTarifHt(tarifHtDepuisBadgeCatalogue(row.level))} € HT / session
                 {row.launchPrice ? (
                   <>
                     {' '}

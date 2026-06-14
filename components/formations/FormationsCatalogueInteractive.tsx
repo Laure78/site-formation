@@ -15,50 +15,40 @@ import {
   HardHat,
 } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { CATALOGUE_FORMATIONS_COUNT, sortFormationsCatalogue, tarifLabelForEntry } from '@/lib/formations-catalogue-display';
+import {
+  CATALOGUE_FORMATIONS_COUNT,
+  FORMATIONS_CATALOGUE,
+  sortFormationsCatalogue,
+  tarifLabelForEntry,
+} from '@/lib/formations-catalogue-display';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude';
 
-const PROFILES: {
-  id: ProfileId;
-  label: string;
-  short: string;
-  icon: typeof BookOpen;
-  refs: string[];
-}[] = [
-  {
-    id: 'debutant',
-    label: 'Niveau 1 — bâtiment & travaux publics',
-    short: 'NIV-01',
-    icon: BookOpen,
-    refs: ['NIV-01'],
-  },
-  {
-    id: 'ao',
-    label: 'Niveau 2 — appels d’offre BTP',
-    short: 'NIV-02',
-    icon: FileText,
-    refs: ['NIV-02'],
-  },
-  {
-    id: 'conduite',
-    label: 'Je pilote mes chantiers — conduite de travaux',
-    short: 'NIV-03',
-    icon: HardHat,
-    refs: ['NIV-03'],
-  },
-  {
-    id: 'claude',
-    label: 'Je veux industrialiser Claude en entreprise',
-    short: 'NIV-04',
-    icon: Cpu,
-    refs: ['NIV-04'],
-  },
-];
+const PROFILE_ICONS = {
+  'NIV-01': BookOpen,
+  'NIV-02': FileText,
+  'NIV-03': HardHat,
+  'NIV-04': Cpu,
+} as const;
+
+const PROFILE_IDS: Record<string, ProfileId> = {
+  'NIV-01': 'debutant',
+  'NIV-02': 'ao',
+  'NIV-03': 'conduite',
+  'NIV-04': 'claude',
+};
+
+const PROFILES = FORMATIONS_CATALOGUE.map((entry) => ({
+  id: PROFILE_IDS[entry.ref],
+  label: entry.title,
+  short: entry.ref,
+  icon: PROFILE_ICONS[entry.ref as keyof typeof PROFILE_ICONS],
+  refs: [entry.ref],
+}));
 
 function FormationCard({
   cours,
@@ -243,22 +233,14 @@ export function FormationsCatalogueInteractive({
       <section aria-labelledby="catalogue-formations-heading" className="space-y-5">
         <div className="text-center">
           <h2 id="catalogue-formations-heading" className="sr-only">
-            Catalogue : niveaux 1 à 4
+            Catalogue : {CATALOGUE_FORMATIONS_COUNT} formations
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-              Niveau 1 · {TARIF_SESSION_DEBUTANT_HT} € HT / session
+              Niveau 1 · {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session · NIV-01
             </span>
             <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-              Niveau 2 · {TARIF_SESSION_AVANCE_HT} € HT / session
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-              NIV-03 conduite · {TARIF_SESSION_AVANCE_HT} € HT
-              <LaunchPriceBadge className="!bg-white/90" />
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-              NIV-04 Claude · {TARIF_SESSION_AVANCE_HT} € HT
-              <LaunchPriceBadge className="!bg-white/90" />
+              Niveau 2 · {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session · NIV-02, NIV-03, NIV-04
             </span>
           </div>
         </div>

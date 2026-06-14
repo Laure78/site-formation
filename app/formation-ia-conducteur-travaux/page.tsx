@@ -9,7 +9,9 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -290,7 +292,7 @@ export default function FormationIaConducteurTravauxPage() {
             Formation catalogue — NIV-01 (4 h, Qualiopi)
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            Réf. NIV-01 · Débutant · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
+            Réf. NIV-01 · Débutant · {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 leading-relaxed text-slate-600">
             <strong>L&apos;IA au service des professionnels du BTP</strong> : session de 4 h pour conducteurs de

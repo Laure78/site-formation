@@ -20,6 +20,8 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
   LIBELLE_EFFECTIF_GROUPE_NIV02,
+
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -119,7 +121,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 
 const HERO_RESUME_AO = [
   `Parcours catalogue NIV-02 : assistants IA DCE & mémoire technique — Claude AI Pro, Cowork & Skills.`,
-  `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${TARIF_FORFAIT_AVANCE_HT} € net de TVA / session (niveau avancé).`,
+  `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé).`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV02}.`,
   'Qualiopi, 100 % finançable OPCO Constructys selon éligibilité.',
 ];
@@ -237,7 +239,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               <strong>Format :</strong> action de formation — session unique <strong>{SESSION_DUREE_LIBELLE}</strong>{' '}
               (75 % pratique / 25 % théorie) en demi-journée : 9h00–13h00 ou 13h30–17h30 (à convenir). Intra ou inter,
               exclusivement en présentiel en Île-de-France. Forfait{' '}
-              <strong>{TARIF_FORFAIT_AVANCE_HT} € net de TVA par session</strong> (niveau avancé,{' '}
+              <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> (niveau avancé,{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session — réf.{' '}
               <strong>NIV-02</strong>.
             </span>
@@ -359,7 +361,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-            {TARIF_FORFAIT_AVANCE_HT} € net de TVA / session (niveau avancé) · <strong>Financement :</strong> 100 %
+            {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé) · <strong>Financement :</strong> 100 %
             finançable OPCO Constructys selon éligibilité · <strong>Inscription :</strong> jusqu&apos;à 7 jours avant la
             session.
           </li>

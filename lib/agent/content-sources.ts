@@ -11,6 +11,8 @@ import {
   MODALITE_FORMATIONS_PRESENTIEL,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { BLOG_ARTICLES } from '@/lib/blog';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
@@ -27,14 +29,14 @@ const BASE_URL = SITE_CONFIG.url;
 
 // Formations (données statiques du site)
 const FORMATIONS_DATA = [
-  { path: '/formations', title: 'Catalogue formations IA appliquées au bâtiment', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
+  { path: '/formations', title: 'Catalogue formations IA appliquées au bâtiment', desc: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session (débutant) ou ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session (avancé). ${MODALITE_FORMATIONS_PRESENTIEL} Qualiopi, Constructys selon éligibilité.` },
   {
     path: '/formations/ia-batiment-travaux-publics',
     title: "L'IA au service des pros du bâtiment et des travaux publics",
-    desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
+    desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
   { path: '/formations/ia-btp-paris', title: 'Formation IA pour le BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
-  { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique, Cowork', desc: `${SESSION_DUREE_LIBELLE}, ${TARIF_FORFAIT_AVANCE_HT} € HT/session. Claude AI Pro, Cowork & Skills — DCE et mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
+  { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique, Cowork', desc: `${SESSION_DUREE_LIBELLE}, ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session. Claude AI Pro, Cowork & Skills — DCE et mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par session (12 participants max).' },
 ];
 
@@ -48,7 +50,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
   },
   { path: '/contact', title: 'Contact', content: `Contact : ${SITE_CONFIG.email}. Laure Olivié, Guyancourt (Yvelines).` },
   { path: '/prendre-rdv', title: 'Prendre rendez-vous', content: 'Réservez un échange d\'environ 30 minutes pour une formation sur-mesure. Planning en ligne via Calendly (appel découverte).' },
-  { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT/session (débutant) ou ${TARIF_FORFAIT_AVANCE_HT} € HT/session (avancé). Prise en charge OPCO Constructys selon barèmes. Qualiopi. eGestion, délais 15 jours.` },
+  { path: '/financement-constructys-formation-ia-btp', title: 'Financement formation IA OPCO Constructys', content: `Sessions ${SESSION_DUREE_LIBELLE} : forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session (débutant) ou ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session (avancé). Prise en charge OPCO Constructys selon barèmes. Qualiopi. eGestion, délais 15 jours.` },
   { path: '/financement-constructys-formation-ia-btp', title: 'Financement Constructys', content: 'OPCO Constructys finance les formations BTP. Plan de développement des compétences. Prise en charge selon barèmes et éligibilité. 24€ HT/heure/stagiaire.' },
   { path: '/formation-ia-artisans-btp', title: 'ChatGPT pour entreprises BTP', content: 'Formation ChatGPT pour dirigeants et équipes du bâtiment et des travaux publics. Devis, emails, CR chantier. 4h pratiques.' },
   {

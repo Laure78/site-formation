@@ -7,7 +7,9 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT } from '@/lib/tarifs-sessions';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
@@ -458,7 +460,7 @@ export default function FormationIaChargeAffairesBtpPage() {
             Formation BTP-02 — IA et appels d&apos;offres BTP : avancé
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-02 · Avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/session ·{' '}
+            Référence : BTP-02 · Avancé · 4 h · {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

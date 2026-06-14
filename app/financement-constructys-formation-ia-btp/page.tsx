@@ -24,6 +24,8 @@ import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   MODALITE_FORMATIONS_PRESENTIEL,
+
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
@@ -268,7 +270,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
                     4 h
                   </span>
-                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{TARIF_FORFAIT_DEBUTANT_HT} € HT</p>
+                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT</p>
                   <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau débutant (NIV-01)</p>
                   <p className="mt-3 text-sm text-[#64748B]">{COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}</p>
                 </div>
@@ -276,7 +278,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
                     4 h
                   </span>
-                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{TARIF_FORFAIT_AVANCE_HT} € HT</p>
+                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT</p>
                   <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau avancé (NIV-02)</p>
                   <p className="mt-3 text-sm text-[#64748B]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</p>
                 </div>

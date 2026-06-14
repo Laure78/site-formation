@@ -19,7 +19,9 @@ import {
 } from '@/lib/seo-formation-ia-schemas';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT ,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 
@@ -249,7 +251,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 NIV-01 — L&apos;IA au service des pros du Bâtiment Travaux Publics
               </h3>
               <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
+                Niveau débutant · 4 h · {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
               </p>
               <p className="mt-4 text-slate-700 leading-relaxed">
                 Devis, DCE, CCTP, comptes rendus de chantier, relances clients et documents administratifs — pour les
@@ -261,7 +263,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 NIV-02 — L&apos;IA au service des appels d&apos;offre BTP
               </h3>
               <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau avancé · 4 h · {TARIF_FORFAIT_AVANCE_HT} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
+                Niveau avancé · 4 h · {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
               </p>
               <p className="mt-4 text-slate-700 leading-relaxed">
                 Analyse DCE, mémoire technique, structuration de réponse marché. Pour les chargés d&apos;affaires et

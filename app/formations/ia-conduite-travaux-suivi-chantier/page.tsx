@@ -22,6 +22,8 @@ import {
   TARIF_FORFAIT_AVANCE_HT,
   LIBELLE_EFFECTIF_GROUPE_NIV03,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 import {
@@ -114,7 +116,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 
 const HERO_RESUME = [
   `Parcours catalogue NIV-03 : conduite de travaux & suivi chantier — bibliothèque de 20+ skills Claude.`,
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_AVANCE_HT} € net de TVA / session — prix de lancement.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session — prix de lancement.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
 ];
@@ -226,7 +228,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
                 (9h00–13h00 ou 13h30–17h30). Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
-                <strong>{TARIF_FORFAIT_AVANCE_HT} € net de TVA par session</strong>{' '}
+                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong>{' '}
                 <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}. Réf.{' '}
                 <strong>NIV-03</strong>.
               </span>
@@ -302,7 +304,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-              {TARIF_FORFAIT_AVANCE_HT} € net de TVA / session{' '}
+              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session{' '}
               <LaunchPriceBadge className="ml-1 align-middle" /> · <strong>Effectif :</strong>{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).

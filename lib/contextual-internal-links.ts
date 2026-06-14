@@ -3,7 +3,13 @@
  * Toutes les URLs proviennent de `lib/internal-links.ts`.
  */
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
+import { formationCatalogueLinkLabel, getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { LINKS, type InternalLinkPath } from '@/lib/internal-links';
+
+const NIV01 = getFormationCatalogueByRef('NIV-01')!;
+const NIV02 = getFormationCatalogueByRef('NIV-02')!;
+const NIV03 = getFormationCatalogueByRef('NIV-03')!;
+const NIV04 = getFormationCatalogueByRef('NIV-04')!;
 
 export type ContextualLinkCard = {
   href: InternalLinkPath | string;
@@ -89,22 +95,22 @@ export function getGeoSisterDepartmentLinks(
 export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
-    title: 'NIV-01 — IA bâtiment & travaux publics',
+    title: formationCatalogueLinkLabel(NIV01),
     description: 'Devis, CR chantier, emails — session 4 h Qualiopi.',
   },
   {
     href: LINKS.formationAO,
-    title: "NIV-02 — Appels d'offres BTP",
+    title: formationCatalogueLinkLabel(NIV02),
     description: 'DCE, mémoire technique, analyse CCTP avec Claude AI.',
   },
   {
     href: LINKS.formationConduiteTravauxSuiviChantier,
-    title: 'NIV-03 — Conduite de travaux',
+    title: formationCatalogueLinkLabel(NIV03),
     description: 'Skills Claude, CCTP, PPSPS, CR, réception chantier — prix de lancement.',
   },
   {
     href: LINKS.formationMaitriserClaudeAiBtp,
-    title: 'NIV-04 — Maîtriser Claude AI',
+    title: formationCatalogueLinkLabel(NIV04),
     description: 'Projets, Skills, Cowork, connecteurs, Claude Code — matin 9h–13h.',
   },
   {
@@ -122,7 +128,7 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
 export const FORMATION_NIV01_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationAO,
-    title: "Passer au NIV-02 — Appels d'offres",
+    title: `Passer au ${formationCatalogueLinkLabel(NIV02)}`,
     description: 'Mémoire technique, DCE et réponses marchés publics.',
   },
   {
@@ -145,7 +151,7 @@ export const FORMATION_NIV01_RELATED: ContextualLinkCard[] = [
 export const FORMATION_NIV02_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
-    title: 'Revenir au NIV-01 — Bâtiment & TP',
+    title: `Revenir au ${formationCatalogueLinkLabel(NIV01)}`,
     description: 'Devis, administratif et productivité au quotidien.',
   },
   {
@@ -200,7 +206,7 @@ export const GEO_PAGE_UTILITY_LINKS: ContextualLinkCard[] = [
 export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
-    title: 'Prérequis — NIV-01 bâtiment & TP',
+    title: `Prérequis — ${formationCatalogueLinkLabel(NIV01)}`,
     description: 'Bases IA chantier et administratif avant le NIV-03.',
   },
   {
@@ -210,7 +216,7 @@ export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
   },
   {
     href: LINKS.formationAO,
-    title: 'NIV-02 — Appels d’offres',
+    title: formationCatalogueLinkLabel(NIV02),
     description: 'Mémoire technique et analyse DCE avec Cowork.',
   },
   {
@@ -223,12 +229,12 @@ export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
 export const FORMATION_NIV04_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.formationAO,
-    title: 'NIV-02 — Appels d\'offres BTP',
+    title: formationCatalogueLinkLabel(NIV02),
     description: 'DCE, mémoire technique, Cowork & Skills.',
   },
   {
     href: LINKS.formationConduiteTravauxSuiviChantier,
-    title: 'NIV-03 — Conduite de travaux',
+    title: formationCatalogueLinkLabel(NIV03),
     description: 'Skills Claude chantier, CCTP, CR, réception.',
   },
   {

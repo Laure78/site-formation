@@ -6,6 +6,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE_NIV02,
   libelleTarifParticipant,
   tarifHtDepuisBadgeCatalogue,
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
@@ -123,7 +124,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     effectif: '8 participants max',
     launchPrice: true,
     pitch:
-      "Niveau avancé : industrialisez l'IA dans votre entreprise BTP — Projets, Skills, Cowork, connecteurs et Claude Code, sur vos cas réels.",
+      "Niveau 2 : industrialisez l'IA dans votre entreprise BTP — Projets, Skills, Cowork, connecteurs et Claude Code, sur vos cas réels.",
     profileTags: ['maitriser-claude'],
     objectifs: [
       'Structurer l\'usage de Claude dans l\'entreprise avec les Projets et une bibliothèque de Skills',
@@ -142,6 +143,22 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
 
 /** Nombre de parcours catalogue — source unique pour copy SEO et JSON-LD. */
 export const CATALOGUE_FORMATIONS_COUNT = FORMATIONS_CATALOGUE.length;
+
+export function getFormationCatalogueByRef(ref: string): FormationCatalogueEntry | undefined {
+  return FORMATIONS_CATALOGUE.find((e) => e.ref === ref);
+}
+
+/** Libellé lien UI : RÉF — titre officiel catalogue. */
+export function formationCatalogueLinkLabel(
+  entry: Pick<FormationCatalogueEntry, 'ref' | 'title'>
+): string {
+  return `${entry.ref} — ${entry.title}`;
+}
+
+/** Badge pédagogique affiché sur cartes accueil : NIVEAU 1 (NIV-01) ou NIVEAU 2 (NIV-02 à NIV-04). */
+export function cataloguePedagogicalLevelBadge(ref: string): string {
+  return ref === 'NIV-01' ? 'NIVEAU 1' : 'NIVEAU 2';
+}
 
 const LEVEL_ORDER: Record<CatalogueLevel, number> = { DÉBUTANT: 0, AVANCÉ: 1 };
 
@@ -166,7 +183,7 @@ export function tarifLabel(level: CatalogueLevel): string {
 
 /** Libellé tarif carte catalogue — sans « max 12 » si prix de lancement ou effectif dédié. */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
-  const n = tarifHtDepuisBadgeCatalogue(entry.level);
+  const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(entry.level));
   if (entry.launchPrice) {
     return `${n} € HT / session`;
   }

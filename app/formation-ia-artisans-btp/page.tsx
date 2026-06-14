@@ -10,7 +10,9 @@ import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT ,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP : ChatGPT, devis, emails, comptes rendus',
@@ -293,7 +295,7 @@ export default function FormationIAArtisansBTPPage() {
             des prompts prêts à l&apos;emploi. Financement possible selon éligibilité.
           </p>
           <p className="mt-3 text-sm text-blue-100">
-            À partir de {TARIF_SESSION_DEBUTANT_HT} € HT/session · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
+            À partir de {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
           </p>
           <ul className="mt-6 space-y-2">
             {[

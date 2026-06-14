@@ -14,6 +14,7 @@ import {
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { StatCallout } from '@/components/readability/StatCallout';
@@ -21,6 +22,15 @@ import { KeyPoint } from '@/components/readability/KeyPoint';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import {
+  formationCatalogueLinkLabel,
+  getFormationCatalogueByRef,
+} from '@/lib/formations-catalogue-display';
+
+const NIV01 = getFormationCatalogueByRef('NIV-01')!;
+const NIV02 = getFormationCatalogueByRef('NIV-02')!;
+const NIV03 = getFormationCatalogueByRef('NIV-03')!;
+const NIV04 = getFormationCatalogueByRef('NIV-04')!;
 
 const BEWORK_PILOTES = [
   'Comptes rendus de chantier',
@@ -192,9 +202,9 @@ export function BeworkEtFormationsOffreSection() {
                     href={LINKS.formationIaBtpNiveau1BatimentTp}
                     className="text-[#377CF3] underline-offset-2 hover:underline"
                   >
-                    Niveau 1 — L&apos;IA au service des professionnels du BTP
+                    {formationCatalogueLinkLabel(NIV01)}
                   </Link>
-                  {` (${SESSION_DUREE_LIBELLE}, forfait ${TARIF_SESSION_DEBUTANT_HT} € HT / session groupe)`}
+                  {` (${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session groupe)`}
                 </p>
                 <p className="mt-1.5">
                   Devis, mails, documents réglementaires. Prompts BTP prêts à l&apos;emploi. Vous repartez autonome.
@@ -203,9 +213,9 @@ export function BeworkEtFormationsOffreSection() {
               <div>
                 <p className="font-semibold text-[#1A1A1A]">
                   <Link href={LINKS.formationAO} className="text-[#377CF3] underline-offset-2 hover:underline">
-                    Niveau 2 — IA et appels d&apos;offres (DCE et mémoire technique)
+                    {formationCatalogueLinkLabel(NIV02)}
                   </Link>
-                  {` (${SESSION_DUREE_LIBELLE}, forfait ${TARIF_SESSION_AVANCE_HT} € HT / session groupe)`}
+                  {` (${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session groupe)`}
                 </p>
                 <p className="mt-1.5">
                   Analyse DCE, mémoire technique, assistants IA réutilisables.{' '}
@@ -218,9 +228,9 @@ export function BeworkEtFormationsOffreSection() {
                     href={LINKS.formationConduiteTravauxSuiviChantier}
                     className="text-[#377CF3] underline-offset-2 hover:underline"
                   >
-                    Niveau 3 — L&apos;IA appliquée à la conduite de travaux
+                    {formationCatalogueLinkLabel(NIV03)}
                   </Link>
-                  {` (${SESSION_DUREE_LIBELLE}, forfait ${TARIF_SESSION_AVANCE_HT} € HT / session · 8 participants max · prix de lancement)`}
+                  {` (${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session · 8 participants max · prix de lancement)`}
                 </p>
                 <p className="mt-1.5">
                   Bibliothèque de skills Claude : CCTP, PPSPS, CR, sous-traitants, DOE. Pilotage chantier au quotidien.
@@ -232,9 +242,9 @@ export function BeworkEtFormationsOffreSection() {
                     href={LINKS.formationMaitriserClaudeAiBtp}
                     className="text-[#377CF3] underline-offset-2 hover:underline"
                   >
-                    Niveau 4 — Maîtriser Claude AI pour le BTP
+                    {formationCatalogueLinkLabel(NIV04)}
                   </Link>
-                  {` (${SESSION_DUREE_LIBELLE} matin 9h–13h, forfait ${TARIF_SESSION_AVANCE_HT} € HT / session · 8 participants max · prix de lancement)`}
+                  {` (${NIV04.duree}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session · 8 participants max · prix de lancement)`}
                 </p>
                 <p className="mt-1.5">
                   Projets, Skills, Cowork, connecteurs Gmail/Drive, Claude Code — industrialiser Claude en entreprise.

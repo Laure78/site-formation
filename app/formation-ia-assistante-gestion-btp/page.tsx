@@ -11,6 +11,8 @@ import {
   EFFECTIF_GROUPE_MAX,
   TARIF_FORFAIT_AVANCE_HT,
   TARIF_FORFAIT_DEBUTANT_HT,
+
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
@@ -519,7 +521,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
             Formation BTP-01 — L&apos;IA au service du bâtiment : débutant
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-01 · Débutant · 4 h · {TARIF_FORFAIT_DEBUTANT_HT} € HT/session ·{' '}
+            Référence : BTP-01 · Débutant · 4 h · {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

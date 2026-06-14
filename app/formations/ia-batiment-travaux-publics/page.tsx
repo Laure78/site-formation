@@ -42,6 +42,8 @@ import {
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   LIBELLE_EFFECTIF_GROUPE,
   LIBELLE_EFFECTIF_GROUPE_COURT,
+
+  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { PHOTOS } from '@/lib/photos';
@@ -98,7 +100,7 @@ const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
 const POINTS_MARQUANTS = [
   'Parcours catalogue niveau 1 (réf. NIV-01) : bâtiment et travaux publics — devis, chantier, administratif.',
-  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT par session (niveau débutant).`,
+  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT par session (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité.',
 ];
@@ -133,7 +135,7 @@ const MODALITES = [
     icon: Clock,
     title: 'Durée',
     primary: SESSION_DUREE_LIBELLE,
-    secondary: `Forfait ${TARIF_FORFAIT_DEBUTANT_HT} € HT / session (niveau débutant)`,
+    secondary: `Forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (niveau débutant)`,
   },
   {
     icon: MapPin,
@@ -168,7 +170,7 @@ const MODALITES = [
   {
     icon: DollarSign,
     title: 'Tarif & financement',
-    primary: `${TARIF_FORFAIT_DEBUTANT_HT} € HT / session (débutant)`,
+    primary: `${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (débutant)`,
     secondary: 'Financement OPCO selon éligibilité — Constructys, AKTO, OPCO EP',
   },
 ];
@@ -307,7 +309,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           quotidien : <strong>devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier, relances clients et documents administratifs</strong>, avec des trames et prompts
           prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
           issus du terrain BTP.{' '}
-          <strong>Forfait {TARIF_FORFAIT_DEBUTANT_HT} € HT par session</strong> (niveau débutant).
+          <strong>Forfait {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT par session</strong> (niveau débutant).
           Financement possible via <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation
           certifiée Qualiopi).
         </p>
@@ -771,7 +773,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-2 text-blue-100">
             Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
-            {TARIF_FORFAIT_DEBUTANT_HT} € HT / session (niveau débutant).
+            {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <RdvLink className="flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">

@@ -3,6 +3,8 @@
  * jusqu'à 12 participants.
  */
 
+import { formatNumberFr } from '@/lib/format-number-fr';
+
 export const SESSION_DUREE_LIBELLE = '4 h';
 
 /** NIV-04 Maîtriser Claude AI — session matin uniquement */
@@ -13,6 +15,11 @@ export const TARIF_SESSION_DEBUTANT_HT = 1000;
 
 /** Forfait HT pour la session complète — formations niveau avancé (catalogue) */
 export const TARIF_SESSION_AVANCE_HT = 1200;
+
+/** Montant HT affiché (espace milliers FR) — ex. 1 000, 1 200 */
+export function formatTarifHt(amount: number): string {
+  return formatNumberFr(amount);
+}
 
 /**
  * @deprecated Utiliser `TARIF_SESSION_DEBUTANT_HT` — conservé pour imports existants.
@@ -41,7 +48,7 @@ export const EFFECTIF_GROUPE_MAX = 12;
 
 /** Libellé carte / ligne tableau : forfait session */
 export function libelleTarifParticipant(level: 'DÉBUTANT' | 'AVANCÉ'): string {
-  const n = tarifHtDepuisBadgeCatalogue(level);
+  const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(level));
   return `${n} € HT / session (max ${EFFECTIF_GROUPE_MAX} participants)`;
 }
 
@@ -81,4 +88,4 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini.';
 
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait ${TARIF_SESSION_DEBUTANT_HT} € HT par session (niveau débutant) ou ${TARIF_SESSION_AVANCE_HT} € HT par session (niveau avancé), ${LIBELLE_EFFECTIF_GROUPE_COURT}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session (niveau débutant) ou ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session (niveau avancé), ${LIBELLE_EFFECTIF_GROUPE_COURT}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

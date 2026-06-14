@@ -27,7 +27,7 @@ export function FormationsHero() {
           id="formations-catalogue-hero-h1"
           className="mt-3 max-w-3xl text-balance text-[1.35rem] font-bold leading-snug tracking-tight text-white sm:mt-3.5 sm:text-[1.45rem] md:text-[1.6rem] md:leading-[1.22] lg:text-[1.75rem]"
         >
-          Catalogue formation IA pour le BTP : {CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h (niveaux 1 à 4), programmes PDF
+          Catalogue formation IA pour le BTP : {CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h (niveau 1 et niveau 2), programmes PDF
         </h1>
         <div className="mt-4 flex flex-col gap-2.5 sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-3">
           <CalendlyEmbed

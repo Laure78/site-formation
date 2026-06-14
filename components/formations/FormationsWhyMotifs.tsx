@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import { BookOpen, Cpu, HardHat, Trophy, Wallet } from 'lucide-react';
-import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
+import {
+  CATALOGUE_FORMATIONS_COUNT,
+  FORMATIONS_CATALOGUE,
+  formationCatalogueLinkLabel,
+} from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
@@ -20,66 +24,56 @@ export function FormationsWhyMotifs() {
         programmes PDF téléchargeables sur chaque fiche.
       </p>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        <div className={`${OFC_CARD} p-8`}>
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
-            <BookOpen className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-          </div>
-          <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
-            NIV-01 — débutant
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
-            Démarrer avec l&apos;IA : bâtiment &amp; travaux publics
-          </p>
-          <p className="mt-4 text-base font-bold text-[#10B981]">
-            {TARIF_SESSION_DEBUTANT_HT} € HT / session (max 12 pers.)
-          </p>
-        </div>
-        <div className={`${OFC_CARD} p-8`}>
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FEF3C7]">
-            <Trophy className="h-8 w-8 text-[#F59E0B]" strokeWidth={1.75} aria-hidden />
-          </div>
-          <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
-            NIV-02 — appels d&apos;offre
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
-            DCE, mémoire technique, Cowork &amp; Skills
-          </p>
-          <p className="mt-4 text-base font-bold text-[#F97316]">
-            {TARIF_SESSION_AVANCE_HT} € HT / session
-          </p>
-        </div>
-        <div className={`${OFC_CARD} p-8`}>
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FEF3C7]">
-            <HardHat className="h-8 w-8 text-[#F97316]" strokeWidth={1.75} aria-hidden />
-          </div>
-          <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
-            NIV-03 — conduite de travaux
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
-            CCTP, CR, PPSPS, réception — skills Claude chantier
-          </p>
-          <p className="mt-4 flex flex-wrap items-center gap-2 text-base font-bold text-[#F97316]">
-            {TARIF_SESSION_AVANCE_HT} € HT / session
-            <LaunchPriceBadge />
-          </p>
-        </div>
-        <div className={`${OFC_CARD} p-8`}>
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#FEF3C7]">
-            <Cpu className="h-8 w-8 text-[#F97316]" strokeWidth={1.75} aria-hidden />
-          </div>
-          <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
-            <Link href={LINKS.formationMaitriserClaudeAiBtp} className="hover:text-[#377CF3] hover:underline">
-              NIV-04 — Maîtriser Claude AI
-            </Link>
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
-            Projets, Cowork, connecteurs, Claude Code — matin 9h–13h
-          </p>
-          <p className="mt-4 flex flex-wrap items-center gap-2 text-base font-bold text-[#F97316]">
-            {TARIF_SESSION_AVANCE_HT} € HT / session
-            <LaunchPriceBadge />
-          </p>
-        </div>
+        {FORMATIONS_CATALOGUE.map((entry) => {
+          const Icon =
+            entry.ref === 'NIV-01'
+              ? BookOpen
+              : entry.ref === 'NIV-02'
+                ? Trophy
+                : entry.ref === 'NIV-03'
+                  ? HardHat
+                  : Cpu;
+          const isDebutant = entry.ref === 'NIV-01';
+          return (
+            <div key={entry.ref} className={`${OFC_CARD} p-8`}>
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
+                <Icon
+                  className={`h-8 w-8 ${isDebutant ? 'text-[#377CF3]' : 'text-[#F97316]'}`}
+                  strokeWidth={1.75}
+                  aria-hidden
+                />
+              </div>
+              <h3 className="mt-6 font-display text-lg font-semibold leading-snug text-[#0F172A]">
+                {entry.ref === 'NIV-04' ? (
+                  <Link href={LINKS.formationMaitriserClaudeAiBtp} className="hover:text-[#377CF3] hover:underline">
+                    {formationCatalogueLinkLabel(entry)}
+                  </Link>
+                ) : (
+                  formationCatalogueLinkLabel(entry)
+                )}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
+                {entry.ref === 'NIV-01'
+                  ? 'Démarrer avec l\u2019IA : bâtiment & travaux publics'
+                  : entry.ref === 'NIV-02'
+                    ? 'DCE, mémoire technique, Cowork & Skills'
+                    : entry.ref === 'NIV-03'
+                      ? 'CCTP, CR, PPSPS, réception — skills Claude chantier'
+                      : 'Projets, Cowork, connecteurs, Claude Code — matin 9h–13h'}
+              </p>
+              <p
+                className={`mt-4 flex flex-wrap items-center gap-2 text-base font-bold ${
+                  isDebutant ? 'text-[#10B981]' : 'text-[#F97316]'
+                }`}
+              >
+                {isDebutant
+                  ? `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session (max 12 pers.)`
+                  : `${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session`}
+                {entry.launchPrice ? <LaunchPriceBadge /> : null}
+              </p>
+            </div>
+          );
+        })}
         <div className={`${OFC_CARD} p-8`}>
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
             <Wallet className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />

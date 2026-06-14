@@ -6,7 +6,7 @@ import { FAQ_FORMATIONS } from '@/lib/faq';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { getFAQSchema } from '@/lib/seo';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
@@ -42,7 +42,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         url: `${BASE}/formations`,
         name: `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_COUNT} formations Qualiopi 4 h`,
         description:
-          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 bâtiment & travaux publics, niveau 2 appels d'offre, NIV-03 conduite de travaux, NIV-04 Maîtriser Claude AI.`,
+          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : NIV-01 (niveau 1), NIV-02, NIV-03 et NIV-04 (niveau 2) — titres officiels sur chaque fiche.`,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -341,13 +341,13 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Choisissez le niveau : NIV-01 (bâtiment & travaux publics), NIV-02 (appels d\'offre), NIV-03 (conduite de travaux) ou NIV-04 Maîtriser Claude AI (industrialiser Projets, Skills, Cowork et Claude Code).',
+            text: 'Choisissez la référence catalogue : NIV-01 — L\'IA au service des pros du bâtiment et des travaux publics ; NIV-02 — L\'IA appliquée aux appels d\'offres BTP ; NIV-03 — L\'IA appliquée à la conduite de travaux ; NIV-04 — Maîtriser Claude AI pour le BTP.',
           },
           {
             '@type': 'HowToStep',
             position: 2,
             name: 'Évaluer le niveau IA des participants',
-            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant (${TARIF_SESSION_DEBUTANT_HT} € HT par session, jusqu'à 12 participants). Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée (${TARIF_SESSION_AVANCE_HT} € HT par session).`,
+            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant (${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session, jusqu'à 12 participants). Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée (${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session).`,
           },
           {
             '@type': 'HowToStep',

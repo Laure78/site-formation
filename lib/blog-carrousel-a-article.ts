@@ -3,10 +3,12 @@
  * /public/images/blog/carrousel-a-presentation-formation/slide-*.png
  */
 import type { BlogArticle } from './blog';
-import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_DEBUTANT_HT ,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
 
 const A = '/images/blog/carrousel-a-presentation-formation';
-const tarifNiv01 = `${TARIF_SESSION_DEBUTANT_HT.toLocaleString('fr-FR')} € HT`;
+const tarifNiv01 = `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT`;
 
 export const carrouselAFormationArticle: BlogArticle = {
   slug: 'formation-ia-artisans-batiment-programme-objectifs-livrables',

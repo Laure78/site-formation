@@ -11,7 +11,9 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { CONDUCTEUR_TRAVAUX_RELATED } from '@/lib/contextual-internal-links';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   CDT_BTP_FAQ,
@@ -204,7 +206,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
             <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="font-semibold text-[#377CF3] underline">
               NIV-01 — L&apos;IA au service des pros du bâtiment et des travaux publics
             </Link>{' '}
-            ({TARIF_FORFAIT_DEBUTANT_HT} € HT · {EFFECTIF_GROUPE_MAX} participants max · 4 h).
+            ({formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT · {EFFECTIF_GROUPE_MAX} participants max · 4 h).
           </p>
         </section>
 
