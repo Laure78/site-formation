@@ -2,12 +2,13 @@
   "slug": "ia-et-charpentier-5-gains-de-temps-concrets",
   "title": "IA et charpentier : 5 gains de temps concrets",
   "description": "5 gains de temps : IA et charpentier. Devis, CR, emails. Formation 4h pratique, financement possible selon éligibilité.",
-  "date": "2026-06-06",
+  "date": "2026-06-15",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,7 +62,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -74,11 +75,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
