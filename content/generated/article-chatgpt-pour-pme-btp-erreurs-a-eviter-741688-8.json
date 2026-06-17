@@ -1,13 +1,13 @@
 {
-  "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
+  "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter-741688-8",
   "title": "ChatGPT pour PME BTP : erreurs à éviter",
   "description": "ChatGPT PME BTP : 5 erreurs à éviter. Données, prompts, confidentialité. Formation bonnes pratiques.",
   "date": "2026-06-17",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "IA PME bâtiment",
+    "productivité BTP",
+    "automatisation TPE",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
