@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-menuisiers",
   "title": "L'IA va-t-elle remplacer les menuisiers ?",
   "description": "L'IA remplace-t-elle les menuisiers ? Non : elle assiste le métier. Financement possible selon éligibilité.",
-  "date": "2026-06-09",
+  "date": "2026-06-18",
   "keywords": [
-    "prospection BTP IA",
-    "emails commerciaux ChatGPT",
-    "relance client IA",
-    "IA marketing BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
