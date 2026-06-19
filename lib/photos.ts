@@ -588,11 +588,11 @@ export const PHOTOS = {
     height: 1024,
   },
   formationNiv05IaMaitriseOeuvre2026: {
-    src: '/images/bework/guide-maitre-oeuvre-moe.png',
+    src: '/images/formation-niv-05-ia-maitrise-oeuvre-2026.png',
     alt:
       "Affiche formation niveau 2 — L'IA au service des maîtres d'œuvre, MOEX, DCE et CR chantier, Laure Olivié Qualiopi",
     description:
-      "Visuel « L'IA au service des maîtres d'œuvre » : analyse DCE, comptes rendus, OS et réserves — 4 h, maîtrise d'œuvre d'exécution. Laure Olivié, OFC Qualiopi.",
+      "Affiche « L'IA au service des maîtres d'œuvre » : analyse DCE, comptes rendus, OS et réserves — 4 h, maîtrise d'œuvre d'exécution. Laure Olivié, OFC Qualiopi.",
     title: "Niveau 2 · L'IA au service des maîtres d'œuvre",
     width: 1024,
     height: 1024,
