@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import { VisioDecouverteCalendlyLink } from '@/components/VisioDecouverteCalendlyLink';
+import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 /** Durée déclarée de l’animation (pack) ; marge avant relance pour laisser finir la dernière slide. */
@@ -79,7 +80,7 @@ export function PresentationAnimee() {
             id="presentation-animee-heading"
             className="mt-4 font-display text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl"
           >
-            Découvrez les 4 formations IA pour les pro du BTP en 40 secondes
+            Découvrez les {CATALOGUE_FORMATIONS_COUNT} formations IA pour les pro du BTP en 40 secondes
           </h2>
           <p className="mx-auto mt-3 max-w-3xl text-slate-600">
             Un tour rapide du catalogue : bâtiment, travaux publics, appels
@@ -95,7 +96,7 @@ export function PresentationAnimee() {
             <iframe
               ref={iframeRef}
               src={`/presentation-formations.html${LOOP_SRC_QUERY}`}
-              title="Présentation animée — 4 formations IA appliquées au bâtiment (lecture en boucle)"
+              title={`Présentation animée — ${CATALOGUE_FORMATIONS_COUNT} formations IA appliquées au bâtiment (lecture en boucle)`}
               className="absolute inset-0 h-full w-full border-0"
               allowFullScreen
             />
@@ -103,7 +104,7 @@ export function PresentationAnimee() {
             <button
               type="button"
               onClick={() => setLoaded(true)}
-              aria-label="Charger tout de suite la présentation animée des 4 formations IA pour le BTP"
+              aria-label={`Charger tout de suite la présentation animée des ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP`}
               className="group absolute inset-0 flex cursor-pointer items-center justify-center border-0 bg-white transition-colors hover:bg-slate-50"
             >
               <div className="absolute inset-0 opacity-40">

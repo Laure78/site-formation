@@ -43,7 +43,7 @@ export function FormationCourseHero({
   summaryItems: string[];
   /** Fil d'Ariane affiché avant le lien « Retour au catalogue » et le H1 */
   breadcrumb?: ReactNode;
-  /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-04). */
+  /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-05). */
   catalogueRef?: string;
 }) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;

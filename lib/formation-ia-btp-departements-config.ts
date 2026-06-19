@@ -213,7 +213,7 @@ function buildDeptConfig(opts: {
     solutionBody: [
       `${OFC} pour le ${d} : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
       `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra ou inter uniquement.`,
-      `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux) et NIV-04 (Maîtriser Claude AI). Programmes PDF sur chaque fiche.`,
+      `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux), NIV-04 (Maîtriser Claude AI) et NIV-05 (maîtres d'œuvre). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
     villesTitle: `Villes et bassins d’emploi du ${d} (indicatif)`,
@@ -271,7 +271,7 @@ function faqSeineEtMarne77(): FAQItem[] {
     if (index === 6) {
       return {
         ...item,
-        a: 'Chaque référence catalogue (NIV-01 à NIV-04) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.',
+        a: 'Chaque référence catalogue (NIV-01 à NIV-05) = 4 h. Deux demi-journées sur deux thèmes possibles la même semaine — selon disponibilités.',
       };
     }
     return item;

@@ -27,7 +27,7 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const FORMATIONS_META_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
 const FORMATIONS_META_DESCRIPTION =
-  `${CATALOGUE_FORMATIONS_COUNT} formations IA pour les pro du BTP (4 h) : devis, AO, conduite de travaux, Claude AI. Qualiopi, Constructys. RDV gratuit.`;
+  `${CATALOGUE_FORMATIONS_COUNT} formations IA pour les pro du BTP (4 h) : devis, AO, conduite de travaux, maîtres d'œuvre, Claude AI. Qualiopi, Constructys. RDV gratuit.`;
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt:
-        'Catalogue formation IA pour le BTP — 5 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+        `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics`,
     },
   }),
   openGraph: {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          'Catalogue formation IA appliquée au bâtiment — 5 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+          `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics`,
       },
     ],
   },
