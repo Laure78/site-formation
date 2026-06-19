@@ -42,7 +42,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         url: `${BASE}/formations`,
         name: `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_COUNT} formations Qualiopi 4 h`,
         description:
-          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : NIV-01 (niveau 1), NIV-02, NIV-03 et NIV-04 (niveau 2) — titres officiels sur chaque fiche.`,
+          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 (bâtiment & travaux publics) et trois formations niveau 2 (appels d'offres, conduite de travaux, Maîtriser Claude AI) — titres officiels sur chaque fiche.`,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -341,7 +341,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Choisissez la référence catalogue : NIV-01 — L\'IA au service des pros du bâtiment et des travaux publics ; NIV-02 — L\'IA appliquée aux appels d\'offres BTP ; NIV-03 — L\'IA appliquée à la conduite de travaux ; NIV-04 — Maîtriser Claude AI pour le BTP.',
+            text: 'Choisissez le parcours adapté : niveau 1 — L\'IA au service des pros du bâtiment et des travaux publics ; niveau 2 — L\'IA appliquée aux appels d\'offres BTP, L\'IA appliquée à la conduite de travaux, ou Maîtriser Claude AI pour le BTP.',
           },
           {
             '@type': 'HowToStep',

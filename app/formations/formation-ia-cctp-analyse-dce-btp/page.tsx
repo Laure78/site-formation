@@ -148,7 +148,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
           role="note"
         >
           <strong>Page de référence mise à jour.</strong> Le programme catalogue appels d&apos;offres
-          (NIV-02) est sur{' '}
+          est sur{' '}
           <Link href={LINKS.formationAO} className="font-medium text-[var(--accent)] underline">
             la formation IA appels d&apos;offres BTP
           </Link>

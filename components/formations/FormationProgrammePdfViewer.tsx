@@ -1,3 +1,5 @@
+import { catalogueNiveauLabel } from '@/lib/formations-catalogue-display';
+
 type Props = {
   pdfHref: string;
   catalogueRef: string;
@@ -12,7 +14,7 @@ export function FormationProgrammePdfViewer({
   catalogueRef,
   formationTitle,
 }: Props) {
-  const iframeTitle = `Programme officiel ${catalogueRef} — ${formationTitle}`;
+  const iframeTitle = `Programme officiel — ${formationTitle}`;
 
   return (
     <section
@@ -24,7 +26,7 @@ export function FormationProgrammePdfViewer({
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <div className="border-b border-slate-200 bg-slate-50 px-5 py-4 sm:px-6">
             <p className="text-xs font-semibold uppercase tracking-wide text-[var(--accent)]">
-              Réf. {catalogueRef}
+              {catalogueNiveauLabel(catalogueRef)}
             </p>
             <h2 className="mt-1 font-display text-lg font-bold text-slate-900">
               Consulter le programme (PDF)

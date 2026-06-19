@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock, Download, FileText } from 'lucide-react';
+import { ArrowRight, Clock, Download } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import type { TutoData } from '@/lib/tutos/types';
 import { TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos/types';
@@ -28,15 +29,31 @@ function TutoCard({
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-[#377CF3]/30 hover:shadow-[0_12px_40px_rgba(55,124,243,0.12)]">
       <div className="absolute inset-y-0 left-0 w-1 bg-[#377CF3] opacity-0 transition group-hover:opacity-100" aria-hidden />
-      <div className="flex flex-1 flex-col p-6">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
-            <Clock size={14} aria-hidden />
-            {badgeLine}
+
+      {tuto.heroImage ? (
+        <Link
+          href={tutoUrl}
+          className="block overflow-hidden bg-[#F2F2F2] p-4 transition-colors group-hover:bg-[#EFF6FF]"
+          tabIndex={-1}
+          aria-hidden
+        >
+          <div className="mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full shadow-[0_8px_24px_rgba(55,124,243,0.12)] ring-2 ring-white transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+            <Image
+              src={tuto.heroImage.src}
+              alt={tuto.heroImage.alt}
+              width={tuto.heroImage.width}
+              height={tuto.heroImage.height}
+              className="h-full w-full object-contain"
+              sizes="(max-width: 640px) 45vw, 220px"
+            />
           </div>
-          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#F2F2F2] text-[#377CF3]">
-            <FileText size={18} aria-hidden />
-          </span>
+        </Link>
+      ) : null}
+
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+          <Clock size={14} aria-hidden />
+          {badgeLine}
         </div>
         <h3 className="mt-3 font-display text-xl font-bold leading-tight text-slate-900">
           <Link href={tutoUrl} className="hover:text-[#377CF3]">

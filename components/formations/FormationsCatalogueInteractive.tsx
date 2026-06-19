@@ -17,6 +17,8 @@ import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display
 import {
   CATALOGUE_FORMATIONS_COUNT,
   FORMATIONS_CATALOGUE,
+  catalogueNiveauLabel,
+  catalogueNiveauEtLevel,
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
 import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
@@ -44,7 +46,7 @@ const PROFILE_IDS: Record<string, ProfileId> = {
 const PROFILES = FORMATIONS_CATALOGUE.map((entry) => ({
   id: PROFILE_IDS[entry.ref],
   label: entry.title,
-  short: entry.ref,
+  short: catalogueNiveauLabel(entry.ref),
   icon: PROFILE_ICONS[entry.ref as keyof typeof PROFILE_ICONS],
   refs: [entry.ref],
 }));
@@ -70,33 +72,38 @@ function FormationCard({
         highlighted ? 'ring-2 ring-[#377CF3] ring-offset-2' : ''
       }`}
     >
-      <Link href={cours.href} className="relative block aspect-square w-full shrink-0 overflow-hidden bg-[#F1F5F9]">
-        <Image
-          src={visuel.src}
-          alt={visuel.alt}
-          title={'title' in visuel && typeof visuel.title === 'string' ? visuel.title : undefined}
-          fill
-          className="object-cover object-top"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-        <span
-          className={`absolute right-4 top-4 rounded-full px-3 py-1.5 text-xs font-bold backdrop-blur-sm ${
-            isDebutant
-              ? 'bg-[#D1FAE5]/90 text-[#047857]'
-              : 'bg-[#FED7AA]/90 text-[#C2410C]'
-          }`}
-        >
-          {isDebutant ? 'DÉBUTANT' : 'AVANCÉ'}
-        </span>
-        <CataloguePriceBadge
-          level={cours.level}
-          launchPrice={cours.launchPrice}
-          variant="overlay"
-        />
+      <Link
+        href={cours.href}
+        className="relative block w-full shrink-0 border-b border-[#E2E8F0] bg-[#F1F5F9] px-4 py-4"
+      >
+        <div className="relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden sm:max-w-[220px] md:max-w-[240px]">
+          <Image
+            src={visuel.src}
+            alt={visuel.alt}
+            title={'title' in visuel && typeof visuel.title === 'string' ? visuel.title : undefined}
+            fill
+            className="object-contain object-center"
+            sizes="(max-width: 640px) 200px, 240px"
+          />
+          <span
+            className={`absolute right-0 top-0 rounded-full px-2.5 py-1 text-[10px] font-bold backdrop-blur-sm sm:px-3 sm:py-1.5 sm:text-xs ${
+              isDebutant
+                ? 'bg-[#D1FAE5]/90 text-[#047857]'
+                : 'bg-[#FED7AA]/90 text-[#C2410C]'
+            }`}
+          >
+            {isDebutant ? 'DÉBUTANT' : 'AVANCÉ'}
+          </span>
+          <CataloguePriceBadge
+            level={cours.level}
+            launchPrice={cours.launchPrice}
+            variant="overlay"
+          />
+        </div>
       </Link>
       <div className="flex flex-1 flex-col border-t border-[#E2E8F0] p-6">
         <p className="text-[11px] font-semibold uppercase tracking-widest text-[#64748B]">
-          RÉF {cours.ref} · {cours.level}
+          {catalogueNiveauEtLevel(cours.ref, cours.level)}
         </p>
         <h3 className="mt-2 font-display text-[22px] font-semibold leading-snug text-[#0F172A]">
           <Link href={cours.href} className={OFC_LINK}>
@@ -243,10 +250,10 @@ export function FormationsCatalogueInteractive({
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-              Niveau 1 · {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session · NIV-01
+              Niveau 1 · {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session
             </span>
             <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-              Niveau 2 · {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session · NIV-02, NIV-03, NIV-04
+              Niveau 2 · {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session
             </span>
           </div>
         </div>

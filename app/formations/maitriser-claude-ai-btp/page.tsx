@@ -40,9 +40,9 @@ const PAGE_META_DESCRIPTION =
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
 
 export const metadata = createPageMetadata({
-  title: 'Maîtriser Claude AI pour le BTP (NIV-04) — Formation avancée 4 h Qualiopi',
+  title: 'Maîtriser Claude AI pour le BTP — Formation avancée 4 h Qualiopi',
   titleAbsolute:
-    'Maîtriser Claude AI pour le BTP (NIV-04) — Formation avancée 4 h Qualiopi',
+    'Maîtriser Claude AI pour le BTP — Formation avancée 4 h Qualiopi',
   description: PAGE_META_DESCRIPTION,
   path: PATH,
   keywords: [
@@ -114,7 +114,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 ];
 
 const HERO_RESUME = [
-  `Parcours catalogue NIV-04 : industrialiser Claude en entreprise BTP — Projets, Skills, Cowork, connecteurs, Claude Code.`,
+  `Parcours catalogue : industrialiser Claude en entreprise BTP — Projets, Skills, Cowork, connecteurs, Claude Code.`,
   `Session ${SESSION_DUREE_MATIN_NIV04} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session — prix de lancement.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
@@ -140,7 +140,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-04"
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_MATIN_NIV04} · Niveau avancé · NIV-04`}
+        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_MATIN_NIV04} · Niveau 2`}
         title="Maîtriser Claude AI pour le BTP"
         subtitle="Industrialisez Claude dans votre entreprise — Projets, Skills, Cowork, connecteurs et Claude Code"
         badges={['Projets & Skills', 'Cowork · Connecteurs', 'Qualiopi']}
@@ -187,14 +187,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           IA, dirigeants, responsables digitaux, chargés d&apos;affaires et conducteurs de travaux. Complément des
           parcours{' '}
           <Link href={LINKS.formationAO} className="font-medium text-[var(--accent)] hover:underline">
-            NIV-02 appels d&apos;offres
+            formation appels d&apos;offres
           </Link>{' '}
           et{' '}
           <Link
             href={LINKS.formationConduiteTravauxSuiviChantier}
             className="font-medium text-[var(--accent)] hover:underline"
           >
-            NIV-03 conduite de travaux
+            formation conduite de travaux
           </Link>
           . {MODALITE_FORMATIONS_PRESENTIEL}
         </p>
@@ -204,7 +204,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Le NIV-04 s&apos;adresse aux référents IA, dirigeants et conducteurs de travaux qui utilisent déjà
+            Cette formation s&apos;adresse aux référents IA, dirigeants et conducteurs de travaux qui utilisent déjà
             Claude Pro et veulent industrialiser l&apos;outil en entreprise BTP.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
@@ -225,8 +225,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_MATIN_NIV04}</strong> — matin
                 uniquement. Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
                 <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong>{' '}
-                <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}. Réf.{' '}
-                <strong>NIV-04</strong>.
+                <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
             <li className="flex gap-2">
@@ -249,7 +248,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            À l&apos;issue du NIV-04, l&apos;entreprise dispose de Projets structurés, de Skills réutilisables,
+            À l&apos;issue de cette formation, l&apos;entreprise dispose de Projets structurés, de Skills réutilisables,
             de connecteurs outils et d&apos;une première automatisation Claude Code validée en interne.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
@@ -270,12 +269,12 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         <section id="programme" className="mt-12 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
           <p className="mt-2 text-sm text-slate-600">
-            Le programme NIV-04 enchaîne 4 modules techniques sur 4 h le matin : Projets &amp; Skills, Cowork,
+            Le programme enchaîne 4 modules techniques sur 4 h le matin : Projets &amp; Skills, Cowork,
             connecteurs Gmail/Drive et Claude Code.
           </p>
           <p className="mt-2 text-sm text-slate-600">
             En 2026, moins de 10&nbsp;% des entreprises BTP utilisent déjà l&apos;IA en production (Observatoire
-            des métiers du BTP, 621 répondants) — le NIV-04 vise l&apos;industrialisation, pas la découverte.
+            des métiers du BTP, 621 répondants) — cette formation vise l&apos;industrialisation, pas la découverte.
           </p>
           <p className="mt-2 text-sm text-slate-600">
             4 modules — total 4 h le matin — travail sur vos cas réels (documents anonymisés si besoin). Relecture
@@ -308,7 +307,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            Les livrables NIV-04 comprennent un Project entreprise configuré, des workflows Cowork, une checklist
+            Les livrables comprennent un Project entreprise configuré, des workflows Cowork, une checklist
             connecteurs/sécurité et un script ou automatisation Claude Code testé.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -342,7 +341,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
         <ContextualLinksSection
           title="Pages associées"
-          subtitle="NIV-02, NIV-03, guide Claude AI BTP, financement OPCO."
+          subtitle="formations niveau 2, guide Claude AI BTP, financement OPCO."
           links={FORMATION_NIV04_RELATED}
           tone="muted"
         />

@@ -122,7 +122,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 ];
 
 const HERO_RESUME_AO = [
-  `Parcours catalogue NIV-02 : assistants IA DCE & mémoire technique — Claude AI Pro, Cowork & Skills.`,
+  `Parcours catalogue : assistants IA DCE & mémoire technique — Claude AI Pro, Cowork & Skills.`,
   `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé).`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV02}.`,
   'Qualiopi, 100 % finançable OPCO Constructys selon éligibilité.',
@@ -140,7 +140,7 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-02"
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2 · NIV-02`}
+        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
         title="L'IA appliquée aux appels d'offres BTP"
         subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"
         badges={['Claude Pro & Cowork', 'Skills DCE / MT', 'Qualiopi']}
@@ -224,7 +224,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
         <p className="mt-4 text-slate-700 leading-relaxed">
-          Le NIV-02 s&apos;adresse aux professionnels qui répondent déjà aux appels d&apos;offres et dure{' '}
+          Cette formation s&apos;adresse aux professionnels qui répondent déjà aux appels d&apos;offres et dure{' '}
           {SESSION_DUREE_LIBELLE} (75&nbsp;% pratique) avec Claude Pro et Cowork obligatoires.
         </p>
         <p className="mt-4 text-slate-700 leading-relaxed">
@@ -247,8 +247,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               (75 % pratique / 25 % théorie) en demi-journée : 9h00–13h00 ou 13h30–17h30 (à convenir). Intra ou inter,
               exclusivement en présentiel en Île-de-France. Forfait{' '}
               <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> (niveau avancé,{' '}
-              {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session — réf.{' '}
-              <strong>NIV-02</strong>.
+              {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session.
             </span>
           </li>
           <li className="flex gap-2">
@@ -276,7 +275,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           technique aligné sur les critères pondérés du marché.
         </p>
         <p className="mt-4 text-slate-700 leading-relaxed">
-          En 2026, le forfait catalogue NIV-02 est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par
+          En 2026, le forfait catalogue est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par
           session de {SESSION_DUREE_LIBELLE}, finançable OPCO Constructys selon éligibilité (donnée interne OFC).
         </p>
         <ul className="mt-4 space-y-2 text-slate-700">
@@ -304,7 +303,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         </p>
         <p className="mt-4 text-slate-700 leading-relaxed">
           En 2026, la session exige un abonnement Claude Pro (20&nbsp;€/mois) et Cowork installé sur le poste du
-          stagiaire (prérequis catalogue NIV-02).
+          stagiaire (prérequis niveau 2).
         </p>
         <ul className="mt-4 space-y-2 text-slate-700">
           {[
@@ -325,7 +324,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
         <p className="mt-2 text-sm text-slate-600">
-          Le programme NIV-02 comporte 3 modules sur {SESSION_DUREE_LIBELLE} : paramétrage Claude, analyse DCE et
+          Le programme comporte 3 modules sur {SESSION_DUREE_LIBELLE} : paramétrage Claude, analyse DCE et
           rédaction de mémoire technique.
         </p>
         <p className="mt-2 text-sm text-slate-600">
@@ -370,12 +369,12 @@ export default function FormationIAAppelsOffreBTPPage() {
         </h2>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           La plateforme OFC peut compléter la session avec des ressources selon convention ; la formation reste
-          certifiée Qualiopi, référence catalogue NIV-02.
+          certifiée Qualiopi, formation catalogue.
         </p>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
           convention). <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
-          éligibilité — référence <strong>NIV-02</strong>.
+          éligibilité — formation catalogue.
         </p>
         <p className="mt-4">
           <Link
@@ -390,7 +389,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
         <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
         <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-          Le forfait NIV-02 est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session avec Cowork
+          Le forfait est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session avec Cowork
           configuré, 30 prompts AO et 3 modèles Word de mémoire technique.
         </p>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
@@ -429,7 +428,7 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <ContextualLinksSection
         title="Pages associées"
-        subtitle="NIV-01 productivité, guides DCE/CCTP et financement OPCO."
+        subtitle="niveau 1 — productivité, guides DCE/CCTP et financement OPCO."
         links={FORMATION_NIV02_RELATED}
         tone="muted"
       />

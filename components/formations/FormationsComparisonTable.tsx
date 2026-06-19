@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
-import { CATALOGUE_FORMATIONS_COUNT, sortFormationsCatalogue } from '@/lib/formations-catalogue-display';
+import {
+  CATALOGUE_FORMATIONS_COUNT,
+  catalogueNiveauLabel,
+  sortFormationsCatalogue,
+} from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 
 export function FormationsComparisonTable({
@@ -32,7 +36,7 @@ export function FormationsComparisonTable({
           <thead>
             <tr className="bg-[#377CF3] text-white">
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide first:rounded-tl-2xl">
-                Réf
+                Niveau
               </th>
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Formation</th>
               <th className="px-[18px] py-[14px] text-[14px] font-semibold uppercase tracking-wide">Niveau</th>
@@ -54,7 +58,7 @@ export function FormationsComparisonTable({
               >
                 <td className="px-[18px] py-3 align-top">
                   <span className="inline-block rounded-md bg-[#EFF6FF] px-2 py-0.5 text-xs font-bold text-[#1E40AF]">
-                    {row.ref}
+                    {catalogueNiveauLabel(row.ref)}
                   </span>
                 </td>
                 <td className="px-[18px] py-3 align-top font-medium text-[#0F172A]">
@@ -97,7 +101,7 @@ export function FormationsComparisonTable({
           >
             <div className="flex items-center justify-between gap-2">
               <span className="inline-block rounded-md bg-[#EFF6FF] px-2 py-0.5 text-xs font-bold text-[#1E40AF]">
-                {row.ref}
+                {catalogueNiveauLabel(row.ref)}
               </span>
               <CataloguePriceBadge level={row.level} launchPrice={row.launchPrice} variant="pill" />
             </div>

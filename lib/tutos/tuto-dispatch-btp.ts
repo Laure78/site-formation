@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_DISPATCH_BTP: TutoData = {
   slug: 'tuto-dispatch-btp',
@@ -42,6 +43,8 @@ export const TUTO_DISPATCH_BTP: TutoData = {
 
   cardSummary:
     "Pilote ton PC du bureau depuis ton chantier ou ta voiture grâce à Dispatch (Anthropic, mars 2026). 8 commandes vocales BTP, installation en 5 minutes, jusqu'à 4 heures économisées par jour.",
+
+  heroImage: PHOTOS.tutoDispatchBtpHero2026,
 
   totalTimeMinutes: 30,
 

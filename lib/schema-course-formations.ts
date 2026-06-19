@@ -59,7 +59,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/ia-conduite-travaux-suivi-chantier',
     name: "L'IA appliquée à la conduite de travaux",
     description:
-      'Formation NIV-03 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, Constructys.',
+      'Formation niveau 2 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, Constructys.',
     teaches: [
       'Bibliothèque de skills Claude pour conducteurs de travaux',
       'Analyse CCTP, DPGF et conformité DTU au démarrage chantier',
@@ -74,7 +74,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     path: '/formations/maitriser-claude-ai-btp',
     name: 'Maîtriser Claude AI pour le BTP',
     description:
-      'Formation NIV-04 — 4 h le matin : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans l\'entreprise BTP. Qualiopi, Constructys.',
+      'Formation niveau 2 — 4 h le matin : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans l\'entreprise BTP. Qualiopi, Constructys.',
     teaches: [
       'Projets Claude et bibliothèque de Skills métier BTP',
       'Cowork pour production documentaire supervisée (CR, mémoires, dossiers)',

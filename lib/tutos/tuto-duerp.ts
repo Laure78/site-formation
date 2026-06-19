@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_DUERP: TutoData = {
   slug: 'tuto-duerp',
@@ -43,6 +44,8 @@ export const TUTO_DUERP: TutoData = {
 
   cardSummary:
     "Génère ton DUERP BTP complet (25 à 40 pages) à partir de 10 lignes de description : 9 unités de travail, cotation fréquence × gravité, plan d'actions priorisé. Conforme R4121-1.",
+
+  heroImage: PHOTOS.tutoDuerpHero2026,
 
   totalTimeMinutes: 30,
 

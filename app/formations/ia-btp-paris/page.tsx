@@ -158,7 +158,7 @@ export default function FormationIABTPParisPage() {
               href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
             >
-              Fiche formation catalogue (NIV-01)
+              Fiche formation catalogue (niveau 1)
             </Link>
             <FooterTelOrMailLink className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline" />
           </>

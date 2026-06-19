@@ -37,14 +37,14 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
   {
     q: "Comment l'IA améliore-t-elle les devis et métrés ?",
     a:
-      `Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href="/ia-devis-batiment">IA devis bâtiment</a> et formation <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — L'IA au service des pros du Bâtiment Travaux Publics</a>.`,
+      `Elle accélère la mise en forme, les relectures, les variantes de libellés et l'extraction de quantités à partir de notes ou de brouillons — avec validation humaine sur les prix, les unités et les hypothèses. L'objectif est de réduire le temps de rédaction et les erreurs de forme, pas de substituer votre expertise chiffrage. Approfondissement : <a href="/ia-devis-batiment">IA devis bâtiment</a> et formation <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — L'IA au service des pros du Bâtiment Travaux Publics</a>.`,
   },
   {
     q: "La formation aborde-t-elle le BIM et l'IA ?",
     a:
-      "La session NIV-01 « L'IA au service des pros du Bâtiment Travaux Publics » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment et des travaux publics. Le BIM n'est pas un module dédié dans cette session. Pour les documents longs (CCTP, DCE) et les réponses à marchés, le programme <a href=\"" +
+      "La formation niveau 1 « L'IA au service des pros du Bâtiment Travaux Publics » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment et des travaux publics. Le BIM n'est pas un module dédié dans cette session. Pour les documents longs (CCTP, DCE) et les réponses à marchés, le programme <a href=\"" +
       LINKS.formationAO +
-      "\">NIV-02 — L'IA appliquée aux appels d'offres BTP</a> ou la page <a href=\"" +
+      "\">formation appels d'offres BTP</a> ou la page <a href=\"" +
       LINKS.formationClaudeAiBtp +
       "\">formation Claude AI BTP</a> complètent le parcours — le <a href=\"" +
       LINKS.formations +
@@ -71,7 +71,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
       LINKS.financement +
       '">guide financement Constructys</a> et fiche <a href="' +
       LINKS.formationIaBtpNiveau1BatimentTp +
-      '">NIV-01</a>.',
+      '">formation niveau 1</a>.',
   },
 ];
 
@@ -234,19 +234,19 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose 4 formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (NIV-01, débutant, ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (NIV-02, avancé, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (NIV-03, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, prix de lancement), (4) Maîtriser Claude AI pour le BTP — niveau 2 (NIV-04, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, matin 9h–13h, prix de lancement). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
+    a: `Le catalogue OFC propose 4 formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (niveau débutant, ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (niveau avancé, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, prix de lancement), (4) Maîtriser Claude AI pour le BTP — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, matin 9h–13h, prix de lancement). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : NIV-01 — L&apos;IA au service des pros du bâtiment et des travaux publics. Pour la réponse aux marchés, mémoires techniques et DCE : NIV-02 — L&apos;IA appliquée aux appels d&apos;offres BTP. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : NIV-03 — L&apos;IA appliquée à la conduite de travaux. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) : <a href="${LINKS.formationMaitriserClaudeAiBtp}">NIV-04 — Maîtriser Claude AI pour le BTP</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
-    q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (NIV-04) ?',
-    a: `Le NIV-04 cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 8 participants max, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session — prix de lancement. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>.`,
+    q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
+    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 8 participants max, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session — prix de lancement. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>.`,
   },
   {
     q: 'Combien coûte une formation IA pour les pro du BTP du catalogue ?',
-    a: `Forfait par session : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT pour le NIV-01 (niveau 1), ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le NIV-02 (niveau 2), ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le NIV-03 — L&apos;IA appliquée à la conduite de travaux (niveau 2, prix de lancement) et ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le NIV-04 — Maîtriser Claude AI pour le BTP (niveau 2, prix de lancement, matin). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (NIV-03 et NIV-04 : 8 participants max). ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
+    a: `Forfait par session : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT pour le niveau 1, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a> (niveau 2, prix de lancement) et ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le Maîtriser Claude AI pour le BTP (niveau 2, prix de lancement, matin). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (conduite de travaux et Maîtriser Claude AI : 8 participants max). ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
   },
   {
     q: 'Les formations IA pour les pro du BTP sont-elles certifiées Qualiopi ?',
@@ -479,35 +479,35 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
   {
     q: "Quel est le format de la formation IA pour le BTP Paris ?",
-    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT ou ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session selon le programme — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — pros Bâtiment & travaux publics</a>.`,
+    a: `Session de 4 h pratiques : ChatGPT pour devis, emails, relances clients. Travail sur vos vrais documents. Aucun prérequis technique pour le niveau débutant. Forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT ou ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session selon le programme — parcours <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — Bâtiment & travaux publics</a>.`,
   },
 ];
 
 /** FAQ Formation Maîtriser Claude AI — NIV-04 */
 export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   {
-    q: 'On utilise déjà Claude au bureau : le NIV-04 m\'apporte quoi de plus ?',
+    q: 'On utilise déjà Claude au bureau : cette formation m\'apporte quoi de plus ?',
     a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de Skills, Cowork supervisé, connecteurs Gmail/Drive et premières automatisations Claude Code. En 4 h le matin, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
   },
   {
     q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
-    a: `La session dure 4 h (9h00–13h00) pour enchaîner 4 modules techniques sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — réf. catalogue NIV-04.`,
+    a: `La session dure 4 h (9h00–13h00) pour enchaîner 4 modules techniques sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — formation catalogue niveau 2.`,
   },
   {
     q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',
     a: `Non : Cowork et Claude Code fonctionnent en mode supervisé — vous validez chaque livrable avant envoi client ou marché. La session intègre une checklist RGPD, marchés publics et données clients. Les connecteurs (Gmail, Drive, agenda) sont paramétrés avec ces garde-fous.`,
   },
   {
-    q: 'Quelle différence entre le NIV-04 et le NIV-02 appels d\'offres ?',
-    a: `Le <a href="${LINKS.formationAO}">NIV-02</a> cible DCE et mémoires techniques. Le NIV-04 industrialise Claude dans toute l'entreprise : gouvernance, connecteurs outils, production documentaire et automatisation — complément naturel après NIV-02 ou <a href="${LINKS.formationConduiteTravauxSuiviChantier}">NIV-03 conduite de travaux</a>.`,
+    q: 'Quelle différence entre Maîtriser Claude AI et la formation appels d\'offres ?',
+    a: `La <a href="${LINKS.formationAO}">formation appels d'offres</a> cible DCE et mémoires techniques. Maîtriser Claude AI industrialise Claude dans toute l'entreprise : gouvernance, connecteurs outils, production documentaire et automatisation — complément naturel après la formation appels d'offres ou la <a href="${LINKS.formationConduiteTravauxSuiviChantier}">formation conduite de travaux</a>.`,
   },
   {
-    q: 'Combien coûte le NIV-04 en 2026 et est-ce finançable OPCO ?',
+    q: 'Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?',
     a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (prix de lancement, 8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
-    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant le NIV-04 — sinon, commencer par le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
+    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant cette formation — sinon, commencer par la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
   },
 ];
 
@@ -515,15 +515,15 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
 export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   {
     q: 'Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\'IA ?',
-    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. La session NIV-03 (${SESSION_DUREE_LIBELLE}) travaille ces livrables sur vos documents anonymisés. Complément : page <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a>.`,
+    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${SESSION_DUREE_LIBELLE}) travaille ces livrables sur vos documents anonymisés. Complément : page <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a>.`,
   },
   {
     q: 'Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?',
     a: `Non : ils accélèrent la rédaction et la structuration, pas le suivi financier ni le planning temps réel. L'IA prépare des brouillons et des check-lists ; vous gardez la validation métier, QSE et juridique. Objectif : libérer du temps sur l'écrit, pas changer d'ERP.`,
   },
   {
-    q: 'Faut-il avoir fait le niveau 1 avant le NIV-03 ?',
-    a: `Oui, c'est le parcours recommandé : avoir suivi le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a> ou pratiquer déjà une IA générative. Un compte Claude Pro est recommandé. Sans ces bases, les skills chantier sont difficiles à paramétrer correctement.`,
+    q: 'Faut-il avoir fait le niveau 1 avant la formation conduite de travaux ?',
+    a: `Oui, c'est le parcours recommandé : avoir suivi la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou pratiquer déjà une IA générative. Un compte Claude Pro est recommandé. Sans ces bases, les skills chantier sont difficiles à paramétrer correctement.`,
   },
   {
     q: 'Un PPSPS généré par l\'IA est-il directement utilisable sur chantier ?',
@@ -543,7 +543,7 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
 export const FAQ_APPELS_OFFRE: FAQItem[] = [
   {
     q: "L'IA peut-elle rédiger mon mémoire technique sur un marché public ?",
-    a: `Elle structure et rédige à partir de vos références réelles — pas à votre place sur le fond technique. En NIV-02, vous créez des skills Cowork pour analyser le DCE et produire un MT aligné sur les critères pondérés, avec relecture experte obligatoire. L'IA ne peut pas inventer vos chantiers ni vos effectifs.`,
+    a: `Elle structure et rédige à partir de vos références réelles — pas à votre place sur le fond technique. Dans cette formation, vous créez des skills Cowork pour analyser le DCE et produire un MT aligné sur les critères pondérés, avec relecture experte obligatoire. L'IA ne peut pas inventer vos chantiers ni vos effectifs.`,
   },
   {
     q: 'Faut-il payer Claude Pro pour suivre la formation appels d\'offres ?',
@@ -555,7 +555,7 @@ export const FAQ_APPELS_OFFRE: FAQItem[] = [
   },
   {
     q: 'Une TPE qui répond seule aux AO est-elle au bon niveau ?',
-    a: `Oui si vous répondez déjà à des marchés et maîtrisez les bases de l'IA (ou le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a>). La session est calibrée 8 à 12 participants, 75 % pratique sur vos dossiers — pas de théorie inutile.`,
+    a: `Oui si vous répondez déjà à des marchés et maîtrisez les bases de l'IA (ou la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a>). La session est calibrée 8 à 12 participants, 75 % pratique sur vos dossiers — pas de théorie inutile.`,
   },
   {
     q: 'La formation appels d\'offres est-elle finançable Constructys en 2026 ?',
@@ -592,7 +592,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "Faut-il avoir un compte ChatGPT payant pour suivre la formation ?",
     a:
-      `${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Sur la session catalogue NIV-02, comptes gratuits insuffisants pour configurer Cowork et créer les skills DCE/mémoire technique ; voir la <a href="/formations/ia-appels-offre-btp">fiche formation appels d&apos;offres</a>. Pour une découverte générale de l&apos;IA hors ce parcours, des offres gratuites peuvent suffire — pas pour industrialiser la réponse aux AO.`,
+      `${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Sur la formation appels d'offres, comptes gratuits insuffisants pour configurer Cowork et créer les skills DCE/mémoire technique ; voir la <a href="/formations/ia-appels-offre-btp">fiche formation appels d&apos;offres</a>. Pour une découverte générale de l&apos;IA hors ce parcours, des offres gratuites peuvent suffire — pas pour industrialiser la réponse aux AO.`,
   },
   {
     q: "La formation est-elle adaptée aux TPE (moins de 10 salariés) ?",
@@ -607,7 +607,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
     a:
-      "NIV-02 couvre l'analyse DCE, la structuration et la rédaction de mémoires techniques avec Claude AI Pro, Cowork & Skills. Les participants repartent avec des assistants IA réutilisables sur leurs futurs appels d'offres. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA appliquée aux appels d'offres BTP</a>.",
+      "La formation appels d'offres couvre l'analyse DCE, la structuration et la rédaction de mémoires techniques avec Claude AI Pro, Cowork & Skills. Les participants repartent avec des assistants IA réutilisables sur leurs futurs appels d'offres. Programme : <a href=\"/formations/ia-appels-offre-btp\">L'IA appliquée aux appels d'offres BTP</a>.",
   },
 ];
 
@@ -615,15 +615,15 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
 export const FAQ_BATIMENT: FAQItem[] = [
   {
     q: 'Je suis artisan du bâtiment sans compétence informatique : cette formation est-elle faisable ?',
-    a: `Oui : le NIV-01 part de zéro prérequis technique et se déroule en ${SESSION_DUREE_LIBELLE} de présentiel. Vous travaillez sur vos devis, emails et comptes rendus réels avec des trames guidées — pas besoin de savoir « coder ». Seuls prérequis : ordinateur, connexion internet et ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
+    a: `Oui : La formation niveau 1 part de zéro prérequis technique et se déroule en ${SESSION_DUREE_LIBELLE} de présentiel. Vous travaillez sur vos devis, emails et comptes rendus réels avec des trames guidées — pas besoin de savoir « coder ». Seuls prérequis : ordinateur, connexion internet et ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
   },
   {
     q: 'Combien coûte la formation IA niveau 1 et est-ce finançable OPCO en 2026 ?',
     a: `Forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session (${SESSION_DUREE_LIBELLE}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Prise en charge possible via Constructys ou votre OPCO selon éligibilité — organisme Qualiopi. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
-    q: 'Faut-il payer ChatGPT ou Claude pour suivre le NIV-01 ?',
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Le niveau débutant ne nécessite pas d'abonnement payant. Pour les marchés publics ou l'industrialisation Claude, voir le <a href="${LINKS.formationAO}">NIV-02 appels d'offres</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude AI BTP</a>.`,
+    q: 'Faut-il payer ChatGPT ou Claude pour suivre la formation niveau 1 ?',
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Le niveau débutant ne nécessite pas d'abonnement payant. Pour les marchés publics ou l'industrialisation Claude, voir le <a href="${LINKS.formationAO}">formation appels d'offres</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude AI BTP</a>.`,
   },
   {
     q: 'On perd combien de temps sur l\'administratif qu\'on pourrait récupérer ?',
@@ -631,11 +631,11 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: 'Qu\'est-ce que je repars concrètement après 4 heures ?',
-    a: `Trames de devis et emails, bibliothèque de prompts par type de tâche, check-lists de relecture et attestation Qualiopi. Objectifs détaillés sur la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 bâtiment & travaux publics</a> et le <a href="/formations">catalogue formations</a>.`,
+    a: `Trames de devis et emails, bibliothèque de prompts par type de tâche, check-lists de relecture et attestation Qualiopi. Objectifs détaillés sur la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 bâtiment & travaux publics</a> et le <a href="/formations">catalogue formations</a>.`,
   },
   {
     q: 'La formation couvre-t-elle les appels d\'offres et le CCTP ?',
-    a: `Le NIV-01 pose les bases (lecture aidée, plan de réponse, formulations). Pour analyser un DCE complet et rédiger un mémoire technique avec Cowork, le parcours dédié est le <a href="${LINKS.formationAO}">NIV-02 appels d'offres BTP</a>.`,
+    a: `La formation niveau 1 pose les bases (lecture aidée, plan de réponse, formulations). Pour analyser un DCE complet et rédiger un mémoire technique avec Cowork, le parcours dédié est la <a href="${LINKS.formationAO}">formation appels d'offres BTP</a>.`,
   },
 ];
 
@@ -644,7 +644,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
 export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   {
     q: "Pourquoi une formation « IA travaux publics » plutôt qu'une formation bâtiment générique ?",
-    a: `Les enjeux TP (VRD, terrassement, enrobés, ouvrages d'art, maître d'ouvrage public, marchés publics) diffèrent du seul gros œuvre : le niveau 1 du catalogue intègre désormais bâtiment et travaux publics dans une même session de 4 h, avec prompts et cas TP. Voir la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a> et la page <a href="/formation-ia-travaux-publics">formation IA travaux publics</a> (SEO).`,
+    a: `Les enjeux TP (VRD, terrassement, enrobés, ouvrages d'art, maître d'ouvrage public, marchés publics) diffèrent du seul gros œuvre : le niveau 1 du catalogue intègre désormais bâtiment et travaux publics dans une même session de 4 h, avec prompts et cas TP. Voir la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> et la page <a href="/formation-ia-travaux-publics">formation IA travaux publics</a> (SEO).`,
   },
   {
     q: "Les entreprises de terrassement, enrobés ou VRD sont-elles financées comme le reste du BTP ?",
@@ -656,14 +656,14 @@ export const FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING: FAQItem[] = [
   },
   {
     q: "Quelle est la durée de la formation IA travaux publics ?",
-    a: `Nous proposons une session unique de 4 heures (niveau débutant), avec forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session (jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants) — <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">programme NIV-01 (PDF sur la fiche)</a>.`,
+    a: `Nous proposons une session unique de 4 heures (niveau débutant), avec forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session (jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Le programme condense consultations / DCE, documents de chantier et bases d'industrialisation (templates, assistants) — <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">programme niveau 1 (PDF sur la fiche)</a>.`,
   },
 ];
 
 export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   {
     q: "Quels outils IA sont prévus pour le niveau débutant ?",
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">fiche NIV-01 — Bâtiment & travaux publics</a>.`,
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Voir <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1 — Bâtiment & travaux publics</a>.`,
   },
   {
     q: "Qui peut suivre la formation « L'IA au service des Travaux Publics » ?",

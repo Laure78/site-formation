@@ -37,7 +37,7 @@ export type FormationCatalogueEntry = {
   };
 };
 
-/** Quatre parcours officiels — NIV-01 à NIV-04 (programmes PDF). */
+/** Quatre parcours officiels — niveau 1 et niveau 2 (programmes PDF). */
 export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
   {
     ref: 'NIV-01',
@@ -157,16 +157,32 @@ export function getFormationCatalogueVisuel(ref: string) {
   return entry.visuel;
 }
 
-/** Libellé lien UI : RÉF — titre officiel catalogue. */
-export function formationCatalogueLinkLabel(
-  entry: Pick<FormationCatalogueEntry, 'ref' | 'title'>
-): string {
-  return `${entry.ref} — ${entry.title}`;
+/** Niveau pédagogique affiché (sans code NIV-XX). */
+export function catalogueNiveauLabel(ref: string): 'Niveau 1' | 'Niveau 2' {
+  return ref === 'NIV-01' ? 'Niveau 1' : 'Niveau 2';
 }
 
-/** Badge pédagogique affiché sur cartes accueil : NIVEAU 1 (NIV-01) ou NIVEAU 2 (NIV-02 à NIV-04). */
+export function isCatalogueNiveau1(ref: string): boolean {
+  return ref === 'NIV-01';
+}
+
+/** Ligne hero / carte : « Niveau 1 · Débutant » ou « Niveau 2 · Avancé ». */
+export function catalogueNiveauEtLevel(ref: string, level: CatalogueLevel): string {
+  const niveau = catalogueNiveauLabel(ref);
+  const levelLabel = level === 'DÉBUTANT' ? 'Débutant' : 'Avancé';
+  return `${niveau} · ${levelLabel}`;
+}
+
+/** Libellé lien UI — titre officiel (sans code NIV-XX). */
+export function formationCatalogueLinkLabel(
+  entry: Pick<FormationCatalogueEntry, 'title'>
+): string {
+  return entry.title;
+}
+
+/** Badge pédagogique affiché sur cartes accueil : NIVEAU 1 ou NIVEAU 2. */
 export function cataloguePedagogicalLevelBadge(ref: string): string {
-  return ref === 'NIV-01' ? 'NIVEAU 1' : 'NIVEAU 2';
+  return catalogueNiveauLabel(ref).toUpperCase();
 }
 
 const LEVEL_ORDER: Record<CatalogueLevel, number> = { DÉBUTANT: 0, AVANCÉ: 1 };

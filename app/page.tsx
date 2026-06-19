@@ -44,6 +44,7 @@ import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formation
 import {
   FORMATIONS_CATALOGUE,
   cataloguePedagogicalLevelBadge,
+  catalogueNiveauEtLevel,
   getFormationCatalogueByRef,
   sortFormationsCatalogue,
   type CatalogueLevel,
@@ -78,10 +79,10 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 const ANNUAIRE_ENTREPRISES_OFC_URL =
   'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
 
-const NIV01 = getFormationCatalogueByRef('NIV-01')!;
-const NIV02 = getFormationCatalogueByRef('NIV-02')!;
-const NIV03 = getFormationCatalogueByRef('NIV-03')!;
-const NIV04 = getFormationCatalogueByRef('NIV-04')!;
+const FORMATION_NIVEAU1 = getFormationCatalogueByRef('NIV-01')!;
+const FORMATION_AO = getFormationCatalogueByRef('NIV-02')!;
+const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
+const FORMATION_CLAUDE = getFormationCatalogueByRef('NIV-04')!;
 
 function catalogueLevelBadge(ref: string, _level: CatalogueLevel): string {
   return cataloguePedagogicalLevelBadge(ref);
@@ -280,7 +281,7 @@ export default function HomePage() {
                     'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
                     `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
                     'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                    'Catalogue NIV-01 à NIV-04 (bâtiment, AO, conduite de travaux, Claude AI) — validation métier de votre côté.',
+                    'Catalogue 4 formations (niveau 1 bâtiment & TP, niveau 2 : appels d\'offres, conduite de travaux, Claude AI) — validation métier de votre côté.',
                   ]}
                 />
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -352,9 +353,9 @@ export default function HomePage() {
                     <Link
                       href={LINKS.formationConduiteTravauxSuiviChantier}
                       className={OFC_LINK}
-                      title={NIV03.title}
+                      title={FORMATION_CONDUITE.title}
                     >
-                      {NIV03.title} ({NIV03.ref})
+                      {FORMATION_CONDUITE.title}
                     </Link>
                   </p>
                 </div>
@@ -527,7 +528,7 @@ export default function HomePage() {
                 />
               </RevealGroup>
             </div>
-            <Reveal className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/25 bg-black/10 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
+            <div className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/25 bg-black/10 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
               <Image
                 src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
                 alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
@@ -536,7 +537,7 @@ export default function HomePage() {
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 100vw, 576px"
               />
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
@@ -889,7 +890,7 @@ export default function HomePage() {
             </p>
             <CatalogueTarifStrip className="mt-5" />
           </Reveal>
-          <RevealGroup className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-2" staggerMs={60}>
+          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-2">
             {sortFormationsCatalogue(FORMATIONS_CATALOGUE).map((cours) => (
               <div
                 key={cours.ref}
@@ -898,7 +899,7 @@ export default function HomePage() {
                 <Link
                   href={cours.href}
                   className="relative block aspect-square w-full shrink-0 bg-slate-100"
-                  title={`Fiche formation ${cours.ref} — ${cours.title}`}
+                  title={`Fiche formation — ${cours.title}`}
                 >
                   <Image
                     src={cours.visuel.src}
@@ -920,13 +921,13 @@ export default function HomePage() {
                 </Link>
                 <div className="p-6">
                 <div className="flex items-start justify-between gap-2">
-                  <span className="text-sm text-slate-500">RÉF: {cours.ref}</span>
+                  <span className="text-sm text-slate-500">{catalogueNiveauEtLevel(cours.ref, cours.level)}</span>
                   <span className="rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
                     {catalogueLevelBadge(cours.ref, cours.level)}
                   </span>
                 </div>
                 <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">
-                  <Link href={cours.href} className={OFC_LINK} title={`Voir la fiche ${cours.ref}`}>
+                  <Link href={cours.href} className={OFC_LINK} title={`Voir la fiche : ${cours.title}`}>
                     {cours.title}
                   </Link>
                 </h3>
@@ -973,10 +974,10 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </RevealGroup>
+          </div>
         </div>
       </section>
-<PresentationAnimee />
+      <PresentationAnimee />
 
       <FFBIAAccrocheSection />
 
@@ -1024,13 +1025,12 @@ export default function HomePage() {
             </Link>
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Quatre parcours officiels : <strong className="font-semibold text-slate-800">NIV-01</strong> (
-            {NIV01.title}), <strong className="font-semibold text-slate-800">NIV-02</strong> ({NIV02.title}),{' '}
-            <strong className="font-semibold text-slate-800">NIV-03</strong> ({NIV03.title}) et{' '}
-            <strong className="font-semibold text-slate-800">NIV-04</strong> ({NIV04.title}). Les thèmes couverts
+            Quatre parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> —{' '}
+            {FORMATION_NIVEAU1.title} ; <strong className="font-semibold text-slate-800">niveau 2</strong> —{' '}
+            {FORMATION_AO.title}, {FORMATION_CONDUITE.title} et {FORMATION_CLAUDE.title}. Les thèmes couverts
             incluent devis et chiffrage, réponses aux marchés, comptes rendus, DOE, emails et relation client — en{' '}
-            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (NIV-03 et
-            NIV-04 : 8 participants max). Téléchargez les{' '}
+            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (conduite de
+            travaux et Maîtriser Claude AI : 8 participants max). Téléchargez les{' '}
             <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
             depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>

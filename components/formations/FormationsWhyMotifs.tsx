@@ -5,6 +5,7 @@ import {
   CATALOGUE_FORMATIONS_COUNT,
   FORMATIONS_CATALOGUE,
   formationCatalogueLinkLabel,
+  isCatalogueNiveau1,
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
@@ -19,7 +20,7 @@ export function FormationsWhyMotifs() {
         L&apos;IA générative ne se travaille pas de la même manière selon que vous structurez une
         journée terrain, rédigez un mémoire technique, analysez un DCE, pilotez un chantier ou
         industrialisez Claude en entreprise. Plutôt qu&apos;une formation généraliste, le catalogue OFC
-        propose <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — NIV-01 à NIV-04 — avec
+        propose <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — un niveau 1 et trois formations niveau 2 — avec
         programmes PDF téléchargeables sur chaque fiche.
       </p>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -32,7 +33,7 @@ export function FormationsWhyMotifs() {
                 : entry.ref === 'NIV-03'
                   ? HardHat
                   : Cpu;
-          const isDebutant = entry.ref === 'NIV-01';
+          const isDebutant = isCatalogueNiveau1(entry.ref);
           return (
             <div key={entry.ref} className={`${OFC_CARD} p-8`}>
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
@@ -43,13 +44,9 @@ export function FormationsWhyMotifs() {
                 />
               </div>
               <h3 className="mt-6 font-display text-lg font-semibold leading-snug text-[#0F172A]">
-                {entry.ref === 'NIV-04' ? (
-                  <Link href={LINKS.formationMaitriserClaudeAiBtp} className="hover:text-[#377CF3] hover:underline">
-                    {formationCatalogueLinkLabel(entry)}
-                  </Link>
-                ) : (
-                  formationCatalogueLinkLabel(entry)
-                )}
+                <Link href={entry.href} className="hover:text-[#377CF3] hover:underline">
+                  {formationCatalogueLinkLabel(entry)}
+                </Link>
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
                 {entry.ref === 'NIV-01'

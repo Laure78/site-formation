@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_CONSTAT_RETARD: TutoData = {
   slug: 'tuto-constat-retard',
@@ -44,6 +45,8 @@ export const TUTO_CONSTAT_RETARD: TutoData = {
 
   cardSummary:
     "Rédige des courriers juridiques de réserves et constats de retard en 8 minutes au lieu d'une heure. Mise en page Word, formules consacrées, ton mesuré, prêt à signer et envoyer en recommandé.",
+
+  heroImage: PHOTOS.tutoConstatRetardHero2026,
 
   totalTimeMinutes: 30,
 

@@ -99,7 +99,7 @@ const faqSchema = getFAQSchema(FAQ_BATIMENT);
 const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
 const POINTS_MARQUANTS = [
-  'Parcours catalogue niveau 1 (réf. NIV-01) : bâtiment et travaux publics — devis, chantier, administratif.',
+  'Parcours catalogue niveau 1 : bâtiment et travaux publics — devis, chantier, administratif.',
   `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT par session (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité.',
@@ -253,7 +253,7 @@ export default function FormationIAuServiceDuBatimentPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-01"
-        refLine="Réf. catalogue NIV-01 · Niveau 1 · Débutant"
+        refLine="Niveau 1 · Débutant"
         title="L'IA au service des pros du bâtiment et des travaux publics"
         subtitle="Niveau 1 — devis, chantier, administratif et documents (bâtiment & travaux publics)"
         badges={[
@@ -319,7 +319,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             Formation IA pour le BTP : une méthode pensée pour le terrain
           </h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            La formation NIV-01 est une session de {SESSION_DUREE_LIBELLE} en présentiel qui cible devis,
+            La formation niveau 1 est une session de {SESSION_DUREE_LIBELLE} en présentiel qui cible devis,
             comptes rendus et administratif du bâtiment et des travaux publics, sans prérequis informatique.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
@@ -435,7 +435,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             </h2>
           </div>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Les trois cas les plus travaillés en atelier NIV-01 sont les appels d&apos;offres légers,
+            Les trois cas les plus travaillés en atelier niveau 1 sont les appels d&apos;offres légers,
             l&apos;accélération des devis et les emails clients — toujours validés par le professionnel.
           </p>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -538,11 +538,11 @@ export default function FormationIAuServiceDuBatimentPage() {
             </h2>
           </div>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Les sessions NIV-01 se déroulent en présentiel en Île-de-France (intra ou inter), avec financement
+            Les sessions niveau 1 se déroulent en présentiel en Île-de-France (intra ou inter), avec financement
             OPCO Constructys possible selon éligibilité.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En 2026, une session catalogue NIV-01 reste calibrée sur {SESSION_DUREE_LIBELLE} pour un forfait de{' '}
+            En 2026, une session niveau 1 reste calibrée sur {SESSION_DUREE_LIBELLE} pour un forfait de{' '}
             {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€ HT par groupe (niveau débutant, max{' '}
             {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
           </p>
@@ -647,7 +647,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
-            Le programme détaillé NIV-01 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs : chiffrage, relation
+            Le programme détaillé niveau 1 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs : chiffrage, relation
             client, documentation chantier et gestion administrative.
           </p>
           <p className="mt-3 text-slate-600">
@@ -664,7 +664,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            La session NIV-01 dure {SESSION_DUREE_LIBELLE}, coûte {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€
+            La session niveau 1 dure {SESSION_DUREE_LIBELLE}, coûte {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€
             HT forfait par groupe ({LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en
             intra ou inter en Île-de-France.
           </p>
@@ -765,7 +765,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Livrables & ressources</h2>
           <p className="mt-3 text-slate-600">
-            Les livrables NIV-01 comprennent trames de devis, bibliothèque de prompts et check-lists de relecture
+            Les livrables niveau 1 comprennent trames de devis, bibliothèque de prompts et check-lists de relecture
             exploitables dès le lendemain.
           </p>
           <p className="mt-3 text-slate-600">
@@ -796,7 +796,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_BATIMENT}
-            title="Questions fréquentes — formation IA niveau 1 bâtiment & TP (NIV-01)"
+            title="Questions fréquentes — formation IA niveau 1 bâtiment & TP"
           />
         </div>
       </section>
@@ -817,7 +817,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </h2>
           <p className="mt-4 text-lg text-blue-100">
             Un rendez-vous découverte de 30 min permet de vérifier l&apos;éligibilité OPCO et caler une session
-            NIV-01 dans votre planning.
+            la formation niveau 1 dans votre planning.
           </p>
           <p className="mt-4 text-lg text-blue-100">
             Contactez-nous pour organiser cette formation dans votre entreprise du bâtiment.

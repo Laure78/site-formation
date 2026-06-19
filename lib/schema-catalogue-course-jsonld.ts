@@ -121,7 +121,7 @@ export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfi
   path: LINKS.formationConduiteTravauxSuiviChantier,
   name: "L'IA appliquée à la conduite de travaux",
   description:
-    'Formation NIV-03 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, finançable Constructys.',
+    'Formation niveau 2 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, finançable Constructys.',
   price: TARIF_SESSION_AVANCE_HT,
   keywords: ['CCTP', 'DPGF', 'PPSPS', 'skills Claude', 'conduite de travaux'],
   courseCode: 'NIV-03',
@@ -146,7 +146,7 @@ export const CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04: CatalogueCourseJsonLdConfi
   path: LINKS.formationMaitriserClaudeAiBtp,
   name: 'Maîtriser Claude AI pour le BTP',
   description:
-    'Formation NIV-04 — 4 h le matin : Projets, Skills, Cowork, connecteurs (Gmail/Drive) et Claude Code pour industrialiser Claude en entreprise BTP. Qualiopi, Constructys.',
+    'Formation niveau 2 — 4 h le matin : Projets, Skills, Cowork, connecteurs (Gmail/Drive) et Claude Code pour industrialiser Claude en entreprise BTP. Qualiopi, Constructys.',
   price: TARIF_SESSION_AVANCE_HT,
   keywords: ['Projets Claude', 'Skills', 'Cowork', 'Claude Code', 'connecteurs BTP'],
   courseCode: 'NIV-04',

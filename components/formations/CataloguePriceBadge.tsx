@@ -123,10 +123,10 @@ export function CatalogueTarifStrip({ className = '', onAccent = false }: { clas
     >
       <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Forfaits 2026</span>
       <span className={`inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] px-3 py-1.5 text-sm font-bold text-[#047857] ${onAccent ? 'shadow-md' : ''}`}>
-        NIV-01 · {formatTarifHt(tarifHtDepuisBadgeCatalogue('DÉBUTANT'))} € HT
+        Niveau 1 · {formatTarifHt(tarifHtDepuisBadgeCatalogue('DÉBUTANT'))} € HT
       </span>
       <span className={`inline-flex items-center gap-2 rounded-full bg-[#FED7AA] px-3 py-1.5 text-sm font-bold text-[#C2410C] ${onAccent ? 'shadow-md' : ''}`}>
-        NIV-02 à 04 · {formatTarifHt(tarifHtDepuisBadgeCatalogue('AVANCÉ'))} € HT
+        Niveau 2 · {formatTarifHt(tarifHtDepuisBadgeCatalogue('AVANCÉ'))} € HT
       </span>
       <span className={`text-xs font-medium ${label}`}>/ session · programmes PDF sur chaque fiche</span>
     </div>

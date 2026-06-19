@@ -89,8 +89,8 @@ export function Reveal({
   as = 'div',
   delay = 0,
   distance = 8,
-  threshold = 0.1,
-  rootMargin = '0px 0px -4% 0px',
+  threshold = 0,
+  rootMargin = '0px 0px 12% 0px',
   style,
   ...rest
 }: RevealProps) {
@@ -106,24 +106,50 @@ export function Reveal({
       return;
     }
 
-    if (isInViewport(el, threshold)) {
+    let observer: IntersectionObserver | undefined;
+    let safetyTimer: number | undefined;
+
+    const markVisible = () => {
+      if (el.dataset.revealState === 'visible') return;
       el.dataset.revealState = 'visible';
+      observer?.disconnect();
+      if (safetyTimer !== undefined) window.clearTimeout(safetyTimer);
+    };
+
+    if (isInViewport(el, Math.max(threshold, 0.05))) {
+      markVisible();
       return;
     }
 
     el.dataset.revealState = 'pending';
 
-    const observer = new IntersectionObserver(
+    observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        el.dataset.revealState = 'visible';
-        observer.disconnect();
+        if (entry?.isIntersecting) markVisible();
       },
       { threshold, rootMargin }
     );
-
     observer.observe(el);
-    return () => observer.disconnect();
+
+    const onScrollOrResize = () => {
+      if (el.dataset.revealState !== 'pending') return;
+      if (isInViewport(el, Math.max(threshold, 0.05))) markVisible();
+    };
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+    // Filet de sécurité : ne jamais laisser un bloc invisible (évite les « vides » au scroll).
+    safetyTimer = window.setTimeout(() => {
+      if (el.dataset.revealState === 'pending') markVisible();
+    }, 2000);
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
+      if (safetyTimer !== undefined) window.clearTimeout(safetyTimer);
+    };
   }, [reducedMotion, threshold, rootMargin]);
 
   const mergedStyle = {

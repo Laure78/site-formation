@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_PPSPS: TutoData = {
   slug: 'tuto-ppsps',
@@ -44,6 +45,8 @@ export const TUTO_PPSPS: TutoData = {
 
   cardSummary:
     "Génère ton PPSPS BTP complet (30-40 pages) à partir de 10 lignes de description chantier : 8 chapitres réglementaires R4532-56 à R4532-77, EPI, EPC, procédures d'urgence, prêt pour le coordinateur SPS.",
+
+  heroImage: PHOTOS.tutoPpspsHero2026,
 
   totalTimeMinutes: 30,
 

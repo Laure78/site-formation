@@ -278,9 +278,10 @@
 
 @media (prefers-reduced-motion: no-preference) {
   [data-reveal][data-reveal-state='pending'] {
-    opacity: 0;
+    /* Contenu toujours lisible — pas d’opacity:0 (évite les grands vides au scroll). */
+    opacity: 1;
     transform: translateY(var(--reveal-distance, 8px));
-    will-change: opacity, transform;
+    will-change: transform;
   }
 
   [data-reveal][data-reveal-state='visible'] {

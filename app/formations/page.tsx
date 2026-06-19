@@ -190,7 +190,7 @@ export default function FormationsPage() {
             </li>
             <li>
               <Link href={LINKS.formationMaitriserClaudeAiBtp} className={chipLinkClass}>
-                Maîtriser Claude AI pour le BTP (NIV-04)
+                Maîtriser Claude AI pour le BTP
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>

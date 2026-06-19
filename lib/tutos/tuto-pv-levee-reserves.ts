@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_PV_LEVEE_RESERVES: TutoData = {
   slug: 'tuto-pv-levee-reserves',
@@ -43,6 +44,8 @@ export const TUTO_PV_LEVEE_RESERVES: TutoData = {
 
   cardSummary:
     "Rédige des PV de levée de réserves juridiquement formels en 3 minutes au lieu de 30 : référence au PV de réception, numérotation, photo avant/après, signatures MOE. Routine dossier par réserve dès la réception.",
+
+  heroImage: PHOTOS.tutoPvLeveeReservesHero2026,
 
   totalTimeMinutes: 30,
 

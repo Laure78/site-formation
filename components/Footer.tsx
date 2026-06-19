@@ -31,8 +31,8 @@ export function Footer() {
 
   const serviceLinks = [
     { href: LINKS.formations, label: 'Catalogue' },
-    { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 bâtiment & TP' },
-    { href: LINKS.formationAO, label: "Appels d'offres (NIV-02)" },
+    { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Niveau 1 — bâtiment & TP' },
+    { href: LINKS.formationAO, label: "Appels d'offres (niveau 2)" },
     { href: LINKS.financement, label: 'Financement' },
     { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
     { href: LINKS.chatgptArtisans, label: 'ChatGPT BTP' },

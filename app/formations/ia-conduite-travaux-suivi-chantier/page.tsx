@@ -116,7 +116,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 ];
 
 const HERO_RESUME = [
-  `Parcours catalogue NIV-03 : conduite de travaux & suivi chantier — bibliothèque de 20+ skills Claude.`,
+  `Parcours catalogue : conduite de travaux & suivi chantier — bibliothèque de 20+ skills Claude.`,
   `Session ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session — prix de lancement.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
@@ -141,7 +141,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-03"
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau avancé · NIV-03`}
+        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
         title="L'IA appliquée à la conduite de travaux"
         subtitle="Pilotez vos chantiers avec l'IA — de l'analyse du CCTP à la réception des travaux"
         badges={['Skills Claude BTP', 'Suivi chantier', 'Qualiopi']}
@@ -208,12 +208,12 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Le NIV-03 s&apos;adresse aux conducteurs de travaux, chefs de chantier et assistants travaux qui
+            Cette formation s&apos;adresse aux conducteurs de travaux, chefs de chantier et assistants travaux qui
             pilotent déjà plusieurs lots — session de {SESSION_DUREE_LIBELLE} en présentiel Île-de-France.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             En 2026, 43,5&nbsp;% des professionnels du BTP n&apos;ont jamais essayé ChatGPT (Observatoire des
-            métiers du BTP, cabinet Plein Sens) — le NIV-03 suppose des bases IA ou le parcours NIV-01.
+            métiers du BTP, cabinet Plein Sens) — cette formation suppose des bases IA ou le parcours niveau 1.
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             <li className="flex gap-2">
@@ -230,8 +230,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
                 (9h00–13h00 ou 13h30–17h30). Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
                 <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong>{' '}
-                <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}. Réf.{' '}
-                <strong>NIV-03</strong>.
+                <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
             <li className="flex gap-2">
@@ -264,7 +263,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             CCTP, la sécurité chantier, le suivi quotidien et la réception des travaux.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En 2026, la bibliothèque NIV-03 donne accès à plus de 20 skills Claude dédiés au pilotage chantier
+            En 2026, la bibliothèque de skills donne accès à plus de 20 skills Claude dédiés au pilotage chantier
             (donnée interne programme OFC, avril 2026).
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">
@@ -281,7 +280,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         <section id="programme" className="mt-12 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
           <p className="mt-2 text-sm text-slate-600">
-            Le programme NIV-03 répartit {SESSION_DUREE_LIBELLE} sur 4 modules : installation chantier, sécurité,
+            Le programme répartit {SESSION_DUREE_LIBELLE} sur 4 modules : installation chantier, sécurité,
             gestion quotidienne et administratif jusqu&apos;à la réception.
           </p>
           <p className="mt-2 text-sm text-slate-600">
@@ -315,7 +314,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            Le forfait NIV-03 est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session, avec
+            Le forfait est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session, avec
             bibliothèque de skills, trames CR/PPSPS/DOE et un rendez-vous visio J+30 inclus.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -349,7 +348,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
         <ContextualLinksSection
           title="Pages associées"
-          subtitle="NIV-01 productivité, fiche conducteur de travaux, financement OPCO."
+          subtitle="niveau 1 — productivité, fiche conducteur de travaux, financement OPCO."
           links={FORMATION_NIV03_RELATED}
           tone="muted"
         />
