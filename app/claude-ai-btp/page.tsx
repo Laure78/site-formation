@@ -23,7 +23,6 @@ import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 
 const PATH = '/claude-ai-btp';
-const ogClaudeBtpJpg = '/og-claude-ai-btp.jpg';
 const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 
 export const metadata = createPageMetadata({
@@ -40,9 +39,9 @@ export const metadata = createPageMetadata({
     section: 'Formation IA pour les pro du BTP',
   },
   image: {
-    url: ogClaudeBtpJpg,
-    width: 1200,
-    height: 630,
+    url: heroVisuel.src,
+    width: heroVisuel.width,
+    height: heroVisuel.height,
     alt: heroVisuel.alt,
   },
   appendAuthorSuffix: false,

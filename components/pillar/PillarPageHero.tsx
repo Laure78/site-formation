@@ -45,6 +45,8 @@ export type PillarPageHeroProps = {
     /** Badge Qualiopi superposé — désactiver si le visuel l’intègre déjà */
     qualiopiBadge?: boolean;
     objectFit?: 'cover' | 'contain';
+    /** Affiche circulaire (ex. visuels tutos / guides) */
+    circular?: boolean;
     /** Entrée + léger flottement au chargement (ex. page À propos). */
     animated?: boolean;
   };
@@ -301,13 +303,15 @@ export function PillarPageHero({
               <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
                 <div
                   className={`${
-                    muted
-                      ? compact
-                        ? 'relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_20px_48px_-16px_rgba(15,23,42,0.14)] ring-4 ring-white'
-                        : 'relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_56px_-18px_rgba(15,23,42,0.16)] ring-4 ring-white'
-                      : compact
-                        ? 'overflow-hidden rounded-xl border border-white/25 bg-white/10 shadow-lg shadow-black/20 ring-1 ring-white/15'
-                        : 'overflow-hidden rounded-2xl border border-white/25 bg-white/10 shadow-2xl shadow-black/25 ring-1 ring-white/20'
+                    sideImage.circular
+                      ? 'overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white'
+                      : muted
+                        ? compact
+                          ? 'relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_20px_48px_-16px_rgba(15,23,42,0.14)] ring-4 ring-white'
+                          : 'relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_56px_-18px_rgba(15,23,42,0.16)] ring-4 ring-white'
+                        : compact
+                          ? 'overflow-hidden rounded-xl border border-white/25 bg-white/10 shadow-lg shadow-black/20 ring-1 ring-white/15'
+                          : 'overflow-hidden rounded-2xl border border-white/25 bg-white/10 shadow-2xl shadow-black/25 ring-1 ring-white/20'
                   }${sideImage.animated ? ' a-propos-hero-portrait' : ''}`}
                 >
                   <Image
@@ -315,11 +319,13 @@ export function PillarPageHero({
                     alt={sideImage.alt}
                     width={sideImage.width}
                     height={sideImage.height}
-                    className={`h-auto w-full ${sideImage.objectFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+                    className={`h-auto w-full ${
+                      sideImage.objectFit === 'contain' || sideImage.circular ? 'object-contain' : 'object-cover'
+                    }`}
                     sizes="(max-width: 1024px) 100vw, 400px"
                     priority
                   />
-                  {muted && sideImage.qualiopiBadge !== false ? (
+                  {muted && sideImage.qualiopiBadge !== false && !sideImage.circular ? (
                     <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-xl border border-slate-200/90 bg-white/95 px-3 py-2 shadow-md backdrop-blur-sm">
                       <Award className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden strokeWidth={2} />
                       <span className="text-[11px] font-bold uppercase tracking-wide text-[#377CF3] md:text-xs">Qualiopi</span>

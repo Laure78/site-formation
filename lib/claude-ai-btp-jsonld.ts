@@ -8,6 +8,7 @@ import {
   buildBreadcrumbListJsonLd,
   SITE_CONFIG,
 } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
 
 const PATH = '/claude-ai-btp';
 
@@ -29,7 +30,7 @@ vers les formations IA appliquées au bâtiment en Île-de-France et le financem
 export const CLAUDE_AI_BTP_WORD_COUNT = 3500;
 
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
-const OG_IMAGE = `${SITE_CONFIG.url.replace(/\/$/, '')}/og-claude-ai-btp.jpg`;
+const OG_IMAGE = `${SITE_CONFIG.url.replace(/\/$/, '')}${PHOTOS.claudeBtpGuideHero2026.src}`;
 
 const PERSON_ID = `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos#person`;
 const ORG_ID = `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization`;
