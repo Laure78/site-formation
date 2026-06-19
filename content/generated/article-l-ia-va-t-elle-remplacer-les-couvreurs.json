@@ -2,12 +2,12 @@
   "slug": "l-ia-va-t-elle-remplacer-les-couvreurs",
   "title": "L'IA va-t-elle remplacer les couvreurs ?",
   "description": "L'IA remplace-t-elle les couvreurs ? Non : elle assiste le métier. Financement possible selon éligibilité.",
-  "date": "2026-06-10",
+  "date": "2026-06-19",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "IA appels offres BTP",
+    "DCE ChatGPT",
+    "mémoire technique IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Découvrez notre formation IA appliquée au bâtiment — Financement possible selon éligibilité."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -79,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

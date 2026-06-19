@@ -2,13 +2,12 @@
   "slug": "appels-d-offres-btp-l-ia-comme-assistant",
   "title": "Appels d'offres BTP : l'IA comme assistant",
   "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
-  "date": "2026-06-17",
+  "date": "2026-06-19",
   "keywords": [
-    "plombier IA",
-    "électricien ChatGPT",
-    "maçon IA",
-    "carreleur intelligence artificielle",
-    "ChatGPT entreprises BTP"
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
+    "relance client IA",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -62,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Découvrez notre formation IA appliquée au bâtiment — Financement possible selon éligibilité."
     }
   ],
   "relatedSlugs": [],
@@ -80,10 +79,6 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/formation-ia-artisans-btp",
-      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",

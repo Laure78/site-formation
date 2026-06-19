@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-charpentier",
   "title": "Devis en 15 min : le guide charpentier",
   "description": "Devis charpentier en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA pour le BTP Constructys.",
-  "date": "2026-06-10",
+  "date": "2026-06-19",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "emails professionnels BTP",
+    "relance client IA",
+    "email professionnel ChatGPT",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
