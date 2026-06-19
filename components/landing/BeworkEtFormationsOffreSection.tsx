@@ -11,7 +11,6 @@ import { PHOTOS } from '@/lib/photos';
 import {
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
-  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
@@ -259,15 +258,7 @@ export function BeworkEtFormationsOffreSection() {
                       variant="pill"
                     />
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">
-                    {entry.ref === 'NIV-01'
-                      ? 'Devis, mails, documents réglementaires. Prompts BTP prêts à l\u2019emploi. Vous repartez autonome.'
-                      : entry.ref === 'NIV-02'
-                        ? `Analyse DCE, mémoire technique, assistants IA réutilisables. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}`
-                        : entry.ref === 'NIV-03'
-                          ? 'Bibliothèque de skills Claude : CCTP, PPSPS, CR, sous-traitants, DOE. Pilotage chantier au quotidien.'
-                          : 'Projets, Skills, Cowork, connecteurs Gmail/Drive, Claude Code — industrialiser Claude en entreprise.'}
-                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">{entry.pitch}</p>
                 </div>
               ))}
               <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-4">

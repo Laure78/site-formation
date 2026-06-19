@@ -84,6 +84,7 @@ const FORMATION_NIVEAU1 = getFormationCatalogueByRef('NIV-01')!;
 const FORMATION_AO = getFormationCatalogueByRef('NIV-02')!;
 const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
 const FORMATION_CLAUDE = getFormationCatalogueByRef('NIV-04')!;
+const FORMATION_MOE = getFormationCatalogueByRef('NIV-05')!;
 
 function catalogueLevelBadge(ref: string, _level: CatalogueLevel): string {
   return cataloguePedagogicalLevelBadge(ref);
@@ -384,17 +385,17 @@ export default function HomePage() {
                       Présentation vidéo
                     </p>
                     <span className="inline-flex w-fit items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.7rem] font-semibold text-[#377CF3] ring-1 ring-[#377CF3]/15">
-                      3 parcours · programme
+                      {CATALOGUE_FORMATIONS_COUNT} parcours · programme
                     </span>
                   </div>
                   <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
-                    Les 3 parcours de formation IA pour les pro du BTP
+                    Les {CATALOGUE_FORMATIONS_COUNT} parcours de formation IA pour les pro du BTP
                   </p>
                   <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-950 shadow-inner ring-1 ring-slate-900/10">
                     <div className="relative aspect-video w-full">
                       <iframe
                         src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
-                        title="Présentation animée — 3 formations IA appliquées au bâtiment"
+                        title={`Présentation animée — ${CATALOGUE_FORMATIONS_COUNT} formations IA appliquées au bâtiment`}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         loading="lazy"
@@ -1026,12 +1027,12 @@ export default function HomePage() {
             </Link>
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            Quatre parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> —{' '}
+            {CATALOGUE_FORMATIONS_COUNT} parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> —{' '}
             {FORMATION_NIVEAU1.title} ; <strong className="font-semibold text-slate-800">niveau 2</strong> —{' '}
-            {FORMATION_AO.title}, {FORMATION_CONDUITE.title} et {FORMATION_CLAUDE.title}. Les thèmes couverts
+            {FORMATION_AO.title}, {FORMATION_CONDUITE.title}, {FORMATION_MOE.title} et {FORMATION_CLAUDE.title}. Les thèmes couverts
             incluent devis et chiffrage, réponses aux marchés, comptes rendus, DOE, emails et relation client — en{' '}
             <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (conduite de
-            travaux et Maîtriser Claude AI : 8 participants max). Téléchargez les{' '}
+            travaux, maîtres d&apos;œuvre et Maîtriser Claude AI : effectifs réduits selon fiche). Téléchargez les{' '}
             <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
             depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>
