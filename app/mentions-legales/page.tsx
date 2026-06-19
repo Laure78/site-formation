@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Mentions légales — OFC Création d\'Entreprise',
   description:

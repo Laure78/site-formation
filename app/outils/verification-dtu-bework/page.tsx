@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 
+export const revalidate = 3600;
 const PATH = LINKS.verificationDtuBeworkTest;
 
 export const metadata = createPageMetadata({

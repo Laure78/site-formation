@@ -35,13 +35,10 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl(
 
 export const metadata = createPageMetadata({
   title: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.title,
-  titleAbsolute: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.title,
   description: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
   path: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
   openGraphType: 'article',
   appendAuthorSuffix: false,
-  openGraphTitle: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.title,
-  openGraphDescription: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
   article: {
     publishedTime: '2026-06-02',
     modifiedTime: '2026-06-02',
@@ -119,6 +116,14 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
             Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi · Finançable Constructys · Île-de-France
           </p>
 
+          <p className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
+            <span className="font-medium text-slate-900">Session catalogue (conversion) :</span>{' '}
+            <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="font-medium text-[#377CF3] hover:underline">
+              Formation NIV-03 — IA conduite de travaux & suivi chantier (skills Claude)
+            </Link>
+            . Cette page est un guide métier ; la fiche programme détaillé est sur le catalogue.
+          </p>
+
           <figure className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
             <Image
               src="/images/btp-conducteur-plans.png"
@@ -132,13 +137,31 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
 
           <div className="mt-8">
             <ShortAnswerBlock>
-              Comptes rendus, relances, PPSPS, analyse DCE : les conducteurs de travaux consacrent{' '}
-              <strong>2 à 3 h par jour</strong> à l’administratif de chantier. Avec ChatGPT et Claude AI,
-              vous structurez vos documents en quelques minutes — formation certifiée{' '}
-              <strong>Qualiopi</strong>, éligible <strong>Constructys</strong> selon dossier.{' '}
-              <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés, note{' '}
-              {SOCIAL_PROOF.AVERAGE_RATING}.
+              Page informationnelle pour conducteurs de travaux : comptes rendus, PPSPS, analyse DCE.
+              Pour vous inscrire à la session certifiante avec skills Claude (CCTP, PPSPS, réception), voir la{' '}
+              <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="font-medium text-[#377CF3] hover:underline">
+                fiche formation NIV-03 conduite de travaux
+              </Link>
+              .
             </ShortAnswerBlock>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <RdvLink
+              campaign="formation-ia-conducteur-de-travaux-btp-hero"
+              ctaPosition="hero"
+              ctaId="hero"
+              variant="primary"
+              className="rounded-lg px-5 py-3"
+            >
+              Réserver une visio découverte gratuite
+            </RdvLink>
+            <Link
+              href={LINKS.formationConduiteTravauxSuiviChantier}
+              className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
+            >
+              Voir la formation NIV-03
+            </Link>
           </div>
         </header>
 
@@ -374,8 +397,8 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
               Lien Calendly direct
             </a>
             {' · '}
-            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="text-[#377CF3] underline">
-              Programme NIV-01
+            <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="text-[#377CF3] underline">
+              Programme NIV-03 — conduite de travaux
             </Link>
             {' · '}
             <Link href={LINKS.financement} className="text-[#377CF3] underline">

@@ -486,60 +486,84 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
 /** FAQ Formation Maîtriser Claude AI — NIV-04 */
 export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   {
-    q: 'Qui peut suivre la formation Maîtriser Claude AI pour le BTP (NIV-04) ?',
-    a: `Référents IA, dirigeants, responsables digitaux, chargés d&apos;affaires et conducteurs de travaux qui utilisent déjà Claude Pro et souhaitent industrialiser l&apos;outil dans l&apos;entreprise. Prérequis : abonnement Claude Pro, usage régulier, option « Exécution de code » activée.`,
+    q: 'On utilise déjà Claude au bureau : le NIV-04 m\'apporte quoi de plus ?',
+    a: `Il structure l'usage en entreprise : Projets partagés, bibliothèque de Skills, Cowork supervisé, connecteurs Gmail/Drive et premières automatisations Claude Code. En 4 h le matin, vous repartez avec des workflows réutilisables — pas seulement des prompts isolés. Public : référents IA, dirigeants, responsables digitaux, chargés d'affaires et conducteurs de travaux déjà à l'aise avec Claude Pro. Voir le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a>.`,
   },
   {
-    q: 'Pourquoi une session le matin uniquement ?',
-    a: `La session NIV-04 dure 4 h en demi-journée matin (9h00 – 13h00), en présentiel en Île-de-France. Format calibré pour enchaîner 4 modules techniques (Projets, Cowork, connecteurs, Claude Code) sans dispersion.`,
+    q: 'Pourquoi la formation Maîtriser Claude est-elle le matin uniquement ?',
+    a: `La session dure 4 h (9h00–13h00) pour enchaîner 4 modules techniques sans couper la concentration. Format présentiel en Île-de-France, intra ou inter — réf. catalogue NIV-04.`,
   },
   {
-    q: 'Quelle différence avec le NIV-02 appels d\'offres ?',
-    a: `Le NIV-02 cible DCE et mémoires techniques marchés publics. Le NIV-04 va plus loin : gouvernance Claude en entreprise, connecteurs outils, automatisation Claude Code — voir aussi le <a href="${LINKS.claudeAiBtp}">guide Claude AI BTP</a> et le <a href="${LINKS.formationAO}">NIV-02</a>.`,
+    q: 'Cowork et Claude Code : est-ce que l\'IA envoie des mails ou des docs sans mon accord ?',
+    a: `Non : Cowork et Claude Code fonctionnent en mode supervisé — vous validez chaque livrable avant envoi client ou marché. La session intègre une checklist RGPD, marchés publics et données clients. Les connecteurs (Gmail, Drive, agenda) sont paramétrés avec ces garde-fous.`,
   },
   {
-    q: 'Combien coûte le NIV-04 ?',
-    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session — prix de lancement, 8 participants max. Financement possible selon éligibilité (Constructys / OPCO) — <a href="${LINKS.financement}">financement Constructys</a>.`,
+    q: 'Quelle différence entre le NIV-04 et le NIV-02 appels d\'offres ?',
+    a: `Le <a href="${LINKS.formationAO}">NIV-02</a> cible DCE et mémoires techniques. Le NIV-04 industrialise Claude dans toute l'entreprise : gouvernance, connecteurs outils, production documentaire et automatisation — complément naturel après NIV-02 ou <a href="${LINKS.formationConduiteTravauxSuiviChantier}">NIV-03 conduite de travaux</a>.`,
+  },
+  {
+    q: 'Combien coûte le NIV-04 en 2026 et est-ce finançable OPCO ?',
+    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (prix de lancement, 8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+  {
+    q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
+    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant le NIV-04 — sinon, commencer par le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
   },
 ];
 
 /** FAQ Formation IA conduite de travaux — NIV-03 */
 export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   {
-    q: 'Qui peut suivre la formation IA conduite de travaux (NIV-03) ?',
-    a: `Conducteurs de travaux, chefs de chantier, responsables travaux et assistant(e)s travaux en entreprise BTP. Prérequis : avoir suivi le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">niveau 1</a> ou pratiquer déjà une IA générative ; compte Claude Pro recommandé.`,
+    q: 'Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\'IA ?',
+    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. La session NIV-03 (${SESSION_DUREE_LIBELLE}) travaille ces livrables sur vos documents anonymisés. Complément : page <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a>.`,
   },
   {
-    q: 'Combien de temps dure la session NIV-03 ?',
-    a: `Session unique de ${SESSION_DUREE_LIBELLE} en présentiel (intra ou inter en Île-de-France). Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session — prix de lancement. Financement possible selon éligibilité (Constructys / OPCO) — voir <a href="${LINKS.financement}">financement Constructys</a>.`,
+    q: 'Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?',
+    a: `Non : ils accélèrent la rédaction et la structuration, pas le suivi financier ni le planning temps réel. L'IA prépare des brouillons et des check-lists ; vous gardez la validation métier, QSE et juridique. Objectif : libérer du temps sur l'écrit, pas changer d'ERP.`,
   },
   {
-    q: 'Quels livrables sont inclus ?',
-    a: 'Accès à la bibliothèque de 20+ skills Claude BTP, trames CR / PPSPS / courriers sous-traitants / PV de réserves / DOE, fiches méthode par module et un rendez-vous visio J+30.',
+    q: 'Faut-il avoir fait le niveau 1 avant le NIV-03 ?',
+    a: `Oui, c'est le parcours recommandé : avoir suivi le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a> ou pratiquer déjà une IA générative. Un compte Claude Pro est recommandé. Sans ces bases, les skills chantier sont difficiles à paramétrer correctement.`,
   },
   {
-    q: 'Quelle différence avec le NIV-02 appels d\'offres ?',
-    a: `Le NIV-02 cible la réponse aux marchés (DCE, mémoire technique, Cowork). Le NIV-03 couvre la conduite de travaux sur chantier : CCTP, DPGF, sécurité, suivi quotidien et réception — voir le <a href="${LINKS.formationAO}">catalogue NIV-02</a> et la <a href="${LINKS.formationConduiteTravauxSuiviChantier}">fiche NIV-03</a>.`,
+    q: 'Un PPSPS généré par l\'IA est-il directement utilisable sur chantier ?',
+    a: `Non sans relecture QSE : l'IA propose une structure et des formulations, jamais la conformité réglementaire à votre place. En session, on cadre la méthode et les points de contrôle obligatoires avant signature du responsable sécurité.`,
+  },
+  {
+    q: 'Combien coûte la formation conduite de travaux IA en 2026 ?',
+    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (prix de lancement, ${SESSION_DUREE_LIBELLE}, 8 participants max). Financement possible selon éligibilité Constructys / OPCO — <a href="${LINKS.financement}">guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
+  },
+  {
+    q: 'Que contient la bibliothèque de 20+ skills Claude BTP ?',
+    a: `Des assistants préconfigurés pour analyse CCTP/DPGF, sécurité chantier, CR, approvisionnements, sous-traitants, situations, réception et DOE — personnalisables en atelier. Vous repartez aussi avec trames CR, courriers ST et check-lists par module.`,
   },
 ];
 
-/** FAQ Formation IA Appels d'offres BTP */
+/** FAQ Formation IA Appels d'offres BTP — NIV-02 */
 export const FAQ_APPELS_OFFRE: FAQItem[] = [
   {
-    q: "Qui peut suivre la formation IA appels d'offres BTP ?",
-    a: 'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux, directeurs techniques TPE/PME BTP et bureaux d\'études. Prérequis : abonnement Claude Pro + Cowork installé, DCE complet récent et 2 à 3 mémoires techniques de l\'entreprise ; bases d\'une IA générative ou session niveau 1 — voir la <a href="/formations/ia-appels-offre-btp">fiche formation NIV-02</a>.',
+    q: "L'IA peut-elle rédiger mon mémoire technique sur un marché public ?",
+    a: `Elle structure et rédige à partir de vos références réelles — pas à votre place sur le fond technique. En NIV-02, vous créez des skills Cowork pour analyser le DCE et produire un MT aligné sur les critères pondérés, avec relecture experte obligatoire. L'IA ne peut pas inventer vos chantiers ni vos effectifs.`,
   },
   {
-    q: "Combien de temps dure la formation ?",
-    a: 'Session unique de 4 heures, 75 % pratique (niveau avancé). Financement possible via Constructys ou votre OPCO selon éligibilité — voir <a href="/financement-constructys-formation-ia-btp">financement Constructys</a>.',
+    q: 'Faut-il payer Claude Pro pour suivre la formation appels d\'offres ?',
+    a: `Oui. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Cowork doit être installé sur le poste — comptes gratuits insuffisants pour cette session. Prévoir aussi un DCE complet récent et 2 à 3 mémoires techniques de votre entreprise.`,
   },
   {
-    q: "Quels livrables sont inclus ?",
-    a: 'Compte Claude Pro configuré, Cowork installé avec skills opérationnels, bibliothèque de 30 prompts DCE/mémoire technique, template Word MT (3 modèles), skills Cowork personnalisés — accès aux supports sur la plateforme OFC selon convention. Voir aussi la <a href="/checklist-ia-btp">checklist prompts ChatGPT BTP</a>.',
+    q: 'Combien de temps pour analyser un DCE avec Cowork après la formation ?',
+    a: `Les participants visent une fiche synthèse (15 infos critiques, verdict Go/No Go) en une fraction du temps d'une lecture manuelle complète — le gain dépend du volume de pièces. En session, le module 2 (1 h 15) est entièrement dédié à cette méthode sur votre AO réel.`,
   },
   {
-    q: "Quel abonnement est requis pour le niveau avancé ?",
-    a: `${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Indispensable pour configurer Cowork, analyser les DCE et rédiger les mémoires techniques.`,
+    q: 'Une TPE qui répond seule aux AO est-elle au bon niveau ?',
+    a: `Oui si vous répondez déjà à des marchés et maîtrisez les bases de l'IA (ou le <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01</a>). La session est calibrée 8 à 12 participants, 75 % pratique sur vos dossiers — pas de théorie inutile.`,
+  },
+  {
+    q: 'La formation appels d\'offres est-elle finançable Constructys en 2026 ?',
+    a: `Oui, selon éligibilité : organisme Qualiopi, session ${SESSION_DUREE_LIBELLE}, forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT. Dépôt dossier eGestion au moins 15 jours avant — <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+  {
+    q: 'Quels livrables je repars avec après les 4 heures ?',
+    a: `Compte Claude Pro configuré, Project AO, Cowork avec skills DCE et MT opérationnels, 30 prompts spécialisés, 3 modèles Word MT et supports plateforme selon convention. Kit complémentaire : <a href="/checklist-ia-btp">checklist prompts IA BTP</a>.`,
   },
 ];
 
@@ -587,20 +611,31 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   },
 ];
 
-/** FAQ — formation NIV-01 (fusion bâtiment & TP) */
+/** FAQ — formation NIV-01 (bâtiment & TP) — page pilier catalogue */
 export const FAQ_BATIMENT: FAQItem[] = [
-  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
   {
-    q: "Quels comptes IA pour cette formation (niveau débutant) ?",
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Page formation : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 — L'IA au service des pros du Bâtiment Travaux Publics</a>.`,
+    q: 'Je suis artisan du bâtiment sans compétence informatique : cette formation est-elle faisable ?',
+    a: `Oui : le NIV-01 part de zéro prérequis technique et se déroule en ${SESSION_DUREE_LIBELLE} de présentiel. Vous travaillez sur vos devis, emails et comptes rendus réels avec des trames guidées — pas besoin de savoir « coder ». Seuls prérequis : ordinateur, connexion internet et ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
   },
   {
-    q: "Proposez-vous plusieurs durées de session ?",
-    a: 'Non : toutes nos sessions d\'accompagnement catalogue sont calibrées sur 4 heures. La différence se joue sur le niveau (débutant ou avancé) et le forfait par session, pas sur la durée — voir le <a href="/formations">catalogue</a>.',
+    q: 'Combien coûte la formation IA niveau 1 et est-ce finançable OPCO en 2026 ?',
+    a: `Forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session (${SESSION_DUREE_LIBELLE}, jusqu'à ${EFFECTIF_GROUPE_MAX} participants). Prise en charge possible via Constructys ou votre OPCO selon éligibilité — organisme Qualiopi. Guide : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
-    q: "La formation est-elle finançable ?",
-    a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Formation certifiée Qualiopi — attestation en fin de parcours. Détails : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pro du BTP</a>.',
+    q: 'Faut-il payer ChatGPT ou Claude pour suivre le NIV-01 ?',
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Le niveau débutant ne nécessite pas d'abonnement payant. Pour les marchés publics ou l'industrialisation Claude, voir le <a href="${LINKS.formationAO}">NIV-02 appels d'offres</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude AI BTP</a>.`,
+  },
+  {
+    q: 'On perd combien de temps sur l\'administratif qu\'on pourrait récupérer ?',
+    a: `Les stagiaires constatent souvent 3 à 5 h gagnées par semaine sur devis, relances et CR — selon volume et discipline de relecture. La formation enseigne la méthode et les garde-fous (données sensibles, chiffres à vérifier), pas une promesse automatique. Voir aussi <a href="/ia-devis-batiment">IA devis bâtiment</a>.`,
+  },
+  {
+    q: 'Qu\'est-ce que je repars concrètement après 4 heures ?',
+    a: `Trames de devis et emails, bibliothèque de prompts par type de tâche, check-lists de relecture et attestation Qualiopi. Objectifs détaillés sur la fiche <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">NIV-01 bâtiment & travaux publics</a> et le <a href="/formations">catalogue formations</a>.`,
+  },
+  {
+    q: 'La formation couvre-t-elle les appels d\'offres et le CCTP ?',
+    a: `Le NIV-01 pose les bases (lecture aidée, plan de réponse, formulations). Pour analyser un DCE complet et rédiger un mémoire technique avec Cowork, le parcours dédié est le <a href="${LINKS.formationAO}">NIV-02 appels d'offres BTP</a>.`,
   },
 ];
 

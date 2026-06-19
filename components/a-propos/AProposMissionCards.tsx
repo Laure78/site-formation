@@ -24,13 +24,13 @@ export function AProposMissionCards() {
           </div>
         ))}
       </RevealGroup>
-      <div className="mt-6 space-y-5 text-[16px] leading-relaxed text-[#334155]">
+      <RevealGroup className="mt-6 space-y-5" staggerMs={70}>
         {A_PROPOS_MISSION.paragraphs.map((paragraph) => (
-          <p key={paragraph.slice(0, 40)}>
+          <p key={paragraph.slice(0, 40)} className="text-[16px] leading-relaxed text-[#334155]">
             <EeatRichText text={paragraph} />
           </p>
         ))}
-      </div>
+      </RevealGroup>
     </>
   );
 }

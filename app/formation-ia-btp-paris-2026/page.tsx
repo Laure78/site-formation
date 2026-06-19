@@ -9,8 +9,8 @@ import { JsonLd } from '@/components/JsonLd';
 import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 
-// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 export const revalidate = 3600;
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP Paris 2026 — Constructys selon éligibilité',

@@ -12,10 +12,11 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-etancheur';
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
-const SEO_TITLE = 'Formation IA pour Étancheur — ChatGPT BTP | Laure Olivié';
+const SEO_TITLE = 'Formation IA pour Étancheur — ChatGPT BTP';
 const SEO_DESCRIPTION =
   "Formation IA dédiée aux entreprises d'étanchéité : devis, mémoires techniques, CCTP. Qualiopi. Financement possible selon éligibilité. Partenaire CSFE.";
 

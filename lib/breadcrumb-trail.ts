@@ -1,10 +1,11 @@
 /**
- * Fil d'Ariane unifié — chemins relatifs + libellés (layout global).
+ * Fil d'Ariane unifié — chemins relatifs + libellés (layout global, compatible client).
  */
-import { getArticle } from '@/lib/blog';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
-import { getSectionBreadcrumbItems } from '@/lib/section-breadcrumbs';
+import { FORMATION_CITIES } from '@/lib/formation-cities';
 import { autoBreadcrumbFromPathname } from '@/lib/auto-breadcrumb';
+import { formationsData } from '@/src/data/formations';
+import { TUTOS } from '@/lib/tutos';
 
 export type BreadcrumbHrefCrumb = { label: string; href: string };
 
@@ -13,6 +14,30 @@ const EXACT: Record<string, string> = {
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': "L'IA appliquée aux appels d'offres BTP",
   '/formations/ia-conduite-travaux-suivi-chantier': "L'IA appliquée à la conduite de travaux",
+};
+
+const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
+  '/formations/ia-btp-paris': 'Formation IA appliquée au bâtiment Paris',
+  '/formations/formation-ia-cctp-analyse-dce-btp': 'Formation IA CCTP & DCE',
+  '/formations/ia-btp-morangis': 'Formation IA pour le BTP à Morangis',
+  '/formations/ia-btp-longjumeau': 'Formation IA pour les pro du BTP à Longjumeau',
+  '/formations/ia-btp-saint-quentin-en-yvelines':
+    'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',
+  '/formations/ia-pme-btp': 'IA pour PME du BTP',
+};
+
+const ETUDES_TITLES: Record<string, string> = {
+  '/etudes-de-cas/ffb-csfe': 'Étude de cas FFB & CSFE — Étanchéité',
+};
+
+const RESSOURCES_TITLES: Record<string, string> = {
+  '/ressources': 'Ressources',
+  '/ressources/tutos': 'Tutos PDF IA BTP',
+  '/ressources/ia-btp': 'Hub ressources IA BTP',
+  '/ressources/ia-btp/10-cas-usage-concrets': 'IA dans le BTP : 10 cas d’usage concrets (2026)',
+  '/ressources/guide-conducteur-de-travaux': 'Guide conducteur de travaux — 6 tutos Claude BTP',
+  '/ressources/guide-conducteur-de-travaux/merci': 'Confirmation — guide envoyé',
+  ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 
 const METIER_TITLES: Record<string, string> = {
@@ -69,30 +94,38 @@ function fromAuto(pathname: string): BreadcrumbHrefCrumb[] {
   }));
 }
 
-function fromSection(zone: 'formations' | 'blog' | 'etudes-de-cas' | 'ressources', pathname: string): BreadcrumbHrefCrumb[] {
-  return getSectionBreadcrumbItems(zone, pathname).map(({ name, url }) => {
-    try {
-      const u = new URL(url);
-      return { label: name, href: u.pathname || '/' };
-    } catch {
-      return { label: name, href: pathname };
+function formationLeafTitle(pathNorm: string): string {
+  if (FORMATION_PATH_EXTRA_TITLES[pathNorm]) return FORMATION_PATH_EXTRA_TITLES[pathNorm];
+  const fromCatalog = FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === pathNorm);
+  if (fromCatalog) return fromCatalog.name;
+  const slug = pathNorm.replace(/^\/formations\//, '');
+  const fromData = formationsData[slug as keyof typeof formationsData];
+  if (fromData) return fromData.name;
+  for (const city of Object.values(FORMATION_CITIES)) {
+    if (city.path === pathNorm) {
+      return `Formation IA pour le BTP à ${city.ville}`;
     }
-  });
+  }
+  return humanizeSegment(slug);
 }
 
 function blogTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
-  const articleMatch = pathNorm.match(/^\/blog\/([^/]+)$/);
-  if (articleMatch && !['page', 'categorie'].includes(articleMatch[1])) {
-    const slug = articleMatch[1];
-    const title = getArticle(slug)?.title ?? humanizeSegment(slug);
+  if (pathNorm === '/blog') {
     return [
       { label: 'Accueil', href: '/' },
       { label: 'Blog', href: '/blog' },
-      { label: title, href: pathNorm },
     ];
   }
-  const section = fromSection('blog', pathNorm);
-  return section.length ? section : fromAuto(pathNorm);
+  const articleMatch = pathNorm.match(/^\/blog\/([^/]+)$/);
+  if (articleMatch && !['page', 'categorie'].includes(articleMatch[1])) {
+    const slug = articleMatch[1];
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: 'Blog', href: '/blog' },
+      { label: humanizeSegment(slug), href: pathNorm },
+    ];
+  }
+  return fromAuto(pathNorm);
 }
 
 function formationsTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
@@ -105,14 +138,51 @@ function formationsTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
   const title =
     EXACT[pathNorm] ??
     FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === pathNorm)?.name ??
-    fromSection('formations', pathNorm).at(-1)?.label ??
-    humanizeSegment(pathNorm.replace(/^\/formations\//, ''));
+    formationLeafTitle(pathNorm);
 
   return [
     { label: 'Accueil', href: '/' },
     { label: 'Formations', href: '/formations' },
     { label: title, href: pathNorm },
   ];
+}
+
+function etudesTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
+  const title = ETUDES_TITLES[pathNorm] ?? humanizeSegment(pathNorm.split('/').pop() ?? '');
+  return [
+    { label: 'Accueil', href: '/' },
+    { label: title, href: pathNorm },
+  ];
+}
+
+function ressourcesTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
+  const hub = { label: 'Ressources', href: '/ressources' };
+  if (pathNorm === '/ressources') {
+    return [{ label: 'Accueil', href: '/' }, hub];
+  }
+  if (pathNorm === '/ressources/guide-conducteur-de-travaux/merci') {
+    return [
+      { label: 'Accueil', href: '/' },
+      hub,
+      {
+        label: RESSOURCES_TITLES['/ressources/guide-conducteur-de-travaux'],
+        href: '/ressources/guide-conducteur-de-travaux',
+      },
+      { label: RESSOURCES_TITLES[pathNorm], href: pathNorm },
+    ];
+  }
+  if (pathNorm === '/ressources/ia-btp/10-cas-usage-concrets') {
+    return [
+      { label: 'Accueil', href: '/' },
+      hub,
+      { label: RESSOURCES_TITLES['/ressources/ia-btp'], href: '/ressources/ia-btp' },
+      { label: RESSOURCES_TITLES[pathNorm], href: pathNorm },
+    ];
+  }
+  const title =
+    RESSOURCES_TITLES[pathNorm] ??
+    humanizeSegment(pathNorm.replace(/^\/ressources\//, '').replace(/\//g, ' '));
+  return [{ label: 'Accueil', href: '/' }, hub, { label: title, href: pathNorm }];
 }
 
 /**
@@ -133,13 +203,11 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
   }
 
   if (pathNorm.startsWith('/etudes-de-cas')) {
-    const section = fromSection('etudes-de-cas', pathNorm);
-    return section.length ? section : fromAuto(pathNorm);
+    return etudesTrail(pathNorm);
   }
 
   if (pathNorm.startsWith('/ressources')) {
-    const section = fromSection('ressources', pathNorm);
-    return section.length ? section : fromAuto(pathNorm);
+    return ressourcesTrail(pathNorm);
   }
 
   if (isFormationMetierLanding(pathNorm) || pathNorm === '/formation-ia-btp') {

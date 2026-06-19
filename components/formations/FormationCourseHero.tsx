@@ -6,6 +6,8 @@ import { Building2 } from 'lucide-react';
 import {
   CataloguePriceBadge,
 } from '@/components/formations/CataloguePriceBadge';
+import { FormationProgrammePdfDownloadBanner } from '@/components/formations/FormationProgrammePdfDownloadBanner';
+import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
@@ -34,7 +36,8 @@ export function FormationCourseHero({
   badges?: string[];
   ctas: React.ReactNode;
   footerLinks?: React.ReactNode;
-  image: React.ReactNode;
+  /** Colonne photo — si omis et `catalogueRef` est renseigné, utilise le visuel catalogue. */
+  image?: React.ReactNode;
   summaryTitle?: string;
   summaryIcon?: LucideIcon;
   summaryItems: string[];
@@ -44,7 +47,24 @@ export function FormationCourseHero({
   catalogueRef?: string;
 }) {
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
+  const resolvedImage =
+    image ??
+    (catalogueEntry ? (
+      <FormationHeroPhoto
+        src={catalogueEntry.visuel.src}
+        alt={catalogueEntry.visuel.alt}
+        width={catalogueEntry.visuel.width}
+        height={catalogueEntry.visuel.height}
+        title={
+          'title' in catalogueEntry.visuel && typeof catalogueEntry.visuel.title === 'string'
+            ? catalogueEntry.visuel.title
+            : undefined
+        }
+        priority
+      />
+    ) : null);
   return (
+    <>
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
@@ -94,7 +114,7 @@ export function FormationCourseHero({
             ) : null}
           </div>
           <div className="w-full shrink-0 lg:w-[400px]">
-            {image}
+            {resolvedImage}
             <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
               <div className="flex items-center gap-2 text-[var(--accent)]">
                 <SummaryIcon size={22} strokeWidth={1.5} aria-hidden />
@@ -113,6 +133,21 @@ export function FormationCourseHero({
         </div>
       </div>
     </section>
+    {catalogueEntry ? (
+      <>
+        <FormationProgrammePdfDownloadBanner
+          pdfHref={catalogueEntry.programmePdfHref}
+          catalogueRef={catalogueEntry.ref}
+          formationTitle={catalogueEntry.title}
+        />
+        <FormationProgrammePdfViewer
+          pdfHref={catalogueEntry.programmePdfHref}
+          catalogueRef={catalogueEntry.ref}
+          formationTitle={catalogueEntry.title}
+        />
+      </>
+    ) : null}
+    </>
   );
 }
 
@@ -123,18 +158,22 @@ export function FormationHeroPhoto({
   width,
   height,
   priority,
+  title,
 }: {
   src: string;
   alt: string;
   width: number;
   height: number;
   priority?: boolean;
+  /** Info complémentaire au survol — ne pas dupliquer l'alt. */
+  title?: string;
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
       <Image
         src={src}
         alt={alt}
+        title={title}
         width={width}
         height={height}
         className="h-auto w-full object-cover"

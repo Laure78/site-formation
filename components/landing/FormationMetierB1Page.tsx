@@ -30,6 +30,8 @@ type Props = {
   steps: Step[];
   faqItems: FAQItem[];
   level?: string;
+  /** Lien interne vers une page sœur (anti-cannibalisation). */
+  crossLink?: { href: string; label: string; before?: string };
 };
 
 export function FormationMetierB1Page({
@@ -43,6 +45,7 @@ export function FormationMetierB1Page({
   steps,
   faqItems,
   level = 'Beginner',
+  crossLink,
 }: Props) {
   const courseName = `Formation IA ${metierLabel} — ChatGPT BTP`;
   const slugId = metierLabel.toLowerCase().replace(/\s+/g, '-');
@@ -83,6 +86,15 @@ export function FormationMetierB1Page({
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
         <p className="mt-6 text-xl text-slate-600">{heroParagraph}</p>
+        {crossLink ? (
+          <p className="mt-4 text-base text-slate-600">
+            {crossLink.before ?? 'Page complémentaire :'}{' '}
+            <Link href={crossLink.href} className="font-medium text-[var(--accent)] hover:underline">
+              {crossLink.label}
+            </Link>
+            .
+          </p>
+        ) : null}
 
         <div className="mt-8">
           <ShortAnswerBlock>{shortAnswer}</ShortAnswerBlock>

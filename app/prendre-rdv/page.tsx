@@ -7,6 +7,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP — Réserver un RDV gratuit',
   description:

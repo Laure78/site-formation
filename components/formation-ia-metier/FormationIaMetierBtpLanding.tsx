@@ -43,7 +43,17 @@ function sommaireForConfig(config: FormationIaMetierBtpConfig) {
   return base;
 }
 
-function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; subtitle: string }) {
+function CalendlyBlock({
+  id,
+  title,
+  subtitle,
+  metierId,
+}: {
+  id: string;
+  title: string;
+  subtitle: string;
+  metierId: string;
+}) {
   return (
     <section
       id={id}
@@ -56,7 +66,7 @@ function CalendlyBlock({ id, title, subtitle }: { id: string; title: string; sub
           type="popup"
           variant="on-accent"
           ctaPosition="middle"
-          campaign={`formation-metier-${id}`}
+          campaign={`formation-metier-${metierId}-${id}`}
           className="gap-2 font-bold shadow-sm"
         >
           Échanger sur vos besoins
@@ -237,6 +247,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <div className="mt-12">
             <CalendlyBlock
               id="rdv-1"
+              metierId={config.id}
               title="Premier rendez-vous — Calendly"
               subtitle="30 minutes pour cadrer votre besoin (intra ou inter, en présentiel) et voir si la formation IA appliquée au bâtiment correspond à votre équipe."
             />
@@ -320,6 +331,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <div className="mt-14">
             <CalendlyBlock
               id="rdv-2"
+              metierId={config.id}
               title="Deuxième appel à l’action — Calendly"
               subtitle="Réservez un créneau pour une visio découverte gratuite : démonstration sur un cas type et questions financement (Constructys, OPCO)."
             />
@@ -330,6 +342,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               <div className="mt-14">
                 <CalendlyBlock
                   id="rdv-3"
+                  metierId={config.id}
                   title="Troisième appel à l’action — Calendly"
                   subtitle="Une dernière occasion de réserver un créneau : appel découverte formation IA pour le BTP (30 min), même lien Calendly officiel."
                 />

@@ -4,7 +4,45 @@ import { clampMetaDescription } from '@/lib/meta-description';
 /** og:site_name — cohérence sur tout le site */
 export const OG_SITE_NAME = 'Laure Olivié — Formation IA pour le BTP';
 
+/** Suffixe unique de marque — appliqué par `app/layout.tsx` (`title.template`). */
+export const BRAND_TITLE_SUFFIX = ' | Laure Olivié';
+
+/** Longueur cible du `<title>` complet (segment + suffixe). */
+export const SEO_TITLE_MAX_LENGTH = 60;
+
 const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA pour le BTP';
+
+const BRAND_SUFFIX_PATTERN = /\s*\|\s*Laure\s+Olivi[ée]\s*$/i;
+
+/** Retire le suffixe « | Laure Olivié » en fin de chaîne (y compris doublons). */
+export function stripBrandSuffix(title: string): string {
+  let t = title.trim();
+  while (BRAND_SUFFIX_PATTERN.test(t)) {
+    t = t.replace(BRAND_SUFFIX_PATTERN, '').trim();
+  }
+  return t;
+}
+
+/**
+ * Tronque le segment de titre (sans marque) pour que segment + BRAND_TITLE_SUFFIX ≤ maxTotal.
+ */
+export function truncateForBrandedTitle(segment: string, maxTotal = SEO_TITLE_MAX_LENGTH): string {
+  const clean = stripBrandSuffix(segment);
+  const maxSegment = maxTotal - BRAND_TITLE_SUFFIX.length;
+  if (clean.length <= maxSegment) return clean;
+
+  let cut = clean.slice(0, maxSegment).trim();
+  const lastSpace = cut.lastIndexOf(' ');
+  if (lastSpace > maxSegment * 0.55) {
+    cut = cut.slice(0, lastSpace).trim();
+  }
+  return cut.replace(/[—:,;.\-–]\s*$/, '').trim();
+}
+
+/** Titre HTML final : segment nettoyé + suffixe unique (bypass du template layout). */
+export function buildBrandedTitle(segment: string, maxTotal = SEO_TITLE_MAX_LENGTH): string {
+  return `${truncateForBrandedTitle(segment, maxTotal)}${BRAND_TITLE_SUFFIX}`;
+}
 
 /** Ajoute la mention formatrice aux descriptions OG/meta (évite les doublons) */
 export function withOgDescriptionSuffix(description: string): string {
@@ -107,8 +145,13 @@ export function buildPageMetadata({
   const metaDescription = clampMetaDescription(
     appendAuthorSuffix ? withOgDescriptionSuffix(description) : description.trim(),
   );
-  const resolvedTitleAbsolute = titleAbsolute?.trim();
-  const ogTitle = openGraphTitle?.trim() || resolvedTitleAbsolute || title;
+  const titleSegment = truncateForBrandedTitle(
+    stripBrandSuffix(titleAbsolute ?? title),
+  );
+  const htmlTitle = buildBrandedTitle(titleSegment);
+  const ogTitle = openGraphTitle?.trim()
+    ? buildBrandedTitle(stripBrandSuffix(openGraphTitle))
+    : htmlTitle;
   const ogDescription =
     openGraphDescription != null ? openGraphDescription.trim() : metaDescription;
   const img = resolveImageUrl(baseUrl, image);
@@ -148,7 +191,10 @@ export function buildPageMetadata({
   }
 
   const meta: Metadata = {
-    title: resolvedTitleAbsolute != null ? { absolute: resolvedTitleAbsolute } : (title as string),
+    title:
+      titleAbsolute != null
+        ? { absolute: htmlTitle }
+        : titleSegment,
     description: metaDescription,
     ...(category ? { category } : {}),
     openGraph,

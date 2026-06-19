@@ -155,14 +155,14 @@ export const FORMATION_NIV02_RELATED: ContextualLinkCard[] = [
     description: 'Devis, administratif et productivité au quotidien.',
   },
   {
-    href: LINKS.formationIaCctpAnalyseDceBtp,
-    title: 'Formation analyse CCTP & DCE',
-    description: 'Approfondir la lecture des pièces marché.',
+    href: LINKS.blogFormationIaCctpAnalyseDceBtp,
+    title: 'Comment analyser un DCE/CCTP avec l’IA',
+    description: 'Guide informationnel — méthode terrain en 4 étapes.',
   },
   {
-    href: LINKS.blogIaAnalyseCctpMethode,
-    title: 'Méthode IA analyse CCTP',
-    description: 'Article — prompts et workflow sur pièces DCE.',
+    href: LINKS.blogAnalyserCctpMethode20Min,
+    title: 'Méthode CCTP en 20 minutes',
+    description: 'Prompts et workflow sur pièces DCE.',
   },
   {
     href: LINKS.financement,
@@ -173,9 +173,14 @@ export const FORMATION_NIV02_RELATED: ContextualLinkCard[] = [
 
 export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   {
-    href: LINKS.formationIaBtpNiveau1BatimentTp,
-    title: 'Programme catalogue NIV-01',
-    description: 'Session 4 h — devis, CR, administratif chantier.',
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    title: 'Formation catalogue NIV-03 — conduite de travaux',
+    description: 'Session certifiante : CCTP, PPSPS, CR, skills Claude — fiche programme.',
+  },
+  {
+    href: LINKS.iaConducteurTravaux,
+    title: 'Guide IA — comptes rendus chantier',
+    description: 'Page informationnelle : CR, coordination, rapports d’avancement.',
   },
   {
     href: LINKS.guideConducteurTravauxIaBtp,

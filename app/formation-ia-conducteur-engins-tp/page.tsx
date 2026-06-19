@@ -1,6 +1,7 @@
 import { createPageMetadata } from '@/lib/seo';
 import { FormationMetierB1Page } from '@/components/landing/FormationMetierB1Page';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-conducteur-engins-tp';
 
 export const metadata = createPageMetadata({

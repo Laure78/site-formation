@@ -306,6 +306,150 @@
   }
 }
 
+/* À propos — animations dynamiques (hero, stats, titres, timeline) */
+@keyframes a-propos-hero-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes a-propos-hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes a-propos-stats-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes a-propos-timeline-dot-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(55, 124, 243, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(55, 124, 243, 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .a-propos-hero-portrait {
+    animation:
+      a-propos-hero-enter 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both,
+      a-propos-hero-float 6s ease-in-out 0.75s infinite;
+  }
+
+  .a-propos-hero-content > * {
+    opacity: 0;
+    animation: a-propos-hero-enter 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .a-propos-hero-content > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .a-propos-hero-content > *:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .a-propos-hero-content > *:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+  .a-propos-hero-content > *:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+  .a-propos-hero-content > *:nth-child(5) {
+    animation-delay: 0.33s;
+  }
+  .a-propos-hero-content > *:nth-child(6) {
+    animation-delay: 0.4s;
+  }
+  .a-propos-hero-content > *:nth-child(7) {
+    animation-delay: 0.47s;
+  }
+
+  .a-propos-stats-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.45) 45%,
+      rgba(239, 246, 255, 0.65) 50%,
+      rgba(255, 255, 255, 0.45) 55%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    animation: a-propos-stats-shimmer 9s ease-in-out infinite;
+  }
+
+  .a-propos-stats-shimmer {
+    background: linear-gradient(
+      110deg,
+      #f2f2f2 0%,
+      #f8fafc 25%,
+      #eff6ff 50%,
+      #f8fafc 75%,
+      #f2f2f2 100%
+    );
+    background-size: 200% 200%;
+    animation: a-propos-stats-shimmer 8s ease-in-out infinite;
+  }
+
+  [data-reveal][data-reveal-state='pending'] .a-propos-title-accent {
+    width: 0;
+    opacity: 0;
+  }
+
+  [data-reveal][data-reveal-state='visible'] .a-propos-title-accent {
+    width: 3rem;
+    opacity: 1;
+    transition:
+      width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.12s,
+      opacity 0.35s ease 0.08s;
+  }
+
+  [data-reveal][data-reveal-state='visible'] .a-propos-timeline-dot {
+    animation: a-propos-timeline-dot-pulse 2.4s ease-in-out 0.3s 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a-propos-hero-portrait,
+  .a-propos-stats-shimmer,
+  .a-propos-stats-band::before {
+    animation: none !important;
+  }
+
+  .a-propos-hero-content > * {
+    opacity: 1;
+    animation: none !important;
+  }
+
+  .a-propos-title-accent {
+    width: 3rem;
+    opacity: 1;
+  }
+}
+
 /* ——— Micro-interactions OFC (cartes · CTA · liens) ——— */
 @layer components {
   .ofc-card {

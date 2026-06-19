@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 import { isMiddlewareBypassPath, redirectApexToWww } from '@/lib/middleware/canonical-host';
+import { needsSupabaseSession } from '@/lib/middleware/public-marketing-paths';
 
 export async function middleware(request: NextRequest) {
   const apexRedirect = redirectApexToWww(request);
@@ -11,10 +12,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-pathname', pathname);
-  const req = new NextRequest(request.url, { headers: requestHeaders });
-  return updateSession(req);
+  if (!needsSupabaseSession(pathname)) {
+    return NextResponse.next();
+  }
+
+  return updateSession(request);
 }
 
 export const config = {

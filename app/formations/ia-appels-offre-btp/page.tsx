@@ -5,6 +5,7 @@ import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FORMATION_NIV02_RELATED } from '@/lib/contextual-internal-links';
+import { FORMATION_AO_CLUSTER_ARTICLES } from '@/lib/ao-dce-cluster-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -23,10 +24,9 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { PHOTOS } from '@/lib/photos';
+import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseIaAppelsOffreNiv02JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 
@@ -36,6 +36,8 @@ const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prom
 
 const PAGE_META_DESCRIPTION =
   "Formation IA pour le BTP — appels d'offres : DCE, mémoire technique, Cowork & Skills. 4 h, Qualiopi, Constructys.";
+
+const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
 
 export const metadata = createPageMetadata({
   title: "IA appels d'offres BTP — DCE, mémoire technique, Cowork",
@@ -56,10 +58,10 @@ export const metadata = createPageMetadata({
     'formation IA PME bâtiment',
   ],
   image: {
-    url: PHOTOS.btpFormationChantierPlans2026.src,
-    width: PHOTOS.btpFormationChantierPlans2026.width,
-    height: PHOTOS.btpFormationChantierPlans2026.height,
-    alt: PHOTOS.btpFormationChantierPlans2026.alt,
+    url: CATALOGUE_VISUEL.src,
+    width: CATALOGUE_VISUEL.width,
+    height: CATALOGUE_VISUEL.height,
+    alt: CATALOGUE_VISUEL.alt,
   },
 });
 
@@ -143,18 +145,14 @@ export default function FormationIAAppelsOffreBTPPage() {
         subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"
         badges={['Claude Pro & Cowork', 'Skills DCE / MT', 'Qualiopi']}
         summaryItems={HERO_RESUME_AO}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.btpFormationChantierPlans2026.src}
-            alt={PHOTOS.btpFormationChantierPlans2026.alt}
-            width={PHOTOS.btpFormationChantierPlans2026.width}
-            height={PHOTOS.btpFormationChantierPlans2026.height}
-            priority
-          />
-        }
         ctas={
           <>
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+            <RdvLink
+              campaign="formations-ia-appels-offre-btp-hero"
+              ctaPosition="hero"
+              ctaId="hero"
+              className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
+            >
               Prendre rendez-vous
             </RdvLink>
             <a
@@ -225,6 +223,14 @@ export default function FormationIAAppelsOffreBTPPage() {
       <div className="mx-auto max-w-4xl px-4 py-16">
       <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
         <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          Le NIV-02 s&apos;adresse aux professionnels qui répondent déjà aux appels d&apos;offres et dure{' '}
+          {SESSION_DUREE_LIBELLE} (75&nbsp;% pratique) avec Claude Pro et Cowork obligatoires.
+        </p>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          En 2026, seulement 3&nbsp;% des entreprises BTP déclarent un déploiement effectif de l&apos;IA, contre
+          36&nbsp;% de dirigeants prêts à l&apos;adopter (Observatoire des métiers du BTP, cabinet Plein Sens).
+        </p>
         <ul className="mt-4 space-y-2 text-slate-700">
           <li className="flex gap-2">
             <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
@@ -265,6 +271,14 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          L&apos;objectif est de créer des skills Cowork réutilisables pour analyser un DCE et rédiger un mémoire
+          technique aligné sur les critères pondérés du marché.
+        </p>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          En 2026, le forfait catalogue NIV-02 est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par
+          session de {SESSION_DUREE_LIBELLE}, finançable OPCO Constructys selon éligibilité (donnée interne OFC).
+        </p>
         <ul className="mt-4 space-y-2 text-slate-700">
           {[
             'Paramétrer Claude AI Pro (Projects, instructions personnalisées) pour l\'adapter à son métier et à ses appels d\'offres',
@@ -284,6 +298,14 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-slate-900">Méthodes pédagogiques</h2>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          La pédagogie est quasi exclusivement pratique : chaque module active un skill Cowork sur le DCE réel du
+          participant.
+        </p>
+        <p className="mt-4 text-slate-700 leading-relaxed">
+          En 2026, la session exige un abonnement Claude Pro (20&nbsp;€/mois) et Cowork installé sur le poste du
+          stagiaire (prérequis catalogue NIV-02).
+        </p>
         <ul className="mt-4 space-y-2 text-slate-700">
           {[
             '75 % pratique / 25 % théorie — travail sur DCE et mémoires techniques réels des participants',
@@ -302,6 +324,10 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <section id="programme" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Le programme NIV-02 comporte 3 modules sur {SESSION_DUREE_LIBELLE} : paramétrage Claude, analyse DCE et
+          rédaction de mémoire technique.
+        </p>
         <p className="mt-2 text-sm text-slate-600">
           3 modules — total {SESSION_DUREE_LIBELLE} — 75 % pratique sur DCE et mémoires techniques réels des
           participants. Chaque module s&apos;appuie sur un skill Cowork dédié.
@@ -343,6 +369,10 @@ export default function FormationIAAppelsOffreBTPPage() {
           Ressources sur la plateforme — assistants IA DCE &amp; mémoire technique
         </h2>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
+          La plateforme OFC peut compléter la session avec des ressources selon convention ; la formation reste
+          certifiée Qualiopi, référence catalogue NIV-02.
+        </p>
+        <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
           convention). <strong>Qualiopi</strong>, financement <strong>OPCO Constructys</strong> selon
           éligibilité — référence <strong>NIV-02</strong>.
@@ -359,6 +389,10 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
         <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
+        <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+          Le forfait NIV-02 est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session avec Cowork
+          configuré, 30 prompts AO et 3 modèles Word de mémoire technique.
+        </p>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
@@ -380,6 +414,13 @@ export default function FormationIAAppelsOffreBTPPage() {
         </ul>
       </section>
 
+      <ContextualLinksSection
+        title="Pour aller plus loin"
+        subtitle="Guides pratiques DCE, CCTP, NotebookLM et chiffrage BPU — angles complémentaires à la session formation."
+        links={FORMATION_AO_CLUSTER_ARTICLES}
+        tone="white"
+      />
+
       <FAQSection
         items={FAQ_APPELS_OFFRE}
         title="Questions fréquentes"
@@ -388,10 +429,22 @@ export default function FormationIAAppelsOffreBTPPage() {
 
       <ContextualLinksSection
         title="Pages associées"
-        subtitle="NIV-01 productivité, formation CCTP, articles méthode et financement OPCO."
+        subtitle="NIV-01 productivité, guides DCE/CCTP et financement OPCO."
         links={FORMATION_NIV02_RELATED}
         tone="muted"
       />
+
+      <div className="mt-10 flex flex-wrap gap-4">
+        <RdvLink
+          campaign="formations-ia-appels-offre-btp-footer"
+          ctaPosition="footer"
+          ctaId="footer-rdv"
+          variant="primary"
+          className="rounded-xl px-6 py-3.5"
+        >
+          Prendre rendez-vous — visio gratuite 30 min
+        </RdvLink>
+      </div>
 
       <div className="mt-10">
         <AllerPlusLoin
@@ -400,7 +453,6 @@ export default function FormationIAAppelsOffreBTPPage() {
             { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
             { href: buildSiteCalendlyCtaUrl('formations-ia-appels-offre-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: LINKS.financement, label: 'Financement Constructys' },
-            { href: LINKS.blogIaAnalyseCctpMethode, label: 'Article : analyser un DCE avec l’IA' },
           ]}
         />
       </div>

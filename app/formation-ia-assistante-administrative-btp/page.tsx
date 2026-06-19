@@ -12,22 +12,22 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-administrative-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Assistante Administrative BTP Île-de-France',
+  title: 'IA assistante admin BTP — courriers & chantier',
   description:
-    'Automatisez courriers, facturations, devis, relances, suivi chantier. Formation Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour assistantes administratives BTP : courriers, mails, suivi chantier, comptes rendus. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA assistante administrative BTP',
     'ChatGPT secrétariat bâtiment',
-    'IA relances factures BTP',
+    'IA courriers professionnels BTP',
     'formation IA Île-de-France',
-    'automatiser administratif BTP',
+    'suivi chantier administratif IA',
     'OPCO Constructys',
     'Qualiopi BTP',
-    'courriers professionnels IA',
   ],
   openGraphType: 'article',
 });
@@ -161,12 +161,17 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour assistantes administratives BTP —{' '}
-          <span className="text-[var(--accent)]">gagnez du temps sur l’administratif</span>
+          Formation IA assistante administrative BTP —{' '}
+          <span className="text-[var(--accent)]">courriers, mails et suivi chantier</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Objectif : <strong>libérer jusqu’à environ 5 h par semaine</strong> sur courriers, relances, suivi et
-          synthèses. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          Cette page cible l&apos;<strong>administratif relationnel et le suivi chantier</strong> : courriers
+          fournisseurs, mails clients, comptes rendus et synthèses — pas la facturation d&apos;avancement ni les
+          relances impayés (voir la{' '}
+          <Link href={LINKS.formationIaAssistanteGestionBtp} className="font-medium text-[var(--accent)] hover:underline">
+            formation IA assistante de gestion BTP
+          </Link>
+          ).
         </p>
 
         <div className="mt-8">
@@ -431,10 +436,9 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA pour le BTP' },
-            { href: '/formation-ia-dirigeant-pme-btp', label: 'Formation IA dirigeant PME BTP' },
+            { href: LINKS.formationIaAssistanteGestionBtp, label: 'Formation IA assistante de gestion BTP — facturation & relances impayés' },
             { href: LINKS.formations, label: 'Catalogue formations IA pour les pro du BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
+            { href: LINKS.financement, label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-assistante-administrative-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />

@@ -24,6 +24,7 @@ import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const MAIL_RAPPEL_PARIS =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA appliquée au bâtiment Paris')}`;
 
@@ -35,7 +36,6 @@ const HERO_RESUME_PARIS = [
 ];
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
-export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP Paris — ChatGPT en 4h',

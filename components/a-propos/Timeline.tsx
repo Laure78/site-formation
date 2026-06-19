@@ -41,7 +41,7 @@ export function Timeline() {
                     <EeatRichText text={step.body} />
                   </p>
                 </div>
-                <div className="absolute -left-[48px] top-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF] ring-4 ring-white transition-transform duration-300 group-hover:scale-110 motion-reduce:group-hover:scale-100 lg:left-1/2 lg:-translate-x-1/2">
+                <div className="a-propos-timeline-dot absolute -left-[48px] top-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF] ring-4 ring-white transition-transform duration-300 group-hover:scale-110 motion-reduce:group-hover:scale-100 lg:left-1/2 lg:-translate-x-1/2">
                   <Icon className="h-7 w-7 text-[#377CF3]" aria-hidden />
                 </div>
               </Reveal>

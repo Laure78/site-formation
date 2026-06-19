@@ -4,6 +4,12 @@
  * PDF : /public/formations/lsr/
  */
 import type { BlogArticle } from './blog';
+import { LINKS } from '@/lib/internal-links';
+import {
+  AO_DCE_CLUSTER_BLOG,
+  AO_DCE_PILAR,
+  clusterMaillageHtmlSection,
+} from '@/lib/ao-dce-cluster-links';
 
 const IMG = '/images/blog/lsr-modules-btp-2026';
 const PDF1_NB = '/formations/lsr/module1-analyse-dce-notebooklm-ofc.pdf';
@@ -26,7 +32,7 @@ function relatedExcept(slug: string): string[] {
 export const blogArticlesLsrAoModules: BlogArticle[] = [
   {
     slug: 'analyse-dce-notebooklm-claude-btp',
-    seoTitle: 'Analyse DCE BTP : NotebookLM, Claude, CCAP | Laure Olivié',
+    seoTitle: 'Analyse DCE BTP : NotebookLM, Claude, CCAP',
     title:
       'Analyse d’un DCE BTP avec NotebookLM et Claude : critères, CCAP et synthèse',
     description:
@@ -102,17 +108,26 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         content: `<p class="text-slate-600 leading-relaxed">NotebookLM (parcours DCE) : <a href="${PDF1_NB}" class="text-sky-700 underline font-medium">support NotebookLM (PDF)</a> — Guide Claude (interfaces et cas BTP) : <a href="${PDF1_CL}" class="text-sky-700 underline font-medium">guide Claude (PDF)</a>.</p>`,
       },
       {
+        type: 'html',
+        title: 'Cluster appels d’offres',
+        content: clusterMaillageHtmlSection({
+          lateralHref: AO_DCE_CLUSTER_BLOG.chiffrageBpu,
+          lateralTitle: 'Chiffrage CCTP → BPU avec l’IA',
+          lateralDescription: 'extraction ouvrages, ratios et contrôle de cohérence prix',
+        }),
+      },
+      {
         type: 'cta',
         title: 'Formation complète appels d’offres + IA',
         content:
           'Formation complète appels d’offres + IA — Parcours DCE, mémoire technique et chiffrage avec l’IA ; présentiel, certification Qualiopi, financement possible selon éligibilité OPCO Constructys.',
-        formationHref: '/formations/ia-appels-offre-btp',
+        formationHref: AO_DCE_PILAR,
       },
     ],
   },
   {
     slug: 'go-no-go-rentabilite-appels-offres-btp',
-    seoTitle: 'Go / No Go AO BTP : 5 critères, règle 3 % | Laure Olivié',
+    seoTitle: 'Go / No Go AO BTP : 5 critères, règle 3 %',
     title:
       'Décision Go / No Go sur un appel d’offres BTP : rentabilité, 5 critères et prompts Claude',
     description:
@@ -191,7 +206,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
   },
   {
     slug: 'memoire-technique-claude-projet-btp',
-    seoTitle: 'Mémoire technique BTP : projet Claude, RC | Laure Olivié',
+    seoTitle: 'Mémoire technique BTP : projet Claude, RC',
     title:
       'Mémoire technique pour marchés BTP : assistant Claude, prompts et alignement sur le RC',
     description:
@@ -267,7 +282,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
   },
   {
     slug: 'chiffrage-cctp-bpu-appels-offres-btp',
-    seoTitle: 'Chiffrage AO BTP : CCTP, BPU, cohérence | Laure Olivié',
+    seoTitle: 'Chiffrage AO BTP : CCTP, BPU, cohérence',
     title:
       'Chiffrage d’une réponse marché avec l’IA : du CCTP au BPU et contrôle de cohérence',
     description:
@@ -327,11 +342,20 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         content: `<p class="text-slate-600 leading-relaxed">Télécharger : <a href="${PDF4}" class="text-sky-700 underline font-medium">module4-chiffrage-ia-btp-ofc.pdf</a>.</p>`,
       },
       {
+        type: 'html',
+        title: 'Cluster appels d’offres',
+        content: clusterMaillageHtmlSection({
+          lateralHref: AO_DCE_CLUSTER_BLOG.methode20,
+          lateralTitle: 'Méthode CCTP en 20 minutes',
+          lateralDescription: 'cinq étapes détaillées avec prompts prêts à l’emploi',
+        }),
+      },
+      {
         type: 'cta',
         title: 'Former vos équipes au chiffrage + IA',
         content:
           'Former vos équipes au chiffrage + IA — Intégrez le workflow CCTP → BPU dans votre processus de réponse marché avec un accompagnement OFC.',
-        formationHref: '/formations/ia-appels-offre-btp',
+        formationHref: AO_DCE_PILAR,
       },
     ],
   },

@@ -1,14 +1,16 @@
 import { createPageMetadata } from '@/lib/seo';
 import { FormationMetierB1Page } from '@/components/landing/FormationMetierB1Page';
+import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA dirigeant BTP — ChatGPT PME',
+  title: 'Formation IA pilotage stratégique dirigeant BTP',
   description:
-    "Formation IA pour dirigeants BTP : pilotage stratégique, formation d'équipe, ROI et rentabilité IA. Qualiopi. Financement possible selon éligibilité.",
+    "Formation IA pour dirigeants et CODIR BTP : roadmap 90 jours, ROI, formation d'équipe, gouvernance IA. Qualiopi. Financement possible selon éligibilité.",
   path: PATH,
-  keywords: ['formation IA dirigeant BTP', 'ROI IA PME BTP', "pilotage stratégique IA", "formation équipe IA"],
+  keywords: ['formation IA dirigeant BTP', 'ROI IA PME BTP', 'pilotage stratégique IA', 'formation équipe IA'],
   openGraphType: 'article',
 });
 
@@ -16,10 +18,10 @@ export default function FormationIaDirigeantBtpPage() {
   return (
     <FormationMetierB1Page
       path={PATH}
-      metierLabel="Dirigeant BTP / chef d'entreprise"
-      h1="Formation IA pour dirigeant BTP — pilotez la rentabilité IA de votre PME"
-      heroParagraph="Vous dirigez une PME du bâtiment ou des travaux publics : structurez votre stratégie IA, formez vos équipes et mesurez le ROI réel sur les processus clés."
-      shortAnswer="La formation est pensée pour les décideurs : cadrage, priorisation des usages, plan de déploiement et mesure d'impact opérationnel."
+      metierLabel="Dirigeant BTP — pilotage stratégique"
+      h1="Formation IA pilotage stratégique — dirigeants et comités de direction BTP"
+      heroParagraph="Vous pilotez une PME ou ETI du bâtiment : structurez votre feuille de route IA, priorisez les cas d'usage à fort ROI et déployez une gouvernance claire — sans confondre avec l'administratif quotidien du chef de TPE."
+      shortAnswer="Page orientée stratégie : cadrage, priorisation des usages, plan de formation des équipes et mesure d'impact. Pour le chef de TPE qui fait encore ses devis, voir la page dédiée chef d'entreprise TPE."
       problemBullets={[
         "Difficulté à prioriser les bons cas d'usage IA.",
         "Manque de méthode pour embarquer l'équipe.",
@@ -45,6 +47,11 @@ export default function FormationIaDirigeantBtpPage() {
         { question: "L'IA est-elle réellement rentable pour une petite structure ?", answer: "Oui si le déploiement est cadré : usages ciblés, routine d'équipe et suivi mensuel des gains." },
       ]}
       level="Intermediate"
+      crossLink={{
+        href: LINKS.formationIaDirigeantPmeBtp,
+        label: 'formation IA chef TPE BTP — devis et admin quotidien',
+        before: 'Vous êtes chef de TPE encore sur le terrain ?',
+      }}
     />
   );
 }

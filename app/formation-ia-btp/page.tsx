@@ -21,6 +21,7 @@ import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_STATS } from '@/lib/schema-constants';
 import { SOCIAL_PROOF } from '@/lib/constants';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+export const revalidate = 3600;
 const PATH = '/formation-ia-btp';
 
 const visuelPilier = PHOTOS.formationIaBtpPillarCarteCatalogue2026;

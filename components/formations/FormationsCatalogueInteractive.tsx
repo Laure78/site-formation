@@ -70,12 +70,13 @@ function FormationCard({
         highlighted ? 'ring-2 ring-[#377CF3] ring-offset-2' : ''
       }`}
     >
-      <Link href={cours.href} className="relative block aspect-[16/9] w-full shrink-0 overflow-hidden bg-[#F1F5F9]">
+      <Link href={cours.href} className="relative block aspect-square w-full shrink-0 overflow-hidden bg-[#F1F5F9]">
         <Image
           src={visuel.src}
           alt={visuel.alt}
+          title={'title' in visuel && typeof visuel.title === 'string' ? visuel.title : undefined}
           fill
-          className="object-cover"
+          className="object-cover object-top"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <span

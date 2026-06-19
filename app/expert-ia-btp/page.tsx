@@ -9,6 +9,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
   description:

@@ -4,6 +4,7 @@ import { createPageMetadata } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 
+export const revalidate = 3600;
 const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/prospectionfacile/';
 
 export const metadata = createPageMetadata({

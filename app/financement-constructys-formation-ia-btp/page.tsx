@@ -41,11 +41,11 @@ const H1 =
   'Financer une formation IA pour le BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
 
 const HERO_FINANCEMENT = {
-  src: '/images/financement-constructys-formation-ia-btp-hero-2026.jpg',
+  src: '/images/financement-constructys-formation-ia-btp-hero-2026.png',
   width: 1024,
-  height: 682,
+  height: 1024,
   alt:
-    'Formatrice présentant une session sur l’IA dans le BTP à des professionnels du secteur — écran avec optimisation des devis, gestion de chantier et organisation, casque de chantier au premier plan',
+    'Constructys finance votre formation IA BTP — plafonds 2026, guide OPCO, Laure Olivié formatrice IA BTP',
 } as const;
 
 const FINANCEMENT_TOC = [
@@ -106,9 +106,9 @@ export const metadata = createPageMetadata({
     modifiedTime: '2026-06-01',
   },
   image: {
-    url: '/og/financement-constructys-og.jpg',
-    width: 1200,
-    height: 630,
+    url: HERO_FINANCEMENT.src,
+    width: HERO_FINANCEMENT.width,
+    height: HERO_FINANCEMENT.height,
     alt: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
   },
 });
@@ -172,8 +172,8 @@ export default function FinancementConstructysFormationIABTPPage() {
           alt: HERO_FINANCEMENT.alt,
           width: HERO_FINANCEMENT.width,
           height: HERO_FINANCEMENT.height,
-          caption:
-            'Formation en intra ou inter, exclusivement en présentiel en Île-de-France — atelier sur poste : le même niveau d’exigence pour votre dossier de financement Constructys.',
+          objectFit: 'contain',
+          qualiopiBadge: false,
         }}
       />
 

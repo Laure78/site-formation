@@ -20,6 +20,11 @@ export {
   buildPageMetadata,
   OG_SITE_NAME,
   withOgDescriptionSuffix,
+  BRAND_TITLE_SUFFIX,
+  SEO_TITLE_MAX_LENGTH,
+  stripBrandSuffix,
+  truncateForBrandedTitle,
+  buildBrandedTitle,
 } from '@/utils/metadata';
 
 const SITE_URL_DEFAULT = SCHEMA_PUBLIC_SITE_URL;

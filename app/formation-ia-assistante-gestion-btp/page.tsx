@@ -15,11 +15,13 @@ import {
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-gestion-btp';
 
-const SEO_TITLE = 'Formation IA Assistante Gestion BTP | Facturation, Relances, DGD';
+const SEO_TITLE = 'Formation IA assistante gestion BTP — factures & relances impayés';
 
 const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -233,11 +235,17 @@ export default function FormationIaAssistanteGestionBtpPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour Assistante de Gestion BTP —{' '}
-          <span className="text-[#377CF3]">Libérez 8 heures par semaine sur le back-office</span>
+          Formation IA assistante de gestion BTP —{' '}
+          <span className="text-[#377CF3]">facturation, relances impayés et DGD</span>
         </h1>
-        <p className="mt-4 text-lg text-slate-600">
-          Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
+        <p className="mt-6 text-xl text-slate-600">
+          Cette page cible le <strong>back-office chiffré</strong> : factures d&apos;avancement, relances
+          impayés, attestations sous-traitants et décomptes généraux définitifs — distinct de l&apos;administratif
+          courrier/suivi chantier (voir la{' '}
+          <Link href={LINKS.formationIaAssistanteBtp} className="font-medium text-[#377CF3] hover:underline">
+            formation IA assistante administrative BTP
+          </Link>
+          ).
         </p>
 
         <div className="mt-8">
@@ -683,16 +691,11 @@ export default function FormationIaAssistanteGestionBtpPage() {
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
           <p className="mt-6 text-sm text-slate-600">
-            <a
-              href="https://www.laureolivie.fr/formations"
-              className="text-[#377CF3] underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Catalogue des formations IA appliquées au bâtiment
-            </a>
+            <Link href={LINKS.formationIaAssistanteBtp} className="text-[#377CF3] underline">
+              Formation IA assistante administrative BTP
+            </Link>
             {' · '}
-            <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] underline">
+            <Link href={LINKS.financement} className="text-[#377CF3] underline">
               Financement Constructys
             </Link>
           </p>

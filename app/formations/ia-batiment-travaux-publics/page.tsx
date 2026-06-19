@@ -19,7 +19,6 @@ import {
   ArrowRight,
   Sparkles,
   UserCircle,
-  Download,
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -33,7 +32,6 @@ import {
 import { FAQ_BATIMENT } from '@/lib/faq';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import {
   SESSION_DUREE_LIBELLE,
@@ -46,7 +44,7 @@ import {
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
-import { PHOTOS } from '@/lib/photos';
+import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
@@ -56,7 +54,7 @@ const LMS_SLUG = 'ia-au-service-du-btp';
 
 /** Title ≤ 60 car. — catalogue niveau 1 bâtiment & TP */
 const SEO_TITLE =
-  'Formation IA bâtiment & travaux publics (niveau 1) | Laure Olivié';
+  'Formation IA bâtiment & travaux publics (niveau 1)';
 
 /** Meta description — formation IA pour les pro du BTP */
 const SEO_DESCRIPTION = `Formation IA appliquée au bâtiment niveau 1 (${SESSION_DUREE_LIBELLE}) : BTP/TP, devis, chantier, admin. Qualiopi, formation IA pour le BTP.`;
@@ -65,6 +63,8 @@ const MAIL_PROGRAMME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA niveau 1 bâtiment & TP')}`;
 const MAIL_RAPPEL =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA niveau 1 bâtiment & TP')}`;
+
+const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-01');
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
@@ -88,10 +88,10 @@ export const metadata = createPageMetadata({
     'OPCO Constructys',
   ],
   image: {
-    url: PHOTOS.formationIABtpVisioBureau2026.src,
-    width: PHOTOS.formationIABtpVisioBureau2026.width,
-    height: PHOTOS.formationIABtpVisioBureau2026.height,
-    alt: PHOTOS.formationIABtpVisioBureau2026.alt,
+    url: CATALOGUE_VISUEL.src,
+    width: CATALOGUE_VISUEL.width,
+    height: CATALOGUE_VISUEL.height,
+    alt: CATALOGUE_VISUEL.alt,
   },
 });
 
@@ -262,18 +262,14 @@ export default function FormationIAuServiceDuBatimentPage() {
           'Cas terrain',
         ]}
         summaryItems={POINTS_MARQUANTS}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.formationIABtpVisioBureau2026.src}
-            alt={PHOTOS.formationIABtpVisioBureau2026.alt}
-            width={PHOTOS.formationIABtpVisioBureau2026.width}
-            height={PHOTOS.formationIABtpVisioBureau2026.height}
-            priority
-          />
-        }
         ctas={
           <>
-            <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+            <RdvLink
+              campaign="formations-ia-batiment-travaux-publics-hero"
+              ctaPosition="hero"
+              ctaId="hero"
+              className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
+            >
               Prendre rendez-vous
             </RdvLink>
             <a
@@ -316,33 +312,21 @@ export default function FormationIAuServiceDuBatimentPage() {
         </p>
       </FormationCourseHero>
 
-      <section className="border-b border-slate-200 bg-white px-4 py-8" aria-label="Téléchargement du programme officiel PDF">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-[var(--accent)]/25 bg-[var(--accent-soft)] px-6 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div className="flex items-start gap-3">
-            <Download className="h-8 w-8 shrink-0 text-[var(--accent)]" aria-hidden />
-            <div>
-              <p className="font-semibold text-slate-900">Programme officiel (PDF)</p>
-              <p className="mt-1 text-sm text-slate-600">
-                Téléchargez le programme détaillé de la formation niveau 1 — bâtiment & travaux publics.
-              </p>
-            </div>
-          </div>
-          <a
-            href={LINKS.pdfProgrammeIaBtpNiveau1BatimentTp}
-            download
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 font-semibold text-white hover:bg-blue-700"
-          >
-            Télécharger le PDF
-          </a>
-        </div>
-      </section>
-
       {/* Contenu SEO long */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
             Formation IA pour le BTP : une méthode pensée pour le terrain
           </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            La formation NIV-01 est une session de {SESSION_DUREE_LIBELLE} en présentiel qui cible devis,
+            comptes rendus et administratif du bâtiment et des travaux publics, sans prérequis informatique.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, moins de 10&nbsp;% des entreprises du BTP utilisent déjà l&apos;IA, selon
+            l&apos;Observatoire des métiers du BTP (621 professionnels interrogés, cabinet Plein Sens) — alors
+            que 36&nbsp;% des dirigeants se disent prêts à l&apos;adopter.
+          </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Dans une entreprise du bâtiment, le temps se joue sur trois tables : le chantier, le client et
             l&apos;administratif. La <strong>formation IA pour les pro du BTP</strong> que nous proposons ne vise pas à
@@ -408,6 +392,14 @@ export default function FormationIAuServiceDuBatimentPage() {
             Formation intelligence artificielle construction : objectifs et pédagogie
           </h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
+            En une demi-journée, les stagiaires repartent avec des trames réutilisables et une feuille de route
+            pour déployer l&apos;IA en entreprise avec relecture humaine obligatoire.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, OFC Création d&apos;Entreprise affiche une note de satisfaction de 4,85/5 sur plus de
+            1&nbsp;592 professionnels formés (donnée interne, 17 avril 2026).
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
             Cette <strong>formation intelligence artificielle construction</strong> s&apos;adresse aux
             professionnels qui veulent <strong>des résultats rapidement</strong> : une session unique de{' '}
             {SESSION_DUREE_LIBELLE}, 100 % pratique, animée par une formatrice spécialisée dans le secteur
@@ -443,6 +435,10 @@ export default function FormationIAuServiceDuBatimentPage() {
             </h2>
           </div>
           <p className="mt-3 max-w-3xl text-slate-600">
+            Les trois cas les plus travaillés en atelier NIV-01 sont les appels d&apos;offres légers,
+            l&apos;accélération des devis et les emails clients — toujours validés par le professionnel.
+          </p>
+          <p className="mt-3 max-w-3xl text-slate-600">
             Exemples fréquents travaillés en atelier — toujours avec validation humaine et respect du cadre
             RGPD.
           </p>
@@ -473,6 +469,10 @@ export default function FormationIAuServiceDuBatimentPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Avant / Après la formation</h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            Après {SESSION_DUREE_LIBELLE} de pratique, les participants structurent leurs documents récurrents au
+            lieu de repartir d&apos;une page blanche à chaque chantier.
+          </p>
           <p className="mt-3 max-w-2xl text-slate-600">
             Ce que changent concrètement quatre heures de mise en pratique — au-delà du simple « test » des
             outils.
@@ -507,6 +507,10 @@ export default function FormationIAuServiceDuBatimentPage() {
             À qui s&apos;adresse cette formation ?
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
+            Cette formation s&apos;adresse aux TPE, PME et équipes terrain du BTP (artisans, conducteurs de
+            travaux, assistants) — pas aux profils développeurs.
+          </p>
+          <p className="mt-3 max-w-2xl text-slate-600">
             TPE, PME et équipes du second œuvre ou du gros œuvre : la session est conçue pour des profils
             métiers, pas pour des développeurs.
           </p>
@@ -533,6 +537,15 @@ export default function FormationIAuServiceDuBatimentPage() {
               Formation IA appliquée au bâtiment Paris, Yvelines et Île-de-France
             </h2>
           </div>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Les sessions NIV-01 se déroulent en présentiel en Île-de-France (intra ou inter), avec financement
+            OPCO Constructys possible selon éligibilité.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, une session catalogue NIV-01 reste calibrée sur {SESSION_DUREE_LIBELLE} pour un forfait de{' '}
+            {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€ HT par groupe (niveau débutant, max{' '}
+            {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
+          </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Nous organisons des sessions <strong>formation IA pour le BTP Paris</strong> et en{' '}
             <strong>formation IA bâtiment Île-de-France</strong> : présentiel en salle ou{' '}
@@ -579,6 +592,10 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Déroulé de la formation</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
+            Le déroulé alterne 4 modules thématiques (devis, emails, CR chantier, administratif) en démonstrations
+            courtes et ateliers guidés sur {SESSION_DUREE_LIBELLE}.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
             La session de <strong>{SESSION_DUREE_LIBELLE}</strong> alterne démonstrations courtes et ateliers
             guidés. Quatre modules couvrent le chiffrage et les devis, la relation client par email, les
             comptes rendus et la documentation de chantier, puis l&apos;administratif et la capitalisation
@@ -603,6 +620,10 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Objectifs pédagogiques</h2>
           <p className="mt-3 max-w-2xl text-slate-600">
+            À l&apos;issue de la session, le stagiaire sait identifier des usages IA utiles, accélérer devis et
+            CR et capitaliser des prompts métier.
+          </p>
+          <p className="mt-3 max-w-2xl text-slate-600">
             À l&apos;issue de la formation, vous êtes en mesure de :
           </p>
           <ul className="mt-8 space-y-4">
@@ -626,6 +647,10 @@ export default function FormationIAuServiceDuBatimentPage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
+            Le programme détaillé NIV-01 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs : chiffrage, relation
+            client, documentation chantier et gestion administrative.
+          </p>
+          <p className="mt-3 text-slate-600">
             <strong>{SESSION_DUREE_LIBELLE}</strong> — quatre modules condensés : devis et chiffrage,
             emails et relation client, comptes rendus et documentation chantier, gestion administrative.
             Ateliers pratiques sur vos cas.
@@ -638,6 +663,11 @@ export default function FormationIAuServiceDuBatimentPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
+          <p className="mt-3 max-w-2xl text-slate-600">
+            La session NIV-01 dure {SESSION_DUREE_LIBELLE}, coûte {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€
+            HT forfait par groupe ({LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en
+            intra ou inter en Île-de-France.
+          </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MODALITES.map((mod) => (
               <div
@@ -669,6 +699,10 @@ export default function FormationIAuServiceDuBatimentPage() {
                   Moyens pédagogiques
                 </h2>
               </div>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                La pédagogie repose sur des exercices guidés et des cas concrets bâtiment/TP animés par une
+                formatrice spécialisée BTP, en présentiel uniquement.
+              </p>
               <ul className="mt-6 space-y-3 text-slate-700">
                 {MOYENS_PEDAGOGIQUES.map((line) => (
                   <li key={line} className="flex gap-2">
@@ -685,6 +719,10 @@ export default function FormationIAuServiceDuBatimentPage() {
                   Moyens techniques
                 </h2>
               </div>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                Chaque stagiaire utilise son ordinateur avec connexion internet ; des comptes IA gratuits suffisent
+                pour le niveau débutant.
+              </p>
               <ul className="mt-6 space-y-3 text-slate-700">
                 {MOYENS_TECHNIQUES.map((line) => (
                   <li key={line} className="flex gap-2">
@@ -707,6 +745,10 @@ export default function FormationIAuServiceDuBatimentPage() {
               Modalités d&apos;évaluation
             </h2>
           </div>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            L&apos;évaluation combine mise en situation continue, questionnaire de satisfaction et attestation
+            Qualiopi en fin de session.
+          </p>
           <ul className="mt-8 space-y-3 text-slate-700">
             {MODALITES_EVALUATION.map((line) => (
               <li key={line} className="flex gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3">
@@ -722,6 +764,10 @@ export default function FormationIAuServiceDuBatimentPage() {
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Livrables & ressources</h2>
+          <p className="mt-3 text-slate-600">
+            Les livrables NIV-01 comprennent trames de devis, bibliothèque de prompts et check-lists de relecture
+            exploitables dès le lendemain.
+          </p>
           <p className="mt-3 text-slate-600">
             Ce que vous repartez pour capitaliser après la formation — angle pratique et déploiement
             en entreprise.
@@ -770,6 +816,10 @@ export default function FormationIAuServiceDuBatimentPage() {
             Prêt à gagner du temps sur vos devis et votre administratif ?
           </h2>
           <p className="mt-4 text-lg text-blue-100">
+            Un rendez-vous découverte de 30 min permet de vérifier l&apos;éligibilité OPCO et caler une session
+            NIV-01 dans votre planning.
+          </p>
+          <p className="mt-4 text-lg text-blue-100">
             Contactez-nous pour organiser cette formation dans votre entreprise du bâtiment.
           </p>
           <p className="mt-2 text-blue-100">
@@ -777,7 +827,12 @@ export default function FormationIAuServiceDuBatimentPage() {
             {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-            <RdvLink className="flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink
+              campaign="formations-ia-batiment-travaux-publics-footer"
+              ctaPosition="footer"
+              ctaId="footer-rdv"
+              className="flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-4 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
               <Mail size={20} strokeWidth={1.5} />
               Prendre rendez-vous
             </RdvLink>

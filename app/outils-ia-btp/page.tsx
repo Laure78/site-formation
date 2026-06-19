@@ -10,6 +10,7 @@ import {
 } from '@/lib/seo';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
+export const revalidate = 3600;
 const PATH = '/outils-ia-btp';
 
 export const metadata = createPageMetadata({

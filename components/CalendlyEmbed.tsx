@@ -1,11 +1,13 @@
 'use client';
 
 import { useCallback, type MouseEventHandler, type ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import { sendGTMEvent } from '@next/third-parties/google';
 import {
   CALENDLY_EMBED_URL,
   buildCalendlyInlineIframeUrl,
   buildCalendlyUrlWithUtm,
+  deriveCalendlyCampaign,
 } from '@/lib/calendly';
 import {
   CALENDLY_BUTTON_VARIANT_CLASS,
@@ -82,22 +84,6 @@ function openCalendlyPopup(url: string): boolean {
   return opened !== null;
 }
 
-function resolveCalendlyUrl({
-  url,
-  utmSource = 'site',
-  utmMedium = 'cta',
-  campaign,
-  ctaPosition = 'unknown',
-}: Pick<CalendlyEmbedProps, 'url' | 'utmSource' | 'utmMedium' | 'campaign' | 'ctaPosition'>) {
-  const base = url ?? CALENDLY_EMBED_URL;
-  return buildCalendlyUrlWithUtm({
-    baseUrl: base,
-    utmSource,
-    utmMedium,
-    utmCampaign: campaign ?? (ctaPosition === 'unknown' ? 'cta-unspecified' : ctaPosition),
-  });
-}
-
 function CalendlyInlineBody({
   url,
   heightPx = CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
@@ -166,8 +152,19 @@ export function CalendlyEmbed({
   disabled,
   'aria-label': ariaLabel,
 }: CalendlyEmbedProps) {
-  const resolvedUrl = resolveCalendlyUrl({ url, utmSource, utmMedium, campaign, ctaPosition });
+  const pathname = usePathname();
   const resolvedCtaId = ctaId ?? `calendly-${ctaPosition}`;
+  const resolvedCampaign = deriveCalendlyCampaign(pathname, {
+    campaign,
+    ctaPosition,
+    ctaId: campaign ? undefined : resolvedCtaId,
+  });
+  const resolvedUrl = buildCalendlyUrlWithUtm({
+    baseUrl: url ?? CALENDLY_EMBED_URL,
+    utmSource,
+    utmMedium,
+    utmCampaign: resolvedCampaign,
+  });
   const label = children ?? buttonText;
 
   const handleActivate = useCallback(() => {

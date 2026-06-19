@@ -375,6 +375,14 @@ export const PHOTOS = {
     height: 682,
   },
 
+  /** Page /ressources — visuel promotionnel tutos PDF et guides IA BTP gratuits */
+  ressourcesIaBtpHero2026: {
+    src: '/images/ressources-ia-btp-hero-2026.png',
+    alt: 'Ressources IA BTP — guides, outils et tutos PDF gratuits, Laure Olivié formatrice Qualiopi OFC',
+    width: 1024,
+    height: 1024,
+  },
+
   /** Page d'accueil — présentation en salle, écran « L'IA au service du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
@@ -455,6 +463,48 @@ export const PHOTOS = {
     src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
     alt:
       'BeWork — relais administratif marchés travaux BTP, dossiers intervention, comptes rendus, DOE et situations',
+    width: 1024,
+    height: 1024,
+  },
+
+  /** Cartes catalogue NIV-01 à NIV-04 — affiches promotionnelles par formation (juin 2026). */
+  formationNiv01IaBatimentTravauxPublics2026: {
+    src: '/images/formation-niv-01-ia-batiment-travaux-publics-2026.png',
+    alt:
+      "Affiche NIV-01 — L'IA au service des pros du bâtiment et des travaux publics, Laure Olivié OFC Qualiopi",
+    description:
+      "Affiche promotionnelle NIV-01 « L'IA au service des pros du bâtiment et des travaux publics » : niveau débutant, 4 h, devis et administratif BTP. Laure Olivié, OFC Création d'Entreprise.",
+    title: "NIV-01 · L'IA au service des pros du bâtiment et des travaux publics",
+    width: 1024,
+    height: 1024,
+  },
+  formationNiv02IaAppelsOffreBtp2026: {
+    src: '/images/formation-niv-02-ia-appels-offre-btp-2026.png',
+    alt:
+      "Affiche NIV-02 — L'IA appliquée aux appels d'offres BTP, DCE et mémoire technique, Laure Olivié Qualiopi",
+    description:
+      "Affiche NIV-02 « L'IA appliquée aux appels d'offres BTP » : analyse DCE, mémoire technique, Claude AI Pro et Cowork — 4 h, niveau avancé. Laure Olivié Qualiopi.",
+    title: "NIV-02 · L'IA appliquée aux appels d'offres BTP",
+    width: 1024,
+    height: 1024,
+  },
+  formationNiv03IaConduiteTravaux2026: {
+    src: '/images/formation-niv-03-ia-conduite-travaux-2026.png',
+    alt:
+      "Affiche NIV-03 — L'IA appliquée à la conduite de travaux, suivi chantier et skills Claude, Laure Olivié",
+    description:
+      "Affiche NIV-03 « L'IA appliquée à la conduite de travaux » : CCTP, CR, PPSPS, DOE et skills Claude BTP — 4 h, 8 participants max. Laure Olivié Qualiopi.",
+    title: "NIV-03 · L'IA appliquée à la conduite de travaux",
+    width: 1024,
+    height: 1024,
+  },
+  formationNiv04MaitriserClaudeAiBtp2026: {
+    src: '/images/formation-niv-04-maitriser-claude-ai-btp-2026.png',
+    alt:
+      'Affiche NIV-04 — Maîtriser Claude AI pour le BTP, Projets Skills Cowork, Laure Olivié Qualiopi',
+    description:
+      'Affiche NIV-04 « Maîtriser Claude AI pour le BTP » : Projets, Skills, Cowork, connecteurs et Claude Code — 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
+    title: 'NIV-04 · Maîtriser Claude AI pour le BTP',
     width: 1024,
     height: 1024,
   },

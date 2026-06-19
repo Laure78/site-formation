@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Règlement intérieur — OFC Création d\'Entreprise',
   description:

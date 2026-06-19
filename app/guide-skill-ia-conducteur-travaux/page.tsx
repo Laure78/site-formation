@@ -6,11 +6,12 @@ import { SITE_CONFIG, getBreadcrumbSchema } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const PATH = '/guide-skill-ia-conducteur-travaux';
 const RESOURCE_PATH = '/ressources/guide-conducteur-de-travaux';
 
 export const metadata: Metadata = {
-  title: 'Tutoriel Skill IA conducteur de travaux BTP | Laure Olivié',
+  title: 'Tutoriel Skill IA conducteur de travaux BTP',
   description:
     'Tutoriel Skill IA pour conducteurs de travaux : méthode en 7 étapes, cas d’usage chantier, template prêt à copier-coller.',
   alternates: {

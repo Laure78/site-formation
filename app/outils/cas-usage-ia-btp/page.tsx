@@ -5,6 +5,7 @@ import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
+export const revalidate = 3600;
 const PATH = LINKS.casUsageIaMetierBtp;
 
 const INTRO_COPY =
@@ -35,7 +36,7 @@ const FAQ_ITEMS = [
 
 export const metadata = createPageMetadata({
   title:
-    "Cas d'usage IA pour le BTP : conducteur, chargé d'affaires, dirigeant | Laure Olivié",
+    "Cas d'usage IA pour le BTP : conducteur, chargé d'affaires, dirigeant",
   description:
     "Cas d'usage concrets de l'IA dans le BTP par métier : documents générés, gains de temps, prompts ChatGPT et Claude. Diagnostic IA gratuit.",
   path: PATH,

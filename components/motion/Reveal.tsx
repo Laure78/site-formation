@@ -12,7 +12,18 @@ import {
 } from 'react';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
-type RevealTag = 'div' | 'section' | 'article' | 'li' | 'span' | 'aside' | 'header' | 'footer' | 'figure';
+type RevealTag =
+  | 'div'
+  | 'section'
+  | 'article'
+  | 'li'
+  | 'ul'
+  | 'ol'
+  | 'span'
+  | 'aside'
+  | 'header'
+  | 'footer'
+  | 'figure';
 
 export type RevealProps = {
   children: ReactNode;
@@ -37,6 +48,8 @@ export type RevealGroupProps = {
   threshold?: number;
   rootMargin?: string;
   as?: RevealTag;
+  /** Élément HTML de chaque enfant (ex. `li` dans un `ul`). */
+  itemAs?: RevealTag;
 };
 
 function isInViewport(el: HTMLElement, threshold: number): boolean {
@@ -141,8 +154,10 @@ export function RevealGroup({
   threshold,
   rootMargin,
   as = 'div',
+  itemAs,
 }: RevealGroupProps) {
   const items = Children.toArray(children).filter(Boolean);
+  const childAs = itemAs ?? as;
 
   return createElement(
     as,
@@ -152,6 +167,7 @@ export function RevealGroup({
       return (
         <Reveal
           key={key}
+          as={childAs}
           delay={index * staggerMs}
           distance={distance}
           threshold={threshold}

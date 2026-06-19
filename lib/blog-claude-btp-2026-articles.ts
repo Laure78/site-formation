@@ -15,7 +15,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   carrouselAFormationArticle,
   {
     slug: '7-cas-usage-ia-btp-chiffrage-chantier-appels-offres',
-    seoTitle: 'IA BTP : 7 cas concrets (devis à AO) | Laure Olivié',
+    seoTitle: 'IA BTP : 7 cas concrets (devis à AO)',
     title:
       '7 cas d’usage concrets de l’IA dans le BTP (devis, chantier, appels d’offres, sécurité…)',
     description:
@@ -125,7 +125,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: '5-assistants-ia-btp-chatgpt-productivite',
-    seoTitle: '5 assistants IA BTP : carte sans coder | Laure Olivié',
+    seoTitle: '5 assistants IA BTP : carte sans coder',
     title:
       'Les 5 assistants IA pour le BTP (chiffrage, admin, sécurité, planning, appels d’offres)',
     description:
@@ -239,7 +239,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: 'guide-claude-ia-btp-code-projects-skills-mcp',
-    seoTitle: 'Claude BTP : Code, Projects, MCP | Laure Olivié',
+    seoTitle: 'Claude BTP : Code, Projects, MCP',
     title:
       'Claude IA pour le BTP : Code, Projects, Skills et MCP — guide pratique pour dirigeants et équipes',
     description:
@@ -436,7 +436,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: 'mcp-claude-model-context-protocol-btp',
-    seoTitle: 'MCP Claude : Drive, Gmail, outils BTP | Laure Olivié',
+    seoTitle: 'MCP Claude : Drive, Gmail, outils BTP',
     title:
       'MCP (Model Context Protocol) : connecter Claude à Google Drive, Gmail et vos outils métier dans le BTP',
     description:
@@ -503,7 +503,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
   },
   {
     slug: 'prompts-linkedin-btp-carrousel-idees',
-    seoTitle: 'LinkedIn BTP : prompts posts et carrousels | Laure Olivié',
+    seoTitle: 'LinkedIn BTP : prompts posts et carrousels',
     title:
       'Prompts LinkedIn pour le BTP : idées de carrousel, accroches et prises de parole pro (Qualiopi, Constructys)',
     description:

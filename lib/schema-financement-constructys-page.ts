@@ -66,7 +66,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     datePublished: '2026-01-15',
     dateModified: '2026-06-01',
     authorName: SITE_CONFIG.name,
-    image: '/og/financement-constructys-og.jpg',
+    image: '/images/financement-constructys-formation-ia-btp-hero-2026.png',
   });
   const article = stripJsonLdContext(articleRaw as Record<string, unknown>);
   article['@id'] = `${pageUrl}#article`;

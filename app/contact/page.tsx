@@ -1,16 +1,19 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
+import { ContactFormationHint } from '@/components/landing/ContactFormationHint';
 import { FAQSection } from '@/components/landing/FAQSection';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
+export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP — Contact',
@@ -21,12 +24,7 @@ export const metadata = createPageMetadata({
 
 const faqSchema = getFAQSchema(FAQ_CONTACT);
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ formation?: string }>;
-}) {
-  const { formation } = await searchParams;
+export default function ContactPage() {
   return (
     <div>
       <JsonLd id="schema-faq-page" schema={faqSchema} />
@@ -98,7 +96,12 @@ export default async function ContactPage({
             Email ou créneau Calendly — réponse sous 24 h.
           </p>
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            <ContactDirect formationHint={formation} />
+            <div className="space-y-6">
+              <Suspense fallback={null}>
+                <ContactFormationHint />
+              </Suspense>
+              <ContactDirect />
+            </div>
           </div>
         </div>
       </section>

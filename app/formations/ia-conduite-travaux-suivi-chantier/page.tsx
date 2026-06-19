@@ -25,10 +25,9 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { PHOTOS } from '@/lib/photos';
+import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseConduiteTravauxNiv03JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 
@@ -36,6 +35,8 @@ const PDF_HREF = LINKS.pdfProgrammeConduiteTravauxNiv03;
 
 const PAGE_META_DESCRIPTION =
   'Formation IA pour le BTP — conduite de travaux : CCTP, PPSPS, CR, réception. Session 4 h, Qualiopi, Constructys.';
+
+const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-03');
 
 export const metadata = createPageMetadata({
   title: 'IA conduite de travaux BTP — suivi chantier & skills Claude',
@@ -54,10 +55,10 @@ export const metadata = createPageMetadata({
     'Claude AI conducteur travaux',
   ],
   image: {
-    url: PHOTOS.btpFormationChantierPlans2026.src,
-    width: PHOTOS.btpFormationChantierPlans2026.width,
-    height: PHOTOS.btpFormationChantierPlans2026.height,
-    alt: 'Conducteur de travaux BTP — plans de chantier et formation IA suivi de travaux, Laure Olivié Qualiopi',
+    url: CATALOGUE_VISUEL.src,
+    width: CATALOGUE_VISUEL.width,
+    height: CATALOGUE_VISUEL.height,
+    alt: CATALOGUE_VISUEL.alt,
   },
 });
 
@@ -145,15 +146,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         subtitle="Pilotez vos chantiers avec l'IA — de l'analyse du CCTP à la réception des travaux"
         badges={['Skills Claude BTP', 'Suivi chantier', 'Qualiopi']}
         summaryItems={HERO_RESUME}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.btpFormationChantierPlans2026.src}
-            alt="Conducteur de travaux BTP — formation IA suivi de chantier, plans et documents sur tablette, Laure Olivié Qualiopi"
-            width={PHOTOS.btpFormationChantierPlans2026.width}
-            height={PHOTOS.btpFormationChantierPlans2026.height}
-            priority
-          />
-        }
         ctas={
           <>
             <RdvLink
@@ -215,6 +207,14 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
       <div className="mx-auto max-w-4xl px-4 py-16">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Le NIV-03 s&apos;adresse aux conducteurs de travaux, chefs de chantier et assistants travaux qui
+            pilotent déjà plusieurs lots — session de {SESSION_DUREE_LIBELLE} en présentiel Île-de-France.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, 43,5&nbsp;% des professionnels du BTP n&apos;ont jamais essayé ChatGPT (Observatoire des
+            métiers du BTP, cabinet Plein Sens) — le NIV-03 suppose des bases IA ou le parcours NIV-01.
+          </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             <li className="flex gap-2">
               <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
@@ -259,6 +259,14 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            À l&apos;issue de la session, le conducteur de travaux sait exploiter des skills Claude pour le
+            CCTP, la sécurité chantier, le suivi quotidien et la réception des travaux.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, la bibliothèque NIV-03 donne accès à plus de 20 skills Claude dédiés au pilotage chantier
+            (donnée interne programme OFC, avril 2026).
+          </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             {OBJECTIFS_PEDAGOGIQUES.map((o) => (
               <li key={o} className="flex gap-2">
@@ -272,6 +280,10 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
         <section id="programme" className="mt-12 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Le programme NIV-03 répartit {SESSION_DUREE_LIBELLE} sur 4 modules : installation chantier, sécurité,
+            gestion quotidienne et administratif jusqu&apos;à la réception.
+          </p>
           <p className="mt-2 text-sm text-slate-600">
             4 modules — phasage chantier (installation → sécurité → gestion → administratif) — total{' '}
             {SESSION_DUREE_LIBELLE}. Travail sur vos documents réels (anonymisés si besoin).
@@ -302,6 +314,14 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
 
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
+          <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+            Le forfait NIV-03 est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session, avec
+            bibliothèque de skills, trames CR/PPSPS/DOE et un rendez-vous visio J+30 inclus.
+          </p>
+          <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+            En 2026, OFC affiche une note de satisfaction de 4,85/5 sur plus de 1&nbsp;592 professionnels formés
+            (donnée interne, 17 avril 2026).
+          </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
@@ -333,6 +353,18 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           links={FORMATION_NIV03_RELATED}
           tone="muted"
         />
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          <RdvLink
+            campaign="formations-ia-conduite-travaux-footer"
+            ctaPosition="footer"
+            ctaId="footer-rdv"
+            variant="primary"
+            className="rounded-xl px-6 py-3.5"
+          >
+            Prendre rendez-vous — visio gratuite 30 min
+          </RdvLink>
+        </div>
 
         <div className="mt-10">
           <AllerPlusLoin

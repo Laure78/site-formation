@@ -8,10 +8,9 @@ import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-formations';
-import { PHOTOS } from '@/lib/photos';
+import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import {
   SESSION_DUREE_LIBELLE,
@@ -28,7 +27,9 @@ import type { FAQItem } from '@/lib/faq';
 
 const PATH = LINKS.formationIaCctpAnalyseDceBtp;
 
-export const metadata = createPageMetadata({
+const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
+
+const pageMeta = createPageMetadata({
   title: 'Formation IA CCTP & DCE BTP — Inter & Intra',
   description:
     'Formation IA analyse CCTP/DCE pour entreprises BTP : 4h en présentiel, inter ou intra. Qualiopi, financement possible selon éligibilité. RDV gratuit.',
@@ -45,12 +46,21 @@ export const metadata = createPageMetadata({
     'Constructys',
   ],
   image: {
-    url: PHOTOS.btpFormationChantierPlans2026.src,
-    width: PHOTOS.btpFormationChantierPlans2026.width,
-    height: PHOTOS.btpFormationChantierPlans2026.height,
-    alt: PHOTOS.btpFormationChantierPlans2026.alt,
+    url: CATALOGUE_VISUEL.src,
+    width: CATALOGUE_VISUEL.width,
+    height: CATALOGUE_VISUEL.height,
+    alt: CATALOGUE_VISUEL.alt,
   },
 });
+
+/** Canonique vers le pilier NIV-02 — cette URL reste pour les backlinks historiques. */
+export const metadata = {
+  ...pageMeta,
+  alternates: {
+    ...pageMeta.alternates,
+    canonical: `${SITE_CONFIG.url}${LINKS.formationAO}`,
+  },
+};
 
 const formationCourseGraph = getDedicatedFormationCoursePageJsonLd(PATH);
 
@@ -132,6 +142,21 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
       <JsonLd id="schema-formation-course" schema={formationCourseGraph} />
       <JsonLd id="schema-faq" schema={faqSchema} />
 
+      <div className="container mx-auto px-4 pt-6">
+        <div
+          className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-slate-800"
+          role="note"
+        >
+          <strong>Page de référence mise à jour.</strong> Le programme catalogue appels d&apos;offres
+          (NIV-02) est sur{' '}
+          <Link href={LINKS.formationAO} className="font-medium text-[var(--accent)] underline">
+            la formation IA appels d&apos;offres BTP
+          </Link>
+          . Cette fiche reste accessible pour les liens existants ; le référencement canonique pointe
+          vers le pilier.
+        </div>
+      </div>
+
       <FormationCourseHero
         catalogueRef="NIV-02"
         refLine={`Visio ou présentiel · ${SESSION_DUREE_LIBELLE} · Niveau avancé`}
@@ -143,32 +168,29 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
           `Forfait catalogue niveau avancé : ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT / session (${SESSION_DUREE_LIBELLE}, jusqu'à 12 participants).`,
           `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
         ]}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.btpFormationChantierPlans2026.src}
-            alt={PHOTOS.btpFormationChantierPlans2026.alt}
-            width={PHOTOS.btpFormationChantierPlans2026.width}
-            height={PHOTOS.btpFormationChantierPlans2026.height}
-            priority
-          />
-        }
         ctas={
           <>
-            <RdvLink className="rounded-lg bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
+            <RdvLink
+              campaign="formations-formation-ia-cctp-analyse-dce-btp-hero"
+              ctaPosition="hero"
+              ctaId="hero"
+              className="rounded-lg bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600"
+            >
               Réserver un RDV visio gratuit (15 min)
             </RdvLink>
             <a
-              href="mailto:laureolivie@yahoo.fr?subject=Programme%20PDF%20%E2%80%94%20formation%20IA%20CCTP%20%2F%20DCE"
+              href={LINKS.pdfProgrammeFormationAoBtpDetail2026}
+              download
               className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
             >
               <Download size={20} strokeWidth={1.5} />
-              Télécharger le programme PDF
+              Télécharger le programme (PDF)
             </a>
           </>
         }
         footerLinks={
-          <a href="#programme" className="font-medium text-[var(--accent)] hover:underline">
-            Voir le programme détaillé
+          <a href="#programme-pdf" className="font-medium text-[var(--accent)] hover:underline">
+            Voir le programme PDF
           </a>
         }
       >
@@ -382,7 +404,12 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
             15 minutes pour cadrer votre volume de marchés, vos lots sensibles et le format intra ou inter.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
-            <RdvLink className="rounded-lg bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink
+              campaign="formations-formation-ia-cctp-analyse-dce-btp-footer"
+              ctaPosition="footer"
+              ctaId="footer-rdv"
+              className="rounded-lg bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
+            >
               Réserver mon créneau
             </RdvLink>
             <a

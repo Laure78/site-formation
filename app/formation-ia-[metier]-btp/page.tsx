@@ -7,6 +7,7 @@ import {
 } from '@/lib/formation-ia-metier-dynamic-registry';
 import { createPageMetadata } from '@/lib/seo';
 
+export const revalidate = 3600;
 type Props = {
   params: Promise<{ metier: string }>;
 };

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowUpRight, Award, Building2, Mail, MapPin, ShieldCheck, Star, Users } from 'lucide-react';
+import { Award, Building2, Mail, MapPin, ShieldCheck, Star, Users } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -9,11 +9,9 @@ import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/s
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
-import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
 import {
   A_PROPOS_AUTORITE_PARAGRAPHS,
   A_PROPOS_CERTIFICATIONS_INTRO,
-  A_PROPOS_CLIENTS_CATEGORIES,
   A_PROPOS_CLIENTS_INTRO,
   A_PROPOS_CONTACT_INTRO,
   A_PROPOS_EEAT_INTRO,
@@ -30,6 +28,8 @@ import { AProposMissionCards } from '@/components/a-propos/AProposMissionCards';
 import { AProposCertificationCards } from '@/components/a-propos/AProposCertificationCards';
 import { AProposLinkedInEmbeds } from '@/components/a-propos/AProposLinkedInEmbeds';
 import { AProposAllerPlusLoin } from '@/components/a-propos/AProposAllerPlusLoin';
+import { AProposClientsCategories } from '@/components/a-propos/AProposClientsCategories';
+import { AProposAutoriteCourseLinks } from '@/components/a-propos/AProposAutoriteCourseLinks';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents';
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
@@ -96,6 +96,7 @@ export default function AProposPage() {
         variant="splitImage"
         layoutDensity="compact"
         surface="muted"
+        entranceAnimation
         eyebrow="OFC Création d'Entreprise · Qualiopi · Guyancourt"
         title="Laure Olivié — Formatrice IA spécialisée BTP"
         titleId="a-propos-hero-title"
@@ -132,6 +133,7 @@ export default function AProposPage() {
           width: PHOTOS.portraitPro2026.width,
           height: PHOTOS.portraitPro2026.height,
           caption: 'Formatrice IA BTP Qualiopi — présentiel en Île-de-France uniquement (pas de distanciel).',
+          animated: true,
         }}
       />
 
@@ -192,21 +194,7 @@ export default function AProposPage() {
                   </p>
                 ))}
               </div>
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                {LINKEDIN_LEARNING_A_PROPOS_EMBEDS.map((course) => (
-                  <li key={course.courseHref}>
-                    <a
-                      href={course.courseHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-medium text-[#377CF3] hover:underline"
-                    >
-                      {course.courseLabel}
-                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <AProposAutoriteCourseLinks />
             </AProposSection>
 
             <AProposSection id="certifications" title="Certifications &amp; labels">
@@ -225,23 +213,7 @@ export default function AProposPage() {
                 <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
                   <EeatRichText text={A_PROPOS_CLIENTS_INTRO} />
                 </p>
-                <div className="mt-8 grid gap-6 md:grid-cols-2">
-                  {A_PROPOS_CLIENTS_CATEGORIES.map((category) => (
-                    <div key={category.title}>
-                      <h3 className="font-semibold text-[#0F172A]">{category.title}</h3>
-                      <ul className="mt-3 space-y-2 text-sm text-[#475569]">
-                        {category.items.map((item) => (
-                          <li key={item} className="flex gap-2">
-                            <span className="text-[#377CF3]" aria-hidden>
-                              ▸
-                            </span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+                <AProposClientsCategories />
                 <p className="mt-6 text-sm text-[#64748B]">
                   Retour d&apos;expérience détaillé :{' '}
                   <Link href={LINKS.etudesCas} className="font-medium text-[#377CF3] hover:underline">
@@ -318,6 +290,7 @@ export default function AProposPage() {
               title="Questions fréquentes"
               subtitle="Qualiopi, parcours, partenariats, zone d'intervention."
               items={faqItems}
+              titleAccent
             />
 
             <AProposAllerPlusLoin links={allerPlusLoinLinks} />

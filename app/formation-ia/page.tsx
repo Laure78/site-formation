@@ -1,6 +1,7 @@
 import { createPageMetadata } from '@/lib/seo';
 import { FormationIaHubContent } from '@/components/formation-ia/FormationIaHubContent';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP — Hub métiers & villes (ChatGPT, Claude AI)',
   description:

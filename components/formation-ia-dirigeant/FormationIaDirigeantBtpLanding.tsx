@@ -42,7 +42,9 @@ function AuditCalendlyBlock({ id }: { id: string }) {
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
         <RdvLink
+          campaign="formation-ia-dirigeant-btp-audit-rdv"
           ctaPosition="middle"
+          ctaId="audit-rdv"
           className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-8 py-4 text-base font-bold text-white hover:bg-[#2d6ab8]"
         >
           Réserver l&apos;audit IA gratuit

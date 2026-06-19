@@ -7,19 +7,20 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Formation IA Conducteur Travaux — CR Chantier',
+  title: 'IA conducteur travaux — CR & coordination chantier',
   description:
-    'Formation IA pour conducteurs de travaux BTP : CR chantier, planning, AO avec ChatGPT. Gagnez 2h/jour. Qualiopi Constructys.',
+    'Guide IA pour conducteurs de travaux : comptes rendus, rapports d\'avancement, coordination chantier. Orientation métier — session catalogue NIV-03.',
   path: '/ia-conducteur-travaux',
   appendAuthorSuffix: false,
   keywords: [
     'IA conducteur de travaux',
-    'IA gestion chantier',
+    'compte rendu chantier IA',
+    'coordination chantier BTP',
     'ChatGPT compte rendu chantier',
-    'IA pour chantier BTP',
-    'automatiser CR chantier',
   ],
 });
 
@@ -82,15 +83,17 @@ export default function IAConducteurTravauxPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour le BTP : <span className="text-[var(--accent)]">conducteur de travaux</span> et CR chantier
+          IA pour conducteurs de travaux :{' '}
+          <span className="text-[var(--accent)]">comptes rendus et coordination chantier</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          L&apos;IA pour gestion administrative BTP s&apos;adapte aux métiers chantier. Gagnez 2h par jour
-          sur vos comptes rendus et rapports grâce à l&apos;intelligence artificielle. Notre{' '}
-          <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
-            formation IA pour les pro du BTP
+          Page <strong>informationnelle</strong> sur l&apos;IA appliquée aux CR, rapports d&apos;avancement et
+          réunions de chantier — sans dupliquer la fiche programme. Pour la session certifiante skills Claude
+          (CCTP, PPSPS, réception), voir la{' '}
+          <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="font-medium text-[var(--accent)] hover:underline">
+            formation catalogue NIV-03 conduite de travaux & suivi chantier
           </Link>
-          {' '}pratique pour conducteurs BTP est éligible à un financement selon dossier.
+          .
         </p>
 
         <div className="mt-8">
@@ -228,10 +231,10 @@ export default function IAConducteurTravauxPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Formation IA Constructys' },
-            { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-            { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-            { href: '/blog', label: 'Articles et guides' },
+            { href: LINKS.formationConduiteTravauxSuiviChantier, label: 'Formation NIV-03 — IA conduite de travaux & suivi chantier' },
+            { href: LINKS.formationConducteurTravaux, label: 'Guide métier IA conducteur de travaux BTP' },
+            { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
+            { href: LINKS.blogCommentIaGagne5hConducteursTravaux, label: 'Article — gagner 5 h/semaine avec l\'IA' },
             { href: buildSiteCalendlyCtaUrl('ia-conducteur-travaux-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />

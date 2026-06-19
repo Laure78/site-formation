@@ -8,9 +8,10 @@ import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { BEWORK_GALLERY_SECTIONS, BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
 
+export const revalidate = 3600;
 const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
 
-const META_TITLE = 'BeWork — assistant travaux BTP externalisé | Laure Olivié';
+const META_TITLE = 'BeWork — assistant travaux BTP externalisé';
 const META_DESCRIPTION =
   'BeWork : relais administratif BTP augmenté par l\'IA. CR, DCE, DOE, relances. Opérationnel en 3 à 5 jours. Site officiel bework.fr.';
 
@@ -84,7 +85,6 @@ function getBeworkPageJsonLd() {
   };
 }
 
-export const revalidate = 3600;
 
 export default function BeworkPage() {
   return (

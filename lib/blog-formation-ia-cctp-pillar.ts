@@ -1,38 +1,41 @@
 /**
- * Article pilier SEO — cluster « formation IA CCTP » / analyse DCE BTP.
+ * Article informationnel — cluster « analyser DCE/CCTP avec l'IA » (angle guide, pas conversion).
  */
 import type { BlogArticle } from '@/lib/blog';
 import { LINKS } from '@/lib/internal-links';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import {
+  AO_DCE_CLUSTER_BLOG,
+  AO_DCE_PILAR,
+  clusterMaillageHtmlSection,
+} from '@/lib/ao-dce-cluster-links';
 
 const N = formatProfessionalsTrainedCount();
 
 export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
   slug: 'formation-ia-cctp-analyse-dce-btp',
   title:
-    'Formation IA CCTP : analyser un DCE BTP en 30 minutes au lieu de 8 heures',
-  seoTitle: 'Formation IA CCTP : analyser un DCE plus vite | Laure Olivié',
+    'Comment analyser un DCE et un CCTP avec l’IA : méthode terrain en 30 minutes',
+  seoTitle: 'Analyser un DCE/CCTP avec l’IA — méthode BTP',
   description:
-    'CCTP, DPGF et DCE : méthode terrain avec ChatGPT et Claude, relecture humaine sur le fond. Qualiopi ; Constructys si éligible. Diagnostic gratuit 30 min.',
+    'CCTP, DPGF et DCE : méthode terrain avec ChatGPT et Claude, relecture humaine sur le fond. Guide pratique BTP ; session Qualiopi sur la page formation appels d’offres.',
   date: '2026-04-16',
-  dateModified: '2026-04-16',
+  dateModified: '2026-06-18',
   keywords: [
-    'formation IA CCTP',
     'analyser un CCTP avec l’IA',
+    'analyse DCE BTP',
     'IA appels d’offres BTP',
-    'formation analyse DCE',
     'ChatGPT BTP CCTP',
     'Claude Pro analyse CCTP',
-    'formation IA bâtiment Constructys',
     'mémoire technique IA',
     'DCE BTP',
     'DPGF',
-    'Qualiopi',
+    'cahier des charges BTP IA',
   ],
   relatedSlugs: [
-    'ia-analyse-cctp-methode',
-    'memoire-technique-claude-projet-btp',
+    'analyser-cctp-ia-methode-complete-20-minutes',
     'analyse-dce-notebooklm-claude-btp',
+    'chiffrage-cctp-bpu-appels-offres-btp',
   ],
   faq: [
     {
@@ -70,7 +73,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     {
       type: 'definition',
       title: 'En bref',
-      content: `Un CCTP de 80 pages, c’est souvent 6 à 8 heures de lecture linéaire. Avec une méthode IA encadrée, je descends à environ 30 minutes pour en sortir une grille exploitable. J’ai formé plus de ${N} professionnels du BTP : je parle en direct, sans promesse magique. Je connais les pièges des DTU mal cités et des normes « inventées » par le modèle. Cet article décrit la formation IA CCTP comme un levier pour les entreprises qui répondent aux appels d’offres — pas pour les cabinets qui les rédigent. Vous trouverez la méthode en quatre temps, un comparatif ChatGPT et Claude, un cas anonymisé lot revêtements, puis la suite possible vers une formation courte et financement possible selon éligibilité (OPCO Constructys) lorsque votre dossier est éligible.`,
+      content: `Un CCTP de 80 pages, c’est souvent 6 à 8 heures de lecture linéaire. Avec une méthode IA encadrée, je descends à environ 30 minutes pour en sortir une grille exploitable. J’ai formé plus de ${N} professionnels du BTP : je parle en direct, sans promesse magique. Je connais les pièges des DTU mal cités et des normes « inventées » par le modèle. Cet article décrit comment analyser un DCE et un CCTP avec l’IA — pas pour les cabinets qui les rédigent, mais pour les entreprises qui répondent aux appels d’offres. Vous trouverez la méthode en quatre temps, un comparatif ChatGPT et Claude, un cas anonymisé lot revêtements, puis la suite possible vers une session certifiée Qualiopi sur la page formation appels d’offres.`,
     },
     {
       type: 'html',
@@ -90,7 +93,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
 </ul>
 <h3 class="font-display mt-8 text-lg font-semibold text-slate-900">Ce que l’IA ne fera jamais à votre place</h3>
 <p class="mt-3">Elle ne signe pas l’offre. Elle ne valide pas une solution technique contre un avis MOEX. Elle peut halluciner sur un DTU : vous devez garder le réflexe « source primaire » (PDF éditeur, notice produit, extrait norme).</p>
-<p class="mt-3">La <strong>formation IA CCTP</strong> sert à verrouiller ce cadre. Pour passer à l’action commerciale, j’ai regroupé le programme sur la page <a href="${LINKS.formationIaCctpAnalyseDceBtp}" class="font-medium text-[var(--accent)] underline hover:no-underline">formation IA CCTP analyse DCE</a>. Pour le contexte global de mon accompagnement, voir <a href="${LINKS.home}" class="font-medium text-[var(--accent)] underline hover:no-underline">Laure Olivié, formatrice IA pour les pro du BTP</a> sur l’accueil du site.</p>
+<p class="mt-3">La méthode d’analyse DCE/CCTP avec l’IA sert à verrouiller ce cadre. Pour passer à l’action en session encadrée, le programme catalogue est sur la page <a href="${AO_DCE_PILAR}" class="font-medium text-[var(--accent)] underline hover:no-underline">formation IA appels d'offres BTP</a> (NIV-02). Pour le contexte global de mon accompagnement, voir <a href="${LINKS.home}" class="font-medium text-[var(--accent)] underline hover:no-underline">Laure Olivié, formatrice IA pour les pro du BTP</a> sur l’accueil du site.</p>
 <p class="mt-3">Sur un marché public, le CCAP fixe les règles du jeu. Le RC encadre la procédure. Le CCTP porte le technique. Le DPGF traduit le risque prix. Quand je forme des chargés d’affaires, je leur fais répéter cet ordre de lecture. L’IA aide à ne rien sauter.</p>
 <p class="mt-3">Sur un marché privé, la logique est proche. Les pièces portent d’autres noms. Le besoin reste identique : comprendre le périmètre avant d’écrire le mémoire. La <strong>formation IA bâtiment Constructys</strong> reste pertinente dès que vous passez par un financement OPCO.</p>
 <p class="mt-3">Je distingue trois familles d’erreurs. Première famille : oublier un lot annexe. Deuxième famille : surévaluer une exigence rare. Troisième famille : croire une norme citée par le modèle sans vérifier la référence.</p>
@@ -185,7 +188,23 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     {
       type: 'paragraph',
       title: 'Conclusion',
-      content: `Trois enseignements : le CCTP se lit mieux avec une grille ; l’IA accélère mais n’efface pas la validation humaine ; le croisement DPGF évite les erreurs de chiffrage. Je vous propose un rendez-vous visio gratuit pour voir si votre typologie de marchés colle à cette approche. La prise de contact se fait via la page rendez-vous du site (chemin ${LINKS.prendreRdv}).`,
+      content: `Trois enseignements : le CCTP se lit mieux avec une grille ; l’IA accélère mais n’efface pas la validation humaine ; le croisement DPGF évite les erreurs de chiffrage. Pour structurer cette méthode en session avec vos pièces réelles, la formation catalogue appels d’offres (Qualiopi, financement possible selon éligibilité Constructys) est sur la page formation dédiée. Un rendez-vous visio gratuit permet de voir si votre typologie de marchés colle à cette approche — prise de contact via ${LINKS.prendreRdv}.`,
+    },
+    {
+      type: 'html',
+      title: 'Cluster appels d’offres',
+      content: clusterMaillageHtmlSection({
+        lateralHref: AO_DCE_CLUSTER_BLOG.methode20,
+        lateralTitle: 'Méthode CCTP en 20 minutes',
+        lateralDescription: 'cinq étapes détaillées avec prompts prêts à l’emploi',
+      }),
+    },
+    {
+      type: 'cta',
+      title: 'Formation IA appels d’offres BTP',
+      content:
+        'Session NIV-02 — DCE, mémoire technique, Cowork & Skills. 4 h en présentiel, Qualiopi, financement possible selon éligibilité OPCO Constructys.',
+      formationHref: AO_DCE_PILAR,
     },
   ],
 };

@@ -1,11 +1,12 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01, NIV-02).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-04).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  */
 import { LINKS } from '@/lib/internal-links';
+import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
+import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import {
   SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 import {
@@ -14,7 +15,29 @@ import {
 } from '@/lib/tarifs-sessions';
 
 const DURATION_ISO = 'PT4H';
-const INSTRUCTOR_PORTRAIT_PATH = '/images/laure-portrait-header-2026.png';
+/** Valeur Schema.org / Google Course — présentiel */
+const COURSE_MODE_ONSITE = 'Onsite';
+
+const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], string> = {
+  [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01',
+  [LINKS.formationAO]: 'NIV-02',
+  [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
+  [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
+};
+
+const OFFER_CATEGORY_BY_REF: Record<string, string> = {
+  'NIV-01': 'Formation professionnelle continue',
+  'NIV-02': 'Formation professionnelle continue — niveau avancé',
+  'NIV-03': 'Formation professionnelle continue — prix de lancement',
+  'NIV-04': 'Formation professionnelle continue — prix de lancement',
+};
+
+const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
+  'NIV-01': 'Prix HT par session (max 12 participants, niveau débutant)',
+  'NIV-02': 'Prix HT par session (8 à 12 participants, niveau avancé)',
+  'NIV-03': 'Prix HT par session (8 participants max, prix de lancement)',
+  'NIV-04': 'Prix HT par session (8 participants max, prix de lancement)',
+};
 
 export type CatalogueCourseJsonLdConfig = {
   /** Chemin interne (sans domaine) — source `lib/internal-links.ts` */
@@ -144,21 +167,29 @@ export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
   ],
 };
 
-/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 / NIV-02 (Rich Results). */
+/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-04 (Rich Results). */
 export function buildFormationCatalogueRichCourseJsonLd(
   config: FormationCatalogueRichCourseConfig
 ): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const courseUrl = `${base}${config.path}`;
+  const catalogueRef = CATALOGUE_REF_BY_PATH[config.path];
+  const courseImage = getFormationCatalogueImageObjectJsonLd(catalogueRef, base);
+  const organizationId = `${base}/#organization`;
+  const instructorId = `${base}/#laure-olivie`;
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Course',
+    '@id': `${courseUrl}#course`,
     name: config.name,
     description: config.description,
     url: courseUrl,
+    courseCode: catalogueRef,
+    ...(courseImage ? { image: courseImage } : {}),
     provider: {
-      '@type': 'Organization',
+      '@type': 'EducationalOrganization',
+      '@id': organizationId,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
       hasCredential: {
@@ -167,34 +198,36 @@ export function buildFormationCatalogueRichCourseJsonLd(
         credentialCategory: 'certification',
       },
     },
-    instructor: {
-      '@type': 'Person',
-      name: SCHEMA_PERSON_LAURE.name,
-      url: `${base}/a-propos`,
-      image: `${base}${INSTRUCTOR_PORTRAIT_PATH}`,
-    },
+    instructor: { '@id': instructorId },
     timeRequired: DURATION_ISO,
-    courseMode: 'onsite',
-    inLanguage: 'fr',
+    courseMode: COURSE_MODE_ONSITE,
+    inLanguage: 'fr-FR',
     educationalLevel: config.educationalLevel,
     teaches: [...config.teaches],
+    aggregateRating: buildSchemaAggregateRating(),
     offers: {
       '@type': 'Offer',
-      price: String(config.price),
+      price: config.price,
       priceCurrency: 'EUR',
+      category: OFFER_CATEGORY_BY_REF[catalogueRef] ?? 'Formation professionnelle continue',
       priceSpecification: {
         '@type': 'PriceSpecification',
-        description: 'Prix HT par session (max 12 participants)',
+        price: config.price,
+        priceCurrency: 'EUR',
+        valueAddedTaxIncluded: false,
+        description: PRICE_SPEC_DESCRIPTION_BY_REF[catalogueRef] ?? 'Prix HT par session',
       },
       availability: 'https://schema.org/InStock',
+      url: courseUrl,
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: 'onsite',
+      courseMode: COURSE_MODE_ONSITE,
       courseWorkload: DURATION_ISO,
+      instructor: { '@id': instructorId },
       location: {
         '@type': 'Place',
-        name: 'Île-de-France (intra dans vos locaux ou inter en salle)',
+        name: 'Île-de-France — inter ou intra, en présentiel',
         address: {
           '@type': 'PostalAddress',
           addressRegion: 'Île-de-France',

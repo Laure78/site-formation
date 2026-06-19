@@ -10,13 +10,15 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Chef Entreprise BTP Île-de-France',
+  title: 'Formation IA chef TPE BTP — devis & admin quotidien',
   description:
-    'Automatisez devis, relances clients, communication, rapports, prospection. Formation Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour chefs TPE BTP : devis express, relances clients, prospection et admin courant. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA chef entreprise BTP',
@@ -166,13 +168,17 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour chefs d’entreprise BTP —{' '}
-          <span className="text-[var(--accent)]">gagnez du temps sur l’administratif</span>
+          Formation IA pour chefs d&apos;entreprise TPE BTP —{' '}
+          <span className="text-[var(--accent)]">devis, relances et prospection au quotidien</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Objectif : <strong>libérer jusqu’à environ 8 h par semaine</strong> sur l’administratif (devis, relances,
-          communication, synthèses, prospection). <strong>Île-de-France</strong> & <strong>Grand Paris</strong> —{' '}
-          <strong>Qualiopi</strong>, financement possible selon éligibilité.
+          Vous êtes chef de TPE et touchez encore aux devis, mails clients et relances impayés : cette page
+          cible l&apos;<strong>opérationnel quotidien</strong>, pas le pilotage stratégique CODIR. Pour la
+          roadmap IA à l&apos;échelle PME/ETI, voir la{' '}
+          <Link href={LINKS.formationIaDirigeantBtp} className="font-medium text-[var(--accent)] hover:underline">
+            formation IA pilotage stratégique dirigeant BTP
+          </Link>
+          .
         </p>
 
         <div className="mt-8">
@@ -445,10 +451,9 @@ export default function FormationIaDirigeantPmeBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
-            { href: '/formations/ia-pme-btp', label: 'Formation IA PME BTP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: '/formation-ia-electricien-btp', label: 'Formation IA électricien BTP' },
+            { href: LINKS.formationIaDirigeantBtp, label: 'Formation IA pilotage stratégique dirigeant BTP' },
+            { href: LINKS.formations, label: 'Catalogue formations IA appliquées au bâtiment' },
+            { href: LINKS.financement, label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-dirigeant-pme-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />

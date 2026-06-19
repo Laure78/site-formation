@@ -1,13 +1,15 @@
-import { headers } from 'next/headers';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
 
 /**
  * Fil d'Ariane global — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil).
+ * Composant client (`usePathname`) pour ne pas forcer le rendu dynamique via `headers()`.
  */
-export async function GlobalBreadcrumbs() {
-  const h = await headers();
-  const pathname = h.get('x-pathname') ?? '/';
+export function GlobalBreadcrumbs() {
+  const pathname = usePathname() ?? '/';
   const items = buildBreadcrumbTrail(pathname);
 
   if (items.length === 0) return null;

@@ -4,6 +4,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 
+export const revalidate = 3600;
 const FAQ_ITEMS_LONG_TAIL = [
   {
     q: 'Comment utiliser ChatGPT et Claude AI quand on est professionnel du bâtiment ?',

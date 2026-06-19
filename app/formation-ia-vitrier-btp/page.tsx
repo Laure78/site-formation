@@ -15,6 +15,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-vitrier-btp';
 
 export const metadata = createPageMetadata({

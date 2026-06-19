@@ -6,6 +6,7 @@ import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } fr
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const PATH = '/formation-claude-ai-travaux-publics';
 
 const FAQ_ITEMS = [

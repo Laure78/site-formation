@@ -14,6 +14,7 @@ import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pro du BTP : ChatGPT, devis, emails, comptes rendus',
   description:

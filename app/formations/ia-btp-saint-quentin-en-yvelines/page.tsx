@@ -23,6 +23,7 @@ import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 
+export const revalidate = 3600;
 const PATH = LINKS.formationSaintQuentinYvelines;
 
 const MAIL_RAPPEL_SQY =
@@ -37,7 +38,6 @@ const HERO_RESUME = [
 ];
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
-export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA pour le BTP Saint-Quentin-en-Yvelines : ChatGPT BTP',

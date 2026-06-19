@@ -7,6 +7,7 @@ import { FAQ_DIAGNOSTIC } from '@/lib/faq';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Diagnostic IA BTP gratuit — Test 60 secondes',
   description:

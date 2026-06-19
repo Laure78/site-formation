@@ -17,10 +17,10 @@ import {
   FormationIaVilleBody,
 } from '@/components/formation-ia/FormationIaSlugContent';
 
+export const revalidate = 3600;
 type Props = { params: Promise<{ slug: string }> };
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
-export const revalidate = 3600;
 
 export function generateStaticParams() {
   return FORMATION_IA_ALL_SLUGS.map((slug) => ({ slug }));

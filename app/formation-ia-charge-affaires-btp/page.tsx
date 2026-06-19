@@ -13,6 +13,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-charge-affaires-btp';
 
 const SEO_TITLE = 'Formation IA Chargé d\'Affaires BTP | Devis, AO, Mémoire Technique';

@@ -25,10 +25,9 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { PHOTOS } from '@/lib/photos';
+import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseMaitriserClaudeNiv04JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 
@@ -38,10 +37,12 @@ const PDF_HREF = LINKS.pdfProgrammeMaitriserClaudeBtpNiv04;
 const PAGE_META_DESCRIPTION =
   'Formation avancée Claude pour le BTP (4 h, matin). Projets, Skills, Cowork, connecteurs, Claude Code. 1 200 € HT, prix de lancement. Qualiopi.';
 
+const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
+
 export const metadata = createPageMetadata({
   title: 'Maîtriser Claude AI pour le BTP (NIV-04) — Formation avancée 4 h Qualiopi',
   titleAbsolute:
-    'Maîtriser Claude AI pour le BTP (NIV-04) — Formation avancée 4 h Qualiopi | Laure Olivié',
+    'Maîtriser Claude AI pour le BTP (NIV-04) — Formation avancée 4 h Qualiopi',
   description: PAGE_META_DESCRIPTION,
   path: PATH,
   keywords: [
@@ -55,10 +56,10 @@ export const metadata = createPageMetadata({
     'formation IA avancée Qualiopi',
   ],
   image: {
-    url: PHOTOS.formationIABtpVisioBureau2026.src,
-    width: PHOTOS.formationIABtpVisioBureau2026.width,
-    height: PHOTOS.formationIABtpVisioBureau2026.height,
-    alt: 'Formation Maîtriser Claude AI pour le BTP — poste de travail, session Qualiopi Laure Olivié',
+    url: CATALOGUE_VISUEL.src,
+    width: CATALOGUE_VISUEL.width,
+    height: CATALOGUE_VISUEL.height,
+    alt: CATALOGUE_VISUEL.alt,
   },
 });
 
@@ -144,15 +145,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         subtitle="Industrialisez Claude dans votre entreprise — Projets, Skills, Cowork, connecteurs et Claude Code"
         badges={['Projets & Skills', 'Cowork · Connecteurs', 'Qualiopi']}
         summaryItems={HERO_RESUME}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.formationIABtpVisioBureau2026.src}
-            alt="Formation Maîtriser Claude AI pour le BTP — session présentiel Qualiopi, poste de travail entreprise bâtiment"
-            width={PHOTOS.formationIABtpVisioBureau2026.width}
-            height={PHOTOS.formationIABtpVisioBureau2026.height}
-            priority
-          />
-        }
         ctas={
           <>
             <RdvLink
@@ -211,6 +203,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
       <div className="mx-auto max-w-4xl px-4 py-16">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
           <h2 className="font-display text-xl font-bold text-slate-900">Public &amp; modalités</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Le NIV-04 s&apos;adresse aux référents IA, dirigeants et conducteurs de travaux qui utilisent déjà
+            Claude Pro et veulent industrialiser l&apos;outil en entreprise BTP.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, la session se tient uniquement le matin ({SESSION_DUREE_MATIN_NIV04}, 9h00–13h00) pour
+            enchaîner Projets, Cowork, connecteurs et Claude Code sans coupure.
+          </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             <li className="flex gap-2">
               <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
@@ -248,6 +248,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            À l&apos;issue du NIV-04, l&apos;entreprise dispose de Projets structurés, de Skills réutilisables,
+            de connecteurs outils et d&apos;une première automatisation Claude Code validée en interne.
+          </p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            En 2026, le forfait catalogue est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session
+            (prix de lancement, 8 participants max — donnée interne OFC).
+          </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             {OBJECTIFS_PEDAGOGIQUES.map((o) => (
               <li key={o} className="flex gap-2">
@@ -261,6 +269,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
         <section id="programme" className="mt-12 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Le programme NIV-04 enchaîne 4 modules techniques sur 4 h le matin : Projets &amp; Skills, Cowork,
+            connecteurs Gmail/Drive et Claude Code.
+          </p>
+          <p className="mt-2 text-sm text-slate-600">
+            En 2026, moins de 10&nbsp;% des entreprises BTP utilisent déjà l&apos;IA en production (Observatoire
+            des métiers du BTP, 621 répondants) — le NIV-04 vise l&apos;industrialisation, pas la découverte.
+          </p>
           <p className="mt-2 text-sm text-slate-600">
             4 modules — total 4 h le matin — travail sur vos cas réels (documents anonymisés si besoin). Relecture
             humaine obligatoire avant tout envoi client ou marché.
@@ -291,6 +307,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
+          <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+            Les livrables NIV-04 comprennent un Project entreprise configuré, des workflows Cowork, une checklist
+            connecteurs/sécurité et un script ou automatisation Claude Code testé.
+          </p>
+          <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+            En 2026, OFC affiche une note de satisfaction de 4,85/5 sur plus de 1&nbsp;592 professionnels formés
+            (donnée interne, 17 avril 2026).
+          </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_MATIN_NIV04} · <strong>Forfait :</strong>{' '}
@@ -322,6 +346,18 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           links={FORMATION_NIV04_RELATED}
           tone="muted"
         />
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          <RdvLink
+            campaign="formations-maitriser-claude-ai-btp-footer"
+            ctaPosition="footer"
+            ctaId="footer-rdv"
+            variant="primary"
+            className="rounded-xl px-6 py-3.5"
+          >
+            Prendre rendez-vous — visio gratuite 30 min
+          </RdvLink>
+        </div>
 
         <div className="mt-10">
           <AllerPlusLoin

@@ -9,6 +9,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA Devis BTP — Auto Devis Bâtiment',
   description:

@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -5,6 +7,7 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
+import { Reveal } from '@/components/motion/Reveal';
 
 type Props = {
   /** Ancre pour TOC / liens profonds (ex. a-propos#bework). */
@@ -21,8 +24,10 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
   const headingId = id ? 'bework-heading' : 'bework-heading-home';
 
   return (
-    <section
+    <Reveal
+      as="section"
       id={id}
+      distance={16}
       aria-labelledby={headingId}
       className={
         isCard
@@ -43,6 +48,9 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               className="mt-4 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
             >
               Un assistant travaux pour tenir le rythme du chantier
+              {id ? (
+                <span className="a-propos-title-accent mt-3 block h-1 rounded-full bg-[#377CF3]" aria-hidden />
+              ) : null}
             </h2>
 
             <p className="mt-4 text-base font-semibold leading-relaxed text-[#1A1A1A] md:text-lg">
@@ -59,27 +67,27 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               <ExternalLinkAnchor
                 href={EXTERNAL_SITE_URLS.bework}
                 title="BeWork — site officiel bework.fr (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(55,124,243,0.12)] transition-colors hover:bg-[#2A6BD9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3] focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(55,124,243,0.12)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#2A6BD9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3] focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 Demander un diagnostic
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
                 href={`${LINKS.bework}#bework-missions`}
-                className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
+                className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] transition-[transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-[#EFF6FF] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 Voir les missions prises en charge
               </Link>
             </div>
           </div>
 
-          <figure className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
+          <figure className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(55,124,243,0.14)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
             <Image
               src={BEWORK_PHOTO_HERO.src}
               alt={BEWORK_PHOTO_HERO.alt}
               width={BEWORK_PHOTO_HERO.width}
               height={BEWORK_PHOTO_HERO.height}
-              className="h-auto w-full"
+              className="h-auto w-full transition-transform duration-500 hover:scale-[1.03] motion-reduce:transition-none motion-reduce:hover:scale-100"
               sizes="(min-width: 1024px) 480px, 50vw"
             />
             <figcaption className="border-t border-slate-100 px-4 py-2 text-xs text-[#5A5A5A]">
@@ -88,6 +96,6 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
           </figure>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

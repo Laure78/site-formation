@@ -26,6 +26,7 @@ import {
   buildConducteurTravauxLandingJsonLd,
 } from '@/lib/formation-ia-conducteur-travaux-landing';
 
+export const revalidate = 3600;
 const CALENDLY_VISIO = buildSiteCalendlyCtaUrl('formation-ia-conducteur-travaux-visio-decouverte');
 
 export const metadata = createPageMetadata({

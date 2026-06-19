@@ -5,6 +5,7 @@ import { Smartphone, Download } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Installer l\'app',
   description:

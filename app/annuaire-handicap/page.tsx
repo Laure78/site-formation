@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Annuaire national des partenaires handicap — OFC Création d\'Entreprise',
   description:

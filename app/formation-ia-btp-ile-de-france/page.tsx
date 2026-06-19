@@ -25,6 +25,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -34,7 +35,6 @@ const poppins = Poppins({
 const PATH = '/formation-ia-btp-ile-de-france';
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
-export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA appliquée au bâtiment Île-de-France | Qualiopi Constructys',

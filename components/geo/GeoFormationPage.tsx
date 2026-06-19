@@ -33,12 +33,15 @@ function geoMetaDescription(departement: string, code: string, villes: readonly 
 }
 
 export function geoFormationMetadata(props: GeoFormationPageProps) {
-  const { departement, code, villes, slug } = props;
+  const { departement, code, villes, slug, seo } = props;
+  const title =
+    seo?.title ?? `Formation IA BTP ${departement} (${code}) — Qualiopi`;
+  const description =
+    seo?.description ?? geoMetaDescription(departement, code, villes);
 
   return createPageMetadata({
-    title: `Formation IA BTP ${departement} (${code}) — Qualiopi — Laure Olivié`,
-    titleAbsolute: `Formation IA BTP ${departement} (${code}) — Qualiopi — Laure Olivié`,
-    description: geoMetaDescription(departement, code, villes),
+    title,
+    description,
     path: geoFormationPath(slug),
     appendAuthorSuffix: false,
     openGraphType: 'article',
@@ -52,19 +55,23 @@ export function geoFormationMetadata(props: GeoFormationPageProps) {
       url: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
       width: 1024,
       height: 682,
-      alt: `Formation IA BTP ${departement} (${code}) — Laure Olivié, Qualiopi, présentiel intra`,
+      alt: `Formation IA BTP ${departement} (${code}) — présentiel intra`,
     },
   });
 }
 
 export function GeoFormationPage(props: GeoFormationPageProps) {
-  const { departement, code, villes, slug } = props;
+  const { departement, code, villes, slug, h1, heroIntro, conversionLink } = props;
   const path = geoFormationPath(slug);
   const deptLabel = `${departement} (${code})`;
   const deptPreposition = geoFormationDepartementLabel(departement, code);
   const villePrincipale = villes[0] ?? departement;
 
   const metaDescription = geoMetaDescription(departement, code, villes);
+
+  const defaultH1 = `Formation IA BTP ${deptLabel} — Présentiel dans vos locaux`;
+  const defaultIntro =
+    "Devis, comptes rendus, appels d'offres et administratif : session 4 h sur vos documents réels — ChatGPT et Claude AI, certification Qualiopi.";
 
   const courseJsonLd = buildFormationIaCourseJsonLd({
     name: `Formation IA BTP ${deptLabel} — Qualiopi`,
@@ -111,12 +118,19 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             {deptLabel} · Présentiel · Qualiopi · Constructys
           </p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
-            Formation IA BTP {deptLabel} — Présentiel dans vos locaux
+            {h1 ?? defaultH1}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
-            Devis, comptes rendus, appels d&apos;offres et administratif : session 4 h sur vos documents
-            réels — ChatGPT et Claude AI, certification Qualiopi.
+            {heroIntro ?? defaultIntro}
           </p>
+          {conversionLink ? (
+            <p className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
+              <span className="font-medium text-slate-900">Fiche conversion :</span>{' '}
+              <Link href={conversionLink.href} className="font-medium text-[#377CF3] hover:underline">
+                {conversionLink.label}
+              </Link>
+            </p>
+          ) : null}
           <div className="mt-4 flex flex-wrap gap-3">
             <StatCallout
               variant="inline"

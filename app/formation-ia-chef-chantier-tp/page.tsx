@@ -11,6 +11,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 const PATH = '/formation-ia-chef-chantier-tp';
 
 export const metadata = createPageMetadata({

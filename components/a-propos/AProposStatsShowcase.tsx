@@ -35,7 +35,7 @@ export function AProposStatsShowcase() {
   return (
     <section
       aria-labelledby="a-propos-stats-title"
-      className="relative overflow-hidden border-y border-[#BFDBFE] bg-gradient-to-r from-[#EFF6FF] via-white to-[#EFF6FF]"
+      className="a-propos-stats-band relative overflow-hidden border-y border-[#BFDBFE] bg-gradient-to-r from-[#EFF6FF] via-white to-[#EFF6FF]"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:radial-gradient(circle_at_20%_50%,rgba(55,124,243,0.12),transparent_45%),radial-gradient(circle_at_80%_50%,rgba(55,124,243,0.1),transparent_40%)]"

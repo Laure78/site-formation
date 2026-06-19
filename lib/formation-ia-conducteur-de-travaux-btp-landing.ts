@@ -15,10 +15,10 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH =
   '/formation-ia-conducteur-de-travaux-btp' as const;
 
 export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO = {
-  title: 'Formation IA Conducteur de Travaux BTP Île-de-France — Laure Olivié',
+  title: 'Guide IA conducteur travaux — CR, PPSPS, DCE',
   description:
-    'Formation IA pour conducteurs de travaux BTP : CR en 5 min, analyse DCE, PPSPS. Qualiopi, Constructys. Île-de-France. Visio découverte gratuite 30 min.',
-  h1: 'Formation IA pour conducteurs de travaux BTP — Gagnez 2 h par jour',
+    'Guide IA pour conducteurs de travaux BTP : comptes rendus, PPSPS, analyse DCE. Page métier — session catalogue NIV-03 conduite de travaux.',
+  h1: 'Guide IA pour conducteurs de travaux BTP — cas d\'usage terrain',
 } as const;
 
 export const CDT_BTP_USE_CASES = [

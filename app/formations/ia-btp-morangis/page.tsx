@@ -5,8 +5,8 @@ import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 
-// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 export const revalidate = 3600;
+// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
   title: 'Formation IA appliquée au bâtiment Morangis (91) — devis & ChatGPT',

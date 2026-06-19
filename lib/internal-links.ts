@@ -86,6 +86,8 @@ export const LINKS = {
   // Tier 2 — Cas d'usage
   chatgptArtisans: '/formation-ia-artisans-btp',
   iaDevis: '/ia-devis-batiment',
+  /** Fiche SEO informationnelle — IA conducteur de travaux (CR, coordination) */
+  iaConducteurTravaux: '/ia-conducteur-travaux',
   /** Canonique SEO — ancien `/ia-conducteur-travaux` redirige en 301 */
   iaCDT: '/formation-ia-conducteur-de-travaux-btp',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
@@ -94,10 +96,14 @@ export const LINKS = {
   formationChargeAffairesBtp: '/formation-ia-charge-affaires-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
-  /** Décideurs — ROI, pilotage IA PME bâtiment */
+  /** Décideurs — ROI, pilotage IA PME/ETI bâtiment */
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
-  /** Landing SEO — assistante administrative BTP (l'ancienne URL courte redirige en 308) */
+  /** Chef TPE opérationnel — devis, admin quotidien */
+  formationIaDirigeantPmeBtp: '/formation-ia-dirigeant-pme-btp',
+  /** Landing SEO — assistante administrative BTP (courriers, mails, suivi chantier) */
   formationIaAssistanteBtp: '/formation-ia-assistante-administrative-btp',
+  /** Landing SEO — assistante de gestion BTP (facturation, relances, DGD) */
+  formationIaAssistanteGestionBtp: '/formation-ia-assistante-gestion-btp',
   /** Page pilier SEO — étancheurs (partenaire CSFE) */
   formationIaEtancheur: '/formation-ia-etancheur',
   // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
@@ -151,15 +157,21 @@ export const LINKS = {
   repondreAoLanding: '/formations/ia-appels-offre-btp',
   /** Analyse CCTP/DCE — maître (l'ancien `/formation-ia-analyse-cctp` redirige en 308) */
   formationIaAnalyseCctp: '/formations/formation-ia-cctp-analyse-dce-btp',
-  /** Article — prompts et méthode analyse CCTP avec l'IA */
-  blogIaAnalyseCctpMethode: '/blog/ia-analyse-cctp-methode',
-  /** Article pilier SEO — formation IA CCTP, analyse DCE BTP */
+  /** Article — méthode analyse CCTP en 20 min (cluster AO/DCE) */
+  blogAnalyserCctpMethode20Min: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
+  /** @deprecated Préférer blogAnalyserCctpMethode20Min */
+  blogIaAnalyseCctpMethode: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
+  /** Article informationnel — comment analyser un DCE/CCTP avec l'IA (cluster AO/DCE) */
   blogFormationIaCctpAnalyseDceBtp: '/blog/formation-ia-cctp-analyse-dce-btp',
+  /** Article — NotebookLM + Claude sur DCE (cluster AO/DCE) */
+  blogAnalyseDceNotebooklm: '/blog/analyse-dce-notebooklm-claude-btp',
+  /** Article — chiffrage CCTP/BPU (cluster AO/DCE) */
+  blogChiffrageCctpBpu: '/blog/chiffrage-cctp-bpu-appels-offres-btp',
   /** Article — IA devis bâtiment et chiffrage automatisé */
   blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
   /** Article — compte rendu de chantier IA */
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
-  /** Fiche formation conversion — IA analyse CCTP & DCE */
+  /** Fiche formation historique — canonical → formationAO (pilier NIV-02) */
   formationIaCctpAnalyseDceBtp: '/formations/formation-ia-cctp-analyse-dce-btp',
 
   // Pages légales & conformité

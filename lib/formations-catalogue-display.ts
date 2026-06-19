@@ -46,7 +46,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     href: '/formations/ia-batiment-travaux-publics',
     slug: 'ia-batiment-travaux-publics',
     programmePdfHref: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
-    visuel: PHOTOS.formationIABtpVisioBureau2026,
+    visuel: PHOTOS.formationNiv01IaBatimentTravauxPublics2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
     pitch: "Niveau 1 : bases opérationnelles pour équipes bâtiment et travaux publics.",
@@ -68,7 +68,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     href: '/formations/ia-appels-offre-btp',
     slug: 'ia-appels-offre-btp',
     programmePdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
-    visuel: PHOTOS.btpFormationChantierPlans2026,
+    visuel: PHOTOS.formationNiv02IaAppelsOffreBtp2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: LIBELLE_EFFECTIF_GROUPE_NIV02,
     pitch:
@@ -92,7 +92,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     href: LINKS.formationConduiteTravauxSuiviChantier,
     slug: 'ia-conduite-travaux-suivi-chantier',
     programmePdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
-    visuel: PHOTOS.btpFormationChantierPlans2026,
+    visuel: PHOTOS.formationNiv03IaConduiteTravaux2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: '8 participants max',
     launchPrice: true,
@@ -119,7 +119,7 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     href: LINKS.formationMaitriserClaudeAiBtp,
     slug: 'maitriser-claude-ai-btp',
     programmePdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
-    visuel: PHOTOS.formationIABtpVisioBureau2026,
+    visuel: PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
     duree: '4 h · matin (9h00 – 13h00)',
     effectif: '8 participants max',
     launchPrice: true,
@@ -146,6 +146,15 @@ export const CATALOGUE_FORMATIONS_COUNT = FORMATIONS_CATALOGUE.length;
 
 export function getFormationCatalogueByRef(ref: string): FormationCatalogueEntry | undefined {
   return FORMATIONS_CATALOGUE.find((e) => e.ref === ref);
+}
+
+/** Visuel promotionnel catalogue — source unique pour cartes, hero fiches et OG image. */
+export function getFormationCatalogueVisuel(ref: string) {
+  const entry = getFormationCatalogueByRef(ref);
+  if (!entry) {
+    throw new Error(`Référence catalogue inconnue : ${ref}`);
+  }
+  return entry.visuel;
 }
 
 /** Libellé lien UI : RÉF — titre officiel catalogue. */

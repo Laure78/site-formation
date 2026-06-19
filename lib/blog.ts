@@ -15,6 +15,10 @@ import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 import { blogArticleFormationIaCctpAnalyseDceBtp } from '@/lib/blog-formation-ia-cctp-pillar';
 import { blogArticleIaDevisBatimentChiffrageAutomatise } from '@/lib/blog-ia-devis-batiment-chiffrage-automatise';
+import {
+  AO_DCE_CLUSTER_BLOG,
+  clusterMaillageHtmlSection,
+} from '@/lib/ao-dce-cluster-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   getAllMdxBlogSlugs,
@@ -220,7 +224,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Avril 2026 — Brief chiffré adoption IA BTP (Plein Sens, Orisha, marchés)
   {
     slug: 'adoption-ia-btp-2026-chiffres-freins-leviers',
-    seoTitle: 'Adoption IA BTP : chiffres, freins, leviers | Laure Olivié',
+    seoTitle: 'Adoption IA BTP : chiffres, freins, leviers',
     title: 'Adoption de l\'IA dans le BTP en 2026 : chiffres clés, freins et leviers',
     description:
       'Moins de 10 % des PME BTP utilisent l’IA ; 621 répondants 2026 : freins, usages, leviers formation. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
@@ -331,7 +335,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Avril 2026 — ChatGPT devis bâtiment en 20 minutes (méthode terrain)
   {
     slug: 'devis-btp-chatgpt-20-minutes',
-    seoTitle: 'Devis BTP : méthode 20 min, prix maîtrisés | Laure Olivié',
+    seoTitle: 'Devis BTP : méthode 20 min, prix maîtrisés',
     title:
       'ChatGPT devis bâtiment : comment je fais tenir un devis en 20 minutes (sans brûler mes prix)',
     description:
@@ -449,7 +453,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'comparatif-chatgpt-claude-gemini-btp',
     title: 'ChatGPT vs Claude vs Gemini : lequel choisir quand on est dans le BTP ?',
-    seoTitle: 'ChatGPT, Claude, Gemini BTP : lequel ouvrir ? | Laure Olivié',
+    seoTitle: 'ChatGPT, Claude, Gemini BTP : lequel ouvrir ?',
     description:
       'Quel outil pour devis, mails ou AO : repères terrain sans tout tester au hasard. Sessions Qualiopi ; réseaux FFB, CSFE. Diagnostic gratuit 30 min.',
     date: '2026-04-08',
@@ -551,7 +555,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'ia-memoire-technique-appel-offres-guide-2026',
     title: 'Comment rédiger un mémoire technique BTP avec l\'IA — Guide complet 2026',
-    seoTitle: 'Mémoire technique AO : méthode IA et plan BTP | Laure Olivié',
+    seoTitle: 'Mémoire technique AO : méthode IA et plan BTP',
     description:
       'DCE, plan calé sur le RC, sections rédigées avec prompts métier ; la validation reste humaine. Formation AO Qualiopi ; Constructys. Voir la méthode.',
     date: '2026-04-09',
@@ -756,7 +760,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     title:
       'Mémoire technique BTP avec l’IA : gagnez vos appels d’offres en 2x moins de temps',
     seoTitle:
-      'Mémoire technique BTP : IA et dossiers AO | Laure Olivié',
+      'Mémoire technique BTP : IA et dossiers AO',
     description:
       'Aligner mémoire et critères du RC : DCE, plan, brouillon IA, passes terrain, relecture équipe. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-10',
@@ -887,7 +891,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Article GEO #1 : Guide complet formation IA pour les pro du BTP 2026
   {
     slug: 'formation-ia-btp-guide-complet-2026',
-    seoTitle: 'Formation IA appliquée au bâtiment : guide pratique Qualiopi | Laure Olivié',
+    seoTitle: 'Formation IA bâtiment : guide pratique Qualiopi',
     title: 'Formation IA appliquée au bâtiment : guide complet 2026',
     description:
       `${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Formation IA pour le BTP Qualiopi ; financement Constructys si éligible. Gagnez 3 à 5 h par semaine sur l’administratif.`,
@@ -983,7 +987,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   // Article GEO #2 : ChatGPT pour devis BTP — Méthode 2026
   {
     slug: 'chatgpt-devis-btp-methode-2026',
-    seoTitle: 'ChatGPT devis BTP : méthode pas à pas | Laure Olivié',
+    seoTitle: 'ChatGPT devis BTP : méthode pas à pas',
     title: 'ChatGPT pour générer un devis BTP : méthode pas à pas (2026)',
     description:
       'Devis structuré vite : descriptif, quantitatif, bordereau, puis contrôle de vos PU. Session 4 h Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
@@ -1091,7 +1095,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   {
     slug: 'financer-formation-ia-btp-constructys',
     title: 'Financer une formation IA dans le BTP : guide complet Constructys (2026)',
-    seoTitle: 'Financer formation IA appliquée au bâtiment : Constructys, PDC | Laure Olivié',
+    seoTitle: 'Financer formation IA BTP : Constructys, PDC',
     description:
       'Plafonds, délais eGestion, PDC : cadrer une formation IA Qualiopi avec Constructys. OFC vous aide sur le dossier. Prendre rendez-vous pour avancer.',
     date: '2025-03-05',
@@ -1232,7 +1236,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'compte-rendu-chantier-ia-automatiser-gagner-temps',
     title:
       'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5 h par semaine',
-    seoTitle: 'Compte rendu chantier IA : automatiser vos CR | Laure Olivié',
+    seoTitle: 'Compte rendu chantier IA : automatiser vos CR',
     description:
       'Notes transformées en CR pro avec prompts BTP ; relecture humaine avant diffusion. Formation Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
     date: '2026-04-10',
@@ -1407,7 +1411,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: '5-cas-usage-chatgpt-artisans-btp',
-    seoTitle: '5 cas ChatGPT BTP : devis, mails, CR | Laure Olivié',
+    seoTitle: '5 cas ChatGPT BTP : devis, mails, CR',
     title: '5 cas d\'usage de ChatGPT pour les entreprises du bâtiment',
     description:
       'Cinq usages BTP : devis, mails, CR, suivi, descriptifs — prompts à adapter à vos chantiers. Qualiopi, Constructys. Voir la méthode sur le blog.',
@@ -1595,7 +1599,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: 'appels-offres-btp-ia-lille',
-    seoTitle: 'AO BTP et IA à Lille : méthode et financement | Laure Olivié',
+    seoTitle: 'AO BTP et IA à Lille : méthode et financement',
     title: 'Automatiser les appels d\'offres BTP avec l\'IA à Lille',
     description:
       'DCE et mémoire depuis Lille ou Hauts-de-France : méthode reproductible sur dossiers réels. Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
@@ -1654,7 +1658,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'analyser-cctp-ia-methode-complete-20-minutes',
     title:
       'Analyser un CCTP avec l\'IA : la méthode complète pour décortiquer un cahier des charges en 20 minutes',
-    seoTitle: 'Analyse CCTP avec IA : méthode en 20 minutes | Laure Olivié',
+    seoTitle: 'Analyse CCTP avec IA : méthode en 20 minutes',
     description:
       'Cinq étapes pour lire un CCTP dense : PDF, prompts, normes, risques, croisement BPU. Formation AO Qualiopi ; Constructys. Voir la méthode.',
     date: '2026-04-10',
@@ -1841,22 +1845,31 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           `OFC Création d'Entreprise propose une formation IA pour le BTP de 4 heures, certifiée Qualiopi, avec un module appels d'offres et analyse de DCE : méthode en cinq étapes sur vos documents, prompts personnalisés selon votre corps de métier, confidentialité et choix d'outil. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux sur devis. Partenaires et références : FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB Île-de-France Est, CSFE, CNAM Entreprise. Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
       },
       {
+        type: 'html',
+        title: 'Cluster appels d’offres',
+        content: clusterMaillageHtmlSection({
+          lateralHref: AO_DCE_CLUSTER_BLOG.notebooklm,
+          lateralTitle: 'Analyse DCE avec NotebookLM et Claude',
+          lateralDescription: 'critères, CCAP et synthèse sur PDF volumineux',
+        }),
+      },
+      {
         type: 'cta',
         content:
           'Formation IA appels d’offres BTP : analyser un DCE, mémoire technique, méthode terrain. Financement selon éligibilité Constructys — échange gratuit pour cadrer votre besoin.',
-        formationHref: '/formations/ia-appels-offre-btp',
+        formationHref: LINKS.formationAO,
       },
     ],
     relatedSlugs: [
-      'ia-memoire-technique-appel-offres-guide-2026',
+      'formation-ia-cctp-analyse-dce-btp',
       'analyse-dce-notebooklm-claude-btp',
+      'chiffrage-cctp-bpu-appels-offres-btp',
       'financer-formation-ia-btp-constructys',
-      'repondre-appel-offre-travaux',
     ],
   },
   {
     slug: 'memoire-technique-btp-exemple',
-    seoTitle: 'Mémoire technique BTP : structure et exemples | Laure Olivié',
+    seoTitle: 'Mémoire technique BTP : structure et exemples',
     title: 'Exemple de mémoire technique BTP : structure et bonnes pratiques',
     description:
       'Structure type de mémoire : entreprise, méthode, moyens ; première passe IA puis validation terrain. Qualiopi, Constructys. Diagnostic gratuit 30 min.',
@@ -1926,7 +1939,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: 'repondre-appel-offre-travaux',
-    seoTitle: 'Répondre à un AO travaux : guide PME BTP | Laure Olivié',
+    seoTitle: 'Répondre à un AO travaux : guide PME BTP',
     title: 'Comment répondre à un appel d\'offre travaux : guide pour les PME du BTP',
     description:
       'Éligibilité, DCE, critères, dossier, relecture : checklist avant dépôt ; l’IA accélère l’analyse si cadrée. Qualiopi, Constructys. Voir la méthode.',

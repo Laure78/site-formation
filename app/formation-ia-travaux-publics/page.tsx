@@ -24,6 +24,7 @@ import { FAQ_FORMATION_IA_TRAVAUX_PUBLICS_LANDING } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title:
     'Formation IA travaux publics — ChatGPT, VRD, génie civil',

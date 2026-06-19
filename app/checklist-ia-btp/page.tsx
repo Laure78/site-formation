@@ -7,6 +7,7 @@ import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet'
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 
+export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: '10 Prompts ChatGPT BTP Gratuits',
   description:

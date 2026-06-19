@@ -25,9 +25,33 @@ type CalendlyUtmParams = {
 /** Événement window émis quand widget.js est chargé (inline + popup). */
 export const CALENDLY_SCRIPT_READY_EVENT = 'calendly:ready';
 
+/** Slug URL → segment utm_campaign (ex. `/formations/ia-btp-paris` → `formations-ia-btp-paris`). */
+export function slugifyPathForCalendlyCampaign(pathname: string): string {
+  const raw = pathname.replace(/^\//, '').replace(/\/$/, '');
+  return raw ? raw.replace(/\//g, '-') : 'home';
+}
+
+type DeriveCalendlyCampaignOptions = {
+  campaign?: string;
+  ctaPosition?: string;
+  ctaId?: string;
+};
+
 /**
- * Construit une URL Calendly standardisée avec UTM.
+ * Campagne UTM descriptive — jamais `cta-unspecified`.
+ * Priorité : `campaign` explicite → `{slug}-{ctaId}` → `{slug}-{ctaPosition}` → `{slug}-rdv`.
  */
+export function deriveCalendlyCampaign(
+  pathname: string,
+  { campaign, ctaPosition, ctaId }: DeriveCalendlyCampaignOptions = {},
+): string {
+  if (campaign) return campaign;
+  const slug = slugifyPathForCalendlyCampaign(pathname);
+  if (ctaId) return `${slug}-${ctaId}`;
+  if (ctaPosition && ctaPosition !== 'unknown') return `${slug}-${ctaPosition}`;
+  return `${slug}-rdv`;
+}
+
 export function buildCalendlyUrlWithUtm({
   baseUrl = CALENDLY_BOOKING_URL,
   utmSource,

@@ -22,6 +22,7 @@ import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT ,
   formatTarifHt,
 } from "@/lib/tarifs-sessions";
 
+export const revalidate = 3600;
 /* ---------------------------------------------------------------- METADATA */
 
 const PAGE_URL = "https://www.laureolivie.fr/formation-claude-ai-btp";

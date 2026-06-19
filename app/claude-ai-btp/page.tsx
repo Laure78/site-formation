@@ -27,7 +27,7 @@ const ogClaudeBtpJpg = '/og-claude-ai-btp.jpg';
 const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
 
 export const metadata = createPageMetadata({
-  title: 'Formation Claude AI BTP 2026 : guide Chat, Cowork, Code & Chrome',
+  title: 'Claude AI BTP : Chat, Cowork, Code, Chrome',
   description:
     `Guide Claude AI BTP : Chat, Cowork, Code & Chrome. Prompts chantier, DCE, CR. Qualiopi, IDF. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,

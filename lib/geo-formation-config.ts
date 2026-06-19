@@ -2,11 +2,24 @@
  * Configurations pages geo « formation IA BTP » par département (GeoFormationPage).
  */
 
+export type GeoFormationPageSeo = {
+  title: string;
+  description?: string;
+};
+
 export type GeoFormationPageProps = {
   departement: string;
   code: string;
   villes: string[];
   slug: string;
+  /** Surcharge titre / description (sinon template département). */
+  seo?: GeoFormationPageSeo;
+  /** H1 personnalisé (sinon template département). */
+  h1?: string;
+  /** Chapô hero (sinon texte générique). */
+  heroIntro?: string;
+  /** Lien montant vers fiche conversion (ex. catalogue Paris). */
+  conversionLink?: { href: string; label: string };
 };
 
 export const GEO_FORMATION_CAS_USAGE = [
@@ -77,7 +90,25 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
   departement: 'Paris',
   code: '75',
   slug: 'paris-75',
-  villes: ['Paris 11e', 'Paris 12e', 'Paris 15e', 'Paris 18e', 'Paris 20e'],
+  villes: [
+    'Paris 1er–4e (centre & Louvre)',
+    'Paris 11e–12e (Bastille, Nation)',
+    'Paris 15e–16e (Beaugrenelle, Trocadéro)',
+    'Paris 18e–20e (Montmartre, Belleville)',
+    'Paris 13e–14e (Montparnasse, Olympiades)',
+  ],
+  seo: {
+    title: 'Paris 75 : IA BTP intra par arrondissements',
+    description:
+      'Formation IA BTP à Paris (75) : intra par arrondissement, accès métro/RER. ChatGPT & Claude sur vos documents. Qualiopi, Constructys. Visio découverte gratuite.',
+  },
+  h1: 'Formation IA BTP à Paris (75) — intra par arrondissement et métropole',
+  heroIntro:
+    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, comptes rendus et administratif chantier sur vos documents réels — angle logistique Paris & Petite Couronne, distinct de la fiche catalogue Île-de-France.',
+  conversionLink: {
+    href: '/formations/ia-btp-paris',
+    label: 'Voir la fiche formation catalogue Paris (session 4 h, tarifs & financement)',
+  },
 };
 
 export const GEO_FORMATION_PAGE_CONFIGS = [
