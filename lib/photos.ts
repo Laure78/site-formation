@@ -454,6 +454,14 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  /** Guide PDF conducteur de travaux — 6 tutos Claude (lead magnet /ressources) */
+  guideConducteurTravauxHero2026: {
+    src: '/images/guide-conducteur-travaux-hero-2026.png',
+    alt: 'Guide du conducteur de travaux BTP — 6 skills Claude pour piloter le chantier, PDF gratuit Laure Olivié',
+    width: 1024,
+    height: 1024,
+  },
+
   /** Page d'accueil — présentation en salle, écran « L'IA au service du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',

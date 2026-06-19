@@ -30,10 +30,10 @@ export const metadata = createPageMetadata({
   openGraphTitle: 'Guide CDT — 6 tutos Claude pour piloter le chantier (PDF gratuit)',
   openGraphDescription: 'DCE, PPSPS, CR, constat retard, PV réserves, DOE — méthodes et prompts inclus.',
   image: {
-    url: '/og/skill-ia-og.png',
-    width: 1200,
-    height: 630,
-    alt: 'Guide Skill IA — conducteurs de travaux BTP, Laure Olivié',
+    url: PHOTOS.guideConducteurTravauxHero2026.src,
+    width: PHOTOS.guideConducteurTravauxHero2026.width,
+    height: PHOTOS.guideConducteurTravauxHero2026.height,
+    alt: PHOTOS.guideConducteurTravauxHero2026.alt,
   },
   appendAuthorSuffix: false,
 });
@@ -140,16 +140,19 @@ export default function SkillIaConducteurTravauxPage() {
             </ul>
           </div>
           <div className="flex min-w-0 flex-col gap-6 lg:sticky lg:top-24 xl:top-28">
-            <div className="relative aspect-[512/341] w-full overflow-hidden rounded-2xl border border-white/20 bg-[#D4E3FC]/20 shadow-lg">
-              <Image
-                src="/images/skill-ia-conducteur-travaux-hero-formation-btp.png"
-                alt="Formation IA appliquée au bâtiment : poignée de main en bureau, tableau Devis, Chantier et Organisation — accompagnement professionnels du bâtiment"
-                width={1024}
-                height={682}
-                className="h-full w-full object-cover object-center"
-                priority
-              />
-            </div>
+            <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-[320px]">
+              <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(0,0,0,0.25)] ring-4 ring-white/30">
+                <Image
+                  src={PHOTOS.guideConducteurTravauxHero2026.src}
+                  alt={PHOTOS.guideConducteurTravauxHero2026.alt}
+                  width={PHOTOS.guideConducteurTravauxHero2026.width}
+                  height={PHOTOS.guideConducteurTravauxHero2026.height}
+                  className="h-auto w-full object-contain"
+                  sizes="(max-width: 1024px) 280px, 320px"
+                  priority
+                />
+              </div>
+            </figure>
             <SkillIaLeadMagnetForm />
           </div>
         </div>
