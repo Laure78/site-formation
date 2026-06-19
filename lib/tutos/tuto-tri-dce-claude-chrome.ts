@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_TRI_DCE_CLAUDE_CHROME: TutoData = {
   slug: 'tuto-tri-dce-claude-chrome',
@@ -43,6 +44,8 @@ export const TUTO_TRI_DCE_CLAUDE_CHROME: TutoData = {
 
   cardSummary:
     "Installe Claude in Chrome et programme une veille DCE automatique chaque matin sur BOAMP, PLACE, AWS. Tu reçois 3 à 5 DCE pertinents par jour au lieu d'en filtrer 50 à la main.",
+
+  heroImage: PHOTOS.tutoTriDceClaudeChromeHero2026,
 
   totalTimeMinutes: 30,
 

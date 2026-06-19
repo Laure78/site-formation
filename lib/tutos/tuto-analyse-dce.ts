@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_ANALYSE_DCE: TutoData = {
   slug: 'tuto-analyse-dce',
@@ -43,6 +44,8 @@ export const TUTO_ANALYSE_DCE: TutoData = {
 
   cardSummary:
     "Analyse complète d'un DCE en 3 minutes au lieu de 4 heures : fiche standardisée 8 rubriques, critères, pénalités, qualifications + avis Go / No Go argumenté. Pour décider vite et bien.",
+
+  heroImage: PHOTOS.tutoAnalyseDceHero2026,
 
   totalTimeMinutes: 30,
 

@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
   slug: 'tuto-doe-dossier-ouvrages-executes',
@@ -45,6 +46,8 @@ export const TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES: TutoData = {
 
   cardSummary:
     "Assemble ton DOE en 30 minutes au lieu de 2 week-ends : sommaire 8 chapitres, classement pièces, détection des manques, page de garde Word + dossier zippé conforme tes exigences MOE.",
+
+  heroImage: PHOTOS.tutoDoeHero2026,
 
   totalTimeMinutes: 30,
 

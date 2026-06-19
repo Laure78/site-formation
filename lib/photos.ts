@@ -426,6 +426,34 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  tutoAnalyseDceHero2026: {
+    src: '/images/tuto-analyse-dce-hero-2026.png',
+    alt: 'Tuto skill Analyse de DCE BTP — 220 pages en 3 min avec Claude, Laure Olivié formatrice IA',
+    width: 1024,
+    height: 1024,
+  },
+
+  tutoTriDceClaudeChromeHero2026: {
+    src: '/images/tuto-tri-dce-claude-chrome-hero-2026.png',
+    alt: 'Tuto Trie tes DCE avec Claude in Chrome — veille BOAMP automatique, Laure Olivié',
+    width: 1024,
+    height: 1024,
+  },
+
+  tutoCrChantierHero2026: {
+    src: '/images/tuto-cr-chantier-hero-2026.png',
+    alt: 'Tuto skill Compte rendu de chantier BTP — dictée vocale vers CR Word, Laure Olivié',
+    width: 1024,
+    height: 1024,
+  },
+
+  tutoDoeHero2026: {
+    src: '/images/tuto-doe-hero-2026.png',
+    alt: 'Tuto skill DOE BTP — dossier des ouvrages exécutés en 30 min, Laure Olivié formatrice IA',
+    width: 1024,
+    height: 1024,
+  },
+
   /** Page d'accueil — présentation en salle, écran « L'IA au service du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',

@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_CR_CHANTIER: TutoData = {
   slug: 'tuto-cr-chantier',
@@ -43,6 +44,8 @@ export const TUTO_CR_CHANTIER: TutoData = {
 
   cardSummary:
     "Transforme tes dictées vocales en compte rendu de chantier rédigé au format de ton entreprise : 5 minutes au lieu de 45 par CR. Workflow voix → Claude → Word + mail d'envoi.",
+
+  heroImage: PHOTOS.tutoCrChantierHero2026,
 
   totalTimeMinutes: 30,
 
