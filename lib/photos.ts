@@ -9,11 +9,11 @@ export const PHOTOS = {
     height: 404,
   },
 
-  /** Avatar site — même fichier que le portrait rond du header (fond clair, cohérence NAP / marque) */
+  /** Avatar site — miniature bleue OFC (portrait sans texte, header + auteur) */
   siteAvatar: {
-    src: '/images/laure-portrait-header-2026.png',
+    src: '/images/laure-avatar-bleu-2026.png',
     alt: "Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi — OFC Création d'Entreprise",
-    width: 682,
+    width: 1024,
     height: 1024,
   },
 
@@ -584,6 +584,16 @@ export const PHOTOS = {
     description:
       'Affiche « Maîtriser Claude AI pour le BTP » : Projets, Skills, Cowork, connecteurs et Claude Code — 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
     title: 'Niveau 2 · Maîtriser Claude AI pour le BTP',
+    width: 1024,
+    height: 1024,
+  },
+  formationNiv05IaMaitriseOeuvre2026: {
+    src: '/images/bework/guide-maitre-oeuvre-moe.png',
+    alt:
+      "Affiche formation niveau 2 — L'IA au service des maîtres d'œuvre, MOEX, DCE et CR chantier, Laure Olivié Qualiopi",
+    description:
+      "Visuel « L'IA au service des maîtres d'œuvre » : analyse DCE, comptes rendus, OS et réserves — 4 h, maîtrise d'œuvre d'exécution. Laure Olivié, OFC Qualiopi.",
+    title: "Niveau 2 · L'IA au service des maîtres d'œuvre",
     width: 1024,
     height: 1024,
   },

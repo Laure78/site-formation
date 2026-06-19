@@ -1,5 +1,5 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-04).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-05).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  */
 import { LINKS } from '@/lib/internal-links';
@@ -17,12 +17,14 @@ import {
 const DURATION_ISO = 'PT4H';
 /** Valeur Schema.org / Google Course — présentiel */
 const COURSE_MODE_ONSITE = 'Onsite';
+const COURSE_MODE_BLENDED = 'Blended';
 
 const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], string> = {
   [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01',
   [LINKS.formationAO]: 'NIV-02',
   [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
+  [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
 };
 
 const OFFER_CATEGORY_BY_REF: Record<string, string> = {
@@ -30,6 +32,7 @@ const OFFER_CATEGORY_BY_REF: Record<string, string> = {
   'NIV-02': 'Formation professionnelle continue — niveau avancé',
   'NIV-03': 'Formation professionnelle continue — prix de lancement',
   'NIV-04': 'Formation professionnelle continue — prix de lancement',
+  'NIV-05': 'Formation professionnelle continue — maîtrise d\'œuvre',
 };
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
@@ -37,6 +40,7 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
   'NIV-02': 'Prix HT par session (8 à 12 participants, niveau avancé)',
   'NIV-03': 'Prix HT par session (8 participants max, prix de lancement)',
   'NIV-04': 'Prix HT par session (8 participants max, prix de lancement)',
+  'NIV-05': 'Prix HT par session (3 à 8 participants, niveau avancé)',
 };
 
 export type CatalogueCourseJsonLdConfig = {
@@ -45,12 +49,13 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationIaBtpNiveau1BatimentTp
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
-    | typeof LINKS.formationMaitriserClaudeAiBtp;
+    | typeof LINKS.formationMaitriserClaudeAiBtp
+    | typeof LINKS.formationIaMaitriseOeuvre;
   name: string;
   description: string;
   price: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -59,12 +64,15 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationIaBtpNiveau1BatimentTp
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
-    | typeof LINKS.formationMaitriserClaudeAiBtp;
+    | typeof LINKS.formationMaitriserClaudeAiBtp
+    | typeof LINKS.formationIaMaitriseOeuvre;
   name: string;
   description: string;
   price: number;
   educationalLevel: 'Débutant' | 'Avancé';
   teaches: readonly string[];
+  /** Modes de delivery Schema.org — défaut présentiel uniquement */
+  courseModes?: readonly string[];
 };
 
 export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
@@ -167,7 +175,34 @@ export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
   ],
 };
 
-/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-04 (Rich Results). */
+export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig = {
+  path: LINKS.formationIaMaitriseOeuvre,
+  name: "L'IA au service des maîtres d'œuvre",
+  description:
+    "Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4 h, Qualiopi, Constructys.",
+  price: TARIF_SESSION_AVANCE_HT,
+  keywords: ['MOE', 'MOEX', 'DCE', 'CR chantier', 'réserves', 'Claude', 'ChatGPT'],
+  courseCode: 'NIV-05',
+  educationalLevel: 'Advanced',
+};
+
+export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationIaMaitriseOeuvre,
+  name: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.name,
+  description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
+  price: TARIF_SESSION_AVANCE_HT,
+  educationalLevel: 'Avancé',
+  courseModes: [COURSE_MODE_ONSITE, COURSE_MODE_BLENDED],
+  teaches: [
+    'Claude et ChatGPT pour cas d\'usage MOE (Projets, Connecteurs, Skills, Cowork)',
+    'Analyse DCE — conformité et alertes contractuelles',
+    'Comptes rendus de chantier accélérés depuis notes vocales',
+    'Courriers, ordres de service et actes administratifs MOE',
+    'Suivi réserves, réception et GPA avec assistant IA',
+  ],
+};
+
+/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-05 (Rich Results). */
 export function buildFormationCatalogueRichCourseJsonLd(
   config: FormationCatalogueRichCourseConfig
 ): Record<string, unknown> {
@@ -177,6 +212,7 @@ export function buildFormationCatalogueRichCourseJsonLd(
   const courseImage = getFormationCatalogueImageObjectJsonLd(catalogueRef, base);
   const organizationId = `${base}/#organization`;
   const instructorId = `${base}/#laure-olivie`;
+  const courseModes = config.courseModes ?? [COURSE_MODE_ONSITE];
 
   return {
     '@context': 'https://schema.org',
@@ -200,7 +236,7 @@ export function buildFormationCatalogueRichCourseJsonLd(
     },
     instructor: { '@id': instructorId },
     timeRequired: DURATION_ISO,
-    courseMode: COURSE_MODE_ONSITE,
+    courseMode: courseModes.length === 1 ? courseModes[0] : [...courseModes],
     inLanguage: 'fr-FR',
     educationalLevel: config.educationalLevel,
     teaches: [...config.teaches],
@@ -222,7 +258,7 @@ export function buildFormationCatalogueRichCourseJsonLd(
     },
     hasCourseInstance: {
       '@type': 'CourseInstance',
-      courseMode: COURSE_MODE_ONSITE,
+      courseMode: courseModes.length === 1 ? courseModes[0] : [...courseModes],
       courseWorkload: DURATION_ISO,
       instructor: { '@id': instructorId },
       location: {
@@ -253,9 +289,11 @@ export function buildCatalogueCourseJsonLd(
         ? FORMATION_RICH_COURSE_NIV01.teaches
         : config.courseCode === 'NIV-02'
           ? FORMATION_RICH_COURSE_NIV02.teaches
-          : config.courseCode === 'NIV-03'
-            ? FORMATION_RICH_COURSE_NIV03.teaches
-            : FORMATION_RICH_COURSE_NIV04.teaches,
+        : config.courseCode === 'NIV-03'
+          ? FORMATION_RICH_COURSE_NIV03.teaches
+          : config.courseCode === 'NIV-04'
+            ? FORMATION_RICH_COURSE_NIV04.teaches
+            : FORMATION_RICH_COURSE_NIV05.teaches,
   };
   return buildFormationCatalogueRichCourseJsonLd(richConfig);
 }
@@ -274,4 +312,8 @@ export function buildCatalogueCourseConduiteTravauxNiv03JsonLd(): Record<string,
 
 export function buildCatalogueCourseMaitriserClaudeNiv04JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV04);
+}
+
+export function buildCatalogueCourseMaitriseOeuvreNiv05JsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV05);
 }

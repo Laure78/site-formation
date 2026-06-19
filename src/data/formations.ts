@@ -37,6 +37,15 @@ export const formationsData = {
     description:
       'Formation NIV-04 : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans votre entreprise BTP. Matin 9h–13h. Prix de lancement.',
   },
+  'ia-maitrise-oeuvre': {
+    name: "L'IA au service des maîtres d'œuvre",
+    ref: 'NIV-05',
+    level: 'Avancé',
+    duration: 'PT4H',
+    price: TARIF_SESSION_AVANCE_HT,
+    description:
+      "Formation NIV-05 : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et suivi des réserves. 3 à 8 participants.",
+  },
 } as const;
 
 export type FormationSlug = keyof typeof formationsData;

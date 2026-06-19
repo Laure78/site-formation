@@ -27,7 +27,7 @@ export type FormationCatalogueEntry = {
   /** Programme officiel PDF */
   programmePdfHref: string;
   /** Profils « Quelle formation choisir ? » */
-  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude'>;
+  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude' | 'maitrise-oeuvre'>;
   /** Badge « Prix de lancement » à côté du tarif session */
   launchPrice?: boolean;
   /** Ligne tableau comparatif */
@@ -137,6 +137,32 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
       publicLabel:
         'Référents IA, dirigeants, responsables digitaux, chargés d\'affaires et conducteurs de travaux',
       casUsage: 'Projets Claude, Skills, Cowork, connecteurs (Gmail/Drive), Claude Code, automatisation',
+    },
+  },
+  {
+    ref: 'NIV-05',
+    level: 'AVANCÉ',
+    title: "L'IA au service des maîtres d'œuvre",
+    href: LINKS.formationIaMaitriseOeuvre,
+    slug: 'ia-maitrise-oeuvre',
+    programmePdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
+    visuel: PHOTOS.formationNiv05IaMaitriseOeuvre2026,
+    duree: SESSION_DUREE_LIBELLE,
+    effectif: '3 à 8 participants',
+    pitch:
+      "Niveau 2 : IA pour maîtres d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et suivi des réserves.",
+    profileTags: ['maitrise-oeuvre'],
+    objectifs: [
+      'Choisir entre Claude et ChatGPT selon le cas d\'usage MOE (Projets, Connecteurs, Skills, Cowork)',
+      'Analyser un DCE (CCTP, bordereau) et extraire conformité et alertes contractuelles',
+      'Rédiger un compte rendu de chantier en moins de 10 minutes à partir de notes vocales',
+      'Produire courriers, ordres de service et actes administratifs conformes',
+      'Organiser le suivi des réserves, la réception et le suivi client avec un assistant IA',
+    ],
+    comparatif: {
+      publicLabel:
+        'Maîtres d\'œuvre d\'exécution (MOEX), conducteurs de travaux, OPC, BET, assistant(e)s gestion travaux',
+      casUsage: 'Analyse DCE, CR chantier, OS, courriers MOE, réserves et réception',
     },
   },
 ];

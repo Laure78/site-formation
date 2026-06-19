@@ -16,6 +16,8 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
       return 'Téléchargez le programme détaillé de la formation conduite de travaux — suivi chantier et skills Claude BTP.';
     case 'NIV-04':
       return 'Téléchargez le programme détaillé de la formation Maîtriser Claude AI pour le BTP — Projets, Skills, Cowork et Claude Code.';
+    case 'NIV-05':
+      return "Téléchargez le programme détaillé de la formation L'IA au service des maîtres d'œuvre — MOEX, DCE, CR chantier et réserves.";
     default:
       return `Téléchargez le programme détaillé — ${formationTitle}.`;
   }

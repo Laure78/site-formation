@@ -12,6 +12,7 @@ import {
   FileText,
   Users,
   HardHat,
+  Landmark,
 } from 'lucide-react';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
@@ -27,13 +28,14 @@ import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude';
+type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe';
 
 const PROFILE_ICONS = {
   'NIV-01': BookOpen,
   'NIV-02': FileText,
   'NIV-03': HardHat,
   'NIV-04': Cpu,
+  'NIV-05': Landmark,
 } as const;
 
 const PROFILE_IDS: Record<string, ProfileId> = {
@@ -41,6 +43,7 @@ const PROFILE_IDS: Record<string, ProfileId> = {
   'NIV-02': 'ao',
   'NIV-03': 'conduite',
   'NIV-04': 'claude',
+  'NIV-05': 'moe',
 };
 
 const PROFILES = FORMATIONS_CATALOGUE.map((entry) => ({

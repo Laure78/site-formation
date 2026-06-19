@@ -5,7 +5,7 @@ import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
-const PORTRAIT_SRC = '/images/laure-portrait-header-2026.png';
+const PORTRAIT_SRC = PHOTOS.siteAvatar.src;
 
 type ArticleAuthorBioProps = {
   className?: string;

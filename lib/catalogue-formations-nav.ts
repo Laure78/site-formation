@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
-import { Building2, FileText, HardHat } from 'lucide-react';
+import { Building2, FileText, HardHat, Landmark } from 'lucide-react';
+import { LINKS } from '@/lib/internal-links';
 
 /** Liens méga-menu — même ordre que le catalogue /formations (niveau puis réf.). */
 export type CatalogueFormationNavLink = {
@@ -30,5 +31,10 @@ export const CATALOGUE_FORMATIONS_NAV_LINKS: CatalogueFormationNavLink[] = [
     href: '/formations/maitriser-claude-ai-btp',
     label: 'Maîtriser Claude AI pour le BTP',
     icon: FileText,
+  },
+  {
+    href: LINKS.formationIaMaitriseOeuvre,
+    label: "L'IA au service des maîtres d'œuvre",
+    icon: Landmark,
   },
 ];

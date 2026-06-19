@@ -468,7 +468,7 @@ export function Navbar() {
       >
         <div className="site-header__inner">
           <Link href="/" className="site-header__brand">
-            <span className="site-header__logo-mark">
+            <span className="site-header__logo-mark ring-[#377CF3]/25">
               <Image
                 src={PHOTOS.siteAvatar.src}
                 alt="Laure Olivié — formation IA pour les pro du BTP, organisme certifié Qualiopi"
@@ -479,7 +479,7 @@ export function Navbar() {
                 priority
               />
             </span>
-            <span className="hidden min-[380px]:inline">Laure Olivié</span>
+            <span className="sr-only">Laure Olivié</span>
           </Link>
 
           <nav

@@ -86,7 +86,7 @@ export const SCHEMA_LOGO_PATH = '/logo-lo.svg' as const;
 export const SCHEMA_DEFAULT_PERSON_IMAGE_PATH = '/images/laure-olivie-formatrice.png' as const;
 
 /** Portrait header — schéma Person global (layout). */
-export const SCHEMA_HEADER_PERSON_IMAGE_PATH = '/images/laure-portrait-header-2026.png' as const;
+export const SCHEMA_HEADER_PERSON_IMAGE_PATH = '/images/laure-avatar-bleu-2026.png' as const;
 
 /** URL absolue logo. */
 export function schemaLogoUrl(): string {

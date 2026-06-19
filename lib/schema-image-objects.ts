@@ -4,7 +4,7 @@
  */
 import { SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
-import { SCHEMA_ORGANIZATION_OFC } from '@/lib/schema-constants';
+import { SCHEMA_ORGANIZATION_OFC, SCHEMA_HEADER_PERSON_IMAGE_PATH } from '@/lib/schema-constants';
 
 const year = new Date().getFullYear();
 const base = SITE_CONFIG.url.replace(/\/$/, '');
@@ -37,11 +37,11 @@ export function buildHomePageImageObjectsJsonLd() {
       {
         '@type': 'ImageObject',
         '@id': `${base}/#image-portrait-header-laure`,
-        url: `${base}/images/laure-portrait-header-2026.png`,
-        name: "Laure Olivié, formatrice IA pour les pro du BTP certifiée Qualiopi — OFC Création d'Entreprise",
+        url: `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`,
+        name: PHOTOS.siteAvatar.alt,
         description:
-          "Portrait rond header — Laure Olivié, formatrice IA appliquée au bâtiment certifiée Qualiopi, OFC Création d'Entreprise.",
-        contentUrl: `${base}/images/laure-portrait-header-2026.png`,
+          "Miniature bleue OFC — portrait Laure Olivié, formatrice IA appliquée au bâtiment certifiée Qualiopi.",
+        contentUrl: `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`,
         license: `${base}/mentions-legales`,
         acquireLicensePage: `${base}/contact`,
         creditText: "OFC Création d'Entreprise",

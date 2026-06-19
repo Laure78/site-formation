@@ -898,26 +898,28 @@ export default function HomePage() {
               >
                 <Link
                   href={cours.href}
-                  className="relative block aspect-square w-full shrink-0 bg-slate-100"
+                  className="relative block w-full shrink-0 border-b border-[#E2E8F0] bg-[#F1F5F9] px-4 py-4"
                   title={`Fiche formation — ${cours.title}`}
                 >
-                  <Image
-                    src={cours.visuel.src}
-                    alt={cours.visuel.alt}
-                    title={
-                      'title' in cours.visuel && typeof cours.visuel.title === 'string'
-                        ? cours.visuel.title
-                        : undefined
-                    }
-                    fill
-                    className="object-cover object-top transition-opacity hover:opacity-95"
-                    sizes="(max-width: 767px) 100vw, 33vw"
-                  />
-                  <CataloguePriceBadge
-                    level={cours.level}
-                    launchPrice={cours.launchPrice}
-                    variant="overlay"
-                  />
+                  <div className="relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden sm:max-w-[220px] md:max-w-[240px]">
+                    <Image
+                      src={cours.visuel.src}
+                      alt={cours.visuel.alt}
+                      title={
+                        'title' in cours.visuel && typeof cours.visuel.title === 'string'
+                          ? cours.visuel.title
+                          : undefined
+                      }
+                      fill
+                      className="object-contain object-center transition-opacity hover:opacity-95"
+                      sizes="(max-width: 640px) 200px, 240px"
+                    />
+                    <CataloguePriceBadge
+                      level={cours.level}
+                      launchPrice={cours.launchPrice}
+                      variant="overlay"
+                    />
+                  </div>
                 </Link>
                 <div className="p-6">
                 <div className="flex items-start justify-between gap-2">

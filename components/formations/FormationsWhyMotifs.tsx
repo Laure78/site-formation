@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Cpu, HardHat, Trophy, Wallet } from 'lucide-react';
+import { BookOpen, Cpu, HardHat, Landmark, Trophy, Wallet } from 'lucide-react';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import {
   CATALOGUE_FORMATIONS_COUNT,
@@ -20,10 +20,11 @@ export function FormationsWhyMotifs() {
         L&apos;IA générative ne se travaille pas de la même manière selon que vous structurez une
         journée terrain, rédigez un mémoire technique, analysez un DCE, pilotez un chantier ou
         industrialisez Claude en entreprise. Plutôt qu&apos;une formation généraliste, le catalogue OFC
-        propose <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — un niveau 1 et trois formations niveau 2 — avec
+        propose <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — un niveau 1 et{' '}
+        {CATALOGUE_FORMATIONS_COUNT - 1} formations niveau 2 — avec
         programmes PDF téléchargeables sur chaque fiche.
       </p>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {FORMATIONS_CATALOGUE.map((entry) => {
           const Icon =
             entry.ref === 'NIV-01'
@@ -32,7 +33,9 @@ export function FormationsWhyMotifs() {
                 ? Trophy
                 : entry.ref === 'NIV-03'
                   ? HardHat
-                  : Cpu;
+                  : entry.ref === 'NIV-05'
+                    ? Landmark
+                    : Cpu;
           const isDebutant = isCatalogueNiveau1(entry.ref);
           return (
             <div key={entry.ref} className={`${OFC_CARD} p-8`}>
@@ -55,7 +58,9 @@ export function FormationsWhyMotifs() {
                     ? 'DCE, mémoire technique, Cowork & Skills'
                     : entry.ref === 'NIV-03'
                       ? 'CCTP, CR, PPSPS, réception — skills Claude chantier'
-                      : 'Projets, Cowork, connecteurs, Claude Code — matin 9h–13h'}
+                      : entry.ref === 'NIV-05'
+                        ? 'DCE, CR chantier, OS, courriers MOE et réserves'
+                        : 'Projets, Cowork, connecteurs, Claude Code — matin 9h–13h'}
               </p>
               <CataloguePriceBadge
                 level={entry.level}

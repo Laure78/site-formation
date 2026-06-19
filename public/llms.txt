@@ -19,6 +19,7 @@ Note de satisfaction : 4,85/5. Formations finançables par Constructys et les OP
 - NIV-02 — L'IA appliquée aux appels d'offres BTP (4 h, 1 200 € HT/session, Qualiopi) — /formations/ia-appels-offre-btp
 - NIV-03 — L'IA appliquée à la conduite de travaux (4 h, 1 200 € HT/session, prix de lancement, 8 participants max, avancé, conducteurs de travaux) — /formations/ia-conduite-travaux-suivi-chantier — PDF : /formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf
 - NIV-04 — Maîtriser Claude AI pour le BTP (4 h le matin 9h–13h, 1 200 € HT/session, prix de lancement, 8 participants max, avancé, référents IA et direction) — /formations/maitriser-claude-ai-btp — PDF : /formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf
+- NIV-05 — L'IA au service des maîtres d'œuvre (4 h, 1 200 € HT/session, 3 à 8 participants, avancé, MOEX/MOE) — /formations/ia-maitrise-oeuvre — PDF : /formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf
 - Format : intra dans vos locaux ou inter en salle, exclusivement en présentiel en Île-de-France
 - Financement : Constructys (plafond 24 € HT/h/stagiaire en 2026), selon éligibilité
 

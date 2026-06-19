@@ -12,6 +12,7 @@ const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
 const NIV03_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-03')!;
 const NIV04_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-04')!;
+const NIV05_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-05')!;
 const CATALOGUE_COUNT = FORMATIONS_CATALOG_SCHEMA.length;
 
 export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown> {
@@ -137,6 +138,21 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 price: TARIF_SESSION_AVANCE_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (prix de lancement, matin)',
+                valueAddedTaxIncluded: false,
+              },
+            },
+            {
+              '@type': 'Offer',
+              itemOffered: {
+                '@id': `${BASE}/formations/ia-maitrise-oeuvre#course`,
+              },
+              price: TARIF_SESSION_AVANCE_HT,
+              priceCurrency: 'EUR',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: TARIF_SESSION_AVANCE_HT,
+                priceCurrency: 'EUR',
+                unitText: 'par session (3 à 8 participants, MOE/MOEX)',
                 valueAddedTaxIncluded: false,
               },
             },
@@ -318,6 +334,46 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
             },
           },
+          {
+            '@type': 'ListItem',
+            position: 5,
+            item: {
+              '@type': 'Course',
+              '@id': `${BASE}/formations/ia-maitrise-oeuvre#course`,
+              name: NIV05_CATALOG.name,
+              description: NIV05_CATALOG.description,
+              url: `${BASE}/formations/ia-maitrise-oeuvre`,
+              courseCode: 'NIV-05',
+              educationalLevel: 'Advanced',
+              inLanguage: 'fr-FR',
+              teaches: NIV05_CATALOG.teaches,
+              occupationalCategory: NIV05_CATALOG.occupationalCategory,
+              provider: { '@id': `${BASE}/#organization` },
+              hasCourseInstance: {
+                '@type': 'CourseInstance',
+                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseWorkload: 'PT4H',
+                location: {
+                  '@type': 'Place',
+                  name: 'Île-de-France — inter ou intra, en présentiel',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: 'Île-de-France',
+                    addressCountry: 'FR',
+                  },
+                },
+                instructor: { '@id': `${BASE}/#laure-olivie` },
+              },
+              offers: {
+                '@type': 'Offer',
+                price: TARIF_SESSION_AVANCE_HT,
+                priceCurrency: 'EUR',
+                availability: 'https://schema.org/InStock',
+                url: `${BASE}/formations/ia-maitrise-oeuvre`,
+                category: 'Formation professionnelle continue — maîtrise d\'œuvre',
+              },
+            },
+          },
         ],
       },
       ...(faqSchema
@@ -341,7 +397,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 1,
             name: 'Identifier le métier cible',
-            text: 'Choisissez le parcours adapté : niveau 1 — L\'IA au service des pros du bâtiment et des travaux publics ; niveau 2 — L\'IA appliquée aux appels d\'offres BTP, L\'IA appliquée à la conduite de travaux, ou Maîtriser Claude AI pour le BTP.',
+            text: 'Choisissez le parcours adapté : niveau 1 — L\'IA au service des pros du bâtiment et des travaux publics ; niveau 2 — L\'IA appliquée aux appels d\'offres BTP, L\'IA appliquée à la conduite de travaux, L\'IA au service des maîtres d\'œuvre, ou Maîtriser Claude AI pour le BTP.',
           },
           {
             '@type': 'HowToStep',

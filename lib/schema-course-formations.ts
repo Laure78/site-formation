@@ -83,6 +83,22 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ],
     occupationalCategory: 'BTP, référents IA, direction et fonctions support',
   },
+  {
+    ref: 'NIV-05',
+    level: 'AVANCÉ',
+    path: '/formations/ia-maitrise-oeuvre',
+    name: "L'IA au service des maîtres d'œuvre",
+    description:
+      "Formation niveau 2 — 4 h : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et réserves. Qualiopi, Constructys.",
+    teaches: [
+      'Claude et ChatGPT pour cas d\'usage MOE (Projets, Connecteurs, Skills, Cowork)',
+      'Analyse DCE et extraction conformité / alertes contractuelles',
+      'Comptes rendus de chantier accélérés (notes vocales)',
+      'Courriers, ordres de service et actes administratifs MOE',
+      'Suivi réserves, réception et GPA avec assistant IA',
+    ],
+    occupationalCategory: 'BTP, maîtrise d\'œuvre, MOEX',
+  },
 ];
 
 const DURATION_ISO = 'PT4H';
@@ -220,6 +236,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-appels-offre-btp',
   '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/maitriser-claude-ai-btp',
+  '/formations/ia-maitrise-oeuvre',
   '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;
 
