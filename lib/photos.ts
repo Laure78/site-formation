@@ -9,7 +9,7 @@ export const PHOTOS = {
     height: 404,
   },
 
-  /** Avatar site — miniature bleue OFC (portrait sans texte, header + auteur) */
+  /** Avatar site — portrait circulaire IA & BTP (header + auteur articles) */
   siteAvatar: {
     src: '/images/laure-avatar-bleu-2026.png',
     alt: "Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi — OFC Création d'Entreprise",
