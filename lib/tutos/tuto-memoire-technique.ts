@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { PHOTOS } from '@/lib/photos';
 
 export const TUTO_MEMOIRE_TECHNIQUE: TutoData = {
   slug: 'tuto-memoire-technique',
@@ -43,6 +44,8 @@ export const TUTO_MEMOIRE_TECHNIQUE: TutoData = {
 
   cardSummary:
     "Crée un skill Claude qui rédige automatiquement tes mémoires techniques BTP : 11 sections classiques, méthodologie, QSE, références. Divise ton temps de rédaction par 5.",
+
+  heroImage: PHOTOS.tutoMemoireTechniqueHero2026,
 
   totalTimeMinutes: 30,
 

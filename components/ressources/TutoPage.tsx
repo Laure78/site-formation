@@ -162,7 +162,9 @@ function CtaStat({ value, label }: { value: string; label: string }) {
 /** Construit le `@graph` JSON-LD : Article + HowTo + FAQPage + BreadcrumbList. */
 function buildJsonLdGraph(tuto: TutoData) {
   const url = pageUrlFor(tuto);
-  const ogImageUrl = `${SITE_BASE}/og/ressources-${tuto.slug}.png`;
+  const imageUrl = tuto.heroImage
+    ? `${SITE_BASE}${tuto.heroImage.src}`
+    : `${SITE_BASE}/og/ressources-${tuto.slug}.png`;
   const description = tuto.metaDescription;
 
   const article = {
@@ -184,7 +186,7 @@ function buildJsonLdGraph(tuto: TutoData) {
     datePublished: tuto.publishedAt,
     dateModified: tuto.updatedAt,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    image: ogImageUrl,
+    image: imageUrl,
   };
 
   const howTo = {
@@ -239,72 +241,100 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
       <JsonLd id={`schema-tuto-${tuto.slug}`} schema={graph} />
 
       {/* Hero */}
-      <section className="bg-white" aria-labelledby={`hero-${tuto.slug}`}>
-        <div className="mx-auto max-w-4xl px-4 pb-10 pt-8 md:pb-14 md:pt-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
-            {tuto.eyebrow}
-          </p>
-          <h1
-            id={`hero-${tuto.slug}`}
-            className="mt-3 font-display text-3xl font-bold leading-tight text-[#377CF3] md:text-4xl lg:text-[2.6rem]"
+      <section className="border-b border-slate-200 bg-[#F2F2F2]" aria-labelledby={`hero-${tuto.slug}`}>
+        <div
+          className={`mx-auto px-4 pb-10 pt-8 md:pb-14 md:pt-10 ${
+            tuto.heroImage ? 'max-w-6xl' : 'max-w-4xl'
+          }`}
+        >
+          <div
+            className={
+              tuto.heroImage
+                ? 'grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_360px]'
+                : undefined
+            }
           >
-            {tuto.title}
-          </h1>
-          <p className="mt-4 italic text-slate-700 md:text-lg">
-            {tuto.subtitle}
-          </p>
-
-          {/* Encadré bleu plein "CE QUE TU VAS APPRENDRE" */}
-          <div className="mt-8 rounded-2xl bg-[#377CF3] p-6 text-white shadow-lg md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
-              Ce que tu vas apprendre
-            </p>
-            <ul className="mt-4 space-y-1">
-              {tuto.heroLearnPoints.map((p, idx) => {
-                const frag = heroAnchors[idx] ?? `intro-${tuto.slug}`;
-                return (
-                  <li key={`${frag}-${idx}`}>
-                    <a
-                      href={`#${frag}`}
-                      className="group flex gap-3 rounded-lg px-1 py-1.5 text-white/95 leading-relaxed transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                    >
-                      <ChevronRight
-                        size={18}
-                        className="mt-1 shrink-0 text-white transition-transform group-hover:translate-x-0.5"
-                        strokeWidth={2.5}
-                        aria-hidden
-                      />
-                      <span className="underline-offset-4 group-hover:underline">{p}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <DownloadButton href={pdfUrl} variant="primary" />
-            <p className="text-sm text-slate-600">
-              Tutoriel gratuit — sans inscription, format PDF.
-            </p>
-          </div>
-
-          <div className="mt-8 flex items-center gap-4 border-t border-slate-200 pt-6">
-            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200">
-              <Image
-                src={PHOTOS.siteAvatar.src}
-                alt="Laure Olivié, formatrice IA × BTP, OFC Création d'Entreprise"
-                fill
-                className="object-cover"
-                sizes="56px"
-              />
-            </div>
-            <div className="text-sm">
-              <p className="font-semibold text-slate-900">Laure Olivié</p>
-              <p className="text-slate-600">
-                Formatrice IA × BTP — OFC Création d&apos;Entreprise
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
+                {tuto.eyebrow}
               </p>
+              <h1
+                id={`hero-${tuto.slug}`}
+                className="mt-3 font-display text-3xl font-bold leading-tight text-[#377CF3] md:text-4xl lg:text-[2.6rem]"
+              >
+                {tuto.title}
+              </h1>
+              <p className="mt-4 italic text-slate-700 md:text-lg">{tuto.subtitle}</p>
+
+              {/* Encadré bleu plein "CE QUE TU VAS APPRENDRE" */}
+              <div className="mt-8 rounded-2xl bg-[#377CF3] p-6 text-white shadow-lg md:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/85">
+                  Ce que tu vas apprendre
+                </p>
+                <ul className="mt-4 space-y-1">
+                  {tuto.heroLearnPoints.map((p, idx) => {
+                    const frag = heroAnchors[idx] ?? `intro-${tuto.slug}`;
+                    return (
+                      <li key={`${frag}-${idx}`}>
+                        <a
+                          href={`#${frag}`}
+                          className="group flex gap-3 rounded-lg px-1 py-1.5 text-white/95 leading-relaxed transition-colors hover:bg-white/10 focus-visible:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                        >
+                          <ChevronRight
+                            size={18}
+                            className="mt-1 shrink-0 text-white transition-transform group-hover:translate-x-0.5"
+                            strokeWidth={2.5}
+                            aria-hidden
+                          />
+                          <span className="underline-offset-4 group-hover:underline">{p}</span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <DownloadButton href={pdfUrl} variant="primary" />
+                <p className="text-sm text-slate-600">
+                  Tutoriel gratuit — sans inscription, format PDF.
+                </p>
+              </div>
+
+              <div className="mt-8 flex items-center gap-4 border-t border-slate-200 pt-6">
+                <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200">
+                  <Image
+                    src={PHOTOS.siteAvatar.src}
+                    alt="Laure Olivié, formatrice IA × BTP, OFC Création d'Entreprise"
+                    fill
+                    className="object-cover"
+                    sizes="56px"
+                  />
+                </div>
+                <div className="text-sm">
+                  <p className="font-semibold text-slate-900">Laure Olivié</p>
+                  <p className="text-slate-600">
+                    Formatrice IA × BTP — OFC Création d&apos;Entreprise
+                  </p>
+                </div>
+              </div>
             </div>
+
+            {tuto.heroImage ? (
+              <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
+                <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
+                  <Image
+                    src={tuto.heroImage.src}
+                    alt={tuto.heroImage.alt}
+                    width={tuto.heroImage.width}
+                    height={tuto.heroImage.height}
+                    className="h-auto w-full object-contain"
+                    sizes="(max-width: 1024px) 280px, 360px"
+                    priority
+                  />
+                </div>
+              </figure>
+            ) : null}
           </div>
         </div>
       </section>

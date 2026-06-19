@@ -383,6 +383,14 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  /** Tuto skill Mémoire Technique BTP — visuel promotionnel page /ressources/tuto-memoire-technique */
+  tutoMemoireTechniqueHero2026: {
+    src: '/images/tuto-memoire-technique-hero-2026.png',
+    alt: 'Tuto skill Mémoire Technique BTP — assistant Claude pour mémoires techniques, Laure Olivié formatrice IA',
+    width: 1024,
+    height: 1024,
+  },
+
   /** Page d'accueil — présentation en salle, écran « L'IA au service du bâtiment » */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/hero-accueil-formation-ia-btp-echange-2026.png',

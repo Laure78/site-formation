@@ -13,6 +13,14 @@ export function generateStaticParams(): Params[] {
 }
 
 function ogImageFor(tuto: TutoData) {
+  if (tuto.heroImage) {
+    return {
+      url: tuto.heroImage.src,
+      width: tuto.heroImage.width,
+      height: tuto.heroImage.height,
+      alt: tuto.heroImage.alt,
+    };
+  }
   return {
     url: `${SITE_BASE}/og/ressources-${tuto.slug}.png`,
     width: 1200,

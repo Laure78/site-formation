@@ -139,4 +139,12 @@ export type TutoData = {
 
   /** Description courte (60-80 mots) pour la grille `/ressources` */
   cardSummary: string;
+
+  /** Visuel promotionnel hero (optionnel — page tuto individuelle). */
+  heroImage?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
 };
