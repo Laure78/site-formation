@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
 import { PHOTOS } from '@/lib/photos';
+import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
@@ -90,7 +91,7 @@ export function ArticlesFormationLies() {
                       title="Laure Olivié — OFC Création d'Entreprise, formatrice IA pour les pro du BTP"
                       width={36}
                       height={36}
-                      className="h-9 w-9 rounded-full object-cover"
+                      className={`h-9 w-9 rounded-full object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION}`}
                     />
                   </PortraitLinkedInLink>
                   <div className="min-w-0">

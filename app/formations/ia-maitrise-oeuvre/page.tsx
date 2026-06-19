@@ -18,6 +18,7 @@ import {
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 
 const PATH = LINKS.formationIaMaitriseOeuvre;
 const PDF_HREF = LINKS.pdfProgrammeIaMaitriseOeuvre;
@@ -244,7 +245,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               alt="Laure Olivié, formatrice IA BTP, session formation maîtrise d'œuvre"
               width={120}
               height={120}
-              className="h-[120px] w-[120px] shrink-0 rounded-full border-2 border-[#D4E3FC] object-cover object-top shadow-md"
+              className={`h-[120px] w-[120px] shrink-0 rounded-full border-2 border-[#D4E3FC] object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION} shadow-md`}
               sizes="120px"
             />
             <div className="min-w-0 flex-1">

@@ -16,6 +16,7 @@ import {
 import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
+import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 
 const LINKEDIN_LEARNING_INSTRUCTOR =
   'https://www.linkedin.com/learning/instructors/laure-olivie' as const;
@@ -91,7 +92,7 @@ export default function AuthorBio({
           alt={PHOTOS.siteAvatar.alt}
           width={120}
           height={120}
-          className="h-[120px] w-[120px] shrink-0 rounded-full border-2 border-white object-cover object-top shadow-md"
+          className={`h-[120px] w-[120px] shrink-0 rounded-full border-2 border-white object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION} shadow-md`}
           sizes="120px"
         />
         <div className="min-w-0 flex-1">

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Linkedin } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
+import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
 const PORTRAIT_SRC = PHOTOS.siteAvatar.src;
@@ -28,7 +29,7 @@ export function ArticleAuthorBio({ className }: ArticleAuthorBioProps = {}) {
             alt={PHOTOS.siteAvatar.alt}
             width={80}
             height={80}
-            className="h-20 w-20 shrink-0 rounded-full border border-slate-200 object-cover object-top"
+            className={`h-20 w-20 shrink-0 rounded-full border border-slate-200 object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION}`}
             sizes="80px"
           />
           <div className="min-w-0 flex-1">
