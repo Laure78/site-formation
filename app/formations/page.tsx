@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       width: 1200,
       height: 630,
       alt:
-        'Catalogue formation IA pour le BTP — 4 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+        'Catalogue formation IA pour le BTP — 5 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
     },
   }),
   openGraph: {
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          'Catalogue formation IA appliquée au bâtiment — 4 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
+          'Catalogue formation IA appliquée au bâtiment — 5 formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics',
       },
     ],
   },
@@ -191,6 +191,12 @@ export default function FormationsPage() {
             <li>
               <Link href={LINKS.formationMaitriserClaudeAiBtp} className={chipLinkClass}>
                 Maîtriser Claude AI pour le BTP
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationIaMaitriseOeuvre} className={chipLinkClass}>
+                L&apos;IA au service des maîtres d&apos;œuvre
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>

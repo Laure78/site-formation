@@ -35,7 +35,7 @@ export type FormationCatalogueEntry = {
   };
 };
 
-/** Quatre parcours officiels — niveau 1 et niveau 2 (programmes PDF). */
+/** Cinq parcours officiels — niveau 1 et niveau 2 (programmes PDF). */
 export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
   {
     ref: 'NIV-01',

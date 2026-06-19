@@ -43,6 +43,7 @@ import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import {
   FORMATIONS_CATALOGUE,
+  CATALOGUE_FORMATIONS_COUNT,
   cataloguePedagogicalLevelBadge,
   catalogueNiveauEtLevel,
   getFormationCatalogueByRef,
@@ -281,7 +282,7 @@ export default function HomePage() {
                     'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
                     `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
                     'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                    'Catalogue 4 formations (niveau 1 bâtiment & TP, niveau 2 : appels d\'offres, conduite de travaux, Claude AI) — validation métier de votre côté.',
+                    `Catalogue ${CATALOGUE_FORMATIONS_COUNT} formations (niveau 1 bâtiment & TP, niveau 2 : appels d'offres, conduite de travaux, Claude AI, maîtres d'œuvre) — validation métier de votre côté.`,
                   ]}
                 />
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -999,7 +1000,7 @@ export default function HomePage() {
             <Link
               href={LINKS.formations}
               className={OFC_LINK}
-              title="Catalogue — 4 formations, programmes PDF"
+              title={`Catalogue — ${CATALOGUE_FORMATIONS_COUNT} formations, programmes PDF`}
             >
               catalogue &amp; programmes PDF
             </Link>

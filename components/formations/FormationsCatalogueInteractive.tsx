@@ -216,7 +216,7 @@ export function FormationsCatalogueInteractive({
             vous correspond.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {PROFILES.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -235,7 +235,7 @@ export function FormationsCatalogueInteractive({
                 >
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
-                <span className="mt-3 block text-sm font-semibold leading-snug text-[#0F172A] sm:text-base">{p.label}</span>
+                <span className="mt-3 block text-xs font-semibold leading-snug text-[#0F172A] sm:text-sm xl:text-[0.8125rem]">{p.label}</span>
                 <span className="mt-1 block text-sm text-[#64748B]">{p.short}</span>
               </button>
             );

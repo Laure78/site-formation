@@ -3,13 +3,18 @@
  * Toutes les URLs proviennent de `lib/internal-links.ts`.
  */
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
-import { formationCatalogueLinkLabel, getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
+import {
+  CATALOGUE_FORMATIONS_COUNT,
+  formationCatalogueLinkLabel,
+  getFormationCatalogueByRef,
+} from '@/lib/formations-catalogue-display';
 import { LINKS, type InternalLinkPath } from '@/lib/internal-links';
 
 const NIV01 = getFormationCatalogueByRef('NIV-01')!;
 const NIV02 = getFormationCatalogueByRef('NIV-02')!;
 const NIV03 = getFormationCatalogueByRef('NIV-03')!;
 const NIV04 = getFormationCatalogueByRef('NIV-04')!;
+const NIV05 = getFormationCatalogueByRef('NIV-05')!;
 
 export type ContextualLinkCard = {
   href: InternalLinkPath | string;
@@ -114,6 +119,11 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
     description: 'Projets, Skills, Cowork, connecteurs, Claude Code — matin 9h–13h.',
   },
   {
+    href: LINKS.formationIaMaitriseOeuvre,
+    title: formationCatalogueLinkLabel(NIV05),
+    description: 'DCE, CR chantier, OS, courriers MOE et réserves — 3 à 8 participants.',
+  },
+  {
     href: LINKS.financement,
     title: 'Financement Constructys',
     description: 'OPCO, plafonds pédagogiques, dossier et convention.',
@@ -121,7 +131,7 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Catalogue complet',
-    description: 'Comparatif des 4 sessions, tarifs et modalités.',
+    description: `Comparatif des ${CATALOGUE_FORMATIONS_COUNT} sessions, tarifs et modalités.`,
   },
 ];
 
@@ -200,7 +210,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
 ];
 
 export const GEO_PAGE_UTILITY_LINKS: ContextualLinkCard[] = [
-  ...FORMATION_CATALOGUE_CORE.slice(0, 4),
+  ...FORMATION_CATALOGUE_CORE.slice(0, 5),
   {
     href: LINKS.aPropos,
     title: 'Laure Olivié — formatrice',
@@ -259,7 +269,7 @@ export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
   {
     href: LINKS.formations,
     title: 'Formations',
-    description: 'Catalogue Qualiopi — NIV-01 à NIV-04',
+    description: `Catalogue Qualiopi — NIV-01 à NIV-0${CATALOGUE_FORMATIONS_COUNT}`,
   },
   {
     href: LINKS.financement,
