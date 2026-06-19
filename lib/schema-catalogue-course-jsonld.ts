@@ -30,16 +30,16 @@ const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], 
 const OFFER_CATEGORY_BY_REF: Record<string, string> = {
   'NIV-01': 'Formation professionnelle continue',
   'NIV-02': 'Formation professionnelle continue — niveau avancé',
-  'NIV-03': 'Formation professionnelle continue — prix de lancement',
-  'NIV-04': 'Formation professionnelle continue — prix de lancement',
+  'NIV-03': 'Formation professionnelle continue — niveau avancé',
+  'NIV-04': 'Formation professionnelle continue — niveau avancé',
   'NIV-05': 'Formation professionnelle continue — maîtrise d\'œuvre',
 };
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
   'NIV-01': 'Prix HT par session (max 12 participants, niveau débutant)',
   'NIV-02': 'Prix HT par session (8 à 12 participants, niveau avancé)',
-  'NIV-03': 'Prix HT par session (8 participants max, prix de lancement)',
-  'NIV-04': 'Prix HT par session (8 participants max, prix de lancement)',
+  'NIV-03': 'Prix HT par session (8 participants max, niveau avancé)',
+  'NIV-04': 'Prix HT par session (8 participants max, niveau avancé, matin)',
   'NIV-05': 'Prix HT par session (3 à 8 participants, niveau avancé)',
 };
 

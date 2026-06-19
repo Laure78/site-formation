@@ -1,12 +1,10 @@
 import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
 import { formatTarifHt, tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 
 export type CataloguePriceVariant = 'overlay' | 'pill' | 'banner' | 'hero' | 'strip';
 
 type Props = {
   level: CatalogueLevel;
-  launchPrice?: boolean;
   variant?: CataloguePriceVariant;
   className?: string;
 };
@@ -29,7 +27,6 @@ function levelColors(level: CatalogueLevel) {
 
 export function CataloguePriceBadge({
   level,
-  launchPrice = false,
   variant = 'pill',
   className = '',
 }: Props) {
@@ -45,7 +42,6 @@ export function CataloguePriceBadge({
         <span className={`mt-1 text-[10px] font-bold uppercase tracking-[0.12em] ${colors.muted}`}>
           HT / session
         </span>
-        {launchPrice ? <LaunchPriceBadge className="mt-2 !bg-white/85" /> : null}
       </div>
     );
   }
@@ -63,7 +59,6 @@ export function CataloguePriceBadge({
         </div>
         <div className="text-right text-xs font-medium opacity-90">
           <p>/ session groupe</p>
-          {launchPrice ? <LaunchPriceBadge className="mt-1.5 !bg-white/80" /> : null}
         </div>
       </div>
     );
@@ -81,7 +76,6 @@ export function CataloguePriceBadge({
             <span className="text-base font-semibold text-[#64748B]">HT / session</span>
           </p>
         </div>
-        {launchPrice ? <LaunchPriceBadge className="!text-[#1D4ED8]" /> : null}
       </div>
     );
   }
@@ -93,7 +87,6 @@ export function CataloguePriceBadge({
       >
         <span className="font-display text-base leading-none">{amount} € HT</span>
         <span className={`text-[10px] font-semibold uppercase tracking-wide ${colors.muted}`}>/ session</span>
-        {launchPrice ? <LaunchPriceBadge className="!bg-white/85" /> : null}
       </span>
     );
   }
@@ -104,7 +97,6 @@ export function CataloguePriceBadge({
     >
       <span className="font-display text-lg font-bold leading-none">{amount} €</span>
       <span className={`mt-0.5 text-[10px] font-bold uppercase tracking-wide ${colors.muted}`}>HT / session</span>
-      {launchPrice ? <LaunchPriceBadge className="mt-1.5 !bg-white/85" /> : null}
     </span>
   );
 }

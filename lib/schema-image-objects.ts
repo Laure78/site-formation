@@ -54,14 +54,14 @@ export function buildHomePageImageObjectsJsonLd() {
 }
 
 export function buildAProposImageObjectJsonLd() {
-  const p = PHOTOS.portraitPro2026;
+  const p = PHOTOS.aProposHero2026;
   return {
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
     '@id': `${base}/#image-portrait-pro-laure`,
     url: `${base}${p.src}`,
     name: p.alt,
-    description: p.alt,
+    description: p.description ?? p.alt,
     contentUrl: `${base}${p.src}`,
     license: `${base}/mentions-legales`,
     acquireLicensePage: `${base}/contact`,

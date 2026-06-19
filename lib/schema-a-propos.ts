@@ -24,7 +24,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
     legalName: SCHEMA_ORGANIZATION_OFC.legalName,
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
-    image: `${BASE}${PHOTOS.portraitPro2026.src}`,
+    image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA appliquée au bâtiment — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {
@@ -104,7 +104,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   jobTitle: 'Formatrice IA appliquée au bâtiment',
   description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
   url: `${BASE}/a-propos`,
-  image: `${BASE}${PHOTOS.portraitPro2026.src}`,
+  image: `${BASE}${PHOTOS.aProposHero2026.src}`,
   email: 'laureolivie@yahoo.fr',
   worksFor: {
     '@type': 'Organization',

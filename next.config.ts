@@ -411,6 +411,33 @@ const nextConfig: NextConfig = {
         destination: '/formations/ia-btp-saint-quentin-en-yvelines',
         permanent: true,
       },
+
+      // --- Images renommées (SEO) — 301 vers nouveaux chemins /public ---
+      {
+        source: '/images/formation-ia-artisans-2026.png',
+        destination: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-reference-partenaires-laure-ofc-2026.jpg',
+        destination: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
+        permanent: true,
+      },
+      {
+        source: '/images/hero-accueil-formation-ia-btp-echange-2026.jpg',
+        destination: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        permanent: true,
+      },
+      {
+        source: '/images/hero-formation-ia-btp-visio-2026.jpg',
+        destination: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        permanent: true,
+      },
+      {
+        source: '/images/rencontres-artisans-ia-ffb-btp.png',
+        destination: '/images/rencontres-artisans-ia-ffb-btp.jpg',
+        permanent: true,
+      },
     ];
   },
 };

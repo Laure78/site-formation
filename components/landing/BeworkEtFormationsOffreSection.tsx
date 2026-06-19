@@ -256,7 +256,6 @@ export function BeworkEtFormationsOffreSection() {
                     </div>
                     <CataloguePriceBadge
                       level={entry.level}
-                      launchPrice={entry.launchPrice}
                       variant="pill"
                     />
                   </div>

@@ -64,7 +64,6 @@ export function FormationsWhyMotifs() {
               </p>
               <CataloguePriceBadge
                 level={entry.level}
-                launchPrice={entry.launchPrice}
                 variant="banner"
                 className="mt-4"
               />

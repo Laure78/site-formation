@@ -28,8 +28,6 @@ export type FormationCatalogueEntry = {
   programmePdfHref: string;
   /** Profils « Quelle formation choisir ? » */
   profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude' | 'maitrise-oeuvre'>;
-  /** Badge « Prix de lancement » à côté du tarif session */
-  launchPrice?: boolean;
   /** Ligne tableau comparatif */
   comparatif: {
     publicLabel: string;
@@ -95,7 +93,6 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     visuel: PHOTOS.formationNiv03IaConduiteTravaux2026,
     duree: SESSION_DUREE_LIBELLE,
     effectif: '8 participants max',
-    launchPrice: true,
     pitch:
       "Niveau 2 : pilotez vos chantiers avec l'IA — une bibliothèque de 20+ skills Claude, de l'analyse du CCTP à la réception des travaux.",
     profileTags: ['conduite-travaux'],
@@ -122,7 +119,6 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
     visuel: PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
     duree: '4 h · matin (9h00 – 13h00)',
     effectif: '8 participants max',
-    launchPrice: true,
     pitch:
       "Niveau 2 : industrialisez l'IA dans votre entreprise BTP — Projets, Skills, Cowork, connecteurs et Claude Code, sur vos cas réels.",
     profileTags: ['maitriser-claude'],
@@ -232,10 +228,10 @@ export function tarifLabel(level: CatalogueLevel): string {
   return libelleTarifParticipant(level);
 }
 
-/** Libellé tarif carte catalogue — sans « max 12 » si prix de lancement ou effectif dédié. */
+/** Libellé tarif carte catalogue */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
   const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(entry.level));
-  if (entry.launchPrice) {
+  if (entry.effectif !== LIBELLE_EFFECTIF_GROUPE_COURT) {
     return `${n} € HT / session`;
   }
   return libelleTarifParticipant(entry.level);

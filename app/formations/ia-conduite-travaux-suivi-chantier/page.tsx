@@ -5,7 +5,6 @@ import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FORMATION_NIV03_RELATED } from '@/lib/contextual-internal-links';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -117,7 +116,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 
 const HERO_RESUME = [
   `Parcours catalogue : conduite de travaux & suivi chantier — bibliothèque de 20+ skills Claude.`,
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session — prix de lancement.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
 ];
@@ -229,8 +228,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
                 (9h00–13h00 ou 13h30–17h30). Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
-                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong>{' '}
-                <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
+                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
             <li className="flex gap-2">
@@ -324,8 +322,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session{' '}
-              <LaunchPriceBadge className="ml-1 align-middle" /> · <strong>Effectif :</strong>{' '}
+              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session · <strong>Effectif :</strong>{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).
             </li>

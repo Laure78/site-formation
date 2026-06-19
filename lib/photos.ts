@@ -220,11 +220,22 @@ export const PHOTOS = {
     height: 718,
   },
 
-  /** Portrait principal 2026 — accueil, contact, À propos (carte laureolivie.fr) */
+  /** Portrait principal 2026 — contact, ProfilePhoto, blog (carte laureolivie.fr) */
   portraitPro2026: {
     src: '/images/laure-portrait-laureolivie-fr-2026.jpg',
     alt: "Laure Olivié, formatrice IA pour le BTP certifiée Qualiopi, OFC Création d'Entreprise",
     width: 682,
+    height: 1024,
+  },
+
+  /** Hero page À propos — portrait circulaire IA & BTP (crane, ampoule, bâtiment) */
+  aProposHero2026: {
+    src: '/images/laure-olivie-a-propos-hero-2026.jpg',
+    alt: "Laure Olivié, formatrice IA et ChatGPT pour le BTP certifiée Qualiopi — OFC Création d'Entreprise",
+    title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
+    description:
+      "Portrait Laure Olivié sur fond bleu OFC : formatrice intelligence artificielle et ChatGPT pour artisans et PME du bâtiment — symboles chantier et innovation.",
+    width: 1024,
     height: 1024,
   },
 

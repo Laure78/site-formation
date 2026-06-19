@@ -62,7 +62,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     description:
       "Formatrice en intelligence artificielle spécialisée dans le secteur BTP. Ancienne conductrice de travaux et dirigeante d'entreprise (ALIA BTP, 2017-2026). 1 592 professionnels du BTP formés avec une note moyenne de 4,85/5.",
     url: PAGE_URL,
-    image: `${BASE}${PHOTOS.portraitPro2026.src}`,
+    image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     email: SCHEMA_CONTACT.email,
     nationality: { '@type': 'Country', name: 'France' },
     knowsLanguage: ['fr', 'en'],
@@ -132,7 +132,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     legalName: SCHEMA_ORGANIZATION_OFC.legalName,
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
-    image: `${BASE}${PHOTOS.portraitPro2026.src}`,
+    image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pro du BTP — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {

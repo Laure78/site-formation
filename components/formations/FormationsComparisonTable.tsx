@@ -82,7 +82,6 @@ export function FormationsComparisonTable({
                 <td className="px-[18px] py-3 align-top">
                   <CataloguePriceBadge
                     level={row.level}
-                    launchPrice={row.launchPrice}
                     variant="pill"
                   />
                 </td>
@@ -103,7 +102,7 @@ export function FormationsComparisonTable({
               <span className="inline-block rounded-md bg-[#EFF6FF] px-2 py-0.5 text-xs font-bold text-[#1E40AF]">
                 {catalogueNiveauLabel(row.ref)}
               </span>
-              <CataloguePriceBadge level={row.level} launchPrice={row.launchPrice} variant="pill" />
+              <CataloguePriceBadge level={row.level} variant="pill" />
             </div>
             <h3 className="mt-3 font-display text-base font-semibold text-[#0F172A]">
               <Link href={row.href} className="hover:text-[#377CF3] hover:underline">

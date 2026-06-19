@@ -916,7 +916,6 @@ export default function HomePage() {
                     />
                     <CataloguePriceBadge
                       level={cours.level}
-                      launchPrice={cours.launchPrice}
                       variant="overlay"
                     />
                   </div>
@@ -935,7 +934,6 @@ export default function HomePage() {
                 </h3>
                 <CataloguePriceBadge
                   level={cours.level}
-                  launchPrice={cours.launchPrice}
                   variant="banner"
                   className="mt-4"
                 />

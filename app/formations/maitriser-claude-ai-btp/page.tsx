@@ -5,7 +5,6 @@ import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FORMATION_NIV04_RELATED } from '@/lib/contextual-internal-links';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -35,7 +34,7 @@ const PATH = LINKS.formationMaitriserClaudeAiBtp;
 const PDF_HREF = LINKS.pdfProgrammeMaitriserClaudeBtpNiv04;
 
 const PAGE_META_DESCRIPTION =
-  'Formation avancée Claude pour le BTP (4 h, matin). Projets, Skills, Cowork, connecteurs, Claude Code. 1 200 € HT, prix de lancement. Qualiopi.';
+  'Formation avancée Claude pour le BTP (4 h, matin). Projets, Skills, Cowork, connecteurs, Claude Code. 1 200 € HT. Qualiopi.';
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
 
@@ -115,7 +114,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 
 const HERO_RESUME = [
   `Parcours catalogue : industrialiser Claude en entreprise BTP — Projets, Skills, Cowork, connecteurs, Claude Code.`,
-  `Session ${SESSION_DUREE_MATIN_NIV04} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session — prix de lancement.`,
+  `Session ${SESSION_DUREE_MATIN_NIV04} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
 ];
@@ -224,8 +223,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_MATIN_NIV04}</strong> — matin
                 uniquement. Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
-                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong>{' '}
-                <LaunchPriceBadge className="ml-1 align-middle" /> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
+                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
             <li className="flex gap-2">
@@ -253,7 +251,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             En 2026, le forfait catalogue est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session
-            (prix de lancement, 8 participants max — donnée interne OFC).
+            (8 participants max).
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             {OBJECTIFS_PEDAGOGIQUES.map((o) => (
@@ -317,8 +315,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_MATIN_NIV04} · <strong>Forfait :</strong>{' '}
-              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session{' '}
-              <LaunchPriceBadge className="ml-1 align-middle" /> · <strong>Effectif :</strong>{' '}
+              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session · <strong>Effectif :</strong>{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).
             </li>

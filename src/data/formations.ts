@@ -26,7 +26,7 @@ export const formationsData = {
     duration: 'PT4H',
     price: TARIF_SESSION_AVANCE_HT,
     description:
-      'Formation NIV-03 : conduite de travaux et suivi chantier avec skills Claude — CCTP, DPGF, PPSPS, CR, réception. Prix de lancement.',
+      'Formation NIV-03 : conduite de travaux et suivi chantier avec skills Claude — CCTP, DPGF, PPSPS, CR, réception.',
   },
   'maitriser-claude-ai-btp': {
     name: 'Maîtriser Claude AI pour le BTP',
@@ -35,7 +35,7 @@ export const formationsData = {
     duration: 'PT4H',
     price: TARIF_SESSION_AVANCE_HT,
     description:
-      'Formation NIV-04 : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans votre entreprise BTP. Matin 9h–13h. Prix de lancement.',
+      'Formation NIV-04 : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans votre entreprise BTP. Matin 9h–13h.',
   },
   'ia-maitrise-oeuvre': {
     name: "L'IA au service des maîtres d'œuvre",

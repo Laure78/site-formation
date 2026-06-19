@@ -106,7 +106,7 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
   {
     href: LINKS.formationConduiteTravauxSuiviChantier,
     title: formationCatalogueLinkLabel(NIV03),
-    description: 'Skills Claude, CCTP, PPSPS, CR, réception chantier — prix de lancement.',
+    description: 'Skills Claude, CCTP, PPSPS, CR, réception chantier — 8 participants max.',
   },
   {
     href: LINKS.formationMaitriserClaudeAiBtp,

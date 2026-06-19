@@ -128,11 +128,13 @@ export default function AProposPage() {
           </>
         }
         sideImage={{
-          src: PHOTOS.portraitPro2026.src,
-          alt: PHOTOS.portraitPro2026.alt,
-          width: PHOTOS.portraitPro2026.width,
-          height: PHOTOS.portraitPro2026.height,
+          src: PHOTOS.aProposHero2026.src,
+          alt: PHOTOS.aProposHero2026.alt,
+          width: PHOTOS.aProposHero2026.width,
+          height: PHOTOS.aProposHero2026.height,
           caption: 'Formatrice IA BTP Qualiopi — présentiel en Île-de-France uniquement (pas de distanciel).',
+          objectFit: 'contain',
+          qualiopiBadge: false,
           animated: true,
         }}
       />

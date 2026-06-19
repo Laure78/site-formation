@@ -88,7 +88,6 @@ export function FormationCourseHero({
             {catalogueEntry ? (
               <CataloguePriceBadge
                 level={catalogueEntry.level}
-                launchPrice={catalogueEntry.launchPrice}
                 variant="hero"
                 className="mt-5"
               />

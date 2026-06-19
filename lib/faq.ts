@@ -234,7 +234,7 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose 4 formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (niveau débutant, ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (niveau avancé, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, prix de lancement), (4) Maîtriser Claude AI pour le BTP — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, matin 9h–13h, prix de lancement). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
+    a: `Le catalogue OFC propose 4 formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (niveau débutant, ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (niveau avancé, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, 8 participants max), (4) Maîtriser Claude AI pour le BTP — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, matin 9h–13h, 8 participants max). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
@@ -242,11 +242,11 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
-    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 8 participants max, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session — prix de lancement. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>.`,
+    a: `Cette formation cible les profils qui maîtrisent déjà Claude Pro : structurer l&apos;usage en entreprise (Projets, bibliothèque de Skills), déléguer la production documentaire via Cowork, connecter Gmail/Drive/agenda en sécurisant les données, et automatiser avec Claude Code. Session de 4 h le matin (9h00–13h00), 8 participants max, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session. Fiche : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>.`,
   },
   {
     q: 'Combien coûte une formation IA pour les pro du BTP du catalogue ?',
-    a: `Forfait par session : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT pour le niveau 1, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a> (niveau 2, prix de lancement) et ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le Maîtriser Claude AI pour le BTP (niveau 2, prix de lancement, matin). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (conduite de travaux et Maîtriser Claude AI : 8 participants max). ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
+    a: `Forfait par session : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT pour le niveau 1, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a> (niveau 2, 8 participants max) et ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT pour le Maîtriser Claude AI pour le BTP (niveau 2, matin, 8 participants max). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (conduite de travaux et Maîtriser Claude AI : 8 participants max). ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
   },
   {
     q: 'Les formations IA pour les pro du BTP sont-elles certifiées Qualiopi ?',
@@ -503,7 +503,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Combien coûte Maîtriser Claude AI en 2026 et est-ce finançable OPCO ?',
-    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (prix de lancement, 8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (8 participants max). Financement possible selon éligibilité Constructys ou votre OPCO — organisme certifié Qualiopi. Détails : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
   },
   {
     q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
@@ -531,7 +531,7 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   },
   {
     q: 'Combien coûte la formation conduite de travaux IA en 2026 ?',
-    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (prix de lancement, ${SESSION_DUREE_LIBELLE}, 8 participants max). Financement possible selon éligibilité Constructys / OPCO — <a href="${LINKS.financement}">guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
+    a: `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session (${SESSION_DUREE_LIBELLE}, 8 participants max). Financement possible selon éligibilité Constructys / OPCO — <a href="${LINKS.financement}">guide financement</a>. Un rendez-vous visio J+30 est inclus pour ancrer les skills.`,
   },
   {
     q: 'Que contient la bibliothèque de 20+ skills Claude BTP ?',

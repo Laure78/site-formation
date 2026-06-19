@@ -22,7 +22,6 @@ import {
   catalogueNiveauEtLevel,
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
-import { LaunchPriceBadge } from '@/components/formations/LaunchPriceBadge';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
@@ -99,7 +98,6 @@ function FormationCard({
           </span>
           <CataloguePriceBadge
             level={cours.level}
-            launchPrice={cours.launchPrice}
             variant="overlay"
           />
         </div>
@@ -116,7 +114,6 @@ function FormationCard({
         <p className="mt-2 text-base italic leading-snug text-[#475569]">{cours.pitch}</p>
         <CataloguePriceBadge
           level={cours.level}
-          launchPrice={cours.launchPrice}
           variant="banner"
           className="mt-4"
         />
