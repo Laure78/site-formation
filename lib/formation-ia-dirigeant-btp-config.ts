@@ -32,7 +32,7 @@ export function formationIaDirigeantBtpMetadata(): Metadata {
       section: 'Formation IA pour les pro du BTP — dirigeants',
     },
     image: {
-      url: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
+      url: '/images/formation-ia-intra-entreprise-batiment.webp',
       width: 1024,
       height: 571,
       alt: 'Formation IA appliquée au bâtiment pour dirigeants — Laure Olivié, OFC Qualiopi',

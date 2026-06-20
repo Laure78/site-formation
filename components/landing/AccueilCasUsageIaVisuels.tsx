@@ -7,7 +7,7 @@ const CAS_USAGE_VISUELS = [
   {
     photo: PHOTOS.accueilIaAppliqueeChantierBtp2026,
     title: 'IA appliquée au chantier',
-    caption: 'Planification, rapports d\'avancement et contrôle documentaire — décisions éclairées sur le terrain.',
+    caption: 'Planification intelligente, rapports automatisés et contrôle documentaire — Laure Olivié formatrice IA BTP.',
   },
   {
     photo: PHOTOS.accueilIaDevisChiffrageBtp2026,
@@ -17,12 +17,12 @@ const CAS_USAGE_VISUELS = [
   {
     photo: PHOTOS.accueilAnalyseDceAppelsOffresBtp2026,
     title: 'Analyse DCE / appels d\'offres',
-    caption: 'Synthèse Go/No Go, risques et conformité — pour décider plus vite et plus sûrement.',
+    caption: 'Extraction IA, évaluation et synthèse Go/No Go — décisions plus rapides, sûres et documentées.',
   },
   {
     photo: PHOTOS.accueilCompteRenduDoePvChantier2026,
     title: 'Compte rendu, DOE et PV',
-    caption: 'Notes vocales et observations structurées en documents complets, prêts à partager.',
+    caption: 'Notes vocales sur chantier transformées en CR, DOE ou PV structurés — validation métier incluse.',
   },
 ] as const;
 
@@ -62,7 +62,7 @@ export function AccueilCasUsageIaVisuels() {
             />
             <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-5 py-4 text-center sm:px-6">
               <p className="text-sm font-semibold text-slate-900 md:text-base">
-                Formations inter et intra en présentiel — ateliers pratiques avec votre métier
+                Mes formations IA pour le BTP — exercices terrain, cas réels et petits groupes
               </p>
             </figcaption>
           </figure>

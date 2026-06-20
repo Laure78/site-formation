@@ -7,7 +7,7 @@ import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-t
 const OFC = "OFC Création d'Entreprise";
 
 const COVER = {
-  url: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
+  url: '/images/formation-ia-intra-entreprise-batiment.webp',
   width: 1024,
   height: 571,
   alt: 'Formation IA appliquée au bâtiment en entreprise — Laure Olivié, OFC Qualiopi',

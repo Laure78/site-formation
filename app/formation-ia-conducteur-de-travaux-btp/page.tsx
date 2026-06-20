@@ -46,7 +46,7 @@ export const metadata = createPageMetadata({
     section: 'Formation IA pour les pro du BTP',
   },
   image: {
-    url: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
+    url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
     width: 1024,
     height: 682,
     alt: 'Laure Olivié, formatrice IA BTP — session formation conducteurs de travaux, échange en présentiel',

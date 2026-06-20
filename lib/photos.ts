@@ -68,7 +68,7 @@ export const PHOTOS = {
   
   // Photo formation en entreprise
   formationEntreprise: {
-    src: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
+    src: '/images/formation-ia-intra-entreprise-batiment.webp',
     alt: 'Atelier formation IA intra-entreprise bâtiment — participants autour de table avec plans, casque et support Laure Olivié',
     width: 1024,
     height: 571,
@@ -101,7 +101,7 @@ export const PHOTOS = {
 
   /** Accueil — bloc étude de cas FFB & étanchéité */
   accueilEtudeCasFfbLaureIntervention: {
-    src: '/images/formation-ia-btp-ffb-etude-cas-salle.webp',
+    src: '/images/formation-ia-btp-ffb-salle.webp',
     alt:
       "Laure Olivié forme des professionnels du bâtiment à l'IA en salle, devant écran projection — intervention réseau FFB et CSFE",
     title: 'Étude de cas FFB et filière étanchéité — retour d\'expérience formation IA BTP',
@@ -135,7 +135,7 @@ export const PHOTOS = {
   
   // Ouvrier avec plan
   ouvrierPlan: {
-    src: '/images/conducteur-travaux-plans-chantier-btp.webp',
+    src: '/images/formation-ia-conducteur-travaux-plans.webp',
     alt: 'Professionnel BTP consulte des plans de chantier sur table — illustration gestion documentaire avec formation IA',
     width: 1024,
     height: 682,
@@ -143,7 +143,7 @@ export const PHOTOS = {
   
   // Architecte concentration (portrait)
   architecteConcentration: {
-    src: '/images/analyse-dce-plans-architecte-btp.webp',
+    src: '/images/formation-ia-analyse-plans-btp.webp',
     alt: "Professionnel du bâtiment concentre sur des plans techniques — illustration analyse DCE et chiffrage assistés par IA",
     width: 764,
     height: 1024,
@@ -223,7 +223,7 @@ export const PHOTOS = {
 
   /** Portrait principal 2026 — contact, ProfilePhoto, blog (carte laureolivie.fr) */
   portraitPro2026: {
-    src: '/images/laure-olivie-formatrice-ia-btp-portrait.webp',
+    src: '/images/formatrice-ia-btp-laure-olivie.webp',
     alt: "Laure Olivié, formatrice IA et ChatGPT pour le BTP certifiée Qualiopi, OFC Création d'Entreprise, portrait pro",
     width: 682,
     height: 1024,
@@ -476,33 +476,33 @@ export const PHOTOS = {
 
   /** Page d'accueil — hero header (portrait Laure, dashboard IA BTP, manuel formation) */
   heroAccueilFormationIABtpEchange2026: {
-    src: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
-    alt: 'Laure Olivié, formatrice IA BTP, devant écran « IA pour le BTP » et manuel intelligence artificielle pour le bâtiment',
-    title: "5 parcours formation IA BTP Qualiopi — présentiel Île-de-France, OFC Création d'Entreprise",
+    src: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
+    alt: 'Laure Olivié, formatrice IA BTP — affiche formation 4 h présentiel Île-de-France, devis chantier et appels d\'offres',
+    title: 'Formation IA pour le BTP — présentiel Île-de-France, financement OPCO selon éligibilité',
     width: 1024,
     height: 1024,
   },
 
   /** Accueil — session formation présentiel « Mes formations IA pour le BTP » */
   accueilFormationIaBtpSallePresentiel2026: {
-    src: '/images/formation-ia-btp-atelier-salle-presentiel.webp',
-    alt: "Laure Olivié anime une formation IA BTP en salle, écran « Mes formations IA pour le BTP » et participants autour d'une table",
-    title: 'Atelier formation IA BTP en présentiel — inter et intra, jusqu\'à 12 participants',
+    src: '/images/formation-ia-btp-salle-laure-olivie.webp',
+    alt: 'Laure Olivié anime « Mes formations IA pour le BTP » en salle — exercices terrain, cas réels et petits groupes BTP',
+    title: 'Programme Mes formations IA pour le BTP — Comprendre, appliquer, performer en présentiel',
     width: 1024,
     height: 1024,
   },
 
   /** Accueil — cas d'usage IA appliquée au chantier (planification, rapports, documents) */
   accueilIaAppliqueeChantierBtp2026: {
-    src: '/images/ia-chantier-conducteur-travaux-tablette.webp',
-    alt: 'Schéma IA appliquée au chantier : conducteur de travaux avec tablette, planification, rapports et contrôle documentaire BTP',
+    src: '/images/formation-ia-chantier-conducteur-travaux.webp',
+    alt: 'Affiche IA appliquée au chantier BTP — conducteur de travaux avec tablette, planification et Laure Olivié formatrice',
     width: 1024,
     height: 1024,
   },
 
   /** Accueil — cas d'usage devis et chiffrage IA (notes terrain vers devis structuré) */
   accueilIaDevisChiffrageBtp2026: {
-    src: '/images/ia-devis-chiffrage-batiment-automatisation.webp',
+    src: '/images/formation-ia-devis-chiffrage-btp.webp',
     alt: 'Schéma devis IA bâtiment : notes terrain, photos et plans convertis en devis structuré par intelligence artificielle',
     width: 1024,
     height: 1024,
@@ -510,23 +510,23 @@ export const PHOTOS = {
 
   /** Accueil — cas d'usage analyse DCE et appels d'offres (synthèse Go/No Go) */
   accueilAnalyseDceAppelsOffresBtp2026: {
-    src: '/images/ia-analyse-dce-appels-offres-btp.webp',
-    alt: "Schéma analyse DCE et appels d'offres BTP : dossier consultation entreprises, synthèse Go/No Go, risques et conformité",
+    src: '/images/formation-ia-analyse-dce-btp.webp',
+    alt: "Affiche analyse DCE et appels d'offres BTP — extraction IA, évaluation et synthèse Go/No Go avec expertise BTP",
     width: 1024,
     height: 1024,
   },
 
   /** Accueil — cas d'usage compte rendu chantier, DOE et PV (notes vocales vers document) */
   accueilCompteRenduDoePvChantier2026: {
-    src: '/images/ia-compte-rendu-doe-pv-chantier.webp',
-    alt: 'Schéma compte rendu chantier IA : notes vocales et observations converties en CR, DOE ou PV structurés prêts à envoyer',
+    src: '/images/formation-ia-compte-rendu-chantier.webp',
+    alt: 'Affiche compte rendu chantier IA — notes vocales smartphone transformées en CR, DOE ou PV structurés et validés',
     width: 1024,
     height: 1024,
   },
 
   /** Accueil — bloc « Référence & partenaires » (visuel formatrice OFC) */
   accueilReferencePartenairesLaureOFC2026: {
-    src: '/images/laure-olivie-dirigeant-pme-formation-btp.webp',
+    src: '/images/formation-ia-dirigeant-pme-btp.webp',
     alt:
       "Laure Olivié, formatrice IA BTP OFC, en discussion avec un dirigeant PME du bâtiment lors d'une formation entreprise",
     title: 'Formation entreprise sur mesure — réseau FFB, financement OPCO selon éligibilité',
@@ -604,7 +604,7 @@ export const PHOTOS = {
 
   /** Cartes catalogue niveau 1 et niveau 2 — affiches promotionnelles par formation (juin 2026). */
   formationNiv01IaBatimentTravauxPublics2026: {
-    src: '/images/formation-ia-batiment-travaux-publics-catalogue.webp',
+    src: '/images/formation-ia-batiment-travaux-publics.webp',
     alt:
       "Affiche formation IA bâtiment et travaux publics niveau 1 — Laure Olivié OFC Qualiopi, devis et administratif chantier",
     description:
@@ -614,7 +614,7 @@ export const PHOTOS = {
     height: 1024,
   },
   formationNiv02IaAppelsOffreBtp2026: {
-    src: '/images/formation-ia-appels-offres-dce-btp.webp',
+    src: '/images/formation-ia-appels-offres-btp.webp',
     alt:
       "Affiche formation IA appels d'offres niveau 2 — analyse DCE, mémoire technique BTP, Laure Olivié formatrice Qualiopi",
     description:
@@ -624,7 +624,7 @@ export const PHOTOS = {
     height: 1024,
   },
   formationNiv03IaConduiteTravaux2026: {
-    src: '/images/formation-ia-conduite-travaux-chantier.webp',
+    src: '/images/formation-ia-conduite-travaux-btp.webp',
     alt:
       "Affiche formation IA conduite de travaux niveau 2 — CCTP, comptes rendus et skills Claude, Laure Olivié Qualiopi BTP",
     description:
@@ -634,7 +634,7 @@ export const PHOTOS = {
     height: 1024,
   },
   formationNiv04MaitriserClaudeAiBtp2026: {
-    src: '/images/formation-claude-ai-btp-maitrise-catalogue.webp',
+    src: '/images/formation-claude-ai-btp-catalogue.webp',
     alt:
       'Affiche formation Maîtriser Claude AI pour le BTP niveau 2 — Projets, Skills et Cowork, Laure Olivié OFC Qualiopi',
     description:
@@ -644,7 +644,7 @@ export const PHOTOS = {
     height: 1024,
   },
   formationNiv05IaMaitriseOeuvre2026: {
-    src: '/images/formation-ia-maitrise-oeuvre-moex-btp.webp',
+    src: '/images/formation-ia-maitrise-oeuvre-btp.webp',
     alt:
       "Affiche formation IA maîtres d'œuvre niveau 2 — MOEX, DCE et CR chantier, Laure Olivié formatrice Qualiopi BTP",
     description:
