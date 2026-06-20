@@ -423,13 +423,13 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
     'Qualiopi — confidentialité des données',
   ],
   ogImage: {
-    url: '/images/formation-ia-btp-entreprise.png',
+    url: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
     width: 1024,
     height: 571,
     alt: 'Formation IA pour le BTP — plombiers chauffagistes, session avec Laure Olivié',
   },
   coverImage: {
-    url: '/images/formation-ia-btp-entreprise.png',
+    url: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
     width: 1024,
     height: 571,
     alt: 'Atelier formation IA pour les pro du BTP en entreprise — plomberie et chauffage',

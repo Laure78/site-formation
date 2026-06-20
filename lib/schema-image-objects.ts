@@ -9,6 +9,15 @@ import { SCHEMA_ORGANIZATION_OFC, SCHEMA_HEADER_PERSON_IMAGE_PATH } from '@/lib/
 const year = new Date().getFullYear();
 const base = SITE_CONFIG.url.replace(/\/$/, '');
 
+/** Légende factuelle — hero accueil (GEO Île-de-France, sans dupliquer l'alt). */
+export const HOME_HERO_IMAGE_CAPTION =
+  'Formation IA pour le BTP animée par Laure Olivié en Île-de-France — présentiel Qualiopi, OFC Création d\'Entreprise' as const;
+
+export const HOME_HERO_IMAGE_CREDIT = 'Laure Olivié — OFC Création d\'Entreprise' as const;
+
+/** @id canonique — aligné sur `buildHomeUnifiedGraphJsonLd` (`primaryImageOfPage`). */
+export const HOME_HERO_IMAGE_OBJECT_ID = `${base}/#image-hero` as const;
+
 /** Créateur — champ attendu pour les métadonnées d'image (Google / ImageObject). */
 const imageCreatorOrg = {
   '@type': 'Organization' as const,
@@ -16,31 +25,53 @@ const imageCreatorOrg = {
   url: base,
 };
 
+/** ImageObject hero accueil — nœud @graph (sans @context). */
+export function buildHomeHeroImageObjectNode(): Record<string, unknown> {
+  const hero = PHOTOS.heroAccueilFormationIABtpEchange2026;
+  const contentUrl = `${base}${hero.src}`;
+
+  return {
+    '@type': 'ImageObject',
+    '@id': HOME_HERO_IMAGE_OBJECT_ID,
+    url: contentUrl,
+    contentUrl,
+    name: hero.alt,
+    caption: HOME_HERO_IMAGE_CAPTION,
+    description: hero.alt,
+    creditText: HOME_HERO_IMAGE_CREDIT,
+    license: `${base}/mentions-legales`,
+    acquireLicensePage: `${base}/contact`,
+    copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+    creator: imageCreatorOrg,
+    author: { '@type': 'Person', name: 'Laure Olivié' },
+    width: hero.width,
+    height: hero.height,
+    contentLocation: {
+      '@type': 'Place',
+      name: 'Île-de-France',
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Île-de-France',
+        addressCountry: 'FR',
+      },
+    },
+  };
+}
+
 export function buildHomePageImageObjectsJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'ImageObject',
+        ...buildHomeHeroImageObjectNode(),
         '@id': `${base}/#image-hero-formation-ia-btp`,
-        url: `${base}${PHOTOS.heroAccueilFormationIABtpEchange2026.src}`,
-        name: PHOTOS.heroAccueilFormationIABtpEchange2026.alt,
-        description: PHOTOS.heroAccueilFormationIABtpEchange2026.alt,
-        contentUrl: `${base}${PHOTOS.heroAccueilFormationIABtpEchange2026.src}`,
-        license: `${base}/mentions-legales`,
-        acquireLicensePage: `${base}/contact`,
-        creditText: "OFC Création d'Entreprise",
-        copyrightNotice: `© ${year} OFC Création d'Entreprise`,
-        creator: imageCreatorOrg,
-        author: { '@type': 'Person', name: 'Laure Olivié' },
       },
       {
         '@type': 'ImageObject',
         '@id': `${base}/#image-portrait-header-laure`,
         url: `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`,
         name: PHOTOS.siteAvatar.alt,
-        description:
-          "Miniature bleue OFC — portrait Laure Olivié, formatrice IA appliquée au bâtiment certifiée Qualiopi.",
+        description: PHOTOS.siteAvatar.alt,
         contentUrl: `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`,
         license: `${base}/mentions-legales`,
         acquireLicensePage: `${base}/contact`,

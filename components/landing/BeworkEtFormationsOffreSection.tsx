@@ -159,7 +159,9 @@ export function BeworkEtFormationsOffreSection() {
               <Image
                 src={PHOTOS.beworkHeroRelaisAdministratif.src}
                 alt={PHOTOS.beworkHeroRelaisAdministratif.alt}
+                title={PHOTOS.beworkHeroRelaisAdministratif.title}
                 fill
+                loading="lazy"
                 className="object-cover object-top"
                 sizes="(min-width: 1024px) 480px, 100vw"
               />

@@ -140,7 +140,7 @@ export const BEWORK_GALLERY_SECTIONS: {
         caption: 'Guide maître d’œuvre — marchés travaux BTP',
       },
       {
-        src: '/images/bework-hero-relais-administratif-support.png',
+        src: '/images/bework-relais-administratif-chantier-support.webp',
         alt: 'Assistante BeWork au casque, relais administratif marchés travaux BTP',
         width: 1024,
         height: 629,

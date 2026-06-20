@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PresentationAnimee } from '@/components/landing/PresentationAnimee';
+import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import {
@@ -382,7 +383,7 @@ export default function HomePage() {
                 <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
                   <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-[0.7rem]">
-                      Présentation vidéo
+                      Formation IA BTP
                     </p>
                     <span className="inline-flex w-fit items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.7rem] font-semibold text-[#377CF3] ring-1 ring-[#377CF3]/15">
                       {CATALOGUE_FORMATIONS_COUNT} parcours · programme
@@ -391,17 +392,17 @@ export default function HomePage() {
                   <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
                     Les {CATALOGUE_FORMATIONS_COUNT} parcours de formation IA pour les pro du BTP
                   </p>
-                  <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-slate-950 shadow-inner ring-1 ring-slate-900/10">
-                    <div className="relative aspect-video w-full">
-                      <iframe
-                        src="https://www.youtube-nocookie.com/embed/7IBMFhdohkI"
-                        title={`Présentation animée — ${CATALOGUE_FORMATIONS_COUNT} formations IA appliquées au bâtiment`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full border-0"
-                      />
-                    </div>
+                  <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-inner ring-1 ring-slate-900/5">
+                    <Image
+                      src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
+                      alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
+                      title={PHOTOS.heroAccueilFormationIABtpEchange2026.title}
+                      width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
+                      height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
+                      priority
+                      className="h-auto w-full object-cover"
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                    />
                   </div>
                 </div>
               </div>
@@ -432,6 +433,8 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      <AccueilCasUsageIaVisuels />
 
       <HomePrincipalSections />
 
@@ -534,8 +537,9 @@ export default function HomePage() {
               <Image
                 src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
                 alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
-                title={`+${formatProfessionalsTrainedCount()} professionnels formés · Note ${SOCIAL_PROOF.AVERAGE_RATING} · Finançable Constructys`}
+                title={PHOTOS.accueilReferencePartenairesLaureOFC2026.title}
                 fill
+                loading="lazy"
                 className="object-cover object-[center_15%]"
                 sizes="(max-width: 1024px) 100vw, 576px"
               />
@@ -913,6 +917,7 @@ export default function HomePage() {
                           : undefined
                       }
                       fill
+                      loading="lazy"
                       className="object-contain object-center transition-opacity hover:opacity-95"
                       sizes="(max-width: 640px) 200px, 240px"
                     />
@@ -1320,8 +1325,10 @@ export default function HomePage() {
                   <Image
                     src={PHOTOS.qualiopiLogoOfficiel.src}
                     alt={PHOTOS.qualiopiLogoOfficiel.alt}
+                    title="Certification Qualiopi — actions de formation, OFC Création d'Entreprise"
                     width={PHOTOS.qualiopiLogoOfficiel.width}
                     height={PHOTOS.qualiopiLogoOfficiel.height}
+                    loading="lazy"
                     className="mb-4 h-auto w-40"
                     sizes="160px"
                   />

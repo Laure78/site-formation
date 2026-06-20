@@ -52,7 +52,7 @@ export function geoFormationMetadata(props: GeoFormationPageProps) {
       section: 'Formation IA pour les pro du BTP',
     },
     image: {
-      url: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+      url: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
       width: 1024,
       height: 682,
       alt: `Formation IA BTP ${departement} (${code}) — présentiel intra`,

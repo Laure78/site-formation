@@ -18,6 +18,7 @@ import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { PHOTOS } from '@/lib/photos';
+import { buildHomeHeroImageObjectNode, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
 
 const ANNUAIRE_LABELS_CERT =
   'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281';
@@ -30,9 +31,9 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const webpageId = `${base}/#webpage`;
   const breadcrumbId = `${base}/#breadcrumb`;
   const courseId = `${base}/#course-pivot`;
-  const imageHeroId = `${base}/#image-hero`;
+  const imageHeroId = HOME_HERO_IMAGE_OBJECT_ID;
 
-  const heroImageUrl = `${base}/images/hero-accueil-formation-ia-btp-echange-2026.png`;
+  const heroImageUrl = `${base}${PHOTOS.heroAccueilFormationIABtpEchange2026.src}`;
   const personImageUrl = `${base}${PHOTOS.portraitPro2026.src}`;
   const dateModified = new Date().toISOString().split('T')[0];
 
@@ -133,12 +134,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         alumniOf: { '@type': 'Organization', name: 'Conductrice de travaux ALIA BTP' },
         sameAs: [SCHEMA_LINKEDIN_PROFILE_URL, 'https://www.linkedin.com/learning/instructors/laure-olivie'],
       },
-      {
-        '@type': 'ImageObject',
-        '@id': imageHeroId,
-        url: heroImageUrl,
-        contentUrl: heroImageUrl,
-      },
+      buildHomeHeroImageObjectNode(),
       {
         '@type': 'WebPage',
         '@id': webpageId,

@@ -62,7 +62,9 @@ export function ArticlesFormationLies() {
                 <Image
                   src={a.image.src}
                   alt={a.image.alt}
+                  title={`Article blog — ${a.title}`}
                   fill
+                  loading="lazy"
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
@@ -88,9 +90,10 @@ export function ArticlesFormationLies() {
                     <Image
                       src={PHOTOS.siteAvatar.src}
                       alt={PHOTOS.siteAvatar.alt}
-                      title="Laure Olivié — OFC Création d'Entreprise, formatrice IA pour les pro du BTP"
+                      title="Laure Olivié — profil LinkedIn, formatrice IA BTP OFC Qualiopi"
                       width={36}
                       height={36}
+                      loading="lazy"
                       className={`h-9 w-9 rounded-full object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION}`}
                     />
                   </PortraitLinkedInLink>

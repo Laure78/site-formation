@@ -420,17 +420,278 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/accueil-reference-partenaires-laure-ofc-2026.jpg',
-        destination: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
+        destination: '/images/laure-olivie-dirigeant-pme-formation-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-reference-partenaires-laure-ofc-2026.png',
+        destination: '/images/laure-olivie-dirigeant-pme-formation-btp.webp',
         permanent: true,
       },
       {
         source: '/images/hero-accueil-formation-ia-btp-echange-2026.jpg',
-        destination: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        destination: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        destination: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
         permanent: true,
       },
       {
         source: '/images/hero-formation-ia-btp-visio-2026.jpg',
-        destination: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        destination: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-hero-formation-ia-btp-laure-olivie-2026.png',
+        destination: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-formation-ia-btp-salle-presentiel-2026.png',
+        destination: '/images/formation-ia-btp-atelier-salle-presentiel.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-ia-appliquee-chantier-btp-2026.png',
+        destination: '/images/ia-chantier-conducteur-travaux-tablette.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-ia-devis-chiffrage-btp-2026.png',
+        destination: '/images/ia-devis-chiffrage-batiment-automatisation.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-analyse-dce-appels-offres-btp-2026.png',
+        destination: '/images/ia-analyse-dce-appels-offres-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-compte-rendu-doe-pv-chantier-2026.png',
+        destination: '/images/ia-compte-rendu-doe-pv-chantier.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/accueil-etude-cas-ffb-laure-intervention.jpg',
+        destination: '/images/formation-ia-btp-ffb-etude-cas-salle.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/bework-hero-relais-administratif-support.png',
+        destination: '/images/bework-relais-administratif-chantier-support.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-niv-01-ia-batiment-travaux-publics-2026.png',
+        destination: '/images/formation-ia-batiment-travaux-publics-catalogue.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-niv-02-ia-appels-offre-btp-2026.png',
+        destination: '/images/formation-ia-appels-offres-dce-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-niv-03-ia-conduite-travaux-2026.png',
+        destination: '/images/formation-ia-conduite-travaux-chantier.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-niv-04-maitriser-claude-ai-btp-2026.png',
+        destination: '/images/formation-claude-ai-btp-maitrise-catalogue.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-niv-05-ia-maitrise-oeuvre-2026.png',
+        destination: '/images/formation-ia-maitrise-oeuvre-moex-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/logo-qualiopi-actions-de-formation.png',
+        destination: '/images/logo-qualiopi-certification-formation-actions.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-portrait-laureolivie-fr-2026.jpg',
+        destination: '/images/laure-olivie-formatrice-ia-btp-portrait.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/ouvrier-plan-chantier.png',
+        destination: '/images/conducteur-travaux-plans-chantier-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/architecte-concentration.png',
+        destination: '/images/analyse-dce-plans-architecte-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-entreprise.png',
+        destination: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/ffb-logo-officiel.png',
+        destination: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/ffb-grand-paris-ile-de-france.png',
+        destination: '/images/partenaires/logo-ffb-grand-paris-formation-idf.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/csfe-logo.png',
+        destination: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/cnam-entreprises.png',
+        destination: '/images/partenaires/logo-cnam-formation-continue-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/arfab.png',
+        destination: '/images/partenaires/logo-arfab-partenaire-formation-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/ifrb-78.jpg',
+        destination: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        permanent: true,
+      },
+      // --- WebP (accueil) — 301 depuis chemins SEO .png / .jpg intermédiaires ---
+      {
+        source: '/images/formation-ia-btp-laure-olivie-dashboard.png',
+        destination: '/images/formation-ia-btp-laure-olivie-dashboard.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-atelier-salle-presentiel.png',
+        destination: '/images/formation-ia-btp-atelier-salle-presentiel.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/ia-chantier-conducteur-travaux-tablette.png',
+        destination: '/images/ia-chantier-conducteur-travaux-tablette.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/ia-devis-chiffrage-batiment-automatisation.png',
+        destination: '/images/ia-devis-chiffrage-batiment-automatisation.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/ia-analyse-dce-appels-offres-btp.png',
+        destination: '/images/ia-analyse-dce-appels-offres-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/ia-compte-rendu-doe-pv-chantier.png',
+        destination: '/images/ia-compte-rendu-doe-pv-chantier.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-dirigeant-pme-formation-btp.png',
+        destination: '/images/laure-olivie-dirigeant-pme-formation-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-ffb-etude-cas-salle.jpg',
+        destination: '/images/formation-ia-btp-ffb-etude-cas-salle.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/bework-relais-administratif-chantier-support.png',
+        destination: '/images/bework-relais-administratif-chantier-support.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-batiment-travaux-publics-catalogue.png',
+        destination: '/images/formation-ia-batiment-travaux-publics-catalogue.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-appels-offres-dce-btp.png',
+        destination: '/images/formation-ia-appels-offres-dce-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-conduite-travaux-chantier.png',
+        destination: '/images/formation-ia-conduite-travaux-chantier.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-claude-ai-btp-maitrise-catalogue.png',
+        destination: '/images/formation-claude-ai-btp-maitrise-catalogue.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-maitrise-oeuvre-moex-btp.png',
+        destination: '/images/formation-ia-maitrise-oeuvre-moex-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/logo-qualiopi-certification-formation-actions.png',
+        destination: '/images/logo-qualiopi-certification-formation-actions.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-formatrice-ia-btp-portrait.jpg',
+        destination: '/images/laure-olivie-formatrice-ia-btp-portrait.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/conducteur-travaux-plans-chantier-btp.png',
+        destination: '/images/conducteur-travaux-plans-chantier-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/analyse-dce-plans-architecte-btp.png',
+        destination: '/images/analyse-dce-plans-architecte-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-intra-entreprise-presentiel.png',
+        destination: '/images/formation-ia-btp-intra-entreprise-presentiel.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-avatar-bleu-2026.png',
+        destination: '/images/laure-avatar-bleu-2026.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.png',
+        destination: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ffb-grand-paris-formation-idf.png',
+        destination: '/images/partenaires/logo-ffb-grand-paris-formation-idf.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-csfe-partenaire-formation-btp.png',
+        destination: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-cnam-formation-continue-ia-btp.png',
+        destination: '/images/partenaires/logo-cnam-formation-continue-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-arfab-partenaire-formation-btp.png',
+        destination: '/images/partenaires/logo-arfab-partenaire-formation-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ifrb-77-formation-batiment.jpg',
+        destination: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
         permanent: true,
       },
       {

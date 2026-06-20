@@ -26,7 +26,9 @@ function LogoRow({
             <Image
               src={logo.src}
               alt={decorativeDuplicate ? '' : logo.alt}
+              title={decorativeDuplicate ? undefined : logo.caption ? `${logo.name} — ${logo.caption}` : logo.name}
               fill
+              loading="lazy"
               sizes="(max-width: 768px) 152px, 168px"
               className="object-contain object-center p-0.5 opacity-[0.92]"
             />
@@ -94,7 +96,9 @@ export function ClientsLogosMarquee() {
                     <Image
                       src={logo.src}
                       alt={logo.alt}
+                      title={logo.caption ? `${logo.name} — ${logo.caption}` : logo.name}
                       fill
+                      loading="lazy"
                       sizes="(max-width: 768px) 152px, 168px"
                       className="object-contain object-center p-0.5 opacity-[0.92]"
                     />

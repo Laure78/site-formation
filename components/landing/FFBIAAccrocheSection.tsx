@@ -18,20 +18,22 @@ export function FFBIAAccrocheSection() {
             <div className="flex aspect-video w-full items-center justify-center gap-8 overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.22)]">
               <div className="relative h-20 w-full max-w-[240px]">
                 <Image
-                  src="/images/partenaires/ffb-logo-officiel.png"
+                  src="/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp"
                   alt={ALT_LOGO_FFB_OFFICIEL}
-                  title="Fédération Française du Bâtiment — partenaire formations terrain"
+                  title="FFB — partenaire sessions formation IA terrain, Île-de-France"
                   fill
+                  loading="lazy"
                   className="object-contain object-center"
                   sizes="240px"
                 />
               </div>
               <div className="relative h-20 w-full max-w-[240px]">
                 <Image
-                  src="/images/partenaires/csfe-logo.png"
+                  src="/images/partenaires/logo-csfe-partenaire-formation-btp.webp"
                   alt={ALT_LOGO_CSFE}
-                  title="CSFE — filière étanchéité et bâtiment"
+                  title="CSFE — filière étanchéité, partenaire formation IA bâtiment"
                   fill
+                  loading="lazy"
                   className="object-contain object-center"
                   sizes="240px"
                 />

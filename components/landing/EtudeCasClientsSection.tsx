@@ -120,11 +120,12 @@ export function EtudeCasClientsSection() {
               <Image
                 src={PHOTOS.accueilEtudeCasFfbLaureIntervention.src}
                 alt={PHOTOS.accueilEtudeCasFfbLaureIntervention.alt}
+                title={PHOTOS.accueilEtudeCasFfbLaureIntervention.title}
                 width={PHOTOS.accueilEtudeCasFfbLaureIntervention.width}
                 height={PHOTOS.accueilEtudeCasFfbLaureIntervention.height}
+                loading="lazy"
                 className="h-auto w-full object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority={false}
               />
             </div>
             <figcaption className="mt-3 text-center text-sm text-slate-500">

@@ -11,25 +11,25 @@ const LEFEBVRE_ALT =
 
 const LOGOS = [
   {
-    src: '/images/partenaires/ffb-grand-paris-ile-de-france.png',
+    src: '/images/partenaires/logo-ffb-grand-paris-formation-idf.webp',
     alt: ALT_LOGO_FFB_GRAND_PARIS_IDF,
     width: 400,
     height: 120,
   },
   {
-    src: '/images/partenaires/ffb-logo-officiel.png',
+    src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
     alt: `${ALT_LOGO_FFB_OFFICIEL} — FFB Île-de-France`,
     width: 200,
     height: 80,
   },
   {
-    src: '/images/partenaires/csfe-logo.png',
+    src: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
     alt: ALT_LOGO_CSFE,
     width: 360,
     height: 120,
   },
   {
-    src: '/images/partenaires/cnam-entreprises.png',
+    src: '/images/partenaires/logo-cnam-formation-continue-ia-btp.webp',
     alt: ALT_LOGO_CNAM_ENTREPRISES,
     width: 220,
     height: 72,
@@ -41,7 +41,7 @@ const LOGOS = [
     height: 64,
   },
   {
-    src: '/images/partenaires/ifrb-78.jpg',
+    src: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
     alt: 'Logo IFRB 77 — Institut de Formation Régional du Bâtiment, partenaire 77',
     width: 200,
     height: 80,

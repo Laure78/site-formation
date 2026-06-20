@@ -14,6 +14,7 @@ import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlin
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
 import { SITE_CONFIG } from '@/lib/seo';
+import { PHOTOS } from '@/lib/photos';
 import { OG_SITE_NAME } from '@/utils/metadata';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
@@ -76,10 +77,10 @@ export async function generateMetadata(): Promise<Metadata> {
       description: siteDescription,
       images: [
         {
-          url: `${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`,
-          width: 1024,
-          height: 682,
-          alt: 'Laure Olivié, formatrice IA appliquée au bâtiment, animation d\'une session « L\'IA au service du bâtiment »',
+          url: `${baseUrl}${PHOTOS.heroAccueilFormationIABtpEchange2026.src}`,
+          width: PHOTOS.heroAccueilFormationIABtpEchange2026.width,
+          height: PHOTOS.heroAccueilFormationIABtpEchange2026.height,
+          alt: PHOTOS.heroAccueilFormationIABtpEchange2026.alt,
         },
       ],
     },
@@ -87,7 +88,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: 'Formation IA pour le BTP — Laure Olivié (Qualiopi · Constructys)',
       description: siteDescription,
-      images: [`${baseUrl}/images/hero-accueil-formation-ia-btp-echange-2026.png`],
+      images: [`${baseUrl}${PHOTOS.heroAccueilFormationIABtpEchange2026.src}`],
     },
     robots: {
       index: true,
