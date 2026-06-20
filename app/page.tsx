@@ -262,123 +262,23 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="space-y-6 md:space-y-8">
-                <div className="flex flex-wrap gap-3">
-                  <StatCallout
-                    variant="inline"
-                    value={COUNT_UP_PROS}
-                    label="professionnels formés"
-                    freshnessLabel={STATS_FRESHNESS_LABEL}
-                  />
-                  <StatCallout
-                    variant="inline"
-                    value={COUNT_UP_RATING}
-                    label="note moyenne"
-                    freshnessLabel={STATS_FRESHNESS_LABEL}
-                  />
-                </div>
-                <Essentiel
-                  idPrefix="accueil"
-                  items={[
-                    'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
-                    'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
-                    `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
-                    'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                    `Catalogue ${CATALOGUE_FORMATIONS_COUNT} formations (niveau 1 bâtiment & TP, niveau 2 : appels d'offres, conduite de travaux, Claude AI, maîtres d'œuvre) — validation métier de votre côté.`,
-                  ]}
+              <div className="flex flex-wrap gap-3">
+                <StatCallout
+                  variant="inline"
+                  value={COUNT_UP_PROS}
+                  label="professionnels formés"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
                 />
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                  <CalendlyEmbed
-                    type="popup"
-                    variant="pill"
-                    campaign="accueil-hero"
-                    ctaPosition="hero"
-                    className="min-w-[min(100%,240px)] md:min-w-[auto]"
-                  />
-                  <Link
-                    href="#programme"
-                    className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
-                  >
-                    Voir le programme
-                  </Link>
-                </div>
-                <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
-                  <p className="text-sm leading-relaxed text-slate-600">
-                    <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
-                    <Link
-                      href={LINKS.formationIaBtpNiveau1BatimentTp}
-                      className={OFC_LINK}
-                      title="Formation IA niveau 1 — bâtiment et travaux publics"
-                    >
-                      formation IA bâtiment &amp; travaux publics (niveau 1)
-                    </Link>
-                    {' · '}
-                    <Link
-                      href={LINKS.formationClaudeAiBtp}
-                      className={OFC_LINK}
-                      title="Formation Claude AI BTP dédiée"
-                    >
-                      formation Claude AI BTP
-                    </Link>
-                    {' · '}
-                    <Link
-                      href={LINKS.formationClaudeAiBatiment}
-                      className={OFC_LINK}
-                      title="Formation Claude AI bâtiment"
-                    >
-                      formation Claude bâtiment
-                    </Link>
-                    {' · '}
-                    <Link
-                      href={LINKS.formationClaudeAiTravauxPublics}
-                      className={OFC_LINK}
-                      title="Formation Claude AI travaux publics"
-                    >
-                      formation Claude travaux publics
-                    </Link>
-                    {' · '}
-                    <Link
-                      href={LINKS.financement}
-                      className={OFC_LINK}
-                      title="Financement Constructys — formation IA pour le BTP"
-                    >
-                      financement Constructys
-                    </Link>
-                    {' · '}
-                    <Link
-                      href={LINKS.formationAO}
-                      className={OFC_LINK}
-                      title="IA et appels d'offres BTP"
-                    >
-                      IA appels d&apos;offres BTP
-                    </Link>
-                    {' · '}
-                    <Link
-                      href={LINKS.formationConduiteTravauxSuiviChantier}
-                      className={OFC_LINK}
-                      title={FORMATION_CONDUITE.title}
-                    >
-                      {FORMATION_CONDUITE.title}
-                    </Link>
-                  </p>
-                </div>
-                <Reveal>
-                  <p
-                    className="text-sm text-slate-600 italic"
-                    data-citation="true"
-                  >
-                    <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
-                    qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
-                    d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
-                    automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
-                    techniques, comptes rendus de chantier, relances clients et documents administratifs.
-                  </p>
-                </Reveal>
-                <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et conducteurs de travaux à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
+                <StatCallout
+                  variant="inline"
+                  value={COUNT_UP_RATING}
+                  label="note moyenne"
+                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                />
               </div>
             </div>
 
-            <aside className="flex w-full min-w-0 flex-col gap-5 lg:sticky lg:top-24 xl:top-28">
+            <aside className="w-full min-w-0 lg:order-none">
               <div className="w-full rounded-3xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
                 <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
                   <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -407,6 +307,107 @@ export default function HomePage() {
                 </div>
               </div>
             </aside>
+          </div>
+
+          <div className="mt-8 space-y-6 md:mt-10 md:space-y-8">
+            <Essentiel
+              idPrefix="accueil"
+              items={[
+                'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
+                'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
+                `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
+                'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
+                `Catalogue ${CATALOGUE_FORMATIONS_COUNT} formations (niveau 1 bâtiment & TP, niveau 2 : appels d'offres, conduite de travaux, Claude AI, maîtres d'œuvre) — validation métier de votre côté.`,
+              ]}
+            />
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <CalendlyEmbed
+                type="popup"
+                variant="pill"
+                campaign="accueil-hero"
+                ctaPosition="hero"
+                className="min-w-[min(100%,240px)] md:min-w-[auto]"
+              />
+              <Link
+                href="#programme"
+                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
+              >
+                Voir le programme
+              </Link>
+            </div>
+            <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
+              <p className="text-sm leading-relaxed text-slate-600">
+                <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
+                <Link
+                  href={LINKS.formationIaBtpNiveau1BatimentTp}
+                  className={OFC_LINK}
+                  title="Formation IA niveau 1 — bâtiment et travaux publics"
+                >
+                  formation IA bâtiment &amp; travaux publics (niveau 1)
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationClaudeAiBtp}
+                  className={OFC_LINK}
+                  title="Formation Claude AI BTP dédiée"
+                >
+                  formation Claude AI BTP
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationClaudeAiBatiment}
+                  className={OFC_LINK}
+                  title="Formation Claude AI bâtiment"
+                >
+                  formation Claude bâtiment
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationClaudeAiTravauxPublics}
+                  className={OFC_LINK}
+                  title="Formation Claude AI travaux publics"
+                >
+                  formation Claude travaux publics
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.financement}
+                  className={OFC_LINK}
+                  title="Financement Constructys — formation IA pour le BTP"
+                >
+                  financement Constructys
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationAO}
+                  className={OFC_LINK}
+                  title="IA et appels d'offres BTP"
+                >
+                  IA appels d&apos;offres BTP
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationConduiteTravauxSuiviChantier}
+                  className={OFC_LINK}
+                  title={FORMATION_CONDUITE.title}
+                >
+                  {FORMATION_CONDUITE.title}
+                </Link>
+              </p>
+            </div>
+            <Reveal>
+              <p
+                className="text-sm text-slate-600 italic"
+                data-citation="true"
+              >
+                <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
+                qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
+                d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
+                automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
+                techniques, comptes rendus de chantier, relances clients et documents administratifs.
+              </p>
+            </Reveal>
+            <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et conducteurs de travaux à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
           </div>
         </div>
       </section>

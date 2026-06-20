@@ -48,8 +48,8 @@ export function AccueilCasUsageIaVisuels() {
           </p>
         </Reveal>
 
-        <Reveal className="mt-10">
-          <figure className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_20px_50px_-24px_rgba(15,23,42,0.12)]">
+        <Reveal className="mt-10 flex justify-center">
+          <figure className="w-full max-w-[280px] overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] sm:max-w-xs md:max-w-sm">
             <Image
               src={sessionPhoto.src}
               alt={sessionPhoto.alt}
@@ -58,10 +58,10 @@ export function AccueilCasUsageIaVisuels() {
               height={sessionPhoto.height}
               loading="lazy"
               className="h-auto w-full object-cover"
-              sizes="(max-width: 1024px) 100vw, 1152px"
+              sizes="(max-width: 640px) 280px, 384px"
             />
-            <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-5 py-4 text-center sm:px-6">
-              <p className="text-sm font-semibold text-slate-900 md:text-base">
+            <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-4 py-3 text-center">
+              <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">
                 Mes formations IA pour le BTP — exercices terrain, cas réels et petits groupes
               </p>
             </figcaption>
