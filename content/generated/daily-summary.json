@@ -1,14 +1,6 @@
 {
-  "date": "2026-06-19",
+  "date": "2026-06-20",
   "articles": [
-    {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-plombier",
-      "title": "Comment utiliser ChatGPT pour vos devis plombier"
-    },
-    {
-      "slug": "ia-et-electricien-5-gains-de-temps-concrets",
-      "title": "IA et électricien : 5 gains de temps concrets"
-    },
     {
       "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
       "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026"
@@ -22,12 +14,12 @@
       "title": "ChatGPT pour PME BTP : erreurs à éviter"
     },
     {
-      "slug": "devis-en-15-min-le-guide-charpentier",
-      "title": "Devis en 15 min : le guide charpentier"
+      "slug": "devis-en-15-min-le-guide-peintre",
+      "title": "Devis en 15 min : le guide peintre"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-couvreurs",
-      "title": "L'IA va-t-elle remplacer les couvreurs ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
+      "title": "L'IA va-t-elle remplacer les charpentiers ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
@@ -40,6 +32,14 @@
     {
       "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
       "title": "Recrutement BTP : l'IA pour attirer les talents"
+    },
+    {
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-plombier",
+      "title": "Comment utiliser ChatGPT pour vos devis plombier"
+    },
+    {
+      "slug": "ia-et-electricien-5-gains-de-temps-concrets",
+      "title": "IA et électricien : 5 gains de temps concrets"
     }
   ],
   "linkedinCount": 10
