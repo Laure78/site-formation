@@ -1,5 +1,6 @@
 import { Download, Layers, Sparkles } from 'lucide-react';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
+import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { TUTOS } from '@/lib/tutos';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
@@ -30,6 +31,12 @@ export function RessourcesHero() {
       ]}
       quickLinks={QUICK_LINKS}
       heroVisual={PHOTOS.ressourcesIaBtpHero2026}
+      extraVisual={{
+        visual: PHOTOS.guideConducteurTravauxHero2026,
+        shape: 'circle',
+        href: LINKS.guideConducteurTravauxIaBtp,
+        linkTitle: 'Guide du conducteur de travaux BTP — 6 skills Claude, PDF gratuit',
+      }}
     />
   );
 }

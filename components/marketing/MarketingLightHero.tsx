@@ -22,6 +22,13 @@ export type MarketingLightHeroVisual = {
   height: number;
 };
 
+export type MarketingLightHeroVisualSlot = {
+  visual: MarketingLightHeroVisual;
+  shape?: 'card' | 'circle';
+  href?: string;
+  linkTitle?: string;
+};
+
 export type MarketingLightHeroProps = {
   eyebrow: string;
   title: string;
@@ -34,7 +41,58 @@ export type MarketingLightHeroProps = {
   quickNavAriaLabel?: string;
   quickNavLabel?: string;
   heroVisual: MarketingLightHeroVisual;
+  visualShape?: 'card' | 'circle';
+  visualHref?: string;
+  visualLinkTitle?: string;
+  /** Illustration additionnelle sous le visuel principal (ex. guide PDF sur /ressources) */
+  extraVisual?: MarketingLightHeroVisualSlot;
 };
+
+function HeroVisualBlock({
+  visual,
+  shape = 'card',
+  href,
+  linkTitle,
+  priority = false,
+}: MarketingLightHeroVisualSlot & { priority?: boolean }) {
+  const image = (
+    <Image
+      src={visual.src}
+      alt={visual.alt}
+      title={visual.title}
+      width={visual.width}
+      height={visual.height}
+      priority={priority}
+      className={shape === 'circle' ? 'h-auto w-full object-contain' : 'h-auto w-full rounded-[0.85rem] object-cover'}
+      sizes="(max-width: 1024px) 280px, 360px"
+    />
+  );
+
+  const shell =
+    shape === 'circle' ? (
+      <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
+        {image}
+      </div>
+    ) : (
+      <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80">
+        {image}
+      </div>
+    );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        title={linkTitle ?? visual.alt}
+        className="block transition hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+      >
+        {shell}
+      </Link>
+    );
+  }
+
+  return shell;
+}
 
 /**
  * Hero marketing sobre — fond #F2F2F2, stats en cartes, visuel à droite (pages ressources, formations, financement).
@@ -50,6 +108,10 @@ export function MarketingLightHero({
   quickNavAriaLabel = 'Accès rapide aux sections',
   quickNavLabel = 'Aller à',
   heroVisual,
+  visualShape = 'card',
+  visualHref,
+  visualLinkTitle,
+  extraVisual,
 }: MarketingLightHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-slate-200 bg-[#F2F2F2]">
@@ -114,19 +176,15 @@ export function MarketingLightHero({
             ) : null}
           </div>
 
-          <aside className="mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none">
-            <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80">
-              <Image
-                src={heroVisual.src}
-                alt={heroVisual.alt}
-                title={heroVisual.title}
-                width={heroVisual.width}
-                height={heroVisual.height}
-                priority
-                className="h-auto w-full rounded-[0.85rem] object-cover"
-                sizes="(max-width: 1024px) 280px, 360px"
-              />
-            </div>
+          <aside className="mx-auto flex w-full max-w-[280px] shrink-0 flex-col gap-5 lg:mx-0 lg:max-w-none xl:max-w-[360px]">
+            <HeroVisualBlock
+              visual={heroVisual}
+              shape={visualShape}
+              href={visualHref}
+              linkTitle={visualLinkTitle}
+              priority
+            />
+            {extraVisual ? <HeroVisualBlock {...extraVisual} /> : null}
           </aside>
         </div>
       </div>
