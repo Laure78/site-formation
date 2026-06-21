@@ -223,9 +223,10 @@ export const PHOTOS = {
 
   /** Portrait principal 2026 — contact, ProfilePhoto, blog (carte laureolivie.fr) */
   portraitPro2026: {
-    src: '/images/formatrice-ia-btp-laure-olivie.webp',
-    alt: "Laure Olivié, formatrice IA et ChatGPT pour le BTP certifiée Qualiopi, OFC Création d'Entreprise, portrait pro",
-    width: 682,
+    src: '/images/laure-olivie-portrait-bleu-circulaire-2026.webp',
+    alt: "Laure Olivié, formatrice IA BTP — portrait circulaire fond bleu OFC, symboles chantier et innovation",
+    title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
+    width: 1024,
     height: 1024,
   },
 
@@ -476,8 +477,8 @@ export const PHOTOS = {
 
   /** Page catalogue /formations — hero bannière (Laure Olivié, affiche formation IA BTP) */
   formationsCatalogueHero2026: {
-    src: '/images/formation-ia-btp-catalogue-hero-laure-olivie.webp',
-    alt: 'Laure Olivié, formatrice IA BTP — affiche Formation IA pour le BTP, devis chantier et appels d\'offres, présentiel Île-de-France',
+    src: '/images/formation-ia-btp-catalogue-hero-laure-olivie-2026.webp',
+    alt: 'Laure Olivié, formatrice IA BTP — affiche formation IA pour le BTP, devis et appels d\'offres, présentiel IDF',
     title: 'Catalogue formations IA pour le BTP — Laure Olivié, OFC Création d\'Entreprise Qualiopi',
     width: 1024,
     height: 1024,

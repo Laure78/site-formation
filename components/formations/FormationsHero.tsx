@@ -1,5 +1,5 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Check } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { LINKS } from '@/lib/internal-links';
@@ -7,10 +7,14 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
 import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+import { PHOTOS } from '@/lib/photos';
+
 /**
  * Hero catalogue formations — texte SEO inchangé (H1 + paragraphe intro).
  */
 export function FormationsHero() {
+  const heroVisual = PHOTOS.formationsCatalogueHero2026;
+
   return (
     <section
       className="relative overflow-hidden bg-gradient-to-br from-[#377CF3] via-[#2563EB] to-[#1E40AF] py-5 sm:py-6 md:py-8"
@@ -76,7 +80,18 @@ export function FormationsHero() {
           </div>
 
           <aside className="mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none">
-            <OfcPromoVideoEmbed variant="onAccent" />
+            <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.45)] ring-1 ring-white/30">
+              <Image
+                src={heroVisual.src}
+                alt={heroVisual.alt}
+                title={heroVisual.title}
+                width={heroVisual.width}
+                height={heroVisual.height}
+                priority
+                className="h-auto w-full rounded-[0.85rem] object-cover"
+                sizes="(max-width: 1024px) 280px, 360px"
+              />
+            </div>
           </aside>
         </div>
       </div>

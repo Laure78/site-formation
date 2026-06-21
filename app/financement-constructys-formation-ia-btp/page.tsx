@@ -29,7 +29,6 @@ import {
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
@@ -168,7 +167,14 @@ export default function FinancementConstructysFormationIABTPPage() {
             />
           </div>
         }
-        sideVisual={<OfcPromoVideoEmbed variant="pillarMuted" />}
+        sideImage={{
+          src: HERO_FINANCEMENT.src,
+          alt: HERO_FINANCEMENT.alt,
+          width: HERO_FINANCEMENT.width,
+          height: HERO_FINANCEMENT.height,
+          objectFit: 'contain',
+          qualiopiBadge: false,
+        }}
       />
 
       <div className="mx-auto max-w-6xl px-4 pb-16 pt-6 md:pb-24 md:pt-8">

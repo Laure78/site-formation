@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { PresentationAnimee } from '@/components/landing/PresentationAnimee';
 import { AccueilHeroVideoEmbed } from '@/components/landing/AccueilHeroVideoEmbed';
 import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
 import { CitationSentence } from '@/components/seo/CitationSentence';
@@ -28,6 +27,7 @@ import {
 import { FAQAccordion } from '@/components/landing/FAQAccordion';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
+import { LinkedInLearningCredibilitySection } from '@/components/landing/LinkedInLearningCredibilitySection';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
@@ -962,7 +962,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <PresentationAnimee />
 
       <FFBIAAccrocheSection />
 
@@ -1239,6 +1238,11 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          <LinkedInLearningCredibilitySection
+            id="accueil-linkedin-learning"
+            className="mt-16"
+          />
 
           <div className="mt-16 space-y-16 border-t border-slate-200 pt-16">
             <Reveal>
