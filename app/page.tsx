@@ -251,15 +251,7 @@ export default function HomePage() {
                 Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
                 <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
               </p>
-            </div>
-
-            <aside className="flex w-full min-w-0 flex-col gap-4 lg:sticky lg:top-24">
-              <div className="w-full rounded-2xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_16px_40px_-22px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
-                <div className="rounded-[0.85rem] bg-white p-3 sm:p-4">
-                  <AccueilHeroVideoEmbed />
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3 sm:mt-7">
                 <StatCallout
                   variant="inline"
                   value={COUNT_UP_PROS}
@@ -272,6 +264,14 @@ export default function HomePage() {
                   label="note moyenne"
                   freshnessLabel={STATS_FRESHNESS_LABEL}
                 />
+              </div>
+            </div>
+
+            <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24">
+              <div className="w-full rounded-2xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_16px_40px_-22px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
+                <div className="rounded-[0.85rem] bg-white p-3 sm:p-4">
+                  <AccueilHeroVideoEmbed />
+                </div>
               </div>
             </aside>
           </div>

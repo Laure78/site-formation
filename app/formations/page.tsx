@@ -12,7 +12,6 @@ import { LINKS } from '@/lib/internal-links';
 import { buildFormationsPageUnifiedGraphJsonLd } from '@/lib/schema-formations-page-graph';
 import { CATALOGUE_FORMATIONS_COUNT, FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
 import { FormationsHero } from '@/components/formations/FormationsHero';
-import { FormationsStatsBand } from '@/components/formations/FormationsStatsBand';
 import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
 import { FormationsComparisonTable } from '@/components/formations/FormationsComparisonTable';
 import { FormationsWhyMotifs } from '@/components/formations/FormationsWhyMotifs';
@@ -102,7 +101,6 @@ export default function FormationsPage() {
     <>
       <JsonLd id="schema-formations-page-graph" schema={buildFormationsPageUnifiedGraphJsonLd()} />
       <FormationsHero />
-      <FormationsStatsBand />
 
       <div className="mx-auto max-w-6xl px-4 pb-20 pt-4 md:pt-5">
         <div className="mt-4 md:mt-5">

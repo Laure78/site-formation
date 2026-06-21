@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Download, ChevronRight, ArrowRight, Mail } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
@@ -311,9 +310,21 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               </div>
             </div>
 
-            <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
-              <OfcPromoVideoEmbed variant="pillarMuted" />
-            </figure>
+            {tuto.heroImage ? (
+              <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
+                <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
+                  <Image
+                    src={tuto.heroImage.src}
+                    alt={tuto.heroImage.alt}
+                    width={tuto.heroImage.width}
+                    height={tuto.heroImage.height}
+                    className="h-auto w-full object-contain"
+                    sizes="(max-width: 1024px) 280px, 360px"
+                    priority
+                  />
+                </div>
+              </figure>
+            ) : null}
           </div>
         </div>
       </section>

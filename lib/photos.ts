@@ -485,6 +485,15 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  /** Page financement Constructys — bannière hero plafonds OPCO 2026 */
+  financementConstructysHero2026: {
+    src: '/images/financement-constructys-formation-ia-btp-hero-2026.webp',
+    alt: 'Constructys finance votre formation IA BTP — plafonds 2026, eGestion, Laure Olivié formatrice IA BTP Qualiopi',
+    title: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
+    width: 1024,
+    height: 1024,
+  },
+
   /** Page d'accueil — hero header (portrait Laure, dashboard IA BTP, manuel formation) */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',

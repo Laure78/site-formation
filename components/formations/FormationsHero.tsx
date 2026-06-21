@@ -1,100 +1,72 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { Check } from 'lucide-react';
+import { Award, GraduationCap, Star, Users } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
+import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
-import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
+
+const QUICK_LINKS = [
+  { href: '#parcours-guide-heading', label: 'Choisir sa formation' },
+  { href: '#comparatif-formations-heading', label: 'Comparer les parcours' },
+  { href: '#formations-page-faq-heading', label: 'Questions fréquentes' },
+] as const;
 
 /**
  * Hero catalogue formations — texte SEO inchangé (H1 + paragraphe intro).
  */
 export function FormationsHero() {
-  const heroVisual = PHOTOS.formationsCatalogueHero2026;
-
   return (
-    <section
-      className="relative overflow-hidden bg-gradient-to-br from-[#377CF3] via-[#2563EB] to-[#1E40AF] py-5 sm:py-6 md:py-8"
-      aria-labelledby="formations-catalogue-hero-h1"
-    >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.045] [background-image:linear-gradient(to_right,rgba(255,255,255,0.45)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.45)_1px,transparent_1px)] [background-size:24px_24px]"
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-7xl px-4">
-        <div className="grid items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(220px,320px)] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
-          <div className="min-w-0">
-            <p className="inline-flex rounded-full border border-white/25 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/95 backdrop-blur-sm sm:px-3 sm:text-[11px]">
-              Catalogue 2026 · {CATALOGUE_FORMATIONS_COUNT} formations Qualiopi
-            </p>
-            <h1
-              id="formations-catalogue-hero-h1"
-              className="mt-3 max-w-3xl text-balance text-[1.35rem] font-bold leading-snug tracking-tight text-white sm:mt-3.5 sm:text-[1.45rem] md:text-[1.6rem] md:leading-[1.22] lg:text-[1.75rem]"
+    <MarketingLightHero
+      eyebrow={`Catalogue 2026 · ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi`}
+      title={`Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h (niveau 1 et niveau 2), programmes PDF`}
+      titleId="formations-catalogue-hero-h1"
+      description={
+        <>
+          Sessions Qualiopi de 4 h en présentiel — {PERIMETRE_FORMATIONS_COURT}. Devis, appels d&apos;offres,
+          conduite de travaux, Claude AI : forfait par session, financement possible selon éligibilité (Constructys).
+        </>
+      }
+      stats={[
+        { icon: GraduationCap, value: CATALOGUE_FORMATIONS_COUNT, label: 'formations Qualiopi' },
+        { icon: Users, value: formatProfessionalsTrainedCount(), label: 'pros formés' },
+        { icon: Star, value: SOCIAL_PROOF.AVERAGE_RATING, label: 'satisfaction clients' },
+      ]}
+      middle={
+        <>
+          <CatalogueTarifStrip className="max-w-3xl" />
+          <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
+            <CalendlyEmbed
+              type="popup"
+              variant="primary"
+              ctaPosition="hero"
+              campaign="formations-hero"
+              className="rounded-full px-5 py-2.5 text-sm md:px-6"
+            />
+            <Link
+              href={LINKS.financement}
+              className="inline-flex items-center justify-center rounded-full border-2 border-[#377CF3] bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] md:px-6"
             >
-              Catalogue formation IA pour le BTP : {CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h (niveau 1 et niveau 2), programmes PDF
-            </h1>
-            <CatalogueTarifStrip onAccent className="mt-4 max-w-3xl" />
-            <div className="mt-4 flex flex-col gap-2.5 sm:mt-4 sm:flex-row sm:flex-wrap sm:gap-3">
-              <CalendlyEmbed
-                type="popup"
-                variant="on-accent"
-                ctaPosition="hero"
-                campaign="formations-hero"
-                className="rounded-full px-5 py-2.5 text-sm shadow-md md:px-6"
-              />
-              <Link
-                href={LINKS.financement}
-                className="inline-flex items-center justify-center rounded-full border border-white/50 bg-transparent px-5 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:px-6"
-              >
-                Voir le financement Constructys
-              </Link>
-            </div>
-            <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-white/75 sm:text-xs">
-              <span className="inline-flex items-center gap-1">
-                <Check className="h-3.5 w-3.5 shrink-0 opacity-90" strokeWidth={2.5} aria-hidden />
-                Qualiopi
-              </span>
-              <span className="text-white/35" aria-hidden>
-                ·
-              </span>
-              <span className="inline-flex items-center gap-1">
-                <Check className="h-3.5 w-3.5 shrink-0 opacity-90" strokeWidth={2.5} aria-hidden />
-                Financement possible selon éligibilité
-              </span>
-              <span className="text-white/35" aria-hidden>
-                ·
-              </span>
-              <span>{formatProfessionalsTrainedCount()} pros formés</span>
-              <span className="text-white/35" aria-hidden>
-                ·
-              </span>
-              <span>{PERIMETRE_FORMATIONS_COURT}</span>
-              <span className="text-white/35" aria-hidden>
-                ·
-              </span>
-              <span>{SOCIAL_PROOF.AVERAGE_RATING}</span>
-            </p>
+              Voir le financement Constructys
+            </Link>
           </div>
-
-          <aside className="mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none">
-            <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.45)] ring-1 ring-white/30">
-              <Image
-                src={heroVisual.src}
-                alt={heroVisual.alt}
-                title={heroVisual.title}
-                width={heroVisual.width}
-                height={heroVisual.height}
-                priority
-                className="h-auto w-full rounded-[0.85rem] object-cover"
-                sizes="(max-width: 1024px) 280px, 360px"
-              />
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+          <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600">
+            <span className="inline-flex items-center gap-1">
+              <Award className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={2.5} aria-hidden />
+              Qualiopi certifié
+            </span>
+            <span className="text-slate-300" aria-hidden>
+              ·
+            </span>
+            <span>Programmes PDF sur chaque fiche</span>
+          </p>
+        </>
+      }
+      quickLinks={QUICK_LINKS}
+      heroVisual={PHOTOS.formationsCatalogueHero2026}
+    />
   );
 }

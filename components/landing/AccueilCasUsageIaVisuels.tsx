@@ -63,18 +63,18 @@ export function AccueilCasUsageIaVisuels() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-[minmax(240px,280px)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(260px,300px)_minmax(0,1fr)] xl:gap-12">
-          <Reveal className="mx-auto w-full max-w-xs lg:sticky lg:top-24 lg:mx-0 lg:max-w-none">
-            <p className="mb-3 text-center text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs lg:text-left">
+        <div className="mt-10 space-y-10 lg:mt-12 lg:space-y-12">
+          <Reveal className="mx-auto w-full max-w-sm sm:max-w-md">
+            <p className="mb-3 text-center text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs">
               Formations présentiel
             </p>
             <Link
               href={LINKS.formations}
               title="Catalogue des formations IA pour le BTP — Qualiopi, présentiel Île-de-France"
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] transition hover:border-[#377CF3]/35 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] transition hover:border-[#377CF3]/35 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
             >
-              <figure className="flex flex-1 flex-col">
-                <div className="relative aspect-square w-full overflow-hidden bg-slate-50">
+              <figure className="flex flex-col">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 sm:aspect-[16/10]">
                   <Image
                     src={sessionPhoto.src}
                     alt={sessionPhoto.alt}
@@ -82,10 +82,10 @@ export function AccueilCasUsageIaVisuels() {
                     fill
                     loading="lazy"
                     className="object-cover transition group-hover:opacity-95"
-                    sizes="(max-width: 1024px) 320px, 300px"
+                    sizes="(max-width: 640px) 100vw, 448px"
                   />
                 </div>
-                <figcaption className="flex flex-1 flex-col justify-center border-t border-slate-100 bg-[#F2F2F2]/60 px-4 py-4 text-center">
+                <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-4 py-4 text-center">
                   <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">
                     Mes formations IA pour le BTP — exercices terrain, cas réels et petits groupes
                   </p>
@@ -100,10 +100,10 @@ export function AccueilCasUsageIaVisuels() {
 
           <div className="min-w-0">
             <Reveal>
-              <h3 className="text-center font-display text-lg font-bold tracking-tight text-[#1A1A1A] md:text-xl lg:text-left">
+              <h3 className="text-center font-display text-lg font-bold tracking-tight text-[#1A1A1A] md:text-xl">
                 Tutoriels PDF offerts par thématique
               </h3>
-              <p className="mt-2 text-center text-sm leading-relaxed text-[#5A5A5A] lg:text-left">
+              <p className="mt-2 text-center text-sm leading-relaxed text-[#5A5A5A]">
                 Chantier, devis, appels d&apos;offres ou livrables — téléchargement libre, sans inscription.
               </p>
             </Reveal>

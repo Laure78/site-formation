@@ -9,6 +9,7 @@ import {
   ListOrdered,
 } from 'lucide-react';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { PHOTOS } from '@/lib/photos';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { JsonLd } from '@/components/JsonLd';
@@ -27,30 +28,15 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { PillarPageHero } from '@/components/pillar/PillarPageHero';
+import { FinancementConstructysHero } from '@/components/financement/FinancementConstructysHero';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
-import { StatCallout } from '@/components/readability/StatCallout';
-import {
-  COUNT_UP_PROS,
-  COUNT_UP_RATING,
-  STATS_FRESHNESS_LABEL,
-} from '@/lib/readability-presets';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
 
-const H1 =
-  'Financer une formation IA pour le BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
-
-const HERO_FINANCEMENT = {
-  src: '/images/financement-constructys-formation-ia-btp-hero-2026.webp',
-  width: 1024,
-  height: 1024,
-  alt:
-    'Constructys finance votre formation IA BTP — plafonds 2026, eGestion, Laure Olivié formatrice IA BTP Qualiopi',
-} as const;
+const FINANCEMENT_HERO = PHOTOS.financementConstructysHero2026;
 
 const FINANCEMENT_TOC = [
   { label: 'En résumé (TL;DR)', anchor: 'tldr' },
@@ -110,9 +96,9 @@ export const metadata = createPageMetadata({
     modifiedTime: '2026-06-01',
   },
   image: {
-    url: HERO_FINANCEMENT.src,
-    width: HERO_FINANCEMENT.width,
-    height: HERO_FINANCEMENT.height,
+    url: FINANCEMENT_HERO.src,
+    width: FINANCEMENT_HERO.width,
+    height: FINANCEMENT_HERO.height,
     alt: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
   },
 });
@@ -127,65 +113,7 @@ export default function FinancementConstructysFormationIABTPPage() {
     <div className="min-h-screen bg-[#F8FAFC]">
       <JsonLd id="schema-financement-constructys-graph" schema={unifiedSchema} />
 
-      <PillarPageHero
-        variant="splitImage"
-        layoutDensity="compact"
-        surface="muted"
-        eyebrow="Constructys · OPCO BTP"
-        title={H1}
-        titleId="financement-hero-title"
-        metaLine="Mis à jour le 1ᵉʳ juin 2026 · Temps de lecture : 7 min"
-        tags={['Constructys', 'OPCO', 'Qualiopi', 'BTP', 'eGestion', '2026']}
-        subtitle={
-          <p className="text-sm leading-relaxed text-[#475569] md:text-base">
-            D&apos;après notre suivi interne 2023-2025 (voir chiffres ci-dessous). Ce guide vous aide à comprendre les
-            règles, sans vous noyer dans le jargon administratif — que vous visiez une{' '}
-            <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              formation IA pour PME BTP
-            </Link>
-            , l&apos;
-            <Link href={LINKS.iaDevis} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              IA pour les devis bâtiment
-            </Link>{' '}
-            ou un{' '}
-            <Link href={LINKS.formationAO} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-              programme IA appels d&apos;offres
-            </Link>
-            .
-          </p>
-        }
-        primaryCta={{
-          href: buildSiteCalendlyCtaUrl('financement-constructys-hero'),
-          label: 'Réservez votre visio découverte gratuite',
-          external: true,
-        }}
-        secondaryCta={{ href: LINKS.formations, label: 'Voir le programme', external: false }}
-        ctaShape="pill"
-        credibilityLine={
-          <div className="grid gap-3 sm:max-w-md sm:grid-cols-2">
-            <StatCallout
-              variant="inline"
-              value={COUNT_UP_PROS}
-              label="professionnels formés"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
-            />
-            <StatCallout
-              variant="inline"
-              value={COUNT_UP_RATING}
-              label="note moyenne"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
-            />
-          </div>
-        }
-        sideImage={{
-          src: HERO_FINANCEMENT.src,
-          alt: HERO_FINANCEMENT.alt,
-          width: HERO_FINANCEMENT.width,
-          height: HERO_FINANCEMENT.height,
-          objectFit: 'contain',
-          qualiopiBadge: false,
-        }}
-      />
+      <FinancementConstructysHero />
 
       <div className="mx-auto max-w-6xl px-4 pb-16 pt-6 md:pb-24 md:pt-8">
         <div className="lg:grid lg:grid-cols-[minmax(0,220px)_minmax(0,1fr)] lg:gap-8 xl:gap-10">
