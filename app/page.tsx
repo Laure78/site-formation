@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PresentationAnimee } from '@/components/landing/PresentationAnimee';
+import { AccueilHeroVideoEmbed } from '@/components/landing/AccueilHeroVideoEmbed';
 import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
@@ -292,18 +293,7 @@ export default function HomePage() {
                   <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
                     Les {CATALOGUE_FORMATIONS_COUNT} parcours de formation IA pour les pro du BTP
                   </p>
-                  <div className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-inner ring-1 ring-slate-900/5">
-                    <Image
-                      src={PHOTOS.heroAccueilFormationIABtpEchange2026.src}
-                      alt={PHOTOS.heroAccueilFormationIABtpEchange2026.alt}
-                      title={PHOTOS.heroAccueilFormationIABtpEchange2026.title}
-                      width={PHOTOS.heroAccueilFormationIABtpEchange2026.width}
-                      height={PHOTOS.heroAccueilFormationIABtpEchange2026.height}
-                      priority
-                      className="h-auto w-full object-cover"
-                      sizes="(max-width: 1024px) 100vw, 480px"
-                    />
-                  </div>
+                  <AccueilHeroVideoEmbed />
                 </div>
               </div>
             </aside>
