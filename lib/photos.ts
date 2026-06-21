@@ -388,10 +388,11 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** Page /ressources — visuel promotionnel tutos PDF et guides IA BTP gratuits */
+  /** Page /ressources — affiche hero tutos PDF, guides et fiches pratiques IA BTP gratuits */
   ressourcesIaBtpHero2026: {
-    src: '/images/ressources-ia-btp-hero-2026.png',
-    alt: 'Ressources IA BTP — guides, outils et tutos PDF gratuits, Laure Olivié formatrice Qualiopi OFC',
+    src: '/images/ressources-gratuites-ia-btp-hero-2026.png',
+    alt: 'Ressources gratuites IA BTP — tutos PDF, guides et fiches pratiques, Laure Olivié formatrice Qualiopi',
+    title: 'Ressources gratuites IA BTP — tutos, guides et fiches pratiques, Laure Olivié OFC Qualiopi',
     width: 1024,
     height: 1024,
   },

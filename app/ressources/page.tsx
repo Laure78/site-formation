@@ -21,10 +21,10 @@ export const metadata: Metadata = createPageMetadata({
   openGraphType: 'website',
   appendAuthorSuffix: false,
   image: {
-    url: '/images/ressources-ia-btp-hero-2026.png',
+    url: '/images/ressources-gratuites-ia-btp-hero-2026.png',
     width: 1024,
     height: 1024,
-    alt: 'Ressources IA BTP — guides, outils et tutos PDF gratuits, Laure Olivié formatrice Qualiopi OFC',
+    alt: 'Ressources gratuites IA BTP — tutos PDF, guides et fiches pratiques, Laure Olivié formatrice Qualiopi',
   },
 });
 

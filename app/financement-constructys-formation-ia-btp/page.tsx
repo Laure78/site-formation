@@ -27,12 +27,16 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
 import { StatCallout } from '@/components/readability/StatCallout';
+import {
+  COUNT_UP_PROS,
+  COUNT_UP_RATING,
+  STATS_FRESHNESS_LABEL,
+} from '@/lib/readability-presets';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
@@ -150,20 +154,26 @@ export default function FinancementConstructysFormationIABTPPage() {
             .
           </p>
         }
-        primaryCta={{ href: LINKS.contact, label: 'Demander un devis', external: false }}
-        secondaryCta={{ href: buildSiteCalendlyCtaUrl('financement-constructys-hero-secondary-rdv'), label: 'Réserver un RDV', external: true }}
+        primaryCta={{
+          href: buildSiteCalendlyCtaUrl('financement-constructys-hero'),
+          label: 'Réservez votre visio découverte gratuite',
+          external: true,
+        }}
+        secondaryCta={{ href: LINKS.formations, label: 'Voir le programme', external: false }}
+        ctaShape="pill"
         credibilityLine={
-          <div className="flex flex-wrap gap-3">
+          <div className="grid gap-3 sm:max-w-md sm:grid-cols-2">
             <StatCallout
               variant="inline"
-              value={formatProfessionalsTrainedCount()}
-              label="stagiaires formés"
+              value={COUNT_UP_PROS}
+              label="professionnels formés"
+              freshnessLabel={STATS_FRESHNESS_LABEL}
             />
-            <StatCallout variant="inline" value="92 %" label="dossiers acceptés au 1er dépôt" />
             <StatCallout
               variant="inline"
-              value={SOCIAL_PROOF.AVERAGE_RATING}
+              value={COUNT_UP_RATING}
               label="note moyenne"
+              freshnessLabel={STATS_FRESHNESS_LABEL}
             />
           </div>
         }

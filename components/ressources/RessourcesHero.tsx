@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Download, Layers, Sparkles } from 'lucide-react';
+import { PHOTOS } from '@/lib/photos';
 import { TUTOS } from '@/lib/tutos';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
 const QUICK_LINKS = [
@@ -10,6 +11,8 @@ const QUICK_LINKS = [
 ] as const;
 
 export function RessourcesHero() {
+  const heroVisual = PHOTOS.ressourcesIaBtpHero2026;
+
   return (
     <section className="relative overflow-hidden border-b border-slate-200 bg-[#F2F2F2]">
       <div
@@ -84,9 +87,20 @@ export function RessourcesHero() {
             </nav>
           </div>
 
-          <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none">
-            <OfcPromoVideoEmbed variant="pillarMuted" />
-          </figure>
+          <aside className="mx-auto w-full max-w-[280px] shrink-0 lg:mx-0 lg:max-w-none">
+            <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)] ring-1 ring-slate-200/80">
+              <Image
+                src={heroVisual.src}
+                alt={heroVisual.alt}
+                title={heroVisual.title}
+                width={heroVisual.width}
+                height={heroVisual.height}
+                priority
+                className="h-auto w-full rounded-[0.85rem] object-cover"
+                sizes="(max-width: 1024px) 280px, 360px"
+              />
+            </div>
+          </aside>
         </div>
       </div>
     </section>
