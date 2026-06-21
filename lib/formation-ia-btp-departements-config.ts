@@ -5,6 +5,7 @@
 import type { FormationIaBtpDeptLandingConfig } from '@/components/formation-ia-btp/FormationIaBtpDepartementLanding';
 import type { FAQItem } from '@/lib/faq';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
+import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
@@ -67,9 +68,8 @@ function ffbCasClient(deptCode: string): string {
 export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-yvelines-78',
   h1: 'Formation IA pour le BTP en Yvelines (78) — Versailles et agglomération',
-  metaTitle: 'Formation IA pour les pro du BTP Yvelines — Laure Olivié · Qualiopi',
-  metaDescription:
-    'Formation IA pour le BTP en Yvelines (78) : Versailles, SQY, Guyancourt. Claude AI & ChatGPT. Qualiopi, Constructys.',
+  metaTitle: 'Formation IA bâtiment Yvelines (78) — BTP & TP IDF | Laure Olivié · Qualiopi',
+  metaDescription: buildDeptMetaDescription('Yvelines', '78', 'Versailles, SQY, Guyancourt'),
   keywords: [
     'formation IA appliquée au bâtiment Yvelines',
     'formation ChatGPT 78',
@@ -183,7 +183,7 @@ function buildDeptConfig(opts: {
   const { deptCode, departementNom } = opts;
   const d = `${departementNom} (${deptCode})`;
   const h1 = `Formation IA appliquée au bâtiment en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
-  const metaTitle = `Formation IA pour le BTP ${opts.departementNom} — Laure Olivié · Qualiopi`;
+  const metaTitle = `${buildIdfDeptPageTitle(departementNom, deptCode)} — Laure Olivié · Qualiopi`;
   const metaDescription = buildDeptMetaDescription(departementNom, deptCode, opts.triVillesMeta);
   const courseName = `Formation IA pour les pro du BTP ${d} — Qualiopi, financement possible selon éligibilité`;
   return {
@@ -284,7 +284,7 @@ const DEPLACEMENT_GUYANCOURT_77 = `Siège ${OFC} à Guyancourt (78) : déplaceme
 export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-seine-et-marne-77',
   h1: 'Formation IA appliquée au bâtiment en Seine-et-Marne (77) — Melun, Meaux et Marne-la-Vallée',
-  metaTitle: 'Formation IA pour le BTP Seine-et-Marne — Laure Olivié · Qualiopi',
+  metaTitle: 'Formation IA bâtiment Seine-et-Marne (77) — BTP & TP IDF | Laure Olivié · Qualiopi',
   metaDescription: buildDeptMetaDescription('Seine-et-Marne', '77', 'Melun, Meaux'),
   keywords: [
     'formation IA appliquée au bâtiment 77',

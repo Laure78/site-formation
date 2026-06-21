@@ -40,10 +40,10 @@ function metierSeoLabel(m: FormationIaRawMetier): string {
 
 export function buildMetierMetadata(m: FormationIaRawMetier, _path: string) {
   const label = metierSeoLabel(m);
-  const title = truncateForBrandedTitle(`Formation IA ${label} — ChatGPT BTP`);
+  const title = truncateForBrandedTitle(`Formation IA ${label} — BTP & TP Paris IDF`);
   const description = truncate(
-    `Formation IA ${m.label} : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, Constructys. Visio découverte gratuite.`,
-    155
+    `Formation IA appliquée au bâtiment ${m.label} : ChatGPT et Claude AI pour devis, dossiers et chantier. Formation IA travaux publics. Qualiopi, Constructys, Île-de-France.`,
+    160,
   );
   const keywords = [
     `formation IA ${m.label}`,
@@ -59,14 +59,14 @@ export function buildVilleMetadata(v: FormationIaRawVille, _path: string) {
   const isParis = v.slug === 'btp-paris';
   const title = truncateForBrandedTitle(
     isParis
-      ? 'Formation IA BTP Paris — ChatGPT & Claude'
-      : `Formation IA BTP ${v.label} (${v.dept}) — ChatGPT`,
+      ? 'Formation IA bâtiment Paris — BTP & TP IDF'
+      : `Formation IA BTP ${v.label} (${v.dept}) — IDF`,
   );
   const description = truncate(
     isParis
-      ? `Formation IA, ChatGPT et Claude AI pour le BTP à Paris et Grand Paris : devis, administratif, mémoires. Qualiopi, Constructys. Visio découverte gratuite.`
-      : `Formation IA pour le BTP à ${v.label} (${v.deptName}) : ChatGPT et Claude AI pour devis et chantier. Qualiopi, Constructys. Visio découverte gratuite.`,
-    155
+      ? `Formation IA pour le BTP à Paris et Grand Paris : formation IA appliquée au bâtiment, formation IA travaux publics. Qualiopi, Constructys, Île-de-France.`
+      : `Formation IA pour le BTP à ${v.label} (${v.deptName}) : formation IA bâtiment et travaux publics. ChatGPT, Claude AI. Qualiopi, Constructys, IDF.`,
+    160,
   );
   const keywords = [
     `formation IA pour le BTP ${v.label}`,

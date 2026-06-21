@@ -19,6 +19,7 @@ import {
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { COUNT_UP_PROS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
+import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import {
   GEO_FORMATION_CAS_USAGE,
   geoFormationDepartementLabel,
@@ -36,7 +37,7 @@ function geoMetaDescription(departement: string, code: string, villes: readonly 
 export function geoFormationMetadata(props: GeoFormationPageProps) {
   const { departement, code, villes, slug, seo } = props;
   const title =
-    seo?.title ?? `Formation IA BTP ${departement} (${code}) — Qualiopi`;
+    seo?.title ?? `${buildIdfDeptPageTitle(departement, code)} — Qualiopi`;
   const description =
     seo?.description ?? geoMetaDescription(departement, code, villes);
 

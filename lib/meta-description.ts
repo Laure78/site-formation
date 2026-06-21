@@ -1,3 +1,9 @@
+import {
+  buildIdfDeptMetaDescription,
+  hasSeoGeoSignal,
+  SEO_GEO_REGION,
+} from '@/lib/seo-geo-keywords';
+
 /** Limite SERP Google — meta description (caractères affichés, espaces inclus). */
 export const META_DESCRIPTION_MAX = 160;
 
@@ -9,12 +15,10 @@ export const META_DESCRIPTION_SEO_PHRASES = [
   'formation IA pour le BTP',
   'formation IA appliquée au bâtiment',
   'formation IA pour les pro du BTP',
+  'formation IA travaux publics',
   'ChatGPT BTP',
 ] as const;
 
-/**
- * Tronque proprement une meta description (mot entier, ellipse si besoin).
- */
 export function clampMetaDescription(text: string, max = META_DESCRIPTION_MAX): string {
   const normalized = text.replace(/\s+/g, ' ').trim();
   if (normalized.length <= max) return normalized;
@@ -25,9 +29,6 @@ export function clampMetaDescription(text: string, max = META_DESCRIPTION_MAX): 
   return `${cut.replace(/[,;:.\s-]+$/u, '')}…`;
 }
 
-/**
- * Construit une meta description ≤ 160 car. (phrase SEO incluse si absente du texte source).
- */
 export function buildMetaDescription(text: string, max = META_DESCRIPTION_MAX): string {
   const base = text.replace(/\s+/g, ' ').trim();
   const hasSeoPhrase = META_DESCRIPTION_SEO_PHRASES.some((p) =>
@@ -37,13 +38,31 @@ export function buildMetaDescription(text: string, max = META_DESCRIPTION_MAX): 
   return clampMetaDescription(withSeo, max);
 }
 
-/** Meta description géo département — villes courtes (ex. « Versailles, SQY »). */
 export function buildDeptMetaDescription(
   departementNom: string,
   deptCode: string,
   villesCourtes: string,
 ): string {
   return buildMetaDescription(
-    `Formation IA pour le BTP en ${departementNom} (${deptCode}) : ${villesCourtes}. Qualiopi, Constructys, présentiel.`,
+    buildIdfDeptMetaDescription(departementNom, deptCode, villesCourtes),
   );
+}
+
+/** Enrichit description page : phrase SEO obligatoire + ancrage GEO IDF si page formation. */
+export function enrichPageDescription(text: string, max = META_DESCRIPTION_MAX): string {
+  const withSeo = buildMetaDescription(text, max);
+  const lower = withSeo.toLowerCase();
+  const isFormationContext =
+    lower.includes('btp') ||
+    lower.includes('bâtiment') ||
+    lower.includes('formation') ||
+    lower.includes('chatgpt') ||
+    lower.includes('claude') ||
+    lower.includes('qualiopi') ||
+    lower.includes('constructys') ||
+    lower.includes('ia ') ||
+    lower.includes('intelligence artificielle');
+  if (!isFormationContext || hasSeoGeoSignal(withSeo)) return withSeo;
+  const withGeo = `${withSeo.replace(/\.\s*$/, '')}, ${SEO_GEO_REGION}.`;
+  return clampMetaDescription(withGeo, max);
 }

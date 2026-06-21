@@ -135,9 +135,9 @@ const GAINS_COMMERCIAUX_CARDS = [
 ] as const;
 
 /** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≤ 155 car.) */
-const HOME_META_TITLE = "Formation IA pour les pro du BTP — Devis, chantier, appels d'offres";
+const HOME_META_TITLE = "Formation IA bâtiment & BTP Paris IDF — Devis, AO, CR";
 const HOME_META_DESCRIPTION =
-  "Formation IA appliquée au bâtiment : devis, appels d'offres, CR. BeWork ou Qualiopi. 1 592 pros, Constructys. RDV gratuit.";
+  "Formation IA appliquée au bâtiment et formation IA travaux publics en Île-de-France : devis, appels d'offres, CR. Qualiopi, Constructys. RDV gratuit.";
 
 const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { clampMetaDescription } from '@/lib/meta-description';
+import { enrichPageDescription } from '@/lib/meta-description';
 
 /** og:site_name — cohérence sur tout le site */
 export const OG_SITE_NAME = 'Laure Olivié — Formation IA pour le BTP';
@@ -93,7 +93,8 @@ function resolveImageUrl(
   baseUrl: string,
   image?: { url: string; width?: number; height?: number; alt?: string }
 ) {
-  const defaultAlt = 'Laure Olivié — Formatrice IA pour le BTP, Qualiopi';
+  const defaultAlt =
+    'Laure Olivié — formation IA BTP et formation IA bâtiment, Paris Île-de-France, Qualiopi';
   if (!image?.url) {
     return {
       url: `${baseUrl}/images/laure-olivie-formatrice.png`,
@@ -142,7 +143,7 @@ export function buildPageMetadata({
       : `/${path}`
     : '';
   const canonical = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
-  const metaDescription = clampMetaDescription(
+  const metaDescription = enrichPageDescription(
     appendAuthorSuffix ? withOgDescriptionSuffix(description) : description.trim(),
   );
   const titleSegment = truncateForBrandedTitle(

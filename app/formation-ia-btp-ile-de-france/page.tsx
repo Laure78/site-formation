@@ -25,6 +25,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT
 } from '@/lib/tarifs-sessions';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import { buildIdfRegionalMetaDescription } from '@/lib/seo-geo-keywords';
 
 export const revalidate = 3600;
 const poppins = Poppins({
@@ -38,9 +39,8 @@ const PATH = '/formation-ia-btp-ile-de-france';
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA appliquée au bâtiment Île-de-France | Qualiopi Constructys',
-  description:
-    `Formation IA pour le BTP en Île-de-France, en présentiel (inter ou intra). Qualiopi, Constructys. ${formatProfessionalsTrainedCount()} pros formés. Visio découverte gratuite.`,
+  title: 'Formation IA bâtiment Île-de-France — BTP & TP | Qualiopi',
+  description: `${buildIdfRegionalMetaDescription()} ${formatProfessionalsTrainedCount()} pros formés. Visio découverte gratuite.`,
   path: PATH,
   keywords: [
     'formation IA pour les pro du BTP Île-de-France',
@@ -63,7 +63,7 @@ export const metadata = createPageMetadata({
     url: '/images/laure-olivie-formatrice.png',
     width: 1200,
     height: 630,
-    alt: 'Formation IA pour le BTP en Île-de-France — Laure Olivié, OFC Création d\'Entreprise, Qualiopi',
+    alt: 'Formation IA bâtiment et travaux publics en Île-de-France — Laure Olivié, OFC Qualiopi, Paris IDF',
   },
 });
 

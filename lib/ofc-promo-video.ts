@@ -1,4 +1,4 @@
-import { PHOTOS } from '@/lib/photos';
+import { buildPromoVideoIframeTitle } from '@/lib/seo-geo-keywords';
 
 /** Présentation animée formations OFC — bundle HTML autonome (ratio 1200×800). */
 export const OFC_PROMO_VIDEO = {
@@ -9,6 +9,5 @@ export const OFC_PROMO_VIDEO = {
 } as const;
 
 export function getOfcPromoVideoTitle(): string {
-  const hero = PHOTOS.heroAccueilFormationIABtpEchange2026;
-  return hero.title ?? hero.alt;
+  return buildPromoVideoIframeTitle();
 }

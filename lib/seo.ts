@@ -37,7 +37,7 @@ export const SITE_CONFIG = {
   legalName: 'OFC Création d\'Entreprise',
   /** ≤ ~120 car. — le layout ajoute « Laure Olivié, formatrice IA appliquée au bâtiment. » (meta SERP totale ≈ 155 car.) */
   description:
-    `Formation IA pour le BTP : ChatGPT pour devis, administratif et appels d'offres. ${formatProfessionalsTrainedCount()}+ pros formés, Qualiopi, OPCO Constructys, France.`,
+    `Formation IA pour le BTP et formation IA appliquée au bâtiment en Île-de-France : Paris, 77–95. Formation IA travaux publics, ChatGPT, Qualiopi, Constructys. ${formatProfessionalsTrainedCount()}+ pros formés.`,
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: SCHEMA_CONTACT.email,

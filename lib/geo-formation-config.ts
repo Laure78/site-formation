@@ -98,9 +98,9 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
     'Paris 13e–14e (Montparnasse, Olympiades)',
   ],
   seo: {
-    title: 'Paris 75 : IA BTP intra par arrondissements',
+    title: 'Formation IA bâtiment Paris (75) — BTP & TP IDF',
     description:
-      'Formation IA BTP à Paris (75) : intra par arrondissement, accès métro/RER. ChatGPT & Claude sur vos documents. Qualiopi, Constructys. Visio découverte gratuite.',
+      'Formation IA appliquée au bâtiment à Paris (75) : intra par arrondissement. Formation IA BTP, formation IA travaux publics. Qualiopi, Constructys.',
   },
   h1: 'Formation IA BTP à Paris (75) — intra par arrondissement et métropole',
   heroIntro:

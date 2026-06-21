@@ -11,7 +11,7 @@ const base = SITE_CONFIG.url.replace(/\/$/, '');
 
 /** Légende factuelle — hero accueil (GEO Île-de-France, sans dupliquer l'alt). */
 export const HOME_HERO_IMAGE_CAPTION =
-  'Affiche formation IA pour le BTP animée par Laure Olivié — 4 h en présentiel Île-de-France, OFC Qualiopi' as const;
+  'Affiche formation IA bâtiment et formation IA travaux publics — Laure Olivié, 4 h présentiel Paris Île-de-France, OFC Qualiopi' as const;
 
 export const HOME_HERO_IMAGE_CREDIT = 'Laure Olivié — OFC Création d\'Entreprise' as const;
 
