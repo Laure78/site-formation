@@ -4,7 +4,6 @@ import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ChatWidget } from '@/components/ChatWidget';
-import { ExitIntentPopup } from '@/components/ExitIntentPopup';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
 import { StickyCtaBanner } from '@/components/StickyCtaBanner';
@@ -181,7 +180,6 @@ export default function RootLayout({
         <StickyCtaBanner />
         <StickyBlogMetierRdvBar />
         <ChatWidget />
-        <ExitIntentPopup />
       </body>
     </html>
   );
