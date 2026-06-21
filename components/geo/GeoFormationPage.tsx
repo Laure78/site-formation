@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Calendar, Check, MapPin } from 'lucide-react';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { JsonLd } from '@/components/JsonLd';
 import { CTABlock } from '@/components/CTABlock';
 import { RdvLink } from '@/components/RdvLink';
@@ -113,7 +114,9 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
       </div>
 
       <section className={OFC_SEC.white}>
-        <div className="mx-auto max-w-4xl px-4">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
+            <div className="min-w-0">
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {deptLabel} · Présentiel · Qualiopi · Constructys
           </p>
@@ -160,6 +163,11 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             >
               Programme NIV-01
             </Link>
+          </div>
+            </div>
+            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
+              <OfcPromoVideoEmbed variant="heroColumn" />
+            </aside>
           </div>
         </div>
       </section>

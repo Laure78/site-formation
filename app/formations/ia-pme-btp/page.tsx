@@ -13,13 +13,11 @@ import {
 } from '@/lib/seo';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
-import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 
@@ -110,15 +108,6 @@ export default function FormationIAPMEBTPPage() {
           'Cas concrets',
         ]}
         summaryItems={HERO_RESUME_PME}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.btpFormationSalleIntervention2026.src}
-            alt={PHOTOS.btpFormationSalleIntervention2026.alt}
-            width={PHOTOS.btpFormationSalleIntervention2026.width}
-            height={PHOTOS.btpFormationSalleIntervention2026.height}
-            priority
-          />
-        }
         ctas={
           <>
             <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">

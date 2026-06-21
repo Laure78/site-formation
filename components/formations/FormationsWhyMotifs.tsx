@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Cpu, HardHat, Landmark, Trophy, Wallet } from 'lucide-react';
+import { BookOpen, Cpu, HardHat, Landmark, Trophy } from 'lucide-react';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import {
   CATALOGUE_FORMATIONS_COUNT,
@@ -7,7 +7,6 @@ import {
   formationCatalogueLinkLabel,
   isCatalogueNiveau1,
 } from '@/lib/formations-catalogue-display';
-import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 export function FormationsWhyMotifs() {
@@ -16,7 +15,7 @@ export function FormationsWhyMotifs() {
       <h2 className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
         Pourquoi un catalogue de {CATALOGUE_FORMATIONS_COUNT} formations spécialisées ?
       </h2>
-      <p className="mt-4 max-w-3xl text-[#334155] leading-relaxed">
+      <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#334155] md:text-[17px]">
         L&apos;IA générative ne se travaille pas de la même manière selon que vous structurez une
         journée terrain, rédigez un mémoire technique, analysez un DCE, pilotez un chantier ou
         industrialisez Claude en entreprise. Plutôt qu&apos;une formation généraliste, le catalogue OFC
@@ -24,7 +23,7 @@ export function FormationsWhyMotifs() {
         {CATALOGUE_FORMATIONS_COUNT - 1} formations niveau 2 — avec
         programmes PDF téléchargeables sur chaque fiche.
       </p>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {FORMATIONS_CATALOGUE.map((entry) => {
           const Icon =
             entry.ref === 'NIV-01'
@@ -38,20 +37,20 @@ export function FormationsWhyMotifs() {
                     : Cpu;
           const isDebutant = isCatalogueNiveau1(entry.ref);
           return (
-            <div key={entry.ref} className={`${OFC_CARD} p-8`}>
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
+            <div key={entry.ref} className={`${OFC_CARD} flex flex-col p-6 md:p-7`}>
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#EFF6FF]">
                 <Icon
-                  className={`h-8 w-8 ${isDebutant ? 'text-[#377CF3]' : 'text-[#F97316]'}`}
+                  className={`h-7 w-7 ${isDebutant ? 'text-[#377CF3]' : 'text-[#F97316]'}`}
                   strokeWidth={1.75}
                   aria-hidden
                 />
               </div>
-              <h3 className="mt-6 font-display text-lg font-semibold leading-snug text-[#0F172A]">
+              <h3 className="mt-5 font-display text-lg font-semibold leading-snug text-[#0F172A] md:text-xl">
                 <Link href={entry.href} className="hover:text-[#377CF3] hover:underline">
                   {formationCatalogueLinkLabel(entry)}
                 </Link>
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-[#475569] md:text-[0.9375rem]">
                 {entry.ref === 'NIV-01'
                   ? 'Démarrer avec l\u2019IA : bâtiment & travaux publics'
                   : entry.ref === 'NIV-02'
@@ -65,23 +64,11 @@ export function FormationsWhyMotifs() {
               <CataloguePriceBadge
                 level={entry.level}
                 variant="banner"
-                className="mt-4"
+                className="mt-5"
               />
             </div>
           );
         })}
-        <div className={`${OFC_CARD} p-8`}>
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#EFF6FF]">
-            <Wallet className="h-8 w-8 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
-          </div>
-          <h3 className="mt-6 font-display text-lg font-semibold text-[#0F172A]">
-            Financement possible selon éligibilité
-          </h3>
-          <p className="mt-3 text-sm leading-relaxed text-[#64748B]">
-            Plafond pédagogique 24 € HT/h/stagiaire — demande à déposer 15 jours avant la session.
-          </p>
-          <p className="mt-4 text-sm font-bold text-[#377CF3]">Accompagnement complet dossier inclus</p>
-        </div>
       </div>
     </section>
   );

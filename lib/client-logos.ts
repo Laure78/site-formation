@@ -25,9 +25,25 @@ export type ClientLogoItem = {
   src: string;
   width: number;
   height: number;
+  /** Site officiel du partenaire — lien externe sur le logo. */
+  href: string;
+  /** Infobulle au survol (accessibilité). */
+  linkTitle?: string;
   /** Affiché sous le logo si besoin (ex. plusieurs entrées FFB avec le même visuel). */
   caption?: string;
 };
+
+/** URLs officielles des partenaires — source unique pour bandeaux et grilles logos. */
+export const PARTNER_WEBSITES = {
+  ffbGrandParis: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/grand-paris-idf',
+  ffbIdf: 'https://www.ffbatiment.fr/federations/ile-de-france',
+  ffb: 'https://www.ffbatiment.fr',
+  csfe: 'https://www.csfe.fr/',
+  cnamIdf: 'https://www.cnam-idf.fr/',
+  lefebvreDalloz: 'https://www.lefebvre-dalloz-formation.fr/',
+  ifrb: 'https://www.ifrb-78-91-95.fr/',
+  arfab: 'https://www.arfab.fr/',
+} as const;
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
   {
@@ -37,6 +53,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
     width: 200,
     height: 80,
+    href: PARTNER_WEBSITES.ffbIdf,
+    linkTitle: 'Site officiel FFB Île-de-France',
     caption: 'FFB · Île-de-France',
   },
   {
@@ -46,6 +64,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
     width: 200,
     height: 80,
+    href: PARTNER_WEBSITES.ffb,
+    linkTitle: 'Site officiel FFB — Fédération Française du Bâtiment',
     caption: 'FFB Artisan',
   },
   {
@@ -55,6 +75,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-ffb-grand-paris-formation-idf.webp',
     width: 400,
     height: 120,
+    href: PARTNER_WEBSITES.ffbGrandParis,
+    linkTitle: 'Site officiel FFB Grand Paris Île-de-France',
   },
   {
     id: 'csfe',
@@ -63,6 +85,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
     width: 360,
     height: 120,
+    href: PARTNER_WEBSITES.csfe,
+    linkTitle: 'Site officiel CSFE — Chambre Syndicale Française de l’Étanchéité',
   },
   {
     id: 'cnam',
@@ -71,6 +95,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-cnam-formation-continue-ia-btp.webp',
     width: 220,
     height: 72,
+    href: PARTNER_WEBSITES.cnamIdf,
+    linkTitle: 'Site officiel CNAM entreprises Île-de-France',
   },
   {
     id: 'arfab',
@@ -79,6 +105,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-arfab-partenaire-formation-btp.webp',
     width: 160,
     height: 64,
+    href: PARTNER_WEBSITES.arfab,
+    linkTitle: 'Site officiel ARFAB — formation artisans du bâtiment',
   },
   {
     id: 'ifrb',
@@ -87,6 +115,8 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     src: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
     width: 200,
     height: 80,
+    href: PARTNER_WEBSITES.ifrb,
+    linkTitle: 'Site officiel IFRB — Institut de Formation Régional du Bâtiment',
     caption: 'IFRB 77',
   },
 ];

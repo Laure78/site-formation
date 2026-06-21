@@ -474,6 +474,15 @@ export const PHOTOS = {
     height: 1024,
   },
 
+  /** Page catalogue /formations — hero bannière (Laure Olivié, affiche formation IA BTP) */
+  formationsCatalogueHero2026: {
+    src: '/images/formation-ia-btp-catalogue-hero-laure-olivie.webp',
+    alt: 'Laure Olivié, formatrice IA BTP — affiche Formation IA pour le BTP, devis chantier et appels d\'offres, présentiel Île-de-France',
+    title: 'Catalogue formations IA pour le BTP — Laure Olivié, OFC Création d\'Entreprise Qualiopi',
+    width: 1024,
+    height: 1024,
+  },
+
   /** Page d'accueil — hero header (portrait Laure, dashboard IA BTP, manuel formation) */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',

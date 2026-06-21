@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Check, Users, HardHat, Building2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { SkillIaLeadMagnetForm } from '@/components/ressources/SkillIaLeadMagnetForm';
@@ -140,19 +141,7 @@ export default function SkillIaConducteurTravauxPage() {
             </ul>
           </div>
           <div className="flex min-w-0 flex-col gap-6 lg:sticky lg:top-24 xl:top-28">
-            <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-[320px]">
-              <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(0,0,0,0.25)] ring-4 ring-white/30">
-                <Image
-                  src={PHOTOS.guideConducteurTravauxHero2026.src}
-                  alt={PHOTOS.guideConducteurTravauxHero2026.alt}
-                  width={PHOTOS.guideConducteurTravauxHero2026.width}
-                  height={PHOTOS.guideConducteurTravauxHero2026.height}
-                  className="h-auto w-full object-contain"
-                  sizes="(max-width: 1024px) 280px, 320px"
-                  priority
-                />
-              </div>
-            </figure>
+            <OfcPromoVideoEmbed variant="onAccent" className="mx-auto w-full max-w-[320px] lg:mx-0 lg:max-w-none" />
             <SkillIaLeadMagnetForm />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { ArrowRight, Check } from 'lucide-react';
 import { Citation } from '@/components/readability/Citation';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
@@ -141,19 +141,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {config.h1}
           </h1>
-          {config.coverImage ? (
-            <div className="relative mt-8 aspect-[1200/630] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm">
-              <Image
-                src={config.coverImage.url}
-                alt={config.coverImage.alt}
-                width={config.coverImage.width}
-                height={config.coverImage.height}
-                className="object-cover"
-                sizes="(max-width: 896px) 100vw, 896px"
-                priority
-              />
-            </div>
-          ) : null}
+          <div className="mt-8">
+            <OfcPromoVideoEmbed variant="heroColumn" />
+          </div>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
             Sessions 4 h, certifiées Qualiopi. Financement possible selon éligibilité. Plus de{' '}

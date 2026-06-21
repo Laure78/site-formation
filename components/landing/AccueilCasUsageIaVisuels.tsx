@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 
 const CAS_USAGE_VISUELS = [
@@ -8,21 +10,29 @@ const CAS_USAGE_VISUELS = [
     photo: PHOTOS.accueilIaAppliqueeChantierBtp2026,
     title: 'IA appliquée au chantier',
     caption: 'Planification intelligente, rapports automatisés et contrôle documentaire — Laure Olivié formatrice IA BTP.',
+    href: LINKS.guideConducteurTravauxIaBtp,
+    linkLabel: 'Guide conducteur de travaux BTP — 6 skills Claude PDF gratuit',
   },
   {
     photo: PHOTOS.accueilIaDevisChiffrageBtp2026,
     title: 'Devis et chiffrage',
     caption: 'Notes, photos et plans transformés en devis structuré, conforme et prêt à envoyer.',
+    href: LINKS.ressourcesTutos,
+    linkLabel: 'Tutoriels PDF gratuits IA BTP — devis, chantier, DCE',
   },
   {
     photo: PHOTOS.accueilAnalyseDceAppelsOffresBtp2026,
     title: 'Analyse DCE / appels d\'offres',
     caption: 'Extraction IA, évaluation et synthèse Go/No Go — décisions plus rapides, sûres et documentées.',
+    href: LINKS.tutoAnalyseDce,
+    linkLabel: 'Tuto skill analyse de DCE BTP — ressource gratuite',
   },
   {
     photo: PHOTOS.accueilCompteRenduDoePvChantier2026,
     title: 'Compte rendu, DOE et PV',
     caption: 'Notes vocales sur chantier transformées en CR, DOE ou PV structurés — validation métier incluse.',
+    href: LINKS.tutoCrChantier,
+    linkLabel: 'Tuto skill compte rendu de chantier BTP — ressource gratuite',
   },
 ] as const;
 
@@ -49,46 +59,65 @@ export function AccueilCasUsageIaVisuels() {
         </Reveal>
 
         <Reveal className="mt-10 flex justify-center">
-          <figure className="w-full max-w-[280px] overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] sm:max-w-xs md:max-w-sm">
-            <Image
-              src={sessionPhoto.src}
-              alt={sessionPhoto.alt}
-              title={sessionPhoto.title}
-              width={sessionPhoto.width}
-              height={sessionPhoto.height}
-              loading="lazy"
-              className="h-auto w-full object-cover"
-              sizes="(max-width: 640px) 280px, 384px"
-            />
-            <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-4 py-3 text-center">
-              <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">
-                Mes formations IA pour le BTP — exercices terrain, cas réels et petits groupes
-              </p>
-            </figcaption>
-          </figure>
-        </Reveal>
-
-        <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2" staggerMs={50}>
-          {CAS_USAGE_VISUELS.map((item) => (
-            <figure
-              key={item.photo.src}
-              className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm"
-            >
+          <Link
+            href={LINKS.formations}
+            title="Catalogue des formations IA pour le BTP — Qualiopi, présentiel Île-de-France"
+            className="group w-full max-w-[280px] overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] transition hover:border-[#377CF3]/35 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] sm:max-w-xs md:max-w-sm"
+          >
+            <figure>
               <Image
-                src={item.photo.src}
-                alt={item.photo.alt}
-                title={`Cas d'usage formation IA BTP — ${item.title}`}
-                width={item.photo.width}
-                height={item.photo.height}
+                src={sessionPhoto.src}
+                alt={sessionPhoto.alt}
+                title={sessionPhoto.title}
+                width={sessionPhoto.width}
+                height={sessionPhoto.height}
                 loading="lazy"
-                className="h-auto w-full object-cover"
-                sizes="(max-width: 640px) 100vw, 50vw"
+                className="h-auto w-full object-cover transition group-hover:opacity-95"
+                sizes="(max-width: 640px) 280px, 384px"
               />
-              <figcaption className="flex flex-1 flex-col gap-1 border-t border-slate-100 px-4 py-4 sm:px-5">
-                <p className="text-sm font-semibold text-slate-900 md:text-base">{item.title}</p>
-                <p className="text-sm leading-relaxed text-slate-600">{item.caption}</p>
+              <figcaption className="border-t border-slate-100 bg-[#F2F2F2]/60 px-4 py-3 text-center">
+                <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">
+                  Mes formations IA pour le BTP — exercices terrain, cas réels et petits groupes
+                </p>
+                <p className="mt-1 text-[0.7rem] font-semibold text-[#377CF3] sm:text-xs">
+                  Voir le catalogue →
+                </p>
               </figcaption>
             </figure>
+          </Link>
+        </Reveal>
+
+        <RevealGroup
+          className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4 lg:gap-6"
+          staggerMs={50}
+        >
+          {CAS_USAGE_VISUELS.map((item) => (
+            <Link
+              key={item.photo.src}
+              href={item.href}
+              title={item.linkLabel}
+              className="group mx-auto flex w-full max-w-[220px] flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            >
+              <figure className="flex flex-1 flex-col">
+                <Image
+                  src={item.photo.src}
+                  alt={item.photo.alt}
+                  title={`Cas d'usage formation IA BTP — ${item.title}`}
+                  width={item.photo.width}
+                  height={item.photo.height}
+                  loading="lazy"
+                  className="h-auto w-full object-cover transition group-hover:opacity-95"
+                  sizes="220px"
+                />
+                <figcaption className="flex flex-1 flex-col gap-1 border-t border-slate-100 px-3 py-3">
+                  <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">{item.title}</p>
+                  <p className="text-[0.7rem] leading-relaxed text-slate-600 sm:text-xs">{item.caption}</p>
+                  <p className="mt-1 text-[0.7rem] font-semibold text-[#377CF3] sm:text-xs">
+                    Tuto gratuit →
+                  </p>
+                </figcaption>
+              </figure>
+            </Link>
           ))}
         </RevealGroup>
       </div>

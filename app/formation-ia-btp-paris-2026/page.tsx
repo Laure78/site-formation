@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { RdvLink } from '@/components/RdvLink';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
@@ -41,7 +42,9 @@ export default function FormationIABTPParis2026Page() {
       />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
+            <div className="min-w-0">
           <div className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-600">
             Pillar page · Paris & Île-de-France · 2026
           </div>
@@ -65,6 +68,11 @@ export default function FormationIABTPParis2026Page() {
               <Calendar size={20} strokeWidth={1.5} />
               Prendre rendez-vous
             </RdvLink>
+          </div>
+            </div>
+            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
+              <OfcPromoVideoEmbed variant="heroColumn" />
+            </aside>
           </div>
         </div>
       </section>

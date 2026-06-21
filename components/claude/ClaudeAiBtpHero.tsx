@@ -1,17 +1,15 @@
 import { Award, Star, Users } from 'lucide-react';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { calendlyClaudeBtpGuideUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CLAUDE_AI_BTP_WORD_COUNT } from '@/lib/claude-ai-btp-jsonld';
 import { LINKS } from '@/lib/internal-links';
-import { PHOTOS } from '@/lib/photos';
 
 const READING_MINUTES = Math.max(12, Math.round(CLAUDE_AI_BTP_WORD_COUNT / 220));
 
-const heroVisuel = PHOTOS.claudeBtpGuideHero2026;
-
 /**
- * Hero premium page pilier Claude AI BTP — affiche promotionnelle + charte OFC (#377CF3).
+ * Hero premium page pilier Claude AI BTP — vidéo promo + charte OFC (#377CF3).
  */
 export function ClaudeAiBtpHero() {
   return (
@@ -32,15 +30,7 @@ export function ClaudeAiBtpHero() {
       tags={['ClaudeAI', 'BTP', 'Formation', 'IA chantier', 'Qualiopi', 'Constructys']}
       primaryCta={{ href: calendlyClaudeBtpGuideUrl('hero'), label: 'Visio découverte gratuite' }}
       secondaryCta={{ href: LINKS.diagnostic, label: 'Diagnostic IA BTP', external: false }}
-      sideImage={{
-        src: heroVisuel.src,
-        alt: heroVisuel.alt,
-        width: heroVisuel.width,
-        height: heroVisuel.height,
-        objectFit: 'contain',
-        qualiopiBadge: false,
-        circular: true,
-      }}
+      sideVisual={<OfcPromoVideoEmbed variant="pillarMuted" />}
       credibilityLine={
         <>
           <span className="inline-flex items-center gap-1.5 font-medium text-[#475569]">

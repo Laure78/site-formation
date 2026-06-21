@@ -8,6 +8,7 @@ import {
 } from '@/components/formations/CataloguePriceBadge';
 import { FormationProgrammePdfDownloadBanner } from '@/components/formations/FormationProgrammePdfDownloadBanner';
 import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 
 /**
@@ -28,6 +29,7 @@ export function FormationCourseHero({
   summaryItems,
   breadcrumb,
   catalogueRef,
+  heroVisual = 'promo-video',
 }: {
   refLine: string;
   title: React.ReactNode;
@@ -36,8 +38,10 @@ export function FormationCourseHero({
   badges?: string[];
   ctas: React.ReactNode;
   footerLinks?: React.ReactNode;
-  /** Colonne photo — si omis et `catalogueRef` est renseigné, utilise le visuel catalogue. */
+  /** Colonne droite — si omis, vidéo promo par défaut (`heroVisual="catalogue"` pour l’affiche catalogue). */
   image?: React.ReactNode;
+  /** Visuel hero par défaut : vidéo promo ; `catalogue` = affiche NIV si `catalogueRef` est renseigné. */
+  heroVisual?: 'promo-video' | 'catalogue';
   summaryTitle?: string;
   summaryIcon?: LucideIcon;
   summaryItems: string[];
@@ -49,7 +53,7 @@ export function FormationCourseHero({
   const catalogueEntry = catalogueRef ? getFormationCatalogueByRef(catalogueRef) : undefined;
   const resolvedImage =
     image ??
-    (catalogueEntry ? (
+    (heroVisual === 'catalogue' && catalogueEntry ? (
       <FormationHeroPhoto
         src={catalogueEntry.visuel.src}
         alt={catalogueEntry.visuel.alt}
@@ -62,7 +66,9 @@ export function FormationCourseHero({
         }
         priority
       />
-    ) : null);
+    ) : (
+      <OfcPromoVideoEmbed variant="heroColumn" />
+    ));
   return (
     <>
     <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">

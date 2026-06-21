@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Download, ChevronRight, ArrowRight, Mail } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
@@ -242,18 +243,8 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
       {/* Hero */}
       <section className="border-b border-slate-200 bg-[#F2F2F2]" aria-labelledby={`hero-${tuto.slug}`}>
-        <div
-          className={`mx-auto px-4 pb-10 pt-8 md:pb-14 md:pt-10 ${
-            tuto.heroImage ? 'max-w-6xl' : 'max-w-4xl'
-          }`}
-        >
-          <div
-            className={
-              tuto.heroImage
-                ? 'grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_360px]'
-                : undefined
-            }
-          >
+        <div className="mx-auto max-w-6xl px-4 pb-10 pt-8 md:pb-14 md:pt-10">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(240px,320px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_360px]">
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#377CF3]">
                 {tuto.eyebrow}
@@ -320,21 +311,9 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               </div>
             </div>
 
-            {tuto.heroImage ? (
-              <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
-                <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
-                  <Image
-                    src={tuto.heroImage.src}
-                    alt={tuto.heroImage.alt}
-                    width={tuto.heroImage.width}
-                    height={tuto.heroImage.height}
-                    className="h-auto w-full object-contain"
-                    sizes="(max-width: 1024px) 280px, 360px"
-                    priority
-                  />
-                </div>
-              </figure>
-            ) : null}
+            <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
+              <OfcPromoVideoEmbed variant="pillarMuted" />
+            </figure>
           </div>
         </div>
       </section>

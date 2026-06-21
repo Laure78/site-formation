@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Poppins } from 'next/font/google';
 import { Check } from 'lucide-react';
 import { Breadcrumb } from '@/components/Breadcrumb';
@@ -138,7 +139,9 @@ export default function FormationIaBtpIleDeFrancePage() {
       </div>
 
       <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
+            <div className="min-w-0">
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             Laure Olivié · OFC Création d&apos;Entreprise · Guyancourt (78) · Île-de-France
           </p>
@@ -162,6 +165,11 @@ export default function FormationIaBtpIleDeFrancePage() {
             >
               Catalogue formations
             </Link>
+          </div>
+            </div>
+            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
+              <OfcPromoVideoEmbed variant="heroColumn" />
+            </aside>
           </div>
         </div>
       </section>

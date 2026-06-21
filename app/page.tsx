@@ -232,37 +232,33 @@ export default function HomePage() {
           </svg>
         </div>
         <div className="relative mx-auto max-w-7xl">
-          <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-            <div className="min-w-0 flex flex-col gap-6 md:gap-8">
-              <div>
-                <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-[#377CF3]/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-[#377CF3] shadow-[0_1px_6px_-2px_rgba(55,124,243,0.25)] backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
-                  <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-[#377CF3] sm:h-4 sm:w-4" aria-hidden />
-                  <span>Formation IA BTP · Qualiopi · Constructys</span>
-                </div>
-                <h1 className="mt-6 text-balance font-display text-[1.7rem] font-bold leading-[1.14] tracking-tight text-slate-900 sm:text-[1.95rem] md:text-[2.2rem] lg:text-[2.45rem] lg:leading-[1.11]">
-                  Formation IA pour le BTP — devis, chantier, appels d&apos;offres
-                </h1>
-                <h2 className="mt-4 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                  Sessions pratiques en présentiel — Île-de-France uniquement
-                </h2>
-                <p className="mt-2 max-w-xl text-sm font-medium text-slate-600 md:text-base">
-                  Pas de distanciel · pas de déplacement hors Île-de-France
-                </p>
-                <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                  Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
-                  <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
-                </p>
-                <p
-                  className="citation-sentence mt-6 rounded-2xl border border-slate-200/70 bg-white p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_#377CF3,0_12px_40px_-18px_rgba(15,23,42,0.12)] md:p-5 md:text-lg"
-                  data-citation="true"
-                  itemProp="description"
-                >
-                  <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
-                  — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
-                  certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
-                </p>
+          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+            <div className="min-w-0">
+              <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-[#377CF3]/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-[#377CF3] shadow-[0_1px_6px_-2px_rgba(55,124,243,0.25)] backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
+                <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-[#377CF3] sm:h-4 sm:w-4" aria-hidden />
+                <span>Formation IA BTP · Qualiopi · Constructys</span>
               </div>
+              <h1 className="mt-5 text-balance font-display text-[1.7rem] font-bold leading-[1.14] tracking-tight text-slate-900 sm:text-[1.95rem] md:text-[2.2rem] lg:text-[2.45rem] lg:leading-[1.11]">
+                Formation IA pour le BTP — devis, chantier, appels d&apos;offres
+              </h1>
+              <h2 className="mt-3 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
+                Sessions pratiques en présentiel — Île-de-France uniquement
+              </h2>
+              <p className="mt-2 max-w-xl text-sm font-medium text-slate-600 md:text-base">
+                Pas de distanciel · pas de déplacement hors Île-de-France
+              </p>
+              <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
+                Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
+                <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
+              </p>
+            </div>
 
+            <aside className="flex w-full min-w-0 flex-col gap-4 lg:sticky lg:top-24">
+              <div className="w-full rounded-2xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_16px_40px_-22px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
+                <div className="rounded-[0.85rem] bg-white p-3 sm:p-4">
+                  <AccueilHeroVideoEmbed />
+                </div>
+              </div>
               <div className="flex flex-wrap gap-3">
                 <StatCallout
                   variant="inline"
@@ -277,29 +273,20 @@ export default function HomePage() {
                   freshnessLabel={STATS_FRESHNESS_LABEL}
                 />
               </div>
-            </div>
-
-            <aside className="w-full min-w-0 lg:order-none">
-              <div className="w-full rounded-3xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
-                <div className="rounded-[1.35rem] bg-white px-4 pb-4 pt-4 sm:px-5 sm:pb-5 sm:pt-5">
-                  <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500 sm:text-[0.7rem]">
-                      Formation IA BTP
-                    </p>
-                    <span className="inline-flex w-fit items-center rounded-full bg-[var(--accent-soft)] px-2.5 py-1 text-[0.7rem] font-semibold text-[#377CF3] ring-1 ring-[#377CF3]/15">
-                      {CATALOGUE_FORMATIONS_COUNT} parcours · programme
-                    </span>
-                  </div>
-                  <p className="mb-4 text-center text-sm font-medium leading-snug text-slate-800 lg:text-left">
-                    Les {CATALOGUE_FORMATIONS_COUNT} parcours de formation IA pour les pro du BTP
-                  </p>
-                  <AccueilHeroVideoEmbed />
-                </div>
-              </div>
             </aside>
           </div>
 
-          <div className="mt-8 space-y-6 md:mt-10 md:space-y-8">
+          <p
+            className="citation-sentence mt-6 rounded-2xl border border-slate-200/70 bg-white p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_#377CF3,0_12px_40px_-18px_rgba(15,23,42,0.12)] md:mt-7 md:p-5 md:text-lg"
+            data-citation="true"
+            itemProp="description"
+          >
+            <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
+            — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
+            certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
+          </p>
+
+          <div className="mt-6 space-y-5 md:mt-7 md:space-y-6">
             <Essentiel
               idPrefix="accueil"
               items={[

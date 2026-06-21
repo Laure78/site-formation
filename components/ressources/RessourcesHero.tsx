@@ -1,17 +1,13 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Download, Layers, Sparkles } from 'lucide-react';
 import { TUTOS } from '@/lib/tutos';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
-import { PHOTOS } from '@/lib/photos';
-
 const QUICK_LINKS = [
   { href: '#hub-par-theme', label: 'Par thématique' },
   { href: '#tutoriels-pdf', label: 'Tutoriels PDF' },
   { href: '#aller-plus-loin', label: 'Aller plus loin' },
 ] as const;
-
-const HERO = PHOTOS.ressourcesIaBtpHero2026;
 
 export function RessourcesHero() {
   return (
@@ -89,17 +85,7 @@ export function RessourcesHero() {
           </div>
 
           <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none">
-            <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
-              <Image
-                src={HERO.src}
-                alt={HERO.alt}
-                width={HERO.width}
-                height={HERO.height}
-                className="h-auto w-full object-contain"
-                sizes="(max-width: 1024px) 280px, 360px"
-                priority
-              />
-            </div>
+            <OfcPromoVideoEmbed variant="pillarMuted" />
           </figure>
         </div>
       </div>

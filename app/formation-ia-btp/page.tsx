@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
@@ -24,7 +24,6 @@ import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
 const PATH = '/formation-ia-btp';
 
-const visuelPilier = PHOTOS.formationIaBtpPillarCarteCatalogue2026;
 const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 
 const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
@@ -243,20 +242,7 @@ export default function FormationIaBtpPillarPage() {
             </div>
           </div>
           <div className="mx-auto w-full max-w-md shrink-0 md:max-w-none">
-            <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
-              <Image
-                src={visuelPilier.src}
-                alt={visuelPilier.alt}
-                width={visuelPilier.width}
-                height={visuelPilier.height}
-                className="h-auto w-full object-cover"
-                sizes="(max-width: 768px) 100vw, 420px"
-                priority
-              />
-              <figcaption className="border-t border-slate-100 px-4 py-3 text-center text-xs text-slate-500">
-                Parcours débutant catalogue — même esprit sur la page pilier formation IA pour le BTP
-              </figcaption>
-            </figure>
+            <OfcPromoVideoEmbed variant="heroColumn" />
           </div>
         </div>
       </header>

@@ -2,43 +2,81 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { CLIENT_LOGOS_MARQUEE } from '@/lib/client-logos';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+
+function LogoTile({
+  logo,
+  idSuffix = '',
+  decorativeDuplicate = false,
+}: {
+  logo: (typeof CLIENT_LOGOS_MARQUEE)[number];
+  idSuffix?: string;
+  decorativeDuplicate?: boolean;
+}) {
+  const imageBlock = (
+    <>
+      <div className="relative h-10 w-[9.5rem] shrink-0 md:h-11 md:w-[10.5rem]">
+        <Image
+          src={logo.src}
+          alt={decorativeDuplicate ? '' : logo.alt}
+          title={
+            decorativeDuplicate
+              ? undefined
+              : logo.linkTitle ?? (logo.caption ? `${logo.name} — ${logo.caption}` : logo.name)
+          }
+          fill
+          loading="lazy"
+          sizes="(max-width: 768px) 152px, 168px"
+          className="object-contain object-center p-0.5 opacity-[0.92] transition group-hover:opacity-100"
+        />
+      </div>
+      {logo.caption ? (
+        <span className="max-w-[9rem] text-center text-[0.6rem] font-medium leading-tight text-slate-500 md:text-[0.65rem]">
+          {logo.caption}
+        </span>
+      ) : null}
+    </>
+  );
+
+  return (
+    <div
+      key={`${logo.id}${idSuffix}`}
+      className="flex min-h-[5rem] shrink-0 flex-col items-center justify-center gap-0.5 px-4 py-0.5 md:min-h-[5.5rem] md:px-5"
+    >
+      {decorativeDuplicate ? (
+        imageBlock
+      ) : (
+        <ExternalLinkAnchor
+          href={logo.href}
+          title={logo.linkTitle ?? `Site officiel ${logo.name}`}
+          className="group flex flex-col items-center justify-center gap-0.5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        >
+          {imageBlock}
+        </ExternalLinkAnchor>
+      )}
+    </div>
+  );
+}
 
 function LogoRow({
   idSuffix = '',
   decorativeDuplicate = false,
 }: {
   idSuffix?: string;
-  /** Seconde bande du carrousel : mêmes visuels, alts vides (déjà décrits). */
   decorativeDuplicate?: boolean;
 }) {
   return (
     <>
       {CLIENT_LOGOS_MARQUEE.map((logo) => (
-        <div
+        <LogoTile
           key={`${logo.id}${idSuffix}`}
-          className="flex min-h-[5rem] shrink-0 flex-col items-center justify-center gap-0.5 px-4 py-0.5 md:min-h-[5.5rem] md:px-5"
-        >
-          {/* Cadre strictement identique pour chaque logo : fill + object-contain = même zone d’affichage */}
-          <div className="relative h-10 w-[9.5rem] shrink-0 md:h-11 md:w-[10.5rem]">
-            <Image
-              src={logo.src}
-              alt={decorativeDuplicate ? '' : logo.alt}
-              title={decorativeDuplicate ? undefined : logo.caption ? `${logo.name} — ${logo.caption}` : logo.name}
-              fill
-              loading="lazy"
-              sizes="(max-width: 768px) 152px, 168px"
-              className="object-contain object-center p-0.5 opacity-[0.92]"
-            />
-          </div>
-          {logo.caption ? (
-            <span className="max-w-[9rem] text-center text-[0.6rem] font-medium leading-tight text-slate-500 md:text-[0.65rem]">
-              {logo.caption}
-            </span>
-          ) : null}
-        </div>
+          logo={logo}
+          idSuffix={idSuffix}
+          decorativeDuplicate={decorativeDuplicate}
+        />
       ))}
     </>
   );
@@ -88,27 +126,7 @@ export function ClientsLogosMarquee() {
               staggerMs={45}
             >
               {CLIENT_LOGOS_MARQUEE.map((logo) => (
-                <div
-                  key={logo.id}
-                  className="flex min-h-[5rem] shrink-0 flex-col items-center justify-center gap-0.5 px-4 py-0.5 md:min-h-[5.5rem] md:px-5"
-                >
-                  <div className="relative h-10 w-[9.5rem] shrink-0 md:h-11 md:w-[10.5rem]">
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      title={logo.caption ? `${logo.name} — ${logo.caption}` : logo.name}
-                      fill
-                      loading="lazy"
-                      sizes="(max-width: 768px) 152px, 168px"
-                      className="object-contain object-center p-0.5 opacity-[0.92]"
-                    />
-                  </div>
-                  {logo.caption ? (
-                    <span className="max-w-[9rem] text-center text-[0.6rem] font-medium leading-tight text-slate-500 md:text-[0.65rem]">
-                      {logo.caption}
-                    </span>
-                  ) : null}
-                </div>
+                <LogoTile key={logo.id} logo={logo} />
               ))}
             </RevealGroup>
           ) : (

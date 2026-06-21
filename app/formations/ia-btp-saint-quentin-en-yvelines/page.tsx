@@ -15,10 +15,8 @@ import {
 import { FAQ_IA_BTP_SAINT_QUENTIN_YVELINES } from '@/lib/faq';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
-import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
@@ -100,15 +98,6 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           'Inter FFB · intra entreprise',
         ]}
         summaryItems={HERO_RESUME}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.btpFormationChantierPlans2026.src}
-            alt={PHOTOS.btpFormationChantierPlans2026.alt}
-            width={PHOTOS.btpFormationChantierPlans2026.width}
-            height={PHOTOS.btpFormationChantierPlans2026.height}
-            priority
-          />
-        }
         ctas={
           <>
             <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">

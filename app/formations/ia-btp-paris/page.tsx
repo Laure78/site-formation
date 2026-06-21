@@ -15,12 +15,10 @@ import { getDedicatedFormationCoursePageJsonLd } from '@/lib/schema-course-forma
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
 import {
   FormationCourseHero,
-  FormationHeroPhoto,
 } from '@/components/formations/FormationCourseHero';
 import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { PHOTOS } from '@/lib/photos';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 
@@ -121,15 +119,6 @@ export default function FormationIABTPParisPage() {
           'Cas terrain',
         ]}
         summaryItems={HERO_RESUME_PARIS}
-        image={
-          <FormationHeroPhoto
-            src={PHOTOS.btpFormationSalleIntervention2026.src}
-            alt={PHOTOS.btpFormationSalleIntervention2026.alt}
-            width={PHOTOS.btpFormationSalleIntervention2026.width}
-            height={PHOTOS.btpFormationSalleIntervention2026.height}
-            priority
-          />
-        }
         ctas={
           <>
             <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">

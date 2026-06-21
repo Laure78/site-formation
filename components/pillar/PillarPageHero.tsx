@@ -50,6 +50,8 @@ export type PillarPageHeroProps = {
     /** Entrée + léger flottement au chargement (ex. page À propos). */
     animated?: boolean;
   };
+  /** Colonne droite — remplace `sideImage` si fourni (ex. vidéo promo formations). */
+  sideVisual?: ReactNode;
   /** Décalage progressif du texte hero au chargement (ex. page À propos). */
   entranceAnimation?: boolean;
   /** Ligne de pied sous la ligne crédibilité (ex. page Claude) */
@@ -76,6 +78,7 @@ export function PillarPageHero({
   primaryCta,
   secondaryCta,
   sideImage,
+  sideVisual,
   bottomNote,
   layoutDensity = 'default',
   entranceAnimation = false,
@@ -299,7 +302,9 @@ export function PillarPageHero({
             }
           >
             <div className={`min-w-0${entranceAnimation ? ' a-propos-hero-content' : ''}`}>{contentBlock}</div>
-            {sideImage ? (
+            {sideVisual ? (
+              <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">{sideVisual}</figure>
+            ) : sideImage ? (
               <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
                 <div
                   className={`${
