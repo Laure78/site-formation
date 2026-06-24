@@ -4,6 +4,7 @@
  */
 
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { PHOTOS } from '@/lib/photos';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import {
@@ -58,9 +59,8 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     '@id': PERSON_ID,
     name: 'Laure Olivié',
     honorificPrefix: 'Mme',
-    jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
-    description:
-      "Formatrice en intelligence artificielle spécialisée dans le secteur BTP. Ancienne conductrice de travaux et dirigeante d'entreprise (ALIA BTP, 2017-2026). 1 592 professionnels du BTP formés avec une note moyenne de 4,85/5.",
+    jobTitle: 'Formatrice IA générative — spécialiste secteur BTP',
+    description: getLaureOlivieSchemaPersonDescription(),
     url: PAGE_URL,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
     email: SCHEMA_CONTACT.email,
@@ -76,11 +76,21 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       addressCountry: SCHEMA_GEO.addressCountry,
     },
     worksFor: { '@id': `${BASE}/#organization` },
-    alumniOf: {
-      '@type': 'Organization',
-      name: 'ALIA BTP (ancienne dirigeante 2017-2026)',
-      identifier: '85368731700018',
-    },
+    alumniOf: [
+      {
+        '@type': 'Organization',
+        name: 'ALIA BTP (dirigeante 2017-2024)',
+        identifier: '85368731700018',
+      },
+      {
+        '@type': 'EducationalOrganization',
+        name: 'CNAM Paris — Master Stratégie d\'entreprise (2021)',
+      },
+      {
+        '@type': 'Organization',
+        name: 'CNFPT Grande Couronne (chargée de formation 2009-2019)',
+      },
+    ],
     sameAs: [
       'https://fr.linkedin.com/in/laure-olivie',
       'https://www.linkedin.com/learning/instructors/laure-olivie',

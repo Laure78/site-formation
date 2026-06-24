@@ -4,6 +4,7 @@
  */
 import { PHOTOS } from '@/lib/photos';
 import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -74,7 +75,7 @@ export function getAProposLocalBusinessJsonLd(): Record<string, unknown> {
 }
 
 /** Description courte Person / ProfilePage (≈150–200 car.) — alignée contenu page À propos. */
-export const A_PROPOS_PROFILE_PERSON_DESCRIPTION = `Formatrice IA et ChatGPT spécialisée BTP. Ancienne fondatrice et conductrice de travaux chez ALIA BTP (Guyancourt). Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi). Instructrice LinkedIn Learning. Plus de ${formatProfessionalsTrainedCount()} professionnels formés depuis 2022, note ${SOCIAL_PROOF.AVERAGE_RATING}.`;
+export const A_PROPOS_PROFILE_PERSON_DESCRIPTION = getLaureOlivieSchemaPersonDescription();
 
 /**
  * @see https://schema.org/ProfilePage — page biographique /a-propos

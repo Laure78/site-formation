@@ -4,6 +4,7 @@ import { Linkedin } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
+import { getLaureOlivieArticleAuthorBio } from '@/lib/laure-olivie-profile';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
 const PORTRAIT_SRC = PHOTOS.siteAvatar.src;
@@ -44,9 +45,7 @@ export function ArticleAuthorBio({ className }: ArticleAuthorBioProps = {}) {
               (Qualiopi)
             </p>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-              Ex-conductrice de travaux et ex-dirigeante de PME BTP (ALIA BTP, Île-de-France),
-              Laure Olivié forme les professionnels du bâtiment à l&apos;IA générative depuis 2022.{' '}
-              1 592 pros formés · 4,85/5 · Références : FFB, CSFE, CAPEB, CNAM, Lefebvre Dalloz.
+              {getLaureOlivieArticleAuthorBio()}
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
               <Link

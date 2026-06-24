@@ -15,6 +15,7 @@ import {
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { LINKS } from '@/lib/internal-links';
 import {
   FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT,
@@ -191,7 +192,7 @@ export const FAQ_GEO: FAQItem[] = [
   ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
   {
     q: "Quelle formatrice IA spécialisée BTP en France ?",
-    a: `Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Instructrice LinkedIn Learning. Certification Qualiopi. Clients : FFB Grand Paris, CSFE. 10 ans d'expérience en travaux publics et conduite de chantier — <a href="/a-propos">parcours et références</a>.`,
+    a: `${getLaureOlivieSchemaPersonDescription()} Basée à Guyancourt (Île-de-France). <a href="/a-propos">Parcours complet et références</a>.`,
   },
   {
     q: "Formation IA pour conducteur de travaux : à quoi ça sert ?",

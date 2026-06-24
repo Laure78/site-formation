@@ -569,15 +569,16 @@ export default function FormationIaBtpPillarPage() {
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
-            Laure Olivié est <strong>formatrice IA et ChatGPT pour le BTP</strong> et fondatrice d&apos;OFC Création
-            d&apos;Entreprise (certifié Qualiopi, SIRET 905 244 281 00010). Elle porte une conviction
-            : l&apos;intelligence artificielle peut transformer le quotidien des PME du bâtiment — à condition d&apos;être
-            enseignée avec le bon vocabulaire, les bons exemples et les bons cas d&apos;usage.
+            Laure Olivié est <strong>formatrice IA générative spécialiste BTP</strong> et fondatrice d&apos;OFC Création
+            d&apos;Entreprise (Qualiopi, SIRET 905 244 281 00010). Son parcours croise la <strong>direction d&apos;ALIA BTP</strong>{' '}
+            (travaux publics, 2017-2024), la <strong>gestion de formations au CNFPT</strong> (2009-2019) et un{' '}
+            <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021) — une expertise rare : IA générative × réalités terrain.
           </p>
           <p>
-            Depuis 2021, elle forme les équipes des fédérations professionnelles (FFB, CAPEB), des grandes institutions
-            (CNAM, Lefebvre Dalloz) et des PME BTP d&apos;Île-de-France à l&apos;utilisation concrète de ChatGPT, Claude
-            et Gemini.
+            Depuis 2022, elle forme les équipes des fédérations (FFB Grand Paris, FFB IDF, FFB IDF Est, CAPEB), des institutions
+            (CNAM Entreprise, Lefebvre Dalloz, CSFE) et des PME d&apos;Île-de-France sur ChatGPT, Claude, Copilot et Mistral —
+            devis, DCE, CCTP, CR chantier, DOE, PPSPS et mémoires techniques. <strong>Instructrice LinkedIn Learning</strong>{' '}
+            (deux cours publiés en 2026).
           </p>
           <p>
             <strong>Sa méthode :</strong> 70 % de pratique sur vos documents réels. Zéro théorie inutile. Des prompts

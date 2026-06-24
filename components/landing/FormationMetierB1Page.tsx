@@ -9,6 +9,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { AuthorBio } from '@/components/blog/AuthorBio';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -205,14 +206,7 @@ export function FormationMetierB1Page({
           </div>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Laure Olivié accompagne les professionnels du BTP dans l&apos;usage concret de ChatGPT et Claude AI.
-            OFC Création d&apos;Entreprise est certifiée Qualiopi, avec {formatProfessionalsTrainedCount()} personnes
-            formées et une satisfaction moyenne de {SOCIAL_PROOF.AVERAGE_RATING}.
-          </p>
-        </section>
+        <LaureOlivieFormationPortrait showFullParcoursLink />
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Passez à l&apos;action</h2>

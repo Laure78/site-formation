@@ -9,6 +9,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-ferrailleur-btp';
@@ -384,26 +385,8 @@ export default function FormationIaFerrailleurBtpPage() {
           </div>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong>, formatrice IA et ChatGPT spécialisée BTP. L’organisme{' '}
-            <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> (NDA 11788515078) et a formé
-            plus de <strong>{formatProfessionalsTrainedCount()} professionnels</strong> du bâtiment : ferrailleurs,
-            conducteurs de travaux, chefs de chantier, dirigeants — en Île-de-France et en France.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE,
-            etc. <strong>Satisfaction moyenne :</strong> {SOCIAL_PROOF.AVERAGE_RATING}.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Elle a conçu cette approche parce qu’elle voit souvent des ferrailleurs très compétents passer trop de temps sur
-            le calcul administratif répétitif. L’objectif : libérer du temps pour le chantier et le pilotage, avec des usages
-            d’IA encadrés et une validation humaine systématique.
-          </p>
-        </section>
-
-        <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
+        <LaureOlivieFormationPortrait />
+<section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Visio découverte gratuite (30 min)</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
             Ferrailleur, armaturier ou chef de ferraillage en Île-de-France : vérifier si l’IA vous fait gagner du temps sur

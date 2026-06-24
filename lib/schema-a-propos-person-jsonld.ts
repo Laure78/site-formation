@@ -3,7 +3,7 @@
  * Coordonnées depuis `lib/schema-constants.ts` — ne pas dupliquer en dur.
  */
 
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
@@ -20,8 +20,8 @@ export function getAProposPersonJsonLd(): Record<string, unknown> {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Laure Olivié',
-    jobTitle: 'Formatrice IA et ChatGPT spécialisée BTP',
-    description: `Formatrice IA pour les professionnels du BTP. Ex-conductrice de travaux, ex-dirigeante ALIA BTP (travaux publics Île-de-France). ${formatProfessionalsTrainedCount()} professionnels formés, ${SOCIAL_PROOF.AVERAGE_RATING}. Organisme Qualiopi. Clients : FFB Grand Paris, FFB IDF, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz. Instructrice LinkedIn Learning.`,
+    jobTitle: 'Formatrice IA générative — spécialiste secteur BTP',
+    description: getLaureOlivieSchemaPersonDescription(),
     url: PAGE_URL,
     image: `${BASE}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`,
     email: SCHEMA_CONTACT.email,

@@ -16,6 +16,7 @@ import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
+import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { PHOTOS } from '@/lib/photos';
 import { buildHomeHeroImageObjectNode, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
@@ -114,7 +115,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         givenName: 'Laure',
         familyName: 'Olivié',
         jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
-        description: `Laure Olivié est formatrice IA et ChatGPT pour le BTP. Ancienne conductrice de travaux pendant 10 ans, elle a formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment depuis 2021. Instructrice LinkedIn Learning.`,
+        description: getLaureOlivieSchemaPersonDescription(),
         url: `${base}/a-propos`,
         image: personImageUrl,
         email: SCHEMA_CONTACT.email,

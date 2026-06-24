@@ -11,6 +11,7 @@ import { createPageMetadata, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/s
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-etancheur';
@@ -502,26 +503,8 @@ export default function FormationIaEtancheurPage() {
           </div>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> forme depuis <strong>2023</strong> les professionnels du BTP à
-            l&apos;intelligence artificielle générative — <strong>{formatProfessionalsTrainedCount()}</strong>{' '}
-            personnes formées, satisfaction <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>. Plus de 10 ans
-            d&apos;expérience en conduite de chantier travaux publics avant de pivoter vers la formation IA
-            adaptée au secteur.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Organisme :</strong> OFC Création d&apos;Entreprise, certifié Qualiopi (action de
-            formation), enregistré Constructys (NDA 11788515078).
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références filière étanchéité &amp; bâtiment :</strong> CSFE, FFB Grand Paris, FFB
-            Île-de-France, CAPEB, CNAM Entreprise, Lefebvre Dalloz, LinkedIn Learning.
-          </p>
-        </section>
-
-        <section
+        <LaureOlivieFormationPortrait />
+<section
           id="rdv"
           className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10"
         >

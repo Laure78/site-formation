@@ -15,6 +15,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import {
   CDT_BTP_FAQ,
   CDT_BTP_USE_CASES,
@@ -343,32 +344,8 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           </dl>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 leading-relaxed text-slate-600">
-            Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux
-            publics. Plus de <strong>10 ans d&apos;expérience terrain</strong> en conduite de chantier
-            et travaux publics : elle connaît la réalité des CR, des relances et des dossiers QSE — pas
-            un discours générique sur l&apos;IA.
-          </p>
-          <p className="mt-4 leading-relaxed text-slate-600">
-            Elle a formé des équipes pour la <strong>FFB Grand Paris</strong>, la{' '}
-            <strong>FFB Île-de-France</strong>, le <strong>CSFE</strong>,{' '}
-            <strong>CNAM Entreprise</strong> et <strong>Lefebvre Dalloz</strong>. Sessions en
-            présentiel en Île-de-France, intra ou inter.
-          </p>
-          <p className="mt-4 text-sm font-medium text-slate-800">
-            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING}{' '}
-            · Certifiée Qualiopi · OFC Création d&apos;Entreprise
-          </p>
-          <p className="mt-4">
-            <Link href={LINKS.aPropos} className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Voir le parcours complet →
-            </Link>
-          </p>
-        </section>
-
-        <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
+        <LaureOlivieFormationPortrait />
+<section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Réservez votre visio découverte gratuite — 30 min
           </h2>

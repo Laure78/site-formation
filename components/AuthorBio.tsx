@@ -13,18 +13,15 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
+import { getLaureOlivieAuthorBioBody } from '@/lib/laure-olivie-profile';
 
 const LINKEDIN_LEARNING_INSTRUCTOR =
   'https://www.linkedin.com/learning/instructors/laure-olivie' as const;
 
 const MALT_PROFILE_URL = 'https://www.malt.fr/profile/laureoli' as const;
-
-/** Alignée sur les biographies officielles (preuve sociale et date de consolidation). */
-const AUTHOR_STATS_FRESHNESS_LABEL = 'au 17 avril 2026';
 
 function buildAuthorBioPersonSchema(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -103,16 +100,8 @@ export default function AuthorBio({
             À propos de l&apos;auteure
           </h3>
           <p className="mb-4 leading-relaxed text-slate-700">
-            <strong>{SCHEMA_PERSON_LAURE.name}</strong> est {SCHEMA_PERSON_LAURE.jobTitle} et fondatrice
-            d&apos;
-            <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] underline hover:no-underline">
-              {SCHEMA_ORGANIZATION_OFC.name}
-            </Link>
-            , organisme certifié Qualiopi (NDA {SCHEMA_CONTACT.nda}). Ancienne conductrice de travaux chez{' '}
-            <strong>ALIA BTP (2017-2024)</strong>, elle a formé{' '}
-            <strong>{formatProfessionalsTrainedCount()} professionnels du bâtiment et des travaux publics</strong>{' '}
-            avec une note de satisfaction de <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong> (
-            {AUTHOR_STATS_FRESHNESS_LABEL}). <strong>Instructrice officielle LinkedIn Learning.</strong>
+            <strong>{SCHEMA_PERSON_LAURE.name}</strong> {getLaureOlivieAuthorBioBody()}{' '}
+            <strong>Instructrice officielle LinkedIn Learning.</strong>
           </p>
           <div className="flex flex-wrap items-center gap-3 text-sm">
             <CTACalendly

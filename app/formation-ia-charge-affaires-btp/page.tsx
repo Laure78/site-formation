@@ -12,6 +12,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-charge-affaires-btp';
@@ -553,31 +554,8 @@ export default function FormationIaChargeAffairesBtpPage() {
           </dl>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux
-            publics. Elle a dirigé ALIA BTP pendant sept ans : en tant que dirigeante, elle a porté la
-            relation commerciale au quotidien — signatures de devis, réponses à des appels d&apos;offres,
-            négociations avec les donneurs d&apos;ordre et arbitrages prix / risques.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Cette expérience « avant-vente » complète sa connaissance du terrain : elle forme les chargés
-            d&apos;affaires sur des cas concrets (DCE, mémoires, relances) avec des prompts calibrés pour
-            le cycle de vente BTP, pas pour un discours générique sur l&apos;IA.
-          </p>
-          <p className="mt-4 text-sm font-medium text-slate-800">
-            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Certifiée
-            Qualiopi · LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM IDF
-          </p>
-          <p className="mt-4">
-            <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Voir le parcours complet →
-            </Link>
-          </p>
-        </section>
-
-        <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
+        <LaureOlivieFormationPortrait />
+<section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
             <li>

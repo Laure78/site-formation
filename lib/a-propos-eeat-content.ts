@@ -3,53 +3,22 @@
  */
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import {
+  getLaureOlivieEeatIntro,
+  LAURE_OLIVIE_CLIENT_REFERENCES,
+  LAURE_OLIVIE_PARCOURS_TIMELINE,
+} from '@/lib/laure-olivie-profile';
 
-export const A_PROPOS_EEAT_INTRO = `Je suis Laure Olivié, formatrice IA spécialisée bâtiment depuis 10 ans. J'ai formé ${formatProfessionalsTrainedCount()} professionnels du BTP à utiliser l'IA pour gagner 5 à 8 h par semaine sur leurs tâches admin — comptes rendus, devis, appels d'offres, relances et coordination chantier. Mon approche est née sur le terrain : je ne forme pas à la technologie pour la technologie, mais à des usages concrets, reproductibles et compatibles avec la réalité des chantiers et des PME du bâtiment.`;
+export const A_PROPOS_EEAT_INTRO = getLaureOlivieEeatIntro();
 
 export const A_PROPOS_EXPERTISE_PARAGRAPHS = [
-  `Mon expertise combine **plus de dix ans en BTP** — dont la conduite de travaux et la direction d'ALIA BTP (gros œuvre, travaux publics, revêtements) — et une **spécialisation IA générative** depuis 2020 (ChatGPT, Claude AI, Gemini). J'ai accompagné des conducteurs de travaux, des dirigeants de TPE/PME, des équipes support et des bureaux d'études sur des problématiques réelles : structurer un devis, rédiger un CR, analyser un CCTP, préparer un mémoire technique ou accélérer la boîte mail.`,
+  `Mon expertise combine **la direction d'entreprise BTP** (ALIA BTP, travaux publics et revêtements, 2017-2024), **la gestion de formations professionnelles** (CNFPT Grande Couronne, 2009-2019) et une **spécialisation IA générative** depuis 2022 (ChatGPT, Claude, Copilot 365, Mistral, Perplexity). J'accompagne conducteurs de travaux, dirigeants de PME, équipes support et bureaux d'études sur des problématiques réelles : structurer un devis, rédiger un CR, analyser un CCTP ou DCE, préparer un mémoire technique, un DOE ou un PPSPS.`,
   `En **2017-2018**, j'ai amorcé la transition vers la formation professionnelle en parallèle de la direction d'entreprise. **OFC Création d'Entreprise** a été structurée juridiquement en **2022** ; la certification **Qualiopi** (NDA ${SCHEMA_CONTACT.nda}) a été obtenue en **2023**, avec renouvellement valide **jusqu'en janvier 2028**. Les sujets couverts aujourd'hui : **devis et chiffrage**, **appels d'offres et DCE**, **administratif chantier** (CR, PPSPS, relances), **productivité IA** et **bonnes pratiques confidentialité** pour les données entreprise.`,
   `Contrairement à une formation « tech » généraliste, je parle le langage du chantier : lots, planning, sous-traitants, DPGF, mémoire technique, relances maître d'ouvrage. Chaque module est calibré sur des livrables que vous produisez déjà — pas sur des cas fictifs de startup. Les participants repartent avec des **prompts réutilisables**, une **check-list de relecture** et des **modèles de comptes rendus** adaptés à leur entreprise.`,
   `Mon rôle n'est pas de vendre un outil, mais de **sécuriser l'adoption** : quelles données anonymiser, quand passer en version Enterprise, comment documenter un usage interne pour la direction et les équipes terrain. C'est cette double compétence — métier BTP et pédagogie Qualiopi — qui fait la différence sur le taux d'application à J+30.`,
 ] as const;
 
-export const A_PROPOS_TIMELINE = [
-  {
-    period: '2012-2018',
-    title: 'Immersion terrain — conduite de travaux et gestion d\'entreprise',
-    body: `Entrée progressive dans le BTP opérationnel : coordination de chantiers, interfaces lots, devis et suivi administratif. J'apprends à lire un planning, gérer les aléas météo et tenir les délais malgré la paperasse. **Apprentissage clé** : la pression documentaire est aussi forte que la pression planning — et c'est là que l'IA peut aider sans remplacer le métier.`,
-  },
-  {
-    period: '2017-2024',
-    title: 'Dirigeante ALIA BTP — Guyancourt',
-    body: `Fondation et direction d'une PME de **travaux publics et revêtements** (terrassement, voirie, coordination sous-traitants). Gestion quotidienne des équipes, des appels d'offres et de la relation clients. **Apprentissage clé** : un outil n'est adopté que s'il fait gagner du temps dès la première semaine — principe que j'applique encore en formation.`,
-  },
-  {
-    period: '2018',
-    title: 'Premières formations professionnelles',
-    body: `Animation de sessions autour de la communication et de l'organisation pour des entreprises du BTP. Premiers retours sur la pédagogie adulte et l'adaptation aux niveaux hétérogènes (dirigeant, conducteur, assistant). **Apprentissage clé** : les publics terrain veulent des cas réels, pas des slides théoriques.`,
-  },
-  {
-    period: '2020',
-    title: 'Pivot IA générative (ChatGPT, Claude)',
-    body: `Tests systématiques sur devis, mails clients, comptes rendus et pièces marchés. Je documente ce qui fonctionne, ce qui doit être relu, et ce qui ne doit jamais être automatisé sans validation. **Apprentissage clé** : l'IA accélère la mise en forme ; la validation métier reste humaine sur tout document contractuel.`,
-  },
-  {
-    period: '2022',
-    title: 'Création d\'OFC Création d\'Entreprise (SASU)',
-    body: `Organisme dédié à la **formation IA pour les pro du BTP** — sessions courtes (4 h), inter et intra, exclusivement en présentiel en Île-de-France. Premiers partenariats fédérations et montée en charge des programmes niveau 1 et 2. **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
-  },
-  {
-    period: '2023',
-    title: 'Certification Qualiopi',
-    body: `Obtention du référentiel national qualité (NDA ${SCHEMA_CONTACT.nda}). Mise en place des indicateurs de satisfaction, des feuilles de présence et des bilans pédagogiques. **Apprentissage clé** : transparence sur les objectifs, les résultats et les limites de l'IA en entreprise.`,
-  },
-  {
-    period: '2023 — aujourd\'hui',
-    title: 'Instructrice LinkedIn Learning',
-    body: `Publication de cours officiels sur l'IA appliquée au BTP et aux TPE. Extension du rayonnement au-delà de l'Île-de-France tout en conservant l'ancrage terrain. **Apprentissage clé** : vulgariser sans simplifier à l'excès — le vocabulaire BTP (CCTP, DCE, CR, OS) doit rester au centre.`,
-  },
-] as const;
+export const A_PROPOS_TIMELINE = LAURE_OLIVIE_PARCOURS_TIMELINE;
 
 export const A_PROPOS_AUTORITE_PARAGRAPHS = [
   `OFC Création d'Entreprise est **organisme de formation référencé FFB Grand Paris** depuis 2020 et intervient régulièrement avec la **FFB Île-de-France**, la **CSFE** (Chambre Syndicale de l'Étanchéité), la **CAPEB**, **CNAM Entreprise** et **Lefebvre Dalloz**. Ces partenariats ne sont pas des logos décoratifs : ce sont des cadres de confiance pour des sessions finançables **Constructys** selon éligibilité.`,
@@ -96,8 +65,16 @@ export const A_PROPOS_CERTIFICATIONS = [
     detail: 'Parcours OpenAI, Anthropic (Claude) et Google — veille continue',
   },
   {
+    label: 'Master Stratégie d\'entreprise',
+    detail: 'CNAM Paris — 2021',
+  },
+  {
+    label: 'Formation ChatGPT Pro',
+    detail: 'OpenAI — automatisation & contenu LinkedIn (2024)',
+  },
+  {
     label: 'LinkedIn Learning',
-    detail: 'Instructrice officielle — cours IA BTP publiés',
+    detail: 'Instructrice officielle — 2 cours IA BTP publiés (2026)',
   },
   {
     label: 'Activateur France Num',

@@ -1,38 +1,9 @@
 /**
  * Parcours chronologique — dates explicites pour GEO / extraction LLM.
  */
-const TIMELINE = [
-  {
-    datetime: '2017-2024',
-    title: 'Fondatrice et conductrice de travaux — ALIA BTP (Guyancourt)',
-    body:
-      "ALIA BTP : entreprise de terrassement et de revêtements extérieurs (SIRET 853 687 317 00018). Conduite de travaux, coordination, interfaces entre corps d'état et relation client — le socle opérationnel pour les ateliers IA (devis, comptes rendus, relances, structuration des échanges).",
-  },
-  {
-    datetime: '2022',
-    title: 'Création d’OFC Création d’Entreprise',
-    body:
-      "Organisme de formation dédié à l'IA appliquée au BTP : sessions courtes, documents réels, méthode terrain — sans jargon inutile.",
-  },
-  {
-    datetime: '2023',
-    title: 'Certification Qualiopi (NDA 11788515078)',
-    body:
-      "Certification Qualiopi de l'organisme : transparence sur les programmes et les résultats — référence pour les financeurs et les OPCO (dont Constructys pour le secteur BTP). Conforme au référentiel national qualité des organismes de formation.",
-  },
-  {
-    datetime: '2024',
-    title: 'Présidence d’OFC · instructrice LinkedIn Learning · partenariats FFB',
-    body:
-      "Fondatrice et présidente d'OFC Création d'Entreprise (Qualiopi). Publication de deux cours sur LinkedIn Learning (IA BTP et IA pour PME et TPE). Renforcement des partenariats avec la FFB (dont FFB Grand Paris et fédérations régionales).",
-  },
-  {
-    datetime: '2026',
-    title: '1 592 professionnels formés · 4,85/5 (au 17 avril 2026)',
-    body:
-      "Chiffres consolidés sur les sessions OFC : effectifs et satisfaction mesurés sur les questionnaires de fin de formation — parcours inter et intra en Île-de-France et au-delà selon les missions.",
-  },
-] as const;
+import { LAURE_OLIVIE_PARCOURS_CONDENSE } from '@/lib/laure-olivie-profile';
+
+const TIMELINE = LAURE_OLIVIE_PARCOURS_CONDENSE;
 
 export function AProposParcoursTimeline() {
   return (

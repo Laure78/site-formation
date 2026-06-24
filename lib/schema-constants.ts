@@ -52,15 +52,22 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA spécialisée BTP',
+  jobTitle: 'Formatrice IA générative — spécialiste secteur BTP',
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */
 export const SCHEMA_PERSON_KNOWS_ABOUT = [
-  'Intelligence artificielle',
-  'Formation professionnelle',
-  'Bâtiment',
-  'Travaux publics',
+  'Intelligence artificielle générative',
+  'ChatGPT pour le BTP',
+  'Claude AI',
+  'Microsoft Copilot 365',
+  'Mistral AI',
+  'Formation professionnelle BTP',
+  'Appels d\'offres et DCE',
+  'Mémoires techniques BTP',
+  'Comptes rendus de chantier',
+  'Conduite de travaux',
+  'Qualiopi',
 ] as const;
 
 /**

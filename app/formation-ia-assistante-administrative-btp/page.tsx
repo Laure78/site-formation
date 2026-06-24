@@ -11,6 +11,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-administrative-btp';
@@ -385,21 +386,8 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           </div>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Laure Olivié</strong> accompagne depuis <strong>2023</strong> les fonctions support et administratives
-            du BTP pour utiliser ChatGPT sur la productivité (courriers, documentation, organisation).{' '}
-            <strong>OFC Création d’Entreprise</strong> est certifié <strong>Qualiopi</strong> ; plus de{' '}
-            <strong>{formatProfessionalsTrainedCount()} professionnels</strong> formés, satisfaction moyenne{' '}
-            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            <strong>Références :</strong> FFB Grand Paris, FFB Île-de-France, CSFE.
-          </p>
-        </section>
-
-        <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
+        <LaureOlivieFormationPortrait />
+<section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Visio découverte gratuite (30 min)</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
             Courriers, relances, rapports chantier, synthèses — démonstration sur des cas types. Sans engagement.

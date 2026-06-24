@@ -14,6 +14,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import {
   CONDUCTEUR_TRAVAUX_FAQ,
   CONDUCTEUR_TRAVAUX_USE_CASES,
@@ -409,20 +410,8 @@ export default function FormationIaConducteurTravauxPage() {
           </div>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 leading-relaxed text-slate-600">
-            Formatrice IA pour les pro du BTP, ancienne dirigeante et conductrice de travaux (ALIA BTP, Guyancourt). +10 ans terrain
-            en travaux publics et conduite de chantier. +{formatProfessionalsTrainedCount()} professionnels formés,
-            note {SOCIAL_PROOF.AVERAGE_RATING}, certifiée Qualiopi, instructrice LinkedIn Learning.
-          </p>
-          <p className="mt-4">
-            <Link href={LINKS.aPropos} className="font-semibold text-[#377CF3] underline">
-              Parcours complet →
-            </Link>
-          </p>
-        </section>
-      </article>
+        <LaureOlivieFormationPortrait />
+</article>
     </div>
   );
 }

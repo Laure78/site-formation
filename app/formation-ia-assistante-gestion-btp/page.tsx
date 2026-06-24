@@ -17,6 +17,7 @@ import {
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-gestion-btp';
@@ -621,31 +622,8 @@ export default function FormationIaAssistanteGestionBtpPage() {
           </dl>
         </section>
 
-        <section id="a-propos" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Laure Olivié est formatrice IA pour les entreprises du bâtiment et des travaux publics. En tant
-            que dirigeante d&apos;ALIA BTP (Guyancourt, 2017-2024), elle a vécu le quotidien d&apos;une PME :
-            une assistante de gestion sur la facturation, les relances, la sous-traitance et la liaison avec
-            la paie — avec la pression des impayés et des échéances administratives.
-          </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Elle ne forme pas depuis un manuel théorique : elle sait ce qui bloque une relance, un DC4 ou un
-            DGD quand le dirigeant attend une réponse le même jour. Le parcours BTP-01 reprend
-            cette réalité de bureau.
-          </p>
-          <p className="mt-4 text-sm font-medium text-slate-800">
-            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Certifiée
-            Qualiopi · LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM IDF
-          </p>
-          <p className="mt-4">
-            <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Voir le parcours complet →
-            </Link>
-          </p>
-        </section>
-
-        <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
+        <LaureOlivieFormationPortrait />
+<section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
             <li>

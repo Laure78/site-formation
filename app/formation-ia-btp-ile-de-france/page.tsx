@@ -20,6 +20,7 @@ import {
 } from '@/lib/seo-formation-ia-schemas';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LAURE_OLIVIE_CLIENT_REFERENCES_SHORT } from '@/lib/laure-olivie-profile';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
@@ -456,20 +457,19 @@ export default function FormationIaBtpIleDeFrancePage() {
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Qui est Laure Olivié ?</h2>
           <p className="mt-6 text-slate-700 leading-relaxed">
-            Laure Olivié est formatrice IA et ChatGPT pour les entreprises du bâtiment et des travaux publics. Basée à{' '}
-            <strong>Guyancourt (Yvelines, 78)</strong>, elle intervient exclusivement en présentiel, sur l&apos;ensemble
-            de l&apos;Île-de-France.
+            Laure Olivié est <strong>formatrice IA générative spécialiste BTP</strong>, basée à{' '}
+            <strong>Guyancourt (Yvelines, 78)</strong>. Elle intervient exclusivement en présentiel sur l&apos;ensemble de
+            l&apos;Île-de-France — sessions inter et intra finançables Constructys selon éligibilité.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Son parcours est unique : après 7 ans à la tête d&apos;ALIA BTP (entreprise de travaux publics, Guyancourt),
-            elle a créé OFC Création d&apos;Entreprise en 2022 pour accompagner les professionnels du BTP dans
-            l&apos;intégration de l&apos;IA à leurs processus opérationnels. Elle est la seule formatrice IA
-            spécialisée BTP avec une expérience de dirigeante de chantier.
+            Son parcours combine <strong>ALIA BTP</strong> (dirigeante travaux publics, 2017-2024), le{' '}
+            <strong>CNFPT Grande Couronne</strong> (chargée de formation e-learning, 2009-2019) et un{' '}
+            <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021). Depuis 2022, OFC Création d&apos;Entreprise
+            forme les équipes du BTP sur ChatGPT, Claude, Copilot et Mistral — cas réels : DCE, CCTP, CR, DOE, PPSPS.
           </p>
           <p className="mt-6 text-sm font-medium text-slate-800">
             +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi ·
-            Activateur France Num · Instructrice LinkedIn Learning · FFB Grand Paris · FFB Île-de-France · CSFE · CNAM
-            IDF
+            Instructrice LinkedIn Learning · {LAURE_OLIVIE_CLIENT_REFERENCES_SHORT}
           </p>
           <p className="mt-6">
             <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">
