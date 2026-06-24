@@ -16,7 +16,7 @@ type BlogCTAProps = {
 };
 
 /**
- * Encart CTA blog — charte OFC (fond bleu clair, popup Calendly natif).
+ * Encart CTA blog — charte OFC (fond bleu clair, lien Calendly nouvel onglet).
  */
 export function BlogCTA({ className = '', articleSlug, idSuffix = 'end' }: BlogCTAProps) {
   const titleId = `blog-cta-title-${idSuffix}`;
@@ -39,7 +39,7 @@ export function BlogCTA({ className = '', articleSlug, idSuffix = 'end' }: BlogC
       </p>
       <div className="mt-5">
         <CalendlyEmbed
-          type="popup"
+          type="link"
           variant="primary"
           ctaPosition={idSuffix === 'mid' ? 'middle' : 'footer'}
           ctaId={`blog-cta-${idSuffix}-${articleSlug}`}

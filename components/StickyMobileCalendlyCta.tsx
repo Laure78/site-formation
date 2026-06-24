@@ -89,7 +89,7 @@ export function StickyMobileCalendlyCta() {
     >
       <div className="mx-auto flex w-full max-w-lg items-center gap-2">
         <CalendlyEmbed
-          type="popup"
+          type="link"
           variant="primary"
           url={CALENDLY_BOOKING_URL}
           buttonText={CALENDLY_DEFAULT_BUTTON_TEXT}

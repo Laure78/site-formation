@@ -11,7 +11,7 @@ const variantClass: Record<Variant, string> = {
 };
 
 /**
- * CTA Calendly inline pour articles MDX — popup natif.
+ * CTA Calendly inline pour articles MDX — lien nouvel onglet.
  */
 export function CTAInline({
   label = 'Vous voulez appliquer cette méthode sur vos documents BTP ?',
@@ -34,7 +34,7 @@ export function CTAInline({
       </p>
       <div className="flex flex-wrap gap-3">
         <CalendlyEmbed
-          type="popup"
+          type="link"
           variant="primary"
           ctaPosition="middle"
           campaign={campaign}

@@ -646,6 +646,16 @@ export const PHOTOS = {
     width: 1024,
     height: 1024,
   },
+  formationClaudeIaChatCoworkCodeSkillsBtp2026: {
+    src: '/images/formation-claude-ai-btp-catalogue.webp',
+    alt:
+      'Formation Claude IA BTP Chat Cowork Code — skills administratif chantier AO juridique, Laure Olivié Qualiopi',
+    description:
+      'Formation « Claude IA pour le BTP : Chat, Cowork & Code » — skills sur-mesure administratif, AO, chantier et juridique. 4 h intra IDF, 8 participants max. Laure Olivié, OFC Qualiopi.',
+    title: 'Claude IA pour le BTP : Chat, Cowork & Code',
+    width: 1024,
+    height: 1024,
+  },
   formationNiv05IaMaitriseOeuvre2026: {
     src: '/images/formation-ia-maitrise-oeuvre-btp.webp',
     alt:

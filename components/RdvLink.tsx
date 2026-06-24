@@ -13,7 +13,7 @@ type RdvLinkProps = Omit<CalendlyEmbedProps, 'type'> & {
   campaignSuffix?: string;
 };
 
-/** Bouton popup Calendly — alias métier pour prise de RDV. */
+/** Lien Calendly (nouvel onglet) — alias métier pour prise de RDV. */
 export function RdvLink({
   className,
   children,
@@ -40,7 +40,7 @@ export function RdvLink({
 
   return (
     <CalendlyEmbed
-      type="popup"
+      type="link"
       className={className}
       ctaPosition={ctaPosition}
       campaign={resolvedCampaign}

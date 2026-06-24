@@ -235,11 +235,11 @@ export const FAQ_GEO: FAQItem[] = [
 export const FAQ_FORMATIONS: FAQItem[] = [
   {
     q: 'Quelles formations IA appliquées au bâtiment sont proposées au catalogue ?',
-    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (niveau débutant, ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (niveau avancé, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, 8 participants max), (4) Maîtriser Claude AI pour le BTP — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, 3 à 8 participants, MOEX/MOE). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
+    a: `Le catalogue OFC propose ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP de 4 heures, toutes certifiées Qualiopi : (1) L&apos;IA au service des pros du bâtiment et des travaux publics — niveau 1 (niveau débutant, ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session), (2) L&apos;IA appliquée aux appels d&apos;offres BTP — niveau 2 (niveau avancé, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session), (3) L&apos;IA appliquée à la conduite de travaux — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, 8 participants max), (4) Maîtriser Claude AI pour le BTP — niveau 2 (niveau 2, ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, matin 9h–13h, 8 participants max), (5) L&apos;IA au service des maîtres d&apos;œuvre — niveau 2 (${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT/session, 3 à 8 participants, MOEX/MOE), (6) <a href="${LINKS.formationClaudeIaBtpFiche}">Claude IA pour le BTP : Chat, Cowork &amp; Code</a> — skills sur-mesure (intra, 4 h, 8 participants max). ${MODALITE_FORMATIONS_STANDARD} ${FINANCEMENT_FORMULATION_COURTE} Fiches détaillées : cartes ci-dessus ; complément marchés publics : <a href="${LINKS.formationIaCctpAnalyseDceBtp}">formation IA analyse CCTP &amp; DCE</a>.`,
   },
   {
     q: 'Comment choisir la bonne formation IA pour le BTP pour mon entreprise ?',
-    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
+    a: `Le choix dépend de votre fonction et de votre niveau. L&apos;équipe débute ou couvre à la fois chantier bâtiment et travaux publics : <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">L&apos;IA au service des pros du bâtiment et des travaux publics</a>. Pour la réponse aux marchés, mémoires techniques et DCE : <a href="${LINKS.formationAO}">L&apos;IA appliquée aux appels d&apos;offres BTP</a>. Pour piloter vos chantiers (CCTP, CR, PPSPS, réception) : <a href="${LINKS.formationConduiteTravauxSuiviChantier}">L&apos;IA appliquée à la conduite de travaux</a>. Pour industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) : <a href="${LINKS.formationMaitriserClaudeAiBtp}">Maîtriser Claude AI pour le BTP</a>. Pour la maîtrise d&apos;œuvre d&apos;exécution (DCE, CR, OS, réserves) : <a href="${LINKS.formationIaMaitriseOeuvre}">L&apos;IA au service des maîtres d&apos;œuvre</a>. Pour déployer des skills Claude sur AO, chantier et juridique en intra : <a href="${LINKS.formationClaudeIaBtpFiche}">Claude IA pour le BTP : Chat, Cowork &amp; Code</a>. Un diagnostic gratuit de 30 minutes en visio permet de cibler le parcours — <a href="${LINKS.prendreRdv}">prendre rendez-vous</a> ou <a href="${LINKS.contact}">contact</a>.`,
   },
   {
     q: 'Qu\'apporte la formation Maîtriser Claude AI pour le BTP (niveau 2) ?',
@@ -509,6 +509,38 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   {
     q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
     a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant cette formation — sinon, commencer par la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
+  },
+];
+
+/** FAQ Formation Claude IA Chat, Cowork & Code — skills sur-mesure BTP */
+export const FAQ_CLAUDE_IA_SKILLS_BTP: FAQItem[] = [
+  {
+    q: 'Quels skills Claude sont abordés pendant la formation ?',
+    a: `Selon vos besoins et dossiers réels : analyse RC, analyse DCE/DQE, CCTP organisation, CR de chantier, levée des réserves, normes/hors-gel et assistant juridique marché de travaux. Chaque skill est un fichier .skill installé sur les postes (Settings → Capabilities → Skills). Programme : <a href="${LINKS.formationClaudeIaBtpFiche}">Claude IA pour le BTP : Chat, Cowork & Code</a>.`,
+  },
+  {
+    q: 'Faut-il déjà connaître Claude pour suivre cette formation ?',
+    a: `Non : aucun prérequis IA. Il faut savoir utiliser un ordinateur et maîtriser le français écrit et oral. Apportez des dossiers réels (AO, CCTP, CR, PV) pour travailler sur vos cas. Si vous débutez, la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> reste un bon prérequis optionnel.`,
+  },
+  {
+    q: 'Quelle différence avec Maîtriser Claude AI pour le BTP ?',
+    a: `La <a href="${LINKS.formationMaitriserClaudeAiBtp}">formation Maîtriser Claude AI</a> industrialise Claude (Projets, connecteurs Gmail/Drive, Claude Code). Cette session se concentre sur l'installation et l'usage opérationnel de skills métier sur-mesure — AO, chantier et juridique — en 4 h intra.`,
+  },
+  {
+    q: 'Le skill juridique remplace-t-il un avocat ?',
+    a: `Non : l'assistant juridique aide à qualifier un litige et rédiger des brouillons (mise en demeure, mémoire en réclamation). La validation juridique et le recours à un avocat restent indispensables sur les contentieux sensibles. En session, on cadre ces limites explicitement.`,
+  },
+  {
+    q: 'Claude remplace-t-il ChatGPT pour le BTP ?',
+    a: `Non : les deux outils se complètent. ChatGPT reste très efficace pour les emails, devis rapides et l'administratif courant (<a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a>). Claude excelle sur les PDF longs (RC, CCTP, DCE), Cowork et les skills métier — c'est le cœur de cette <a href="${LINKS.formationClaudeIaBtpFiche}">formation Claude IA BTP</a>. En session, on choisit l'outil selon le document, pas l'inverse.`,
+  },
+  {
+    q: 'Cette formation est-elle finançable par Constructys en intra ?',
+    a: `Oui, selon éligibilité OPCO — organisme certifié Qualiopi, TVA exonérée art. 261-4-4° CGI pour l'intra. Tarif sur devis. Détails dossier : <a href="${LINKS.financement}">financement Constructys formation IA BTP</a>.`,
+  },
+  {
+    q: 'Combien de participants maximum en session intra ?',
+    a: `8 participants maximum pour garantir l'installation des skills sur chaque poste et le travail sur vos dossiers réels. Format : 4 h le matin (9h00–13h00), 70 % pratique / 30 % théorie, exclusivement en présentiel.`,
   },
 ];
 

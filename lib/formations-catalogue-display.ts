@@ -2,6 +2,7 @@ import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import {
   SESSION_DUREE_LIBELLE,
+  SESSION_DUREE_MATIN_NIV04,
   LIBELLE_EFFECTIF_GROUPE_COURT,
   LIBELLE_EFFECTIF_GROUPE_NIV02,
   libelleTarifParticipant,
@@ -27,7 +28,7 @@ export type FormationCatalogueEntry = {
   /** Programme officiel PDF */
   programmePdfHref: string;
   /** Profils « Quelle formation choisir ? » */
-  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude' | 'maitrise-oeuvre'>;
+  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude' | 'maitrise-oeuvre' | 'claude-skills'>;
   /** Ligne tableau comparatif */
   comparatif: {
     publicLabel: string;
@@ -35,7 +36,7 @@ export type FormationCatalogueEntry = {
   };
 };
 
-/** Cinq parcours officiels — niveau 1 et niveau 2 (programmes PDF). */
+/** Six parcours officiels — niveau 1 et niveau 2 (programmes PDF). */
 export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
   {
     ref: 'NIV-01',
@@ -159,6 +160,31 @@ export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
       publicLabel:
         'Maîtres d\'œuvre d\'exécution (MOEX), conducteurs de travaux, OPC, BET, assistant(e)s gestion travaux',
       casUsage: 'Analyse DCE, CR chantier, OS, courriers MOE, réserves et réception',
+    },
+  },
+  {
+    ref: 'NIV-06',
+    level: 'AVANCÉ',
+    title: 'Claude IA pour le BTP : Chat, Cowork & Code',
+    href: LINKS.formationClaudeIaBtpFiche,
+    slug: 'formation-claude-ia-btp',
+    programmePdfHref: LINKS.pdfProgrammeFormationClaudeIaBtp,
+    visuel: PHOTOS.formationClaudeIaChatCoworkCodeSkillsBtp2026,
+    duree: SESSION_DUREE_MATIN_NIV04,
+    effectif: '8 participants max',
+    pitch:
+      "Skills sur-mesure — administratif, appels d'offres, chantier et juridique avec Claude Chat, Cowork & Code.",
+    profileTags: ['claude-skills'],
+    objectifs: [
+      'Utiliser Claude Chat, Cowork et Code et installer des skills adaptés à votre métier BTP',
+      'Analyser un appel d\'offres (RC, DCE/DQE) pour décider et sécuriser le chiffrage',
+      'Préparer et suivre un chantier : CCTP, CR, levée des réserves, normes/hors-gel',
+      'Qualifier un litige de marché de travaux et produire les écrits — l\'IA n\'est pas un avocat',
+    ],
+    comparatif: {
+      publicLabel:
+        'Direction, bureau d\'études, conducteurs de travaux, chefs de chantier, administratif',
+      casUsage: 'Skills Claude, RC/DCE, CCTP, CR, réserves, juridique marché de travaux',
     },
   },
 ];

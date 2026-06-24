@@ -40,7 +40,7 @@ export function FormationsHero() {
           <CatalogueTarifStrip className="max-w-3xl" />
           <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="primary"
               ctaPosition="hero"
               campaign="formations-hero"

@@ -195,6 +195,13 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           >
             formation conduite de travaux
           </Link>
+          , ou la session{' '}
+          <Link
+            href={LINKS.formationClaudeIaBtpFiche}
+            className="font-medium text-[var(--accent)] hover:underline"
+          >
+            Claude IA : Chat, Cowork & skills BTP
+          </Link>
           . {MODALITE_FORMATIONS_PRESENTIEL}
         </p>
       </FormationCourseHero>

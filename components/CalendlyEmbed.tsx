@@ -16,6 +16,7 @@ import {
   type CalendlyEmbedVariant,
 } from '@/lib/calendly-embed-config';
 
+/** `popup` conservé pour compatibilité — ouvre Calendly en nouvel onglet (plus de modal). */
 export type CalendlyEmbedType = 'popup' | 'inline' | 'link';
 
 type CtaPosition = 'hero' | 'middle' | 'footer' | 'inline' | 'floating' | 'unknown';
@@ -38,8 +39,6 @@ export type CalendlyEmbedProps = {
   /** En-tête section (mode inline). */
   sectionTitle?: string;
   sectionSubtitle?: string;
-  /** Mode link : ouverture nouvel onglet (fallback popup). */
-  preferNewTab?: boolean;
   children?: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   /** Attributs data-* analytics hérités de CTACalendly. */
@@ -66,22 +65,6 @@ function trackCalendlyClick(location: string, ctaPosition: string, ctaId: string
       cta_id: ctaId,
     });
   }
-}
-
-function tryOpenPopup(url: string): boolean {
-  if (typeof window === 'undefined') return false;
-  if (window.Calendly?.initPopupWidget) {
-    window.Calendly.initPopupWidget({ url });
-    return true;
-  }
-  return false;
-}
-
-/** Ouvre Calendly en popup si le widget est prêt, sinon nouvel onglet (même geste utilisateur). */
-function openCalendlyPopup(url: string): boolean {
-  if (tryOpenPopup(url)) return true;
-  const opened = window.open(url, '_blank', 'noopener,noreferrer');
-  return opened !== null;
 }
 
 function CalendlyInlineBody({
@@ -127,12 +110,12 @@ function CalendlyInlineBody({
 }
 
 /**
- * Widget Calendly unifié — popup natif, inline iframe ou lien (fallback).
+ * Widget Calendly unifié — lien nouvel onglet ou iframe inline.
  * Source unique pour toutes les pages de conversion du site.
  */
 export function CalendlyEmbed({
   url,
-  type = 'popup',
+  type = 'link',
   buttonText = CALENDLY_DEFAULT_BUTTON_TEXT,
   campaign,
   ctaPosition = 'unknown',
@@ -144,7 +127,6 @@ export function CalendlyEmbed({
   heightPx = CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
   sectionTitle,
   sectionSubtitle,
-  preferNewTab = false,
   children,
   onClick,
   id,
@@ -167,23 +149,14 @@ export function CalendlyEmbed({
   });
   const label = children ?? buttonText;
 
-  const handleActivate = useCallback(() => {
+  const handleLinkClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
+    if (disabled) {
+      e.preventDefault();
+      return;
+    }
     const location =
       typeof window !== 'undefined' ? window.location.pathname : 'unknown';
     trackCalendlyClick(location, ctaPosition, resolvedCtaId);
-  }, [ctaPosition, resolvedCtaId]);
-
-  const handlePopupClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    handleActivate();
-    onClick?.(e as unknown as React.MouseEvent<HTMLButtonElement>);
-    if (preferNewTab) return;
-    if (openCalendlyPopup(resolvedUrl)) {
-      e.preventDefault();
-    }
-  };
-
-  const handleLinkClick: MouseEventHandler<HTMLAnchorElement> = (e) => {
-    handleActivate();
     onClick?.(e);
   };
 
@@ -207,25 +180,7 @@ export function CalendlyEmbed({
     );
   }
 
-  if (type === 'link') {
-    return (
-      <a
-        href={resolvedUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-calendly
-        data-calendly-tracked="component"
-        data-cta-position={ctaPosition}
-        data-cta-id={resolvedCtaId}
-        onClick={handleLinkClick}
-        className={`${CALENDLY_BUTTON_VARIANT_CLASS[variant]} ${className}`.trim()}
-      >
-        {label}
-      </a>
-    );
-  }
-
-  const popupClassName = [
+  const linkClassName = [
     'cta-calendly',
     `cta-calendly--${ctaPosition}`,
     CALENDLY_BUTTON_VARIANT_CLASS[variant],
@@ -246,9 +201,9 @@ export function CalendlyEmbed({
       data-calendly-tracked="component"
       data-cta-position={ctaPosition}
       data-cta-id={resolvedCtaId}
-      onClick={disabled ? (e) => e.preventDefault() : handlePopupClick}
+      onClick={handleLinkClick}
       aria-disabled={disabled || undefined}
-      className={`${popupClassName}${disabled ? ' pointer-events-none opacity-50' : ''}`.trim()}
+      className={`${linkClassName}${disabled ? ' pointer-events-none opacity-50' : ''}`.trim()}
     >
       {label}
     </a>

@@ -71,7 +71,7 @@ export default function ContactPage() {
               Échanger sur vos besoins
             </Link>
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="secondary"
               campaign="contact-hero"
               ctaPosition="hero"
@@ -250,7 +250,7 @@ export default function ContactPage() {
               Voir le catalogue formations
             </Link>
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="primary"
               campaign="contact-mid"
               ctaPosition="middle"
@@ -288,7 +288,7 @@ export default function ContactPage() {
               Formation IA appliquée au bâtiment
             </Link>
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="on-accent"
               campaign="contact-footer"
               ctaPosition="footer"

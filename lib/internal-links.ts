@@ -56,6 +56,10 @@ export const LINKS = {
   formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
   pdfProgrammeMaitriserClaudeBtpNiv04:
     '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
+  /** Fiche catalogue — Claude IA Chat, Cowork & Code (skills sur-mesure BTP, intra) */
+  formationClaudeIaBtpFiche: '/formations/formation-claude-ia-btp',
+  pdfProgrammeFormationClaudeIaBtp:
+    '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
   /** NIV-05 — L'IA au service des maîtres d'œuvre (catalogue) */
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:

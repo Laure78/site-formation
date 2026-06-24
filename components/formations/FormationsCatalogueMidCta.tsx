@@ -37,7 +37,7 @@ export function FormationsCatalogueMidCta() {
           </div>
           <div className="flex flex-col gap-4">
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="on-accent"
               ctaPosition="middle"
               campaign="formations-mid-page"

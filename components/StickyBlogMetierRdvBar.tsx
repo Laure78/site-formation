@@ -120,7 +120,7 @@ export function StickyBlogMetierRdvBar() {
         </p>
         <div className="flex min-w-0 flex-1 items-center justify-end gap-2 sm:flex-none sm:justify-end">
           <CalendlyEmbed
-            type="popup"
+            type="link"
             variant="primary"
             ctaPosition="footer"
             ctaId="sticky-blog-metier"

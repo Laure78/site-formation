@@ -27,7 +27,7 @@ export function ContactDirect({ formationHint }: ContactDirectProps) {
         <span className="font-medium">{SITE_CONFIG.email}</span>
       </a>
       <CalendlyEmbed
-        type="popup"
+        type="link"
         ctaPosition="footer"
         ctaId="contact-direct"
         utmSource="contact"

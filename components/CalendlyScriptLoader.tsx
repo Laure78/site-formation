@@ -12,7 +12,7 @@ function notifyCalendlyReady() {
 }
 
 /**
- * Charge le script Calendly une fois (inline + popup).
+ * Charge le script Calendly une fois (embed inline).
  */
 export function CalendlyScriptLoader() {
   return (

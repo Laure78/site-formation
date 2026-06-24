@@ -25,6 +25,7 @@ const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], 
   [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
   [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
+  [LINKS.formationClaudeIaBtpFiche]: 'NIV-06',
 };
 
 const OFFER_CATEGORY_BY_REF: Record<string, string> = {
@@ -33,6 +34,7 @@ const OFFER_CATEGORY_BY_REF: Record<string, string> = {
   'NIV-03': 'Formation professionnelle continue — niveau avancé',
   'NIV-04': 'Formation professionnelle continue — niveau avancé',
   'NIV-05': 'Formation professionnelle continue — maîtrise d\'œuvre',
+  'NIV-06': 'Formation professionnelle continue — skills Claude BTP',
 };
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
@@ -41,6 +43,7 @@ const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
   'NIV-03': 'Prix HT par session (8 participants max, niveau avancé)',
   'NIV-04': 'Prix HT par session (8 participants max, niveau avancé, matin)',
   'NIV-05': 'Prix HT par session (3 à 8 participants, niveau avancé)',
+  'NIV-06': 'Tarif intra sur devis — référence 4 h avancé, 8 participants max',
 };
 
 export type CatalogueCourseJsonLdConfig = {
@@ -50,7 +53,8 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
-    | typeof LINKS.formationIaMaitriseOeuvre;
+    | typeof LINKS.formationIaMaitriseOeuvre
+    | typeof LINKS.formationClaudeIaBtpFiche;
   name: string;
   description: string;
   price: number;
@@ -65,7 +69,8 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
-    | typeof LINKS.formationIaMaitriseOeuvre;
+    | typeof LINKS.formationIaMaitriseOeuvre
+    | typeof LINKS.formationClaudeIaBtpFiche;
   name: string;
   description: string;
   price: number;
@@ -316,4 +321,24 @@ export function buildCatalogueCourseMaitriserClaudeNiv04JsonLd(): Record<string,
 
 export function buildCatalogueCourseMaitriseOeuvreNiv05JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV05);
+}
+
+export const FORMATION_RICH_COURSE_CLAUDE_SKILLS_BTP: FormationCatalogueRichCourseConfig = {
+  path: LINKS.formationClaudeIaBtpFiche,
+  name: 'Claude IA pour le BTP : Chat, Cowork & Code',
+  description:
+    'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure pour l\'administratif, les appels d\'offres (RC, DCE/DQE), la gestion de chantier (CCTP, CR, réserves, normes) et le juridique. Qualiopi, Constructys.',
+  price: TARIF_SESSION_AVANCE_HT,
+  educationalLevel: 'Avancé',
+  teaches: [
+    'Claude Chat, Cowork et Code pour équipes BTP',
+    'Installation et usage de skills Claude sur-mesure (AO, chantier, juridique)',
+    'Analyse RC et DCE/DQE — décision GO / NO GO et chiffrage sécurisé',
+    'CCTP organisation, CR de chantier, levée des réserves et normes hors-gel',
+    'Qualification litiges marché de travaux — l\'IA n\'est pas un avocat',
+  ],
+};
+
+export function buildClaudeIaChatCoworkCodeSkillsBtpJsonLd(): Record<string, unknown> {
+  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_CLAUDE_SKILLS_BTP);
 }

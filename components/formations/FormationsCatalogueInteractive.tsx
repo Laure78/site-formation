@@ -27,7 +27,7 @@ import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe';
+type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'claude-skills';
 
 const PROFILE_ICONS = {
   'NIV-01': BookOpen,
@@ -35,6 +35,7 @@ const PROFILE_ICONS = {
   'NIV-03': HardHat,
   'NIV-04': Cpu,
   'NIV-05': Landmark,
+  'NIV-06': Cpu,
 } as const;
 
 const PROFILE_IDS: Record<string, ProfileId> = {
@@ -43,6 +44,7 @@ const PROFILE_IDS: Record<string, ProfileId> = {
   'NIV-03': 'conduite',
   'NIV-04': 'claude',
   'NIV-05': 'moe',
+  'NIV-06': 'claude-skills',
 };
 
 const PROFILES = FORMATIONS_CATALOGUE.map((entry) => ({

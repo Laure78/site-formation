@@ -54,6 +54,16 @@ const nextConfig: NextConfig = {
       },
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
       // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
+      {
+        source: '/formations/claude-ia-chat-cowork-code-skills-btp',
+        destination: '/formations/formation-claude-ia-btp',
+        permanent: true,
+      },
+      {
+        source: '/formations/claude-ia-chat-cowork-code-skills-btp/:path*',
+        destination: '/formations/formation-claude-ia-btp/:path*',
+        permanent: true,
+      },
       { source: '/offres', destination: '/formations', permanent: true },
       { source: '/formation-ia-et-chatgpt', destination: '/formations', permanent: true },
       {

@@ -18,7 +18,7 @@ export const OFC_CARD = 'ofc-card';
 /** Cartes-liens sur fond gris OFC — hérite du lift `.ofc-card`. */
 export const OFC_CARD_MUTED = 'ofc-card ofc-card-muted';
 
-/** CTA primaire (Calendly popup, conversion). */
+/** CTA primaire (Calendly, conversion). */
 export const OFC_CTA_PRIMARY = 'ofc-cta-primary';
 
 /** CTA primaire pilule (hero accueil). */

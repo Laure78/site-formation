@@ -299,7 +299,7 @@ export default function HomePage() {
             />
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <CalendlyEmbed
-                type="popup"
+                type="link"
                 variant="pill"
                 campaign="accueil-hero"
                 ctaPosition="hero"
@@ -457,7 +457,7 @@ export default function HomePage() {
             </p>
           </div>
           <CalendlyEmbed
-            type="popup"
+            type="link"
             variant="primary"
             campaign="accueil-mid-page"
             ctaPosition="middle"
@@ -1396,7 +1396,7 @@ export default function HomePage() {
                 {SCHEMA_CONTACT.email}
               </a>
               <CalendlyEmbed
-                type="popup"
+                type="link"
                 variant="secondary"
                 campaign="accueil-faq"
                 ctaPosition="middle"
@@ -1438,7 +1438,7 @@ export default function HomePage() {
           </RevealGroup>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <CalendlyEmbed
-              type="popup"
+              type="link"
               variant="on-accent"
               campaign="accueil-fin-page"
               ctaPosition="footer"
@@ -1476,7 +1476,7 @@ export default function HomePage() {
                 de 30 minutes. Devis personnalisé sous 24h après notre rendez-vous.
               </p>
               <CalendlyEmbed
-                type="popup"
+                type="link"
                 variant="primary"
                 campaign="accueil-section-rdv"
                 ctaPosition="footer"

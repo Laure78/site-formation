@@ -63,7 +63,7 @@ function CalendlyBlock({
       <p className="mt-3 text-sm leading-relaxed text-blue-100 md:text-base">{subtitle}</p>
       <div className="mt-6 flex flex-wrap gap-3">
         <CalendlyEmbed
-          type="popup"
+          type="link"
           variant="on-accent"
           ctaPosition="middle"
           campaign={`formation-metier-${metierId}-${id}`}

@@ -3,7 +3,6 @@ import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { ChatWidget } from '@/components/ChatWidget';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
 import { StickyCtaBanner } from '@/components/StickyCtaBanner';
@@ -149,7 +148,6 @@ export default function RootLayout({
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <head>
         <PersonSchema />
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
         <OrganizationSchema />
@@ -179,7 +177,6 @@ export default function RootLayout({
         <StickyMobileCalendlyCta />
         <StickyCtaBanner />
         <StickyBlogMetierRdvBar />
-        <ChatWidget />
       </body>
     </html>
   );

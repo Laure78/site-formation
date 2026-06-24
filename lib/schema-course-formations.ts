@@ -99,6 +99,22 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ],
     occupationalCategory: 'BTP, maîtrise d\'œuvre, MOEX',
   },
+  {
+    ref: 'NIV-06',
+    level: 'AVANCÉ',
+    path: '/formations/formation-claude-ia-btp',
+    name: 'Claude IA pour le BTP : Chat, Cowork & Code',
+    description:
+      'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure pour l\'administratif, les appels d\'offres, la gestion de chantier et le juridique. Qualiopi, Constructys.',
+    teaches: [
+      'Claude Chat, Cowork et Code pour équipes BTP',
+      'Installation et usage de skills sur-mesure (AO, chantier, juridique)',
+      'Analyse RC et DCE/DQE — GO / NO GO et chiffrage sécurisé',
+      'CCTP organisation, CR de chantier, levée des réserves et normes hors-gel',
+      'Qualification litiges marché de travaux',
+    ],
+    occupationalCategory: 'BTP, direction, bureau d\'études, conducteurs de travaux',
+  },
 ];
 
 const DURATION_ISO = 'PT4H';
@@ -236,6 +252,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-appels-offre-btp',
   '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/maitriser-claude-ai-btp',
+  '/formations/formation-claude-ia-btp',
   '/formations/ia-maitrise-oeuvre',
   '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;

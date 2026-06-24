@@ -15,6 +15,7 @@ const NIV02 = getFormationCatalogueByRef('NIV-02')!;
 const NIV03 = getFormationCatalogueByRef('NIV-03')!;
 const NIV04 = getFormationCatalogueByRef('NIV-04')!;
 const NIV05 = getFormationCatalogueByRef('NIV-05')!;
+const NIV06 = getFormationCatalogueByRef('NIV-06')!;
 
 export type ContextualLinkCard = {
   href: InternalLinkPath | string;
@@ -124,6 +125,11 @@ export const FORMATION_CATALOGUE_CORE: ContextualLinkCard[] = [
     description: 'DCE, CR chantier, OS, courriers MOE et réserves — 3 à 8 participants.',
   },
   {
+    href: LINKS.formationClaudeIaBtpFiche,
+    title: formationCatalogueLinkLabel(NIV06),
+    description: 'Skills sur-mesure — administratif, AO, chantier, juridique — intra 4 h.',
+  },
+  {
     href: LINKS.financement,
     title: 'Financement Constructys',
     description: 'OPCO, plafonds pédagogiques, dossier et convention.',
@@ -170,9 +176,9 @@ export const FORMATION_NIV02_RELATED: ContextualLinkCard[] = [
     description: 'Guide informationnel — méthode terrain en 4 étapes.',
   },
   {
-    href: LINKS.blogAnalyserCctpMethode20Min,
-    title: 'Méthode CCTP en 20 minutes',
-    description: 'Prompts et workflow sur pièces DCE.',
+    href: LINKS.formationClaudeIaBtpFiche,
+    title: formationCatalogueLinkLabel(NIV06),
+    description: 'Skills RC/DCE et chiffrage sécurisé avec Claude.',
   },
   {
     href: LINKS.financement,
@@ -235,6 +241,11 @@ export const FORMATION_NIV03_RELATED: ContextualLinkCard[] = [
     description: 'Mémoire technique et analyse DCE avec Cowork.',
   },
   {
+    href: LINKS.formationClaudeIaBtpFiche,
+    title: formationCatalogueLinkLabel(NIV06),
+    description: 'Skills Claude AO, chantier et juridique — complément terrain.',
+  },
+  {
     href: LINKS.financement,
     title: 'Financement Constructys',
     description: 'OPCO, dossier et convention.',
@@ -261,6 +272,34 @@ export const FORMATION_NIV04_RELATED: ContextualLinkCard[] = [
     href: LINKS.financement,
     title: 'Financement Constructys',
     description: 'OPCO, dossier et convention.',
+  },
+];
+
+export const FORMATION_CLAUDE_SKILLS_BTP_RELATED: ContextualLinkCard[] = [
+  {
+    href: LINKS.formationMaitriserClaudeAiBtp,
+    title: formationCatalogueLinkLabel(NIV04),
+    description: 'Industrialiser Claude — Projets, connecteurs, Claude Code.',
+  },
+  {
+    href: LINKS.formationAO,
+    title: formationCatalogueLinkLabel(NIV02),
+    description: 'DCE, mémoire technique, Cowork & Skills.',
+  },
+  {
+    href: LINKS.formationConduiteTravauxSuiviChantier,
+    title: formationCatalogueLinkLabel(NIV03),
+    description: 'Skills Claude chantier, CCTP, CR, réception.',
+  },
+  {
+    href: LINKS.claudeAiBtp,
+    title: 'Guide Claude AI BTP',
+    description: 'Interfaces Chat, Cowork, Code et prompts métier.',
+  },
+  {
+    href: LINKS.financement,
+    title: 'Financement Constructys',
+    description: 'OPCO, dossier et convention intra.',
   },
 ];
 

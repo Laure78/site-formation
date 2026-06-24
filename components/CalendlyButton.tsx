@@ -16,7 +16,7 @@ export type CalendlyButtonProps = {
   className?: string;
 };
 
-/** Bouton popup Calendly avec campagne UTM. */
+/** Bouton lien Calendly (nouvel onglet) avec campagne UTM. */
 export default function CalendlyButton({
   campaign,
   variant = 'primary',
@@ -25,7 +25,7 @@ export default function CalendlyButton({
 }: CalendlyButtonProps) {
   return (
     <CalendlyEmbed
-      type="popup"
+      type="link"
       campaign={campaign}
       ctaPosition="inline"
       ctaId={`calendly-btn-${campaign}`}

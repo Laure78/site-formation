@@ -11,7 +11,7 @@ type CTACalendlyProps = Omit<CalendlyEmbedProps, 'type'> & {
 };
 
 /**
- * @deprecated Préférer `<CalendlyEmbed />` directement — alias rétrocompatible (popup natif).
+ * @deprecated Préférer `<CalendlyEmbed />` directement — alias rétrocompatible (lien nouvel onglet).
  */
 export function CTACalendly({
   page,
@@ -24,7 +24,7 @@ export function CTACalendly({
 }: CTACalendlyProps) {
   return (
     <CalendlyEmbed
-      type="popup"
+      type="link"
       variant={unstyled ? 'unstyled' : variant ?? 'primary'}
       className={className}
       campaign={campaign ?? utmCampaign}
