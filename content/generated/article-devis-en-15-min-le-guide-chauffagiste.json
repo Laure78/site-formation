@@ -2,12 +2,12 @@
   "slug": "devis-en-15-min-le-guide-chauffagiste",
   "title": "Devis en 15 min : le guide chauffagiste",
   "description": "Devis chauffagiste en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA pour le BTP Constructys.",
-  "date": "2026-06-26",
+  "date": "2026-06-27",
   "keywords": [
-    "LinkedIn BTP",
-    "post IA",
-    "contenu réseaux BTP",
-    "IA marketing BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
