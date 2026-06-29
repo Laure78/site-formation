@@ -23,8 +23,6 @@ import {
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
-import { FormationProgrammePdfDownloadBanner } from '@/components/formations/FormationProgrammePdfDownloadBanner';
-import { FormationProgrammePdfViewer } from '@/components/formations/FormationProgrammePdfViewer';
 import { buildClaudeIaChatCoworkCodeSkillsBtpJsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 
@@ -220,17 +218,6 @@ export default function FormationClaudeIaBtpPage() {
           . {MODALITE_FORMATIONS_PRESENTIEL}
         </p>
       </FormationCourseHero>
-
-      <FormationProgrammePdfDownloadBanner
-        pdfHref={PDF_HREF}
-        catalogueRef={CATALOGUE_REF}
-        formationTitle="Claude IA pour le BTP : Chat, Cowork & Code"
-      />
-      <FormationProgrammePdfViewer
-        pdfHref={PDF_HREF}
-        catalogueRef={CATALOGUE_REF}
-        formationTitle="Claude IA pour le BTP : Chat, Cowork & Code"
-      />
 
       <div className="mx-auto max-w-4xl px-4 py-16">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
