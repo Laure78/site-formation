@@ -32,6 +32,8 @@ import {
   SITE_CONFIG,
 } from '@/lib/seo';
 import { COUNT_UP_PROS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
+import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
 export type FormationIaBtpDeptLandingConfig = {
   path: string;
@@ -130,7 +132,11 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
     { name: crumbDept, path: config.path },
   ]);
 
-  const faqSchema = getFAQSchema(config.faq);
+  const localContent = getDeptLocalSeoContent(config.deptCode);
+
+  const faqSchema = getFAQSchema(
+    localContent ? [...localContent.faq, ...config.faq.slice(3)] : config.faq,
+  );
 
   return (
     <div className="bg-white text-slate-900">
@@ -209,6 +215,10 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           </p>
         </div>
       </section>
+
+      {localContent ? (
+        <FormationDeptLocalSeoBlock content={localContent} emitFaqSchema={false} />
+      ) : null}
 
       <section className={`${OFC_SEC.muted} scroll-mt-24`}>
         <div className="mx-auto max-w-4xl">
@@ -394,9 +404,9 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
 
       <FAQSection
         id={`faq-formation-ia-dept-${config.deptCode}`}
-        items={config.faq}
+        items={config.faq.slice(3)}
         title={`FAQ — formation IA appliquée au bâtiment ${crumbDept}`}
-        subtitle="Déplacements, formats intra / inter en présentiel, financement et calendrier."
+        subtitle="Formats intra / inter en présentiel, financement et calendrier."
       />
 
       <section className={OFC_SEC.accent}>

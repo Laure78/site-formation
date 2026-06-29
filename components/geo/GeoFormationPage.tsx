@@ -26,6 +26,8 @@ import {
   geoFormationPath,
   type GeoFormationPageProps,
 } from '@/lib/geo-formation-config';
+import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
+import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
 export type { GeoFormationPageProps };
 
@@ -74,6 +76,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
   const defaultH1 = `Formation IA BTP ${deptLabel} — Présentiel dans vos locaux`;
   const defaultIntro =
     "Devis, comptes rendus, appels d'offres et administratif : session 4 h sur vos documents réels — ChatGPT et Claude AI, certification Qualiopi.";
+
+  const localContent = getDeptLocalSeoContent(code);
 
   const courseJsonLd = buildFormationIaCourseJsonLd({
     name: `Formation IA BTP ${deptLabel} — Qualiopi`,
@@ -172,6 +176,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           </div>
         </div>
       </section>
+
+      {localContent ? <FormationDeptLocalSeoBlock content={localContent} /> : null}
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl px-4">
