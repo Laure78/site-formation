@@ -27,6 +27,8 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { buildIdfRegionalMetaDescription } from '@/lib/seo-geo-keywords';
+import { FormationIdfChapeauLocalBlock } from '@/components/formation-ia-btp/FormationIdfChapeauLocalBlock';
+import { IDF_CHAPEAU_LOCAL } from '@/lib/formation-ia-btp-dept-local-content';
 
 export const revalidate = 3600;
 const poppins = Poppins({
@@ -118,9 +120,10 @@ const SOMMAIRE = [
 
 export default function FormationIaBtpIleDeFrancePage() {
   const localBusinessSchema = getFormationIleDeFrancePageLocalBusinessJsonLd();
-  const faqSchema = getFAQSchema(
-    FAQ_IDF.map(({ q, a }) => ({ q, a }))
-  );
+  const faqSchema = getFAQSchema([
+    ...IDF_CHAPEAU_LOCAL.faq,
+    ...FAQ_IDF.map(({ q, a }) => ({ q, a })),
+  ]);
 
   return (
     <div className={poppins.className}>
@@ -156,7 +159,19 @@ export default function FormationIaBtpIleDeFrancePage() {
             <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+            </div>
+            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
+              <OfcPromoVideoEmbed variant="heroColumn" />
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <FormationIdfChapeauLocalBlock />
+
+      <section className="border-b border-slate-200 bg-white px-4 py-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-wrap gap-3">
             <RdvLink className="inline-flex rounded-full bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#2d6ae0]">
               Diagnostic IA gratuit — 30 min
             </RdvLink>
@@ -166,11 +181,6 @@ export default function FormationIaBtpIleDeFrancePage() {
             >
               Catalogue formations
             </Link>
-          </div>
-            </div>
-            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
-              <OfcPromoVideoEmbed variant="heroColumn" />
-            </aside>
           </div>
         </div>
       </section>

@@ -1,214 +1,421 @@
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 
+export type DeptInternalLink = {
+  href: string;
+  label: string;
+  description: string;
+};
+
 export type DeptLocalSeoContent = {
   deptCode: string;
   departementNom: string;
   intro: string;
   villesEtTrajets: string;
-  tissuEtUsages: string;
+  tissuBtpLocal: string;
+  casUsage: [string, string];
   faq: FAQItem[];
-  metierLink: { href: string; label: string; description: string };
+  internalLinks: [DeptInternalLink, DeptInternalLink, DeptInternalLink];
 };
 
-function faqDeptLocal(
-  nom: string,
-  code: string,
-  deplacement: string,
-  intraGuyancourt: string,
-  constructys: string,
-): FAQItem[] {
-  return [
-    { q: `Vous vous déplacez dans tout le ${nom} (${code}) depuis Guyancourt ?`, a: deplacement },
-    {
-      q: `Peut-on organiser une session intra dans vos locaux à Guyancourt (78) pour une équipe du ${code} ?`,
-      a: intraGuyancourt,
-    },
-    {
-      q: `Le financement Constructys est-il ouvert aux entreprises du ${code} ?`,
-      a: constructys,
-    },
-  ];
-}
-
-/** Contenus locaux uniques — 250 à 400 mots par département (hors FAQ). */
+/** Contenus locaux uniques — audit SEO départements IDF (ne pas recopier entre départements). */
 export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
   '75': {
     deptCode: '75',
     departementNom: 'Paris',
     intro:
-      'Formation IA BTP à Paris (75) — présentiel intra/inter, depuis Guyancourt (78). OFC Création d\'Entreprise intervient dans tous les arrondissements : session réservée à votre entreprise dans vos locaux parisiens, ou inter en salle francilienne selon le calendrier. Organisme certifié Qualiopi, 4 h pratiques sur vos devis, CCTP et courriers chantier.',
+      "La formation IA appliquée au BTP de Laure Olivié (OFC Création d'Entreprise) se déroule en présentiel à Paris, dans vos locaux (intra) ou en salle (inter). Pas de distanciel : on travaille 4 heures sur vos vrais documents — DCE de marchés parisiens, mémoires techniques, comptes rendus de chantier en site occupé.",
     villesEtTrajets:
-      'Les bassins les plus demandés : Paris 11e–12e (Bastille, Nation), Paris 15e–16e (Beaugrenelle, Trocadéro) et Paris 13e–14e (Montparnasse, Olympiades). Depuis Guyancourt, comptez environ 35 à 50 min en RER ou voiture selon l\'arrondissement et l\'heure de pointe. Pour une intra dans vos bureaux parisiens, nous cadrons l\'accès, le Wi-Fi et le nombre de postes lors de la visio découverte gratuite.',
-    tissuEtUsages:
-      'À Paris, le tissu BTP mêle PME de second œuvre, entreprises de rénovation en site occupé et lots techniques pour marchés tertiaires. Les maîtres d\'œuvre et conducteurs y jonglent entre délais MOA serrés et documentation lourde (mémoires, CR, réserves). En formation, deux usages IA reviennent souvent : structurer un compte rendu de réunion de chantier à partir de notes dictées, puis relire avant envoi MOE ; et accélérer la lecture d\'extraits de CCTP pour lister les points de vigilance avant chiffrage — toujours avec validation humaine avant tout envoi client ou marché.',
-    faq: faqDeptLocal(
-      'Paris',
-      '75',
-      'Oui. Intra dans vos locaux parisiens (tous arrondissements) ou inter en salle en Île-de-France. Départ Guyancourt (78) : 35 à 50 min vers le centre et l\'est parisien, parfois un peu plus vers le nord-est aux heures de pointe. Déplacement et repas précisés au devis avant convention.',
-      'Oui, pour les équipes parisiennes qui préfèrent se regrouper hors de leurs bureaux de chantier : salle à Guyancourt (78), à 5 min de la gare, avec vidéoprojecteur et connexion stable. Idéal pour 4 à 8 participants du 75 qui veulent une matinée dédiée sans gêner l\'open space.',
-      'Les règles Constructys sont nationales : une entreprise immatriculée à Paris (75) ou intervenant sur des chantiers parisiens peut être éligible selon son effectif et ses cotisations. Nous fournissons programme Qualiopi, convention et pièces pédagogiques pour votre dossier OPCO.',
-    ),
-    metierLink: {
-      href: LINKS.formationConducteurTravaux,
-      label: 'Conducteur de travaux',
-      description: 'CR chantier, DCE et suivi — cas terrain parisiens',
-    },
+      "Tout Paris intra-muros, des 20 arrondissements aux franges (porte de la Chapelle, rive gauche, secteur Bercy). Depuis Guyancourt (78), Paris est accessible en transport ou véhicule selon le créneau — temps indicatifs, selon le trafic francilien.",
+    tissuBtpLocal:
+      "Paris concentre une forte densité de maîtres d'œuvre, d'architectes et d'entreprises de rénovation intervenant sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, exigences patrimoniales (ABF) sur le bâti ancien. Les équipes y passent un temps considérable sur l'écrit contractuel et les autorisations.",
+    casUsage: [
+      "Analyser rapidement un DCE de marché parisien (CCTP, règlement) et structurer un mémoire technique convaincant — avec relecture métier obligatoire.",
+      "Produire des comptes rendus de chantier clairs malgré la complexité des interventions en site occupé.",
+    ],
+    faq: [
+      {
+        q: 'Intervenez-vous dans Paris intra-muros ?',
+        a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux ou en salle inter — jamais en distanciel.',
+      },
+      {
+        q: 'Comment se passe une session intra à Paris ?',
+        a: 'Une demi-journée de 4 h sur vos documents réels, en petit groupe, avec des prompts adaptés à vos marchés.',
+      },
+      {
+        q: 'La formation est-elle finançable pour une entreprise parisienne ?',
+        a: 'Elle peut être prise en charge par Constructys ou votre OPCO selon votre statut et les conditions en vigueur.',
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationAO,
+        label: "IA appliquée aux appels d'offres BTP",
+        description: 'DCE, mémoire technique, analyse marchés',
+      },
+      {
+        href: LINKS.formationChargeAffairesBtp,
+        label: "Chargé d'affaires BTP",
+        description: 'Offres, chiffrage et relation client',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '77': {
     deptCode: '77',
     departementNom: 'Seine-et-Marne',
     intro:
-      'Formation IA BTP en Seine-et-Marne (77) — présentiel intra/inter, depuis Guyancourt (78). Le département le plus vaste d\'Île-de-France concentre logements collectifs, équipements publics et zones logistiques : nos sessions 4 h s\'adaptent à vos documents réels (AO, CCTP, CR), en intra chez vous ou en salle selon calendrier.',
+      "Formation IA pour le BTP en présentiel en Seine-et-Marne (77), intra dans vos locaux ou inter en salle. Le 77 est le plus vaste département francilien : la formation est pensée pour des équipes parfois dispersées sur de grandes distances de chantier.",
     villesEtTrajets:
-      'Melun, Meaux et la Marne-la-Vallée (Bussy-Saint-Georges, Champs-sur-Marne) sont les pôles les plus sollicités. Depuis Guyancourt : environ 25 à 40 min vers l\'ouest du 77 (Sénart, Melun, Bussy) ; vers l\'est (Provins, Coulommiers, Fontainebleau), plutôt 50 à 70 min — nous privilégions alors une journée bloquée ou deux demi-journées. Chelles et Pontault-Combault restent accessibles en moins de 45 min.',
-    tissuEtUsages:
-      'En Seine-et-Marne, PME de gros œuvre, second œuvre et TP alimentent neuf, rénovation et marchés publics intercommunaux (Melun Val de Seine, Grand Paris Sud). Les géomètres-métreurs et chargés d\'affaires y traitent des DCE volumineux sur des opérations en plusieurs tranches. Usages IA typiques : extraire d\'un règlement de consultation les dates clés et pièces manquantes pour un GO/NO GO rapide ; et transformer des photos de CR MOE en tableau d\'actions avec échéances — relecture obligatoire par le conducteur avant diffusion interne.',
-    faq: faqDeptLocal(
-      'Seine-et-Marne',
-      '77',
-      'Oui, sur tout le 77. L\'ouest (Marne-la-Vallée, Sénart, Melun, Meaux) est couvert en 30 à 45 min depuis Guyancourt. L\'est du département mobilise plutôt une journée entière : nous le précisons au devis pour éviter les allers-retours inutiles.',
-      'Oui. Nos locaux à Guyancourt accueillent les équipes du 77 qui souhaitent une matinée hors chantier : 4 h, 8 participants max, postes pour exercices sur vos PDF. Pratique pour les entreprises basées à Meaux ou Melun qui veulent centraliser direction, BE et conducteurs.',
-      'Constructys finance selon les règles nationales, pas selon le département. Une PME du 77 adhérente à l\'OPCO bâtiment peut monter un dossier avec notre programme Qualiopi NIV-01 ou NIV-02 : devis, convention et attestations fournis.',
-    ),
-    metierLink: {
-      href: LINKS.formationConducteurTravaux,
-      label: 'Conducteur de travaux',
-      description: 'Suivi chantier, CR et réserves en Seine-et-Marne',
-    },
+      "Melun (préfecture), Meaux, Chelles, le secteur de Marne-la-Vallée, Fontainebleau, Provins. Depuis Guyancourt, comptez environ une heure à une heure et quart selon la destination et le trafic — temps indicatifs.",
+    tissuBtpLocal:
+      "Territoire mixte — péri-urbain dense à l'ouest (Marne-la-Vallée, Chelles) et plus rural à l'est. Forte présence du pavillonnaire, de la rénovation et des travaux publics / VRD liés à l'étalement et aux infrastructures.",
+    casUsage: [
+      "Accélérer la rédaction de devis de maison individuelle et de rénovation (notes terrain → devis structuré, vous validez).",
+      "Centraliser les comptes rendus de chantiers éloignés à partir de notes vocales, pour ne plus perdre l'info entre deux sites.",
+    ],
+    faq: [
+      {
+        q: "Vous déplacez-vous jusqu'à Melun ou Meaux ?",
+        a: 'Oui, en intra dans vos locaux partout en Seine-et-Marne. Pour optimiser, une session inter regroupant plusieurs entreprises proches est aussi possible.',
+      },
+      {
+        q: 'Le 77 étant étendu, y a-t-il des frais de déplacement ?',
+        a: 'Les modalités sont précisées au devis, après le RDV découverte — sans surprise.',
+      },
+      {
+        q: 'Combien de participants par session ?',
+        a: "Jusqu'à 12 pour le niveau 1, effectifs réduits pour les niveaux 2.",
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationIaBtpNiveau1BatimentTp,
+        label: "L'IA au service du bâtiment & TP",
+        description: 'Programme NIV-01 — bases 4 h',
+      },
+      {
+        href: LINKS.iaDevis,
+        label: 'IA devis bâtiment',
+        description: 'Chiffrage et notes terrain',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '78': {
     deptCode: '78',
     departementNom: 'Yvelines',
     intro:
-      'Formation IA BTP en Yvelines (78) — présentiel intra/inter, depuis Guyancourt (78). C\'est notre département d\'ancrage : OFC Création d\'Entreprise y est implantée à Guyancourt, au cœur de Saint-Quentin-en-Yvelines. Sessions intra dans vos locaux (Versailles, Mantes, Poissy…) ou inter en salle à proximité immédiate.',
+      "Laure Olivié est basée à Guyancourt, au cœur des Yvelines (78) : c'est le département où l'intervention est la plus rapide. Formation IA pour le BTP en présentiel, intra dans vos locaux ou inter en salle, sur vos documents réels.",
     villesEtTrajets:
-      'Versailles, Saint-Quentin-en-Yvelines (Guyancourt, Montigny-le-Bretonneux), Mantes-la-Jolie et Poissy structurent la demande. Trajet indicatif depuis notre siège : 10 à 20 min vers SQY et Versailles sud, 25 à 35 min vers Poissy ou Rambouillet, 40 à 50 min vers Mantes sur la vallée de la Seine. Les entreprises du 78 bénéficient de la logistique la plus courte de notre zone d\'intervention.',
-    tissuEtUsages:
-      'Les Yvelines réunissent PME de rénovation haut de gamme autour de Versailles, entreprises de réseaux en zones d\'activités de SQY et acteurs du TP sur le corridor Mantes–Poissy. Corps d\'état dominants : électricité, plomberie-CVC, second œuvre et gros œuvre sur marchés publics et privés. En session, on travaille souvent : la mise en forme de devis à partir de métrés Excel et notes terrain ; et la synthèse hebdomadaire de plusieurs CR chantier en un mail structuré pour le MOA — sans jamais envoyer un document IA sans relecture du chef de chantier.',
-    faq: faqDeptLocal(
-      'Yvelines',
-      '78',
-      'Oui, tout le département. Guyancourt est au centre du 78 : la plupart des intra se font en moins de 40 min de route. Aucun surcoût caché : déplacement et repas sont indiqués sur le devis avant signature.',
-      'Oui — c\'est même notre configuration la plus fluide. Salle de formation à Guyancourt, à deux pas du siège : idéal pour les équipes des Yvelines qui veulent une matinée 9h–13h sans perdre une demi-journée en route.',
-      'Les entreprises des Yvelines (78) suivent les mêmes barèmes Constructys que le reste de la France. Avec notre certification Qualiopi, vous recevez les éléments pour constituer le dossier OPCO : programme, objectifs, durée 4 h, évaluation.',
-    ),
-    metierLink: {
-      href: LINKS.formationConducteurTravaux,
-      label: 'Conducteur de travaux',
-      description: 'Méthode IA chantier — bassin Guyancourt / SQY',
-    },
+      "Versailles (préfecture), Saint-Quentin-en-Yvelines, Guyancourt, Poissy, Mantes-la-Jolie, Sartrouville, Trappes. La plupart des sites yvelinois sont à moins de 30 minutes de Guyancourt — selon le trafic.",
+    tissuBtpLocal:
+      "Les Yvelines combinent un tissu dense de PME du bâtiment, des sièges d'entreprises et des zones d'activité importantes (Saint-Quentin-en-Yvelines). Beaucoup de structures y cumulent chantier et bureau avec peu de bande passante administrative.",
+    casUsage: [
+      "Industrialiser l'administratif récurrent (devis, relances, courriers) pour les PME qui n'ont pas de fonction support dédiée.",
+      "Préparer et suivre un chantier avec l'IA, de l'analyse du CCTP au suivi des réserves.",
+    ],
+    faq: [
+      {
+        q: 'Vous êtes bien basée dans le 78 ?',
+        a: "Oui, à Guyancourt (78280). C'est le département où les délais d'intervention sont les plus courts.",
+      },
+      {
+        q: 'Peut-on faire une session intra à Versailles ou à Saint-Quentin-en-Yvelines ?',
+        a: 'Oui, directement dans vos locaux, sur une demi-journée de 4 h.',
+      },
+      {
+        q: 'Sous quel délai peut-on organiser une session ?',
+        a: 'On le cale ensemble au RDV découverte selon vos disponibilités.',
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationMaitriserClaudeAiBtp,
+        label: 'Maîtriser Claude AI pour le BTP',
+        description: 'Projets, Skills, Cowork et Claude Code',
+      },
+      {
+        href: LINKS.formationConducteurTravaux,
+        label: 'Conducteur de travaux',
+        description: 'CR, CCTP et suivi chantier',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '91': {
     deptCode: '91',
     departementNom: 'Essonne',
     intro:
-      'Formation IA BTP en Essonne (91) — présentiel intra/inter, depuis Guyancourt (78). Entre Massy, Évry-Courcouronnes et Corbeil, les PME du bâtiment cherchent à gagner du temps sur l\'administratif sans sacrifier la qualité des offres. Session Qualiopi 4 h, exercices sur vos documents réels.',
+      "Formation IA pour le BTP en présentiel en Essonne (91), intra ou inter. Le sud francilien mêle pôles d'innovation (plateau de Saclay) et zones pavillonnaires : la formation s'adapte aux deux réalités.",
     villesEtTrajets:
-      'Massy, Évry-Courcouronnes et Palaiseau concentrent ingénierie, sièges sociaux et sous-traitance BTP. Depuis Guyancourt : environ 30 à 40 min vers Massy ou Palaiseau (A12 / N118), 35 à 45 min vers Évry ou Corbeil-Essonnes. Yerres et Draveil restent à moins de 50 min. Nous confirmons le créneau et le point de rendez-vous lors de l\'échange préalable de 30 min.',
-    tissuEtUsages:
-      'L\'Essonne mêle PME industrielles, bureaux d\'études et entreprises de second œuvre sur rénovation tertiaire et logements. Les dirigeants de TPE y portent souvent à la fois le chiffrage et la relation client. Deux usages IA fréquents en formation : rédiger des relances fournisseurs et clients avec un ton homogène à partir de vos modèles ; et préparer un brouillon de mémoire technique en listant les exigences CCTP par lot — le chiffrage et la signature restent humains.',
-    faq: faqDeptLocal(
-      'Essonne',
-      '91',
-      'Oui. Intra dans vos locaux du 91 (Massy, Évry, Corbeil, Savigny-sur-Orge…) ou inter en salle francilienne. Comptez 30 à 45 min de route depuis Guyancourt selon le bassin ; nous regroupons les déplacements pour les entreprises de la même zone quand c\'est possible.',
-      'Oui. Votre équipe du 91 peut se réunir dans nos locaux de Guyancourt (78) : matinée 4 h, connexion et vidéoprojecteur fournis. Solution pratique si vos bureaux sont encombrés ou si vous mélangez direction, admin et conducteurs sur un même créneau.',
-      'Une entreprise de l\'Essonne (91) adhérente Constructys peut prétendre à une prise en charge selon les plafonds en vigueur. Le département ne change pas les règles : nous vous remettons convention Qualiopi et pièces pour le dépôt OPCO.',
-    ),
-    metierLink: {
-      href: LINKS.formationIaDirigeantPmeBtp,
-      label: 'Dirigeant PME BTP',
-      description: 'Administratif, devis et pilotage — profil fréquent dans le 91',
-    },
+      "Évry-Courcouronnes (préfecture), Massy, Palaiseau, le plateau de Saclay, Longjumeau, Morangis, Corbeil-Essonnes. Depuis Guyancourt, le nord de l'Essonne (Massy, Saclay) est à une trentaine de minutes selon le trafic.",
+    tissuBtpLocal:
+      "L'Essonne porte des opérations d'envergure autour de Saclay et des grands axes, avec une part importante de marchés publics et de chantiers tertiaires, à côté d'un tissu pavillonnaire actif.",
+    casUsage: [
+      "Répondre plus vite et mieux aux appels d'offres publics (analyse DCE, mémoire technique structuré).",
+      'Standardiser les dossiers de chantier (DOE, PV, situations) sur les opérations à enjeux.',
+    ],
+    faq: [
+      {
+        q: 'Intervenez-vous sur le plateau de Saclay et à Massy ?',
+        a: 'Oui, en intra dans vos locaux, comme partout en Essonne.',
+      },
+      {
+        q: 'La formation aide-t-elle vraiment sur les marchés publics ?',
+        a: "Oui : analyse de DCE, structuration de mémoire technique et décision go/no-go — l'IA prépare, vos équipes valident.",
+      },
+      {
+        q: 'Quel niveau choisir pour démarrer ?',
+        a: 'Le niveau 1 pour les bases, le niveau 2 (appels d\'offres) si la priorité est la réponse aux marchés.',
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationAO,
+        label: "IA appliquée aux appels d'offres BTP",
+        description: 'DCE, mémoire technique, marchés publics',
+      },
+      {
+        href: LINKS.formationChargeAffairesBtp,
+        label: "Chargé d'affaires BTP",
+        description: 'Offres et chiffrage',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '92': {
     deptCode: '92',
     departementNom: 'Hauts-de-Seine',
     intro:
-      'Formation IA BTP dans les Hauts-de-Seine (92) — présentiel intra/inter, depuis Guyancourt (78). De Nanterre à Boulogne-Billancourt, les entreprises du bâtiment côtoient grands marchés tertiaires et rénovation en site occupé. Formation 4 h Qualiopi, angle pratique sur vos dossiers AO et chantier.',
+      "Formation IA pour le BTP en présentiel dans les Hauts-de-Seine (92), intra ou inter. Département de donneurs d'ordre et de tertiaire : la formation cible la productivité sur l'écrit contractuel et la conduite de travaux.",
     villesEtTrajets:
-      'Nanterre, Boulogne-Billancourt et Issy-les-Moulineaux sont les villes les plus demandées, avec Courbevoie et Levallois pour la proximité La Défense. Depuis Guyancourt : 25 à 40 min vers Nanterre ou Boulogne, parfois 45 min aux heures de pointe vers le boulevard périphérique ouest. Les intra se planifient en général en matinée pour limiter les embouteillages.',
-    tissuEtUsages:
-      'Les Hauts-de-Seine concentrent PME de rénovation tertiaire, entreprises de lots techniques et sous-traitants des grands groupes autour de La Défense. Les délais sont courts, les mémoires techniques exigeants. Usages IA travaillés en session : décortiquer un CCAP pour repérer les clauses à risque avant engagement ; et produire une trame de CR de chantier hebdomadaire à partir de vos notes — toujours relue par le conducteur avant envoi au MOE.',
-    faq: faqDeptLocal(
-      'Hauts-de-Seine',
-      '92',
-      'Oui, sur tout le 92. Départ Guyancourt : 25 à 45 min selon la commune (Nanterre, Boulogne, Issy, Colombes). Nous précisons l\'itinéraire et l\'horaire lors du cadrage pour éviter les créneaux aux heures de pointe quand c\'est possible.',
-      'Oui. Session intra possible dans nos locaux à Guyancourt pour une équipe des Hauts-de-Seine : 4 h, jusqu\'à 8 participants. Alternative pratique aux bureaux parisiens bruyants ou aux open spaces sans salle de réunion.',
-      'Constructys s\'applique aux entreprises des Hauts-de-Seine (92) selon les mêmes critères nationaux (adhésion OPCO, effectif, plafonds). Notre organisme Qualiopi fournit le cadre pédagogique attendu pour le dossier de financement.',
-    ),
-    metierLink: {
-      href: LINKS.formationIaDirigeantPmeBtp,
-      label: 'Dirigeant PME BTP',
-      description: 'Mémoires techniques et pilotage — profil 92 / La Défense',
-    },
+      "Nanterre (préfecture), La Défense, Boulogne-Billancourt, Courbevoie, Issy-les-Moulineaux, Clichy, Levallois-Perret. Depuis Guyancourt, Nanterre / La Défense sont à environ 40 minutes à une heure selon le trafic.",
+    tissuBtpLocal:
+      "Le 92 concentre sièges sociaux, opérations tertiaires et rénovation lourde, avec de nombreuses entreprises générales et maîtres d'œuvre intervenant sur des marchés exigeants et très formalisés.",
+    casUsage: [
+      "Traiter des appels d'offres tertiaires denses : extraire les exigences du CCTP, sécuriser la conformité de l'offre.",
+      'Fiabiliser les comptes rendus et courriers de maîtrise d\'œuvre sur des chantiers à forte coordination.',
+    ],
+    faq: [
+      {
+        q: 'Faites-vous des sessions à La Défense ou Boulogne-Billancourt ?',
+        a: 'Oui, en intra dans vos locaux, partout dans les Hauts-de-Seine.',
+      },
+      {
+        q: 'La formation convient-elle à un maître d\'œuvre ?',
+        a: 'Oui — un parcours dédié existe pour les MOE/MOEX (DCE, CR, OS, suivi des réserves).',
+      },
+      {
+        q: 'Peut-on former une équipe tertiaire support (admin, com) ?',
+        a: 'Oui, les fonctions support font partie des publics visés.',
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationIaMaitriseOeuvre,
+        label: "L'IA au service des maîtres d'œuvre",
+        description: 'DCE, CR chantier, réserves',
+      },
+      {
+        href: LINKS.formationAO,
+        label: "IA appliquée aux appels d'offres BTP",
+        description: 'Marchés tertiaires et mémoires',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '93': {
     deptCode: '93',
     departementNom: 'Seine-Saint-Denis',
     intro:
-      'Formation IA BTP en Seine-Saint-Denis (93) — présentiel intra/inter, depuis Guyancourt (78). Saint-Denis, Montreuil et Aubervilliers concentrent rénovation urbaine, équipements publics et marchés de collectivités. Session 4 h sur vos devis, CCTP et courriers, certification Qualiopi.',
+      "Formation IA pour le BTP en présentiel en Seine-Saint-Denis (93), intra ou inter. Territoire de grands chantiers et de marchés publics : la formation met l'accent sur la réponse aux marchés et la production documentaire de chantier.",
     villesEtTrajets:
-      'Saint-Denis, Montreuil et Bobigny (chef-lieu) sont les principaux points d\'ancrage ; Pantin et Aubervilliers complètent la demande. Depuis Guyancourt : environ 40 à 55 min vers Saint-Denis ou Montreuil (A1, A3, Francilienne), 35 à 45 min vers Noisy-le-Grand. Nous adaptons l\'horaire de départ pour arriver avant 9h en intra.',
-    tissuEtUsages:
-      'En Seine-Saint-Denis, le BTP est porté par des PME de gros œuvre, de second œuvre et de réseaux sur opérations de rénovation et de construction en milieu urbain dense. Les marchés publics des intercommunalités imposent une documentation rigoureuse. En formation : accélérer la lecture d\'un DCE pour extraire les postes sensibles par lot ; et structurer le suivi des réserves après réception dans un tableau partagé — l\'IA propose, l\'équipe valide.',
-    faq: faqDeptLocal(
-      'Seine-Saint-Denis',
-      '93',
-      'Oui. Interventions intra dans tout le 93 : Saint-Denis, Montreuil, Aubervilliers, Drancy, etc. Trajet depuis Guyancourt : en général 40 à 55 min. Pour les chantiers en couronne nord-est, nous calons souvent une matinée complète plutôt qu\'une demi-journée isolée.',
-      'Oui. Vous pouvez réserver une matinée dans nos locaux à Guyancourt (78) pour votre équipe du 93 : salle équipée, 4 h, exercices sur vos PDF. Utile quand le siège social est en Seine-Saint-Denis mais qu\'aucune salle de formation n\'est disponible sur site.',
-      'Les entreprises du 93 peuvent mobiliser Constructys comme partout en France. Éligibilité selon votre OPCO : nous remettons programme, convention et attestations Qualiopi pour une entreprise immatriculée ou intervenant en Seine-Saint-Denis.',
-    ),
-    metierLink: {
-      href: LINKS.formationConducteurTravaux,
-      label: 'Conducteur de travaux',
-      description: 'Rénovation urbaine, CR et marchés publics — 93',
-    },
+      "Bobigny (préfecture), Saint-Denis, Montreuil, Aubervilliers, Pantin, Saint-Ouen, Aulnay-sous-Bois. Depuis Guyancourt, comptez environ une heure selon la destination et le trafic.",
+    tissuBtpLocal:
+      "Le 93 porte des opérations d'envergure (héritage des grands équipements, dynamique Grand Paris Express), avec une forte présence du gros œuvre, des travaux publics et des marchés publics structurants.",
+    casUsage: [
+      'Décortiquer un DCE de marché public volumineux et structurer une réponse complète en moins de temps.',
+      "Générer les comptes rendus et rapports d'avancement de chantiers à forte cadence à partir de notes terrain.",
+    ],
+    faq: [
+      {
+        q: 'Vous déplacez-vous à Saint-Denis ou Montreuil ?',
+        a: 'Oui, en intra dans vos locaux, partout en Seine-Saint-Denis.',
+      },
+      {
+        q: 'La formation est-elle utile pour les marchés publics du Grand Paris ?',
+        a: 'Oui : analyse de DCE/CCTP et structuration de mémoire technique sont au cœur du niveau 2.',
+      },
+      {
+        q: 'Les sessions sont-elles adaptées aux équipes gros œuvre / TP ?',
+        a: "Oui, les contenus s'appuient sur vos documents réels, quel que soit le corps d'état.",
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationAO,
+        label: "IA appliquée aux appels d'offres BTP",
+        description: 'Marchés publics, DCE et mémoires',
+      },
+      {
+        href: '/formation-ia-macon-btp',
+        label: 'Formation IA maçon BTP',
+        description: 'Gros œuvre et marchés structurants',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '94': {
     deptCode: '94',
     departementNom: 'Val-de-Marne',
     intro:
-      'Formation IA BTP dans le Val-de-Marne (94) — présentiel intra/inter, depuis Guyancourt (78). Créteil, Vitry-sur-Seine et Vincennes forment un arc dense de PME du bâtiment entre rénovation et neuf. Formation Qualiopi 4 h, travail sur vos documents chantier et marchés.',
+      "Formation IA pour le BTP en présentiel dans le Val-de-Marne (94), intra ou inter. Le sud-est francilien est traversé par les nouvelles lignes du Grand Paris Express : beaucoup d'opérations à coordonner.",
     villesEtTrajets:
-      'Créteil (chef-lieu), Vitry-sur-Seine et Nogent-sur-Marne sont les agglomérations les plus citées ; Champigny-sur-Marne et Saint-Maur-des-Fossés complètent le maillage. Depuis Guyancourt : 35 à 50 min vers Créteil ou Vitry (A86, francilienne sud), 45 à 55 min vers Vincennes ou Nogent. Les créneaux matinaux limitent l\'impact du trafic sur le périphérique sud-est.',
-    tissuEtUsages:
-      'Le Val-de-Marne mêle rénovation de copropriétés, équipements publics et opérations mixtes public-privé. Dominantes : second œuvre, plomberie-CVC, électricité et entreprises générales de taille moyenne. Usages IA typiques en session : transformer des réserves de réception en plan d\'action daté pour la levée ; et rédiger des courriers de relance MOA ou copropriété à partir de vos modèles — relecture systématique avant envoi.',
-    faq: faqDeptLocal(
-      'Val-de-Marne',
-      '94',
-      'Oui, sur l\'ensemble du 94. Guyancourt → Créteil ou Vitry : comptez 35 à 50 min ; vers l\'est (Saint-Maur, Nogent) plutôt 45 à 55 min. Déplacement inclus au devis intra, repas et frais annoncés avant convention.',
-      'Oui. Session possible dans nos locaux à Guyancourt pour une équipe du Val-de-Marne : 4 h le matin, jusqu\'à 8 personnes. Pratique pour les PME de Créteil ou Vitry qui n\'ont pas de salle dédiée dans leurs bureaux.',
-      'Le financement Constructys concerne les entreprises du Val-de-Marne (94) selon les règles nationales OPCO. Nous vous aidons avec le cadre Qualiopi : programme détaillé, objectifs, convention — votre référent Constructys valide le montant pris en charge.',
-    ),
-    metierLink: {
-      href: LINKS.formationConducteurTravaux,
-      label: 'Conducteur de travaux',
-      description: 'Réception, réserves et suivi — bassin Créteil / Vitry',
-    },
+      "Créteil (préfecture), Vitry-sur-Seine, Ivry-sur-Seine, Nogent-sur-Marne, Vincennes, Maisons-Alfort, Champigny-sur-Marne. Depuis Guyancourt, Créteil est à environ une heure selon le trafic.",
+    tissuBtpLocal:
+      "Le 94 mêle résidentiel dense, tertiaire et opérations liées aux infrastructures (extensions Grand Paris Express), avec un tissu actif de PME du bâtiment et de la conduite de travaux.",
+    casUsage: [
+      "Piloter le suivi de chantier avec l'IA : CR, suivi des observations, relances entreprises.",
+      'Préparer la réception et le suivi des réserves de façon structurée et traçable.',
+    ],
+    faq: [
+      {
+        q: 'Intervenez-vous à Créteil et alentours ?',
+        a: 'Oui, en intra dans vos locaux, partout dans le Val-de-Marne.',
+      },
+      {
+        q: "La formation aide-t-elle un conducteur de travaux au quotidien ?",
+        a: 'Oui — un parcours dédié couvre la conduite de travaux, du CCTP à la réception.',
+      },
+      {
+        q: 'Faut-il des prérequis techniques ?',
+        a: 'Non, les outils s\'utilisent en français courant ; on part de vos documents.',
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationConduiteTravauxSuiviChantier,
+        label: 'IA conduite de travaux & suivi chantier',
+        description: 'CCTP, CR, réception',
+      },
+      {
+        href: LINKS.formationConducteurTravaux,
+        label: 'Conducteur de travaux',
+        description: 'Suivi quotidien et réserves',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
   '95': {
     deptCode: '95',
     departementNom: "Val-d'Oise",
     intro:
-      'Formation IA BTP dans le Val-d\'Oise (95) — présentiel intra/inter, depuis Guyancourt (78). Cergy, Argenteuil et le bassin Roissy concentrent PME du bâtiment, tertiaire et logements. Session 4 h Qualiopi, présentiel uniquement, sur vos dossiers réels.',
+      "Formation IA pour le BTP en présentiel dans le Val-d'Oise (95), intra ou inter. Entre Cergy-Pontoise et le pôle aéroportuaire de Roissy, le nord-ouest francilien a ses propres logiques de chantier et de logistique.",
     villesEtTrajets:
-      'Cergy-Pontoise, Argenteuil et Sarcelles structurent les demandes ; Franconville et Ermont complètent la couronne nord. Depuis Guyancourt : 25 à 40 min vers Cergy ou Pontoise (A15), 35 à 50 min vers Argenteuil ou Garges-lès-Gonesse. Le nord du 95 reste accessible en moins d\'une heure, ce qui facilite les intra en matinée.',
-    tissuEtUsages:
-      'Le Val-d\'Oise combine logements neufs autour de Cergy, rénovation en grande couronne et activité liée à Roissy (entrepôts, bureaux, infrastructures). Corps d\'état fréquents : gros œuvre, couverture, réseaux et second œuvre. En formation, on voit souvent : la préparation de fiches méthodes et PPSPS à partir de modèles existants ; et l\'accélération de comptes rendus de chantier multi-lots pour les réunions hebdomadaires — toujours avec validation du conducteur.',
-    faq: faqDeptLocal(
-      "Val-d'Oise",
-      '95',
-      'Oui. Intra dans vos locaux du 95 (Cergy, Argenteuil, Sarcelles, Ermont…) ou inter en salle. Depuis Guyancourt : 25 à 50 min selon la commune. Le nord francilien est une zone que nous couvrons régulièrement sans supplément caché.',
-      'Oui. Nos locaux à Guyancourt accueillent les équipes du Val-d\'Oise pour une matinée complète : 4 h, exercices sur vos documents. Solution appréciée des PME de Cergy qui veulent réunir bureau d\'études et terrain au même endroit.',
-      'Constructys s\'applique aux entreprises du Val-d\'Oise (95) comme dans les autres départements. Qualiopi OFC : convention, programme et pièces pour votre dossier OPCO — le barème dépend de votre effectif et de vos cotisations, pas du code postal.',
-    ),
-    metierLink: {
-      href: LINKS.formationIaConducteurEnginsTp,
-      label: 'Conducteur d\'engins TP',
-      description: 'Terrassement, voirie et logistique — nord francilien / Roissy',
-    },
+      "Cergy (préfecture), Pontoise, Argenteuil, Sarcelles, le secteur de Roissy, Goussainville. Depuis Guyancourt, Cergy-Pontoise est à environ 45 minutes à une heure selon le trafic.",
+    tissuBtpLocal:
+      "Le 95 associe un tissu de PME du bâtiment, des opérations résidentielles autour de Cergy-Pontoise et une forte composante logistique / aéroportuaire au nord, souvent synonyme de chantiers dispersés.",
+    casUsage: [
+      "Réduire le temps passé sur les devis et l'administratif pour les PME sans support dédié.",
+      "Coordonner l'information de chantiers éloignés (Cergy ↔ Roissy) via des CR générés depuis des notes vocales.",
+    ],
+    faq: [
+      {
+        q: 'Vous déplacez-vous à Cergy-Pontoise ou vers Roissy ?',
+        a: "Oui, en intra dans vos locaux, partout dans le Val-d'Oise.",
+      },
+      {
+        q: 'Une PME sans service administratif peut-elle en tirer parti ?',
+        a: "C'est précisément la cible : automatiser le récurrent pour libérer du temps bureau.",
+      },
+      {
+        q: 'La formation est-elle finançable ?',
+        a: 'Possible via Constructys ou votre OPCO, selon votre statut et les conditions en vigueur.',
+      },
+    ],
+    internalLinks: [
+      {
+        href: LINKS.formationIaBtpNiveau1BatimentTp,
+        label: "L'IA au service du bâtiment & TP",
+        description: 'Programme NIV-01 — bases 4 h',
+      },
+      {
+        href: LINKS.iaDevis,
+        label: 'IA devis bâtiment',
+        description: 'Devis et administratif PME',
+      },
+      {
+        href: LINKS.formationIleDeFrance,
+        label: 'Formation IA Île-de-France',
+        description: '8 départements, intra et inter',
+      },
+    ],
   },
+};
+
+export const IDF_CHAPEAU_LOCAL = {
+  intro:
+    "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). Intra dans vos locaux ou inter en salle, jamais en distanciel, jamais hors Île-de-France.",
+  positionnement:
+    "Basée à Guyancourt (78), au centre de la région, elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.",
+  faq: [
+    {
+      q: "Couvrez-vous toute l'Île-de-France ?",
+      a: 'Oui, les 8 départements franciliens, en présentiel uniquement.',
+    },
+    {
+      q: 'Faites-vous du distanciel ou des interventions en région ?',
+      a: "Non : présentiel exclusivement, et exclusivement en Île-de-France.",
+    },
+    {
+      q: 'Où êtes-vous basée ?',
+      a: "À Guyancourt (78), ce qui permet d'intervenir rapidement sur l'ensemble de la région.",
+    },
+  ] satisfies FAQItem[],
+  internalLinks: [
+    { href: LINKS.formations, label: 'Catalogue formations', description: 'NIV-01 à NIV-06, Qualiopi' },
+    { href: '/formation-ia', label: 'Hub formations par métier', description: 'Conducteur, dirigeant, corps d\'état…' },
+    { href: LINKS.financement, label: 'Financement Constructys', description: 'OPCO, dossier et convention' },
+  ] as [DeptInternalLink, DeptInternalLink, DeptInternalLink],
+  departements: [
+    { href: LINKS.formationIaBtpParis75, label: '75 Paris' },
+    { href: LINKS.formationIaBtpSeineEtMarne77, label: '77 Seine-et-Marne' },
+    { href: LINKS.formationIaBtpYvelines78, label: '78 Yvelines' },
+    { href: LINKS.formationIaBtpEssonne91, label: '91 Essonne' },
+    { href: LINKS.formationIaBtpHautsDeSeine92, label: '92 Hauts-de-Seine' },
+    { href: LINKS.formationIaBtpSeineSaintDenis93, label: '93 Seine-Saint-Denis' },
+    { href: LINKS.formationIaBtpValDeMarne94, label: '94 Val-de-Marne' },
+    { href: LINKS.formationIaBtpValDoise95, label: "95 Val-d'Oise" },
+  ],
 };
 
 export function getDeptLocalSeoContent(deptCode: string): DeptLocalSeoContent | undefined {

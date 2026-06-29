@@ -122,17 +122,29 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
             <div className="min-w-0">
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            {deptLabel} · Présentiel · Qualiopi · Constructys
-          </p>
-          <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
-            {h1 ?? defaultH1}
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
-            {heroIntro ?? defaultIntro}
-          </p>
+              <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
+                {deptLabel} · Présentiel · Qualiopi · Constructys
+              </p>
+              <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
+                {h1 ?? defaultH1}
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-slate-600 md:text-xl">
+                {heroIntro ?? defaultIntro}
+              </p>
+            </div>
+            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
+              <OfcPromoVideoEmbed variant="heroColumn" />
+            </aside>
+          </div>
+        </div>
+
+        {localContent ? (
+          <FormationDeptLocalSeoBlock content={localContent} variant="underH1" />
+        ) : null}
+
+        <div className="mx-auto max-w-6xl px-4 pb-12 pt-4">
           {conversionLink ? (
-            <p className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
+            <p className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
               <span className="font-medium text-slate-900">Fiche conversion :</span>{' '}
               <Link href={conversionLink.href} className="font-medium text-[#377CF3] hover:underline">
                 {conversionLink.label}
@@ -169,15 +181,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               Programme NIV-01
             </Link>
           </div>
-            </div>
-            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
-              <OfcPromoVideoEmbed variant="heroColumn" />
-            </aside>
-          </div>
         </div>
       </section>
-
-      {localContent ? <FormationDeptLocalSeoBlock content={localContent} /> : null}
 
       <section className={OFC_SEC.muted}>
         <div className="mx-auto max-w-4xl px-4">

@@ -2,23 +2,32 @@ import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
-import { LINKS } from '@/lib/internal-links';
 import type { DeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 import { getFAQSchema } from '@/lib/seo';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 type Props = {
   content: DeptLocalSeoContent;
   /** Si false, le parent fusionne le schéma FAQ (pages avec FAQ longue existante). */
   emitFaqSchema?: boolean;
+  /** Placé directement sous le H1 de la page (moins de marge, pas de titre H2 redondant). */
+  variant?: 'underH1' | 'standalone';
 };
 
 /**
- * Bloc SEO local unique par département — rendu serveur (SSR), 250–400 mots + FAQ géo.
+ * Bloc SEO local unique par département — rendu serveur (SSR).
  */
-export function FormationDeptLocalSeoBlock({ content, emitFaqSchema = true }: Props) {
+export function FormationDeptLocalSeoBlock({
+  content,
+  emitFaqSchema = true,
+  variant = 'standalone',
+}: Props) {
   const calendlyCampaign = `dept-${content.deptCode}`;
   const faqSchema = getFAQSchema(content.faq);
+
+  const sectionClass =
+    variant === 'underH1'
+      ? 'scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-8 md:py-10'
+      : 'scroll-mt-24 border-y border-slate-200 bg-[#F2F2F2] px-4 py-12 md:py-14';
 
   return (
     <>
@@ -28,55 +37,52 @@ export function FormationDeptLocalSeoBlock({ content, emitFaqSchema = true }: Pr
 
       <section
         id={`contenu-local-${content.deptCode}`}
-        className={`${OFC_SEC.muted} scroll-mt-24 border-y border-slate-200`}
-        aria-labelledby={`titre-local-${content.deptCode}`}
+        className={sectionClass}
+        aria-label={`Contenu local ${content.departementNom} (${content.deptCode})`}
       >
-        <div className="mx-auto max-w-4xl px-4 py-12 md:py-14">
-          <h2
-            id={`titre-local-${content.deptCode}`}
-            className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
-          >
-            Formation IA BTP {content.departementNom} ({content.deptCode}) — ancrage local
-          </h2>
+        <div className={variant === 'underH1' ? 'mx-auto max-w-4xl' : 'mx-auto max-w-4xl'}>
+          <p className="text-base leading-relaxed text-slate-700 md:text-lg">{content.intro}</p>
 
-          <div className="mt-6 space-y-5 text-base leading-relaxed text-slate-700 md:text-lg">
-            <p>{content.intro}</p>
-            <p>{content.villesEtTrajets}</p>
-            <p>{content.tissuEtUsages}</p>
-          </div>
+          <h2 className="font-display mt-8 text-xl font-bold text-slate-900 md:text-2xl">
+            Villes &amp; secteurs desservis
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700 md:text-lg">
+            {content.villesEtTrajets}
+          </p>
+
+          <h2 className="font-display mt-8 text-xl font-bold text-slate-900 md:text-2xl">
+            Tissu BTP local
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700 md:text-lg">
+            {content.tissuBtpLocal}
+          </p>
+
+          <h2 className="font-display mt-8 text-xl font-bold text-slate-900 md:text-2xl">
+            2 cas d&apos;usage prioritaires {content.deptCode === '75' ? 'à Paris' : `en ${content.departementNom}`}
+          </h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed text-slate-700 md:text-lg">
+            {content.casUsage.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
 
           <nav
             className="mt-8 grid gap-3 sm:grid-cols-3"
             aria-label={`Liens formations ${content.departementNom}`}
           >
-            <Link
-              href={LINKS.formationIaBtpNiveau1BatimentTp}
-              className="rounded-xl border border-slate-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#377CF3] hover:shadow-md"
-            >
-              <span className="font-semibold text-[#377CF3]">NIV-01</span>
-              <span className="mt-1 block text-slate-700">
-                L&apos;IA au service du bâtiment &amp; TP — programme 4 h
-              </span>
-            </Link>
-            <Link
-              href={content.metierLink.href}
-              className="rounded-xl border border-slate-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#377CF3] hover:shadow-md"
-            >
-              <span className="font-semibold text-[#377CF3]">{content.metierLink.label}</span>
-              <span className="mt-1 block text-slate-700">{content.metierLink.description}</span>
-            </Link>
-            <Link
-              href={LINKS.formationIleDeFrance}
-              className="rounded-xl border border-slate-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#377CF3] hover:shadow-md"
-            >
-              <span className="font-semibold text-[#377CF3]">Île-de-France</span>
-              <span className="mt-1 block text-slate-700">
-                Vue régionale : 8 départements, formats intra et inter
-              </span>
-            </Link>
+            {content.internalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-xl border border-slate-200 bg-white p-4 text-sm shadow-sm transition hover:border-[#377CF3] hover:shadow-md"
+              >
+                <span className="font-semibold text-[#377CF3]">{link.label}</span>
+                <span className="mt-1 block text-slate-700">{link.description}</span>
+              </Link>
+            ))}
           </nav>
 
-          <div className="mt-10">
+          <div className="mt-8">
             <RdvLink
               campaign={calendlyCampaign}
               ctaPosition="inline"
@@ -91,11 +97,8 @@ export function FormationDeptLocalSeoBlock({ content, emitFaqSchema = true }: Pr
           <div className="mt-10">
             <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">FAQ</p>
             <h3 className="font-display mt-2 text-xl font-bold text-slate-900 md:text-2xl">
-              FAQ locale — {content.departementNom} ({content.deptCode})
+              FAQ {content.departementNom} ({content.deptCode})
             </h3>
-            <p className="mt-2 text-sm text-slate-600 md:text-base">
-              Déplacement, session intra et financement Constructys pour les entreprises du département.
-            </p>
             <div className="mt-6 space-y-3">
               {content.faq.map((item) => (
                 <details

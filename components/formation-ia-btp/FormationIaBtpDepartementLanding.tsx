@@ -176,6 +176,17 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           <p className="mt-6 text-xl leading-relaxed text-slate-600 md:text-2xl">
             Qualiopi · sessions 4 h · vos documents réels.
           </p>
+        </div>
+
+        {localContent ? (
+          <FormationDeptLocalSeoBlock
+            content={localContent}
+            emitFaqSchema={false}
+            variant="underH1"
+          />
+        ) : null}
+
+        <div className="mx-auto max-w-4xl">
           <div className="mt-4 flex flex-wrap gap-3">
             <StatCallout
               variant="inline"
@@ -215,10 +226,6 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           </p>
         </div>
       </section>
-
-      {localContent ? (
-        <FormationDeptLocalSeoBlock content={localContent} emitFaqSchema={false} />
-      ) : null}
 
       <section className={`${OFC_SEC.muted} scroll-mt-24`}>
         <div className="mx-auto max-w-4xl">
