@@ -16,6 +16,8 @@ Note de satisfaction : 4,85/5. Formations finançables par Constructys et les OP
 
 ## Key pages
 - Catalogue formations IA BTP (Qualiopi) : /formations
+- BeWork — présentation du service relais administratif BTP : /bework
+- BeWork — accès plateforme assistants MOEX (connexion) : /bework/plateforme → https://app.laureolivie.fr
 - Formation IA BTP avec Claude — Chat, Cowork & Code, skills sur-mesure : /formations/formation-claude-ia-btp
 - Financement Constructys : /financement-constructys-formation-ia-btp
 - Prendre rendez-vous (visio découverte gratuite 30 min) : /prendre-rdv

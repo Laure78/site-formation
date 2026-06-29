@@ -8,6 +8,7 @@ import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
 import { Reveal } from '@/components/motion/Reveal';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 type Props = {
   /** Ancre pour TOC / liens profonds (ex. a-propos#bework). */
@@ -32,10 +33,10 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
       className={
         isCard
           ? 'scroll-mt-24 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-8 shadow-[0_8px_30px_rgba(15,23,42,0.05)] md:px-8'
-          : 'border-b border-slate-200 bg-[#F2F2F2] px-4 py-14 md:py-16'
+          : OFC_SEC.mutedMesh
       }
     >
-      <div className={isCard ? '' : 'mx-auto max-w-6xl'}>
+      <div className={isCard ? '' : 'ofc-section-inner'}>
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
@@ -79,6 +80,12 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
                 Voir les missions prises en charge
               </Link>
             </div>
+            <p className="mt-4 text-sm text-[#64748B]">
+              Déjà client ?{' '}
+              <Link href={LINKS.beworkPlateforme} className="font-medium text-[#377CF3] hover:underline">
+                Accéder à la plateforme
+              </Link>
+            </p>
           </div>
 
           <figure className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)] transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(55,124,243,0.14)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">

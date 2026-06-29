@@ -139,7 +139,13 @@ export default function BeworkPage() {
                 Formations IA Qualiopi
               </Link>
             </div>
-            <p className="mt-4 text-xs text-[#64748B]">
+            <p className="mt-4 text-sm text-[#64748B]">
+              Déjà client MOEX ?{' '}
+              <Link href={LINKS.beworkPlateforme} className="font-medium text-[#377CF3] hover:underline">
+                Accéder à la plateforme
+              </Link>
+            </p>
+            <p className="mt-2 text-xs text-[#64748B]">
               Service distinct des{' '}
               <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
                 formations certifiées Qualiopi

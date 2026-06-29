@@ -124,6 +124,8 @@ export const LINKS = {
 
   /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */
   bework: '/bework',
+  /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
+  beworkPlateforme: '/bework/plateforme',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */
