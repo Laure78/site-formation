@@ -1,13 +1,14 @@
 {
-  "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-  "title": "Appels d'offres BTP : l'IA comme assistant",
-  "description": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "slug": "financement-constructys-mode-d-emploi-741701-9",
+  "title": "Financement Constructys : mode d'emploi",
+  "description": "Financement Constructys formation IA pour le BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.",
   "date": "2026-06-30",
   "keywords": [
-    "ChatGPT entreprise",
-    "outils IA BTP",
-    "logiciels IA",
-    "productivité IA"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -65,8 +66,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "Appels d'offres BTP : l'IA comme assistant",
-  "metaDescription": "Appels d'offres BTP : ChatGPT pour analyser DCE et rédiger mémoires. Formation Constructys.",
+  "seoTitle": "Financement Constructys : mode d'emploi",
+  "metaDescription": "Financement Constructys formation IA pour le BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,15 +75,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "réserver formation"
+      "anchor": "devis formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
     },
     {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
