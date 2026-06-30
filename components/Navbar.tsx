@@ -27,6 +27,7 @@ import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS, SITE_LOGO_ALT } from '@/lib/photos';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
+import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 
 import type { LucideIcon } from 'lucide-react';
 import type { TutoCategoryId } from '@/lib/tutos';
@@ -614,6 +615,14 @@ export function Navbar() {
             </Link>
           </nav>
 
+          <div className="site-header__search hidden lg:flex">
+            <SiteSearchTrigger className="px-3 py-2" />
+          </div>
+
+          <div className="site-header__search hidden lg:flex">
+            <SiteSearchTrigger className="px-3 py-2" />
+          </div>
+
           <div className="site-header__rdv">
             <CalendlyEmbed
               type="link"
@@ -641,15 +650,18 @@ export function Navbar() {
             />
           </div>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="rounded-lg p-2.5 text-slate-700 hover:bg-slate-100 lg:hidden"
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-          >
-            {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
-          </button>
+          <div className="flex items-center gap-1 lg:hidden">
+            <SiteSearchTrigger className="p-2.5" />
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="rounded-lg p-2.5 text-slate-700 hover:bg-slate-100"
+              aria-expanded={mobileOpen}
+              aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            >
+              {mobileOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -661,6 +673,7 @@ export function Navbar() {
           aria-label="Menu de navigation"
         >
           <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
+            <SiteSearchTrigger className="px-2 py-2" showLabel />
             <span className="font-display text-lg font-bold text-slate-900">Menu</span>
             <button
               type="button"

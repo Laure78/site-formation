@@ -19,6 +19,7 @@ import { OrganizationSchema } from '@/components/schema/OrganizationSchema';
 import { PersonSchema } from '@/components/schema/PersonSchema';
 import { SitelinksHub } from '@/components/layout/SitelinksHub';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
+import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
 
 const inter = Inter({
   variable: '--font-body',
@@ -164,6 +165,8 @@ export default function RootLayout({
         >
           Aller au contenu principal
         </a>
+        <SiteSearchProvider>
+        <SiteSearchProvider>
         <Navbar />
         <main className="flex-1" id="main-content">
           <GlobalBreadcrumbs />
@@ -175,6 +178,8 @@ export default function RootLayout({
         <ScrollToTopButton />
         <StickyMobileCalendlyCta />
         <StickyBlogMetierRdvBar />
+        </SiteSearchProvider>
+        </SiteSearchProvider>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 import { Download, Layers, Sparkles } from 'lucide-react';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
+import { SiteSearchBar } from '@/components/search/SiteSearchBar';
 import { PHOTOS } from '@/lib/photos';
 import { TUTOS } from '@/lib/tutos';
 import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
@@ -28,6 +29,11 @@ export function RessourcesHero() {
         { icon: Layers, value: RESSOURCES_THEMATIC_BLOCKS.length, label: 'thématiques' },
         { icon: Sparkles, value: '100 %', label: 'gratuit · sans inscription' },
       ]}
+      middle={
+        <div className="mt-6 max-w-xl">
+          <SiteSearchBar scope="ressources" />
+        </div>
+      }
       quickLinks={QUICK_LINKS}
       heroVisual={PHOTOS.ressourcesIaBtpHero2026}
     />
