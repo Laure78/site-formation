@@ -21,12 +21,14 @@ import {
   HardHat,
   ShieldCheck,
   Cpu,
+  Landmark,
 } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS, SITE_LOGO_ALT } from '@/lib/photos';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
+import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 
 import type { LucideIcon } from 'lucide-react';
@@ -238,14 +240,12 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
       icon: Sparkles,
     },
   ];
-  const otherLinks: MegaLink[] = [
-    {
-      href: LINKS.skillIaConducteurTravaux,
-      label: 'Guide Conducteur de travaux',
-      description: 'PDF gratuit · conducteurs de travaux',
-      icon: Sparkles,
-    },
-  ];
+  const guideLinks: MegaLink[] = RESSOURCES_GUIDES.map((guide, index) => ({
+    href: guide.href,
+    label: guide.title,
+    description: guide.description,
+    icon: index === 0 ? Landmark : HardHat,
+  }));
   return (
     <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,24rem)] max-w-[min(100vw-2rem,28rem)] pt-2">
       <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
@@ -342,10 +342,10 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
             })}
           </ul>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Guide conducteur de travaux
+            Guides PDF
           </p>
           <ul className="space-y-0.5 pb-2">
-            {otherLinks.map((link) => {
+            {guideLinks.map((link) => {
               const ItemIcon = link.icon;
               const linkActive = isActive(link.href, pathname);
               return (
@@ -874,21 +874,30 @@ export function Navbar() {
                     </span>
                   </Link>
                   <p className="px-3 pb-2 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Guide conducteur de travaux
+                    Guides PDF
                   </p>
-                  <Link
-                    href={LINKS.skillIaConducteurTravaux}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex gap-3 rounded-xl px-3 py-3 text-slate-800"
-                  >
-                    <Sparkles size={18} className="mt-0.5 shrink-0 text-[var(--accent)]" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Guide Conducteur de travaux</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">
-                        PDF gratuit · conducteurs de travaux
+                  {RESSOURCES_GUIDES.map((guide, index) => (
+                    <Link
+                      key={guide.href}
+                      href={guide.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
+                        isActive(guide.href, pathname)
+                          ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                          : 'text-slate-800'
+                      }`}
+                    >
+                      {index === 0 ? (
+                        <Landmark size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                      ) : (
+                        <HardHat size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                      )}
+                      <span>
+                        <span className="block text-[0.9375rem]">{guide.title}</span>
+                        <span className="mt-0.5 block text-xs text-slate-500">{guide.description}</span>
                       </span>
-                    </span>
-                  </Link>
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
