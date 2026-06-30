@@ -149,7 +149,7 @@ export const FORMATION_IA_METIER_COUVREUR: FormationIaMetierBtpConfig = {
   h1: 'Formation IA couvreur zingueur — DTU 40, toiture & Qualiopi',
   metaTitle: 'Formation IA couvreur zingueur — toiture, zinguerie',
   metaDescription:
-    'Formation IA couvreur zingueur : ardoise, tuiles, zinc, zinguerie, DTU 40, métrés toiture, mémoires. Qualiopi, Constructys.',
+    'Formation IA & ChatGPT pour couvreurs-zingueurs : devis, métrés toiture, mémoires techniques. Session 4 h Qualiopi, finançable Constructys. DTU 40 respecté.',
   keywords: [
     'formation IA couvreur zingueur',
     'formation IA couvreur BTP',

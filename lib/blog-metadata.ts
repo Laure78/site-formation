@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
+import { formatPersonnesFormeesCount } from '@/lib/constants';
 
 const DESC =
-  "Articles formation IA pour le BTP : devis, CCTP/DCE, appels d'offres, ChatGPT, Constructys. 1 592 pros formés. Qualiopi.";
+  `Articles formation IA pour le BTP : devis, CCTP/DCE, appels d'offres, ChatGPT, Constructys. ${formatPersonnesFormeesCount()} pros formés. Qualiopi.`;
 
 const OG = {
   url: '/og/blog-og.png',

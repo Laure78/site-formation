@@ -18,7 +18,7 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     'Comment analyser un DCE et un CCTP avec l’IA : méthode terrain en 30 minutes',
   seoTitle: 'Analyser un DCE/CCTP avec l’IA — méthode BTP',
   description:
-    'CCTP, DPGF et DCE : méthode terrain avec ChatGPT et Claude, relecture humaine sur le fond. Guide pratique BTP ; session Qualiopi sur la page formation appels d’offres.',
+    'Analyser un CCTP, un DPGF ou un DCE complet avec l\'IA (Claude, ChatGPT) en 30 min : méthode terrain pas à pas, relecture humaine, cas concret marché public.',
   date: '2026-04-16',
   dateModified: '2026-06-18',
   keywords: [

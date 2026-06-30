@@ -264,6 +264,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         content: [
           'Faut-il un compte payant ? — Pour une formation niveau avancé et des projets avec fichiers volumineux, l’offre Claude adaptée au parcours est prévue : voir la page formation pour le détail et les prérequis.',
           'Peut-on utiliser ChatGPT à la place ? — Oui pour une partie des tâches ; l’important est l’assistant contextualisé et les documents sources, pas le logo sur la boîte.',
+          'Faut-il un projet Claude dédié pour le mémoire ? — Oui : sans instructions métier et documents sources (plaquette, qualifications, références chantier), l’IA produit du générique. Le projet fixe l’identité, les limites « ne jamais inventer » et les preuves avant de rédiger.',
         ],
       },
       {

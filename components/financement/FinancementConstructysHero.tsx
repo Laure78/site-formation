@@ -4,8 +4,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { SOCIAL_PROOF, formatPersonnesFormeesCount, getStatsFreshnessLabel } from '@/lib/constants';
 
 const H1 =
   'Financer une formation IA pour le BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
@@ -18,6 +17,7 @@ const QUICK_LINKS = [
 
 export function FinancementConstructysHero() {
   const heroVisual = PHOTOS.financementConstructysHero2026;
+  const statsFreshness = getStatsFreshnessLabel();
 
   return (
     <MarketingLightHero
@@ -49,13 +49,13 @@ export function FinancementConstructysHero() {
       stats={[
         {
           icon: Users,
-          value: formatProfessionalsTrainedCount(),
-          label: `pros formés · ${STATS_FRESHNESS_LABEL}`,
+          value: formatPersonnesFormeesCount(),
+          label: `pros formés · ${statsFreshness}`,
         },
         {
           icon: Star,
           value: SOCIAL_PROOF.AVERAGE_RATING,
-          label: `note moyenne · ${STATS_FRESHNESS_LABEL}`,
+          label: `note moyenne · ${statsFreshness}`,
         },
         { icon: CalendarClock, value: 'J-15', label: 'délai minimum eGestion' },
       ]}

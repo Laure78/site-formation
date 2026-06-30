@@ -10,7 +10,7 @@ export const SCHEMA_AGGREGATE_RATING_VALUE = '4.85';
  * AggregateRating Schema.org — aligné pages métier (`FormationMetierJsonLd`, `CourseSchema`).
  *
  * `ratingCount` = nombre de réponses aux questionnaires de fin de formation
- * (source : `SOCIAL_PROOF.PROFESSIONALS_TRAINED`, consolidé OFC au 17/04/2026).
+ * (source : `siteStats.personnesFormees` via `SOCIAL_PROOF.PROFESSIONALS_TRAINED`).
  * Ne pas confondre avec le nombre d’avis publics Google Business Profile.
  */
 export function buildSchemaAggregateRating(): Record<string, string | number> {

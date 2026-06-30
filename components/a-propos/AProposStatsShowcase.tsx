@@ -3,7 +3,7 @@
 import { Award, ShieldCheck, Star, Users } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { CountUp } from '@/components/motion/CountUp';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 
 const STATS = [
   {
@@ -32,6 +32,8 @@ const STATS = [
  * Bandeau chiffres clés — apparition au scroll + compteurs animés (page /a-propos).
  */
 export function AProposStatsShowcase() {
+  const statsFreshness = getStatsFreshnessLabel();
+
   return (
     <section
       aria-labelledby="a-propos-stats-title"
@@ -47,7 +49,7 @@ export function AProposStatsShowcase() {
             id="a-propos-stats-title"
             className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-[#377CF3] md:text-xs"
           >
-            Chiffres clés · {STATS_FRESHNESS_LABEL}
+            Chiffres clés · {statsFreshness}
           </p>
         </Reveal>
         <RevealGroup className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6" staggerMs={70}>

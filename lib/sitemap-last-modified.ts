@@ -108,6 +108,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/ressources/ia-btp': ['app/ressources/ia-btp/page.tsx'],
   '/ressources/ia-btp/10-cas-usage-concrets': ['app/ressources/ia-btp/10-cas-usage-concrets/page.tsx'],
   '/ressources/guide-conducteur-de-travaux': ['app/ressources/guide-conducteur-de-travaux/page.tsx'],
+  '/ressources/guide-maitrise-oeuvre-ia': ['app/ressources/guide-maitrise-oeuvre-ia/page.tsx'],
   '/formation-ia': ['app/formation-ia/page.tsx'],
   '/formation-ia/faq': ['app/formation-ia/faq/page.tsx'],
   '/ia-devis-batiment': ['app/ia-devis-batiment/page.tsx'],

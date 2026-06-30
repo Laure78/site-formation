@@ -51,6 +51,7 @@ export function LinkedInLearningEmbed({
           title={`${c.title} — Laure Olivié`}
           allowFullScreen
           allow="autoplay; fullscreen"
+          loading="lazy"
           className="absolute inset-0 h-full w-full"
         />
       </div>

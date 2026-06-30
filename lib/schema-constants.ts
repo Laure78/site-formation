@@ -5,7 +5,7 @@
  * @see .cursorrules — règles Schema.org & SEO
  */
 
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF } from '@/lib/constants';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
 export const SCHEMA_PUBLIC_SITE_URL: string =
@@ -45,7 +45,7 @@ export const SCHEMA_OPENING_HOURS = 'Mo-Fr 09:00-18:00' as const;
 
 /** Statistiques publiques (cohérence biographies / schémas). */
 export const SCHEMA_STATS = {
-  personnesFormees: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
+  personnesFormees: String(siteStats.personnesFormees),
 } as const;
 
 /** Person — Laure Olivié (fragments réutilisables JSON-LD). */
@@ -82,7 +82,7 @@ export const SCHEMA_ORGANIZATION_OFC = {
   description:
     "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
   descriptionShortGraph:
-    `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${formatProfessionalsTrainedCount()} professionnels formés. Finançable Constructys.`,
+    `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${formatPersonnesFormeesCount()} professionnels formés. Finançable Constructys.`,
   foundingYear: '2021',
 } as const;
 

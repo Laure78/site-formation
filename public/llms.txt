@@ -14,6 +14,11 @@ Note de satisfaction : 4,85/5. Formations finançables par Constructys et les OP
 - Zone géographique : Île-de-France (Paris, 77, 78, 91, 92, 93, 94, 95)
 - Seine-et-Marne (77) — Melun, Meaux, Marne-la-Vallée — formation IA BTP présentiel intra/inter : /formation-ia-btp-seine-et-marne-77
 
+## Guides
+- /ressources/guide-maitrise-oeuvre-ia — Guide gratuit "Maître d'Œuvre × IA" : les 12 missions MOE
+  classées IA / mixte / humain, limites de l'IA, checklist de relecture et méthode pour créer ses skills Claude.
+  Public : maîtres d'œuvre, BET, cabinets d'architecture, conducteurs de travaux. Formation IA BTP Qualiopi (Île-de-France).
+
 ## Key pages
 - Catalogue formations IA BTP (Qualiopi) : /formations
 - BeWork — présentation du service relais administratif BTP : /bework

@@ -15,6 +15,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
   return createPageMetadata({
     title: config.metaTitle,
     description: config.metaDescription,
+    descriptionFinal: true,
     path: config.path,
     keywords: config.keywords,
     appendAuthorSuffix: false,
@@ -176,7 +177,7 @@ export const FORMATION_IA_METIER_ELECTRICIEN: FormationIaMetierBtpConfig = {
   h1: 'Formation IA électricien BTP — ChatGPT, NF C 15-100 & Qualiopi',
   metaTitle: 'Formation IA électricien BTP — ChatGPT, tableau, CONSUEL',
   metaDescription:
-    'Formation IA électricien BTP : devis tableau, calcul de puissance, rapport CONSUEL, mémoire AO installation électrique. NF C 15-100, DPE, domotique. Qualiopi, Constructys.',
+    'Formation IA & ChatGPT pour électriciens du BTP : devis, chantier, mémoires techniques. Session 4 h Qualiopi, finançable Constructys. NF C 15-100 respectée.',
   keywords: [
     'formation IA électricien BTP',
     'ChatGPT électricien',

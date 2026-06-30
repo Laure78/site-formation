@@ -77,6 +77,8 @@ export type BuildPageMetadataInput = {
   openGraphTitle?: string;
   /** Remplace og:description et twitter:description (texte tel quel, sans suffixe auteur) */
   openGraphDescription?: string;
+  /** Description finale (pas d'enrichissement SEO/geo ni ellipse automatique). */
+  descriptionFinal?: boolean;
   robots?: Metadata['robots'];
   /** ex. { 'fr-FR': 'https://www.laureolivie.fr' } — renforce le signal hreflang */
   alternatesLanguages?: Record<string, string>;
@@ -132,6 +134,7 @@ export function buildPageMetadata({
   appendAuthorSuffix = false,
   openGraphTitle,
   openGraphDescription,
+  descriptionFinal = false,
   robots,
   alternatesLanguages,
   category,
@@ -143,16 +146,19 @@ export function buildPageMetadata({
       : `/${path}`
     : '';
   const canonical = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
-  const metaDescription = enrichPageDescription(
-    appendAuthorSuffix ? withOgDescriptionSuffix(description) : description.trim(),
-  );
+  const rawDescription = appendAuthorSuffix
+    ? withOgDescriptionSuffix(description)
+    : description.trim();
+  const metaDescription = descriptionFinal
+    ? rawDescription
+    : enrichPageDescription(rawDescription);
   const titleSegment = truncateForBrandedTitle(
     stripBrandSuffix(titleAbsolute ?? title),
   );
   const htmlTitle = buildBrandedTitle(titleSegment);
   const ogTitle = openGraphTitle?.trim()
-    ? buildBrandedTitle(stripBrandSuffix(openGraphTitle))
-    : htmlTitle;
+    ? stripBrandSuffix(openGraphTitle)
+    : titleSegment;
   const ogDescription =
     openGraphDescription != null ? openGraphDescription.trim() : metaDescription;
   const img = resolveImageUrl(baseUrl, image);

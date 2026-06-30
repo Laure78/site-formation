@@ -5,7 +5,6 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
-import { StickyCtaBanner } from '@/components/StickyCtaBanner';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
 import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
@@ -175,7 +174,6 @@ export default function RootLayout({
         <Footer />
         <ScrollToTopButton />
         <StickyMobileCalendlyCta />
-        <StickyCtaBanner />
         <StickyBlogMetierRdvBar />
       </body>
     </html>

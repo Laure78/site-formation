@@ -49,6 +49,7 @@ import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
 const LMS_SLUG = 'ia-au-service-du-btp';
 
@@ -396,8 +397,8 @@ export default function FormationIAuServiceDuBatimentPage() {
             pour déployer l&apos;IA en entreprise avec relecture humaine obligatoire.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En 2026, OFC Création d&apos;Entreprise affiche une note de satisfaction de 4,85/5 sur plus de
-            1&nbsp;592 professionnels formés (donnée interne, 17 avril 2026).
+            En {new Date().getFullYear()}, OFC Création d&apos;Entreprise affiche une note de satisfaction de {siteStats.noteMoyenneAffichee} sur plus de{' '}
+            {formatPersonnesFormeesCount()} professionnels formés ({getStatsFreshnessLabel()}).
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Cette <strong>formation intelligence artificielle construction</strong> s&apos;adresse aux

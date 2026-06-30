@@ -20,6 +20,7 @@ import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { JsonLd } from '@/components/JsonLd';
 import { KeyPoint } from '@/components/readability/KeyPoint';
+import { formatPersonnesFormeesCount } from '@/lib/constants';
 
 const MAIL_PROGRAMME_PME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA PME BTP')}`;
@@ -36,7 +37,7 @@ const HERO_RESUME_PME = [
 export const metadata = createPageMetadata({
   title: 'Formation IA PME BTP — Dirigeants Bâtiment',
   description:
-    'Formation IA pour dirigeants PME BTP. Transformez votre entreprise avec ChatGPT. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité.',
+    `Formation IA pour dirigeants PME BTP. Transformez votre entreprise avec ChatGPT. ${formatPersonnesFormeesCount()} pros formés. Qualiopi. Financement possible selon éligibilité.`,
   path: '/formations/ia-pme-btp',
   appendAuthorSuffix: false,
   keywords: [

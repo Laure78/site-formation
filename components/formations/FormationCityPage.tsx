@@ -21,7 +21,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 
 interface FormationCityPageProps {
   config: CityFormationConfig;
@@ -40,6 +40,7 @@ export function FormationCityPage({
   afterHero,
 }: FormationCityPageProps) {
   const { ville, path, zones, regionLabel } = config;
+  const statsFreshness = getStatsFreshnessLabel();
   const cityCamp = path.replace(/^\/+|\/$/g, '').replace(/\//g, '-');
   const diagnosticUrl = buildSiteCalendlyCtaUrl(`${cityCamp}-aller-plus-loin-diagnostic`);
   const cityFinCtaCampaign = `${cityCamp}-fin-cta`;
@@ -153,13 +154,13 @@ export function FormationCityPage({
               variant="inline"
               value={COUNT_UP_PROS_PLUS}
               label="pros BTP formés"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
             <StatCallout
               variant="inline"
               value={COUNT_UP_RATING}
               label="note moyenne"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
           </div>
           <Link

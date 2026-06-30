@@ -3,7 +3,7 @@
  * Références Organization par @id — pas de duplication du nœud #organization.
  */
 
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF, formatPersonnesFormeesCount, siteStats } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { PHOTOS } from '@/lib/photos';
 import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
@@ -116,7 +116,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       skills:
         'Intelligence artificielle, ChatGPT, Claude AI, formation BTP, appels d’offres BTP, devis BTP, Qualiopi',
     },
-    award: ['1 592 professionnels formés (2026)', 'Note moyenne 4,85/5', 'Organisme partenaire FFB Grand Paris'],
+    award: [`${formatPersonnesFormeesCount()} professionnels formés (${new Date().getFullYear()})`, `Note moyenne ${siteStats.noteMoyenneAffichee}`, 'Organisme partenaire FFB Grand Paris'],
     workLocation: [{ '@type': 'AdministrativeArea', name: 'Île-de-France' }],
     memberOf: [{ '@type': 'Organization', name: 'FFB Grand Paris — organisme de formation référencé' }],
     hasCredential: [
@@ -143,7 +143,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     url: BASE,
     logo: `${BASE}/logo-lo.svg`,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pro du BTP — financement possible selon éligibilité. +${formatProfessionalsTrainedCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+    description: `Organisme de formation certifié Qualiopi spécialisé en intelligence artificielle pour les entreprises du bâtiment et des travaux publics. Formation IA pour les pro du BTP — financement possible selon éligibilité. +${formatPersonnesFormeesCount()} professionnels formés. Note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
     email: SCHEMA_CONTACT.email,
     address: {
       '@type': 'PostalAddress',

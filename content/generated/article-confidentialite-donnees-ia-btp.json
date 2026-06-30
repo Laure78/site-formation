@@ -48,7 +48,8 @@
       "title": "Questions fréquentes",
       "content": [
         "Les conversations ChatGPT sont-elles utilisées pour entraîner les modèles ? — Par défaut, les comptes gratuits peuvent voir leurs données utilisées selon les conditions du fournisseur. Désactivez l'option d'amélioration du modèle dans les paramètres (OpenAI, Anthropic, Google) et privilégiez les offres entreprise ou les flux anonymisés pour les données sensibles.",
-        "Puis-je coller un CCTP ou un DCE dans ChatGPT ? — Les CCTP et DCE contiennent souvent des informations déjà publiques dans le cadre d'un marché, mais peuvent aussi inclure des données à caractère personnel ou des secrets d'affaires. Anonymisez les noms et coordonnées inutiles, et vérifiez les clauses de confidentialité de votre entreprise et du maître d'ouvrage avant diffusion."
+        "Puis-je coller un CCTP ou un DCE dans ChatGPT ? — Les CCTP et DCE contiennent souvent des informations déjà publiques dans le cadre d'un marché, mais peuvent aussi inclure des données à caractère personnel ou des secrets d'affaires. Anonymisez les noms et coordonnées inutiles, et vérifiez les clauses de confidentialité de votre entreprise et du maître d'ouvrage avant diffusion.",
+        "Qui est responsable en cas de fuite de données via l'IA ? — Votre entreprise reste responsable de traitement au sens du RGPD. L'usage d'un assistant IA doit être compatible avec votre registre, vos mentions d'information et vos contrats ; en cas de doute, rapprochez-vous de votre référent juridique ou DPO."
       ]
     },
     {

@@ -2,6 +2,9 @@
  * Portrait narratif long — page /a-propos (GEO / E-E-A-T).
  * Faits alignés sur le reste du site (Qualiopi, OFC, chiffres, partenaires).
  */
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+
+const statsFreshness = getStatsFreshnessLabel();
 
 export const A_PROPOS_NARRATIVE_PARAGRAPHS: readonly string[] = [
   `Je m’appelle Laure Olivié : je suis formatrice IA appliquée au bâtiment et fondatrice d’OFC Création d’Entreprise, organisme certifié Qualiopi basé à Guyancourt (Yvelines). Mon métier, ce n’est pas d’ajouter de la technologie pour la technologie : c’est d’aider les équipes du bâtiment et des travaux publics — professionnels du BTP, conducteurs de travaux, directions de PME — à gagner du temps sur ce qui étouffe le quotidien : devis, relances, comptes rendus, dossiers administratifs et, quand c’est pertinent, appels d’offres et mémoires techniques.`,
@@ -16,7 +19,7 @@ export const A_PROPOS_NARRATIVE_PARAGRAPHS: readonly string[] = [
 
   `Ma méthode est volontairement terrain : environ 70 % de pratique sur documents réels, des prompts calibrés « vocabulaire BTP », et un accompagnement après session pour éviter que l’outil ne retombe en désuétude. Je ne promets pas de chiffres magiques : je mets en scène des gains de temps réalistes — structuration, relecture, brouillons — avec validation humaine sur tout ce qui engage la responsabilité de l’entreprise (prix, sécurité, engagements contractuels).`,
 
-  `Les chiffres que nous publions sont consolidés : 1 592 professionnels accompagnés via OFC au 17 avril 2026 et une note de satisfaction moyenne de 4,85/5 sur les questionnaires de fin de formation — pas pour « faire joli », mais parce que c’est la même métrique que nous utilisons en interne pour ajuster les contenus. Pour la suite, l’objectif reste le même : que l’IA soit un levier de clarté et de rapidité pour celles et ceux qui construisent la ville et les infrastructures — pas une couche de complexité supplémentaire. Si vous êtes une structure du BTP en Île-de-France ou une direction qui prépare un plan de formation, vous trouverez sur ce site le catalogue, le financement Constructys et des ressources pour cadrer votre projet — avec la même exigence de sincérité que sur le terrain.`,
+  `Les chiffres que nous publions sont consolidés : ${formatPersonnesFormeesCount()} professionnels accompagnés via OFC (${statsFreshness}) et une note de satisfaction moyenne de ${siteStats.noteMoyenneAffichee} sur les questionnaires de fin de formation — pas pour « faire joli », mais parce que c’est la même métrique que nous utilisons en interne pour ajuster les contenus. Pour la suite, l’objectif reste le même : que l’IA soit un levier de clarté et de rapidité pour celles et ceux qui construisent la ville et les infrastructures — pas une couche de complexité supplémentaire. Si vous êtes une structure du BTP en Île-de-France ou une direction qui prépare un plan de formation, vous trouverez sur ce site le catalogue, le financement Constructys et des ressources pour cadrer votre projet — avec la même exigence de sincérité que sur le terrain.`,
 
   `— Laure Olivié`,
 ];

@@ -5,6 +5,8 @@ import { CourseSchema } from '@/components/seo/CourseSchema';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
 
 export const revalidate = 3600;
 const PATH = '/formation-claude-ai-travaux-publics';
@@ -62,8 +64,8 @@ export default function FormationClaudeAiTravauxPublicsPage() {
       <JsonLd id="schema-formation-claude-ai-tp-breadcrumb" schema={breadcrumbSchema} />
       {faqSchema ? <JsonLd id="schema-formation-claude-ai-tp-faq" schema={faqSchema} /> : null}
 
-      <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl">
+      <section className={OFC_SEC.heroWhite}>
+        <div className={OFC_SECTION_INNER_WIDE}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">Spécial Travaux Publics</p>
           <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
             Formation Claude AI travaux publics — TP, génie civil, VRD
@@ -84,7 +86,8 @@ export default function FormationClaudeAiTravauxPublicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+      <section className={OFC_SEC.mutedMesh}>
+        <div className={OFC_SECTION_INNER_WIDE}>
         <h2 className="font-display text-3xl font-bold text-slate-900">Usages TP couverts en formation</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {[
@@ -99,10 +102,11 @@ export default function FormationClaudeAiTravauxPublicsPage() {
             </article>
           ))}
         </div>
+        </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-white px-4 py-12 md:py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className={OFC_SEC.white}>
+        <div className={OFC_SECTION_INNER_WIDE}>
           <h2 className="font-display text-3xl font-bold text-slate-900">Cadre opérationnel</h2>
           <ul className="mt-6 space-y-3 text-slate-700">
             {[
@@ -117,9 +121,9 @@ export default function FormationClaudeAiTravauxPublicsPage() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-slate-600">
-            Voir aussi : <Link href={LINKS.formationClaudeAiBtp} className="text-[#377CF3] hover:underline">formation Claude AI BTP</Link> ·{' '}
-            <Link href={LINKS.formationClaudeAiBatiment} className="text-[#377CF3] hover:underline">formation Claude AI bâtiment</Link> ·{' '}
-            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="text-[#377CF3] hover:underline">formation IA niveau 1 bâtiment &amp; travaux publics</Link>.
+            Voir aussi : <Link href={LINKS.formationClaudeAiBtp} className={OFC_LINK}>formation Claude AI BTP</Link> ·{' '}
+            <Link href={LINKS.formationClaudeAiBatiment} className={OFC_LINK}>formation Claude AI bâtiment</Link> ·{' '}
+            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>formation IA niveau 1 bâtiment &amp; travaux publics</Link>.
           </p>
         </div>
       </section>

@@ -19,7 +19,7 @@ import { KeyPoint } from '@/components/readability/KeyPoint';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { OFC_CARD, OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CARD_MUTED, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   formationCatalogueLinkLabel,
   FORMATIONS_CATALOGUE,
@@ -247,7 +247,7 @@ export function BeworkEtFormationsOffreSection() {
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
                       <p className="font-semibold text-[#1A1A1A]">
-                        <Link href={entry.href} className="text-[#377CF3] underline-offset-2 hover:underline">
+                        <Link href={entry.href} className={OFC_LINK}>
                           {formationCatalogueLinkLabel(entry)}
                         </Link>
                       </p>
@@ -346,7 +346,7 @@ export function BeworkEtFormationsOffreSection() {
               Formations en présentiel en Île-de-France (intra ou inter). Écrivez-moi ou prenez un créneau découverte.
             </p>
             <div className="mt-4 flex flex-col gap-2 text-base text-[#1A1A1A] sm:flex-row sm:flex-wrap sm:gap-x-6">
-              <a href={`mailto:${SITE_CONFIG.email}`} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
+              <a href={`mailto:${SITE_CONFIG.email}`} className={OFC_LINK}>
                 {SITE_CONFIG.email}
               </a>
               <span className="font-medium text-[#5A5A5A]" title="Ouvert via le bouton « Découvrir BeWork » dans la carte BeWork ci-dessus">

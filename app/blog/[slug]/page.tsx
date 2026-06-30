@@ -36,7 +36,7 @@ import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
 import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
 import { Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CARD } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import {
   buildSommaireFromSectionTitles,
@@ -124,9 +124,11 @@ export async function generateMetadata({ params }: Props) {
   const authorUrl = `${SITE_CONFIG.url}/a-propos`;
   const category = ARTICLE_SECTION_GEO;
   const ogImageUrl = `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(metaTitle)}&category=${encodeURIComponent(category)}`;
+  const ogImageAlt = `Visuel de l'article « ${metaTitle} » — blog formation IA pour le BTP, Laure Olivié`;
   const base = createPageMetadata({
     title: metaTitle,
     description: article.description,
+    descriptionFinal: true,
     path: `/blog/${slug}`,
     keywords: article.keywords,
     /** Évite le suffixe commun sur og:description — les articles ont déjà une phrase unique optimisée */
@@ -142,7 +144,7 @@ export async function generateMetadata({ params }: Props) {
       url: ogImageUrl,
       width: 1200,
       height: 630,
-      alt: metaTitle,
+      alt: ogImageAlt,
     },
   });
   return {
@@ -244,7 +246,7 @@ export default async function BlogArticlePage({ params }: Props) {
             </span>
             <address className="not-italic">
               Par{' '}
-              <Link href="/a-propos" className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline" rel="author">
+              <Link href="/a-propos" className={`${OFC_LINK} text-slate-700`} rel="author">
                 {SITE_CONFIG.name}
               </Link>
             </address>
@@ -530,7 +532,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <li>
               <Link
                 href={LINKS.chatgptArtisans}
-                className="text-[var(--accent)] font-medium hover:underline"
+                className={OFC_LINK}
                 title="ChatGPT pour entreprises du BTP"
               >
                 ChatGPT pour entreprises BTP
@@ -539,7 +541,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <li>
               <Link
                 href={LINKS.iaDevis}
-                className="text-[var(--accent)] font-medium hover:underline"
+                className={OFC_LINK}
                 title="Automatiser les devis bâtiment avec l’IA"
               >
                 IA devis bâtiment
@@ -548,7 +550,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <li>
               <Link
                 href={LINKS.iaCDT}
-                className="text-[var(--accent)] font-medium hover:underline"
+                className={OFC_LINK}
                 title="IA pour conducteurs de travaux et comptes rendus chantier"
               >
                 IA conducteur de travaux
@@ -557,7 +559,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <li>
               <Link
                 href={LINKS.financement}
-                className="text-[var(--accent)] font-medium hover:underline"
+                className={OFC_LINK}
                 title="Financement OPCO Constructys — formation IA appliquée au bâtiment"
               >
                 Financement Constructys
@@ -566,7 +568,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <li>
               <Link
                 href={LINKS.diagnostic}
-                className="text-[var(--accent)] font-medium hover:underline"
+                className={OFC_LINK}
                 title="Diagnostic gratuit sur votre usage de l’IA BTP"
               >
                 Diagnostic IA BTP gratuit
@@ -589,16 +591,16 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-4">
-          <Link href={LINKS.formationIleDeFrance} className="text-[var(--accent)] hover:underline" title="Formation IA en Île-de-France">
+          <Link href={LINKS.formationIleDeFrance} className={OFC_LINK} title="Formation IA en Île-de-France">
             Formation IA Île-de-France
           </Link>
-          <Link href={LINKS.formationParis} className="text-[var(--accent)] hover:underline" title="Formation IA pour le BTP à Paris">
+          <Link href={LINKS.formationParis} className={OFC_LINK} title="Formation IA pour le BTP à Paris">
             Formation IA Paris
           </Link>
-          <Link href={LINKS.ressources} className="text-[var(--accent)] hover:underline" title="Guides et tutos PDF IA BTP">
+          <Link href={LINKS.ressources} className={OFC_LINK} title="Guides et tutos PDF IA BTP">
             Ressources &amp; tutos PDF
           </Link>
-          <Link href={LINKS.blog} className="text-[var(--accent)] hover:underline" title="Tous les articles IA BTP">
+          <Link href={LINKS.blog} className={OFC_LINK} title="Tous les articles IA BTP">
             Tous les articles
           </Link>
         </div>

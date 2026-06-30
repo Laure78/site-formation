@@ -1,6 +1,6 @@
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
-import { Check, FileText, Calculator, Clock, ArrowRight } from 'lucide-react';
+import { Check, FileText, Calculator, Clock, ArrowRight, Calendar } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -138,43 +138,27 @@ const ERREURS_IA_DEVIS = [
   },
 ];
 
-const FAQ_ITEMS = [
+const FAQ_IA_DEVIS_BATIMENT = [
   {
-    q: "L'IA peut-elle remplacer un métreur ou un chargé d'affaires ?",
-    a: "Non. L'IA assiste la rédaction et la mise en forme, mais les prix, les quantités et les choix techniques restent sous votre responsabilité. Elle ne calcule pas à votre place les quantités réelles (surface, linéaire, etc.) — c'est à vous de les fournir. La formation vous apprend à bien cadrer vos demandes pour obtenir des devis exploitables.",
+    q: "L'IA peut-elle rédiger un devis BTP à ma place ?",
+    a: "Oui, en brouillon structuré — jamais en chiffrage définitif sans vous. ChatGPT et outils équivalents accélèrent la mise en forme (descriptifs, postes, TVA, conditions) à partir de votre brief métier ; vous restez seul juge des quantités, des prix unitaires et de la signature. C'est le cœur du module devis de la <a href=\"/formations/ia-batiment-travaux-publics\">formation NIV-01 — L'IA au service du Bâtiment Travaux Publics</a> : prompts par corps de métier, relecture et garde-fous confidentialité.",
   },
   {
-    q: "Quels types de devis bâtiment peut-on faire avec l'IA ?",
-    a: "Tous les corps de métier : gros œuvre (maçonnerie, charpente), second œuvre (plomberie, électricité, CVC, carrelage, peinture), VRD. L'IA adapte le vocabulaire et la structure au métier. Vous pouvez aussi générer des devis de rénovation, neuf, ou maintenance.",
+    q: "Combien de temps peut-on gagner sur un devis avec l'IA ?",
+    a: "En pratique, 1 à 2 heures par devis détaillé une fois la méthode rodée. Les professionnels passent souvent d'une rédaction « à blanc » de 2 à 4 h à 15–30 minutes de relecture et d'ajustement des PU, selon la complexité du chantier et la qualité du prompt. Le <a href=\"/blog/ia-devis-batiment-chiffrage-automatise\">guide chiffrage automatisé IA devis bâtiment</a> reprend des exemples par métier (électricité, plomberie, maçonnerie) avec les temps constatés en formation.",
   },
   {
-    q: "Faut-il des compétences techniques pour utiliser l'IA en devis ?",
-    a: "Non. Une formation courte (4h) suffit pour maîtriser les bons prompts et les trames. Vous apprenez à décrire votre chantier de façon efficace pour que l'IA produise un devis pertinent. Aucun code, aucun logiciel complexe.",
+    q: "Faut-il une formation pour utiliser l'IA sur les devis ?",
+    a: "Non pour un essai ponctuel ; oui pour l'ancrer en équipe sans erreurs coûteuses. Une session de 4 h suffit à maîtriser prompts, trames par métier, checklist TVA et règles de confidentialité — sans prérequis technique ni code. En intra comme en inter, l'objectif est de repartir avec des modèles réutilisables sur vos vrais documents, pas une démo générique déconnectée du terrain.",
   },
   {
-    q: "La formation IA devis bâtiment est-elle finançable ?",
-    a: "Oui. La formation IA Constructys est certifiée Qualiopi. Le module IA devis bâtiment (« L'IA au service du bâtiment ») est éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur pour les entreprises du BTP.",
+    q: "La formation IA devis est-elle finançable par l'OPCO ?",
+    a: "Oui, selon éligibilité et dossier monté dans les délais. Les sessions certifiées Qualiopi (module devis inclus) peuvent être prises en charge par Constructys ou votre OPCO BTP, dans la limite des plafonds horaires et du délai eGestion (15 jours calendaires avant la session). Le <a href=\"/financement-constructys-formation-ia-btp\">guide financement Constructys formation IA BTP</a> détaille les pièces, les plafonds 2026 et les erreurs qui font rejeter un dossier.",
   },
-  {
-    q: 'Comment structurer un prompt ChatGPT pour un devis BTP crédible ?',
-    a: "Indiquez le métier, le type de chantier (neuf ou rénovation), les quantités ou surfaces, les normes ou contraintes (DTU, NF, TVA applicable), et le format souhaité (tableau par poste, détail fournitures / main d'œuvre, conditions de validité). Plus le brief est précis, plus le brouillon est exploitable — vous ne faites qu'ajuster prix et marges. Des exemples de prompts par corps de métier sont détaillés sur cette page.",
-  },
-  {
-    q: "Quelles sont les erreurs les plus fréquentes avec un devis généré par l'IA ?",
-    a: "Les plus courantes : envoyer sans relecture, prompts trop vagues, oubli des marges ou des coûts cachés, vocabulaire hors métier, et saisie de données sensibles (clients, prix fournisseurs) dans un outil public non adapté. Toujours valider chaque ligne de prix, la TVA et les délais avant signature.",
-  },
-  {
-    q: 'Comment intégrer la TVA 10 % dans un prompt ChatGPT pour un devis de rénovation ?',
-    a: "Précisez dans le brief que les travaux relèvent de la rénovation sur un logement éligible (habitation de plus de deux ans, travaux concernés) et que vous souhaitez un affichage HT, taux de TVA 10 % et TTC par ligne ou par total. L'IA structurera le document ; vous contrôlez l'éligibilité réelle de l'opération et les mentions obligatoires avant signature du devis.",
-  },
-  {
-    q: "L'IA peut-elle inventer des normes ou des prix sur un devis BTP ?",
-    a: "Oui, c'est un risque : l'outil peut formuler des références normatives ou des ordres de grandeur crédibles mais inexacts pour votre fournisseur ou votre zone géographique. Ne validez jamais un devis sans vérifier chaque norme citée (DTU, NF), chaque prix unitaire et chaque quantité. L'IA sert à accélérer la mise en forme et le vocabulaire métier ; le chiffrage et la conformité restent votre responsabilité.",
-  },
-];
+] as const;
 
 export default function IADevisBatimentPage() {
-  const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const faqSchema = getFAQSchema([...FAQ_IA_DEVIS_BATIMENT]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
@@ -379,6 +363,47 @@ export default function IADevisBatimentPage() {
           </p>
         </section>
 
+        {/* Encadré CTA Calendly — milieu de page */}
+        <section
+          className="mt-20 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 md:p-8"
+          aria-labelledby="ia-devis-cta-milieu-title"
+        >
+          <h2
+            id="ia-devis-cta-milieu-title"
+            className="font-display text-xl font-bold text-slate-900 md:text-2xl"
+          >
+            Vos devis BTP prennent trop de temps à rédiger ?
+          </h2>
+          <p className="mt-3 text-slate-700 leading-relaxed">
+            Visio découverte gratuite (30 min) : on passe en revue vos cas réels (prompts, trames,
+            financement OPCO) et on voit si la{' '}
+            <Link
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
+              className="font-medium text-[var(--accent)] hover:underline"
+            >
+              formation NIV-01
+            </Link>{' '}
+            correspond à votre équipe.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <RdvLink
+              campaign="ia-devis"
+              ctaPosition="middle"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center font-semibold text-white shadow-md hover:bg-blue-600"
+            >
+              <Calendar size={20} strokeWidth={1.5} aria-hidden />
+              Réserver un créneau Calendly
+            </RdvLink>
+            <Link
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] bg-white px-6 py-4 text-center font-semibold text-[var(--accent)] hover:bg-white/90"
+            >
+              Voir la fiche NIV-01
+              <ArrowRight size={18} strokeWidth={1.5} aria-hidden />
+            </Link>
+          </div>
+        </section>
+
         {/* Erreurs fréquentes */}
         <section className="mt-20">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
@@ -448,7 +473,11 @@ export default function IADevisBatimentPage() {
             <li>Certification Qualiopi — financement OPCO Constructys selon éligibilité et dossier.</li>
           </ul>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <RdvLink className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600">
+            <RdvLink
+              campaign="ia-devis"
+              ctaPosition="inline"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 text-center text-base font-semibold text-white shadow-md hover:bg-blue-600"
+            >
               Réserver un appel découverte (Calendly)
             </RdvLink>
             <Link
@@ -467,7 +496,7 @@ export default function IADevisBatimentPage() {
           <p className="mt-6 text-sm text-slate-600">
             Lien direct agenda :{' '}
             <a
-              href={buildSiteCalendlyCtaUrl('ia-devis-batiment-contact-rdv-page-calendly')}
+              href={buildSiteCalendlyCtaUrl('ia-devis')}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[var(--accent)] hover:underline"
@@ -477,13 +506,13 @@ export default function IADevisBatimentPage() {
           </p>
         </section>
 
-        {/* FAQ */}
-        <section className="mt-20">
-          <h2 className="font-display text-2xl font-bold text-slate-900">
-            Questions fréquentes
+        {/* FAQ — IA et devis bâtiment */}
+        <section className="mt-20" aria-labelledby="faq-ia-devis-batiment-title">
+          <h2 id="faq-ia-devis-batiment-title" className="font-display text-2xl font-bold text-slate-900">
+            IA et devis bâtiment : questions fréquentes
           </h2>
           <div className="mt-8 space-y-6">
-            {FAQ_ITEMS.map(({ q, a }) => (
+            {FAQ_IA_DEVIS_BATIMENT.map(({ q, a }) => (
               <div
                 key={q}
                 className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
@@ -512,7 +541,11 @@ export default function IADevisBatimentPage() {
               Voir le programme
               <ArrowRight size={20} strokeWidth={1.5} />
             </Link>
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10">
+            <RdvLink
+              campaign="ia-devis"
+              ctaPosition="footer"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
+            >
               Prendre rendez-vous
             </RdvLink>
           </div>
@@ -522,7 +555,7 @@ export default function IADevisBatimentPage() {
         <section className="mt-12 rounded-2xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <p className="text-slate-800">
             Vous souhaitez découvrir comment l&apos;IA peut faire gagner du temps à votre entreprise du BTP ?{' '}
-            <RdvLink className="font-semibold text-[var(--accent)] hover:underline">
+            <RdvLink campaign="ia-devis" ctaPosition="footer" className="font-semibold text-[var(--accent)] hover:underline">
               Prenez rendez-vous pour échanger sur votre projet.
             </RdvLink>
           </p>
@@ -555,7 +588,7 @@ export default function IADevisBatimentPage() {
               </Link>
             </li>
             <li>
-              <RdvLink className="text-[var(--accent)] hover:underline">
+              <RdvLink campaign="ia-devis" className="text-[var(--accent)] hover:underline">
                 Prendre rendez-vous
               </RdvLink>
             </li>
@@ -568,7 +601,7 @@ export default function IADevisBatimentPage() {
             { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
             { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },
-            { href: buildSiteCalendlyCtaUrl('ia-devis-batiment-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: buildSiteCalendlyCtaUrl('ia-devis'), label: 'Prendre rendez-vous' },
           ]}
         />
       </article>

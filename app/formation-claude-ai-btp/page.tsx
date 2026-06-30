@@ -18,6 +18,7 @@ import { FAQSection } from "@/components/landing/FAQSection";
 import { AllerPlusLoin } from "@/components/AllerPlusLoin";
 import { CourseSchema } from "@/components/seo/CourseSchema";
 import { buildSiteCalendlyCtaUrl } from "@/lib/calendly";
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT ,
   formatTarifHt,
 } from "@/lib/tarifs-sessions";
@@ -238,8 +239,8 @@ export default function FormationClaudeAiBtpPage() {
                 <strong className="text-white">Claude AI</strong> est l&apos;IA qui lit vos CCTP de 100 pages
                 sans broncher, rédige vos mémoires techniques avec finesse et protège vos données
                 sensibles. Formation de 4 heures, certifiée Qualiopi. Financement possible selon éligibilité.
-                Déjà <strong className="text-white">1 592 professionnels du BTP</strong> formés
-                (note 4,85/5).
+                Déjà <strong className="text-white">{formatPersonnesFormeesCount()} professionnels du BTP</strong> formés
+                (note {siteStats.noteMoyenneAffichee}).
               </p>
               <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
                 <a
@@ -661,9 +662,9 @@ export default function FormationClaudeAiBtpPage() {
               <li className="flex gap-2">
                 <CircleCheckBig className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
                 <span>
-                  <strong>1 592 professionnels du BTP formés</strong> (FFB Grand Paris, FFB
+                  <strong>{formatPersonnesFormeesCount()} professionnels du BTP formés</strong> (FFB Grand Paris, FFB
                   Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz) — note de satisfaction
-                  moyenne 4,85/5.
+                  moyenne {siteStats.noteMoyenneAffichee}.
                 </span>
               </li>
             </ul>

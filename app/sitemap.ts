@@ -84,6 +84,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/ressources/guide-conducteur-de-travaux', priority: 0.9, changeFrequency: 'weekly' },
+    { path: '/ressources/guide-maitrise-oeuvre-ia', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp', priority: 0.98, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-paris-2026', priority: 0.9, changeFrequency: 'weekly' },

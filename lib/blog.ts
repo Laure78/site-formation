@@ -10,11 +10,13 @@ import { LINKS } from '@/lib/internal-links';
 import {
   estimateWordCountFromPlainText,
   extractFaqPairsFromArticleSections,
+  FAQ_SCHEMA_MIN,
 } from '@/lib/seo';
 import { blogArticlesClaudeBtp2026 } from '@/lib/blog-claude-btp-2026-articles';
 import { blogArticlesLsrAoModules } from '@/lib/blog-lsr-ao-modules-articles';
 import { blogArticleFormationIaCctpAnalyseDceBtp } from '@/lib/blog-formation-ia-cctp-pillar';
 import { blogArticleIaDevisBatimentChiffrageAutomatise } from '@/lib/blog-ia-devis-batiment-chiffrage-automatise';
+import { formatPersonnesFormeesCount } from '@/lib/constants';
 import {
   AO_DCE_CLUSTER_BLOG,
   clusterMaillageHtmlSection,
@@ -106,7 +108,7 @@ export function extractFaqPairsForFaqPageJsonLd(article: BlogArticle): { q: stri
       const a = answer.trim();
       if (q && a) pairs.push({ q, a });
     }
-    if (pairs.length > 0) return pairs;
+    if (pairs.length >= FAQ_SCHEMA_MIN) return pairs;
   }
 
   for (const section of article.sections) {
@@ -1559,7 +1561,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: '',
         content: `<div class="rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6 my-2">
 <p class="font-semibold text-slate-900">Vous voulez voir la méthode en action ?</p>
-<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="font-medium text-[var(--accent)] underline-offset-2 hover:underline">Réservez votre visio découverte gratuite</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
+<p class="mt-2 text-slate-700"><a href="${LINKS.prendreRdv}" class="ofc-link">Réservez votre visio découverte gratuite</a> — je vous montre en 30 min comment l'adapter à vos devis.</p>
 </div>`,
       },
       {
@@ -1588,7 +1590,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'À propos de l\'auteure',
         content:
-          '<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Elle a formé plus de 1 592 professionnels du bâtiment (FFB, Lefebvre Dalloz, CNAM). Certifiée Qualiopi, ses formations sont éligibles à un financement selon dossier (Constructys).</p>',
+          `<p>Laure Olivié est formatrice IA &amp; ChatGPT spécialisée BTP. Elle a formé plus de ${formatPersonnesFormeesCount()} professionnels du bâtiment (FFB, Lefebvre Dalloz, CNAM). Certifiée Qualiopi, ses formations sont éligibles à un financement selon dossier (Constructys).</p>`,
       },
       {
         type: 'cta',

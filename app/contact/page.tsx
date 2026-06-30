@@ -13,6 +13,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC, OFC_SECTION_INNER, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
@@ -29,8 +30,8 @@ export default function ContactPage() {
     <div>
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       {/* Hero */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className={OFC_SEC.heroWhite}>
+        <div className={OFC_SECTION_INNER_WIDE}>
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
             <div>
           <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
@@ -87,8 +88,8 @@ export default function ContactPage() {
       </section>
 
       {/* Contact — sans formulaire : email, RDV */}
-      <section id="contact" className="scroll-mt-24 border-b border-slate-200 bg-[var(--accent-soft)] px-4 py-16">
-        <div className="mx-auto max-w-2xl">
+      <section id="contact" className={`${OFC_SEC.softWave} scroll-mt-24`}>
+        <div className={OFC_SECTION_INNER}>
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Votre projet formation IA BTP
           </h2>
@@ -107,8 +108,8 @@ export default function ContactPage() {
       </section>
 
       {/* Widget Calendly complet */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-2xl">
+      <section className={OFC_SEC.white}>
+        <div className={OFC_SECTION_INNER}>
           <CalendlyEmbed
             type="inline"
             campaign="contact-inline"
@@ -121,8 +122,8 @@ export default function ContactPage() {
       </section>
 
       {/* 4 cartes caractéristiques */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className={OFC_SEC.mutedMesh}>
+        <div className={OFC_SECTION_INNER_WIDE}>
           <h2 className="sr-only">Pourquoi choisir Laure Olivié</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -163,8 +164,8 @@ export default function ContactPage() {
       </section>
 
       {/* Mon approche */}
-      <section className="border-b border-slate-200 bg-white px-4 py-16">
-        <div className="mx-auto max-w-3xl">
+      <section className={OFC_SEC.white}>
+        <div className={`${OFC_SECTION_INNER} max-w-3xl`}>
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Mon approche
           </h2>
@@ -200,8 +201,8 @@ export default function ContactPage() {
       </section>
 
       {/* Comment je travaille avec vous */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-6xl">
+      <section className={OFC_SEC.mutedMesh}>
+        <div className={OFC_SECTION_INNER_WIDE}>
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Comment je travaille avec vous
           </h2>
@@ -261,8 +262,8 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
-        <div className="mx-auto max-w-4xl">
+      <section className={OFC_SEC.white}>
+        <div className={OFC_SECTION_INNER}>
           <FAQSection
             items={FAQ_CONTACT}
             title="Questions fréquentes — Contact"
@@ -271,8 +272,8 @@ export default function ContactPage() {
       </section>
 
       {/* CTA final */}
-      <section className="rounded-t-3xl bg-[var(--accent)] px-4 py-16">
-        <div className="mx-auto max-w-2xl text-center text-white">
+      <section className={OFC_SEC.accentLoose}>
+        <div className={`${OFC_SECTION_INNER} max-w-2xl text-center text-white`}>
           <h2 className="font-display text-2xl font-bold md:text-3xl">
             Prêt à gagner 3 à 5 heures par semaine ?
           </h2>

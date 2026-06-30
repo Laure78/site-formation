@@ -31,7 +31,7 @@ import {
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
-import { COUNT_UP_PROS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
@@ -133,6 +133,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
   ]);
 
   const localContent = getDeptLocalSeoContent(config.deptCode);
+  const statsFreshness = getStatsFreshnessLabel();
 
   const faqSchema = getFAQSchema(
     localContent ? [...localContent.faq, ...config.faq.slice(3)] : config.faq,
@@ -192,13 +193,13 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               variant="inline"
               value={COUNT_UP_PROS}
               label="professionnels formés"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
             <StatCallout
               variant="inline"
               value={COUNT_UP_RATING}
               label="note moyenne"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
           </div>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F2F2F2] px-4 py-2 text-base text-slate-700">

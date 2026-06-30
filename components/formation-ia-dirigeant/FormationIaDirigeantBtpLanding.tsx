@@ -5,7 +5,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD_MUTED, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { getBreadcrumbSchema, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
@@ -86,7 +86,7 @@ export function FormationIaDirigeantBtpLanding() {
         <nav aria-label="Fil d&apos;Ariane" className="text-sm text-slate-600">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
-              <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
+              <Link href={LINKS.home} className={OFC_LINK}>
                 Accueil
               </Link>
             </li>
@@ -331,7 +331,7 @@ export function FormationIaDirigeantBtpLanding() {
             <p>
               <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Certifiée Qualiopi
               · {SITE_CONFIG.email} ·{' '}
-              <a href={SITE_CONFIG.url} className="text-[#377CF3] hover:underline">
+              <a href={SITE_CONFIG.url} className={OFC_LINK}>
                 www.laureolivie.fr
               </a>
             </p>

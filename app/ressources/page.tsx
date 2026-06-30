@@ -16,7 +16,8 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 export const metadata: Metadata = createPageMetadata({
   title: 'Ressources gratuites IA BTP : tutos, guides et fiches pratiques',
   description:
-    'Formation IA pour le BTP : tutos PDF gratuits Claude (DUERP, PPSPS, CR, DCE). Guides OFC Qualiopi, téléchargement libre.',
+    'Tutos PDF IA pour le BTP, 100 % gratuits : CR de chantier, DCE, mémoire technique, DOE, PPSPS avec Claude. Signés Laure Olivié (Qualiopi).',
+  descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
   appendAuthorSuffix: false,
@@ -24,7 +25,7 @@ export const metadata: Metadata = createPageMetadata({
     url: '/images/ressources-gratuites-ia-btp-hero-2026.png',
     width: 1024,
     height: 1024,
-    alt: 'Ressources gratuites IA BTP — tutos PDF, guides et fiches pratiques, Laure Olivié formatrice Qualiopi',
+    alt: 'Ressources gratuites IA BTP : tutos PDF, guides et fiches pratiques par Laure Olivié (Qualiopi)',
   },
 });
 

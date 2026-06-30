@@ -135,10 +135,9 @@ const GAINS_COMMERCIAUX_CARDS = [
   },
 ] as const;
 
-/** Meta + Open Graph / Twitter (sans suffixe auteur — cible SERP ≤ 155 car.) */
 const HOME_META_TITLE = "Formation IA bâtiment & BTP Paris IDF — Devis, AO, CR";
 const HOME_META_DESCRIPTION =
-  "Formation IA appliquée au bâtiment et formation IA travaux publics en Île-de-France : devis, appels d'offres, CR. Qualiopi, Constructys. RDV gratuit.";
+  'Formation IA pour le BTP en présentiel Île-de-France : devis, appels d\'offres, CR sur vos vrais documents. Qualiopi, Constructys. 1 592 pros formés, 4,85/5.';
 
 const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
 
@@ -150,6 +149,7 @@ export const metadata = createPageMetadata({
   title: HOME_META_TITLE,
   titleAbsolute: HOME_META_TITLE,
   description: HOME_META_DESCRIPTION,
+  descriptionFinal: true,
   path: '/',
   appendAuthorSuffix: false,
   openGraphTitle: HOME_META_TITLE,

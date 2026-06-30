@@ -1,13 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 /**
  * Fine barre de progression de lecture — articles blog uniquement (via layout `[slug]`).
- * Couleur charte #377CF3 · z-index au-dessus du header sans masquer le CTA RDV.
+ * Couleur charte #377CF3 · sous le header sticky · z-index sous le CTA RDV.
  */
 export function BlogReadingProgress() {
   const [progress, setProgress] = useState(0);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     const update = () => {
@@ -17,13 +20,24 @@ export function BlogReadingProgress() {
       setProgress(next);
     };
 
+    const onScrollOrResize = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = window.requestAnimationFrame(() => {
+        rafRef.current = null;
+        update();
+      });
+    };
+
     update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      if (rafRef.current != null) {
+        window.cancelAnimationFrame(rafRef.current);
+      }
+      window.removeEventListener('scroll', onScrollOrResize);
+      window.removeEventListener('resize', onScrollOrResize);
     };
   }, []);
 
@@ -38,7 +52,13 @@ export function BlogReadingProgress() {
       aria-valuemax={100}
       aria-valuenow={percent}
     >
-      <div className="blog-reading-progress__bar" style={{ width: `${percent}%` }} />
+      <div
+        className="blog-reading-progress__bar"
+        style={{
+          width: `${percent}%`,
+          transition: prefersReducedMotion ? 'none' : undefined,
+        }}
+      />
     </div>
   );
 }

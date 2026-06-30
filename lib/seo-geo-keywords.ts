@@ -1,6 +1,7 @@
 /**
  * Mots-clés SEO + ancrage GEO Île-de-France — source unique (pages, meta, alt images, vidéo).
  */
+import { formatProfessionalsTrainedCount, siteStats } from '@/lib/constants';
 
 export const SEO_KW_FORMATION_IA_BTP = 'formation IA pour le BTP' as const;
 export const SEO_KW_FORMATION_IA_BATIMENT = 'formation IA appliquée au bâtiment' as const;
@@ -158,7 +159,7 @@ export function buildIdfDeptMetaDescription(
   deptCode: string,
   villesCourtes: string,
 ): string {
-  return `${SEO_KW_FORMATION_IA_BATIMENT} en ${departementNom} (${deptCode}) : ${villesCourtes}. ${SEO_KW_FORMATION_IA_BTP}, ${SEO_KW_FORMATION_IA_TP}. Qualiopi, présentiel ${SEO_GEO_REGION}.`;
+  return `${SEO_KW_FORMATION_IA_BTP} en ${departementNom} (${deptCode}) : ${villesCourtes}. Présentiel intra/inter, Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés, ${siteStats.noteMoyenneAffichee}.`;
 }
 
 export function buildIdfDeptPageTitle(departementNom: string, deptCode: string): string {

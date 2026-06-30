@@ -29,6 +29,7 @@ import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseMaitriserClaudeNiv04JsonLd } from '@/lib/schema-catalogue-course-jsonld';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
 const PATH = LINKS.formationMaitriserClaudeAiBtp;
 const PDF_HREF = LINKS.pdfProgrammeMaitriserClaudeBtpNiv04;
@@ -316,8 +317,8 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             connecteurs/sécurité et un script ou automatisation Claude Code testé.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            En 2026, OFC affiche une note de satisfaction de 4,85/5 sur plus de 1&nbsp;592 professionnels formés
-            (donnée interne, 17 avril 2026).
+            En {new Date().getFullYear()}, OFC affiche une note de satisfaction de {siteStats.noteMoyenneAffichee} sur plus de {formatPersonnesFormeesCount()} professionnels formés
+            ({getStatsFreshnessLabel()}).
           </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>

@@ -163,6 +163,7 @@ export function createPageMetadata({
   appendAuthorSuffix = false,
   openGraphTitle,
   openGraphDescription,
+  descriptionFinal,
   robots,
   alternatesLanguages,
   category,
@@ -186,6 +187,8 @@ export function createPageMetadata({
   appendAuthorSuffix?: boolean;
   openGraphTitle?: string;
   openGraphDescription?: string;
+  /** Meta description figée (articles, landings rédigées à la main). */
+  descriptionFinal?: boolean;
   robots?: Metadata['robots'];
   alternatesLanguages?: Record<string, string>;
   category?: string;
@@ -203,6 +206,7 @@ export function createPageMetadata({
     appendAuthorSuffix,
     openGraphTitle,
     openGraphDescription,
+    descriptionFinal,
     robots,
     alternatesLanguages,
     category,

@@ -9,5 +9,5 @@ export {
   COUNT_UP_PROS_PLUS,
   COUNT_UP_RATING,
   COUNT_UP_SATISFACTION,
-  STATS_FRESHNESS_LABEL,
+  getStatsFreshnessLabel,
 } from '@/lib/readability-presets';

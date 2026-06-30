@@ -7,7 +7,7 @@ import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
 import { getAProposPersonJsonLd } from '@/lib/schema-a-propos-person-jsonld';
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF, formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import {
   A_PROPOS_AUTORITE_PARAGRAPHS,
@@ -52,14 +52,15 @@ const A_PROPOS_TOC = [
   { label: 'FAQ', anchor: 'faq' },
 ] as const;
 
-const A_PROPOS_META_TITLE = 'Laure Olivié - formatrice IA pour le BTP - 1 592 pros, Qualiopi';
+const A_PROPOS_META_TITLE = `Laure Olivié - formatrice IA pour le BTP - ${formatPersonnesFormeesCount()} pros, Qualiopi`;
 const A_PROPOS_META_DESCRIPTION =
-  'Formation IA pour le BTP : +1 592 pros formés, note 4,85/5. Formatrice Qualiopi, FFB, LinkedIn Learning. RDV gratuit.';
+  'Laure Olivié, formatrice IA BTP : 10 ans de terrain (conductrice de travaux), Qualiopi, FFB, CSFE, CNAM, Lefebvre Dalloz. 1 592 pros formés, 4,85/5.';
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,
   titleAbsolute: A_PROPOS_META_TITLE,
   description: A_PROPOS_META_DESCRIPTION,
+  descriptionFinal: true,
   path: '/a-propos',
   keywords: null,
   appendAuthorSuffix: false,
@@ -123,7 +124,7 @@ export default function AProposPage() {
             </span>
             <span className="inline-flex items-center gap-1.5 text-[#475569]">
               <Star className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" aria-hidden />
-              Qualiopi · {formatProfessionalsTrainedCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
+              Qualiopi · {formatPersonnesFormeesCount()} formés · {SOCIAL_PROOF.AVERAGE_RATING}
             </span>
           </>
         }
@@ -175,7 +176,7 @@ export default function AProposPage() {
                 className="mt-8"
                 titleId="expertise-chiffres"
                 title="Repères clés"
-                description="Volume formé, satisfaction et certification — données au 17 avril 2026."
+                description={`Volume formé, satisfaction et certification — ${getStatsFreshnessLabel()}.`}
                 columns={2}
                 items={[
                   { label: 'Professionnels formés', value: COUNT_UP_PROS_PLUS, Icon: Users },

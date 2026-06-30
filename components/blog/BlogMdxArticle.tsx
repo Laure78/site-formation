@@ -14,6 +14,7 @@ import { LINKS } from '@/lib/internal-links';
 import { shouldShowSkillLeadMagnetCta } from '@/lib/lead-magnet-skill-ia';
 import { BlogCTA } from '@/components/BlogCTA';
 import { LeadMagnetCTA } from '@/components/LeadMagnetCTA';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type Props = { slug: string };
 
@@ -79,7 +80,7 @@ export async function BlogMdxArticle({ slug }: Props) {
               Par{' '}
               <Link
                 href="/a-propos"
-                className="font-medium text-slate-700 hover:text-[var(--accent)] hover:underline"
+                className={`${OFC_LINK} text-slate-700`}
                 rel="author"
               >
                 {SITE_CONFIG.name}

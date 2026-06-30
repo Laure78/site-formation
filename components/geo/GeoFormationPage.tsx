@@ -17,7 +17,7 @@ import {
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { COUNT_UP_PROS, COUNT_UP_RATING, STATS_FRESHNESS_LABEL } from '@/lib/readability-presets';
+import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import {
@@ -32,7 +32,7 @@ import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-conten
 export type { GeoFormationPageProps };
 
 function geoMetaDescription(departement: string, code: string, villes: readonly string[]): string {
-  const villesCourtes = villes.slice(0, 2).join(', ');
+  const villesCourtes = villes.slice(0, 3).join(', ');
   return buildDeptMetaDescription(departement, code, villesCourtes);
 }
 
@@ -46,6 +46,7 @@ export function geoFormationMetadata(props: GeoFormationPageProps) {
   return createPageMetadata({
     title,
     description,
+    descriptionFinal: true,
     path: geoFormationPath(slug),
     appendAuthorSuffix: false,
     openGraphType: 'article',
@@ -78,6 +79,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
     "Devis, comptes rendus, appels d'offres et administratif : session 4 h sur vos documents réels — ChatGPT et Claude AI, certification Qualiopi.";
 
   const localContent = getDeptLocalSeoContent(code);
+
+  const statsFreshness = getStatsFreshnessLabel();
 
   const courseJsonLd = buildFormationIaCourseJsonLd({
     name: `Formation IA BTP ${deptLabel} — Qualiopi`,
@@ -156,13 +159,13 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               variant="inline"
               value={COUNT_UP_PROS}
               label="professionnels formés"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
             <StatCallout
               variant="inline"
               value={COUNT_UP_RATING}
               label="note moyenne"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -24,18 +24,19 @@ import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const FORMATIONS_META_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
-const FORMATIONS_META_DESCRIPTION =
-  `${CATALOGUE_FORMATIONS_COUNT} formations IA pour les pro du BTP (4 h) : devis, AO, conduite de travaux, maîtres d'œuvre, Claude AI. Qualiopi, Constructys. RDV gratuit.`;
+const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP — Qualiopi';
+const FORMATIONS_OG_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
+const FORMATIONS_META_DESCRIPTION = `Catalogue de ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP (4 h) : devis, appels d'offres, conduite de travaux, Claude AI. Qualiopi, finançable Constructys. Visio gratuite.`;
 
 export const metadata: Metadata = {
   ...createPageMetadata({
-    title: FORMATIONS_META_TITLE,
-    titleAbsolute: FORMATIONS_META_TITLE,
+    title: FORMATIONS_HTML_TITLE,
+    titleAbsolute: FORMATIONS_HTML_TITLE,
     description: FORMATIONS_META_DESCRIPTION,
+    descriptionFinal: true,
     path: '/formations',
     appendAuthorSuffix: false,
-    openGraphTitle: FORMATIONS_META_TITLE,
+    openGraphTitle: FORMATIONS_OG_TITLE,
     openGraphDescription: FORMATIONS_META_DESCRIPTION,
     keywords: [
       'catalogue formation IA pour les pro du BTP',
@@ -58,29 +59,6 @@ export const metadata: Metadata = {
         `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics`,
     },
   }),
-  openGraph: {
-    title: FORMATIONS_META_TITLE,
-    description: FORMATIONS_META_DESCRIPTION,
-    url: `${baseUrl}/formations`,
-    siteName: 'Laure Olivié — Formation IA pour les pro du BTP',
-    locale: 'fr_FR',
-    type: 'website',
-    images: [
-      {
-        url: `${baseUrl}${PHOTOS.formationIaBtpSalleInteractive2026.src}`,
-        width: 1200,
-        height: 630,
-        alt:
-          `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics`,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: FORMATIONS_META_TITLE,
-    description: FORMATIONS_META_DESCRIPTION,
-    images: [`${baseUrl}${PHOTOS.formationIaBtpSalleInteractive2026.src}`],
-  },
   alternates: {
     canonical: `${baseUrl}/formations`,
     languages: { 'fr-FR': `${baseUrl}/formations` },

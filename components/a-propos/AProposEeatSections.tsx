@@ -9,7 +9,7 @@ import {
 } from '@/lib/linkedin-learning-a-propos-embeds';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -17,8 +17,8 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-const formesNombreAffiche =
-  SOCIAL_PROOF.PROFESSIONALS_TRAINED.toLocaleString('fr-FR');
+const formesNombreAffiche = formatPersonnesFormeesCount();
+const statsFreshness = getStatsFreshnessLabel();
 
 const PARCOURS = [
   {
@@ -39,13 +39,13 @@ const PARCOURS = [
   },
   {
     year: '2026',
-    text: `${formesNombreAffiche} professionnels formés au 17 avril 2026 — note ${SOCIAL_PROOF.AVERAGE_RATING} (évaluations fin de formation).`,
+    text: `${formesNombreAffiche} professionnels formés (${statsFreshness}) — note ${siteStats.noteMoyenneAffichee} (évaluations fin de formation).`,
   },
 ] as const;
 
 const REF_TABLE = [
-  { label: 'Professionnels formés (arrêté au 17 avril 2026)', value: formesNombreAffiche },
-  { label: 'Note de satisfaction (questionnaires fin de formation)', value: SOCIAL_PROOF.AVERAGE_RATING },
+  { label: `Professionnels formés (${statsFreshness})`, value: formesNombreAffiche },
+  { label: 'Note de satisfaction (questionnaires fin de formation)', value: siteStats.noteMoyenneAffichee },
   {
     label: 'Financement OPCO Constructys',
     value: "Jusqu'à 100 % du coût pédagogique selon barème et éligibilité",

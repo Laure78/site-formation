@@ -1,6 +1,6 @@
 /**
- * Bandeau sticky RDV bas d’écran — fiches métiers `/formation-ia-*` (desktop).
- * Les pages blog utilisent `StickyCtaBanner`.
+ * Bandeau sticky RDV bas d’écran — fiches métiers `/formation-ia-*` (desktop uniquement).
+ * Mobile : `StickyMobileCalendlyCta` (site entier, un seul CTA Calendly).
  */
 export function isStickyBlogMetierRdvPath(pathname: string | null): boolean {
   if (!pathname) return false;

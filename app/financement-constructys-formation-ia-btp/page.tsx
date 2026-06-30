@@ -14,6 +14,7 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
+import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { LINKS } from '@/lib/internal-links';
@@ -79,12 +80,13 @@ const STEPS = [
 
 const FINANCEMENT_META_TITLE = 'Financement Constructys — formation IA pour les pro du BTP 2026';
 const FINANCEMENT_META_DESCRIPTION =
-  'Financement formation IA appliquée au bâtiment Constructys 2026 : plafonds, délais eGestion, OFC Qualiopi. 1 592 pros formés. Visio gratuite.';
+  'Financer votre formation IA pour le BTP avec Constructys en 2026 : plafonds, délais eGestion, dossier OFC Qualiopi. Devis et visio gratuits.';
 
 export const metadata = createPageMetadata({
   title: FINANCEMENT_META_TITLE,
   titleAbsolute: FINANCEMENT_META_TITLE,
   description: FINANCEMENT_META_DESCRIPTION,
+  descriptionFinal: true,
   path: '/financement-constructys-formation-ia-btp',
   keywords: null,
   appendAuthorSuffix: false,

@@ -25,7 +25,7 @@ import {
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
-import { PHOTOS } from '@/lib/photos';
+import { PHOTOS, SITE_LOGO_ALT } from '@/lib/photos';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 
 import type { LucideIcon } from 'lucide-react';
@@ -471,7 +471,7 @@ export function Navbar() {
             <span className="site-header__logo-mark ring-[#377CF3]/25">
               <Image
                 src={PHOTOS.siteAvatar.src}
-                alt="Laure Olivié — formation IA pour les pro du BTP, organisme certifié Qualiopi"
+                alt={SITE_LOGO_ALT}
                 title="Retour à l'accueil — laureolivie.fr"
                 fill
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
@@ -624,6 +624,20 @@ export function Navbar() {
               utmMedium="cta"
               campaign="nav-prendre-rdv"
               buttonText="Prendre RDV"
+            />
+          </div>
+
+          <div className="site-header__rdv-mobile">
+            <CalendlyEmbed
+              type="link"
+              variant="nav"
+              ctaPosition="inline"
+              ctaId="nav-rdv-mobile-bar"
+              utmSource="site"
+              utmMedium="cta"
+              campaign="nav-prendre-rdv-mobile-bar"
+              buttonText="Prendre RDV"
+              className="max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
             />
           </div>
 
@@ -887,14 +901,14 @@ export function Navbar() {
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
               <CalendlyEmbed
                 type="link"
-                variant="unstyled"
+                variant="primary"
                 ctaPosition="inline"
                 ctaId="nav-rdv-mobile"
                 utmSource="site"
                 utmMedium="cta"
                 campaign="nav-prendre-rdv-mobile"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-full bg-[#377cf3] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white shadow-sm transition-transform hover:bg-[#2d66d6] active:scale-[0.99]"
+                className="w-full rounded-full px-4 py-4 text-center text-[0.9375rem]"
                 buttonText="Prendre RDV"
               />
             </div>

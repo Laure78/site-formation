@@ -17,6 +17,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import { Essentiel } from '@/components/readability/Essentiel';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -113,7 +114,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
         <nav aria-label="Fil d&apos;Ariane" className="text-sm text-slate-600">
           <ol className="flex flex-wrap items-center gap-1.5">
             <li>
-              <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
+              <Link href={LINKS.home} className={OFC_LINK}>
                 Accueil
               </Link>
             </li>
@@ -121,7 +122,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               <span className="text-slate-400" aria-hidden>
                 /
               </span>
-              <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
+              <Link href={LINKS.formations} className={OFC_LINK}>
                 Formations
               </Link>
             </li>
@@ -351,7 +352,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                     'Basée en Île-de-France, elle intervient exclusivement en présentiel pour les entreprises du bâtiment et des travaux publics.'}
                 </p>
                 <p className="mt-4 text-sm text-slate-600">
-                  <Link href={LINKS.aPropos} className="font-medium text-[#377CF3] hover:underline">
+                  <Link href={LINKS.aPropos} className={`font-medium ${OFC_LINK}`}>
                     À propos de la formatrice
                   </Link>
                   {' · '}
@@ -359,7 +360,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                     href={SITE_CONFIG.linkedinProfileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-[#377CF3] hover:underline"
+                    className={`font-medium ${OFC_LINK}`}
                   >
                     LinkedIn
                   </a>
@@ -372,7 +373,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             <p>
               <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Certifiée Qualiopi
               · {SITE_CONFIG.email} ·{' '}
-              <a href={SITE_CONFIG.url} className="text-[#377CF3] hover:underline">
+              <a href={SITE_CONFIG.url} className={OFC_LINK}>
                 www.laureolivie.fr
               </a>
             </p>

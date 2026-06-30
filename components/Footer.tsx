@@ -9,6 +9,7 @@ import { LINKS } from '@/lib/internal-links';
 import { FOOTER_GEO_LINKS, FOOTER_METIER_LINKS } from '@/lib/contextual-internal-links';
 import { FooterExploreStrip } from '@/components/layout/FooterExploreStrip';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export function Footer() {
   const companyLinks = [
@@ -71,7 +72,7 @@ export function Footer() {
             </p>
             <Link
               href={LINKS.skillIaConducteurTravaux}
-              className="mt-3 inline-flex text-sm font-medium text-[var(--accent)] hover:underline"
+              className={`mt-3 inline-flex text-sm ${OFC_LINK}`}
             >
               Guide Conducteur de travaux — PDF gratuit →
             </Link>

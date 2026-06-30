@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export interface AllerPlusLoinLink {
   href: string;
@@ -81,7 +82,7 @@ export function AllerPlusLoin({ links = DEFAULT_LINKS, variant = 'default' }: Al
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
+                className={`inline-flex items-center gap-2 ${OFC_LINK}`}
               >
                 {label}
                 <ArrowRight size={16} strokeWidth={1.5} className="shrink-0" />
@@ -89,7 +90,7 @@ export function AllerPlusLoin({ links = DEFAULT_LINKS, variant = 'default' }: Al
             ) : (
               <Link
                 href={href}
-                className="inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
+                className={`inline-flex items-center gap-2 ${OFC_LINK}`}
               >
                 {label}
                 <ArrowRight size={16} strokeWidth={1.5} className="shrink-0" />

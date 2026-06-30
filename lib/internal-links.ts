@@ -147,6 +147,10 @@ export const LINKS = {
   guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-de-travaux',
   /** PDF gratuit — Guide conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
   pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
+  /** Lead magnet — Guide Maître d'Œuvre × IA (12 missions MOE) */
+  guideMaitriseOeuvreIa: '/ressources/guide-maitrise-oeuvre-ia',
+  /** PDF gratuit — Guide MOE × IA OFC */
+  pdfGuideMoeIa: '/ressources/pdf/guide-moe-ia.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
   /** Hub Ressources — index général (tutos, guides…) */

@@ -1,5 +1,9 @@
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
+/** Alt unique du logo header — identique sur tout le site. */
+export const SITE_LOGO_ALT =
+  'Laure Olivié — formation IA pour le BTP, organisme certifié Qualiopi';
+
 export const PHOTOS = {
   // Photo profil rond fond bleu (LinkedIn / Graz)
   profileBlue: {
@@ -12,7 +16,7 @@ export const PHOTOS = {
   /** Avatar site — portrait circulaire IA & BTP (header + auteur articles) */
   siteAvatar: {
     src: '/images/laure-avatar-bleu-2026.webp',
-    alt: "Laure Olivié, formatrice IA pour le BTP — portrait circulaire OFC Création d'Entreprise certifiée Qualiopi — formation IA BTP",
+    alt: SITE_LOGO_ALT,
     width: 1024,
     height: 1024,
   },
@@ -382,7 +386,7 @@ export const PHOTOS = {
   /** Page /ressources — affiche hero tutos PDF, guides et fiches pratiques IA BTP gratuits */
   ressourcesIaBtpHero2026: {
     src: '/images/ressources-gratuites-ia-btp-hero-2026.png',
-    alt: "Ressources gratuites IA BTP — tutos PDF, guides et fiches pratiques, Laure Olivié formatrice Qualiopi, Paris et IDF",
+    alt: 'Ressources gratuites IA BTP : tutos PDF, guides et fiches pratiques par Laure Olivié (Qualiopi)',
     title: 'Ressources gratuites IA BTP — tutos, guides et fiches pratiques, Laure Olivié OFC Qualiopi',
     width: 1024,
     height: 1024,
@@ -391,70 +395,70 @@ export const PHOTOS = {
   /** Tuto skill Mémoire Technique BTP — visuel promotionnel page /ressources/tuto-memoire-technique */
   tutoMemoireTechniqueHero2026: {
     src: '/images/tuto-memoire-technique-hero-2026.png',
-    alt: "Tuto skill Mémoire Technique BTP — assistant Claude pour mémoires techniques, Laure Olivié formatrice IA — formation IA BTP",
+    alt: 'Tuto : créer un skill Claude qui rédige les mémoires techniques BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoDuerpHero2026: {
     src: '/images/tuto-duerp-hero-2026.png',
-    alt: "Tuto skill DUERP BTP — Document Unique en 30 min, Laure Olivié formatrice IA Qualiopi — formation IA BTP, Paris IDF",
+    alt: 'Tuto : créer un skill Claude « DUERP » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoPpspsHero2026: {
     src: '/images/tuto-ppsps-hero-2026.png',
-    alt: "Tuto skill PPSPS BTP — plan de prévention en 30 min, Laure Olivié formatrice IA — formation IA BTP, Paris et IDF",
+    alt: 'Tuto : créer un skill Claude « PPSPS » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoPvLeveeReservesHero2026: {
     src: '/images/tuto-pv-levee-reserves-hero-2026.png',
-    alt: "Tuto skill PV de levée de réserves BTP — rédaction juridique en 3 min, Laure Olivié — formation IA BTP, Guyancourt (78)",
+    alt: 'Tuto : créer un skill Claude « PV de levée de réserves » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoConstatRetardHero2026: {
     src: '/images/tuto-constat-retard-hero-2026.png',
-    alt: "Tuto skill Constat de retard BTP — courrier de réserves en 8 min, Laure Olivié — formation IA BTP, Guyancourt (78)",
+    alt: 'Tuto : créer un skill Claude « constat de retard » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoDispatchBtpHero2026: {
     src: '/images/tuto-dispatch-btp-hero-2026.png',
-    alt: "Tuto Dispatch BTP — piloter son PC depuis le chantier, Laure Olivié formatrice IA — formation IA BTP, Paris IDF",
+    alt: 'Tuto : piloter son PC depuis le chantier avec Claude (Dispatch BTP)',
     width: 1024,
     height: 1024,
   },
 
   tutoAnalyseDceHero2026: {
     src: '/images/tuto-analyse-dce-hero-2026.png',
-    alt: "Tuto skill Analyse de DCE BTP — 220 pages en 3 min avec Claude, Laure Olivié formatrice IA — formation IA BTP, Île-de-France",
+    alt: 'Tuto : créer un skill Claude qui analyse un DCE de 220 pages en 3 minutes',
     width: 1024,
     height: 1024,
   },
 
   tutoTriDceClaudeChromeHero2026: {
     src: '/images/tuto-tri-dce-claude-chrome-hero-2026.png',
-    alt: "Tuto Trie tes DCE avec Claude in Chrome — veille BOAMP automatique, Laure Olivié — formation IA BTP, Paris et IDF",
+    alt: 'Tuto : trier ses DCE avec Claude in Chrome et veille BOAMP automatique',
     width: 1024,
     height: 1024,
   },
 
   tutoCrChantierHero2026: {
     src: '/images/tuto-cr-chantier-hero-2026.png',
-    alt: "Tuto skill Compte rendu de chantier BTP — dictée vocale vers CR Word, Laure Olivié — formation IA BTP, Paris IDF",
+    alt: 'Tuto : créer un skill Claude « compte rendu de chantier » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoDoeHero2026: {
     src: '/images/tuto-doe-hero-2026.png',
-    alt: "Tuto skill DOE BTP — dossier des ouvrages exécutés en 30 min, Laure Olivié formatrice IA — formation IA BTP, Île-de-France",
+    alt: 'Tuto : créer un skill Claude « DOE » (dossier des ouvrages exécutés) pour le BTP',
     width: 1024,
     height: 1024,
   },

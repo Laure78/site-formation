@@ -6,6 +6,8 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_PRENDRE_RDV } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
+import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -21,11 +23,11 @@ export default function PrendreRDVPage() {
   return (
     <div className="min-h-[80vh]">
       <JsonLd id="schema-faq-page" schema={faqSchema} />
-      <section className="border-b border-slate-200 bg-white px-4 py-12">
-        <div className="mx-auto max-w-4xl">
+      <section className={OFC_SEC.whiteMesh}>
+        <div className={`${OFC_SECTION_INNER} max-w-4xl`}>
           <Link
             href="/"
-            className="text-sm text-[var(--accent)] hover:underline"
+            className={`text-sm ${OFC_LINK}`}
           >
             ← Retour à l&apos;accueil
           </Link>
@@ -41,7 +43,7 @@ export default function PrendreRDVPage() {
             Pas de distanciel pour la formation · pas de déplacement hors Île-de-France.
           </p>
           <p className="mt-4">
-            <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
+            <Link href="/formations" className={OFC_LINK}>
               Voir le catalogue formations IA BTP →
             </Link>
           </p>

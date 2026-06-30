@@ -23,10 +23,17 @@ export function clampMetaDescription(text: string, max = META_DESCRIPTION_MAX): 
   const normalized = text.replace(/\s+/g, ' ').trim();
   if (normalized.length <= max) return normalized;
 
-  const slice = normalized.slice(0, max - 1);
+  const window = normalized.slice(0, max);
+  const lastPeriod = window.lastIndexOf('.');
+  if (lastPeriod >= Math.floor(max * 0.45)) {
+    return window.slice(0, lastPeriod + 1).trim();
+  }
+
+  const slice = normalized.slice(0, max);
   const lastSpace = slice.lastIndexOf(' ');
-  const cut = lastSpace > max * 0.55 ? slice.slice(0, lastSpace) : slice.slice(0, max - 1);
-  return `${cut.replace(/[,;:.\s-]+$/u, '')}…`;
+  const cut = lastSpace > max * 0.55 ? slice.slice(0, lastSpace) : slice.slice(0, max);
+  const trimmed = cut.replace(/[,;:.\s-]+$/u, '').trim();
+  return trimmed.endsWith('.') ? trimmed : `${trimmed}.`;
 }
 
 export function buildMetaDescription(text: string, max = META_DESCRIPTION_MAX): string {
