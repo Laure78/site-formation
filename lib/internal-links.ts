@@ -126,6 +126,8 @@ export const LINKS = {
   bework: '/bework',
   /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
   beworkPlateforme: '/bework/plateforme',
+  /** Page watch — vidéo promo formations IA BTP (indexation Google Video) */
+  videoFormationsIaBtp: '/video/formations-ia-btp',
   diagnostic: '/diagnostic-ia-btp',
   outilsIaBtp: '/outils-ia-btp',
   /** Sélecteur interactif — cas d'usage IA par métier BTP */

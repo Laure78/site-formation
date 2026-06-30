@@ -58,7 +58,9 @@ export function OfcPromoVideoEmbed({
           src={OFC_PROMO_VIDEO.src}
           title={iframeTitle}
           className="absolute inset-0 h-full w-full border-0"
+          allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
+          loading="lazy"
         />
       </div>
     </div>

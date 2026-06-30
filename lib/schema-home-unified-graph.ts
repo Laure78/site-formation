@@ -20,6 +20,7 @@ import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profil
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { PHOTOS } from '@/lib/photos';
 import { buildHomeHeroImageObjectNode, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
+import { buildPromoVideoObjectJsonLd } from '@/lib/schema-promo-video';
 
 const ANNUAIRE_LABELS_CERT =
   'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281';
@@ -33,6 +34,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const breadcrumbId = `${base}/#breadcrumb`;
   const courseId = `${base}/#course-pivot`;
   const imageHeroId = HOME_HERO_IMAGE_OBJECT_ID;
+  const homeVideoId = `${base}/#video-formation-ia-btp-accueil`;
 
   const heroImageUrl = `${base}${PHOTOS.heroAccueilFormationIABtpEchange2026.src}`;
   const personImageUrl = `${base}${PHOTOS.portraitPro2026.src}`;
@@ -152,6 +154,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           '@type': 'SpeakableSpecification',
           cssSelector: ['.citation-sentence', 'h1', 'h2'],
         },
+        video: { '@id': homeVideoId },
       },
       {
         '@type': 'BreadcrumbList',
@@ -216,6 +219,11 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
             'Dirigeants PME BTP, conducteurs de travaux, chargés d\'affaires, équipes administratives BTP',
         },
         aggregateRating: buildSchemaAggregateRating(),
+      },
+      {
+        ...buildPromoVideoObjectJsonLd({ pageUrl: base, idSuffix: 'video-formation-ia-btp-accueil' }),
+        '@id': homeVideoId,
+        mainEntityOfPage: { '@id': webpageId },
       },
     ],
   };

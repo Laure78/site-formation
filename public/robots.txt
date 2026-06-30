@@ -27,3 +27,4 @@ Allow: /
 
 # Sitemap
 Sitemap: https://www.laureolivie.fr/sitemap.xml
+Sitemap: https://www.laureolivie.fr/video-sitemap.xml

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { AccueilHeroVideoEmbed } from '@/components/landing/AccueilHeroVideoEmbed';
+import { Suspense } from 'react';
+import { AccueilHeroVideoSection } from '@/components/landing/AccueilHeroVideoSection';
 import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
@@ -24,11 +25,12 @@ import {
   X,
   Building2,
 } from 'lucide-react';
-import { FAQAccordion } from '@/components/landing/FAQAccordion';
-import { ContactDirect } from '@/components/landing/ContactDirect';
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
-import { LinkedInLearningCredibilitySection } from '@/components/landing/LinkedInLearningCredibilitySection';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
+import { GoogleReviewsSectionPlaceholder } from '@/components/landing/GoogleReviewsSectionPlaceholder';
+import { HomeDeferredClientsLogos } from '@/components/landing/HomeDeferredClientsLogos';
+import { HomeDeferredLinkedInLearning } from '@/components/landing/HomeDeferredLinkedInLearning';
+import { HomeFaqDetailsList } from '@/components/landing/HomeFaqDetailsList';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import Image from 'next/image';
 import Script from 'next/script';
@@ -40,7 +42,6 @@ import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSect
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
-import { ClientsLogosMarquee } from '@/components/landing/ClientsLogosMarquee';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import {
@@ -55,7 +56,7 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
-import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -74,7 +75,7 @@ import {
   COUNT_UP_PROS_PLUS,
   COUNT_UP_RATING,
   COUNT_UP_SATISFACTION,
-  STATS_FRESHNESS_LABEL,
+  getStatsFreshnessLabel,
 } from '@/lib/readability-presets';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
@@ -191,6 +192,8 @@ export const metadata = createPageMetadata({
 
 
 export default function HomePage() {
+  const statsFreshness = getStatsFreshnessLabel();
+
   return (
     <div>
       {/* Hero — Formation IA pour le BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
@@ -256,13 +259,13 @@ export default function HomePage() {
                   variant="inline"
                   value={COUNT_UP_PROS}
                   label="professionnels formés"
-                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                  freshnessLabel={statsFreshness}
                 />
                 <StatCallout
                   variant="inline"
                   value={COUNT_UP_RATING}
                   label="note moyenne"
-                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                  freshnessLabel={statsFreshness}
                 />
               </div>
             </div>
@@ -270,7 +273,7 @@ export default function HomePage() {
             <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24">
               <div className="w-full rounded-2xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_16px_40px_-22px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
                 <div className="rounded-[0.85rem] bg-white p-3 sm:p-4">
-                  <AccueilHeroVideoEmbed />
+                  <AccueilHeroVideoSection />
                 </div>
               </div>
             </aside>
@@ -443,7 +446,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ClientsLogosMarquee />
+      <HomeDeferredClientsLogos />
 
       {/* CTA mi-page — visio découverte */}
       <section className={OFC_SEC.mutedCompact}>
@@ -494,14 +497,14 @@ export default function HomePage() {
                   className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
                   value={COUNT_UP_PROS_PLUS}
                   label="personnes formées"
-                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                  freshnessLabel={statsFreshness}
                 />
                 <StatCallout
                   variant="inverse"
                   className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
                   value={COUNT_UP_RATING}
                   label="note moyenne"
-                  freshnessLabel={STATS_FRESHNESS_LABEL}
+                  freshnessLabel={statsFreshness}
                 />
                 <StatCallout
                   variant="inverse"
@@ -530,7 +533,9 @@ export default function HomePage() {
       <EtudeCasClientsSection />
 
       {/* Témoignages Google — sous « Ils m'ont fait confiance » (hiérarchie H2 → H3) */}
-      <GoogleReviewsSection />
+      <Suspense fallback={<GoogleReviewsSectionPlaceholder />}>
+        <GoogleReviewsSection />
+      </Suspense>
 
       {/* Les bénéfices — H2 unique + sous-sections H3 */}
       <section
@@ -616,14 +621,7 @@ export default function HomePage() {
               <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
             </div>
 
-            <div
-              className="relative mt-16 overflow-hidden rounded-3xl border border-slate-200/80 bg-gradient-to-b from-slate-100/50 via-white to-slate-50 px-4 py-12 md:px-8 md:py-16"
-              aria-labelledby="probleme-solution-heading"
-            >
-              <div
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(37,99,235,0.12),transparent)]"
-                aria-hidden
-              />
+            <div className={OFC_INSET_PANEL} aria-labelledby="probleme-solution-heading">
               <Reveal className="text-center">
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-slate-500">
                   Avant · Après
@@ -777,7 +775,7 @@ export default function HomePage() {
               </Reveal>
             </div>
         </div>
-        <div className="bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-20">
+        <div className={OFC_INNER_ACCENT_BAND}>
           <div className="mx-auto max-w-7xl">
             <Reveal>
               <p className="max-w-3xl text-base leading-relaxed text-blue-100/95 md:text-lg">
@@ -1239,10 +1237,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <LinkedInLearningCredibilitySection
-            id="accueil-linkedin-learning"
-            className="mt-16"
-          />
+          <HomeDeferredLinkedInLearning />
 
           <div className="mt-16 space-y-16 border-t border-slate-200 pt-16">
             <Reveal>
@@ -1372,7 +1367,7 @@ export default function HomePage() {
           </p>
           </Reveal>
           <Reveal className="mt-8">
-            <FAQAccordion items={FAQ_ITEMS_HOME} />
+            <HomeFaqDetailsList items={FAQ_ITEMS_HOME} />
           </Reveal>
         </div>
       </section>
@@ -1426,13 +1421,13 @@ export default function HomePage() {
               variant="inverse"
               value={COUNT_UP_PROS_PLUS}
               label="Professionnels formés"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
             <StatCallout
               variant="inverse"
               value={COUNT_UP_SATISFACTION}
               label="Satisfaction"
-              freshnessLabel={STATS_FRESHNESS_LABEL}
+              freshnessLabel={statsFreshness}
             />
             <StatCallout variant="inverse" value="OPCO" label="Financement possible" />
           </RevealGroup>
