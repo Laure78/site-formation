@@ -1,0 +1,196 @@
+{
+  "generatedAt": "2026-07-02T16:09:23.525Z",
+  "source": "/Users/laure/Documents/BeWork/bework/skills",
+  "count": 21,
+  "skills": [
+    {
+      "id": "3dmanager-cr-chantier",
+      "name": "3dmanager-cr-chantier",
+      "description": "Rédige et met en forme les comptes rendus de réunion de chantier de 3D MANAGER (bureau d'études TCE / maîtrise d'œuvre d'exécution, agence Île-de-France) à partir de notes brutes, d'une dictée en vrac ou d'un vocal transcrit, et d'un historique de CR. Produit un .docx à la charte graphique 3D MANAGER — structure par corps d'état, observations numérotées en continu, reprise et mise à jour des points non soldés du CR précédent (statut Levé / En cours / En attente), bandeau logoté et pied de page légal ISO 9001. Déclencher dès que l'utilisateur écrit « rédige le CR de la visite », « génère le compte rendu de chantier », « mets en forme mes notes de chantier », « CR à la charte 3D Manager », « compte rendu MOEX », « nouveau CR à partir du précédent », ou dès qu'il fournit, dicte ou colle des constats de visite avec ou sans le CR précédent. Compatible tous lots TCE. Toujours utiliser ce skill plutôt que de rédiger un CR à la main quand un compte rendu de chantier 3D MANAGER est demandé.",
+      "mdUrl": "/ressources/skills/3dmanager-cr-chantier/3dmanager-cr-chantier.md",
+      "skillMdUrl": "/ressources/skills/3dmanager-cr-chantier/SKILL.md",
+      "skillUrl": "/ressources/skills/3dmanager-cr-chantier/3dmanager-cr-chantier.skill",
+      "hasAssets": true
+    },
+    {
+      "id": "assistant-travaux",
+      "name": "assistant-travaux",
+      "description": "Qualifie et traite une demande administrative BTP non catégorisée.",
+      "mdUrl": "/ressources/skills/assistant-travaux/assistant-travaux.md",
+      "skillMdUrl": "/ressources/skills/assistant-travaux/SKILL.md",
+      "skillUrl": "/ressources/skills/assistant-travaux/assistant-travaux.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "balas-analyser-dce-mh",
+      "name": "balas-analyser-dce-mh",
+      "description": "\"Analyse un DCE Monument Historique pour le Groupe Balas (BALAS SAS, CCR, Ateliers Uni-Marbres). Extrait les 18 informations critiques d'un AO MH : pondération valeur technique vs prix, qualifications Qualibat MH éliminatoires (3194, 3163, 2194, 6593), références ACMH < 5 ans exigées, visite obligatoire, contraintes ABF, sujétions patrimoniales cachées (parapluie M1, mock-ups, échantillons, DOE enrichi, plomb d'art). Produit une fiche d'analyse spécialisée MH exploitable par les chargés d'affaires Balas/CCR. Déclencher ce skill dès qu'un utilisateur Balas/CCR mentionne : analyser un DCE Monument Historique, lire un AO patrimoine, décortiquer un CCTP ACMH, points de vigilance ABF, exigences Qualibat MH, références ACMH, ou colle un DCE de restauration patrimoniale (Ville de Paris DCPA, OPPIC, DRAC, CMN, Région IDF). Compatible tous corps d'état Balas : couverture-zinguerie-plomb d'art, maçonnerie-pierre, ravalement chaux, taille de pierre, plâtres, modénatures.\"",
+      "mdUrl": "/ressources/skills/balas-analyser-dce-mh/balas-analyser-dce-mh.md",
+      "skillMdUrl": "/ressources/skills/balas-analyser-dce-mh/SKILL.md",
+      "skillUrl": "/ressources/skills/balas-analyser-dce-mh/balas-analyser-dce-mh.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "balas-gonogo-mh",
+      "name": "balas-gonogo-mh",
+      "description": "\"Décision Go/No Go argumentée en 30 minutes pour les appels d'offres Monument Historique du Groupe Balas (BALAS SAS, CCR, Ateliers Uni-Marbres). Applique une grille pondérée à 9 critères calibrée pour les marchés MH : zone géographique, type chantier, qualifications Qualibat MH détenues, références ACMH disponibles, plan de charge équipes patrimoine, marge cible (≥ 8%), MO connu, délai de réponse, solvabilité. Donne un score /100, une recommandation Go / Go conditionnel / No Go et les 5 risques majeurs chiffrés. Déclencher ce skill dès qu'un utilisateur Balas/CCR mentionne : décision Go/No Go, faut-il répondre à cet AO, vaut-il la peine de répondre, rentabilité prévisionnelle AO MH, marge cible patrimoine, on y va ou pas, risque appel d'offres, analyse opportunité commerciale, grille de décision, faire un Go/No Go. Compatible tous corps d'état Balas : couverture-plomb d'art, maçonnerie-pierre, taille de pierre, ravalement chaux, plâtres, modénatures.\"",
+      "mdUrl": "/ressources/skills/balas-gonogo-mh/balas-gonogo-mh.md",
+      "skillMdUrl": "/ressources/skills/balas-gonogo-mh/SKILL.md",
+      "skillUrl": "/ressources/skills/balas-gonogo-mh/balas-gonogo-mh.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "controle-memoire-technique-btp",
+      "name": "controle-memoire-technique-btp",
+      "description": "\"Audite un mémoire technique BTP avec l'œil d'un évaluateur de marché public (acheteur, MOA, MOE, AMO). Attribue une note probable critère par critère, liste les faiblesses, les informations manquantes au regard du CCTP/RC, et les améliorations prioritaires avant remise. Produit un rapport d'audit Word : note globale estimée, scoring détaillé, top 10 faiblesses, top 5 améliorations à fort impact, verdict (conforme/à risque/non conforme). Tous corps d'état BTP : gros œuvre, second œuvre, étanchéité, couverture, bardage, plomberie, électricité, peinture, VRD, TP, génie civil, monuments historiques. Déclencher dès que l'utilisateur mentionne : relire mon mémoire technique, contrôler un MT, auditer mon offre, scorer ou noter mon mémoire, simuler la notation, anticiper la note, regard évaluateur, points faibles de mon MT, qu'est-ce qui manque, améliorer avant remise, relecture avant dépôt — ou qu'il fournit un MT à relire/auditer.\"",
+      "mdUrl": "/ressources/skills/controle-memoire-technique-btp/controle-memoire-technique-btp.md",
+      "skillMdUrl": "/ressources/skills/controle-memoire-technique-btp/SKILL.md",
+      "skillUrl": "/ressources/skills/controle-memoire-technique-btp/controle-memoire-technique-btp.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "dossier-intervention",
+      "name": "dossier-intervention",
+      "description": "Prépare un dossier d'intervention BTP (DT/DICT, autorisations, planning, contacts, pièces manquantes).",
+      "mdUrl": "/ressources/skills/dossier-intervention/dossier-intervention.md",
+      "skillMdUrl": "/ressources/skills/dossier-intervention/SKILL.md",
+      "skillUrl": "/ressources/skills/dossier-intervention/dossier-intervention.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "moex-dc4-sous-traitance",
+      "name": "moex-dc4-sous-traitance",
+      "description": "Traite les déclarations DC4, contrôle des pièces sous-traitants, demandes d'agrément MOA et registre de suivi par lot.",
+      "mdUrl": "/ressources/skills/moex-dc4-sous-traitance/moex-dc4-sous-traitance.md",
+      "skillMdUrl": "/ressources/skills/moex-dc4-sous-traitance/SKILL.md",
+      "skillUrl": "/ressources/skills/moex-dc4-sous-traitance/moex-dc4-sous-traitance.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "moex-doe-livraison",
+      "name": "moex-doe-livraison",
+      "description": "Constitution et mise en forme du DOE (dossier des ouvrages exécutés) et suivi des pièces manquantes par lot.",
+      "mdUrl": "/ressources/skills/moex-doe-livraison/moex-doe-livraison.md",
+      "skillMdUrl": "/ressources/skills/moex-doe-livraison/SKILL.md",
+      "skillUrl": "/ressources/skills/moex-doe-livraison/moex-doe-livraison.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "moex-pieces-dce",
+      "name": "moex-pieces-dce",
+      "description": "Saisie et mise en page des pièces écrites MOEX (CCTP, RC, CCAP) et tableaux DPGF quantitatifs pour consultation TCE.",
+      "mdUrl": "/ressources/skills/moex-pieces-dce/moex-pieces-dce.md",
+      "skillMdUrl": "/ressources/skills/moex-pieces-dce/SKILL.md",
+      "skillUrl": "/ressources/skills/moex-pieces-dce/moex-pieces-dce.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "moex-suivi-levees-reserves",
+      "name": "moex-suivi-levees-reserves",
+      "description": "Suivi des levées de réserves après réception — tableau par lot, relances entreprises, statuts Levé / En cours.",
+      "mdUrl": "/ressources/skills/moex-suivi-levees-reserves/moex-suivi-levees-reserves.md",
+      "skillMdUrl": "/ressources/skills/moex-suivi-levees-reserves/SKILL.md",
+      "skillUrl": "/ressources/skills/moex-suivi-levees-reserves/moex-suivi-levees-reserves.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-analyse-dce",
+      "name": "promotech-analyse-dce",
+      "description": "Analyse un DCE (RC, CCAP, CCTP, DPGF) du point de vue d'un maître d'œuvre d'exécution PROMOTECH sur des opérations de logements collectifs en Île-de-France. Produit une fiche d'analyse structurée. Déclencher dès que l'utilisateur écrit : analyse ce DCE, décrypte ce dossier de consultation, synthèse du DCE, que dit ce dossier, analyse le marché, points de vigilance du DCE, ou colle / dépose un RC, CCAP, CCTP ou DPGF.",
+      "mdUrl": "/ressources/skills/promotech-analyse-dce/promotech-analyse-dce.md",
+      "skillMdUrl": "/ressources/skills/promotech-analyse-dce/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-analyse-dce/promotech-analyse-dce.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-comparatif-offres",
+      "name": "promotech-comparatif-offres",
+      "description": "Compare les offres d'un lot et prépare la recommandation d'attribution au maître d'ouvrage pour un MOEX PROMOTECH. Produit un tableau comparatif multi-critères, l'analyse des prix anormalement bas, les questions de mise au point et une trame de rapport d'analyse des offres (RAO). Déclencher dès que l'utilisateur écrit : compare ces offres, tableau comparatif des offres, classer les offres, quelle entreprise retenir, recommandation d'attribution, rapport d'analyse des offres, RAO, mise au point, prix anormalement bas.",
+      "mdUrl": "/ressources/skills/promotech-comparatif-offres/promotech-comparatif-offres.md",
+      "skillMdUrl": "/ressources/skills/promotech-comparatif-offres/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-comparatif-offres/promotech-comparatif-offres.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-conformite-offre",
+      "name": "promotech-conformite-offre",
+      "description": "Vérifie la conformité d'une offre d'entreprise au CCTP pour un maître d'œuvre d'exécution PROMOTECH. Détecte non-conformités, variantes, postes manquants ou sous-évalués, incohérences mémoire/prix. Déclencher dès que l'utilisateur écrit : vérifie la conformité de cette offre, cette offre respecte-t-elle le CCTP, analyse l'offre de [entreprise], non-conformités, variantes proposées, postes oubliés dans l'offre, cohérence de l'offre — ou colle le mémoire technique / la proposition d'une entreprise.",
+      "mdUrl": "/ressources/skills/promotech-conformite-offre/promotech-conformite-offre.md",
+      "skillMdUrl": "/ressources/skills/promotech-conformite-offre/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-conformite-offre/promotech-conformite-offre.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-courrier-moe",
+      "name": "promotech-courrier-moe",
+      "description": "Rédige les courriers de maîtrise d'œuvre d'un MOEX PROMOTECH (logements collectifs IDF) — relance entreprise, mise en demeure, courrier au maître d'ouvrage, note de diffusion, certificat administratif. Au bon format, traçable et opposable. Déclencher dès que l'utilisateur écrit : rédige un courrier, relance entreprise, mise en demeure, courrier au MOA, note aux entreprises, certificat administratif, lettre recommandée chantier.",
+      "mdUrl": "/ressources/skills/promotech-courrier-moe/promotech-courrier-moe.md",
+      "skillMdUrl": "/ressources/skills/promotech-courrier-moe/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-courrier-moe/promotech-courrier-moe.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-cr-chantier",
+      "name": "promotech-cr-chantier",
+      "description": "Rédige le compte rendu d'une réunion de chantier pour un maître d'œuvre d'exécution PROMOTECH (logements collectifs IDF), à partir de notes ou d'une dictée en vrac. Structure par corps d'état, numérote les observations, reprend les points non soldés du CR précédent. Déclencher dès que l'utilisateur écrit : rédige le CR de la visite, génère le compte rendu de chantier, mets en forme mes notes de chantier, CR de réunion de chantier — ou dicte / colle des constats de visite.",
+      "mdUrl": "/ressources/skills/promotech-cr-chantier/promotech-cr-chantier.md",
+      "skillMdUrl": "/ressources/skills/promotech-cr-chantier/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-cr-chantier/promotech-cr-chantier.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-ordre-de-service",
+      "name": "promotech-ordre-de-service",
+      "description": "Rédige des ordres de service (OS) conformes pour un maître d'œuvre d'exécution PROMOTECH (logements collectifs IDF) — prolongation de délai, arrêt/reprise, prescription technique. Garantit les mentions obligatoires et l'opposabilité. Déclencher dès que l'utilisateur écrit : rédige un OS, ordre de service, OS de prolongation, OS d'arrêt, OS de reprise, prescription par OS, prolonger le délai du lot, suspendre les travaux.",
+      "mdUrl": "/ressources/skills/promotech-ordre-de-service/promotech-ordre-de-service.md",
+      "skillMdUrl": "/ressources/skills/promotech-ordre-de-service/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-ordre-de-service/promotech-ordre-de-service.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-pv-reserves",
+      "name": "promotech-pv-reserves",
+      "description": "Produit les PV de réception et listes de réserves d'un MOEX PROMOTECH (logements collectifs IDF), classés par lot, et assure le suivi de leur levée. Déclencher dès que l'utilisateur écrit : fais le PV de réception, liste des réserves, PV de réception avec réserves, OPR, pré-réception, tableau de suivi des réserves, constat de levée, relance de réserves.",
+      "mdUrl": "/ressources/skills/promotech-pv-reserves/promotech-pv-reserves.md",
+      "skillMdUrl": "/ressources/skills/promotech-pv-reserves/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-pv-reserves/promotech-pv-reserves.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-suivi-acquereurs",
+      "name": "promotech-suivi-acquereurs",
+      "description": "Gère la relation acquéreurs en VEFA pour un MOEX PROMOTECH (logements collectifs IDF) — réponses aux réclamations, réserves acquéreurs à la livraison, courriers de levée, suivi de la garantie de parfait achèvement. Déclencher dès que l'utilisateur écrit : réponds à l'acquéreur, réclamation acquéreur, réserves acquéreur, courrier de livraison, levée acquéreur, suivi GPA, désordre en GPA, parfait achèvement.",
+      "mdUrl": "/ressources/skills/promotech-suivi-acquereurs/promotech-suivi-acquereurs.md",
+      "skillMdUrl": "/ressources/skills/promotech-suivi-acquereurs/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-suivi-acquereurs/promotech-suivi-acquereurs.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "promotech-suivi-observations",
+      "name": "promotech-suivi-observations",
+      "description": "Pilote le suivi des observations de chantier d'un MOEX PROMOTECH d'une réunion à l'autre. Construit le tableau de suivi des points ouverts, repère les retards, prépare les relances entreprises et l'ordre du jour de la prochaine réunion. Déclencher dès que l'utilisateur écrit : tableau de suivi des observations, points en attente, points en retard, qu'est-ce qui n'est pas levé, relancer les entreprises, ordre du jour de la réunion, suivi des réserves de chantier.",
+      "mdUrl": "/ressources/skills/promotech-suivi-observations/promotech-suivi-observations.md",
+      "skillMdUrl": "/ressources/skills/promotech-suivi-observations/SKILL.md",
+      "skillUrl": "/ressources/skills/promotech-suivi-observations/promotech-suivi-observations.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "situation-travaux",
+      "name": "situation-travaux",
+      "description": "Structure une situation de travaux, attachements et suivi BPU/DPGF pour entreprises BTP.",
+      "mdUrl": "/ressources/skills/situation-travaux/situation-travaux.md",
+      "skillMdUrl": "/ressources/skills/situation-travaux/SKILL.md",
+      "skillUrl": "/ressources/skills/situation-travaux/situation-travaux.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "verification-dtu-bework",
+      "name": "verification-dtu-bework",
+      "description": "Rapproche chaque ligne d'un devis BTP du DTU (Document Technique Unifié) qui l'encadre, sans jamais reproduire le texte officiel. Produit un tableau d'analyse \"Ligne devis / Ouvrage détecté / DTU probable / Articles à vérifier / Niveau confiance\" et un rapport Word aux couleurs BeWork (bework.fr). Déclencher ce skill dès que l'utilisateur mentionne — \"vérifier les DTU\", \"à quel DTU correspond cette ligne\", \"DTU concerné\", \"DTU applicable\", \"rapprocher devis et DTU\", \"norme à vérifier sur ce devis\", \"quel DTU pour [ouvrage]\", \"AFNOR CSTB DTU\", \"contrôle normatif d'un devis\", \"article DTU à vérifier\", \"fiche DTU par ligne\". Déclencher AUSSI quand l'utilisateur colle un devis BTP, un DPGF ou une liste de prestations et demande la conformité normative, l'identification des DTU concernés ou un repérage des articles à contrôler. Compatible tous corps d'état : gros œuvre, second œuvre, revêtements, étanchéité, couverture, menuiserie, plâtrerie, peinture, plomberie, chauffage, électricité, isolation.",
+      "mdUrl": "/ressources/skills/verification-dtu-bework/verification-dtu-bework.md",
+      "skillMdUrl": "/ressources/skills/verification-dtu-bework/SKILL.md",
+      "skillUrl": "/ressources/skills/verification-dtu-bework/verification-dtu-bework.skill",
+      "hasAssets": false
+    }
+  ]
+}

@@ -11,6 +11,7 @@ const QUICK_LINKS = [
   { href: '#hub-par-theme', label: 'Par thématique' },
   { href: '#lexique-btp', label: 'Lexique BTP' },
   { href: '#guides-pdf', label: 'Guides PDF' },
+  { href: '#bibliotheque-skills', label: 'Bibliothèque skills' },
   { href: '#tutoriels-pdf', label: 'Tutoriels PDF' },
   { href: '#aller-plus-loin', label: 'Aller plus loin' },
 ] as const;

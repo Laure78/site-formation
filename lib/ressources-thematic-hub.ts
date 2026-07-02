@@ -34,6 +34,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     ],
     guides: [
       { label: 'Formation catalogue — Niveau 2 (appels d’offre BTP)', href: LINKS.formationAO },
+      { label: 'Bibliothèque skills — analyse DCE, mémoire, conformité (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: 'Landing — analyse CCTP / DCE', href: LINKS.formationIaAnalyseCctp },
       { label: 'Fiche formation — IA CCTP & analyse DCE', href: LINKS.formationIaCctpAnalyseDceBtp },
     ],
@@ -57,6 +58,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     ],
     guides: [
       { label: 'Guide — 6 outils IA pour conducteur de travaux', href: LINKS.guideConducteurTravauxIaBtp },
+      { label: 'Bibliothèque skills — CR, DOE, réserves (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: '10 cas d’usage IA BTP (ressource synthèse)', href: LINKS.casUsage },
       { label: 'Landing formation — IA conducteur de travaux', href: LINKS.formationConducteurTravaux },
       { label: 'PDF gratuit — guide conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
@@ -84,6 +86,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     description: 'Automatisation terrain-bureau (Dispatch), aide-mémoire et cluster Claude IA pour le BTP.',
     tutos: [{ label: 'Tuto — Dispatch BTP (Anthropic)', href: LINKS.tutoDispatchBtp }],
     guides: [
+      { label: 'Bibliothèque skills Claude BTP — 21 téléchargements', href: LINKS.bibliothequeSkills },
       { label: 'Comparatif et usages — outils IA BTP', href: LINKS.outilsIaBtp },
       { label: 'Lead magnet — pack 3 skills Claude (texte)', href: LINKS.downloadClaudeSkillsBtp },
       { label: 'Formation SEO — Claude AI BTP', href: LINKS.formationClaudeAiBtp },

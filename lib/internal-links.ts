@@ -159,6 +159,8 @@ export const LINKS = {
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
   /** Hub Ressources — index général (tutos, guides…) */
   ressources: '/ressources',
+  /** Bibliothèque skills Claude BTP — téléchargements .skill et .md */
+  bibliothequeSkills: '/ressources/bibliotheque-skills',
   /** Index listing — tous les tutos PDF Claude & IA BTP */
   ressourcesTutos: '/ressources/tutos',
   /** Tutos Ressources OFC — pages individuelles */

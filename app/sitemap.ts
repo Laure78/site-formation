@@ -81,7 +81,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formation-ia-travaux-publics', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/ressources', priority: 0.92, changeFrequency: 'weekly' },
-    { path: '/ressources/tutos', priority: 0.91, changeFrequency: 'weekly' },
+    { path: '/ressources/bibliotheque-skills', priority: 0.91, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ressources/ia-btp/10-cas-usage-concrets', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/ressources/guide-conducteur-de-travaux', priority: 0.9, changeFrequency: 'weekly' },

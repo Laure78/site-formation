@@ -8,6 +8,7 @@ import { TUTOS } from '@/lib/tutos';
 import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
 import { RessourcesThematicHub } from '@/components/ressources/RessourcesThematicHub';
 import { RessourcesGuidesSection } from '@/components/ressources/RessourcesGuidesSection';
+import { RessourcesSkillsSection } from '@/components/ressources/RessourcesSkillsSection';
 import { RessourcesHero } from '@/components/ressources/RessourcesHero';
 import { RessourcesLexiqueSection } from '@/components/ressources/RessourcesLexiqueSection';
 import { RessourcesTutosNav } from '@/components/ressources/RessourcesTutosNav';
@@ -134,6 +135,8 @@ export default function RessourcesIndexPage() {
       <RessourcesThematicHub />
 
       <RessourcesGuidesSection />
+
+      <RessourcesSkillsSection />
 
       <section id="tutoriels-pdf" className="scroll-mt-28 bg-[#F2F2F2] py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4">

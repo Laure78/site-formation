@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS=--max-old-space-size=4096 next build",
+    "build": "node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build",
+    "skills:build": "node scripts/build-bibliotheque-skills.mjs",
     "start": "next start",
     "lint": "eslint",
     "media:trends": "npx tsx scripts/trends.ts",
