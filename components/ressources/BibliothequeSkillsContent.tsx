@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Download, FileText, Package, Sparkles } from 'lucide-react';
+import { Download, FileText, Sparkles } from 'lucide-react';
 import {
   BIBLIOTHEQUE_SKILLS,
   SKILL_INSTALL_TUTORIAL,
@@ -32,39 +32,33 @@ export function BibliothequeSkillsContent() {
         <h2 id="skills-tutorial-heading" className="font-display mt-2 text-2xl font-bold text-slate-900 md:text-3xl">
           {SKILL_INSTALL_TUTORIAL.title}
         </h2>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">{SKILL_INSTALL_TUTORIAL.intro}</p>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">{SKILL_INSTALL_TUTORIAL.intro}</p>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          {SKILL_INSTALL_TUTORIAL.formats.map((format) => (
-            <div key={format.ext} className="rounded-xl border border-slate-200 bg-white p-4">
-              <p className="inline-flex items-center gap-2 font-semibold text-slate-900">
-                {format.ext === '.skill' ? (
-                  <Package className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                ) : (
-                  <FileText className="h-4 w-4 text-[#377CF3]" aria-hidden />
-                )}
-                {format.label}
-                <span className="rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-600">{format.ext}</span>
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{format.hint}</p>
-            </div>
+        <ol className="mt-6 space-y-4">
+          {SKILL_INSTALL_TUTORIAL.steps.map((step) => (
+            <li key={step.n} className="flex gap-4 rounded-xl border border-slate-200 bg-white p-4">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#377CF3] text-sm font-bold text-white">
+                {step.n}
+              </span>
+              <div>
+                <p className="font-semibold text-slate-900">{step.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600">{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-500">
+          {SKILL_INSTALL_TUTORIAL.formats.map((f) => (
+            <span key={f.ext} className="rounded-full border border-slate-200 bg-white px-3 py-1">
+              <span className="font-mono font-medium text-slate-700">{f.ext}</span>
+              <span className="mx-1.5 text-slate-300">·</span>
+              {f.label}
+            </span>
           ))}
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {SKILL_INSTALL_TUTORIAL.sections.map((section) => (
-            <article key={section.id} className="rounded-xl border border-slate-200 bg-white p-5">
-              <h3 className="font-display text-lg font-bold text-slate-900">{section.title}</h3>
-              <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
-                {section.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ol>
-            </article>
-          ))}
-        </div>
-
-        <p className="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-relaxed text-amber-950">
+        <p className="mt-5 text-xs leading-relaxed text-amber-900/90">
           {SKILL_INSTALL_TUTORIAL.disclaimer}
         </p>
       </section>

@@ -5,6 +5,7 @@ import { BibliothequeSkillsContent } from '@/components/ressources/BibliothequeS
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { SKILL_INSTALL_TUTORIAL } from '@/lib/bibliotheque-skills/tutorial';
 import { BIBLIOTHEQUE_SKILLS, BIBLIOTHEQUE_SKILLS_COUNT } from '@/lib/bibliotheque-skills';
 
 const PATH = '/ressources/bibliotheque-skills';
@@ -50,26 +51,12 @@ const collectionJsonLd = {
       name: 'Installer un skill Claude BTP (.skill ou .md)',
       description:
         'Télécharger un skill depuis la bibliothèque BeWork et l\'importer dans Claude.ai, Claude Code ou Cursor.',
-      step: [
-        {
-          '@type': 'HowToStep',
-          position: 1,
-          name: 'Télécharger',
-          text: 'Choisir le skill et télécharger le fichier .skill ou .md.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 2,
-          name: 'Importer',
-          text: 'Claude.ai : Paramètres → Skills → Importer. Claude Code : npx skill-import fichier.skill.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 3,
-          name: 'Utiliser',
-          text: 'Décrire la tâche métier en langage naturel — relire le livrable avant envoi client.',
-        },
-      ],
+      step: SKILL_INSTALL_TUTORIAL.steps.map((s) => ({
+        '@type': 'HowToStep',
+        position: s.n,
+        name: s.title,
+        text: s.text,
+      })),
     },
   ],
 };
