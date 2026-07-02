@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Download, Package } from 'lucide-react';
+import { ArrowRight, Package } from 'lucide-react';
 import { BIBLIOTHEQUE_SKILLS_COUNT } from '@/lib/bibliotheque-skills';
 import { LINKS } from '@/lib/internal-links';
 
@@ -17,19 +17,18 @@ export function RessourcesSkillsSection() {
             Bibliothèque skills Claude BTP
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            {BIBLIOTHEQUE_SKILLS_COUNT} skills métier prêts à importer : compte rendu chantier, analyse DCE, mémoire
-            technique, réserves, DOE… Téléchargement en .md ou .skill, avec tutoriel d&apos;installation pas à pas.
+            {BIBLIOTHEQUE_SKILLS_COUNT} skills métier prêts à importer : CR chantier, analyse DCE, mémoire technique,
+            réserves, DOE… Téléchargement .skill + tutoriel en 3 étapes.
           </p>
         </header>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {[
-            { icon: Package, title: 'Format .skill', desc: 'Archive ZIP prête pour Claude.ai, Claude Code ou Cursor.' },
-            { icon: Download, title: 'Format .md', desc: 'Fichier SKILL.md à lire, adapter ou intégrer dans ton projet.' },
+            { icon: Package, title: 'Format .skill', desc: 'Archive prête pour Claude.ai ou Claude Code.' },
             {
               icon: ArrowRight,
-              title: 'Tutoriel inclus',
-              desc: 'Mode d\'emploi : import web, terminal, IDE et usage du Markdown seul.',
+              title: 'Tutoriel en 3 étapes',
+              desc: 'Télécharger → Importer → Utiliser. Sans prise de tête.',
             },
           ].map(({ icon: Icon, title, desc }) => (
             <div key={title} className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-5">

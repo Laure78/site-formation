@@ -48,16 +48,6 @@ export function BibliothequeSkillsContent() {
           ))}
         </ol>
 
-        <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-500">
-          {SKILL_INSTALL_TUTORIAL.formats.map((f) => (
-            <span key={f.ext} className="rounded-full border border-slate-200 bg-white px-3 py-1">
-              <span className="font-mono font-medium text-slate-700">{f.ext}</span>
-              <span className="mx-1.5 text-slate-300">·</span>
-              {f.label}
-            </span>
-          ))}
-        </div>
-
         <p className="mt-5 text-xs leading-relaxed text-amber-900/90">
           {SKILL_INSTALL_TUTORIAL.disclaimer}
         </p>
@@ -73,8 +63,7 @@ export function BibliothequeSkillsContent() {
             Télécharger un skill
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Skills issus de la plateforme BeWork — chantier, marchés publics, réception, administratif. Chaque carte
-            propose le fichier .md et l&apos;archive .skill.
+            Chaque carte propose le fichier .md et l&apos;archive .skill.
           </p>
         </header>
 

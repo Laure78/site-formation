@@ -18,7 +18,7 @@ export const metadata: Metadata = createPageMetadata({
   openGraphType: 'website',
   openGraphTitle: 'Bibliothèque skills Claude BTP — .skill & .md gratuits',
   openGraphDescription:
-    'Skills chantier et marchés publics signés BeWork : télécharge, importe dans Claude.ai ou Cursor, suis le tutoriel pas à pas.',
+    'Skills chantier et marchés publics signés BeWork : télécharge le .skill et importe dans Claude.ai ou Claude Code.',
   appendAuthorSuffix: false,
 });
 
@@ -48,9 +48,9 @@ const collectionJsonLd = {
     {
       '@type': 'HowTo',
       '@id': `${CANONICAL}#howto`,
-      name: 'Installer un skill Claude BTP (.skill ou .md)',
+      name: 'Installer un skill Claude BTP (.skill)',
       description:
-        'Télécharger un skill depuis la bibliothèque BeWork et l\'importer dans Claude.ai, Claude Code ou Cursor.',
+        'Télécharger un skill depuis la bibliothèque BeWork et l\'importer dans Claude.ai ou Claude Code.',
       step: SKILL_INSTALL_TUTORIAL.steps.map((s) => ({
         '@type': 'HowToStep',
         position: s.n,
@@ -87,9 +87,9 @@ export default function BibliothequeSkillsPage() {
           Bibliothèque skills Claude BTP
         </h1>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600">
-          {BIBLIOTHEQUE_SKILLS_COUNT} assistants métier à télécharger pour Claude.ai, Claude Code ou Cursor — marchés
-          publics, chantier, réception et administratif. Chaque skill existe en <strong>.md</strong> (lecture / édition)
-          et en <strong>.skill</strong> (import direct).
+          {BIBLIOTHEQUE_SKILLS_COUNT} assistants métier à importer dans Claude.ai ou Claude Code — marchés publics,
+          chantier, réception et administratif. Télécharge le fichier <strong>.skill</strong> et suis le tutoriel
+          ci-dessous.
         </p>
 
         <div className="mt-10">
