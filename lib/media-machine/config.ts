@@ -18,7 +18,7 @@ export const MEDIA_CONFIG = {
     'automatisation BTP',
   ],
   internalLinks: {
-    formations: { path: '/formations', anchors: ['formation IA pour les pro du BTP', 'formations IA bâtiment'] },
+    formations: { path: '/formations', anchors: ['formation IA pour les pros du BTP', 'formations IA bâtiment'] },
     chatgptArtisans: {
       path: '/formation-ia-artisans-btp',
       anchors: ['ChatGPT pour entreprises BTP', 'IA bâtiment et travaux publics'],

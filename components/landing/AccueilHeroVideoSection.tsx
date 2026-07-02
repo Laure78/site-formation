@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { AccueilHeroVideoEmbed } from '@/components/landing/AccueilHeroVideoEmbed';
 import { LINKS } from '@/lib/internal-links';
-import { getOfcPromoVideoTitle } from '@/lib/ofc-promo-video';
+import { getOfcPromoVideoSectionHeading } from '@/lib/ofc-promo-video';
 
 /**
  * Bloc hero vidéo accueil — structure sémantique pour l’indexation Google Video.
  */
 export function AccueilHeroVideoSection() {
-  const title = getOfcPromoVideoTitle();
+  const heading = getOfcPromoVideoSectionHeading();
 
   return (
     <section
@@ -15,15 +15,16 @@ export function AccueilHeroVideoSection() {
       aria-labelledby="accueil-hero-video-title"
       className="w-full"
     >
-      <h2 id="accueil-hero-video-title" className="sr-only">
-        {title}
+      <h2
+        id="accueil-hero-video-title"
+        className="mb-3 text-center font-display text-base font-semibold text-slate-800 sm:text-left md:text-lg"
+      >
+        {heading}
       </h2>
-      <p className="mb-2 text-center text-xs font-medium text-slate-600 sm:text-left">
-        Vidéo — formations IA BTP Qualiopi
-      </p>
       <AccueilHeroVideoEmbed />
       <p className="mt-2 text-center text-xs leading-relaxed text-slate-500 sm:text-left">
-        Présentation des formations IA pour le bâtiment et les travaux publics (devis, AO, chantier).{' '}
+        Présentation des formations IA pour le bâtiment et les travaux publics (devis, appels
+        d&apos;offres, comptes rendus de chantier) — présentiel Île-de-France, Qualiopi.{' '}
         <Link
           href={LINKS.videoFormationsIaBtp}
           className="font-medium text-[#377CF3] underline-offset-2 hover:underline"

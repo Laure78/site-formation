@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
 const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier-2026.png';
 
 export const metadata = createPageMetadata({
-  title: 'Formation Claude AI travaux publics 2026 — DCE, mémoires techniques',
+  title: 'Claude AI travaux publics 2026 — OFC',
   description:
     'Formation Claude AI travaux publics : CCTP TP, DCE, planning et mémoire technique. Qualiopi, Constructys, sessions inter/intra.',
   path: PATH,

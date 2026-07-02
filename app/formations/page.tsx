@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Clock, Accessibility } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import CalendlyButton from '@/components/CalendlyButton';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -21,6 +21,7 @@ import { FormationsFaqSection } from '@/components/formations/FormationsFaqSecti
 import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/config/qualiopi';
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     openGraphTitle: FORMATIONS_OG_TITLE,
     openGraphDescription: FORMATIONS_META_DESCRIPTION,
     keywords: [
-      'catalogue formation IA pour les pro du BTP',
+      'catalogue formation IA pour les pros du BTP',
       'formation ChatGPT BTP',
       'formation IA bâtiment',
       'formation IA travaux publics',
@@ -105,6 +106,25 @@ export default function FormationsPage() {
           <p className="mt-3 max-w-5xl text-sm leading-relaxed text-[#64748B]">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
+        <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-white p-5 md:p-6">
+          <h2 className="font-display text-lg font-semibold text-[#0F172A]">Informations pratiques</h2>
+          <ul className="mt-4 space-y-4 text-sm leading-relaxed text-slate-600">
+            <li className="flex gap-3">
+              <Clock className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+              <span>{QUALIOPI_DELAI_ACCES_EXACT}</span>
+            </li>
+            <li className="flex gap-3">
+              <Accessibility className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+              <span>
+                {QUALIOPI_ACCESSIBILITE_EXACT}{' '}
+                <Link href={LINKS.annuaireHandicap} className="font-medium text-[#377CF3] hover:underline">
+                  Consulter notre annuaire des partenaires handicap
+                </Link>
+              </span>
+            </li>
+          </ul>
+        </section>
+
         <FormationsComparisonTable formations={FORMATIONS_CATALOGUE} />
 
         <FormationsWhyMotifs />
@@ -115,7 +135,7 @@ export default function FormationsPage() {
 
         <FormationsFaqSection
           items={FAQ_FORMATIONS}
-          title="Questions fréquentes sur les formations IA pour les pro du BTP"
+          title="Questions fréquentes sur les formations IA pour les pros du BTP"
           subtitle="Vous avez des questions ? Voici les réponses aux interrogations les plus fréquentes."
         />
 
@@ -130,7 +150,7 @@ export default function FormationsPage() {
           <ul className="mt-6 flex flex-wrap gap-3">
             <li>
               <Link href={LINKS.formationParis} className={chipLinkClass}>
-                Formation IA pour les pro du BTP Paris (75)
+                Formation IA pour les pros du BTP Paris (75)
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>
@@ -218,7 +238,7 @@ export default function FormationsPage() {
         <AllerPlusLoin
           variant="chips"
           links={[
-            { href: LINKS.formationIaBtp, label: 'Formation IA pour les pro du BTP — page pilier' },
+            { href: LINKS.formationIaBtp, label: 'Formation IA pour les pros du BTP — page pilier' },
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA appliquée au bâtiment en Île-de-France' },

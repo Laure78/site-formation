@@ -13,7 +13,7 @@ Domaine canonique : `https://www.laureolivie.fr/formation-ia-btp/`
 | **Slug** | `formation-ia-btp` |
 | **Modèle** | Page large — full-width, **sans sidebar** |
 | **Image à la une** | Photo d’ambiance formation BTP |
-| **Alt image à la une** | `Formation IA pour les pro du BTP en Île-de-France par Laure Olivié` |
+| **Alt image à la une** | `Formation IA pour les pros du BTP en Île-de-France par Laure Olivié` |
 
 ### Rank Math (ou équivalent)
 
@@ -69,7 +69,7 @@ Ancres HTML suggérées pour le **sommaire** (identifiants uniques, sans accents
 ### H1 (unique)
 
 ```text
-Formation IA pour les pro du BTP — ChatGPT pour le Bâtiment en Île-de-France
+Formation IA pour les pros du BTP — ChatGPT pour le Bâtiment en Île-de-France
 ```
 
 ### Chiffres clés (sous-titre ou ligne de badges)

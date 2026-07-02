@@ -31,7 +31,7 @@ const ETUDE_CAS_THUMBNAILS = [
 ] as const;
 
 export const metadata = createPageMetadata({
-  title: 'Étude de cas FFB & CSFE — Étanchéité | Formation IA pour les pro du BTP | Résultats concrets',
+  title: 'Étude de cas FFB & CSFE — formation IA BTP',
   description: `Retour d'expérience : interventions auprès de la FFB et de la ${CSFE_NOM_LIBRE}. Modules, objectifs pédagogiques et bénéfices pour les entreprises.`,
   path: '/etudes-de-cas/ffb-csfe',
   keywords: [

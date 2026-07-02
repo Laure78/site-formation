@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths } from '@/lib/seo';
 import { FORMATION_IA_METIERS, FORMATION_IA_VILLES } from '@/lib/seo-formation-ia-hub-data';
 import { LINKS } from '@/lib/internal-links';
 
@@ -11,14 +9,6 @@ export function FormationIaHubContent({ hubPath }: Props) {
 
   return (
     <div className="bg-white">
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formation IA appliquée au bâtiment (hub)', path: hubPath },
-        ])}
-        showVisual
-        className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 lg:px-8"
-      />
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <article className="prose prose-slate max-w-none">
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
@@ -38,7 +28,7 @@ export function FormationIaHubContent({ hubPath }: Props) {
             <p>
               <strong>Priorité locale : </strong>
               <Link href={`/formation-ia/${paris.slug}`} className="font-semibold text-[#377CF3] hover:underline">
-                Formation IA pour les pro du BTP à Paris — page renforcée
+                Formation IA pour les pros du BTP à Paris — page renforcée
               </Link>
             </p>
           )}

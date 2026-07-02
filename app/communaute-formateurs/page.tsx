@@ -3,12 +3,13 @@ import { Users, BookOpen, Zap, ExternalLink } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
+import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/prospectionfacile/';
 
 export const metadata = createPageMetadata({
-  title: 'Communauté formateurs — Trouver vos premiers clients',
+  title: 'Communauté formateurs IA BTP — OFC',
   description:
     "Rejoignez une communauté de formateurs qui partagent prospection et développement d'activité. 4 200+ membres. Trouvez vos premiers clients.",
   path: '/communaute-formateurs',
@@ -164,7 +165,7 @@ export default function CommunauteFormateursPage() {
           <ul className="mt-6 flex flex-wrap justify-center gap-4">
             <li>
               <Link href="/formations" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]">
-                Formation IA pour les pro du BTP
+                Formation IA pour les pros du BTP
               </Link>
             </li>
             <li>
@@ -173,7 +174,7 @@ export default function CommunauteFormateursPage() {
               </RdvLink>
             </li>
             <li>
-              <Link href="/formations/ia-btp-paris" className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Formation IA appliquée au bâtiment Paris et Île-de-France">
+              <Link href={LINKS.formationParis} className="rounded-xl bg-white px-4 py-2.5 font-medium text-[var(--accent)] shadow-sm transition-colors hover:bg-[var(--accent-soft)]" title="Formation IA BTP Paris (75) — présentiel intra">
                 Formation IA pour le BTP Paris
               </Link>
             </li>

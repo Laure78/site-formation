@@ -4,12 +4,16 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
-import { QualiopiLogoBlock, QualiopiWordmark } from '@/components/QualiopiLogo';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
+import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
+import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import { LINKS } from '@/lib/internal-links';
 import { FOOTER_GEO_LINKS, FOOTER_METIER_LINKS } from '@/lib/contextual-internal-links';
 import { FooterExploreStrip } from '@/components/layout/FooterExploreStrip';
 import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
+import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 
 export function Footer() {
   const companyLinks = [
@@ -43,12 +47,18 @@ export function Footer() {
   ];
 
   const resourceLinks = [
-    { href: LINKS.blog, label: 'Blog' },
-    { href: LINKS.diagnostic, label: 'Diagnostic' },
-    { href: LINKS.checklist, label: 'Checklist' },
-    { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
-    { href: LINKS.etudesCas, label: 'Étude de cas' },
-    { href: LINKS.casUsage, label: "Cas d'usage" },
+    { href: LINKS.blog, label: 'Blog', external: false as const },
+    { href: LINKS.diagnostic, label: 'Diagnostic', external: false as const },
+    { href: LINKS.checklist, label: 'Checklist', external: false as const },
+    {
+      href: BEWORK_APP_PATHS.lexique,
+      label: 'Lexique BTP gratuit',
+      external: true as const,
+      linkTitle: 'Lexique & apprentissage BTP — parcours, flashcards et quiz (BeWork)',
+    },
+    { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)', external: false as const },
+    { href: LINKS.etudesCas, label: 'Étude de cas', external: false as const },
+    { href: LINKS.casUsage, label: "Cas d'usage", external: false as const },
   ];
 
   const legalLinks = [
@@ -56,7 +66,11 @@ export function Footer() {
     { href: LINKS.mentionsLegales, label: 'Mentions légales' },
     { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
     { href: LINKS.reglementInterieur, label: 'Règlement' },
-    { href: LINKS.annuaireHandicap, label: 'Handicap' },
+    { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
+    { href: LINKS.annuaireHandicap, label: 'Annuaire handicap' },
+    { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
+    { href: LINKS.qualiopi, label: 'Certification Qualiopi' },
+    { href: LINKS.reclamations, label: 'Réclamations' },
     { href: '/llms.txt', label: 'Fichier llms.txt (assistants IA)' },
   ];
 
@@ -66,7 +80,7 @@ export function Footer() {
         <div className="mb-8 flex flex-col gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <div>
             <p className="font-display text-base font-semibold text-slate-900">
-              Formations IA pour les pro du BTP &amp; ChatGPT entreprise
+              Formations IA pour les pros du BTP &amp; ChatGPT entreprise
             </p>
             <p className="mt-0.5 text-sm text-slate-600">
               Catalogue <QualiopiWordmark />, financement Constructys — sessions 4 h.
@@ -92,7 +106,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <img
                 src="/logo-lo.svg"
-                alt="Laure Olivié — formation IA pour les pro du BTP, organisme certifié Qualiopi"
+                alt="Laure Olivié — formation IA pour les pros du BTP, organisme certifié Qualiopi"
                 title="Retour à l’accueil — laureolivie.fr"
                 className="h-10 w-auto"
                 fetchPriority="high"
@@ -129,8 +143,12 @@ export function Footer() {
                 www.laureolivie.fr
               </Link>
             </div>
-            <address className="not-italic mt-3 text-xs leading-snug text-slate-500">
-              Guyancourt (78) · SIRET 905 244 281 00010
+            <address className="not-italic mt-3 space-y-1 text-[11px] leading-snug text-slate-500">
+              <span className="block">Guyancourt (78) · SIRET {SCHEMA_CONTACT.siretFormatted}</span>
+              <span className="block">
+                Organisme de formation enregistré sous le n° de déclaration d&apos;activité {SCHEMA_CONTACT.nda}{' '}
+                auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de l&apos;État.
+              </span>
             </address>
           </div>
 
@@ -180,13 +198,23 @@ export function Footer() {
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Ressources</h3>
             <ul className="mt-3 space-y-2">
               {resourceLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                  >
-                    {item.label}
-                  </Link>
+                <li key={item.label}>
+                  {item.external ? (
+                    <ExternalLinkAnchor
+                      href={item.href}
+                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
+                      title={'linkTitle' in item ? item.linkTitle : undefined}
+                    >
+                      {item.label}
+                    </ExternalLinkAnchor>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -214,20 +242,13 @@ export function Footer() {
           <FooterExploreStrip title="Formations en Île-de-France" links={FOOTER_GEO_LINKS} />
         </div>
 
-        <ExternalLinkAnchor
-          href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}
-          title={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.title}
-          className="mt-8 flex flex-col items-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-3 transition-colors hover:border-slate-300 sm:flex-row sm:justify-center sm:gap-4"
-        >
-          <QualiopiLogoBlock className="max-w-[180px] shrink-0" />
-          <span className="text-center text-xs font-medium text-slate-600 sm:text-left">
-            Certification Qualiopi — vérifier sur data.gouv.fr
-          </span>
-        </ExternalLinkAnchor>
+        <ReferentHandicapBlock variant="compact" className="mb-8" />
+
+        <QualiopiCertificationNotice className="mt-8 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-4" />
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 sm:flex-row">
           <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-xs text-slate-500 sm:justify-start">
-            <span>© {new Date().getFullYear()} OFC Création d&apos;Entreprise ·</span>
+            <span>© {new Date().getFullYear()} {QUALIOPI_LEGAL.raisonSociale} ·</span>
             <QualiopiWordmark />
           </p>
           <div className="flex gap-2">

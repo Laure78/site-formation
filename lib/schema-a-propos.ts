@@ -87,7 +87,7 @@ export function getAProposProfilePageJsonLd(): Record<string, unknown> {
     mainEntity: {
       '@type': 'Person',
       name: 'Laure Olivié',
-      jobTitle: 'Formatrice IA pour les pro du BTP',
+      jobTitle: 'Formatrice IA pour les pros du BTP',
       description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
       url: `${BASE}/a-propos`,
     },

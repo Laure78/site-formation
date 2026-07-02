@@ -6,7 +6,7 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pilotage stratégique dirigeant BTP',
+  title: 'Formation IA dirigeant BTP — pilotage',
   description:
     "Formation IA pour dirigeants et CODIR BTP : roadmap 90 jours, ROI, formation d'équipe, gouvernance IA. Qualiopi. Financement possible selon éligibilité.",
   path: PATH,

@@ -7,7 +7,7 @@ import { LINKS } from '@/lib/internal-links';
 import {
   OFC_PROMO_VIDEO_SEO,
   OFC_PROMO_VIDEO_WATCH_PATH,
-  getOfcPromoVideoTitle,
+  getOfcPromoVideoSectionHeading,
 } from '@/lib/ofc-promo-video';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { buildPromoVideoObjectJsonLd } from '@/lib/schema-promo-video';
@@ -89,12 +89,12 @@ export default function VideoFormationsIaBtpPage() {
           Vidéo · Formations IA BTP
         </p>
         <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl">
-          {getOfcPromoVideoTitle()}
+          {getOfcPromoVideoSectionHeading()}
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#475569]">{PAGE_DESCRIPTION}</p>
 
         <div className="mt-8">
-          <OfcPromoVideoEmbed variant="heroColumn" />
+          <OfcPromoVideoEmbed variant="heroColumn" showWatchPageLink={false} />
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">

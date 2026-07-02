@@ -4,6 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 import { FORMATION_NIV03_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -39,7 +40,7 @@ const PAGE_META_DESCRIPTION =
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-03');
 
 export const metadata = createPageMetadata({
-  title: 'IA conduite de travaux BTP — suivi chantier & skills Claude',
+  title: 'IA conduite travaux BTP — Claude',
   description: PAGE_META_DESCRIPTION,
   path: LINKS.formationConduiteTravauxSuiviChantier,
   keywords: [
@@ -350,6 +351,8 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           links={FORMATION_NIV03_RELATED}
           tone="muted"
         />
+
+        <CatalogueInfosQualiopi programmeRef="NIV-03" />
 
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink

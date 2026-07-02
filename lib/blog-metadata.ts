@@ -15,7 +15,7 @@ const OG = {
 export function getBlogIndexMetadata(path: string, pageNum: number): Metadata {
   const isFirst = pageNum <= 1;
   const shortTitle = isFirst
-    ? 'Blog Formation IA pour les pro du BTP · Guides, prompts & cas d\'usage'
+    ? 'Blog Formation IA pour les pros du BTP · Guides, prompts & cas d\'usage'
     : `Blog Formation IA appliquée au bâtiment — Page ${pageNum}`;
 
   return createPageMetadata({

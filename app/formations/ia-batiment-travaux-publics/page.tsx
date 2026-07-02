@@ -44,9 +44,11 @@ import {
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
+import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
@@ -55,7 +57,7 @@ import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '
 const SEO_TITLE =
   'Formation IA bâtiment & travaux publics (niveau 1)';
 
-/** Meta description — formation IA pour les pro du BTP */
+/** Meta description — formation IA pour les pros du BTP */
 const SEO_DESCRIPTION = `Formation IA appliquée au bâtiment niveau 1 (${SESSION_DUREE_LIBELLE}) : BTP/TP, devis, chantier, admin. Qualiopi, formation IA pour le BTP.`;
 
 const MAIL_PROGRAMME =
@@ -71,7 +73,7 @@ export const metadata = createPageMetadata({
   path: '/formations/ia-batiment-travaux-publics',
   keywords: [
     'formation IA bâtiment',
-    'formation IA pour les pro du BTP',
+    'formation IA pour les pros du BTP',
     'IA BTP',
     'rédaction mémoire technique',
     'appel d\'offre BTP',
@@ -126,7 +128,7 @@ const MOYENS_TECHNIQUES = [
 const MODALITES_EVALUATION = [
   'Mise en situation et exercices pratiques tout au long de la formation.',
   'Questionnaire de satisfaction en fin de session.',
-  'Attestation de formation délivrée (organisme certifié Qualiopi).',
+  QUALIOPI_CERTIFICAT_REALISATION,
 ];
 
 const MODALITES = [
@@ -164,7 +166,7 @@ const MODALITES = [
     icon: Award,
     title: 'Certification',
     primary: 'Formation Qualiopi',
-    secondary: 'Attestation de fin de formation',
+    secondary: 'Certificat de réalisation',
   },
   {
     icon: DollarSign,
@@ -328,7 +330,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Dans une entreprise du bâtiment, le temps se joue sur trois tables : le chantier, le client et
-            l&apos;administratif. La <strong>formation IA pour les pro du BTP</strong> que nous proposons ne vise pas à
+            l&apos;administratif. La <strong>formation IA pour les pros du BTP</strong> que nous proposons ne vise pas à
             transformer vos équipes en experts informatiques : il s&apos;agit de{' '}
             <strong>gagner des heures chaque semaine</strong> sur des tâches répétitives — devis, relances,
             courriers, synthèses — tout en gardant la main sur le fond technique et la relation de
@@ -554,7 +556,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             <strong>Hauts-de-Seine</strong>, <strong>Seine-Saint-Denis</strong> et{' '}
             <strong>Val-de-Marne</strong> — ainsi qu&apos;à Paris et en petite couronne. Pour le détail des
             formats et des créneaux :{' '}
-            <Link href="/formations/ia-btp-paris" className="font-semibold text-[var(--accent)] hover:underline">
+            <Link href={LINKS.formationParis} className="font-semibold text-[var(--accent)] hover:underline">
               formation IA bâtiment Paris
             </Link>
             ,{' '}
@@ -579,7 +581,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               href={LINKS.financement}
               className="inline-flex items-center gap-2 font-semibold text-[var(--accent)] hover:underline"
             >
-              Guide financement Constructys — formation IA pour les pro du BTP
+              Guide financement Constructys — formation IA pour les pros du BTP
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
           </p>
@@ -807,6 +809,8 @@ export default function FormationIAuServiceDuBatimentPage() {
         links={FORMATION_NIV01_RELATED}
         tone="muted"
       />
+
+      <CatalogueInfosQualiopi programmeRef="NIV-01" />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">

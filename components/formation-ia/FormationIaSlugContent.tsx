@@ -8,6 +8,7 @@ import {
   getSisterVilles,
   getVilleLinkedMetiers,
 } from '@/lib/seo-formation-ia-hub-links';
+import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 function hashSlug(s: string): number {
@@ -36,7 +37,7 @@ function FormationIaVilleCalendlySection() {
           Réservez votre visio découverte gratuite
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600 md:text-lg">
-          Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA pour les pro du BTP, financement
+          Choisissez un créneau de 30 minutes pour cadrer votre besoin (formation IA pour les pros du BTP, financement
           Constructys, format intra ou inter).
         </p>
         <div className="mt-8">
@@ -58,7 +59,8 @@ export function FormationIaMetierBody({
   const tone = ['concret', 'terrain', 'efficace', 'structuré', 'réaliste'][h % 5];
 
   return (
-    <article className="prose prose-slate max-w-none">
+    <>
+      <article className="prose prose-slate max-w-none">
       <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
         Formation IA, ChatGPT et Claude AI — {capitalizeFirst(metier.label)}
       </h1>
@@ -218,7 +220,7 @@ export function FormationIaMetierBody({
       )}
       <p>
         <Link href="/financement-constructys-formation-ia-btp" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-          Financement Constructys / OPCO — formation IA pour les pro du BTP
+          Financement Constructys / OPCO — formation IA pour les pros du BTP
         </Link>
         {' · '}
         <Link href="/contact" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
@@ -234,6 +236,8 @@ export function FormationIaMetierBody({
         </Link>
       </p>
     </article>
+    <InfosQualiopiLanding formationTitle={`Formation IA — ${capitalizeFirst(metier.label)}`} />
+    </>
   );
 }
 
@@ -251,9 +255,10 @@ export function FormationIaVilleBody({
   }
 
   return (
-    <article className="prose prose-slate max-w-none">
+    <>
+      <article className="prose prose-slate max-w-none">
       <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-        Formation IA pour les pro du BTP à {ville.label} — ChatGPT & Claude AI ({ville.deptName})
+        Formation IA pour les pros du BTP à {ville.label} — ChatGPT & Claude AI ({ville.deptName})
       </h1>
       <p className="lead text-lg text-slate-700">
         Vous êtes basé·e à <strong>{ville.label}</strong> ({ville.deptName}, département{' '}
@@ -319,7 +324,7 @@ export function FormationIaVilleBody({
             {sisters.map((s) => (
               <li key={s.slug}>
                 <Link href={`/formation-ia/${s.slug}`} className="text-[#377CF3] hover:underline">
-                  Formation IA pour les pro du BTP {s.label}
+                  Formation IA pour les pros du BTP {s.label}
                 </Link>
               </li>
             ))}
@@ -364,6 +369,8 @@ export function FormationIaVilleBody({
         </Link>
       </p>
     </article>
+    <InfosQualiopiLanding formationTitle={`Formation IA pour les pros du BTP à ${ville.label}`} />
+    </>
   );
 }
 
@@ -377,7 +384,8 @@ function FormationIaParisBody() {
   });
 
   return (
-    <article className="prose prose-slate max-w-none">
+    <>
+      <article className="prose prose-slate max-w-none">
       <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
         Formation IA, ChatGPT et Claude AI pour le BTP à Paris et en Île-de-France
       </h1>
@@ -497,5 +505,7 @@ function FormationIaParisBody() {
         </Link>
       </p>
     </article>
+    <InfosQualiopiLanding formationTitle="Formation IA BTP Paris et Île-de-France" />
+    </>
   );
 }

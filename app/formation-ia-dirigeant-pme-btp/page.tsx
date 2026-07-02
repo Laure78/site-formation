@@ -17,7 +17,7 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA chef TPE BTP — devis & admin quotidien',
+  title: 'Formation IA chef TPE BTP — devis',
   description:
     'Formation IA pour chefs TPE BTP : devis express, relances clients, prospection et admin courant. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,

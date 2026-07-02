@@ -14,7 +14,7 @@ export const META_TITLE_MAX = 65;
 export const META_DESCRIPTION_SEO_PHRASES = [
   'formation IA pour le BTP',
   'formation IA appliquée au bâtiment',
-  'formation IA pour les pro du BTP',
+  'formation IA pour les pros du BTP',
   'formation IA travaux publics',
   'ChatGPT BTP',
 ] as const;
@@ -50,7 +50,7 @@ export function buildDeptMetaDescription(
   deptCode: string,
   villesCourtes: string,
 ): string {
-  return buildMetaDescription(
+  return clampMetaDescription(
     buildIdfDeptMetaDescription(departementNom, deptCode, villesCourtes),
   );
 }

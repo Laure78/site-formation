@@ -24,7 +24,7 @@ export const LINKS = {
   blogCoursGratuitsClaudeAiPmeBtp: '/blog/cours-gratuits-claude-ai-conducteur-travaux-pme-btp',
   /** Article — 8 usages IA terrain pour conducteur de travaux BTP */
   blogIaConducteurTravauxUsages: '/blog/ia-conducteur-travaux-usages',
-  /** Article — financer une formation IA pour les pro du BTP via Constructys */
+  /** Article — financer une formation IA pour les pros du BTP via Constructys */
   blogFinancerFormationIaBtpConstructys: '/blog/financer-formation-ia-btp-constructys',
   /** Article — méthode IA pour gagner 5 h/semaine (conducteurs de travaux BTP) */
   blogCommentIaGagne5hConducteursTravaux: '/blog/comment-ia-gagne-5h-conducteurs-travaux',
@@ -68,8 +68,10 @@ export const LINKS = {
   pdfProgrammeIaBtpNiveau2AppelsOffre: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
   pdfProgrammeFormationAoBtpDetail2026: PDF_PROGRAMME_NIV02_AO_BTP,
-  /** Page locale Paris (canonique SEO) */
-  formationParis: '/formations/ia-btp-paris',
+  /** Canonique geo Paris (75) — formation IA BTP Paris */
+  formationParis: '/formation-ia-btp-paris-75',
+  /** Hub zones IDF — 8 départements (intention distincte de formationParis) */
+  formationIaBtpIdfZones: '/formations/ia-btp-paris',
   /** Alias court (301 → formationParis) — maillage explicite possible */
   formationIaBtpParis: '/formation-ia-btp-paris',
   /** Essonne (91) — pages locales SEO */
@@ -94,9 +96,9 @@ export const LINKS = {
   // Tier 2 — Cas d'usage
   chatgptArtisans: '/formation-ia-artisans-btp',
   iaDevis: '/ia-devis-batiment',
-  /** Fiche SEO informationnelle — IA conducteur de travaux (CR, coordination) */
-  iaConducteurTravaux: '/ia-conducteur-travaux',
-  /** Canonique SEO — ancien `/ia-conducteur-travaux` redirige en 301 */
+  /** Canonique SEO — guide IA conducteur de travaux BTP (ancien `/ia-conducteur-travaux` → 301) */
+  iaConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',
+  /** Alias canonique — même URL que `formationConducteurTravaux` */
   iaCDT: '/formation-ia-conducteur-de-travaux-btp',
   /** Fiche SEO — formation IA conducteur de travaux BTP */
   formationConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',
@@ -198,6 +200,16 @@ export const LINKS = {
   politiqueConfidentialite: '/politique-confidentialite',
   reglementInterieur: '/reglement-interieur',
   annuaireHandicap: '/annuaire-handicap',
+  /** Accessibilité & handicap — référente, processus d'accueil PSH */
+  accessibiliteHandicap: '/accessibilite-handicap',
+  /** Indicateur 2 Qualiopi — résultats des actions de formation */
+  indicateursResultats: '/indicateurs-resultats',
+  /** Réclamations et amélioration continue */
+  reclamations: '/reclamations',
+  /** Page certification Qualiopi (certificat PDF, vérification) */
+  qualiopi: '/qualiopi',
+  /** Certificat Qualiopi OFC (PDF) */
+  certificatQualiopi: '/documents/certificat-qualiopi-ofc.pdf',
 } as const;
 
 export type InternalLinkPath = (typeof LINKS)[keyof typeof LINKS];

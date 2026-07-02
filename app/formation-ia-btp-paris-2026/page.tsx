@@ -5,16 +5,16 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbItemsFromPaths, createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_IA_BTP_PARIS } from '@/lib/faq';
+import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour le BTP Paris 2026 — Constructys selon éligibilité',
+  title: 'Formation IA BTP Paris 2026 — Constructys',
   description:
     'Formation IA et ChatGPT pour le BTP à Paris et en IDF : sessions inter et intra. Qualiopi, finançable Constructys. Visio découverte gratuite.',
   path: '/formation-ia-btp-paris-2026',
@@ -33,13 +33,6 @@ export default function FormationIABTPParis2026Page() {
   return (
     <div>
       <JsonLd id="schema-faq-ia-btp-paris-2026" schema={faqSchema} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: 'Formation IA pour les pro du BTP Paris 2026', path: '/formation-ia-btp-paris-2026' },
-        ])}
-      />
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
@@ -58,7 +51,7 @@ export default function FormationIABTPParis2026Page() {
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/formations/ia-btp-paris"
+              href={LINKS.formationParis}
               className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-8 py-4 font-semibold text-white hover:bg-blue-600"
             >
               Voir la formation Paris
@@ -81,7 +74,7 @@ export default function FormationIABTPParis2026Page() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            Vos formations IA pour les pro du BTP à Paris en 2026
+            Vos formations IA pour les pros du BTP à Paris en 2026
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
             Sessions à Paris (75) et en présentiel en Île-de-France : 4 h pratiques,
@@ -89,7 +82,7 @@ export default function FormationIABTPParis2026Page() {
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link
-              href="/formations/ia-btp-paris"
+              href={LINKS.formationParis}
               className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-colors hover:border-[var(--accent)] hover:shadow-md"
             >
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--accent)] text-white">
@@ -113,7 +106,7 @@ export default function FormationIABTPParis2026Page() {
                 IDF
               </span>
               <h3 className="mt-4 font-display text-lg font-semibold text-slate-900">
-                Formation IA pour les pro du BTP Île-de-France
+                Formation IA pour les pros du BTP Île-de-France
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 8 départements : 92, 93, 94, 77, 78, 91, 95.
@@ -198,7 +191,7 @@ export default function FormationIABTPParis2026Page() {
               </Link>
             </li>
             <li>
-              <Link href="/ia-conducteur-travaux" className="font-medium text-[var(--accent)] hover:underline">
+              <Link href={LINKS.formationConducteurTravaux} className="font-medium text-[var(--accent)] hover:underline">
                 IA conducteur de travaux
               </Link>
             </li>
@@ -254,7 +247,7 @@ export default function FormationIABTPParis2026Page() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations/ia-btp-paris', label: 'Formation IA pour le BTP Paris' },
+              { href: LINKS.formationParis, label: 'Formation IA BTP Paris (75)' },
               { href: '/formation-ia-btp-ile-de-france', label: 'Formation Île-de-France' },
               { href: '/formations', label: 'Catalogue formations' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

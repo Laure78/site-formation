@@ -11,7 +11,7 @@ import { PHOTOS } from '@/lib/photos';
 
 export const revalidate = 3600;
 
-const META_TITLE = 'Espace apprenant — plateforme de formation IA BTP';
+const META_TITLE = 'Espace apprenant — formation IA BTP';
 const META_DESCRIPTION =
   'Connexion à la plateforme e-learning OFC : supports de formation, modules IA BTP, ressources post-session et suivi pédagogique pour les stagiaires Qualiopi.';
 

@@ -20,6 +20,7 @@ import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { JsonLd } from '@/components/JsonLd';
 import { KeyPoint } from '@/components/readability/KeyPoint';
+import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { formatPersonnesFormeesCount } from '@/lib/constants';
 
 const MAIL_PROGRAMME_PME =
@@ -200,6 +201,8 @@ export default function FormationIAPMEBTPPage() {
           Prendre RDV pour un devis personnalisé
         </RdvLink>
       </div>
+
+      <InfosQualiopiLanding formationTitle="Formation IA pour PME du BTP" />
 
       <div className="mt-12">
         <AllerPlusLoin

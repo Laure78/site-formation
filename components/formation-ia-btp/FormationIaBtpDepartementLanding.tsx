@@ -25,9 +25,7 @@ import {
   buildFormationIaServiceJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getBreadcrumbSchema,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
@@ -81,6 +79,7 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
     title: config.metaTitle,
     titleAbsolute: config.metaTitle,
     description: config.metaDescription,
+    descriptionFinal: true,
     path: config.path,
     keywords: config.keywords,
     appendAuthorSuffix: false,
@@ -89,7 +88,7 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
       publishedTime: '2026-04-15',
       modifiedTime: '2026-04-15',
       author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pro du BTP',
+      section: 'Formation IA pour les pros du BTP',
     },
     image: {
       url: '/images/laure-olivie-formatrice.png',
@@ -123,15 +122,6 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
   });
 
   const crumbDept = `${config.departementNom} (${config.deptCode})`;
-  const breadcrumbItems = breadcrumbItemsFromPaths([
-    { name: 'Accueil', path: '/' },
-    { name: crumbDept, path: config.path },
-  ]);
-  const breadcrumbJson = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: crumbDept, path: config.path },
-  ]);
-
   const localContent = getDeptLocalSeoContent(config.deptCode);
   const statsFreshness = getStatsFreshnessLabel();
 
@@ -144,27 +134,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-course`} schema={courseJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-service`} schema={serviceJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-localbusiness`} schema={localBusinessJson} />
-      <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-breadcrumb`} schema={breadcrumbJson} />
       <JsonLd id={`schema-formation-ia-dept-${config.deptCode}-faq`} schema={faqSchema} />
-
-      <div className="mx-auto max-w-6xl px-4 pt-8">
-        <nav aria-label="Fil d&apos;Ariane" className="text-sm text-slate-600">
-          <ol className="flex flex-wrap items-center gap-1.5">
-            {breadcrumbItems.map((item, i) => (
-              <li key={item.url} className="flex items-center gap-1.5">
-                {i > 0 && <span className="text-slate-400" aria-hidden>/</span>}
-                {i === breadcrumbItems.length - 1 ? (
-                  <span className="font-medium text-slate-900">{item.name}</span>
-                ) : (
-                  <Link href={item.url} className="text-[#377CF3] hover:underline">
-                    {item.name}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ol>
-        </nav>
-      </div>
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">

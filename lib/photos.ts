@@ -21,19 +21,19 @@ export const PHOTOS = {
     height: 1024,
   },
 
-  /** Logo officiel Qualiopi — processus certifié, République française, actions de formation */
+  /** Logo Qualiopi Certifopac — bloc officiel AFC (mention + République française intégrées) */
   qualiopiLogoOfficiel: {
-    src: '/images/logo-qualiopi-certification-formation-actions.webp',
+    src: '/images/logo-qualiopi-certifopac-actions-formation.png',
     alt:
-      'Logo Qualiopi — certification qualité des actions de formation, République française, OFC Création d\'Entreprise',
-    width: 842,
-    height: 509,
+      'Logo Qualiopi processus certifié — délivré par Certifopac — actions de formation, République française, OFC Création d\'Entreprise',
+    width: 1536,
+    height: 802,
   },
 
   // Photo legacy — bloc auteur précédent ; le composant `@/components/AuthorBio` utilise `siteAvatar`.
   linkedinGraz: {
     src: '/images/laure-olivie-linkedin-graz.png',
-    alt: "Laure Olivié, formatrice IA pour les pro du BTP — auteure articles intelligence artificielle bâtiment, Paris IDF",
+    alt: "Laure Olivié, formatrice IA pour les pros du BTP — auteure articles intelligence artificielle bâtiment, Paris IDF",
     width: 682,
     height: 1024,
   },
@@ -120,7 +120,7 @@ export const PHOTOS = {
   // Bannière LinkedIn Learning - Difficulté recrutement
   bannerRecrutementDifficile: {
     src: '/images/linkedin-learning-recrutement-difficile.png',
-    alt: "Formation IA pour les pro du BTP : recruter efficacement avec l'intelligence artificielle par Laure Olivié, Île-de-France",
+    alt: "Formation IA pour les pros du BTP : recruter efficacement avec l'intelligence artificielle par Laure Olivié, Île-de-France",
     width: 1024,
     height: 682,
   },
@@ -281,7 +281,7 @@ export const PHOTOS = {
   /** Photos terrain / pédagogie 2026 (sessions réelles BTP) */
   btpFormationSalleIntervention2026: {
     src: '/images/btp-formation-salle-intervention-2026.png',
-    alt: "Formation IA pour les pro du BTP en salle : intervenante devant un groupe de professionnels du bâtiment et des travaux…",
+    alt: "Formation IA pour les pros du BTP en salle : intervenante devant un groupe de professionnels du bâtiment et des travaux…",
     width: 1024,
     height: 682,
   },
@@ -367,7 +367,7 @@ export const PHOTOS = {
     height: 602,
   },
 
-  /** Open Graph / partages — page pilier formation IA pour les pro du BTP (portrait formatrice). */
+  /** Open Graph / partages — page pilier formation IA pour les pros du BTP (portrait formatrice). */
   formationIaBtpOgPortrait2026: {
     src: '/images/formation-ia-btp-laure-olivie.jpg',
     alt: "Laure Olivié, formatrice IA pour le BTP Qualiopi, portrait professionnel formation ChatGPT bâtiment — formation IA BTP",

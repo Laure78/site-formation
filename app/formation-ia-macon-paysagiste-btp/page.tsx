@@ -15,7 +15,7 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-macon-paysagiste-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Maçon Paysagiste BTP Île-de-France',
+  title: 'Formation IA maçon paysagiste BTP IDF',
   description:
     'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Formation Qualiopi. Financement possible selon éligibilité.',
   path: PATH,

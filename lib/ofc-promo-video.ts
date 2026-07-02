@@ -1,4 +1,4 @@
-import { buildPromoVideoIframeTitle } from '@/lib/seo-geo-keywords';
+import { buildPromoVideoIframeTitle, buildPromoVideoSectionHeading } from '@/lib/seo-geo-keywords';
 
 /** Présentation animée formations OFC — bundle HTML autonome (ratio 1200×800). */
 export const OFC_PROMO_VIDEO = {
@@ -27,6 +27,11 @@ export const OFC_PROMO_VIDEO_SEO = {
 
 export function getOfcPromoVideoTitle(): string {
   return buildPromoVideoIframeTitle();
+}
+
+/** Titre visible H1/H2 des blocs vidéo promo (accueil, page watch). */
+export function getOfcPromoVideoSectionHeading(): string {
+  return buildPromoVideoSectionHeading();
 }
 
 export function getOfcPromoVideoPlayerUrl(baseUrl: string): string {

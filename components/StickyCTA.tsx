@@ -39,7 +39,7 @@ export function StickyCTA() {
     >
       <div className="min-w-0 pr-2">
         <p className="text-sm font-semibold">
-          📅 Formation IA pour les pro du BTP — 30 min offertes
+          📅 Formation IA pour les pros du BTP — 30 min offertes
         </p>
         <p className="text-xs opacity-90">Financement possible selon éligibilité</p>
       </div>

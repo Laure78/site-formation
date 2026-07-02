@@ -2,13 +2,11 @@ import Link from 'next/link';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { Poppins } from 'next/font/google';
 import { Check } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
   SITE_CONFIG,
@@ -17,6 +15,7 @@ import type { FAQItem } from '@/lib/faq';
 import {
   buildFormationIaCourseJsonLd,
   getFormationIleDeFrancePageLocalBusinessJsonLd,
+  IDF_COURSE_AREA_SERVED_NAMES,
 } from '@/lib/seo-formation-ia-schemas';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -42,11 +41,12 @@ const PATH = '/formation-ia-btp-ile-de-france';
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA bâtiment Île-de-France — BTP & TP | Qualiopi',
-  description: `${buildIdfRegionalMetaDescription()} ${formatProfessionalsTrainedCount()} pros formés. Visio découverte gratuite.`,
+  title: 'Formation IA BTP Île-de-France — Qualiopi',
+  description: buildIdfRegionalMetaDescription(),
+  descriptionFinal: true,
   path: PATH,
   keywords: [
-    'formation IA pour les pro du BTP Île-de-France',
+    'formation IA pour les pros du BTP Île-de-France',
     'formation IA Paris',
     'Qualiopi BTP',
     'Constructys formation IA',
@@ -71,14 +71,18 @@ export const metadata = createPageMetadata({
 });
 
 const COURSE_JSON_LD = buildFormationIaCourseJsonLd({
-  name: 'Formation IA pour les pro du BTP Île-de-France — Qualiopi',
-  description: `${SITE_CONFIG.legalName} : formations IA pour le BTP en Île-de-France (75 à 95, 77). Sessions 4 h intra ou inter, exclusivement en présentiel, certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ChatGPT, Claude AI — devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus, relances clients.`,
+  name: 'Formation IA BTP Île-de-France — Qualiopi',
+  description: `${SITE_CONFIG.legalName} : formations IA pour le BTP en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Sessions 4 h intra ou inter, exclusivement en présentiel, certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ChatGPT, Claude AI — devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus, relances clients.`,
   path: PATH,
-  areaServed: ['Île-de-France', 'France'],
+  areaServed: [...IDF_COURSE_AREA_SERVED_NAMES],
 });
 
 /** FAQ : texte exploitable par FAQPage (réponses sans HTML pour le schéma ; affichage identique). */
 const FAQ_IDF: FAQItem[] = [
+  {
+    q: 'Qui propose des formations IA pour le BTP en Île-de-France ?',
+    a: `Laure Olivié, via OFC Création d'Entreprise (siège à Guyancourt, 78), propose des formations IA pour le BTP en présentiel sur les 8 départements franciliens (75, 77, 78, 91, 92, 93, 94, 95). Organisme certifié Qualiopi — +${formatProfessionalsTrainedCount()} professionnels formés, sessions 4 h intra ou inter sur vos documents réels.`,
+  },
   {
     q: 'Les formations se font-elles uniquement en Île-de-France ?',
     a: "Oui. Les formations se déroulent exclusivement en présentiel, en Île-de-France : sessions inter en salle et sessions intra dans vos locaux. Laure Olivié, basée à Guyancourt (78), intervient sur l'ensemble de la région (75, 77, 78, 91, 92, 93, 94, 95).",
@@ -131,17 +135,6 @@ export default function FormationIaBtpIleDeFrancePage() {
       <JsonLd id="schema-formation-idf-localbusiness" schema={localBusinessSchema} />
       <JsonLd id="schema-formation-idf-faq" schema={faqSchema} />
 
-      <div className="mx-auto max-w-6xl px-4 pt-8">
-        <Breadcrumb
-          items={breadcrumbItemsFromPaths([
-            { name: 'Accueil', path: '/' },
-            { name: 'Formation IA pour les pro du BTP Île-de-France', path: PATH },
-          ])}
-          showVisual
-          className="mb-6"
-        />
-      </div>
-
       <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
@@ -150,7 +143,7 @@ export default function FormationIaBtpIleDeFrancePage() {
             Laure Olivié · OFC Création d&apos;Entreprise · Guyancourt (78) · Île-de-France
           </p>
           <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
-            Formation IA appliquée au bâtiment Île-de-France — Certifiée Qualiopi
+            Formation IA BTP Île-de-France — présentiel, certifiée Qualiopi
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             Formations courtes (4 h) pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux,
@@ -458,7 +451,7 @@ export default function FormationIaBtpIleDeFrancePage() {
 
       <FAQSection
         id="faq-idf"
-        title="FAQ — formation IA pour les pro du BTP en Île-de-France"
+        title="FAQ — formation IA pour les pros du BTP en Île-de-France"
         subtitle="Modalités géographiques, inter/intra, devis et présentiel."
         items={FAQ_IDF}
       />
@@ -514,7 +507,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               </Link>
             </li>
             <li>
-              <Link href="/formations/ia-btp-paris" className="text-[#377CF3] underline">
+              <Link href={LINKS.formationParis} className="text-[#377CF3] underline">
                 Formation IA appliquée au bâtiment Paris
               </Link>
             </li>

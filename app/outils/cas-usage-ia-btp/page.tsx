@@ -35,8 +35,7 @@ const FAQ_ITEMS = [
 ] as const;
 
 export const metadata = createPageMetadata({
-  title:
-    "Cas d'usage IA pour le BTP : conducteur, chargé d'affaires, dirigeant",
+  title: "Cas d'usage IA BTP — par métier",
   description:
     "Cas d'usage concrets de l'IA dans le BTP par métier : documents générés, gains de temps, prompts ChatGPT et Claude. Diagnostic IA gratuit.",
   path: PATH,
@@ -128,7 +127,7 @@ export default function CasUsageIaMetierBtpPage() {
 
         <p className="mt-10 text-center text-sm text-[#5A5A5A]">
           <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-            Catalogue formations IA pour les pro du BTP Qualiopi
+            Catalogue formations IA pour les pros du BTP Qualiopi
           </Link>
           {' · '}
           <Link href={LINKS.contact} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">

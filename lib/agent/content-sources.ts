@@ -35,7 +35,8 @@ const FORMATIONS_DATA = [
     title: "L'IA au service des pros du bâtiment et des travaux publics",
     desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
-  { path: '/formations/ia-btp-paris', title: 'Formation IA pour le BTP à Paris', desc: `${SESSION_DUREE_LIBELLE}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Devis, emails. Paris + Île-de-France. Financement OPCO selon éligibilité.` },
+  { path: '/formation-ia-btp-paris-75', title: 'Formation IA BTP Paris (75)', desc: `${SESSION_DUREE_LIBELLE}. Intra par arrondissement, présentiel Paris & petite couronne. Qualiopi, Constructys selon éligibilité.` },
+  { path: '/formations/ia-btp-paris', title: 'Formation IA BTP Île-de-France — 8 départements', desc: `${SESSION_DUREE_LIBELLE}. Hub zones IDF (75 à 95). Devis, emails. Financement OPCO selon éligibilité.` },
   { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique, Cowork', desc: `${SESSION_DUREE_LIBELLE}, ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session. Claude AI Pro, Cowork & Skills — DCE et mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par session (12 participants max).' },
 ];
@@ -133,7 +134,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
       'Landing SEO : dirigeants PME BTP, devis, prospection, relances, synthèses rentabilité avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Validation humaine des engagements et des chiffres.',
   },
   {
-    path: '/formation-ia-conducteur-travaux',
+    path: '/formation-ia-conducteur-de-travaux-btp',
     title: 'Formation IA conducteur de travaux BTP',
     content:
       'Landing SEO : rapports multi-lots, mails sous-traitants, variations, planning hebdo avec ChatGPT. Île-de-France, Grand Paris. Qualiopi, Constructys. Décisions et contrats restent au conducteur de travaux.',
@@ -216,7 +217,7 @@ const PAGES_DATA: { path: string; title: string; content: string }[] = [
     content:
       "Landing SEO : formation IA et ChatGPT pour routes, VRD, génie civil. Cas d'usage TP (planification, études de sol, marchés publics, rapports chantier). Qualiopi, OPCO Constructys. Fiche catalogue niveau 1 : /formations/ia-batiment-travaux-publics ; page pilier SEO : /formation-ia-travaux-publics.",
   },
-  { path: '/ia-conducteur-travaux', title: 'IA conducteur de travaux', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE.' },
+  { path: '/formation-ia-conducteur-de-travaux-btp', title: 'Guide IA conducteur de travaux BTP', content: 'L\'IA pour les conducteurs de travaux : CR, planning, DCE, PPSPS. Page métier canonique.' },
   { path: '/mentions-legales', title: 'Mentions légales', content: 'OFC Création d\'Entreprise, SIRET 905 244 281 00010. Hébergement O2switch.' },
 ];
 

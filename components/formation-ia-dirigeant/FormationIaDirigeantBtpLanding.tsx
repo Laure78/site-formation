@@ -6,7 +6,7 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD_MUTED, OFC_LINK } from '@/lib/ofc-interaction-classes';
-import { getBreadcrumbSchema, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   FORMATION_IA_DIRIGEANT_BTP_COURSE,
@@ -71,35 +71,14 @@ export function FormationIaDirigeantBtpLanding() {
     areaServed: ['Île-de-France'],
   });
   const faqSchema = getFAQSchema(FORMATION_IA_DIRIGEANT_BTP_FAQ);
-  const breadcrumbJsonLd = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: 'Formation IA dirigeant BTP', path: FORMATION_IA_DIRIGEANT_BTP_PATH },
-  ]);
 
   return (
     <div className="bg-white text-slate-900">
-      <JsonLd id="schema-breadcrumb-dirigeant-btp" schema={breadcrumbJsonLd} />
       <JsonLd id="schema-course-dirigeant-btp" schema={courseJson} />
       <JsonLd id="schema-faq-dirigeant-btp" schema={faqSchema} />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <nav aria-label="Fil d&apos;Ariane" className="text-sm text-slate-600">
-          <ol className="flex flex-wrap items-center gap-1.5">
-            <li>
-              <Link href={LINKS.home} className={OFC_LINK}>
-                Accueil
-              </Link>
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className="text-slate-400" aria-hidden>
-                /
-              </span>
-              <span className="font-medium text-slate-900">Formation IA dirigeant BTP</span>
-            </li>
-          </ol>
-        </nav>
-
-        <article className="mt-8">
+        <article>
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             Décideurs · PME du bâtiment · Qualiopi
           </p>
@@ -307,7 +286,7 @@ export function FormationIaDirigeantBtpLanding() {
                   href={LINKS.financement}
                   className={`${OFC_CARD_MUTED} flex flex-col p-5`}
                 >
-                  <span className="text-slate-900">Financement Constructys — formation IA pour les pro du BTP</span>
+                  <span className="text-slate-900">Financement Constructys — formation IA pour les pros du BTP</span>
                   <span className="mt-3 text-sm font-normal text-slate-600">
                     Barèmes, éligibilité, montage de dossier pour les entreprises du BTP.
                   </span>

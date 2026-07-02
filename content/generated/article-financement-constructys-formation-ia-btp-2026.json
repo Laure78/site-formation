@@ -1,6 +1,6 @@
 {
   "slug": "financement-constructys-formation-ia-btp-2026",
-  "title": "Financement Constructys formation IA pour les pro du BTP 2026 : le guide complet pour les PME",
+  "title": "Financement Constructys formation IA pour les pros du BTP 2026 : le guide complet pour les PME",
   "description": "Guide 2026 : OPCO Constructys, PDC, plafonds 24 € HT/h et 840 € HT/jour, salaires 10–15 € HT/h, eGestion, éligibilité Qualiopi. Exemples chiffrés pour PME BTP. Laure Olivié, OFC.",
   "date": "2026-04-14",
   "keywords": [
@@ -67,7 +67,7 @@
     },
     {
       "type": "html",
-      "content": "<h2>Comment monter un dossier Constructys pour une formation IA pour les pro du BTP — les 5 étapes</h2>\n\n<h3>Étape 1 : Vérifier que vous êtes éligible</h3>\n<ul>\n<li>Entreprise du secteur BTP (bâtiment, travaux publics, second œuvre)</li>\n<li>Souvent &lt; 50 salariés pour les dispositifs PDC Constructys les plus utilisés — vérifiez votre profil</li>\n<li>À jour des obligations légales de formation / cotisations</li>\n<li>Formation d'au moins 4 heures en général pour une action structurante</li>\n</ul>\n\n<h3>Étape 2 : Choisir l'organisme et valider la prise en charge</h3>\n<p>Confirmer <strong>certification Qualiopi</strong>, obtenir un <strong>devis</strong> détaillé (durée, effectif, coût HT), et les références organisme (SIRET, NDA).</p>\n<p><strong>OFC Création d'Entreprise :</strong> Qualiopi — SIRET 905 244 281 00010 — NDA 11788515078 — forfait session 1 000 € HT (niveau 1, 4 h) ou 1 200 € HT (niveau 2, 4 h), max 12 participants.</p>\n\n<h3>Étape 3 : Dates et stagiaires</h3>\n<p>Dates (en présentiel, en Île-de-France), nombre de participants, profils (CDT, chargés d'affaires, devis, direction).</p>\n\n<h3>Étape 4 : Dépôt sur eGestion</h3>\n<p>Plateforme <strong>eGestion</strong> (egestion.constructys.fr) : création de compte, nouvelle demande PDC, pièces (devis OFC, convention si demandée), soumission.</p>\n\n<h3>Étape 5 : Délai de réponse</h3>\n<p>Souvent <strong>environ 15 jours ouvrables</strong> pour un retour — les délais peuvent varier. En cas de demande de complément, complétez et resoumisez.</p>"
+      "content": "<h2>Comment monter un dossier Constructys pour une formation IA pour les pros du BTP — les 5 étapes</h2>\n\n<h3>Étape 1 : Vérifier que vous êtes éligible</h3>\n<ul>\n<li>Entreprise du secteur BTP (bâtiment, travaux publics, second œuvre)</li>\n<li>Souvent &lt; 50 salariés pour les dispositifs PDC Constructys les plus utilisés — vérifiez votre profil</li>\n<li>À jour des obligations légales de formation / cotisations</li>\n<li>Formation d'au moins 4 heures en général pour une action structurante</li>\n</ul>\n\n<h3>Étape 2 : Choisir l'organisme et valider la prise en charge</h3>\n<p>Confirmer <strong>certification Qualiopi</strong>, obtenir un <strong>devis</strong> détaillé (durée, effectif, coût HT), et les références organisme (SIRET, NDA).</p>\n<p><strong>OFC Création d'Entreprise :</strong> Qualiopi — SIRET 905 244 281 00010 — NDA 11788515078 — forfait session 1 000 € HT (niveau 1, 4 h) ou 1 200 € HT (niveau 2, 4 h), max 12 participants.</p>\n\n<h3>Étape 3 : Dates et stagiaires</h3>\n<p>Dates (en présentiel, en Île-de-France), nombre de participants, profils (CDT, chargés d'affaires, devis, direction).</p>\n\n<h3>Étape 4 : Dépôt sur eGestion</h3>\n<p>Plateforme <strong>eGestion</strong> (egestion.constructys.fr) : création de compte, nouvelle demande PDC, pièces (devis OFC, convention si demandée), soumission.</p>\n\n<h3>Étape 5 : Délai de réponse</h3>\n<p>Souvent <strong>environ 15 jours ouvrables</strong> pour un retour — les délais peuvent varier. En cas de demande de complément, complétez et resoumisez.</p>"
     },
     {
       "type": "prompts",
@@ -109,7 +109,7 @@
     },
     {
       "type": "cta",
-      "content": "Formation IA pour les pro du BTP Qualiopi — financement Constructys : demandez un devis et un créneau en 30 minutes.",
+      "content": "Formation IA pour les pros du BTP Qualiopi — financement Constructys : demandez un devis et un créneau en 30 minutes.",
       "formationHref": "/financement-constructys-formation-ia-btp"
     }
   ]

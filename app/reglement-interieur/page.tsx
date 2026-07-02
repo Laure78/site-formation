@@ -368,11 +368,11 @@ export default function ReglementInterieurPage() {
             ARTICLE 12 — REPRÉSENTATION DES STAGIAIRES
           </h2>
           <p className="mt-4 text-slate-600">
-            Dans les formations d&apos;une durée supérieure à 500 heures et au moins
-            4 Stagiaires, des délégués peuvent être élus (2 titulaires, 2
-            suppléants) au scrutin uninominal à deux tours, au plus tard 20 heures
-            après le début. Les délégués représentent les Stagiaires, font part
-            des réclamations et facilitent le dialogue.
+            Non applicable aux formations d&apos;une durée inférieure ou égale à 200 heures (sessions OFC : 4 h).
+            Pour les formations d&apos;une durée supérieure à 500 heures et au moins 4 Stagiaires, des délégués
+            peuvent être élus (2 titulaires, 2 suppléants) au scrutin uninominal à deux tours, au plus tard 20 heures
+            après le début. Les délégués représentent les Stagiaires, font part des réclamations et facilitent le
+            dialogue.
           </p>
         </section>
 
@@ -454,6 +454,10 @@ export default function ReglementInterieurPage() {
           </p>
         </div>
       </div>
+
+      <p className="mt-12 text-center text-xs text-slate-500">
+        Version en vigueur au 03/06/2026 — OFC Création d&apos;Entreprise
+      </p>
 
       <div className="mt-8 border-t border-slate-200 pt-8">
         <Link

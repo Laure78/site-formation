@@ -24,9 +24,9 @@ export function AProposCertificationCards() {
           <Image
             src={PHOTOS.qualiopiLogoOfficiel.src}
             alt={PHOTOS.qualiopiLogoOfficiel.alt}
-            width={180}
-            height={100}
-            className="max-h-20 w-auto object-contain transition-transform duration-300 hover:scale-105 motion-reduce:hover:scale-100"
+            width={PHOTOS.qualiopiLogoOfficiel.width}
+            height={PHOTOS.qualiopiLogoOfficiel.height}
+            className="h-auto max-h-28 w-full max-w-sm object-contain bg-white p-2"
           />
           <div className="text-center sm:text-left">
             <p className="text-sm font-bold uppercase tracking-wide text-[#377CF3]">LinkedIn Learning</p>

@@ -43,7 +43,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-05-19',
     modifiedTime: '2026-05-22',
     author: 'Laure Olivié',
-    section: 'Formation IA pour les pro du BTP',
+    section: 'Formation IA pour les pros du BTP',
   },
   image: {
     url: '/images/btp-conducteur-plans.png',

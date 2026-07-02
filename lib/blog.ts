@@ -236,7 +236,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'adoption intelligence artificielle bâtiment',
       'entreprises BTP IA',
       'Observatoire métiers BTP',
-      'formation IA pour les pro du BTP',
+      'formation IA pour les pros du BTP',
       'ChatGPT entreprises BTP',
       'marché IA construction',
       'France TPE PME BTP',
@@ -323,7 +323,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Vous voulez passer de l\'intention à la pratique ? Découvrez les formations IA pour les pro du BTP (Qualiopi, financement Constructys selon éligibilité) animées par Laure Olivié — cas réels : devis, DCE, mémoires, chantier.',
+          'Vous voulez passer de l\'intention à la pratique ? Découvrez les formations IA pour les pros du BTP (Qualiopi, financement Constructys selon éligibilité) animées par Laure Olivié — cas réels : devis, DCE, mémoires, chantier.',
         formationHref: '/formations',
       },
     ],
@@ -350,7 +350,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'ChatGPT devis chiffrage',
       'prompt devis BTP',
       'IA devis bâtiment',
-      'formation IA pour les pro du BTP',
+      'formation IA pour les pros du BTP',
     ],
     sections: [
       {
@@ -444,7 +444,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA pour les pro du BTP financement possible selon éligibilité — sessions de 4 h en pratique, prompts et relecture des devis inclus. +${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
+          `Vous voulez maîtriser ces techniques ? Découvrez ma formation IA pour les pros du BTP financement possible selon éligibilité — sessions de 4 h en pratique, prompts et relecture des devis inclus. +${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
         formationHref: '/formations',
       },
     ],
@@ -863,7 +863,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           '<ul class="mt-4 list-disc pl-6 text-slate-600">' +
           '<li><a href="/blog/ia-memoire-technique-appel-offres-guide-2026">IA mémoire technique appel d’offres — guide complet 2026</a></li>' +
           '<li><a href="/formations/ia-appels-offre-btp">Formation « Répondre aux appels d’offres avec l’IA »</a> (Qualiopi, OPCO Constructys)</li>' +
-          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA pour les pro du BTP en Île-de-France</a> — sessions inter et intra</li>' +
+          '<li><a href="/formation-ia-btp-ile-de-france">Formation IA pour les pros du BTP en Île-de-France</a> — sessions inter et intra</li>' +
           '</ul>',
       },
       {
@@ -890,7 +890,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
   },
 
-  // Article GEO #1 : Guide complet formation IA pour les pro du BTP 2026
+  // Article GEO #1 : Guide complet formation IA pour les pros du BTP 2026
   {
     slug: 'formation-ia-btp-guide-complet-2026',
     seoTitle: 'Formation IA bâtiment : guide pratique Qualiopi',
@@ -899,7 +899,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       `${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Formation IA pour le BTP Qualiopi ; financement Constructys si éligible. Gagnez 3 à 5 h par semaine sur l’administratif.`,
     date: '2026-03-17',
     keywords: [
-      'formation IA pour les pro du BTP',
+      'formation IA pour les pros du BTP',
       'formation intelligence artificielle BTP',
       'formation ChatGPT BTP',
       'formation IA TPE PME BTP',
@@ -940,7 +940,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'paragraph',
-        title: 'Combien coûte une formation IA pour les pro du BTP ?',
+        title: 'Combien coûte une formation IA pour les pros du BTP ?',
         content:
           'Les sessions catalogue sont calibrées sur 4 h, avec un forfait par session selon le niveau (débutant ou avancé), jusqu\'à 12 participants. Pour les entreprises du BTP, financement possible selon éligibilité par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. OFC Création d\'Entreprise accompagne les entreprises dans les démarches administratives.',
       },
@@ -968,7 +968,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'faq',
-        title: 'Questions fréquentes sur la formation IA pour les pro du BTP',
+        title: 'Questions fréquentes sur la formation IA pour les pros du BTP',
         content: [
           'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'La formation inclut-elle un suivi post-formation ? — Oui. Support WhatsApp, accès 1 an aux ressources pédagogiques, suivi personnalisé pour garantir l\'application des acquis.',
@@ -979,7 +979,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'cta',
-        content: `Découvrez nos formations IA pour les pro du BTP certifiées Qualiopi. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Financement possible selon éligibilité.`,
+        content: `Découvrez nos formations IA pour les pros du BTP certifiées Qualiopi. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Financement possible selon éligibilité.`,
         formationHref: '/formations',
       },
     ],
@@ -1167,7 +1167,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Démarche en cinq étapes',
         content: [
           'Étape 1 — Vérifier votre rattachement OPCO et votre éligibilité au titre de la convention collective et de l’effectif.',
-          'Étape 2 — Choisir une formation IA pour les pro du BTP orientée métier (devis, chantier, appels d’offres, RH) plutôt qu’une offre généraliste sans mise en situation BTP.',
+          'Étape 2 — Choisir une formation IA pour les pros du BTP orientée métier (devis, chantier, appels d’offres, RH) plutôt qu’une offre généraliste sans mise en situation BTP.',
           'Étape 3 — Contacter un conseiller Constructys ou votre référent formation pour valider le dispositif et le montage financier.',
           'Étape 4 — Déposer le dossier sur la plateforme (eGestion) dans les délais : anticipez au minimum quinze jours avant le début de la formation, sauf délai différent imposé par votre filière.',
           'Étape 5 — Fournir les justificatifs demandés après la session pour le versement des sommes dues selon le calendrier Constructys.',
@@ -1389,7 +1389,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Comment se former à l’automatisation des comptes rendus de chantier',
         content:
-          'OFC Création d’Entreprise propose une formation IA pour les pro du BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux possibles sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu’à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.',
+          'OFC Création d’Entreprise propose une formation IA pour les pros du BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux possibles sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu’à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.',
       },
       {
         type: 'paragraph',
@@ -1672,7 +1672,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'analyse DCE BTP',
       'cahier des charges BTP',
       'mémoire technique CCTP',
-      'formation IA pour les pro du BTP',
+      'formation IA pour les pros du BTP',
       'Constructys formation',
       'intelligence artificielle marchés publics',
       'DTU NF CCTP',

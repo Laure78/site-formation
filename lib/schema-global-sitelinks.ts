@@ -63,7 +63,7 @@ export function buildGlobalSitelinksGraphJsonLd(): Record<string, unknown> {
   const webSite = {
     '@type': 'WebSite',
     '@id': WEBSITE_ID,
-    name: 'Laure Olivié — Formation IA pour les pro du BTP',
+    name: 'Laure Olivié — Formation IA pour les pros du BTP',
     alternateName: ['Laure Olivié', 'OFC Création d’Entreprise', 'Laure Olivie'],
     url: base,
     description: desc,

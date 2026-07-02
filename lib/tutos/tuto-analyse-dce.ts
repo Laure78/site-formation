@@ -31,7 +31,7 @@ export const TUTO_ANALYSE_DCE: TutoData = {
     'Qualibat',
     'mémoire technique',
     'critères de sélection AO',
-    'formation IA pour les pro du BTP',
+    'formation IA pour les pros du BTP',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

@@ -20,7 +20,7 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-vitrier-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Vitrier Miroitier BTP Île-de-France',
+  title: 'Formation IA vitrier miroitier BTP IDF',
   description:
     'Formation IA et ChatGPT pour vitriers miroitiers : devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi. Visio découverte gratuite.',
   path: PATH,

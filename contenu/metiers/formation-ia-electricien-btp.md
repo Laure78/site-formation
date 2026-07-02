@@ -150,7 +150,7 @@ Ce parcours métier aligne exemples et exercices sur **devis élec, SAV, mails**
 
 Laure Olivié forme les équipes du BTP à une utilisation **responsable** de ChatGPT et des outils d’IA : gains de temps réels, garde-fous conformité, zéro promesse magique. **OFC Création d’Entreprise** est certifié Qualiopi (NDA 11788515078). [En savoir plus — page À propos](/a-propos/)
 
-**Photo :** portrait professionnel — alt : *Laure Olivié, formatrice IA pour les pro du BTP pour électriciens — OFC*
+**Photo :** portrait professionnel — alt : *Laure Olivié, formatrice IA pour les pros du BTP pour électriciens — OFC*
 
 ---
 

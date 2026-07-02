@@ -31,7 +31,7 @@ export const TUTO_TRI_DCE_CLAUDE_CHROME: TutoData = {
     'IA Chrome BTP',
     'automatisation veille DCE',
     'pipeline commerciale BTP',
-    'formation IA pour les pro du BTP',
+    'formation IA pour les pros du BTP',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

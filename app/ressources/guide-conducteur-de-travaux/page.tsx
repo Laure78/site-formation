@@ -14,7 +14,7 @@ const PATH = '/ressources/guide-conducteur-de-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata = createPageMetadata({
-  title: 'Guide conducteur travaux : 6 tutos Claude BTP (PDF gratuit)',
+  title: 'Guide conducteur travaux — PDF Claude',
   description:
     'Formation IA pour le BTP : guide PDF gratuit conducteur — DCE, PPSPS, CR, DOE. 6 tutos Claude, prompts inclus.',
   path: PATH,
@@ -96,7 +96,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Ce guide remplace une formation présentielle ?',
-    a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA pour les pro du BTP certifiée Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
+    a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA pour les pros du BTP certifiée Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
   },
   {
     q: 'Où trouver d’autres tutos BTP en pages web ?',

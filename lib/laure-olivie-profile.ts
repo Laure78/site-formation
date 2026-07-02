@@ -82,7 +82,7 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
   {
     period: '2022',
     title: 'Création d\'OFC Création d\'Entreprise (SASU)',
-    body: `Organisme dédié à la **formation IA pour les pro du BTP** — sessions courtes (4 h), inter et intra, exclusivement en présentiel en Île-de-France. Kits prompts et cas d'usage par corps de métier. **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
+    body: `Organisme dédié à la **formation IA pour les pros du BTP** — sessions courtes (4 h), inter et intra, exclusivement en présentiel en Île-de-France. Kits prompts et cas d'usage par corps de métier. **Apprentissage clé** : Qualiopi et financement OPCO imposent une pédagogie claire et mesurable.`,
   },
   {
     period: '2023',

@@ -17,7 +17,7 @@ export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-administrative-btp';
 
 export const metadata = createPageMetadata({
-  title: 'IA assistante admin BTP — courriers & chantier',
+  title: 'IA assistante admin BTP — courriers',
   description:
     'Formation IA pour assistantes administratives BTP : courriers, mails, suivi chantier, comptes rendus. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
@@ -425,7 +425,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
         <AllerPlusLoin
           links={[
             { href: LINKS.formationIaAssistanteGestionBtp, label: 'Formation IA assistante de gestion BTP — facturation & relances impayés' },
-            { href: LINKS.formations, label: 'Catalogue formations IA pour les pro du BTP' },
+            { href: LINKS.formations, label: 'Catalogue formations IA pour les pros du BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-assistante-administrative-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}

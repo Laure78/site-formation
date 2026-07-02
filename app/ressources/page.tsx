@@ -9,48 +9,117 @@ import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCa
 import { RessourcesThematicHub } from '@/components/ressources/RessourcesThematicHub';
 import { RessourcesGuidesSection } from '@/components/ressources/RessourcesGuidesSection';
 import { RessourcesHero } from '@/components/ressources/RessourcesHero';
+import { RessourcesLexiqueSection } from '@/components/ressources/RessourcesLexiqueSection';
 import { RessourcesTutosNav } from '@/components/ressources/RessourcesTutosNav';
+import { RESSOURCES_LEXIQUE } from '@/lib/ressources-lexique';
 
 const PATH = '/ressources';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Ressources gratuites IA BTP : tutos, guides et fiches pratiques',
+  title: 'Ressources IA BTP — tutos, guides & lexique gratuit',
   description:
-    'Tutos PDF IA pour le BTP, 100 % gratuits : CR de chantier, DCE, mémoire technique, DOE, PPSPS avec Claude. Signés Laure Olivié (Qualiopi).',
+    'Tutos PDF, guides et lexique BTP gratuit : 146 termes, flashcards, quiz, parcours marchés publics et chantier. Sans inscription. Laure Olivié (Qualiopi).',
   descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
+  openGraphTitle: 'Ressources gratuites IA BTP — tutos, guides & lexique',
+  openGraphDescription:
+    'Tutos PDF Claude, guides MOE/CDT et lexique BTP interactif (parcours, flashcards, quiz). 100 % gratuit, sans inscription.',
   appendAuthorSuffix: false,
   image: {
     url: '/images/ressources-gratuites-ia-btp-hero-2026.png',
     width: 1024,
     height: 1024,
-    alt: 'Ressources gratuites IA BTP : tutos PDF, guides et fiches pratiques par Laure Olivié (Qualiopi)',
+    alt: 'Ressources gratuites IA BTP : tutos PDF, guides, lexique chantier et marchés publics par Laure Olivié (Qualiopi)',
   },
 });
 
 const collectionJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  '@id': `${CANONICAL}#collection`,
-  name: 'Ressources gratuites IA BTP — Laure Olivié',
-  description:
-    "Tutos PDF, guides et fiches pratiques pour appliquer l'IA dans ton entreprise BTP : skills Claude métier, automatisation, veille appels d'offres, DUERP, PPSPS, mémoire technique.",
-  url: CANONICAL,
-  inLanguage: 'fr-FR',
-  isPartOf: { '@type': 'WebSite', name: 'laureolivie.fr', url: SITE_CONFIG.url },
-  mainEntity: {
-    '@type': 'ItemList',
-    itemListOrder: 'https://schema.org/ItemListOrderDescending',
-    numberOfItems: TUTOS.length,
-    itemListElement: TUTOS.map((t, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      url: `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.ressources}/${t.slug}`,
-      name: t.title,
-    })),
-  },
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${CANONICAL}#collection`,
+      name: 'Ressources gratuites IA BTP — Laure Olivié',
+      description:
+        "Tutos PDF, guides, lexique BTP interactif et fiches pratiques pour appliquer l'IA dans ton entreprise BTP : skills Claude métier, vocabulaire chantier, veille appels d'offres, DUERP, PPSPS, mémoire technique.",
+      url: CANONICAL,
+      inLanguage: 'fr-FR',
+      isPartOf: { '@type': 'WebSite', name: 'laureolivie.fr', url: SITE_CONFIG.url },
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListOrder: 'https://schema.org/ItemListOrderDescending',
+        numberOfItems: TUTOS.length + 1,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+              '@type': 'WebApplication',
+              '@id': `${RESSOURCES_LEXIQUE.url}#webapp`,
+              name: RESSOURCES_LEXIQUE.schemaName,
+              url: RESSOURCES_LEXIQUE.url,
+            },
+          },
+          ...TUTOS.map((t, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 2,
+            url: `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.ressources}/${t.slug}`,
+            name: t.title,
+          })),
+        ],
+      },
+    },
+    {
+      '@type': 'WebApplication',
+      '@id': `${RESSOURCES_LEXIQUE.url}#webapp`,
+      name: RESSOURCES_LEXIQUE.schemaName,
+      url: RESSOURCES_LEXIQUE.url,
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'Web',
+      browserRequirements: 'Requires JavaScript',
+      description: RESSOURCES_LEXIQUE.schemaDescription,
+      inLanguage: 'fr-FR',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'EUR',
+        description: 'Gratuit, sans inscription.',
+      },
+      author: {
+        '@type': 'Person',
+        name: SITE_CONFIG.name,
+        url: `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos`,
+      },
+      provider: {
+        '@type': 'Organization',
+        name: "OFC Création d'Entreprise",
+        url: SITE_CONFIG.url,
+      },
+    },
+    {
+      '@type': 'LearningResource',
+      '@id': `${CANONICAL}#lexique-learning-resource`,
+      name: 'Lexique BTP gratuit — vocabulaire chantier et marchés publics',
+      url: RESSOURCES_LEXIQUE.url,
+      description: RESSOURCES_LEXIQUE.schemaDescription,
+      learningResourceType: 'Interactive Resource',
+      educationalLevel: 'beginner',
+      inLanguage: 'fr-FR',
+      isAccessibleForFree: true,
+      author: {
+        '@type': 'Person',
+        name: SITE_CONFIG.name,
+        url: `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos`,
+      },
+      provider: {
+        '@type': 'Organization',
+        name: "OFC Création d'Entreprise",
+        url: SITE_CONFIG.url,
+      },
+    },
+  ],
 };
 
 export default function RessourcesIndexPage() {
@@ -61,6 +130,8 @@ export default function RessourcesIndexPage() {
       <RessourcesHero />
 
       <RessourcesThematicHub />
+
+      <RessourcesLexiqueSection />
 
       <RessourcesGuidesSection />
 

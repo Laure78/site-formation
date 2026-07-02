@@ -219,18 +219,6 @@ export default function FormationIaEtancheurPage() {
         scriptId="schema-formation-ia-etancheur"
       />
 
-      <nav className="mb-8 text-sm text-slate-600" aria-label="Fil d'Ariane">
-        <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href={LINKS.formations} className="text-[var(--accent)] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA pour Étancheur</span>
-      </nav>
-
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour Étancheur —{' '}

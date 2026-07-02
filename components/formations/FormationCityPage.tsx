@@ -11,6 +11,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import type { CityFormationConfig } from '@/lib/formation-cities';
 import type { FAQItem } from '@/lib/faq';
+import { LINKS } from '@/lib/internal-links';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
@@ -18,9 +19,9 @@ import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, MODALITE_FORMATIONS_S
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { JsonLd } from '@/components/JsonLd';
-import { LINKS } from '@/lib/internal-links';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
+import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 
 interface FormationCityPageProps {
@@ -252,7 +253,7 @@ export function FormationCityPage({
           <div className="mx-auto max-w-4xl">
             <FAQSection
               items={faqItems}
-              title={`Questions fréquentes — Formation IA pour les pro du BTP à ${ville}`}
+              title={`Questions fréquentes — Formation IA pour les pros du BTP à ${ville}`}
             />
           </div>
         </section>
@@ -297,7 +298,7 @@ export function FormationCityPage({
           </p>
           <ul className="mt-6 flex flex-wrap gap-4">
             <li>
-              <Link href="/formations/ia-btp-paris" className="font-medium text-[var(--accent)] hover:underline">
+              <Link href={LINKS.formationParis} className="font-medium text-[var(--accent)] hover:underline">
                 Formation IA pour le BTP Paris
               </Link>
             </li>
@@ -320,7 +321,7 @@ export function FormationCityPage({
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                { href: '/formations', label: 'Formation IA pour les pro du BTP' },
+                { href: '/formations', label: 'Formation IA pour les pros du BTP' },
                 { href: '/formation-ia-artisans-btp', label: 'IA pour votre métier dans le bâtiment' },
                 { href: diagnosticUrl, label: 'Échanger sur vos besoins (30 min)' },
               ]}
@@ -328,6 +329,8 @@ export function FormationCityPage({
           </div>
         </div>
       </section>
+
+      <InfosQualiopiLanding formationTitle={`Formation IA BTP à ${ville}`} />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">

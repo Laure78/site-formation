@@ -32,6 +32,10 @@ import { HomeDeferredClientsLogos } from '@/components/landing/HomeDeferredClien
 import { HomeDeferredLinkedInLearning } from '@/components/landing/HomeDeferredLinkedInLearning';
 import { HomeFaqDetailsList } from '@/components/landing/HomeFaqDetailsList';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { QualiopiBadge } from '@/components/QualiopiLogo';
+import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
+import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
 import Image from 'next/image';
 import Script from 'next/script';
 import { createPageMetadata } from '@/lib/seo';
@@ -74,15 +78,12 @@ import {
   COUNT_UP_PROS,
   COUNT_UP_PROS_PLUS,
   COUNT_UP_RATING,
-  COUNT_UP_SATISFACTION,
   getStatsFreshnessLabel,
 } from '@/lib/readability-presets';
 import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
-/** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
-const ANNUAIRE_ENTREPRISES_OFC_URL =
-  'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281';
+import { ANNUAIRE_ENTREPRISES_OFC_URL } from '@/lib/schema-constants';
 
 const FORMATION_NIVEAU1 = getFormationCatalogueByRef('NIV-01')!;
 const FORMATION_AO = getFormationCatalogueByRef('NIV-02')!;
@@ -136,7 +137,7 @@ const GAINS_COMMERCIAUX_CARDS = [
   },
 ] as const;
 
-const HOME_META_TITLE = "Formation IA bâtiment & BTP Paris IDF — Devis, AO, CR";
+const HOME_META_TITLE = 'Formation IA BTP Paris IDF — Devis, AO, CR';
 const HOME_META_DESCRIPTION =
   'Formation IA pour le BTP en présentiel Île-de-France : devis, appels d\'offres, CR sur vos vrais documents. Qualiopi, Constructys. 1 592 pros formés, 4,85/5.';
 
@@ -265,10 +266,11 @@ export default function HomePage() {
                 <StatCallout
                   variant="inline"
                   value={COUNT_UP_RATING}
-                  label="note moyenne"
+                  label="note moyenne de satisfaction"
                   freshnessLabel={statsFreshness}
                 />
               </div>
+              <QualiopiSatisfactionSource className="mt-3 max-w-2xl" />
             </div>
 
             <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24">
@@ -441,7 +443,11 @@ export default function HomePage() {
             Basée à Guyancourt (78), Laure Olivié anime des formations{' '}
             <strong>exclusivement en présentiel en Île-de-France</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra
             dans vos locaux ou inter en salle. <strong>Pas de distanciel</strong> et{' '}
-            <strong>pas de déplacement hors Île-de-France</strong>. On travaille sur vos documents BTP réels.
+            <strong>pas de déplacement hors Île-de-France</strong>. On travaille sur vos documents BTP réels.{' '}
+            <Link href={LINKS.formationIleDeFrance} className={`${OFC_LINK} font-semibold`}>
+              formation IA BTP Île-de-France
+            </Link>
+            .
             </p>
           </Reveal>
         </div>
@@ -552,7 +558,7 @@ export default function HomePage() {
                 id="benefices-formation-ia-heading"
                 className="font-display text-3xl font-bold text-slate-900 md:text-4xl"
               >
-                Les bénéfices d&apos;une formation IA pour les pro du BTP
+                Les bénéfices d&apos;une formation IA pour les pros du BTP
               </h2>
             </Reveal>
             <div className="mt-12">
@@ -819,6 +825,7 @@ export default function HomePage() {
                 );
               })}
             </RevealGroup>
+            <DisclaimerGains className="mt-6 max-w-3xl text-blue-100/80" />
             <Accordion
               id="benefices-gains-commerciaux"
               variant="inverse"
@@ -1024,7 +1031,7 @@ export default function HomePage() {
             <Link
               href={LINKS.formations}
               className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
-              title="Catalogue des formations IA pour les pro du BTP Qualiopi"
+              title="Catalogue des formations IA pour les pros du BTP Qualiopi"
             >
               catalogue des formations IA appliquées au bâtiment
             </Link>
@@ -1169,7 +1176,7 @@ export default function HomePage() {
                   {
                     icon: Check,
                     title: 'Certification Qualiopi',
-                    desc: "Organisme certifié. Financement OPCO Constructys garanti.",
+                    desc: QUALIOPI_FINANCEMENT_FORMULATION,
                   },
                   {
                     icon: Users,
@@ -1290,7 +1297,7 @@ export default function HomePage() {
                   <Link
                     href={LINKS.financement}
                     className="inline-block rounded-xl bg-[var(--accent)] px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
-                    title="Financement OPCO Constructys — formation IA pour les pro du BTP"
+                    title="Financement OPCO Constructys — formation IA pour les pros du BTP"
                   >
                     financement Constructys
                   </Link>
@@ -1301,26 +1308,11 @@ export default function HomePage() {
 
             <Reveal>
             <div className="mx-auto max-w-4xl">
-              <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-center">
-                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <Image
-                    src={PHOTOS.qualiopiLogoOfficiel.src}
-                    alt={PHOTOS.qualiopiLogoOfficiel.alt}
-                    title="Certification Qualiopi — actions de formation, OFC Création d'Entreprise"
-                    width={PHOTOS.qualiopiLogoOfficiel.width}
-                    height={PHOTOS.qualiopiLogoOfficiel.height}
-                    loading="lazy"
-                    className="mb-4 h-auto w-40"
-                    sizes="160px"
-                  />
-                  <p className="font-display text-xl font-bold text-[var(--accent)]">
-                    Qualiopi
-                  </p>
-                  <p className="mt-1 text-sm text-slate-600">processus certifié</p>
-                  <p className="mt-4 text-xs text-slate-500">
-                    La certification a été délivrée au titre de la catégorie d&apos;action
-                    suivante : Action de formation
-                  </p>
+              <div className="flex flex-col gap-8 rounded-2xl border border-slate-200 bg-slate-50 p-8 md:flex-row md:items-start">
+                <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:max-w-md">
+                  <Link href={LINKS.qualiopi} className="block hover:opacity-95">
+                    <QualiopiBadge />
+                  </Link>
                   <ExternalLinkAnchor
                     href={ANNUAIRE_ENTREPRISES_OFC_URL}
                     title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"
@@ -1429,12 +1421,13 @@ export default function HomePage() {
             />
             <StatCallout
               variant="inverse"
-              value={COUNT_UP_SATISFACTION}
-              label="Satisfaction"
+              value={COUNT_UP_RATING}
+              label="Note moyenne de satisfaction"
               freshnessLabel={statsFreshness}
             />
-            <StatCallout variant="inverse" value="OPCO" label="Financement possible" />
+            <StatCallout variant="inverse" value="OPCO" label="Financement possible selon éligibilité" />
           </RevealGroup>
+          <QualiopiSatisfactionSource className="mx-auto mt-6 max-w-2xl text-center text-blue-100/90" />
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <CalendlyEmbed
               type="link"
@@ -1505,7 +1498,7 @@ export default function HomePage() {
                   },
                   {
                     icon: Check,
-                    title: 'Financement OPCO inclus',
+                    title: 'Financement OPCO selon éligibilité',
                     desc: 'Votre devis intègre les possibilités de prise en charge Constructys',
                   },
                   {

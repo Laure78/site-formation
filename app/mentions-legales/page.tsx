@@ -36,11 +36,18 @@ export default function MentionsLegalesPage() {
             <li>SIRET : 905 244 281 00010</li>
             <li>RCS : Versailles</li>
             <li>N° de déclaration d&apos;activité : 11 78 85 15 078</li>
-            <li>
-              Organisme certifié Qualiopi : Certificat n° 520911-1, valide du
-              16/01/2025 au 15/01/2028
+            <li className="italic">
+              Enregistré sous le numéro 11788515078 auprès du préfet de région Île-de-France. Cet
+              enregistrement ne vaut pas agrément de l&apos;État.
             </li>
-            <li>Catégorie d&apos;action : L.6313-1 – 1° Actions de formation</li>
+            <li>
+              Organisme certifié Qualiopi : Certificat n° 520911-1, valide du 16/01/2025 au
+              15/01/2028
+            </li>
+            <li>
+              La certification qualité a été délivrée au titre de la catégorie d&apos;actions suivante
+              : ACTIONS DE FORMATION
+            </li>
           </ul>
         </section>
 

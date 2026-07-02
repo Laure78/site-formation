@@ -1,4 +1,4 @@
-# Template — page métier « Formation IA pour les pro du BTP » (WordPress + Elementor OFC)
+# Template — page métier « Formation IA pour les pros du BTP » (WordPress + Elementor OFC)
 
 Ce gabarit s’applique aux landings **par métier** (`/formation-ia-[metier]-btp/` ou exception `/formation-ia-conducteur-travaux/`).  
 Longueur cible : **1 500 à 2 000 mots** de corps de page (hors menus, hors footer légal).

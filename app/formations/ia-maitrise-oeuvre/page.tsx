@@ -19,6 +19,7 @@ import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display'
 import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 
 const PATH = LINKS.formationIaMaitriseOeuvre;
 const PDF_HREF = LINKS.pdfProgrammeIaMaitriseOeuvre;
@@ -28,13 +29,13 @@ const PHONE_TEL = '0695661818';
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour maîtres d\'œuvre (MOE/MOEX)',
-  titleAbsolute: 'Formation IA pour maîtres d\'œuvre (MOE/MOEX) | Laure Olivié',
+  title: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
+  titleAbsolute: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
   description:
     'Formation IA & ChatGPT pour la maîtrise d\'œuvre d\'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, 100% finançable OPCO, certifiée Qualiopi.',
   path: PATH,
   openGraphType: 'article',
-  openGraphTitle: 'Formation IA pour maîtres d\'œuvre (MOE/MOEX) | Laure Olivié',
+  openGraphTitle: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
   openGraphDescription:
     'Formation IA & ChatGPT pour la maîtrise d\'œuvre d\'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, 100% finançable OPCO, certifiée Qualiopi.',
   alternatesLanguages: { 'fr-FR': `${SITE_CONFIG.url}${PATH}` },
@@ -271,6 +272,8 @@ export default function FormationIaMaitriseOeuvrePage() {
             </div>
           </div>
         </section>
+
+        <CatalogueInfosQualiopi programmeRef="NIV-05" />
 
         <section
           id="contact"

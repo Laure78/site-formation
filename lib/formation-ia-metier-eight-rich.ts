@@ -3,6 +3,7 @@
  */
 import type { FAQItem } from '@/lib/faq';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
+import { LINKS } from '@/lib/internal-links';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -225,7 +226,7 @@ Propose la STRUCTURE des postes (sans prix) : dépose, écran sous-toiture, isol
     'Métrés et descriptifs toiture',
     'Qualiopi — confidentialité',
   ],
-  ogImage: { ...COVER, alt: 'Formation IA pour les pro du BTP — couverture et zinguerie' },
+  ogImage: { ...COVER, alt: 'Formation IA pour les pros du BTP — couverture et zinguerie' },
   coverImage: { ...COVER, alt: 'Équipe couverture — contexte formation IA' },
   showAuthorBio: true,
   authorBioClosingLine:
@@ -491,7 +492,7 @@ STRUCTURE de devis (postes) sans prix. Rappels DTU 36 et notices — [à complé
   courseName: 'Formation IA menuisier bâtiment BTP — Qualiopi',
   courseDescription: `${OFC} : formation IA pour menuisiers — DTU 36, devis, pose, SAV. Session 4 h, Qualiopi, Constructys.`,
   courseTeaches: ['ChatGPT pour menuisiers BTP', 'DTU 36', 'Devis et relevés', 'Qualiopi'],
-  ogImage: { ...COVER, alt: 'Formation IA pour les pro du BTP — menuiserie' },
+  ogImage: { ...COVER, alt: 'Formation IA pour les pros du BTP — menuiserie' },
   coverImage: { ...COVER, alt: 'Menuisier bâtiment — formation IA' },
   showAuthorBio: true,
   authorBioClosingLine: 'Elle forme les poseurs et encadrants menuiserie sur l’IA au service du chiffrage et du relationnel client.',
@@ -759,13 +760,13 @@ Propose un plan (jalons j0, j+10…) et des intitulés de mails par étape — s
     'Suivi chantier et tableaux',
     'Qualiopi — confidentialité',
   ],
-  ogImage: { ...COVER, alt: 'Formation IA pour les pro du BTP — assistante administrative' },
+  ogImage: { ...COVER, alt: 'Formation IA pour les pros du BTP — assistante administrative' },
   coverImage: { ...COVER, alt: 'Administratif BTP — formation IA' },
   showAuthorBio: true,
   authorBioClosingLine: 'Elle forme les fonctions support des entreprises du bâtiment sur une IA utile au quotidien, sans remplacer la validation métier.',
   relatedMetierLinks: [
     { href: '/formation-ia-charge-affaires-btp', title: 'Formation IA chargé d’affaires BTP', description: 'Appels d’offres et suivi commercial.' },
-    { href: '/formation-ia-conducteur-travaux', title: 'Formation IA conducteur de travaux BTP', description: 'Pilotage de chantier et documentation.' },
+    { href: LINKS.formationConducteurTravaux, title: 'Guide IA conducteur de travaux BTP', description: 'Pilotage de chantier et documentation.' },
     { href: '/formation-ia-dirigeant-btp', title: 'Formation IA dirigeant BTP', description: 'Pilotage et déploiement IA en entreprise.' },
   ],
   liensUtilesIntro: 'Métiers proches, catalogue Qualiopi, Claude AI BTP, financement, blog.',

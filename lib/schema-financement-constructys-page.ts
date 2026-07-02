@@ -15,7 +15,7 @@ import {
 const PATH = '/financement-constructys-formation-ia-btp' as const;
 
 const H1 =
-  'Financer une formation IA pour les pro du BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
+  'Financer une formation IA pour les pros du BTP avec Constructys en 2026 — guide OPCO, plafonds et dossier eGestion';
 
 const HOWTO_STEPS: { name: string; text: string }[] = [
   {
@@ -126,7 +126,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
   const course: Record<string, unknown> = {
     '@type': 'Course',
     '@id': `${pageUrl}#course`,
-    name: `Formation IA pour les pro du BTP — session ${SESSION_DUREE_LIBELLE}`,
+    name: `Formation IA pour les pros du BTP — session ${SESSION_DUREE_LIBELLE}`,
     description:
       'Session présentiel sur l’IA générative (ChatGPT, Claude) appliquée au BTP — devis, chantier, administratif. Niveaux débutant et avancé.',
     url: pageUrl,

@@ -27,6 +27,7 @@ import {
   type GeoFormationPageProps,
 } from '@/lib/geo-formation-config';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
+import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
 export type { GeoFormationPageProps };
@@ -54,7 +55,7 @@ export function geoFormationMetadata(props: GeoFormationPageProps) {
       publishedTime: '2026-06-02',
       modifiedTime: '2026-06-02',
       author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pro du BTP',
+      section: 'Formation IA pour les pros du BTP',
     },
     image: {
       url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
@@ -100,26 +101,6 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
     <div className="bg-white text-slate-800">
       <JsonLd id={`schema-geo-course-${code}`} schema={courseJsonLd} />
       <JsonLd id={`schema-geo-localbusiness-${code}`} schema={localBusinessJsonLd} />
-
-      <div className="mx-auto max-w-6xl px-4 pt-8">
-        <nav aria-label="Fil d'Ariane" className="text-sm text-slate-600">
-          <ol className="flex flex-wrap items-center gap-1.5">
-            <li>
-              <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
-                Accueil
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
-                Formations
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li className="font-medium text-slate-900">{deptLabel}</li>
-          </ol>
-        </nav>
-      </div>
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-6xl px-4">
@@ -251,6 +232,8 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           </ol>
         </div>
       </section>
+
+      <InfosQualiopiLanding formationTitle={`Formation IA BTP ${deptLabel}`} />
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl px-4">

@@ -44,7 +44,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         url: `${BASE}/formations`,
         name: `Catalogue formation IA appliquée au bâtiment — ${CATALOGUE_COUNT} formations Qualiopi 4 h`,
         description:
-          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 (bâtiment & travaux publics) et quatre formations niveau 2 (appels d'offres, conduite de travaux, maîtres d'œuvre, Maîtriser Claude AI) — titres officiels sur chaque fiche.`,
+          `Catalogue ${CATALOGUE_COUNT} formations IA pour les pros du BTP de 4 h Qualiopi, financement possible selon éligibilité (Constructys ou OPCO) : niveau 1 (bâtiment & travaux publics) et quatre formations niveau 2 (appels d'offres, conduite de travaux, maîtres d'œuvre, Maîtriser Claude AI) — titres officiels sur chaque fiche.`,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${BASE}/#website` },
         about: { '@id': `${BASE}/#organization` },
@@ -180,7 +180,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         '@id': `${BASE}/formations#course-list`,
         name: `Catalogue ${CATALOGUE_COUNT} formations IA pour le BTP`,
         description:
-          `${CATALOGUE_COUNT} formations IA pour les pro du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).`,
+          `${CATALOGUE_COUNT} formations IA pour les pros du BTP de 4 heures, certifiées Qualiopi, financement possible selon éligibilité, exclusivement en présentiel en Île-de-France (inter ou intra).`,
         numberOfItems: CATALOGUE_COUNT,
         itemListElement: [
           {
@@ -444,7 +444,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
       {
         '@type': 'HowTo',
         '@id': `${BASE}/formations#howto-choisir`,
-        name: 'Comment choisir sa formation IA pour les pro du BTP',
+        name: 'Comment choisir sa formation IA pour les pros du BTP',
         description:
           "Méthode en 4 étapes pour choisir la formation IA appliquée au bâtiment adaptée à votre entreprise du bâtiment ou des travaux publics.",
         totalTime: 'PT15M',

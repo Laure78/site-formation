@@ -31,7 +31,7 @@ const FAQ_ITEMS_LONG_TAIL = [
     a: "En transformant un brief (prestations, quantités, contraintes d'accès) en structure de devis, puis en aidant à rédiger les libellés et variantes. L'IA accélère la mise en forme ; vous gardez la main sur les unités, les prix et les hypothèses. Nous insistons sur la relecture et la traçabilité interne.",
   },
   {
-    q: 'Formation IA pour les pro du BTP éligible OPCO Constructys en Île-de-France ?',
+    q: 'Formation IA pour les pros du BTP éligible OPCO Constructys en Île-de-France ?',
     a: "Souvent oui pour les publics et entreprises relevant du périmètre BTP/TP, mais l'éligibilité dépend de votre situation (OPCO, taille, dispositif). Le plus fiable est de vérifier auprès de Constructys et de votre référent formation. Côté organisme : Qualiopi et une proposition pédagogique claire facilitent le montage.",
   },
   {
@@ -59,7 +59,7 @@ const FAQ_ITEMS_LONG_TAIL = [
 const FAQ_ITEMS = [...FAQ_IA_BTP_METIERS_CHANTIER_SEO, ...FAQ_ITEMS_LONG_TAIL];
 
 export const metadata = createPageMetadata({
-  title: 'FAQ formation IA appliquée au bâtiment — ChatGPT, Claude AI, Constructys',
+  title: 'FAQ formation IA BTP — ChatGPT Claude',
   description:
     'Réponses aux questions longue traîne : ChatGPT et Claude AI pour le BTP, financement Constructys, IA pour AO et devis. Qualiopi, Île-de-France.',
   path: '/formation-ia/faq',
@@ -81,7 +81,7 @@ export default function FormationIaFaqPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-          FAQ — formation IA pour les pro du BTP (ChatGPT & Claude AI)
+          FAQ — formation IA pour les pros du BTP (ChatGPT & Claude AI)
         </h1>
         <p className="mt-4 text-lg text-slate-700">
           Questions fréquentes (longue traîne) sur les usages en entreprise, le financement et la

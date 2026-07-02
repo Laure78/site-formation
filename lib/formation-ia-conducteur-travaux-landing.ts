@@ -13,8 +13,8 @@ import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 export const FORMATION_IA_CONDUCTEUR_TRAVAUX_PATH = '/formation-ia-conducteur-travaux' as const;
 
 export const FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO = {
-  title: 'Formation IA conducteur de travaux BTP — Gain 5h/semaine',
-  titleAbsolute: 'Formation IA conducteur de travaux BTP — Gain 5h/semaine',
+  title: 'Formation IA conducteur travaux — 5 h/sem',
+  titleAbsolute: 'Formation IA conducteur travaux — 5 h/sem',
   description:
     'Formation conducteurs travaux. Automatiser CR, PPSPS, suivi chantier. Qualiopi, Constructys. Découverte gratuite.',
   h1: "Formation IA pour conducteurs de travaux BTP — Gagnez 5h/semaine",

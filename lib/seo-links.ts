@@ -13,7 +13,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.laureol
 export const INTERNAL_LINKS = {
   formations: {
     path: LINKS.formations,
-    anchors: ['formation IA pour les pro du BTP', 'catalogue formations IA', 'formations IA bâtiment'],
+    anchors: ['formation IA pour les pros du BTP', 'catalogue formations IA', 'formations IA bâtiment'],
   },
   /** Prise de RDV — lien direct Calendly (nouvel onglet côté UI) */
   prendreRdv: {
@@ -50,7 +50,7 @@ export const INTERNAL_LINKS = {
   },
   blog: {
     path: LINKS.blog,
-    anchors: ['ressources IA BTP', 'articles formation IA', 'blog formation IA pour les pro du BTP'],
+    anchors: ['ressources IA BTP', 'articles formation IA', 'blog formation IA pour les pros du BTP'],
   },
   aPropos: {
     path: LINKS.aPropos,

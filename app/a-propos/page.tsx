@@ -53,7 +53,7 @@ const A_PROPOS_TOC = [
   { label: 'FAQ', anchor: 'faq' },
 ] as const;
 
-const A_PROPOS_META_TITLE = `Laure Olivié - formatrice IA pour le BTP - ${formatPersonnesFormeesCount()} pros, Qualiopi`;
+const A_PROPOS_META_TITLE = `Laure Olivié — formatrice IA BTP — Qualiopi`;
 const A_PROPOS_META_DESCRIPTION =
   'Laure Olivié, formatrice IA BTP : 10 ans de terrain (conductrice de travaux), Qualiopi, FFB, CSFE, CNAM, Lefebvre Dalloz. 1 592 pros formés, 4,85/5.';
 
@@ -155,7 +155,7 @@ export default function AProposPage() {
               <p className="mt-4 text-[16px] leading-relaxed text-[#334155]">
                 Vous cherchez une formatrice qui connaît vos contraintes de chantier ? Consultez le{' '}
                 <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-                  catalogue des formations IA pour les pro du BTP
+                  catalogue des formations IA pour les pros du BTP
                 </Link>{' '}
                 ou parcourez le{' '}
                 <Link href={LINKS.blog} className="font-medium text-[#377CF3] hover:underline">

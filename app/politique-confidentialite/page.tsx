@@ -3,7 +3,7 @@ import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Politique de confidentialité — OFC Création d\'Entreprise',
+  title: 'Politique confidentialité — OFC',
   description:
     "Politique confidentialité OFC : données personnelles, RGPD, droits d'accès. Informations pour stagiaires et prospects des formations IA pour le BTP.",
   path: '/politique-confidentialite',

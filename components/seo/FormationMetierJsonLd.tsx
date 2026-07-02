@@ -6,8 +6,9 @@
  *  - Organization (OFC Création d'Entreprise — données légales + Qualiopi)
  *  - Service (serviceType "Professional Training")
  *  - Course (provider référencé via @id)
- *  - BreadcrumbList (Accueil → Formations → [métier])
  *  - FAQPage (optionnel, si la page contient une FAQ)
+ *
+ * Le fil d'Ariane visuel + BreadcrumbList JSON-LD sont gérés par `GlobalBreadcrumbs` (layout).
  *
  * Source unique pour SIRET / NDA / adresse : `lib/schema-constants.ts`.
  * Remplace l'usage couplé de `<CourseSchema />` + `<FAQSchema />` sur ces pages
@@ -22,17 +23,12 @@ import {
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
+import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 
 export type FormationMetierFaqItem = {
   question: string;
   answer: string;
-};
-
-export type FormationMetierBreadcrumbItem = {
-  name: string;
-  /** Chemin relatif (ex. `/formations`) — sera absolutisé sur le domaine canonique. */
-  path: string;
 };
 
 type Props = {
@@ -58,11 +54,6 @@ type Props = {
   teaches?: string[];
   /** Liste FAQ (≥ 3 items requis pour émettre le bloc FAQPage). */
   faqItems?: FormationMetierFaqItem[];
-  /**
-   * Fil d'Ariane personnalisé. Si omis, utilise par défaut :
-   * Accueil → Formations → {metierLabel}.
-   */
-  breadcrumbItems?: FormationMetierBreadcrumbItem[];
   /** id HTML du <script> (utile si plusieurs blocs sur une même page). */
   scriptId?: string;
 };
@@ -93,7 +84,7 @@ function buildPersonLaureNode() {
     '@type': 'Person',
     '@id': PERSON_LAURE_ID,
     name: 'Laure Olivié',
-    jobTitle: 'Formatrice IA pour les pro du BTP',
+    jobTitle: 'Formatrice IA pour les pros du BTP',
     url: `${SITE_BASE}/a-propos`,
     worksFor: { '@id': ORGANIZATION_ID },
     sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
@@ -217,7 +208,7 @@ function buildCourseNode(params: {
     inLanguage: 'fr',
     ...(teaches && teaches.length > 0 ? { teaches } : {}),
     isAccessibleForFree: false,
-    creditsAwarded: 'Attestation de formation Qualiopi',
+    creditsAwarded: QUALIOPI_CERTIFICAT_REALISATION,
     timeRequired: duration,
     aggregateRating: buildSchemaAggregateRating(),
     offers: {
@@ -243,22 +234,6 @@ function buildCourseNode(params: {
         },
       },
     },
-  };
-}
-
-function buildBreadcrumbNode(params: {
-  pageUrl: string;
-  items: FormationMetierBreadcrumbItem[];
-}) {
-  return {
-    '@type': 'BreadcrumbList',
-    '@id': `${params.pageUrl}#breadcrumb`,
-    itemListElement: params.items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      item: absoluteUrl(it.path),
-    })),
   };
 }
 
@@ -297,23 +272,15 @@ export function FormationMetierJsonLd({
   level = 'Intermediate',
   teaches,
   faqItems,
-  breadcrumbItems,
   scriptId,
 }: Props) {
   const pageUrl = absoluteUrl(path);
-
-  const breadcrumb = breadcrumbItems ?? [
-    { name: 'Accueil', path: '/' },
-    { name: 'Formations', path: '/formations' },
-    { name: metierLabel, path },
-  ];
 
   const graph: object[] = [
     buildOrganizationNode(),
     buildPersonLaureNode(),
     buildServiceNode({ pageUrl, metierLabel, courseName, courseDescription, price }),
     buildCourseNode({ pageUrl, courseName, courseDescription, duration, price, level, teaches }),
-    buildBreadcrumbNode({ pageUrl, items: breadcrumb }),
   ];
 
   if (faqItems && faqItems.length >= 3) {

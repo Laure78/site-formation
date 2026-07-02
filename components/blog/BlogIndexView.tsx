@@ -358,7 +358,7 @@ export function BlogIndexView({
         <FAQSectionServer
           id="faq"
           items={FAQ_BLOG}
-          title="Questions fréquentes — Blog formation IA pour les pro du BTP"
+          title="Questions fréquentes — Blog formation IA pour les pros du BTP"
         />
       </section>
 

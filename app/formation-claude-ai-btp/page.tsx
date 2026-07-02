@@ -22,6 +22,7 @@ import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT ,
   formatTarifHt,
 } from "@/lib/tarifs-sessions";
+import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 /* ---------------------------------------------------------------- METADATA */
@@ -30,7 +31,7 @@ const PAGE_URL = "https://www.laureolivie.fr/formation-claude-ai-btp";
 const OG_IMAGE = "/images/claude-btp-hero-chantier-2026.png";
 
 export const metadata: Metadata = {
-  title: "Formation Claude AI BTP — L'IA d'Anthropic pour le bâtiment",
+  title: "Formation Claude AI BTP — Anthropic",
   description:
     "Formation Claude AI pour le BTP : l'IA d'Anthropic pour devis, CCTP, mémoires techniques. Qualiopi, financement possible selon éligibilité. RDV gratuit.",
   keywords: [
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-04-23T08:00:00+02:00",
     modifiedTime: new Date().toISOString(),
     authors: ["https://www.laureolivie.fr/a-propos"],
-    section: "Formation IA pour les pro du BTP",
+    section: "Formation IA pour les pros du BTP",
     tags: ["Claude AI", "Anthropic", "BTP", "formation IA", "Qualiopi", "Constructys"],
   },
   twitter: {
@@ -138,7 +139,7 @@ const faqItems = [
   },
   {
     q: "Quels métiers du BTP bénéficient le plus de Claude AI ?",
-    a: 'Les métiers qui manipulent des documents longs ou techniques : chargés d\'affaires BTP (analyse CCTP, rédaction mémoire technique), conducteurs de travaux (comptes rendus, planning, sous-traitance), dirigeants PME (stratégie, veille concurrentielle), fonctions administratives (contrats, courriers complexes). Voir aussi <a href="/ia-conducteur-travaux">la formation IA conducteur de travaux</a>.',
+    a: 'Les métiers qui manipulent des documents longs ou techniques : chargés d\'affaires BTP (analyse CCTP, rédaction mémoire technique), conducteurs de travaux (comptes rendus, planning, sous-traitance), dirigeants PME (stratégie, veille concurrentielle), fonctions administratives (contrats, courriers complexes). Voir aussi <a href="/formation-ia-conducteur-de-travaux-btp">le guide IA conducteur de travaux</a>.',
   },
   {
     q: "Est-ce que Claude AI peut lire un CCTP de 100 pages ?",
@@ -730,7 +731,7 @@ export default function FormationClaudeAiBtpPage() {
                   { href: "/formations", label: "Catalogue des formations IA pour le BTP" },
                   { href: "/formation-ia-artisans-btp", label: "ChatGPT pour entreprises BTP" },
                   { href: "/ia-devis-batiment", label: "IA devis bâtiment" },
-                  { href: "/ia-conducteur-travaux", label: "IA conducteur de travaux" },
+                  { href: LINKS.formationConducteurTravaux, label: "IA conducteur de travaux" },
                   {
                     href: "/financement-constructys-formation-ia-btp",
                     label: "Financement Constructys 2026",

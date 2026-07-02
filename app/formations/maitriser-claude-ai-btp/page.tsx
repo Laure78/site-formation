@@ -4,6 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 import { FORMATION_NIV04_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -40,9 +41,8 @@ const PAGE_META_DESCRIPTION =
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
 
 export const metadata = createPageMetadata({
-  title: 'Maîtriser Claude AI pour le BTP — Formation avancée 4 h Qualiopi',
-  titleAbsolute:
-    'Maîtriser Claude AI pour le BTP — Formation avancée 4 h Qualiopi',
+  title: 'Maîtriser Claude AI BTP — 4 h Qualiopi',
+  titleAbsolute: 'Maîtriser Claude AI BTP — 4 h Qualiopi',
   description: PAGE_META_DESCRIPTION,
   path: PATH,
   keywords: [
@@ -350,6 +350,8 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           links={FORMATION_NIV04_RELATED}
           tone="muted"
         />
+
+        <CatalogueInfosQualiopi programmeRef="NIV-04" />
 
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink

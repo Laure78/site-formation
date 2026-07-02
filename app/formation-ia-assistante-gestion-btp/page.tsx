@@ -73,31 +73,6 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   },
 };
 
-const BREADCRUMB_JSON_LD: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Accueil',
-      item: `${BASE_URL}/`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Formations',
-      item: `${BASE_URL}/formations`,
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'Formation IA assistante de gestion BTP',
-      item: `${BASE_URL}${PATH}`,
-    },
-  ],
-};
-
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description:
@@ -115,7 +90,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-04-17',
     modifiedTime: '2026-04-17',
     author: 'Laure Olivié',
-    section: 'Formation IA pour les pro du BTP',
+    section: 'Formation IA pour les pros du BTP',
   },
   image: {
     url: '/images/og/formation-ia-assistante-gestion-btp.png',
@@ -220,19 +195,6 @@ export default function FormationIaAssistanteGestionBtpPage() {
     <div className="mx-auto max-w-4xl px-4 py-16">
       <JsonLd data={COURSE_JSON_LD} id="jsonld-course-assistante-gestion" />
       {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-assistante-gestion" /> : null}
-      <JsonLd data={BREADCRUMB_JSON_LD} id="jsonld-breadcrumb-assistante-gestion" />
-
-      <nav className="mb-8 text-sm text-slate-600" aria-label="Fil d'Ariane">
-        <Link href="/" className="text-[#377CF3] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href="/formations" className="text-[#377CF3] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA assistante de gestion BTP</span>
-      </nav>
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
@@ -642,7 +604,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-conducteur-travaux" className="text-[#377CF3] underline">
+              <Link href="/formation-ia-conducteur-de-travaux-btp" className="text-[#377CF3] underline">
                 Formation IA conducteur de travaux BTP
               </Link>
             </li>
@@ -680,7 +642,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
         </section>
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
-          <p>Laure Olivié — Formatrice IA pour les pro du BTP, OFC Création d&apos;Entreprise</p>
+          <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             laureolivie@yahoo.fr ·{' '}

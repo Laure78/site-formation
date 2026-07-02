@@ -14,6 +14,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 type FAQItem = { question: string; answer: string };
@@ -64,25 +65,8 @@ export function FormationMetierB1Page({
         price={TARIF_FORFAIT_DEBUTANT_HT}
         level={level}
         faqItems={faqItems}
-        breadcrumbItems={[
-          { name: 'Accueil', path: '/' },
-          { name: 'Formations', path: '/formations' },
-          { name: `Formation IA ${metierLabel}`, path },
-        ]}
         scriptId={`schema-formation-metier-${slugId}`}
       />
-
-      <nav className="mb-8 text-sm text-slate-600" aria-label="Fil d'Ariane">
-        <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <Link href={LINKS.formations} className="text-[var(--accent)] hover:underline">
-          Formations
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA {metierLabel}</span>
-      </nav>
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
@@ -207,6 +191,8 @@ export function FormationMetierB1Page({
         </section>
 
         <LaureOlivieFormationPortrait showFullParcoursLink />
+
+        <InfosQualiopiLanding formationTitle={courseName} />
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Passez à l&apos;action</h2>

@@ -177,7 +177,7 @@ export default function IADevisBatimentPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           L&apos;IA devis BTP permet d&apos;{' '}
-          <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+          <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
             automatiser devis bâtiment
           </Link>
           {' '}et gagner 2h à 4h par devis. Descriptifs techniques, chiffrages, variantes : productivité entreprise bâtiment garantie. Découvrez notre{' '}
@@ -242,7 +242,7 @@ export default function IADevisBatimentPage() {
             un descriptif structuré avec postes (décapage, préparation,
             pose, joints), quantités, prix unitaires et total. Vous vérifiez et
             ajustez selon vos tarifs réels. Pour apprendre à{' '}
-            <Link href="/formations/ia-btp-paris" className="text-[var(--accent)] font-medium hover:underline">
+            <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
               utiliser ChatGPT dans le BTP
             </Link>
             , notre formation pratique vous donne les trames prêtes à l&apos;emploi.
@@ -535,7 +535,7 @@ export default function IADevisBatimentPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link
-              href="/formations/ia-btp-paris"
+              href={LINKS.formationParis}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
             >
               Voir le programme
@@ -573,13 +573,13 @@ export default function IADevisBatimentPage() {
               </Link>
             </li>
             <li>
-              <Link href="/ia-conducteur-travaux" className="text-[var(--accent)] hover:underline">
+              <Link href={LINKS.formationConducteurTravaux} className="text-[var(--accent)] hover:underline">
                 IA conducteur de travaux
               </Link>
             </li>
             <li>
               <Link href="/formations" className="text-[var(--accent)] hover:underline">
-                Formation IA pour les pro du BTP
+                Formation IA pour les pros du BTP
               </Link>
             </li>
             <li>
@@ -599,7 +599,7 @@ export default function IADevisBatimentPage() {
           links={[
             { href: '/formations', label: 'Formation IA Constructys' },
             { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-            { href: '/ia-conducteur-travaux', label: 'IA conducteur de travaux' },
+            { href: LINKS.formationConducteurTravaux, label: 'IA conducteur de travaux' },
             { href: '/blog', label: 'Articles et guides' },
             { href: buildSiteCalendlyCtaUrl('ia-devis'), label: 'Prendre rendez-vous' },
           ]}

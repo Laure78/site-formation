@@ -4,6 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 import { FORMATION_NIV02_RELATED } from '@/lib/contextual-internal-links';
 import { FORMATION_AO_CLUSTER_ARTICLES } from '@/lib/ao-dce-cluster-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -39,7 +40,7 @@ const PAGE_META_DESCRIPTION =
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
 
 export const metadata = createPageMetadata({
-  title: "IA appels d'offres BTP — DCE, mémoire technique, Cowork",
+  title: "IA appels d'offres BTP — DCE & MT",
   description: PAGE_META_DESCRIPTION,
   path: '/formations/ia-appels-offre-btp',
   keywords: [
@@ -406,7 +407,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           </li>
           <li>
             <strong>Évaluation :</strong> exercices pratiques et validation par le formateur en continu,
-            questionnaire de satisfaction à chaud et à froid (J+30), attestation de formation remise à l&apos;issue
+            questionnaire de satisfaction à chaud et à froid (J+30), certificat de réalisation et attestation de fin de formation délivrés à l&apos;issue
             de la session.
           </li>
         </ul>
@@ -431,6 +432,8 @@ export default function FormationIAAppelsOffreBTPPage() {
         links={FORMATION_NIV02_RELATED}
         tone="muted"
       />
+
+      <CatalogueInfosQualiopi programmeRef="NIV-02" />
 
       <div className="mt-10 flex flex-wrap gap-4">
         <RdvLink

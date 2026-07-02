@@ -4,6 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 import { FORMATION_CLAUDE_SKILLS_BTP_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -38,7 +39,7 @@ const PAGE_META_DESCRIPTION =
 
 export const metadata = createPageMetadata({
   title: PAGE_META_TITLE,
-  titleAbsolute: `${PAGE_META_TITLE} — Laure Olivié`,
+  titleAbsolute: PAGE_META_TITLE,
   description: PAGE_META_DESCRIPTION,
   path: PATH,
   openGraphType: 'article',
@@ -46,7 +47,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-06-24',
     modifiedTime: '2026-06-24',
     author: SITE_CONFIG.name,
-    section: 'Formation IA pour les pro du BTP',
+    section: 'Formation IA pour les pros du BTP',
   },
   image: {
     url: HERO_VISUEL.src,
@@ -392,6 +393,8 @@ export default function FormationClaudeIaBtpPage() {
           links={FORMATION_CLAUDE_SKILLS_BTP_RELATED}
           tone="muted"
         />
+
+        <CatalogueInfosQualiopi programmeRef="NIV-06" />
 
         <section className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
           <h2 className="font-display text-xl font-bold text-slate-900">Prendre rendez-vous</h2>

@@ -419,7 +419,7 @@ export default function FormationIaChefChantierTpPage() {
           links={[
             { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
-            { href: '/formation-ia-conducteur-travaux', label: 'Formation IA conducteur de travaux BTP' },
+            { href: '/formation-ia-conducteur-de-travaux-btp', label: 'Formation IA conducteur de travaux BTP' },
             { href: '/formation-ia-conducteur-engins-tp', label: 'Formation IA conducteur d’engins TP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-chef-chantier-tp-footer-rdv'), label: 'Prendre rendez-vous' },

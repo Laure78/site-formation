@@ -11,7 +11,7 @@ import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'IA conducteur travaux — CR & coordination chantier',
+  title: 'IA conducteur travaux — CR chantier',
   description:
     'Guide IA pour conducteurs de travaux : comptes rendus, rapports d\'avancement, coordination chantier. Orientation métier — session catalogue NIV-03.',
   path: '/ia-conducteur-travaux',
@@ -170,7 +170,7 @@ export default function IAConducteurTravauxPage() {
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link
-              href="/formations/ia-btp-paris"
+              href={LINKS.formationParis}
               className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50"
             >
               Voir le programme

@@ -30,7 +30,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
     'IA dirigeant BTP',
     'ChatGPT BTP',
     'Claude BTP',
-    'formation IA pour les pro du BTP',
+    'formation IA pour les pros du BTP',
     'Laure Olivié',
     "OFC Création d'Entreprise",
     'Constructys',

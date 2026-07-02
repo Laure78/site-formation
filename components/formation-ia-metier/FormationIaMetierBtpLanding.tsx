@@ -17,6 +17,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import { Essentiel } from '@/components/readability/Essentiel';
+import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const OFC = "OFC Création d'Entreprise";
@@ -103,39 +104,11 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
         level="Professionnel"
         teaches={config.courseTeaches}
         faqItems={faqItems}
-        breadcrumbItems={[
-          { name: 'Accueil', path: '/' },
-          { name: `Formation IA ${config.metierNomTitre} BTP`, path: config.path },
-        ]}
         scriptId={`schema-formation-metier-${config.id}`}
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
-        <nav aria-label="Fil d&apos;Ariane" className="text-sm text-slate-600">
-          <ol className="flex flex-wrap items-center gap-1.5">
-            <li>
-              <Link href={LINKS.home} className={OFC_LINK}>
-                Accueil
-              </Link>
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className="text-slate-400" aria-hidden>
-                /
-              </span>
-              <Link href={LINKS.formations} className={OFC_LINK}>
-                Formations
-              </Link>
-            </li>
-            <li className="flex items-center gap-1.5">
-              <span className="text-slate-400" aria-hidden>
-                /
-              </span>
-              <span className="font-medium text-slate-900">Formation IA {config.metierNomTitre} BTP</span>
-            </li>
-          </ol>
-        </nav>
-
-        <article className="mt-8">
+        <article>
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {config.normeRef.replace(/^le |^la /i, '').trim()} · Qualiopi · Île-de-France
           </p>
@@ -327,6 +300,8 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               subtitle="Réservez un créneau pour une visio découverte gratuite : démonstration sur un cas type et questions financement (Constructys, OPCO)."
             />
           </div>
+
+          <InfosQualiopiLanding formationTitle={config.courseName} />
 
           {config.showAuthorBio ? (
             <>

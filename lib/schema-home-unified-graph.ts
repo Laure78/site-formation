@@ -171,7 +171,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
       {
         '@type': 'Course',
         '@id': courseId,
-        name: "Formation IA pour les pro du BTP — niveau 1 bâtiment & travaux publics",
+        name: "Formation IA pour les pros du BTP — niveau 1 bâtiment & travaux publics",
         description: `Formation pratique de 4 heures pour former les équipes BTP à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
         url: `${base}${LINKS.formationIaBtpNiveau1BatimentTp}`,
         provider: { '@id': orgId },

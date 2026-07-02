@@ -31,7 +31,7 @@ export const TUTO_MEMOIRE_TECHNIQUE: TutoData = {
     'méthodologie BTP',
     'organigramme entreprise BTP',
     'références chantiers',
-    'formation IA pour les pro du BTP',
+    'formation IA pour les pros du BTP',
     'Laure Olivié',
     'OFC Création d\'Entreprise',
     'Constructys',

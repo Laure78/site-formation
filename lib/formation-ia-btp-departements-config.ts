@@ -68,7 +68,7 @@ function ffbCasClient(deptCode: string): string {
 export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-yvelines-78',
   h1: 'Formation IA pour le BTP en Yvelines (78) — Versailles et agglomération',
-  metaTitle: 'Formation IA bâtiment Yvelines (78) — BTP & TP IDF | Laure Olivié · Qualiopi',
+  metaTitle: buildIdfDeptPageTitle('Yvelines', '78'),
   metaDescription: buildDeptMetaDescription('Yvelines', '78', 'Versailles, SQY, Guyancourt'),
   keywords: [
     'formation IA appliquée au bâtiment Yvelines',
@@ -91,7 +91,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   ],
   courseName: 'Formation IA pour le BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
   courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, exclusivement en présentiel, devis et chantier. Certification Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
-  serviceName: `Accompagnement formation IA pour les pro du BTP — département des Yvelines (78)`,
+  serviceName: `Accompagnement formation IA pour les pros du BTP — département des Yvelines (78)`,
   serviceDescription: `Prestation de formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises implantées dans le département des Yvelines (78) : interventions intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
   areaServedCourse: [
     'Yvelines',
@@ -183,9 +183,9 @@ function buildDeptConfig(opts: {
   const { deptCode, departementNom } = opts;
   const d = `${departementNom} (${deptCode})`;
   const h1 = `Formation IA appliquée au bâtiment en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
-  const metaTitle = `${buildIdfDeptPageTitle(departementNom, deptCode)} — Laure Olivié · Qualiopi`;
+  const metaTitle = buildIdfDeptPageTitle(departementNom, deptCode);
   const metaDescription = buildDeptMetaDescription(departementNom, deptCode, opts.triVillesMeta);
-  const courseName = `Formation IA pour les pro du BTP ${d} — Qualiopi, financement possible selon éligibilité`;
+  const courseName = `Formation IA pour les pros du BTP ${d} — Qualiopi, financement possible selon éligibilité`;
   return {
     path: opts.path,
     h1,
@@ -284,7 +284,7 @@ const DEPLACEMENT_GUYANCOURT_77 = `Siège ${OFC} à Guyancourt (78) : déplaceme
 export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-seine-et-marne-77',
   h1: 'Formation IA appliquée au bâtiment en Seine-et-Marne (77) — Melun, Meaux et Marne-la-Vallée',
-  metaTitle: 'Formation IA bâtiment Seine-et-Marne (77) — BTP & TP IDF | Laure Olivié · Qualiopi',
+  metaTitle: buildIdfDeptPageTitle('Seine-et-Marne', '77'),
   metaDescription: buildDeptMetaDescription('Seine-et-Marne', '77', 'Melun, Meaux'),
   keywords: [
     'formation IA appliquée au bâtiment 77',
@@ -416,7 +416,7 @@ export const FORMATION_IA_BTP_HAUTS_DE_SEINE_92 = buildDeptConfig({
   chefLieuAgglo: 'Nanterre',
   triVillesMeta: 'Nanterre, Boulogne-Billancourt et Issy-les-Moulineaux',
   keywords: [
-    'formation IA pour les pro du BTP 92',
+    'formation IA pour les pros du BTP 92',
     'formation ChatGPT Hauts-de-Seine',
     'Qualiopi 92',
     'formation IA Nanterre',
@@ -513,7 +513,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   chefLieuAgglo: 'Cergy',
   triVillesMeta: 'Cergy, Pontoise et Argenteuil',
   keywords: [
-    "formation IA pour les pro du BTP 95",
+    "formation IA pour les pros du BTP 95",
     "formation ChatGPT Val-d'Oise",
     'Qualiopi 95',
     'formation IA Cergy',

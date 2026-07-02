@@ -36,7 +36,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-04-13',
     modifiedTime: '2026-04-18',
     author: SITE_CONFIG.name,
-    section: 'Formation IA pour les pro du BTP',
+    section: 'Formation IA pour les pros du BTP',
   },
   image: {
     url: heroVisuel.src,
@@ -113,7 +113,7 @@ const idfLinks = [
 ] as const;
 
 const quickLinks = [
-  { href: LINKS.formations, label: 'Catalogue formations IA pour les pro du BTP' },
+  { href: LINKS.formations, label: 'Catalogue formations IA pour les pros du BTP' },
   { href: LINKS.financement, label: 'Financement Constructys' },
   { href: LINKS.chatgptArtisans, label: 'ChatGPT pour PME BTP' },
   { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux' },

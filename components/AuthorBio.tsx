@@ -48,7 +48,7 @@ function buildAuthorBioPersonSchema(): Record<string, unknown> {
       url: base,
     },
     alumniOf: 'ALIA BTP (2017-2024)',
-    knowsAbout: ['Formation IA pour les pro du BTP', 'ChatGPT', 'Claude AI', 'Construction', 'BTP'],
+    knowsAbout: ['Formation IA pour les pros du BTP', 'ChatGPT', 'Claude AI', 'Construction', 'BTP'],
   };
 }
 

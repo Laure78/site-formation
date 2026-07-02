@@ -8,6 +8,8 @@ import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { ContactDirect } from '@/components/landing/ContactDirect';
 import { ContactFormationHint } from '@/components/landing/ContactFormationHint';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
+import { LINKS } from '@/lib/internal-links';
 
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
@@ -17,7 +19,7 @@ import { OFC_SEC, OFC_SECTION_INNER, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-se
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour les pro du BTP — Contact',
+  title: 'Formation IA pour les pros du BTP — Contact',
   description:
     "Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou relais admin BeWork. RDV gratuit, Constructys. Île-de-France.",
   path: '/contact',
@@ -48,6 +50,7 @@ export default function ContactPage() {
             Dirigeants, conducteurs de travaux, équipes support : intégrez l&apos;IA dans vos tâches quotidiennes et{' '}
             <span className="font-semibold text-slate-900">récupérez 3 à 5 h par semaine</span>.
           </p>
+          <DisclaimerGains className="mt-3 max-w-xl" />
           <div className="mt-8 flex flex-wrap gap-3">
             {[
               '10+ ans en formation',
@@ -261,6 +264,25 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Réclamations */}
+      <section id="reclamations" className={`${OFC_SEC.white} scroll-mt-28`}>
+        <div className={OFC_SECTION_INNER}>
+          <h2 className="font-display text-2xl font-bold text-slate-900">Réclamations</h2>
+          <p className="mt-4 max-w-3xl text-slate-700">
+            Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
+            laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
+            Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous 48 h ouvrées et une réponse vous est
+            apportée sous 15 jours ouvrés. Chaque réclamation est enregistrée et analysée dans le cadre de notre
+            démarche d&apos;amélioration continue Qualiopi.
+          </p>
+          <p className="mt-3">
+            <Link href={LINKS.reclamations} className="font-medium text-[#377CF3] hover:underline">
+              Procédure détaillée et médiation →
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className={OFC_SEC.white}>
         <div className={OFC_SECTION_INNER}>
@@ -278,9 +300,10 @@ export default function ContactPage() {
             Prêt à gagner 3 à 5 heures par semaine ?
           </h2>
           <p className="mt-4 text-blue-100">
-            Contactez-moi pour discuter de votre projet de formation IA pour les pro du BTP et des
+            Contactez-moi pour discuter de votre projet de formation IA pour les pros du BTP et des
             modalités de financement.
           </p>
+          <DisclaimerGains className="mx-auto mt-4 max-w-xl text-blue-100/85" />
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
             <Link
               href="/formations"

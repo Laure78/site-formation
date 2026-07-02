@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -8,9 +7,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { InlinePublicPhoneLink } from '@/components/PublicPhoneCta';
 import { LINKS } from '@/lib/internal-links';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
-  getBreadcrumbSchema,
   getCourseSchema,
   getFAQSchema,
   SITE_CONFIG,
@@ -20,6 +17,7 @@ import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_STATS } from '@/lib/schema-constants';
 import { SOCIAL_PROOF, formatPersonnesFormeesCount } from '@/lib/constants';
+import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
 const PATH = '/formation-ia-btp';
@@ -29,12 +27,12 @@ const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA appliquée au bâtiment Île-de-France — ChatGPT 2026',
+  title: 'Formation IA bâtiment IDF — ChatGPT 2026',
   description:
     `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO, chantier. ${formatPersonnesFormeesCount()} pros formés. Qualiopi. Visio découverte gratuite.`,
   path: PATH,
   appendAuthorSuffix: false,
-  openGraphTitle: 'Formation IA pour les pro du BTP Île-de-France — ChatGPT 2026',
+  openGraphTitle: 'Formation IA pour les pros du BTP Île-de-France — ChatGPT 2026',
   openGraphDescription:
     `Formation IA appliquée au bâtiment en Île-de-France : ChatGPT pour devis, AO, chantier. ${formatPersonnesFormeesCount()} pros formés. Qualiopi. Visio découverte gratuite.`,
   image: {
@@ -56,7 +54,7 @@ export const metadata = createPageMetadata({
 });
 
 const courseName =
-  'Formation IA pour les pro du BTP — ChatGPT pour le Bâtiment en Île-de-France';
+  'Formation IA pour les pros du BTP — ChatGPT pour le Bâtiment en Île-de-France';
 
 const courseBase = getCourseSchema({
   name: courseName,
@@ -76,7 +74,7 @@ const courseBase = getCourseSchema({
 
 const courseJsonLd = {
   ...courseBase,
-  educationalCredentialAwarded: 'Attestation de formation certifiée Qualiopi',
+  educationalCredentialAwarded: QUALIOPI_CERTIFICAT_REALISATION,
   hasCourseInstance: {
     '@type': 'CourseInstance',
     name: courseName,
@@ -106,11 +104,6 @@ const courseJsonLd = {
 };
 
 const faqJsonLd = getFAQSchema(FAQ_FORMATION_IA_BTP_PILLAR);
-
-const breadcrumbJsonLd = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formation IA appliquée au bâtiment', path: PATH },
-]);
 
 function CtaVisio({ className }: { className?: string }) {
   return (
@@ -161,16 +154,6 @@ export default function FormationIaBtpPillarPage() {
     <div className="bg-white">
       <JsonLd id="schema-formation-ia-btp-course" schema={courseJsonLd} />
       <JsonLd id="schema-formation-ia-btp-faq" schema={faqJsonLd} />
-      <JsonLd id="schema-formation-ia-btp-breadcrumb" schema={breadcrumbJsonLd} />
-
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formation IA pour les pro du BTP', path: PATH },
-        ])}
-        showVisual
-        className="mx-auto max-w-4xl px-4 pt-8"
-      />
 
       <header className="border-b border-slate-200 bg-gradient-to-br from-slate-50 to-white px-4 py-14 md:py-20">
         <div className="mx-auto grid max-w-6xl items-start gap-10 md:grid-cols-[1fr_minmax(0,420px)]">
@@ -285,7 +268,7 @@ export default function FormationIaBtpPillarPage() {
           <Reveal>
           <h2 className="font-display text-2xl font-bold text-slate-900">Ce que vous allez maîtriser</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            La formation IA pour les pro du BTP est une <strong>formation pratique, en petits groupes</strong>, conçue exclusivement
+            La formation IA pour les pros du BTP est une <strong>formation pratique, en petits groupes</strong>, conçue exclusivement
             pour les professionnels du bâtiment et des travaux publics. 70 % du temps est consacré à des exercices sur
             vos documents réels — vos devis, vos emails, vos appels d&apos;offres.
           </p>
@@ -689,7 +672,7 @@ export default function FormationIaBtpPillarPage() {
       </article>
 
       <div className="mx-auto max-w-3xl px-4 pb-8">
-        <FAQSection items={FAQ_FORMATION_IA_BTP_PILLAR} title="Questions fréquentes — formation IA pour les pro du BTP" />
+        <FAQSection items={FAQ_FORMATION_IA_BTP_PILLAR} title="Questions fréquentes — formation IA pour les pros du BTP" />
       </div>
 
       <div className="border-t border-slate-200 bg-slate-50 px-4 py-12">
@@ -698,7 +681,7 @@ export default function FormationIaBtpPillarPage() {
             links={[
               { href: LINKS.blogFormationIaBtpGuide2026, label: 'Guide blog : formation IA appliquée au bâtiment 2026' },
               { href: LINKS.formationParis, label: 'Formation IA pour le BTP Paris' },
-              { href: LINKS.formationYvelines, label: 'Formation IA pour les pro du BTP Yvelines (78)' },
+              { href: LINKS.formationYvelines, label: 'Formation IA pour les pros du BTP Yvelines (78)' },
               { href: LINKS.diagnostic, label: 'Diagnostic IA BTP gratuit' },
               { href: LINKS.checklist, label: 'Checklist IA BTP' },
             ]}

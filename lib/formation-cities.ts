@@ -1,5 +1,5 @@
 /**
- * Configuration des pages formation IA pour les pro du BTP par ville (Île-de-France).
+ * Configuration des pages formation IA pour les pros du BTP par ville (Île-de-France).
  * Pages hors IDF (Lyon, Bordeaux, Lille) retirées — redirection 301 vers /formation-ia-btp-ile-de-france.
  */
 

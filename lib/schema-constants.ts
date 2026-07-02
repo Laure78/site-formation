@@ -47,6 +47,10 @@ export const SCHEMA_GEO = {
 /** Horaires d'ouverture — format Schema.org openingHours. */
 export const SCHEMA_OPENING_HOURS = 'Mo-Fr 09:00-18:00' as const;
 
+/** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification). */
+export const ANNUAIRE_ENTREPRISES_OFC_URL =
+  'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281' as const;
+
 /** Statistiques publiques (cohérence biographies / schémas). */
 export const SCHEMA_STATS = {
   personnesFormees: String(siteStats.personnesFormees),
@@ -115,4 +119,35 @@ export function schemaDefaultPersonImageUrl(): string {
 export function schemaHeaderPersonImageUrl(): string {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   return `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`;
+}
+
+/** 8 départements Île-de-France — labels Schema.org / Course.areaServed. */
+export const IDF_DEPT_AREA_SERVED_LABELS = [
+  'Paris (75)',
+  'Seine-et-Marne (77)',
+  'Yvelines (78)',
+  'Essonne (91)',
+  'Hauts-de-Seine (92)',
+  'Seine-Saint-Denis (93)',
+  'Val-de-Marne (94)',
+  "Val-d'Oise (95)",
+] as const;
+
+/** Noms pour Course.areaServed (type Place). */
+export const IDF_COURSE_AREA_SERVED_NAMES = [
+  'Île-de-France',
+  ...IDF_DEPT_AREA_SERVED_LABELS,
+  'France',
+] as const;
+
+/** areaServed Organization / LocalBusiness — 8 départements + région + France. */
+export function buildIdfAreaServedSchemaEntities(): Array<Record<string, string>> {
+  return [
+    { '@type': 'AdministrativeArea', name: 'Île-de-France' },
+    ...IDF_DEPT_AREA_SERVED_LABELS.map((name) => ({
+      '@type': 'AdministrativeArea',
+      name,
+    })),
+    { '@type': 'Country', name: 'France' },
+  ];
 }

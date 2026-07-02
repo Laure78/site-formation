@@ -23,7 +23,6 @@ import {
   FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO,
   PROMPT_CR_CDT,
   PROMPT_DCE_CDT,
-  buildConducteurDeTravauxBtpBreadcrumbJsonLd,
   buildConducteurDeTravauxBtpCourseJsonLd,
 } from '@/lib/formation-ia-conducteur-de-travaux-btp-landing';
 
@@ -44,7 +43,7 @@ export const metadata = createPageMetadata({
     publishedTime: '2026-06-02',
     modifiedTime: '2026-06-02',
     author: 'Laure Olivié',
-    section: 'Formation IA pour les pro du BTP',
+    section: 'Formation IA pour les pros du BTP',
   },
   image: {
     url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
@@ -82,35 +81,15 @@ const METHODE_ETAPES = [
 export default function FormationIaConducteurDeTravauxBtpPage() {
   const faqSchema = getFAQSchema([...CDT_BTP_FAQ]);
   const courseJsonLd = buildConducteurDeTravauxBtpCourseJsonLd();
-  const breadcrumbJsonLd = buildConducteurDeTravauxBtpBreadcrumbJsonLd();
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 text-slate-800 md:py-14">
       <JsonLd id="jsonld-course-conducteur-de-travaux-btp" schema={courseJsonLd} />
-      <JsonLd id="jsonld-breadcrumb-conducteur-de-travaux-btp" schema={breadcrumbJsonLd} />
       {faqSchema ? <JsonLd id="jsonld-faq-conducteur-de-travaux-btp" schema={faqSchema} /> : null}
 
       <article>
         <header>
-          <nav aria-label="Fil d'Ariane" className="text-sm text-slate-600">
-            <ol className="flex flex-wrap items-center gap-1.5">
-              <li>
-                <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
-                  Accueil
-                </Link>
-              </li>
-              <li aria-hidden="true">›</li>
-              <li>
-                <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
-                  Formations
-                </Link>
-              </li>
-              <li aria-hidden="true">›</li>
-              <li className="font-medium text-slate-800">Formation IA Conducteur de Travaux</li>
-            </ol>
-          </nav>
-
-          <h1 className="mt-6 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.h1}
           </h1>
           <p className="mt-4 text-lg text-slate-600">
@@ -392,7 +371,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
         />
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
-          <p>Laure Olivié — Formatrice IA pour les pro du BTP, OFC Création d&apos;Entreprise</p>
+          <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             laureolivie@yahoo.fr ·{' '}

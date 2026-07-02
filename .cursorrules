@@ -58,7 +58,7 @@
 - **Mots-clés principaux** :
   - Formation IA pour le BTP
   - Formation IA appliquée au bâtiment
-  - Formation IA pour les pro du BTP
+  - Formation IA pour les pros du BTP
   - ChatGPT bâtiment
   - IA artisan
   - Formation IA Île-de-France
@@ -104,7 +104,7 @@
 
 6. **SEO** — **Title SEO** : format **`[Mot-clé principal] : [bénéfice] | Laure Olivié`**, **max. 65 caractères**.
 
-7. **SEO** — **Meta description** : **max. 160 caractères**, doit contenir **« formation IA pour le BTP »**, **« formation IA appliquée au bâtiment »**, **« formation IA pour les pro du BTP »** ou **« ChatGPT BTP »**.
+7. **SEO** — **Meta description** : **max. 160 caractères**, doit contenir **« formation IA pour le BTP »**, **« formation IA appliquée au bâtiment »**, **« formation IA pour les pros du BTP »** ou **« ChatGPT BTP »**.
 
 8. **SEO** — Chaque nouvelle page doit avoir **au moins un lien interne** depuis une page existante ; étendre **`lib/internal-links.ts`** si besoin (pas d’URL en dur hors ce fichier).
 
@@ -173,6 +173,16 @@ Placer dans le footer de chaque page + page dédiée "Mentions légales".
 - ❌ Éviter les couleurs d'accent autres que la charte
 - ❌ Ne pas proposer de formations en anglais ou autres langues
 - ❌ Pas de plugin WordPress ou thème préconçu (Next.js/React from scratch ou framework minimaliste)
+
+## Règles conformité Qualiopi (à respecter sur toute modification du site)
+- Ne JAMAIS écrire « financement garanti » : toujours « financement OPCO possible selon éligibilité »
+- Le logo Qualiopi n'apparaît JAMAIS seul : toujours via le composant `<QualiopiBadge />` (visuel Certifopac avec mention catégorie intégrée — pas de texte dupliqué sous le logo)
+- Le logo Qualiopi et les mentions OPCO ne doivent JAMAIS apparaître dans la section BeWork
+- Toute fiche formation affiche obligatoirement : prérequis, objectifs, durée, tarif, modalités et méthodes, modalités d'évaluation, délai d'accès, accessibilité handicap (référente : Laure Olivié, laureolivie@yahoo.fr), date de mise à jour + version
+- Indicateurs de résultats : uniquement depuis `config/qualiopi.ts`, toujours sourcés et datés
+- Terminologie : « certificat de réalisation » (pas « attestation de formation » seule)
+- Footer obligatoire : SIRET 905 244 281 00010 + NDA 11788515078 + « Cet enregistrement ne vaut pas agrément de l'État »
+- Toute promesse chiffrée est accompagnée du composant `<DisclaimerGains />`
 
 ---
 

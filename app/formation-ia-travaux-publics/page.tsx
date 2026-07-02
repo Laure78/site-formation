@@ -14,9 +14,7 @@ import {
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import {
-  breadcrumbItemsFromPaths,
   createPageMetadata,
   getFAQSchema,
 } from '@/lib/seo';
@@ -26,8 +24,7 @@ import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title:
-    'Formation IA travaux publics — ChatGPT, VRD, génie civil',
+  title: 'Formation IA travaux publics — ChatGPT',
   description:
     "Formation IA pour les travaux publics : planification TP, VRD, études de sol, appels d'offres publics, génie civil. Qualiopi, Constructys. RDV gratuit.",
   path: '/formation-ia-travaux-publics',
@@ -103,12 +100,6 @@ export default function FormationIATravauxPublicsLandingPage() {
   return (
     <div>
       <JsonLd id="schema-faq-page" schema={faqSchema} />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formation IA travaux publics', path: '/formation-ia-travaux-publics' },
-        ])}
-      />
 
       <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4 py-16 text-white md:py-20">
         <div className="mx-auto max-w-4xl text-center">

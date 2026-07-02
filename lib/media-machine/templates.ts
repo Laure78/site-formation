@@ -61,7 +61,7 @@ export function getLinkedInTemplate(articleTitle: string): LinkedInPostTemplate 
     problem: 'Les entreprises du BTP perdent un temps fou sur l\'administratif : devis, emails, comptes rendus. Des heures qui pourraient être passées sur le chantier.',
     insight: 'L\'IA change la donne. En 4h de formation, vous apprenez à utiliser ChatGPT pour diviser par 10 le temps de rédaction. Sans compétence technique.',
     example: 'Un plombier que j\'ai formé : devis de rénovation complète en 15 min au lieu de 2h. Il ajuste les prix, envoie. Le client signe. Simple.',
-    cta: `Découvrez la formation IA pour les pro du BTP — Financement possible selon éligibilité. Lien en bio.`,
+    cta: `Découvrez la formation IA pour les pros du BTP — Financement possible selon éligibilité. Lien en bio.`,
   };
 }
 

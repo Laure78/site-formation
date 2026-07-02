@@ -421,7 +421,7 @@ export function VerificationDtuBeworkTool() {
           </Link>
           {' · '}
           <Link href={LINKS.formations} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
-            Catalogue formation IA pour les pro du BTP
+            Catalogue formation IA pour les pros du BTP
           </Link>
           {' · '}
           <Link href={LINKS.contact} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">

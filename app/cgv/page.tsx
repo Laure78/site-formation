@@ -4,7 +4,7 @@ import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'CGV — Conditions Générales de Vente — OFC Création d\'Entreprise',
+  title: 'CGV — OFC Création d\'Entreprise',
   description:
     "CGV des formations OFC : vente, délais, annulations, paiement. Organisme Qualiopi. À lire avant de réserver votre formation IA pour le BTP.",
   path: '/cgv',
@@ -115,11 +115,19 @@ export default function CGVPage() {
             3.1 Modalités d&apos;inscription
           </h3>
           <p className="mt-2">
-            Via la page contact de www.laureolivie.fr (coordonnées et prise de rendez-vous) ; par email à
-            laureolivie@yahoo.fr ; par voie postale.
+            Via la page contact de www.laureolivie.fr (coordonnées et prise de rendez-vous Calendly) ; par email à
+            laureolivie@yahoo.fr ; par voie postale. Demande d&apos;inscription → proposition commerciale → convention
+            de formation signée avant l&apos;entrée en formation → convocation.
           </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            3.2 Validation de l&apos;inscription
+            3.2 Délai de rétractation (personnes physiques)
+          </h3>
+          <p className="mt-2">
+            Pour les personnes physiques finançant elles-mêmes la formation : délai de rétractation de 10 jours à
+            compter de la signature du contrat (article L.6353-5 du Code du travail).
+          </p>
+          <h3 className="mt-6 font-semibold text-[var(--accent)]">
+            3.3 Validation de l&apos;inscription
           </h3>
           <ul className="mt-2 list-disc space-y-1 pl-6">
             <li>Particuliers : contrat signé + acompte 30%</li>
@@ -127,7 +135,7 @@ export default function CGVPage() {
             <li>OPCO : accord de prise en charge</li>
           </ul>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            3.3 Documents contractuels
+            3.4 Documents contractuels
           </h3>
           <p className="mt-2">
             Contrat de formation (L.6353-3) pour particuliers ; convention (L.6353-2)
@@ -320,10 +328,13 @@ export default function CGVPage() {
             ARTICLE 15 — RÉCLAMATION — MÉDIATION
           </h2>
           <p className="mt-4">
-            Réclamation par email ou courrier. Accusé de réception sous 48h,
-            réponse sous 15 jours ouvrés. Médiation amiable avant action
-            judiciaire. Compétence exclusive des tribunaux du siège de
-            l&apos;Organisme.
+            Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
+            laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
+            Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous 48 h ouvrées et une réponse vous est
+            apportée sous 15 jours ouvrés. Chaque réclamation est enregistrée et analysée dans le cadre de notre
+            démarche d&apos;amélioration continue Qualiopi. En cas de litige non résolu, médiation amiable possible ;
+            pour les clients particuliers, recours au médiateur de la consommation compétent. Compétence exclusive des
+            tribunaux du siège de l&apos;Organisme.
           </p>
         </section>
 
@@ -363,7 +374,7 @@ export default function CGVPage() {
       {/* Pied de page */}
       <div className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
         <p className="font-semibold text-slate-900">
-          Version en vigueur au : 30 janvier 2026
+          Version en vigueur au 03/06/2026 — OFC Création d&apos;Entreprise
         </p>
         <div className="mt-6 space-y-1 text-sm text-slate-600">
           <p className="font-bold text-[var(--accent)]">

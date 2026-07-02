@@ -25,7 +25,7 @@ export const revalidate = 3600;
 const PATH = LINKS.formationSaintQuentinYvelines;
 
 const MAIL_RAPPEL_SQY =
-  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA pour les pro du BTP Saint-Quentin-en-Yvelines')}`;
+  `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA pour les pros du BTP Saint-Quentin-en-Yvelines')}`;
 
 const HERO_RESUME = [
   'Formation IA appliquée au bâtiment en présentiel sur la communauté d’agglomération de Saint-Quentin-en-Yvelines : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière…',
@@ -38,7 +38,7 @@ const HERO_RESUME = [
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour le BTP Saint-Quentin-en-Yvelines : ChatGPT BTP',
+  title: 'Formation IA BTP SQY (78) — ChatGPT',
   description:
     'Formation IA pour le BTP à Saint-Quentin-en-Yvelines (78) : ChatGPT, devis, CR chantier. Qualiopi, Constructys. Visio découverte gratuite.',
   path: PATH,
@@ -47,7 +47,7 @@ export const metadata = createPageMetadata({
     'formation ChatGPT BTP SQY',
     'formation IA pour le BTP Guyancourt',
     'formation IA Montigny-le-Bretonneux',
-    'formation IA pour les pro du BTP Trappes',
+    'formation IA pour les pros du BTP Trappes',
     'OPCO Constructys Yvelines',
     'formation intelligence artificielle BTP 78',
   ],
@@ -87,7 +87,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
         refLine="Laure Olivié · OFC Création d'Entreprise · Guyancourt (78280) · Qualiopi · Constructys"
         title={
           <>
-            Formation IA pour les pro du BTP Saint-Quentin-en-Yvelines (78) —{' '}
+            Formation IA pour les pros du BTP Saint-Quentin-en-Yvelines (78) —{' '}
             <span className="text-[var(--accent)]">ChatGPT</span> pour PME et équipes du bâtiment
           </>
         }
@@ -209,7 +209,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Ce que couvre la formation IA pour les pro du BTP (modules)
+            Ce que couvre la formation IA pour les pros du BTP (modules)
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600">
             La formation est modulaire. Selon votre activité et vos priorités, on travaille sur un ou plusieurs
@@ -461,7 +461,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: LINKS.formationYvelines, label: 'Formation IA pour les pro du BTP Yvelines (78)' },
+              { href: LINKS.formationYvelines, label: 'Formation IA pour les pros du BTP Yvelines (78)' },
               { href: LINKS.formationIleDeFrance, label: 'Formation IA appliquée au bâtiment Île-de-France' },
               { href: LINKS.formationParis, label: 'Formation IA pour le BTP Paris' },
               { href: LINKS.formations, label: 'Catalogue formations' },
@@ -475,7 +475,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
       <section className="bg-[var(--accent)] px-4 py-16 text-white">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">
-            Formation IA pour les pro du BTP à Saint-Quentin-en-Yvelines : prochaine étape
+            Formation IA pour les pros du BTP à Saint-Quentin-en-Yvelines : prochaine étape
           </h2>
           <p className="mt-4 text-lg text-blue-100">
             Réservez un échange gratuit de 30 minutes ou contactez-nous pour un devis et un programme adapté à

@@ -8,7 +8,7 @@ export const revalidate = 3600;
 const PATH = LINKS.verificationDtuBeworkTest;
 
 export const metadata = createPageMetadata({
-  title: 'Prototype test DTU × devis BeWork (non indexé)',
+  title: 'Prototype DTU × devis BeWork (noindex)',
   description:
     'Espace de test interne sans indexation — rapprochement indicatif lignes de devis BTP et familles NF DTU. Formation IA pour le BTP Laure Olivié.',
   path: PATH,

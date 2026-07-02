@@ -5,6 +5,7 @@ import {
   SCHEMA_GEO,
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_PUBLIC_SITE_URL,
+  buildIdfAreaServedSchemaEntities,
 } from '@/lib/schema-constants';
 
 /**
@@ -46,10 +47,7 @@ export function buildGlobalOrganizationEducationalJsonLd(): Record<string, unkno
       url: `${base}/a-propos`,
       sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
     },
-    areaServed: [
-      { '@type': 'AdministrativeArea', name: 'Île-de-France' },
-      { '@type': 'Country', name: 'France' },
-    ],
+    areaServed: buildIdfAreaServedSchemaEntities(),
     knowsAbout: [
       'Intelligence Artificielle',
       'ChatGPT',

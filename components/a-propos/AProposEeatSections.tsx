@@ -115,20 +115,21 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           </p>
           <ul className="mt-12 grid list-none gap-8 p-0 sm:grid-cols-2 lg:grid-cols-3">
             <li className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-              <div className="flex w-full max-w-[260px] items-center justify-center">
+              <div className="flex w-full max-w-md items-center justify-center rounded-lg bg-white p-3">
                 <Image
                   src={PHOTOS.qualiopiLogoOfficiel.src}
                   alt={PHOTOS.qualiopiLogoOfficiel.alt}
                   width={PHOTOS.qualiopiLogoOfficiel.width}
                   height={PHOTOS.qualiopiLogoOfficiel.height}
-                  className="h-auto max-h-24 w-full object-contain"
+                  className="h-auto w-full object-contain"
+                  sizes="(max-width: 640px) 100vw, 28rem"
                 />
               </div>
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
-                Certifiée Qualiopi (NDA 11788515078)
+                Certifiée Qualiopi via Certifopac (NDA 11788515078)
               </p>
               <p className="mt-2 max-w-xs text-xs leading-relaxed text-slate-600">
-                Conforme au référentiel national qualité des actions de formation.
+                Actions de formation — référentiel national qualité.
               </p>
               <Link
                 href={EXTERNAL_AUTHORITY_LINKS.dataGouvQualiopi.href}

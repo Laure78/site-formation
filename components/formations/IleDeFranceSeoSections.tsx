@@ -7,7 +7,7 @@ import { LINKS } from '@/lib/internal-links';
 import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
 
 /**
- * Bloc SEO / conversion — page Formation IA pour les pro du BTP Île-de-France uniquement.
+ * Bloc SEO / conversion — page Formation IA pour les pros du BTP Île-de-France uniquement.
  */
 export function IleDeFranceSeoSections() {
   const mailProgramme = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(
@@ -44,7 +44,7 @@ export function IleDeFranceSeoSections() {
               href={LINKS.formationSaintQuentinYvelines}
               className="font-medium text-[var(--accent)] hover:underline"
             >
-              formation IA pour les pro du BTP Saint-Quentin-en-Yvelines
+              formation IA pour les pros du BTP Saint-Quentin-en-Yvelines
             </Link>
             .
           </p>

@@ -53,7 +53,7 @@
     },
     {
       "type": "faq",
-      "title": "FAQ — Constructys et financement formation IA pour les pro du BTP",
+      "title": "FAQ — Constructys et financement formation IA pour les pros du BTP",
       "content": [
         "Toutes les formations IA sont-elles éligibles à un financement selon dossier (Constructys) ? — Uniquement celles dispensées par un organisme certifié Qualiopi. OFC Création d'Entreprise est certifié Qualiopi depuis 2023. Les formations du catalogue (BTP-01, BTP-02, BTP-04) sont éligibles au PDC Constructys 2026.",
         "Puis-je financer une formation pour un seul salarié ? — Oui. Il n'y a pas de nombre minimum de stagiaires pour une prise en charge PDC. En intra avec un seul stagiaire, le calcul est identique — mais le rapport coût/bénéfice est généralement plus favorable à partir de 3 ou 4 stagiaires.",
@@ -84,7 +84,7 @@
     },
     {
       "path": "/formations",
-      "anchor": "catalogue formations IA pour les pro du BTP"
+      "anchor": "catalogue formations IA pour les pros du BTP"
     },
     {
       "path": "/prendre-rdv",

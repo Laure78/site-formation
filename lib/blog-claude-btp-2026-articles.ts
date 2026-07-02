@@ -424,7 +424,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
       {
         type: 'cta',
         content:
-          'Vous voulez passer à la pratique encadrée sur vos cas réels (devis, chantier, administratif) ? Réservez un échange ou découvrez le catalogue des formations IA pour les pro du BTP.',
+          'Vous voulez passer à la pratique encadrée sur vos cas réels (devis, chantier, administratif) ? Réservez un échange ou découvrez le catalogue des formations IA pour les pros du BTP.',
         formationHref: '/formations/ia-batiment-travaux-publics',
       },
     ],
@@ -513,7 +513,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
       'prompts LinkedIn BTP',
       'carrousel LinkedIn bâtiment',
       'posts LinkedIn BTP',
-      'formation IA pour les pro du BTP communication',
+      'formation IA pour les pros du BTP communication',
       'Qualiopi LinkedIn',
       'OPCO Constructys communication',
     ],

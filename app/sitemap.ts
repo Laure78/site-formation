@@ -88,9 +88,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/guide-maitrise-oeuvre-ia', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp', priority: 0.98, changeFrequency: 'weekly' },
-    { path: '/formation-ia-btp-paris-2026', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/ia-conducteur-travaux', priority: 0.88, changeFrequency: 'monthly' },
-    { path: '/formations/ia-btp-paris', priority: 0.9, changeFrequency: 'weekly' },
+    { path: LINKS.formationIaBtpIdfZones, priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-saint-quentin-en-yvelines', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-morangis', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-longjumeau', priority: 0.88, changeFrequency: 'weekly' },
@@ -129,6 +127,10 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/cgv', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/reglement-interieur', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/annuaire-handicap', priority: 0.5, changeFrequency: 'yearly' },
+    { path: LINKS.qualiopi, priority: 0.55, changeFrequency: 'yearly' },
+    { path: LINKS.indicateursResultats, priority: 0.5, changeFrequency: 'yearly' },
+    { path: LINKS.reclamations, priority: 0.45, changeFrequency: 'yearly' },
+    { path: LINKS.accessibiliteHandicap, priority: 0.5, changeFrequency: 'yearly' },
     { path: '/install-pwa', priority: 0.7, changeFrequency: 'monthly' },
   ];
 

@@ -58,7 +58,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(SITE_CONFIG.url),
     title: {
       template: '%s | Laure Olivié',
-      default: "Laure Olivié — Formatrice IA pour les pro du BTP | OFC Création d'Entreprise",
+      default: "Laure Olivié — Formatrice IA pour les pros du BTP | OFC Création d'Entreprise",
     },
     description: siteDescription,
     authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],

@@ -7,6 +7,7 @@ import { RESSOURCES_THEMATIC_BLOCKS } from '@/lib/ressources-thematic-hub';
 
 const QUICK_LINKS = [
   { href: '#hub-par-theme', label: 'Par thématique' },
+  { href: '#lexique-btp', label: 'Lexique BTP' },
   { href: '#guides-pdf', label: 'Guides PDF' },
   { href: '#tutoriels-pdf', label: 'Tutoriels PDF' },
   { href: '#aller-plus-loin', label: 'Aller plus loin' },
@@ -20,8 +21,8 @@ export function RessourcesHero() {
       titleId="ressources-hero-title"
       description={
         <>
-          Tutos PDF, guides et fiches pratiques pour appliquer l&apos;IA dans ton entreprise BTP.
-          Téléchargement libre, sans inscription. Contenus signés Laure Olivié, formatrice IA × BTP — OFC
+          Tutos PDF, guides, lexique BTP interactif et fiches pratiques pour appliquer l&apos;IA dans ton entreprise
+          BTP. Téléchargement libre, sans inscription. Contenus signés Laure Olivié, formatrice IA × BTP — OFC
           Création d&apos;Entreprise (Qualiopi).
         </>
       }

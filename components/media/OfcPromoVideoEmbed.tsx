@@ -1,6 +1,13 @@
 'use client';
 
-import { getOfcPromoVideoTitle, OFC_PROMO_VIDEO } from '@/lib/ofc-promo-video';
+import Link from 'next/link';
+import Image from 'next/image';
+import {
+  getOfcPromoVideoTitle,
+  OFC_PROMO_VIDEO,
+  OFC_PROMO_VIDEO_SEO,
+} from '@/lib/ofc-promo-video';
+import { LINKS } from '@/lib/internal-links';
 
 export type OfcPromoVideoVariant =
   | 'default'
@@ -33,36 +40,68 @@ const INNER: Partial<Record<OfcPromoVideoVariant, string>> = {
 type OfcPromoVideoEmbedProps = {
   variant?: OfcPromoVideoVariant;
   className?: string;
-  /** Titre iframe — défaut : libellé hero accueil (PHOTOS). */
+  /** Titre iframe — défaut : libellé court accessibilité. */
   title?: string;
+  /** Lien « page vidéo » sous le lecteur (défaut : true). */
+  showWatchPageLink?: boolean;
 };
 
 /**
  * Vidéo promo formations Laure Olivié — iframe HTML autonome, ratio 1200×800.
+ * Fallback object : lien descriptif vers la page watch (jamais l’URL technique du bundle).
  */
 export function OfcPromoVideoEmbed({
   variant = 'default',
   className = '',
   title,
+  showWatchPageLink = true,
 }: OfcPromoVideoEmbedProps) {
   const iframeTitle = title ?? getOfcPromoVideoTitle();
   const innerClass = INNER[variant] ?? INNER.default ?? 'relative w-full';
 
   return (
-    <div className={`${WRAPPER[variant]} ${className}`.trim()}>
-      <div
-        className={innerClass}
-        style={{ aspectRatio: OFC_PROMO_VIDEO.aspectRatio }}
-      >
-        <iframe
-          src={OFC_PROMO_VIDEO.src}
-          title={iframeTitle}
-          className="absolute inset-0 h-full w-full border-0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-        />
+    <div className={className}>
+      <div className={`${WRAPPER[variant]}`.trim()}>
+        <div
+          className={innerClass}
+          style={{ aspectRatio: OFC_PROMO_VIDEO.aspectRatio }}
+        >
+          <Image
+            src={OFC_PROMO_VIDEO_SEO.thumbnailPath}
+            alt=""
+            aria-hidden
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 400px"
+          />
+          <object
+            data={OFC_PROMO_VIDEO.src}
+            type="text/html"
+            title={iframeTitle}
+            className="absolute inset-0 h-full w-full border-0"
+            aria-label={iframeTitle}
+          >
+            <p className="flex h-full items-center justify-center bg-[#eef3fb] p-4 text-center text-sm text-slate-600">
+              <Link
+                href={LINKS.videoFormationsIaBtp}
+                className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+              >
+                Voir la présentation vidéo des formations IA BTP
+              </Link>
+            </p>
+          </object>
+        </div>
       </div>
+      {showWatchPageLink ? (
+        <p className="mt-2 text-center text-xs leading-relaxed text-slate-500 sm:text-left">
+          <Link
+            href={LINKS.videoFormationsIaBtp}
+            className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+          >
+            Page vidéo dédiée
+          </Link>
+        </p>
+      ) : null}
     </div>
   );
 }

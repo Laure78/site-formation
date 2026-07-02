@@ -6,6 +6,7 @@ import { RdvLink } from '@/components/RdvLink';
 import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -67,7 +68,7 @@ export default function ChecklistIABTPPage() {
                 IA devis bâtiment →
               </Link>
               <Link
-                href="/ia-conducteur-travaux"
+                href={LINKS.formationConducteurTravaux}
                 className="text-[#166534] font-medium hover:underline"
               >
                 IA conducteur de travaux →

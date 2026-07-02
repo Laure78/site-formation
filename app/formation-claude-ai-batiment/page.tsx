@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
 const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier-2026.png';
 
 export const metadata = createPageMetadata({
-  title: 'Formation Claude AI bâtiment 2026 — devis, CR, appels d\'offres',
+  title: 'Formation Claude AI bâtiment 2026 — OFC',
   description:
     "Formation Claude AI bâtiment : devis, comptes rendus chantier et réponses AO. Qualiopi, Constructys, sessions inter/intra.",
   path: PATH,

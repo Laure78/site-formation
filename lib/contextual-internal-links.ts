@@ -195,8 +195,8 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   },
   {
     href: LINKS.iaConducteurTravaux,
-    title: 'Guide IA — comptes rendus chantier',
-    description: 'Page informationnelle : CR, coordination, rapports d’avancement.',
+    title: 'Guide IA conducteur de travaux BTP',
+    description: 'CR, coordination, PPSPS, analyse DCE — page métier canonique.',
   },
   {
     href: LINKS.guideConducteurTravauxIaBtp,

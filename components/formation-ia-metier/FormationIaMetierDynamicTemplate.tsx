@@ -100,7 +100,7 @@ export function FormationIaMetierDynamicTemplate({
       <section className="border-b border-slate-200 bg-[#377CF3] px-4 py-12 text-white">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-lg font-medium text-blue-100">
-            30 minutes pour cadrer votre besoin — formation IA pour les pro du BTP, financement, calendrier.
+            30 minutes pour cadrer votre besoin — formation IA pour les pros du BTP, financement, calendrier.
           </p>
           <div className="mt-6 flex justify-center">
             <Link

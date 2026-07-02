@@ -1,5 +1,4 @@
 import type { FormationIaRawMetier, FormationIaRawVille } from '@/lib/seo-formation-ia-hub-data';
-import { truncateForBrandedTitle } from '@/utils/metadata';
 
 const BASE_KW = [
   'formation IA appliquée au bâtiment',
@@ -40,7 +39,7 @@ function metierSeoLabel(m: FormationIaRawMetier): string {
 
 export function buildMetierMetadata(m: FormationIaRawMetier, _path: string) {
   const label = metierSeoLabel(m);
-  const title = truncateForBrandedTitle(`Formation IA ${label} — BTP & TP Paris IDF`);
+  const title = `Formation IA BTP ${label} — IDF`;
   const description = truncate(
     `Formation IA appliquée au bâtiment ${m.label} : ChatGPT et Claude AI pour devis, dossiers et chantier. Formation IA travaux publics. Qualiopi, Constructys, Île-de-France.`,
     160,
@@ -57,11 +56,9 @@ export function buildMetierMetadata(m: FormationIaRawMetier, _path: string) {
 
 export function buildVilleMetadata(v: FormationIaRawVille, _path: string) {
   const isParis = v.slug === 'btp-paris';
-  const title = truncateForBrandedTitle(
-    isParis
-      ? 'Formation IA bâtiment Paris — BTP & TP IDF'
-      : `Formation IA BTP ${v.label} (${v.dept}) — IDF`,
-  );
+  const title = isParis
+    ? 'Formation IA BTP Paris (75) — Qualiopi'
+    : `Formation IA BTP ${v.label} (${v.dept}) — IDF`;
   const description = truncate(
     isParis
       ? `Formation IA pour le BTP à Paris et Grand Paris : formation IA appliquée au bâtiment, formation IA travaux publics. Qualiopi, Constructys, Île-de-France.`

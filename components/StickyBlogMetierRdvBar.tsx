@@ -109,7 +109,7 @@ export function StickyBlogMetierRdvBar() {
     <div
       className="fixed bottom-0 left-0 right-0 z-[60] hidden h-[60px] items-stretch border-t border-[#D4E3FC] bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.06)] md:flex"
       role="region"
-      aria-label="Formation IA pour les pro du BTP — prise de rendez-vous"
+      aria-label="Formation IA pour les pros du BTP — prise de rendez-vous"
     >
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4">
         <p className="hidden min-w-0 flex-1 items-center gap-2 truncate text-sm font-medium text-slate-800 sm:flex">

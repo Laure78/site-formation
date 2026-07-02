@@ -26,29 +26,28 @@ export const revalidate = 3600;
 const MAIL_RAPPEL_PARIS =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA appliquée au bâtiment Paris')}`;
 
-const HERO_RESUME_PARIS = [
-  'Formation IA pour le BTP Paris et Île-de-France — devis, emails, appels d\'offres, administratif.',
+const HERO_RESUME_IDF = [
+  'Formation IA pour le BTP en Île-de-France — devis, emails, appels d\'offres, administratif.',
   `Session ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session (débutant) — Qualiopi.`,
-  'Présentiel — Paris (75) et 8 départements : inter ou intra selon convention.',
+  'Présentiel — 8 départements (75 à 95) : inter ou intra selon convention.',
   'Financement OPCO Constructys selon éligibilité.',
 ];
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour les pro du BTP Paris — ChatGPT en 4h',
+  title: 'Formation IA BTP Île-de-France — 8 départements, 4 h',
   description:
-    'Formation IA appliquée au bâtiment à Paris en 4h. ChatGPT pour devis, AO, chantier. Qualiopi. Financement possible selon éligibilité. RDV visio gratuit.',
+    'Formation IA appliquée au bâtiment en Île-de-France (8 départements 75 à 95) en 4 h. ChatGPT pour devis, AO, chantier. Qualiopi. Financement possible selon éligibilité.',
   path: '/formations/ia-btp-paris',
   appendAuthorSuffix: false,
   keywords: [
-    'formation IA Paris',
-    'formation BTP Paris',
     'formation IA Île-de-France',
-    'formation ChatGPT BTP 75',
-    'formation IA 92 93 94',
-    'OPCO Constructys Paris',
-    'formation IA bâtiment Paris',
+    'formation BTP IDF',
+    'formation IA 8 départements',
+    'formation ChatGPT BTP 92 93 94',
+    'OPCO Constructys Île-de-France',
+    'formation IA bâtiment IDF',
   ],
 });
 
@@ -106,10 +105,10 @@ export default function FormationIABTPParisPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
       <FormationCourseHero
         catalogueRef="NIV-01"
-        refLine="Formation Paris & Île-de-France · Financement OPCO"
+        refLine="Formation Île-de-France · 8 départements 75–95"
         title={
           <>
-            Formation IA bâtiment à <span className="text-[var(--accent)]">Paris</span> et Île-de-France
+            Formation IA bâtiment en <span className="text-[var(--accent)]">Île-de-France</span> — 8 départements
           </>
         }
         subtitle="Devis, emails, administratif — ChatGPT pour le BTP"
@@ -118,7 +117,7 @@ export default function FormationIABTPParisPage() {
           'Accessible débutant',
           'Cas terrain',
         ]}
-        summaryItems={HERO_RESUME_PARIS}
+        summaryItems={HERO_RESUME_IDF}
         ctas={
           <>
             <RdvLink className="rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center font-semibold text-white hover:bg-blue-600">
@@ -144,6 +143,12 @@ export default function FormationIABTPParisPage() {
               Voir les zones d&apos;intervention
             </a>
             <Link
+              href={LINKS.formationIaBtpParis75}
+              className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
+            >
+              Formation IA BTP Paris (75) — intra par arrondissement
+            </Link>
+            <Link
               href={LINKS.formationIaBtpNiveau1BatimentTp}
               className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
             >
@@ -155,8 +160,12 @@ export default function FormationIABTPParisPage() {
       >
         <p>
           Formation IA bâtiment pour les <strong>TPE, PME et équipes du BTP</strong> en Île-de-France.{' '}
-          <strong>Devis, emails, relances clients</strong> : intervention à <strong>Paris (75)</strong> et
-          dans les <strong>8 départements</strong> — approche concrète, orientée terrain.
+          <strong>Devis, emails, relances clients</strong> : intervention dans les{' '}
+          <strong>8 départements (75 à 95)</strong> — approche concrète, orientée terrain. Pour{' '}
+          <Link href={LINKS.formationIaBtpParis75} className="font-medium text-[var(--accent)] hover:underline">
+            Paris intra-muros (75)
+          </Link>
+          , voir la page dédiée.
         </p>
       </FormationCourseHero>
 
@@ -236,7 +245,7 @@ export default function FormationIABTPParisPage() {
         <div className="mx-auto max-w-4xl">
           <FAQSection
             items={FAQ_IA_BTP_PARIS}
-            title="Questions fréquentes — Formation IA pour le BTP Paris"
+            title="Questions fréquentes — Formation IA BTP Île-de-France"
           />
         </div>
       </section>
@@ -246,7 +255,7 @@ export default function FormationIABTPParisPage() {
         <div className="mx-auto max-w-6xl">
           <AllerPlusLoin
             links={[
-              { href: '/formations', label: 'Catalogue des formations IA pour les pro du BTP' },
+              { href: '/formations', label: 'Catalogue des formations IA pour les pros du BTP' },
               { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
               { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
               { href: buildSiteCalendlyCtaUrl('formations-ia-btp-paris-footer-rdv'), label: 'Prendre rendez-vous' },
@@ -262,7 +271,7 @@ export default function FormationIABTPParisPage() {
             Prêt à automatiser votre BTP avec l&apos;IA ?
           </h2>
           <p className="mt-4 text-lg text-blue-100">
-            Réservez votre formation IA à Paris ou en Île-de-France. Devis
+            Réservez votre formation IA en Île-de-France. Devis
             personnalisé sous 24h. Financement OPCO Constructys possible selon éligibilité.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

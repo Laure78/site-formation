@@ -24,7 +24,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
       publishedTime: '2026-04-16',
       modifiedTime: '2026-04-16',
       author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pro du BTP par métier',
+      section: 'Formation IA pour les pros du BTP par métier',
     },
     image: config.ogImage ?? {
       url: '/images/laure-olivie-formatrice.png',
@@ -40,7 +40,7 @@ export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   id: 'etancheur',
   path: '/formation-ia-etancheur-btp',
   h1: 'Formation IA étancheur BTP — ChatGPT, CSFE & Qualiopi',
-  metaTitle: 'Formation IA étancheur BTP — ChatGPT étanchéité, IA bardage, CSFE',
+  metaTitle: 'Formation IA étancheur BTP — ChatGPT CSFE',
   metaDescription:
     'Formation IA étancheur BTP : ChatGPT pour l’étanchéité bitumineuse (SEL, SBS), membranes EPDM, relevés, bardage. Laure Olivié a formé la CSFE. Mémoires, DTU 43, AO. Qualiopi, Constructys.',
   keywords: [
@@ -144,7 +144,7 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     url: '/images/formation-ia-etancheur-btp-og.png',
     width: 1200,
     height: 630,
-    alt: 'Technicien en étanchéité sur toiture-terrasse — contexte formation IA pour les pro du BTP',
+    alt: 'Technicien en étanchéité sur toiture-terrasse — contexte formation IA pour les pros du BTP',
   },
   showAuthorBio: true,
   authorBioClosingLine:
@@ -433,7 +433,7 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
     url: '/images/formation-ia-intra-entreprise-batiment.webp',
     width: 1024,
     height: 571,
-    alt: 'Atelier formation IA pour les pro du BTP en entreprise — plomberie et chauffage',
+    alt: 'Atelier formation IA pour les pros du BTP en entreprise — plomberie et chauffage',
   },
   showAuthorBio: true,
   authorBioClosingLine:

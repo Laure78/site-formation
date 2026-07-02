@@ -62,7 +62,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Public et prérequis',
       content: `<figure class="my-6">
-<img src="${A}/slide-03.png" alt="Public formation IA pour les pro du BTP : professionnels du BTP, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-03.png" alt="Public formation IA pour les pros du BTP : professionnels du BTP, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Si vous savez écrire un SMS, vous pouvez démarrer avec l’IA — avec encadrement et bonnes pratiques.</figcaption>
 </figure>`,
     },
@@ -86,7 +86,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Livrables : ce que vous repartez',
       content: `<figure class="my-6">
-<img src="${A}/slide-06.png" alt="Livrables formation IA pour les pro du BTP : kits de prompts BTP et réseaux sociaux, recrutement vente SEO juridique, attestation Qualiopi, ressources et suivi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-06.png" alt="Livrables formation IA pour les pros du BTP : kits de prompts BTP et réseaux sociaux, recrutement vente SEO juridique, attestation Qualiopi, ressources et suivi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Kits de prompts, attestations et ressources — selon modalités prévues à la convention.</figcaption>
 </figure>`,
     },

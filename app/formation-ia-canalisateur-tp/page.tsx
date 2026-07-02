@@ -406,7 +406,7 @@ export default function FormationIaCanalisateurTpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA pour les pro du BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour les pros du BTP' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: '/formations/ia-appels-offre-btp', label: 'Formation IA appels d’offres BTP' },
             { href: '/formation-ia-chef-chantier-tp', label: 'Formation IA chef de chantier TP' },

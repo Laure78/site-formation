@@ -38,7 +38,7 @@ const quizJsonLd = {
   name: 'Diagnostic IA BTP — Évaluez votre potentiel en 60 secondes',
   description:
     "Diagnostic interactif en 5 questions pour évaluer comment l'IA peut faire gagner du temps à votre entreprise BTP.",
-  about: { '@type': 'Thing', name: 'Formation IA pour les pro du BTP' },
+  about: { '@type': 'Thing', name: 'Formation IA pour les pros du BTP' },
   provider: { '@id': `${baseUrl}/#organization` },
 };
 
@@ -57,7 +57,7 @@ export default function DiagnosticIABTPPage() {
           </h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Ce diagnostic gratuit en 5 questions évalue le potentiel de gain de temps que l&apos;IA peut apporter à votre
-            entreprise du bâtiment ou des travaux publics. Conçu par Laure Olivié, formatrice IA pour les pro du BTP certifiée Qualiopi
+            entreprise du bâtiment ou des travaux publics. Conçu par Laure Olivié, formatrice IA pour les pros du BTP certifiée Qualiopi
             qui a accompagné plus de {formatProfessionalsTrainedCount()} professionnels du secteur, il cartographie vos
             besoins réels en 60 secondes chrono.
           </p>

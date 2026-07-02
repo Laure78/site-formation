@@ -5,7 +5,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
-import { createPageMetadata, getFAQSchema, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_IA_BTP_METIERS_CHANTIER_SEO } from '@/lib/faq';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
@@ -16,7 +16,7 @@ import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT ,
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour les pro du BTP : ChatGPT, devis, emails, comptes rendus',
+  title: 'Formation IA artisans BTP — ChatGPT',
   description:
     'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
   path: '/formation-ia-artisans-btp',
@@ -99,7 +99,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'ChatGPT est-il sécurisé pour les données de mon entreprise ?',
-    a: "La version gratuite de ChatGPT ne garantit pas la confidentialité des données. Pour des informations clients ou chantier, utilisez ChatGPT Team ou Enterprise, ou ne collez jamais de données sensibles. La formation IA pour les pro du BTP vous apprend les bonnes pratiques (anonymisation, relecture, process interne).",
+    a: "La version gratuite de ChatGPT ne garantit pas la confidentialité des données. Pour des informations clients ou chantier, utilisez ChatGPT Team ou Enterprise, ou ne collez jamais de données sensibles. La formation IA pour les pros du BTP vous apprend les bonnes pratiques (anonymisation, relecture, process interne).",
   },
   {
     q: 'Combien de temps économise-t-on avec ChatGPT dans le BTP ?',
@@ -113,23 +113,11 @@ const FAQ_ITEMS = [
 
 export default function FormationIAArtisansBTPPage() {
   const faqSchema = getFAQSchema(FAQ_ITEMS);
-  const breadcrumbJsonLd = getBreadcrumbSchema([
-    { name: 'Accueil', path: '/' },
-    { name: 'Formation IA pour entreprises BTP', path: '/formation-ia-artisans-btp' },
-  ]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <JsonLd id="schema-breadcrumb-artisans-btp" schema={breadcrumbJsonLd} />
       <JsonLd id="schema-service-artisans-btp" schema={serviceJsonLd} />
       <JsonLd id="schema-faq-page" schema={faqSchema} />
-      <nav className="mb-8 text-sm text-slate-600">
-        <Link href={LINKS.home} className="text-[var(--accent)] hover:underline">
-          Accueil
-        </Link>
-        {' / '}
-        <span className="text-slate-900">Formation IA pour entreprises BTP</span>
-      </nav>
 
       <article>
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">

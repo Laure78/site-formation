@@ -42,7 +42,7 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
     const metier = title.replace("L'IA va-t-elle remplacer les ", '').replace(' ?', '').trim();
     return `L'IA remplace-t-elle les ${metier} ? Non : elle assiste le métier. Financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
   }
-  if (title.includes('Formation IA pour les pro du BTP : ce qu')) {
+  if (title.includes('Formation IA pour les pros du BTP : ce qu')) {
     return "Formation IA appliquée au bâtiment 2026 : financement, programmes, Qualiopi. Tout savoir pour vous former. Constructys selon éligibilité.".slice(0, MAX_META_LENGTH);
   }
   if (title.includes('Financement Constructys')) {
@@ -61,7 +61,7 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
     return "Recrutement BTP : utilisez l'IA pour attirer les talents. Offres, annonces, sourcing. Formation RH bâtiment.".slice(0, MAX_META_LENGTH);
   }
 
-  return `${title}. ${kw}. Formation IA pour les pro du BTP financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
+  return `${title}. ${kw}. Formation IA pour les pros du BTP financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
 }
 
 export function generateArticle(idea: ContentIdea): GeneratedArticle {

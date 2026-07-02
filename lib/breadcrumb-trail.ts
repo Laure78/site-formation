@@ -6,6 +6,13 @@ import { FORMATION_CITIES } from '@/lib/formation-cities';
 import { autoBreadcrumbFromPathname } from '@/lib/auto-breadcrumb';
 import { formationsData } from '@/src/data/formations';
 import { TUTOS } from '@/lib/tutos';
+import { GEO_FORMATION_PAGE_CONFIGS, geoFormationPath } from '@/lib/geo-formation-config';
+import {
+  FORMATION_IA_BTP_SEINE_ET_MARNE_77,
+  FORMATION_IA_BTP_SEINE_SAINT_DENIS_93,
+  FORMATION_IA_BTP_VAL_DE_MARNE_94,
+} from '@/lib/formation-ia-btp-departements-config';
+import { getFormationIaEntry } from '@/lib/seo-formation-ia-hub-data';
 
 export type BreadcrumbHrefCrumb = { label: string; href: string };
 
@@ -19,10 +26,10 @@ const EXACT: Record<string, string> = {
 };
 
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
-  '/formations/ia-btp-paris': 'Formation IA appliquée au bâtiment Paris',
+  '/formations/ia-btp-paris': 'Formation IA BTP Île-de-France — 8 départements',
   '/formations/formation-ia-cctp-analyse-dce-btp': 'Formation IA CCTP & DCE',
   '/formations/ia-btp-morangis': 'Formation IA pour le BTP à Morangis',
-  '/formations/ia-btp-longjumeau': 'Formation IA pour les pro du BTP à Longjumeau',
+  '/formations/ia-btp-longjumeau': 'Formation IA pour les pros du BTP à Longjumeau',
   '/formations/ia-btp-saint-quentin-en-yvelines':
     'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines',
   '/formations/ia-pme-btp': 'IA pour PME du BTP',
@@ -42,6 +49,29 @@ const RESSOURCES_TITLES: Record<string, string> = {
   ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 
+const GEO_BTP_REGIONAL_TITLES: Record<string, string> = {
+  '/formation-ia-btp-ile-de-france': 'Formation IA pour les pros du BTP Île-de-France',
+  '/formation-ia-btp': 'Formation IA pour les pros du BTP',
+  '/formation-ia-btp-paris-2026': 'Formation IA pour les pros du BTP Paris 2026',
+};
+
+function buildGeoBtpDeptLabels(): Record<string, string> {
+  const labels: Record<string, string> = {};
+  for (const config of GEO_FORMATION_PAGE_CONFIGS) {
+    labels[geoFormationPath(config.slug)] = `${config.departement} (${config.code})`;
+  }
+  for (const config of [
+    FORMATION_IA_BTP_SEINE_ET_MARNE_77,
+    FORMATION_IA_BTP_SEINE_SAINT_DENIS_93,
+    FORMATION_IA_BTP_VAL_DE_MARNE_94,
+  ]) {
+    labels[config.path] = `${config.departementNom} (${config.deptCode})`;
+  }
+  return labels;
+}
+
+const GEO_BTP_DEPT_LABELS = buildGeoBtpDeptLabels();
+
 const METIER_TITLES: Record<string, string> = {
   '/formation-ia-electricien-btp': 'Formation IA Électricien BTP',
   '/formation-ia-conducteur-de-travaux-btp': 'Formation IA Conducteur de travaux',
@@ -56,8 +86,10 @@ const METIER_TITLES: Record<string, string> = {
   '/formation-ia-vitrier-btp': 'Formation IA Vitrier BTP',
   '/formation-ia-dirigeant-btp': 'Formation IA Dirigeant BTP',
   '/formation-ia-artisans-btp': 'Formation IA Artisans BTP',
-  '/formation-ia-charge-affaires-btp': 'Formation IA Chargé d\'affaires BTP',
-  '/formation-ia-btp': 'Formation IA BTP',
+  '/formation-ia-charge-affaires-btp': 'Formation IA chargé d\'affaires',
+  '/formation-ia-assistante-gestion-btp': 'Formation IA assistante de gestion BTP',
+  '/formation-ia-travaux-publics': 'Formation IA travaux publics',
+  '/formation-ia-etancheur': 'Formation IA pour Étancheur',
 };
 
 function humanizeSegment(seg: string): string {
@@ -157,6 +189,63 @@ function etudesTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
   ];
 }
 
+function formationIaHubTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
+  if (pathNorm === '/formation-ia') {
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: 'Formation IA appliquée au bâtiment (hub)', href: pathNorm },
+    ];
+  }
+
+  const hubMatch = pathNorm.match(/^\/formation-ia\/([^/]+)$/);
+  if (!hubMatch) return null;
+
+  const entry = getFormationIaEntry(hubMatch[1]);
+  if (!entry) return null;
+
+  const leafLabel =
+    entry.kind === 'metier' && entry.metier
+      ? entry.metier.label
+      : entry.kind === 'ville' && entry.ville
+        ? entry.ville.label
+        : humanizeSegment(hubMatch[1]);
+
+  return [
+    { label: 'Accueil', href: '/' },
+    { label: 'Formation IA pour le BTP (hub)', href: '/formation-ia' },
+    { label: leafLabel, href: pathNorm },
+  ];
+}
+
+function geoBtpRegionalTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
+  const title = GEO_BTP_REGIONAL_TITLES[pathNorm];
+  if (!title) return null;
+
+  if (pathNorm === '/formation-ia-btp-paris-2026') {
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: 'Formations', href: '/formations' },
+      { label: title, href: pathNorm },
+    ];
+  }
+
+  return [
+    { label: 'Accueil', href: '/' },
+    { label: title, href: pathNorm },
+  ];
+}
+
+function geoBtpDeptTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
+  const deptLabel = GEO_BTP_DEPT_LABELS[pathNorm];
+  if (!deptLabel) return null;
+
+  return [
+    { label: 'Accueil', href: '/' },
+    { label: 'Formations', href: '/formations' },
+    { label: deptLabel, href: pathNorm },
+  ];
+}
+
 function ressourcesTrail(pathNorm: string): BreadcrumbHrefCrumb[] {
   const hub = { label: 'Ressources', href: '/ressources' };
   if (pathNorm === '/ressources') {
@@ -212,7 +301,16 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
     return ressourcesTrail(pathNorm);
   }
 
-  if (isFormationMetierLanding(pathNorm) || pathNorm === '/formation-ia-btp') {
+  const geoRegional = geoBtpRegionalTrail(pathNorm);
+  if (geoRegional) return geoRegional;
+
+  const geoDept = geoBtpDeptTrail(pathNorm);
+  if (geoDept) return geoDept;
+
+  const formationIaHub = formationIaHubTrail(pathNorm);
+  if (formationIaHub) return formationIaHub;
+
+  if (isFormationMetierLanding(pathNorm)) {
     return [
       { label: 'Accueil', href: '/' },
       { label: 'Formations', href: '/formations' },

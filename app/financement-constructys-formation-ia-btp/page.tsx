@@ -78,7 +78,7 @@ const STEPS = [
   },
 ] as const;
 
-const FINANCEMENT_META_TITLE = 'Financement Constructys — formation IA pour les pro du BTP 2026';
+const FINANCEMENT_META_TITLE = 'Financement Constructys IA BTP 2026';
 const FINANCEMENT_META_DESCRIPTION =
   'Financer votre formation IA pour le BTP avec Constructys en 2026 : plafonds, délais eGestion, dossier OFC Qualiopi. Devis et visio gratuits.';
 
@@ -171,7 +171,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                 Depuis le 1er janvier 2026, les règles sont claires : votre dossier doit être{' '}
                 <strong className="text-[#0F172A]">complet</strong>, déposé sur <strong className="text-[#0F172A]">eGestion</strong>, et parvenu à Constructys au moins{' '}
                 <strong className="text-[#0F172A]">15 jours calendaires avant le premier jour de formation</strong>. Une demande incomplète, une pièce manquante ou un envoi après la date limite : la formation ne sera pas financée. Vérifiez aussi que vous avez bien saisi coûts pédagogiques et autres dépenses attendues. La formation ne doit pas avoir commencé avant la réception de la demande. Ce cadre strict, c&apos;est pour vous aussi une garantie : vous savez à quoi vous tenir dès que vous planifiez une session{' '}
-                <strong className="text-[#0F172A]">financer formation IA pour les pro du BTP</strong> avec votre équipe — y compris pour une approche{' '}
+                <strong className="text-[#0F172A]">financer formation IA pour les pros du BTP</strong> avec votre équipe — y compris pour une approche{' '}
                 <Link href="/formation-ia-travaux-publics" className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
                   IA pour travaux publics
                 </Link>
@@ -239,7 +239,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               </p>
               <div className={`mt-5 ${tableWrap}`}>
                 <table className="w-full min-w-[300px] border-collapse text-left text-sm">
-                  <caption className="sr-only">Plafonds Constructys 2026 pour formation IA pour les pro du BTP, selon l’effectif de l’entreprise</caption>
+                  <caption className="sr-only">Plafonds Constructys 2026 pour formation IA pour les pros du BTP, selon l’effectif de l’entreprise</caption>
                   <thead>
                     <tr className="bg-[#377CF3] text-white">
                       <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-wider md:px-4 md:text-xs">Poste</th>
@@ -604,8 +604,8 @@ export default function FinancementConstructysFormationIABTPPage() {
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                { href: '/formations', label: 'Catalogue des formations IA pour les pro du BTP' },
-                { href: '/formations/ia-btp-paris', label: 'Formation IA appliquée au bâtiment Paris' },
+                { href: '/formations', label: 'Catalogue des formations IA pour les pros du BTP' },
+                { href: LINKS.formationParis, label: 'Formation IA BTP Paris (75)' },
                 { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
                 { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
                 { href: '/formations/ia-appels-offre-btp', label: 'Programme IA appels d’offres BTP' },

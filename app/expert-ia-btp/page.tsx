@@ -11,7 +11,7 @@ import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Laure Olivié — Expert IA BTP | Formatrice intelligence artificielle',
+  title: 'Expert IA BTP — formatrice Qualiopi',
   description:
     "Expert IA pour le BTP : mémoire technique, appels d'offres, formation bâtiment et travaux publics. Laure Olivié, Qualiopi, LinkedIn Learning. Échangeons.",
   path: '/expert-ia-btp',

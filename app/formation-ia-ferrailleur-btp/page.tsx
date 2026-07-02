@@ -434,7 +434,7 @@ export default function FormationIaFerrailleurBtpPage() {
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA pour les pro du BTP' },
+            { href: '/formations', label: 'Catalogue formations IA pour les pros du BTP' },
             { href: '/formation-ia-charpentier-btp', label: 'Formation IA charpentier BTP' },
             { href: '/formation-ia-macon-btp', label: 'Formation IA maçon BTP' },
             { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },

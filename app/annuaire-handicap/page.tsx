@@ -12,10 +12,11 @@ import {
   Building2,
 } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Annuaire national des partenaires handicap — OFC Création d\'Entreprise',
+  title: 'Annuaire handicap — OFC formation BTP',
   description:
     "Annuaire handicap : AGEFIPH, MDPH, accompagnement. Contacts utiles pour les stagiaires en situation de handicap en formation IA pour le BTP, OFC.",
   path: '/annuaire-handicap',
@@ -33,9 +34,14 @@ export default function AnnuaireHandicapPage() {
         <p className="mt-4 text-slate-600">
           Document actualisé le 30 janvier 2026
         </p>
-        <p className="mt-6 text-slate-600">
-          Cet annuaire répertorie l&apos;ensemble des contacts pour accompagner
-          les personnes en situation de handicap en France :
+        <p className="mt-4 text-slate-600">
+          Cet annuaire répertorie l&apos;ensemble des contacts pour accompagner les personnes en
+          situation de handicap en France. Pour le processus d&apos;accueil et la référente handicap
+          OFC, consultez la{' '}
+          <Link href="/accessibilite-handicap" className="font-medium text-[var(--accent)] hover:underline">
+            page Accessibilité &amp; handicap
+          </Link>
+          .
         </p>
         <ul className="mt-4 flex flex-col items-center gap-2 text-left sm:inline-block">
           <li className="flex items-center gap-2 text-slate-600">
@@ -50,6 +56,8 @@ export default function AnnuaireHandicapPage() {
           </li>
         </ul>
       </div>
+
+      <ReferentHandicapBlock className="mt-10" />
 
       {/* Téléchargement */}
       <div className="mt-12 flex flex-wrap justify-center gap-4">

@@ -12,9 +12,14 @@ export const SEO_TITLE_MAX_LENGTH = 60;
 
 const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA pour le BTP';
 
-const BRAND_SUFFIX_PATTERN = /\s*\|\s*Laure\s+Olivi[ée]\s*$/i;
+/** Suffixe marque et variantes « | Laure Olivié · Qualiopi » en fin de chaîne. */
+const BRAND_SUFFIX_PATTERN =
+  /\s*\|\s*Laure\s+Olivi[ée](?:\s*[·•|]\s*[^|]+)?\s*$/i;
 
-/** Retire le suffixe « | Laure Olivié » en fin de chaîne (y compris doublons). */
+/** Mots / signes orphelins en fin de segment (après coupe). */
+const TRAILING_ORPHAN_WORDS = /\s+(?:de|du|des|la|le|les|pour|et|ou|à|en|un|une|d)\s*$/i;
+
+/** Retire le suffixe « | Laure Olivié » (et variantes) en fin de chaîne — y compris doublons. */
 export function stripBrandSuffix(title: string): string {
   let t = title.trim();
   while (BRAND_SUFFIX_PATTERN.test(t)) {
@@ -23,20 +28,33 @@ export function stripBrandSuffix(title: string): string {
   return t;
 }
 
+/** Nettoie les fins de titre coupées (ponctuation, conjonctions, « & » orphelin). */
+export function trimTitleOrphans(segment: string): string {
+  let t = segment.trim();
+  let prev = '';
+  while (t !== prev) {
+    prev = t;
+    t = t.replace(/[&—:;,.|–\-]\s*$/, '').trim();
+    t = t.replace(TRAILING_ORPHAN_WORDS, '').trim();
+  }
+  return t;
+}
+
 /**
  * Tronque le segment de titre (sans marque) pour que segment + BRAND_TITLE_SUFFIX ≤ maxTotal.
+ * Coupe au dernier mot complet ; retire les orphelins (&, —, articles).
  */
 export function truncateForBrandedTitle(segment: string, maxTotal = SEO_TITLE_MAX_LENGTH): string {
   const clean = stripBrandSuffix(segment);
   const maxSegment = maxTotal - BRAND_TITLE_SUFFIX.length;
-  if (clean.length <= maxSegment) return clean;
+  if (clean.length <= maxSegment) return trimTitleOrphans(clean);
 
   let cut = clean.slice(0, maxSegment).trim();
   const lastSpace = cut.lastIndexOf(' ');
-  if (lastSpace > maxSegment * 0.55) {
+  if (lastSpace > 0) {
     cut = cut.slice(0, lastSpace).trim();
   }
-  return cut.replace(/[—:,;.\-–]\s*$/, '').trim();
+  return trimTitleOrphans(cut);
 }
 
 /** Titre HTML final : segment nettoyé + suffixe unique (bypass du template layout). */
@@ -169,7 +187,7 @@ export function buildPageMetadata({
           publishedTime: toIso8601Utc(article.publishedTime),
           modifiedTime: toIso8601Utc(article.modifiedTime ?? article.publishedTime),
           authors: [article.author ?? 'Laure Olivié'],
-          section: article.section ?? 'Formation IA pour les pro du BTP',
+          section: article.section ?? 'Formation IA pour les pros du BTP',
         }
       : {};
 

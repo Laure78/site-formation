@@ -10,8 +10,7 @@ import {
   buildFormationIaCourseJsonLd,
   buildFormationIaLocalBusinessJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import {
   FormationIaMetierBody,
   FormationIaVilleBody,
@@ -57,7 +56,7 @@ export default async function FormationIaSlugPage({ params }: Props) {
 
   const courseDescription =
     entry.kind === 'metier' && entry.metier
-      ? `Formation IA pour les pro du BTP pour ${entry.metier.label} (${entry.metier.categorie}) : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, OFC Création d'Entreprise.`
+      ? `Formation IA pour les pros du BTP pour ${entry.metier.label} (${entry.metier.categorie}) : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, OFC Création d'Entreprise.`
       : entry.kind === 'ville' && entry.ville
         ? `Formation IA appliquée au bâtiment à ${entry.ville.label} (${entry.ville.deptName}) : ChatGPT et Claude AI pour les professionnels du BTP et les entreprises. Qualiopi, financement OPCO Constructys.`
         : SITE_CONFIG.description;
@@ -74,12 +73,6 @@ export default async function FormationIaSlugPage({ params }: Props) {
 
   const localJson = buildFormationIaLocalBusinessJsonLd();
   const orgJson = buildEducationalOrgSnippetJsonLd();
-  const breadcrumbLastName =
-    entry.kind === 'metier' && entry.metier
-      ? entry.metier.label
-      : entry.kind === 'ville' && entry.ville
-        ? entry.ville.label
-        : 'Page';
 
   return (
     <div className="bg-white">
@@ -94,13 +87,6 @@ export default async function FormationIaSlugPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJson) }}
-      />
-      <Breadcrumb
-        items={breadcrumbItemsFromPaths([
-          { name: 'Accueil', path: '/' },
-          { name: 'Formation IA pour le BTP (hub)', path: '/formation-ia' },
-          { name: breadcrumbLastName, path },
-        ])}
       />
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         {entry.kind === 'metier' && entry.metier ? (

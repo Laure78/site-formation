@@ -98,7 +98,7 @@ export function buildBlogListingJsonLd(
   const blog: Record<string, unknown> = {
     '@type': 'Blog',
     '@id': blogId,
-    name: 'Blog Formation IA pour les pro du BTP',
+    name: 'Blog Formation IA pour les pros du BTP',
     url: `${BASE}/blog`,
     publisher: { '@id': ORG_ID },
     blogPost: enrichedPosts,

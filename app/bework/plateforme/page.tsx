@@ -10,7 +10,7 @@ import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
 
 export const revalidate = 3600;
 
-const META_TITLE = 'BeWork — accéder à la plateforme assistants MOEX';
+const META_TITLE = 'BeWork — plateforme assistants MOEX';
 const META_DESCRIPTION =
   'Connexion à la plateforme BeWork sur app.laureolivie.fr : déposer vos demandes MOEX, suivre vos livrables et collaborer avec des assistants travaux augmentés par l\'IA.';
 

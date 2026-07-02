@@ -20,7 +20,7 @@ function pdfHref(pdfFile: string): string {
 }
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Tutos PDF IA BTP gratuits : Claude, mémoire technique, DCE',
+  title: 'Tutos PDF IA BTP gratuits — Claude & DCE',
   description:
     'Tutos PDF Claude & ChatGPT BTP : mémoire technique, analyse DCE, DOE, DUERP, PPSPS, chantier — gratuit. Formation IA appliquée au bâtiment — Laure Olivié.',
   path: PATH,
@@ -152,7 +152,7 @@ export default function RessourcesTutosIndexPage() {
           <p className="text-slate-700">
             Ces tutos complètent une{' '}
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-              formation IA pour les pro du BTP Qualiopi en présentiel ou visio
+              formation IA pour les pros du BTP Qualiopi en présentiel ou visio
             </Link>
             — financement possible selon éligibilité (OPCO Constructys) selon éligibilité.
           </p>

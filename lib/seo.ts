@@ -13,6 +13,7 @@ import {
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_PUBLIC_SITE_URL,
   SCHEMA_STATS,
+  buildIdfAreaServedSchemaEntities,
   schemaDefaultPersonImageUrl,
 } from '@/lib/schema-constants';
 import { buildPageMetadata } from '@/utils/metadata';
@@ -59,7 +60,7 @@ export const SITE_CONFIG = {
   },
   keywords: [
     // Priorité haute — requêtes stratégiques
-    'formation IA pour les pro du BTP',
+    'formation IA pour les pros du BTP',
     'formation ChatGPT entreprise BTP',
     'IA pour PME bâtiment',
     'formation IA PME BTP',
@@ -219,7 +220,7 @@ export function getMainCourseSchema() {
     '@context': 'https://schema.org',
     '@type': 'Course',
     '@id': `${SITE_CONFIG.url}/#course`,
-    name: 'Formation IA pour les pro du BTP',
+    name: 'Formation IA pour les pros du BTP',
     description:
       "Formation ChatGPT entreprise BTP : IA pour devis, chantier, mémoires techniques et administratif. Public : PME bâtiment, professionnels du BTP, conducteurs de travaux, fédérations (FFB). Qualiopi, OPCO Constructys.",
     url: `${SITE_CONFIG.url}/formations`,
@@ -368,12 +369,7 @@ export function getOrganizationSchema() {
       latitude: SITE_CONFIG.geo.latitude,
       longitude: SITE_CONFIG.geo.longitude,
     },
-    areaServed: [
-      { '@type': 'Country', name: 'France' },
-      { '@type': 'State', name: 'Île-de-France' },
-      { '@type': 'City', name: 'Guyancourt' },
-      { '@type': 'State', name: 'Yvelines' },
-    ],
+    areaServed: buildIdfAreaServedSchemaEntities(),
     sameAs: SITE_CONFIG.sameAs,
     taxID: SITE_CONFIG.siret,
     contactPoint: [
@@ -414,11 +410,7 @@ export function getLocalBusinessSchema() {
       latitude: SITE_CONFIG.geo.latitude,
       longitude: SITE_CONFIG.geo.longitude,
     },
-    areaServed: [
-      { '@type': 'Country', name: 'France' },
-      { '@type': 'State', name: 'Île-de-France' },
-      { '@type': 'City', name: 'Guyancourt' },
-    ],
+    areaServed: buildIdfAreaServedSchemaEntities(),
     priceRange: '€€',
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     hasMap: SITE_CONFIG.googleMapsUrl,
@@ -560,7 +552,7 @@ export function getArticleSchema({
 
 /** Mots-clés de base pour JSON-LD BlogPosting (blog /blog/[slug]) — complétés par les mots-clés de l’article */
 const BLOG_POSTING_DEFAULT_KEYWORDS = [
-  'formation IA pour les pro du BTP',
+  'formation IA pour les pros du BTP',
   'chatgpt btp',
   'intelligence artificielle bâtiment',
   'constructys formation ia',
@@ -837,7 +829,7 @@ export function getCourseListSchema(
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     '@id': `${SITE_CONFIG.url}/formations#course-list`,
-    name: 'Catalogue des formations IA pour les pro du BTP',
+    name: 'Catalogue des formations IA pour les pros du BTP',
     description:
       'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d\'offres, ChatGPT. financement possible selon éligibilité.',
     numberOfItems: courses.length,

@@ -185,6 +185,8 @@ export const GSC_EXCLUDED_SITEMAP_PATHS = new Set<string>([
   '/auteur/laure-olivie',
   // Anciennes URLs villes hub redirigées 308 vers /formations/ia-btp-[ville] (cf. next.config.ts)
   '/formation-ia/btp-paris',
+  '/formation-ia-btp-paris-2026',
+  '/ia-conducteur-travaux',
   '/formation-ia/btp-saint-quentin-en-yvelines',
   // Dédup métiers mai 2026 (sources des 5 redirections ajoutées dans gscRedirects2026April)
   '/formation-ia-etancheur-btp',

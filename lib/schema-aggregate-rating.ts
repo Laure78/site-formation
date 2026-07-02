@@ -1,17 +1,14 @@
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { QUALIOPI_STATS } from '@/config/qualiopi';
 
 /**
- * Note moyenne questionnaires de satisfaction post-formation OFC (4,85/5 affiché).
+ * Note moyenne questionnaires de satisfaction post-formation OFC.
  * Format Schema.org : point décimal, sans suffixe « /5 ».
  */
-export const SCHEMA_AGGREGATE_RATING_VALUE = '4.85';
+export const SCHEMA_AGGREGATE_RATING_VALUE = String(QUALIOPI_STATS.NOTE_MOYENNE_VALEUR);
 
 /**
  * AggregateRating Schema.org — aligné pages métier (`FormationMetierJsonLd`, `CourseSchema`).
- *
- * `ratingCount` = nombre de réponses aux questionnaires de fin de formation
- * (source : `siteStats.personnesFormees` via `SOCIAL_PROOF.PROFESSIONALS_TRAINED`).
- * Ne pas confondre avec le nombre d’avis publics Google Business Profile.
+ * `ratingCount` = nombre de répondants aux questionnaires (source : config/qualiopi.ts).
  */
 export function buildSchemaAggregateRating(): Record<string, string | number> {
   return {
@@ -19,6 +16,6 @@ export function buildSchemaAggregateRating(): Record<string, string | number> {
     ratingValue: SCHEMA_AGGREGATE_RATING_VALUE,
     bestRating: '5',
     worstRating: '1',
-    ratingCount: String(SOCIAL_PROOF.PROFESSIONALS_TRAINED),
+    ratingCount: String(QUALIOPI_STATS.NB_REPONDANTS),
   };
 }

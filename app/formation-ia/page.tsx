@@ -3,7 +3,7 @@ import { FormationIaHubContent } from '@/components/formation-ia/FormationIaHubC
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour le BTP — Hub métiers & villes (ChatGPT, Claude AI)',
+  title: 'Hub formation IA BTP — métiers & villes',
   description:
     'Hub formation IA pour le BTP : ChatGPT et Claude AI par métier et par ville en Île-de-France. Qualiopi, Constructys. Visio découverte gratuite.',
   path: '/formation-ia',

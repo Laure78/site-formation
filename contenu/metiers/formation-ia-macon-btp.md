@@ -56,7 +56,7 @@ Pour les **PME** de maçonnerie, le dirigeant cumule souvent **chiffrage** et **
 **Liens internes :**  
 → [Formation IA couvreur](/formation-ia-couvreur-btp/) (interface toiture)  
 → [Formation IA étancheur](/formation-ia-etancheur-btp/)  
-→ [Pilier formation IA pour les pro du BTP](/formation-ia-btp/)
+→ [Pilier formation IA pour les pros du BTP](/formation-ia-btp/)
 
 ---
 

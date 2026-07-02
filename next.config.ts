@@ -201,12 +201,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/formation-ia-btp-paris-2026',
-        destination: '/formations/ia-btp-paris',
+        destination: '/formation-ia-btp-paris-75',
         permanent: true,
       },
       {
         source: '/formation-ia-btp-paris',
-        destination: '/formations/ia-btp-paris',
+        destination: '/formation-ia-btp-paris-75',
         permanent: true,
       },
       { source: '/merci-devis', destination: '/contact', permanent: true },
@@ -415,7 +415,7 @@ const nextConfig: NextConfig = {
 
       // Anciennes URLs villes hub /formation-ia/btp-[ville] → fiche catalogue /formations/ia-btp-[ville]
       // (308 permanent). Uniquement les villes dont la page cible existe réellement.
-      { source: '/formation-ia/btp-paris', destination: '/formations/ia-btp-paris', permanent: true },
+      { source: '/formation-ia/btp-paris', destination: '/formation-ia-btp-paris-75', permanent: true },
       {
         source: '/formation-ia/btp-saint-quentin-en-yvelines',
         destination: '/formations/ia-btp-saint-quentin-en-yvelines',
@@ -520,7 +520,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/logo-qualiopi-actions-de-formation.png',
-        destination: '/images/logo-qualiopi-certification-formation-actions.webp',
+        destination: '/images/logo-qualiopi-certifopac-actions-formation.png',
         permanent: true,
       },
       {
@@ -646,7 +646,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/logo-qualiopi-certification-formation-actions.png',
-        destination: '/images/logo-qualiopi-certification-formation-actions.webp',
+        destination: '/images/logo-qualiopi-certifopac-actions-formation.png',
         permanent: true,
       },
       {

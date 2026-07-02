@@ -19,7 +19,5 @@ export const COUNT_UP_RATING: StatCountUpValue = {
   suffix: '/5',
 };
 
-export const COUNT_UP_SATISFACTION: StatCountUpValue = {
-  to: siteStats.satisfactionPercent,
-  suffix: ' %',
-};
+/** @deprecated Utiliser COUNT_UP_RATING — le taux en % a été retiré (indicateur unique : note moyenne). */
+export const COUNT_UP_SATISFACTION: StatCountUpValue = COUNT_UP_RATING;

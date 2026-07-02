@@ -14,7 +14,6 @@ export type GeoFormationPageProps = {
   slug: string;
   /** Surcharge titre / description (sinon template département). */
   seo?: GeoFormationPageSeo;
-  /** H1 personnalisé (sinon template département). */
   h1?: string;
   /** Chapô hero (sinon texte générique). */
   heroIntro?: string;
@@ -98,16 +97,14 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
     'Paris 13e–14e (Montparnasse, Olympiades)',
   ],
   seo: {
-    title: 'Formation IA bâtiment Paris (75) — BTP & TP IDF',
-    description:
-      'Formation IA appliquée au bâtiment à Paris (75) : intra par arrondissement. Formation IA BTP, formation IA travaux publics. Qualiopi, Constructys.',
+    title: 'Formation IA bâtiment Paris (75) — BTP IDF',
   },
   h1: 'Formation IA BTP à Paris (75) — intra par arrondissement et métropole',
   heroIntro:
-    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, comptes rendus et administratif chantier sur vos documents réels — angle logistique Paris & Petite Couronne, distinct de la fiche catalogue Île-de-France.',
+    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, comptes rendus et administratif chantier sur vos documents réels — angle logistique Paris & Petite Couronne.',
   conversionLink: {
-    href: '/formations/ia-btp-paris',
-    label: 'Voir la fiche formation catalogue Paris (session 4 h, tarifs & financement)',
+    href: '/formations/ia-batiment-travaux-publics',
+    label: 'Voir la fiche formation catalogue (session 4 h, tarifs & financement)',
   },
 };
 

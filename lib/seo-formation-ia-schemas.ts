@@ -1,17 +1,11 @@
 import { SITE_CONFIG, getCourseSchema, getLocalBusinessSchema, getOrganizationSchema } from '@/lib/seo';
+import {
+  IDF_COURSE_AREA_SERVED_NAMES,
+  IDF_DEPT_AREA_SERVED_LABELS,
+  buildIdfAreaServedSchemaEntities,
+} from '@/lib/schema-constants';
 
-const DEPTS_IDF = [
-  'Paris (75)',
-  'Seine-et-Marne (77)',
-  'Yvelines (78)',
-  'Essonne (91)',
-  'Hauts-de-Seine (92)',
-  'Seine-Saint-Denis (93)',
-  'Val-de-Marne (94)',
-  "Val-d'Oise (95)",
-];
-
-/** Course + enseignement explicite ChatGPT / Claude AI */
+export { IDF_COURSE_AREA_SERVED_NAMES, IDF_DEPT_AREA_SERVED_LABELS };
 export function buildFormationIaCourseJsonLd(opts: {
   name: string;
   description: string;
@@ -27,7 +21,7 @@ export function buildFormationIaCourseJsonLd(opts: {
     teaches: [
       'ChatGPT',
       'Claude AI',
-      'Formation IA pour les pro du BTP',
+      'Formation IA pour les pros du BTP',
       'Rédaction de devis et mémoires techniques',
       'Automatisation administrative chantier',
     ],
@@ -43,12 +37,7 @@ export function buildFormationIaLocalBusinessJsonLd() {
   return {
     ...base,
     name: `${SITE_CONFIG.legalName} — ${SITE_CONFIG.name}`,
-    areaServed: [
-      { '@type': 'City', name: 'Paris' },
-      ...DEPTS_IDF.map((d) => ({ '@type': 'State', name: d })),
-      { '@type': 'State', name: 'Île-de-France' },
-      { '@type': 'Country', name: 'France' },
-    ],
+    areaServed: buildIdfAreaServedSchemaEntities(),
   };
 }
 
@@ -75,7 +64,7 @@ export function buildEducationalOrgSnippetJsonLd() {
 }
 
 /**
- * Service — complète le Course sur les pages « formation IA pour les pro du BTP » par département (zone d’intervention).
+ * Service — complète le Course sur les pages « formation IA pour les pros du BTP » par département (zone d’intervention).
  */
 export function buildFormationIaServiceJsonLd(opts: {
   name: string;

@@ -11,7 +11,7 @@ export const PILLAR_PAGES = [
     path: '/formations',
     title: 'Formation IA BTP — Programmes et financement OPCO',
     description: 'Formations IA certifiées Qualiopi pour le BTP. Devis, appels d\'offres, RH. Financement possible selon éligibilité (Constructys, OPCO). Île-de-France, Yvelines, Guyancourt.',
-    h1: 'Formation IA pour les pro du BTP : programmes et financement',
+    h1: 'Formation IA pour les pros du BTP : programmes et financement',
     keywords: ['formation IA appliquée au bâtiment', 'formation ChatGPT BTP', 'formation intelligence artificielle bâtiment'],
   },
   {
@@ -66,7 +66,7 @@ export const DEFAULT_INTERNAL_LINKS = {
 
 /** CTAs par bloc */
 export const CTA_BLOCKS = [
-  { label: 'Découvrir la formation IA pour les pro du BTP', href: '/formations', variant: 'primary' as const },
+  { label: 'Découvrir la formation IA pour les pros du BTP', href: '/formations', variant: 'primary' as const },
   { label: 'Prendre rendez-vous', href: buildSiteCalendlyCtaUrl('seo-architecture-cta-block-rdv'), variant: 'secondary' as const },
   { label: 'Télécharger le guide', href: '/ressources', variant: 'outline' as const },
 ] as const;

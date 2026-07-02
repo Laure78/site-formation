@@ -129,7 +129,7 @@ export function EtudeCasClientsSection() {
               />
             </div>
             <figcaption className="mt-3 text-center text-sm text-slate-500">
-              Laure Olivié — animation formation IA pour les pro du BTP en présentiel (réseau FFB, filière étanchéité /
+              Laure Olivié — animation formation IA pour les pros du BTP en présentiel (réseau FFB, filière étanchéité /
               CSFE)
             </figcaption>
           </Reveal>

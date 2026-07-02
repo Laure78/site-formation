@@ -11,7 +11,7 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour le BTP — Réserver un RDV gratuit',
+  title: 'Formation IA BTP — RDV gratuit 30 min',
   description:
     'Formation IA pour le BTP : visio découverte 30 min gratuite. Calendly sécurisé, devis Qualiopi & Constructys.',
   path: '/prendre-rdv',

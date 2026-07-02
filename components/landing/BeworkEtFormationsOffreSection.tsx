@@ -19,6 +19,7 @@ import { KeyPoint } from '@/components/readability/KeyPoint';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
 import { OFC_CARD, OFC_CARD_MUTED, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   formationCatalogueLinkLabel,
@@ -86,13 +87,16 @@ export function BeworkEtFormationsOffreSection() {
               volonté — c&apos;est un manque de{' '}
               <strong className="font-semibold text-[#334155]">bande passante bureau</strong>.
             </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#64748B]">
+              {QUALIOPI_BEWORK_DISTINCTION}
+            </p>
           </div>
 
           <KeyPoint
             label="Deux réponses concrètes"
             subject="L'administratif chantier"
             after="externalisé ou automatisé en interne"
-            before="s'accumule sans méthode"
+            before="s'accumuler sans méthode"
             className="mx-auto mt-8 max-w-2xl"
           />
 

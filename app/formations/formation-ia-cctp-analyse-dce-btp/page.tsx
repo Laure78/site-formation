@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Check, Download, Users } from 'lucide-react';
+import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -444,6 +445,8 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
             Calendly — prise de rendez-vous
           </a>
         </section>
+
+        <CatalogueInfosQualiopi programmeRef="NIV-02" />
 
         <div className="mt-12">
           <AllerPlusLoin
