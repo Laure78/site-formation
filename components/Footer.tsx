@@ -32,6 +32,7 @@ export function Footer() {
 
   const serviceLinks = [
     { href: LINKS.formations, label: 'Catalogue' },
+    { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Niveau 1 — bâtiment & TP' },
     { href: LINKS.formationAO, label: "Appels d'offres (niveau 2)" },
     { href: LINKS.financement, label: 'Financement' },

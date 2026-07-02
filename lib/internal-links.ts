@@ -126,6 +126,8 @@ export const LINKS = {
   bework: '/bework',
   /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
   beworkPlateforme: '/bework/plateforme',
+  /** Point d'entrée indexable vers la plateforme e-learning Teachizy (stagiaires OFC) */
+  formationPlateforme: '/formations/plateforme',
   /** Page watch — vidéo promo formations IA BTP (indexation Google Video) */
   videoFormationsIaBtp: '/video/formations-ia-btp',
   diagnostic: '/diagnostic-ia-btp',

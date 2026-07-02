@@ -77,6 +77,7 @@ import {
   COUNT_UP_SATISFACTION,
   getStatsFreshnessLabel,
 } from '@/lib/readability-presets';
+import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 /** Fiche officielle OFC — Annuaire des Entreprises (réf. Qualiopi / vérification) */
@@ -484,12 +485,15 @@ export default function HomePage() {
                 <p className="mt-4 text-white/90">
                   Devis, chantier, appels d&apos;offres : cas réels, gains concrets — pas de gadget.
                 </p>
-                <Link
-                  href="/a-propos#clients-partenaires"
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15"
-                >
-                  Voir les clients & partenaires
-                </Link>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    href="/a-propos#clients-partenaires"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15"
+                  >
+                    Voir les clients & partenaires
+                  </Link>
+                  <GoogleBusinessProfileCta variant="inverse" label="Ma fiche Google" />
+                </div>
               </Reveal>
               <RevealGroup className="mt-8 grid max-w-xl grid-cols-3 gap-3 sm:gap-4" staggerMs={50}>
                 <StatCallout

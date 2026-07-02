@@ -51,8 +51,6 @@ import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
-const LMS_SLUG = 'ia-au-service-du-btp';
-
 /** Title ≤ 60 car. — catalogue niveau 1 bâtiment & TP */
 const SEO_TITLE =
   'Formation IA bâtiment & travaux publics (niveau 1)';
@@ -293,7 +291,7 @@ export default function FormationIAuServiceDuBatimentPage() {
               Voir le programme détaillé
             </a>
             <Link
-              href={`/cours/${LMS_SLUG}`}
+              href={LINKS.formationPlateforme}
               className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
             >
               Voir sur la plateforme

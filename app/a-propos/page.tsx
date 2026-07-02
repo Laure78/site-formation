@@ -34,6 +34,7 @@ import { PillarPageHero } from '@/components/pillar/PillarPageHero';
 import { PillarTableOfContents } from '@/components/pillar/PillarTableOfContents';
 import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
+import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 import { Reveal } from '@/components/motion/Reveal';
@@ -268,6 +269,7 @@ export default function AProposPage() {
                 >
                   LinkedIn — Laure Olivié
                 </a>
+                <GoogleBusinessProfileCta label="Fiche Google — avis & horaires" />
                 <Link
                   href={LINKS.contact}
                   className="rounded-xl border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"

@@ -22,6 +22,7 @@ import {
   ShieldCheck,
   Cpu,
   Landmark,
+  LogIn,
 } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
@@ -30,6 +31,9 @@ import { PHOTOS, SITE_LOGO_ALT } from '@/lib/photos';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
+import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
 
 import type { LucideIcon } from 'lucide-react';
 import type { TutoCategoryId } from '@/lib/tutos';
@@ -133,6 +137,28 @@ function FormationsDropdownPanel({
               </ul>
             </div>
           ))}
+        </div>
+        <div className="border-t border-slate-100 px-3 py-3">
+          <p className="px-1 pb-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Espace apprenant
+          </p>
+          <div className="flex flex-col gap-2">
+            <ExternalLinkAnchor
+              href={TEACHIZY_PATHS.login}
+              title="Connexion plateforme formation IA BTP"
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
+            >
+              <LogIn size={18} strokeWidth={1.75} className="shrink-0" aria-hidden />
+              Connexion plateforme
+            </ExternalLinkAnchor>
+            <Link
+              href={LINKS.formationPlateforme}
+              className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-[#377CF3]"
+            >
+              En savoir plus
+              <ArrowRight size={14} aria-hidden />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -619,11 +645,8 @@ export function Navbar() {
             <SiteSearchTrigger className="px-3 py-2" />
           </div>
 
-          <div className="site-header__search hidden lg:flex">
-            <SiteSearchTrigger className="px-3 py-2" />
-          </div>
-
-          <div className="site-header__rdv">
+          <div className="site-header__actions hidden shrink-0 items-center gap-2 lg:flex">
+            <FormationPlateformeConnexionButton variant="nav" />
             <CalendlyEmbed
               type="link"
               variant="nav"
@@ -763,6 +786,23 @@ export function Navbar() {
                       );
                     })}
                   </ul>
+                  <div className="mt-3 border-t border-slate-100 pt-3">
+                    <ExternalLinkAnchor
+                      href={TEACHIZY_PATHS.login}
+                      title="Connexion plateforme formation"
+                      className="flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold text-[#377CF3]"
+                    >
+                      <LogIn size={18} strokeWidth={1.75} aria-hidden />
+                      Connexion plateforme
+                    </ExternalLinkAnchor>
+                    <Link
+                      href={LINKS.formationPlateforme}
+                      onClick={() => setMobileOpen(false)}
+                      className="mt-1 block px-3 py-1 text-xs font-medium text-slate-500 hover:text-[#377CF3]"
+                    >
+                      Espace apprenant — en savoir plus
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -921,6 +961,7 @@ export function Navbar() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
+              <FormationPlateformeConnexionButton variant="navMobile" label="Connexion plateforme" />
               <CalendlyEmbed
                 type="link"
                 variant="primary"

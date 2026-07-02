@@ -30,7 +30,6 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseIaAppelsOffreNiv02JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 
-const LMS_SLUG = 'ia-appels-offre-btp';
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
@@ -173,7 +172,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               Kit 7 prompts AO
             </a>
             <Link
-              href={`/cours/${LMS_SLUG}`}
+              href={LINKS.formationPlateforme}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[var(--accent)] px-6 py-3.5 font-semibold text-[var(--accent)] hover:bg-[var(--accent-soft)]"
             >
               <ExternalLink size={20} strokeWidth={1.5} />
@@ -187,7 +186,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               Voir le programme détaillé
             </a>
             <Link
-              href={`/cours/${LMS_SLUG}`}
+              href={LINKS.formationPlateforme}
               className="font-medium text-slate-600 hover:text-[var(--accent)] hover:underline"
             >
               Fiche cours plateforme
@@ -378,7 +377,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         </p>
         <p className="mt-4">
           <Link
-            href={`/cours/${LMS_SLUG}`}
+            href={LINKS.formationPlateforme}
             className="text-sm font-semibold text-[var(--accent)] hover:underline"
           >
             Ouvrir la fiche cours sur la plateforme →
@@ -449,7 +448,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         <AllerPlusLoin
           links={[
             { href: LINKS.formations, label: 'Catalogue formations' },
-            { href: `/cours/${LMS_SLUG}`, label: 'Cours sur la plateforme' },
+            { href: LINKS.formationPlateforme, label: 'Cours sur la plateforme' },
             { href: buildSiteCalendlyCtaUrl('formations-ia-appels-offre-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: LINKS.financement, label: 'Financement Constructys' },
           ]}

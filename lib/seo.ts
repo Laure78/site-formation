@@ -9,6 +9,7 @@ import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
+  SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_PUBLIC_SITE_URL,
   SCHEMA_STATS,
@@ -108,8 +109,7 @@ export const SITE_CONFIG = {
     'CSFE formation IA',
   ],
   /** Fiche Google Business Profile (avis, horaires, local SEO) */
-  googleBusinessProfileUrl:
-    'https://share.google/kuzjL3D0CaVMgQS8i',
+  googleBusinessProfileUrl: SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   /** Google Maps — siège (aligné sur geo.streetAddress / postalCode / city) */
   googleMapsUrl:
     'https://www.google.com/maps/search/?api=1&query=' +
@@ -117,7 +117,7 @@ export const SITE_CONFIG = {
   sameAs: [
     LINKEDIN_PROFILE_URL,
     SITE_URL_DEFAULT,
-    'https://share.google/kuzjL3D0CaVMgQS8i',
+    SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   ],
   /** Nombre de professionnels formés — valeur unique pour cohérence NAP / biographie */
   statsPersonnesFormees: SCHEMA_STATS.personnesFormees,

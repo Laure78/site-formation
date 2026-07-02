@@ -21,6 +21,7 @@ Note de satisfaction : 4,85/5. Formations finançables par Constructys et les OP
 
 ## Key pages
 - Catalogue formations IA BTP (Qualiopi) : /formations
+- Espace apprenant — plateforme e-learning (connexion stagiaires) : /formations/plateforme → https://formation-ia-chatgpt.teachizy.fr/connexion
 - BeWork — présentation du service relais administratif BTP : /bework
 - BeWork — accès plateforme assistants MOEX (connexion) : /bework/plateforme → https://app.laureolivie.fr
 - Vidéo formations IA BTP (watch page) : /video/formations-ia-btp

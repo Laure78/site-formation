@@ -608,7 +608,8 @@
     @apply py-0.5;
   }
 
-  .site-header__rdv {
+  .site-header__rdv,
+  .site-header__actions {
     @apply relative z-[55] hidden shrink-0 items-center lg:flex;
     @apply transition-transform duration-200 ease-out motion-reduce:transition-none;
   }
@@ -618,6 +619,7 @@
   }
 
   .site-header[data-compact='true'] .site-header__rdv .ofc-cta-primary,
+  .site-header[data-compact='true'] .site-header__actions .ofc-cta-primary,
   .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary {
     @apply py-2 text-sm;
   }
@@ -880,6 +882,7 @@
   }
 
   .site-header[data-compact='true'] .site-header__rdv .ofc-cta-primary,
+  .site-header[data-compact='true'] .site-header__actions .ofc-cta-primary,
   .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary {
     @apply px-4 py-2.5 text-sm;
   }

@@ -15,6 +15,10 @@ export const SCHEMA_PUBLIC_SITE_URL: string =
 /** Profil LinkedIn FR — sameAs Person / Organization. */
 export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://fr.linkedin.com/in/laure-olivie' as const;
 
+/** Fiche Google Business Profile — avis, horaires, SEO local. */
+export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
+  'https://share.google/gLnYapEtSEq25mSQF' as const;
+
 /** Contact & identifiants légaux (JSON-LD, mentions). */
 export const SCHEMA_CONTACT = {
   email: 'laureolivie@yahoo.fr',

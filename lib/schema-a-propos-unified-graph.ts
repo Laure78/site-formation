@@ -10,6 +10,7 @@ import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
+  SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   SCHEMA_OPENING_HOURS,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PUBLIC_SITE_URL,
@@ -95,7 +96,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       'https://fr.linkedin.com/in/laure-olivie',
       'https://www.linkedin.com/learning/instructors/laure-olivie',
       'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281',
-      'https://share.google/kuzjL3D0CaVMgQS8i',
+      SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
     ],
     knowsAbout: [
       'Intelligence artificielle générative',

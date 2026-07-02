@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { Award, GraduationCap, Star, Users } from 'lucide-react';
+import { Award, GraduationCap, LogIn, Star, Users } from 'lucide-react';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
@@ -52,6 +54,14 @@ export function FormationsHero() {
             >
               Voir le financement Constructys
             </Link>
+            <ExternalLinkAnchor
+              href={TEACHIZY_PATHS.login}
+              title="Connexion espace apprenant OFC"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-center text-sm font-semibold text-slate-800 transition hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3] md:px-6"
+            >
+              <LogIn className="h-4 w-4 shrink-0" aria-hidden />
+              Connexion plateforme
+            </ExternalLinkAnchor>
           </div>
           <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600">
             <span className="inline-flex items-center gap-1">
