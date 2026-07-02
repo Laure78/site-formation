@@ -3,6 +3,7 @@ import {
   BookOpen,
   Calendar,
   Coins,
+  FileText,
   GraduationCap,
   Sparkles,
   Target,
@@ -33,6 +34,12 @@ const cards = [
     title: 'Cas d\u2019usage par métier',
     desc: 'Conducteur, chargé d\u2019affaires, dirigeant — exemples concrets',
     Icon: Target,
+  },
+  {
+    href: LINKS.guideConducteurTravauxIaBtp,
+    title: 'Guide CDT — PDF gratuit',
+    desc: '6 skills Claude : DCE, PPSPS, CR, DOE — prompts inclus',
+    Icon: FileText,
   },
   {
     href: LINKS.blog,

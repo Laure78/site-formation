@@ -69,6 +69,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { BeworkEtFormationsOffreSection } from '@/components/landing/BeworkEtFormationsOffreSection';
+import { HomeGuideConducteurTravauxSection } from '@/components/landing/HomeGuideConducteurTravauxSection';
 import { Essentiel } from '@/components/readability/Essentiel';
 import { Accordion } from '@/components/readability/Accordion';
 import { StatCallout } from '@/components/readability/StatCallout';
@@ -312,6 +313,13 @@ export default function HomePage() {
                 className="min-w-[min(100%,240px)] md:min-w-[auto]"
               />
               <Link
+                href="#guide-conducteur-travaux"
+                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center gap-2 rounded-full border-2 border-emerald-600/30 bg-emerald-50/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-emerald-900 backdrop-blur-sm transition hover:border-emerald-600 hover:bg-emerald-100 md:min-w-[auto]"
+              >
+                <FileText className="h-4 w-4 shrink-0" aria-hidden />
+                Guide CDT gratuit (PDF)
+              </Link>
+              <Link
                 href="#programme"
                 className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
               >
@@ -394,6 +402,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <HomeGuideConducteurTravauxSection />
 
       <section
         aria-labelledby="home-selecteur-cas-usage-ia"
