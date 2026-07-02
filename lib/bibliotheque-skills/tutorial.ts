@@ -2,7 +2,7 @@
 
 export const SKILL_INSTALL_TUTORIAL = {
   kicker: 'Mode d\'emploi',
-  title: 'Comment installer un skill Claude',
+  title: 'Téléverser un skill Claude',
   intro: 'Télécharge le fichier .skill et importe-le dans Claude — c\'est tout.',
   steps: [
     {

@@ -57,7 +57,7 @@ const collectionJsonLd = {
     {
       '@type': 'HowTo',
       '@id': `${CANONICAL}#howto`,
-      name: 'Installer un skill Claude BTP (.skill)',
+      name: 'Téléverser un skill Claude BTP (.skill)',
       description:
         'Télécharger un skill depuis la bibliothèque BeWork et l\'importer dans Claude.ai ou Claude Code.',
       step: SKILL_INSTALL_TUTORIAL.steps.map((s) => ({
