@@ -26,6 +26,12 @@ function parseFrontmatter(content) {
 
 function listSkillDirs() {
   if (!fs.existsSync(BEWORK_SKILLS_DIR)) {
+    if (fs.existsSync(MANIFEST_PATH) && fs.existsSync(OUT_DIR)) {
+      console.log(
+        `Source BeWork absente (${BEWORK_SKILLS_DIR}) — fichiers déjà versionnés, génération ignorée.`
+      );
+      process.exit(0);
+    }
     console.error(`Dossier skills introuvable : ${BEWORK_SKILLS_DIR}`);
     process.exit(1);
   }
