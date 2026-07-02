@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
   Award,
   BookMarked,
@@ -39,18 +40,32 @@ function countLinks(block: RessourcesThematicHubBlock): number {
 }
 
 function LinkRow({ label, href }: { label: string; href: string }) {
+  const className =
+    'group flex items-start justify-between gap-3 rounded-xl border border-slate-200/80 bg-white px-3.5 py-3 text-sm leading-snug text-slate-700 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md';
+  const chevron = (
+    <ChevronRight
+      size={16}
+      aria-hidden
+      className="mt-0.5 shrink-0 text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-[#377CF3]"
+    />
+  );
+
+  if (href.startsWith('http')) {
+    return (
+      <li>
+        <ExternalLinkAnchor href={href} title={label} className={className}>
+          <span className="group-hover:text-[#377CF3]">{label}</span>
+          {chevron}
+        </ExternalLinkAnchor>
+      </li>
+    );
+  }
+
   return (
     <li>
-      <Link
-        href={href}
-        className="group flex items-start justify-between gap-3 rounded-xl border border-slate-200/80 bg-white px-3.5 py-3 text-sm leading-snug text-slate-700 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md"
-      >
+      <Link href={href} className={className}>
         <span className="group-hover:text-[#377CF3]">{label}</span>
-        <ChevronRight
-          size={16}
-          aria-hidden
-          className="mt-0.5 shrink-0 text-slate-300 transition group-hover:translate-x-0.5 group-hover:text-[#377CF3]"
-        />
+        {chevron}
       </Link>
     </li>
   );

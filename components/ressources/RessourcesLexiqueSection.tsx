@@ -53,17 +53,20 @@ export function RessourcesLexiqueSection() {
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {RESSOURCES_LEXIQUE.parcours.map((parcours) => (
-              <li
-                key={parcours.title}
-                className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white px-4 py-3"
-              >
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
-                <div className="min-w-0">
-                  <p className="text-sm font-medium text-slate-900">{parcours.title}</p>
-                  <p className="mt-0.5 text-xs text-slate-500">
-                    {parcours.duration} · {parcours.steps} étapes
-                  </p>
-                </div>
+              <li key={parcours.title}>
+                <ExternalLinkAnchor
+                  href={RESSOURCES_LEXIQUE.url}
+                  title={`Parcours « ${parcours.title} » — lexique BTP`}
+                  className="flex items-start gap-3 rounded-xl border border-slate-200/80 bg-white px-4 py-3 transition hover:border-[#377CF3]/40 hover:shadow-sm"
+                >
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-slate-900">{parcours.title}</p>
+                    <p className="mt-0.5 text-xs text-slate-500">
+                      {parcours.duration} · {parcours.steps} étapes
+                    </p>
+                  </div>
+                </ExternalLinkAnchor>
               </li>
             ))}
           </ul>

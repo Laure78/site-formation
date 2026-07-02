@@ -5,6 +5,7 @@
 import type { BlogCategoryId } from '@/lib/blog';
 import { blogCategoryListingHref } from '@/lib/blog-index-urls';
 import { LINKS } from '@/lib/internal-links';
+import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 
 export type RessourceThematicLink = { readonly label: string; readonly href: string };
 
@@ -26,6 +27,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     description:
       'Mémoires techniques, lecture de DCE, veille automatique — tutos gratuits puis pages formations et méthodes blog.',
     tutos: [
+      { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — analyse de DCE', href: LINKS.tutoAnalyseDce },
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
@@ -47,6 +49,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     description:
       'Comptes rendus, DOE, PV de levée de réserves, constats — contenus téléchargeables et pages métiers associées.',
     tutos: [
+      { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — compte rendu de chantier', href: LINKS.tutoCrChantier },
       { label: 'Tuto — dossier DOE', href: LINKS.tutoDoeDossierOuvragesExecutes },
       { label: 'Tuto — PV levée de réserves', href: LINKS.tutoPvLeveeReserves },

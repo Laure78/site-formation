@@ -129,9 +129,9 @@ export default function RessourcesIndexPage() {
 
       <RessourcesHero />
 
-      <RessourcesThematicHub />
-
       <RessourcesLexiqueSection />
+
+      <RessourcesThematicHub />
 
       <RessourcesGuidesSection />
 
