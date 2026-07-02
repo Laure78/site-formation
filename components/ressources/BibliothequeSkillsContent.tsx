@@ -1,9 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { useMemo, useState } from 'react';
-import { Download, FileText, Sparkles } from 'lucide-react';
+import { BookOpen, Download, FileText, Sparkles } from 'lucide-react';
 import {
+  BIBLIOTHEQUE_BEWORK_COUNT,
   BIBLIOTHEQUE_SKILLS,
+  BIBLIOTHEQUE_TUTO_COUNT,
   SKILL_INSTALL_TUTORIAL,
   SKILL_LIBRARY_CATEGORIES,
   type SkillLibraryCategoryId,
@@ -48,22 +51,20 @@ export function BibliothequeSkillsContent() {
           ))}
         </ol>
 
-        <p className="mt-5 text-xs leading-relaxed text-amber-900/90">
-          {SKILL_INSTALL_TUTORIAL.disclaimer}
-        </p>
+        <p className="mt-5 text-xs leading-relaxed text-amber-900/90">{SKILL_INSTALL_TUTORIAL.disclaimer}</p>
       </section>
 
       <section aria-labelledby="skills-catalog-heading">
         <header className="mb-6 max-w-3xl">
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
             <Sparkles className="h-4 w-4" aria-hidden />
-            {BIBLIOTHEQUE_SKILLS.length} skills métier BTP
+            {BIBLIOTHEQUE_SKILLS.length} skills — {BIBLIOTHEQUE_BEWORK_COUNT} BeWork + {BIBLIOTHEQUE_TUTO_COUNT} tutos OFC
           </p>
           <h2 id="skills-catalog-heading" className="font-display mt-2 text-2xl font-bold text-slate-900 md:text-3xl">
             Télécharger un skill
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Chaque carte propose le fichier .md et l&apos;archive .skill.
+            Skills prêts à importer (.skill) et tutos pas à pas pour en créer les tiens (PDF + méthode).
           </p>
         </header>
 
@@ -109,29 +110,57 @@ export function BibliothequeSkillsContent() {
               key={skill.id}
               className="flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md"
             >
-              <p className="font-mono text-[0.65rem] text-slate-400">{skill.id}</p>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                {skill.source === 'bework' ? 'BeWork' : 'Tuto OFC'}
+              </p>
               <h3 className="mt-1 font-display text-lg font-bold text-slate-900">{skill.name}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{skill.description}</p>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{skill.summary}</p>
               {skill.hasAssets && (
-                <p className="mt-2 text-xs font-medium text-[#377CF3]">Inclut scripts ou assets (décompresse le .skill)</p>
+                <p className="mt-2 text-xs font-medium text-[#377CF3]">Inclut scripts ou assets dans le .skill</p>
               )}
               <div className="mt-4 flex flex-wrap gap-2">
-                <a
-                  href={skill.mdUrl}
-                  download
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
-                >
-                  <FileText className="h-4 w-4" aria-hidden />
-                  .md
-                </a>
-                <a
-                  href={skill.skillUrl}
-                  download
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
-                >
-                  <Download className="h-4 w-4" aria-hidden />
-                  .skill
-                </a>
+                {skill.source === 'bework' && skill.mdUrl && skill.skillUrl ? (
+                  <>
+                    <a
+                      href={skill.mdUrl}
+                      download
+                      className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
+                    >
+                      <FileText className="h-4 w-4" aria-hidden />
+                      .md
+                    </a>
+                    <a
+                      href={skill.skillUrl}
+                      download
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+                    >
+                      <Download className="h-4 w-4" aria-hidden />
+                      .skill
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    {skill.tutoUrl && (
+                      <Link
+                        href={skill.tutoUrl}
+                        className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+                      >
+                        <BookOpen className="h-4 w-4" aria-hidden />
+                        Voir le tuto
+                      </Link>
+                    )}
+                    {skill.pdfUrl && (
+                      <a
+                        href={skill.pdfUrl}
+                        download
+                        className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
+                      >
+                        <Download className="h-4 w-4" aria-hidden />
+                        PDF
+                      </a>
+                    )}
+                  </>
+                )}
               </div>
             </article>
           ))}

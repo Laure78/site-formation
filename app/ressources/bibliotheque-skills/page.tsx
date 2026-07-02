@@ -6,14 +6,14 @@ import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { SKILL_INSTALL_TUTORIAL } from '@/lib/bibliotheque-skills/tutorial';
-import { BIBLIOTHEQUE_SKILLS, BIBLIOTHEQUE_SKILLS_COUNT } from '@/lib/bibliotheque-skills';
+import { BIBLIOTHEQUE_BEWORK_COUNT, BIBLIOTHEQUE_SKILLS, BIBLIOTHEQUE_SKILLS_COUNT, BIBLIOTHEQUE_TUTO_COUNT } from '@/lib/bibliotheque-skills';
 
 const PATH = '/ressources/bibliotheque-skills';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Bibliothèque skills Claude BTP — téléchargement .skill & .md',
-  description: `${BIBLIOTHEQUE_SKILLS_COUNT} skills métier BTP gratuits : CR chantier, DCE, mémoire technique, réserves, DOE. Téléchargement .skill et .md + tutoriel d'installation Claude.`,
+  description: `${BIBLIOTHEQUE_SKILLS_COUNT} skills BTP : ${BIBLIOTHEQUE_BEWORK_COUNT} prêts à importer (.skill) + ${BIBLIOTHEQUE_TUTO_COUNT} tutos pour les créer. CR, DCE, mémoire technique, PPSPS, DOE.`,
   path: PATH,
   openGraphType: 'website',
   openGraphTitle: 'Bibliothèque skills Claude BTP — .skill & .md gratuits',
@@ -87,9 +87,12 @@ export default function BibliothequeSkillsPage() {
           Bibliothèque skills Claude BTP
         </h1>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600">
-          {BIBLIOTHEQUE_SKILLS_COUNT} assistants métier à importer dans Claude.ai ou Claude Code — marchés publics,
-          chantier, réception et administratif. Télécharge le fichier <strong>.skill</strong> et suis le tutoriel
-          ci-dessous.
+          {BIBLIOTHEQUE_SKILLS_COUNT} assistants métier : {BIBLIOTHEQUE_BEWORK_COUNT} skills BeWork à importer dans
+          Claude.ai ou Claude Code, et {BIBLIOTHEQUE_TUTO_COUNT} tutos pas à pas issus des{' '}
+          <Link href={LINKS.ressources} className="font-semibold text-[#377CF3] hover:underline">
+            ressources gratuites
+          </Link>
+          .
         </p>
 
         <div className="mt-10">

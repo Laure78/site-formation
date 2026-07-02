@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Package } from 'lucide-react';
-import { BIBLIOTHEQUE_SKILLS_COUNT } from '@/lib/bibliotheque-skills';
+import { BIBLIOTHEQUE_BEWORK_COUNT, BIBLIOTHEQUE_SKILLS_COUNT, BIBLIOTHEQUE_TUTO_COUNT } from '@/lib/bibliotheque-skills';
 import { LINKS } from '@/lib/internal-links';
 
 export function RessourcesSkillsSection() {
@@ -17,8 +17,8 @@ export function RessourcesSkillsSection() {
             Bibliothèque skills Claude BTP
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            {BIBLIOTHEQUE_SKILLS_COUNT} skills métier prêts à importer : CR chantier, analyse DCE, mémoire technique,
-            réserves, DOE… Téléchargement .skill + tutoriel en 3 étapes.
+            {BIBLIOTHEQUE_BEWORK_COUNT} skills BeWork (.skill) + {BIBLIOTHEQUE_TUTO_COUNT} tutos OFC pour créer les
+            tiens — CR, DCE, mémoire technique, PPSPS, DOE…
           </p>
         </header>
 
