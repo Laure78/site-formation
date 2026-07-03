@@ -1,13 +1,13 @@
 {
   "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
-  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. IA PME bâtiment. Formation IA pour les pros du BTP financement possible selon éligibilité.",
-  "date": "2026-06-30",
+  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. ChatGPT entreprise. Formation IA pour les pros du BTP financement possible selon éligibilit",
+  "date": "2026-07-03",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "ChatGPT entreprise",
+    "outils IA BTP",
+    "logiciels IA",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -66,7 +66,7 @@
   ],
   "relatedSlugs": [],
   "seoTitle": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. IA PME bâtiment. Formation IA pour les pros du BTP financement possible selon éligibilité.",
+  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. ChatGPT entreprise. Formation IA pour les pros du BTP financement possible selon éligibilit",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
