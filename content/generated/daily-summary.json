@@ -1,25 +1,17 @@
 {
-  "date": "2026-07-03",
+  "date": "2026-07-04",
   "articles": [
-    {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-couvreur",
-      "title": "Comment utiliser ChatGPT pour vos devis couvreur"
-    },
-    {
-      "slug": "ia-et-menuisier-5-gains-de-temps-concrets",
-      "title": "IA et menuisier : 5 gains de temps concrets"
-    },
     {
       "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
       "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026"
     },
     {
-      "slug": "devis-en-15-min-le-guide-plombier",
-      "title": "Devis en 15 min : le guide plombier"
+      "slug": "financement-constructys-mode-d-emploi",
+      "title": "Financement Constructys : mode d'emploi"
     },
     {
-      "slug": "l-ia-va-t-elle-remplacer-les-electriciens",
-      "title": "L'IA va-t-elle remplacer les électriciens ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-plombiers",
+      "title": "L'IA va-t-elle remplacer les plombiers ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
@@ -34,12 +26,20 @@
       "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-charpentier",
-      "title": "Comment utiliser ChatGPT pour vos devis charpentier"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-peintre",
+      "title": "Comment utiliser ChatGPT pour vos devis peintre"
     },
     {
-      "slug": "ia-et-couvreur-5-gains-de-temps-concrets",
-      "title": "IA et couvreur : 5 gains de temps concrets"
+      "slug": "ia-et-charpentier-5-gains-de-temps-concrets",
+      "title": "IA et charpentier : 5 gains de temps concrets"
+    },
+    {
+      "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026-741706-8",
+      "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026"
+    },
+    {
+      "slug": "financement-constructys-mode-d-emploi-741706-9",
+      "title": "Financement Constructys : mode d'emploi"
     }
   ],
   "linkedinCount": 10
