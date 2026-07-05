@@ -2,12 +2,12 @@
   "slug": "comment-utiliser-chatgpt-pour-vos-devis-carreleur",
   "title": "Comment utiliser ChatGPT pour vos devis carreleur",
   "description": "Devis carreleur avec ChatGPT : prompts, trames et gain de temps. Guide pratique. Financement possible selon éligibilité.",
-  "date": "2026-06-27",
+  "date": "2026-07-05",
   "keywords": [
-    "gain temps devis",
-    "automatisation administrative",
-    "IA bureau",
-    "productivité IA"
+    "IA conducteur travaux",
+    "CR chantier automatique",
+    "planning IA",
+    "IA BTP"
   ],
   "sections": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "type": "cta",
-      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
+      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
     }
   ],
   "relatedSlugs": [],
@@ -74,15 +74,11 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
-    },
-    {
-      "path": "/ia-devis-batiment",
-      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",
