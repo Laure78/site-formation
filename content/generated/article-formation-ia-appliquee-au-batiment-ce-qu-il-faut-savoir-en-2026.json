@@ -1,13 +1,14 @@
 {
   "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
   "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
-  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. IA PME bâtiment. Formation IA pour les pros du BTP financement possible selon éligibilité.",
-  "date": "2026-07-07",
+  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. plombier IA. Formation IA pour les pros du BTP financement possible selon éligibilité.",
+  "date": "2026-07-08",
   "keywords": [
-    "IA PME bâtiment",
-    "productivité BTP",
-    "automatisation TPE",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -66,7 +67,7 @@
   ],
   "relatedSlugs": [],
   "seoTitle": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
-  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. IA PME bâtiment. Formation IA pour les pros du BTP financement possible selon éligibilité.",
+  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. plombier IA. Formation IA pour les pros du BTP financement possible selon éligibilité.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +75,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "réserver formation"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
