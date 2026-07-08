@@ -30,10 +30,10 @@ export function RessourcesHero() {
         </>
       }
       stats={[
-        { icon: Download, value: TUTOS.length, label: 'tutoriels PDF' },
-        { icon: BookOpen, value: RESSOURCES_LEXIQUE.termCount, label: 'termes lexique BTP' },
-        { icon: Layers, value: RESSOURCES_THEMATIC_BLOCKS.length, label: 'thématiques' },
-        { icon: Sparkles, value: '100 %', label: 'gratuit · sans inscription' },
+        { icon: Download, value: TUTOS.length, label: 'tutoriels PDF', href: '#tutoriels-pdf' },
+        { icon: BookOpen, value: RESSOURCES_LEXIQUE.termCount, label: 'termes lexique BTP', href: '#lexique-btp' },
+        { icon: Layers, value: RESSOURCES_THEMATIC_BLOCKS.length, label: 'thématiques', href: '#hub-par-theme' },
+        { icon: Sparkles, value: '100 %', label: 'gratuit · sans inscription', href: '#lexique-btp' },
       ]}
       middle={
         <div className="mt-6 space-y-4">

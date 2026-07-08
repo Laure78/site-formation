@@ -7,6 +7,8 @@ export type MarketingLightHeroStat = {
   icon: LucideIcon;
   value: ReactNode;
   label: string;
+  /** Ancre ou URL — rend la carte cliquable */
+  href?: string;
 };
 
 export type MarketingLightHeroQuickLink = {
@@ -131,14 +133,11 @@ export function MarketingLightHero({
             </h1>
             <div className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{description}</div>
 
-            <ul className="mt-8 grid gap-3 sm:grid-cols-3 sm:gap-4">
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-2 xl:grid-cols-4">
               {stats.map((stat) => {
                 const Icon = stat.icon;
-                return (
-                  <li
-                    key={stat.label}
-                    className="flex items-center gap-3 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-sm"
-                  >
+                const content = (
+                  <>
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#377CF3]/10 text-[#377CF3]">
                       <Icon size={20} aria-hidden />
                     </span>
@@ -146,6 +145,22 @@ export function MarketingLightHero({
                       <p className="font-display text-xl font-bold text-slate-900">{stat.value}</p>
                       <p className="text-xs text-slate-600">{stat.label}</p>
                     </div>
+                  </>
+                );
+                const cardClass =
+                  'flex w-full items-center gap-3 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur-sm';
+                return (
+                  <li key={stat.label}>
+                    {stat.href ? (
+                      <Link
+                        href={stat.href}
+                        className={`${cardClass} transition hover:border-[#377CF3]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
+                      >
+                        {content}
+                      </Link>
+                    ) : (
+                      <div className={cardClass}>{content}</div>
+                    )}
                   </li>
                 );
               })}
