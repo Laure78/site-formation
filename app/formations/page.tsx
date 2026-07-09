@@ -89,7 +89,7 @@ export default function FormationsPage() {
 
         <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
           <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
-            Formations IA pour le BTP pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux, chargés
+            Formations IA pour le BTP pour <strong>TPE & PME du bâtiment</strong>, dirigeants, conducteurs de travaux, chargés
             d&apos;affaires et équipes administratives : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP

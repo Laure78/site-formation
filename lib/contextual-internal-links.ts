@@ -390,7 +390,7 @@ export const FOOTER_METIER_LINKS: ContextualLinkCard[] = [
   { href: LINKS.formationChargeAffairesBtp, title: "Chargé d'affaires" },
   { href: LINKS.formationElectricienBtp, title: 'Électricien' },
   { href: LINKS.formationPlombierBtp, title: 'Plombier' },
-  { href: LINKS.chatgptArtisans, title: 'Artisans & TPE' },
+  { href: LINKS.chatgptArtisans, title: 'TPE & PME du bâtiment' },
   { href: LINKS.formationIaDirigeantBtp, title: 'Dirigeant PME' },
   { href: LINKS.formationIaEtancheur, title: 'Étancheur' },
   { href: LINKS.formationIaAssistanteBtp, title: 'Assistante administrative' },

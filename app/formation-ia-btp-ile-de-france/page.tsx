@@ -146,7 +146,7 @@ export default function FormationIaBtpIleDeFrancePage() {
             Formation IA BTP Île-de-France — présentiel, certifiée Qualiopi
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            Formations courtes (4 h) pour <strong>artisans, TPE, PME</strong>, dirigeants, conducteurs de travaux,
+            Formations courtes (4 h) pour <strong>TPE & PME du bâtiment</strong>, dirigeants, conducteurs de travaux,
             chargés d&apos;affaires et équipes administratives — sur vos documents réels (devis, DCE, CCTP, mémoires
             techniques, comptes rendus, relances). Intra ou inter, exclusivement en présentiel.{' '}
             <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}

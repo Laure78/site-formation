@@ -19,7 +19,7 @@ export const FORMATION_IA_BTP_METIERS = [
   { href: '/formation-ia-conducteur-de-travaux-btp', label: 'Conducteur de travaux' },
   { href: '/formation-ia-charge-affaires-btp', label: 'Chargé d\'affaires' },
   { href: '/formation-ia-dirigeant-btp', label: 'Dirigeant de PME BTP' },
-  { href: '/formation-ia-artisans-btp', label: 'Artisans et TPE BTP' },
+  { href: '/formation-ia-artisans-btp', label: 'TPE & PME du bâtiment' },
   { href: '/formation-ia-assistante-administrative-btp', label: 'Assistant(e) administrative' },
   { href: '/formation-ia-assistante-gestion-btp', label: 'Assistant(e) de gestion' },
 ] as const;

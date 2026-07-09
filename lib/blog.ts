@@ -920,7 +920,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Qui est Laure Olivié ?',
         content:
-          `Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment avec une note moyenne de ${SOCIAL_PROOF.AVERAGE_RATING}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (n° 905 244 281 00010). Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
+          `Laure Olivié est formatrice en intelligence artificielle spécialisée dans le secteur du BTP depuis 2014. Basée à Guyancourt (Yvelines, 78), elle a formé ${formatProfessionalsTrainedCount()} professionnels du bâtiment avec une note moyenne de ${SOCIAL_PROOF.AVERAGE_RATING}. Son organisme OFC Création d'Entreprise est certifié Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010. Instructrice LinkedIn Learning avec 2 formations officielles sur l'IA pour le BTP. Ses clients incluent FFB Grand Paris, FFB Île-de-France Est et Ouest, IFRB 78, CSFE.`,
       },
       {
         type: 'html',
@@ -1602,18 +1602,18 @@ export const BLOG_ARTICLES: BlogArticle[] = [
   },
   {
     slug: 'appels-offres-btp-ia-lille',
-    seoTitle: 'AO BTP et IA à Lille : méthode et financement',
-    title: 'Automatiser les appels d\'offres BTP avec l\'IA à Lille',
+    seoTitle: 'AO BTP et IA en Île-de-France : méthode et financement',
+    title: 'Automatiser les appels d\'offres BTP avec l\'IA en Île-de-France',
     description:
-      'DCE et mémoire depuis Lille ou Hauts-de-France : méthode reproductible sur dossiers réels. Qualiopi ; Constructys. Diagnostic gratuit 30 min.',
+      'DCE et mémoire en présentiel IDF : méthode reproductible sur dossiers réels. Qualiopi ; Constructys selon éligibilité. Visio découverte gratuite 30 min.',
     date: '2025-03-06',
-    keywords: ['appels d\'offres BTP IA', 'formation IA Lille', 'IA bâtiment Nord', 'DCE BTP'],
+    keywords: ['appels d\'offres BTP IA', 'formation IA Île-de-France', 'IA bâtiment IDF', 'DCE BTP'],
     sections: [
       {
         type: 'definition',
         title: 'En bref',
         content:
-          "L'IA générative permet aux entreprises du BTP à Lille, Roubaix, Tourcoing et dans les Hauts-de-France d'analyser un DCE en 30 minutes, de synthétiser un cahier des charges et de rédiger un mémoire technique structuré.",
+          "L'IA générative permet aux entreprises du BTP en Île-de-France (Paris et départements 77 à 95) d'analyser un DCE en 30 minutes, de synthétiser un cahier des charges et de rédiger un mémoire technique structuré — en session présentielle chez OFC ou en intra dans vos locaux.",
       },
       {
         type: 'list',
@@ -1626,13 +1626,13 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'paragraph',
-        title: 'Formation appels d\'offres BTP à Lille',
+        title: 'Formation appels d\'offres BTP en Île-de-France',
         content:
-          "Formation dédiée aux appels d'offres BTP à Lille et en Nord-Pas-de-Calais. Travail sur vos vrais DCE, prompts par métier, bonnes pratiques confidentialité. Qualiopi · Constructys.",
+          "Formation dédiée aux appels d'offres BTP en présentiel en Île-de-France (inter ou intra). Travail sur vos vrais DCE, prompts par métier, bonnes pratiques confidentialité. Qualiopi · Constructys selon éligibilité.",
       },
       {
         type: 'prompts',
-        title: 'Prompts IA appels d\'offres — Lille et Hauts-de-France',
+        title: 'Prompts IA appels d\'offres — Île-de-France',
         content: [
           {
             titre: 'Analyse rapide DCE',
@@ -1650,7 +1650,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'cta',
-        content: 'Réservez votre formation appels d\'offres BTP à Lille. Devis sur demande.',
+        content: 'Réservez votre formation appels d\'offres BTP en Île-de-France. Devis sur demande.',
         formationHref: '/formation-ia-btp-ile-de-france',
       },
     ],
@@ -2139,7 +2139,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('garage-automobile') || s.includes('garage-auto')) return 'metiers';
   if (s.includes('gagner-temps-devis') || s.includes('devis-ia')) return 'devis';
   if (s.includes('avis-google') || s.includes('organisation-chantier') || s.includes('planning-chantier')) return 'productivite';
-  if (s.includes('compte-rendu') || s.includes('cr-chantier')) return 'productivite';
+  if (s.includes('compte-rendu') || s.includes('cr-chantier') || s.includes('doe') || s.includes('pv-reception')) return 'productivite';
   if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
   if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';

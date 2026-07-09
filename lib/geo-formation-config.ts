@@ -97,13 +97,13 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
     'Paris 13e–14e (Montparnasse, Olympiades)',
   ],
   seo: {
-    title: 'Formation IA BTP, bâtiment et construction à Paris (75)',
+    title: 'Formation IA BTP Paris (75) — présentiel intra',
     description:
-      'Formation IA BTP, bâtiment et construction à Paris : DCE, chiffrage, appels d\'offres en présentiel intra. Qualiopi, Constructys. Visio découverte gratuite.',
+      'Formation IA BTP Paris : DCE, chiffrage, appels d\'offres en présentiel intra, Île-de-France uniquement. Qualiopi, Constructys. Visio découverte gratuite.',
   },
-  h1: 'Formation IA BTP, bâtiment et construction à Paris (75)',
+  h1: 'Formation IA BTP Paris — présentiel intra Île-de-France (75)',
   heroIntro:
-    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, DCE, comptes rendus et administratif chantier sur vos documents réels — entreprises de construction, PME bâtiment et BET.',
+    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, DCE, comptes rendus et administratif chantier sur vos documents réels — présentiel uniquement · Île-de-France uniquement.',
   conversionLink: {
     href: '/formations/ia-batiment-travaux-publics',
     label: 'Voir la fiche formation catalogue (session 4 h, tarifs & financement)',

@@ -45,7 +45,7 @@ export function Footer() {
     { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
     { href: LINKS.chatgptArtisans, label: 'ChatGPT BTP' },
     { href: LINKS.formationClaudeAiBtp, label: 'Formation Claude AI BTP' },
-    { href: LINKS.formationParis, label: 'Paris' },
+    { href: LINKS.formationIaBtpParis, label: 'Paris' },
   ];
 
   const resourceLinks = [
