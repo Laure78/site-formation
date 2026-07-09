@@ -295,7 +295,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Schéma : de la consigne au résultat',
         content: `<figure class="my-6">
-<img src="${IMG}/slide-03.png" alt="Claude Code : flux instruction en français, interprétation, résultat sur fichiers et site — formation IA pour le BTP" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
+<img src="${IMG}/slide-03.png" alt="Capture Claude Code — instruction en français, résultat sur fichiers et site web" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Claude Code : vous tapez une instruction, le système interprète et agit sur vos fichiers ou votre site.</figcaption>
 </figure>`,
       },

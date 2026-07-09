@@ -11,7 +11,7 @@ const COVER = {
   url: '/images/formation-ia-intra-entreprise-batiment.webp',
   width: 1024,
   height: 571,
-  alt: 'Formation IA appliquée au bâtiment en entreprise — Laure Olivié, OFC Qualiopi',
+  alt: 'Session en entreprise du bâtiment — Laure Olivié, OFC Qualiopi',
 } as const;
 
 function faqStandard(metierLabel: string): FAQItem[] {

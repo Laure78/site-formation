@@ -88,7 +88,7 @@ export const GEO_FORMATION_HAUTS_DE_SEINE_92: GeoFormationPageProps = {
 export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
   departement: 'Paris',
   code: '75',
-  slug: 'paris-75',
+  slug: 'paris',
   villes: [
     'Paris 1er–4e (centre & Louvre)',
     'Paris 11e–12e (Bastille, Nation)',
@@ -97,11 +97,13 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
     'Paris 13e–14e (Montparnasse, Olympiades)',
   ],
   seo: {
-    title: 'Formation IA bâtiment Paris (75) — BTP IDF',
+    title: 'Formation IA BTP, bâtiment et construction à Paris (75)',
+    description:
+      'Formation IA BTP, bâtiment et construction à Paris : DCE, chiffrage, appels d\'offres en présentiel intra. Qualiopi, Constructys. Visio découverte gratuite.',
   },
-  h1: 'Formation IA BTP à Paris (75) — intra par arrondissement et métropole',
+  h1: 'Formation IA BTP, bâtiment et construction à Paris (75)',
   heroIntro:
-    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, comptes rendus et administratif chantier sur vos documents réels — angle logistique Paris & Petite Couronne.',
+    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, DCE, comptes rendus et administratif chantier sur vos documents réels — entreprises de construction, PME bâtiment et BET.',
   conversionLink: {
     href: '/formations/ia-batiment-travaux-publics',
     label: 'Voir la fiche formation catalogue (session 4 h, tarifs & financement)',

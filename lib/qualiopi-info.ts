@@ -72,8 +72,19 @@ export const QUALIOPI_HANDICAP_STANDARD = QUALIOPI_ACCESSIBILITE_EXACT;
 export const QUALIOPI_RECLAMATIONS = {
   email: SCHEMA_CONTACT.email,
   delaiReponse: '15 jours ouvrés',
-  mediation:
-    "En cas de litige non résolu, médiation possible auprès d'un médiateur de la consommation ou du médiateur compétent en formation professionnelle.",
+  delaiAccuseReception: '48 h ouvrées',
+} as const;
+
+/** Médiateur de la consommation — adhésion OFC (indicateur 31 Qualiopi, art. L612-1). */
+export const QUALIOPI_MEDIATION_CM2C = {
+  nom: 'CM2C — Centre de la Médiation de la Consommation de Conciliateurs de justice',
+  adresse: '49 rue de Ponthieu, 75008 Paris',
+  siteUrl: 'https://www.cm2c.net',
+  siteLabel: 'www.cm2c.net',
+  conditionPrealable:
+    "La médiation ne peut être saisie qu'après une réclamation écrite préalable auprès d'OFC restée sans réponse satisfaisante sous 15 jours ouvrés.",
+  precisionLitiges:
+    'La médiation de la consommation concerne les clients particuliers ; pour les litiges entre professionnels, règlement amiable puis juridictions compétentes selon les CGV.',
 } as const;
 
 export type InfosQualiopiProps = {
@@ -82,15 +93,15 @@ export type InfosQualiopiProps = {
   objectifs: readonly string[];
   duree: string;
   dureeJours?: string;
-  modalitesAcces?: string;
+  modalitesAcces: string;
   tarifInter: string;
   tarifIntra: string;
-  methodes?: readonly string[];
-  evaluation?: readonly string[];
-  handicap?: string;
-  lastUpdated?: string;
+  methodes: readonly string[];
+  evaluation: readonly string[];
+  handicap: string;
+  lastUpdated: string;
   version?: string;
-  programmeRef?: string;
+  programmeRef: string;
 };
 
 function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {

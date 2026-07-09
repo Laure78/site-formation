@@ -295,7 +295,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200">
                   <Image
                     src={PHOTOS.siteAvatar.src}
-                    alt="Laure Olivié, formatrice IA × BTP, OFC Création d'Entreprise"
+                    alt={PHOTOS.siteAvatar.alt}
                     fill
                     className="object-cover"
                     sizes="56px"

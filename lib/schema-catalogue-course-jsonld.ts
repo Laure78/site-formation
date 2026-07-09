@@ -10,14 +10,13 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 import {
+  FORMATION_COURSE_DURATION_ISO,
+  buildFormationFicheCourseJsonLd,
+} from '@/lib/schema-formation-course-jsonld';
+import {
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
 } from '@/lib/tarifs-sessions';
-
-const DURATION_ISO = 'PT4H';
-/** Valeur Schema.org / Google Course — présentiel */
-const COURSE_MODE_ONSITE = 'Onsite';
-const COURSE_MODE_BLENDED = 'Blended';
 
 const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], string> = {
   [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01',
@@ -76,8 +75,6 @@ export type FormationCatalogueRichCourseConfig = {
   price: number;
   educationalLevel: 'Débutant' | 'Avancé';
   teaches: readonly string[];
-  /** Modes de delivery Schema.org — défaut présentiel uniquement */
-  courseModes?: readonly string[];
 };
 
 export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
@@ -197,7 +194,6 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
   price: TARIF_SESSION_AVANCE_HT,
   educationalLevel: 'Avancé',
-  courseModes: [COURSE_MODE_ONSITE, COURSE_MODE_BLENDED],
   teaches: [
     'Claude et ChatGPT pour cas d\'usage MOE (Projets, Connecteurs, Skills, Cowork)',
     'Analyse DCE — conformité et alertes contractuelles',
@@ -217,16 +213,22 @@ export function buildFormationCatalogueRichCourseJsonLd(
   const courseImage = getFormationCatalogueImageObjectJsonLd(catalogueRef, base);
   const organizationId = `${base}/#organization`;
   const instructorId = `${base}/#laure-olivie`;
-  const courseModes = config.courseModes ?? [COURSE_MODE_ONSITE];
 
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    '@id': `${courseUrl}#course`,
+  const core = buildFormationFicheCourseJsonLd({
     name: config.name,
     description: config.description,
-    url: courseUrl,
+    path: config.path,
     courseCode: catalogueRef,
+    educationalLevel: config.educationalLevel,
+    teaches: [...config.teaches],
+    organizationId,
+    instructorId,
+    courseId: `${courseUrl}#course`,
+    timeRequired: FORMATION_COURSE_DURATION_ISO,
+  });
+
+  return {
+    ...core,
     ...(courseImage ? { image: courseImage } : {}),
     provider: {
       '@type': 'EducationalOrganization',
@@ -240,11 +242,6 @@ export function buildFormationCatalogueRichCourseJsonLd(
       },
     },
     instructor: { '@id': instructorId },
-    timeRequired: DURATION_ISO,
-    courseMode: courseModes.length === 1 ? courseModes[0] : [...courseModes],
-    inLanguage: 'fr-FR',
-    educationalLevel: config.educationalLevel,
-    teaches: [...config.teaches],
     aggregateRating: buildSchemaAggregateRating(),
     offers: {
       '@type': 'Offer',
@@ -260,21 +257,6 @@ export function buildFormationCatalogueRichCourseJsonLd(
       },
       availability: 'https://schema.org/InStock',
       url: courseUrl,
-    },
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: courseModes.length === 1 ? courseModes[0] : [...courseModes],
-      courseWorkload: DURATION_ISO,
-      instructor: { '@id': instructorId },
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France — inter ou intra, en présentiel',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: 'Île-de-France',
-          addressCountry: 'FR',
-        },
-      },
     },
   };
 }

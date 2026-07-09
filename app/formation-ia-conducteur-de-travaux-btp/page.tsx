@@ -16,6 +16,8 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import {
   CDT_BTP_FAQ,
   CDT_BTP_USE_CASES,
@@ -33,7 +35,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl(
   'formation-ia-conducteur-de-travaux-btp-rdv-final'
 );
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('conducteur de travaux', {
   title: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.title,
   description: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
   path: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
@@ -89,11 +91,12 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
 
       <article>
         <header>
+          <MetierIdfPresentielLine className="mb-4" />
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.h1}
           </h1>
           <p className="mt-4 text-lg text-slate-600">
-            Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi · Finançable Constructys · Île-de-France
+            Sessions en présentiel en Île-de-France — Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi · Finançable Constructys
           </p>
 
           <p className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
@@ -107,7 +110,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           <figure className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
             <Image
               src="/images/btp-conducteur-plans.png"
-              alt="Conducteur de travaux BTP avec plans de chantier — formation IA pour CR, PPSPS et analyse DCE"
+              alt="Conducteur de travaux BTP avec plans de chantier — analyse DCE et comptes rendus"
               fill
               className="object-cover"
               priority

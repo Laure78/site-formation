@@ -25,6 +25,12 @@ import {
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
+import {
+  FORMATION_COURSE_MODE_ONSITE,
+  buildFormationCourseAreaServed,
+  buildFormationCourseIdfPlace,
+  buildFormationCourseInstances,
+} from '@/lib/schema-formation-course-jsonld';
 
 export type FormationMetierFaqItem = {
   question: string;
@@ -202,10 +208,17 @@ function buildCourseNode(params: {
     name: courseName,
     description: courseDescription,
     url: pageUrl,
-    provider: { '@id': ORGANIZATION_ID },
+    courseMode: FORMATION_COURSE_MODE_ONSITE,
+    locationCreated: buildFormationCourseIdfPlace(),
+    areaServed: buildFormationCourseAreaServed(),
+    provider: {
+      '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
+      name: "OFC Création d'Entreprise",
+    },
     instructor: { '@id': PERSON_LAURE_ID },
     educationalLevel: level,
-    inLanguage: 'fr',
+    inLanguage: 'fr-FR',
     ...(teaches && teaches.length > 0 ? { teaches } : {}),
     isAccessibleForFree: false,
     creditsAwarded: QUALIOPI_CERTIFICAT_REALISATION,
@@ -219,21 +232,7 @@ function buildCourseNode(params: {
       url: buildSiteCalendlyCtaUrl('schema-formation-metier-course-offer'),
       category: 'Formation professionnelle continue',
     },
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: ['Onsite'],
-      courseWorkload: duration,
-      inLanguage: 'fr',
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: 'Île-de-France',
-          addressCountry: 'FR',
-        },
-      },
-    },
+    hasCourseInstance: buildFormationCourseInstances(duration),
   };
 }
 

@@ -1,11 +1,11 @@
-import { createPageMetadata } from '@/lib/seo';
 import { FormationMetierB1Page } from '@/components/landing/FormationMetierB1Page';
 import { LINKS } from '@/lib/internal-links';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('dirigeant', {
   title: 'Formation IA dirigeant BTP — pilotage',
   description:
     "Formation IA pour dirigeants et CODIR BTP : roadmap 90 jours, ROI, formation d'équipe, gouvernance IA. Qualiopi. Financement possible selon éligibilité.",

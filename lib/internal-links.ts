@@ -31,11 +31,14 @@ export const LINKS = {
   /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
   blogSecuriteDonneesChatgptBtp: '/blog/securite-donnees-chatgpt-btp',
   aPropos: '/a-propos',
+  partenaires: '/partenaires',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
   prendreRdv: '/prendre-rdv',
   /** Page pilier SEO — mot-clé « formation IA appliquée au bâtiment » */
   formationIaBtp: '/formation-ia-btp',
+  /** Landing SEO cluster — formation IA entreprises de construction (ETI, EG, MOE, BET) */
+  formationIaConstruction: '/formation-ia-construction',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
   /** Landing SEO cluster Claude AI */
@@ -69,10 +72,10 @@ export const LINKS = {
   /** Alias explicite — même fichier que `pdfProgrammeIaBtpNiveau2AppelsOffre` */
   pdfProgrammeFormationAoBtpDetail2026: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Canonique geo Paris (75) — formation IA BTP Paris */
-  formationParis: '/formation-ia-btp-paris-75',
-  /** Hub zones IDF — 8 départements (intention distincte de formationParis) */
-  formationIaBtpIdfZones: '/formations/ia-btp-paris',
-  /** Alias court (301 → formationParis) — maillage explicite possible */
+  formationParis: '/formation-ia-btp-paris',
+  /** Hub zones IDF — 8 départements (pilier Île-de-France) */
+  formationIaBtpIdfZones: '/formation-ia-btp-ile-de-france',
+  /** Canonique SEO — formation IA BTP Paris (75) */
   formationIaBtpParis: '/formation-ia-btp-paris',
   /** Essonne (91) — pages locales SEO */
   formationMorangis: '/formations/ia-btp-morangis',
@@ -83,7 +86,8 @@ export const LINKS = {
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
   /** Landing SEO local Yvelines (78) — pilier (l'ancien `/formation-ia-btp-yvelines` redirige en 308) */
   formationIABTPYvelines: '/formation-ia-btp-yvelines-78',
-  formationIaBtpParis75: '/formation-ia-btp-paris-75',
+  /** Alias historique — même URL que formationIaBtpParis */
+  formationIaBtpParis75: '/formation-ia-btp-paris',
   /** Pages pilier SEO par département Île-de-France (+77) */
   formationIaBtpYvelines78: '/formation-ia-btp-yvelines-78',
   formationIaBtpSeineEtMarne77: '/formation-ia-btp-seine-et-marne-77',
@@ -155,6 +159,7 @@ export const LINKS = {
   guideMaitriseOeuvreIa: '/ressources/guide-maitrise-oeuvre-ia',
   /** PDF gratuit — Guide MOE × IA OFC */
   pdfGuideMoeIa: '/ressources/pdf/guide-moe-ia.pdf',
+  pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
   /** Hub Ressources — index général (tutos, guides…) */
@@ -181,6 +186,14 @@ export const LINKS = {
   formationIaAnalyseCctp: '/formations/formation-ia-cctp-analyse-dce-btp',
   /** Article — méthode analyse CCTP en 20 min (cluster AO/DCE) */
   blogAnalyserCctpMethode20Min: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
+  /** Article — analyser un CCAP avec l'IA (cluster AO/DCE) */
+  blogAnalyserCcapIaBtp: '/blog/analyser-ccap-ia-btp',
+  /** Alias — même article que blogAnalyserCcapIaBtp */
+  blogIaAnalyseCcap: '/blog/analyser-ccap-ia-btp',
+  /** Article — mémoire de réclamation BTP avec l'IA */
+  blogMemoireReclamationBtpIa: '/blog/memoire-reclamation-btp-ia',
+  /** Article pilier — répondre aux AO BTP avec l'IA (guide 5 étapes) */
+  blogIaMemoireTechniqueAppelOffresGuide2026: '/blog/ia-memoire-technique-appel-offres-guide-2026',
   /** @deprecated Préférer blogAnalyserCctpMethode20Min */
   blogIaAnalyseCctpMethode: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
   /** Article informationnel — comment analyser un DCE/CCTP avec l'IA (cluster AO/DCE) */

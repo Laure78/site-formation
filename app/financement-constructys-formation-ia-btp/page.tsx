@@ -80,7 +80,7 @@ const STEPS = [
 
 const FINANCEMENT_META_TITLE = 'Financement Constructys IA BTP 2026';
 const FINANCEMENT_META_DESCRIPTION =
-  'Financer votre formation IA pour le BTP avec Constructys en 2026 : plafonds, délais eGestion, dossier OFC Qualiopi. Devis et visio gratuits.';
+  'Financer votre formation IA pour le BTP avec Constructys en 2026 : plafonds, délais eGestion, dossier OFC Qualiopi. Présentiel uniquement · Île-de-France uniquement. Visio découverte gratuite.';
 
 export const metadata = createPageMetadata({
   title: FINANCEMENT_META_TITLE,

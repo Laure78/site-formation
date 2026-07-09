@@ -1,32 +1,34 @@
 import { JsonLd } from '@/components/JsonLd';
-import { buildBlogFaqPageJsonLd, type BlogFaqPair } from '@/lib/blog-faq-page-jsonld';
+import {
+  buildArticleFaqPageJsonLd,
+  resolveBlogArticleFaqPairs,
+  type BlogFaqPair,
+} from '@/lib/article-faq-jsonld';
 import { extractFaqPairsForFaqPageJsonLd, type BlogArticle } from '@/lib/blog';
 
-type Props =
-  | {
-      slug: string;
-      faq: BlogFaqPair[];
-      article?: never;
-    }
-  | {
-      slug: string;
-      article: BlogArticle;
-      faq?: never;
-    };
+type Props = {
+  slug: string;
+  /** Paires explicites — sinon résolution automatique depuis le slug ou l'article. */
+  faq?: BlogFaqPair[];
+  /** Article JSON/TS — évite un second chargement si déjà disponible côté page. */
+  article?: BlogArticle;
+};
 
 /**
- * FAQPage JSON-LD — injecté si ≥ 3 paires Q/R valides.
- * Balise native `<script type="application/ld+json">` via `JsonLd` (SSR).
+ * FAQPage JSON-LD — injecté automatiquement si ≥ 3 paires Q/R valides.
+ * Sources : frontmatter MDX, section FAQ du corps MDX, `article.faq`, sections `faq` / HTML.
  */
 export function BlogArticleFaqJsonLd({ slug, faq, article }: Props) {
   const pairs: BlogFaqPair[] =
     faq ??
-    extractFaqPairsForFaqPageJsonLd(article).map(({ q, a }) => ({
-      question: q,
-      answer: a,
-    }));
+    (article
+      ? extractFaqPairsForFaqPageJsonLd(article).map(({ q, a }) => ({
+          question: q,
+          answer: a,
+        }))
+      : resolveBlogArticleFaqPairs(slug));
 
-  const schema = buildBlogFaqPageJsonLd(pairs);
+  const schema = buildArticleFaqPageJsonLd(pairs);
   if (schema == null) return null;
 
   return <JsonLd id={`blog-faq-jsonld-${slug}`} schema={schema} />;

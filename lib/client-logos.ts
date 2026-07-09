@@ -4,19 +4,23 @@
  * Alts canoniques (SEO) — réutiliser partout où le même fichier apparaît.
  */
 export const ALT_LOGO_FFB_OFFICIEL =
-  'Logo FFB — Fédération Française du Bâtiment, partenaire formations intelligence artificielle BTP en Île-de-France' as const;
+  'Logo FFB — Fédération Française du Bâtiment' as const;
 export const ALT_LOGO_FFB_ARTISAN =
-  'Logo FFB Artisan — réseau artisans du bâtiment, partenaire formations IA et ChatGPT pour les pros du BTP' as const;
+  'Logo FFB Artisan — réseau artisans du bâtiment' as const;
 export const ALT_LOGO_FFB_GRAND_PARIS_IDF =
-  'Logo FFB Grand Paris Île-de-France — partenaire sessions formation IA appliquée au bâtiment et travaux publics' as const;
+  'Logo FFB Grand Paris — fédération partenaire des formations IA BTP de Laure Olivié' as const;
 export const ALT_LOGO_CSFE =
-  "Logo CSFE — Chambre Syndicale Française de l'Étanchéité, partenaire formation IA appliquée au bâtiment et étanchéité" as const;
+  'Logo CSFE, Chambre Syndicale Française de l\'Étanchéité — partenaire formation IA' as const;
+export const ALT_LOGO_UMB_FFB =
+  'Logo UMB-FFB, Union des Métiers du Bois — partenaire formation IA bâtiment' as const;
+export const ALT_LOGO_LINKEDIN_LEARNING =
+  'Logo LinkedIn Learning — Laure Olivié, instructrice IA pour le BTP' as const;
 export const ALT_LOGO_CNAM_ENTREPRISES =
-  'Logo CNAM entreprises Île-de-France — partenaire formation continue intelligence artificielle pour le secteur BTP' as const;
+  'Logo CNAM entreprises Île-de-France' as const;
 export const ALT_LOGO_ARFAB =
-  'Logo ARFAB — association régionale formation artisans du bâtiment, partenaire formations IA bâtiment Laure Olivié' as const;
+  'Logo ARFAB — association régionale formation artisans du bâtiment' as const;
 export const ALT_LOGO_IFRB_77 =
-  'Logo IFRB 77 — Institut Formation Régional du Bâtiment Yvelines, partenaire formations IA pour les pros du BTP' as const;
+  'Logo IFRB 77 — Institut Formation Régional du Bâtiment Yvelines' as const;
 
 export type ClientLogoItem = {
   id: string;
@@ -41,6 +45,8 @@ export const PARTNER_WEBSITES = {
   csfe: 'https://www.csfe.fr/',
   cnamIdf: 'https://www.cnam-idf.fr/',
   lefebvreDalloz: 'https://www.lefebvre-dalloz-formation.fr/',
+  capeb: 'https://www.capeb.fr/',
+  umbFfb: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
 } as const;

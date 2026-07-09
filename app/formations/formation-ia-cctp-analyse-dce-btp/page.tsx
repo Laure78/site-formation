@@ -278,7 +278,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
             <li className="flex gap-2">
               <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>Format :</strong> présentiel ou visioconférence (Zoom).{' '}
+                <strong>Format :</strong> présentiel uniquement · Île-de-France uniquement.{' '}
                 <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} en demi-journée dense, ou journée complète possible en
                 intra sur devis.
               </span>

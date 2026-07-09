@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
+import { QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -198,7 +200,7 @@ export default function CGVPage() {
             <strong>Présentiel en Île-de-France uniquement :</strong> lieu indiqué dans la
             convention (inter en salle ou intra dans les locaux du Client en Île-de-France),
             horaires dans la convocation (7 jours avant), matériel fourni.{" "}
-            <strong>Pas de distanciel</strong> ni de déplacement hors Île-de-France pour les
+            <strong>Présentiel uniquement · Île-de-France uniquement</strong> pour les
             sessions catalogue OFC. <strong>Intra-entreprise :</strong> locaux du Client en
             Île-de-France, programme adapté.
           </p>
@@ -330,11 +332,14 @@ export default function CGVPage() {
           <p className="mt-4">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
             laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
-            Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous 48 h ouvrées et une réponse vous est
-            apportée sous 15 jours ouvrés. Chaque réclamation est enregistrée et analysée dans le cadre de notre
-            démarche d&apos;amélioration continue Qualiopi. En cas de litige non résolu, médiation amiable possible ;
-            pour les clients particuliers, recours au médiateur de la consommation compétent. Compétence exclusive des
-            tribunaux du siège de l&apos;Organisme.
+            Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous {QUALIOPI_RECLAMATIONS.delaiAccuseReception}{' '}
+            et une réponse vous est apportée sous {QUALIOPI_RECLAMATIONS.delaiReponse}. Chaque réclamation est enregistrée
+            et analysée dans le cadre de notre démarche d&apos;amélioration continue Qualiopi.
+          </p>
+          <MediationCm2cBlock className="mt-4" />
+          <p className="mt-4">
+            Compétence exclusive des tribunaux du siège de l&apos;Organisme pour les litiges entre professionnels non
+            résolus à l&apos;amiable.
           </p>
         </section>
 

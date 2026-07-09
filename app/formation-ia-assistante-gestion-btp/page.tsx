@@ -18,6 +18,9 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
+import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-gestion-btp';
@@ -28,17 +31,15 @@ const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
 
 /** Course — GEO / rich results */
 const COURSE_JSON_LD: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  name: 'Formation IA pour Assistante de Gestion BTP',
-  description:
-    'Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation d\'avancement, relances impayés, DC4, DGD, paie chantier, TVA autoliquidation. Qualiopi. Financement possible selon éligibilité.',
-  provider: {
-    '@type': 'Organization',
-    name: "OFC Création d'Entreprise",
-    sameAs: BASE_URL,
-    url: BASE_URL,
-  },
+  ...buildFormationFicheCourseJsonLd({
+    name: 'Formation IA pour Assistante de Gestion BTP',
+    description:
+      "Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation d'avancement, relances impayés, DC4, DGD, paie chantier, TVA autoliquidation. Qualiopi. Financement possible selon éligibilité.",
+    path: PATH,
+    educationalLevel: 'Advanced',
+    organizationId: `${BASE_URL}/#organization`,
+    instructorName: 'Laure Olivié',
+  }),
   instructor: {
     '@type': 'Person',
     name: 'Laure Olivié',
@@ -52,28 +53,13 @@ const COURSE_JSON_LD: Record<string, unknown> = {
     availability: 'https://schema.org/InStock',
     url: buildSiteCalendlyCtaUrl('formation-ia-assistante-gestion-btp-schema-offer'),
   },
-  timeRequired: 'PT4H',
-  educationalLevel: 'Advanced',
-  hasCourseInstance: {
-    '@type': 'CourseInstance',
-    courseMode: ['onsite'],
-    location: {
-      '@type': 'Place',
-      name: 'Île-de-France',
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Île-de-France',
-        addressCountry: 'FR',
-      },
-    },
-  },
   audience: {
     '@type': 'EducationalAudience',
     educationalRole: 'Assistante de gestion BTP',
   },
 };
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('assistante gestion', {
   title: SEO_TITLE,
   description:
     'Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation, relances impayés, DGD, sous-traitance. Qualiopi. RDV gratuit.',
@@ -197,12 +183,13 @@ export default function FormationIaAssistanteGestionBtpPage() {
       {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-assistante-gestion" /> : null}
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA assistante de gestion BTP —{' '}
           <span className="text-[#377CF3]">facturation, relances impayés et DGD</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Cette page cible le <strong>back-office chiffré</strong> : factures d&apos;avancement, relances
+          Sessions en présentiel en Île-de-France — cette page cible le <strong>back-office chiffré</strong> : factures d&apos;avancement, relances
           impayés, attestations sous-traitants et décomptes généraux définitifs — distinct de l&apos;administratif
           courrier/suivi chantier (voir la{' '}
           <Link href={LINKS.formationIaAssistanteBtp} className="font-medium text-[#377CF3] hover:underline">

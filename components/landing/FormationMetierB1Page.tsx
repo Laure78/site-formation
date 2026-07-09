@@ -16,6 +16,7 @@ import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 
 type FAQItem = { question: string; answer: string };
 type Step = { title: string; prompt: string };
@@ -69,8 +70,11 @@ export function FormationMetierB1Page({
       />
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
-        <p className="mt-6 text-xl text-slate-600">{heroParagraph}</p>
+        <p className="mt-6 text-xl text-slate-600">
+          Sessions en présentiel en Île-de-France — {heroParagraph}
+        </p>
         {crossLink ? (
           <p className="mt-4 text-base text-slate-600">
             {crossLink.before ?? 'Page complémentaire :'}{' '}

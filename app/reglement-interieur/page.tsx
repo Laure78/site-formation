@@ -87,8 +87,8 @@ export default function ReglementInterieurPage() {
           <p className="mt-4 text-slate-600">
             Il est applicable pour toute action de formation, qu&apos;elle se
             déroule : dans les locaux de l&apos;Organisme ; dans des locaux mis à
-            disposition (intra-entreprise, centre de formation partenaire) ; à
-            distance (e-learning, classes virtuelles).
+            disposition (intra-entreprise, centre de formation partenaire) en Île-de-France —
+            présentiel uniquement · Île-de-France uniquement.
           </p>
         </section>
 

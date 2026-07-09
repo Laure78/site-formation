@@ -13,9 +13,11 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('artisans', {
   title: 'Formation IA artisans BTP — ChatGPT',
   description:
     'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
@@ -120,12 +122,13 @@ export default function FormationIAArtisansBTPPage() {
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour entreprises BTP : <span className="text-[var(--accent)]">ChatGPT</span>{' '}
           pour devis, emails et comptes rendus
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
+          Sessions en présentiel en Île-de-France — guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
           activité dans le bâtiment : devis, emails, comptes rendus. Notre{' '}
           <Link href={LINKS.formationIaBtp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment

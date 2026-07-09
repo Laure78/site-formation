@@ -1,5 +1,6 @@
 import { PHOTOS } from '@/lib/photos';
-import { buildPhotoTitleFromAlt, enrichPhotoAlt } from '@/lib/seo-geo-keywords';
+import { buildPhotoTitleFromAlt } from '@/lib/seo-geo-keywords';
+import { normalizePhotoAlt } from '@/lib/image-alt';
 
 /** Visuel site avec métadonnées SEO image (alt, description, title optionnels). */
 export type SitePhotoAsset = {
@@ -23,7 +24,7 @@ export function isSitePhotoAsset(value: unknown): value is SitePhotoAsset {
 
 /** Alt image — enrichissement SEO/GEO si le libellé source est incomplet. */
 export function getPhotoAlt(photo: SitePhotoAsset): string {
-  return enrichPhotoAlt(photo.alt, photo.src);
+  return normalizePhotoAlt(photo.alt);
 }
 
 /** Title image (tooltip) — complémentaire à l'alt, jamais dupliqué. */

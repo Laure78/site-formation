@@ -59,8 +59,8 @@ export const GEO_DEPARTMENT_LINKS: (ContextualLinkCard & { slug: string })[] = [
     description: 'Cergy, Argenteuil, Pontoise — déplacements depuis Guyancourt.',
   },
   {
-    slug: 'paris-75',
-    href: LINKS.formationIaBtpParis75,
+    slug: 'paris',
+    href: LINKS.formationIaBtpParis,
     title: 'Paris (75)',
     description: 'Paris intra-muros et petite couronne — présentiel intra.',
   },

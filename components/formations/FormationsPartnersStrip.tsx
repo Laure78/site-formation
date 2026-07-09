@@ -24,7 +24,7 @@ const LOGOS = [
   {
     id: 'ffb-idf',
     src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
-    alt: `${ALT_LOGO_FFB_OFFICIEL} — FFB Île-de-France`,
+    alt: ALT_LOGO_FFB_OFFICIEL,
     width: 200,
     height: 80,
     href: PARTNER_WEBSITES.ffbIdf,

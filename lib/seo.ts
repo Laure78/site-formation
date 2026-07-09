@@ -16,6 +16,7 @@ import {
   buildIdfAreaServedSchemaEntities,
   schemaDefaultPersonImageUrl,
 } from '@/lib/schema-constants';
+import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { buildPageMetadata } from '@/utils/metadata';
 
 export {
@@ -24,6 +25,7 @@ export {
   withOgDescriptionSuffix,
   BRAND_TITLE_SUFFIX,
   SEO_TITLE_MAX_LENGTH,
+  SEO_TITLE_SEGMENT_MAX_LENGTH,
   stripBrandSuffix,
   truncateForBrandedTitle,
   buildBrandedTitle,
@@ -251,8 +253,6 @@ export function getCourseSchema({
   name,
   description,
   path,
-  providerName,
-  areaServed,
   instructorName,
   teaches,
   courseCode,
@@ -262,7 +262,8 @@ export function getCourseSchema({
   name: string;
   description: string;
   path: string;
-  providerName: string;
+  /** @deprecated Conservé pour compatibilité — provider fixé à OFC Création d'Entreprise */
+  providerName?: string;
   areaServed?: string[];
   instructorName?: string;
   /** Compétences couvertes — utile pour réponses IA (Perplexity, SGE) */
@@ -274,37 +275,19 @@ export function getCourseSchema({
   /** Durée ISO 8601, ex. PT7H pour 7 h */
   timeRequired?: string;
 }) {
-  const instructor = instructorName ?? SITE_CONFIG.name;
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
+  return buildFormationFicheCourseJsonLd({
     name,
     description,
-    inLanguage: 'fr-FR',
-    provider: {
-      '@type': 'Organization',
-      '@id': `${SITE_CONFIG.url}/#organization`,
-      name: providerName,
-    },
-    instructor: {
-      '@type': 'Person',
-      '@id': `${SITE_CONFIG.url}/#person`,
-      name: instructor,
-    },
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      name,
-      courseMode: 'onsite',
-    },
-    url: `${SITE_CONFIG.url}${path}`,
-    ...(courseCode && { courseCode }),
-    ...(educationalLevel && { educationalLevel }),
-    ...(timeRequired && { timeRequired }),
-    ...(teaches?.length && { teaches }),
-    ...(areaServed?.length && {
-      areaServed: areaServed.map((a) => ({ '@type': 'Place', name: a })),
-    }),
-  };
+    path,
+    organizationId: `${base}/#organization`,
+    instructorId: instructorName ? undefined : `${base}/#person`,
+    instructorName: instructorName ?? SITE_CONFIG.name,
+    teaches,
+    courseCode,
+    educationalLevel,
+    timeRequired,
+  });
 }
 
 /**

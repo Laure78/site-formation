@@ -3,6 +3,11 @@
  */
 import { formationsData } from '@/src/data/formations';
 import { SITE_CONFIG } from '@/lib/seo';
+import {
+  FORMATION_COURSE_DURATION_ISO,
+  buildFormationFicheCourseJsonLd,
+  buildFormationFicheCourseNode,
+} from '@/lib/schema-formation-course-jsonld';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
@@ -117,8 +122,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   },
 ];
 
-const DURATION_ISO = 'PT4H';
-const COURSE_MODES = ['onsite'] as const;
+const DURATION_ISO = FORMATION_COURSE_DURATION_ISO;
 
 function educationalLevelSchema(level: NiveauCatalogue): string {
   return level === 'DÉBUTANT' ? 'Beginner' : 'Advanced';
@@ -126,28 +130,24 @@ function educationalLevelSchema(level: NiveauCatalogue): string {
 
 function buildCourseObject(entry: FormationCatalogEntry): Record<string, unknown> {
   const price = tarifHtDepuisBadgeCatalogue(entry.level);
-  const url = `${SITE_CONFIG.url}${entry.path}`;
+  const base = SITE_CONFIG.url.replace(/\/$/, '');
   return {
-    '@type': 'Course',
-    '@id': `${url}#course`,
-    name: entry.name,
-    description: entry.description,
-    url,
-    courseCode: entry.ref,
-    duration: DURATION_ISO,
-    courseMode: [...COURSE_MODES],
-    inLanguage: 'fr',
-    availableLanguage: 'fr',
-    educationalLevel: educationalLevelSchema(entry.level),
-    teaches: entry.teaches,
+    ...buildFormationFicheCourseNode({
+      name: entry.name,
+      description: entry.description,
+      path: entry.path,
+      courseCode: entry.ref,
+      educationalLevel: educationalLevelSchema(entry.level),
+      teaches: entry.teaches,
+      organizationId: EDUCATIONAL_ORGANIZATION_FRAGMENT_ID,
+    }),
     occupationalCategory: entry.occupationalCategory,
-    provider: { '@id': EDUCATIONAL_ORGANIZATION_FRAGMENT_ID },
     offers: {
       '@type': 'Offer',
       price,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      url,
+      url: `${base}${entry.path}`,
       category: 'Formation professionnelle',
     },
   };
@@ -198,41 +198,23 @@ export function getCourseJsonLdFromFormationsData(
   const f = formationsData[slug as keyof typeof formationsData];
   if (!f) return null;
   const base = SITE_CONFIG.url.replace(/\/$/, '');
-  const courseUrl = `${base}/formations/${slug}`;
+  const path = `/formations/${slug}`;
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    '@id': `${courseUrl}#course`,
-    url: courseUrl,
-    name: f.name,
-    description: f.description,
-    provider: {
-      '@type': 'Organization',
-      name: SITE_CONFIG.legalName,
-      url: base,
-    },
-    instructor: {
-      '@type': 'Person',
-      name: SITE_CONFIG.name,
-    },
-    timeRequired: f.duration,
-    educationalLevel: 'Professionnel',
-    courseLanguage: 'fr',
-    inLanguage: 'fr',
-    availableLanguage: 'fr',
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: [...COURSE_MODES],
-      courseSchedule: {
-        '@type': 'Schedule',
-        duration: f.duration,
-      },
-    },
+    ...buildFormationFicheCourseJsonLd({
+      name: f.name,
+      description: f.description,
+      path,
+      timeRequired: f.duration,
+      educationalLevel: 'Professionnel',
+      instructorName: SITE_CONFIG.name,
+      organizationId: `${base}/#organization`,
+    }),
     offers: {
       '@type': 'Offer',
       price: f.price,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
+      url: `${base}${path}`,
     },
   };
 }
@@ -248,7 +230,6 @@ export function getFormationCoursePageJsonLd(
 /** Fiches catalogue prioritaires — Course JSON-LD enrichi (références @id organisation / formatrice, offre, avis). */
 export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-batiment-travaux-publics',
-  '/formations/ia-btp-paris',
   '/formations/ia-appels-offre-btp',
   '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/maitriser-claude-ai-btp',
@@ -259,26 +240,13 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
 
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
 
-const PARIS_FORMATION_DEDICATED = {
-  name: 'Formation IA pour le BTP à Paris',
-  description:
-    'Formation de 4 h pour professionnels du BTP en Île-de-France : devis, chiffrages, ChatGPT. Paris (75) et huit départements. Qualiopi · Constructys.',
-  educationalLevel: 'Débutant' as const,
-  /** Aligné BTP-01 (débutant). */
-  priceHt: tarifHtDepuisBadgeCatalogue('DÉBUTANT'),
-  teaches: [
-    'Devis et chiffrage assistés par l’IA pour le BTP',
-    'Emails professionnels et suivi client en Île-de-France',
-    'Automatisation de l’administratif chantier avec ChatGPT',
-  ],
-};
-
 function niveauCatalogueToFr(level: NiveauCatalogue): 'Débutant' | 'Avancé' {
   return level === 'DÉBUTANT' ? 'Débutant' : 'Avancé';
 }
 
 function buildDedicatedFormationCourseObject(opts: {
   courseUrl: string;
+  path: string;
   name: string;
   description: string;
   educationalLevel: string;
@@ -289,6 +257,7 @@ function buildDedicatedFormationCourseObject(opts: {
 }): Record<string, unknown> {
   const {
     courseUrl,
+    path,
     name,
     description,
     educationalLevel,
@@ -298,32 +267,25 @@ function buildDedicatedFormationCourseObject(opts: {
     laurePersonId,
   } = opts;
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    '@id': `${courseUrl}#course`,
-    url: courseUrl,
-    name,
-    description,
-    provider: { '@id': organizationId },
-    instructor: { '@id': laurePersonId },
-    educationalLevel,
-    inLanguage: 'fr-FR',
-    timeRequired: DURATION_ISO,
-    courseMode: [...COURSE_MODES],
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: [...COURSE_MODES],
-      location: { '@type': 'Place', name: 'Île-de-France' },
-      courseWorkload: DURATION_ISO,
-    },
+    ...buildFormationFicheCourseJsonLd({
+      name,
+      description,
+      path,
+      url: courseUrl,
+      educationalLevel,
+      teaches: [...teaches],
+      organizationId,
+      instructorId: laurePersonId,
+      timeRequired: DURATION_ISO,
+    }),
     offers: {
       '@type': 'Offer',
       price: priceString,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
+      url: courseUrl,
       category: 'Formation professionnelle continue — financement possible selon éligibilité',
     },
-    teaches: [...teaches],
   };
 }
 
@@ -337,27 +299,11 @@ export function getDedicatedFormationCoursePageJsonLd(
   const organizationId = `${base}/#organization`;
   const laurePersonId = `${base}/#laure`;
 
-  if (path === '/formations/ia-btp-paris') {
-    return buildDedicatedFormationCourseObject({
-      courseUrl: `${base}${path}`,
-      name: PARIS_FORMATION_DEDICATED.name,
-      description: PARIS_FORMATION_DEDICATED.description,
-      educationalLevel: PARIS_FORMATION_DEDICATED.educationalLevel,
-      priceString: String(PARIS_FORMATION_DEDICATED.priceHt),
-      teaches: [
-        PARIS_FORMATION_DEDICATED.teaches[0],
-        PARIS_FORMATION_DEDICATED.teaches[1],
-        PARIS_FORMATION_DEDICATED.teaches[2],
-      ],
-      organizationId,
-      laurePersonId,
-    });
-  }
-
   if (path === '/formations/formation-ia-cctp-analyse-dce-btp') {
     const price = tarifHtDepuisBadgeCatalogue('AVANCÉ');
     return buildDedicatedFormationCourseObject({
       courseUrl: `${base}${path}`,
+      path,
       name: 'Formation IA analyse CCTP & DCE pour entreprises BTP',
       description:
         'Session 4 h : analyser CCTP, DPGF et DCE avec l’IA, détecter les risques et préparer un mémoire technique aligné. Qualiopi, financement possible selon éligibilité (Constructys ou OPCO).',
@@ -386,6 +332,7 @@ export function getDedicatedFormationCoursePageJsonLd(
 
   return buildDedicatedFormationCourseObject({
     courseUrl: `${base}${entry.path}`,
+    path: entry.path,
     name: entry.name,
     description: entry.description,
     educationalLevel: niveauCatalogueToFr(entry.level),

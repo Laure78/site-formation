@@ -24,7 +24,7 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
     },
     {
       q: 'Les formations ont-elles lieu en présentiel dans le département ?',
-      a: "Présentiel uniquement — intra dans vos locaux ou inter en salle en Île-de-France. Exercices sur vos documents réels (devis, CCTP, courriers).",
+      a: "Présentiel uniquement · Île-de-France uniquement — intra dans vos locaux ou inter en salle. Exercices sur vos documents réels (devis, CCTP, courriers).",
     },
     {
       q: 'Y a-t-il des frais de déplacement facturés pour une session dans mon département ?',
@@ -541,5 +541,5 @@ export const FORMATION_IA_BTP_DEPT_LANDING_PATHS = [
   FORMATION_IA_BTP_SEINE_SAINT_DENIS_93.path,
   FORMATION_IA_BTP_VAL_DE_MARNE_94.path,
   FORMATION_IA_BTP_VAL_DOISE_95.path,
-  '/formation-ia-btp-paris-75',
+  '/formation-ia-btp-paris',
 ] as const;

@@ -15,8 +15,7 @@ import { PHOTOS } from '@/lib/photos';
 import { OG_SITE_NAME } from '@/utils/metadata';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
-import { OrganizationSchema } from '@/components/schema/OrganizationSchema';
-import { PersonSchema } from '@/components/schema/PersonSchema';
+import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
 import { SitelinksHub } from '@/components/layout/SitelinksHub';
 import { GlobalBreadcrumbs } from '@/components/layout/GlobalBreadcrumbs';
 import { SiteSearchProvider } from '@/components/search/SiteSearchProvider';
@@ -51,7 +50,7 @@ const llmsTxtSchema = {
   },
 };
 
-/** Métadonnées globales — auteurs / publisher alignés sur l'entité Person (JSON-LD via `<PersonSchema />`). */
+/** Métadonnées globales — auteurs / publisher alignés sur l'entité Person (JSON-LD via `<GlobalSiteJsonLd />`). */
 export async function generateMetadata(): Promise<Metadata> {
   const siteDescription = clampMetaDescription(SITE_CONFIG.description);
   return {
@@ -147,10 +146,9 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${outfit.variable}`}>
       <head>
-        <PersonSchema />
+        <GlobalSiteJsonLd />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col bg-white text-slate-900">
-        <OrganizationSchema />
         <GlobalSitelinksJsonLd />
         <script
           type="application/ld+json"
@@ -166,7 +164,6 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <SiteSearchProvider>
-        <SiteSearchProvider>
         <Navbar />
         <main className="flex-1" id="main-content">
           <GlobalBreadcrumbs />
@@ -178,7 +175,6 @@ export default function RootLayout({
         <ScrollToTopButton />
         <StickyMobileCalendlyCta />
         <StickyBlogMetierRdvBar />
-        </SiteSearchProvider>
         </SiteSearchProvider>
       </body>
     </html>

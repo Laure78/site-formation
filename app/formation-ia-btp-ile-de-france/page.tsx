@@ -66,7 +66,7 @@ export const metadata = createPageMetadata({
     url: '/images/laure-olivie-formatrice.png',
     width: 1200,
     height: 630,
-    alt: 'Formation IA bâtiment et travaux publics en Île-de-France — Laure Olivié, OFC Qualiopi, Paris IDF',
+    alt: 'Session formation IA bâtiment et travaux publics — Laure Olivié, OFC Qualiopi',
   },
 });
 

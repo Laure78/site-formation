@@ -19,6 +19,7 @@ import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-t
 import { Essentiel } from '@/components/readability/Essentiel';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -109,6 +110,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <article>
+          <MetierIdfPresentielLine className="mb-3" />
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
             {config.normeRef.replace(/^le |^la /i, '').trim()} · Qualiopi · Île-de-France
           </p>
@@ -120,7 +122,8 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </div>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
-            Sessions 4 h, certifiées Qualiopi. Financement possible selon éligibilité. Plus de{' '}
+            Sessions en présentiel en Île-de-France (4 h), certifiées Qualiopi. Financement possible selon éligibilité.
+            Plus de{' '}
             <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
           </p>

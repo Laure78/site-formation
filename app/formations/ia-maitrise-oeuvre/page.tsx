@@ -243,7 +243,7 @@ export default function FormationIaMaitriseOeuvrePage() {
           <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row">
             <Image
               src={PHOTOS.siteAvatar.src}
-              alt="Laure Olivié, formatrice IA BTP, session formation maîtrise d'œuvre"
+              alt={PHOTOS.siteAvatar.alt}
               width={120}
               height={120}
               className={`h-[120px] w-[120px] shrink-0 rounded-full border-2 border-[#D4E3FC] object-cover ${AUTHOR_HEADSHOT_OBJECT_POSITION} shadow-md`}

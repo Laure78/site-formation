@@ -5,6 +5,7 @@ import { getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import type { FormationIaMetierDynamicConfig } from '@/lib/formation-ia-metier-dynamic-types';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 
 function SectionCtaVisio({ className = '' }: { className?: string }) {
   return (
@@ -46,11 +47,12 @@ export function FormationIaMetierDynamicTemplate({
       {/* Hero */}
       <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
+          <MetierIdfPresentielLine className="mb-4" />
           <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             Formation IA pour {config.h1MetierPluriel} — Gagnez du temps sur devis, admin et chantier
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            {config.heroIntro}{' '}
+            Sessions en présentiel en Île-de-France — {config.heroIntro}{' '}
             <strong className="font-semibold text-slate-800">
               Plus de {formatProfessionalsTrainedCount()} professionnels formés
             </strong>{' '}

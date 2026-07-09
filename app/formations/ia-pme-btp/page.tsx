@@ -156,7 +156,7 @@ export default function FormationIAPMEBTPPage() {
           <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
             formation IA appliquée au bâtiment Île-de-France
           </Link>{' '}
-          — présentiel uniquement, pas de distanciel ni de déplacement hors Île-de-France —{' '}
+          — présentiel uniquement · Île-de-France uniquement —{' '}
           <strong>financement OPCO Constructys</strong> selon dossier.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>

@@ -28,6 +28,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       'Mémoires techniques, lecture de DCE, veille automatique — tutos gratuits puis pages formations et méthodes blog.',
     tutos: [
       { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
+      { label: 'Tuto PDF — skill Analyse CCAP', href: LINKS.pdfTutoSkillAnalyseCcap },
       { label: 'Tuto — skill mémoire technique', href: LINKS.tutoMemoireTechnique },
       { label: 'Tuto — analyse de DCE', href: LINKS.tutoAnalyseDce },
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
@@ -39,6 +40,9 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Fiche formation — IA CCTP & analyse DCE', href: LINKS.formationIaCctpAnalyseDceBtp },
     ],
     articles: [
+      { label: 'Guide — répondre aux AO BTP avec l’IA (5 étapes)', href: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026 },
+      { label: 'Mémoire de réclamation BTP — délais et méthode IA', href: LINKS.blogMemoireReclamationBtpIa },
+      { label: 'Méthode — analyser un CCAP avec l’IA', href: LINKS.blogIaAnalyseCcap },
       { label: 'Méthode — analyser un CCTP avec l’IA', href: LINKS.blogIaAnalyseCctpMethode },
       { label: 'Article pilier — formation IA CCTP & DCE BTP', href: LINKS.blogFormationIaCctpAnalyseDceBtp },
     ],
@@ -64,6 +68,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'PDF gratuit — guide conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
     ],
     articles: [
+      { label: 'Mémoire de réclamation BTP — délais et méthode IA', href: LINKS.blogMemoireReclamationBtpIa },
       { label: 'Guide skill IA — conducteur de travaux (article)', href: LINKS.blogGuideSkillIaConducteurTravaux },
     ],
     blogCategory: 'metiers',

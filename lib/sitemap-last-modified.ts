@@ -90,7 +90,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formations/ia-btp-saint-quentin-en-yvelines/page.tsx',
     'lib/formation-cities.ts',
   ],
-  '/formations/ia-btp-paris': ['app/formations/ia-btp-paris/page.tsx', 'lib/formation-cities.ts'],
+  '/formation-ia-btp-paris': ['app/formation-ia-btp-paris/page.tsx', 'lib/geo-formation-config.ts'],
   '/formation-ia-conducteur-de-travaux-btp': [
     'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
   ],

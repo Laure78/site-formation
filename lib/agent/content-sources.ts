@@ -35,14 +35,13 @@ const FORMATIONS_DATA = [
     title: "L'IA au service des pros du bâtiment et des travaux publics",
     desc: `Formation niveau 1 : ${SESSION_DUREE_LIBELLE}, ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Bâtiment, TP, devis, administratif. Qualiopi, Constructys.`,
   },
-  { path: '/formation-ia-btp-paris-75', title: 'Formation IA BTP Paris (75)', desc: `${SESSION_DUREE_LIBELLE}. Intra par arrondissement, présentiel Paris & petite couronne. Qualiopi, Constructys selon éligibilité.` },
-  { path: '/formations/ia-btp-paris', title: 'Formation IA BTP Île-de-France — 8 départements', desc: `${SESSION_DUREE_LIBELLE}. Hub zones IDF (75 à 95). Devis, emails. Financement OPCO selon éligibilité.` },
+  { path: '/formation-ia-btp-paris', title: 'Formation IA BTP Paris (75)', desc: `${SESSION_DUREE_LIBELLE}. Intra par arrondissement, présentiel Paris & petite couronne. Qualiopi, Constructys selon éligibilité.` },
   { path: '/formations/ia-appels-offre-btp', title: 'IA appels d\'offres BTP — DCE, mémoire technique, Cowork', desc: `${SESSION_DUREE_LIBELLE}, ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session. Claude AI Pro, Cowork & Skills — DCE et mémoire technique. ${EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE} Qualiopi, Constructys.` },
   { path: '/formations/ia-pme-btp', title: 'IA pour PME du BTP', desc: 'Formation adaptée aux PME. Même grille de forfaits par session (12 participants max).' },
 ];
 
 const PAGES_DATA: { path: string; title: string; content: string }[] = [
-  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines). Formations exclusivement en présentiel en Île-de-France — pas de distanciel, pas de déplacement hors Île-de-France.' },
+  { path: '/', title: 'Accueil', content: 'Formation IA pour le BTP. Gagnez 3 à 5h par semaine sur devis, chiffrages, emails et CR chantier. financement possible selon éligibilité (Constructys, OPCO). Laure Olivié, formatrice IA, 10 ans d\'expérience travaux publics. Basée à Guyancourt (Yvelines). Formations présentiel uniquement · Île-de-France uniquement.' },
   { path: '/a-propos', title: 'À propos', content: 'Laure Olivié — Formatrice IA spécialisée BTP. OFC Création d\'Entreprise, certification Qualiopi. Partenaires : FFB, CSFE, LinkedIn Learning, Constructys.' },
   {
     path: '/etudes-de-cas/ffb-csfe',

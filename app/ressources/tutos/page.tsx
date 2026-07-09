@@ -152,7 +152,7 @@ export default function RessourcesTutosIndexPage() {
           <p className="text-slate-700">
             Ces tutos complètent une{' '}
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-              formation IA pour les pros du BTP Qualiopi en présentiel ou visio
+              formation IA pour les pros du BTP Qualiopi — présentiel uniquement · Île-de-France uniquement
             </Link>
             — financement possible selon éligibilité (OPCO Constructys) selon éligibilité.
           </p>

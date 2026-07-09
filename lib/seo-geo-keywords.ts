@@ -128,20 +128,10 @@ export function clampPhotoAlt(text: string, max = PHOTO_ALT_MAX): string {
   return `${cut.replace(/[,;:\s-]+$/u, '')}…`;
 }
 
-export function enrichPhotoAlt(baseAlt: string, seed = baseAlt): string {
+/** @deprecated Préférer `normalizePhotoAlt` — conserve l'API pour scripts legacy. */
+export function enrichPhotoAlt(baseAlt: string, _seed = baseAlt): string {
   const trimmed = baseAlt.replace(/\s+/g, ' ').trim();
-  if (/^logo\s/i.test(trimmed) || trimmed.startsWith('Logo Qualiopi')) return trimmed;
-
-  let out = trimmed;
-  if (!hasSeoFormationKeyword(out)) {
-    out = `${out} — ${SEO_KW_SHORT.btp}`;
-  }
-  if (!hasSeoGeoSignal(out)) {
-    const suffix = pickGeoAltSuffix(seed);
-    const candidate = `${out}, ${suffix}`;
-    out = candidate.length <= PHOTO_ALT_MAX ? candidate : out;
-  }
-  return clampPhotoAlt(out);
+  return clampPhotoAlt(trimmed);
 }
 
 export function buildPhotoTitleFromAlt(alt: string, _context?: string): string {
@@ -162,7 +152,7 @@ export function buildPromoVideoSectionHeading(): string {
 /** Meta descriptions départements IDF — une par code, 140–155 car., bénéfice + preuve. */
 export const FORMATION_IA_BTP_DEPT_META_BY_CODE: Record<string, string> = {
   '75':
-    `Formation IA BTP à Paris (75) : session intra par arrondissement sur vos devis et CR chantier. Présentiel, Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`,
+    `Formation IA BTP à Paris (75) : session intra par arrondissement sur vos devis et CR chantier. Présentiel uniquement · Île-de-France uniquement. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`,
   '77':
     'Formation IA BTP en Seine-et-Marne (77) : devis, DCE et mémoires techniques sur vos documents réels. Présentiel intra. Qualiopi, Constructys.',
   '78':
@@ -189,11 +179,13 @@ export function buildIdfDeptMetaDescription(
   return `Formation IA BTP en ${departementNom} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`;
 }
 
-/** Segment title (≤ 44 car.) — suffixe « | Laure Olivié » ajouté par createPageMetadata. */
+/** Segment title (≤ 40 car.) — suffixe « | Laure Olivié » ajouté par createPageMetadata. */
 export function buildIdfDeptPageTitle(departementNom: string, deptCode: string): string {
-  const full = `Formation IA BTP ${departementNom} (${deptCode}) — Qualiopi`;
-  if (full.length <= 44) return full;
-  return `Formation IA BTP (${deptCode}) — ${departementNom}`;
+  const full = `Formation IA BTP ${departementNom} (${deptCode})`;
+  if (full.length <= 40) return full;
+  const short = `Formation IA BTP (${deptCode}) — ${departementNom}`;
+  if (short.length <= 40) return short;
+  return `Formation IA BTP ${departementNom} (${deptCode})`.slice(0, 40).replace(/\s+\S*$/, '').trim();
 }
 
 export function buildIdfRegionalMetaDescription(): string {

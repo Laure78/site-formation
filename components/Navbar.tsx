@@ -27,7 +27,7 @@ import {
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
-import { PHOTOS, SITE_LOGO_ALT } from '@/lib/photos';
+import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
@@ -250,14 +250,6 @@ function ResourcesTutosNavBlocks({
 }
 
 function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
-  const blogLinks: MegaLink[] = [
-    {
-      href: LINKS.blog,
-      label: 'Blog Formation IA pour le BTP',
-      description: 'Articles longs, guides et prompts métier',
-      icon: BookOpen,
-    },
-  ];
   const claudeHubLinks: MegaLink[] = [
     {
       href: LINKS.claudeAiBtp,
@@ -295,42 +287,6 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
           <div className="space-y-1 pb-2">
             <ResourcesTutosNavBlocks pathname={pathname} ctx="desktop" />
           </div>
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Blog
-          </p>
-          <ul className="space-y-0.5 pb-2">
-            {blogLinks.map((link) => {
-              const ItemIcon = link.icon;
-              const linkActive = isActive(link.href, pathname);
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                      linkActive
-                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                        : 'text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <ItemIcon
-                      size={20}
-                      strokeWidth={1.75}
-                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      {link.description ? (
-                        <span className="mt-1 block text-xs text-slate-500">
-                          {link.description}
-                        </span>
-                      ) : null}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
             Claude AI BTP
           </p>
@@ -412,7 +368,7 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
 /** Seuil scroll (px) — fond compact + compression visuelle du header. */
 const HEADER_COMPACT_SCROLL_PX = 80;
 
-/** Barre de navigation unique — blog et guide Claude AI BTP accessibles via « Ressources ». */
+/** Barre de navigation unique — importée par `app/layout.tsx` sur toutes les routes. */
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -477,12 +433,11 @@ export function Navbar() {
   }, []);
 
   const homeActive = pathname === '/';
+  const blogActive = pathname === LINKS.blog || pathname.startsWith(`${LINKS.blog}/`);
   const resourcesNavActive =
-    pathname.startsWith('/ressources') ||
-    pathname === LINKS.blog ||
-    pathname.startsWith(`${LINKS.blog}/`) ||
-    pathname === LINKS.claudeAiBtp;
+    pathname.startsWith('/ressources') || pathname === LINKS.claudeAiBtp;
   const aProposActive = pathname.startsWith('/a-propos');
+  const partenairesActive = pathname.startsWith('/partenaires');
   const financementActive =
     pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
 
@@ -499,7 +454,7 @@ export function Navbar() {
               <Image
                 src={PHOTOS.siteAvatar.src}
                 alt={SITE_LOGO_ALT}
-                title="Retour à l'accueil — laureolivie.fr"
+                title={SITE_LOGO_TITLE}
                 fill
                 className={AUTHOR_HEADSHOT_IMAGE_CLASS}
                 sizes="40px"
@@ -626,6 +581,32 @@ export function Navbar() {
               </button>
               {openResources && <ResourcesDropdownPanel pathname={pathname} />}
             </div>
+
+            <Link
+              href={LINKS.blog}
+              aria-current={blogActive ? 'page' : undefined}
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                blogActive
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <BookOpen size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              Blog
+            </Link>
+
+            <Link
+              href={LINKS.partenaires}
+              aria-current={partenairesActive ? 'page' : undefined}
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+                partenairesActive
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-slate-700 hover:text-slate-900'
+              }`}
+            >
+              <Landmark size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              Partenaires
+            </Link>
 
             <Link
               href="/a-propos"
@@ -874,26 +855,6 @@ export function Navbar() {
                     onNavigate={() => setMobileOpen(false)}
                   />
                   <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Blog
-                  </p>
-                  <Link
-                    href={LINKS.blog}
-                    onClick={() => setMobileOpen(false)}
-                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
-                      isActive(LINKS.blog, pathname)
-                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                        : 'text-slate-800'
-                    }`}
-                  >
-                    <BookOpen size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Blog Formation IA appliquée au bâtiment</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">
-                        Articles longs, guides et prompts métier
-                      </span>
-                    </span>
-                  </Link>
-                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Claude AI BTP
                   </p>
                   <Link
@@ -940,6 +901,42 @@ export function Navbar() {
                   ))}
                 </div>
               )}
+            </div>
+
+            <div className="border-b border-slate-100 py-1">
+              <Link
+                href={LINKS.blog}
+                aria-current={blogActive ? 'page' : undefined}
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
+                  blogActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
+              >
+                <BookOpen
+                  size={18}
+                  strokeWidth={1.75}
+                  className={blogActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                />
+                Blog
+              </Link>
+            </div>
+
+            <div className="border-b border-slate-100 py-1">
+              <Link
+                href={LINKS.partenaires}
+                aria-current={partenairesActive ? 'page' : undefined}
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
+                  partenairesActive ? 'text-[var(--accent)]' : 'text-slate-900'
+                }`}
+              >
+                <Landmark
+                  size={18}
+                  strokeWidth={1.75}
+                  className={partenairesActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+                />
+                Partenaires
+              </Link>
             </div>
 
             <div className="border-b border-slate-100 py-1">

@@ -25,9 +25,10 @@ import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/conf
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
-const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP — Qualiopi';
+const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
 const FORMATIONS_OG_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
-const FORMATIONS_META_DESCRIPTION = `Catalogue de ${CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP (4 h) : devis, appels d'offres, conduite de travaux, Claude AI. Qualiopi, finançable Constructys. Visio gratuite.`;
+const FORMATIONS_META_DESCRIPTION =
+  "Catalogue de 5 formations IA pour le BTP (4 h) : devis, appels d'offres, conduite de travaux, Claude AI. Qualiopi, finançable Constructys. Présentiel uniquement · Île-de-France uniquement. Visio découverte gratuite.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({

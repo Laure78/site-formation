@@ -39,8 +39,7 @@ export default function PrendreRDVPage() {
             personnalisé.
           </p>
           <p className="mt-3 max-w-xl rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-            <strong>À noter :</strong> les sessions OFC se déroulent exclusivement en présentiel en Île-de-France.
-            Pas de distanciel pour la formation · pas de déplacement hors Île-de-France.
+            <strong>À noter :</strong> les sessions OFC : présentiel uniquement · Île-de-France uniquement.
           </p>
           <p className="mt-4">
             <Link href="/formations" className={OFC_LINK}>

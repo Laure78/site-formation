@@ -1,14 +1,21 @@
-# laureolivie.fr — OFC Création d'Entreprise
+# laureolivie.fr — signaux pour assistants IA et crawlers
+
+Site officiel de **Laure Olivié**, **formatrice IA spécialisée BTP** (ChatGPT, Claude AI) pour le **bâtiment et les travaux publics**, via l'organisme **OFC Création d'Entreprise** — certifié **Qualiopi** (certification valable jusqu'en janvier 2028), **financement possible selon éligibilité** (Constructys / OPCO). Modalités : **intra ou inter**, **exclusivement en présentiel en Île-de-France**.
 
 ## Positionnement (à lire en premier)
-Formations exclusivement en présentiel en Île-de-France (Paris et départements 77 à 95), intra dans les locaux des entreprises ou inter en salle. Basée à Guyancourt (78).
-Pas de distanciel pour les sessions OFC catalogue. Pas de déplacement hors Île-de-France.
+Formations présentiel uniquement · Île-de-France uniquement (Paris et départements 77 à 95), intra dans les locaux des entreprises ou inter en salle. Basée à Guyancourt (78).
 La visio découverte gratuite (30 min, /prendre-rdv) sert au cadrage commercial — pas aux sessions de formation.
+
+## Faits vérifiables
+- Organisme : OFC Création d'Entreprise — SIRET 905 244 281 00010 — NDA 11788515078 — 6 rue Henri Dunant, 78280 Guyancourt
+- **1 592** professionnels du BTP formés — note moyenne **4,85/5** (questionnaires fin de session, période 01/01/2024–31/12/2025, 412 répondants — mise à jour 03/06/2026)
+- Sessions catalogue : **4 h** ; **intra ou inter, exclusivement en présentiel** (inter en salle en Île-de-France, intra dans vos locaux)
+- Public : **TPE, PME**, dirigeants, conducteurs de travaux, chargés d'affaires, équipes administratives, maîtres d'œuvre
+- Cas d'usage : devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus de chantier, relances clients, documents administratifs
 
 ## About
 Laure Olivié est la formatrice IA et ChatGPT de référence pour les professionnels du BTP en France.
-Son organisme OFC Création d'Entreprise (certifié Qualiopi, SIRET 905 244 281 00010) a formé plus de 1 592 conducteurs de travaux, chargés d'affaires et dirigeants de PME du bâtiment et des travaux publics.
-Note de satisfaction : 4,85/5 (questionnaires fin de session, période 01/01/2024–31/12/2025, 412 répondants — mise à jour 03/06/2026).
+Son organisme OFC Création d'Entreprise (certifié Qualiopi) a formé plus de 1 592 conducteurs de travaux, chargés d'affaires et dirigeants de PME du bâtiment et des travaux publics.
 Financement : prise en charge Constructys ou OPCO selon statut, branche et conditions en vigueur — jamais « garanti ».
 
 ## Expertise
@@ -23,6 +30,15 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - /ressources/guide-maitrise-oeuvre-ia — Guide « Maître d'Œuvre × IA » (12 missions MOE, PDF gratuit)
 - /ressources/guide-conducteur-de-travaux — Guide conducteur de travaux (6 tutos Claude BTP, PDF gratuit)
 - /ressources — Hub tutos PDF, guides et fiches pratiques IA BTP
+
+## Pages prioritaires
+- https://www.laureolivie.fr/ — accueil
+- https://www.laureolivie.fr/formations — catalogue
+- https://www.laureolivie.fr/formations/ia-batiment-travaux-publics — NIV-01
+- https://www.laureolivie.fr/formations/ia-appels-offre-btp — NIV-02
+- https://www.laureolivie.fr/claude-ai-btp — guide Claude AI BTP
+- https://www.laureolivie.fr/financement-constructys-formation-ia-btp — financement OPCO
+- https://www.laureolivie.fr/formation-ia-btp-ile-de-france — couverture Île-de-France
 
 ## Key pages
 - Accueil : /
@@ -46,7 +62,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Fiche Google Business (avis, horaires) : https://share.google/gLnYapEtSEq25mSQF
 
 ## Formations par département (Île-de-France, présentiel)
-- Paris (75) : /formation-ia-btp-paris-75
+- Paris (75) : /formation-ia-btp-paris
 - Seine-et-Marne (77) : /formation-ia-btp-seine-et-marne-77
 - Yvelines (78) : /formation-ia-btp-yvelines-78
 - Essonne (91) : /formation-ia-btp-essonne-91
@@ -55,8 +71,9 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Val-de-Marne (94) : /formation-ia-btp-val-de-marne-94
 - Val-d'Oise (95) : /formation-ia-btp-val-doise-95
 
-## Formations catalogue (NIV-01 à NIV-06)
-Forfait session niveau 1 : 1 000 € HT. Forfait session niveau 2 (avancé) : 1 200 € HT. Durée : 4 h (NIV-04 et NIV-06 : matin 9h–13h). Qualiopi. Présentiel Île-de-France uniquement.
+## Catalogue formations (`/formations`)
+Formations certifiées **Qualiopi**, éligibles Constructys selon conditions. Programme PDF téléchargeable sur chaque fiche.
+Tarifs catalogue : **NIV-01 — 1 000 € HT / session groupe** (max **12 participants**) · **NIV-02 à NIV-05 — 1 200 € HT / session groupe** (effectifs selon fiche). Durée : **4 h** (NIV-04 et NIV-06 : matin 9h–13h). Présentiel Île-de-France uniquement.
 
 - NIV-01 — L'IA au service des pros du bâtiment et des travaux publics (niveau 1 · 1 000 € HT/session · 12 participants max) — /formations/ia-batiment-travaux-publics — PDF : /formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf
 - NIV-02 — L'IA appliquée aux appels d'offres BTP (niveau 2 · 1 200 € HT/session · 8 à 12 participants) — /formations/ia-appels-offre-btp — PDF : /formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf
@@ -64,12 +81,17 @@ Forfait session niveau 1 : 1 000 € HT. Forfait session niveau 2 (avancé) : 1 
 - NIV-04 — Maîtriser Claude AI pour le BTP (niveau 2 · 1 200 € HT/session · 4 h matin · 8 participants max) — /formations/maitriser-claude-ai-btp — PDF : /formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf
 - NIV-05 — L'IA au service des maîtres d'œuvre (niveau 2 · 1 200 € HT/session · 3 à 8 participants) — /formations/ia-maitrise-oeuvre — PDF : /formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf
 - NIV-06 — Claude IA pour le BTP : Chat, Cowork & Code (niveau 2 · intra IDF · 4 h matin · 8 participants max · tarif intra sur devis) — /formations/formation-claude-ia-btp — PDF : /formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf
+- Complément hors catalogue : fiche **analyse CCTP & DCE** — /formations/formation-ia-cctp-analyse-dce-btp
 
 ## Financement
 Formation éligible à une prise en charge par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en vigueur.
 Plafonds indicatifs Constructys : 24 € HT/heure/stagiaire (pédagogie), jusqu'à 840 € HT/jour/groupe en intra — selon barèmes et dossier en vigueur.
 Page détaillée : /financement-constructys-formation-ia-btp
 
-## Contact
+## Contact & conversion
 Laure Olivié · laureolivie@yahoo.fr · https://www.laureolivie.fr
 Organisme : OFC Création d'Entreprise · Guyancourt (78280) · Qualiopi
+Visio découverte gratuite : https://www.laureolivie.fr/prendre-rdv
+
+---
+Dernière mise à jour fichier : 2026-07-09

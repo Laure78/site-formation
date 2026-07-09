@@ -13,16 +13,22 @@ import {
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   SCHEMA_OPENING_HOURS,
   SCHEMA_ORGANIZATION_OFC,
+  SCHEMA_PERSON_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
+  buildPersonAffiliationSchemaNodes,
+  buildQualiopiCredentialSchema,
 } from '@/lib/schema-constants';
 import { getFAQSchema } from '@/lib/seo';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
 import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
+import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
+import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const PAGE_PATH = '/a-propos';
 const PAGE_URL = `${BASE}${PAGE_PATH}`;
 const PERSON_ID = `${PAGE_URL}#person`;
+const ORGANIZATION_ID = `${BASE}/#organization`;
 const PROFILE_PAGE_ID = `${PAGE_URL}#profilepage`;
 const OFC_LOCAL_ID = `${PAGE_URL}#ofc-local-business`;
 
@@ -55,28 +61,20 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
   const imageObj = stripAtContext(buildAProposImageObjectJsonLd() as Record<string, unknown>);
   imageObj['@id'] = `${PAGE_URL}#image-portrait-pro`;
 
+  const personBase = buildPersonLaureSchemaNode({
+    personId: PERSON_ID,
+    pageUrl: PAGE_URL,
+    organizationId: ORGANIZATION_ID,
+  });
+
   const person: Record<string, unknown> = {
-    '@type': 'Person',
-    '@id': PERSON_ID,
-    name: 'Laure Olivié',
+    ...personBase,
     honorificPrefix: 'Mme',
-    jobTitle: 'Formatrice IA générative — spécialiste secteur BTP',
     description: getLaureOlivieSchemaPersonDescription(),
-    url: PAGE_URL,
     image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-    email: SCHEMA_CONTACT.email,
     nationality: { '@type': 'Country', name: 'France' },
     knowsLanguage: ['fr', 'en'],
     birthPlace: { '@type': 'Place', addressCountry: 'FR' },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SCHEMA_GEO.streetAddress,
-      addressLocality: SCHEMA_GEO.addressLocality,
-      postalCode: SCHEMA_GEO.postalCode,
-      addressRegion: SCHEMA_GEO.addressRegion,
-      addressCountry: SCHEMA_GEO.addressCountry,
-    },
-    worksFor: { '@id': `${BASE}/#organization` },
     alumniOf: [
       {
         '@type': 'Organization',
@@ -93,48 +91,39 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       },
     ],
     sameAs: [
-      'https://fr.linkedin.com/in/laure-olivie',
-      'https://www.linkedin.com/learning/instructors/laure-olivie',
+      ...SCHEMA_PERSON_SAME_AS,
       'https://annuaire-entreprises.data.gouv.fr/entreprise/ofc-creation-d-entreprise-ofc-creation-d-entreprise-905244281',
       SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
     ],
-    knowsAbout: [
-      'Intelligence artificielle générative',
-      'ChatGPT pour le BTP',
-      'Claude AI',
-      'Formation professionnelle BTP',
-      'Automatisation des devis BTP',
-      'Automatisation des comptes rendus de chantier',
-      'Analyse de DCE avec l’IA',
-      "Mémoires techniques appels d'offres BTP",
-      'Construction et travaux publics',
-      'Conduite de travaux',
-    ],
     hasOccupation: {
       '@type': 'Occupation',
-      name: 'Formatrice IA spécialisée BTP',
+      name: 'Formatrice IA pour le BTP',
       occupationLocation: { '@type': 'City', name: 'Guyancourt' },
       skills:
-        'Intelligence artificielle, ChatGPT, Claude AI, formation BTP, appels d’offres BTP, devis BTP, Qualiopi',
+        'IA appliquée au BTP, ChatGPT bâtiment, Claude AI, mémoire technique, analyse DCE/CCTP, devis BTP',
     },
-    award: [`${formatPersonnesFormeesCount()} professionnels formés (${new Date().getFullYear()})`, `Note moyenne ${siteStats.noteMoyenneAffichee}`, 'Organisme partenaire FFB Grand Paris'],
+    award: [
+      `${formatPersonnesFormeesCount()} professionnels formés (${new Date().getFullYear()})`,
+      `Note moyenne ${siteStats.noteMoyenneAffichee}`,
+      'Actions de formation avec FFB Grand Paris',
+    ],
     workLocation: [{ '@type': 'AdministrativeArea', name: 'Île-de-France' }],
-    memberOf: [{ '@type': 'Organization', name: 'FFB Grand Paris — organisme de formation référencé' }],
+    memberOf: buildPersonAffiliationSchemaNodes(),
     hasCredential: [
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Qualiopi',
-        name: 'Certification Qualiopi - Action de formation',
-        recognizedBy: { '@type': 'GovernmentOrganization', name: 'République Française' },
-      },
+      buildQualiopiCredentialSchema(),
       {
         '@type': 'EducationalOccupationalCredential',
         credentialCategory: 'LinkedIn Learning Instructor',
-        name: 'LinkedIn Learning Instructor',
+        name: 'Instructrice LinkedIn Learning',
       },
     ],
     aggregateRating,
   };
+
+  const organization = buildOrganizationOfcSchemaNode({
+    organizationId: ORGANIZATION_ID,
+    personId: PERSON_ID,
+  });
 
   const localBusiness: Record<string, unknown> = {
     '@type': ['LocalBusiness', 'EducationalOrganization'],
@@ -178,13 +167,8 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       'https://www.malt.fr/profile/laureoli',
       'https://annuaire-entreprises.data.gouv.fr/entreprise/905244281',
     ],
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Certification Qualiopi',
-      credentialCategory: 'certification',
-      recognizedBy: { '@type': 'Organization', name: 'Ministère du Travail' },
-    },
-    taxID: SCHEMA_CONTACT.siretFormatted,
+    hasCredential: buildQualiopiCredentialSchema(),
+    taxID: SCHEMA_CONTACT.siretDigits,
     vatID: SCHEMA_CONTACT.vatId,
     aggregateRating,
     founder: { '@id': PERSON_ID },
@@ -249,6 +233,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [profilePage, person, localBusiness, faq, imageObj, ...videosAndCourses],
+    '@graph': [profilePage, person, organization, localBusiness, faq, imageObj, ...videosAndCourses],
   };
 }

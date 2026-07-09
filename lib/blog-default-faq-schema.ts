@@ -29,7 +29,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: "Laure Olivié intervient-elle en dehors de l'Île-de-France ou en distanciel ?",
-    a: "Non pour les sessions OFC : formations exclusivement en présentiel en Île-de-France (Paris et départements 77 à 95), en inter ou intra. Pas de distanciel ni de déplacement hors Île-de-France. L'échange préalable de cadrage (30 min) peut se faire en visio.",
+    a: "Non pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (Paris et départements 77 à 95), en inter ou intra. L'échange préalable de cadrage (30 min) peut se faire en visio.",
   },
 ] as const;
 

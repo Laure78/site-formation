@@ -38,7 +38,7 @@ export const metadata = createPageMetadata({
     url: PHOTOS.formationNiv05IaMaitriseOeuvre2026.src,
     width: PHOTOS.formationNiv05IaMaitriseOeuvre2026.width,
     height: PHOTOS.formationNiv05IaMaitriseOeuvre2026.height,
-    alt: "Guide formation IA maîtrise d'œuvre BTP — 12 missions MOE classées IA, mixte et humain — Laure Olivié Qualiopi",
+    alt: "Guide maîtrise d'œuvre BTP — 12 missions MOE classées IA, mixte et humain",
   },
   appendAuthorSuffix: false,
 });
@@ -119,7 +119,7 @@ export default function GuideMaitriseOeuvreIaPage() {
             <div className="overflow-hidden rounded-2xl shadow-[0_20px_48px_-16px_rgba(0,0,0,0.25)] ring-4 ring-white/30">
               <Image
                 src={PHOTOS.formationNiv05IaMaitriseOeuvre2026.src}
-                alt="Formation IA pour maître d'œuvre BTP — guide gratuit 12 missions MOE avec skills Claude — Île-de-France"
+                alt="Guide maîtrise d'œuvre BTP — 12 missions MOE avec skills Claude, PDF gratuit"
                 width={PHOTOS.formationNiv05IaMaitriseOeuvre2026.width}
                 height={PHOTOS.formationNiv05IaMaitriseOeuvre2026.height}
                 className="h-auto w-full object-cover"
@@ -299,7 +299,7 @@ export default function GuideMaitriseOeuvreIaPage() {
           <figure className="mx-auto md:mx-0">
             <Image
               src={PHOTOS.siteAvatar.src}
-              alt="Laure Olivié, formatrice IA BTP spécialisée maîtrise d'œuvre — plus de 10 ans conduite de travaux — OFC Qualiopi"
+              alt={PHOTOS.siteAvatar.alt}
               width={280}
               height={280}
               className="rounded-2xl object-cover shadow-lg"

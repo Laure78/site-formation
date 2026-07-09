@@ -24,7 +24,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '75',
     departementNom: 'Paris',
     intro:
-      "La formation IA appliquée au BTP de Laure Olivié (OFC Création d'Entreprise) se déroule en présentiel à Paris, dans vos locaux (intra) ou en salle (inter). Pas de distanciel : on travaille 4 heures sur vos vrais documents — DCE de marchés parisiens, mémoires techniques, comptes rendus de chantier en site occupé.",
+      "La formation IA appliquée au BTP de Laure Olivié (OFC Création d'Entreprise) se déroule en présentiel à Paris, dans vos locaux (intra) ou en salle (inter). Présentiel uniquement · Île-de-France uniquement : on travaille 4 heures sur vos vrais documents — DCE de marchés parisiens, mémoires techniques, comptes rendus de chantier en site occupé.",
     villesEtTrajets:
       "Tout Paris intra-muros, des 20 arrondissements aux franges (porte de la Chapelle, rive gauche, secteur Bercy). Depuis Guyancourt (78), Paris est accessible en transport ou véhicule selon le créneau — temps indicatifs, selon le trafic francilien.",
     tissuBtpLocal:
@@ -36,7 +36,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     faq: [
       {
         q: 'Intervenez-vous dans Paris intra-muros ?',
-        a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux ou en salle inter — jamais en distanciel.',
+        a: 'Oui. Les sessions ont lieu en présentiel à Paris, dans vos locaux ou en salle inter — présentiel uniquement · Île-de-France uniquement.',
       },
       {
         q: 'Comment se passe une session intra à Paris ?',
@@ -384,7 +384,7 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
 
 export const IDF_CHAPEAU_LOCAL = {
   intro:
-    "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). Intra dans vos locaux ou inter en salle, jamais en distanciel, jamais hors Île-de-France.",
+    "Laure Olivié forme les équipes BTP à l'IA en présentiel dans toute l'Île-de-France — Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95). Intra dans vos locaux ou inter en salle — présentiel uniquement · Île-de-France uniquement.",
   positionnement:
     "Basée à Guyancourt (78), au centre de la région, elle intervient sur l'ensemble du territoire francilien sur vos documents réels : devis, comptes rendus, DCE, mémoires techniques, administratif chantier — toujours avec validation métier de vos équipes.",
   faq: [
@@ -394,7 +394,7 @@ export const IDF_CHAPEAU_LOCAL = {
     },
     {
       q: 'Faites-vous du distanciel ou des interventions en région ?',
-      a: "Non : présentiel exclusivement, et exclusivement en Île-de-France.",
+      a: "Non : présentiel uniquement · Île-de-France uniquement.",
     },
     {
       q: 'Où êtes-vous basée ?',
@@ -407,7 +407,7 @@ export const IDF_CHAPEAU_LOCAL = {
     { href: LINKS.financement, label: 'Financement Constructys', description: 'OPCO, dossier et convention' },
   ] as [DeptInternalLink, DeptInternalLink, DeptInternalLink],
   departements: [
-    { href: LINKS.formationIaBtpParis75, label: '75 Paris' },
+    { href: LINKS.formationIaBtpParis, label: '75 Paris' },
     { href: LINKS.formationIaBtpSeineEtMarne77, label: '77 Seine-et-Marne' },
     { href: LINKS.formationIaBtpYvelines78, label: '78 Yvelines' },
     { href: LINKS.formationIaBtpEssonne91, label: '91 Essonne' },

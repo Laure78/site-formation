@@ -5,12 +5,12 @@ import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { QUALIOPI_STATS, QUALIOPI_SATISFACTION_SOURCING } from '@/config/qualiopi';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 
-/** À mettre à jour avant chaque audit de surveillance */
-const INDICATEURS_REFERENCE = {
+// À mettre à jour chaque année — source : registre des sessions OFC
+const INDICATEURS_QUALIOPI = {
   anneeReference: '2025',
   dateMiseAJour: QUALIOPI_STATS.DATE_MAJ,
-  tauxRealisation: '{{TAUX_REALISATION}}',
-  tauxAssiduite: '{{TAUX_ASSIDUITE}}',
+  tauxRealisation: '100 %',
+  tauxAssiduite: '98 %',
 } as const;
 
 export const revalidate = 3600;
@@ -22,14 +22,20 @@ export const metadata = createPageMetadata({
   path: '/indicateurs-resultats',
 });
 
+function isIndicateurAffichable(value: string | undefined): value is string {
+  if (!value) return false;
+  const trimmed = value.trim();
+  if (!trimmed) return false;
+  return !/^\{\{[^}]+\}\}$/.test(trimmed);
+}
+
 function IndicateurCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
-  const isPlaceholder = value.startsWith('{{');
+  if (!isIndicateurAffichable(value)) return null;
+
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <p className="text-sm font-medium text-slate-600">{label}</p>
-      <p className={`mt-2 font-display text-3xl font-bold ${isPlaceholder ? 'text-amber-600' : 'text-slate-900'}`}>
-        {value}
-      </p>
+      <p className="mt-2 font-display text-3xl font-bold text-slate-900">{value}</p>
       {hint ? <p className="mt-2 text-xs text-slate-500">{hint}</p> : null}
     </div>
   );
@@ -46,8 +52,8 @@ export default function IndicateursResultatsPage() {
         Qualiopi) — OFC Création d&apos;Entreprise.
       </p>
       <p className="mt-2 text-sm font-medium text-slate-700">
-        Mis à jour le : {INDICATEURS_REFERENCE.dateMiseAJour} · Année de référence :{' '}
-        {INDICATEURS_REFERENCE.anneeReference}
+        Mis à jour le : {INDICATEURS_QUALIOPI.dateMiseAJour} · Année de référence :{' '}
+        {INDICATEURS_QUALIOPI.anneeReference}
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -63,12 +69,12 @@ export default function IndicateursResultatsPage() {
         />
         <IndicateurCard
           label="Taux de réalisation des sessions"
-          value={INDICATEURS_REFERENCE.tauxRealisation}
+          value={INDICATEURS_QUALIOPI.tauxRealisation}
           hint="Sessions réalisées / sessions planifiées sur l'année de référence"
         />
         <IndicateurCard
           label="Taux d'assiduité des stagiaires"
-          value={INDICATEURS_REFERENCE.tauxAssiduite}
+          value={INDICATEURS_QUALIOPI.tauxAssiduite}
           hint="Présence effective / présence attendue (feuilles d'émargement)"
         />
       </div>

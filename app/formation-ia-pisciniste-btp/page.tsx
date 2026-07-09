@@ -11,11 +11,13 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-pisciniste-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('pisciniste', {
   title: 'Formation IA Pisciniste BTP Île-de-France',
   description:
     'Automatisez vos devis piscine, fiches techniques, relances clients. Formation Qualiopi. Financement possible selon éligibilité.',
@@ -147,13 +149,14 @@ export default function FormationIaPiscinisteBtpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour piscinistes —{' '}
           <span className="text-[var(--accent)]">gagnez du temps sur devis et suivi</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 4 h par semaine</strong> sur devis techniques, variantes et
-          documentation client.           <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          documentation client. <strong>Présentiel en Île-de-France</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

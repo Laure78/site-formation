@@ -8,12 +8,11 @@ import {
 } from '@/lib/schema-course-formations';
 import {
   SCHEMA_CONTACT,
-  SCHEMA_GEO,
   SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export function getFormationCatalogEntryByPath(
@@ -28,19 +27,25 @@ export function buildCatalogFormationCoursePageSchema(
   pageDescription?: string
 ): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const courseUrl = `${base}${entry.path}`;
   const price = tarifHtDepuisBadgeCatalogue(entry.level);
   const siren = SCHEMA_CONTACT.siretDigits.slice(0, 9);
+  const description = pageDescription?.trim() || entry.description;
 
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name: entry.name,
-    description: pageDescription?.trim() || entry.description,
-    url: courseUrl,
+    ...buildFormationFicheCourseJsonLd({
+      name: entry.name,
+      description,
+      path: entry.path,
+      courseCode: entry.ref,
+      educationalLevel: entry.level === 'DÉBUTANT' ? 'Débutant' : 'Avancé',
+      teaches: entry.teaches,
+      organizationId: `${base}/#organization`,
+      instructorName: SCHEMA_PERSON_LAURE.name,
+    }),
     provider: {
       '@type': 'Organization',
-      name: SCHEMA_ORGANIZATION_OFC.name,
+      '@id': `${base}/#organization`,
+      name: "OFC Création d'Entreprise",
       url: base,
       sameAs: [
         `https://annuaire-entreprises.data.gouv.fr/entreprise/${siren}`,
@@ -60,21 +65,7 @@ export function buildCatalogFormationCoursePageSchema(
       category: entry.ref,
       availability: 'https://schema.org/InStock',
       validFrom: '2026-01-01',
-    },
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: ['OnSite'],
-      courseWorkload: 'PT4H',
-      location: {
-        '@type': 'Place',
-        name: 'OFC — Guyancourt (78) ou intra-entreprise',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: SCHEMA_GEO.addressLocality,
-          postalCode: SCHEMA_GEO.postalCode,
-          addressCountry: SCHEMA_GEO.addressCountry,
-        },
-      },
+      url: `${base}${entry.path}`,
     },
   };
 }

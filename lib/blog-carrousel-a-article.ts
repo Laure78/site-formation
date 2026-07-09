@@ -40,13 +40,13 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'paragraph',
       title: 'Modalité : présentiel uniquement',
       content:
-        'Les formations OFC (NIV-01, NIV-02) se déroulent exclusivement en présentiel, en Île-de-France — inter en salle ou intra dans vos locaux. Les modalités définitives figurent sur votre proposition de formation et la convention signée.',
+        'Les formations OFC (NIV-01, NIV-02) : présentiel uniquement · Île-de-France uniquement — inter en salle ou intra dans vos locaux. Les modalités définitives figurent sur votre proposition de formation et la convention signée.',
     },
     {
       type: 'html',
       title: 'La formation en une slide',
       content: `<figure class="my-6">
-<img src="${A}/slide-01.png" alt="Formation professionnelle L'IA au service du bâtiment : 4h de pratique, 70% exercices réels, forfait session ${tarifNiv01}, Qualiopi, OPCO Constructys — Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-01.png" alt="Slide « L'IA au service du bâtiment » — promesse 4 h pratique, badge Qualiopi, Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Promesse : gain de temps sur les tâches quotidiennes — dès la première heure.</figcaption>
 </figure>`,
     },
@@ -54,7 +54,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Informations pratiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-02.png" alt="Informations pratiques formation IA bâtiment : durée 4h, forfait session ${tarifNiv01}, effectif 12 max, inscription J-7, prérequis navigation web — Qualiopi OPCO Constructys" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-02.png" alt="Slide informations pratiques — durée 4 h, tarif ${tarifNiv01}, effectif max et inscription" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Durée, tarif, format, effectif, inscription et prérequis — synthèse à valider sur convention.</figcaption>
 </figure>`,
     },
@@ -62,7 +62,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Public et prérequis',
       content: `<figure class="my-6">
-<img src="${A}/slide-03.png" alt="Public formation IA pour les pros du BTP : professionnels du BTP, chefs de chantier, conducteurs de travaux, assistants PME bâtiment — aucune compétence technique requise" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-03.png" alt="Slide public visé — chefs de chantier, conducteurs de travaux et assistants PME bâtiment" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Si vous savez écrire un SMS, vous pouvez démarrer avec l’IA — avec encadrement et bonnes pratiques.</figcaption>
 </figure>`,
     },
@@ -70,7 +70,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Objectifs pédagogiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-04.png" alt="Objectifs pédagogiques formation IA appliquée au bâtiment : outils, automatisation administrative, devis et CR, visibilité en ligne, RGPD — exercices terrain" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-04.png" alt="Slide objectifs pédagogiques — outils IA, devis, administratif chantier et visibilité en ligne" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Cinq objectifs structurants + évaluation continue sur cas réels.</figcaption>
 </figure>`,
     },
@@ -78,7 +78,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Les 4 modules du programme',
       content: `<figure class="my-6">
-<img src="${A}/slide-05.png" alt="Programme détaillé formation IA pour le BTP : 4 modules fondamentaux IA, devis et chiffrage, gestion administrative chantier, visibilité réseaux sociaux — ChatGPT Claude prompts" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-05.png" alt="Slide programme — 4 modules : fondamentaux IA, devis, administratif chantier et visibilité" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Fondamentaux, devis, administratif chantier (DOE, planning), visibilité en ligne.</figcaption>
 </figure>`,
     },
@@ -86,7 +86,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Livrables : ce que vous repartez',
       content: `<figure class="my-6">
-<img src="${A}/slide-06.png" alt="Livrables formation IA pour les pros du BTP : kits de prompts BTP et réseaux sociaux, recrutement vente SEO juridique, attestation Qualiopi, ressources et suivi" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-06.png" alt="Slide livrables — kits de prompts, attestation Qualiopi et ressources post-formation" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Kits de prompts, attestations et ressources — selon modalités prévues à la convention.</figcaption>
 </figure>`,
     },
@@ -94,7 +94,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Méthodes pédagogiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-07.png" alt="Méthodes pédagogiques formation IA appliquée au bâtiment : 70% pratique 30% théorie, vrais chantiers devis emails, évaluation continue attestation suivi post-formation" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-07.png" alt="Slide méthodes pédagogiques — 70 % pratique sur devis, emails et cas chantier réels" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Ancrage terrain : pas de théorie abstraite seule.</figcaption>
 </figure>`,
     },
@@ -102,7 +102,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Inscriptions et contact',
       content: `<figure class="my-6">
-<img src="${A}/slide-08.png" alt="Inscriptions ouvertes formation IA pour équipes du bâtiment : 4h 70% pratique Qualiopi OPCO Constructys — laureolivie.fr contact" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/slide-08.png" alt="Slide inscriptions — contact et site laureolivie.fr pour réserver une session" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Prêt à utiliser l’IA sur votre prochain chantier ? Passer par le site ou la prise de rendez-vous.</figcaption>
 </figure>`,
     },

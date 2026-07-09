@@ -8,7 +8,7 @@ export const metadata = createPageMetadata({
   description:
     "Échangez en messagerie avec votre formateur sur les modules IA BTP. Questions de parcours et ressources. Espace connecté réservé aux apprenants inscrits.",
   path: '/messages',
-  keywords: ['messagerie formation en ligne'],
+  keywords: ['messagerie formation présentiel'],
   robots: { index: false, follow: false },
 });
 

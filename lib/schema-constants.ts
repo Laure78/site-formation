@@ -6,6 +6,7 @@
  */
 
 import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF } from '@/lib/constants';
+import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
 export const SCHEMA_PUBLIC_SITE_URL: string =
@@ -14,6 +15,37 @@ export const SCHEMA_PUBLIC_SITE_URL: string =
 
 /** Profil LinkedIn FR — sameAs Person / Organization. */
 export const SCHEMA_LINKEDIN_PROFILE_URL = 'https://fr.linkedin.com/in/laure-olivie' as const;
+
+/** Page instructeur LinkedIn Learning (URL canonique — pluriel « instructors »). */
+export const SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL =
+  'https://www.linkedin.com/learning/instructors/laure-olivie' as const;
+
+/** Chaîne YouTube — Laure Olivié. */
+export const SCHEMA_YOUTUBE_CHANNEL_URL =
+  'https://www.youtube.com/channel/UCnIc2a25xT8msvV69O2MeVg' as const;
+
+/** sameAs Person — réseaux et profils publics vérifiables. */
+export const SCHEMA_PERSON_SAME_AS = [
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+  SCHEMA_YOUTUBE_CHANNEL_URL,
+] as const;
+
+/** Affiliations professionnelles Person (fédérations / syndicats BTP). */
+export const SCHEMA_PERSON_AFFILIATIONS = [
+  {
+    name: 'FFB Grand Paris',
+    url: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/grand-paris-idf',
+  },
+  {
+    name: "CSFE — Chambre Syndicale Française de l'Étanchéité",
+    url: 'https://www.csfe.fr/',
+  },
+  {
+    name: 'UMB-FFB — Union des Métiers du Bois',
+    url: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
+  },
+] as const;
 
 /** Fiche Google Business Profile — avis, horaires, SEO local. */
 export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
@@ -60,22 +92,17 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA générative — spécialiste secteur BTP',
+  jobTitle: 'Formatrice IA pour le BTP',
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */
 export const SCHEMA_PERSON_KNOWS_ABOUT = [
-  'Intelligence artificielle générative',
-  'ChatGPT pour le BTP',
+  'IA appliquée au BTP',
+  'ChatGPT bâtiment',
   'Claude AI',
-  'Microsoft Copilot 365',
-  'Mistral AI',
-  'Formation professionnelle BTP',
-  'Appels d\'offres et DCE',
-  'Mémoires techniques BTP',
-  'Comptes rendus de chantier',
-  'Conduite de travaux',
-  'Qualiopi',
+  'mémoire technique',
+  'analyse de DCE/CCTP',
+  'devis BTP',
 ] as const;
 
 /**
@@ -101,7 +128,7 @@ export const SCHEMA_LOGO_PATH = '/logo-lo.svg' as const;
 export const SCHEMA_DEFAULT_PERSON_IMAGE_PATH = '/images/laure-olivie-formatrice.png' as const;
 
 /** Portrait header — schéma Person global (layout). */
-export const SCHEMA_HEADER_PERSON_IMAGE_PATH = '/images/laure-avatar-bleu-2026.webp' as const;
+export const SCHEMA_HEADER_PERSON_IMAGE_PATH = SITE_HEADER_LOGO_SRC;
 
 /** URL absolue logo. */
 export function schemaLogoUrl(): string {
@@ -119,6 +146,29 @@ export function schemaDefaultPersonImageUrl(): string {
 export function schemaHeaderPersonImageUrl(): string {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   return `${base}${SCHEMA_HEADER_PERSON_IMAGE_PATH}`;
+}
+
+/** Nœuds `affiliation` Schema.org pour Person. */
+export function buildPersonAffiliationSchemaNodes(): Array<Record<string, unknown>> {
+  return SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
+    '@type': 'Organization',
+    name: org.name,
+    url: org.url,
+  }));
+}
+
+/** Credential Qualiopi — Organization / EducationalOrganization. */
+export function buildQualiopiCredentialSchema(): Record<string, unknown> {
+  return {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Certification Qualiopi',
+    credentialCategory: 'certification',
+    recognizedBy: {
+      '@type': 'Organization',
+      name: 'Ministère du Travail',
+    },
+    url: 'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281',
+  };
 }
 
 /** 8 départements Île-de-France — labels Schema.org / Course.areaServed. */

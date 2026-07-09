@@ -1,7 +1,7 @@
 import { JsonLd } from '@/components/JsonLd';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
+import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 
 type CourseSchemaProps = {
   name: string;
@@ -24,23 +24,17 @@ export function CourseSchema({
   currency = 'EUR',
   level,
 }: CourseSchemaProps) {
+  const path = url.replace(/^https?:\/\/[^/]+/, '') || '/';
   const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name,
-    description,
-    url,
-    provider: {
-      '@type': 'Organization',
-      name: "OFC Création d'Entreprise",
-      url: SCHEMA_PUBLIC_SITE_URL,
-      sameAs: ['https://fr.linkedin.com/in/laure-olivie'],
-    },
-    instructor: {
-      '@type': 'Person',
-      name: 'Laure Olivié',
-    },
-    duration,
+    ...buildFormationFicheCourseJsonLd({
+      name,
+      description,
+      path,
+      url,
+      timeRequired: duration,
+      educationalLevel: level,
+      instructorName: 'Laure Olivié',
+    }),
     offers: {
       '@type': 'Offer',
       price: String(price),
@@ -49,22 +43,6 @@ export function CourseSchema({
       url: CALENDLY_OFFER_URL,
     },
     aggregateRating: buildSchemaAggregateRating(),
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: ['Onsite'],
-      courseWorkload: duration,
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: 'Île-de-France',
-          addressCountry: 'FR',
-        },
-      },
-    },
-    educationalLevel: level,
-    inLanguage: 'fr',
     isAccessibleForFree: false,
     creditsAwarded: 'Certification Qualiopi',
   };

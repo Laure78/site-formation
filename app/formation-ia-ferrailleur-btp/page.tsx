@@ -10,11 +10,13 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-ferrailleur-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('ferrailleur', {
   title: 'Formation IA Ferrailleur BTP Île-de-France',
   description:
     'Optimisez calculs d\'armatures, factures et devis acier-béton avec ChatGPT. Formation IA Qualiopi pour le BTP. Visio découverte gratuite.',
@@ -119,13 +121,14 @@ export default function FormationIaFerrailleurBtpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour ferrailleurs / armaturiers —{' '}
           <span className="text-[var(--accent)]">gagnez environ 6 h par semaine</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Optimisez <strong>quantitatifs</strong>, <strong>factures</strong> et <strong>devis</strong> acier béton avec ChatGPT —{' '}
-          <strong>Île-de-France</strong> et <strong>Grand Paris</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          <strong>présentiel en Île-de-France</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

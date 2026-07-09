@@ -12,11 +12,13 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('chef TPE', {
   title: 'Formation IA chef TPE BTP — devis',
   description:
     'Formation IA pour chefs TPE BTP : devis express, relances clients, prospection et admin courant. Qualiopi. Financement possible selon éligibilité.',
@@ -168,12 +170,13 @@ export default function FormationIaDirigeantPmeBtpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour chefs d&apos;entreprise TPE BTP —{' '}
           <span className="text-[var(--accent)]">devis, relances et prospection au quotidien</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Vous êtes chef de TPE et touchez encore aux devis, mails clients et relances impayés : cette page
+          Sessions en présentiel en Île-de-France — vous êtes chef de TPE et touchez encore aux devis, mails clients et relances impayés : cette page
           cible l&apos;<strong>opérationnel quotidien</strong>, pas le pilotage stratégique CODIR. Pour la
           roadmap IA à l&apos;échelle PME/ETI, voir la{' '}
           <Link href={LINKS.formationIaDirigeantBtp} className="font-medium text-[var(--accent)] hover:underline">

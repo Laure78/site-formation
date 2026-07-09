@@ -49,7 +49,7 @@ export const metadata = createPageMetadata({
     url: '/images/btp-conducteur-plans.png',
     width: 1200,
     height: 630,
-    alt: 'Conducteur de travaux BTP avec plans de chantier — formation IA pour CR, PPSPS et suivi administratif',
+    alt: 'Conducteur de travaux BTP avec plans — comptes rendus, PPSPS et suivi administratif',
   },
 });
 
@@ -87,7 +87,7 @@ export default function FormationIaConducteurTravauxPage() {
           <figure className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
             <Image
               src="/images/btp-conducteur-plans.png"
-              alt="Conducteur de travaux BTP étudiant des plans sur chantier — formation IA pour comptes rendus et coordination"
+              alt="Conducteur de travaux BTP étudiant des plans sur chantier — comptes rendus et coordination"
               fill
               className="object-cover"
               priority
@@ -178,7 +178,7 @@ export default function FormationIaConducteurTravauxPage() {
           <figure className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl border border-slate-200">
             <Image
               src={PHOTOS.btpFormationChantierEquipe2026.src}
-              alt="Réunion de chantier BTP avec plans — coordination équipes, contexte formation IA conducteur de travaux"
+              alt="Réunion de chantier BTP avec plans — coordination des équipes sur le terrain"
               fill
               className="object-cover"
               sizes="(max-width: 896px) 100vw, 896px"

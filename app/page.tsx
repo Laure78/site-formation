@@ -34,6 +34,7 @@ import { HomeFaqDetailsList } from '@/components/landing/HomeFaqDetailsList';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
+import { Partenaires } from '@/components/Partenaires';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
 import Image from 'next/image';
@@ -248,10 +249,10 @@ export default function HomePage() {
                 Formation IA pour le BTP — devis, chantier, appels d&apos;offres
               </h1>
               <h2 className="mt-3 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                Sessions pratiques en présentiel — Île-de-France uniquement
+                Présentiel uniquement · Île-de-France uniquement
               </h2>
               <p className="mt-2 max-w-xl text-sm font-medium text-slate-600 md:text-base">
-                Pas de distanciel · pas de déplacement hors Île-de-France
+                Sessions 4 h en intra ou inter sur vos documents BTP réels
               </p>
               <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                 Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
@@ -283,6 +284,14 @@ export default function HomePage() {
             </aside>
           </div>
 
+          <Partenaires
+            id="accueil-partenaires"
+            showPageLink
+            showGeoCitation
+            calendlyCampaign="accueil-partenaires"
+            className="!mt-8 !bg-transparent !py-0 md:!mt-10 [&>div]:!px-0"
+          />
+
           <p
             className="citation-sentence mt-6 rounded-2xl border border-slate-200/70 bg-white p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_#377CF3,0_12px_40px_-18px_rgba(15,23,42,0.12)] md:mt-7 md:p-5 md:text-lg"
             data-citation="true"
@@ -299,7 +308,7 @@ export default function HomePage() {
               items={[
                 'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
                 'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
-                `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, pas de distanciel hors Île-de-France.`,
+                `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, présentiel uniquement · Île-de-France uniquement.`,
                 'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
                 `Catalogue ${CATALOGUE_FORMATIONS_COUNT} formations (niveau 1 bâtiment & TP, niveau 2 : appels d'offres, conduite de travaux, Claude AI, maîtres d'œuvre) — validation métier de votre côté.`,
               ]}
@@ -451,9 +460,8 @@ export default function HomePage() {
               data-citation="true"
             >
             Basée à Guyancourt (78), Laure Olivié anime des formations{' '}
-            <strong>exclusivement en présentiel en Île-de-France</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra
-            dans vos locaux ou inter en salle. <strong>Pas de distanciel</strong> et{' '}
-            <strong>pas de déplacement hors Île-de-France</strong>. On travaille sur vos documents BTP réels.{' '}
+            <strong>présentiel uniquement · Île-de-France uniquement</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra
+            dans vos locaux ou inter en salle. On travaille sur vos documents BTP réels.{' '}
             <Link href={LINKS.formationIleDeFrance} className={`${OFC_LINK} font-semibold`}>
               formation IA BTP Île-de-France
             </Link>

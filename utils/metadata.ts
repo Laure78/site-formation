@@ -10,6 +10,9 @@ export const BRAND_TITLE_SUFFIX = ' | Laure Olivié';
 /** Longueur cible du `<title>` complet (segment + suffixe). */
 export const SEO_TITLE_MAX_LENGTH = 60;
 
+/** Longueur max du segment seul (avant « | Laure Olivié »). */
+export const SEO_TITLE_SEGMENT_MAX_LENGTH = 40;
+
 const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA pour le BTP';
 
 /** Suffixe marque et variantes « | Laure Olivié · Qualiopi » en fin de chaîne. */
@@ -41,12 +44,14 @@ export function trimTitleOrphans(segment: string): string {
 }
 
 /**
- * Tronque le segment de titre (sans marque) pour que segment + BRAND_TITLE_SUFFIX ≤ maxTotal.
+ * Tronque le segment de titre (sans marque) à maxSegment caractères.
  * Coupe au dernier mot complet ; retire les orphelins (&, —, articles).
  */
-export function truncateForBrandedTitle(segment: string, maxTotal = SEO_TITLE_MAX_LENGTH): string {
+export function truncateForBrandedTitle(
+  segment: string,
+  maxSegment = SEO_TITLE_SEGMENT_MAX_LENGTH,
+): string {
   const clean = stripBrandSuffix(segment);
-  const maxSegment = maxTotal - BRAND_TITLE_SUFFIX.length;
   if (clean.length <= maxSegment) return trimTitleOrphans(clean);
 
   let cut = clean.slice(0, maxSegment).trim();
@@ -57,9 +62,16 @@ export function truncateForBrandedTitle(segment: string, maxTotal = SEO_TITLE_MA
   return trimTitleOrphans(cut);
 }
 
-/** Titre HTML final : segment nettoyé + suffixe unique (bypass du template layout). */
-export function buildBrandedTitle(segment: string, maxTotal = SEO_TITLE_MAX_LENGTH): string {
-  return `${truncateForBrandedTitle(segment, maxTotal)}${BRAND_TITLE_SUFFIX}`;
+/** Titre HTML final : segment (≤ 40 car.) + suffixe ; total ≤ maxTotal (60). */
+export function buildBrandedTitle(
+  segment: string,
+  maxTotal = SEO_TITLE_MAX_LENGTH,
+  maxSegment = SEO_TITLE_SEGMENT_MAX_LENGTH,
+): string {
+  const suffixLen = BRAND_TITLE_SUFFIX.length;
+  const segmentBudget = Math.min(maxSegment, maxTotal - suffixLen);
+  const truncated = truncateForBrandedTitle(segment, segmentBudget);
+  return `${truncated}${BRAND_TITLE_SUFFIX}`;
 }
 
 /** Ajoute la mention formatrice aux descriptions OG/meta (évite les doublons) */
@@ -170,10 +182,9 @@ export function buildPageMetadata({
   const metaDescription = descriptionFinal
     ? rawDescription
     : enrichPageDescription(rawDescription);
-  const titleSegment = truncateForBrandedTitle(
-    stripBrandSuffix(titleAbsolute ?? title),
-  );
-  const htmlTitle = buildBrandedTitle(titleSegment);
+  const rawSegment = stripBrandSuffix(titleAbsolute ?? title);
+  const titleSegment = truncateForBrandedTitle(rawSegment);
+  const htmlTitle = buildBrandedTitle(rawSegment);
   const ogTitle = openGraphTitle?.trim()
     ? stripBrandSuffix(openGraphTitle)
     : titleSegment;
@@ -216,10 +227,8 @@ export function buildPageMetadata({
   }
 
   const meta: Metadata = {
-    title:
-      titleAbsolute != null
-        ? { absolute: htmlTitle }
-        : titleSegment,
+    /** absolute : évite le double suffixe via `title.template` du layout */
+    title: { absolute: htmlTitle },
     description: metaDescription,
     ...(category ? { category } : {}),
     openGraph,

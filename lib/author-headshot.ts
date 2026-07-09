@@ -1,6 +1,6 @@
 /**
  * Recadrage avatars Laure (header, articles de blog).
- * `laure-avatar-bleu-2026.png` = portrait circulaire centré (fond bleu OFC, pictos BTP).
+ * `laure-avatar-bleu-2026.webp` = portrait circulaire centré (fond bleu OFC, pictos BTP).
  */
 export const AUTHOR_HEADSHOT_OBJECT_POSITION = 'object-center' as const;
 

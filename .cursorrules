@@ -186,4 +186,18 @@ Placer dans le footer de chaque page + page dédiée "Mentions légales".
 
 ---
 
-**Dernière mise à jour** : 2026-04-10
+**Dernière mise à jour** : 2026-07-09
+
+## Conformité Qualiopi — règles non négociables
+
+- **Footer (toutes les pages)** — conserver obligatoirement :
+  - NDA **11788515078** + mention exacte : *« Cet enregistrement ne vaut pas agrément de l'État »*
+  - SIRET **905 244 281 00010**
+  - Logo Qualiopi avec périmètre **« actions de formation »**
+  - Certificat n° **520911-1** et validité **du 16/01/2025 au 15/01/2028** (source : `lib/qualiopi-info.ts` → `QUALIOPI_LEGAL`)
+  - Liens **certificat PDF** (`/documents/certificat-qualiopi-ofc.pdf`) + **data.gouv.fr** (annuaire-entreprises)
+- **Logo Qualiopi** — ne jamais l'afficher déformé, recoloré ou sans son périmètre ; toujours via `<QualiopiBadge />` (visuel Certifopac officiel).
+- **Fiches formation** — chaque fiche doit rendre les **9 sections** du bloc *Informations réglementaires* (indicateur 1) via `InfosQualiopi` / `CatalogueInfosQualiopi` ; **interdiction de supprimer une section**.
+- **BeWork** — toujours présenté comme un **service distinct** des actions de formation Qualiopi, **non éligible OPCO** ; le logo Qualiopi et les mentions OPCO ne doivent **jamais** apparaître dans la section BeWork.
+- **Production** — jamais de placeholder visible de type `{{...}}` ; remplacer par des constantes (`config/qualiopi.ts`, `lib/qualiopi-info.ts`, etc.) avant déploiement.
+- **Cohérence catalogue** — toute modification de **tarif**, **durée** ou **modalité** doit être répercutée simultanément sur : **fiche formation** + **programme PDF** + **FAQ** + **page catalogue** (cohérence totale, sans divergence).

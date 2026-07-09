@@ -12,11 +12,13 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-administrative-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('assistante administrative', {
   title: 'IA assistante admin BTP — courriers',
   description:
     'Formation IA pour assistantes administratives BTP : courriers, mails, suivi chantier, comptes rendus. Qualiopi. Financement possible selon éligibilité.',
@@ -161,12 +163,13 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA assistante administrative BTP —{' '}
           <span className="text-[var(--accent)]">courriers, mails et suivi chantier</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
-          Cette page cible l&apos;<strong>administratif relationnel et le suivi chantier</strong> : courriers
+          Sessions en présentiel en Île-de-France — cette page cible l&apos;<strong>administratif relationnel et le suivi chantier</strong> : courriers
           fournisseurs, mails clients, comptes rendus et synthèses — pas la facturation d&apos;avancement ni les
           relances impayés (voir la{' '}
           <Link href={LINKS.formationIaAssistanteGestionBtp} className="font-medium text-[var(--accent)] hover:underline">

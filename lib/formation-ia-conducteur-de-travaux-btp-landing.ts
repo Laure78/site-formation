@@ -9,6 +9,7 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
 export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH =
@@ -101,16 +102,20 @@ export const CDT_BTP_FAQ = [
 
 export function buildConducteurDeTravauxBtpCourseJsonLd(): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const pageUrl = `${base}${FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH}`;
+  const path = FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH;
 
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Course',
-    name: 'Formation IA pour conducteurs de travaux BTP',
-    description: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
-    url: pageUrl,
+    ...buildFormationFicheCourseJsonLd({
+      name: 'Formation IA pour conducteurs de travaux BTP',
+      description: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
+      path,
+      educationalLevel: 'Débutant',
+      organizationId: `${base}/#organization`,
+      instructorName: SCHEMA_PERSON_LAURE.name,
+    }),
     provider: {
       '@type': 'Organization',
+      '@id': `${base}/#organization`,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
       hasCredential: {
@@ -126,30 +131,12 @@ export function buildConducteurDeTravauxBtpCourseJsonLd(): Record<string, unknow
       url: `${base}/a-propos`,
       sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
     },
-    timeRequired: 'PT4H',
-    courseMode: 'onsite',
-    inLanguage: 'fr',
-    educationalLevel: 'Débutant',
     offers: {
       '@type': 'Offer',
       price: String(TARIF_FORFAIT_DEBUTANT_HT),
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
       url: buildSiteCalendlyCtaUrl('formation-ia-conducteur-de-travaux-btp-schema-offer'),
-    },
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: 'onsite',
-      courseWorkload: 'PT4H',
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France — intra ou inter, en présentiel',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: 'Île-de-France',
-          addressCountry: 'FR',
-        },
-      },
     },
     audience: {
       '@type': 'EducationalAudience',

@@ -94,7 +94,7 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
       url: '/images/laure-olivie-formatrice.png',
       width: 1200,
       height: 630,
-      alt: `${config.departementNom} (${config.deptCode}) — formation IA appliquée au bâtiment Qualiopi, Laure Olivié`,
+      alt: `Session formation IA en ${config.departementNom} (${config.deptCode}) — Laure Olivié Qualiopi`,
     },
   });
 }

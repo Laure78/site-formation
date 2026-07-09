@@ -2,8 +2,6 @@
  * Articles blog en MDX — `content/blog/*.mdx`, frontmatter YAML.
  */
 import { cache } from 'react';
-import { readFileSync, existsSync, readdirSync } from 'fs';
-import { join } from 'path';
 import type { Metadata } from 'next';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import GithubSlugger from 'github-slugger';
@@ -11,22 +9,31 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { rehypeAutoLink } from '@/lib/autoLink';
 import matter from 'gray-matter';
+import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
 import { ARTICLE_SECTION_GEO, createPageMetadata, estimateWordCountFromPlainText, SITE_CONFIG } from '@/lib/seo';
 import { getBlogMdxComponents } from '@/components/blog/blog-mdx-components';
 import type { BlogArticle } from '@/lib/blog';
 import type { TocEntry } from '@/components/blog/TableOfContents';
 import type { ReactNode } from 'react';
 
-export const BLOG_MDX_DIR = join(process.cwd(), 'content', 'blog');
-
-export type BlogMdxFaqItem = { q: string; a: string } | { question: string; answer: string };
-
-export type BlogFaqFrontmatterPair = { question: string; answer: string };
+import {
+  BLOG_MDX_DIR,
+  extractFaqPairsFromMdxMarkdownBody,
+  getAllMdxBlogSlugs,
+  getMdxBlogFaqFromFrontmatter,
+  hasMdxBlogFile,
+  mergeBlogSlugsForStaticParams,
+  readMdxBlogRaw,
+  resolveMdxBlogFaqPairs,
+  type BlogFaqFrontmatterPair,
+  type BlogMdxFaqItem,
+} from '@/lib/blog-mdx-faq';
 
 export type BlogMdxFrontmatter = {
   title: string;
   /** Titre HTML / Open Graph — si absent, `title` */
   seoTitle?: string;
+  /** Meta description manuelle (HTML, og:description, twitter:description) — phrase complète, jamais tronquée. */
   description: string;
   slug: string;
   publishedAt: string;
@@ -43,20 +50,17 @@ export type BlogMdxFrontmatter = {
   relatedSlugs?: string[];
 };
 
-function normalizeFaqItems(
-  items?: BlogMdxFaqItem[] | BlogFaqFrontmatterPair[]
-): BlogFaqFrontmatterPair[] {
-  if (!items?.length) return [];
-  return items.map((item) => {
-    if ('q' in item && 'a' in item) return { question: item.q.trim(), answer: item.a.trim() };
-    return { question: item.question.trim(), answer: item.answer.trim() };
-  });
-}
-
-/** Paires FAQ depuis le frontmatter MDX (`faq` ou legacy `faqItems`). */
-export function getMdxBlogFaqFromFrontmatter(fm: BlogMdxFrontmatter): BlogFaqFrontmatterPair[] {
-  return normalizeFaqItems(fm.faq ?? fm.faqItems);
-}
+export type { BlogFaqFrontmatterPair, BlogMdxFaqItem };
+export {
+  BLOG_MDX_DIR,
+  extractFaqPairsFromMdxMarkdownBody,
+  getAllMdxBlogSlugs,
+  getMdxBlogFaqFromFrontmatter,
+  hasMdxBlogFile,
+  mergeBlogSlugsForStaticParams,
+  readMdxBlogRaw,
+  resolveMdxBlogFaqPairs,
+};
 
 /** Sommaire — ids alignés sur `rehype-slug` / GitHub Slugger */
 export function extractTocFromMarkdown(markdownBody: string): TocEntry[] {
@@ -84,24 +88,6 @@ function stripMdForWordCount(md: string): string {
     .replace(/<[^>]+>/g, ' ');
 }
 
-export function hasMdxBlogFile(slug: string): boolean {
-  const f = join(BLOG_MDX_DIR, `${slug}.mdx`);
-  return existsSync(f);
-}
-
-export function getAllMdxBlogSlugs(): string[] {
-  if (!existsSync(BLOG_MDX_DIR)) return [];
-  return readdirSync(BLOG_MDX_DIR)
-    .filter((f) => f.endsWith('.mdx'))
-    .map((f) => f.replace(/\.mdx$/, ''));
-}
-
-export function readMdxBlogRaw(slug: string): string | null {
-  const f = join(BLOG_MDX_DIR, `${slug}.mdx`);
-  if (!existsSync(f)) return null;
-  return readFileSync(f, 'utf8');
-}
-
 export type CompiledMdxBlog = {
   content: ReactNode;
   frontmatter: BlogMdxFrontmatter;
@@ -122,9 +108,11 @@ export function buildMdxBlogMetadata(slug: string): Metadata | null {
   const path = `/blog/${slug}`;
   const coverUrl = resolveMdxCoverUrl(fm.cover);
   const metaTitle = fm.seoTitle ?? fm.title;
+  const ogImageAlt = buildBlogArticleOgImageAlt(metaTitle);
   return createPageMetadata({
     title: metaTitle,
     description: fm.description,
+    descriptionFinal: true,
     path,
     keywords: fm.keywords,
     appendAuthorSuffix: false,
@@ -139,7 +127,7 @@ export function buildMdxBlogMetadata(slug: string): Metadata | null {
       url: coverUrl,
       width: 1200,
       height: 630,
-      alt: fm.coverAlt,
+      alt: ogImageAlt,
     },
     openGraphTitle: metaTitle,
     openGraphDescription: fm.description,
@@ -206,9 +194,4 @@ export function resolveMdxCoverUrl(cover: string): string {
   if (cover.startsWith('http')) return cover;
   const path = cover.startsWith('/') ? cover : `/${cover}`;
   return `${base}${path}`;
-}
-
-export function mergeBlogSlugsForStaticParams(jsonSlugs: string[]): string[] {
-  const mdxSlugs = getAllMdxBlogSlugs();
-  return [...new Set([...mdxSlugs, ...jsonSlugs])];
 }

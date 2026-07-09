@@ -15,11 +15,13 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-vitrier-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('vitrier', {
   title: 'Formation IA vitrier miroitier BTP IDF',
   description:
     'Formation IA et ChatGPT pour vitriers miroitiers : devis vitrage, métrages, fiches techniques, réponses clients. Qualiopi. Visio découverte gratuite.',
@@ -153,13 +155,14 @@ export default function FormationIaVitrierBtpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour vitriers miroitiers —{' '}
           <span className="text-[var(--accent)]">gagnez environ 3 h par semaine</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Automatisez <strong>devis vitrage</strong>, <strong>métrages</strong> et <strong>fiches techniques</strong> avec
-          ChatGPT — <strong>Île-de-France</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          ChatGPT — <strong>présentiel en Île-de-France</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

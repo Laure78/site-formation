@@ -32,7 +32,7 @@ export const metadata: Metadata = createPageMetadata({
     url: '/images/ressources-gratuites-ia-btp-hero-2026.png',
     width: 1024,
     height: 1024,
-    alt: 'Ressources gratuites IA BTP : tutos PDF, guides, lexique chantier et marchés publics par Laure Olivié (Qualiopi)',
+    alt: 'Ressources gratuites IA BTP : tutos PDF, guides et fiches pratiques par Laure Olivié (Qualiopi)',
   },
 });
 

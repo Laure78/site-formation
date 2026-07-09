@@ -13,6 +13,9 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
+import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-charge-affaires-btp';
@@ -23,17 +26,15 @@ const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
 
 /** Course — GEO / rich results (complète la FAQ et le fil d’Ariane). */
 const COURSE_JSON_LD: Record<string, unknown> = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
-  name: 'Formation IA pour Chargé d\'Affaires BTP',
-  description:
-    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi. Financement possible selon éligibilité.',
-  provider: {
-    '@type': 'Organization',
-    name: "OFC Création d'Entreprise",
-    sameAs: BASE_URL,
-    url: BASE_URL,
-  },
+  ...buildFormationFicheCourseJsonLd({
+    name: "Formation IA pour Chargé d'Affaires BTP",
+    description:
+      "Formation ChatGPT et Claude AI pour chargés d'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi. Financement possible selon éligibilité.",
+    path: PATH,
+    educationalLevel: 'Advanced',
+    organizationId: `${BASE_URL}/#organization`,
+    instructorName: 'Laure Olivié',
+  }),
   instructor: {
     '@type': 'Person',
     name: 'Laure Olivié',
@@ -47,28 +48,13 @@ const COURSE_JSON_LD: Record<string, unknown> = {
     availability: 'https://schema.org/InStock',
     url: buildSiteCalendlyCtaUrl('formation-ia-charge-affaires-btp-schema-offer'),
   },
-  timeRequired: 'PT4H',
-  educationalLevel: 'Advanced',
-  hasCourseInstance: {
-    '@type': 'CourseInstance',
-    courseMode: ['onsite'],
-    location: {
-      '@type': 'Place',
-      name: 'Île-de-France',
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Île-de-France',
-        addressCountry: 'FR',
-      },
-    },
-  },
   audience: {
     '@type': 'EducationalAudience',
-    educationalRole: 'Chargé d\'affaires BTP',
+    educationalRole: "Chargé d'affaires BTP",
   },
 };
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
   title: SEO_TITLE,
   description:
     'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis plus rapides, mémoire technique gagnant, relances prospects. Qualiopi. RDV gratuit.',
@@ -182,12 +168,13 @@ export default function FormationIaChargeAffairesBtpPage() {
       {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-charge-affaires" /> : null}
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour Chargé d&apos;Affaires BTP —{' '}
           <span className="text-[#377CF3]">Transformez 2x plus d&apos;appels d&apos;offres</span>
         </h1>
         <p className="mt-4 text-lg text-slate-600">
-          Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
+          Sessions en présentiel en Île-de-France — Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
         </p>
 
         <div className="mt-8">

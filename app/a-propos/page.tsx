@@ -5,6 +5,7 @@ import { FAQ_A_PROPOS, FAQ_CLIENTS_PARTENAIRES } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { getAProposUnifiedJsonLd } from '@/lib/schema-a-propos-unified-graph';
 import { getAProposPersonJsonLd } from '@/lib/schema-a-propos-person-jsonld';
+import { getAProposOrganizationJsonLd } from '@/lib/schema-a-propos-organization-jsonld';
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
@@ -38,6 +39,7 @@ import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta'
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 import { Reveal } from '@/components/motion/Reveal';
+import { Partenaires } from '@/components/Partenaires';
 
 const A_PROPOS_TOC = [
   { label: 'Introduction', anchor: 'introduction' },
@@ -78,6 +80,7 @@ export const metadata = createPageMetadata({
 export default function AProposPage() {
   const unifiedSchema = getAProposUnifiedJsonLd();
   const personSchema = getAProposPersonJsonLd();
+  const organizationSchema = getAProposOrganizationJsonLd();
   const faqItems = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
   const allerPlusLoinLinks = [
@@ -92,6 +95,7 @@ export default function AProposPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       <JsonLd id="schema-a-propos-person" schema={personSchema} />
+      <JsonLd id="schema-a-propos-organization" schema={organizationSchema} />
       <JsonLd id="schema-a-propos-unified-graph" schema={unifiedSchema} />
 
       <PillarPageHero
@@ -134,7 +138,7 @@ export default function AProposPage() {
           alt: PHOTOS.aProposHero2026.alt,
           width: PHOTOS.aProposHero2026.width,
           height: PHOTOS.aProposHero2026.height,
-          caption: 'Formatrice IA BTP Qualiopi — présentiel en Île-de-France uniquement (pas de distanciel).',
+          caption: 'Formatrice IA BTP Qualiopi — présentiel uniquement · Île-de-France uniquement.',
           objectFit: 'contain',
           qualiopiBadge: false,
           animated: true,
@@ -226,6 +230,11 @@ export default function AProposPage() {
                   .
                 </p>
             </AProposSection>
+            <Partenaires
+              id="a-propos-partenaires"
+              calendlyCampaign="a-propos-partenaires"
+              className="!bg-transparent !py-10 md:!py-12"
+            />
             <PartnersGrid />
 
             <AProposSection id="linkedin-learning" title="Formations LinkedIn Learning">

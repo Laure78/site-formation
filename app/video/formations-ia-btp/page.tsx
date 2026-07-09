@@ -72,19 +72,14 @@ export default function VideoFormationsIaBtpPage() {
     <div className="min-h-screen bg-[#F2F2F2]">
       <JsonLd id="schema-video-formations-ia-btp" schema={getWatchPageJsonLd()} />
 
-      <header className="border-b border-slate-200 bg-white px-4 py-4">
-        <div className="mx-auto flex max-w-4xl items-center gap-4">
-          <Link
-            href={LINKS.home}
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#377CF3] hover:underline"
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-            Accueil
-          </Link>
-        </div>
-      </header>
-
       <main className="mx-auto max-w-4xl px-4 py-10 md:py-14">
+        <Link
+          href={LINKS.home}
+          className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[#377CF3] hover:underline"
+        >
+          <ArrowLeft className="h-4 w-4" aria-hidden />
+          Accueil
+        </Link>
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
           Vidéo · Formations IA BTP
         </p>

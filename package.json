@@ -16,7 +16,9 @@
     "media:generate:ai": "npx tsx scripts/generate-daily-ai.ts",
     "media:publish": "npx tsx scripts/publish.ts",
     "agent:index": "npx tsx scripts/index-knowledge.ts",
-    "import:teachizy": "npx tsx scripts/import-teachizy.ts"
+    "import:teachizy": "npx tsx scripts/import-teachizy.ts",
+    "audit:qualiopi-liens": "node scripts/audit-liens-qualiopi.mjs",
+    "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

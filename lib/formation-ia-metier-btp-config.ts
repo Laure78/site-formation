@@ -2,6 +2,7 @@
  * Landings « formation IA pour le BTP » par métier — contenu + métadonnées + FAQ + teaches (Course JSON-LD).
  */
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { withMetierBtpIdfTitle } from '@/lib/formation-ia-metier-idf';
 import { SITE_CONFIG } from '@/lib/seo';
 import { createPageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -12,7 +13,7 @@ export type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-t
 const OFC = "OFC Création d'Entreprise";
 
 export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig): Metadata {
-  return createPageMetadata({
+  const base = createPageMetadata({
     title: config.metaTitle,
     description: config.metaDescription,
     descriptionFinal: true,
@@ -33,6 +34,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
       alt: `Formation IA appliquée au bâtiment ${config.metierNomTitre} — Qualiopi, Laure Olivié`,
     },
   });
+  return withMetierBtpIdfTitle(base, config.metierNomTitre);
 }
 
 /** Étancheur — angle CSFE + DTU 43 + vocabulaire produits (Soprema, Siplast, Axter cités sans préférence) */
@@ -138,13 +140,13 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     url: '/images/formation-ia-etancheur-btp-og.png',
     width: 1200,
     height: 630,
-    alt: 'Étanchéité sur toiture-terrasse — formation IA pour le BTP Laure Olivié',
+    alt: 'Étanchéité sur toiture-terrasse — équipe sur membrane et relevés',
   },
   coverImage: {
     url: '/images/formation-ia-etancheur-btp-og.png',
     width: 1200,
     height: 630,
-    alt: 'Technicien en étanchéité sur toiture-terrasse — contexte formation IA pour les pros du BTP',
+    alt: 'Technicien en étanchéité sur toiture-terrasse — intervention sur membrane',
   },
   showAuthorBio: true,
   authorBioClosingLine:
@@ -433,7 +435,7 @@ Liste les points d’interface plomberie / VMC double flux (prises d’air, cond
     url: '/images/formation-ia-intra-entreprise-batiment.webp',
     width: 1024,
     height: 571,
-    alt: 'Atelier formation IA pour les pros du BTP en entreprise — plomberie et chauffage',
+    alt: 'Atelier en entreprise — plomberie et chauffage, groupe autour de plans',
   },
   showAuthorBio: true,
   authorBioClosingLine:

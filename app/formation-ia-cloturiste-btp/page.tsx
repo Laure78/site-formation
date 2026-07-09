@@ -10,11 +10,13 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-cloturiste-btp';
 
-export const metadata = createPageMetadata({
+export const metadata = createMetierBtpPageMetadata('clôturiste', {
   title: 'Formation IA Clôturiste BTP Île-de-France',
   description:
     'Automatisez vos devis clôtures, portails, grillages. Formation Qualiopi. Financement possible selon éligibilité.',
@@ -147,13 +149,14 @@ export default function FormationIaCloturisteBtpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour clôturistes et poseurs de portails —{' '}
           <span className="text-[var(--accent)]">gagnez du temps sur les devis et le suivi client</span>
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 2 h par semaine</strong> sur devis, variantes et réponses aux
-          prospects. <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          prospects. <strong>Présentiel en Île-de-France</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">

@@ -1,19 +1,27 @@
 /**
- * FAQPage JSON-LD — articles blog (frontmatter `faq` ou extraction legacy).
+ * FAQPage JSON-LD — articles blog (frontmatter `faq`, corps MDX, sections legacy).
+ * @see lib/article-faq-jsonld.ts — résolution et validation centralisées.
  */
 
-import { getFAQSchema } from '@/lib/seo';
+export {
+  assertFaqPageSchema,
+  buildArticleFaqPageJsonLd,
+  buildBlogFaqPageJsonLdFromSlug,
+  listBlogArticlesWithFaqPageJsonLd,
+  resolveBlogArticleFaqPairs,
+  type ArticleFaqPair,
+  type BlogArticleFaqJsonLdEntry,
+  type BlogFaqPair,
+} from '@/lib/article-faq-jsonld';
 
-export type BlogFaqPair = { question: string; answer: string };
+import { buildArticleFaqPageJsonLd, type BlogFaqPair } from '@/lib/article-faq-jsonld';
 
 /**
- * Construit le schéma FAQPage depuis des paires Q/R.
+ * Construit le schéma FAQPage depuis des paires Q/R explicites.
  * Retourne `null` si le tableau est vide ou ne respecte pas le minimum schema (3 questions).
  */
 export function buildBlogFaqPageJsonLd(
   faq: BlogFaqPair[] | undefined | null
 ): Record<string, unknown> | null {
-  if (!faq?.length) return null;
-  const schema = getFAQSchema(faq.map(({ question, answer }) => ({ q: question, a: answer })));
-  return schema as Record<string, unknown> | null;
+  return buildArticleFaqPageJsonLd(faq);
 }

@@ -75,20 +75,6 @@ const courseBase = getCourseSchema({
 const courseJsonLd = {
   ...courseBase,
   educationalCredentialAwarded: QUALIOPI_CERTIFICAT_REALISATION,
-  hasCourseInstance: {
-    '@type': 'CourseInstance',
-    name: courseName,
-    courseMode: ['https://schema.org/OnSite'],
-    location: {
-      '@type': 'Place',
-      name: 'Île-de-France (Paris, 78, 91, 92, 93, 94, 95)',
-    },
-    offers: {
-      '@type': 'Offer',
-      category: 'Formation professionnelle continue — financement possible selon éligibilité',
-      priceCurrency: 'EUR',
-    },
-  },
   audience: {
     '@type': 'Audience',
     audienceType:
@@ -409,6 +395,27 @@ export default function FormationIaBtpPillarPage() {
           </Reveal>
         </section>
 
+        <section id="construction" className="not-prose mt-16 scroll-mt-24">
+          <Reveal as="div" className="space-y-4 text-slate-700">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Entreprises de construction, MOE et BET en Île-de-France
+          </h2>
+          <p>
+            Au-delà des PME du bâtiment, les <strong>entreprises de construction</strong> de taille
+            intermédiaire — entreprises générales TCE, directions travaux, bureaux d&apos;études et{' '}
+            <strong>maîtres d&apos;œuvre</strong> — font face aux mêmes enjeux documentaires à plus
+            grande échelle : DCE volumineux, mémoires techniques multi-lots, chiffrage DPGF et
+            coordination MOA/MOE. La formation s&apos;adapte à ces profils avec un vocabulaire
+            corporate et des exercices sur vos dossiers réels.
+          </p>
+          <p>
+            <Link href={LINKS.formationIaConstruction} className="font-semibold text-[var(--accent)] hover:underline">
+              Voir la page dédiée — Formation IA pour les entreprises de construction
+            </Link>
+          </p>
+          </Reveal>
+        </section>
+
         <section id="public" className="not-prose mt-16 scroll-mt-24">
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Pour qui est cette formation ?</h2>
@@ -625,6 +632,11 @@ export default function FormationIaBtpPillarPage() {
         <section className="not-prose mt-16 border-t border-slate-200 pt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Liens vers nos formations spécialisées</h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-[var(--accent)] marker:text-[var(--accent)]">
+            <li>
+              <Link href={LINKS.formationIaConstruction} className="text-slate-700 hover:underline">
+                Formation IA pour les entreprises de construction
+              </Link>
+            </li>
             <li>
               <Link href={LINKS.formationConducteurTravaux} className="text-slate-700 hover:underline">
                 Formation IA pour conducteurs de travaux

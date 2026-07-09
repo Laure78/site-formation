@@ -26,7 +26,6 @@ const EXACT: Record<string, string> = {
 };
 
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
-  '/formations/ia-btp-paris': 'Formation IA BTP Île-de-France — 8 départements',
   '/formations/formation-ia-cctp-analyse-dce-btp': 'Formation IA CCTP & DCE',
   '/formations/ia-btp-morangis': 'Formation IA pour le BTP à Morangis',
   '/formations/ia-btp-longjumeau': 'Formation IA pour les pros du BTP à Longjumeau',

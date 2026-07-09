@@ -3,6 +3,7 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { buildBlogArticleOgImageAlt } from '@/lib/image-alt';
 import {
   ARTICLE_SECTION_GEO,
   createPageMetadata,
@@ -22,7 +23,6 @@ import { BlogMdxArticle } from '@/components/blog/BlogMdxArticle';
 import {
   buildMdxBlogMetadata,
   getMdxFrontmatter,
-  getMdxBlogFaqFromFrontmatter,
   hasMdxBlogFile,
   mergeBlogSlugsForStaticParams,
 } from '@/lib/blog-mdx';
@@ -124,7 +124,7 @@ export async function generateMetadata({ params }: Props) {
   const authorUrl = `${SITE_CONFIG.url}/a-propos`;
   const category = ARTICLE_SECTION_GEO;
   const ogImageUrl = `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(metaTitle)}&category=${encodeURIComponent(category)}`;
-  const ogImageAlt = `Visuel de l'article « ${metaTitle} » — blog formation IA pour le BTP, Laure Olivié`;
+  const ogImageAlt = buildBlogArticleOgImageAlt(metaTitle);
   const base = createPageMetadata({
     title: metaTitle,
     description: article.description,
@@ -133,6 +133,8 @@ export async function generateMetadata({ params }: Props) {
     keywords: article.keywords,
     /** Évite le suffixe commun sur og:description — les articles ont déjà une phrase unique optimisée */
     appendAuthorSuffix: false,
+    openGraphTitle: metaTitle,
+    openGraphDescription: article.description,
     openGraphType: 'article',
     article: {
       publishedTime: article.date,
@@ -160,11 +162,9 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
   if (hasMdxBlogFile(slug)) {
-    const fm = getMdxFrontmatter(slug);
-    const faq = fm ? getMdxBlogFaqFromFrontmatter(fm) : [];
     return (
       <>
-        <BlogArticleFaqJsonLd slug={slug} faq={faq} />
+        <BlogArticleFaqJsonLd slug={slug} />
         <BlogMdxArticle slug={slug} />
       </>
     );

@@ -33,6 +33,8 @@ export const blogArticleFormationIaCctpAnalyseDceBtp: BlogArticle = {
     'cahier des charges BTP IA',
   ],
   relatedSlugs: [
+    'analyser-ccap-ia-btp',
+    'memoire-reclamation-btp-ia',
     'analyser-cctp-ia-methode-complete-20-minutes',
     'analyse-dce-notebooklm-claude-btp',
     'chiffrage-cctp-bpu-appels-offres-btp',

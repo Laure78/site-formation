@@ -13,7 +13,10 @@ export const AO_DCE_FORMATION_LEGACY = LINKS.formationIaCctpAnalyseDceBtp;
 
 /** Articles satellites — angles informationnels distincts. */
 export const AO_DCE_CLUSTER_BLOG = {
+  guideAo5Etapes: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026,
   guideDce: LINKS.blogFormationIaCctpAnalyseDceBtp,
+  methodeCcap: LINKS.blogIaAnalyseCcap,
+  memoireReclamation: LINKS.blogMemoireReclamationBtpIa,
   methode20: LINKS.blogAnalyserCctpMethode20Min,
   notebooklm: LINKS.blogAnalyseDceNotebooklm,
   chiffrageBpu: LINKS.blogChiffrageCctpBpu,
@@ -22,9 +25,19 @@ export const AO_DCE_CLUSTER_BLOG = {
 /** Maillage descendant — section « Pour aller plus loin » sur la page pilier. */
 export const FORMATION_AO_CLUSTER_ARTICLES: ContextualLinkCard[] = [
   {
-    href: AO_DCE_CLUSTER_BLOG.guideDce,
-    title: 'Comment analyser un DCE/CCTP avec l’IA',
-    description: 'Méthode terrain en 4 étapes — guide pratique sans jargon.',
+    href: AO_DCE_CLUSTER_BLOG.guideAo5Etapes,
+    title: 'Répondre aux AO BTP avec l’IA — guide en 5 étapes',
+    description: 'DCE, Go/No Go, DPGF, mémoire technique : méthode complète testée FFB & CSFE.',
+  },
+  {
+    href: AO_DCE_CLUSTER_BLOG.methodeCcap,
+    title: 'Analyser un CCAP avec l’IA',
+    description: 'Pénalités, retenue de garantie, dérogations CCAG — fiche Go / No Go en 15 min.',
+  },
+  {
+    href: AO_DCE_CLUSTER_BLOG.memoireReclamation,
+    title: 'Mémoire de réclamation BTP',
+    description: 'Délai 30 jours, contenu recevable et méthode IA pour récupérer vos créances.',
   },
   {
     href: AO_DCE_CLUSTER_BLOG.methode20,

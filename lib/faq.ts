@@ -171,11 +171,11 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "La formation se fait-elle en présentiel ?",
-    a: `Oui, exclusivement en présentiel en Île-de-France — inter en salle ou intra dans vos locaux. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
+    a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Lieux inter indicatifs : <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> (<a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95). Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
   },
   {
     q: 'Proposez-vous des formations à distance ou hors Île-de-France ?',
-    a: `Non. Les sessions OFC se déroulent uniquement en présentiel en Île-de-France (Paris et départements 77 à 95). Pas de distanciel, pas de visioconférence pour la formation elle-même, et pas de déplacement hors Île-de-France. L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="/prendre-rdv">prendre rendez-vous</a>.`,
+    a: `Non. Les sessions OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux, Paris et départements 77 à 95). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="/prendre-rdv">prendre rendez-vous</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -208,7 +208,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Qui forme les entreprises BTP à ChatGPT en Île-de-France ?",
-    a: 'Laure Olivié (OFC Création d\'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Session catalogue 4 h. ' + MODALITE_FORMATIONS_STANDARD + ' Interventions : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. <a href="/financement-constructys-formation-ia-btp">Financement possible selon éligibilité</a>.',
+    a: 'Laure Olivié (OFC Création d\'Entreprise) forme les entreprises BTP à ChatGPT en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> depuis Guyancourt (78). Session catalogue 4 h. ' + MODALITE_FORMATIONS_STANDARD + ' Interventions : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. <a href="/financement-constructys-formation-ia-btp">Financement possible selon éligibilité</a>.',
   },
   {
     q: "Formation IA pour entreprises BTP : quelle durée et quel prix ?",
@@ -361,7 +361,7 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
 export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Où intervenez-vous pour les formations IA pour les pros du BTP ?",
-    a: `Basée à Guyancourt (78), j'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. ${MODALITE_FORMATIONS_STANDARD}`,
+    a: `Basée à Guyancourt (78), j'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, et l'ensemble des départements 75, 77, 78, 91, 92, 93, 94, 95. ${MODALITE_FORMATIONS_STANDARD}`,
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
@@ -384,7 +384,7 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: 'La formation se fait-elle en visio ou hors Île-de-France ?',
-    a: 'Non. Le RDV de cadrage est en visio ou par téléphone ; la formation OFC elle-même est exclusivement en présentiel en Île-de-France (inter ou intra). Pas de distanciel et pas de déplacement hors Île-de-France.',
+    a: 'Non. Le RDV de cadrage est en visio ou par téléphone ; la formation OFC elle-même : présentiel uniquement · Île-de-France uniquement (inter ou intra).',
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
@@ -473,7 +473,7 @@ export const FAQ_FORMATION_IA_BTP_YVELINES_LANDING: FAQItem[] = [
 export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   {
     q: "Où se déroule la formation IA appliquée au bâtiment à Paris ?",
-    a: `La formation se déroule exclusivement en présentiel, en intra dans vos locaux ou en salle en Île-de-France : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
+    a: `La formation se déroule exclusivement en présentiel, en intra dans vos locaux ou en salle en Île-de-France : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. ${MODALITE_FORMATIONS_STANDARD} Voir <a href="/formation-ia-btp-ile-de-france">formation IA appliquée au bâtiment Île-de-France</a> et le <a href="/formations">catalogue</a>.`,
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
@@ -717,7 +717,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA pour les pros du BTP ?",
-    a: 'En présentiel uniquement, en intra dans vos locaux ou en salle en Île-de-France : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pros du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
+    a: 'En présentiel uniquement, en intra dans vos locaux ou en salle en Île-de-France : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95. Sessions adaptées à votre équipe — <a href="/formations">catalogue formations IA pour les pros du BTP</a> et <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>.',
   },
   {
     q: "La formation est-elle finançable ?",
@@ -769,7 +769,7 @@ export const FAQ_CONTACT: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. ' + MODALITE_FORMATIONS_STANDARD,
+    a: 'Basée à Guyancourt (78), j\'interviens en <a href="/formation-ia-btp-ile-de-france">Île-de-France</a> : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. ' + MODALITE_FORMATIONS_STANDARD,
   },
   {
     q: "Comment financer ma formation IA appliquée au bâtiment ?",
@@ -805,7 +805,7 @@ export const FAQ_BLOG: FAQItem[] = [
   },
   {
     q: "Comment accéder aux formations IA pour le BTP ?",
-    a: 'Catalogue des formations sur laureolivie.fr : page <a href="/formations">formations IA pour les pros du BTP</a>. ' + MODALITE_FORMATIONS_STANDARD + ' Île-de-France : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95 — voir <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>. Devis via <a href="/contact">contact</a>.',
+    a: 'Catalogue des formations sur laureolivie.fr : page <a href="/formations">formations IA pour les pros du BTP</a>. ' + MODALITE_FORMATIONS_STANDARD + ' Île-de-France : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Melun, Saint-Denis, départements 75 à 95 — voir <a href="/formation-ia-btp-ile-de-france">Île-de-France</a>. Devis via <a href="/contact">contact</a>.',
   },
 ];
 
@@ -817,7 +817,7 @@ export const FAQ_AUTEUR: FAQItem[] = [
   },
   {
     q: "Où intervenez-vous pour les formations ?",
-    a: 'Île-de-France : <a href="/formation-ia-btp-paris-75">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. ' + MODALITE_FORMATIONS_STANDARD + ' — <a href="/formations">catalogue</a> et <a href="/formation-ia-btp-ile-de-france">formation IA pour les pros du BTP Île-de-France</a>.',
+    a: 'Île-de-France : <a href="/formation-ia-btp-paris">Paris</a>, Versailles, Nanterre, Créteil, Cergy-Pontoise, Évry-Courcouronnes, Melun, Saint-Denis, départements 75 à 95. ' + MODALITE_FORMATIONS_STANDARD + ' — <a href="/formations">catalogue</a> et <a href="/formation-ia-btp-ile-de-france">formation IA pour les pros du BTP Île-de-France</a>.',
   },
   {
     q: "Proposez-vous des formations LinkedIn Learning ?",

@@ -3,6 +3,7 @@ import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_LEGAL, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
+import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
 
 export const revalidate = 3600;
 
@@ -70,7 +71,7 @@ export default function ReclamationsPage() {
 
         <section>
           <h2 className="font-display text-xl font-bold text-slate-900">Médiation</h2>
-          <p className="mt-4">{QUALIOPI_RECLAMATIONS.mediation}</p>
+          <MediationCm2cBlock className="mt-4" />
           <p className="mt-4">
             Voir également l&apos;article 15 des{' '}
             <Link href={LINKS.cgv} className="font-medium text-[#377CF3] hover:underline">

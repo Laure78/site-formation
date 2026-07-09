@@ -62,6 +62,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     priority: number;
     changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
   }[] = [
+    { path: LINKS.partenaires, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.bework, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.beworkPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationPlateforme, priority: 0.9, changeFrequency: 'weekly' },
@@ -88,7 +89,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/guide-maitrise-oeuvre-ia', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp', priority: 0.98, changeFrequency: 'weekly' },
-    { path: LINKS.formationIaBtpIdfZones, priority: 0.85, changeFrequency: 'weekly' },
+    { path: '/formation-ia-construction', priority: 0.92, changeFrequency: 'monthly' },
     { path: '/formations/ia-btp-saint-quentin-en-yvelines', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-morangis', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-longjumeau', priority: 0.88, changeFrequency: 'weekly' },

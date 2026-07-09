@@ -1,5 +1,17 @@
 import Link from 'next/link';
-import { Accessibility, Award, BookOpen, Calendar, ClipboardCheck, Clock, Euro, Mail, Phone, Target, Users } from 'lucide-react';
+import {
+  Accessibility,
+  Award,
+  BookOpen,
+  Calendar,
+  ClipboardCheck,
+  Clock,
+  Euro,
+  Mail,
+  Phone,
+  Target,
+  Users,
+} from 'lucide-react';
 import { QUALIOPI_FICHE_META } from '@/config/qualiopi';
 import {
   QUALIOPI_CONTACTS,
@@ -8,7 +20,9 @@ import {
   getInfosQualiopiForCatalogue,
   type InfosQualiopiProps,
 } from '@/lib/qualiopi-info';
+import { assertInfosReglementairesCompletes } from '@/lib/assert-infos-reglementaires';
 import { LINKS } from '@/lib/internal-links';
+import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
 
 function asList(items: string | readonly string[]): readonly string[] {
   return typeof items === 'string' ? [items] : items;
@@ -32,24 +46,18 @@ function QualiopiItem({ icon: Icon, title, children }: ItemProps) {
   );
 }
 
-export function InfosQualiopi({
-  formationTitle,
-  prerequis,
-  objectifs,
-  duree,
-  dureeJours,
-  modalitesAcces,
-  tarifInter,
-  tarifIntra,
-  methodes,
-  evaluation,
-  handicap,
-  lastUpdated,
-  version = QUALIOPI_FICHE_META.version,
-  programmeRef,
-}: InfosQualiopiProps) {
-  const methodesList = methodes ?? [];
-  const evaluationList = evaluation ?? [];
+/**
+ * Bloc Qualiopi indicateur 1 — 9 sections obligatoires.
+ * Throw au build / SSR si une section manque (via assertInfosReglementairesCompletes).
+ */
+export function InformationsReglementaires(props: InfosQualiopiProps) {
+  const validated = assertInfosReglementairesCompletes(props);
+  const {
+    dureeJours,
+    version = QUALIOPI_FICHE_META.version,
+  } = props;
+  const methodesList = asList(validated.methodes);
+  const evaluationList = asList(validated.evaluation);
 
   return (
     <section
@@ -63,20 +71,18 @@ export function InfosQualiopi({
             Indicateur 1 Qualiopi — information du public
           </p>
           <h2 id="infos-qualiopi-heading" className="mt-2 font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Informations réglementaires — {formationTitle}
+            Informations réglementaires — {validated.formationTitle}
           </h2>
-          {programmeRef ? (
-            <p className="mt-2 text-sm text-slate-500">Référence programme : {programmeRef}</p>
-          ) : null}
-          {lastUpdated ? (
-            <p className="mt-1 text-sm font-medium text-slate-600">Dernière mise à jour du programme : {lastUpdated}</p>
-          ) : null}
+          <p className="mt-2 text-sm text-slate-500">Référence programme : {validated.programmeRef}</p>
+          <p className="mt-1 text-sm font-medium text-slate-600">
+            Dernière mise à jour du programme : {validated.lastUpdated}
+          </p>
         </header>
 
         <div className="grid gap-4 md:grid-cols-2">
           <QualiopiItem icon={Users} title="1. Prérequis">
             <ul className="list-disc space-y-1.5 pl-4">
-              {asList(prerequis).map((line) => (
+              {asList(validated.prerequis).map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>
@@ -85,7 +91,7 @@ export function InfosQualiopi({
           <QualiopiItem icon={Target} title="2. Objectifs de la formation">
             <p className="mb-2 text-slate-600">Objectifs opérationnels et évaluables :</p>
             <ul className="list-disc space-y-1.5 pl-4">
-              {objectifs.map((obj) => (
+              {validated.objectifs.map((obj) => (
                 <li key={obj}>{obj}</li>
               ))}
             </ul>
@@ -93,13 +99,13 @@ export function InfosQualiopi({
 
           <QualiopiItem icon={Clock} title="3. Durée">
             <p>
-              <strong>{duree}</strong>
+              <strong>{validated.duree}</strong>
               {dureeJours ? ` — ${dureeJours}` : null}
             </p>
           </QualiopiItem>
 
           <QualiopiItem icon={Calendar} title="4. Modalités et délais d'accès">
-            <p>{modalitesAcces}</p>
+            <p>{validated.modalitesAcces}</p>
             <p className="mt-2">
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
                 Prendre rendez-vous
@@ -114,10 +120,10 @@ export function InfosQualiopi({
 
           <QualiopiItem icon={Euro} title="5. Tarifs (HT)">
             <p>
-              <strong>Inter-entreprise :</strong> {tarifInter}
+              <strong>Inter-entreprise :</strong> {validated.tarifInter}
             </p>
             <p className="mt-2">
-              <strong>Intra-entreprise :</strong> {tarifIntra}
+              <strong>Intra-entreprise :</strong> {validated.tarifIntra}
             </p>
             <p className="mt-2 text-slate-600">
               TVA non applicable, art. 261-4-4° du CGI (formation professionnelle). Financement OPCO Constructys
@@ -146,7 +152,23 @@ export function InfosQualiopi({
           </QualiopiItem>
 
           <QualiopiItem icon={Accessibility} title="8. Accessibilité handicap">
-            <p>{handicap}</p>
+            <p>{validated.handicap}</p>
+            <p className="mt-3 text-slate-600">
+              Référente handicap : {QUALIOPI_REFERENT_HANDICAP.nom} —{' '}
+              <a
+                href={`mailto:${QUALIOPI_REFERENT_HANDICAP.email}`}
+                className="font-medium text-[#377CF3] hover:underline"
+              >
+                {QUALIOPI_REFERENT_HANDICAP.email}
+              </a>{' '}
+              ·{' '}
+              <a
+                href={`tel:${QUALIOPI_REFERENT_HANDICAP.telephoneTel}`}
+                className="font-medium text-[#377CF3] hover:underline"
+              >
+                {QUALIOPI_REFERENT_HANDICAP.telephone}
+              </a>
+            </p>
             <p className="mt-3">
               <Link href={LINKS.annuaireHandicap} className="font-medium text-[#377CF3] hover:underline">
                 Consulter notre annuaire des partenaires handicap
@@ -180,20 +202,25 @@ export function InfosQualiopi({
           </QualiopiItem>
         </div>
 
-        {lastUpdated ? (
-          <p className="mt-8 text-center text-xs text-slate-500">
-            Fiche formation mise à jour le {lastUpdated} — {version}
-          </p>
-        ) : null}
+        <p className="mt-8 text-center text-xs text-slate-500">
+          Fiche formation mise à jour le {validated.lastUpdated} — {version}
+        </p>
+
+        <FormationPartenairesMention className="!max-w-none !px-0 !pb-0 !pt-6" />
       </div>
     </section>
   );
 }
 
+/** Alias historique — même composant (9 sections + garde build). */
+export function InfosQualiopi(props: InfosQualiopiProps) {
+  return <InformationsReglementaires {...props} />;
+}
+
 export function CatalogueInfosQualiopi({ programmeRef }: { programmeRef: string }) {
-  return <InfosQualiopi {...getInfosQualiopiForCatalogue(programmeRef)} />;
+  return <InformationsReglementaires {...getInfosQualiopiForCatalogue(programmeRef)} />;
 }
 
 export function InfosQualiopiLanding({ formationTitle }: { formationTitle: string }) {
-  return <InfosQualiopi {...buildLandingInfosQualiopiProps(formationTitle)} />;
+  return <InformationsReglementaires {...buildLandingInfosQualiopiProps(formationTitle)} />;
 }

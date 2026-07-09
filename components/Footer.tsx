@@ -7,6 +7,7 @@ import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
+import { SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
 import { FOOTER_GEO_LINKS, FOOTER_METIER_LINKS } from '@/lib/contextual-internal-links';
 import { FooterExploreStrip } from '@/components/layout/FooterExploreStrip';
@@ -18,6 +19,7 @@ import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 export function Footer() {
   const companyLinks = [
     { href: LINKS.aPropos, label: 'À propos' as const, external: false as const },
+    { href: LINKS.partenaires, label: 'Partenaires' as const, external: false as const },
     {
       href: LINKS.bework,
       label: 'BeWork — assistant travaux BTP' as const,
@@ -106,7 +108,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <img
                 src="/logo-lo.svg"
-                alt="Laure Olivié — formation IA pour les pros du BTP, organisme certifié Qualiopi"
+                alt={SITE_LOGO_ALT}
                 title="Retour à l’accueil — laureolivie.fr"
                 className="h-10 w-auto"
                 fetchPriority="high"

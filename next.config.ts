@@ -190,7 +190,7 @@ const nextConfig: NextConfig = {
       { source: '/cours', destination: '/formations', permanent: true },
       {
         source: '/clients-partenaires',
-        destination: '/a-propos',
+        destination: '/partenaires',
         permanent: true,
       },
       { source: '/tarifs', destination: '/financement-constructys-formation-ia-btp', permanent: true },
@@ -201,12 +201,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/formation-ia-btp-paris-2026',
-        destination: '/formation-ia-btp-paris-75',
+        destination: '/formation-ia-btp-paris',
         permanent: true,
       },
       {
-        source: '/formation-ia-btp-paris',
-        destination: '/formation-ia-btp-paris-75',
+        source: '/formation-ia-btp-paris-75',
+        destination: '/formation-ia-btp-paris',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-btp-paris',
+        destination: '/formation-ia-btp-paris',
         permanent: true,
       },
       { source: '/merci-devis', destination: '/contact', permanent: true },
@@ -415,7 +420,7 @@ const nextConfig: NextConfig = {
 
       // Anciennes URLs villes hub /formation-ia/btp-[ville] → fiche catalogue /formations/ia-btp-[ville]
       // (308 permanent). Uniquement les villes dont la page cible existe réellement.
-      { source: '/formation-ia/btp-paris', destination: '/formation-ia-btp-paris-75', permanent: true },
+      { source: '/formation-ia/btp-paris', destination: '/formation-ia-btp-paris', permanent: true },
       {
         source: '/formation-ia/btp-saint-quentin-en-yvelines',
         destination: '/formations/ia-btp-saint-quentin-en-yvelines',
@@ -671,6 +676,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/laure-avatar-bleu-2026.png',
+        destination: '/images/laure-avatar-bleu-2026.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-portrait-header-2026.png',
         destination: '/images/laure-avatar-bleu-2026.webp',
         permanent: true,
       },

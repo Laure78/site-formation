@@ -39,8 +39,7 @@ function geoMetaDescription(departement: string, code: string, villes: readonly 
 
 export function geoFormationMetadata(props: GeoFormationPageProps) {
   const { departement, code, villes, slug, seo } = props;
-  const title =
-    seo?.title ?? `${buildIdfDeptPageTitle(departement, code)} — Qualiopi`;
+  const title = seo?.title ?? buildIdfDeptPageTitle(departement, code);
   const description =
     seo?.description ?? geoMetaDescription(departement, code, villes);
 
