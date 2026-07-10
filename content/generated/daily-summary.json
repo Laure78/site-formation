@@ -1,17 +1,9 @@
 {
-  "date": "2026-07-09",
+  "date": "2026-07-10",
   "articles": [
     {
-      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
-      "title": "ChatGPT pour PME BTP : erreurs à éviter"
-    },
-    {
-      "slug": "devis-en-15-min-le-guide-peintre",
-      "title": "Devis en 15 min : le guide peintre"
-    },
-    {
-      "slug": "l-ia-va-t-elle-remplacer-les-charpentiers",
-      "title": "L'IA va-t-elle remplacer les charpentiers ?"
+      "slug": "l-ia-va-t-elle-remplacer-les-peintres",
+      "title": "L'IA va-t-elle remplacer les peintres ?"
     },
     {
       "slug": "automatiser-vos-emails-clients-avec-l-ia",
@@ -26,12 +18,12 @@
       "title": "Recrutement BTP : l'IA pour attirer les talents"
     },
     {
-      "slug": "comment-utiliser-chatgpt-pour-vos-devis-plombier",
-      "title": "Comment utiliser ChatGPT pour vos devis plombier"
+      "slug": "comment-utiliser-chatgpt-pour-vos-devis-chauffagiste",
+      "title": "Comment utiliser ChatGPT pour vos devis chauffagiste"
     },
     {
-      "slug": "ia-et-electricien-5-gains-de-temps-concrets",
-      "title": "IA et électricien : 5 gains de temps concrets"
+      "slug": "ia-et-plombier-5-gains-de-temps-concrets",
+      "title": "IA et plombier : 5 gains de temps concrets"
     },
     {
       "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
@@ -40,6 +32,14 @@
     {
       "slug": "financement-constructys-mode-d-emploi",
       "title": "Financement Constructys : mode d'emploi"
+    },
+    {
+      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
+      "title": "ChatGPT pour PME BTP : erreurs à éviter"
+    },
+    {
+      "slug": "devis-en-15-min-le-guide-peintre",
+      "title": "Devis en 15 min : le guide peintre"
     }
   ],
   "linkedinCount": 10
