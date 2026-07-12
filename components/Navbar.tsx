@@ -281,6 +281,36 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
           </Link>
         </div>
         <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
+          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Blog
+          </p>
+          <ul className="space-y-0.5 pb-2">
+            <li>
+              <Link
+                href={LINKS.blog}
+                className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
+                  isActive(LINKS.blog, pathname)
+                    ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                    : 'text-slate-800 hover:bg-slate-50'
+                }`}
+              >
+                <BookOpen
+                  size={20}
+                  strokeWidth={1.75}
+                  className={`mt-0.5 shrink-0 ${
+                    isActive(LINKS.blog, pathname) ? 'text-[var(--accent)]' : 'text-slate-400'
+                  }`}
+                  aria-hidden
+                />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[0.9375rem] leading-snug">Blog IA &amp; ChatGPT BTP</span>
+                  <span className="mt-1 block text-xs text-slate-500">
+                    Guides, prompts et cas d&apos;usage pour les pros du bâtiment
+                  </span>
+                </span>
+              </Link>
+            </li>
+          </ul>
           <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
             Tutos par thème
           </p>
@@ -433,9 +463,11 @@ export function Navbar() {
   }, []);
 
   const homeActive = pathname === '/';
-  const blogActive = pathname === LINKS.blog || pathname.startsWith(`${LINKS.blog}/`);
   const resourcesNavActive =
-    pathname.startsWith('/ressources') || pathname === LINKS.claudeAiBtp;
+    pathname.startsWith('/ressources') ||
+    pathname === LINKS.claudeAiBtp ||
+    pathname === LINKS.blog ||
+    pathname.startsWith(`${LINKS.blog}/`);
   const aProposActive = pathname.startsWith('/a-propos');
   const partenairesActive = pathname.startsWith('/partenaires');
   const financementActive =
@@ -591,24 +623,6 @@ export function Navbar() {
               </button>
               {openResources && <ResourcesDropdownPanel pathname={pathname} />}
             </div>
-
-            <Link
-              href={LINKS.blog}
-              aria-current={blogActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
-                blogActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <BookOpen
-                size={16}
-                strokeWidth={1.75}
-                className="hidden shrink-0 text-slate-500 2xl:block"
-                aria-hidden
-              />
-              Blog
-            </Link>
 
             <Link
               href={LINKS.partenaires}
@@ -871,6 +885,26 @@ export function Navbar() {
                     Voir toutes les ressources
                     <ArrowRight size={14} />
                   </Link>
+                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Blog
+                  </p>
+                  <Link
+                    href={LINKS.blog}
+                    onClick={() => setMobileOpen(false)}
+                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
+                      isActive(LINKS.blog, pathname)
+                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
+                        : 'text-slate-800'
+                    }`}
+                  >
+                    <BookOpen size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
+                    <span>
+                      <span className="block text-[0.9375rem]">Blog IA &amp; ChatGPT BTP</span>
+                      <span className="mt-0.5 block text-xs text-slate-500">
+                        Guides, prompts et cas d&apos;usage pour les pros du bâtiment
+                      </span>
+                    </span>
+                  </Link>
                   <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
                     Tutos par thème
                   </p>
@@ -926,24 +960,6 @@ export function Navbar() {
                   ))}
                 </div>
               )}
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <Link
-                href={LINKS.blog}
-                aria-current={blogActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  blogActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <BookOpen
-                  size={18}
-                  strokeWidth={1.75}
-                  className={blogActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                Blog
-              </Link>
             </div>
 
             <div className="border-b border-slate-100 py-1">
