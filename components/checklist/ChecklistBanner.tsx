@@ -1,28 +1,30 @@
 'use client';
 
 import Link from 'next/link';
-import { Download, Check } from 'lucide-react';
+import { Download } from 'lucide-react';
+import { LINKS } from '@/lib/internal-links';
 
+/** Bandeau CTA vers la checklist — charte OFC (#377CF3). */
 export function ChecklistBanner() {
   return (
-    <div className="rounded-2xl border-2 border-[#166534] bg-[#166534]/5 p-6">
+    <div className="rounded-2xl border border-[#BFDBFE] bg-[#EFF6FF] p-6">
       <h3 className="font-display text-lg font-bold text-slate-900">
-        Checklist gratuite : 10 Prompts ChatGPT pour le BTP
+        Checklist gratuite : 10 prompts ChatGPT pour le BTP
       </h3>
       <p className="mt-2 text-sm text-slate-600">
-        Rédigez des emails en 30 s, répondez aux avis Google, créez des devis plus vite…
+        Rédigez des emails en 30 s, répondez aux avis Google, structurez un devis plus vite…
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <Link
-          href="/checklist-ia-btp"
-          className="inline-flex items-center gap-2 rounded-xl bg-[#166534] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#14502a]"
+          href={LINKS.checklist}
+          className="inline-flex items-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3 font-semibold text-white transition-colors hover:bg-[#2d66d6]"
         >
-          <Download size={18} strokeWidth={1.5} />
+          <Download size={18} strokeWidth={1.5} aria-hidden />
           Télécharger la checklist gratuite
         </Link>
         <Link
-          href="/formations"
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-[#166534] px-6 py-3 font-semibold text-[#166534] transition-colors hover:bg-[#166534]/5"
+          href={LINKS.formations}
+          className="inline-flex items-center gap-2 rounded-xl border-2 border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] transition-colors hover:bg-white"
         >
           Découvrir nos formations IA pour les pros du BTP
         </Link>

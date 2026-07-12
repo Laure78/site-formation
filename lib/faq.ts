@@ -732,16 +732,24 @@ export const FAQ_FORMATION_VILLE: FAQItem[] = [
 /** FAQ Checklist IA BTP */
 export const FAQ_CHECKLIST_IA_BTP: FAQItem[] = [
   {
-    q: "Comment utiliser les prompts de la checklist ?",
-    a: 'Copiez chaque prompt dans ChatGPT, remplacez les parties entre crochets par vos informations (métier, client, contexte). Les prompts sont prêts à l\'emploi pour devis, emails, CR chantier — prolongez avec une <a href="/formations">formation IA appliquée au bâtiment</a> (Qualiopi).',
+    q: 'À quoi sert la checklist 10 prompts ChatGPT BTP ?',
+    a: `C’est une ressource gratuite pour accélérer devis, emails clients, comptes rendus de chantier, avis Google et publications LinkedIn. Chaque prompt est une trame métier à coller dans ChatGPT — complémentaire d’une <a href="${LINKS.formations}">formation IA pour le BTP</a> Qualiopi.`,
   },
   {
-    q: "La formation IA pour le BTP est-elle finançable ?",
-    a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Formation Qualiopi, devis personnalisé sous 24h — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.',
+    q: 'Comment utiliser les prompts de la checklist ?',
+    a: `Copiez chaque prompt dans ChatGPT (ou Claude), remplacez les parties entre crochets par vos informations (métier, client, contexte chantier). Relisez toujours les sorties avant envoi client — prolongez avec une <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation IA appliquée au bâtiment</a>.`,
   },
   {
-    q: "Puis-je personnaliser ces prompts ?",
-    a: 'Oui. Les prompts sont des trames à adapter à votre métier (plombier, électricien, maçon...). La formation vous apprend à créer vos propres prompts — voir <a href="/formation-ia-artisans-btp">ChatGPT pour entreprises BTP</a>.',
+    q: 'Ces prompts fonctionnent-ils avec Claude, Gemini ou Mistral ?',
+    a: `Oui. La structure (rôle, contexte BTP, format attendu) fonctionne sur la plupart des assistants génératifs. Pour Claude en contexte appels d’offres, voir aussi la <a href="${LINKS.formationClaudeAiBtp}">formation Claude IA BTP</a>.`,
+  },
+  {
+    q: 'Puis-je personnaliser ces prompts pour mon métier ?',
+    a: `Oui. Les prompts sont des trames à adapter (plombier, électricien, maçon, conducteur de travaux…). Une session pédagogique vous apprend à créer vos propres prompts — voir <a href="${LINKS.chatgptArtisans}">ChatGPT pour entreprises BTP</a>.`,
+  },
+  {
+    q: 'La formation IA pour le BTP est-elle finançable ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Formation Qualiopi, devis personnalisé sous 24h — <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
   },
 ];
 
