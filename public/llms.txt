@@ -27,6 +27,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Public : professionnels du BTP — conducteurs de travaux, chargés d'affaires, dirigeants de PME du bâtiment et des travaux publics, maîtres d'œuvre
 
 ## Guides gratuits
+- /checklist-ia-btp — Checklist gratuite : 10 prompts ChatGPT pour le BTP (devis, emails, CR chantier)
 - /ressources/guide-maitrise-oeuvre-ia — Guide « Maître d'Œuvre × IA » (12 missions MOE, PDF gratuit)
 - /ressources/guide-conducteur-de-travaux — Guide conducteur de travaux (6 tutos Claude BTP, PDF gratuit)
 - /ressources — Hub tutos PDF, guides et fiches pratiques IA BTP

@@ -61,7 +61,7 @@ export async function submitLeadChecklistAction(
         <p>Bonjour${data.nom.trim() ? ` ${data.nom.split(' ')[0]}` : ''},</p>
         <p>Voici la checklist :</p>
         <p><strong>10 Prompts ChatGPT pour les entreprises du BTP</strong></p>
-        <p><a href="${docLink}" style="display:inline-block;background:#166534;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Télécharger ici</a></p>
+        <p><a href="${docLink}" style="display:inline-block;background:#377CF3;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">Télécharger ici</a></p>
         <p>Bonne découverte.</p>
         <p>Laure Olivie<br/>
         Formatrice en IA pour les entreprises du BTP</p>
