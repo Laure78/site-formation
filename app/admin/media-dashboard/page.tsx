@@ -51,7 +51,7 @@ export default async function MediaDashboardPage() {
   return (
     <div className="p-4 md:p-8">
       <h1 className="font-display text-2xl font-bold text-slate-900">
-        Media Machine — SEO
+        Article de blog automatisé
       </h1>
       <p className="mt-1 text-slate-600">
         Suivi des articles, mots-clés et maillage interne

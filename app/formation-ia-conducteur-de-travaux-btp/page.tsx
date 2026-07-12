@@ -10,6 +10,8 @@ import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { CONDUCTEUR_TRAVAUX_RELATED } from '@/lib/contextual-internal-links';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
   formatTarifHt,
@@ -371,6 +373,13 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           subtitle="Catalogue, ressources gratuites et articles pour conducteurs de travaux BTP."
           links={CONDUCTEUR_TRAVAUX_RELATED}
           tone="muted"
+        />
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
+            excludeHrefs: CONDUCTEUR_TRAVAUX_RELATED.map((l) => l.href),
+          })}
         />
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">

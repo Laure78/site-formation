@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
+import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';
 import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
 import { RelatedArticles } from '@/components/blog/RelatedArticles';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
@@ -31,17 +31,20 @@ export async function BlogMdxArticle({ slug }: Props) {
 
   return (
     <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
-      <ArticleJsonLd
-        id="schema-blog-mdx-article"
-        title={frontmatter.title}
-        headline={frontmatter.seoTitle ?? frontmatter.title}
-        description={frontmatter.description}
+      <BlogArticleSchemas
         slug={slug}
-        datePublished={frontmatter.publishedAt}
-        dateModified={frontmatter.updatedAt ?? frontmatter.publishedAt}
-        imageUrl={schemaImage}
-        keywords={frontmatter.keywords}
-        wordCount={wordCount}
+        article={{
+          id: 'schema-blog-mdx-article',
+          title: frontmatter.title,
+          headline: frontmatter.seoTitle ?? frontmatter.title,
+          description: frontmatter.description,
+          slug,
+          datePublished: frontmatter.publishedAt,
+          dateModified: frontmatter.updatedAt ?? frontmatter.publishedAt,
+          imageUrl: schemaImage,
+          keywords: frontmatter.keywords,
+          wordCount,
+        }}
       />
       <div
         className={

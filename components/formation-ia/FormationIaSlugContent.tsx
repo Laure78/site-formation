@@ -10,6 +10,7 @@ import {
 } from '@/lib/seo-formation-ia-hub-links';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
 
 function hashSlug(s: string): number {
   let h = 0;
@@ -196,8 +197,8 @@ export function FormationIaMetierBody({
       </p>
       <ul>
         {villes.map((v) => (
-          <li key={v.slug}>
-            <Link href={`/formation-ia/${v.slug}`} className="text-[#377CF3] underline-offset-2 hover:underline">
+          <li key={v.href}>
+            <Link href={v.href} className="text-[#377CF3] underline-offset-2 hover:underline">
               Formation IA pour le BTP {v.label} ({v.deptName})
             </Link>
           </li>
@@ -206,11 +207,11 @@ export function FormationIaMetierBody({
       {sistersByDept.length > 0 && (
         <>
           <p className="text-sm text-slate-600">
-            Villes voisines (même département) :{' '}
+            Zones voisines (même département) :{' '}
             {sistersByDept.map((v, i) => (
-              <span key={v.slug}>
+              <span key={v.href}>
                 {i > 0 ? ' · ' : ''}
-                <Link href={`/formation-ia/${v.slug}`} className="text-[#377CF3] hover:underline">
+                <Link href={v.href} className="text-[#377CF3] hover:underline">
                   {v.label}
                 </Link>
               </span>
@@ -312,18 +313,18 @@ export function FormationIaVilleBody({
         large vers tous les lots :
       </p>
       <p>
-        <Link href="/formation-ia/btp-paris" className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
+        <Link href={LINKS.formationIaBtpParis} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
           Formation IA pour le BTP Paris — ChatGPT & Claude AI
         </Link>
       </p>
 
       {sisters.length > 0 ? (
         <>
-          <h3 className="text-lg font-semibold text-slate-800">Autres villes du {ville.deptName}</h3>
+          <h3 className="text-lg font-semibold text-slate-800">Autres zones du {ville.deptName}</h3>
           <ul>
             {sisters.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/formation-ia/${s.slug}`} className="text-[#377CF3] hover:underline">
+              <li key={s.href}>
+                <Link href={s.href} className="text-[#377CF3] hover:underline">
                   Formation IA pour les pros du BTP {s.label}
                 </Link>
               </li>

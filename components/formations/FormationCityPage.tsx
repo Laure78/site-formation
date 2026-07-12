@@ -6,12 +6,14 @@ import { Check, Calendar } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SITE_CONFIG } from '@/lib/seo';
 import { FooterTelOrMailLink, PublicPhoneCta } from '@/components/PublicPhoneCta';
 import type { CityFormationConfig } from '@/lib/formation-cities';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
+import { voirAussiVilleProps } from '@/lib/voir-aussi';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
@@ -52,6 +54,12 @@ export function FormationCityPage({
     `Présentiel ${regionLabel} — intra ou inter selon convention.`,
     'Financement Constructys selon éligibilité.',
   ];
+  const voirAussiDept =
+    path.includes('morangis') || path.includes('longjumeau')
+      ? ('essonne' as const)
+      : path.includes('saint-quentin')
+        ? ('yvelines' as const)
+        : ('yvelines' as const);
   return (
     <div>
       <script
@@ -319,6 +327,18 @@ export function FormationCityPage({
             </li>
           </ul>
           <div className="mt-8">
+            <VoirAussi
+              {...voirAussiVilleProps(voirAussiDept, {
+                currentPath: path,
+                excludeHrefs: [
+                  LINKS.formations,
+                  LINKS.formationParis,
+                  LINKS.blog,
+                  LINKS.contact,
+                  '/formations',
+                ],
+              })}
+            />
             <AllerPlusLoin
               links={[
                 { href: '/formations', label: 'Formation IA pour les pros du BTP' },

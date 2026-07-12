@@ -1,6 +1,9 @@
 # Créer toutes les formations dans l'admin
 
-Ce guide permet de pré-remplir la plateforme avec les 7 formations IA BTP (objectifs, prérequis, programme, modules).
+> **Mise à jour 2026** : utilisez plutôt  
+> **`supabase/seed_catalogue_formations_lms.sql`**  
+> (6 parcours catalogue NIV-01 → NIV-06 + PDF programmes).  
+> Guide : [`SEED-CATALOGUE-FORMATIONS-LMS.md`](./SEED-CATALOGUE-FORMATIONS-LMS.md).
 
 ## Prérequis
 

@@ -3,6 +3,8 @@ import { ArrowRight, Check } from 'lucide-react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { getMetierLandingCoreLinks } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -243,6 +245,17 @@ export function FormationMetierB1Page({
           links={getMetierLandingCoreLinks({ csfePartnership: false })}
           tone="muted"
           className="mt-14"
+        />
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: path,
+            excludeHrefs: [
+              ...getMetierLandingCoreLinks({ csfePartnership: false }).map((l) => l.href),
+              LINKS.formations,
+              LINKS.financement,
+            ],
+          })}
         />
 
         <AllerPlusLoin

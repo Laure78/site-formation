@@ -7,8 +7,9 @@ permissions:
   contents: write
 
 on:
-  schedule:
-    - cron: '0 4 * * *'
+  # Cron suspendu pendant nettoyage blog (B2) — réactiver après B5
+  # schedule:
+  #   - cron: '0 4 * * *'
   workflow_dispatch:
 
 jobs:

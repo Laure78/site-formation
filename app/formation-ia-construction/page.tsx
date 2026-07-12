@@ -359,8 +359,8 @@ export default function FormationIaConstructionPage() {
           <h2 className="font-display text-xl font-bold text-slate-900">Formations complémentaires</h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-slate-700">
             <li>
-              <Link href={LINKS.formationIaBtp} className="text-[#377CF3] hover:underline">
-                Formation IA pour les pros du BTP — pilier bâtiment &amp; travaux publics
+              <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
+                Catalogue des formations IA pour le BTP
               </Link>
             </li>
             <li>

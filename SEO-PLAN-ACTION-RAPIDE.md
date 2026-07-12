@@ -95,7 +95,7 @@ Fichiers à modifier :
 2. `app/formations/ia-rh-btp/page.tsx`
 3. `app/formations/ia-travaux-publics/page.tsx`
 4. `app/formations/ia-productivite-chantier/page.tsx`
-5. `app/formations/ia-btp-paris/page.tsx`
+5. `app/formation-ia-btp-paris/page.tsx`
 6. `app/formations/ia-btp-lyon/page.tsx`
 7. `app/formations/ia-btp-bordeaux/page.tsx`
 8. `app/formations/ia-btp-lille/page.tsx`

@@ -8,6 +8,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
 import type { TutoBlock, TutoData, TutoStep } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
 
@@ -446,7 +447,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
                 value={formatProfessionalsTrainedCount()}
                 label="Personnes formées"
               />
-              <CtaStat value="100%" label="Finançable OPCO" />
+              <CtaStat value={FINANCEMENT_STAT_VAL} label={FINANCEMENT_STAT_LABEL} />
             </div>
           </div>
 

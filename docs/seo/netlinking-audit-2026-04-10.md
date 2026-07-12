@@ -10,7 +10,7 @@
 | Problème | Action |
 |----------|--------|
 | `/financement-constructys` dans **40 fichiers** `content/generated/*.json` | Remplacé par `/financement-constructys-formation-ia-btp` (cohérent avec la redirect Next.js existante). |
-| `/formation-ia-btp-paris-2026` utilisée en liens internes | Remplacée par **`/formations/ia-btp-paris`** (canonique SEO). Redirect **301** ajoutée dans `next.config.ts` : `/formation-ia-btp-paris-2026` → `/formations/ia-btp-paris`. La page source peut rester pour les URLs déjà indexées ; le flux de PageRank suit la redirect. |
+| `/formation-ia-btp-paris-2026` utilisée en liens internes | Remplacée par **`/formation-ia-btp-paris`** (canonique SEO). Redirect **301** ajoutée dans `next.config.ts` : `/formation-ia-btp-paris-2026` → `/formation-ia-btp-paris`. La page source peut rester pour les URLs déjà indexées ; le flux de PageRank suit la redirect. |
 | Doublons **même URL** sur une même page | Réductions ciblées (voir §3). |
 
 **Note :** `/tarifs` et `/financement-constructys` sans suffixe étaient déjà redirigés côté `next.config.ts` ; les liens internes ne doivent plus les citer.
@@ -38,7 +38,7 @@ Les URL les plus récurrentes dans les composants transverses (footer, blog, `Al
 2. `/financement-constructys-formation-ia-btp`
 3. `/formation-ia-artisans-btp`
 4. `/blog`
-5. `/formations/ia-btp-paris` (après canonisation)
+5. `/formation-ia-btp-paris` (canonique géo Paris)
 6. `/prendre-rdv` / Calendly (CTA)
 
 ## 6. Pages « orphelines » ou peu linkées

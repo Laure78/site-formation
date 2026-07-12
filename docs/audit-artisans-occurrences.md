@@ -32,7 +32,7 @@ Total occurrences restantes: 212
 | `app/formation-ia-artisans-btp/page.tsx` | 120 | <JsonLd id="schema-service-artisans-btp" schema={serviceJsonLd} /> | Ne pas toucher (URL/slug/identifiant technique) |
 | `app/formation-ia-btp-paris-2026/page.tsx` | 180 | <Link href="/formation-ia-artisans-btp" className="font-medium text-[var(--accent)] hover:underline"> | Ne pas toucher (URL/slug/identifiant technique) |
 | `app/formation-ia-conducteur-travaux/page.tsx` | 706 | <Link href="/blog/5-cas-usage-chatgpt-artisans-btp" className="text-[#377CF3] underline"> | Ne pas toucher (URL/slug/identifiant technique) |
-| `app/formations/ia-btp-paris/page.tsx` | 255 | { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' }, | Ne pas toucher (URL/slug/identifiant technique) |
+| `app/formation-ia-btp-paris/page.tsx` | 255 | { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' }, | Ne pas toucher (URL/slug/identifiant technique) |
 | `app/formations/ia-pme-btp/page.tsx` | 196 | { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' }, | Ne pas toucher (URL/slug/identifiant technique) |
 | `app/formations/ia-rh-btp/page.tsx` | 306 | href="https://fr.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement" | Ne pas toucher (URL/slug/identifiant technique) |
 | `app/formations/ia-rh-btp/page.tsx` | 311 | L&apos;IA pour les artisans et TPE : Recruter sa main-d&apos;œuvre efficacement | Ne pas toucher (titre officiel LinkedIn Learning) |

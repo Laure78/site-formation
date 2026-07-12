@@ -84,9 +84,8 @@ export default function AProposPage() {
   const faqItems = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
   const allerPlusLoinLinks = [
-    { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
+    { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
     { href: LINKS.bework, label: 'BeWork — relais administratif BTP' },
-    { href: LINKS.formationIaBtp, label: 'Formation IA pour le BTP — page pilier' },
     { href: LINKS.blog, label: 'Blog IA & ChatGPT BTP' },
     { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
     { href: LINKS.financement, label: 'Financement Constructys' },
@@ -117,7 +116,7 @@ export default function AProposPage() {
           label: 'Prendre RDV',
           external: false,
         }}
-        secondaryCta={{ href: LINKS.formations, label: 'Voir le catalogue →', external: false }}
+        secondaryCta={{ href: LINKS.formationIleDeFrance, label: 'Formation IA en Île-de-France →', external: false }}
         credibilityLine={
           <>
             <span className="inline-flex items-center gap-1.5 font-semibold text-[#0F172A]">

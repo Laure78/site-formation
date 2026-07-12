@@ -62,12 +62,12 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     priority: number;
     changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
   }[] = [
+    // N'inclure QUE des URLs canoniques répondant en 200. Jamais d'URL redirigée (3xx) ni de fichier statique (.txt/.pdf).
     { path: LINKS.partenaires, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.bework, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.beworkPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.videoFormationsIaBtp, priority: 0.88, changeFrequency: 'monthly' },
-    { path: '/llms.txt', priority: 0.6, changeFrequency: 'monthly' },
     { path: '/etudes-de-cas/ffb-csfe', priority: 0.82, changeFrequency: 'monthly' },
     { path: '/expert-ia-btp', priority: 0.85, changeFrequency: 'monthly' },
     { path: '/outils-ia-btp', priority: 0.9, changeFrequency: 'monthly' },
@@ -88,7 +88,6 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/guide-conducteur-de-travaux', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/ressources/guide-maitrise-oeuvre-ia', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/formation-ia-btp', priority: 0.98, changeFrequency: 'weekly' },
     { path: '/formation-ia-construction', priority: 0.92, changeFrequency: 'monthly' },
     { path: '/formations/ia-btp-saint-quentin-en-yvelines', priority: 0.88, changeFrequency: 'weekly' },
     { path: '/formations/ia-btp-morangis', priority: 0.88, changeFrequency: 'weekly' },
@@ -372,6 +371,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return merged.filter((e) => {
     const pathOnly = normUrl(e.url.replace(baseUrl, '') || '/');
-    return !GSC_EXCLUDED_SITEMAP_PATHS.has(pathOnly);
+    if (GSC_EXCLUDED_SITEMAP_PATHS.has(pathOnly)) return false;
+    // Fichiers statiques : jamais dans le sitemap HTML
+    if (/\.(txt|pdf)$/i.test(pathOnly)) return false;
+    return true;
   });
 }

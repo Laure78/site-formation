@@ -1,11 +1,13 @@
 import Link from 'next/link';
-import { FORMATION_IA_METIERS, FORMATION_IA_VILLES } from '@/lib/seo-formation-ia-hub-data';
+import { FORMATION_IA_METIERS } from '@/lib/seo-formation-ia-hub-data';
+import { FORMATION_IA_GEO_CANONICAL } from '@/lib/seo-formation-ia-hub-links';
 import { LINKS } from '@/lib/internal-links';
 
 type Props = { hubPath: '/formation-ia' };
 
-export function FormationIaHubContent({ hubPath }: Props) {
-  const paris = FORMATION_IA_VILLES.find((v) => v.slug === 'btp-paris');
+export function FormationIaHubContent({ hubPath: _hubPath }: Props) {
+  const paris = FORMATION_IA_GEO_CANONICAL.find((v) => v.id === 'paris');
+  const geoLinks = FORMATION_IA_GEO_CANONICAL.filter((v) => v.id !== 'idf');
 
   return (
     <div className="bg-white">
@@ -15,19 +17,19 @@ export function FormationIaHubContent({ hubPath }: Props) {
             Formation IA BTP — hub métiers & Île-de-France
           </h1>
           <p className="mt-4 text-lg text-slate-700">
-            <Link href={LINKS.formationIaBtp} className="font-semibold text-[#377CF3] hover:underline">
-              Page pilier : programme, financement, FAQ
+            <Link href={LINKS.formationIleDeFrance} className="font-semibold text-[#377CF3] hover:underline">
+              Vue régionale Île-de-France : programme, zones, financement
             </Link>
           </p>
           <p className="lead text-lg text-slate-700">
-            Pages par <strong>métier</strong> (ateliers ciblés) et par <strong>ville IDF</strong> (référencement
+            Pages par <strong>métier</strong> (ateliers ciblés) et par <strong>zone IDF</strong> (référencement
             local). ChatGPT et Claude AI pour rédiger et structurer — avec les bonnes pratiques BTP et Qualiopi.
           </p>
 
           {paris && (
             <p>
               <strong>Priorité locale : </strong>
-              <Link href={`/formation-ia/${paris.slug}`} className="font-semibold text-[#377CF3] hover:underline">
+              <Link href={paris.href} className="font-semibold text-[#377CF3] hover:underline">
                 Formation IA pour les pros du BTP à Paris — page renforcée
               </Link>
             </p>
@@ -44,11 +46,11 @@ export function FormationIaHubContent({ hubPath }: Props) {
             ))}
           </ul>
 
-          <h2 className="font-display text-xl font-semibold text-slate-900">Pages par ville (IDF)</h2>
+          <h2 className="font-display text-xl font-semibold text-slate-900">Pages par zone (IDF)</h2>
           <ul className="columns-1 gap-x-8 sm:columns-2">
-            {FORMATION_IA_VILLES.map((v) => (
-              <li key={v.slug} className="break-inside-avoid">
-                <Link href={`/formation-ia/${v.slug}`} className="text-[#377CF3] hover:underline">
+            {geoLinks.map((v) => (
+              <li key={v.href} className="break-inside-avoid">
+                <Link href={v.href} className="text-[#377CF3] hover:underline">
                   Formation IA appliquée au bâtiment {v.label} ({v.deptName})
                 </Link>
               </li>
@@ -61,15 +63,15 @@ export function FormationIaHubContent({ hubPath }: Props) {
               FAQ formation IA pour le BTP (longue traîne)
             </Link>
             {' · '}
-            <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] hover:underline">
+            <Link href={LINKS.financement} className="text-[#377CF3] hover:underline">
               Financement Constructys / OPCO
             </Link>
             {' · '}
-            <Link href="/contact" className="text-[#377CF3] hover:underline">
+            <Link href={LINKS.contact} className="text-[#377CF3] hover:underline">
               Contact
             </Link>
             {' · '}
-            <Link href="/formations" className="text-[#377CF3] hover:underline">
+            <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
               Catalogue formations
             </Link>
           </p>

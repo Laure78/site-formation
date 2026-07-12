@@ -6,6 +6,8 @@ import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import type { FormationIaMetierDynamicConfig } from '@/lib/formation-ia-metier-dynamic-types';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 
 function SectionCtaVisio({ className = '' }: { className?: string }) {
   return (
@@ -247,6 +249,10 @@ export function FormationIaMetierDynamicTemplate({
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-4xl px-4 pb-14">
+        <VoirAussi {...voirAussiMetierProps({ currentPath: config.path })} />
+      </div>
     </div>
   );
 }

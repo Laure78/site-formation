@@ -10,6 +10,7 @@ import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_PUBLIC_SITE_URL,
   SCHEMA_STATS,
@@ -556,6 +557,12 @@ function mergeBlogPostingKeywords(articleKeywords?: string[]): string[] {
   return out;
 }
 
+/** sameAs auteur articles blog — LinkedIn + LinkedIn Learning (E-E-A-T). */
+const BLOG_ARTICLE_AUTHOR_SAME_AS = [
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+] as const;
+
 /**
  * Schéma schema.org `Article` pour `/blog/[slug]` (rich results / GEO).
  * Dates en ISO 8601 ; image URL absolue.
@@ -592,11 +599,17 @@ export function buildBlogArticleJsonLd({
       '@type': 'Person',
       name: SITE_CONFIG.name,
       url: `${base}/a-propos`,
-      sameAs: SCHEMA_LINKEDIN_PROFILE_URL,
+      jobTitle: 'Formatrice IA pour le BTP',
+      worksFor: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.legalName,
+      },
+      sameAs: [...BLOG_ARTICLE_AUTHOR_SAME_AS],
     },
     publisher: {
       '@type': 'Organization',
       name: SITE_CONFIG.legalName,
+      url: base,
       logo: {
         '@type': 'ImageObject',
         url: `${base}/logo-lo.svg`,
@@ -606,8 +619,12 @@ export function buildBlogArticleJsonLd({
     dateModified: modIso,
     image: imageUrl,
     /** URL canonique de la page article (GEO / rich results). */
-    mainEntityOfPage: pageUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
     url: pageUrl,
+    inLanguage: 'fr',
   };
   if (wordCount != null && wordCount > 0) {
     schema.wordCount = wordCount;

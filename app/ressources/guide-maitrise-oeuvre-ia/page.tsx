@@ -19,6 +19,7 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { buildGuideMoeIaUnifiedGraphJsonLd } from '@/lib/schema-guide-moe-ia-jsonld';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { createPageMetadata } from '@/lib/seo';
 
 const CALENDLY_HERO = buildSiteCalendlyCtaUrl('ressources-guide-maitrise-oeuvre-ia-hero');
@@ -246,7 +247,7 @@ export default function GuideMaitriseOeuvreIaPage() {
           </div>
           <p className="mx-auto mt-10 max-w-2xl rounded-xl bg-[#377CF3] px-6 py-4 text-lg font-medium text-white">
             Plus de {formatProfessionalsTrainedCount(SOCIAL_PROOF.PROFESSIONALS_TRAINED)} professionnels formés ·{' '}
-            {SOCIAL_PROOF.AVERAGE_RATING} · 100&nbsp;% finançable OPCO
+            {SOCIAL_PROOF.AVERAGE_RATING} · {FINANCEMENT_FORMULATION_COURTE}
           </p>
         </div>
       </section>

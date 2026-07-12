@@ -15,7 +15,7 @@ const nav = [
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },
   { href: '/admin/progression', label: 'Progression', icon: TrendingUp },
   { href: '/admin/qualite', label: 'Qualiopi / Qualité', icon: ShieldCheck },
-  { href: '/admin/media-dashboard', label: 'Media Machine', icon: BarChart3 },
+  { href: '/admin/media-dashboard', label: 'Article de blog automatisé', icon: BarChart3 },
   { href: '/admin/agent', label: 'Agent Chat', icon: MessageCircle },
   { href: '/admin/parametres', label: 'Paramètres', icon: Settings },
 ];

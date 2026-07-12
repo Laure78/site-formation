@@ -1,7 +1,8 @@
 import { LINKS } from '@/lib/internal-links';
 import { FORMATION_IA_BTP_DEPT_LANDING_PATHS } from '@/lib/formation-ia-btp-departements-config';
 
-export const FORMATION_IA_BTP_PILLAR_PATH = '/formation-ia-btp' as const;
+/** Canonique catalogue (l’URL `/formation-ia-btp` redirige en 308). */
+export const FORMATION_IA_BTP_PILLAR_PATH = '/formations' as const;
 
 export const FORMATION_IA_BTP_PILLAR_TITLE =
   'Formation IA BTP — Qualiopi, Île-de-France | Laure Olivié';

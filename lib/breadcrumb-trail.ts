@@ -50,7 +50,6 @@ const RESSOURCES_TITLES: Record<string, string> = {
 
 const GEO_BTP_REGIONAL_TITLES: Record<string, string> = {
   '/formation-ia-btp-ile-de-france': 'Formation IA pour les pros du BTP Île-de-France',
-  '/formation-ia-btp': 'Formation IA pour les pros du BTP',
   '/formation-ia-btp-paris-2026': 'Formation IA pour les pros du BTP Paris 2026',
 };
 

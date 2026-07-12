@@ -32,8 +32,7 @@ import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ArticleAuthorBio } from '@/components/blog/ArticleAuthorBio';
-import { ArticleJsonLd } from '@/components/blog/ArticleJsonLd';
-import { BlogArticleFaqJsonLd } from '@/components/blog/BlogArticleFaqJsonLd';
+import { BlogArticleSchemas } from '@/components/blog/BlogArticleSchemas';
 import { Check, ExternalLink } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -162,12 +161,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogArticlePage({ params }: Props) {
   const { slug } = await params;
   if (hasMdxBlogFile(slug)) {
-    return (
-      <>
-        <BlogArticleFaqJsonLd slug={slug} />
-        <BlogMdxArticle slug={slug} />
-      </>
-    );
+    return <BlogMdxArticle slug={slug} />;
   }
   const article = getArticle(slug);
   if (!article) notFound();
@@ -195,21 +189,22 @@ export default async function BlogArticlePage({ params }: Props) {
 
   return (
     <div className={`mx-auto px-4 py-16 ${showSommaire ? 'max-w-6xl' : 'max-w-3xl'}`}>
-      <ArticleJsonLd
-        title={article.title}
-        headline={article.seoTitle ?? article.title}
-        description={article.description}
-        slug={article.slug}
-        datePublished={article.date}
-        dateModified={article.dateModified}
-        imageUrl={articleSchemaImage}
-        keywords={article.keywords}
-        wordCount={wordCount}
+      <BlogArticleSchemas
+        slug={slug}
+        legacyArticle={article}
+        howToSchema={howToSchema}
+        article={{
+          title: article.title,
+          headline: article.seoTitle ?? article.title,
+          description: article.description,
+          slug: article.slug,
+          datePublished: article.date,
+          dateModified: article.dateModified,
+          imageUrl: articleSchemaImage,
+          keywords: article.keywords,
+          wordCount,
+        }}
       />
-      <BlogArticleFaqJsonLd slug={slug} article={article} />
-      {howToSchema && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
-      )}
 
       <div
         className={

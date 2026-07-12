@@ -2,6 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -438,6 +440,13 @@ export default function FormationIaDirigeantPmeBtpPage() {
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: PATH,
+            excludeHrefs: [LINKS.formationIaDirigeantBtp, LINKS.formations, LINKS.financement],
+          })}
+        />
 
         <AllerPlusLoin
           links={[

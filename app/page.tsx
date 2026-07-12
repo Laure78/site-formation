@@ -64,7 +64,6 @@ import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-class
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
@@ -308,11 +307,18 @@ export default function HomePage() {
               items={[
                 'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
                 'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
-                `${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING} — intra ou inter, présentiel uniquement · Île-de-France uniquement.`,
+                'Intra ou inter, présentiel uniquement · Île-de-France uniquement.',
                 'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
                 `Catalogue ${CATALOGUE_FORMATIONS_COUNT} formations (niveau 1 bâtiment & TP, niveau 2 : appels d'offres, conduite de travaux, Claude AI, maîtres d'œuvre) — validation métier de votre côté.`,
               ]}
             />
+            <p className="text-sm leading-relaxed text-slate-600">
+              Volume formé et satisfaction :{' '}
+              <Link href={LINKS.indicateursResultats} className={OFC_LINK}>
+                indicateurs de résultats Qualiopi
+              </Link>
+              .
+            </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <CalendlyEmbed
                 type="link"
@@ -519,21 +525,13 @@ export default function HomePage() {
                   <GoogleBusinessProfileCta variant="inverse" label="Ma fiche Google" />
                 </div>
               </Reveal>
-              <RevealGroup className="mt-8 grid max-w-xl grid-cols-3 gap-3 sm:gap-4" staggerMs={50}>
-                <StatCallout
-                  variant="inverse"
-                  className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
-                  value={COUNT_UP_PROS_PLUS}
-                  label="personnes formées"
-                  freshnessLabel={statsFreshness}
-                />
-                <StatCallout
-                  variant="inverse"
-                  className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
-                  value={COUNT_UP_RATING}
-                  label="note moyenne"
-                  freshnessLabel={statsFreshness}
-                />
+              <RevealGroup className="mt-8 grid max-w-xl grid-cols-2 gap-3 sm:gap-4" staggerMs={50}>
+                <div className="flex flex-col justify-center rounded-2xl border border-white/25 bg-white/10 px-4 py-3 text-left text-sm text-white/95 backdrop-blur-sm sm:py-4">
+                  <span className="font-semibold">Indicateurs Qualiopi</span>
+                  <span className="mt-1 text-xs text-white/80">
+                    Volume formé et satisfaction — sourcing en tête de page
+                  </span>
+                </div>
                 <StatCallout
                   variant="inverse"
                   className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"

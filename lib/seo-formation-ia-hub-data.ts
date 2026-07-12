@@ -47,16 +47,12 @@ export const FORMATION_IA_METIERS: FormationIaRawMetier[] = [
   { slug: 'beton-fondations', label: 'béton armé et fondations', categorie: 'Gros œuvre / structure', exemple: 'Un chef de projet béton utilise Claude AI pour les synthèses de plans de phasage et ChatGPT pour les courriers de coordination.' },
 ];
 
-/** Villes IDF — slug préfixé btp- pour distinguer des métiers (préfectures + SQY uniquement) */
-export const FORMATION_IA_VILLES: FormationIaRawVille[] = [
-  { slug: 'btp-paris', label: 'Paris', dept: '75', deptName: 'Paris' },
-  { slug: 'btp-versailles', label: 'Versailles', dept: '78', deptName: 'Yvelines' },
-  { slug: 'btp-saint-quentin-en-yvelines', label: 'Saint-Quentin-en-Yvelines', dept: '78', deptName: 'Yvelines' },
-  { slug: 'btp-nanterre', label: 'Nanterre', dept: '92', deptName: 'Hauts-de-Seine' },
-  { slug: 'btp-creteil', label: 'Créteil', dept: '94', deptName: 'Val-de-Marne' },
-  { slug: 'btp-cergy-pontoise', label: 'Cergy-Pontoise', dept: '95', deptName: "Val-d'Oise" },
-  { slug: 'btp-melun', label: 'Melun', dept: '77', deptName: 'Seine-et-Marne' },
-];
+/**
+ * Villes hub `/formation-ia/btp-*` — liste vide depuis juil. 2026.
+ * Paris / SQY / préfectures redirigées vers pages département ou fiche ville (cf. next.config.ts).
+ * Maillage géo canonique : `FORMATION_IA_GEO_CANONICAL` dans `seo-formation-ia-hub-links.ts`.
+ */
+export const FORMATION_IA_VILLES: FormationIaRawVille[] = [];
 
 export const FORMATION_IA_ALL_SLUGS = [
   ...FORMATION_IA_METIERS.map((m) => m.slug),

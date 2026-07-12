@@ -133,7 +133,7 @@ npm run media:linkedin
 
 ## CTAs dans les articles
 
-- Bloc fin d'article : « Découvrez notre formation IA BTP — 100% finançable »
+- Bloc fin d'article : « Découvrez notre formation IA BTP — financement possible selon éligibilité »
 - Lien : /prendre-rdv
 - Variante : « Réservez un échange de 30 min gratuit »
 

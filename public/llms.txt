@@ -44,7 +44,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 ## Key pages
 - Accueil : /
 - Catalogue formations IA BTP (Qualiopi) : /formations
-- Page pilier « formation IA appliquée au bâtiment » : /formation-ia-btp
+- Page pilier « formation IA appliquée au bâtiment » : /formations
 - Formation IA BTP Île-de-France (pilier géo) : /formation-ia-btp-ile-de-france
 - Guide Claude AI BTP : /claude-ai-btp
 - Landing formation Claude AI BTP : /formation-claude-ai-btp
@@ -95,4 +95,4 @@ Organisme : OFC Création d'Entreprise · Guyancourt (78280) · Qualiopi
 Visio découverte gratuite : https://www.laureolivie.fr/prendre-rdv
 
 ---
-Dernière mise à jour fichier : 2026-07-09
+Dernière mise à jour fichier : 2026-07-12

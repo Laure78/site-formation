@@ -12,10 +12,12 @@ import {
 } from '@/lib/seo-formation-ia-schemas';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { VoirAussi } from '@/components/VoirAussi';
 import {
   GEO_PAGE_UTILITY_LINKS,
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
+import { voirAussiDepartementProps } from '@/lib/voir-aussi';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
@@ -267,6 +269,18 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
         links={getGeoSisterDepartmentLinks(slug)}
         tone="white"
       />
+
+      <div className="mx-auto max-w-4xl px-4 pb-12">
+        <VoirAussi
+          {...voirAussiDepartementProps({
+            currentPath: geoFormationPath(slug),
+            excludeHrefs: [
+              ...GEO_PAGE_UTILITY_LINKS.map((l) => l.href),
+              ...getGeoSisterDepartmentLinks(slug).map((l) => l.href),
+            ],
+          })}
+        />
+      </div>
     </div>
   );
 }

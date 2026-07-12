@@ -8,10 +8,12 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { VoirAussi } from '@/components/VoirAussi';
 import {
   getMetierLandingCoreLinks,
   getMetierRelatedLinks,
 } from '@/lib/contextual-internal-links';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
@@ -87,6 +89,10 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
   const sommaire = sommaireForConfig(config);
   const relatedMetierLinks = getMetierRelatedLinks(config);
   const coreMetierLinks = getMetierLandingCoreLinks(config);
+  const voirAussiExclude = [
+    ...coreMetierLinks.map((l) => l.href),
+    ...relatedMetierLinks.map((l) => l.href),
+  ];
 
   const faqItems = config.faq.map((item) => ({
     question: item.q,
@@ -346,6 +352,13 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
               </section>
             </>
           ) : null}
+
+          <VoirAussi
+            {...voirAussiMetierProps({
+              currentPath: config.path,
+              excludeHrefs: voirAussiExclude,
+            })}
+          />
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">
             <p>

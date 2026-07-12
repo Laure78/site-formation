@@ -35,7 +35,7 @@ Pour chaque URL maître : barre **« Inspection de l'URL »** → vérifier que 
 - [ ] `https://www.laureolivie.fr/formation-ia-et-chatgpt`
 
 ### Cibles des redirections 308 (vérifier le code de redirection)
-- [ ] `https://www.laureolivie.fr/formation-ia/btp-paris` → doit renvoyer **308** vers `/formations/ia-btp-paris`
+- [ ] `https://www.laureolivie.fr/formation-ia/btp-paris` → doit renvoyer **308** vers `/formation-ia-btp-paris`
 - [ ] `https://www.laureolivie.fr/formation-ia/btp-saint-quentin-en-yvelines` → **308** vers `/formations/ia-btp-saint-quentin-en-yvelines`
 - [ ] `https://www.laureolivie.fr/formation-ia-btp` → **308** vers `/formations`
 

@@ -17,12 +17,12 @@ Référence rédactionnelle. Les descriptions effectives sont dans chaque `page.
 | `/checklist-prompts-btp` | Checklist prompts ChatGPT pour le BTP : modèles prêts à l'emploi pour devis, emails, chantier. Ressource Laure Olivié — OFC. |
 | `/communaute-formateurs` | Communauté formateurs BTP : échanges, veille IA, bonnes pratiques. Groupe Laure Olivié — formation professionnelle Qualiopi. |
 | `/financement-constructys` | Financer votre formation IA BTP avec l'OPCO Constructys : barèmes, PDC, TPE. Qualiopi — OFC. Tarifs et démarches expliqués. |
-| `/financement-constructys-100-ia-btp` | Formation IA BTP 100 % finançable Constructys : conditions, délais, dossier. Qualiopi — Laure Olivié, OFC Création d'Entreprise. |
+| `/financement-constructys-100-ia-btp` | Formation IA BTP : financement Constructys selon éligibilité — conditions, délais, dossier. Qualiopi — Laure Olivié, OFC Création d'Entreprise. |
 | `/formation-ia-btp-paris-2026` | Formation IA BTP Paris 2026 : sessions, calendrier, financement. Devis, AO, mémoires — Qualiopi, Constructys. Laure Olivié. |
 | `/ressources/ia-btp` | Ressources IA BTP : guides, articles, cas d'usage pour artisans et PME du bâtiment. Veille — Laure Olivié, OFC Qualiopi. |
 | `/ressources/ia-btp/10-cas-usage-concrets` | 10 cas d'usage IA concrets dans le BTP : devis, DCE, RH, chantier. Exemples terrain — ressource Laure Olivié, OFC. |
 | `/formation-ia-btp-ile-de-france` | Formation IA BTP en Île-de-France : Paris, Yvelines, 8 départements. Devis, emails, AO — Qualiopi, Constructys. Laure Olivié. |
-| `/formations/ia-btp-paris` | Formation IA BTP à Paris et en Île-de-France : session 4 h, ChatGPT & pratique. Qualiopi, Constructys — OFC Laure Olivié. |
+| `/formation-ia-btp-paris` | Formation IA BTP à Paris et en Île-de-France : session 4 h, ChatGPT & pratique. Qualiopi, Constructys — OFC Laure Olivié. |
 | `/formations/ia-btp-lyon` | Formation IA BTP à Lyon et Auvergne-Rhône-Alpes : devis, mémoires, administratif. Qualiopi, Constructys — Laure Olivié, OFC. |
 | `/formations/ia-btp-bordeaux` | Formation IA BTP à Bordeaux et Nouvelle-Aquitaine : automatisations métier pour le bâtiment. Qualiopi, Constructys — OFC. |
 | `/formations/ia-btp-lille` | Formation IA BTP à Lille et Hauts-de-France : PME et artisans du bâtiment. Qualiopi, Constructys — Laure Olivié, OFC. |

@@ -51,9 +51,9 @@ Un cluster est **résolu** quand, sur **4 semaines consécutives** :
 
 | Rôle | URL | Statut technique |
 |------|-----|------------------|
-| **Propriétaire** | `/formations/ia-btp-paris` | Canonique SEO local Paris |
-| Anciennes URL redirigées | `/formation-ia-btp-paris` | 301 → propriétaire |
-| | `/formation-ia-btp-paris-75` | Alias (vérifier redirect si trafic GSC) |
+| **Propriétaire** | `/formation-ia-btp-paris` | Canonique SEO local Paris |
+| Anciennes URL redirigées | `/formations/ia-btp-paris` | 301 → propriétaire |
+| | `/formation-ia-btp-paris-75` | 301 → propriétaire |
 | | `/formation-ia-btp-paris-2026` | 301 → propriétaire |
 | | `/formation-ia/btp-paris` | 301 → propriétaire |
 
@@ -112,9 +112,9 @@ Un cluster est **résolu** quand, sur **4 semaines consécutives** :
 
 ### Cluster B — Paris
 
-**Propriétaire :** `https://www.laureolivie.fr/formations/ia-btp-paris`
+**Propriétaire :** `https://www.laureolivie.fr/formation-ia-btp-paris`
 
-| Date | Requête | Pos. propriétaire | Pos. /formations/ia-btp-paris (ancien chemin)* | Pos. formation-ia-btp-paris* | Impr. propriétaire | Impr. satellites | Validé ? |
+| Date | Requête | Pos. propriétaire | Pos. /formations/ia-btp-paris (ancien chemin)* | Pos. /formation-ia-btp-paris-75* | Impr. propriétaire | Impr. satellites | Validé ? |
 |------|---------|-------------------|-----------------------------------------------|------------------------------|--------------------|------------------|----------|
 | | formation ia paris | | | | | | ☐ |
 | | formation ia btp paris | | | | | | ☐ |
@@ -187,7 +187,7 @@ Copier-coller dans le filtre **Pages** de GSC :
 ```
 https://www.laureolivie.fr/formations/ia-appels-offre-btp
 https://www.laureolivie.fr/formations/formation-ia-cctp-analyse-dce-btp
-https://www.laureolivie.fr/formations/ia-btp-paris
+https://www.laureolivie.fr/formation-ia-btp-paris
 https://www.laureolivie.fr/formation-ia-conducteur-de-travaux-btp
 https://www.laureolivie.fr/formation-ia-dirigeant-btp
 https://www.laureolivie.fr/formation-ia-dirigeant-pme-btp
@@ -284,7 +284,7 @@ Noter l’**ordre des URLs** laureolivie.fr dans les SERP (propriétaire attendu
 - [ ] Deux URLs du **même cluster transactionnel** ont chacune > **20 %** des impressions sur la **même requête exacte** pendant 2 semaines
 - [ ] La satellite **legacy** (ex. fiche CCTP) a une **meilleure position** que le pilier NIV-02 sur « formation ia appels d’offres »
 - [ ] `/ia-conducteur-travaux` ou variantes sans tiret réapparaissent dans GSC avec des impressions (redirect non prise en compte)
-- [ ] `/formation-ia-btp-paris` ou `/formation-ia-btp-paris-2026` cumulent des impressions **au détriment** de `/formations/ia-btp-paris`
+- [ ] `/formations/ia-btp-paris` ou `/formation-ia-btp-paris-75` cumulent des impressions **au détriment** de `/formation-ia-btp-paris`
 - [ ] Les deux pages **dirigeant** ou **assistante** se disputent la **même requête générique** sans distinction d’intention
 
 ### Actions correctives si alerte

@@ -6,8 +6,6 @@ import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
-import { CountUp } from '@/components/motion/CountUp';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
@@ -38,34 +36,26 @@ export function EtudeCasClientsSection() {
               </h3>
               <p className="mt-4 text-lg text-slate-600">
                 Retour d&apos;expérience détaillé : défis, dispositif pédagogique, modules (mémoires,
-                CCTP, devis, mails) et indicateurs — pour les fédérations, OPCO et entreprises du
-                bâtiment qui veulent du concret.
+                DCE, chantier) et suites concrètes pour les entreprises du réseau.
               </p>
-            </Reveal>
-
-            <Reveal className="mt-8">
-              <ul className="space-y-3 text-slate-700">
-                <li className="flex gap-3">
+              <ul className="mt-6 space-y-3 text-sm text-slate-700 md:text-base">
+                <li className="flex gap-2.5">
                   <CheckCircle2
                     className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
                     strokeWidth={2}
                     aria-hidden
                   />
-                  <span>
-                    Sessions courtes et opérationnelles avec la FFB (Grand Paris, IDF Est &amp; Ouest).
-                  </span>
+                  <span>Cas réels métier — pas de démonstration gadget.</span>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-2.5">
                   <CheckCircle2
                     className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
                     strokeWidth={2}
                     aria-hidden
                   />
-                  <span>
-                    Même socle pédagogique avec la {CSFE_NOM_LIBRE} pour cohérence réseau.
-                  </span>
+                  <span>Présentiel, documents anonymisés, validation humaine des sorties.</span>
                 </li>
-                <li className="flex gap-3">
+                <li className="flex gap-2.5">
                   <CheckCircle2
                     className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]"
                     strokeWidth={2}
@@ -80,24 +70,19 @@ export function EtudeCasClientsSection() {
               </ul>
             </Reveal>
 
-            <RevealGroup className="mt-8 grid grid-cols-3 gap-3 sm:gap-4" staggerMs={45}>
-              {[
-                { kind: 'count' as const, config: COUNT_UP_PROS_PLUS, label: 'accompagnés' },
-                { kind: 'count' as const, config: COUNT_UP_RATING, label: 'satisfaction' },
-                { kind: 'static' as const, val: '5', label: 'modules clés' },
-              ].map((k) => (
-                <div
-                  key={k.label}
-                  className="rounded-xl border border-slate-200/80 bg-white/90 px-3 py-4 text-center shadow-sm"
-                >
-                  <p className="text-xl font-bold tabular-nums text-[var(--accent)] sm:text-2xl">
-                    {k.kind === 'count' ? <CountUp {...k.config} /> : k.val}
-                  </p>
-                  <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
-                    {k.label}
-                  </p>
-                </div>
-              ))}
+            <RevealGroup className="mt-8 grid grid-cols-2 gap-3 sm:gap-4" staggerMs={45}>
+              <div className="rounded-xl border border-slate-200/80 bg-white/90 px-3 py-4 text-center shadow-sm">
+                <p className="text-xl font-bold tabular-nums text-[var(--accent)] sm:text-2xl">5</p>
+                <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                  modules clés
+                </p>
+              </div>
+              <div className="flex flex-col items-center justify-center rounded-xl border border-slate-200/80 bg-white/90 px-3 py-4 text-center shadow-sm">
+                <p className="text-sm font-bold text-[var(--accent)] sm:text-base">Qualiopi</p>
+                <p className="mt-1 text-[0.65rem] font-medium uppercase tracking-wide text-slate-500 sm:text-xs">
+                  résultats sourcés en tête de page
+                </p>
+              </div>
             </RevealGroup>
 
             <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -130,7 +115,7 @@ export function EtudeCasClientsSection() {
             </div>
             <figcaption className="mt-3 text-center text-sm text-slate-500">
               Laure Olivié — animation formation IA pour les pros du BTP en présentiel (réseau FFB, filière étanchéité /
-              CSFE)
+              {CSFE_NOM_LIBRE})
             </figcaption>
           </Reveal>
         </div>

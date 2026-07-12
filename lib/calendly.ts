@@ -25,7 +25,7 @@ type CalendlyUtmParams = {
 /** Événement window émis quand widget.js est chargé (inline + popup). */
 export const CALENDLY_SCRIPT_READY_EVENT = 'calendly:ready';
 
-/** Slug URL → segment utm_campaign (ex. `/formations/ia-btp-paris` → `formations-ia-btp-paris`). */
+/** Slug URL → segment utm_campaign (ex. `/formation-ia-btp-paris` → `formation-ia-btp-paris`). */
 export function slugifyPathForCalendlyCampaign(pathname: string): string {
   const raw = pathname.replace(/^\//, '').replace(/\/$/, '');
   return raw ? raw.replace(/\//g, '-') : 'home';

@@ -110,10 +110,10 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     id: 'cadre-professionnel',
     title: 'Cadre Qualiopi, diagnostic & stratégie',
     description:
-      'Se préparer avant les tutos : page pilier formation IA pour les pros du BTP, diagnostic offert et landing tutoriel Skill IA conducteur.',
+      'Se préparer avant les tutos : catalogue formations IA BTP, diagnostic offert et landing tutoriel Skill IA conducteur.',
     tutos: [],
     guides: [
-      { label: 'Page pilier SEO — formation IA appliquée au bâtiment', href: LINKS.formationIaBtp },
+      { label: 'Catalogue des formations IA pour le BTP', href: LINKS.formations },
       { label: 'Diagnostic IA BTP (gratuit)', href: LINKS.diagnostic },
       { label: 'Tutoriel landing — Skill IA conducteur', href: LINKS.guideSkillIaConducteurTravaux },
     ],

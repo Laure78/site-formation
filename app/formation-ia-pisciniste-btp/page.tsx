@@ -2,6 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -392,6 +394,13 @@ export default function FormationIaPiscinisteBtpPage() {
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: PATH,
+            excludeHrefs: ['/formations', '/formation-ia-dirigeant-pme-btp', '/formations/ia-appels-offre-btp', '/financement-constructys-formation-ia-btp'],
+          })}
+        />
 
         <AllerPlusLoin
           links={[

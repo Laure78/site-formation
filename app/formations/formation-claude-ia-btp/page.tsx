@@ -15,6 +15,7 @@ import AuthorBio from '@/components/AuthorBio';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_CLAUDE_IA_SKILLS_BTP } from '@/lib/faq';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
+import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import {
   SESSION_DUREE_MATIN_NIV04,
@@ -115,7 +116,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
 const HERO_RESUME = [
   'Formation IA BTP intra 4 h — Claude Chat, Cowork & Code, skills sur-mesure (AO, chantier, juridique).',
   `Session ${SESSION_DUREE_MATIN_NIV04} — présentiel en Île-de-France, 70 % pratique / 30 % théorie.`,
-  `${LIBELLE_EFFECTIF_GROUPE_NIV03} — tarif intra sur devis, finançable OPCO Constructys.`,
+  `${LIBELLE_EFFECTIF_GROUPE_NIV03} — tarif intra sur devis, ${FINANCEMENT_FORMULATION_COURTE.toLowerCase()} (OPCO Constructys).`,
   `Qualiopi — ${formatProfessionalsTrainedCount()} pros formés, note ${SOCIAL_PROOF.AVERAGE_RATING}.`,
 ];
 
