@@ -239,7 +239,7 @@ export default function FormationsPage() {
         <AllerPlusLoin
           variant="chips"
           links={[
-            { href: LINKS.formationIaBtp, label: 'Formation IA pour les pros du BTP — page pilier' },
+            { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA appliquée au bâtiment en Île-de-France' },

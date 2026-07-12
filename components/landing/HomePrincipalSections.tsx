@@ -10,8 +10,6 @@ import {
   User,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
-import { formatProfessionalsTrainedCount } from '@/lib/constants';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
@@ -56,7 +54,7 @@ const cards = [
   {
     href: LINKS.aPropos,
     title: 'À propos',
-    desc: `${formatProfessionalsTrainedCount()} pros formés · note ${SOCIAL_PROOF.AVERAGE_RATING}`,
+    desc: 'Parcours, Qualiopi et références partenaires BTP',
     Icon: User,
   },
   {

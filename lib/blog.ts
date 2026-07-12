@@ -27,6 +27,14 @@ import {
   getMdxFrontmatter,
   mdxFrontmatterToBlogArticle,
 } from '@/lib/blog-mdx';
+import {
+  filterPublishableBlogArticles,
+  isBlogListingExcludedSlug,
+} from '@/lib/blog-publishable-filters';
+import {
+  blogConsolidationRedirectsJuly2026,
+  gscRedirects2026April,
+} from '@/lib/gsc-redirects-2026';
 
 /** Prompt optimisé pour affichage dans les articles ressources */
 export interface ArticlePrompt {
@@ -1600,62 +1608,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     ],
     relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp', 'financer-formation-ia-btp-constructys'],
   },
-  {
-    slug: 'appels-offres-btp-ia-lille',
-    seoTitle: 'AO BTP et IA en Île-de-France : méthode et financement',
-    title: 'Automatiser les appels d\'offres BTP avec l\'IA en Île-de-France',
-    description:
-      'DCE et mémoire en présentiel IDF : méthode reproductible sur dossiers réels. Qualiopi ; Constructys selon éligibilité. Visio découverte gratuite 30 min.',
-    date: '2025-03-06',
-    keywords: ['appels d\'offres BTP IA', 'formation IA Île-de-France', 'IA bâtiment IDF', 'DCE BTP'],
-    sections: [
-      {
-        type: 'definition',
-        title: 'En bref',
-        content:
-          "L'IA générative permet aux entreprises du BTP en Île-de-France (Paris et départements 77 à 95) d'analyser un DCE en 30 minutes, de synthétiser un cahier des charges et de rédiger un mémoire technique structuré — en session présentielle chez OFC ou en intra dans vos locaux.",
-      },
-      {
-        type: 'list',
-        title: 'Les 3 étapes clés',
-        content: [
-          "Analyse DCE — Extraire les exigences, les délais et les points de vigilance en quelques minutes.",
-          "Synthèse cahier des charges — Structurer les informations pour préparer votre réponse.",
-          "Rédaction mémoire technique — Générer une première version professionnelle à personnaliser.",
-        ],
-      },
-      {
-        type: 'paragraph',
-        title: 'Formation appels d\'offres BTP en Île-de-France',
-        content:
-          "Formation dédiée aux appels d'offres BTP en présentiel en Île-de-France (inter ou intra). Travail sur vos vrais DCE, prompts par métier, bonnes pratiques confidentialité. Qualiopi · Constructys selon éligibilité.",
-      },
-      {
-        type: 'prompts',
-        title: 'Prompts IA appels d\'offres — Île-de-France',
-        content: [
-          {
-            titre: 'Analyse rapide DCE',
-            prompt:
-              "Analyse ce DCE et identifie : 1) les exigences techniques principales pour mon lot ; 2) les critères de sélection et leur pondération ; 3) les délais clés ; 4) les points de vigilance. Synthèse claire pour une PME du BTP.",
-            usage: 'Collez un extrait de DCE. Gain de temps considérable.',
-          },
-          {
-            titre: 'Plan de mémoire technique',
-            prompt:
-              "Propose un plan de mémoire technique pour un projet [TYPE : VRD, rénovation, neuf]. Critères à valoriser : [LISTER]. Structure : présentation entreprise, méthodologie, moyens, planning, engagements.",
-            usage: 'Adaptez au type de chantier. Base de rédaction.',
-          },
-        ],
-      },
-      {
-        type: 'cta',
-        content: 'Réservez votre formation appels d\'offres BTP en Île-de-France. Devis sur demande.',
-        formationHref: '/formation-ia-btp-ile-de-france',
-      },
-    ],
-    relatedSlugs: ['5-cas-usage-chatgpt-artisans-btp'],
-  },
   // Cluster appels d'offres BTP
   {
     slug: 'analyser-cctp-ia-methode-complete-20-minutes',
@@ -2159,7 +2111,9 @@ export function getRelatedArticlesForDisplay(slug: string, limit = 6, extraRelat
   for (const s of prioritySlugs) {
     if (seenPriority.has(s)) continue;
     seenPriority.add(s);
-    const a = all.find((x) => x.slug === s);
+    const resolved = resolvePublishableRelatedSlug(s);
+    if (isBlogListingExcludedSlug(resolved)) continue;
+    const a = all.find((x) => x.slug === resolved);
     if (a && !used.has(a.slug)) {
       result.push(a);
       used.add(a.slug);
@@ -2235,25 +2189,44 @@ function mergeMdxIntoArticles(articles: BlogArticle[]): BlogArticle[] {
   return [...map.values()].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-/**
- * Articles fusionnés vers leur pilier (consolidation cannibalisation, juin 2026).
- * Une redirection 308 vers le pilier est posée dans next.config.ts.
- * Listés ici pour les exclure de l'index, du sitemap, des suggestions et de generateStaticParams.
- */
-export const BLOG_CONSOLIDATED_REDIRECTED_SLUGS = new Set<string>([
-  'ia-devis-gain-temps-pme-btp', // → ia-devis-batiment-chiffrage-automatise
-  'memoire-technique-btp-ia-gagner-temps-appels-offres', // → ia-memoire-technique-appel-offres-guide-2026
-]);
+/** Résout un slug « lié » vers le pilier publiable (redirections blog connues). */
+function resolvePublishableRelatedSlug(slug: string): string {
+  const map = getBlogRelatedSlugRedirectMap();
+  let current = slug;
+  const visited = new Set<string>();
+  while (map.has(current) && !visited.has(current)) {
+    visited.add(current);
+    current = map.get(current)!;
+  }
+  return current;
+}
 
-/** Tous les articles : statiques + générés (publiés automatiquement) + MDX */
+let blogRelatedSlugRedirectMap: Map<string, string> | null = null;
+
+function getBlogRelatedSlugRedirectMap(): Map<string, string> {
+  if (blogRelatedSlugRedirectMap) return blogRelatedSlugRedirectMap;
+  blogRelatedSlugRedirectMap = new Map();
+  const add = (source: string, destination: string) => {
+    if (!source.startsWith('/blog/') || !destination.startsWith('/blog/')) return;
+    blogRelatedSlugRedirectMap!.set(
+      source.slice('/blog/'.length),
+      destination.slice('/blog/'.length)
+    );
+  };
+  for (const r of gscRedirects2026April()) add(r.source, r.destination);
+  for (const r of blogConsolidationRedirectsJuly2026()) add(r.source, r.destination);
+  return blogRelatedSlugRedirectMap;
+}
+
+export { BLOG_CONSOLIDATED_REDIRECTED_SLUGS } from '@/lib/blog-publishable-filters';
+
+/** Tous les articles publiables : statiques + générés + MDX, filtrés (sans doublons suffixe ni slugs redirigés). */
 export function getAllArticles(): BlogArticle[] {
   const generated = loadGeneratedArticles();
   const staticSlugs = new Set(BLOG_ARTICLES.map((a) => a.slug));
   const generatedFiltered = generated.filter((a) => !staticSlugs.has(a.slug));
-  const all = [...BLOG_ARTICLES, ...generatedFiltered].filter(
-    (a) => !BLOG_CONSOLIDATED_REDIRECTED_SLUGS.has(a.slug)
-  );
-  return mergeMdxIntoArticles(all);
+  const merged = mergeMdxIntoArticles([...BLOG_ARTICLES, ...generatedFiltered]);
+  return filterPublishableBlogArticles(merged);
 }
 
 export function getArticle(slug: string): BlogArticle | undefined {

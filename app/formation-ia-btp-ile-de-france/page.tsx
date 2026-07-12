@@ -25,6 +25,8 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT
 } from '@/lib/tarifs-sessions';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiIdfProps } from '@/lib/voir-aussi';
 import { buildIdfRegionalMetaDescription } from '@/lib/seo-geo-keywords';
 import { FormationIdfChapeauLocalBlock } from '@/components/formation-ia-btp/FormationIdfChapeauLocalBlock';
 import { IDF_CHAPEAU_LOCAL } from '@/lib/formation-ia-btp-dept-local-content';
@@ -546,6 +548,20 @@ export default function FormationIaBtpIleDeFrancePage() {
           </p>
         </div>
       </section>
+
+      <div className="mx-auto max-w-4xl px-4 pb-4">
+        <VoirAussi
+          {...voirAussiIdfProps({
+            currentPath: PATH,
+            excludeHrefs: [
+              LINKS.formations,
+              LINKS.financement,
+              LINKS.formationParis,
+              '/formations/ia-appels-offre-btp',
+            ],
+          })}
+        />
+      </div>
 
       <footer className="bg-[#F2F2F2] px-4 py-10 text-center text-sm text-slate-500">
         <p>Laure Olivié — Formatrice IA pour le BTP, OFC Création d&apos;Entreprise</p>

@@ -14,7 +14,7 @@
 |-------|-----|----------|--------|------------------|
 | `/` | Formation IA pour les entreprises du BTP ✓ | ✓ | Org, LocalBusiness, WebSite | 1 |
 | `/formations` | Catalogue des formations IA BTP | ✓ | — | 0.9 |
-| `/formations/ia-btp-paris` | Formation IA BTP à Paris | ✓ | Course ✓ | 0.9 |
+| `/formation-ia-btp-paris` | Formation IA BTP à Paris | ✓ | Course ✓ | 0.9 |
 | `/formations/ia-travaux-publics` | L'IA au service de travaux publics | ✓ | — | 0.85 |
 | `/formations/ia-appels-offre-btp` | Appels d'Offres BTP | ✓ | — | 0.85 |
 | `/formations/ia-rh-btp` | Formation IA Fonction RH | ✓ | — | 0.85 |

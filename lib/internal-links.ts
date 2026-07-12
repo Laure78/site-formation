@@ -35,8 +35,11 @@ export const LINKS = {
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
   prendreRdv: '/prendre-rdv',
-  /** Page pilier SEO — mot-clé « formation IA appliquée au bâtiment » */
-  formationIaBtp: '/formation-ia-btp',
+  /**
+   * Ancien pilier `/formation-ia-btp` (308 → catalogue).
+   * Canonique : `/formations` — préférer `LINKS.formations` pour les nouveaux liens.
+   */
+  formationIaBtp: '/formations',
   /** Landing SEO cluster — formation IA entreprises de construction (ETI, EG, MOE, BET) */
   formationIaConstruction: '/formation-ia-construction',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
@@ -99,6 +102,8 @@ export const LINKS = {
 
   // Tier 2 — Cas d'usage
   chatgptArtisans: '/formation-ia-artisans-btp',
+  /** Landing SEO — formation IA travaux publics */
+  formationIaTravauxPublics: '/formation-ia-travaux-publics',
   iaDevis: '/ia-devis-batiment',
   /** Canonique SEO — guide IA conducteur de travaux BTP (ancien `/ia-conducteur-travaux` → 301) */
   iaConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',

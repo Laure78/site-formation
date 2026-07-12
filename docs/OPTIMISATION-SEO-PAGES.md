@@ -145,9 +145,9 @@
 
 ---
 
-## 6. FORMATION IA BTP PARIS (/formations/ia-btp-paris)
+## 6. FORMATION IA BTP PARIS (/formation-ia-btp-paris)
 
-**URL :** https://www.laureolivie.fr/formations/ia-btp-paris  
+**URL :** https://www.laureolivie.fr/formation-ia-btp-paris  
 **Mot-clé principal :** formation IA bâtiment  
 
 **Title SEO actuel :** Formation IA BTP à Paris — Laure Olivié (42 car.)  

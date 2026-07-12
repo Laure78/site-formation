@@ -4,6 +4,8 @@ import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Check, Calendar, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiVilleProps } from '@/lib/voir-aussi';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
@@ -245,6 +247,19 @@ export default function FormationIABTPParis2026Page() {
 
       <div className="border-t border-slate-200 bg-slate-50 px-4 py-12">
         <div className="mx-auto max-w-6xl">
+          <VoirAussi
+            {...voirAussiVilleProps('paris', {
+              currentPath: '/formation-ia-btp-paris-2026',
+              excludeHrefs: [
+                LINKS.formationParis,
+                '/formation-ia-btp-ile-de-france',
+                '/formations',
+                '/financement-constructys-formation-ia-btp',
+                '/diagnostic-ia-btp',
+                '/blog',
+              ],
+            })}
+          />
           <AllerPlusLoin
             links={[
               { href: LINKS.formationParis, label: 'Formation IA BTP Paris (75)' },

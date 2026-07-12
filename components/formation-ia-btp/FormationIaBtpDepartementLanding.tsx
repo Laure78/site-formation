@@ -13,11 +13,13 @@ import { Citation } from '@/components/readability/Citation';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
+import { VoirAussi } from '@/components/VoirAussi';
 import {
   FORMATION_CATALOGUE_CORE,
   GEO_DEPARTMENT_EXTENDED,
   getGeoSisterDepartmentLinks,
 } from '@/lib/contextual-internal-links';
+import { voirAussiDepartementProps } from '@/lib/voir-aussi';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import {
   buildFormationIaCourseJsonLd,
@@ -386,6 +388,25 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         title={`FAQ — formation IA appliquée au bâtiment ${crumbDept}`}
         subtitle="Formats intra / inter en présentiel, financement et calendrier."
       />
+
+      <div className="mx-auto max-w-4xl px-4">
+        <VoirAussi
+          {...voirAussiDepartementProps({
+            currentPath: config.path,
+            excludeHrefs: [
+              ...FORMATION_CATALOGUE_CORE.map((l) => l.href),
+              LINKS.formationIleDeFrance,
+              LINKS.aPropos,
+              LINKS.blog,
+              ...getGeoSisterDepartmentLinks(
+                config.path.replace('/formation-ia-btp-', ''),
+                4,
+                GEO_DEPARTMENT_EXTENDED
+              ).map((l) => l.href),
+            ],
+          })}
+        />
+      </div>
 
       <section className={OFC_SEC.accent}>
         <div className="mx-auto max-w-2xl text-center">

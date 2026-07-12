@@ -2,6 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import {
@@ -459,6 +461,13 @@ export default function FormationIaVitrierBtpPage() {
             </a>
           </p>
         </section>
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: PATH,
+            excludeHrefs: ['/formations', '/formation-ia-couvreur-btp', '/formation-ia-etancheur', '/financement-constructys-formation-ia-btp'],
+          })}
+        />
 
         <AllerPlusLoin
           links={[

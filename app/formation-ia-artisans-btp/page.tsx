@@ -2,6 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
@@ -130,7 +132,7 @@ export default function FormationIAArtisansBTPPage() {
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
           activité dans le bâtiment : devis, emails, comptes rendus. Notre{' '}
-          <Link href={LINKS.formationIaBtp} className="text-[var(--accent)] font-medium hover:underline">
+          <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>
           {' '}est certifiée Qualiopi, financement possible selon éligibilité.
@@ -341,6 +343,13 @@ export default function FormationIAArtisansBTPPage() {
             ))}
           </div>
         </section>
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: '/formation-ia-artisans-btp',
+            excludeHrefs: [LINKS.formationIaBtpNiveau1BatimentTp, LINKS.iaDevis, LINKS.iaCDT, LINKS.blog],
+          })}
+        />
 
         <AllerPlusLoin
           links={[

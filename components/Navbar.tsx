@@ -471,13 +471,18 @@ export function Navbar() {
             <Link
               href="/"
               aria-current={homeActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
                 homeActive
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              <Home size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              <Home
+                size={16}
+                strokeWidth={1.75}
+                className="hidden shrink-0 text-slate-500 2xl:block"
+                aria-hidden
+              />
               Accueil
             </Link>
 
@@ -489,7 +494,7 @@ export function Navbar() {
               <Link
                 href={LINKS.formations}
                 aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
-                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-3 pr-1.5 text-sm font-medium transition-all xl:pl-3.5 xl:text-[0.9375rem] ${
+                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2.5 2xl:pl-3.5 ${
                   formationsDropdownActive(pathname) || openFormations
                     ? 'bg-white text-slate-900 shadow-sm'
                     : 'text-slate-700 hover:text-slate-900'
@@ -502,7 +507,7 @@ export function Navbar() {
                 aria-expanded={openFormations}
                 aria-haspopup="true"
                 aria-label="Ouvrir le menu des formations"
-                className={`flex items-center rounded-full py-2 pr-2.5 pl-0.5 text-slate-500 transition-colors xl:pr-3 ${
+                className={`flex items-center rounded-full py-2 pr-2 pl-0.5 text-slate-500 transition-colors xl:pr-2.5 ${
                   openFormations ? 'text-slate-800' : 'hover:text-slate-700'
                 }`}
                 onClick={(e) => {
@@ -529,13 +534,18 @@ export function Navbar() {
             <Link
               href={LINKS.financement}
               aria-current={financementActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
                 financementActive
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              <CircleDollarSign size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              <CircleDollarSign
+                size={16}
+                strokeWidth={1.75}
+                className="hidden shrink-0 text-slate-500 2xl:block"
+                aria-hidden
+              />
               Financement
             </Link>
 
@@ -547,7 +557,7 @@ export function Navbar() {
               <Link
                 href={LINKS.ressources}
                 aria-current={resourcesNavActive ? 'page' : undefined}
-                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-3 pr-1.5 text-sm font-medium transition-all xl:pl-3.5 xl:text-[0.9375rem] ${
+                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2.5 2xl:pl-3.5 ${
                   resourcesNavActive || openResources
                     ? 'bg-white text-slate-900 shadow-sm'
                     : 'text-slate-700 hover:text-slate-900'
@@ -560,7 +570,7 @@ export function Navbar() {
                 aria-expanded={openResources}
                 aria-haspopup="true"
                 aria-label="Ouvrir le menu Ressources"
-                className={`flex items-center rounded-full py-2 pr-2.5 pl-0.5 text-slate-500 transition-colors xl:pr-3 ${
+                className={`flex items-center rounded-full py-2 pr-2 pl-0.5 text-slate-500 transition-colors xl:pr-2.5 ${
                   openResources ? 'text-slate-800' : 'hover:text-slate-700'
                 }`}
                 onClick={(e) => {
@@ -585,48 +595,63 @@ export function Navbar() {
             <Link
               href={LINKS.blog}
               aria-current={blogActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
                 blogActive
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              <BookOpen size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              <BookOpen
+                size={16}
+                strokeWidth={1.75}
+                className="hidden shrink-0 text-slate-500 2xl:block"
+                aria-hidden
+              />
               Blog
             </Link>
 
             <Link
               href={LINKS.partenaires}
               aria-current={partenairesActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
                 partenairesActive
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              <Landmark size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              <Landmark
+                size={16}
+                strokeWidth={1.75}
+                className="hidden shrink-0 text-slate-500 2xl:block"
+                aria-hidden
+              />
               Partenaires
             </Link>
 
             <Link
-              href="/a-propos"
+              href={LINKS.aPropos}
               aria-current={aProposActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-3.5 xl:text-[0.9375rem] ${
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
                 aProposActive
                   ? 'bg-white text-slate-900 shadow-sm'
                   : 'text-slate-700 hover:text-slate-900'
               }`}
             >
-              <UserCircle size={16} strokeWidth={1.75} className="shrink-0 text-slate-500" aria-hidden />
+              <UserCircle
+                size={16}
+                strokeWidth={1.75}
+                className="hidden shrink-0 text-slate-500 2xl:block"
+                aria-hidden
+              />
               À propos
             </Link>
           </nav>
 
-          <div className="site-header__search hidden lg:flex">
-            <SiteSearchTrigger className="px-3 py-2" />
+          <div className="site-header__search hidden xl:flex">
+            <SiteSearchTrigger className="px-2 py-2" />
           </div>
 
-          <div className="site-header__actions hidden shrink-0 items-center gap-2 lg:flex">
+          <div className="site-header__actions">
             <FormationPlateformeConnexionButton variant="nav" />
             <CalendlyEmbed
               type="link"

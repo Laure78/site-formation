@@ -38,7 +38,7 @@ Centre de formation
 > 
 > Formation « L'IA au service du bâtiment » : ChatGPT pour devis, emails, appels d'offres et comptes rendus chantier. Méthode 100 % pratique, travail sur vos vrais documents.
 > 
-> Certifiée Qualiopi. 100 % finançable OPCO Constructys. Intervenante LinkedIn Learning.
+> Certifiée Qualiopi. Financement OPCO Constructys possible selon éligibilité. Intervenante LinkedIn Learning.
 > 
 > Zones d'intervention : Paris, Yvelines, Hauts-de-Seine et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — exclusivement en présentiel.
 
@@ -50,7 +50,7 @@ Centre de formation
 |---------|-----|
 | Formation IA BTP | https://www.laureolivie.fr/formations |
 | Formation Île-de-France | https://www.laureolivie.fr/formation-ia-btp-ile-de-france |
-| Formation Paris | https://www.laureolivie.fr/formations/ia-btp-paris |
+| Formation Paris | https://www.laureolivie.fr/formation-ia-btp-paris |
 | Prendre rendez-vous | https://www.laureolivie.fr/prendre-rdv |
 | LinkedIn | https://www.linkedin.com/in/laure-olivie |
 

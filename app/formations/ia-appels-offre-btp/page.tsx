@@ -125,7 +125,7 @@ const HERO_RESUME_AO = [
   `Parcours catalogue : assistants IA DCE & mémoire technique — Claude AI Pro, Cowork & Skills.`,
   `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé).`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV02}.`,
-  'Qualiopi, 100 % finançable OPCO Constructys selon éligibilité.',
+  'Qualiopi. Financement possible selon éligibilité (OPCO Constructys).',
 ];
 
 const courseSchema = buildCatalogueCourseIaAppelsOffreNiv02JsonLd();
@@ -395,8 +395,9 @@ export default function FormationIAAppelsOffreBTPPage() {
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-            {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé) · <strong>Financement :</strong> 100 %
-            finançable OPCO Constructys selon éligibilité · <strong>Inscription :</strong> jusqu&apos;à 7 jours avant la
+            {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé) · <strong>Financement :</strong>{' '}
+            prise en charge Constructys ou OPCO selon votre statut, votre branche professionnelle et les conditions en
+            vigueur · <strong>Inscription :</strong> jusqu&apos;à 7 jours avant la
             session.
           </li>
           <li>

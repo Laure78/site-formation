@@ -160,7 +160,7 @@
 - ✅ `app/formations/ia-rh-btp/page.tsx`
 - ✅ `app/formations/ia-travaux-publics/page.tsx`
 - ✅ `app/formations/ia-productivite-chantier/page.tsx`
-- ✅ `app/formations/ia-btp-paris/page.tsx`
+- ✅ `app/formation-ia-btp-paris/page.tsx`
 - ✅ `app/formations/ia-btp-lyon/page.tsx`
 - ✅ `app/formations/ia-btp-bordeaux/page.tsx`
 - ✅ `app/formations/ia-btp-lille/page.tsx`

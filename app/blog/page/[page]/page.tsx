@@ -3,6 +3,8 @@ import { BlogIndexView } from '@/components/blog/BlogIndexView';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { getBlogIndexMetadata } from '@/lib/blog-metadata';
 
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ page: string }> };
 
 export function generateStaticParams() {

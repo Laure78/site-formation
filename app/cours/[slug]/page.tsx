@@ -1,9 +1,37 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { createPageMetadata } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
 import { BookOpen, Clock } from 'lucide-react';
 import { BuyButton } from '../BuyButton';
+
+/**
+ * Canonical SEO : /cours/[slug] → page catalogue / landing publique
+ * (évite le duplicate content avec les fiches /formations).
+ */
+const COURS_SLUG_CANONICAL_PATH: Record<string, string> = {
+  // Correspondance demandée
+  'ia-appels-offre-btp': LINKS.formationAO,
+  'ia-au-service-du-btp': LINKS.formationIaBtpNiveau1BatimentTp,
+  'ia-travaux-publics': LINKS.formationIaTravauxPublics,
+  'ia-niveau2-assistant-ao-dce-memoire': LINKS.formationAO,
+  'ia-architecture-claude-dpgf': LINKS.formationMaitriserClaudeAiBtp,
+  'ia-rh-btp': LINKS.formations,
+  'formation-ia-sensibilisation-prompt-engineering-assistants': LINKS.formations,
+  // Slugs LMS catalogue (1:1 avec fiches /formations)
+  'ia-batiment-travaux-publics': LINKS.formationIaBtpNiveau1BatimentTp,
+  'ia-conduite-travaux-suivi-chantier': LINKS.formationConduiteTravauxSuiviChantier,
+  'maitriser-claude-ai-btp': LINKS.formationMaitriserClaudeAiBtp,
+  'ia-maitrise-oeuvre': LINKS.formationIaMaitriseOeuvre,
+  'formation-claude-ia-btp': LINKS.formationClaudeIaBtpFiche,
+  'pdf-btp-claude-skills': LINKS.formationClaudeIaBtpFiche,
+};
+
+function coursCanonicalUrl(slug: string): string {
+  const path = COURS_SLUG_CANONICAL_PATH[slug] ?? LINKS.formations;
+  return `${SITE_CONFIG.url.replace(/\/$/, '')}${path}`;
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -14,11 +42,19 @@ export async function generateMetadata({ params }: PageProps) {
   const supabase = await createClient();
   const { data } = await supabase.from('courses').select('title, description').eq('slug', slug).eq('published', true).single();
   if (!data) return { title: 'Cours non trouvé' };
-  return createPageMetadata({
+  const meta = createPageMetadata({
     title: data.title,
     description: (data.description as string)?.slice(0, 160) ?? 'Formation IA pour le BTP',
     path: `/cours/${slug}`,
   });
+  const canonical = coursCanonicalUrl(slug);
+  return {
+    ...meta,
+    alternates: {
+      ...meta.alternates,
+      canonical,
+    },
+  };
 }
 
 export default async function CoursDetailPage({ params }: PageProps) {

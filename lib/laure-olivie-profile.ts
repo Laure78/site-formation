@@ -116,7 +116,7 @@ export function getLaureOlivieFormationPortraitParagraph(contextLine?: string): 
 
 /** Bio blog — angle expertise éditoriale & références institutionnelles. */
 export function getLaureOlivieArticleAuthorBio(): string {
-  return `Après dix ans de conduite de travaux et de direction d'ALIA BTP (travaux publics, Île-de-France), Laure Olivié forme les équipes du BTP à l'IA générative depuis 2022. Master Stratégie d'entreprise (CNAM, 2021), instructrice LinkedIn Learning, ${formatPersonnesFormeesCount()} pros formés · ${SOCIAL_PROOF.AVERAGE_RATING}. Références : ${LAURE_OLIVIE_CLIENT_REFERENCES_SHORT}.`;
+  return `Après dix ans de conduite de travaux et de direction d'entreprise en Île-de-France, Laure Olivié forme les professionnels du BTP à l'IA générative depuis 2022. OFC Création d'Entreprise est certifié Qualiopi — ${formatPersonnesFormeesCount()} pros formés · ${SOCIAL_PROOF.AVERAGE_RATING}. Partenaires FFB et CSFE. Instructrice LinkedIn Learning.`;
 }
 
 /** Bio auteure fiches formation — angle crédibilité & lien /a-propos. */

@@ -2,6 +2,8 @@ import { BlogIndexView } from '@/components/blog/BlogIndexView';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { getBlogIndexMetadata } from '@/lib/blog-metadata';
 
+export const revalidate = 3600;
+
 export const metadata = getBlogIndexMetadata('/blog', 1);
 
 export default async function BlogPage({

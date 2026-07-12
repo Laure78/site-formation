@@ -5,7 +5,7 @@ import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { getLaureOlivieArticleAuthorBio } from '@/lib/laure-olivie-profile';
-import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 
 const PORTRAIT_SRC = PHOTOS.siteAvatar.src;
 
@@ -34,14 +34,14 @@ export function ArticleAuthorBio({ className }: ArticleAuthorBioProps = {}) {
             sizes="80px"
           />
           <div className="min-w-0 flex-1">
-            <p
+            <h2
               id="article-author-bio-name"
               className="text-lg font-semibold text-slate-900"
             >
-              Laure Olivié
-            </p>
+              À propos de l&apos;auteure
+            </h2>
             <p className="mt-1 text-sm font-medium text-slate-700">
-              Formatrice IA pour les professionnels du BTP — OFC Création d&apos;Entreprise
+              Laure Olivié — formatrice IA pour les professionnels du BTP, OFC Création d&apos;Entreprise
               (Qualiopi)
             </p>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
@@ -54,6 +54,14 @@ export function ArticleAuthorBio({ className }: ArticleAuthorBioProps = {}) {
               >
                 En savoir plus →
               </Link>
+              <a
+                href={SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-medium text-[#377CF3] underline decoration-[#377CF3]/30 hover:decoration-[#377CF3]"
+              >
+                LinkedIn Learning
+              </a>
               <a
                 href={SCHEMA_LINKEDIN_PROFILE_URL}
                 target="_blank"

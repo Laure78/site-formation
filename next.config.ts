@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import {
+  blogConsolidationRedirectsJuly2026,
   gscHubMergeRedirects,
   gscRedirects2026April,
   GSC_HUB_MERGED_SLUGS,
@@ -50,17 +51,14 @@ const nextConfig: NextConfig = {
         destination: 'https://www.laureolivie.fr/:path*',
         permanent: true,
       },
-      // --- Consolidation blog (juin 2026) — 2 doublons fusionnés vers leur article pilier (308) ---
-      {
-        source: '/blog/ia-devis-gain-temps-pme-btp',
-        destination: '/blog/ia-devis-batiment-chiffrage-automatise',
-        permanent: true,
-      },
+      // --- Consolidation blog (juin 2026) — mémoire technique (ia-devis couvert par B2 juillet) ---
       {
         source: '/blog/memoire-technique-btp-ia-gagner-temps-appels-offres',
         destination: '/blog/ia-memoire-technique-appel-offres-guide-2026',
         permanent: true,
       },
+      // --- Consolidation blog B2 (juillet 2026) — suffixes cron + sémantiques ---
+      ...blogConsolidationRedirectsJuly2026(),
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
       // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
       {
@@ -435,6 +433,19 @@ const nextConfig: NextConfig = {
         destination: '/formations/ia-btp-saint-quentin-en-yvelines',
         permanent: true,
       },
+
+      // Préfectures hub → pages département canoniques (juil. 2026 — pas de page ville dédiée)
+      { source: '/formation-ia/btp-versailles', destination: '/formation-ia-btp-yvelines-78', permanent: true },
+      { source: '/formation-ia/btp-creteil', destination: '/formation-ia-btp-val-de-marne-94', permanent: true },
+      { source: '/formation-ia/btp-nanterre', destination: '/formation-ia-btp-hauts-de-seine-92', permanent: true },
+      { source: '/formation-ia/btp-cergy-pontoise', destination: '/formation-ia-btp-val-doise-95', permanent: true },
+      { source: '/formation-ia/btp-melun', destination: '/formation-ia-btp-seine-et-marne-77', permanent: true },
+      // Variantes tiret (évite chaîne hyphen → slash → 301)
+      { source: '/formation-ia-btp-versailles', destination: '/formation-ia-btp-yvelines-78', permanent: true },
+      { source: '/formation-ia-btp-creteil', destination: '/formation-ia-btp-val-de-marne-94', permanent: true },
+      { source: '/formation-ia-btp-nanterre', destination: '/formation-ia-btp-hauts-de-seine-92', permanent: true },
+      { source: '/formation-ia-btp-cergy-pontoise', destination: '/formation-ia-btp-val-doise-95', permanent: true },
+      { source: '/formation-ia-btp-melun', destination: '/formation-ia-btp-seine-et-marne-77', permanent: true },
 
       // --- Images renommées (SEO) — 301 vers nouveaux chemins /public ---
       {

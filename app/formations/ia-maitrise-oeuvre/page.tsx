@@ -17,7 +17,12 @@ import {
 } from '@/lib/tarifs-sessions';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
-import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
+import {
+  FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT,
+  FINANCEMENT_FORMULATION_COURTE,
+  FINANCEMENT_FORMULATION_PRUDENTE,
+  FINANCEMENT_STAT_LABEL,
+} from '@/lib/financement-copy';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
 
@@ -32,12 +37,12 @@ export const metadata = createPageMetadata({
   title: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
   titleAbsolute: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
   description:
-    'Formation IA & ChatGPT pour la maîtrise d\'œuvre d\'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, 100% finançable OPCO, certifiée Qualiopi.',
+    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Certifiée Qualiopi.`,
   path: PATH,
   openGraphType: 'article',
   openGraphTitle: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
   openGraphDescription:
-    'Formation IA & ChatGPT pour la maîtrise d\'œuvre d\'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, 100% finançable OPCO, certifiée Qualiopi.',
+    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Certifiée Qualiopi.`,
   alternatesLanguages: { 'fr-FR': `${SITE_CONFIG.url}${PATH}` },
   image: {
     url: CATALOGUE_VISUEL.src,
@@ -50,7 +55,7 @@ export const metadata = createPageMetadata({
 const HERO_BADGES = [
   '4h de formation',
   '3 à 8 participants',
-  '100% finançable OPCO',
+  FINANCEMENT_STAT_LABEL,
   `${SOCIAL_PROOF.AVERAGE_RATING} satisfaction`,
 ];
 
@@ -58,7 +63,7 @@ const HERO_RESUME = [
   `Session ${SESSION_DUREE_LIBELLE} — maîtrise d'œuvre d'exécution, 5 modules opérationnels.`,
   `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT — TVA exonérée (art. 261-4-4° CGI).`,
   '3 à 8 participants — intra ou inter, présentiel Île-de-France.',
-  '100% finançable OPCO — prise en charge Constructys (24 € HT/h/participant).',
+  `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}`,
 ];
 
 const OBJECTIFS_PEDAGOGIQUES = [
@@ -232,8 +237,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               261-4-4° CGI).
             </li>
             <li>
-              <strong>Financement :</strong> 100&nbsp;% finançable OPCO — prise en charge Constructys (24 €
-              HT/h/participant). {FINANCEMENT_FORMULATION_COURTE}
+              <strong>Financement :</strong> {FINANCEMENT_FORMULATION_PRUDENTE} {FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}
             </li>
           </ul>
         </section>

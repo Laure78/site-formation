@@ -5,6 +5,8 @@ import { getBlogCategoryMetadata } from '@/lib/blog-metadata';
 import { blogCategoryIdFromPathSlug, BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { BLOG_CATEGORIES } from '@/lib/blog';
 
+export const revalidate = 3600;
+
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {

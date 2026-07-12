@@ -168,7 +168,7 @@ Articles audités: 94 | Sections H2 auditées: 539
 | Méthode pas à pas | Collecte : notes brutes (même imparfaites) juste après la visite — le CDT perd moins de temps que le soir. | OK | (Conserver telle quelle) |
 | Résultats indicatifs (ordre de grandeur) | Les durées varient selon la complexité du marché et la qualité des notes sources. | OK | (Conserver telle quelle) |
 | Accompagnement personnalisé | Vous voulez un cadre Qualiopi et des trames adaptées à votre entreprise ? | OK | (Conserver telle quelle) |
-| Maillage utile | Pour aller plus loin : <a href="/formation-ia-btp" class="text-[#377CF3] font-medium underline">page pilier formation IA BTP</a>, <a href="/formation-ia-conducteur-travaux" class="text-[#377CF3] font-medium underline">formation IA conducteur de travaux BTP</a>, et l’article <a href="/blog/compte-rendu-chantier-ia-automatiser-gagner-temps" class="text-[#377CF3] font-medium underline">compte rendu de chantier et IA</a>. | OK | (Conserver telle quelle) |
+| Maillage utile | Pour aller plus loin : <a href="/formations" class="text-[#377CF3] font-medium underline">catalogue formations IA BTP</a>, <a href="/formation-ia-conducteur-travaux" class="text-[#377CF3] font-medium underline">formation IA conducteur de travaux BTP</a>, et l’article <a href="/blog/compte-rendu-chantier-ia-automatiser-gagner-temps" class="text-[#377CF3] font-medium underline">compte rendu de chantier et IA</a>. | OK | (Conserver telle quelle) |
 
 ## ChatGPT pour devis électricien : guide complet + prompts prêts à l'emploi (`chatgpt-devis-electricien-btp`)
 

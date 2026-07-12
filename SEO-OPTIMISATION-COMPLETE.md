@@ -48,7 +48,7 @@
 /formations/ia-travaux-publics
 /formations/ia-productivite-chantier
 /formations/ia-pme-btp
-/formations/ia-btp-paris
+/formation-ia-btp-paris
 /formations/ia-btp-lyon
 /formations/ia-btp-bordeaux
 /formations/ia-btp-lille

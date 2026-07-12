@@ -13,7 +13,7 @@ laureolivie.fr
 │
 ├── FORMATIONS
 │   ├── /formations            Catalogue formations IA BTP
-│   ├── /formations/ia-btp-paris
+│   ├── /formation-ia-btp-paris
 │   ├── /formations/ia-travaux-publics
 │   ├── /formations/ia-appels-offre-btp
 │   ├── /formations/ia-rh-btp

@@ -11,6 +11,9 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { LINKS } from '@/lib/internal-links';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
@@ -573,6 +576,17 @@ export default function FormationIaChargeAffairesBtpPage() {
             </Link>
           </p>
         </section>
+
+        <VoirAussi
+          {...voirAussiMetierProps({
+            currentPath: PATH,
+            excludeHrefs: [
+              LINKS.formations,
+              LINKS.financement,
+              '/formation-ia-assistante-gestion-btp',
+            ],
+          })}
+        />
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>

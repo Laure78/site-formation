@@ -4,6 +4,8 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { Calendar, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { VoirAussi } from '@/components/VoirAussi';
+import { voirAussiVilleProps } from '@/lib/voir-aussi';
 import { FAQSection } from '@/components/landing/FAQSection';
 import {
   createPageMetadata,
@@ -459,6 +461,18 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <section className="border-b border-slate-200 bg-white px-4 py-12">
         <div className="mx-auto max-w-6xl">
+          <VoirAussi
+            {...voirAussiVilleProps('yvelines', {
+              currentPath: PATH,
+              excludeHrefs: [
+                LINKS.formationYvelines,
+                LINKS.formationIleDeFrance,
+                LINKS.formationParis,
+                LINKS.formations,
+                LINKS.financement,
+              ],
+            })}
+          />
           <AllerPlusLoin
             links={[
               { href: LINKS.formationYvelines, label: 'Formation IA pour les pros du BTP Yvelines (78)' },

@@ -37,7 +37,7 @@ function ofc_should_output_course_jsonld_schema() {
 
     $allowed_uris = [
         'formation-ia-btp',
-        'formations/ia-btp-paris',
+        'formation-ia-btp-paris',
         'formation-ia-et-chatgpt',
         'formation-ia-pour-pme-du-btp',
         'ia-devis-batiment',

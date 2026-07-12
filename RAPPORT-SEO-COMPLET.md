@@ -77,7 +77,7 @@
 | `/formations/ia-rh-btp` | Formation IA RH BTP : Recrutement & GEPP efficaces | 149 |
 | `/formations/ia-travaux-publics` | L'IA au service de travaux publics : DCE, CCTP & rapports | 144 |
 | `/formations/ia-productivite-chantier` | Formation IA Productivité Chantier : Gagnez 5h/semaine | 127 |
-| `/formations/ia-btp-paris` | Formation IA BTP Paris : Devis & ChatGPT en 4h | 139 |
+| `/formation-ia-btp-paris` | Formation IA BTP Paris : Devis & ChatGPT en 4h | 139 |
 | `/formations/ia-btp-lyon` | Formation IA BTP Lyon : Automatiser devis & appels d'offres | 135 |
 | `/formations/ia-btp-bordeaux` | Formation IA BTP Bordeaux : Devis & appels d'offres automatisés | 136 |
 | `/formations/ia-btp-lille` | Formation IA BTP Lille : Automatiser devis & appels d'offres | 127 |
@@ -302,7 +302,7 @@
 - `/formations/ia-rh-btp/page.tsx`
 - `/formations/ia-travaux-publics/page.tsx`
 - `/formations/ia-productivite-chantier/page.tsx`
-- `/formations/ia-btp-paris/page.tsx`
+- `/app/formation-ia-btp-paris/page.tsx`
 - `/formations/ia-btp-lyon/page.tsx`
 - `/formations/ia-btp-bordeaux/page.tsx`
 - `/formations/ia-btp-lille/page.tsx`
