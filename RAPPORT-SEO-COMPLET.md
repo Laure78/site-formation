@@ -42,7 +42,7 @@
    - Ajout secteur automobile (formation IA garage, IA réparation automobile)
    - Artisanat renforcé (IA TPE bâtiment, formation IA artisan)
    - Usages métiers (IA devis, IA appels d'offres, IA gestion chantier)
-   - Géographie étendue (Paris, Lyon, Bordeaux, Lille)
+   - Géographie étendue (Paris et Île-de-France (présentiel uniquement))
 
 2. **Schema Person enrichi (E-E-A-T)** :
    - Credentials : Qualiopi, LinkedIn Learning Instructor
@@ -54,7 +54,7 @@
    - Présentation complète Laure Olivié
    - Expertise & parcours professionnel
    - Secteurs accompagnés (BTP, Artisanat, Automobile)
-   - Partenaires (FFB, GERESO, Lefebvre Dalloz, CNAM, FNTP)
+ - Partenaires (FFB, Lefebvre Dalloz, CNAM, FNTP)
    - Schema Person complet
    - CTAs conversion (RDV + Diagnostic)
 
@@ -82,7 +82,7 @@
 | `/formations/ia-btp-bordeaux` | Formation IA BTP Bordeaux : Devis & appels d'offres automatisés | 136 |
 | `/formations/ia-btp-lille` | Formation IA BTP Lille : Automatiser devis & appels d'offres | 127 |
 | `/chatgpt-artisans-btp` | ChatGPT Artisans BTP : Devis & emails automatisés | 146 |
-| `/a-propos` | Laure Olivié : Formatrice IA BTP \| +10 ans expérience | 139 |
+| `/a-propos` | Laure Olivié : Formatrice IA BTP depuis 2022 \| 10 ans de terrain BTP | 139 |
 
 **Règles appliquées :**
 - ✅ Title : 50-60 caractères
@@ -94,7 +94,7 @@
 **Impact :**
 - ✅ +50% de chances d'apparaître en rich snippets
 - ✅ CTR amélioré (title + meta incitative)
-- ✅ SEO local renforcé (pages Paris, Lyon, Bordeaux, Lille)
+- ✅ SEO local renforcé (pages Paris et Île-de-France (présentiel uniquement))
 
 ---
 

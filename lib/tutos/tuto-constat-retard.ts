@@ -317,7 +317,7 @@ Génère le courrier de constat de retard en Word A4, à ma charte, prêt à imp
       'On construit tes skills CR + Constat + Email MOE en direct',
       'Calibrage sur tes vrais chantiers et tes types de marchés',
       'Des skills opérationnels à la fin de la session',
-      'Format individuel ou équipe conducteurs (4 à 14h)',
+      'Format individuel ou équipe conducteurs (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

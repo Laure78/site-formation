@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Poppins } from 'next/font/google';
 import { PHOTOS } from '@/lib/photos';
+import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { LINKS } from '@/lib/internal-links';
 import {
   LINKEDIN_LEARNING_A_PROPOS_EMBEDS,
@@ -143,11 +144,11 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
             <li className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
               <div className="flex h-20 w-full max-w-[220px] items-center justify-center">
                 <Image
-                  src="/images/laure-linkedin-learning-sommaire-cours.png"
-                  alt="Logo LinkedIn Learning — instructrice officielle"
-                  width={220}
-                  height={72}
-                  className="h-auto max-h-16 w-auto max-w-full object-contain object-center"
+                  src={LOGO_LINKEDIN_LEARNING.src}
+                  alt={LOGO_LINKEDIN_LEARNING.alt}
+                  width={LOGO_LINKEDIN_LEARNING.width}
+                  height={LOGO_LINKEDIN_LEARNING.height}
+                  className="h-auto max-h-14 w-auto max-w-full object-contain object-center"
                 />
               </div>
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
@@ -194,6 +195,15 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           >
             Formations LinkedIn Learning
           </h2>
+          <div className="mt-4 flex justify-center">
+            <Image
+              src={LOGO_LINKEDIN_LEARNING.src}
+              alt={LOGO_LINKEDIN_LEARNING.alt}
+              width={LOGO_LINKEDIN_LEARNING.width}
+              height={LOGO_LINKEDIN_LEARNING.height}
+              className="h-10 w-auto max-w-[200px] object-contain"
+            />
+          </div>
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">
             Deux cours publiés en tant qu&apos;instructrice officielle — extraits vidéo ci-dessous. Pour les sessions{' '}
             <strong>en entreprise</strong>, certifiées <QualiopiWordmark /> et finançables{' '}

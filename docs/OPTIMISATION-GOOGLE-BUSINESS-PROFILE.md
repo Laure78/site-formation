@@ -62,7 +62,7 @@ Centre de formation
 2. **Intérieur :** Session de formation en cours (salle, groupe)
 3. **Extérieur :** Siège à Guyancourt ou logo OFC
 4. **Activité :** Formation IA BTP — écran, supports, participants
-5. **Équipe :** Laure Olivié avec partenaires (FFB, GERESO, etc.)
+5. **Équipe :** Laure Olivié avec partenaires (FFB, etc.)
 
 **Régularité :** Publier 1 à 2 nouvelles photos par mois.
 

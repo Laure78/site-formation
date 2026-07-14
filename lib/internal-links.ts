@@ -13,6 +13,8 @@ export const LINKS = {
   // Tier 1 — Pages principales
   home: '/',
   formations: '/formations',
+  /** Hub — 2 formations LinkedIn Learning (en ligne, à la demande) */
+  formationsLinkedInLearning: '/formations-linkedin-learning',
   blog: '/blog',
   /** Article pilier GEO — guide formation IA appliquée au bâtiment 2026 */
   blogFormationIaBtpGuide2026: '/blog/formation-ia-btp-guide-complet-2026',

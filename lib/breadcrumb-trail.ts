@@ -50,7 +50,6 @@ const RESSOURCES_TITLES: Record<string, string> = {
 
 const GEO_BTP_REGIONAL_TITLES: Record<string, string> = {
   '/formation-ia-btp-ile-de-france': 'Formation IA pour les pros du BTP Île-de-France',
-  '/formation-ia-btp-paris-2026': 'Formation IA pour les pros du BTP Paris 2026',
 };
 
 function buildGeoBtpDeptLabels(): Record<string, string> {
@@ -218,14 +217,6 @@ function formationIaHubTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
 function geoBtpRegionalTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
   const title = GEO_BTP_REGIONAL_TITLES[pathNorm];
   if (!title) return null;
-
-  if (pathNorm === '/formation-ia-btp-paris-2026') {
-    return [
-      { label: 'Accueil', href: '/' },
-      { label: 'Formations', href: '/formations' },
-      { label: title, href: pathNorm },
-    ];
-  }
 
   return [
     { label: 'Accueil', href: '/' },

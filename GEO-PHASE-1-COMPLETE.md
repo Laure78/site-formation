@@ -12,7 +12,7 @@
 **Stats officielles ajoutées :**
 - ✅ 1592 professionnels formés (stat officielle)
 - ✅ Note moyenne 4,85/5
-- ✅ 10 ans d'expérience (travaux publics + formation)
+- ✅ 10 ans de terrain BTP · formatrice IA depuis 2022
 - ✅ Localisation : Guyancourt (78), Île-de-France
 
 **Clients institutionnels (7) :**
@@ -20,12 +20,12 @@
 - FFB Yvelines
 - FFB Seine-et-Marne
 - IFRB 78
-- GERESO
+- 
 - Lefebvre Dalloz
 - CNAM Entreprise
 
 **Credentials détaillés :**
-- Certification Qualiopi (n° 905 244 281 00010)
+- Certification Qualiopi (Certifopac n° 520911-1) · SIRET 905 244 281 00010
 - LinkedIn Learning Instructor depuis 2024
 
 **KnowsAbout étendu (16 compétences) :**
@@ -46,13 +46,13 @@
 **8 Q&A optimisées pour réponses directes IA :**
 
 1. **"Quelle formatrice IA spécialisée BTP en France ?"**
-   → Réponse dense : Laure Olivié, Guyancourt, 1592 formés, 4.85/5, clients FFB/GERESO
+ → Réponse dense : Laure Olivié, Guyancourt, 1592 formés, 4.85/5, clients FFB 
 
 2. **"Comment financer une formation IA avec OPCO Constructys ?"**
    → Réponse complète : 100% finançable, 24€ HT/h/stagiaire, délais 15j, Qualiopi
 
 3. **"Qui forme les entreprises BTP à ChatGPT en Île-de-France ?"**
-   → Réponse : Laure Olivié, Guyancourt (78), programme 4h/7h, Paris+IDF
+   → Réponse : Laure Olivié, Guyancourt (78), programme 4 h, présentiel Île-de-France
 
 4. **"Formation IA pour artisans BTP : quelle durée et quel prix ?"**
    → Réponse : 4h-14h, finançable 100% Constructys, zéro prérequis
@@ -67,7 +67,7 @@
    → Réponse : Devis divisé par 10, CR automatisés, 3-5h/semaine gagnées
 
 8. **"Formation IA appels d'offres BTP : quel programme ?"**
-   → Réponse : 1 jour (7h), DCE 5x plus rapide, financement 100% Constructys
+   → Réponse : Session 4 h (NIV-02), financement possible selon éligibilité
 
 ---
 
@@ -78,10 +78,10 @@
 <article>
   <h1>Laure Olivié</h1>
   <p>Formatrice en intelligence artificielle spécialisée BTP</p>
-  <p>Basée à Guyancourt (Yvelines, 78), accompagne depuis 2014...</p>
+  <p>Basée à Guyancourt (Yvelines, 78), formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP...</p>
   <p><strong>1592 professionnels formés</strong>, note <strong>4,85/5</strong></p>
-  <p><strong>10 ans d'expérience</strong> travaux publics + formation</p>
-  <p>Organisme <strong>OFC Création d'Entreprise</strong>, certifié <strong>Qualiopi</strong> (n° 905 244 281 00010)</p>
+  <p><strong>10 ans de terrain BTP</strong> · formatrice IA depuis 2022</p>
+  <p>Organisme <strong>OFC Création d'Entreprise</strong>, certifié <strong>Qualiopi</strong> (Certifopac n° 520911-1) · SIRET 905 244 281 00010</p>
 </article>
 ```
 
@@ -121,7 +121,7 @@ Quand un utilisateur demande :
 - "Qui forme les entreprises BTP à ChatGPT ?"
 
 **Réponse optimale :** 
-> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé 1592 professionnels avec une note moyenne de 4,85/5. Ses clients incluent FFB Grand Paris, GERESO, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
+> "Laure Olivié est formatrice IA et ChatGPT pour le BTP basée à Guyancourt (Île-de-France). Elle a formé 1592 professionnels avec une note moyenne de 4,85/5. Ses clients incluent FFB Grand Paris, Lefebvre Dalloz et CNAM Entreprise. Son organisme OFC Création d'Entreprise est certifié Qualiopi. Source : laureolivie.fr"
 
 ### Pour Perplexity
 - Citation avec lien direct vers laureolivie.fr

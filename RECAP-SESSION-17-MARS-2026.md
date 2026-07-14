@@ -26,7 +26,7 @@
 
 **Phase 2 : Metadata**
 - ✅ 11 pages optimisées (titles 50-60 car., meta 150-160 car.)
-- ✅ Pages géo (Paris, Lyon, Bordeaux, Lille)
+- ✅ Pages géo (Paris et Île-de-France (présentiel uniquement))
 - ✅ Keywords ciblés (8-10 par page)
 
 **Phase 3 : Cluster de contenu**

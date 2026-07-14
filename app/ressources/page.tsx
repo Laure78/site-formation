@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ArrowRight, CalendarCheck } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { TUTOS } from '@/lib/tutos';
 import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
 import { RessourcesThematicHub } from '@/components/ressources/RessourcesThematicHub';
@@ -131,6 +133,43 @@ export default function RessourcesIndexPage() {
       <RessourcesHero />
 
       <RessourcesThematicHub />
+
+      <section className="border-t border-slate-200 bg-white py-10 md:py-12" aria-labelledby="ressources-linkedin-heading">
+        <div className="mx-auto max-w-7xl px-4">
+          <Link
+            href={LINKS.formationsLinkedInLearning}
+            className="group flex flex-col rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md md:flex-row md:items-center md:justify-between md:gap-8"
+          >
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5">
+              <Image
+                src={LOGO_LINKEDIN_LEARNING.src}
+                alt={LOGO_LINKEDIN_LEARNING.alt}
+                width={LOGO_LINKEDIN_LEARNING.width}
+                height={LOGO_LINKEDIN_LEARNING.height}
+                className="h-9 w-auto max-w-[160px] shrink-0 object-contain object-left"
+              />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                  En ligne · LinkedIn Learning
+                </p>
+                <h2
+                  id="ressources-linkedin-heading"
+                  className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl"
+                >
+                  Mes formations LinkedIn Learning
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+                  2 formations en ligne sur l&apos;IA appliquée au BTP.
+                </p>
+              </div>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#377CF3] transition group-hover:gap-3 md:mt-0">
+              Voir les 2 cours
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </span>
+          </Link>
+        </div>
+      </section>
 
       <RessourcesLexiqueSection />
 

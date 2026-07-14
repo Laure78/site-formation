@@ -174,9 +174,9 @@ export default function ContactPage() {
           </h2>
           <div className="mt-8 space-y-6 text-slate-600">
             <p>
-              Forte de plus de 10 ans d&apos;expérience en formation
-              professionnelle, je me suis spécialisée dans l&apos;accompagnement
-              des entreprises du BTP vers l&apos;intelligence artificielle. Mon
+              Formatrice IA spécialisée BTP depuis 2022, avec 10 ans de terrain BTP
+              (conductrice de travaux), j&apos;accompagne les entreprises du bâtiment
+              et des travaux publics vers l&apos;intelligence artificielle. Mon
               objectif n&apos;est pas de parler théorie, mais de vous montrer
               concrètement comment l&apos;IA peut transformer votre quotidien.
             </p>

@@ -220,7 +220,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             Les PME BTP {deptPreposition} : à quoi utilisent-elles l&apos;IA ?
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
-            Artisans, PME bâtiment et travaux publics {deptPreposition} cherchent surtout à réduire le temps
+            Professionnels du BTP et PME du bâtiment {deptPreposition} cherchent surtout à réduire le temps
             passé sur l&apos;administratif sans perdre le contrôle des prix et des engagements contractuels.
             En formation, nous travaillons ces cas concrets — toujours avec relecture humaine avant envoi.
           </p>

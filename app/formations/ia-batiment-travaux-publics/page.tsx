@@ -154,7 +154,7 @@ const MODALITES = [
     icon: Users,
     title: 'Public cible',
     primary: 'Entreprises du bâtiment, travaux publics et BTP',
-    secondary: 'Artisans, TPE, PME, dirigeants, conducteurs de travaux, chargés d’affaires et équipes administratives',
+    secondary: 'TPE & PME du bâtiment, dirigeants, conducteurs de travaux, chargés d’affaires et équipes administratives',
   },
   {
     icon: FileText,
@@ -238,7 +238,7 @@ const AVANT_APRES = [
 ];
 
 const PUBLIC_CIBLE = [
-  'Artisans, TPE et PME du bâtiment et des travaux publics',
+  'TPE & PME du bâtiment et des travaux publics',
   'Dirigeants et responsables d’entreprises du bâtiment',
   'Conducteurs de travaux et chargés d’affaires',
   'Encadrement de chantier, chefs d’équipe, techniciens',
@@ -508,8 +508,8 @@ export default function FormationIAuServiceDuBatimentPage() {
             À qui s&apos;adresse cette formation ?
           </h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            Cette formation s&apos;adresse aux TPE, PME et équipes terrain du BTP (artisans, conducteurs de
-            travaux, assistants) — pas aux profils développeurs.
+            Cette formation s&apos;adresse aux TPE, PME et équipes terrain du BTP (professionnels du BTP,
+            conducteurs de travaux, assistants) — pas aux profils développeurs.
           </p>
           <p className="mt-3 max-w-2xl text-slate-600">
             TPE, PME et équipes du second œuvre ou du gros œuvre : la session est conçue pour des profils

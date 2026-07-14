@@ -327,7 +327,7 @@ Génère le PPSPS complet en Word. Inclus la table des matières, l'organigramme
       'On construit ton skill PPSPS sur tes vrais chantiers',
       'Calibrage sur tes risques métier et tes coordinateurs SPS',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel ou équipe (4 à 14h)',
+      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

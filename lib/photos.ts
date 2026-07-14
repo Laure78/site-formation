@@ -240,7 +240,7 @@ export const PHOTOS = {
     alt: "Portrait Laure Olivié sur fond bleu OFC — formatrice IA et ChatGPT pour le BTP, certifiée Qualiopi",
     title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
     description:
-      "Portrait Laure Olivié sur fond bleu OFC : formatrice intelligence artificielle et ChatGPT pour artisans et PME du bâtiment — symboles chantier et innovation.",
+      "Portrait Laure Olivié sur fond bleu OFC : formatrice intelligence artificielle et ChatGPT pour TPE, PME et professionnels du BTP — symboles chantier et innovation.",
     width: 1024,
     height: 1024,
   },

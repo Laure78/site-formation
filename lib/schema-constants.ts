@@ -92,7 +92,7 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA pour le BTP',
+  jobTitle: 'Formatrice IA spécialisée BTP',
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */
@@ -165,7 +165,7 @@ export function buildQualiopiCredentialSchema(): Record<string, unknown> {
     credentialCategory: 'certification',
     recognizedBy: {
       '@type': 'Organization',
-      name: 'Ministère du Travail',
+      name: 'Certifopac',
     },
     url: 'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281',
   };
@@ -187,10 +187,9 @@ export const IDF_DEPT_AREA_SERVED_LABELS = [
 export const IDF_COURSE_AREA_SERVED_NAMES = [
   'Île-de-France',
   ...IDF_DEPT_AREA_SERVED_LABELS,
-  'France',
 ] as const;
 
-/** areaServed Organization / LocalBusiness — 8 départements + région + France. */
+/** areaServed Organization / LocalBusiness — Île-de-France + 8 départements (pas de France entière). */
 export function buildIdfAreaServedSchemaEntities(): Array<Record<string, string>> {
   return [
     { '@type': 'AdministrativeArea', name: 'Île-de-France' },
@@ -198,6 +197,5 @@ export function buildIdfAreaServedSchemaEntities(): Array<Record<string, string>
       '@type': 'AdministrativeArea',
       name,
     })),
-    { '@type': 'Country', name: 'France' },
   ];
 }

@@ -1,7 +1,8 @@
 /**
  * JSON-LD @graph unique — page d'accueil uniquement (Organization + Person + WebPage + BreadcrumbList + Course/Offer + AggregateRating).
  * Service et HowTo retirés (allègement). La couverture géo exhaustive vit sur les pages géo dédiées.
- * Le FAQPage est injecté séparément dans `app/page.tsx` via `buildHomeFAQPageJsonLd()` + `<Script>` pour rester aligné sur la FAQ visuelle (toutes les entrées).
+ * FAQPage accueil injecté séparément via `buildHomeFAQPageJsonLd()` + `<JsonLd />` (Q/R transactionnelles).
+ * Le FAQPage catalogue reste sur `/formations` (`FAQ_FORMATIONS`).
  * Données alignées sur `lib/schema-constants.ts`.
  */
 import {

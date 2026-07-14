@@ -104,7 +104,7 @@ Avant tout prompt, listez ce qui peut entrer dans l’outil : type de local, niv
 **Encadré fond #377CF3, texte blanc**
 
 **Titre :** 30 minutes pour cadrer votre formation électricien + Constructys  
-**Texte :** Vérifiez l’éligibilité et le format (4 h / 7 h / 14 h).  
+**Texte :** Vérifiez l’éligibilité et le format (4 h, présentiel Île-de-France).  
 **Bouton :** Je réserve ma visio gratuite  
 
 **CTA Calendly #2**

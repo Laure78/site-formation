@@ -57,7 +57,7 @@ const A_PROPOS_TOC = [
 
 const A_PROPOS_META_TITLE = `Laure Olivié — formatrice IA BTP — Qualiopi`;
 const A_PROPOS_META_DESCRIPTION =
-  'Laure Olivié, formatrice IA BTP : 10 ans de terrain (conductrice de travaux), Qualiopi, FFB, CSFE, CNAM, Lefebvre Dalloz. 1 592 pros formés, 4,85/5.';
+  'Laure Olivié, formatrice IA spécialisée BTP depuis 2022 : 10 ans de terrain BTP (conductrice de travaux), Qualiopi, FFB, CSFE, CNAM, Lefebvre Dalloz. 1 592 pros formés, 4,85/5.';
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,

@@ -316,7 +316,7 @@ Génère le PV de levée au format Word, à ma charte, prêt à imprimer et sign
       'On construit ton skill PV de levée en direct',
       "Calibrage sur tes vrais chantiers et tes interlocuteurs MOE",
       'Un skill opérationnel à la fin de la session',
-      'Format individuel ou équipe (4 à 14h)',
+      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

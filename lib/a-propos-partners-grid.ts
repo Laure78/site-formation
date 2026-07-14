@@ -1,5 +1,13 @@
-import { ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
+import {
+  ALT_LOGO_FFB_OFFICIEL,
+  ALT_LOGO_LINKEDIN_LEARNING,
+  ALT_LOGO_UMB_FFB,
+  LOGO_LINKEDIN_LEARNING,
+  LOGO_UMB_FFB,
+  PARTNER_WEBSITES,
+} from '@/lib/client-logos';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
+import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL } from '@/lib/schema-constants';
 
 export type AProposPartner = {
   name: string;
@@ -48,6 +56,13 @@ export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
     logo: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
   },
   {
+    name: 'UMB-FFB',
+    subtitle: 'Union des Métiers du Bois',
+    href: PARTNER_WEBSITES.umbFfb,
+    logo: LOGO_UMB_FFB.src,
+    alt: ALT_LOGO_UMB_FFB,
+  },
+  {
     name: 'CNAM Entreprise',
     subtitle: 'Formation professionnelle',
     href: 'https://www.cnam-idf.fr/',
@@ -70,5 +85,12 @@ export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
     subtitle: 'Association — formation BTP',
     href: 'https://www.arfab.fr/',
     logo: '/images/partenaires/logo-arfab-partenaire-formation-btp.webp',
+  },
+  {
+    name: 'LinkedIn Learning',
+    subtitle: 'Instructrice officielle — 2 cours IA BTP',
+    href: SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+    logo: LOGO_LINKEDIN_LEARNING.src,
+    alt: ALT_LOGO_LINKEDIN_LEARNING,
   },
 ];

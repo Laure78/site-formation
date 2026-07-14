@@ -327,7 +327,7 @@ Génère le DOE complet selon ma trame standard. Signale-moi d'abord les pièces
       'On construit ton skill DOE en direct sur tes vrais chantiers',
       "Calibrage sur tes exigences MOE habituelles",
       'Un skill opérationnel à la fin de la session',
-      'Format individuel ou équipe (4 à 14h)',
+      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

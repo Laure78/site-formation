@@ -200,7 +200,7 @@ Ne réécris pas le devis, signale uniquement les manques.`,
 </table>
 </div>
 <p class="mt-4">Pour démarrer, un seul outil bien maîtrisé suffit : ChatGPT Plus ou Claude Pro.</p>
-<p class="mt-2">Pour approfondir selon vos besoins métier, consultez <a href="${LINKS.chatgptArtisans}" class="font-medium text-[var(--accent)] underline hover:no-underline">ChatGPT pour artisans BTP</a> et <a href="${LINKS.formationConducteurTravaux}" class="font-medium text-[var(--accent)] underline hover:no-underline">IA pour conducteur de travaux</a>.</p>`,
+<p class="mt-2">Pour approfondir selon vos besoins métier, consultez <a href="${LINKS.chatgptArtisans}" class="font-medium text-[var(--accent)] underline hover:no-underline">ChatGPT pour entreprises BTP</a> et <a href="${LINKS.formationConducteurTravaux}" class="font-medium text-[var(--accent)] underline hover:no-underline">IA pour conducteur de travaux</a>.</p>`,
     },
     {
       type: 'html',

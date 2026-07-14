@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { AccueilHeroVideoSection } from '@/components/landing/AccueilHeroVideoSection';
 import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
 import { CitationSentence } from '@/components/seo/CitationSentence';
@@ -38,7 +39,6 @@ import { Partenaires } from '@/components/Partenaires';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
 import Image from 'next/image';
-import Script from 'next/script';
 import { createPageMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
@@ -59,6 +59,7 @@ import {
   type CatalogueLevel,
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
+import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
@@ -138,18 +139,18 @@ const GAINS_COMMERCIAUX_CARDS = [
   },
 ] as const;
 
-const HOME_META_TITLE = 'Formation IA BTP Paris IDF — Devis, AO, CR';
+const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France | Laure Olivié';
 const HOME_META_DESCRIPTION =
   'Formation IA pour le BTP en présentiel Île-de-France : devis, appels d\'offres, CR sur vos vrais documents. Qualiopi, Constructys. 1 592 pros formés, 4,85/5.';
 
-const HOME_FAQ_PAGE_JSON_LD = JSON.stringify(buildHomeFAQPageJsonLd());
+const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
 
 export const revalidate = 3600;
 
-export const metadata = createPageMetadata({
-  title: HOME_META_TITLE,
+const homePageMetadataBase = createPageMetadata({
+  title: 'Formation IA pour le BTP en Île-de-France',
   titleAbsolute: HOME_META_TITLE,
   description: HOME_META_DESCRIPTION,
   descriptionFinal: true,
@@ -193,6 +194,19 @@ export const metadata = createPageMetadata({
   },
 });
 
+/** Title / OG / Twitter : chaîne exacte (segment 41 car. hors plafond utilitaire 40). */
+export const metadata: Metadata = {
+  ...homePageMetadataBase,
+  title: { absolute: HOME_META_TITLE },
+  openGraph: {
+    ...homePageMetadataBase.openGraph,
+    title: HOME_META_TITLE,
+  },
+  twitter: {
+    ...homePageMetadataBase.twitter,
+    title: HOME_META_TITLE,
+  },
+};
 
 export default function HomePage() {
   const statsFreshness = getStatsFreshnessLabel();
@@ -1118,7 +1132,14 @@ export default function HomePage() {
             </RevealGroup>
 
             <Reveal className="mt-16 max-w-4xl rounded-2xl border border-slate-200 bg-slate-50 p-6 md:p-8">
-              <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
+              <Image
+                src={LOGO_LINKEDIN_LEARNING.src}
+                alt={LOGO_LINKEDIN_LEARNING.alt}
+                width={LOGO_LINKEDIN_LEARNING.width}
+                height={LOGO_LINKEDIN_LEARNING.height}
+                className="h-8 w-auto max-w-[160px] object-contain"
+              />
+              <p className="mt-3 text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
                 LinkedIn Learning
               </p>
               <h4 className="mt-2 font-display text-xl font-bold text-slate-900 md:text-2xl">
@@ -1172,7 +1193,7 @@ export default function HomePage() {
               <Citation
                 className="mt-6"
                 variant="formatrice"
-                quote="Je forme les entreprises du BTP depuis 10 ans. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
+                quote="Formatrice IA spécialisée BTP depuis 2022, après 10 ans de terrain BTP comme conductrice de travaux. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
                 author="Laure Olivié"
                 role="Formatrice IA BTP — OFC Création d'Entreprise"
               />
@@ -1181,7 +1202,7 @@ export default function HomePage() {
                 {[
                   {
                     icon: GraduationCap,
-                    title: '10 ans d\'expérience BTP',
+                    title: '10 ans de terrain BTP',
                     desc: 'Spécialisation métiers du bâtiment, TP, génie civil.',
                   },
                   {
@@ -1258,6 +1279,11 @@ export default function HomePage() {
                   {' · '}
                   <Link href="/a-propos#clients-partenaires" className={OFC_LINK}>
                     Tous les partenaires
+                  </Link>
+                </p>
+                <p className="mt-5 text-sm leading-relaxed text-slate-600">
+                  <Link href={LINKS.formationsLinkedInLearning} className={`${OFC_LINK} font-semibold`}>
+                    Instructrice LinkedIn Learning — découvrez mes 2 formations en ligne
                   </Link>
                 </p>
               </div>
@@ -1548,11 +1574,7 @@ export default function HomePage() {
       </section>
 
       <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
-      <Script
-        id="faq-schema-home"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: HOME_FAQ_PAGE_JSON_LD }}
-      />
+      <JsonLd id="faq-schema-home" schema={HOME_FAQ_PAGE_JSON_LD} />
     </div>
   );
 }

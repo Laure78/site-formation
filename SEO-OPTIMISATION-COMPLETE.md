@@ -8,7 +8,7 @@
 - ✅ Secteur automobile (formation IA garage, IA réparation automobile, etc.)
 - ✅ Artisanat renforcé (formation IA artisan, IA TPE bâtiment)
 - ✅ Usages métiers précis (IA devis, IA appels d'offres, IA gestion chantier)
-- ✅ Géographie étendue (Paris, Lyon, Bordeaux, Lille)
+- ✅ Géographie étendue (Paris et Île-de-France (présentiel uniquement))
 
 **Schema.org Person enrichi (E-E-A-T) :**
 - ✅ Crédentials ajoutés (Qualiopi, LinkedIn Learning)

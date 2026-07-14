@@ -189,7 +189,7 @@ Non. La formation IA pour le BTP ne nécessite aucune compétence informatique p
 
 ### 2. Quelle est la durée de la formation ?
 
-La formation est disponible en **4 heures** (demi-journée), **7 heures** (journée complète, format le plus courant) ou **14 heures** (2 jours, pour une maîtrise approfondie). Le format est adapté à vos objectifs lors de l’entretien préalable.
+La formation catalogue est de **4 heures**, en **présentiel uniquement · Île-de-France uniquement** (75-77-78-91-92-93-94-95). Le format est calé lors de l’entretien préalable (visio découverte 30 min).
 
 ### 3. Comment est financée la formation avec Constructys ?
 

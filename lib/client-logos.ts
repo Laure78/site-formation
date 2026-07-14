@@ -13,8 +13,25 @@ export const ALT_LOGO_CSFE =
   'Logo CSFE, Chambre Syndicale Française de l\'Étanchéité — partenaire formation IA' as const;
 export const ALT_LOGO_UMB_FFB =
   'Logo UMB-FFB, Union des Métiers du Bois — partenaire formation IA bâtiment' as const;
+
+/** Logo officiel UMB-FFB (Union des Métiers du Bois). */
+export const LOGO_UMB_FFB = {
+  src: '/images/partenaires/logo-umb-ffb-metiers-du-bois.webp',
+  alt: ALT_LOGO_UMB_FFB,
+  width: 1024,
+  height: 480,
+} as const;
+
 export const ALT_LOGO_LINKEDIN_LEARNING =
   'Logo LinkedIn Learning — Laure Olivié, instructrice IA pour le BTP' as const;
+
+/** Logo officiel LinkedIn Learning (bandeaux partenaires, EEAT, hubs). */
+export const LOGO_LINKEDIN_LEARNING = {
+  src: '/images/partenaires/logo-linkedin-learning.webp',
+  alt: ALT_LOGO_LINKEDIN_LEARNING,
+  width: 600,
+  height: 600,
+} as const;
 export const ALT_LOGO_CNAM_ENTREPRISES =
   'Logo CNAM entreprises Île-de-France' as const;
 export const ALT_LOGO_ARFAB =
@@ -48,6 +65,7 @@ export const PARTNER_WEBSITES = {
   umbFfb: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
+  linkedinLearning: 'https://www.linkedin.com/learning/',
 } as const;
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
@@ -94,6 +112,16 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     linkTitle: 'Site officiel CSFE — Chambre Syndicale Française de l’Étanchéité',
   },
   {
+    id: 'umb-ffb',
+    name: 'UMB-FFB',
+    alt: ALT_LOGO_UMB_FFB,
+    src: LOGO_UMB_FFB.src,
+    width: LOGO_UMB_FFB.width,
+    height: LOGO_UMB_FFB.height,
+    href: PARTNER_WEBSITES.umbFfb,
+    linkTitle: 'Site officiel UMB-FFB — Union des Métiers du Bois',
+  },
+  {
     id: 'cnam',
     name: 'le CNAM entreprises',
     alt: ALT_LOGO_CNAM_ENTREPRISES,
@@ -123,5 +151,15 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
     href: PARTNER_WEBSITES.ifrb,
     linkTitle: 'Site officiel IFRB — Institut de Formation Régional du Bâtiment',
     caption: 'IFRB 77',
+  },
+  {
+    id: 'linkedin-learning',
+    name: 'LinkedIn Learning',
+    alt: ALT_LOGO_LINKEDIN_LEARNING,
+    src: LOGO_LINKEDIN_LEARNING.src,
+    width: LOGO_LINKEDIN_LEARNING.width,
+    height: LOGO_LINKEDIN_LEARNING.height,
+    href: PARTNER_WEBSITES.linkedinLearning,
+    linkTitle: 'LinkedIn Learning — cours IA de Laure Olivié',
   },
 ];

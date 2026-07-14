@@ -315,7 +315,7 @@ Génère ma fiche d'analyse standardisée. Cite la page exacte du DCE pour chaqu
       'On construit ton skill analyse DCE en direct',
       'Calibrage sur tes vrais marchés et tes vrais critères',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel (1h30) ou équipe (4 à 14h)',
+      'Format individuel (1h30) ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

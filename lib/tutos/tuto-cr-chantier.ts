@@ -335,7 +335,7 @@ Génère le CR de chantier au format Word de mon entreprise. Marque clairement l
       'On construit ton skill CR sur tes vrais chantiers',
       'Calibrage sur ton vocabulaire et ta façon de dicter',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel (1h30) ou équipe conducteurs (4 à 14h)',
+      'Format individuel (1h30) ou équipe conducteurs (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };
