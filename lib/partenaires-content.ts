@@ -141,11 +141,6 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
     },
   },
   {
-    id: 'capeb',
-    name: 'CAPEB',
-    href: PARTNER_WEBSITES.capeb,
-  },
-  {
     id: 'linkedin-learning',
     name: 'LinkedIn Learning',
     href: SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,

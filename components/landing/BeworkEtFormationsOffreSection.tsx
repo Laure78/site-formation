@@ -47,7 +47,7 @@ const CONCRET = [
 const POURQUOI = [
   '10+ ans terrain (conductrice de travaux, dirigeante BTP)',
   'Qualiopi · actions déclarées',
-  'Références : FFB Grand Paris, FFB IDF, CSFE, CAPEB',
+  'Références : FFB Grand Paris, FFB IDF, CSFE',
   'Instructrice LinkedIn Learning (IA BTP)',
 ] as const;
 

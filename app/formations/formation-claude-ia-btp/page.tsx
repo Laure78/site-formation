@@ -226,7 +226,7 @@ export default function FormationClaudeIaBtpPage() {
           <h2 className="font-display text-xl font-bold text-slate-900">Informations pratiques</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Session intra-entreprise en <strong>présentiel — région Île-de-France</strong> (dans vos locaux).
-            Date à planifier selon vos disponibilités. Références : FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB,
+            Date à planifier selon vos disponibilités. Références : FFB Grand Paris, FFB Île-de-France, CSFE,
             CNAM Entreprise, Lefebvre Dalloz.
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">

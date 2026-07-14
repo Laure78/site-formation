@@ -549,7 +549,7 @@ export default function FormationIaBtpPillarPage() {
                 <strong>{personnesFormeesAffiche}</strong> professionnels du BTP formés
               </li>
               <li>
-                Clients : FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz
+                Clients : FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise, Lefebvre Dalloz
               </li>
             </ul>
           </Reveal>
@@ -565,7 +565,7 @@ export default function FormationIaBtpPillarPage() {
             <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021) — une expertise rare : IA générative × réalités terrain.
           </p>
           <p>
-            Depuis 2022, elle forme les équipes des fédérations (FFB Grand Paris, FFB IDF, FFB IDF Est, CAPEB), des institutions
+            Depuis 2022, elle forme les équipes des fédérations (FFB Grand Paris, FFB IDF, FFB IDF Est), des institutions
             (CNAM Entreprise, Lefebvre Dalloz, CSFE) et des PME d&apos;Île-de-France sur ChatGPT, Claude, Copilot et Mistral —
             devis, DCE, CCTP, CR chantier, DOE, PPSPS et mémoires techniques. <strong>Instructrice LinkedIn Learning</strong>{' '}
             (deux cours publiés en 2026).

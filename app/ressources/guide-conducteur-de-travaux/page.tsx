@@ -418,14 +418,14 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
             </h2>
             <p className="mt-4 text-slate-700 leading-relaxed">
               Formatrice IA &amp; ChatGPT pour le BTP — OFC Création d&apos;Entreprise, certifiée Qualiopi. Sessions avec
-              la FFB, la CAPEB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
+              la FFB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
             </p>
             <p className="mt-3 font-semibold text-slate-900">
               +{formatProfessionalsTrainedCount()} personnes formées · {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi ·
               Constructys
             </p>
             <p className="mt-4 text-sm font-medium text-slate-600">
-              Références : FFB · CAPEB · CNAM
+              Références : FFB · CNAM
             </p>
           </div>
         </div>

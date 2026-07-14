@@ -319,7 +319,7 @@ export default function GuideMaitriseOeuvreIaPage() {
                 réels : DCE, DPGF, CR, réserves, OPR et DOE.
               </p>
               <p>
-                Elle intervient notamment pour FFB Grand Paris, FFB Île-de-France, CSFE, CAPEB, CNAM Entreprise et Lefebvre
+                Elle intervient notamment pour FFB Grand Paris, FFB Île-de-France, CSFE, CNAM Entreprise et Lefebvre
                 Dalloz. Ses formations IA BTP Paris et Grand Paris sont finançables via Constructys / OPCO selon éligibilité.
               </p>
               <p>

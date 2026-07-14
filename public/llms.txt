@@ -22,7 +22,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Formation IA et ChatGPT appliquée au BTP (bâtiment et travaux publics)
 - Spécialités : devis/chiffrage, appels d'offres (DCE/CCTP/mémoire technique), comptes rendus de chantier, documents administratifs, productivité chantier
 - Outils enseignés : Claude AI (Anthropic), ChatGPT (OpenAI), Gemini (Google), Cowork, Skills Claude
-- Clients institutionnels : FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz
+- Clients institutionnels : FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Entreprise, Lefebvre Dalloz
 - Instructrice LinkedIn Learning (formation IA BTP)
 - Public : professionnels du BTP — conducteurs de travaux, chargés d'affaires, dirigeants de PME du bâtiment et des travaux publics, maîtres d'œuvre
 
