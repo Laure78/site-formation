@@ -9,13 +9,12 @@ import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 
 /** Références clients & partenaires (affichage court). */
 export const LAURE_OLIVIE_CLIENT_REFERENCES_SHORT =
-  'FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB IDF Est, CAPEB, CSFE, CNAM Entreprise, Lefebvre Dalloz' as const;
+  'FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB IDF Est, CSFE, CNAM Entreprise, Lefebvre Dalloz' as const;
 
 export const LAURE_OLIVIE_CLIENT_REFERENCES = [
   'FFB Grand Paris',
   'FFB Île-de-France (78, 91, 95)',
   'FFB Île-de-France Est',
-  'CAPEB',
   'CSFE',
   'CNAM Entreprise',
   'Lefebvre Dalloz',
@@ -92,7 +91,7 @@ export const LAURE_OLIVIE_PARCOURS_TIMELINE = [
   {
     period: '2024-2026',
     title: 'Instructrice LinkedIn Learning · présidence OFC · partenariats FFB',
-    body: `Publication de **deux cours LinkedIn Learning** sur l'IA appliquée au BTP et aux TPE. Renforcement des partenariats FFB (Grand Paris, IDF, IDF Est), CSFE, CAPEB et CNAM. Formation continue **ChatGPT Pro** (automatisation, contenu LinkedIn). **Apprentissage clé** : vulgariser sans trahir le vocabulaire chantier (CCTP, DCE, CR, OS).`,
+    body: `Publication de **deux cours LinkedIn Learning** sur l'IA appliquée au BTP et aux TPE. Renforcement des partenariats FFB (Grand Paris, IDF, IDF Est), CSFE et CNAM. Formation continue **ChatGPT Pro** (automatisation, contenu LinkedIn). **Apprentissage clé** : vulgariser sans trahir le vocabulaire chantier (CCTP, DCE, CR, OS).`,
   },
   {
     period: '2026',

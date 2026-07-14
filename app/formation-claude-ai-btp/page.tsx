@@ -664,7 +664,7 @@ export default function FormationClaudeAiBtpPage() {
                 <CircleCheckBig className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" aria-hidden="true" />
                 <span>
                   <strong>{formatPersonnesFormeesCount()} professionnels du BTP formés</strong> (FFB Grand Paris, FFB
-                  Île-de-France, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz) — note de satisfaction
+                  Île-de-France, CSFE, CNAM Entreprise, Lefebvre Dalloz) — note de satisfaction
                   moyenne {siteStats.noteMoyenneAffichee}.
                 </span>
               </li>

@@ -18,7 +18,7 @@ Dans mon nouvel article sur **ChatGPT BTP**, je détaille **7 leviers de product
 → une relecture humaine systématique avant envoi  
 → le lien avec **Qualiopi** et financement **Constructys** quand vous montez une action en entreprise  
 
-J’y rappelle aussi le terrain : **FFB, CAPEB, CSFE, CNAM Île-de-France, Lefebvre Dalloz** — des contextes différents, un point commun : des petites structures qui doivent **gagner des heures** sans sacrifier la qualité.
+J’y rappelle aussi le terrain : **FFB, CSFE, CNAM Île-de-France, Lefebvre Dalloz** — des contextes différents, un point commun : des petites structures qui doivent **gagner des heures** sans sacrifier la qualité.
 
 Plus de **1 592 professionnels** formés depuis 2022 — note moyenne **4,85/5**.
 

@@ -10,7 +10,7 @@ Laure Olivié est formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Créati
 - Expérience terrain : conduite de travaux et travaux publics (ALIA BTP, Guyancourt)
 - Création d'OFC Création d'Entreprise — orientation IA appliquée au bâtiment
 - Certification Qualiopi (NDA vérifiable data.gouv.fr)
-- Références : FFB, CSFE, CAPEB, CNAM Entreprise, Lefebvre Dalloz
+- Références : FFB, CSFE, CNAM Entreprise, Lefebvre Dalloz
 
 ## Méthodologie
 

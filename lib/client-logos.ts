@@ -45,7 +45,6 @@ export const PARTNER_WEBSITES = {
   csfe: 'https://www.csfe.fr/',
   cnamIdf: 'https://www.cnam-idf.fr/',
   lefebvreDalloz: 'https://www.lefebvre-dalloz-formation.fr/',
-  capeb: 'https://www.capeb.fr/',
   umbFfb: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',

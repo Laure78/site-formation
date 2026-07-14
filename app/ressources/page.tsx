@@ -18,21 +18,21 @@ const PATH = '/ressources';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Ressources IA BTP — tutos, guides & lexique gratuit',
+  title: 'Ressources IA BTP : appels d’offres & tutos',
   description:
-    'Tutos PDF, guides et lexique BTP gratuit : 146 termes, flashcards, quiz, parcours marchés publics et chantier. Sans inscription. Laure Olivié (Qualiopi).',
+    'Tutos gratuits appels d’offres, DCE et chantier. Formation IA pour le BTP en Île-de-France : guides PDF, lexique et skills Claude. Sans inscription.',
   descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
-  openGraphTitle: 'Ressources gratuites IA BTP — tutos, guides & lexique',
+  openGraphTitle: 'Ressources IA BTP : appels d’offres, DCE & tutos gratuits',
   openGraphDescription:
-    'Tutos PDF Claude, guides MOE/CDT et lexique BTP interactif (parcours, flashcards, quiz). 100 % gratuit, sans inscription.',
+    'Guides et tutos IA pour marchés publics BTP (DCE, CCAP, mémoire), chantier et skills Claude — PME Île-de-France. Gratuit, sans inscription.',
   appendAuthorSuffix: false,
   image: {
     url: '/images/ressources-gratuites-ia-btp-hero-2026.png',
     width: 1024,
     height: 1024,
-    alt: 'Ressources gratuites IA BTP : tutos PDF, guides et fiches pratiques par Laure Olivié (Qualiopi)',
+    alt: 'Ressources IA BTP : appels d’offres, DCE et tutos PDF pour PME du bâtiment en Île-de-France',
   },
 });
 
@@ -42,9 +42,9 @@ const collectionJsonLd = {
     {
       '@type': 'CollectionPage',
       '@id': `${CANONICAL}#collection`,
-      name: 'Ressources gratuites IA BTP — Laure Olivié',
+      name: 'Ressources gratuites IA BTP — appels d’offres, DCE & chantier',
       description:
-        "Tutos PDF, guides, lexique BTP interactif et fiches pratiques pour appliquer l'IA dans ton entreprise BTP : skills Claude métier, vocabulaire chantier, veille appels d'offres, DUERP, PPSPS, mémoire technique.",
+        "Ressources gratuites formation IA pour le BTP en Île-de-France : tutos PDF appels d'offres (DCE, CCAP, mémoire technique), guides chantier, lexique BTP et skills Claude pour PME du bâtiment.",
       url: CANONICAL,
       inLanguage: 'fr-FR',
       isPartOf: { '@type': 'WebSite', name: 'laureolivie.fr', url: SITE_CONFIG.url },
@@ -130,9 +130,9 @@ export default function RessourcesIndexPage() {
 
       <RessourcesHero />
 
-      <RessourcesLexiqueSection />
-
       <RessourcesThematicHub />
+
+      <RessourcesLexiqueSection />
 
       <RessourcesGuidesSection />
 

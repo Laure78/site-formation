@@ -27,11 +27,12 @@ export function RessourcesThematicHub() {
       <div className="mx-auto max-w-7xl px-4">
         <header className="mb-8 max-w-3xl md:mb-10">
           <h2 id="ressources-par-theme-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Par thématique : tutos, guides et articles
+            Appels d&apos;offres &amp; marchés : tutos, guides et articles
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Choisis ton besoin du moment : chaque thème regroupe tutos PDF, pages formation et articles blog
-            complémentaires.
+            Commencez par les marchés publics et privés (DCE, CCAP, mémoire technique), puis enchaînez chantier,
+            QSE, productivité ou cadre Qualiopi — chaque thème regroupe tutos PDF, pages formation et articles
+            blog pour les pros du BTP en Île-de-France.
           </p>
         </header>
 

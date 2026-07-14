@@ -114,7 +114,7 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Quels sont les principaux clients de Laure Olivié ?',
     a:
-      'Laure Olivié forme principalement les adhérents et collaborateurs de la FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB IDF Est, CSFE (Chambre Syndicale Française de l\'Étanchéité), CAPEB, CNAM Île-de-France Entreprises et Lefebvre Dalloz.',
+      'Laure Olivié forme principalement les adhérents et collaborateurs de la FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB IDF Est, CSFE (Chambre Syndicale Française de l\'Étanchéité), CNAM Île-de-France Entreprises et Lefebvre Dalloz.',
   },
   {
     q: "Quelle est la différence entre une formation IA pour le BTP en intra et en inter ?",

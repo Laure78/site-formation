@@ -25,7 +25,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     id: 'marches-et-veille',
     title: 'Appels d’offres & veille marchés',
     description:
-      'Mémoires techniques, lecture de DCE, veille automatique — tutos gratuits puis pages formations et méthodes blog.',
+      'Priorité marchés publics et privés : DCE, CCAP, mémoire technique et veille — tutos gratuits, fiche catalogue NIV-02 et méthodes blog pour PME BTP en Île-de-France.',
     tutos: [
       { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto PDF — skill Analyse CCAP', href: LINKS.pdfTutoSkillAnalyseCcap },

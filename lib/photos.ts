@@ -391,8 +391,8 @@ export const PHOTOS = {
   /** Page /ressources — affiche hero tutos PDF, guides et fiches pratiques IA BTP gratuits */
   ressourcesIaBtpHero2026: {
     src: '/images/ressources-gratuites-ia-btp-hero-2026.png',
-    alt: 'Ressources gratuites IA BTP : tutos PDF, guides et fiches pratiques par Laure Olivié (Qualiopi)',
-    title: 'Ressources gratuites IA BTP — tutos, guides et fiches pratiques, Laure Olivié OFC Qualiopi',
+    alt: 'Ressources IA BTP : appels d’offres, DCE et tutos pour PME bâtiment en Île-de-France',
+    title: 'Ressources IA BTP — appels d’offres, marchés et tutos gratuits, Laure Olivié',
     width: 1024,
     height: 1024,
   },

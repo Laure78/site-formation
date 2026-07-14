@@ -18,7 +18,7 @@
 
 ## Clients de référence (à mentionner naturellement)
 
-FFB Grand Paris · FFB Île-de-France · CSFE · CAPEB · CNAM Entreprise · Lefebvre Dalloz
+FFB Grand Paris · FFB Île-de-France · CSFE · CNAM Entreprise · Lefebvre Dalloz
 
 ## CTA de conversion (UNIQUE)
 
