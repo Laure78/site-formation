@@ -115,7 +115,7 @@ En **Île-de-France**, la densité de **coactivité** et les **accès chantier**
 
 ## Laure {#laure}
 
-Plus de dix ans d’expérience terrain TP et conduite de chantier avant 100 % formation IA pour les pros du BTP. [À propos](/a-propos/)
+10 ans de terrain BTP (TP et conduite de chantier) · formatrice IA spécialisée BTP depuis 2022. [À propos](/a-propos/)
 
 ---
 

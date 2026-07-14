@@ -104,7 +104,7 @@ Encadré **#377CF3**, texte blanc — **Visio gratuite — couverture & Construc
 2. **Photos sur chantier dans l’IA ?** Éviter d’uploader des clichés identifiables sans cadre ; préférer descriptions textuelles anonymisées.  
 3. **Constructys ?** OFC Qualiopi — éligibilité selon dossier.  
 4. **Zinc / bac / tuiles ?** Prompts adaptés par famille de matériaux en formation.  
-5. **Durée session ?** 4 h à 14 h selon besoins.  
+5. **Durée session ?** 4 h (présentiel Île-de-France) selon besoins.  
 6. **Intervention IDF ?** Priorité Île-de-France ; intra possible.
 
 ---

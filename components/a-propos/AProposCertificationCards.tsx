@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { A_PROPOS_CERTIFICATIONS } from '@/lib/a-propos-eeat-content';
+import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { PHOTOS } from '@/lib/photos';
 
 export function AProposCertificationCards() {
@@ -28,9 +29,15 @@ export function AProposCertificationCards() {
             height={PHOTOS.qualiopiLogoOfficiel.height}
             className="h-auto max-h-28 w-full max-w-sm object-contain bg-white p-2"
           />
-          <div className="text-center sm:text-left">
-            <p className="text-sm font-bold uppercase tracking-wide text-[#377CF3]">LinkedIn Learning</p>
-            <p className="mt-1 text-sm text-[#475569]">Instructrice officielle — cours IA BTP</p>
+          <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
+            <Image
+              src={LOGO_LINKEDIN_LEARNING.src}
+              alt={LOGO_LINKEDIN_LEARNING.alt}
+              width={LOGO_LINKEDIN_LEARNING.width}
+              height={LOGO_LINKEDIN_LEARNING.height}
+              className="h-10 w-auto max-w-[200px] object-contain bg-white"
+            />
+            <p className="text-sm text-[#475569]">Instructrice officielle — cours IA BTP</p>
           </div>
         </div>
       </Reveal>

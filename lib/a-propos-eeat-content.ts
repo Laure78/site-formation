@@ -32,18 +32,18 @@ export const A_PROPOS_CLIENTS_INTRO = `Mes clients et partenaires couvrent l'éc
 export const A_PROPOS_MISSION = {
   mission: 'Transformer la productivité BTP par l\'IA opérationnelle',
   approach: '100 % terrain, zéro théorie inutile',
-  philosophy: 'L\'IA pour laisser les artisans et les équipes faire du métier',
+  philosophy: 'L\'IA pour laisser les professionnels du BTP et les équipes faire du métier',
   paragraphs: [
     `Ma mission : **transformer la productivité BTP par l'IA opérationnelle** — pas par des promesses marketing. Chaque session vise des gains mesurables sur CR, devis, mails et dossiers marchés, avec relecture humaine systématique.`,
     `Mon approche : **100 % terrain, zéro théorie inutile**. Environ 70 % de pratique sur vos documents réels. Vous repartez avec des prompts calibrés « vocabulaire BTP » et un protocole de relecture.`,
-    `Ma philosophie : **l'IA pour laisser les artisans faire du métier**. L'outil structure, reformule, accélère — il ne signe pas, ne constate pas sur le chantier et ne négocie pas à votre place.`,
+    `Ma philosophie : **l'IA pour laisser les professionnels du BTP faire du métier**. L'outil structure, reformule, accélère — il ne signe pas, ne constate pas sur le chantier et ne négocie pas à votre place.`,
     `Concrètement, une session type alterne démonstration, pratique guidée et plan d'action individuel. Je refuse les slides « histoire de l'IA » : on ouvre ChatGPT ou Claude, on charge un CCTP anonymisé, on produit un livrable, on le relit ensemble. C'est cette exigence qui explique la note **${SOCIAL_PROOF.AVERAGE_RATING}** et le taux de recommandation élevé entre pairs BTP.`,
   ],
 } as const;
 
 export const A_PROPOS_CERTIFICATIONS_INTRO = `Transparence totale sur l'organisme et les labels : OFC Création d'Entreprise est une SASU immatriculée, déclarée auprès de la DREETS et certifiée Qualiopi. Les formations respectent le référentiel national qualité ; les participants reçoivent attestation, évaluation à chaud et supports réutilisables. Je maintiens une veille active auprès des éditeurs d'IA (OpenAI, Anthropic, Google) pour intégrer les évolutions sans déstabiliser les équipes.`;
 
-export const A_PROPOS_CONTACT_INTRO = `Pour un premier échange, réservez un créneau Calendly (visio 30 min, sans engagement) ou écrivez-moi directement. Je réponds sous 48 h ouvrées avec une proposition adaptée : session inter catalogue, intra sur site, ou parcours sur mesure pour votre métier (conducteur de travaux, artisan, bureau d'études). Les dossiers Constructys peuvent être montés en amont si votre entreprise est éligible.`;
+export const A_PROPOS_CONTACT_INTRO = `Pour un premier échange, réservez un créneau Calendly (visio 30 min, sans engagement) ou écrivez-moi directement. Je réponds sous 48 h ouvrées avec une proposition adaptée : session inter catalogue, intra sur site, ou parcours sur mesure pour votre métier (conducteur de travaux, dirigeant de TPE/PME, bureau d'études). Les dossiers Constructys peuvent être montés en amont si votre entreprise est éligible.`;
 
 export const A_PROPOS_TRUST_PARAGRAPH = `Côté confiance (Trustworthiness) : pas de promesse de « remplacement du métier », pas de collecte de données chantier sensibles pendant les démos, et rappel systématique de la relecture humaine sur tout livrable contractuel. Les conventions précisent objectifs, durée, tarif et modalités d'évaluation — conformément au référentiel Qualiopi et aux règles de TVA applicables aux formations (intra exonérée art. 261-4-4° CGI ; inter non applicable art. 293 B).`;
 
@@ -93,7 +93,7 @@ export const A_PROPOS_CLIENTS_CATEGORIES = [
   },
   {
     title: 'Entreprises du BTP',
-    items: ['PME gros œuvre et second œuvre', 'Artisans spécialisés', 'Conducteurs de travaux et équipes support'],
+    items: ['PME gros œuvre et second œuvre', 'TPE & PME spécialisées', 'Conducteurs de travaux et équipes support'],
   },
   {
     title: 'Bureaux d\'études & grands comptes formation',

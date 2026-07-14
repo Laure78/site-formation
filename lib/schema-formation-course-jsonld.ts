@@ -58,7 +58,7 @@ export function buildFormationCourseAreaServed(): Record<string, unknown> {
   };
 }
 
-/** Deux instances : intra-entreprise et inter-entreprises, présentiel IDF. */
+/** Deux instances : intra-entreprise et inter-entreprises, présentiel IDF (courseMode Onsite, PT4H). */
 export function buildFormationCourseInstances(
   duration: string = FORMATION_COURSE_DURATION_ISO
 ): Record<string, unknown>[] {
@@ -68,16 +68,32 @@ export function buildFormationCourseInstances(
       name: 'Session intra-entreprise — présentiel',
       courseMode: FORMATION_COURSE_MODE_ONSITE,
       courseWorkload: duration,
-      inLanguage: 'fr-FR',
-      location: buildFormationCourseIdfPlace('présentiel dans vos locaux'),
+      inLanguage: 'fr',
+      location: {
+        '@type': 'Place',
+        name: 'Île-de-France (intra ou inter)',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: FORMATION_COURSE_AREA_IDF,
+          addressCountry: 'FR',
+        },
+      },
     },
     {
       '@type': 'CourseInstance',
       name: 'Session inter-entreprises — présentiel',
       courseMode: FORMATION_COURSE_MODE_ONSITE,
       courseWorkload: duration,
-      inLanguage: 'fr-FR',
-      location: buildFormationCourseIdfPlace('présentiel en salle'),
+      inLanguage: 'fr',
+      location: {
+        '@type': 'Place',
+        name: 'Île-de-France (intra ou inter)',
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: FORMATION_COURSE_AREA_IDF,
+          addressCountry: 'FR',
+        },
+      },
     },
   ];
 }
@@ -107,7 +123,7 @@ export function buildFormationFicheCourseNode(
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
     },
-    inLanguage: 'fr-FR',
+    inLanguage: 'fr',
     timeRequired: duration,
     hasCourseInstance: buildFormationCourseInstances(duration),
   };
@@ -117,7 +133,7 @@ export function buildFormationFicheCourseNode(
   } else if (input.instructorName) {
     node.instructor = {
       '@type': 'Person',
-      '@id': `${base}/#person`,
+      '@id': `${base}/#laure-olivie`,
       name: input.instructorName,
     };
   }

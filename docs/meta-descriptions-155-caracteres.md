@@ -6,7 +6,7 @@ Référence rédactionnelle. Les descriptions effectives sont dans chaque `page.
 |-----|------------------|
 | `/` | Formation IA BTP & ChatGPT : devis, chantier, mémoires. Qualiopi, OPCO Constructys. Laure Olivié — +1 500 pros formés. Guyancourt, France. |
 | `/formations` | Formations IA pour le BTP : bâtiment, travaux publics, appels d'offres, RH. Certifié Qualiopi, finançable Constructys. OFC — Laure Olivié. |
-| `/a-propos` | Laure Olivié, formatrice IA BTP — OFC Création d'Entreprise, Qualiopi. FFB, GERESO, LinkedIn Learning. Devis, chantier, AO. Île-de-France & France. |
+| `/a-propos` | Laure Olivié, formatrice IA BTP — OFC Création d'Entreprise, Qualiopi. FFB, LinkedIn Learning. Devis, chantier, AO. Île-de-France. |
 | `/contact` | Contact formation IA BTP : Laure Olivié, Guyancourt (78). Devis, catalogue, financement Constructys. Email et téléphone — réponse sous 48 h. |
 | `/prendre-rdv` | Prendre rendez-vous avec Laure Olivié : échange gratuit sur votre formation IA BTP. Visio ou téléphone. Qualiopi, Constructys — OFC. |
 | `/expert-ia-btp` | Expert IA BTP : accompagnement entreprises du bâtiment et TP. Méthode terrain, références FFB. Formations Qualiopi & financement Constructys. |
@@ -18,7 +18,7 @@ Référence rédactionnelle. Les descriptions effectives sont dans chaque `page.
 | `/communaute-formateurs` | Communauté formateurs BTP : échanges, veille IA, bonnes pratiques. Groupe Laure Olivié — formation professionnelle Qualiopi. |
 | `/financement-constructys` | Financer votre formation IA BTP avec l'OPCO Constructys : barèmes, PDC, TPE. Qualiopi — OFC. Tarifs et démarches expliqués. |
 | `/financement-constructys-100-ia-btp` | Formation IA BTP : financement Constructys selon éligibilité — conditions, délais, dossier. Qualiopi — Laure Olivié, OFC Création d'Entreprise. |
-| `/formation-ia-btp-paris-2026` | Formation IA BTP Paris 2026 : sessions, calendrier, financement. Devis, AO, mémoires — Qualiopi, Constructys. Laure Olivié. |
+| `/formation-ia-btp-paris` | Formation IA BTP Paris : DCE, chiffrage, AO en présentiel intra. Qualiopi, Constructys. Visio découverte gratuite. |
 | `/ressources/ia-btp` | Ressources IA BTP : guides, articles, cas d'usage pour artisans et PME du bâtiment. Veille — Laure Olivié, OFC Qualiopi. |
 | `/ressources/ia-btp/10-cas-usage-concrets` | 10 cas d'usage IA concrets dans le BTP : devis, DCE, RH, chantier. Exemples terrain — ressource Laure Olivié, OFC. |
 | `/formation-ia-btp-ile-de-france` | Formation IA BTP en Île-de-France : Paris, Yvelines, 8 départements. Devis, emails, AO — Qualiopi, Constructys. Laure Olivié. |

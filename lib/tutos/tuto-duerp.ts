@@ -324,7 +324,7 @@ Génère le DUERP complet en Word. Inclus la table des matières, l'évaluation 
       'On construit ton skill DUERP sur ta vraie entreprise',
       'Calibrage sur tes risques métier et tes accidents passés',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel ou équipe (4 à 14h)',
+      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

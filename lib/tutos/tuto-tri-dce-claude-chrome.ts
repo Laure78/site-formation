@@ -321,7 +321,7 @@ Ré-enregistre la nouvelle version sous le même nom.`,
       'On installe Claude in Chrome sur ton poste',
       'On paramètre tes critères et tes plateformes en direct',
       'On enregistre ton raccourci de veille automatique',
-      'Format individuel ou équipe (4 à 14h)',
+      'Format individuel ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

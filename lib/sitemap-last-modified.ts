@@ -82,7 +82,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formation-ia-btp-ile-de-france/page.tsx',
     'lib/formation-ia-btp-departements-config.ts',
   ],
-  '/formation-ia-btp-paris-2026': ['app/formation-ia-btp-paris-2026/page.tsx'],
   '/formations/ia-btp-morangis': ['app/formations/ia-btp-morangis/page.tsx', 'lib/formation-cities.ts'],
   '/formations/ia-btp-longjumeau': ['app/formations/ia-btp-longjumeau/page.tsx', 'lib/formation-cities.ts'],
   '/formations/ia-btp-saint-quentin-en-yvelines': [

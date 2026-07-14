@@ -103,7 +103,7 @@ La **communication commerciale** (devis argumenté, mail de présentation d’of
 3. **Qualiopi / Constructys ?** OFC certifié — éligibilité selon dossier.  
 4. **Façades ?** Préciser en formation si votre offre l’inclut.  
 5. **Données clients ?** Anonymiser dans les prompts.  
-6. **Durée ?** 4 h à 14 h.
+6. **Durée ?** 4 h (présentiel Île-de-France).
 
 ---
 

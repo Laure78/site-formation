@@ -99,9 +99,6 @@ export const SITE_CONFIG = {
     'formation IA Île-de-France',
     'formation IA Yvelines',
     'formation IA Paris',
-    'formation IA Lyon',
-    'formation IA Bordeaux',
-    'formation IA Lille',
     // Financement
     'OPCO Constructys',
     'formation Qualiopi BTP',
@@ -724,7 +721,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
     jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice spécialisée en intelligence artificielle pour le BTP basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans d'expérience en travaux publics et formation. Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.`,
+    description: `Formatrice IA spécialisée BTP depuis 2022, basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',
@@ -756,7 +753,7 @@ export function getPersonSchema() {
       {
         '@type': 'EducationalOccupationalCredential',
         name: 'Certification Qualiopi',
-        description: 'Organisme de formation certifié Qualiopi (n° 905 244 281 00010) pour les actions de formation professionnelle',
+        description: 'Organisme de formation certifié Qualiopi (Certifopac n° 520911-1, validité 16/01/2025–15/01/2028) pour les actions de formation professionnelle · SIRET 905 244 281 00010 · NDA 11788515078',
         credentialCategory: 'Certification qualité formation',
       },
       {
@@ -797,13 +794,13 @@ export function getPersonSchema() {
     alumniOf: {
       '@type': 'EducationalOrganization',
       name: 'Formation professionnelle BTP et travaux publics',
-      description: '10 ans d\'expérience terrain en conduite de chantier et travaux publics',
+      description: '10 ans de terrain BTP (conduite de chantier et travaux publics)',
     },
     award: [
       'Formatrice LinkedIn Learning 2024',
       `${formatProfessionalsTrainedCount()} professionnels formés (statistique officielle)`,
       `Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}`,
-      '10 ans d\'expérience en formation professionnelle',
+      '10 ans de terrain BTP · formatrice IA spécialisée BTP depuis 2022',
     ],
     numberOfEmployees: {
       '@type': 'QuantitativeValue',

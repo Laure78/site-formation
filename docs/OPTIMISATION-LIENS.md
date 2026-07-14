@@ -60,13 +60,13 @@ Les backlinks ne se contrôlent pas directement, mais le site peut être rendu p
 
 - Guides pratiques (ex. checklist 10 prompts ChatGPT)
 - Articles de fond avec données ou études
-- Pages partenaires (FFB, GERESO, Lefebvre Dalloz)
+- Pages partenaires (FFB, Lefebvre Dalloz)
 - Témoignages et cas clients
 - FAQ détaillées et référentiel Qualiopi / financement
 
 ### Actions pour attirer des liens
 
-1. **Partenariats** : FFB, GERESO, Lefebvre Dalloz — proposer une page partenaire ou un article invité
+1. **Partenariats** : FFB, Lefebvre Dalloz — proposer une page partenaire ou un article invité
 2. **Médias / presse** : Communiqués sur l’IA au BTP, formations, qualification Qualiopi
 3. **Réseaux** : LinkedIn, publications régulières avec lien vers le site
 4. **Annuaire / citations** : Annuaire des organismes de formation, annuaire Qualiopi
@@ -77,7 +77,7 @@ Les backlinks ne se contrôlent pas directement, mais le site peut être rendu p
 
 - `/checklist-ia-btp` — Checklist téléchargeable
 - `/a-propos` — Parcours Laure Olivié
-- `/clients-partenaires` — Références FFB, GERESO, etc.
+- `/clients-partenaires` — Références FFB, etc.
 - `/financement-constructys` — Guide financement
 - `/diagnostic-ia-btp` — Offre de diagnostic gratuit
 
@@ -86,7 +86,7 @@ Les backlinks ne se contrôlent pas directement, mais le site peut être rendu p
 | Partenaire | Type de lien possible |
 |------------|------------------------|
 | FFB | Page partenaire, article invité |
-| GERESO | Page partenaire, formation |
+| Lefebvre Dalloz | Page partenaire, formation |
 | Lefebvre Dalloz | Référence formation |
 | CNAM Entreprise | Référence formation |
 | Constructys | Annuaire OPCO (si applicable) |

@@ -15,7 +15,7 @@
 
 ### ✅ Phase 2 : Metadata optimisées
 - **11 pages optimisées** (titles courts, meta descriptions incitatives)
-- **Pages géographiques** (Paris, Lyon, Bordeaux, Lille) — SEO local renforcé
+- **Pages géographiques** (Paris et Île-de-France (présentiel uniquement)) — SEO local renforcé
 - **8-10 mots-clés par page** (ciblage précis)
 
 ### ✅ Phase 3 : Cluster de contenu SEO
@@ -144,7 +144,7 @@ Votre site est maintenant **SEO-optimisé** et prêt à conquérir le **Top 3 Go
 - ✅ Homepage
 - ✅ 10 pages formations
 - ✅ Page à propos
-- ✅ Pages géo (Paris, Lyon, Bordeaux, Lille)
+- ✅ Pages géo (Paris et Île-de-France (présentiel uniquement))
 
 ---
 

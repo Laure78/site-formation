@@ -108,7 +108,7 @@ Encadré **#377CF3**, texte blanc — **Titre :** Cadrer votre formation gros œ
 3. Constructys ? **Éligibilité** selon dossier — OFC Qualiopi.  
 4. Petites entreprises ? **Oui**, formations inter et intra.  
 5. Données chantier ? **Anonymiser** les relevés dans les prompts publics.  
-6. Durée ? **4 h à 14 h** selon besoin.
+6. Durée ? **4 h** (présentiel Île-de-France) selon besoin.
 
 ---
 

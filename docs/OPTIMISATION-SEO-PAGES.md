@@ -324,7 +324,7 @@
 **Title SEO actuel :** À propos — Laure Olivié (24 car.)  
 **Title SEO proposé :** Laure Olivié — Formatrice IA BTP | Formation bâtiment  
 
-**Meta description proposée :** Laure Olivié, formatrice IA BTP. 10 ans d'expérience, méthode 100% pratique. Formation IA bâtiment finançable Constructys. Paris. (156 car.)  
+**Meta description proposée :** Laure Olivié, formatrice IA spécialisée BTP depuis 2022. 10 ans de terrain BTP, méthode 100% pratique. Formation IA bâtiment finançable Constructys. Paris. (156 car.)  
 
 ---
 
@@ -371,9 +371,9 @@
 **Mot-clé principal :** formation IA BTP  
 
 **Title SEO actuel :** Nos Clients & Partenaires — Laure Olivié (44 car.)  
-**Title SEO proposé :** Formation IA BTP — FFB, GERESO, Lefebvre Dalloz  
+**Title SEO proposé :** Formation IA BTP — FFB, Lefebvre Dalloz 
 
-**Meta description proposée :** Nos formations IA BTP avec FFB, GERESO, Lefebvre Dalloz. Partenariat Constructys. Artisans et PME bâtiment. (128 car.)  
+**Meta description proposée :** Nos formations IA BTP avec FFB, Lefebvre Dalloz. Partenariat Constructys. Artisans et PME bâtiment. (128 car.) 
 
 ---
 

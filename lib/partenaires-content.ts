@@ -1,6 +1,10 @@
 import {
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
+  ALT_LOGO_LINKEDIN_LEARNING,
+  ALT_LOGO_UMB_FFB,
+  LOGO_LINKEDIN_LEARNING,
+  LOGO_UMB_FFB,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
 import { SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL } from '@/lib/schema-constants';
@@ -117,6 +121,12 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
     id: 'umb-ffb',
     name: 'UMB-FFB',
     href: PARTNER_WEBSITES.umbFfb,
+    logo: {
+      src: LOGO_UMB_FFB.src,
+      alt: ALT_LOGO_UMB_FFB,
+      width: LOGO_UMB_FFB.width,
+      height: LOGO_UMB_FFB.height,
+    },
   },
   {
     id: 'cnam',
@@ -144,6 +154,12 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
     id: 'linkedin-learning',
     name: 'LinkedIn Learning',
     href: SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+    logo: {
+      src: LOGO_LINKEDIN_LEARNING.src,
+      alt: ALT_LOGO_LINKEDIN_LEARNING,
+      width: LOGO_LINKEDIN_LEARNING.width,
+      height: LOGO_LINKEDIN_LEARNING.height,
+    },
   },
 ];
 

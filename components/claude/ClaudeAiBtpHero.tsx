@@ -22,9 +22,9 @@ export function ClaudeAiBtpHero() {
       titleId="claude-btp-hero-title"
       subtitle={
         <>
-          Interfaces, workflows et prompts pour artisans, TPE, PME, conducteurs de travaux, chargés d&apos;affaires,
-          dirigeants et équipes administratives — gain de temps mesurable sur devis, DCE, CCTP, mémoires techniques,
-          comptes rendus et relances.
+          Interfaces, workflows et prompts pour TPE &amp; PME du bâtiment, professionnels du BTP, conducteurs de
+          travaux, chargés d&apos;affaires, dirigeants et équipes administratives — gain de temps mesurable sur devis,
+          DCE, CCTP, mémoires techniques, comptes rendus et relances.
         </>
       }
       metaLine={`Temps de lecture estimé : environ ${READING_MINUTES} minutes · guide mis à jour en avril 2026`}

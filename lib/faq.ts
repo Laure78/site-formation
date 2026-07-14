@@ -78,20 +78,10 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 ];
 
 /**
- * FAQ page d'accueil — même source que l’accordion (`FAQAccordion`) et le JSON-LD FAQPage via
- * `<Script>` dans `app/page.tsx`.
+ * FAQ page d'accueil — 5 questions transactionnelles (financement, prérequis, durée, lieu, RDV).
+ * Source unique accordion + JSON-LD FAQPage (`buildHomeFAQPageJsonLd`).
  */
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
-  {
-    q: 'Comment utiliser ChatGPT dans une entreprise du bâtiment ?',
-    a:
-      "On part de vos documents réels (devis, comptes rendus de chantier, emails) avec des prompts adaptés au vocabulaire BTP. La formation IA pour le BTP de Laure Olivié donne des trames pour automatiser les devis, la gestion de chantier et l'administratif, sans aucun prérequis technique.",
-  },
-  {
-    q: "Comment gagner du temps administratif dans le BTP avec l'IA ?",
-    a:
-      "L'IA générative (ChatGPT, Claude AI) permet d'automatiser la rédaction des comptes rendus de chantier, des devis, des emails et des réponses aux appels d'offres. En moyenne, les conducteurs de travaux et dirigeants BTP formés par Laure Olivié gagnent 3 à 5 heures par semaine dès la première semaine.",
-  },
   {
     q: 'La formation IA pour les pros du BTP peut-elle être financée par Constructys ou mon OPCO ?',
     a: `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}`,
@@ -99,30 +89,21 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'Faut-il des compétences techniques pour suivre cette formation IA appliquée au bâtiment ?',
     a:
-      "Non. La formation est conçue pour des professionnels du bâtiment et des travaux publics sans formation informatique. Seuls prérequis : savoir naviguer sur internet et disposer d'un ordinateur. Tout le reste est expliqué pas à pas, en travaillant directement sur les documents réels de chantier.",
+      "Non. La formation est conçue pour des professionnels du bâtiment et des travaux publics sans formation informatique. Seuls prérequis : savoir naviguer sur internet et disposer d'un ordinateur. Tout le reste est expliqué pas à pas, en travaillant directement sur vos documents réels de chantier.",
   },
   {
     q: 'Combien de temps dure la formation IA pour le BTP ?',
     a:
-      "Le module standard est de 4 heures, exclusivement en présentiel dans vos locaux (intra) ou en salle en Île-de-France (inter). Ce format est calibré pour s'intégrer dans une demi-journée de travail et maximiser la prise en charge Constructys.",
+      "Le module standard est de 4 heures, exclusivement en présentiel dans vos locaux (intra) ou en salle en Île-de-France (inter). Ce format s'intègre dans une demi-journée de travail. Forfait de session selon le niveau (débutant ou avancé).",
   },
   {
-    q: 'Mes données BTP confidentielles sont-elles sécurisées avec ChatGPT ?',
-    a:
-      'Pour les données non sensibles, ChatGPT et Claude AI sont utilisables directement. Pour les documents confidentiels (marchés, données clients, données financières), Laure Olivié recommande ChatGPT Team, Claude for Work ou les solutions européennes comme Mistral AI. La formation inclut systématiquement un module sur les bonnes pratiques de confidentialité.',
+    q: 'Proposez-vous des sessions à distance ou hors Île-de-France ?',
+    a: `Non. ${MODALITE_FORMATIONS_STANDARD} L'appel découverte (visio ou téléphone) sert uniquement à cadrer votre projet avant devis.`,
   },
   {
-    q: 'Quels sont les principaux clients de Laure Olivié ?',
-    a:
-      'Laure Olivié forme principalement les adhérents et collaborateurs de la FFB Grand Paris, FFB Île-de-France (78, 91, 95), FFB IDF Est, CSFE (Chambre Syndicale Française de l\'Étanchéité), CNAM Île-de-France Entreprises et Lefebvre Dalloz.',
+    q: 'Comment démarrer une formation IA pour mon entreprise BTP ?',
+    a: "Réservez un appel découverte gratuit de 30 minutes : on identifie vos cas d'usage (devis, AO, CR chantier) et le format adapté (inter ou intra). Ensuite vous recevez un devis avec les options de financement selon éligibilité.",
   },
-  {
-    q: "Quelle est la différence entre une formation IA pour le BTP en intra et en inter ?",
-    a:
-      "L'inter-entreprises regroupe plusieurs entreprises sur une session catalogue (idéal pour 1 à 3 collaborateurs). L'intra-entreprise est dédiée à votre seule équipe, sur vos documents et vos cas d'usage spécifiques (idéal à partir de 4 participants). Les deux formats durent 4 heures : forfait de session " +
-      `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT (niveau débutant) ou ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT (niveau avancé), jusqu'à ${EFFECTIF_GROUPE_MAX} participants.` ,
-  },
-  ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
 
 /** Texte utilisateur sans balises HTML (réponses riches en lien — JSON-LD `Answer.text`). */
@@ -130,7 +111,7 @@ export function faqAnswerPlainTextForJsonLd(htmlOrText: string): string {
   return htmlOrText.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-/** Toutes les questions/réponses visibles section « Questions fréquentes » accueil. */
+/** FAQPage JSON-LD — questions/réponses visibles sur l’accueil (`FAQ_ITEMS_HOME`). */
 export function buildHomeFAQPageJsonLd(): Record<string, unknown> {
   const mainEntity = FAQ_ITEMS_HOME.map((item) => ({
     '@type': 'Question',
@@ -365,7 +346,7 @@ export const FAQ_A_PROPOS: FAQItem[] = [
   },
   {
     q: "Quelle est votre expérience dans le BTP ?",
-    a: 'Plus de 10 ans d\'expérience en formation professionnelle auprès de TPE, PME et équipes du BTP. Spécialisation métiers du bâtiment, travaux publics et génie civil. Méthode 100 % opérationnelle — <a href="/a-propos#clients-partenaires">clients et partenaires</a>, <a href="/blog">articles et ressources</a>.',
+    a: 'Formatrice IA spécialisée BTP depuis 2022, avec 10 ans de terrain BTP (conductrice de travaux) auprès de TPE, PME et équipes du bâtiment et des travaux publics. Méthode 100 % opérationnelle — <a href="/a-propos#clients-partenaires">clients et partenaires</a>, <a href="/blog">articles et ressources</a>.',
   },
   {
     q: "Proposez-vous un accompagnement post-formation ?",
@@ -713,7 +694,7 @@ export const FAQ_TRAVAUX_PUBLICS: FAQItem[] = [
   },
 ];
 
-/** FAQ Formation ville (pages Lyon, Bordeaux, Lille, Île-de-France — périmètre géographique : IDF dans les réponses) */
+/** FAQ Formation ville / Île-de-France — périmètre géographique : IDF uniquement dans les réponses */
 export const FAQ_FORMATION_VILLE: FAQItem[] = [
   {
     q: "Où se déroule la formation IA pour les pros du BTP ?",
@@ -821,7 +802,7 @@ export const FAQ_BLOG: FAQItem[] = [
 export const FAQ_AUTEUR: FAQItem[] = [
   {
     q: "Quelle est votre expérience dans le BTP ?",
-    a: 'Plus de 10 ans d\'expérience en formation professionnelle auprès de TPE, PME et équipes du BTP. Spécialisation métiers du bâtiment, travaux publics et génie civil — voir <a href="/a-propos">à propos</a> et <a href="/blog">articles</a>.',
+    a: 'Formatrice IA spécialisée BTP depuis 2022 · 10 ans de terrain BTP (conducteurs de travaux, TPE/PME bâtiment et TP) — voir <a href="/a-propos">à propos</a> et <a href="/blog">articles</a>.',
   },
   {
     q: "Où intervenez-vous pour les formations ?",

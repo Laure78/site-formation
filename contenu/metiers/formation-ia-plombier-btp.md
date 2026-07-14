@@ -125,7 +125,7 @@ Fond **#377CF3**, texte blanc — **Titre :** Visio gratuite — plomberie + Con
 2. Données clients dans ChatGPT ? **Anonymiser** ; éviter plans complets nominatifs.  
 3. Qualiopi / Constructys ? **OFC Qualiopi** — éligibilité selon entreprise.  
 4. Chauffage + sanitaire ? **Oui**, prompts adaptés aux deux univers.  
-5. Durée de formation ? **4 h / 7 h / 14 h** selon objectifs.  
+5. Durée de formation ? **4 h** (présentiel Île-de-France) selon objectifs.  
 6. Inter IDF ? **Priorité** Île-de-France ; intra sur devis.
 
 ---

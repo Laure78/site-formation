@@ -59,7 +59,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Faut-il des compétences techniques ?',
-    a: "Non. Une formation de 4h à 7h suffit pour maîtriser les prompts et les trames adaptés au métier. Laure Olivié forme des conducteurs de travaux sans aucun prérequis en informatique.",
+    a: "Non. Une formation de 4 h en présentiel en Île-de-France suffit pour maîtriser les prompts et les trames adaptés au métier. Laure Olivié forme des conducteurs de travaux sans aucun prérequis en informatique.",
   },
   {
     q: 'La formation est-elle finançable ?',

@@ -19,7 +19,7 @@ const STATS = [
   {
     Icon: Award,
     value: '10 ans',
-    label: 'Expérience formation BTP',
+    label: 'Terrain BTP',
   },
   {
     Icon: ShieldCheck,

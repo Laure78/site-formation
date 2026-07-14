@@ -353,7 +353,7 @@ Et change le ton de la section "valeur ajoutée" : je ne veux pas du tout sonner
       'On construit ton skill mémoire technique en direct',
       'Calibrage sur tes vrais DCE et tes vrais mémoires',
       'Un skill opérationnel à la fin de la session',
-      'Format individuel (1h30) ou équipe (4 à 14h)',
+      'Format individuel (1h30) ou équipe (session catalogue 4 h, présentiel Île-de-France)',
     ],
   },
 };

@@ -5,7 +5,7 @@ import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 const STATS = [
   { icon: Users, value: formatProfessionalsTrainedCount(), label: 'PROS FORMÉS', ring: 'bg-[#EFF6FF]' },
   { icon: Star, value: SOCIAL_PROOF.AVERAGE_RATING, label: 'SATISFACTION', ring: 'bg-[#FEF3C7]' },
-  { icon: Clock3, value: '10 ans', label: 'EXPÉRIENCE BTP', ring: 'bg-[#EFF6FF]' },
+  { icon: Clock3, value: '10 ans', label: 'TERRAIN BTP', ring: 'bg-[#EFF6FF]' },
   { icon: Award, value: 'Qualiopi', label: 'CERTIFIÉE', ring: 'bg-[#D1FAE5]' },
   { icon: GraduationCap, value: 'LinkedIn Learning', label: 'INSTRUCTRICE', ring: 'bg-[#EFF6FF]' },
 ] as const;
