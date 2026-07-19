@@ -1,578 +1,290 @@
 import Link from 'next/link';
-import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
-import { Poppins } from 'next/font/google';
-import { Check } from 'lucide-react';
+import type { Metadata } from 'next';
+import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
-import { RdvLink } from '@/components/RdvLink';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import {
-  createPageMetadata,
-  getFAQSchema,
-  SITE_CONFIG,
-} from '@/lib/seo';
+import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
+import { VoirAussi } from '@/components/VoirAussi';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import {
   buildFormationIaCourseJsonLd,
   getFormationIleDeFrancePageLocalBusinessJsonLd,
   IDF_COURSE_AREA_SERVED_NAMES,
 } from '@/lib/seo-formation-ia-schemas';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { LAURE_OLIVIE_CLIENT_REFERENCES_SHORT } from '@/lib/laure-olivie-profile';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, TARIF_FORFAIT_DEBUTANT_HT ,
-  formatTarifHt,
-} from '@/lib/tarifs-sessions';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
-import { VoirAussi } from '@/components/VoirAussi';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
-import { buildIdfRegionalMetaDescription } from '@/lib/seo-geo-keywords';
-import { FormationIdfChapeauLocalBlock } from '@/components/formation-ia-btp/FormationIdfChapeauLocalBlock';
-import { IDF_CHAPEAU_LOCAL } from '@/lib/formation-ia-btp-dept-local-content';
+import { CSFE_NOM_COMPLET } from '@/lib/csfe';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 export const revalidate = 3600;
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
 
 const PATH = '/formation-ia-btp-ile-de-france';
 
-// ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+const META_TITLE = 'Formation IA bâtiment Île-de-France | Laure Olivié';
+/** 151 caractères — phrase complète, sans ellipse */
+const META_DESCRIPTION =
+  'Formation IA appliquée au bâtiment et à la construction en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, finançable Constructys. RDV gratuit.';
 
-export const metadata = createPageMetadata({
-  title: 'Formation IA BTP Île-de-France — Qualiopi',
-  description: buildIdfRegionalMetaDescription(),
+const pageMetadataBase = createPageMetadata({
+  title: META_TITLE,
+  titleAbsolute: META_TITLE,
+  description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  keywords: [
-    'formation IA pour les pros du BTP Île-de-France',
-    'formation IA Paris',
-    'Qualiopi BTP',
-    'Constructys formation IA',
-    'ChatGPT bâtiment IDF',
-    'formation présentiel Guyancourt',
-    'OPCO Constructys Île-de-France',
-  ],
-  openGraphType: 'article',
   appendAuthorSuffix: false,
+  openGraphTitle: META_TITLE,
+  openGraphDescription: META_DESCRIPTION,
+  openGraphType: 'article',
   article: {
     publishedTime: '2026-05-19',
-    modifiedTime: '2026-05-19',
+    modifiedTime: '2026-07-14',
     author: 'Laure Olivié',
     section: 'Formation IA appliquée au bâtiment',
   },
+  keywords: [
+    'formation IA bâtiment Île-de-France',
+    'formation IA construction Île-de-France',
+    'formation IA BTP IDF',
+    'formation ChatGPT bâtiment',
+    'Qualiopi Constructys',
+  ],
   image: {
-    url: '/images/laure-olivie-formatrice.png',
-    width: 1200,
-    height: 630,
-    alt: 'Session formation IA bâtiment et travaux publics — Laure Olivié, OFC Qualiopi',
+    url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
+    width: 1024,
+    height: 682,
+    alt: 'Formation IA bâtiment et construction en Île-de-France — Laure Olivié, Qualiopi',
   },
 });
 
-const COURSE_JSON_LD = buildFormationIaCourseJsonLd({
-  name: 'Formation IA BTP Île-de-France — Qualiopi',
-  description: `${SITE_CONFIG.legalName} : formations IA pour le BTP en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Sessions 4 h intra ou inter, exclusivement en présentiel, certifiées Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE} ChatGPT, Claude AI — devis, DCE, CCTP, appels d'offres, mémoires techniques, comptes rendus, relances clients.`,
-  path: PATH,
-  areaServed: [...IDF_COURSE_AREA_SERVED_NAMES],
-});
+export const metadata: Metadata = {
+  ...pageMetadataBase,
+  title: { absolute: META_TITLE },
+  alternates: {
+    ...pageMetadataBase.alternates,
+    canonical: PATH,
+  },
+};
 
-/** FAQ : texte exploitable par FAQPage (réponses sans HTML pour le schéma ; affichage identique). */
+const COURSE_JSON_LD = {
+  ...buildFormationIaCourseJsonLd({
+    name: 'Formation IA pour le bâtiment et la construction en Île-de-France',
+    description: `${SITE_CONFIG.legalName} : formation IA appliquée au bâtiment et à la construction en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Sessions 4 h en présentiel, Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    path: PATH,
+    areaServed: [...IDF_COURSE_AREA_SERVED_NAMES],
+  }),
+  about: [
+    { '@type': 'Thing', name: 'Bâtiment' },
+    { '@type': 'Thing', name: 'Construction' },
+    { '@type': 'Thing', name: 'Travaux publics' },
+    { '@type': 'Place', name: 'Île-de-France' },
+  ],
+  keywords:
+    'formation IA bâtiment, formation IA construction, formation IA BTP Île-de-France, ChatGPT BTP, Constructys',
+};
+
 const FAQ_IDF: FAQItem[] = [
   {
-    q: 'Qui propose des formations IA pour le BTP en Île-de-France ?',
-    a: `Laure Olivié, via OFC Création d'Entreprise (siège à Guyancourt, 78), propose des formations IA pour le BTP en présentiel sur les 8 départements franciliens (75, 77, 78, 91, 92, 93, 94, 95). Organisme certifié Qualiopi — +${formatProfessionalsTrainedCount()} professionnels formés, sessions 4 h intra ou inter sur vos documents réels.`,
+    q: 'Où se déroulent les formations en Île-de-France ?',
+    a: `Exclusivement en présentiel en Île-de-France : en intra dans vos locaux ou en inter en salle. Basée à Guyancourt (78), Laure Olivié intervient sur Paris et les départements 75, 77, 78, 91, 92, 93, 94 et 95.`,
   },
   {
-    q: 'Les formations se font-elles uniquement en Île-de-France ?',
-    a: "Oui. Les formations se déroulent exclusivement en présentiel, en Île-de-France : sessions inter en salle et sessions intra dans vos locaux. Laure Olivié, basée à Guyancourt (78), intervient sur l'ensemble de la région (75, 77, 78, 91, 92, 93, 94, 95).",
+    q: 'La formation IA construction est-elle finançable par Constructys ?',
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Les plafonds et l'éligibilité dépendent de votre situation (entreprise BTP cotisante Constructys). Un devis et une estimation de prise en charge sont transmis après la visio découverte.`,
   },
   {
-    q: 'Peut-on panacher plusieurs formations en une demi-journée ?',
-    a: "Non. Chaque formation dure 4 heures complètes et couvre un thème spécifique. Il est possible d'organiser deux sessions en deux demi-journées consécutives sur des thèmes différents (ex. : NIV-01 le matin, NIV-02 l'après-midi) pour maximiser l'impact.",
+    q: 'Intervenez-vous à Paris et en petite/grande couronne ?',
+    a: `Oui. Les sessions couvrent Paris (75) ainsi que la petite et la grande couronne francilienne (77, 78, 91, 92, 93, 94, 95). Pour un besoin centré sur Paris, voir aussi la page formation IA BTP à Paris.`,
   },
   {
-    q: 'Les formations sont-elles disponibles en dehors des heures ouvrées ?',
-    a: "Les sessions inter sont généralement organisées en journée. Les sessions intra peuvent être adaptées aux contraintes de l'entreprise (matin tôt, fin de journée) selon disponibilité.",
+    q: 'Sur quels documents travaille-t-on en formation ?',
+    a: `Sur vos documents BTP réels : devis, DCE/CCTP, mémoires techniques, comptes rendus de chantier, DOE et emails. L'objectif est une méthode opérationnelle dès le lendemain, avec validation métier de votre côté.`,
   },
   {
-    q: 'Peut-on avoir un devis en moins de 48 heures ?',
-    a: "Oui. Après le diagnostic téléphonique (30 min), un devis est transmis sous 24 heures avec la convention de formation pré-remplie et l'estimation de prise en charge Constructys.",
+    q: 'Combien de professionnels avez-vous formés ?',
+    a: `Plus de ${formatProfessionalsTrainedCount()} professionnels formés, note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. Organisme OFC Création d'Entreprise, certifié Qualiopi — actions de formation.`,
   },
-  {
-    q: 'Faut-il que tous les participants aient un ordinateur ?',
-    a: "Idéalement oui — un ordinateur ou une tablette par participant pour travailler sur leurs propres documents. Pour les sessions avec partage d'écran uniquement, un setup binôme est possible.",
-  },
-  {
-    q: "Les formations se déroulent-elles partout en Île-de-France ?",
-    a: `Oui. Les sessions ont lieu exclusivement en présentiel, dans vos locaux (intra) ou en salle (inter), sur l'ensemble de l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Basée à Guyancourt (78), j'interviens sur toute la région — note participants : ${SOCIAL_PROOF.AVERAGE_RATING}.`,
-  },
-];
-
-const SOMMAIRE = [
-  { href: '#contexte', label: "Pourquoi les entreprises BTP d'Île-de-France adoptent l'IA en formation courte" },
-  { href: '#par-departement', label: 'Formation IA appliquée au bâtiment par département (77 à 95, 78)' },
-  { href: '#formations', label: 'Les formations disponibles en Île-de-France' },
-  { href: '#inter', label: 'Sessions inter : calendrier et lieux' },
-  { href: '#intra', label: 'Sessions intra : dans vos locaux' },
-  { href: '#financement', label: 'Financement Constructys par département' },
-  { href: '#references', label: 'Références clients en Île-de-France' },
-  { href: '#faq-idf', label: 'FAQ formation IA pour le BTP Île-de-France' },
-  { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre diagnostic IA gratuit' },
 ];
 
 export default function FormationIaBtpIleDeFrancePage() {
   const localBusinessSchema = getFormationIleDeFrancePageLocalBusinessJsonLd();
-  const faqSchema = getFAQSchema([
-    ...IDF_CHAPEAU_LOCAL.faq,
-    ...FAQ_IDF.map(({ q, a }) => ({ q, a })),
-  ]);
+  const faqSchema = getFAQSchema(FAQ_IDF);
 
   return (
-    <div className={poppins.className}>
+    <>
       <JsonLd id="schema-formation-idf-course" schema={COURSE_JSON_LD} />
       <JsonLd id="schema-formation-idf-localbusiness" schema={localBusinessSchema} />
-      <JsonLd id="schema-formation-idf-faq" schema={faqSchema} />
+      {faqSchema ? <JsonLd id="schema-formation-idf-faq" schema={faqSchema} /> : null}
 
-      <section className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
-            <div className="min-w-0">
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            Laure Olivié · OFC Création d&apos;Entreprise · Guyancourt (78) · Île-de-France
-          </p>
-          <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
-            Formation IA BTP Île-de-France — présentiel, certifiée Qualiopi
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-slate-600">
-            Formations courtes (4 h) pour <strong>TPE & PME du bâtiment</strong>, dirigeants, conducteurs de travaux,
-            chargés d&apos;affaires et équipes administratives — sur vos documents réels (devis, DCE, CCTP, mémoires
-            techniques, comptes rendus, relances). Intra ou inter, exclusivement en présentiel.{' '}
-            <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
-            <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
-          </p>
-            </div>
-            <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
-              <OfcPromoVideoEmbed variant="heroColumn" />
-            </aside>
+      <article>
+        <section className={`${OFC_SEC.white} border-b border-slate-200`}>
+          <div className="mx-auto max-w-4xl">
+            <Breadcrumb
+              items={[
+                { label: 'Accueil', href: LINKS.home },
+                { label: 'Formation IA BTP Île-de-France', href: PATH },
+              ]}
+            />
+            <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
+              Présentiel · Qualiopi · Constructys · Île-de-France
+            </p>
+            <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
+              Formation IA pour le bâtiment et la construction en Île-de-France
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+              Laure Olivié forme les TPE et PME du bâtiment et de la construction en présentiel uniquement, en
+              Île-de-France uniquement : devis, DCE, comptes rendus et administratif sur vos documents réels.{' '}
+              {formatProfessionalsTrainedCount()} professionnels formés, note {SOCIAL_PROOF.AVERAGE_RATING}. Organisme
+              certifié Qualiopi — {FINANCEMENT_FORMULATION_PRUDENTE}
+            </p>
+            <QualiopiSatisfactionSource className="mt-4" />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <FormationIdfChapeauLocalBlock />
-
-      <section className="border-b border-slate-200 bg-white px-4 py-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-wrap gap-3">
-            <RdvLink className="inline-flex rounded-full bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-[#2d6ae0]">
-              Diagnostic IA gratuit — 30 min
-            </RdvLink>
-            <Link
-              href="/formations"
-              className="inline-flex items-center rounded-full border-2 border-[#377CF3] px-6 py-3 text-sm font-semibold text-[#377CF3] hover:bg-blue-50"
-            >
-              Catalogue formations
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-10">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
-            {SOMMAIRE.map(({ href, label }) => (
-              <li key={href}>
-                <a href={href} className="text-[#377CF3] underline hover:no-underline">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section id="contexte" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Pourquoi les entreprises BTP d&apos;Île-de-France adoptent l&apos;IA en formation courte
-          </h2>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            L&apos;Île-de-France est la première région BTP de France par volume de marchés : Grand Paris Express,
-            rénovation du parc de logements, marchés publics de collectivités et d&apos;établissements scolaires,
-            chantiers tertiaires — la pression concurrentielle y est plus forte qu&apos;ailleurs. Pour répondre à plus
-            d&apos;appels d&apos;offres avec les mêmes équipes, les PME du BTP francilien cherchent des gains de
-            productivité opérationnels, pas des transformations numériques de 3 ans.
-          </p>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            C&apos;est exactement ce que proposent les formations IA appliquées au bâtiment d&apos;OFC Création d&apos;Entreprise :{' '}
-            <strong>4 heures, sur vos documents réels, avec des résultats le lendemain.</strong>
-          </p>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            Depuis 2022, OFC forme les équipes BTP en Île-de-France en partenariat avec la{' '}
-            <strong>FFB Grand Paris</strong>, la <strong>FFB Île-de-France (78/91/95)</strong>, la{' '}
-            <strong>FFB IDF Est</strong>, la <strong>CSFE</strong> (étanchéité/bardage) et le{' '}
-            <strong>CNAM Île-de-France</strong>. Plus de <strong>{formatProfessionalsTrainedCount()} professionnels</strong>{' '}
-            formés — conducteurs de travaux, chargés d&apos;affaires, assistantes administratives, dirigeants de PME —
-            avec une note de satisfaction de <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
-          </p>
-        </div>
-      </section>
-
-      <section id="par-departement" className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Formation IA pour le BTP par département
-          </h2>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            Pages dédiées Qualiopi et financement Constructys : problématiques locales, villes couvertes, FAQ
-            géographique.
-          </p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-            {[
-              { href: LINKS.formationIaBtpSeineEtMarne77, label: 'Seine-et-Marne (77) — Melun, Meaux, Marne-la-Vallée' },
-              { href: LINKS.formationIaBtpYvelines78, label: 'Yvelines (78)' },
-              { href: LINKS.formationIaBtpEssonne91, label: 'Essonne (91)' },
-              { href: LINKS.formationIaBtpHautsDeSeine92, label: 'Hauts-de-Seine (92)' },
-              { href: LINKS.formationIaBtpSeineSaintDenis93, label: 'Seine-Saint-Denis (93)' },
-              { href: LINKS.formationIaBtpValDeMarne94, label: 'Val-de-Marne (94)' },
-              { href: LINKS.formationIaBtpValDoise95, label: "Val-d'Oise (95)" },
-            ].map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="flex rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-[#377CF3] shadow-sm hover:bg-blue-50"
+        <section className={OFC_SEC.muted} aria-labelledby="docs-btp-reels">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="docs-btp-reels" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Une formation IA sur vos documents BTP réels
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Chaque session de 4 h s&apos;appuie sur vos pièces de chantier et d&apos;études — pas de théorie
+              générique. Vous repartez avec une méthode applicable dès le lendemain.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {[
+                'Devis et chiffrage',
+                'Analyse DCE / CCTP',
+                'Mémoires techniques',
+                'Comptes rendus de chantier',
+                'DOE et documents de réception',
+                'Emails et relances clients',
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-800 shadow-sm"
                 >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section id="formations" className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Les formations disponibles en Île-de-France
-          </h2>
-          <div className="mt-10 space-y-10">
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">
-                NIV-01 — L&apos;IA au service des pros du Bâtiment Travaux Publics
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau débutant · 4 h · {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
-              </p>
-              <p className="mt-4 text-slate-700 leading-relaxed">
-                Devis, DCE, CCTP, comptes rendus de chantier, relances clients et documents administratifs — pour les
-                équipes bâtiment et travaux publics qui démarrent avec l&apos;IA. Programme PDF sur la fiche catalogue.
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="font-display text-xl font-bold text-slate-900">
-                NIV-02 — L&apos;IA au service des appels d&apos;offre BTP
-              </h3>
-              <p className="mt-2 text-sm font-medium text-[#377CF3]">
-                Niveau avancé · 4 h · {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session · {EFFECTIF_GROUPE_MAX} participants max
-              </p>
-              <p className="mt-4 text-slate-700 leading-relaxed">
-                Analyse DCE, mémoire technique, structuration de réponse marché. Pour les chargés d&apos;affaires et
-                conducteurs de travaux qui répondent aux appels d&apos;offres. Programme PDF sur la fiche catalogue.
-              </p>
-            </article>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="mt-8">
-            <Link
-              href={LINKS.formations}
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Voir les programmes détaillés et télécharger les PDF →
-            </Link>
-          </p>
-        </div>
-      </section>
+        </section>
 
-      <section id="inter" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Sessions inter en Île-de-France — lieux et fréquence
-          </h2>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            Les sessions inter permettent à vos salariés de rejoindre un groupe mixte d&apos;entreprises BTP. Format
-            idéal pour former 1 à 3 personnes sans organiser une session complète dans vos locaux.
-          </p>
-          <p className="mt-4 font-medium text-slate-900">Lieux des sessions inter :</p>
-          <p className="mt-2 text-slate-700">
-            Paris (75) · Versailles (78) · Nanterre (92) · Créteil (94) · Cergy-Pontoise (95) · Melun (77) · Évry (91) ·
-            Saint-Denis (93)
-          </p>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            <strong>Fréquence :</strong> sessions organisées en partenariat avec la FFB Grand Paris, la FFB
-            Île-de-France (78/91/95) et le CNAM Île-de-France. Calendrier disponible sur demande.
-          </p>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            <strong>Avantage inter :</strong> vos salariés échangent avec des professionnels d&apos;autres entreprises BTP
-            — les retours d&apos;expérience croisés sont l&apos;un des éléments les plus valorisés par les participants.
-          </p>
-        </div>
-      </section>
-
-      <section id="intra" className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Sessions intra — dans vos locaux en Île-de-France
-          </h2>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            Les sessions intra permettent de former toute une équipe (jusqu&apos;à {EFFECTIF_GROUPE_MAX} participants)
-            dans vos locaux, sur vos propres documents. C&apos;est le format le plus efficace pour une adoption rapide à
-            l&apos;échelle de l&apos;entreprise.
-          </p>
-          <ul className="mt-6 space-y-4 text-slate-700">
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-              <span>
-                <strong>Ce que vous préparez :</strong> une salle avec un vidéoprojecteur ou un grand écran, et Wi-Fi.
-                Laure Olivié apporte le matériel pédagogique et les supports.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-              <span>
-                <strong>Ce que vous apportez :</strong> vos documents réels — un DCE en cours, un devis type, un CR de
-                chantier récent. La formation se déroule sur vos propres fichiers, pas sur des exemples fictifs.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-              <span>
-                <strong>Zone d&apos;intervention intra :</strong> tous les départements d&apos;Île-de-France (75, 77, 78,
-                91, 92, 93, 94, 95) sans frais de déplacement supplémentaires. Interventions en dehors d&apos;Île-de-France
-                sur devis.
-              </span>
-            </li>
-            <li className="flex gap-3">
-              <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-              <span>
-                <strong>Délai de mise en place :</strong> 10 à 15 jours ouvrés après validation du devis et de la
-                convention de formation.
-              </span>
-            </li>
-          </ul>
-          <blockquote className="mt-8 rounded-xl border-l-4 border-[#377CF3] bg-white p-6 text-slate-700 shadow-sm">
-            <p className="font-medium text-slate-900">Réservez une session intra pour votre équipe BTP.</p>
-            <a
-              href={buildSiteCalendlyCtaUrl('formation-ia-btp-ile-de-france-contact-rdv-page-calendly')}
-              className="mt-2 inline-block font-semibold text-[#377CF3] underline hover:no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prendre rendez-vous →
-            </a>
-          </blockquote>
-        </div>
-      </section>
-
-      <section id="financement" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Financement Constructys par département d&apos;Île-de-France
-          </h2>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            Toutes les formations OFC sont éligibles à une prise en charge Constructys (PDC 2026) pour les entreprises du
-            bâtiment et des travaux publics relevant des conventions collectives BTP — selon statut, branche et conditions en vigueur.
-          </p>
-          <p className="mt-6 font-semibold text-slate-900">Plafonds 2026 :</p>
-          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
-            <li>Coût pédagogique : 24 € HT/heure/stagiaire</li>
-            <li>Sessions intra : plafond 840 € HT/jour/groupe</li>
-            <li>Salaires &lt;11 salariés : 15 € HT/heure/stagiaire</li>
-            <li>Salaires 11-50 salariés : 10 € HT/heure/stagiaire (qualifiant)</li>
-          </ul>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            <strong>La règle à ne pas oublier :</strong> la demande doit être déposée sur eGestion
-            (services.constructys.fr) au minimum 15 jours avant la formation. OFC accompagne chaque client dans la
-            constitution du dossier et peut facturer directement Constructys (subrogation possible selon dossier — sans garantie d'avance zéro).
-          </p>
-          <p className="mt-6 font-semibold text-slate-900">Délégations Constructys Île-de-France :</p>
-          <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-700">
-            <li>
-              Paris / Hauts-de-Seine / Seine-Saint-Denis / Val-de-Marne : délégation Île-de-France Nord
-            </li>
-            <li>Yvelines / Essonne / Val-d&apos;Oise / Seine-et-Marne : délégation Île-de-France Sud-Ouest</li>
-          </ul>
-          <p className="mt-8">
-            <Link href="/financement-constructys-formation-ia-btp" className="font-semibold text-[#377CF3] underline">
-              Guide complet du financement Constructys
-            </Link>
-            {' · '}
-            <Link href="/blog/dossier-constructys-2026-etapes" className="font-semibold text-[#377CF3] underline">
-              Monter son dossier en 20 min
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <section id="references" className="scroll-mt-24 border-b border-slate-200 bg-[#F2F2F2] px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Références clients en Île-de-France
-          </h2>
-          <div className="mt-8 space-y-6 text-slate-700 leading-relaxed">
-            <p>
-              <strong>FFB Grand Paris</strong> — Sessions inter entreprises et conducteurs de travaux, Paris et petite
-              couronne. Référence OFC : {formatProfessionalsTrainedCount()} professionnels formés, note{' '}
-              {SOCIAL_PROOF.AVERAGE_RATING}.
-            </p>
-            <p>
-              <strong>FFB Île-de-France (78/91/95)</strong> — Sessions inter en Yvelines, Essonne et Val-d&apos;Oise.
-              Partenariat actif avec l&apos;IFRB 78/91/95.
-            </p>
-            <p>
-              <strong>FFB IDF Est</strong> — Sessions inter Seine-et-Marne et Seine-Saint-Denis.
-            </p>
-            <p>
-              <strong>CSFE</strong> (Chambre Syndicale Française de l&apos;Étanchéité) — Sessions intra pour entreprises
-              d&apos;étanchéité et de bardage. Module spécifique DCE/mémoire technique étanchéité.
-            </p>
-            <p>
-              <strong>CNAM Île-de-France</strong> — Formation continue intégrée aux parcours CNAM pour les professionnels
-              du BTP en activité.
-            </p>
-            <p>
-              <strong>Entreprises intra en Île-de-France :</strong> PITEL (Morangis, 200 salariés), LSR La Société des
-              Revêtements (Neuilly-sur-Marne), CHAPELEC, TREBISOL, AXE ÉTANCHÉITÉ, SERBACO (sessions CSFE), et de
-              nombreuses PME en direct via la FFB.
+        <section className={OFC_SEC.white} aria-labelledby="intra-inter-idf">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="intra-inter-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Intra ou inter, partout en Île-de-France
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Sessions <strong>intra</strong> dans vos locaux ou <strong>inter</strong> en salle, sur Paris et les huit
+              départements franciliens : 75, 77, 78, 91, 92, 93, 94 et 95. Si votre besoin est centré sur la capitale,
+              consultez la{' '}
+              <Link href={LINKS.formationParis} className={OFC_LINK} title="Formation IA bâtiment à Paris">
+                formation IA bâtiment à Paris
+              </Link>
+              . Pour choisir le prestataire, découvrez{' '}
+              <Link href={LINKS.formateurIaBtp} className={OFC_LINK} title="Formatrice IA spécialisée construction">
+                une formatrice IA spécialisée construction
+              </Link>
+              .
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <FAQSection
-        id="faq-idf"
-        title="FAQ — formation IA pour les pros du BTP en Île-de-France"
-        subtitle="Modalités géographiques, inter/intra, devis et présentiel."
-        items={FAQ_IDF}
-      />
-
-      <section id="a-propos" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Qui est Laure Olivié ?</h2>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            Laure Olivié est <strong>formatrice IA générative spécialiste BTP</strong>, basée à{' '}
-            <strong>Guyancourt (Yvelines, 78)</strong>. Elle intervient exclusivement en présentiel sur l&apos;ensemble de
-            l&apos;Île-de-France — sessions inter et intra finançables Constructys selon éligibilité.
-          </p>
-          <p className="mt-4 text-slate-700 leading-relaxed">
-            Son parcours combine <strong>ALIA BTP</strong> (dirigeante travaux publics, 2017-2024), le{' '}
-            <strong>CNFPT Grande Couronne</strong> (chargée de formation e-learning, 2009-2019) et un{' '}
-            <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021). Depuis 2022, OFC Création d&apos;Entreprise
-            forme les équipes du BTP sur ChatGPT, Claude, Copilot et Mistral — cas réels : DCE, CCTP, CR, DOE, PPSPS.
-          </p>
-          <p className="mt-6 text-sm font-medium text-slate-800">
-            +{formatProfessionalsTrainedCount()} professionnels formés · Note {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi ·
-            Instructrice LinkedIn Learning · {LAURE_OLIVIE_CLIENT_REFERENCES_SHORT}
-          </p>
-          <p className="mt-6">
-            <Link href="/a-propos" className="font-semibold text-[#377CF3] underline hover:no-underline">
-              Voir le parcours complet →
-            </Link>
-          </p>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-[#F2F2F2] px-4 py-12">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
-            <li>
-              <Link href="/blog/ia-analyse-cctp-methode" className="text-[#377CF3] underline">
-                IA pour analyser un CCTP : méthode en 4 étapes
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/ia-conducteur-travaux-usages" className="text-[#377CF3] underline">
-                IA pour conducteur de travaux : 8 usages terrain
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/dossier-constructys-2026-etapes" className="text-[#377CF3] underline">
-                Constructys 2026 : monter son dossier en 20 min
-              </Link>
-            </li>
-            <li>
-              <Link href="/formations/ia-appels-offre-btp" className="text-[#377CF3] underline">
-                Formation IA appels d&apos;offres BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationParis} className="text-[#377CF3] underline">
-                Formation IA appliquée au bâtiment Paris
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="rdv" className="scroll-mt-24 border-b border-slate-200 bg-white px-4 py-14">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Réservez votre diagnostic IA BTP gratuit
-          </h2>
-          <p className="mt-6 text-slate-700 leading-relaxed">
-            Un échange de 30 minutes pour identifier la formation la plus adaptée à votre équipe, estimer la prise en
-            charge Constructys, et planifier une session dans vos locaux ou en inter.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <RdvLink className="inline-flex rounded-full bg-[#377CF3] px-8 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#2d6ae0]">
-              Réserver mon diagnostic IA BTP
-            </RdvLink>
-            <PublicPhoneCta className="inline-flex items-center justify-center rounded-full border-2 border-slate-300 px-8 py-3.5 text-sm font-semibold text-slate-800 hover:bg-slate-50" />
+        <section className={OFC_SEC.mutedCompact}>
+          <div className="mx-auto max-w-4xl rounded-2xl border border-[#377CF3]/25 bg-[#377CF3] px-6 py-8 text-white md:px-10 md:py-10">
+            <h2 className="font-display text-xl font-bold md:text-2xl">
+              Cadrer votre formation IA en Île-de-France
+            </h2>
+            <p className="mt-3 text-blue-100">
+              30 min en visio : format intra ou inter, financement Constructys selon éligibilité, sans engagement.
+            </p>
+            <div className="mt-6">
+              <CalendlyEmbed
+                type="link"
+                variant="on-accent"
+                campaign="idf-mid-page"
+                ctaPosition="middle"
+                className="inline-flex items-center rounded-lg bg-white px-5 py-3 font-semibold text-[#377CF3] hover:bg-slate-50"
+              >
+                Prendre rendez-vous découverte
+              </CalendlyEmbed>
+            </div>
           </div>
-          <p className="mt-8 text-sm text-slate-600">
-            <a
-              href="https://www.laureolivie.fr/formations"
-              className="text-[#377CF3] underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Catalogue des formations
-            </a>
-            {' · '}
-            <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] underline">
-              Financement Constructys
-            </Link>
-          </p>
-        </div>
-      </section>
+        </section>
 
-      <div className="mx-auto max-w-4xl px-4 pb-4">
-        <VoirAussi
-          {...voirAussiIdfProps({
-            currentPath: PATH,
-            excludeHrefs: [
-              LINKS.formations,
-              LINKS.financement,
-              LINKS.formationParis,
-              '/formations/ia-appels-offre-btp',
-            ],
-          })}
+        <section className={OFC_SEC.white} aria-labelledby="pourquoi-laure-idf">
+          <div className="mx-auto max-w-4xl">
+            <h2 id="pourquoi-laure-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
+              Pourquoi Laure Olivié
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              Formatrice IA spécialisée BTP depuis 2022, après 10 ans de terrain comme conductrice de travaux (ex-ALIA
+              BTP). Références : FFB Grand Paris, {CSFE_NOM_COMPLET}, CNAM Entreprise, instructrice LinkedIn Learning.
+              Méthode 100 % pratique, présentiel en Île-de-France.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
+              En savoir plus sur{' '}
+              <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">
+                Laure Olivié et OFC Création d&apos;Entreprise
+              </Link>
+              , ou parcourir les{' '}
+              <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">
+                programmes Qualiopi de 4 h
+              </Link>
+              .
+            </p>
+          </div>
+        </section>
+
+        <FAQSection
+          id="faq-idf"
+          title="FAQ"
+          subtitle="Réponses concrètes sur le présentiel, le financement et la couverture francilienne."
+          items={FAQ_IDF}
         />
-      </div>
 
-      <footer className="bg-[#F2F2F2] px-4 py-10 text-center text-sm text-slate-500">
-        <p>Laure Olivié — Formatrice IA pour le BTP, OFC Création d&apos;Entreprise</p>
-        <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078 · Guyancourt (78)</p>
-        <p>
-          laureolivie@yahoo.fr ·{' '}
-          <a href="https://www.laureolivie.fr" className="underline">
-            www.laureolivie.fr
-          </a>
-        </p>
-      </footer>
-    </div>
+        <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="font-display text-2xl font-bold md:text-3xl">
+              Réservez votre visio découverte gratuite
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-blue-100">
+              Diagnostic de 30 minutes pour choisir la formation IA adaptée à votre équipe du bâtiment ou de la
+              construction en Île-de-France.
+            </p>
+            <div className="mt-8">
+              <CalendlyEmbed
+                type="link"
+                variant="on-accent"
+                campaign="idf-footer"
+                ctaPosition="footer"
+                className="inline-flex items-center rounded-lg bg-white px-6 py-3.5 font-semibold text-[#377CF3] hover:bg-slate-50"
+              >
+                Réservez votre visio découverte gratuite
+              </CalendlyEmbed>
+            </div>
+          </div>
+        </section>
+
+        <div className="mx-auto max-w-4xl px-4 py-10">
+          <VoirAussi
+            {...voirAussiIdfProps({
+              currentPath: PATH,
+              excludeHrefs: [
+                LINKS.formations,
+                LINKS.formationParis,
+                LINKS.formateurIaBtp,
+                LINKS.aPropos,
+              ],
+            })}
+          />
+        </div>
+      </article>
+    </>
   );
 }

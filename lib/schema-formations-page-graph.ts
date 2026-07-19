@@ -192,18 +192,35 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               name: "L'IA au service des pros du bâtiment et des travaux publics",
               alternateName: 'Formation IA niveau 1 BTP',
               description:
-                "Formation niveau 1 — 4 h : IA pour bâtiment et travaux publics, devis, chantier, documents. Qualiopi, Constructys.",
+                "Formation niveau 1 — 4 h : IA pour le bâtiment, la construction et les travaux publics, devis, chantier, documents. Qualiopi, Constructys.",
               url: `${BASE}/formations/ia-batiment-travaux-publics`,
               courseCode: 'NIV-01',
               educationalLevel: 'Beginner',
               inLanguage: 'fr-FR',
+              about: [
+                { '@type': 'Thing', name: 'Bâtiment' },
+                { '@type': 'Thing', name: 'Construction' },
+                { '@type': 'Thing', name: 'Travaux publics' },
+              ],
+              keywords:
+                'formation IA bâtiment, formation IA construction, formation IA BTP, travaux publics, entreprises de construction',
+              courseMode: 'Onsite',
+              locationCreated: {
+                '@type': 'Place',
+                name: 'Île-de-France',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressRegion: 'Île-de-France',
+                  addressCountry: 'FR',
+                },
+              },
               teaches: [
-                'Usages de l’IA pour équipes bâtiment et travaux publics',
+                'Usages de l’IA pour équipes bâtiment, construction et travaux publics',
                 'Devis, comptes rendus et courriers avec ChatGPT / Claude',
                 'Structuration de l’administratif et prompts métier',
                 'Bonnes pratiques et validation humaine',
               ],
-              occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
+              occupationalCategory: 'BTP, Bâtiment, Construction, Travaux Publics',
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',

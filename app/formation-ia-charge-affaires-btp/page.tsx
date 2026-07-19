@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
@@ -19,11 +19,15 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-charge-affaires-btp';
 
-const SEO_TITLE = 'Formation IA Chargé d\'Affaires BTP | Devis, AO, Mémoire Technique';
+const SEO_TITLE = "IA pour chargé d'affaires BTP IDF | Laure Olivié";
 
 const BASE_URL = SITE_CONFIG.url.replace(/\/$/, '');
 
@@ -32,12 +36,17 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   ...buildFormationFicheCourseJsonLd({
     name: "Formation IA pour Chargé d'Affaires BTP",
     description:
-      "Formation ChatGPT et Claude AI pour chargés d'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi. Financement possible selon éligibilité.",
+      "Formation ChatGPT et Claude AI pour chargés d'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi. Financement possible selon éligibilité. Présentiel Île-de-France.",
     path: PATH,
     educationalLevel: 'Advanced',
     organizationId: `${BASE_URL}/#organization`,
     instructorName: 'Laure Olivié',
   }),
+  courseMode: 'onsite',
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Île-de-France',
+  },
   instructor: {
     '@type': 'Person',
     name: 'Laure Olivié',
@@ -60,7 +69,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
 export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
   title: SEO_TITLE,
   description:
-    'Formation ChatGPT et Claude AI pour chargés d\'affaires BTP : devis plus rapides, mémoire technique gagnant, relances prospects. Qualiopi. RDV gratuit.',
+    "Formation IA pour chargés d'affaires BTP : chiffrage, DCE, mémoires techniques, relances. Présentiel Île-de-France, Qualiopi, Constructys possible. RDV gratuit.",
   path: PATH,
   keywords: [
     'formation IA chargé d\'affaires BTP',
@@ -72,7 +81,7 @@ export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
   appendAuthorSuffix: false,
   article: {
     publishedTime: '2026-04-17',
-    modifiedTime: '2026-04-17',
+    modifiedTime: '2026-07-14',
     author: 'Laure Olivié',
     section: 'Formation IA appliquée au bâtiment',
   },
@@ -124,32 +133,29 @@ Ton : direct, respectueux du temps du prospect, centré sur son intérêt.`;
 
 const FAQ_ITEMS = [
   {
-    q: 'Peut-on chiffrer un devis BTP avec ChatGPT en toute confidentialité ?',
-    a: "Oui, avec ChatGPT Team ou Claude Enterprise, ou en anonymisant les données sensibles (noms, adresses, montants exacts). La formation couvre les trois options pour travailler sans exposer vos dossiers.",
+    q: "L'IA remplace-t-elle le chargé d'affaires ?",
+    a: "Non. Elle assiste : elle accélère le chiffrage, l'analyse de DCE, la trame de mémoire technique et les relances. La décision commerciale, le prix et la responsabilité de l'offre restent humains.",
   },
   {
-    q: "L'IA peut-elle rédiger un mémoire technique qui remporte des AO publics ?",
-    a: "Elle ne remplace pas votre expertise : elle produit une trame personnalisée et des sections exploitables en quelques heures au lieu de plusieurs jours. La valeur différenciante — références, moyens réels, cohérence prix/méthode — reste la vôtre après relecture et validation.",
+    q: 'Est-ce finançable par Constructys ?',
+    a: FINANCEMENT_FORMULATION_PRUDENTE,
   },
   {
-    q: 'Comment l\'IA aide-t-elle à augmenter le taux de transformation des devis BTP ?',
-    a: "En réduisant le délai de réponse (effet fraîcheur) et en systématisant les relances. Une grande partie des dossiers se joue après le premier envoi : relancer proprement et vite augmente le taux de signature sans alourdir la charge.",
+    q: 'La formation se fait-elle sur nos dossiers réels ?',
+    a: "Oui. En intra comme en inter (présentiel Île-de-France), on travaille de préférence sur vos devis, DCE et mémoires — anonymisés si besoin — pour que les gains soient immédiatement applicables.",
   },
   {
-    q: "Peut-on utiliser l'IA pour analyser la DPGF d'un AO public ?",
-    a: "Oui. Claude AI est particulièrement performant pour lire des DPGF Excel volumineuses (200 lignes et plus) et en extraire les postes stratégiques, les écarts de quantités et les points de vigilance pour votre chiffrage.",
+    q: 'Où intervenez-vous en Île-de-France ?',
+    a: 'Présentiel uniquement : Paris (75) et départements 77, 78, 91, 92, 93, 94, 95 — intra dans vos locaux ou inter en salle.',
   },
   {
-    q: "L'IA connaît-elle les seuils des marchés publics français (MAPA, procédure formalisée) ?",
-    a: "Oui : les seuils 2026 sont intégrés dans les contenus de formation (notamment 40 k€ HT, 90 k€ HT et références européennes selon les typologies de marchés). Un récap à jour est fourni en session.",
-  },
-  {
-    q: 'Comment former un chargé d\'affaires déjà bien outillé (CRM, Excel, template mémoire) ?',
-    a: "La formation complète l'outillage existant sans le remplacer. L'IA s'insère dans votre workflow — nous travaillons sur vos modèles, vos grilles et vos exemples de mémoires pour gagner du temps sans tout reconstruire.",
+    q: "Comment l'IA aide-t-elle un chargé d'affaires au quotidien ?",
+    a: "Sur l'analyse DCE, le mémoire technique, le pré-chiffrage / devis et les séquences de relance — toujours avec validation métier avant envoi client ou maître d'ouvrage.",
   },
 ];
 
 const SOMMAIRE = [
+  { href: '#taches', label: "Les tâches du chargé d'affaires que l'IA accélère" },
   { href: '#goulot', label: 'Le chargé d\'affaires BTP est un goulot d\'étranglement commercial' },
   { href: '#cycle-vente', label: 'Ce que l\'IA fait dans un cycle de vente BTP' },
   { href: '#usages', label: 'Les 8 usages commerciaux les plus impactants' },
@@ -171,23 +177,66 @@ export default function FormationIaChargeAffairesBtpPage() {
       {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-charge-affaires" /> : null}
 
       <article>
-        <MetierIdfPresentielLine className="mb-4" />
+        <Breadcrumb
+          items={[
+            { label: 'Accueil', href: LINKS.home },
+            { label: 'Formations', href: LINKS.formations },
+            { label: "Chargé d'affaires BTP", href: PATH },
+          ]}
+        />
+        <MetierIdfPresentielLine className="mb-4 mt-6" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour Chargé d&apos;Affaires BTP —{' '}
-          <span className="text-[#377CF3]">Transformez 2x plus d&apos;appels d&apos;offres</span>
+          Formation IA pour les chargés d&apos;affaires du BTP en Île-de-France
         </h1>
         <p className="mt-4 text-lg text-slate-600">
-          Sessions en présentiel en Île-de-France — Laure Olivié · OFC Création d&apos;Entreprise · Qualiopi · Finançable Constructys
+          Le chargé d&apos;affaires jongle entre chiffrage, marchés et relation client ; l&apos;IA lui
+          rend des heures, sous sa validation. Sessions présentiel IDF · Qualiopi ·{' '}
+          {FINANCEMENT_FORMULATION_PRUDENTE}
         </p>
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            Un chargé d&apos;affaires BTP consacre 25 à 35 % de son temps à produire des devis et des
-            mémoires techniques. Avec l&apos;IA, il divise ce temps par 5 et augmente son taux de
-            transformation sur les appels d&apos;offres de 20 à 40 %. Formation certifiée{' '}
-            <strong>Qualiopi</strong>, éligible <strong>Constructys</strong>.
+            Un chargé d&apos;affaires BTP consacre souvent une part importante de son temps à produire
+            des devis et des mémoires techniques. Avec l&apos;IA, il accélère ces livrables — toujours
+            avec relecture métier — pour se recentrer sur la décision commerciale. Formation certifiée{' '}
+            <strong>Qualiopi</strong>, financement OPCO possible selon éligibilité.
           </ShortAnswerBlock>
+          <DisclaimerGains className="mt-3" />
         </div>
+
+        <section id="taches" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Les tâches du chargé d&apos;affaires que l&apos;IA accélère
+          </h2>
+          <ul className="mt-6 space-y-3 list-disc pl-6 text-slate-700 leading-relaxed">
+            <li>
+              <Link href={LINKS.iaAnalyseDce} className={OFC_LINK}>
+                Analyser un DCE avec l&apos;IA
+              </Link>{' '}
+              — CCTP, CCAP, RC, scoring GO / NO GO.
+            </li>
+            <li>
+              <Link href={LINKS.iaMemoireTechnique} className={OFC_LINK}>
+                Rédiger un mémoire technique BTP avec l&apos;IA
+              </Link>{' '}
+              — plan aligné RC, moyens, références.
+            </li>
+            <li>
+              <Link href={LINKS.iaCompteRenduChantier} className={OFC_LINK}>
+                Rédiger un compte rendu de chantier avec l&apos;IA
+              </Link>{' '}
+              — notes ou dictée vers CR structuré.
+            </li>
+            <li>
+              <Link href={LINKS.iaDevis} className={OFC_LINK}>
+                Accélérer devis et chiffrage bâtiment
+              </Link>{' '}
+              — pré-chiffrage et descriptifs structurés.
+            </li>
+            <li>Relances prospects et argumentaires prix — sous validation commerciale.</li>
+            <li>Comparatif d&apos;offres et préparation de RDV client.</li>
+          </ul>
+        </section>
 
         <nav
           aria-label="Sommaire"
@@ -431,14 +480,9 @@ export default function FormationIaChargeAffairesBtpPage() {
             </li>
           </ul>
           <p className="mt-6">
-            <a
-              href="https://www.laureolivie.fr/formations"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Voir les programmes détaillés →
-            </a>
+            <Link href={LINKS.formationAO} className="font-semibold text-[#377CF3] underline hover:no-underline">
+              Programme appels d&apos;offres IA (niveau 2) →
+            </Link>
           </p>
         </section>
 
@@ -476,17 +520,10 @@ export default function FormationIaChargeAffairesBtpPage() {
           </p>
           <p className="mt-4">
             <Link
-              href="/financement-constructys-formation-ia-btp"
+              href={LINKS.financement}
               className="font-semibold text-[#377CF3] underline hover:no-underline"
             >
               Guide complet du financement Constructys
-            </Link>
-            {' · '}
-            <Link
-              href="/blog/dossier-constructys-2026-etapes"
-              className="font-semibold text-[#377CF3] underline hover:no-underline"
-            >
-              Monter son dossier en 20 min
             </Link>
           </p>
         </section>
@@ -507,41 +544,26 @@ export default function FormationIaChargeAffairesBtpPage() {
 
         <LaureOlivieFormationPortrait />
 <section className="mt-14 rounded-2xl border border-slate-200 bg-white p-6">
-          <h2 className="font-display text-xl font-bold text-slate-900">Articles liés</h2>
+          <h2 className="font-display text-xl font-bold text-slate-900">Articles et pages liés</h2>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700">
             <li>
-              <Link href="/blog/chatgpt-devis-btp-methode-2026" className="text-[#377CF3] underline">
-                ChatGPT pour générer un devis BTP : méthode pas à pas (2026)
+              <Link href={LINKS.blogIaMemoireTechniqueAppelOffresGuide2026} className={OFC_LINK}>
+                Mémoire technique BTP avec l&apos;IA — guide appels d&apos;offres 2026
               </Link>
             </li>
             <li>
-              <Link href="/blog/ia-memoire-technique-appel-offres-guide-2026" className="text-[#377CF3] underline">
-                Mémoire technique BTP avec l&apos;IA : le guide complet pour gagner vos appels d&apos;offres
+              <Link href={LINKS.blogIaDevisBatimentChiffrageAutomatise} className={OFC_LINK}>
+                IA devis bâtiment et chiffrage automatisé
               </Link>
             </li>
             <li>
-              <Link href="/blog/ia-memoire-technique-appel-offres-guide-2026" className="text-[#377CF3] underline">
-                Comment rédiger un mémoire technique BTP avec l&apos;IA — Guide complet 2026
-              </Link>
-            </li>
-            <li>
-              <Link href="/formations/ia-appels-offre-btp" className="text-[#377CF3] underline">
-                Formation « Répondre aux appels d&apos;offres avec l&apos;IA »
-              </Link>
-            </li>
-            <li>
-              <Link href="/formation-ia-dirigeant-btp" className="text-[#377CF3] underline">
+              <Link href={LINKS.formationIaDirigeantBtp} className={OFC_LINK}>
                 Formation IA dirigeant BTP
               </Link>
             </li>
             <li>
-              <Link href="/formation-ia-conducteur-de-travaux-btp" className="text-[#377CF3] underline">
-                Formation IA conducteur de travaux BTP — chantier, CR, CCTP
-              </Link>
-            </li>
-            <li>
-              <Link href="/formation-ia-assistante-gestion-btp" className="text-[#377CF3] underline">
-                Formation IA assistante de gestion BTP — facturation, relances, DGD
+              <Link href={LINKS.formationConducteurTravaux} className={OFC_LINK}>
+                Formation IA conducteur de travaux BTP
               </Link>
             </li>
           </ul>
@@ -561,20 +583,6 @@ export default function FormationIaChargeAffairesBtpPage() {
             </RdvLink>
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-slate-50" />
           </div>
-          <p className="mt-6 text-sm text-slate-600">
-            <a
-              href="https://www.laureolivie.fr/formations"
-              className="text-[#377CF3] underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Catalogue des formations IA appliquées au bâtiment
-            </a>
-            {' · '}
-            <Link href="/financement-constructys-formation-ia-btp" className="text-[#377CF3] underline">
-              Financement Constructys
-            </Link>
-          </p>
         </section>
 
         <VoirAussi
@@ -583,6 +591,15 @@ export default function FormationIaChargeAffairesBtpPage() {
             excludeHrefs: [
               LINKS.formations,
               LINKS.financement,
+              LINKS.formationAO,
+              LINKS.iaAnalyseDce,
+              LINKS.iaMemoireTechnique,
+              LINKS.iaCompteRenduChantier,
+              LINKS.iaDevis,
+              LINKS.formationConducteurTravaux,
+              LINKS.formationIaDirigeantBtp,
+              LINKS.blogIaMemoireTechniqueAppelOffresGuide2026,
+              LINKS.blogIaDevisBatimentChiffrageAutomatise,
               '/formation-ia-assistante-gestion-btp',
             ],
           })}

@@ -45,6 +45,8 @@ const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources/ia-btp/10-cas-usage-concrets': 'IA dans le BTP : 10 cas d’usage concrets (2026)',
   '/ressources/guide-conducteur-de-travaux': 'Guide conducteur de travaux — 6 tutos Claude BTP',
   '/ressources/guide-conducteur-de-travaux/merci': 'Confirmation — guide envoyé',
+  '/ressources/guide-maitrise-oeuvre-ia': "Guide Maître d'Œuvre × IA",
+  '/ressources/guide-assistants-travaux-ofc': 'Guide des Assistants Travaux — 12 missions IA',
   ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 

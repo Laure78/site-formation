@@ -162,6 +162,7 @@ const homePageMetadataBase = createPageMetadata({
     'formation IA appliquée au bâtiment',
     'formation ChatGPT BTP',
     'formation IA bâtiment',
+    'formation IA construction',
     'formation IA travaux publics',
     'formation Claude AI BTP',
     'intelligence artificielle bâtiment',
@@ -421,10 +422,11 @@ export default function HomePage() {
                 data-citation="true"
               >
                 <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
-                qui apprend aux équipes du bâtiment et des travaux publics à utiliser les outils
-                d&apos;intelligence artificielle générative (Claude AI, Gemini, etc.) pour
-                automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP, appels d&apos;offres et mémoires
-                techniques, comptes rendus de chantier, relances clients et documents administratifs.
+                destinée aux entreprises du bâtiment et de la construction (gros œuvre, second œuvre, travaux publics).
+                Elle apprend aux équipes à utiliser les outils d&apos;intelligence artificielle générative
+                (Claude AI, Gemini, etc.) pour automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP,
+                appels d&apos;offres et mémoires techniques, comptes rendus de chantier, relances clients et documents
+                administratifs.
               </p>
             </Reveal>
             <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et conducteurs de travaux à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
@@ -481,9 +483,10 @@ export default function HomePage() {
             >
             Basée à Guyancourt (78), Laure Olivié anime des formations{' '}
             <strong>présentiel uniquement · Île-de-France uniquement</strong> (Paris, 77, 78, 91, 92, 93, 94, 95) — intra
-            dans vos locaux ou inter en salle. On travaille sur vos documents BTP réels.{' '}
+            dans vos locaux ou inter en salle, pour les entreprises de construction et du BTP. On travaille sur vos
+            documents réels. Découvrez la{' '}
             <Link href={LINKS.formationIleDeFrance} className={`${OFC_LINK} font-semibold`}>
-              formation IA BTP Île-de-France
+              formation IA BTP en Île-de-France
             </Link>
             .
             </p>
@@ -588,7 +591,7 @@ export default function HomePage() {
                 id="benefices-formation-ia-heading"
                 className="font-display text-3xl font-bold text-slate-900 md:text-4xl"
               >
-                Les bénéfices d&apos;une formation IA pour les pros du BTP
+                Les bénéfices d&apos;une formation IA pour les pros du BTP et de la construction
               </h2>
             </Reveal>
             <div className="mt-12">
@@ -602,8 +605,8 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
                   Une formation IA appliquée au bâtiment, sérieuse, automatise devis, emails et suivi administratif sans
-                  remplacer le métier. Les professionnels du BTP et conducteurs de travaux gagnent en productivité
-                  et retrouvent du temps sur le chantier et les appels d&apos;offres.
+                  remplacer le métier. Dans le secteur de la construction, les professionnels du BTP et conducteurs de
+                  travaux gagnent en productivité et retrouvent du temps sur le chantier et les appels d&apos;offres.
                 </p>
               </Reveal>
               <RevealGroup
@@ -759,7 +762,7 @@ export default function HomePage() {
                   itemProp="description"
                 >
                   Méthodes éprouvées en formation IA pour le BTP avec des professionnels du BTP, conducteurs de travaux et
-                  entreprises du bâtiment : devis, chantier, appels d&apos;offres et productivité au
+                  entreprises de construction : devis, chantier, appels d&apos;offres et productivité au
                   quotidien.
                 </p>
               </Reveal>
@@ -906,10 +909,11 @@ export default function HomePage() {
               <span>Formations IA pour le BTP</span>
             </div>
             <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-              Nos formations IA spécialisées BTP
+              Nos formations IA pour le BTP et la construction
             </h2>
             <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-              Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France. Financement possible selon éligibilité.
+              Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
+              bâtiment et de la construction. Financement possible selon éligibilité.
             </p>
             <CatalogueTarifStrip className="mt-5" />
           </Reveal>
@@ -1035,8 +1039,8 @@ export default function HomePage() {
               Claude AI BTP
             </Link>
             {' · '}
-            <Link href={LINKS.iaDevis} className={OFC_LINK} title="IA pour automatiser les devis bâtiment">
-              IA devis bâtiment
+            <Link href={LINKS.iaMemoireTechnique} className={OFC_LINK} title="Mémoire technique BTP avec l'IA">
+              mémoire technique avec l&apos;IA
             </Link>
             {' · '}
             <Link href={LINKS.iaCDT} className={OFC_LINK} title="IA pour conducteurs de travaux">
@@ -1197,6 +1201,13 @@ export default function HomePage() {
                 author="Laure Olivié"
                 role="Formatrice IA BTP — OFC Création d'Entreprise"
               />
+              <p className="mt-4 text-base leading-relaxed text-slate-600">
+                Vous cherchez un formateur IA pour le bâtiment ou la construction ? Découvrez{' '}
+                <Link href={LINKS.formateurIaBtp} className={`${OFC_LINK} font-semibold`}>
+                  une formatrice IA spécialisée construction
+                </Link>
+                .
+              </p>
               </Reveal>
               <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2" staggerMs={55}>
                 {[
@@ -1397,7 +1408,7 @@ export default function HomePage() {
             <span>FAQ</span>
           </div>
           <h2 className="mt-4 font-display text-3xl font-bold text-slate-900">
-            Questions fréquentes sur la formation IA appliquée au bâtiment
+            Questions fréquentes sur la formation IA appliquée au bâtiment et à la construction
           </h2>
           <p className="mt-3 text-slate-600">
             Vous avez des questions ? Voici les réponses aux interrogations les plus

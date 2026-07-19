@@ -1,11 +1,18 @@
 /**
  * Validation JSON-LD Schema.org — Person + Organization (layout global + /a-propos).
+ * Aligné sur `lib/schema-constants.ts` (source unique).
  * Usage : node scripts/validate-schema-jsonld.mjs
  */
 import { buildGlobalSiteJsonLdGraph } from '../lib/schema-global-site-graph.ts';
 import { getAProposPersonJsonLd } from '../lib/schema-a-propos-person-jsonld.ts';
 import { getAProposOrganizationJsonLd } from '../lib/schema-a-propos-organization-jsonld.ts';
 import { getAProposUnifiedJsonLd } from '../lib/schema-a-propos-unified-graph.ts';
+import {
+  SCHEMA_CONTACT,
+  SCHEMA_ORGANIZATION_SAME_AS,
+  SCHEMA_PERSON_LAURE,
+  SCHEMA_PERSON_SAME_AS,
+} from '../lib/schema-constants.ts';
 
 const BLOCKS = [
   { name: 'global-site-graph', schema: buildGlobalSiteJsonLdGraph() },
@@ -23,18 +30,15 @@ function assertPerson(node, label) {
     throw new Error(`${label}: @type Person attendu`);
   }
   if (node.name !== 'Laure Olivié') throw new Error(`${label}: name incorrect`);
-  if (node.jobTitle !== 'Formatrice IA pour le BTP') throw new Error(`${label}: jobTitle incorrect`);
+  if (node.jobTitle !== SCHEMA_PERSON_LAURE.jobTitle) {
+    throw new Error(`${label}: jobTitle incorrect (attendu « ${SCHEMA_PERSON_LAURE.jobTitle} »)`);
+  }
   if (!node.worksFor) throw new Error(`${label}: worksFor manquant`);
   if (!node.affiliation || !Array.isArray(node.affiliation) || node.affiliation.length < 3) {
     throw new Error(`${label}: affiliation incomplète`);
   }
   const sameAs = node.sameAs ?? [];
-  const required = [
-    'https://fr.linkedin.com/in/laure-olivie',
-    'https://www.linkedin.com/learning/instructors/laure-olivie',
-    'https://www.youtube.com/channel/UCnIc2a25xT8msvV69O2MeVg',
-  ];
-  for (const url of required) {
+  for (const url of SCHEMA_PERSON_SAME_AS) {
     if (!sameAs.includes(url)) throw new Error(`${label}: sameAs manque ${url}`);
   }
   const knows = node.knowsAbout ?? [];
@@ -58,7 +62,7 @@ function assertOrganization(node, label) {
     types.includes('LocalBusiness');
   if (!isOrg) throw new Error(`${label}: @type Organization attendu`);
   if (node.name !== "OFC Création d'Entreprise") throw new Error(`${label}: name incorrect`);
-  if (node.taxID !== '90524428100010') throw new Error(`${label}: taxID SIRET incorrect`);
+  if (node.taxID !== SCHEMA_CONTACT.siretDigits) throw new Error(`${label}: taxID SIRET incorrect`);
   if (!node.hasCredential) throw new Error(`${label}: hasCredential Qualiopi manquant`);
   const area = node.areaServed;
   const areaName =
@@ -69,6 +73,16 @@ function assertOrganization(node, label) {
         : null;
   if (areaName !== 'Île-de-France') throw new Error(`${label}: areaServed incorrect`);
   if (node.certifications) throw new Error(`${label}: propriété non schema.org « certifications »`);
+  // Champs NAP layout (#organization) — sameAs LinkedIn + GBP, téléphone JSON-LD
+  if (node['@id']?.endsWith('#organization') && node.telephone) {
+    if (node.telephone !== SCHEMA_CONTACT.telephoneJsonLd) {
+      throw new Error(`${label}: telephone JSON-LD incorrect`);
+    }
+    const orgSameAs = node.sameAs ?? [];
+    for (const url of SCHEMA_ORGANIZATION_SAME_AS) {
+      if (!orgSameAs.includes(url)) throw new Error(`${label}: sameAs Org manque ${url}`);
+    }
+  }
 }
 
 function walkGraph(schema, blockName) {

@@ -34,7 +34,14 @@ export type FormationFicheCourseJsonLdInput = {
   teaches?: string[];
   courseCode?: string;
   timeRequired?: string;
+  /** Mots-clés GEO — inclure bâtiment / construction lorsque pertinent. */
+  keywords?: string;
 };
+
+/** Keywords Course par défaut — bâtiment + construction (GEO). */
+export const FORMATION_COURSE_KEYWORDS_DEFAULT =
+  'formation IA BTP, bâtiment, construction, travaux publics, ChatGPT, Claude AI';
+
 
 export function buildFormationCourseIdfPlace(locationDetail?: string): Record<string, unknown> {
   const name = locationDetail
@@ -125,6 +132,7 @@ export function buildFormationFicheCourseNode(
     },
     inLanguage: 'fr',
     timeRequired: duration,
+    keywords: input.keywords ?? FORMATION_COURSE_KEYWORDS_DEFAULT,
     hasCourseInstance: buildFormationCourseInstances(duration),
   };
 

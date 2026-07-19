@@ -44,6 +44,7 @@ export const metadata: Metadata = {
       'catalogue formation IA pour les pros du BTP',
       'formation ChatGPT BTP',
       'formation IA bâtiment',
+      'formation IA construction',
       'formation IA travaux publics',
       "formation IA appels d'offre BTP",
       'formation IA RH BTP',
@@ -89,8 +90,9 @@ export default function FormationsPage() {
 
         <section className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 md:p-6">
           <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
-            Formations IA pour le BTP pour <strong>TPE & PME du bâtiment</strong>, dirigeants, conducteurs de travaux, chargés
-            d&apos;affaires et équipes administratives : intelligence artificielle bâtiment, formation IA travaux publics et{' '}
+            Formations IA pour le BTP pour <strong>TPE & PME du bâtiment et de la construction</strong>, dirigeants,
+            conducteurs de travaux, chargés d&apos;affaires et équipes administratives : intelligence artificielle
+            bâtiment, formation IA travaux publics et{' '}
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>{' '}
@@ -136,22 +138,28 @@ export default function FormationsPage() {
 
         <FormationsFaqSection
           items={FAQ_FORMATIONS}
-          title="Questions fréquentes sur les formations IA pour les pros du BTP"
+          title="Questions fréquentes sur les formations IA pour le BTP et la construction"
           subtitle="Vous avez des questions ? Voici les réponses aux interrogations les plus fréquentes."
         />
 
         <section className="mt-12 border-t border-[#E2E8F0] pt-12">
           <h2 className="font-display text-lg font-semibold text-[#0F172A]">
-            Formations IA appliquées au bâtiment par métier, sujet et géographie
+            Formations IA appliquées au bâtiment et à la construction par métier, sujet et géographie
           </h2>
           <p className="mt-3 text-sm text-[#64748B]">
-            Vous cherchez une formation IA pour le BTP ciblée sur un métier précis, un département
-            francilien ou un cas d&apos;usage opérationnel ? Voici les pages dédiées.
+            Vous cherchez une formation IA pour le BTP ciblée sur un métier du secteur de la construction, un
+            département francilien ou un cas d&apos;usage opérationnel ? Voici les pages dédiées.
           </p>
           <ul className="mt-6 flex flex-wrap gap-3">
             <li>
               <Link href={LINKS.formationParis} className={chipLinkClass}>
-                Formation IA pour les pros du BTP Paris (75)
+                Formation IA bâtiment à Paris
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formateurIaBtp} className={chipLinkClass}>
+                Une formatrice IA spécialisée construction
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>
@@ -176,6 +184,30 @@ export default function FormationsPage() {
             <li>
               <Link href={LINKS.iaDevis} className={chipLinkClass}>
                 IA pour les devis bâtiment
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.iaAnalyseDce} className={chipLinkClass}>
+                Analyser un DCE avec l&apos;IA
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.iaMemoireTechnique} className={chipLinkClass}>
+                Mémoire technique BTP avec l&apos;IA
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.iaCompteRenduChantier} className={chipLinkClass}>
+                Compte rendu de chantier avec l&apos;IA
+                <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
+              </Link>
+            </li>
+            <li>
+              <Link href={LINKS.formationChargeAffairesBtp} className={chipLinkClass}>
+                Formation IA chargé d&apos;affaires BTP
                 <ArrowUpRight size={16} strokeWidth={2} className="shrink-0" aria-hidden />
               </Link>
             </li>
@@ -242,7 +274,7 @@ export default function FormationsPage() {
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
-            { href: LINKS.formationIleDeFrance, label: 'Formation IA appliquée au bâtiment en Île-de-France' },
+            { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
             { href: buildSiteCalendlyCtaUrl('formations-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />

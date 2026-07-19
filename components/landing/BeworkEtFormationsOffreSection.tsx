@@ -154,10 +154,85 @@ export function BeworkEtFormationsOffreSection() {
         </Reveal>
 
         <RevealGroup className="grid gap-6 lg:grid-cols-2 lg:gap-8" staggerMs={70}>
-          {/* BeWork */}
+          {/* Formations OFC — colonne dominante (ordre lecture) */}
+          <article
+            id="offre-formations"
+            className="flex scroll-mt-28 flex-col overflow-hidden rounded-xl border border-[#377CF3]/30 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)] ring-1 ring-[#377CF3]/15 lg:order-1"
+          >
+            <div className="flex flex-1 flex-col p-6 md:p-8">
+            <div className="min-w-0">
+                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
+                  OFC · Création d&apos;entreprise · Qualiopi
+                </p>
+                <h3 className="mt-2 border-b border-[#377CF3]/35 pb-2 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
+                  Mes formations IA pour le BTP
+                </h3>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-[#5A5A5A]">
+              Formez vos équipes à l&apos;IA sur vos vrais documents. Exercices terrain, sans jargon. Financement OPCO
+              (Constructys) selon éligibilité.
+            </p>
+            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#334155]">
+              {FORMATIONS_CATALOGUE.map((entry) => (
+                <div
+                  key={entry.ref}
+                  className="rounded-xl border border-[#E2E8F0] bg-[#FAFBFD] p-4"
+                >
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold text-[#1A1A1A]">
+                        <Link href={entry.href} className={OFC_LINK}>
+                          {formationCatalogueLinkLabel(entry)}
+                        </Link>
+                      </p>
+                      <p className="mt-1 text-xs font-medium text-[#64748B]">
+                        {entry.duree} · {entry.effectif}
+                      </p>
+                    </div>
+                    <CataloguePriceBadge
+                      level={entry.level}
+                      variant="pill"
+                    />
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">{entry.pitch}</p>
+                </div>
+              ))}
+              <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-4">
+                <p className="font-semibold text-[#1A1A1A]">Sur mesure</p>
+                <p className="mt-1.5 text-sm text-[#5A5A5A]">
+                  Webinaires et journées fil rouge pour fédérations et réseaux. Précisez votre besoin au RDV.
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <RdvLink
+                page="/"
+                ctaPosition="middle"
+                campaign="home-offre-formations-rdv"
+                className="inline-flex flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] sm:flex-none"
+              >
+                Prendre un rendez-vous découverte
+              </RdvLink>
+              <Link
+                href={LINKS.formations}
+                className="inline-flex flex-1 items-center justify-center rounded-lg border border-[#377CF3] bg-white px-4 py-2.5 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/60 sm:flex-none"
+              >
+                Catalogue formations
+              </Link>
+              <Link
+                href={LINKS.financement}
+                className={`${OFC_LINK} inline-flex items-center text-sm font-semibold`}
+              >
+                Financement OPCO&nbsp;: modalités Constructys
+              </Link>
+            </div>
+            </div>
+          </article>
+
+          {/* BeWork — CTA secondaire */}
           <article
             id="offre-bework"
-            className="flex scroll-mt-28 flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]"
+            className="flex scroll-mt-28 flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)] lg:order-2"
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFF6FF]">
               <Image
@@ -205,87 +280,20 @@ export function BeworkEtFormationsOffreSection() {
             <p className="mt-6 text-base font-semibold italic text-[#1A1A1A]">
               On tient le bureau, vous tenez le chantier.
             </p>
-            <div className="mt-6 mt-auto flex flex-wrap gap-3 pt-2">
+            <div className="mt-6 mt-auto flex flex-wrap items-center gap-x-4 gap-y-3 pt-2">
               <ExternalLinkAnchor
                 href={EXTERNAL_SITE_URLS.bework}
                 title="BeWork — site officiel bework.fr (nouvel onglet)"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] sm:flex-none"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF] sm:flex-none"
               >
                 Demander un diagnostic
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
                 href={LINKS.bework}
-                className="inline-flex flex-1 items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF] sm:flex-none"
+                className={`${OFC_LINK} inline-flex items-center text-sm font-semibold`}
               >
                 Voir les missions
-              </Link>
-            </div>
-            </div>
-          </article>
-
-          {/* Formations OFC */}
-          <article
-            id="offre-formations"
-            className="flex scroll-mt-28 flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-[0_4px_16px_rgba(55,124,243,0.08)]"
-          >
-            <div className="flex flex-1 flex-col p-6 md:p-8">
-            <div className="min-w-0">
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
-                  OFC · Création d&apos;entreprise · Qualiopi
-                </p>
-                <h3 className="mt-2 border-b border-[#377CF3]/35 pb-2 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
-                  Mes formations IA pour le BTP
-                </h3>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-[#5A5A5A]">
-              Formez vos équipes à l&apos;IA sur vos vrais documents. Exercices terrain, sans jargon. Financement OPCO
-              (Constructys) selon éligibilité.
-            </p>
-            <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#334155]">
-              {FORMATIONS_CATALOGUE.map((entry) => (
-                <div
-                  key={entry.ref}
-                  className="rounded-xl border border-[#E2E8F0] bg-[#FAFBFD] p-4"
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-[#1A1A1A]">
-                        <Link href={entry.href} className={OFC_LINK}>
-                          {formationCatalogueLinkLabel(entry)}
-                        </Link>
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-[#64748B]">
-                        {entry.duree} · {entry.effectif}
-                      </p>
-                    </div>
-                    <CataloguePriceBadge
-                      level={entry.level}
-                      variant="pill"
-                    />
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">{entry.pitch}</p>
-                </div>
-              ))}
-              <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-4">
-                <p className="font-semibold text-[#1A1A1A]">Sur mesure</p>
-                <p className="mt-1.5 text-sm text-[#5A5A5A]">
-                  Webinaires et journées fil rouge pour fédérations et réseaux. Précisez votre besoin au RDV.
-                </p>
-              </div>
-            </div>
-            <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
-              <Link
-                href={LINKS.formations}
-                className="inline-flex flex-1 items-center justify-center rounded-lg border border-[#377CF3] bg-white px-4 py-2.5 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/60"
-              >
-                Catalogue formations
-              </Link>
-              <Link
-                href={LINKS.financement}
-                className="inline-flex flex-1 items-center justify-center rounded-lg border border-transparent bg-[#377CF3]/10 px-4 py-2.5 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#D4E3FC]"
-              >
-                Financement OPCO&nbsp;: modalités Constructys
               </Link>
             </div>
             </div>

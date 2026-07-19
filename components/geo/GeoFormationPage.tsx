@@ -118,7 +118,10 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               </p>
             </div>
             <aside className="mx-auto w-full max-w-[320px] shrink-0 lg:mx-0 lg:max-w-none">
-              <OfcPromoVideoEmbed variant="heroColumn" />
+              <OfcPromoVideoEmbed
+                variant="heroColumn"
+                alt={`Formation IA BTP à ${departement} — présentiel intra, session 4 h`}
+              />
             </aside>
           </div>
         </div>

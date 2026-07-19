@@ -3,6 +3,7 @@ import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_ORGANIZATION_OFC,
+  SCHEMA_ORGANIZATION_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
@@ -19,6 +20,7 @@ export type OrganizationOfcSchemaNodeOptions = {
 /**
  * Nœud JSON-LD Organization — EducationalOrganization + LocalBusiness.
  * Doctrine : présentiel Île-de-France uniquement · email laureolivie@yahoo.fr · pas de GERESO.
+ * Injecté une seule fois via layout (`GlobalSiteJsonLd` → `#organization`).
  */
 export function buildOrganizationOfcSchemaNode(
   options: OrganizationOfcSchemaNodeOptions = {},
@@ -35,11 +37,13 @@ export function buildOrganizationOfcSchemaNode(
     alternateName: 'Laure Olivié — Formation IA pour le BTP',
     url: base,
     email: SCHEMA_CONTACT.email,
-    telephone: '+33695661818',
+    telephone: SCHEMA_CONTACT.telephoneJsonLd,
+    taxID: SCHEMA_CONTACT.siretDigits,
     description:
       "Organisme de formation certifié Qualiopi, spécialisé dans l'IA appliquée au BTP (ChatGPT, Claude AI). Formations en présentiel, Île-de-France uniquement.",
     logo: schemaLogoUrl(),
     image: `${base}${PHOTOS.portraitPro2026.src}`,
+    sameAs: [...SCHEMA_ORGANIZATION_SAME_AS],
     address: {
       '@type': 'PostalAddress',
       streetAddress: SCHEMA_GEO.streetAddress,

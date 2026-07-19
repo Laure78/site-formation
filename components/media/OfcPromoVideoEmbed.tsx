@@ -37,6 +37,9 @@ const INNER: Partial<Record<OfcPromoVideoVariant, string>> = {
   default: 'relative w-full',
 };
 
+const DEFAULT_THUMBNAIL_ALT =
+  "Affiche formation IA pour le BTP — devis, chantier, appels d'offres, présentiel Île-de-France";
+
 type OfcPromoVideoEmbedProps = {
   variant?: OfcPromoVideoVariant;
   className?: string;
@@ -44,6 +47,8 @@ type OfcPromoVideoEmbedProps = {
   title?: string;
   /** Lien « page vidéo » sous le lecteur (défaut : true). */
   showWatchPageLink?: boolean;
+  /** Alt du poster next/image (≤ 125 car.) — défaut : accroche accueil. */
+  alt?: string;
 };
 
 /**
@@ -55,6 +60,7 @@ export function OfcPromoVideoEmbed({
   className = '',
   title,
   showWatchPageLink = true,
+  alt = DEFAULT_THUMBNAIL_ALT,
 }: OfcPromoVideoEmbedProps) {
   const iframeTitle = title ?? getOfcPromoVideoTitle();
   const innerClass = INNER[variant] ?? INNER.default ?? 'relative w-full';
@@ -68,7 +74,7 @@ export function OfcPromoVideoEmbed({
         >
           <Image
             src={OFC_PROMO_VIDEO_SEO.thumbnailPath}
-            alt=""
+            alt={alt}
             aria-hidden
             fill
             className="object-cover"

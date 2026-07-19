@@ -630,6 +630,17 @@ export default function FormationIaAssistanteGestionBtpPage() {
           </p>
         </section>
 
+        <section className="mt-14 rounded-2xl border border-[#377CF3]/25 bg-[#F8FAFC] p-6 md:p-8">
+          <h2 className="font-display text-xl font-bold text-slate-900">Guide PDF gratuit</h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700">
+            Pour outiller le bureau sur un marché de travaux (situations, CR, DOE, DGD), téléchargez le{' '}
+            <Link href={LINKS.guideAssistantsTravauxOfc} className="font-semibold text-[#377CF3] underline-offset-2 hover:underline">
+              Guide des Assistants Travaux
+            </Link>{' '}
+            — 12 missions classées IA / mixte / humain, prompts Claude inclus.
+          </p>
+        </section>
+
         <VoirAussi
           {...voirAussiMetierProps({
             currentPath: PATH,
