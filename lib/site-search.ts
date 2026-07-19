@@ -106,6 +106,14 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'ile de france paris 75 78 91 92 93 94 95 77',
     },
     {
+      id: 'guide-assistants-travaux',
+      title: 'Guide des Assistants Travaux — 12 missions IA',
+      description: 'PDF gratuit : PPSPS, CR, situations, DOE, DGD — skills Claude bureau.',
+      href: LINKS.guideAssistantsTravauxOfc,
+      kind: 'guide',
+      keywords: 'assistant travaux gestion administratif ppsps cr doe dgd',
+    },
+    {
       id: 'guide-moe',
       title: 'Guide Maître d\'Œuvre × IA',
       description: '12 missions MOE classées IA, mixte ou humain — PDF gratuit.',

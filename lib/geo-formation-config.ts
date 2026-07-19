@@ -2,6 +2,8 @@
  * Configurations pages geo « formation IA BTP » par département (GeoFormationPage).
  */
 
+import { LINKS } from '@/lib/internal-links';
+
 export type GeoFormationPageSeo = {
   title: string;
   description?: string;
@@ -97,15 +99,15 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
     'Paris 13e–14e (Montparnasse, Olympiades)',
   ],
   seo: {
-    title: 'Formation IA BTP Paris (75) — présentiel intra',
+    title: 'Formation IA bâtiment Paris | Laure Olivié',
     description:
-      'Formation IA BTP Paris : DCE, chiffrage, appels d\'offres en présentiel intra, Île-de-France uniquement. Qualiopi, Constructys. Visio découverte gratuite.',
+      'Formation IA bâtiment et construction à Paris : devis, DCE, CR en présentiel intra dans vos locaux parisiens. Qualiopi, Constructys. Visio découverte gratuite.',
   },
-  h1: 'Formation IA BTP Paris — présentiel intra Île-de-France (75)',
+  h1: 'Formation IA bâtiment et construction à Paris',
   heroIntro:
-    'Sessions intra dans vos locaux parisiens (tous arrondissements) : devis, DCE, comptes rendus et administratif chantier sur vos documents réels — présentiel uniquement · Île-de-France uniquement.',
+    'Pour les entreprises et chantiers parisiens (intra-muros) : devis, DCE et CR en présentiel dans vos locaux — Qualiopi, Constructys selon éligibilité.',
   conversionLink: {
-    href: '/formations/ia-batiment-travaux-publics',
+    href: LINKS.formationIaBtpNiveau1BatimentTp,
     label: 'Voir la fiche formation catalogue (session 4 h, tarifs & financement)',
   },
 };

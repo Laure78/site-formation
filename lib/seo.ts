@@ -719,7 +719,7 @@ export function getPersonSchema() {
     givenName: 'Laure',
     familyName: 'Olivié',
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
-    jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
+    jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
     description: `Formatrice IA spécialisée BTP depuis 2022, basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.`,
     knowsAbout: [
@@ -767,28 +767,19 @@ export function getPersonSchema() {
     affiliation: [
       {
         '@type': 'Organization',
-        name: 'LinkedIn Learning',
-        url: 'https://www.linkedin.com/learning/',
+        '@id': `${SITE_CONFIG.url}/#organization`,
+        name: SITE_CONFIG.legalName,
+        url: SITE_CONFIG.url,
       },
       {
         '@type': 'Organization',
         name: 'FFB Grand Paris',
-        description: 'Fédération Française du Bâtiment - Grand Paris',
+        url: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/grand-paris-idf',
       },
       {
         '@type': 'Organization',
-        name: 'FFB Île-de-France Est',
-        description: 'Fédération Française du Bâtiment - Île-de-France Est',
-      },
-      {
-        '@type': 'Organization',
-        name: 'FFB Île-de-France Ouest',
-        description: 'Fédération Française du Bâtiment - Région Île-de-France (78-91-95)',
-      },
-      {
-        '@type': 'Organization',
-        name: 'IFRB 78',
-        description: 'Institut de Formation Régional du Bâtiment Yvelines',
+        name: "CSFE — Chambre Syndicale Française de l'Étanchéité",
+        url: 'https://www.csfe.fr/',
       },
     ],
     alumniOf: {
@@ -811,9 +802,9 @@ export function getPersonSchema() {
     email: SITE_CONFIG.email,
     ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
     sameAs: [
-      ...SITE_CONFIG.sameAs,
-      'https://www.linkedin.com/learning/l-ia-pour-le-btp-des-solutions-concretes-pour-vos-chantiers',
-      'https://www.linkedin.com/learning/l-ia-pour-les-artisans-et-tpe-recruter-sa-main-d-oeuvre-efficacement',
+      SCHEMA_LINKEDIN_PROFILE_URL,
+      SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+      SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
     ],
   };
 }

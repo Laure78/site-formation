@@ -86,6 +86,8 @@ export const LINKS = {
   formationMorangis: '/formations/ia-btp-morangis',
   formationLongjumeau: '/formations/ia-btp-longjumeau',
   formationIleDeFrance: '/formation-ia-btp-ile-de-france',
+  /** Landing SEO / E-E-A-T — formateur IA BTP (Laure Olivié) */
+  formateurIaBtp: '/formateur-ia-btp',
   formationYvelines: '/formation-ia-btp-yvelines-78',
   /** Page SEO locale Saint-Quentin-en-Yvelines (CA SQY, 78) */
   formationSaintQuentinYvelines: '/formations/ia-btp-saint-quentin-en-yvelines',
@@ -107,6 +109,12 @@ export const LINKS = {
   /** Landing SEO — formation IA travaux publics */
   formationIaTravauxPublics: '/formation-ia-travaux-publics',
   iaDevis: '/ia-devis-batiment',
+  /** Méthode transactionnelle — analyser un DCE (CCTP, CCAP, RC) avec l'IA */
+  iaAnalyseDce: '/ia-analyse-dce-btp',
+  /** Méthode transactionnelle — rédiger un mémoire technique BTP avec l'IA */
+  iaMemoireTechnique: '/ia-memoire-technique-btp',
+  /** Méthode transactionnelle — comptes rendus de chantier avec l'IA */
+  iaCompteRenduChantier: '/ia-compte-rendu-chantier',
   /** Canonique SEO — guide IA conducteur de travaux BTP (ancien `/ia-conducteur-travaux` → 301) */
   iaConducteurTravaux: '/formation-ia-conducteur-de-travaux-btp',
   /** Alias canonique — même URL que `formationConducteurTravaux` */
@@ -166,6 +174,10 @@ export const LINKS = {
   guideMaitriseOeuvreIa: '/ressources/guide-maitrise-oeuvre-ia',
   /** PDF gratuit — Guide MOE × IA OFC */
   pdfGuideMoeIa: '/ressources/pdf/guide-moe-ia.pdf',
+  /** Lead magnet — Guide des Assistants Travaux OFC (12 missions marché) */
+  guideAssistantsTravauxOfc: '/ressources/guide-assistants-travaux-ofc',
+  /** PDF gratuit — Guide Assistants Travaux OFC (~21 p.) */
+  pdfGuideAssistantsTravauxOfc: '/ressources/pdf/guide-assistants-travaux-ofc.pdf',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
@@ -213,6 +225,8 @@ export const LINKS = {
   blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
   /** Article — compte rendu de chantier IA */
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
+  /** Article — 5 cas d'usage ChatGPT BTP (approfondissement CR / terrain) */
+  blog5CasUsageChatgptBtp: '/blog/5-cas-usage-chatgpt-artisans-btp',
   /** Fiche formation historique — canonical → formationAO (pilier NIV-02) */
   formationIaCctpAnalyseDceBtp: '/formations/formation-ia-cctp-analyse-dce-btp',
 

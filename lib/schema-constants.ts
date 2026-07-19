@@ -24,11 +24,21 @@ export const SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL =
 export const SCHEMA_YOUTUBE_CHANNEL_URL =
   'https://www.youtube.com/channel/UCnIc2a25xT8msvV69O2MeVg' as const;
 
-/** sameAs Person — réseaux et profils publics vérifiables. */
+/** Fiche Google Business Profile — avis, horaires, SEO local. */
+export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
+  'https://share.google/gLnYapEtSEq25mSQF' as const;
+
+/** sameAs Person — LinkedIn, LinkedIn Learning, fiche Google. */
 export const SCHEMA_PERSON_SAME_AS = [
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
-  SCHEMA_YOUTUBE_CHANNEL_URL,
+  SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
+] as const;
+
+/** sameAs Organization OFC — LinkedIn + fiche Google Business (pas LinkedIn Learning). */
+export const SCHEMA_ORGANIZATION_SAME_AS = [
+  SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
 ] as const;
 
 /** Affiliations professionnelles Person (fédérations / syndicats BTP). */
@@ -47,18 +57,19 @@ export const SCHEMA_PERSON_AFFILIATIONS = [
   },
 ] as const;
 
-/** Fiche Google Business Profile — avis, horaires, SEO local. */
-export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
-  'https://share.google/gLnYapEtSEq25mSQF' as const;
-
 /** Contact & identifiants légaux (JSON-LD, mentions). */
 export const SCHEMA_CONTACT = {
   email: 'laureolivie@yahoo.fr',
-  /** Numéro public (E.164) — laisser vide pour masquer les liens tel: et le champ telephone dans les schémas. */
+  /**
+   * Numéro public UI (E.164) — laisser vide pour masquer les liens `tel:` dans l’interface.
+   * Le JSON-LD Organization utilise `telephoneJsonLd` (source unique NAP vérifiable).
+   */
   phone: '',
   phoneDisplay: '',
+  /** E.164 — champ `telephone` Schema.org Organization (layout / rich results). */
+  telephoneJsonLd: '+33695661818',
   siretFormatted: '905 244 281 00010',
-  /** Sans espaces — annuaires, URLs */
+  /** Sans espaces — annuaires, URLs, taxID Schema.org */
   siretDigits: '90524428100010',
   nda: '11788515078',
   vatId: 'FR905244281',

@@ -83,7 +83,7 @@ export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
   description:
     'Formation IA niveau 1 pour le BTP : devis, comptes rendus, administratif. 4 h, présentiel Île-de-France.',
   price: TARIF_SESSION_DEBUTANT_HT,
-  keywords: ['Devis BTP', 'administratif', 'comptes rendus', 'PPSPS'],
+  keywords: ['Devis BTP', 'administratif', 'comptes rendus', 'PPSPS', 'construction'],
   courseCode: 'NIV-01',
   educationalLevel: 'Beginner',
 };

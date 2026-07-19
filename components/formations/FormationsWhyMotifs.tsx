@@ -13,13 +13,14 @@ export function FormationsWhyMotifs() {
   return (
     <section className="mt-16 rounded-2xl border border-[#E2E8F0] bg-white p-5 md:p-10">
       <h2 className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-        Pourquoi un catalogue de {CATALOGUE_FORMATIONS_COUNT} formations spécialisées ?
+        Pourquoi un catalogue de {CATALOGUE_FORMATIONS_COUNT} formations pour le BTP et la construction ?
       </h2>
       <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#334155] md:text-[17px]">
         L&apos;IA générative ne se travaille pas de la même manière selon que vous structurez une
         journée terrain, rédigez un mémoire technique, analysez un DCE, pilotez un chantier ou
-        industrialisez Claude en entreprise. Plutôt qu&apos;une formation généraliste, le catalogue OFC
-        propose <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — un niveau 1 et{' '}
+        industrialisez Claude en entreprise. Pour les entreprises de construction comme pour le bâtiment et les
+        TP, plutôt qu&apos;une formation généraliste, le catalogue OFC propose{' '}
+        <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — un niveau 1 et{' '}
         {CATALOGUE_FORMATIONS_COUNT - 1} formations niveau 2 — avec
         programmes PDF téléchargeables sur chaque fiche.
       </p>

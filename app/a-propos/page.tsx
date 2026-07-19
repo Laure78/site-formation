@@ -84,6 +84,7 @@ export default function AProposPage() {
   const faqItems = [...FAQ_CLIENTS_PARTENAIRES, ...FAQ_A_PROPOS];
 
   const allerPlusLoinLinks = [
+    { href: LINKS.formateurIaBtp, label: 'Formateur / formatrice IA BTP — Laure Olivié' },
     { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
     { href: LINKS.bework, label: 'BeWork — relais administratif BTP' },
     { href: LINKS.blog, label: 'Blog IA & ChatGPT BTP' },

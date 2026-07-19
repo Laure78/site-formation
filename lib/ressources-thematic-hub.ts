@@ -61,6 +61,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Tuto — constat de retard', href: LINKS.tutoConstatRetard },
     ],
     guides: [
+      { label: 'Guide — Assistants Travaux (12 missions marché)', href: LINKS.guideAssistantsTravauxOfc },
       { label: 'Guide — 6 outils IA pour conducteur de travaux', href: LINKS.guideConducteurTravauxIaBtp },
       { label: 'Bibliothèque skills — CR, DOE, réserves (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: '10 cas d’usage IA BTP (ressource synthèse)', href: LINKS.casUsage },

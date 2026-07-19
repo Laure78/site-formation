@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
-import { LINKS } from '@/lib/internal-links';
 
 export function RessourcesGuidesSection() {
   return (
@@ -16,12 +15,12 @@ export function RessourcesGuidesSection() {
             Guides PDF
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Documents complets à télécharger — méthode, prompts et checklists pour maîtrise d&apos;œuvre et conduite
-            de travaux.
+            Documents complets à télécharger — méthode, prompts et checklists pour assistants travaux, maîtrise
+            d&apos;œuvre et conduite de travaux.
           </p>
         </header>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {RESSOURCES_GUIDES.map((guide) => (
             <article
               key={guide.href}
@@ -38,25 +37,14 @@ export function RessourcesGuidesSection() {
                   Voir le guide
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
-                {guide.href === LINKS.guideMaitriseOeuvreIa ? (
-                  <a
-                    href={LINKS.pdfGuideMoeIa}
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
-                    download
-                  >
-                    <Download className="h-4 w-4" aria-hidden />
-                    PDF direct
-                  </a>
-                ) : (
-                  <a
-                    href={LINKS.pdfPackConducteurTravauxOfc}
-                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
-                    download
-                  >
-                    <Download className="h-4 w-4" aria-hidden />
-                    PDF direct
-                  </a>
-                )}
+                <a
+                  href={guide.pdfHref}
+                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
+                  download
+                >
+                  <Download className="h-4 w-4" aria-hidden />
+                  PDF direct
+                </a>
               </div>
             </article>
           ))}

@@ -24,11 +24,11 @@ export const DEPT_LOCAL_SEO_CONTENT: Record<string, DeptLocalSeoContent> = {
     deptCode: '75',
     departementNom: 'Paris',
     intro:
-      "La formation IA appliquée au BTP de Laure Olivié (OFC Création d'Entreprise) se déroule en présentiel à Paris, dans vos locaux (intra) ou en salle (inter). Présentiel uniquement · Île-de-France uniquement : on travaille 4 heures sur vos vrais documents — DCE de marchés parisiens, mémoires techniques, comptes rendus de chantier en site occupé.",
+      "La formation IA bâtiment et construction de Laure Olivié (OFC Création d'Entreprise) se déroule en présentiel à Paris, dans vos locaux (intra) ou en salle (inter). Cible : entreprises et chantiers parisiens intra-muros — DCE de marchés parisiens, mémoires techniques, comptes rendus de chantier en site occupé.",
     villesEtTrajets:
-      "Tout Paris intra-muros, des 20 arrondissements aux franges (porte de la Chapelle, rive gauche, secteur Bercy). Depuis Guyancourt (78), Paris est accessible en transport ou véhicule selon le créneau — temps indicatifs, selon le trafic francilien.",
+      "Tout Paris intra-muros, des 20 arrondissements aux franges (porte de la Chapelle, rive gauche, secteur Bercy). Depuis Guyancourt (78), Paris est accessible en transport ou véhicule selon le créneau — temps indicatifs, selon le trafic. La petite et grande couronne sont couvertes via la page formation IA BTP Île-de-France.",
     tissuBtpLocal:
-      "Paris concentre une forte densité de maîtres d'œuvre, d'architectes et d'entreprises de rénovation intervenant sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, exigences patrimoniales (ABF) sur le bâti ancien. Les équipes y passent un temps considérable sur l'écrit contractuel et les autorisations.",
+      "Paris concentre maîtres d'œuvre, architectes et entreprises de construction / rénovation sous fortes contraintes : copropriétés, chantiers en site occupé, accès difficiles, exigences patrimoniales (ABF). Les équipes y passent un temps considérable sur l'écrit contractuel et les autorisations.",
     casUsage: [
       "Analyser rapidement un DCE de marché parisien (CCTP, règlement) et structurer un mémoire technique convaincant — avec relecture métier obligatoire.",
       "Produire des comptes rendus de chantier clairs malgré la complexité des interventions en site occupé.",

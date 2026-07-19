@@ -173,12 +173,20 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         '@type': 'Course',
         '@id': courseId,
         name: "Formation IA pour les pros du BTP — niveau 1 bâtiment & travaux publics",
-        description: `Formation pratique de 4 heures pour former les équipes BTP à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
+        description: `Formation pratique de 4 heures pour former les équipes BTP et du secteur de la construction à ChatGPT et Claude AI : devis, comptes rendus de chantier, administratif, documents bâtiment et TP. ${formatProfessionalsTrainedCount()} professionnels déjà formés.`,
         url: `${base}${LINKS.formationIaBtpNiveau1BatimentTp}`,
         provider: { '@id': orgId },
         instructor: { '@id': laureId },
         inLanguage: 'fr-FR',
         educationalLevel: 'Professionnel',
+        about: [
+          { '@type': 'Thing', name: 'Bâtiment' },
+          { '@type': 'Thing', name: 'Construction' },
+          { '@type': 'Thing', name: 'Travaux publics' },
+          { '@type': 'Thing', name: 'Intelligence artificielle' },
+        ],
+        keywords:
+          'formation IA BTP, formation IA bâtiment, formation IA construction, ChatGPT BTP, travaux publics, entreprises de construction',
         teaches: [
           'Utilisation de ChatGPT pour rédiger des devis BTP',
           'Analyse de DCE et CCTP avec l\'IA',
@@ -217,7 +225,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         audience: {
           '@type': 'EducationalAudience',
           educationalRole:
-            'Dirigeants PME BTP, conducteurs de travaux, chargés d\'affaires, équipes administratives BTP',
+            'Dirigeants PME BTP, entreprises de construction, conducteurs de travaux, chargés d\'affaires, équipes administratives BTP',
         },
         aggregateRating: buildSchemaAggregateRating(),
       },

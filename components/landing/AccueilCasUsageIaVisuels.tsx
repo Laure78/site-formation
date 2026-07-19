@@ -18,22 +18,22 @@ const CAS_USAGE_VISUELS = [
     photo: PHOTOS.accueilIaDevisChiffrageBtp2026,
     title: 'Devis et chiffrage',
     caption: 'Notes, photos et plans transformés en devis structuré, conforme et prêt à envoyer.',
-    href: LINKS.ressourcesTutos,
-    linkLabel: 'Tutoriels PDF gratuits IA BTP — devis, chantier, DCE',
+    href: LINKS.iaDevis,
+    linkLabel: 'Méthode IA pour les devis bâtiment',
   },
   {
     photo: PHOTOS.accueilAnalyseDceAppelsOffresBtp2026,
     title: 'Analyse DCE / appels d\'offres',
     caption: 'Extraction IA, évaluation et synthèse Go/No Go — décisions plus rapides, sûres et documentées.',
-    href: LINKS.tutoAnalyseDce,
-    linkLabel: 'Tuto skill analyse de DCE BTP — ressource gratuite',
+    href: LINKS.iaAnalyseDce,
+    linkLabel: 'Méthode : analyser un DCE avec l\'IA',
   },
   {
     photo: PHOTOS.accueilCompteRenduDoePvChantier2026,
     title: 'Compte rendu, DOE et PV',
     caption: 'Notes vocales sur chantier transformées en CR, DOE ou PV structurés — validation métier incluse.',
-    href: LINKS.tutoCrChantier,
-    linkLabel: 'Tuto skill compte rendu de chantier BTP — ressource gratuite',
+    href: LINKS.iaCompteRenduChantier,
+    linkLabel: 'Méthode : comptes rendus de chantier avec l\'IA',
   },
 ] as const;
 
@@ -101,10 +101,10 @@ export function AccueilCasUsageIaVisuels() {
           <div className="min-w-0">
             <Reveal>
               <h3 className="text-center font-display text-lg font-bold tracking-tight text-[#1A1A1A] md:text-xl">
-                Tutoriels PDF offerts par thématique
+                Méthodes IA par thématique terrain
               </h3>
               <p className="mt-2 text-center text-sm leading-relaxed text-[#5A5A5A]">
-                Chantier, devis, appels d&apos;offres ou livrables — téléchargement libre, sans inscription.
+                Devis, DCE, comptes rendus — pages méthodes + formation, validation métier de votre côté.
               </p>
             </Reveal>
 
