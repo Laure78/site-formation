@@ -9,6 +9,8 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 
 const PATH = '/ressources/guide-conducteur-de-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -181,15 +183,11 @@ export default function SkillIaConducteurTravauxPage() {
             <div className="mt-4 space-y-4 xl:mt-0">
               <p className="leading-relaxed text-slate-700">
                 Le téléchargement est gratuit et immédiat via l&apos;encart bleu ci-dessus. Besoin du même niveau de détail
-                en pages web séparées&nbsp;? Ouvre le{' '}
-                <Link href={LINKS.ressources} className="font-semibold text-[#377CF3] hover:underline">
-                  hub des ressources gratuites IA BTP
-                </Link>{' '}
-                puis l&apos;{' '}
+                en fiches web séparées&nbsp;? Consultez l&apos;{' '}
                 <Link href={LINKS.ressourcesTutos} className="font-semibold text-[#377CF3] hover:underline">
                   index de tous les tutos PDF
                 </Link>
-                , où chaque fiche reprend un livrable et un PDF dédié.
+                , où chaque fiche reprend un livrable et un PDF dédié — le hub ressources est aussi lié en bas de page.
               </p>
             </div>
           </div>
@@ -447,6 +445,12 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
         </div>
       </section>
 
+      <MaillageRessourceFromConfig
+        config={getMaillageRessourceConfig(PATH)!}
+        currentPath={PATH}
+        excludeHrefs={[LINKS.ressourcesTutos, LINKS.formations, LINKS.claudeAiBtp]}
+      />
+
       <section className="border-t border-slate-200 bg-[#377CF3] py-12 text-center text-white">
         <div className="mx-auto max-w-2xl px-4">
           <h2 className="font-display text-xl font-bold md:text-2xl">
@@ -479,12 +483,8 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
           LinkedIn — Laure Olivié
         </Link>
         {' · '}
-        <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
-          Catalogue formations
-        </Link>
-        {' · '}
-        <Link href={LINKS.claudeAiBtp} className="text-[#377CF3] hover:underline">
-          Guide Claude AI BTP
+        <Link href={LINKS.contact} className="text-[#377CF3] hover:underline">
+          Contact
         </Link>
       </div>
     </div>

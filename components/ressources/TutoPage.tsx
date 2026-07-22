@@ -1,25 +1,24 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Download, ChevronRight, ArrowRight, Mail } from 'lucide-react';
-import { JsonLd } from '@/components/JsonLd';
+import { JsonLd } from '@/app/components/JsonLd';
+import { EnBref } from '@/app/components/EnBref';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { CopyPromptButton } from '@/components/CopyPromptButton';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
+import { buildRessourceTutoJsonLd } from '@/lib/schema-ressource-tuto-jsonld';
 import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
 import type { TutoBlock, TutoData, TutoStep } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
-
-const SITE_BASE = SITE_CONFIG.url.replace(/\/$/, '');
+import { getTutoEnBref } from '@/lib/tutos/en-bref';
 
 function pdfUrlFor(tuto: TutoData): string {
   return `/ressources/pdf/${tuto.pdfFile}`;
-}
-
-function pageUrlFor(tuto: TutoData): string {
-  return `${SITE_BASE}/ressources/${tuto.slug}`;
 }
 
 /** Bloc générique — paragraphe, liste, sous-titre, callout, prompt, etc. */
@@ -160,86 +159,18 @@ function CtaStat({ value, label }: { value: string; label: string }) {
   );
 }
 
-/** Construit le `@graph` JSON-LD : Article + HowTo + FAQPage + BreadcrumbList. */
-function buildJsonLdGraph(tuto: TutoData) {
-  const url = pageUrlFor(tuto);
-  const imageUrl = tuto.heroImage
-    ? `${SITE_BASE}${tuto.heroImage.src}`
-    : `${SITE_BASE}/og/ressources-${tuto.slug}.png`;
-  const description = tuto.metaDescription;
-
-  const article = {
-    '@type': 'Article',
-    '@id': `${url}#article`,
-    headline: tuto.title,
-    description,
-    inLanguage: 'fr-FR',
-    author: {
-      '@type': 'Person',
-      name: SITE_CONFIG.name,
-      url: `${SITE_BASE}/a-propos`,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_CONFIG.legalName,
-      logo: { '@type': 'ImageObject', url: `${SITE_BASE}/logo-lo.svg` },
-    },
-    datePublished: tuto.publishedAt,
-    dateModified: tuto.updatedAt,
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    image: imageUrl,
-  };
-
-  const howTo = {
-    '@type': 'HowTo',
-    '@id': `${url}#howto`,
-    name: tuto.title,
-    description,
-    inLanguage: 'fr-FR',
-    totalTime: `PT${tuto.totalTimeMinutes}M`,
-    step: tuto.steps.map((s) => ({
-      '@type': 'HowToStep',
-      position: s.number,
-      name: s.title,
-      text: s.intro ?? s.blocks.find((b) => b.kind === 'paragraph')?.text ?? s.title,
-    })),
-  };
-
-  const faq = {
-    '@type': 'FAQPage',
-    '@id': `${url}#faq`,
-    mainEntity: tuto.faq.map((it) => ({
-      '@type': 'Question',
-      name: it.q,
-      acceptedAnswer: { '@type': 'Answer', text: it.a },
-    })),
-  };
-
-  const breadcrumb = {
-    '@type': 'BreadcrumbList',
-    '@id': `${url}#breadcrumb`,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_BASE },
-      { '@type': 'ListItem', position: 2, name: 'Ressources', item: `${SITE_BASE}/ressources` },
-      { '@type': 'ListItem', position: 3, name: tuto.shortTitle, item: url },
-    ],
-  };
-
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [article, howTo, faq, breadcrumb],
-  };
-}
-
 /** Page complète d'un tuto Ressource — reproduit fidèlement la mise en page du PDF source. */
 export function TutoPage({ tuto }: { tuto: TutoData }) {
   const pdfUrl = pdfUrlFor(tuto);
-  const graph = buildJsonLdGraph(tuto);
+  const graph = buildRessourceTutoJsonLd(tuto);
   const heroAnchors = computeHeroLearnAnchorIds(tuto);
+  const tutoPath = `${LINKS.ressources}/${tuto.slug}`;
+  const maillage = getMaillageRessourceConfig(tutoPath);
+  const enBref = getTutoEnBref(tuto.slug);
 
   return (
     <div className="min-h-screen bg-white">
-      <JsonLd id={`schema-tuto-${tuto.slug}`} schema={graph} />
+      <JsonLd id={`schema-tuto-${tuto.slug}`} data={graph} />
 
       {/* Hero */}
       <section className="border-b border-slate-200 bg-[#F2F2F2]" aria-labelledby={`hero-${tuto.slug}`}>
@@ -255,6 +186,13 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               >
                 {tuto.title}
               </h1>
+              {enBref ? (
+                <EnBref>
+                  {enBref.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </EnBref>
+              ) : null}
               <p className="mt-4 italic text-slate-700 md:text-lg">{tuto.subtitle}</p>
 
               {/* Encadré bleu plein "CE QUE TU VAS APPRENDRE" */}
@@ -380,6 +318,15 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
           </div>
         </div>
       </section>
+
+      {maillage ? (
+        <MaillageRessourceFromConfig
+          config={maillage}
+          currentPath={tutoPath}
+          excludeHrefs={[LINKS.financement]}
+          layout="narrow"
+        />
+      ) : null}
 
       {/* CTA final */}
       <section

@@ -1,11 +1,11 @@
-import Link from 'next/link';
 import { Download, Calendar, Check, FileSpreadsheet } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const PATH = LINKS.bibliothequePromptsBtpParMetier;
 const FILE_HREF = LINKS.xlsxBibliothequePromptsBtpParMetier;
@@ -230,37 +230,20 @@ export default function BibliothequePromptsBtpParMetierPage() {
         </dl>
       </section>
 
-      <section className="border-t border-slate-200 bg-[#F8FAFC] py-14" aria-labelledby="aller-plus-loin">
+      <MaillageRessourceFromConfig
+        config={getMaillageRessourceConfig(PATH)!}
+        currentPath={PATH}
+      />
+
+      <section className="border-t border-slate-200 bg-white py-14" aria-labelledby="cta-calendly-prompts">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="aller-plus-loin" className="font-display text-2xl font-bold text-slate-900">
-            Aller plus loin
+          <h2 id="cta-calendly-prompts" className="font-display text-2xl font-bold text-slate-900">
+            Passer à la pratique en formation
           </h2>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
             Pour ancrer ces prompts dans vos documents réels en présentiel Île-de-France — Qualiopi,
             Constructys selon éligibilité.
           </p>
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
-            <li>
-              <Link href={LINKS.formations} className={OFC_LINK}>
-                Catalogue formations IA pour le BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.guideAssistantsTravauxOfc} className={OFC_LINK}>
-                Guide assistants travaux (PDF)
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.guideConducteurTravauxIaBtp} className={OFC_LINK}>
-                Guide conducteur de travaux
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.ressources} className={OFC_LINK}>
-                Hub ressources
-              </Link>
-            </li>
-          </ul>
           <a
             href={CALENDLY_FINAL}
             className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"

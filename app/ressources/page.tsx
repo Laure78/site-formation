@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ArrowRight, CalendarCheck } from 'lucide-react';
-import { JsonLd } from '@/components/JsonLd';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { JsonLd } from '@/app/components/JsonLd';
+import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { TUTOS } from '@/lib/tutos';
@@ -14,10 +14,15 @@ import { RessourcesSkillsSection } from '@/components/ressources/RessourcesSkill
 import { RessourcesHero } from '@/components/ressources/RessourcesHero';
 import { RessourcesLexiqueSection } from '@/components/ressources/RessourcesLexiqueSection';
 import { RessourcesTutosNav } from '@/components/ressources/RessourcesTutosNav';
-import { RESSOURCES_LEXIQUE } from '@/lib/ressources-lexique';
+import { buildRessourcesHubJsonLd } from '@/lib/schema-ressources-hub-jsonld';
 
+/**
+ * Hub /ressources — atteignabilité cluster (1 clic) :
+ * - Tutos : section « Tutoriels PDF » + hub thématique.
+ * - Guides : RessourcesGuidesSection + hub thématique (dont guide-maitrise-oeuvre-ia).
+ * Pages orphelines détectées : aucune.
+ */
 const PATH = '/ressources';
-const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Ressources IA BTP : appels d’offres & tutos',
@@ -38,97 +43,12 @@ export const metadata: Metadata = createPageMetadata({
   },
 });
 
-const collectionJsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'CollectionPage',
-      '@id': `${CANONICAL}#collection`,
-      name: 'Ressources gratuites IA BTP — appels d’offres, DCE & chantier',
-      description:
-        "Ressources gratuites formation IA pour le BTP en Île-de-France : tutos PDF appels d'offres (DCE, CCAP, mémoire technique), guides chantier, lexique BTP et skills Claude pour PME du bâtiment.",
-      url: CANONICAL,
-      inLanguage: 'fr-FR',
-      isPartOf: { '@type': 'WebSite', name: 'laureolivie.fr', url: SITE_CONFIG.url },
-      mainEntity: {
-        '@type': 'ItemList',
-        itemListOrder: 'https://schema.org/ItemListOrderDescending',
-        numberOfItems: TUTOS.length + 1,
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-              '@type': 'WebApplication',
-              '@id': `${RESSOURCES_LEXIQUE.url}#webapp`,
-              name: RESSOURCES_LEXIQUE.schemaName,
-              url: RESSOURCES_LEXIQUE.url,
-            },
-          },
-          ...TUTOS.map((t, idx) => ({
-            '@type': 'ListItem',
-            position: idx + 2,
-            url: `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.ressources}/${t.slug}`,
-            name: t.title,
-          })),
-        ],
-      },
-    },
-    {
-      '@type': 'WebApplication',
-      '@id': `${RESSOURCES_LEXIQUE.url}#webapp`,
-      name: RESSOURCES_LEXIQUE.schemaName,
-      url: RESSOURCES_LEXIQUE.url,
-      applicationCategory: 'EducationalApplication',
-      operatingSystem: 'Web',
-      browserRequirements: 'Requires JavaScript',
-      description: RESSOURCES_LEXIQUE.schemaDescription,
-      inLanguage: 'fr-FR',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: 'Gratuit, sans inscription.',
-      },
-      author: {
-        '@type': 'Person',
-        name: SITE_CONFIG.name,
-        url: `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos`,
-      },
-      provider: {
-        '@type': 'Organization',
-        name: "OFC Création d'Entreprise",
-        url: SITE_CONFIG.url,
-      },
-    },
-    {
-      '@type': 'LearningResource',
-      '@id': `${CANONICAL}#lexique-learning-resource`,
-      name: 'Lexique BTP gratuit — vocabulaire chantier et marchés publics',
-      url: RESSOURCES_LEXIQUE.url,
-      description: RESSOURCES_LEXIQUE.schemaDescription,
-      learningResourceType: 'Interactive Resource',
-      educationalLevel: 'beginner',
-      inLanguage: 'fr-FR',
-      isAccessibleForFree: true,
-      author: {
-        '@type': 'Person',
-        name: SITE_CONFIG.name,
-        url: `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos`,
-      },
-      provider: {
-        '@type': 'Organization',
-        name: "OFC Création d'Entreprise",
-        url: SITE_CONFIG.url,
-      },
-    },
-  ],
-};
+const hubJsonLd = buildRessourcesHubJsonLd();
 
 export default function RessourcesIndexPage() {
   return (
     <div className="min-h-screen bg-white">
-      <JsonLd id="schema-ressources-collection" schema={collectionJsonLd} />
+      <JsonLd id="schema-ressources-hub" data={hubJsonLd} />
 
       <RessourcesHero />
 

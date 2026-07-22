@@ -1,12 +1,12 @@
-import Link from 'next/link';
 import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const PATH = LINKS.guideDirigeantBtpOfc;
 const FILE_HREF = LINKS.pdfGuideDirigeantBtpOfc;
@@ -263,36 +263,19 @@ export default function GuideDirigeantBtpOfcPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="aller-plus-loin">
-        <h2 id="aller-plus-loin" className="font-display text-2xl font-bold text-slate-900">
-          Aller plus loin
+      <MaillageRessourceFromConfig
+        config={getMaillageRessourceConfig(PATH)!}
+        currentPath={PATH}
+      />
+
+      <section className="mx-auto max-w-7xl px-4 py-14 md:py-16" aria-labelledby="cta-calendly-dirigeant">
+        <h2 id="cta-calendly-dirigeant" className="font-display text-2xl font-bold text-slate-900">
+          Passer à la pratique en formation
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
           Pour caler ces skills sur vos vrais dossiers en présentiel Île-de-France — Qualiopi,
           Constructys selon éligibilité.
         </p>
-        <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
-          <li>
-            <Link href={LINKS.formationIaDirigeantBtp} className={OFC_LINK}>
-              Formation IA dirigeant BTP
-            </Link>
-          </li>
-          <li>
-            <Link href={LINKS.guideClaudeBtpOfc} className={OFC_LINK}>
-              Guide Claude BTP — Projets, Skills, MCP
-            </Link>
-          </li>
-          <li>
-            <Link href={LINKS.bibliothequePromptsBtpParMetier} className={OFC_LINK}>
-              Bibliothèque prompts IA BTP par métier
-            </Link>
-          </li>
-          <li>
-            <Link href={LINKS.ressources} className={OFC_LINK}>
-              Hub ressources
-            </Link>
-          </li>
-        </ul>
         <a
           href={CALENDLY_FINAL}
           className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"

@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -12,9 +12,8 @@ import {
   MISSIONS_ASSISTANTS_TRAVAUX,
   type MissionAssistantTag,
 } from '@/lib/guide-assistants-travaux-content';
-import { LINKS } from '@/lib/internal-links';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const PATH = GUIDE_ASSISTANTS_TRAVAUX_PATH;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -249,34 +248,17 @@ export default function GuideAssistantsTravauxOfcPage() {
         </div>
       </section>
 
-      <section className="py-14 md:py-16" aria-labelledby="aller-plus-loin">
+      <MaillageRessourceFromConfig
+        config={getMaillageRessourceConfig(PATH)!}
+        currentPath={PATH}
+      />
+
+      <section className="py-14 md:py-16" aria-labelledby="cta-calendly-assistants">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 id="aller-plus-loin" className="font-display text-2xl font-bold text-slate-900">
-            Aller plus loin
+          <h2 id="cta-calendly-assistants" className="font-display text-2xl font-bold text-slate-900">
+            Passer à la pratique en formation
           </h2>
-          <ul className="mt-6 flex flex-col gap-3 text-base text-slate-700 sm:flex-row sm:flex-wrap sm:gap-x-8">
-            <li>
-              <Link href={LINKS.formationIaAssistanteGestionBtp} className={OFC_LINK}>
-                Formation IA assistante de gestion BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.formationIaAssistanteBtp} className={OFC_LINK}>
-                Formation IA assistante administrative BTP
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.guideConducteurTravauxIaBtp} className={OFC_LINK}>
-                Guide conducteur de travaux
-              </Link>
-            </li>
-            <li>
-              <Link href={LINKS.ressources} className={OFC_LINK}>
-                Tous les guides et tutos Ressources
-              </Link>
-            </li>
-          </ul>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
               href={GUIDE_ASSISTANTS_TRAVAUX_PDF_PATH}
               download
