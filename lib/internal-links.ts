@@ -160,6 +160,8 @@ export const LINKS = {
   formationIaSolierRevetements: '/formation-ia-solier-revetements',
   formationIaPaysagiste: '/formation-ia-paysagiste-btp',
   formationIaConducteurEnginsTp: '/formation-ia-conducteur-engins-tp',
+  /** Landing SEO — chef de chantier travaux publics */
+  formationIaChefChantierTp: '/formation-ia-chef-chantier-tp',
   formationIaCanalisateur: '/formation-ia-canalisateur-tp',
 
   /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */

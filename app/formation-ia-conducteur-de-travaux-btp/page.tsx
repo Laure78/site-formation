@@ -1,29 +1,37 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { EnBref } from '@/app/components/EnBref';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { VoirAussi } from '@/components/VoirAussi';
 import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { CONDUCTEUR_TRAVAUX_RELATED } from '@/lib/contextual-internal-links';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
+import {
+  EFFECTIF_GROUPE_MAX,
+  TARIF_FORFAIT_DEBUTANT_HT,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import {
+  CDT_BTP_EN_BREF,
   CDT_BTP_FAQ,
+  CDT_BTP_OBJECTIFS,
+  CDT_BTP_PREREQUIS,
+  CDT_BTP_PROGRAMME,
+  CDT_BTP_PUBLIC,
   CDT_BTP_USE_CASES,
   FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
   FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO,
@@ -45,9 +53,10 @@ export const metadata = createMetierBtpPageMetadata('conducteur de travaux', {
   path: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
   openGraphType: 'article',
   appendAuthorSuffix: false,
+  descriptionFinal: true,
   article: {
     publishedTime: '2026-06-02',
-    modifiedTime: '2026-06-02',
+    modifiedTime: '2026-07-22',
     author: 'Laure Olivié',
     section: 'Formation IA pour les pros du BTP',
   },
@@ -60,12 +69,13 @@ export const metadata = createMetierBtpPageMetadata('conducteur de travaux', {
 });
 
 const SOMMAIRE = [
-  { href: '#le-probleme', label: 'La journée d’un conducteur de travaux avant l’IA' },
-  { href: '#cas-usage', label: '5 cas d’usage IA pour ce métier' },
-  { href: '#methode', label: 'Méthode en 3 étapes + prompts terrain' },
+  { href: '#cas-usage', label: 'Cas d’usage IA chantier' },
+  { href: '#le-probleme', label: 'Pourquoi l’IA aide le conducteur de travaux' },
+  { href: '#public', label: 'Public & prérequis' },
+  { href: '#programme', label: 'Ce que vous apprenez' },
+  { href: '#methode', label: 'Méthode + prompts terrain' },
   { href: '#resultats', label: 'Gains de temps mesurés' },
-  { href: '#faq', label: 'FAQ conducteurs de travaux' },
-  { href: '#a-propos', label: 'Laure Olivié — formatrice' },
+  { href: '#faq', label: 'FAQ' },
   { href: '#rdv', label: 'Visio découverte gratuite 30 min' },
 ];
 
@@ -99,14 +109,25 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.h1}
           </h1>
+
+          <EnBref>
+            {CDT_BTP_EN_BREF.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </EnBref>
+
           <p className="mt-4 text-lg text-slate-600">
-            Sessions en présentiel en Île-de-France — Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi · Finançable Constructys
+            Sessions en présentiel en Île-de-France — Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi ·
+            Financement OPCO possible selon éligibilité
           </p>
 
           <p className="mt-4 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
             <span className="font-medium text-slate-900">Session catalogue (conversion) :</span>{' '}
-            <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="font-medium text-[#377CF3] hover:underline">
-              Formation NIV-03 — IA conduite de travaux & suivi chantier (skills Claude)
+            <Link
+              href={LINKS.formationConduiteTravauxSuiviChantier}
+              className="font-medium text-[#377CF3] hover:underline"
+            >
+              Formation NIV-03 — IA conduite de travaux &amp; suivi chantier (skills Claude)
             </Link>
             . Cette page est un guide métier ; la fiche programme détaillé est sur le catalogue.
           </p>
@@ -124,9 +145,13 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
 
           <div className="mt-8">
             <ShortAnswerBlock>
-              Page informationnelle pour conducteurs de travaux : comptes rendus, PPSPS, analyse DCE.
-              Pour vous inscrire à la session certifiante avec skills Claude (CCTP, PPSPS, réception), voir la{' '}
-              <Link href={LINKS.formationConduiteTravauxSuiviChantier} className="font-medium text-[#377CF3] hover:underline">
+              Dans le BTP, le conducteur de travaux pilote préparation, coordination, documents techniques, CR,
+              anomalies, délais et sécurité. L’IA (ChatGPT, Claude…) accélère analyse, synthèse et rédaction — sans
+              remplacer votre expertise. Pour la session certifiante skills Claude, voir la{' '}
+              <Link
+                href={LINKS.formationConduiteTravauxSuiviChantier}
+                className="font-medium text-[#377CF3] hover:underline"
+              >
                 fiche formation NIV-03 conduite de travaux
               </Link>
               .
@@ -168,29 +193,55 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           </ol>
         </nav>
 
-        <section id="le-probleme" className="scroll-mt-24 mt-14">
+        <section id="cas-usage" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            La journée d&apos;un conducteur de travaux avant l&apos;IA
+            Cas d&apos;usage concrets pour conducteurs de travaux
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
-            Entre deux visites de chantier, vous enchaînez comptes rendus, relances sous-traitants,
-            mise à jour du planning, préparation du PPSPS, lecture d&apos;extraits DCE et courriers
-            MOA/MOE. Personne d&apos;autre ne peut produire ces documents à votre place — mais leur{' '}
-            <em>rédaction</em> et leur <em>mise en forme</em> absorbent{' '}
-            <strong>2 à 3 h par jour ouvré</strong> (35 à 40 % du temps bureau).
+            Situations métier remontées en tête de page : ce que vous travaillez vraiment en session et au retour
+            chantier.
+          </p>
+          <ul className="mt-6 space-y-5">
+            {CDT_BTP_USE_CASES.map((item) => (
+              <li key={item.title} className="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-2 leading-relaxed text-slate-600">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-slate-600">
+            Programme catalogue{' '}
+            <Link
+              href={LINKS.formationIaBtpNiveau1BatimentTp}
+              className="font-semibold text-[#377CF3] underline"
+            >
+              NIV-01 — L&apos;IA au service des pros du bâtiment et des travaux publics
+            </Link>{' '}
+            ({formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT · {EFFECTIF_GROUPE_MAX} participants max · 4 h).
+          </p>
+        </section>
+
+        <section id="le-probleme" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Pourquoi l&apos;IA est utile pour un conducteur de travaux
+          </h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Une grande partie du temps bureau sert à collecter, vérifier, reformuler et transmettre de
+            l&apos;information : CR, relances, PPSPS, lecture DCE, courriers MOA/MOE. L&apos;IA accélère la
+            préparation, l&apos;analyse et la formalisation — elle ne prend pas les décisions à votre place.
           </p>
           <p className="mt-4 leading-relaxed text-slate-600">
             Lors des sessions avec la <strong>FFB Grand Paris</strong> et la{' '}
-            <strong>FFB Île-de-France</strong>, les conducteurs de travaux formés décrivent la même
-            charge : CR hebdomadaires, mails de relance, documents QSE et synthèses avant réunion de
-            lancement — autant de tâches structurables par l&apos;IA, sous réserve de votre relecture.
+            <strong>FFB Île-de-France</strong>, les conducteurs formés ciblent les mêmes usages : CR hebdomadaires,
+            mails de relance, documents QSE et synthèses avant réunion de lancement.
           </p>
           <ul className="mt-6 space-y-4 text-slate-700">
             {[
-              'CR hebdomadaire : 90 min en moyenne',
-              'PPSPS ou mise à jour QSE : demi-journée à journée',
-              'Relances et mails MOE : 20 à 30 min par courrier',
-              'Lecture DCE / CCTP avant réunion : 45 min à 1 h',
+              'Résumer des documents longs et extraire les clauses importantes',
+              'Transformer des notes terrain en rapport ou CR structuré',
+              'Préparer une checklist chantier ou une synthèse pour la direction',
+              'Comparer deux documents (ex. CCTP / DTU) et formuler des points de vigilance',
+              'Capitaliser l’expertise des conducteurs seniors via un assistant interne',
             ].map((line) => (
               <li key={line} className="flex gap-3">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
@@ -200,24 +251,52 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           </ul>
         </section>
 
-        <section id="cas-usage" className="scroll-mt-24 mt-14">
+        <section id="public" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            5 cas d&apos;usage IA pour conducteurs de travaux
+            À qui s&apos;adresse cette formation ?
           </h2>
-          <ol className="mt-6 list-decimal space-y-5 pl-5 leading-relaxed text-slate-700">
-            {CDT_BTP_USE_CASES.map((item) => (
+          <ul className="mt-6 space-y-3 text-slate-700">
+            {CDT_BTP_PUBLIC.map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">Prérequis</h3>
+          <ul className="mt-4 space-y-3 text-slate-700">
+            {CDT_BTP_PREREQUIS.map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="programme" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Ce que vous apprenez pendant la formation
+          </h2>
+          <ol className="mt-6 list-decimal space-y-6 pl-5 text-slate-700">
+            {CDT_BTP_PROGRAMME.map((item) => (
               <li key={item.title}>
-                <strong>{item.title}</strong> — {item.body}
+                <strong className="text-slate-900">{item.title}</strong>
+                <p className="mt-2 leading-relaxed">{item.body}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-6 text-slate-600">
-            Programme catalogue{' '}
-            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="font-semibold text-[#377CF3] underline">
-              NIV-01 — L&apos;IA au service des pros du bâtiment et des travaux publics
-            </Link>{' '}
-            ({formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT · {EFFECTIF_GROUPE_MAX} participants max · 4 h).
-          </p>
+          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">
+            Objectifs en fin de formation
+          </h3>
+          <ul className="mt-4 space-y-3 text-slate-700">
+            {CDT_BTP_OBJECTIFS.map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#377CF3] p-8 text-white">
@@ -225,8 +304,8 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
             Visio découverte gratuite — 30 minutes
           </h2>
           <p className="mt-3 leading-relaxed text-blue-100">
-            Échangeons sur vos CR, PPSPS et dossiers chantier : nous identifions les usages IA qui vous
-            feront gagner le plus de temps dès la première semaine.
+            Échangeons sur vos CR, PPSPS et dossiers chantier : nous identifions les usages IA qui vous feront
+            gagner le plus de temps dès la première semaine.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <RdvLink
@@ -314,6 +393,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
               </tbody>
             </table>
           </div>
+          <DisclaimerGains className="mt-4" />
         </section>
 
         <section id="faq" className="scroll-mt-24 mt-14">
@@ -330,17 +410,21 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           </dl>
         </section>
 
-        <RelatedLinks path={LINKS.formationConducteurTravaux} className="mt-14 !px-0" tone="transparent" excludeHrefs={[LINKS.formationConduiteTravauxSuiviChantier, LINKS.financement]} />
+        <RelatedLinks
+          path={LINKS.formationConducteurTravaux}
+          className="mt-14 !px-0"
+          tone="transparent"
+          excludeHrefs={[LINKS.formationConduiteTravauxSuiviChantier, LINKS.financement]}
+        />
 
         <LaureOlivieFormationPortrait />
-<section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
+        <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Réservez votre visio découverte gratuite — 30 min
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
-            Identifions ensemble les documents chantier (CR, PPSPS, DCE, relances) où l&apos;IA vous
-            fera gagner le plus de temps. Gratuit, sans engagement — session catalogue NIV-01 finançable
-            Constructys selon éligibilité.
+            Identifions ensemble les documents chantier (CR, PPSPS, DCE, relances) où l&apos;IA vous fera gagner le
+            plus de temps. Gratuit, sans engagement — session catalogue finançable Constructys selon éligibilité.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <RdvLink
@@ -375,7 +459,9 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
         <ContextualLinksSection
           title="Aller plus loin"
           subtitle="Catalogue, ressources gratuites et articles pour conducteurs de travaux BTP."
-          links={CONDUCTEUR_TRAVAUX_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationConducteurTravaux).includes(l.href))}
+          links={CONDUCTEUR_TRAVAUX_RELATED.filter(
+            (l) => !getClusterRelatedHrefs(LINKS.formationConducteurTravaux).includes(l.href)
+          )}
           tone="muted"
         />
 
