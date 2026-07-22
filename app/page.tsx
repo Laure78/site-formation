@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import type { Metadata } from 'next';
 import { AccueilHeroVideoSection } from '@/components/landing/AccueilHeroVideoSection';
 import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
 import { CitationSentence } from '@/components/seo/CitationSentence';
@@ -39,7 +38,7 @@ import { Partenaires } from '@/components/Partenaires';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
 import Image from 'next/image';
-import { createPageMetadata } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
@@ -139,9 +138,10 @@ const GAINS_COMMERCIAUX_CARDS = [
   },
 ] as const;
 
-const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France | Laure Olivié';
+/** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
+const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France';
 const HOME_META_DESCRIPTION =
-  'Formation IA pour le BTP en présentiel Île-de-France : devis, appels d\'offres, CR sur vos vrais documents. Qualiopi, Constructys. 1 592 pros formés, 4,85/5.';
+  'Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, 1 592 pros, 4,85/5. Visio découverte.';
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -149,15 +149,11 @@ const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
 export const revalidate = 3600;
 
-const homePageMetadataBase = createPageMetadata({
-  title: 'Formation IA pour le BTP en Île-de-France',
-  titleAbsolute: HOME_META_TITLE,
+export const metadata = buildMetadata({
+  title: HOME_META_TITLE,
   description: HOME_META_DESCRIPTION,
   descriptionFinal: true,
   path: '/',
-  appendAuthorSuffix: false,
-  openGraphTitle: HOME_META_TITLE,
-  openGraphDescription: HOME_META_DESCRIPTION,
   keywords: [
     'formation IA appliquée au bâtiment',
     'formation ChatGPT BTP',
@@ -194,20 +190,6 @@ const homePageMetadataBase = createPageMetadata({
     alt: PHOTOS.heroAccueilFormationIABtpEchange2026.alt,
   },
 });
-
-/** Title / OG / Twitter : chaîne exacte (segment 41 car. hors plafond utilitaire 40). */
-export const metadata: Metadata = {
-  ...homePageMetadataBase,
-  title: { absolute: HOME_META_TITLE },
-  openGraph: {
-    ...homePageMetadataBase.openGraph,
-    title: HOME_META_TITLE,
-  },
-  twitter: {
-    ...homePageMetadataBase.twitter,
-    title: HOME_META_TITLE,
-  },
-};
 
 export default function HomePage() {
   const statsFreshness = getStatsFreshnessLabel();

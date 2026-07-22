@@ -806,6 +806,101 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/images/laure-olivie-formatrice.png',
+        destination: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-formatrice-ia-btp-qualiopi.png',
+        destination: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/og-default.jpg',
+        destination: '/images/og-default-formation-ia-btp.jpg',
+        permanent: true,
+      },
+      {
+        source: '/og/blog-og.png',
+        destination: '/og/og-blog-formation-ia-btp.png',
+        permanent: true,
+      },
+      {
+        source: '/og/a-propos-og.png',
+        destination: '/og/og-a-propos-laure-olivie-formatrice-ia-btp.png',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/lefebvre-dalloz.png',
+        destination: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-circle.png',
+        destination: '/images/laure-olivie-portrait-rond-fond-bleu-formation-ia-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/bework-logo-blueprint.png',
+        destination: '/images/bework-logo-blueprint-delegation-administrative-btp.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-etancheur-btp-og.png',
+        destination: '/images/formation-ia-etancheur-btp-og.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/og/formation-ia-charge-affaires-btp.png',
+        destination: '/images/og/formation-ia-charge-affaires-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/og/formation-ia-assistante-gestion-btp.png',
+        destination: '/images/og/formation-ia-assistante-gestion-btp.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-01.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-promesse-4h.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-02.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-infos-pratiques.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-03.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-public-prerequis.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-04.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-objectifs-pedagogiques.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-05.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-quatre-modules.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-06.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-livrables.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-07.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-methodes.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/blog/carrousel-a-presentation-formation/slide-08.png',
+        destination: '/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-inscriptions.webp',
+        permanent: true,
+      },
+      {
         source: '/images/laure-olivie-formatrice-ia-btp-portrait.webp',
         destination: '/images/formatrice-ia-btp-laure-olivie.webp',
         permanent: true,

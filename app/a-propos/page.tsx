@@ -57,7 +57,7 @@ const A_PROPOS_TOC = [
 
 const A_PROPOS_META_TITLE = `Laure Olivié — formatrice IA BTP — Qualiopi`;
 const A_PROPOS_META_DESCRIPTION =
-  'Laure Olivié, formatrice IA spécialisée BTP depuis 2022 : 10 ans de terrain BTP (conductrice de travaux), Qualiopi, FFB, CSFE, CNAM, Lefebvre Dalloz. 1 592 pros formés, 4,85/5.';
+  'Laure Olivié (OFC) : formatrice IA BTP, 10 ans terrain, Qualiopi, FFB et CSFE. 1 592 pros, 4,85/5. Formation IA pour le BTP en présentiel IDF. RDV découverte.';
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,
@@ -70,10 +70,10 @@ export const metadata = createPageMetadata({
   openGraphTitle: A_PROPOS_META_TITLE,
   openGraphDescription: A_PROPOS_META_DESCRIPTION,
   image: {
-    url: '/og/a-propos-og.png',
+    url: '/og/og-a-propos-laure-olivie-formatrice-ia-btp.png',
     width: 1200,
     height: 630,
-    alt: 'Laure Olivié — formatrice IA appliquée au bâtiment, Qualiopi, instructrice LinkedIn Learning',
+    alt: 'Laure Olivié, formatrice IA BTP Qualiopi — page À propos',
   },
 });
 

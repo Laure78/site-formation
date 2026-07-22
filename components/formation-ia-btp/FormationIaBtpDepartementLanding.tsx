@@ -33,6 +33,8 @@ import {
 } from '@/lib/seo';
 import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
 export type FormationIaBtpDeptLandingConfig = {
@@ -93,7 +95,7 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
       section: 'Formation IA pour les pros du BTP',
     },
     image: {
-      url: '/images/laure-olivie-formatrice.png',
+      url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,
       height: 630,
       alt: `Session formation IA en ${config.departementNom} (${config.deptCode}) — Laure Olivié Qualiopi`,
@@ -329,11 +331,6 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         links={[
           ...FORMATION_CATALOGUE_CORE,
           {
-            href: LINKS.formationIleDeFrance,
-            title: 'Formation IA Île-de-France',
-            description: 'Vue régionale : 8 départements, formats intra et inter.',
-          },
-          {
             href: LINKS.aPropos,
             title: 'À propos — Laure Olivié',
             description: 'Parcours, Qualiopi, références FFB et méthode terrain.',
@@ -343,19 +340,10 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
             title: 'Blog IA & BTP',
             description: 'Guides, cas d’usage, bonnes pratiques Constructys.',
           },
-        ]}
+        ].filter((l) => !getClusterRelatedHrefs(config.path).includes(l.href))}
       />
 
-      <ContextualLinksSection
-        title="Autres départements d'Île-de-France"
-        subtitle={`Sessions intra dans vos locaux — voir aussi les pages locales voisines du ${config.departementNom} (${config.deptCode}).`}
-        links={getGeoSisterDepartmentLinks(
-          config.path.replace('/formation-ia-btp-', ''),
-          4,
-          GEO_DEPARTMENT_EXTENDED,
-        )}
-        tone="muted"
-      />
+      <RelatedLinks path={config.path} />
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl">
@@ -398,6 +386,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               LINKS.formationIleDeFrance,
               LINKS.aPropos,
               LINKS.blog,
+              ...getClusterRelatedHrefs(config.path),
               ...getGeoSisterDepartmentLinks(
                 config.path.replace('/formation-ia-btp-', ''),
                 4,

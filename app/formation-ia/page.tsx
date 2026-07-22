@@ -5,7 +5,8 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Hub formation IA BTP — métiers & villes',
   description:
-    'Hub formation IA pour le BTP : ChatGPT et Claude AI par métier et par ville en Île-de-France. Qualiopi, Constructys. Visio découverte gratuite.',
+    'Formation IA pour le BTP : hub métiers et zones IDF, ChatGPT et Claude, présentiel Qualiopi. Constructys selon éligibilité. Visio découverte gratuite.',
+  descriptionFinal: true,
   path: '/formation-ia',
   keywords: [
     'formation IA appliquée au bâtiment',

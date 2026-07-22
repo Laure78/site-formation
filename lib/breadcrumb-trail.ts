@@ -47,11 +47,45 @@ const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources/guide-conducteur-de-travaux/merci': 'Confirmation — guide envoyé',
   '/ressources/guide-maitrise-oeuvre-ia': "Guide Maître d'Œuvre × IA",
   '/ressources/guide-assistants-travaux-ofc': 'Guide des Assistants Travaux — 12 missions IA',
+  '/ressources/bibliotheque-prompts-btp-par-metier': 'Bibliothèque prompts IA BTP par métier',
+  '/ressources/guide-claude-btp-ofc': 'Guide Claude BTP — Projets, Skills, MCP',
+  '/ressources/guide-dirigeant-btp-ofc': 'Guide du dirigeant BTP — 6 leviers IA',
   ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 
 const GEO_BTP_REGIONAL_TITLES: Record<string, string> = {
-  '/formation-ia-btp-ile-de-france': 'Formation IA pour les pros du BTP Île-de-France',
+  '/formation-ia-btp-ile-de-france': 'Formation IA BTP Île-de-France',
+};
+
+/** Pages hors catalogues / géo / métier — libellés pour le fil global. */
+const STATIC_PAGE_TITLES: Record<string, string> = {
+  '/formation-ia-btp-paris': 'Formation IA BTP Paris',
+  '/formateur-ia-btp': 'Formateur IA BTP',
+  '/partenaires': 'Partenaires',
+  '/claude-ai-btp': 'Claude AI BTP',
+  '/formation-claude-ai-btp': 'Formation Claude AI BTP',
+  '/formations-linkedin-learning': 'Formations LinkedIn Learning',
+  '/checklist-ia-btp': 'Checklist IA BTP',
+  '/outils-ia-btp': 'Outils IA BTP',
+  '/outils/cas-usage-ia-btp': "Cas d'usage IA par métier",
+  '/outils/verification-dtu-bework': 'Prototype DTU BeWork',
+  '/ia-analyse-dce-btp': "Analyse DCE avec l'IA",
+  '/ia-memoire-technique-btp': "Mémoire technique avec l'IA",
+  '/ia-compte-rendu-chantier': 'Compte rendu de chantier avec l\'IA',
+  '/diagnostic-ia-btp': 'Diagnostic IA BTP',
+  '/prendre-rdv': 'Prendre RDV',
+  '/contact': 'Contact',
+  '/a-propos': 'À propos',
+  '/financement-constructys-formation-ia-btp': 'Financement Constructys',
+  '/qualiopi': 'Certification Qualiopi',
+  '/mentions-legales': 'Mentions légales',
+  '/politique-confidentialite': 'Confidentialité',
+  '/reglement-interieur': 'Règlement intérieur',
+  '/cgv': 'CGV',
+  '/reclamations': 'Réclamations',
+  '/accessibilite-handicap': 'Accessibilité & handicap',
+  '/annuaire-handicap': 'Annuaire handicap',
+  '/indicateurs-resultats': 'Indicateurs de résultats',
 };
 
 function buildGeoBtpDeptLabels(): Record<string, string> {
@@ -74,9 +108,10 @@ const GEO_BTP_DEPT_LABELS = buildGeoBtpDeptLabels();
 const METIER_TITLES: Record<string, string> = {
   '/formation-ia-electricien-btp': 'Formation IA Électricien BTP',
   '/formation-ia-conducteur-de-travaux-btp': 'Formation IA Conducteur de travaux',
-  '/formation-ia-macon-btp': 'Formation IA Maçon BTP',
+  '/formation-ia-macon-btp': 'Formation IA Maçon & Maçonnerie',
   '/formation-ia-plombier-btp': 'Formation IA Plombier BTP',
   '/formation-ia-charpentier-btp': 'Formation IA Charpentier BTP',
+  '/formation-ia-charpentier-menuisier-btp': 'Formation IA Charpentier & Menuisier bois',
   '/formation-ia-couvreur-btp': 'Formation IA Couvreur BTP',
   '/formation-ia-peintre-btp': 'Formation IA Peintre BTP',
   '/formation-ia-menuisier-btp': 'Formation IA Menuisier BTP',
@@ -89,13 +124,23 @@ const METIER_TITLES: Record<string, string> = {
   '/formation-ia-assistante-gestion-btp': 'Formation IA assistante de gestion BTP',
   '/formation-ia-travaux-publics': 'Formation IA travaux publics',
   '/formation-ia-etancheur': 'Formation IA pour Étancheur',
+  '/formation-ia-marche-public-travaux': 'Formation IA marché public de travaux',
+  '/formation-ia-marche-public-etancheite': 'Formation IA marché public étanchéité',
 };
 
 function humanizeSegment(seg: string): string {
-  return seg
-    .split('-')
-    .filter(Boolean)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  const SMALL = new Set(['de', 'du', 'des', 'la', 'le', 'les', 'et', 'ou', 'à', 'en', 'un', 'une', 'd', 'l']);
+  const words = seg.split('-').filter(Boolean);
+  return words
+    .map((w, i) => {
+      const lower = w.toLowerCase();
+      if (i > 0 && SMALL.has(lower)) return lower;
+      if (lower === 'ia' || lower === 'btp' || lower === 'tp' || lower === 'ao' || lower === 'dce' || lower === 'cctp') {
+        return lower.toUpperCase();
+      }
+      if (lower === 'idf') return 'IDF';
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
     .join(' ');
 }
 
@@ -230,10 +275,16 @@ function geoBtpDeptTrail(pathNorm: string): BreadcrumbHrefCrumb[] | null {
   const deptLabel = GEO_BTP_DEPT_LABELS[pathNorm];
   if (!deptLabel) return null;
 
+  // Paris : libellé plus explicite que « Paris (75) »
+  const leaf =
+    pathNorm === '/formation-ia-btp-paris'
+      ? 'Formation IA BTP Paris'
+      : deptLabel;
+
   return [
     { label: 'Accueil', href: '/' },
     { label: 'Formations', href: '/formations' },
-    { label: deptLabel, href: pathNorm },
+    { label: leaf, href: pathNorm },
   ];
 }
 
@@ -306,6 +357,21 @@ export function buildBreadcrumbTrail(pathname: string): BreadcrumbHrefCrumb[] {
       { label: 'Accueil', href: '/' },
       { label: 'Formations', href: '/formations' },
       { label: formationMetierTitle(pathNorm), href: pathNorm },
+    ];
+  }
+
+  if (STATIC_PAGE_TITLES[pathNorm]) {
+    // Pages outils imbriquées : Accueil › Outils IA BTP › …
+    if (pathNorm.startsWith('/outils/') && pathNorm !== '/outils-ia-btp') {
+      return [
+        { label: 'Accueil', href: '/' },
+        { label: 'Outils IA BTP', href: '/outils-ia-btp' },
+        { label: STATIC_PAGE_TITLES[pathNorm], href: pathNorm },
+      ];
+    }
+    return [
+      { label: 'Accueil', href: '/' },
+      { label: STATIC_PAGE_TITLES[pathNorm], href: pathNorm },
     ];
   }
 

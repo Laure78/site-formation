@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
-import { BRAND_TITLE_SUFFIX, SEO_TITLE_MAX_LENGTH } from '@/utils/metadata';
-import { createPageMetadata } from '@/lib/seo';
+import {
+  BRAND_TITLE_SUFFIX,
+  SEO_TITLE_MAX_LENGTH,
+  buildBrandedTitle,
+  buildMetadata,
+} from '@/lib/seo';
 
 /** Ligne d’ancrage modalité / zone — pages métier BTP */
 export const METIER_IDF_PRESENTIEL_LINE =
@@ -23,20 +27,23 @@ export function withMetierBtpIdfTitle(
 ): Metadata {
   const segment = buildMetierBtpIdfTitleSegment(metierNomTitre);
   if (!segment) return metadata;
-  const absolute = `${segment}${BRAND_TITLE_SUFFIX}`;
+  const absolute = buildBrandedTitle(segment);
   return {
     ...metadata,
     title: { absolute },
     openGraph: metadata.openGraph
-      ? { ...metadata.openGraph, title: segment }
+      ? { ...metadata.openGraph, title: absolute }
       : metadata.openGraph,
+    twitter: metadata.twitter
+      ? { ...metadata.twitter, title: absolute }
+      : metadata.twitter,
   };
 }
 
 /** Métadonnées page métier + titre IDF si ≤ 60 car. */
 export function createMetierBtpPageMetadata(
   metierNomTitre: string,
-  input: Parameters<typeof createPageMetadata>[0],
+  input: Parameters<typeof buildMetadata>[0],
 ): Metadata {
-  return withMetierBtpIdfTitle(createPageMetadata(input), metierNomTitre);
+  return withMetierBtpIdfTitle(buildMetadata(input), metierNomTitre);
 }

@@ -12,7 +12,7 @@ disable-model-invocation: true
 | Rôle | Chemin type `/mnt/…` ou script Python (Claude) | Équivalent dépôt **site-formation** |
 |------|-------------------------------------------------|-------------------------------------|
 | Base DTU JSON | `/mnt/skills/user/verification-dtu-bework/data/base-dtu.json` | `lib/dtu-verification/base-dtu.json` |
-| Logo blueprint rapport | `/mnt/skills/user/verification-dtu-bework/assets/BeWork_logo_officiel.jpg` | `public/images/bework-logo-blueprint.png` |
+| Logo blueprint rapport | `/mnt/skills/user/verification-dtu-bework/assets/BeWork_logo_officiel.jpg` | `public/images/bework-logo-blueprint-delegation-administrative-btp.png` |
 | Rapport `.docx` | `scripts/generer_rapport_dtu.py` + `office/soffice.py` PDF | `app/api/verification-dtu-bework/docx/route.ts` (**docx** Node ; PDF hors périmètre actuel) |
 | Page prototype noindex | — | `app/outils/verification-dtu-bework/page.tsx` (`LINKS.verificationDtuBeworkTest`) |
 | UI + exports client | — | `components/dtu-verification/VerificationDtuBeworkTool.tsx` + `lib/dtu-verification/export-devis-rectifie.ts` (.txt, .csv, copie) |
@@ -188,7 +188,7 @@ Référencée côté site par `lib/dtu-verification/base-dtu.json` (~échantillo
 - **LIGHT_GRAY** `#F1F5F9`
 - **FONT** Century Gothic (fallback Calibri) *(police rapport Word selon environnement Lecteur)*
 
-**Logo** : fichier image blueprint (sur site : `public/images/bework-logo-blueprint.png` ; référence BeWork PNG : https://www.bework.fr/BeWork.logo.blueprint.png)
+**Logo** : fichier image blueprint (sur site : `public/images/bework-logo-blueprint-delegation-administrative-btp.png` ; référence BeWork PNG : https://www.bework.fr/BeWork.logo.blueprint.png)
 
 ### Mentions interdites dans le rapport BeWork
 

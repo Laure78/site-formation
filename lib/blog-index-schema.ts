@@ -18,7 +18,7 @@ const PERSON_ID = `${BASE}/a-propos#person`;
 function resolveImageUrl(article: BlogArticle): string {
   if (article.coverImage?.startsWith('http')) return article.coverImage;
   if (article.coverImage?.startsWith('/')) return `${BASE}${article.coverImage}`;
-  return `${BASE}/images/laure-olivie-formatrice.png`;
+  return `${BASE}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`;
 }
 
 function blogPostingFromArticle(a: BlogArticle): Record<string, unknown> {

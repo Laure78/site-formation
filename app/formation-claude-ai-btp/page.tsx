@@ -16,7 +16,9 @@ import {
 } from "lucide-react";
 import { FAQSection } from "@/components/landing/FAQSection";
 import { AllerPlusLoin } from "@/components/AllerPlusLoin";
+import { RelatedLinks } from "@/components/RelatedLinks";
 import { CourseSchema } from "@/components/seo/CourseSchema";
+import { getClusterRelatedHrefs } from "@/lib/maillage-clusters";
 import { buildSiteCalendlyCtaUrl } from "@/lib/calendly";
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT ,
@@ -89,16 +91,6 @@ export const metadata: Metadata = {
 const CALENDLY_HERO = buildSiteCalendlyCtaUrl("formation-claude-ai-btp-hero");
 const CALENDLY_FIN_SECTION = buildSiteCalendlyCtaUrl("formation-claude-ai-btp-fin-section");
 const CALENDLY_ALLER_PLUS = buildSiteCalendlyCtaUrl("formation-claude-ai-btp-aller-plus-loin");
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Accueil", item: "https://www.laureolivie.fr/" },
-    { "@type": "ListItem", position: 2, name: "Formations", item: "https://www.laureolivie.fr/formations" },
-    { "@type": "ListItem", position: 3, name: "Formation Claude AI BTP" },
-  ],
-};
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -174,12 +166,6 @@ export default function FormationClaudeAiBtpPage() {
   return (
     <>
       {/* Schemas JSON-LD */}
-      <Script
-        id="schema-breadcrumb-claude"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <CourseSchema
         name="Formation Claude AI BTP"
         description="Formation de 4 heures sur Claude AI (Anthropic) appliquée au BTP : devis, analyse de CCTP, mémoires techniques et comptes rendus de chantier."
@@ -202,29 +188,6 @@ export default function FormationClaudeAiBtpPage() {
       />
 
       <div>
-        {/* Fil d'Ariane */}
-        <div className="mx-auto max-w-6xl px-4 pt-8">
-          <nav aria-label="Fil d'Ariane" className="mb-6 text-sm text-gray-500">
-            <ol className="flex flex-wrap items-center gap-1">
-              <li className="flex items-center gap-1">
-                <Link href="/" className="hover:text-[#377CF3] hover:underline">
-                  Accueil
-                </Link>
-              </li>
-              <li className="flex items-center gap-1">
-                <span className="text-gray-300">/</span>
-                <Link href="/formations" className="hover:text-[#377CF3] hover:underline">
-                  Formations
-                </Link>
-              </li>
-              <li className="flex items-center gap-1">
-                <span className="text-gray-300">/</span>
-                <span className="text-gray-700">Formation Claude AI BTP</span>
-              </li>
-            </ol>
-          </nav>
-        </div>
-
         {/* Hero */}
         <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-12 text-white md:py-16">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
@@ -264,7 +227,8 @@ export default function FormationClaudeAiBtpPage() {
               <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-800/50 shadow-2xl ring-1 ring-white/5">
                 <Image
                   src={OG_IMAGE}
-                  alt="Formatrice présentant Claude AI sur un chantier BTP — interface Anthropic, analyse de CCTP en direct, casque de chantier au premier plan"
+                  alt="Portrait professionnel Laure Olivié en blazer, fond gris studio"
+                  title="Laure Olivié — formatrice IA & ChatGPT pour le BTP, OFC Qualiopi"
                   width={1024}
                   height={682}
                   priority
@@ -689,6 +653,8 @@ export default function FormationClaudeAiBtpPage() {
           subtitle="Réponses courtes sur Claude AI, le comparatif avec ChatGPT et le financement Constructys."
         />
 
+        <RelatedLinks path={LINKS.formationClaudeAiBtp} />
+
         {/* CTA final */}
         <section className="border-b border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 px-4 py-16 text-white">
           <div className="mx-auto max-w-3xl text-center">
@@ -738,7 +704,12 @@ export default function FormationClaudeAiBtpPage() {
                   },
                   { href: "/blog", label: "Tous les articles du blog" },
                   { href: CALENDLY_ALLER_PLUS, label: "Prendre rendez-vous" },
-                ]}
+                ].filter(
+                  (l) =>
+                    !getClusterRelatedHrefs(LINKS.formationClaudeAiBtp).includes(
+                      l.href.replace(/\/$/, '') || '/',
+                    ),
+                )}
               />
             </div>
           </div>

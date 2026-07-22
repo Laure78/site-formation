@@ -101,7 +101,7 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
   seo: {
     title: 'Formation IA bâtiment Paris | Laure Olivié',
     description:
-      'Formation IA bâtiment et construction à Paris : devis, DCE, CR en présentiel intra dans vos locaux parisiens. Qualiopi, Constructys. Visio découverte gratuite.',
+      'Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. 1 592 pros formés, 4,85/5. Visio découverte.',
   },
   h1: 'Formation IA bâtiment et construction à Paris',
   heroIntro:

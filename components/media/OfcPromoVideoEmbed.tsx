@@ -38,7 +38,7 @@ const INNER: Partial<Record<OfcPromoVideoVariant, string>> = {
 };
 
 const DEFAULT_THUMBNAIL_ALT =
-  "Affiche formation IA pour le BTP — devis, chantier, appels d'offres, présentiel Île-de-France";
+  "Affiche formation IA pour le BTP : portrait Laure Olivié, devis et appels d'offres";
 
 type OfcPromoVideoEmbedProps = {
   variant?: OfcPromoVideoVariant;
@@ -104,7 +104,7 @@ export function OfcPromoVideoEmbed({
             href={LINKS.videoFormationsIaBtp}
             className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
           >
-            Page vidéo dédiée
+            Voir la présentation vidéo des formations IA BTP
           </Link>
         </p>
       ) : null}

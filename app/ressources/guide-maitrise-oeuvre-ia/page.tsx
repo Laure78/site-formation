@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Download, Calendar } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
@@ -84,17 +83,6 @@ export default function GuideMaitriseOeuvreIaPage() {
   return (
     <div className="min-h-screen bg-white font-sans" style={{ color: '#1A1A1A' }}>
       <JsonLd id="schema-guide-moe-ia-unified" schema={unifiedGraph} />
-
-      <div className="mx-auto max-w-7xl px-4 pt-6">
-        <Breadcrumb
-          omitJsonLd
-          items={[
-            { label: 'Accueil', href: '/' },
-            { label: 'Ressources', href: LINKS.ressources },
-            { label: "Guide Maître d'Œuvre × IA", href: GUIDE_MOE_IA_PATH },
-          ]}
-        />
-      </div>
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-moe">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-center md:gap-12 md:py-20 lg:grid-cols-2">

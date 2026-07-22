@@ -37,7 +37,7 @@ const localBusinessJsonLdBase = {
   name: SITE_CONFIG.legalName,
   '@id': `${SITE}/#localbusiness`,
   url: SITE,
-  image: `${SITE}/images/laure-olivie-formatrice.png`,
+  image: `${SITE}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
   email: SCHEMA_CONTACT.email,
   address: {
     '@type': 'PostalAddress',

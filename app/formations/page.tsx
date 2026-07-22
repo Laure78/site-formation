@@ -18,6 +18,8 @@ import { FormationsWhyMotifs } from '@/components/formations/FormationsWhyMotifs
 import { FormationsCatalogueMidCta } from '@/components/formations/FormationsCatalogueMidCta';
 import { FormationsPartnersStrip } from '@/components/formations/FormationsPartnersStrip';
 import { FormationsFaqSection } from '@/components/formations/FormationsFaqSection';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { ENCART_TARIFS_COMMERCIAUX } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
@@ -28,7 +30,7 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
 const FORMATIONS_OG_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
 const FORMATIONS_META_DESCRIPTION =
-  "Catalogue de 5 formations IA pour le BTP (4 h) : devis, appels d'offres, conduite de travaux, Claude AI. Qualiopi, finançable Constructys. Présentiel uniquement · Île-de-France uniquement. Visio découverte gratuite.";
+  'Formations IA pour le BTP en 4 h : devis, AO, conduite de travaux et Claude AI. Présentiel IDF, Qualiopi, Constructys selon éligibilité. OFC — PDF et RDV.';
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -268,6 +270,8 @@ export default function FormationsPage() {
           </ul>
         </section>
 
+        <RelatedLinks path={LINKS.formations} />
+
         <AllerPlusLoin
           variant="chips"
           links={[
@@ -276,7 +280,7 @@ export default function FormationsPage() {
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
             { href: buildSiteCalendlyCtaUrl('formations-footer-rdv'), label: 'Prendre rendez-vous' },
-          ]}
+          ].filter((l) => !getClusterRelatedHrefs(LINKS.formations).includes(l.href))}
         />
       </div>
     </>

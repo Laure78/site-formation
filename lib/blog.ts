@@ -307,10 +307,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Ce que ces chiffres changent pour votre formation (ou votre décision de vous former)',
-        content:
-          'Le constat est le même sur le terrain que dans les enquêtes : le potentiel est immense, mais l\'adoption est surtout freinée par la méconnaissance — pas par le manque d\'intérêt. Les entreprises qui montent en compétence sur une IA appliquée au BTP (devis, mémoires, DCE, comptes rendus, relances) prennent de l\'avance sur une majorité de concurrents qui n\'ont pas encore franchi le pas. Le premier usage spontané reste souvent la dictée vocale pour les comptes rendus de chantier : c\'est exactement le type de geste que l\'on peut verrouiller dès les premiers modules d\'une formation courte, certifiée Qualiopi et éligible au financement OPCO Constructys dans les conditions en vigueur (plafonds, délais de dossier).',
+        content: `<p class="text-slate-600 leading-relaxed">Le constat est le même sur le terrain que dans les enquêtes : le potentiel est immense, mais l'adoption est surtout freinée par la méconnaissance — pas par le manque d'intérêt. Les entreprises qui montent en compétence sur une IA appliquée au BTP (devis, mémoires, DCE, comptes rendus, relances) prennent de l'avance sur une majorité de concurrents qui n'ont pas encore franchi le pas. Pour passer des chiffres à l'action, le <a href="${LINKS.formations}" class="text-[var(--accent)] font-medium underline">catalogue des formations IA pour le BTP</a> et mon <a href="${LINKS.blogFormationIaBtpGuide2026}" class="text-[var(--accent)] font-medium underline">guide formation IA appliquée au bâtiment 2026</a> cadrent le parcours. Le premier usage spontané reste souvent la dictée vocale pour les comptes rendus de chantier : c'est exactement le type de geste que l'on peut verrouiller dès les premiers modules d'une formation courte, certifiée Qualiopi et éligible au financement OPCO Constructys dans les conditions en vigueur (plafonds, délais de dossier).</p>`,
       },
       {
         type: 'faq',
@@ -445,10 +444,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Pour conclure',
-        content:
-          'Automatiser un devis BTP avec ChatGPT, ce n’est pas tricher : c’est arrêter de partir de zéro à chaque fois. La méthode qui tient la route, je la répète en formation : données propres, prompt magique, relecture des prix, adaptation au type de chantier. Si vous maîtrisez ça, le gain de temps devient réel sans vous exposer sur le fond. Je préfère toujours qu’on travaille sur vos propres exemples (anonymisés) : un devis type de votre métier, une rénovation récurrente, un petit entretien — comme ça, personne ne repart avec un modèle « scolaire » qui ne colle pas à votre entreprise. Et si vous voulez que ce soit votre équipe qui gagne ce réflexe — avec des cas concrets du bâtiment et des consignes pour ne pas coller d’informations sensibles dans l’outil — c’est tout le sens de ma formation IA pour le BTP chez OFC Création d’Entreprise, certifiée Qualiopi et éligible à une prise en charge par OPCO Constructys, selon éligibilité, dans les conditions habituelles des entreprises du secteur.',
+        content: `<p class="text-slate-600 leading-relaxed">Automatiser un devis BTP avec ChatGPT, ce n'est pas tricher : c'est arrêter de partir de zéro à chaque fois. La méthode qui tient la route, je la répète en formation : données propres, prompt magique, relecture des prix, adaptation au type de chantier. Si vous maîtrisez ça, le gain de temps devient réel sans vous exposer sur le fond. La landing <a href="${LINKS.iaDevis}" class="text-[var(--accent)] font-medium underline">IA devis bâtiment</a> et la <a href="${LINKS.blogChatgptDevisBtpMethode2026}" class="text-[var(--accent)] font-medium underline">méthode ChatGPT devis BTP pas à pas</a> prolongent cet exemple. Je préfère toujours qu'on travaille sur vos propres exemples (anonymisés) : un devis type de votre métier, une rénovation récurrente, un petit entretien — comme ça, personne ne repart avec un modèle « scolaire » qui ne colle pas à votre entreprise. Et si vous voulez que ce soit votre équipe qui gagne ce réflexe — avec des cas concrets du bâtiment et des consignes pour ne pas coller d'informations sensibles dans l'outil — c'est tout le sens de ma formation IA pour le BTP chez OFC Création d'Entreprise, certifiée Qualiopi et éligible à une prise en charge par OPCO Constructys, selon éligibilité, dans les conditions habituelles des entreprises du secteur.</p>`,
       },
       {
         type: 'cta',
@@ -488,7 +486,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'Claude sur laureolivie.fr',
         content:
-          '<p class="text-slate-600">Pour le guide pratique (interfaces, prompts) : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Les formations restent multi-outils : ChatGPT et Claude AI se complètent. Pour cadrer une <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">formation Claude AI BTP</a> (programme, tableau comparatif, financement), c’est la landing dédiée.</p>',
+          `<p class="text-slate-600">Pour le guide pratique (interfaces, prompts) : <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Les formations restent multi-outils : ChatGPT et Claude AI se complètent. Pour cadrer une <a href="${LINKS.formationClaudeAiBtp}" class="text-[var(--accent)] font-medium underline">formation Claude AI BTP</a> (programme, tableau comparatif, financement), c'est la landing dédiée. Sur le devis en conditions réelles, voir aussi mon article sur le <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>.</p>`,
       },
       {
         type: 'paragraph',
@@ -934,7 +932,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'html',
         title: 'Quelles formations IA appliquées au bâtiment sont proposées en 2026 ?',
         content:
-          '<p class="text-slate-600 leading-relaxed">Le catalogue 2026 propose des sessions de 4 h — présentiel uniquement · Île-de-France uniquement : &quot;L&apos;IA au service du bâtiment&quot; pour découvrir ChatGPT appliqué aux devis, emails et CR chantier ; &quot;Répondre aux appels d&apos;offres avec l&apos;IA&quot; pour l&apos;analyse DCE/CCTP et les mémoires techniques ; &quot;IA pour la fonction RH&quot; (recrutement, GEPP) ; « L&apos;IA au service des Travaux Publics » pour les conducteurs de travaux et bureaux d&apos;études. Côté bâtiment, si vous voulez une entrée dédiée Claude AI + ChatGPT sur la même logique terrain, voir la page <a href="/formation-claude-ai-btp" class="text-[var(--accent)] font-medium underline">formation Claude bâtiment</a> : multi-outils, pas de substitution.</p>',
+          `<p class="text-slate-600 leading-relaxed">Le catalogue 2026 propose des sessions de 4 h — présentiel uniquement · Île-de-France uniquement : &quot;L&apos;IA au service du bâtiment&quot; pour découvrir ChatGPT appliqué aux devis, emails et CR chantier ; &quot;Répondre aux appels d&apos;offres avec l&apos;IA&quot; pour l&apos;analyse DCE/CCTP et les mémoires techniques ; &quot;IA pour la fonction RH&quot; (recrutement, GEPP) ; « L&apos;IA au service des Travaux Publics » pour les conducteurs de travaux et bureaux d&apos;études. Côté bâtiment, si vous voulez une entrée dédiée Claude AI + ChatGPT sur la même logique terrain, voir la page <a href="${LINKS.formationClaudeAiBtp}" class="text-[var(--accent)] font-medium underline">formation Claude bâtiment</a> : multi-outils, pas de substitution.</p>`,
       },
       {
         type: 'list',
@@ -948,10 +946,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Combien coûte une formation IA pour les pros du BTP ?',
-        content:
-          'Les sessions catalogue sont calibrées sur 4 h, avec un forfait par session selon le niveau (débutant ou avancé), jusqu\'à 12 participants. Pour les entreprises du BTP, financement possible selon éligibilité par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. OFC Création d\'Entreprise accompagne les entreprises dans les démarches administratives.',
+        content: `<p class="text-slate-600 leading-relaxed">Les sessions catalogue sont calibrées sur 4 h, avec un forfait par session selon le niveau (débutant ou avancé), jusqu'à 12 participants. Pour les entreprises du BTP, financement possible selon éligibilité par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. Le montage OPCO est détaillé dans mon <a href="${LINKS.blogFinancerFormationIaBtpConstructys}" class="text-[var(--accent)] font-medium underline">guide Constructys pour financer une formation IA BTP</a>. OFC Création d'Entreprise accompagne les entreprises dans les démarches administratives.</p>`,
       },
       {
         type: 'paragraph',
@@ -1077,10 +1074,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
-        content:
-          `Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. Formation "L'IA au service du bâtiment" (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO). ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Présentiel uniquement · Île-de-France uniquement. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.`,
+        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Présentiel uniquement · Île-de-France uniquement. Le cas chronométré est détaillé dans <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.</p>`,
       },
       {
         type: 'faq',
@@ -1136,10 +1132,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Dans le BTP, le coût direct d’une formation IA n’est pas toujours ce qui bloque le projet : le frein le plus fréquent est le manque d’information sur les dispositifs, les délais de montage de dossier et le choix d’un organisme certifié Qualiopi compatible avec les règles Constructys. Votre entreprise cotise déjà à l’OPCO de la construction : l’enjeu est d’aligner votre besoin métier (devis, chantier, appels d’offres, RH) avec une action de formation éligible et une convention déposée dans les temps.',
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Pourquoi se former à l’IA dans le BTP en 2026 ?',
-        content:
-          'L’IA générative est déjà utilisée sur le terrain et au bureau : mémoires techniques et synthèses de DCE, automatisation des devis et des pièces chiffrées, comptes rendus de chantier, relances et emails. Une formation courte et opérationnelle permet d’encadrer l’usage des outils, d’éviter les erreurs de fond et de gagner souvent plusieurs heures par semaine sur l’administratif — sous réserve de méthode et de relecture humaine. Les formations proposées par OFC Création d’Entreprise sont pensées pour les professionnels du BTP, les PME, les conducteurs de travaux et les fonctions support.',
+        content: `<p class="text-slate-600 leading-relaxed">L'IA générative est déjà utilisée sur le terrain et au bureau : mémoires techniques et synthèses de DCE, automatisation des devis et des pièces chiffrées, comptes rendus de chantier, relances et emails. Une formation courte et opérationnelle permet d'encadrer l'usage des outils, d'éviter les erreurs de fond et de gagner souvent plusieurs heures par semaine sur l'administratif — sous réserve de méthode et de relecture humaine. Une fois le budget cadré, choisissez dans le <a href="${LINKS.formations}" class="text-[var(--accent)] font-medium underline">catalogue des formations IA pour le BTP</a> ; pour la trésorerie et eGestion, lisez aussi la <a href="${LINKS.blogSubrogationConstructysFinancementIaBtp}" class="text-[var(--accent)] font-medium underline">subrogation Constructys 2026</a>. Les formations proposées par OFC Création d'Entreprise sont pensées pour les professionnels du BTP, les PME, les conducteurs de travaux et les fonctions support.</p>`,
       },
       {
         type: 'list',
@@ -1235,6 +1230,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     relatedSlugs: [
+      'subrogation-constructys-financement-formation-ia-btp-2026',
       'formation-ia-btp-guide-complet-2026',
       '5-cas-usage-chatgpt-artisans-btp',
       'ia-devis-batiment-chiffrage-automatise',
@@ -1395,10 +1391,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Comment se former à l’automatisation des comptes rendus de chantier',
-        content:
-          'OFC Création d’Entreprise propose une formation IA pour les pros du BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux possibles sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu’à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.',
+        content: `<p class="text-slate-600 leading-relaxed">OFC Création d'Entreprise propose une formation IA pour les pros du BTP de 4 heures, certifiée Qualiopi, avec un module dédié aux comptes rendus : prompts personnalisés, exercices sur vos documents réels, modèles réutilisables et rappels sur la confidentialité. Le cas d'usage dédié est sur la page <a href="${LINKS.iaCompteRenduChantier}" class="text-[var(--accent)] font-medium underline">IA compte-rendu de chantier</a> ; pour le gain de temps côté conduite de travaux, voir aussi comment <a href="${LINKS.blogCommentIaGagne5hConducteursTravaux}" class="text-[var(--accent)] font-medium underline">l'IA fait gagner 5 h aux conducteurs de travaux</a>. Sessions en présentiel en Île-de-France ; formations intra dans vos locaux possibles sur devis. Financement : vos droits à la formation et les dispositifs entreprise (dont Constructys) sont mobilisables selon les barèmes et plafonds en vigueur au moment du dossier — jusqu'à 24 € HT par heure et par stagiaire dans le cadre du plan de développement des compétences lorsque les conditions sont réunies.</p>`,
       },
       {
         type: 'paragraph',
@@ -1447,10 +1442,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Un exemple concret',
-        content:
-          "Vous êtes plombier et devez envoyer un devis pour une salle de bain. Vous donnez à ChatGPT : « Rédige un devis pour une rénovation complète de salle de bain : 12 m², carrelage mural et sol, WC, lavabo, douche à l'italienne. Inclus fournitures et main d'œuvre, TVA 10%, validité 30 jours. » L'IA génère une structure professionnelle. Vous ajustez les prix selon vos marges. Temps économisé : environ 1h30 par devis.",
+        content: `<p class="text-slate-600 leading-relaxed">Vous êtes plombier et devez envoyer un devis pour une salle de bain. Vous donnez à ChatGPT : « Rédige un devis pour une rénovation complète de salle de bain : 12 m², carrelage mural et sol, WC, lavabo, douche à l'italienne. Inclus fournitures et main d'œuvre, TVA 10%, validité 30 jours. » L'IA génère une structure professionnelle. Vous ajustez les prix selon vos marges. Temps économisé : environ 1h30 par devis. Pour ancrer ces usages en session, la <a href="${LINKS.chatgptArtisans}" class="text-[var(--accent)] font-medium underline">formation IA pour les TPE &amp; PME du bâtiment</a> reprend ces prompts ; le panorama productivité est dans <a href="${LINKS.blogChatgptBtp7LeviersProductivite2026}" class="text-[var(--accent)] font-medium underline">ChatGPT BTP : 7 leviers de productivité</a>.</p>`,
       },
       {
         type: 'prompts',
@@ -1854,9 +1848,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: "Le jury note la clarté, l'adéquation à l'appel d'offres, la cohérence des arguments. Chaque rubrique doit répondre explicitement aux critères du règlement. Adaptez le vocabulaire au maître d'ouvrage.",
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Erreurs fréquentes',
-        content: "Mémoire trop générique, oubli de critères, texte illisible ou trop long. Les PME manquent souvent de temps pour soigner la rédaction. L'IA permet de produire des premières versions à personnaliser.",
+        content: `<p class="text-slate-600 leading-relaxed">Mémoire trop générique, oubli de critères, texte illisible ou trop long. Les PME manquent souvent de temps pour soigner la rédaction. L'IA permet de produire des premières versions à personnaliser. La méthode produit est sur <a href="${LINKS.iaMemoireTechnique}" class="text-[var(--accent)] font-medium underline">IA mémoire technique BTP</a> ; en amont du mémoire, <a href="${LINKS.blogAnalyserCctpMethode20Min}" class="text-[var(--accent)] font-medium underline">analyser un CCTP en 20 minutes</a> structure mieux votre argumentaire.</p>`,
       },
       {
         type: 'prompts',
@@ -1924,9 +1918,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: "Le DCE contient le règlement, le CCTP, les pièces écrites, les plans. Priorisez les sections qui concernent votre lot. L'IA peut synthétiser les exigences en quelques minutes à partir d'extraits.",
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Rôle du mémoire technique',
-        content: "Le mémoire technique est souvent le critère le plus important. Il valorise votre expertise et démontre votre capacité à réaliser le projet. Soignez la structure et l'argumentaire.",
+        content: `<p class="text-slate-600 leading-relaxed">Le mémoire technique est souvent le critère le plus important. Il valorise votre expertise et démontre votre capacité à réaliser le projet. Soignez la structure et l'argumentaire. Pour une session structurée, voir la <a href="${LINKS.formationAO}" class="text-[var(--accent)] font-medium underline">formation IA appels d'offres BTP</a> ; la méthode complète est dans le <a href="${LINKS.blogIaMemoireTechniqueAppelOffresGuide2026}" class="text-[var(--accent)] font-medium underline">guide mémoire technique BTP avec l'IA</a>.</p>`,
       },
       {
         type: 'prompts',

@@ -144,7 +144,7 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
     name: 'Lefebvre Dalloz',
     href: PARTNER_WEBSITES.lefebvreDalloz,
     logo: {
-      src: '/images/partenaires/lefebvre-dalloz.png',
+      src: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
       alt: 'Logo Lefebvre Dalloz — partenaire formation professionnelle BTP',
       width: 200,
       height: 64,

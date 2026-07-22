@@ -136,7 +136,7 @@ export const SCHEMA_ORGANIZATION_OFC = {
 export const SCHEMA_LOGO_PATH = '/logo-lo.svg' as const;
 
 /** Image portrait par défaut — schémas globaux. */
-export const SCHEMA_DEFAULT_PERSON_IMAGE_PATH = '/images/laure-olivie-formatrice.png' as const;
+export const SCHEMA_DEFAULT_PERSON_IMAGE_PATH = '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp' as const;
 
 /** Portrait header — schéma Person global (layout). */
 export const SCHEMA_HEADER_PERSON_IMAGE_PATH = SITE_HEADER_LOGO_SRC;

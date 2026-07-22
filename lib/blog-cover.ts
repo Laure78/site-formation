@@ -16,7 +16,7 @@ export function getBlogCardCoverSrc(article: { slug: string; coverImage?: string
   if (existsSync(localPath)) {
     return `/content/blog/${article.slug}/cover.png`;
   }
-  return '/images/laure-olivie-formatrice.png';
+  return '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp';
 }
 
 export function getBlogCardCoverAbsoluteUrl(article: { slug: string; coverImage?: string }): string {

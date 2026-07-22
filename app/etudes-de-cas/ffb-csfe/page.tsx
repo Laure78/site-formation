@@ -14,25 +14,27 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 const ETUDE_CAS_THUMBNAILS = [
   {
     src: '/images/ffb-logo-moss-mur.png',
-    alt:
-      'Logo FFB sur mur de mousse en accueil : Fédération Française du Bâtiment — réseau de professionnels et entreprises du bâtiment, formations IA appliquées au bâtiment (ChatGPT, Claude AI) en Île-de-France.',
+    alt: "Logo FFB sur mur de mousse verte dans un hall d'accueil",
     title: 'FFB — formation IA pour le BTP & réseau national du bâtiment',
     subtitle: 'Interventions Grand Paris, IDF Est & Ouest · Laure Olivié, OFC Qualiopi',
     href: '#ffb',
   },
   {
     src: '/images/csfe-signaletique.png',
-    alt:
-      'Panneau d’orientation CSFE : Chambre syndicale française de l’étanchéité — professionnels de l’étanchéité BTP, filière toiture-terrasse et enveloppe (formations IA).',
+    alt: "Panneau d'orientation CSFE — professionnels de l'étanchéité, flèche à gauche",
     title: 'CSFE — étanchéité & intelligence artificielle pour le bâtiment',
     subtitle: 'Mémoires techniques, métiers enveloppe · même socle pédagogique que le réseau FFB',
     href: '#csfe',
   },
 ] as const;
 
+const PAGE_META_DESCRIPTION =
+  'Étude de cas FFB et CSFE : formation IA pour le BTP en fédération, modules et bénéfices terrain. Laure Olivié, Qualiopi, présentiel IDF. RDV découverte.';
+
 export const metadata = createPageMetadata({
   title: 'Étude de cas FFB & CSFE — formation IA BTP',
-  description: `Retour d'expérience : interventions auprès de la FFB et de la ${CSFE_NOM_LIBRE}. Modules, objectifs pédagogiques et bénéfices pour les entreprises.`,
+  description: PAGE_META_DESCRIPTION,
+  descriptionFinal: true,
   path: '/etudes-de-cas/ffb-csfe',
   keywords: [
     'formation IA FFB',
@@ -252,7 +254,7 @@ export default function EtudeDeCasFfbCsfePage() {
             <figure className="border-b border-slate-200 bg-slate-100">
               <Image
                 src="/images/rencontres-artisans-ia-ffb-atelier.jpg"
-                alt="Atelier « Les Rencontres des Artisans » — L'IA au service des équipes du bâtiment : participants en salle de formation avec ordinateurs portables, sous le bandeau FFB."
+                alt="Atelier FFB en salle : participants aux ordinateurs, formatrice auprès d'un stagiaire"
                 width={1024}
                 height={764}
                 className="h-auto w-full object-cover"

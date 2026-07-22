@@ -1,11 +1,9 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -16,20 +14,16 @@ export const revalidate = 3600;
 
 const PATH = '/ia-compte-rendu-chantier';
 
-const META_TITLE = 'Compte rendu de chantier avec l\'IA | Laure Olivié';
+const META_TITLE = "Compte rendu de chantier avec l'IA";
 /** 151 car. — brief à 162, allégée pour ≤160 */
 const META_DESCRIPTION =
   "Rédigez vos comptes rendus de chantier avec l'IA à partir de notes ou d'une dictée : méthode et prompts BTP. Vous validez. Présentiel IDF. RDV gratuit.";
 
-const pageMetadataBase = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
-  openGraphTitle: META_TITLE,
-  openGraphDescription: META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-07-14',
@@ -44,15 +38,6 @@ const pageMetadataBase = createPageMetadata({
     'compte rendu réunion de chantier IA',
   ],
 });
-
-export const metadata: Metadata = {
-  ...pageMetadataBase,
-  title: { absolute: META_TITLE },
-  alternates: {
-    ...pageMetadataBase.alternates,
-    canonical: PATH,
-  },
-};
 
 const STEPS = [
   {
@@ -126,12 +111,6 @@ export default function IaCompteRenduChantierPage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
-            <Breadcrumb
-              items={[
-                { label: 'Accueil', href: LINKS.home },
-                { label: 'Compte rendu de chantier avec l\'IA', href: PATH },
-              ]}
-            />
             <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Rédiger ses comptes rendus de chantier avec l&apos;IA
             </h1>

@@ -5,7 +5,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { CTABlock } from '@/components/CTABlock';
 import { RdvLink } from '@/components/RdvLink';
 import { StatCallout } from '@/components/readability/StatCallout';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { buildMetadata, SITE_CONFIG } from '@/lib/seo';
 import {
   buildFormationIaCourseJsonLd,
   buildFormationIaDeptPageLocalBusinessJsonLd,
@@ -45,12 +45,11 @@ export function geoFormationMetadata(props: GeoFormationPageProps) {
   const description =
     seo?.description ?? geoMetaDescription(departement, code, villes);
 
-  return createPageMetadata({
+  return buildMetadata({
     title,
     description,
     descriptionFinal: true,
     path: geoFormationPath(slug),
-    appendAuthorSuffix: false,
     openGraphType: 'article',
     article: {
       publishedTime: '2026-06-02',

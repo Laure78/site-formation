@@ -1,12 +1,10 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { VoirAussi } from '@/components/VoirAussi';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import {
   buildFormationIaCourseJsonLd,
@@ -20,25 +18,29 @@ import { voirAussiIdfProps } from '@/lib/voir-aussi';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import {
+  CATALOGUE_FORMATIONS_COUNT,
+  FORMATIONS_CATALOGUE,
+} from '@/lib/formations-catalogue-display';
+import { FormationsCatalogueInteractive } from '@/components/formations/FormationsCatalogueInteractive';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { LIBELLE_EFFECTIF_GROUPE_NIV02 } from '@/lib/tarifs-sessions';
 
 export const revalidate = 3600;
 
 const PATH = '/formation-ia-btp-ile-de-france';
 
-const META_TITLE = 'Formation IA bâtiment Île-de-France | Laure Olivié';
-/** 151 caractères — phrase complète, sans ellipse */
+/** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
+const META_TITLE = 'Formation IA BTP Île-de-France';
+/** 152 caractères — phrase complète, sans ellipse */
 const META_DESCRIPTION =
-  'Formation IA appliquée au bâtiment et à la construction en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, finançable Constructys. RDV gratuit.';
+  'Formation IA pour le BTP en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.';
 
-const pageMetadataBase = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
-  openGraphTitle: META_TITLE,
-  openGraphDescription: META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-05-19',
@@ -60,15 +62,6 @@ const pageMetadataBase = createPageMetadata({
     alt: 'Formation IA bâtiment et construction en Île-de-France — Laure Olivié, Qualiopi',
   },
 });
-
-export const metadata: Metadata = {
-  ...pageMetadataBase,
-  title: { absolute: META_TITLE },
-  alternates: {
-    ...pageMetadataBase.alternates,
-    canonical: PATH,
-  },
-};
 
 const COURSE_JSON_LD = {
   ...buildFormationIaCourseJsonLd({
@@ -123,12 +116,6 @@ export default function FormationIaBtpIleDeFrancePage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
-            <Breadcrumb
-              items={[
-                { label: 'Accueil', href: LINKS.home },
-                { label: 'Formation IA BTP Île-de-France', href: PATH },
-              ]}
-            />
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
               Présentiel · Qualiopi · Constructys · Île-de-France
             </p>
@@ -142,6 +129,11 @@ export default function FormationIaBtpIleDeFrancePage() {
               certifié Qualiopi — {FINANCEMENT_FORMULATION_PRUDENTE}
             </p>
             <QualiopiSatisfactionSource className="mt-4" />
+            <p className="mt-6 text-base leading-relaxed text-slate-600">
+              <Link href={LINKS.videoFormationsIaBtp} className={OFC_LINK}>
+                Voir la présentation vidéo des formations IA BTP
+              </Link>
+            </p>
           </div>
         </section>
 
@@ -174,7 +166,29 @@ export default function FormationIaBtpIleDeFrancePage() {
           </div>
         </section>
 
-        <section className={OFC_SEC.white} aria-labelledby="intra-inter-idf">
+        <section className={OFC_SEC.white} aria-labelledby="catalogue-idf-heading">
+          <div className="mx-auto max-w-6xl">
+            <h2
+              id="catalogue-idf-heading"
+              className="font-display text-2xl font-bold text-slate-900 md:text-3xl"
+            >
+              Les {CATALOGUE_FORMATIONS_COUNT} formations IA en Île-de-France
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
+              Même catalogue que la page{' '}
+              <Link href={LINKS.formations} className={OFC_LINK}>
+                formations IA pour le BTP
+              </Link>
+              — effectifs et tarifs à jour (ex. appels d&apos;offres : {LIBELLE_EFFECTIF_GROUPE_NIV02}). Présentiel
+              uniquement, sessions inter ou intra sur Paris et les départements 75 à 95.
+            </p>
+            <div className="mt-10">
+              <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
+            </div>
+          </div>
+        </section>
+
+        <section className={OFC_SEC.muted} aria-labelledby="intra-inter-idf">
           <div className="mx-auto max-w-4xl">
             <h2 id="intra-inter-idf" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
               Intra ou inter, partout en Île-de-France
@@ -240,6 +254,8 @@ export default function FormationIaBtpIleDeFrancePage() {
             </p>
           </div>
         </section>
+
+        <RelatedLinks path={LINKS.formationIleDeFrance} />
 
         <FAQSection
           id="faq-idf"

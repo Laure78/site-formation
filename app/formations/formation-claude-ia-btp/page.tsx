@@ -10,8 +10,9 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import AuthorBio from '@/components/AuthorBio';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_CLAUDE_IA_SKILLS_BTP } from '@/lib/faq';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
@@ -141,17 +142,6 @@ const SKILLS_LIST = [
 const courseSchema = buildClaudeIaChatCoworkCodeSkillsBtpJsonLd();
 const faqSchema = getFAQSchema(FAQ_CLAUDE_IA_SKILLS_BTP);
 
-const breadcrumbTrail = (
-  <Breadcrumb
-    jsonLdId="schema-breadcrumb-formation-claude-ia-btp"
-    items={[
-      { label: 'Accueil', href: LINKS.home },
-      { label: 'Formations', href: LINKS.formations },
-      { label: 'Claude IA pour le BTP', href: PATH },
-    ]}
-  />
-);
-
 export default function FormationClaudeIaBtpPage() {
   return (
     <div>
@@ -160,7 +150,6 @@ export default function FormationClaudeIaBtpPage() {
 
       <FormationCourseHero
         catalogueRef={CATALOGUE_REF}
-        breadcrumb={breadcrumbTrail}
         refLine={`Intra-entreprise · présentiel Île-de-France · ${SESSION_DUREE_MATIN_NIV04} · skills sur-mesure`}
         title="Claude IA pour le BTP : Chat, Cowork & Code"
         subtitle="L'IA au service de l'administratif et de la gestion de chantier — skills sur-mesure (AO · chantier · juridique)"
@@ -388,10 +377,12 @@ export default function FormationClaudeIaBtpPage() {
           <AuthorBio schemaScriptId="author-bio-formation-claude-ia-btp" />
         </div>
 
-        <ContextualLinksSection
+        <RelatedLinks path={LINKS.formationClaudeIaBtpFiche} />
+
+      <ContextualLinksSection
           title="Pages associées"
           subtitle="formations appels d'offres, chantier, financement OPCO."
-          links={FORMATION_CLAUDE_SKILLS_BTP_RELATED}
+          links={FORMATION_CLAUDE_SKILLS_BTP_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationClaudeIaBtpFiche).includes(l.href))}
           tone="muted"
         />
 

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { Partenaires } from '@/components/Partenaires';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
@@ -6,7 +5,6 @@ import {
   PARTENAIRES_PAGE_META_DESCRIPTION,
   PARTENAIRES_PAGE_META_TITLE,
 } from '@/lib/partenaires-content';
-import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 export const revalidate = 3600;
 
@@ -33,18 +31,6 @@ export const metadata = createPageMetadata({
 export default function PartenairesPage() {
   return (
     <div>
-      <section className={`${OFC_SEC.whiteCompact} border-b border-slate-200`}>
-        <div className={OFC_SECTION_INNER}>
-          <nav className="text-sm text-slate-600" aria-label="Fil d'Ariane">
-            <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
-              Accueil
-            </Link>
-            {' / '}
-            <span className="text-slate-900">Partenaires</span>
-          </nav>
-        </div>
-      </section>
-
       <Partenaires
         id="partenaires-page"
         headingLevel="h1"

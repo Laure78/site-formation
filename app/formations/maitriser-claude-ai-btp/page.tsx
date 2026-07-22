@@ -10,6 +10,8 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -344,10 +346,12 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           subtitle="Public, prérequis, matinée 4 h et financement."
         />
 
-        <ContextualLinksSection
+        <RelatedLinks path={LINKS.formationMaitriserClaudeAiBtp} />
+
+      <ContextualLinksSection
           title="Pages associées"
           subtitle="formations niveau 2, guide Claude AI BTP, financement OPCO."
-          links={FORMATION_NIV04_RELATED}
+          links={FORMATION_NIV04_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationMaitriserClaudeAiBtp).includes(l.href))}
           tone="muted"
         />
 

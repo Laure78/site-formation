@@ -109,6 +109,11 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/ressources/guide-conducteur-de-travaux': ['app/ressources/guide-conducteur-de-travaux/page.tsx'],
   '/ressources/guide-maitrise-oeuvre-ia': ['app/ressources/guide-maitrise-oeuvre-ia/page.tsx'],
   '/ressources/guide-assistants-travaux-ofc': ['app/ressources/guide-assistants-travaux-ofc/page.tsx'],
+  '/ressources/bibliotheque-prompts-btp-par-metier': [
+    'app/ressources/bibliotheque-prompts-btp-par-metier/page.tsx',
+  ],
+  '/ressources/guide-claude-btp-ofc': ['app/ressources/guide-claude-btp-ofc/page.tsx'],
+  '/ressources/guide-dirigeant-btp-ofc': ['app/ressources/guide-dirigeant-btp-ofc/page.tsx'],
   '/formation-ia': ['app/formation-ia/page.tsx'],
   '/formation-ia/faq': ['app/formation-ia/faq/page.tsx'],
   '/ia-devis-batiment': ['app/ia-devis-batiment/page.tsx'],
@@ -116,6 +121,14 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/ia-memoire-technique-btp': ['app/ia-memoire-technique-btp/page.tsx'],
   '/ia-compte-rendu-chantier': ['app/ia-compte-rendu-chantier/page.tsx'],
   '/formation-ia-artisans-btp': ['app/formation-ia-artisans-btp/page.tsx'],
+  '/formation-ia-marche-public-travaux': [
+    'app/formation-ia-marche-public-travaux/page.tsx',
+    'lib/formation-ia-marche-public-config.ts',
+  ],
+  '/formation-ia-marche-public-etancheite': [
+    'app/formation-ia-marche-public-etancheite/page.tsx',
+    'lib/formation-ia-marche-public-config.ts',
+  ],
   '/formations/formation-ia-cctp-analyse-dce-btp': ['app/formations/formation-ia-cctp-analyse-dce-btp/page.tsx'],
   '/formations/ia-batiment-travaux-publics': [
     'app/formations/ia-batiment-travaux-publics/page.tsx',

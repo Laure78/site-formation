@@ -8,7 +8,7 @@ export function AccueilHeroVideoEmbed() {
     <OfcPromoVideoEmbed
       variant="default"
       showWatchPageLink={false}
-      alt="Affiche formation IA pour le BTP — devis, chantier, appels d'offres, présentiel Île-de-France"
+      alt="Affiche formation IA pour le BTP : portrait Laure Olivié, devis et appels d'offres"
     />
   );
 }

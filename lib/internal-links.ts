@@ -13,6 +13,8 @@ export const LINKS = {
   // Tier 1 — Pages principales
   home: '/',
   formations: '/formations',
+  /** Hub métiers & zones IDF — pilier cluster « métiers » */
+  formationIaHub: '/formation-ia',
   /** Hub — 2 formations LinkedIn Learning (en ligne, à la demande) */
   formationsLinkedInLearning: '/formations-linkedin-learning',
   blog: '/blog',
@@ -28,6 +30,9 @@ export const LINKS = {
   blogIaConducteurTravauxUsages: '/blog/ia-conducteur-travaux-usages',
   /** Article — financer une formation IA pour les pros du BTP via Constructys */
   blogFinancerFormationIaBtpConstructys: '/blog/financer-formation-ia-btp-constructys',
+  /** Article — subrogation Constructys, trésorerie & eGestion J-15 (2026) */
+  blogSubrogationConstructysFinancementIaBtp:
+    '/blog/subrogation-constructys-financement-formation-ia-btp-2026',
   /** Article — méthode IA pour gagner 5 h/semaine (conducteurs de travaux BTP) */
   blogCommentIaGagne5hConducteursTravaux: '/blog/comment-ia-gagne-5h-conducteurs-travaux',
   /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
@@ -125,6 +130,16 @@ export const LINKS = {
   formationChargeAffairesBtp: '/formation-ia-charge-affaires-btp',
   formationElectricienBtp: '/formation-ia-electricien-btp',
   formationPlombierBtp: '/formation-ia-plombier-btp',
+  /** Landing SEO — charpente, ossature bois, agencement & menuiserie (partenariat UMB-FFB) */
+  formationIaCharpentierMenuisierBtp: '/formation-ia-charpentier-menuisier-btp',
+  /** Landing métier — charpentier (DTU 31) */
+  formationIaCharpentierBtp: '/formation-ia-charpentier-btp',
+  /** Landing métier — menuisier bâtiment (DTU 36) */
+  formationIaMenuisierBtp: '/formation-ia-menuisier-btp',
+  /** Landing métier — couvreur zingueur */
+  formationIaCouvreurBtp: '/formation-ia-couvreur-btp',
+  /** Landing métier — maçon / maçonnerie gros œuvre (DTU 20.1) */
+  formationIaMaconBtp: '/formation-ia-macon-btp',
   /** Décideurs — ROI, pilotage IA PME/ETI bâtiment */
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
   /** Chef TPE opérationnel — devis, admin quotidien */
@@ -135,6 +150,10 @@ export const LINKS = {
   formationIaAssistanteGestionBtp: '/formation-ia-assistante-gestion-btp',
   /** Page pilier SEO — étancheurs (partenaire CSFE) */
   formationIaEtancheur: '/formation-ia-etancheur',
+  /** Cluster commande publique — pilier marché public de travaux */
+  formationIaMarchePublicTravaux: '/formation-ia-marche-public-travaux',
+  /** Cluster commande publique — lot étanchéité (CSFE) */
+  formationIaMarchePublicEtancheite: '/formation-ia-marche-public-etancheite',
   // Variants suffixées maintenues comme cibles canoniques après dédup mai 2026
   formationIaPlatriste: '/formation-ia-plaquiste-btp',
   formationIaPeintreBatiment: '/formation-ia-peintre-btp',
@@ -178,6 +197,19 @@ export const LINKS = {
   guideAssistantsTravauxOfc: '/ressources/guide-assistants-travaux-ofc',
   /** PDF gratuit — Guide Assistants Travaux OFC (~21 p.) */
   pdfGuideAssistantsTravauxOfc: '/ressources/pdf/guide-assistants-travaux-ofc.pdf',
+  /** Bibliothèque Excel — prompts IA BTP par métier (dirigeant, CDT, assistante, BE…) */
+  bibliothequePromptsBtpParMetier: '/ressources/bibliotheque-prompts-btp-par-metier',
+  /** Fichier Excel gratuit — bibliothèque prompts BTP par métier */
+  xlsxBibliothequePromptsBtpParMetier:
+    '/ressources/xlsx/bibliotheque-prompts-btp-par-metier.xlsx',
+  /** Lead magnet — Guide pratique Claude BTP OFC (Projets, Skills, MCP, Cowork) */
+  guideClaudeBtpOfc: '/ressources/guide-claude-btp-ofc',
+  /** PDF gratuit — Guide Claude BTP OFC (édition 2026) */
+  pdfGuideClaudeBtpOfc: '/ressources/pdf/guide-claude-btp-ofc.pdf',
+  /** Lead magnet — Guide du dirigeant BTP OFC (6 leviers + 24 prompts) */
+  guideDirigeantBtpOfc: '/ressources/guide-dirigeant-btp-ofc',
+  /** PDF gratuit — Guide du dirigeant BTP OFC (~20 p.) */
+  pdfGuideDirigeantBtpOfc: '/ressources/pdf/guide-dirigeant-btp-ofc.pdf',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
@@ -223,6 +255,22 @@ export const LINKS = {
   blogChiffrageCctpBpu: '/blog/chiffrage-cctp-bpu-appels-offres-btp',
   /** Article — IA devis bâtiment et chiffrage automatisé */
   blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
+  /** Article — devis ChatGPT BTP en ~20 minutes (méthode terrain) */
+  blogDevisBtpChatgpt20Minutes: '/blog/devis-btp-chatgpt-20-minutes',
+  /** Article — méthode ChatGPT devis BTP pas à pas 2026 */
+  blogChatgptDevisBtpMethode2026: '/blog/chatgpt-devis-btp-methode-2026',
+  /** Article MDX — 7 leviers ChatGPT productivité BTP */
+  blogChatgptBtp7LeviersProductivite2026: '/blog/chatgpt-btp-7-leviers-productivite-2026',
+  /** Article — comparatif ChatGPT / Claude / Gemini BTP */
+  blogComparatifChatgptClaudeGeminiBtp: '/blog/comparatif-chatgpt-claude-gemini-btp',
+  /** Article — 7 cas d'usage IA BTP (carrousel) */
+  blog7CasUsageIaBtp: '/blog/7-cas-usage-ia-btp-chiffrage-chantier-appels-offres',
+  /** Article — 5 assistants IA BTP */
+  blog5AssistantsIaBtp: '/blog/5-assistants-ia-btp-chatgpt-productivite',
+  /** Article — guide Claude Code / Projects / Skills / MCP */
+  blogGuideClaudeIaBtpCodeProjectsSkillsMcp: '/blog/guide-claude-ia-btp-code-projects-skills-mcp',
+  /** Article — exemple de mémoire technique BTP */
+  blogMemoireTechniqueBtpExemple: '/blog/memoire-technique-btp-exemple',
   /** Article — compte rendu de chantier IA */
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
   /** Article — 5 cas d'usage ChatGPT BTP (approfondissement CR / terrain) */

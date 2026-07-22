@@ -272,19 +272,7 @@ export default function FormationsLinkedInLearningPage() {
 
       <header className="border-b border-slate-200 bg-gradient-to-br from-[#F2F2F2] via-white to-[#F2F2F2]">
         <div className="mx-auto max-w-4xl px-4 py-10 md:py-14">
-          <nav aria-label="Fil d'Ariane" className="text-sm text-slate-500">
-            <ol className="flex flex-wrap items-center gap-1.5">
-              <li>
-                <Link href={LINKS.home} className={OFC_LINK}>
-                  Accueil
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li className="font-medium text-slate-700">Formations LinkedIn Learning</li>
-            </ol>
-          </nav>
-
-          <div className="mt-6">
+          <div>
             <Image
               src={LOGO_LINKEDIN_LEARNING.src}
               alt={LOGO_LINKEDIN_LEARNING.alt}

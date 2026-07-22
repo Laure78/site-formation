@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { FAQSection } from '@/components/landing/FAQSection';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
@@ -21,20 +20,17 @@ export const revalidate = 3600;
 
 const PATH = '/formateur-ia-btp';
 
-const META_TITLE = 'Formateur IA bâtiment Île-de-France | Laure Olivié';
-/** 153 car. — intention « formateur » + Paris/IDF, sans ellipse */
+/** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
+const META_TITLE = 'Formateur IA bâtiment Île-de-France';
+/** 156 car. — intention « formateur » + IDF, sans ellipse */
 const META_DESCRIPTION =
-  'Vous cherchez un formateur IA bâtiment et construction à Paris et en Île-de-France ? Laure Olivié forme vos équipes en présentiel. Qualiopi. RDV gratuit.';
+  'Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. 1 592 pros, 4,85/5. RDV découverte.';
 
-const pageMetadataBase = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
-  openGraphTitle: META_TITLE,
-  openGraphDescription: META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-07-14',
@@ -51,21 +47,12 @@ const pageMetadataBase = createPageMetadata({
     'Laure Olivié',
   ],
   image: {
-    url: '/images/laure-olivie-formatrice.png',
+    url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
     width: 1200,
     height: 630,
     alt: 'Laure Olivié, formatrice IA bâtiment et construction — OFC Qualiopi',
   },
 });
-
-export const metadata: Metadata = {
-  ...pageMetadataBase,
-  title: { absolute: META_TITLE },
-  alternates: {
-    ...pageMetadataBase.alternates,
-    canonical: PATH,
-  },
-};
 
 const FAQ_FORMATEUR: FAQItem[] = [
   {
@@ -114,13 +101,6 @@ export default function FormateurIaBtpPage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
-            <Breadcrumb
-              items={[
-                { label: 'Accueil', href: LINKS.home },
-                { label: 'À propos', href: LINKS.aPropos },
-                { label: 'Formateur IA BTP', href: PATH },
-              ]}
-            />
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
               {SITE_CONFIG.legalName} · Formatrice Qualiopi · Présentiel Île-de-France
             </p>
@@ -252,6 +232,8 @@ export default function FormateurIaBtpPage() {
           subtitle="Choisir un formateur / une formatrice IA pour le BTP — réponses claires."
           items={FAQ_FORMATEUR}
         />
+
+        <RelatedLinks path={LINKS.formateurIaBtp} />
 
         <section id="rdv" className={`${OFC_SEC.accent} scroll-mt-24`}>
           <div className="mx-auto max-w-4xl text-center">

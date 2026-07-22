@@ -6,9 +6,9 @@
 export const ALT_LOGO_FFB_OFFICIEL =
   'Logo FFB — Fédération Française du Bâtiment' as const;
 export const ALT_LOGO_FFB_ARTISAN =
-  'Logo FFB Artisan — réseau artisans du bâtiment' as const;
+  'Logo FFB Artisan — réseau FFB du bâtiment' as const;
 export const ALT_LOGO_FFB_GRAND_PARIS_IDF =
-  'Logo FFB Grand Paris — fédération partenaire des formations IA BTP de Laure Olivié' as const;
+  'Logo FFB Grand Paris — fédération partenaire formation IA BTP' as const;
 export const ALT_LOGO_CSFE =
   'Logo CSFE, Chambre Syndicale Française de l\'Étanchéité — partenaire formation IA' as const;
 export const ALT_LOGO_UMB_FFB =
@@ -23,7 +23,7 @@ export const LOGO_UMB_FFB = {
 } as const;
 
 export const ALT_LOGO_LINKEDIN_LEARNING =
-  'Logo LinkedIn Learning — Laure Olivié, instructrice IA pour le BTP' as const;
+  'Logo LinkedIn Learning — instructrice Laure Olivié' as const;
 
 /** Logo officiel LinkedIn Learning (bandeaux partenaires, EEAT, hubs). */
 export const LOGO_LINKEDIN_LEARNING = {
@@ -35,7 +35,7 @@ export const LOGO_LINKEDIN_LEARNING = {
 export const ALT_LOGO_CNAM_ENTREPRISES =
   'Logo CNAM entreprises Île-de-France' as const;
 export const ALT_LOGO_ARFAB =
-  'Logo ARFAB — association régionale formation artisans du bâtiment' as const;
+  'Logo ARFAB — association régionale de formation du bâtiment' as const;
 export const ALT_LOGO_IFRB_77 =
   'Logo IFRB 77 — Institut Formation Régional du Bâtiment Yvelines' as const;
 

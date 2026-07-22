@@ -5,8 +5,8 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { buildBreadcrumbTrail } from '@/lib/breadcrumb-trail';
 
 /**
- * Fil d'Ariane global — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil).
- * Composant client (`usePathname`) pour ne pas forcer le rendu dynamique via `headers()`.
+ * Fil d'Ariane unique — injecté dans `app/layout.tsx` (toutes les pages sauf l'accueil / admin).
+ * Ne pas re-rendre `<Breadcrumb />` dans les pages (évite le doublon visuel + JSON-LD).
  */
 export function GlobalBreadcrumbs() {
   const pathname = usePathname() ?? '/';

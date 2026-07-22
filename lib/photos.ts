@@ -12,7 +12,7 @@ export const SITE_LOGO_TITLE = "Retour à l'accueil — laureolivie.fr" as const
 export const PHOTOS = {
   // Photo profil rond fond bleu (LinkedIn / Graz)
   profileBlue: {
-    src: '/images/laure-olivie-circle.png',
+    src: '/images/laure-olivie-portrait-rond-fond-bleu-formation-ia-btp.webp',
     alt: "Laure Olivié, portrait rond sur fond bleu — formatrice en intelligence artificielle pour le BTP",
     width: 364,
     height: 404,
@@ -29,8 +29,7 @@ export const PHOTOS = {
   /** Logo Qualiopi Certifopac — bloc officiel AFC (mention + République française intégrées) */
   qualiopiLogoOfficiel: {
     src: '/images/logo-qualiopi-certifopac-actions-formation.png',
-    alt:
-      'Logo Qualiopi processus certifié — délivré par Certifopac — actions de formation, République française, OFC Création d\'Entreprise',
+    alt: 'Logo Qualiopi processus certifié — Certifopac, actions de formation',
     width: 1536,
     height: 802,
   },
@@ -100,7 +99,7 @@ export const PHOTOS = {
   /** À propos — Les Rencontres des Artisans FFB (atelier IA bâtiment) */
   rencontresArtisansIaFfbBtp: {
     src: '/images/rencontres-artisans-ia-ffb-btp.jpg',
-    alt: "Atelier FFB Les Rencontres des Artisans — intelligence artificielle pour équipes du bâtiment",
+    alt: "Atelier FFB en salle : participants aux ordinateurs, formatrice auprès d'un stagiaire",
     width: 1024,
     height: 682,
   },
@@ -228,7 +227,7 @@ export const PHOTOS = {
   /** Portrait principal 2026 — contact, ProfilePhoto, blog (carte laureolivie.fr) */
   portraitPro2026: {
     src: '/images/laure-olivie-portrait-bleu-circulaire-2026.webp',
-    alt: "Portrait circulaire Laure Olivié sur fond bleu OFC — symboles chantier et innovation",
+    alt: "Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment",
     title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
     width: 1024,
     height: 1024,
@@ -237,7 +236,7 @@ export const PHOTOS = {
   /** Hero page À propos — portrait circulaire IA & BTP (crane, ampoule, bâtiment) */
   aProposHero2026: {
     src: '/images/laure-olivie-a-propos-hero-2026.jpg',
-    alt: "Portrait Laure Olivié sur fond bleu OFC — formatrice IA et ChatGPT pour le BTP, certifiée Qualiopi",
+    alt: "Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment",
     title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
     description:
       "Portrait Laure Olivié sur fond bleu OFC : formatrice intelligence artificielle et ChatGPT pour TPE, PME et professionnels du BTP — symboles chantier et innovation.",
@@ -336,7 +335,7 @@ export const PHOTOS = {
   /** Catalogue formations — sessions réelles « Formation IA pour le BTP », salle et participants */
   formationIaBtpSalleInteractive2026: {
     src: '/images/formation-ia-btp-salle-interactive-2026.jpg',
-    alt: "Formatrice devant un écran « Formation IA pour le BTP », participants aux ordinateurs",
+    alt: "Laure Olivié devant l'écran « Formation IA pour le BTP », participants aux ordinateurs",
     width: 1024,
     height: 682,
   },
@@ -479,7 +478,7 @@ export const PHOTOS = {
   /** Page catalogue /formations — hero bannière (Laure Olivié, affiche formation IA BTP) */
   formationsCatalogueHero2026: {
     src: '/images/formation-ia-btp-catalogue-hero-laure-olivie-2026.webp',
-    alt: 'Affiche catalogue formations IA BTP — devis et appels d\'offres, Laure Olivié',
+    alt: 'Affiche catalogue Formation IA pour le BTP : portrait Laure Olivié, 4 h présentiel',
     title: 'Catalogue formations IA pour le BTP — Laure Olivié, OFC Création d\'Entreprise Qualiopi',
     width: 1024,
     height: 1024,
@@ -488,7 +487,7 @@ export const PHOTOS = {
   /** Page financement Constructys — bannière hero plafonds OPCO 2026 */
   financementConstructysHero2026: {
     src: '/images/financement-constructys-formation-ia-btp-hero-2026.webp',
-    alt: "Bannière Constructys — plafonds 2026 et eGestion pour financer une formation IA BTP",
+    alt: "Affiche Constructys finance votre formation IA BTP — plafonds 2026 et portrait Laure",
     title: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
     width: 1024,
     height: 1024,
@@ -497,7 +496,7 @@ export const PHOTOS = {
   /** Page d'accueil — hero header (portrait Laure, dashboard IA BTP, manuel formation) */
   heroAccueilFormationIABtpEchange2026: {
     src: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
-    alt: 'Affiche formation 4 h — Laure Olivié, devis chantier et appels d\'offres',
+    alt: 'Affiche formation IA pour le BTP : portrait Laure Olivié, devis et appels d\'offres',
     title: 'Formation IA pour le BTP — présentiel Île-de-France, financement OPCO selon éligibilité',
     width: 1024,
     height: 1024,
@@ -506,7 +505,7 @@ export const PHOTOS = {
   /** Accueil — session formation présentiel « Mes formations IA pour le BTP » */
   accueilFormationIaBtpSallePresentiel2026: {
     src: '/images/formation-ia-btp-salle-laure-olivie.webp',
-    alt: "Laure Olivié anime « Mes formations IA pour le BTP » en salle, petits groupes BTP",
+    alt: "Laure Olivié présente en salle devant un public BTP, écran et casque sur la table",
     title: 'Programme Mes formations IA pour le BTP — Comprendre, appliquer, performer en présentiel',
     width: 1024,
     height: 1024,
@@ -515,7 +514,7 @@ export const PHOTOS = {
   /** Accueil — cas d'usage IA appliquée au chantier (planification, rapports, documents) */
   accueilIaAppliqueeChantierBtp2026: {
     src: '/images/formation-ia-chantier-conducteur-travaux.webp',
-    alt: "Conducteur de travaux avec tablette sur chantier — planification et suivi",
+    alt: "Professionnel casqué consulte une tablette sur un chantier avec grue",
     width: 1024,
     height: 1024,
   },
@@ -523,7 +522,7 @@ export const PHOTOS = {
   /** Accueil — cas d'usage devis et chiffrage IA (notes terrain vers devis structuré) */
   accueilIaDevisChiffrageBtp2026: {
     src: '/images/formation-ia-devis-chiffrage-btp.webp',
-    alt: 'Schéma devis IA bâtiment : notes terrain, photos et plans convertis en devis structuré',
+    alt: 'Notes de terrain, photos et plans transformés en devis bâtiment structuré',
     width: 1024,
     height: 1024,
   },
@@ -531,7 +530,7 @@ export const PHOTOS = {
   /** Accueil — cas d'usage analyse DCE et appels d'offres (synthèse Go/No Go) */
   accueilAnalyseDceAppelsOffresBtp2026: {
     src: '/images/formation-ia-analyse-dce-btp.webp',
-    alt: "Schéma analyse DCE et appels d'offres — extraction et synthèse Go/No Go",
+    alt: "Classeur DCE et plans menant à une synthèse Go/No Go d'appel d'offres",
     width: 1024,
     height: 1024,
   },
@@ -539,7 +538,7 @@ export const PHOTOS = {
   /** Accueil — cas d'usage compte rendu chantier, DOE et PV (notes vocales vers document) */
   accueilCompteRenduDoePvChantier2026: {
     src: '/images/formation-ia-compte-rendu-chantier.webp',
-    alt: "Schéma compte rendu chantier — notes vocales transformées en CR, DOE ou PV",
+    alt: "Note vocale sur téléphone transformée en compte rendu de chantier structuré",
     width: 1024,
     height: 1024,
   },
@@ -547,7 +546,7 @@ export const PHOTOS = {
   /** Accueil — bloc « Référence & partenaires » (visuel formatrice OFC) */
   accueilReferencePartenairesLaureOFC2026: {
     src: '/images/formation-ia-dirigeant-pme-btp.webp',
-    alt: "Laure Olivié en discussion avec un dirigeant PME du bâtiment lors d'une session",
+    alt: "Laure Olivié échange autour d'un café avec un professionnel en gilet BTP",
     title: 'Formation entreprise sur mesure — réseau FFB, financement OPCO selon éligibilité',
     width: 1024,
     height: 682,
@@ -617,8 +616,7 @@ export const PHOTOS = {
   /** Cartes catalogue niveau 1 et niveau 2 — affiches promotionnelles par formation (juin 2026). */
   formationNiv01IaBatimentTravauxPublics2026: {
     src: '/images/formation-ia-batiment-travaux-publics.webp',
-    alt:
-      "Affiche formation IA bâtiment et travaux publics niveau 1 — Laure Olivié OFC Qualiopi, devis et administratif chantier",
+    alt: "Affiche L'IA au service des pros du bâtiment et TP — niveau débutant, Laure Olivié",
     description:
       "Affiche promotionnelle niveau 1 « L'IA au service des pros du bâtiment et des travaux publics » : débutant, 4 h, devis et administratif BTP. Laure Olivié, OFC Création d'Entreprise.",
     title: "Niveau 1 · L'IA au service des pros du bâtiment et des travaux publics",
@@ -627,8 +625,7 @@ export const PHOTOS = {
   },
   formationNiv02IaAppelsOffreBtp2026: {
     src: '/images/formation-ia-appels-offres-btp.webp',
-    alt:
-      "Affiche formation IA appels d'offres niveau 2 — analyse DCE, mémoire technique BTP, Laure Olivié Qualiopi",
+    alt: "Affiche L'IA appliquée aux appels d'offres BTP — niveau avancé, Laure Olivié",
     description:
       "Affiche « L'IA appliquée aux appels d'offres BTP » : analyse DCE, mémoire technique, Claude AI Pro et Cowork — 4 h, niveau avancé. Laure Olivié Qualiopi.",
     title: "Niveau 2 · L'IA appliquée aux appels d'offres BTP",
@@ -637,8 +634,7 @@ export const PHOTOS = {
   },
   formationNiv03IaConduiteTravaux2026: {
     src: '/images/formation-ia-conduite-travaux-btp.webp',
-    alt:
-      "Affiche formation IA conduite de travaux niveau 2 — CCTP, comptes rendus et skills Claude, Laure Olivié Qualiopi",
+    alt: "Affiche L'IA appliquée à la conduite de travaux — niveau avancé, Laure Olivié",
     description:
       "Affiche « L'IA appliquée à la conduite de travaux » : CCTP, CR, PPSPS, DOE et skills Claude BTP — 4 h, 8 participants max. Laure Olivié Qualiopi.",
     title: "Niveau 2 · L'IA appliquée à la conduite de travaux",
@@ -647,7 +643,7 @@ export const PHOTOS = {
   },
   formationNiv04MaitriserClaudeAiBtp2026: {
     src: '/images/formation-claude-ai-btp-catalogue.webp',
-    alt: "Affiche « Maîtriser Claude AI pour le BTP » niveau 2 — Projets, Skills et Cowork",
+    alt: "Affiche Maîtriser Claude AI pour le BTP — projets, skills et Cowork",
     description:
       'Affiche « Maîtriser Claude AI pour le BTP » : Projets, Skills, Cowork, connecteurs et Claude Code — 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
     title: 'Niveau 2 · Maîtriser Claude AI pour le BTP',
@@ -656,7 +652,7 @@ export const PHOTOS = {
   },
   formationClaudeIaChatCoworkCodeSkillsBtp2026: {
     src: '/images/formation-claude-ai-btp-catalogue.webp',
-    alt: 'Affiche formation Claude IA BTP — Chat, Cowork, Code et skills métier chantier',
+    alt: 'Affiche Maîtriser Claude AI pour le BTP — projets, skills et Cowork',
     description:
       'Formation « Claude IA pour le BTP : Chat, Cowork & Code » — skills sur-mesure administratif, AO, chantier et juridique. 4 h intra IDF, 8 participants max. Laure Olivié, OFC Qualiopi.',
     title: 'Claude IA pour le BTP : Chat, Cowork & Code',
@@ -665,8 +661,7 @@ export const PHOTOS = {
   },
   formationNiv05IaMaitriseOeuvre2026: {
     src: '/images/formation-ia-maitrise-oeuvre-btp.webp',
-    alt:
-      "Affiche formation IA maîtres d'œuvre niveau 2 — MOEX, DCE et comptes rendus chantier, Laure Olivié Qualiopi",
+    alt: "Affiche L'IA au service des maîtres d'œuvre — modules MOE, Laure Olivié",
     description:
       "Affiche « L'IA au service des maîtres d'œuvre » : analyse DCE, comptes rendus, OS et réserves — 4 h, maîtrise d'œuvre d'exécution. Laure Olivié, OFC Qualiopi.",
     title: "Niveau 2 · L'IA au service des maîtres d'œuvre",

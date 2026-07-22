@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { LINKS } from '@/lib/internal-links';
-import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 const PATH = LINKS.casUsageIaMetierBtp;
@@ -57,12 +56,6 @@ const faqSchema = getFAQSchema(FAQ_ITEMS);
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 const canonical = `${baseUrl}${PATH}`;
 
-const breadcrumbJsonLd = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Outils IA BTP', path: LINKS.outilsIaBtp },
-  { name: 'Cas d’usage IA par métier BTP', path: PATH },
-]);
-
 const webPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -83,21 +76,7 @@ export default function CasUsageIaMetierBtpPage() {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       <JsonLd id="schema-cas-usage-webpage" schema={webPageJsonLd} />
-      <JsonLd id="schema-cas-usage-breadcrumb" schema={breadcrumbJsonLd} />
       <JsonLd id="schema-cas-usage-faq" schema={faqSchema} />
-
-      <div className="mx-auto max-w-6xl px-4 pt-8 md:pt-10">
-        <Breadcrumb
-          items={[
-            { label: 'Accueil', href: '/' },
-            { label: 'Outils IA BTP', href: LINKS.outilsIaBtp },
-            { label: 'Cas d’usage IA par métier', href: PATH },
-          ]}
-          showVisual
-          omitJsonLd
-          className="text-sm text-[#5A5A5A]"
-        />
-      </div>
 
       <header className="border-b border-slate-200/80 bg-white px-4 py-10 md:py-14">
         <div className="mx-auto max-w-6xl">

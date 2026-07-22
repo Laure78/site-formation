@@ -80,7 +80,7 @@ function cell(children: Paragraph[], shaded = false): TableCell {
 
 function readLogoBuffer(): Buffer | null {
   try {
-    const p = path.join(process.cwd(), 'public', 'images', 'bework-logo-blueprint.png');
+    const p = path.join(process.cwd(), 'public', 'images', 'bework-logo-blueprint-delegation-administrative-btp.png');
     return fs.readFileSync(p);
   } catch {
     return null;

@@ -25,6 +25,7 @@ import {
 } from '@/lib/financement-copy';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 const PATH = LINKS.formationIaMaitriseOeuvre;
 const PDF_HREF = LINKS.pdfProgrammeIaMaitriseOeuvre;
@@ -278,6 +279,8 @@ export default function FormationIaMaitriseOeuvrePage() {
         </section>
 
         <CatalogueInfosQualiopi programmeRef="NIV-05" />
+
+        <RelatedLinks path={PATH} className="mt-12 !px-0" tone="transparent" />
 
         <section
           id="contact"

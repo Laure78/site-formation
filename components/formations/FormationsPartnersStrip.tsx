@@ -50,7 +50,7 @@ const LOGOS = [
   },
   {
     id: 'lefebvre-dalloz',
-    src: '/images/partenaires/lefebvre-dalloz.png',
+    src: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
     alt: LEFEBVRE_ALT,
     width: 200,
     height: 64,

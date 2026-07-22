@@ -1,0 +1,16 @@
+import type { Metadata } from 'next';
+import {
+  formationIaMarchePublicMetadata,
+  FORMATION_IA_MARCHE_PUBLIC_ETANCHEITE,
+} from '@/lib/formation-ia-marche-public-config';
+import { FormationIaMarchePublicLanding } from '@/components/formation-ia-marche-public/FormationIaMarchePublicLanding';
+
+export const revalidate = 3600;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return formationIaMarchePublicMetadata(FORMATION_IA_MARCHE_PUBLIC_ETANCHEITE);
+}
+
+export default function FormationIaMarchePublicEtancheitePage() {
+  return <FormationIaMarchePublicLanding config={FORMATION_IA_MARCHE_PUBLIC_ETANCHEITE} />;
+}

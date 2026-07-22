@@ -1,8 +1,9 @@
 /**
- * Article blog — Carrousel A « Présentation formation » (PDF export → PNG).
- * /public/images/blog/carrousel-a-presentation-formation/slide-*.png
+ * Article blog — Carrousel A « Présentation formation » (PDF export → WebP).
+ * /public/images/blog/carrousel-a-presentation-formation/formation-ia-batiment-*.webp
  */
 import type { BlogArticle } from './blog';
+import { LINKS } from '@/lib/internal-links';
 import { TARIF_SESSION_DEBUTANT_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
@@ -46,7 +47,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'La formation en une slide',
       content: `<figure class="my-6">
-<img src="${A}/slide-01.png" alt="Slide « L'IA au service du bâtiment » — promesse 4 h pratique, badge Qualiopi, Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-promesse-4h.webp" alt="Slide « L'IA au service du bâtiment » — promesse 4 h pratique, badge Qualiopi, Laure Olivié OFC" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Promesse : gain de temps sur les tâches quotidiennes — dès la première heure.</figcaption>
 </figure>`,
     },
@@ -54,7 +55,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Informations pratiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-02.png" alt="Slide informations pratiques — durée 4 h, tarif ${tarifNiv01}, effectif max et inscription" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-infos-pratiques.webp" alt="Slide informations pratiques — durée 4 h, tarif ${tarifNiv01}, effectif max et inscription" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Durée, tarif, format, effectif, inscription et prérequis — synthèse à valider sur convention.</figcaption>
 </figure>`,
     },
@@ -62,7 +63,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Public et prérequis',
       content: `<figure class="my-6">
-<img src="${A}/slide-03.png" alt="Slide public visé — chefs de chantier, conducteurs de travaux et assistants PME bâtiment" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-public-prerequis.webp" alt="Slide public visé — chefs de chantier, conducteurs de travaux et assistants PME bâtiment" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Si vous savez écrire un SMS, vous pouvez démarrer avec l’IA — avec encadrement et bonnes pratiques.</figcaption>
 </figure>`,
     },
@@ -70,7 +71,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Objectifs pédagogiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-04.png" alt="Slide objectifs pédagogiques — outils IA, devis, administratif chantier et visibilité en ligne" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-objectifs-pedagogiques.webp" alt="Slide objectifs pédagogiques — outils IA, devis, administratif chantier et visibilité" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Cinq objectifs structurants + évaluation continue sur cas réels.</figcaption>
 </figure>`,
     },
@@ -78,15 +79,15 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Les 4 modules du programme',
       content: `<figure class="my-6">
-<img src="${A}/slide-05.png" alt="Slide programme — 4 modules : fondamentaux IA, devis, administratif chantier et visibilité" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
-<figcaption class="mt-2 text-center text-sm text-slate-500">Fondamentaux, devis, administratif chantier (DOE, planning), visibilité en ligne.</figcaption>
+<img src="${A}/formation-ia-batiment-quatre-modules.webp" alt="Slide programme — 4 modules : fondamentaux IA, devis, administratif chantier et visibilité" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<figcaption class="mt-2 text-center text-sm text-slate-500">Fondamentaux, devis, administratif chantier (DOE, planning) et visibilité.</figcaption>
 </figure>`,
     },
     {
       type: 'html',
       title: 'Livrables : ce que vous repartez',
       content: `<figure class="my-6">
-<img src="${A}/slide-06.png" alt="Slide livrables — kits de prompts, attestation Qualiopi et ressources post-formation" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-livrables.webp" alt="Slide livrables — kits de prompts, attestation Qualiopi et ressources post-formation" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Kits de prompts, attestations et ressources — selon modalités prévues à la convention.</figcaption>
 </figure>`,
     },
@@ -94,7 +95,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Méthodes pédagogiques',
       content: `<figure class="my-6">
-<img src="${A}/slide-07.png" alt="Slide méthodes pédagogiques — 70 % pratique sur devis, emails et cas chantier réels" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-methodes.webp" alt="Slide méthodes pédagogiques — 70 % pratique sur devis, emails et cas chantier réels" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Ancrage terrain : pas de théorie abstraite seule.</figcaption>
 </figure>`,
     },
@@ -102,7 +103,7 @@ export const carrouselAFormationArticle: BlogArticle = {
       type: 'html',
       title: 'Inscriptions et contact',
       content: `<figure class="my-6">
-<img src="${A}/slide-08.png" alt="Slide inscriptions — contact et site laureolivie.fr pour réserver une session" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
+<img src="${A}/formation-ia-batiment-inscriptions.webp" alt="Slide inscriptions — contact et site laureolivie.fr pour réserver une session" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1080" height="1080" />
 <figcaption class="mt-2 text-center text-sm text-slate-500">Prêt à utiliser l’IA sur votre prochain chantier ? Passer par le site ou la prise de rendez-vous.</figcaption>
 </figure>`,
     },
@@ -113,10 +114,9 @@ export const carrouselAFormationArticle: BlogArticle = {
         '<p class="text-slate-600 leading-relaxed">Vous préférez le PDF pour le partager en interne ou l’imprimer ?</p><p class="mt-3"><a href="/formations/carrousels/Carrousel_A_Presentation_Formation.pdf" class="font-semibold text-[var(--accent)] hover:underline" download>Télécharger « Carrousel A — Présentation formation » (PDF)</a></p>',
     },
     {
-      type: 'paragraph',
+      type: 'html',
       title: 'Lien avec le catalogue du site',
-      content:
-        'La formation « NIV-01 — L’IA au service des pros du Bâtiment Travaux Publics » reprend ces grands enseignements dans le cadre catalogue actuel : forfait par session, session en 4 h, certification Qualiopi et financement possible via l’OPCO Constructys selon éligibilité. Pour les appels d’offres, voir la fiche NIV-02.',
+      content: `<p class="text-slate-600 leading-relaxed">La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (NIV-01) reprend ces grands enseignements dans le cadre catalogue actuel : forfait par session, session en 4 h, certification Qualiopi et financement possible via l’OPCO Constructys selon éligibilité. Pour les appels d’offres, voir la fiche NIV-02. Le panorama terrain est aussi dans mon article sur les <a href="${LINKS.blog7CasUsageIaBtp}" class="text-[var(--accent)] font-medium underline">7 cas d’usage IA dans le BTP</a>.</p>`,
     },
     {
       type: 'cta',

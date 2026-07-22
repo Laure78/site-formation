@@ -10,8 +10,27 @@ export const BRAND_TITLE_SUFFIX = ' | Laure Olivié';
 /** Longueur cible du `<title>` complet (segment + suffixe). */
 export const SEO_TITLE_MAX_LENGTH = 60;
 
-/** Longueur max du segment seul (avant « | Laure Olivié »). */
-export const SEO_TITLE_SEGMENT_MAX_LENGTH = 40;
+/**
+ * Budget du segment seul (avant « | Laure Olivié »).
+ * Dérivé de SEO_TITLE_MAX_LENGTH − suffixe (= 45) — ne pas fixer en dur plus bas,
+ * sinon titres légitimes du type « … en Île-de-France » sont coupés → « … en | Laure Olivié ».
+ */
+export const SEO_TITLE_SEGMENT_MAX_LENGTH =
+  SEO_TITLE_MAX_LENGTH - BRAND_TITLE_SUFFIX.length;
+
+/** Fourchette meta description SERP (phrases complètes, sans ellipse). */
+export const META_DESCRIPTION_MIN_LENGTH = 150;
+export const META_DESCRIPTION_MAX_LENGTH = 160;
+
+function isSeoDev(): boolean {
+  return process.env.NODE_ENV === 'development';
+}
+
+/** Warning SEO uniquement en développement (jamais en prod). */
+export function warnSeoMetadataDev(message: string): void {
+  if (!isSeoDev()) return;
+  console.warn(`[seo] ${message}`);
+}
 
 const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA pour le BTP';
 
@@ -19,14 +38,20 @@ const DESCRIPTION_AUTHOR_SUFFIX = 'Laure Olivié, formatrice IA pour le BTP';
 const BRAND_SUFFIX_PATTERN =
   /\s*\|\s*Laure\s+Olivi[ée](?:\s*[·•|]\s*[^|]+)?\s*$/i;
 
+/** Anciens suffixes catalogue (« | Qualiopi », etc.) — retirés avant troncature. */
+const LEGACY_PIPE_SUFFIX_PATTERN = /\s*\|\s*Qualiopi(?:\s*[·•].*)?\s*$/i;
+
 /** Mots / signes orphelins en fin de segment (après coupe). */
 const TRAILING_ORPHAN_WORDS = /\s+(?:de|du|des|la|le|les|pour|et|ou|à|en|un|une|d)\s*$/i;
 
 /** Retire le suffixe « | Laure Olivié » (et variantes) en fin de chaîne — y compris doublons. */
 export function stripBrandSuffix(title: string): string {
   let t = title.trim();
-  while (BRAND_SUFFIX_PATTERN.test(t)) {
+  let prev = '';
+  while (t !== prev) {
+    prev = t;
     t = t.replace(BRAND_SUFFIX_PATTERN, '').trim();
+    t = t.replace(LEGACY_PIPE_SUFFIX_PATTERN, '').trim();
   }
   return t;
 }
@@ -37,7 +62,7 @@ export function trimTitleOrphans(segment: string): string {
   let prev = '';
   while (t !== prev) {
     prev = t;
-    t = t.replace(/[&—:;,.|–\-]\s*$/, '').trim();
+    t = t.replace(/[&—:;,.|–\-]\s*$/u, '').trim();
     t = t.replace(TRAILING_ORPHAN_WORDS, '').trim();
   }
   return t;
@@ -46,32 +71,74 @@ export function trimTitleOrphans(segment: string): string {
 /**
  * Tronque le segment de titre (sans marque) à maxSegment caractères.
  * Coupe au dernier mot complet ; retire les orphelins (&, —, articles).
+ * À appeler AVANT d’ajouter `BRAND_TITLE_SUFFIX` — jamais sur un titre déjà suffixé.
  */
 export function truncateForBrandedTitle(
   segment: string,
   maxSegment = SEO_TITLE_SEGMENT_MAX_LENGTH,
 ): string {
   const clean = stripBrandSuffix(segment);
+  if (maxSegment <= 0) return '';
   if (clean.length <= maxSegment) return trimTitleOrphans(clean);
 
-  let cut = clean.slice(0, maxSegment).trim();
+  let cut = clean.slice(0, maxSegment).trimEnd();
   const lastSpace = cut.lastIndexOf(' ');
   if (lastSpace > 0) {
-    cut = cut.slice(0, lastSpace).trim();
+    cut = cut.slice(0, lastSpace).trimEnd();
   }
   return trimTitleOrphans(cut);
 }
 
-/** Titre HTML final : segment (≤ 40 car.) + suffixe ; total ≤ maxTotal (60). */
+/**
+ * Titre HTML / OG / Twitter : vérifie segment + suffixe ≤ maxTotal,
+ * tronque le segment AVANT le suffixe (jamais en plein mot), puis ajoute « | Laure Olivié ».
+ * Ne jamais tronquer une chaîne déjà suffixée (évite « … BTP & | Laure Olivié »).
+ */
 export function buildBrandedTitle(
   segment: string,
   maxTotal = SEO_TITLE_MAX_LENGTH,
   maxSegment = SEO_TITLE_SEGMENT_MAX_LENGTH,
 ): string {
+  const clean = stripBrandSuffix(segment);
   const suffixLen = BRAND_TITLE_SUFFIX.length;
-  const segmentBudget = Math.min(maxSegment, maxTotal - suffixLen);
-  const truncated = truncateForBrandedTitle(segment, segmentBudget);
-  return `${truncated}${BRAND_TITLE_SUFFIX}`;
+  const segmentBudget = Math.max(0, Math.min(maxSegment, maxTotal - suffixLen));
+  let truncated = truncateForBrandedTitle(clean, segmentBudget);
+
+  // Garde-fou : si le segment dépasse encore le budget, re-couper au mot
+  // avant d’ajouter le suffixe — jamais après concaténation.
+  while (truncated.length > segmentBudget && truncated.includes(' ')) {
+    truncated = trimTitleOrphans(truncated.slice(0, truncated.lastIndexOf(' ')));
+  }
+
+  if (clean.length > truncated.length) {
+    warnSeoMetadataDev(
+      `title tronqué avant suffixe (${clean.length} → ${truncated.length} car. segment, total ≤ ${maxTotal}) : « ${clean} » → « ${truncated}${BRAND_TITLE_SUFFIX} »`,
+    );
+  }
+
+  const full = `${truncated}${BRAND_TITLE_SUFFIX}`;
+  if (full.length > maxTotal) {
+    warnSeoMetadataDev(
+      `title final > ${maxTotal} car. (${full.length}) : « ${full} »`,
+    );
+  }
+
+  return full;
+}
+
+/** Vérifie la fourchette 150–160 car. — warning en dev, pas de troncature. */
+export function assertMetaDescriptionLength(
+  description: string,
+  context?: string,
+): void {
+  const len = description.length;
+  if (len >= META_DESCRIPTION_MIN_LENGTH && len <= META_DESCRIPTION_MAX_LENGTH) {
+    return;
+  }
+  const where = context ? ` (${context})` : '';
+  warnSeoMetadataDev(
+    `description hors fourchette ${META_DESCRIPTION_MIN_LENGTH}–${META_DESCRIPTION_MAX_LENGTH} car. : ${len}${where}`,
+  );
 }
 
 /** Ajoute la mention formatrice aux descriptions OG/meta (évite les doublons) */
@@ -129,7 +196,7 @@ function resolveImageUrl(
     'Laure Olivié — formation IA BTP et formation IA bâtiment, Paris Île-de-France, Qualiopi';
   if (!image?.url) {
     return {
-      url: `${baseUrl}/images/laure-olivie-formatrice.png`,
+      url: `${baseUrl}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
       width: 1200,
       height: 630,
       alt: defaultAlt,
@@ -169,12 +236,18 @@ export function buildPageMetadata({
   alternatesLanguages,
   category,
 }: BuildPageMetadataInput): Metadata {
+  void _keywords;
   const baseNorm = baseUrl.replace(/\/$/, '');
   const pathNorm = path
     ? path.startsWith('/')
       ? path
       : `/${path}`
     : '';
+  if (!pathNorm) {
+    warnSeoMetadataDev(
+      'path manquant — canonical auto-référencé tombe sur la racine du site',
+    );
+  }
   const canonical = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
   const rawDescription = appendAuthorSuffix
     ? withOgDescriptionSuffix(description)
@@ -182,12 +255,14 @@ export function buildPageMetadata({
   const metaDescription = descriptionFinal
     ? rawDescription
     : enrichPageDescription(rawDescription);
+  assertMetaDescriptionLength(metaDescription, pathNorm || '/');
+
   const rawSegment = stripBrandSuffix(titleAbsolute ?? title);
-  const titleSegment = truncateForBrandedTitle(rawSegment);
+  /** Toujours tronquer le segment puis ajouter le suffixe (title, og, twitter). */
   const htmlTitle = buildBrandedTitle(rawSegment);
   const ogTitle = openGraphTitle?.trim()
-    ? stripBrandSuffix(openGraphTitle)
-    : titleSegment;
+    ? buildBrandedTitle(openGraphTitle)
+    : htmlTitle;
   const ogDescription =
     openGraphDescription != null ? openGraphDescription.trim() : metaDescription;
   const img = resolveImageUrl(baseUrl, image);

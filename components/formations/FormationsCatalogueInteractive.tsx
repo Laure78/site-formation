@@ -62,7 +62,7 @@ function FormationCard({
 }: {
   cours: FormationCatalogueEntry;
   highlighted: boolean;
-  cardRef: (el: HTMLDivElement | null) => void;
+  cardRef?: (el: HTMLDivElement | null) => void;
 }) {
   const visuel = cours.visuel;
   const intraUrl = calendlyCatalogueUrl(`intra-${cours.slug}`);
@@ -168,12 +168,36 @@ function FormationCard({
   );
 }
 
+/** Grille des cartes catalogue — source unique (effectifs, tarifs, liens fiches). */
+export function FormationsCatalogueCards({
+  formations = FORMATIONS_CATALOGUE,
+  highlightedRefs = [],
+  setCardRef,
+}: {
+  formations?: FormationCatalogueEntry[];
+  highlightedRefs?: string[];
+  setCardRef?: (ref: string) => (el: HTMLDivElement | null) => void;
+}) {
+  const sorted = sortFormationsCatalogue(formations);
+  return (
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-2">
+      {sorted.map((cours) => (
+        <FormationCard
+          key={cours.ref}
+          cours={cours}
+          highlighted={highlightedRefs.includes(cours.ref)}
+          cardRef={setCardRef?.(cours.ref)}
+        />
+      ))}
+    </div>
+  );
+}
+
 export function FormationsCatalogueInteractive({
   formations,
 }: {
   formations: FormationCatalogueEntry[];
 }) {
-  const sorted = sortFormationsCatalogue(formations);
   const refsMap = useRef<Record<string, HTMLDivElement | null>>({});
   const setRef = useCallback((ref: string) => (el: HTMLDivElement | null) => {
     refsMap.current[ref] = el;
@@ -218,7 +242,7 @@ export function FormationsCatalogueInteractive({
             vous correspond.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {PROFILES.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -259,16 +283,11 @@ export function FormationsCatalogueInteractive({
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-2">
-          {sorted.map((cours) => (
-            <FormationCard
-              key={cours.ref}
-              cours={cours}
-              highlighted={highlightedRefs.includes(cours.ref)}
-              cardRef={setRef(cours.ref)}
-            />
-          ))}
-        </div>
+        <FormationsCatalogueCards
+          formations={formations}
+          highlightedRefs={highlightedRefs}
+          setCardRef={setRef}
+        />
       </section>
     </div>
   );

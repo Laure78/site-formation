@@ -2,7 +2,9 @@
  * Landings « formation IA pour le BTP » par métier — contenu + métadonnées + FAQ + teaches (Course JSON-LD).
  */
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { withMetierBtpIdfTitle } from '@/lib/formation-ia-metier-idf';
+import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
 import { createPageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
@@ -28,7 +30,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
       section: 'Formation IA pour les pros du BTP par métier',
     },
     image: config.ogImage ?? {
-      url: '/images/laure-olivie-formatrice.png',
+      url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,
       height: 630,
       alt: `Formation IA appliquée au bâtiment ${config.metierNomTitre} — Qualiopi, Laure Olivié`,
@@ -44,7 +46,7 @@ export const FORMATION_IA_METIER_ETANCHEUR: FormationIaMetierBtpConfig = {
   h1: 'Formation IA étancheur BTP — ChatGPT, CSFE & Qualiopi',
   metaTitle: 'Formation IA étancheur BTP — ChatGPT CSFE',
   metaDescription:
-    'Formation IA étancheur BTP : ChatGPT pour l’étanchéité bitumineuse (SEL, SBS), membranes EPDM, relevés, bardage. Laure Olivié a formé la CSFE. Mémoires, DTU 43, AO. Qualiopi, Constructys.',
+    "Formation IA étancheur BTP en présentiel IDF : bitume, EPDM, relevés et appels d'offres. Qualiopi, CSFE, Constructys selon éligibilité. RDV découverte.",
   keywords: [
     'formation IA étancheur BTP',
     'ChatGPT étanchéité',
@@ -137,16 +139,16 @@ Structure : contexte chantier, observations par zone, réserves factuelles, dema
     'Qualiopi — confidentialité des données chantier',
   ],
   ogImage: {
-    url: '/images/formation-ia-etancheur-btp-og.png',
+    url: '/images/formation-ia-etancheur-btp-og.webp',
     width: 1200,
     height: 630,
-    alt: 'Étanchéité sur toiture-terrasse — équipe sur membrane et relevés',
+    alt: 'Formation IA étancheur BTP — session Qualiopi, partenariat filière étanchéité',
   },
   coverImage: {
-    url: '/images/formation-ia-etancheur-btp-og.png',
+    url: '/images/formation-ia-etancheur-btp-og.webp',
     width: 1200,
     height: 630,
-    alt: 'Technicien en étanchéité sur toiture-terrasse — intervention sur membrane',
+    alt: 'Formation IA étancheur BTP — session Qualiopi, partenariat filière étanchéité',
   },
   showAuthorBio: true,
   authorBioClosingLine:
@@ -307,6 +309,152 @@ Rédige un mail de relance pour client [particulier / pro] : rappel du contexte,
     'Formations par métier proches, catalogue Qualiopi et ressources pour aller plus loin sur l’IA dans le BTP.',
 };
 
+/**
+ * Charpentier & menuisier bois — UMB-FFB, DTU 31.1 / 31.2, agencement, menuiserie
+ * (page combinée distincte des landings `/formation-ia-charpentier-btp` et `/formation-ia-menuisier-btp`)
+ */
+export const FORMATION_IA_METIER_CHARPENTIER_MENUISIER: FormationIaMetierBtpConfig = {
+  id: 'charpentier-menuisier',
+  path: '/formation-ia-charpentier-menuisier-btp',
+  h1: 'Formation IA charpentier & menuisier bois — Île-de-France',
+  metaTitle: 'Formation IA métiers du bois BTP',
+  metaDescription:
+    'Formation IA pour les pros du BTP : charpente et menuiserie bois, DTU 31.1/31.2, calepinage, devis. Partenariat UMB-FFB. Qualiopi, présentiel Île-de-France.',
+  keywords: [
+    'formation IA charpentier menuisier',
+    'formation IA métiers du bois BTP',
+    'ChatGPT charpente ossature bois',
+    'DTU 31.1 DTU 31.2',
+    'CCTP lot bois',
+    'devis agencement calepinage',
+    'UMB-FFB formation IA',
+    'Qualiopi charpentier menuisier',
+  ],
+  metierNom: 'charpentiers et menuisiers bois',
+  metierNomTitre: 'bois',
+  normeRef: 'les DTU 31.1 et 31.2',
+  essentielItems: [
+    'Charpente, ossature bois, agencement, menuiserie extérieure et intérieure — DTU 31.1 / 31.2, CCTP lot bois, calepinage, débit, quincaillerie.',
+    'Partenariat UMB-FFB : Laure Olivié forme les entreprises des métiers du bois avec le réseau FFB — cas d’usage alignés sur le terrain.',
+    'Session 4 h Qualiopi : brouillons de devis d’agencement, mémoires et CR — relecture humaine obligatoire.',
+    'Financement Constructys selon éligibilité — présentiel Île-de-France uniquement, ateliers sur vos dossiers anonymisés.',
+  ],
+  problemParagraphs: [
+    `Les entreprises de charpente et de menuiserie bois enchaînent ossature, fermes, agencement intérieur, menuiseries extérieures et lots mixtes : chaque dossier mobilise le ${'`'}DTU 31.1${'`'} (charpente bois) et le ${'`'}DTU 31.2${'`'} (construction à ossature bois), le CCTP lot bois, les plans de calepinage et de débit, la quincaillerie et les interfaces avec couverture, gros œuvre ou second œuvre.`,
+    `Le temps part aussi en rédaction : devis d’agencement détaillés (panneaux, chants, ferrures), nomenclatures, comptes rendus après levage ou pose, relances client et mémoires pour appels d’offres. Sans méthode, on reformule tard le soir les mêmes postes de débit et de quincaillerie.`,
+    `Les marchés publics et privés exigent des écrits précis sur le lot bois : une IA mal cadrée invente des sections, des essences ou des références DTU. La formation Qualiopi pose le cadre — prompts, sources, relecture et confidentialité — sans remplacer le bureau d’études ni le fascicule.`,
+    `L’objectif des sessions ${OFC} (partenariat ${UMB_FFB_NOM_LIBRE}) est de gagner plusieurs heures par semaine sur la structure des documents, pas de dimensionner une charpente ni de valider un assemblage à la place d’une personne compétente.`,
+  ],
+  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis d’agencement (calepinage, débit, quincaillerie), lecture structurée d’un CCTP lot bois, plans de mémoire technique et CR de chantier charpente / ossature — toujours avec validation métier. Angle réseau : les exemples s’alignent sur les enjeux des adhérents UMB-FFB (TPE et PME des métiers du bois en Île-de-France).`,
+  prompts: [
+    {
+      title: 'Analyse CCTP — lot bois (DTU 31.1 / 31.2)',
+      body: `Voici un extrait de CCTP lot bois (texte) : [COLLEZ L’EXTRAIT].
+Liste les exigences par sous-partie : charpente traditionnelle ou industrielle, ossature bois, traitements, essences, interfaces couverture / gros œuvre, essais, documents à fournir. Sous chaque point ambigu, propose 2–3 questions à poser au maître d’œuvre. Rappel : ne pas conclure sur la conformité — validation sur les fascicules DTU 31.1 et DTU 31.2 et avis techniques.`,
+    },
+    {
+      title: 'Devis d’agencement — calepinage, débit, quincaillerie (postes)',
+      body: `Tu es menuisier / agenceur en France. Données : pièce [type], surfaces / linéaire [X], type de finition [melaminé / massif / autre], quincaillerie [liste ou à préciser].
+Propose la STRUCTURE détaillée d’un devis d’agencement (intitulés de postes, pas les prix) : relevé, calepinage, débit, usinage, assemblage, quincaillerie, pose, finitions. Rappelle de croiser le CCTP lot bois et les fiches fabricants. Ne pas inventer de cotes définitives : [à relever / à calepiner].`,
+    },
+    {
+      title: 'Nomenclature & débit — charpente / ossature (sans calcul RDM)',
+      body: `Données : [LISTE ÉLÉMENTS ou extrait de nomenclature / plan de débit].
+Propose une STRUCTURE de tableau (colonnes + lignes types) pour reprise interne : élément, essence, section, longueur, quantité, observations. Rappel : pas de dimensionnement structurel ni de portées sans logiciel / bureau d’études. Croiser DTU 31.1 ou 31.2 selon le système.`,
+    },
+    {
+      title: 'Mémoire technique — appel d’offres lot bois',
+      body: `Critères du CCAP / CCTP notés : [LISTE]. Notre entreprise : [TAILLE, qualifications, références anonymisées].
+Rédige un plan de mémoire technique (titres + 2 bullets par titre) : méthode d’exécution (charpente / ossature / agencement), coordination lots, sécurité, planning, moyens. Pas de copier-coller du règlement de consultation. Vocabulaire : DTU 31.1, DTU 31.2, calepinage, débit, quincaillerie.`,
+    },
+    {
+      title: 'Compte rendu — chantier charpente / ossature bois',
+      body: `Notes de chantier brutes : [NOTES : levage, assemblages, réserves, météo, interfaces].
+Rédige un CR professionnel : contexte, observations par zone ou par ouvrage, écarts éventuels par rapport au descriptif, demandes de précisions MOE, suites proposées. Ton factuel. Ne pas inventer de références normatives : [à compléter] si besoin.`,
+    },
+    {
+      title: 'Mail client — devis d’agencement (clarifications)',
+      body: `Situation : [DEVIS ENVOYÉ / POINTS OUVERTS], client : [particulier / pro], points à clarifier : [calepinage, quincaillerie, délais, options].
+Rédige un mail clair : rappel du périmètre, questions ouvertes (cotes, choix de ferrures, finitions), prochaines étapes avant validation du devis. Ton professionnel, sans engagement hors devis. Rappeler que le débit définitif suit le relevé terrain.`,
+    },
+  ],
+  csfePartnership: false,
+  umbPartnership: true,
+  testimonialQuote:
+    '« Les devis d’agencement et les mémoires lot bois sortent plus vite — le calepinage et le DTU, ça reste notre validation. Le cadre UMB-FFB aide à parler le même langage métier. »',
+  testimonialAttribution: 'Dirigeant PME charpente-menuiserie — Yvelines (retour OFC, anonymisé)',
+  faq: [
+    {
+      q: 'ChatGPT peut-il appliquer les DTU 31.1 et 31.2 à la place de mon équipe ?',
+      a: `Non : les fascicules, le dimensionnement et la conformité des assemblages relèvent de votre qualification et de vos outils. L’IA peut structurer une lecture de CCTP lot bois, des listes de contrôle et des brouillons — jamais remplacer la validation technique.`,
+    },
+    {
+      q: 'Comment utiliser l’IA pour un devis d’agencement (calepinage, débit, quincaillerie) ?',
+      a: `Pour proposer une structure de postes et reformuler vos notes — pas pour inventer des cotes, des quantités de débit ou un choix de ferrures définitif. Vous validez chaque ligne avant envoi client.`,
+    },
+    {
+      q: 'Quel est le lien avec le partenariat UMB-FFB (Union des Métiers du Bois) ?',
+      a: `${OFC} est partenaire de l’${UMB_FFB_NOM_LIBRE} pour sensibiliser et former les entreprises des métiers du bois à une IA utile et encadrée. Les sessions restent certifiées Qualiopi ; les validations techniques restent en entreprise.`,
+    },
+    {
+      q: 'Mes plans de charpente et nomenclatures sont-ils protégés dans ChatGPT ?',
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${OFC}.`,
+    },
+    {
+      q: 'La formation IA charpentier-menuisier est-elle financement possible selon éligibilité ?',
+      a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+    },
+    {
+      q: 'Quelle différence avec les pages « charpentier » ou « menuisier » seules ?',
+      a: `Les pages dédiées ciblent un métier ; celle-ci couvre le continuum bois (charpente, ossature, agencement, menuiserie) avec l’angle UMB-FFB et un jeu de prompts communs. Les trois pages se complètent.`,
+    },
+  ],
+  courseName: 'Formation IA charpentier & menuisier bois — UMB-FFB, Qualiopi',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour charpentiers et menuisiers — DTU 31.1/31.2, CCTP lot bois, calepinage, débit, devis d’agencement, mémoires. Partenariat ${UMB_FFB_NOM_LIBRE}. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
+  courseTeaches: [
+    'ChatGPT pour métiers du bois BTP',
+    'DTU 31.1 / 31.2 — usage documentaire assisté',
+    'Devis d’agencement : calepinage, débit, quincaillerie',
+    'Mémoires techniques lot bois',
+    'Comptes rendus chantier charpente / ossature',
+    'Qualiopi — confidentialité des données',
+  ],
+  ogImage: {
+    url: '/images/formation-ia-intra-entreprise-batiment.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Formation IA appliquée au bâtiment — métiers du bois, session Qualiopi',
+  },
+  coverImage: {
+    url: '/images/formation-ia-intra-entreprise-batiment.webp',
+    width: 1024,
+    height: 571,
+    alt: 'Charpentiers et menuisiers en formation IA — Île-de-France',
+  },
+  showAuthorBio: true,
+  authorBioClosingLine:
+    'Basée en Île-de-France, elle accompagne notamment les entreprises de charpente, d’ossature bois et de menuiserie via le partenariat UMB-FFB.',
+  relatedMetierLinks: [
+    {
+      href: LINKS.formationIaCharpentierBtp,
+      title: 'Formation IA charpentier BTP',
+      description: 'Focus charpente et ossature — DTU 31, nomenclatures et coordination couverture.',
+    },
+    {
+      href: LINKS.formationIaMenuisierBtp,
+      title: 'Formation IA menuisier bâtiment',
+      description: 'Focus menuiseries, pose et SAV — DTU 36, relevés et devis.',
+    },
+    {
+      href: LINKS.formationIaCouvreurBtp,
+      title: 'Formation IA couvreur zingueur',
+      description: 'Interface toiture après structure bois — même démarche IA Qualiopi.',
+    },
+  ],
+  liensUtilesIntro:
+    'Pages charpentier et menuisier dédiées, couvreur, catalogue Qualiopi, partenaires UMB-FFB et ressources IA BTP.',
+};
+
 export {
   FORMATION_IA_METIER_ASSISTANTE,
   FORMATION_IA_METIER_CARRELEUR,
@@ -327,7 +475,7 @@ export const FORMATION_IA_METIER_PLOMBIER: FormationIaMetierBtpConfig = {
   h1: 'Formation IA plombier chauffagiste — ChatGPT, DTU 60.11 & Qualiopi',
   metaTitle: 'Formation IA plombier chauffagiste — BTP, Qualiopi',
   metaDescription:
-    'Formation IA plombier chauffagiste : devis salle de bain, chaudière, évacuation, PER, cuivre, VMC double flux, PAC. Aides MaPrimeRénov’, CEE — brouillons encadrés. Qualiopi, Constructys.',
+    'Formation IA plombier chauffagiste BTP en présentiel IDF : devis sanitaire, DTU 60 et dossiers aides. Qualiopi, Constructys selon éligibilité. RDV découverte.',
   keywords: [
     'formation IA plombier chauffagiste',
     'formation IA plombier BTP',

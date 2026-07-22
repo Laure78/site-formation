@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { VoirAussi } from '@/components/VoirAussi';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
@@ -427,10 +429,17 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           </p>
         </section>
 
+        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+
         <VoirAussi
           {...voirAussiMetierProps({
             currentPath: PATH,
-            excludeHrefs: [LINKS.formationIaAssistanteGestionBtp, LINKS.formations, LINKS.financement],
+            excludeHrefs: [
+              ...getClusterRelatedHrefs(PATH),
+              LINKS.formationIaAssistanteGestionBtp,
+              LINKS.formations,
+              LINKS.financement,
+            ],
           })}
         />
 
@@ -440,7 +449,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
             { href: LINKS.formations, label: 'Catalogue formations IA pour les pros du BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-assistante-administrative-btp-footer-rdv'), label: 'Prendre rendez-vous' },
-          ]}
+          ].filter((l) => !getClusterRelatedHrefs(PATH).includes(l.href))}
         />
       </article>
     </div>

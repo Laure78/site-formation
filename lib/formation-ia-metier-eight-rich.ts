@@ -34,110 +34,130 @@ function faqStandard(metierLabel: string): FAQItem[] {
 export const FORMATION_IA_METIER_MACON: FormationIaMetierBtpConfig = {
   id: 'macon',
   path: '/formation-ia-macon-btp',
-  h1: 'Formation IA maçon BTP — gros œuvre, DTU 20 & Qualiopi',
-  metaTitle: 'Formation IA maçon BTP — ChatGPT, métrés, mémoires',
+  h1: 'Formation IA maçon & maçonnerie — Île-de-France',
+  metaTitle: 'Formation IA maçon BTP — gros œuvre',
   metaDescription:
-    'Formation IA maçon BTP : béton, maçonnerie, DTU 20, phases gros œuvre, métrés, mémoires techniques. Qualiopi, Constructys.',
+    'Formation IA pour les pros du BTP — maçons : DTU 20.1, métré béton/parpaing, ferraillage, DPGF, CCTP lot 2, planning. Qualiopi, présentiel Île-de-France.',
   keywords: [
     'formation IA maçon BTP',
+    'formation IA maçonnerie',
     'ChatGPT gros œuvre',
-    'DTU 20',
-    'mémoire technique maçonnerie',
-    'métrés maçonnerie IA',
+    'DTU 20.1',
+    'métré béton parpaing',
+    'ferraillage IA',
+    'DPGF maçonnerie',
+    'CCTP lot 2',
+    'mémoire technique gros œuvre',
     'Qualiopi maçon',
   ],
-  metierNom: 'maçons',
+  metierNom: 'maçons et entreprises de maçonnerie',
   metierNomTitre: 'maçon',
-  normeRef: 'le DTU 20',
+  normeRef: 'le DTU 20.1',
+  essentielItems: [
+    'Gros œuvre, béton, coffrage, élévations — DTU 20.1, métré béton/parpaing, ferraillage, DPGF, planning gros œuvre, CCTP lot 2.',
+    'Session 4 h Qualiopi : devis maçonnerie, métré assisté ([à valider par le métré]), CR de coulage, mémoires — relecture humaine obligatoire.',
+    'L’IA structure brouillons et tableaux ; elle ne remplace ni le métré ni la conformité normative.',
+    'Financement Constructys selon éligibilité — présentiel Île-de-France uniquement, ateliers sur vos dossiers anonymisés.',
+  ],
   problemParagraphs: [
-    `Les entreprises de gros œuvre enchaînent bétonnage, élévations, reprises en sous-œuvre et interfaces avec les autres lots : chaque dossier mobilise le ${'`'}DTU 20${'`'}, des plans de phasage et des quantitatifs à expliquer au client ou au maître d’ouvrage.`,
-    `Le vocabulaire est dense : coffrage, béton dosé, chaînage, reprises, retrait deau, géotextile — sans parler des contrôles béton et des réserves en réception. Recopier à la main les mêmes explications épuise conducteurs et chefs de chantier.`,
-    `Sur les marchés publics, les mémoires techniques attendent une méthode claire (moyens, phasage, coordination) ; une IA mal cadrée produit du texte « lisse » mais faux sur un dosage ou un délai technique.`,
-    `L’objectif des sessions ${OFC} est de structurer brouillons et listes de contrôle tout en gardant la validation métier sur les plans et les engagements signés.`,
+    `Les entreprises de maçonnerie et de gros œuvre enchaînent bétonnage, coffrage, ferraillage, élévations en parpaing ou béton banché, reprises et interfaces avec les autres lots : chaque dossier mobilise le ${'`'}DTU 20.1${'`'}, le CCTP lot 2, le DPGF et un planning gros œuvre à tenir face aux aléas.`,
+    `Le temps part aussi en rédaction : structure de devis maçonnerie, métré béton/parpaing à croiser avec les plans, comptes rendus de coulage, relances fournisseur béton, mémoires techniques pour appels d’offres. Sans méthode, on reformule tard le soir les mêmes postes de coffrage et de ferraillage.`,
+    `Sur les marchés, une IA mal cadrée invente des volumes, des dosages ou des références DTU. La formation Qualiopi pose le cadre — prompts, sources, mention [à valider par le métré], relecture et confidentialité — sans remplacer le géomètre-métré ni le fascicule.`,
+    `L’objectif des sessions ${OFC} est de gagner plusieurs heures par semaine sur la structure des documents (devis, CR, mémoires, mails), pas de chiffrer définitivement un ouvrage ni de valider un ferraillage à la place d’une personne compétente.`,
   ],
-  solutionIntro: `Vous apprenez à utiliser ChatGPT comme assistant de brouillon sur vos cas réels (anonymisés) : métrés, synthèses de réunion, plans de réponse marché — avec relecture humaine et rappels sur le DTU 20.`,
-  casUsageConcrets: [
-    'Structurer un mémoire technique gros œuvre à partir d’un CCAP et de vos moyens réels (effectifs, matériel, références anonymisées).',
-    'Transformer des notes de visite de chantier en compte rendu exploitable pour le client et les équipes.',
-    'Proposer un plan de phasage indicatif (titres + jalons) à compléter avec votre planning interne.',
-    'Lister les questions à poser au bureau de contrôle ou au MOE quand une pièce du CCTP est ambiguë sur le béton ou les reprises.',
-    'Rédiger un courrier de synthèse après réunion de coordination (décisions, porteurs, risques) sans repartir d’une page blanche.',
-  ],
+  solutionIntro: `Les sessions combinent démonstration et ateliers sur vos cas (anonymisés). Vous apprenez à produire des brouillons pour devis maçonnerie, métré assisté (toujours avec [à valider par le métré]), CR de coulage, relances fournisseur béton, plans de mémoire technique gros œuvre et analyse de CCTP lot 2 — toujours avec validation métier et croisement du DTU 20.1.`,
   prompts: [
     {
-      title: 'Métré gros œuvre — structure de postes (sans quantités définitives)',
-      body: `Données : [TYPE OUVRAGE, cotes principales, reprises ou non].
-Propose une STRUCTURE de métré (postes et sous-postes) pour un devis gros œuvre : déblais, fondations, élévations, reprises, interfaces. Rappelle : quantités définitives selon plans et DTU 20 — ne pas inventer de volumes chiffrés : [à mesurer].`,
+      title: 'Structure de devis maçonnerie (postes, sans prix)',
+      body: `Tu es maçon / conducteur de travaux gros œuvre en France. Données : [TYPE OUVRAGE — fondations / élévation / dalle / reprises], matériaux [béton / parpaing / mixte], accès chantier [LISTE].
+Propose la STRUCTURE détaillée d’un devis maçonnerie (intitulés de postes, pas les prix) : préparation, coffrage, ferraillage, béton, maçonnerie, reprises, évacuations de déblais, protections. Rappelle de croiser le CCTP lot 2, le DPGF et le DTU 20.1. Ne pas inventer de quantités : [à valider par le métré].`,
     },
     {
-      title: 'CR réunion — coordination gros œuvre / autres lots',
-      body: `Notes brutes : [NOTES].
-Rédige un compte rendu : décisions, interfaces coffrage / électricité / étanchéité, réserves, prochaines étapes. Ton factuel. Ne pas attribuer de faute sans élément.`,
+      title: 'Métré assisté — béton / parpaing (avec validation métré)',
+      body: `Contexte : [DESCRIPTION OUVRAGE], cotes indicatives : [LISTE ou « plans joints »].
+Propose une STRUCTURE de métré (postes et sous-postes) : volumes béton, surfaces / ml de maçonnerie parpaing, coffrage, ferraillage (en kg ou cadres — selon vos usages), reprises. Format tableau : poste / unité / quantité provisoire / remarque. Chaque quantité chiffrée doit porter la mention [à valider par le métré]. Ne pas conclure un chiffrage définitif.`,
     },
     {
-      title: 'Plan de mémoire technique — marché public gros œuvre',
-      body: `Critères notés : [LISTE]. Entreprise : [taille, moyens, chantiers de référence anonymisés].
-Propose un plan (titres + 2 bullets par titre) : méthode, phasage, moyens humains et matériels, sécurité, environnement. Pas de copier-coller du CCAP.`,
+      title: 'Compte rendu de coulage béton',
+      body: `Notes brutes de coulage : [NOTES — ouvrage, formule béton, volume livré, heure, météo, contrôles, anomalies].
+Rédige un CR professionnel : identification de l’ouvrage, conditions, déroulé du coulage, contrôles effectués, réserves ou écarts, suites (cure, décoffrage, prochaines étapes). Ton factuel. Ne pas inventer de résultats d’essais : [à compléter] si besoin.`,
     },
     {
-      title: 'Questions MOE — extrait CCTP béton / maçonnerie',
-      body: `Extrait anonymisé : [TEXTE].
-Liste les exigences et 4–6 questions de clarification si le texte est flou. Renvoi DTU 20 — pas de conclusion de conformité.`,
+      title: 'Relance fournisseur béton (délai, ton, clarté)',
+      body: `Situation : [COMMANDE / formule / volume / créneau promis], impact chantier : [PLANNING GROS ŒUVRE], historique : [RELANCE DÉJÀ FAITE oui/non].
+Rédige un mail de relance au fournisseur béton : rappel de la commande, créneau attendu, impact sur le coffrage / ferraillage / coulage, demande de confirmation écrite. Ton ferme et professionnel. Pas d’engagement contractuel hors faits fournis.`,
     },
     {
-      title: 'Mail client — délai ou sujet technique (ton professionnel)',
-      body: `Contexte : [SUJET]. Objectif : [rappel délai / demande de pièce].
-Rédige un mail court, clair, sans promettre un détail technique non validé en interne.`,
+      title: 'Mémoire technique — gros œuvre (plan)',
+      body: `Critères du CCAP / CCTP lot 2 notés : [LISTE]. Notre entreprise : [TAILLE, moyens, références anonymisées].
+Rédige un plan de mémoire technique (titres + 2 bullets par titre) : méthode d’exécution (coffrage, ferraillage, bétonnage), planning gros œuvre, moyens, coordination lots, sécurité, environnement. Pas de copier-coller du règlement de consultation. Vocabulaire : DTU 20.1, DPGF, métré, ferraillage.`,
+    },
+    {
+      title: 'Analyse CCTP — lot maçonnerie / lot 2',
+      body: `Voici un extrait de CCTP maçonnerie (lot 2) : [COLLEZ L’EXTRAIT].
+Liste les exigences par sous-partie : performances béton, coffrage, ferraillage, maçonnerie, contrôles, documents à fournir, interfaces. Sous chaque point ambigu, propose 2–3 questions à poser au maître d’œuvre. Rappel : ne pas conclure sur la conformité — validation sur le fascicule DTU 20.1 et les pièces marché (DPGF, plans).`,
     },
   ],
   csfePartnership: false,
   testimonialQuote:
-    '« Les plans de mémoire et les CR de coordination sortent plus vite — le calcul des volumes et la signature, ça reste chez nous. »',
-  testimonialAttribution: 'Conducteur de travaux gros œuvre — IDF (anonymisé)',
+    '« Les devis, les CR de coulage et les plans de mémoire sortent plus vite — le métré et le ferraillage, ça reste notre validation. »',
+  testimonialAttribution: 'Gérant PME maçonnerie gros œuvre — Essonne (retour OFC, anonymisé)',
   faq: [
     {
-      q: 'ChatGPT connaît-il le DTU 20 pour trancher à ma place ?',
-      a: `Non : il peut proposer une structure ou des questions, mais il hallucine sur articles et exceptions. La conformité relève du fascicule officiel et de votre équipe. L’IA aide à organiser vos notes.`,
+      q: 'ChatGPT peut-il appliquer le DTU 20.1 à la place de mon équipe ?',
+      a: `Non : le fascicule, les dosages, le ferraillage et la conformité relèvent de votre qualification et de vos outils. L’IA peut structurer une lecture de CCTP lot 2, des listes de contrôle et des brouillons — jamais remplacer la validation technique.`,
     },
     {
-      q: 'Comment l’IA aide sur les métrés et quantitatifs maçonnerie ?',
-      a: `À structurer des postes, lister ce qui manque pour chiffrer et préparer des questions — pas à remplacer le relevé ou le logiciel métier.`,
+      q: 'Comment utiliser l’IA pour un métré béton ou parpaing ?',
+      a: `Pour proposer une structure de postes et reformuler vos notes — chaque quantité doit rester marquée [à valider par le métré]. L’IA ne remplace ni le relevé ni le logiciel de métré.`,
     },
     {
-      q: 'L’IA peut-elle rédiger un mémoire technique complet pour un AO ?',
-      a: `Elle peut fournir un brouillon et un plan à partir de vos données — la relecture, la cohérence avec votre offre de prix et la signature restent humaines.`,
+      q: 'L’IA peut-elle rédiger un mémoire technique gros œuvre complet pour un AO ?',
+      a: `Elle peut fournir un plan et un brouillon à partir de vos moyens et du CCTP — la relecture, la cohérence avec le DPGF / l’offre de prix et la signature restent humaines.`,
     },
-    ...faqStandard('maçon'),
+    {
+      q: 'Mes plans de coffrage et quantitatifs sont-ils protégés dans ChatGPT ?',
+      a: `Évitez les plans nominatifs complets dans un outil grand public sans cadre entreprise. Anonymisez, utilisez des extraits, ou des offres professionnelles sans entraînement — c’est enseigné en formation ${OFC}.`,
+    },
+    {
+      q: 'La formation IA maçon BTP est-elle financement possible selon éligibilité ?',
+      a: `Oui selon éligibilité et dossier : ${OFC} est certifié Qualiopi ; le financement OPCO Constructys suit les règles en vigueur pour les entreprises du BTP.`,
+    },
+    {
+      q: 'Quelle différence avec la formation catalogue BTP-01 ?',
+      a: `BTP-01 pose les bases communes ; cette page métier aligne exemples et prompts sur le devis maçonnerie, le métré, le coulage, le CCTP lot 2 et le planning gros œuvre.`,
+    },
   ],
-  courseName: 'Formation IA maçon BTP — DTU 20, Qualiopi',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — gros œuvre, métrés, mémoires, réponses marchés. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
+  courseName: 'Formation IA maçon BTP — DTU 20.1, Qualiopi',
+  courseDescription: `${OFC} : formation IA et ChatGPT pour maçons — gros œuvre, béton, coffrage, métré, ferraillage, DPGF, CCTP lot 2, mémoires. Session 4 h, Qualiopi, financement possible selon éligibilité.`,
   courseTeaches: [
-    'ChatGPT pour maçons BTP',
-    'DTU 20 — usage documentaire assisté',
-    'Mémoires techniques et CCTP',
-    'Comptes rendus et phasage (brouillons)',
-    'Qualiopi — données chantier',
+    'ChatGPT pour maçons et maçonnerie BTP',
+    'DTU 20.1 — usage documentaire assisté',
+    'Devis et métré assisté ([à valider par le métré])',
+    'CR de coulage et relances fournisseur béton',
+    'Mémoires techniques gros œuvre / CCTP lot 2',
+    'Qualiopi — confidentialité des données chantier',
   ],
   ogImage: { ...COVER, alt: 'Formation IA pour le BTP — maçonnerie et gros œuvre' },
   coverImage: { ...COVER, alt: 'Session formation IA pour équipes gros œuvre' },
   showAuthorBio: true,
   authorBioClosingLine:
-    'Elle intervient auprès des équipes gros œuvre, charpente et second œuvre pour des usages IA concrets et encadrés.',
+    'Basée en Île-de-France, elle accompagne notamment les équipes de maçonnerie et de gros œuvre sur une IA utile au bureau et au chantier.',
   relatedMetierLinks: [
     {
-      href: '/formation-ia-charpentier-btp',
-      title: 'Formation IA charpentier BTP',
-      description: 'Structures bois, ossatures, mémoires techniques — même méthode Qualiopi.',
+      href: LINKS.formationIaCharpentierMenuisierBtp,
+      title: 'Formation IA charpentier & menuisier bois',
+      description: 'Structure bois et interfaces après appuis gros œuvre — angle UMB-FFB.',
     },
     {
-      href: '/formation-ia-couvreur-btp',
+      href: LINKS.formationIaCouvreurBtp,
       title: 'Formation IA couvreur zingueur',
-      description: 'Couverture, zinguerie, interfaces toiture après gros œuvre.',
+      description: 'Couverture et zinguerie après élévations — même démarche Qualiopi.',
     },
     {
-      href: '/formation-ia-dirigeant-btp',
-      title: 'Formation IA dirigeant BTP',
-      description: 'ROI et pilotage du déploiement IA en PME bâtiment.',
+      href: LINKS.formationConducteurTravaux,
+      title: 'Formation IA conducteur de travaux',
+      description: 'Pilotage chantier, CR et coordination multi-lots.',
     },
   ],
   liensUtilesIntro:
@@ -246,7 +266,7 @@ export const FORMATION_IA_METIER_PEINTRE: FormationIaMetierBtpConfig = {
   h1: 'Formation IA peintre bâtiment — finitions, DTU 59 & Qualiopi',
   metaTitle: 'Formation IA peintre bâtiment — devis, supports, DTU 59',
   metaDescription:
-    'Formation IA peintre bâtiment : supports, finitions, devis par pièce, DTU 59, mémoires. Qualiopi, Constructys.',
+    'Formation IA peintre BTP en présentiel IDF : devis par pièce, DTU 59 et mémoires techniques. Qualiopi, Constructys selon éligibilité. Prenez RDV découverte.',
   keywords: [
     'formation IA peintre bâtiment',
     'formation IA peintre BTP',
@@ -497,9 +517,9 @@ STRUCTURE de devis (postes) sans prix. Rappels DTU 36 et notices — [à complé
   showAuthorBio: true,
   authorBioClosingLine: 'Elle forme les poseurs et encadrants menuiserie sur l’IA au service du chiffrage et du relationnel client.',
   relatedMetierLinks: [
+    { href: LINKS.formationIaCharpentierMenuisierBtp, title: 'Formation IA charpentier & menuisier bois', description: 'Charpente, ossature, agencement — partenariat UMB-FFB.' },
     { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Appuis et interfaces gros œuvre.' },
-    { href: '/formation-ia-electricien-btp', title: 'Formation IA électricien BTP', description: 'Réservations et passages.' },
-    { href: '/formation-ia-plaquiste-btp', title: 'Formation IA plaquiste plâtrier', description: 'Cloisons et préparation des pièces.' },
+    { href: LINKS.formationElectricienBtp, title: 'Formation IA électricien BTP', description: 'Réservations et passages.' },
   ],
   liensUtilesIntro: 'Métiers proches, catalogue, Claude AI, financement, blog.',
 };
@@ -510,7 +530,7 @@ export const FORMATION_IA_METIER_CARRELEUR: FormationIaMetierBtpConfig = {
   h1: 'Formation IA carreleur — pose collée, DTU 52 & Qualiopi',
   metaTitle: 'Formation IA carreleur — grands formats, joints, DTU 52',
   metaDescription:
-    'Formation IA carreleur : métrés, découpes, délais de prise, joints, DTU 52, réception, devis. Qualiopi, Constructys.',
+    'Formation IA carreleur BTP en présentiel IDF : métrés, DTU 52, joints et devis réception. Qualiopi, Constructys selon éligibilité. Prenez RDV découverte.',
   keywords: [
     'formation IA carreleur',
     'formation IA carreleur BTP',
@@ -673,9 +693,9 @@ Propose STRUCTURE de tableau (colonnes + lignes types) pour reprise interne. Rap
   showAuthorBio: true,
   authorBioClosingLine: 'Elle accompagne les équipes charpente et ossature bois sur une IA utile au bureau et au chantier.',
   relatedMetierLinks: [
-    { href: '/formation-ia-couvreur-btp', title: 'Formation IA couvreur zingueur', description: 'Interface toiture après structure.' },
+    { href: LINKS.formationIaCharpentierMenuisierBtp, title: 'Formation IA charpentier & menuisier bois', description: 'Charpente, ossature, agencement — angle UMB-FFB, DTU 31.1/31.2.' },
+    { href: LINKS.formationIaCouvreurBtp, title: 'Formation IA couvreur zingueur', description: 'Interface toiture après structure.' },
     { href: '/formation-ia-macon-btp', title: 'Formation IA maçon BTP', description: 'Appuis, plots et reprises gros œuvre.' },
-    { href: '/formation-ia-menuisier-btp', title: 'Formation IA menuisier bâtiment', description: 'Ouvrants et percements avec le bois.' },
   ],
   liensUtilesIntro: 'Métiers proches, catalogue, Claude AI BTP, financement, blog.',
 };

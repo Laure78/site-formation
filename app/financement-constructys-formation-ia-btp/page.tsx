@@ -80,7 +80,7 @@ const STEPS = [
 
 const FINANCEMENT_META_TITLE = 'Financement Constructys IA BTP 2026';
 const FINANCEMENT_META_DESCRIPTION =
-  'Financer votre formation IA pour le BTP avec Constructys en 2026 : plafonds, délais eGestion, dossier OFC Qualiopi. Présentiel uniquement · Île-de-France uniquement. Visio découverte gratuite.';
+  'Financement Constructys formation IA pour le BTP : plafonds 2026, eGestion, dossier OFC Qualiopi. Présentiel IDF, selon éligibilité. Visio découverte gratuite.';
 
 export const metadata = createPageMetadata({
   title: FINANCEMENT_META_TITLE,
@@ -327,7 +327,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               <figure className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
                 <Image
                   src="/images/constructys-plafonds-financement-pdc-batiment-juin-2026.png"
-                  alt="Plafonds Constructys au 1er juin 2026 : coût pédagogique 24 € HT/h (moins de 11 salariés) ou 19 € HT/h (11 à moins de 50 salariés), session BTP"
+                  alt="Tableau Constructys juin 2026 : plafonds coût pédagogique 24 € HT/h ou 19 € HT/h"
                   width={1024}
                   height={768}
                   className="h-auto w-full"
@@ -604,14 +604,19 @@ export default function FinancementConstructysFormationIABTPPage() {
           <div className="mt-8">
             <AllerPlusLoin
               links={[
-                { href: '/formations', label: 'Catalogue des formations IA pour les pros du BTP' },
+                { href: LINKS.formations, label: 'Catalogue des formations IA pour les pros du BTP' },
+                {
+                  href: LINKS.blogSubrogationConstructysFinancementIaBtp,
+                  label: 'Subrogation Constructys — sans avance de trésorerie',
+                },
+                { href: LINKS.blogFinancerFormationIaBtpConstructys, label: 'Guide financer formation IA Constructys' },
                 { href: LINKS.formationParis, label: 'Formation IA BTP Paris (75)' },
-                { href: '/formation-ia-artisans-btp', label: 'ChatGPT pour entreprises BTP' },
-                { href: '/ia-devis-batiment', label: 'IA devis bâtiment' },
-                { href: '/formations/ia-appels-offre-btp', label: 'Programme IA appels d’offres BTP' },
-                { href: '/formation-ia-travaux-publics', label: 'IA travaux publics' },
+                { href: LINKS.chatgptArtisans, label: 'ChatGPT pour entreprises BTP' },
+                { href: LINKS.iaDevis, label: 'IA devis bâtiment' },
+                { href: LINKS.formationAO, label: 'Programme IA appels d’offres BTP' },
+                { href: LINKS.formationIaTravauxPublics, label: 'IA travaux publics' },
                 { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)' },
-                { href: '/blog', label: 'Tous les articles' },
+                { href: LINKS.blog, label: 'Tous les articles' },
                 { href: buildSiteCalendlyCtaUrl('financement-constructys-formation-ia-btp-footer-rdv'), label: 'Prendre rendez-vous' },
               ]}
             />

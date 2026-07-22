@@ -19,6 +19,8 @@ export type FormationIaMetierBtpConfig = {
   prompts: { title: string; body: string }[];
   /** Bloc partenariat CSFE (uniquement étancheur) */
   csfePartnership: boolean;
+  /** Bloc partenariat UMB-FFB (métiers du bois : charpente / menuiserie) */
+  umbPartnership?: boolean;
   testimonialQuote: string;
   testimonialAttribution: string;
   faq: FAQItem[];

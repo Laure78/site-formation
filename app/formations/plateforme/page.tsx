@@ -4,7 +4,7 @@ import { ArrowUpRight, BookOpen, GraduationCap, LogIn, MonitorPlay, ShieldCheck 
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { JsonLd } from '@/components/JsonLd';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS, TEACHIZY_PATHS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -67,6 +67,7 @@ const FAQ = [
 
 function getPlateformePageJsonLd() {
   const pageUrl = `${SITE_CONFIG.url}${LINKS.formationPlateforme}`;
+  /** Fil d’Ariane : uniquement via `GlobalBreadcrumbs` (évite un 2ᵉ BreadcrumbList). */
 
   return {
     '@context': 'https://schema.org',
@@ -79,14 +80,7 @@ function getPlateformePageJsonLd() {
         description: META_DESCRIPTION,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${SITE_CONFIG.url}#website` },
-        breadcrumb: {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_CONFIG.url },
-            { '@type': 'ListItem', position: 2, name: 'Formations', item: `${SITE_CONFIG.url}${LINKS.formations}` },
-            { '@type': 'ListItem', position: 3, name: 'Plateforme apprenant', item: pageUrl },
-          ],
-        },
+        mainEntity: { '@id': `${pageUrl}#faq` },
       },
       {
         '@type': 'WebApplication',
@@ -101,19 +95,23 @@ function getPlateformePageJsonLd() {
           description: 'Accès réservé aux stagiaires OFC selon convention de formation.',
         },
         provider: {
-          '@type': 'Organization',
-          name: "OFC Création d'Entreprise",
-          url: SITE_CONFIG.url,
+          '@id': `${SITE_CONFIG.url}#organization`,
         },
       },
     ],
   };
 }
 
+const faqSchema = getFAQSchema(FAQ.map(({ q, a }) => ({ q, a })));
+if (faqSchema) {
+  (faqSchema as Record<string, unknown>)['@id'] = `${SITE_CONFIG.url}${LINKS.formationPlateforme}#faq`;
+}
+
 export default function FormationPlateformePage() {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       <JsonLd id="schema-formation-plateforme" schema={getPlateformePageJsonLd()} />
+      {faqSchema ? <JsonLd id="schema-faq-formation-plateforme" schema={faqSchema} /> : null}
 
       <section
         aria-labelledby="formation-plateforme-title"

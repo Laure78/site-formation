@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { VoirAussi } from '@/components/VoirAussi';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -344,10 +346,18 @@ export default function FormationIAArtisansBTPPage() {
           </div>
         </section>
 
+        <RelatedLinks path={LINKS.chatgptArtisans} className="mt-14 !px-0" tone="transparent" />
+
         <VoirAussi
           {...voirAussiMetierProps({
             currentPath: '/formation-ia-artisans-btp',
-            excludeHrefs: [LINKS.formationIaBtpNiveau1BatimentTp, LINKS.iaDevis, LINKS.iaCDT, LINKS.blog],
+            excludeHrefs: [
+              ...getClusterRelatedHrefs(LINKS.chatgptArtisans),
+              LINKS.formationIaBtpNiveau1BatimentTp,
+              LINKS.iaDevis,
+              LINKS.iaCDT,
+              LINKS.blog,
+            ],
           })}
         />
 
@@ -358,7 +368,7 @@ export default function FormationIAArtisansBTPPage() {
             { href: LINKS.iaCDT, label: 'IA conducteur de travaux' },
             { href: LINKS.blog, label: 'Articles et guides' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-artisans-btp-footer-rdv'), label: 'Prendre rendez-vous' },
-          ]}
+          ].filter((l) => !getClusterRelatedHrefs(LINKS.chatgptArtisans).includes(l.href))}
         />
       </article>
     </div>

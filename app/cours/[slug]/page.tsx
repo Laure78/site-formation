@@ -40,11 +40,15 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const supabase = await createClient();
-  const { data } = await supabase.from('courses').select('title, description').eq('slug', slug).eq('published', true).single();
+  const { data } = await supabase.from('courses').select('title').eq('slug', slug).eq('published', true).single();
   if (!data) return { title: 'Cours non trouvé' };
+  /** Meta manuelle (gabarit) — jamais d’excerpt / slice BDD. */
+  const COURS_META_DESCRIPTION =
+    'Cours formation IA pour le BTP : module pratique présentiel IDF, supports Qualiopi OFC. Constructys selon éligibilité. Accédez au programme et RDV découverte.';
   const meta = createPageMetadata({
     title: data.title,
-    description: (data.description as string)?.slice(0, 160) ?? 'Formation IA pour le BTP',
+    description: COURS_META_DESCRIPTION,
+    descriptionFinal: true,
     path: `/cours/${slug}`,
   });
   const canonical = coursCanonicalUrl(slug);
@@ -98,7 +102,14 @@ export default async function CoursDetailPage({ params }: PageProps) {
           <div className="md:col-span-3">
             <div className="aspect-video w-full overflow-hidden bg-slate-200">
               {course.image_url ? (
-                <img src={course.image_url} alt={`Formation intelligence artificielle BTP : ${course.title} par Laure Olivié`} className="h-full w-full object-cover" />
+                <img
+                  src={course.image_url}
+                  alt={`Formation intelligence artificielle BTP : ${course.title} par Laure Olivié`}
+                  width={1280}
+                  height={720}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
               ) : (
                 <div className="flex h-full w-full items-center justify-center text-slate-400">
                   <BookOpen size={64} strokeWidth={1.5} />

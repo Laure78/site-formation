@@ -1,8 +1,7 @@
 import { VerificationDtuBeworkTool } from '@/components/dtu-verification/VerificationDtuBeworkTool';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
-import { createPageMetadata, getBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
 export const revalidate = 3600;
 const PATH = LINKS.verificationDtuBeworkTest;
@@ -21,12 +20,6 @@ export const metadata = createPageMetadata({
 
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 const canonical = `${baseUrl}${PATH}`;
-
-const breadcrumbJsonLd = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Outils IA BTP', path: LINKS.outilsIaBtp },
-  { name: 'Prototype test DTU BeWork', path: PATH },
-]);
 
 const webPageJsonLd = {
   '@context': 'https://schema.org',
@@ -48,21 +41,9 @@ export default function VerificationDtuBeworkTestPage() {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       <JsonLd id="schema-dtu-test-webpage" schema={webPageJsonLd} />
-      <JsonLd id="schema-dtu-test-breadcrumb" schema={breadcrumbJsonLd} />
 
       <div className="mx-auto max-w-6xl px-4 pt-8 md:pt-10">
-        <Breadcrumb
-          items={[
-            { label: 'Accueil', href: '/' },
-            { label: 'Outils IA BTP', href: LINKS.outilsIaBtp },
-            { label: 'Prototype DTU BeWork', href: PATH },
-          ]}
-          showVisual
-          omitJsonLd
-          className="text-sm text-[#5A5A5A]"
-        />
-
-        <header className="mt-8 rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-10">
+        <header className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-10">
           <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
             Page de test · balise robots noindex
           </p>
