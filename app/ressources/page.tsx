@@ -52,6 +52,8 @@ export default function RessourcesIndexPage() {
 
       <RessourcesHero />
 
+      <RessourcesGuidesSection />
+
       <RessourcesThematicHub />
 
       <section className="border-t border-slate-200 bg-white py-10 md:py-12" aria-labelledby="ressources-linkedin-heading">
@@ -92,8 +94,6 @@ export default function RessourcesIndexPage() {
       </section>
 
       <RessourcesLexiqueSection />
-
-      <RessourcesGuidesSection />
 
       <RessourcesSkillsSection />
 

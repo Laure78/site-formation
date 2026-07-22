@@ -33,11 +33,21 @@ export const LOGO_LINKEDIN_LEARNING = {
   height: 600,
 } as const;
 export const ALT_LOGO_CNAM_ENTREPRISES =
-  'Logo CNAM entreprises Île-de-France' as const;
+  'Logo CNAM Entreprises — partenaire formation continue BTP' as const;
+export const ALT_LOGO_LEFEBVRE_DALLOZ =
+  'Logo Lefebvre Dalloz — partenaire formation professionnelle BTP' as const;
 export const ALT_LOGO_ARFAB =
   'Logo ARFAB — association régionale de formation du bâtiment' as const;
 export const ALT_LOGO_IFRB_77 =
   'Logo IFRB 77 — Institut Formation Régional du Bâtiment Yvelines' as const;
+
+/** Logo Lefebvre Dalloz Formation. */
+export const LOGO_LEFEBVRE_DALLOZ = {
+  src: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
+  alt: ALT_LOGO_LEFEBVRE_DALLOZ,
+  width: 293,
+  height: 60,
+} as const;
 
 export type ClientLogoItem = {
   id: string;

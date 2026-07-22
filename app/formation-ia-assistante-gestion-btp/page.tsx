@@ -643,7 +643,12 @@ export default function FormationIaAssistanteGestionBtpPage() {
           </p>
         </section>
 
-        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+        <RelatedLinks
+          path={PATH}
+          className="mt-14 !px-0"
+          tone="transparent"
+          excludeHrefs={[LINKS.formationIaAssistanteBtp]}
+        />
 
         <VoirAussi
           {...voirAussiMetierProps({
@@ -651,6 +656,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
             excludeHrefs: [
               ...getClusterRelatedHrefs(PATH),
               LINKS.formationIaAssistanteBtp,
+              LINKS.formationIaResponsableAdministratifBtp,
               LINKS.financement,
               LINKS.formations,
             ],

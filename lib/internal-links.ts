@@ -148,6 +148,8 @@ export const LINKS = {
   formationIaAssistanteBtp: '/formation-ia-assistante-administrative-btp',
   /** Landing SEO — assistante de gestion BTP (facturation, relances, DGD) */
   formationIaAssistanteGestionBtp: '/formation-ia-assistante-gestion-btp',
+  /** Landing SEO — responsable administratif / RAF BTP (devis, factures, mails, dossiers) */
+  formationIaResponsableAdministratifBtp: '/formation-ia-responsable-administratif-btp',
   /** Page pilier SEO — étancheurs (partenaire CSFE) */
   formationIaEtancheur: '/formation-ia-etancheur',
   /** Cluster commande publique — pilier marché public de travaux */
