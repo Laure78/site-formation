@@ -1,25 +1,39 @@
-import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
-import { ArrowRight, Check, Phone } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
+import { EnBref } from '@/app/components/EnBref';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
-import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
+import {
+  CHEF_CHANTIER_EN_BREF,
+  CHEF_CHANTIER_FAQ,
+  CHEF_CHANTIER_PREREQUIS,
+  CHEF_CHANTIER_PROGRAMME,
+  CHEF_CHANTIER_PUBLIC,
+  CHEF_CHANTIER_USE_CASES,
+  FORMATION_IA_CHEF_CHANTIER_TP_PATH,
+  FORMATION_IA_CHEF_CHANTIER_TP_SEO,
+  PROMPT_ALERTES_CHEF,
+  PROMPT_EMAILS_CHEF,
+  PROMPT_RAPPORT_CHEF,
+  PROMPT_VARIATION_CHEF,
+} from '@/lib/formation-ia-chef-chantier-tp-landing';
 
 export const revalidate = 3600;
-const PATH = '/formation-ia-chef-chantier-tp';
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA Chef Chantier TP Île-de-France',
-  description:
-    'Automatisez rapports chantier, coordination sous-traitants, PPSPS, planning. Formation Qualiopi. Financement possible selon éligibilité.',
-  path: PATH,
+  title: FORMATION_IA_CHEF_CHANTIER_TP_SEO.title,
+  description: FORMATION_IA_CHEF_CHANTIER_TP_SEO.description,
+  path: FORMATION_IA_CHEF_CHANTIER_TP_PATH,
+  descriptionFinal: true,
   keywords: [
     'formation IA chef de chantier TP',
     'ChatGPT rapport chantier',
@@ -31,136 +45,38 @@ export const metadata = createPageMetadata({
     'travaux publics IA',
   ],
   openGraphType: 'article',
+  article: {
+    publishedTime: '2025-01-15',
+    modifiedTime: '2026-07-22',
+    author: 'Laure Olivié',
+    section: 'Formation IA pour les pros du BTP',
+  },
 });
 
-const PROMPT_RAPPORT = `Crée un rapport d'avancement chantier TP pour ce jour (Grand Paris, marché public eau/TP) :
-
-Notes brutes :
-- Jour 10 de chantier
-- Canalisation EU : posé 220m aujourd'hui (versus 180m prévu), gain de 40m
-- Terrassement zone B : creusement 85% (avant ça traîner demain)
-- Équipes : 2 canalisateurs expérience, 1 apprenti, 3 manœuvres, 1 chef de chantier (moi)
-- Sécurité : pas d'incident. Rappel balisage zone croisement routes, bien respecté.
-- Météo : pluie matin ralenti, rattrapage après-midi
-- Obstacles : canalisation gaz trouvée lors creusement zone C, GrDF appelé, confirmation lundi
-- Planning : demain creusement zone C ralenti (attendre confirmation gaz), mais canalisation restera à jour si zone B finalisée
-
-Rapport doit contenir :
-1. Résumé avancement (m³, linéaires, % completion vs planning)
-2. Équipes présentes et qualification
-3. Sécurité et incidents (ou pas d'incidents)
-4. Obstacles rencontrés et solutions apportées
-5. Planning demain (prévisions équipes/engins)
-6. Points nécessitant décision/escalade (ex. canalisation gaz)
-
-Format : pro, lisible pour maître d'ouvrage / maîtrise d'œuvre, 1-2 pages, avec tableau avancement.
-(Remplace les notes par vos données réelles du jour.)`;
-
-const PROMPT_EMAILS = `Rédige 3 emails de coordination (chantier TP Grand Paris, jour 10) :
-
-Email 1 — Au canalisateur :
-Tu lui dis : "250m de canalisation posés, bravo. Demain on finit zone A (50m). Zone C révélée canalisation gaz non prévue (GrDF confirmation lundi). Peux-tu attendre lundi matin ou dois-je appeler une 2e équipe pour démarrer zone B demain ?"
-
-Email 2 — À l'électricien :
-Tu lui dis : "Tes installations électriques zone A : commandes de puissance mal positionnées selon DTU (vérification demain matin avec le coordonnateur SPS). Tu peux commencer zone B en attendant ?"
-
-Email 3 — Au terrassier :
-Tu lui dis : "Zone B 85% finalisée demain. Zone C : terrain devrait être prêt mercredi. Tu as les engins nécessaires ou tu les charges lundi matin ?"
-
-Pour chaque email :
-- Ton professionnel mais cordial, coordination claire
-- Informations critiques (dates, obstacle, demande d'action)
-- Signature avec toi en tant que chef de chantier + numéro contact
-
-Format : prêt à copier-coller dans la messagerie.`;
-
-const PROMPT_VARIATION = `Maître d'ouvrage demande variation CCTP :
-"Canalisation EU actuellement prévue 315mm PVC groupe I. On voudrait upgrade 400mm béton renforcé pour durabilité long terme. Quel est le surcoût ?"
-
-Contexte : 450m de canalisation, coût unitaire m² prévu 45€ HT PVC, surcoût béton estimé 65€ HT/m.
-
-Rédige pour moi :
-1. Analyse technique indicative : avantages/inconvénients (à valider par le bureau d'études / MO)
-2. Calcul surcoût indicatif : (450m × (65-45€)) = XX€ HT — à recalculer avec mes PU contractuels
-3. Impact planning : hypothèses possibles
-4. Brouillon de demande de variation pour maître d'ouvrage : justification technique + montant surcoût + accord de principe
-5. Rappel : validation direction et méthode interne de votre entreprise
-
-Ton : neutre, technique, pas de jugement, faits et hypothèses clairement séparés.`;
-
-const PROMPT_ALERTES = `Crée une fiche de rappels sécurité quotidiens pour ce chantier TP (marché eau/TP Grand Paris) :
-
-Contexte : canalisation 450m, terrassement 200m³, zone proximité route (RN7), arrivée gaz non prévue (GrDF jeudi).
-
-Points à couvrir (rappels / checklist — complément aux documents officiels du chantier) :
-1. Zone de croisement routes : balisage temporaire, signalisation (gilets, cônes, etc.)
-2. Déviations éventuelles et circulation
-3. Travaux en tranchée : aération, sorties, risques enfermement
-4. Canalisation gaz : périmètre GrDF, consignes équipes
-5. EPI : gilets, casques, chaussures, protections auditives engins, harnais si travail en hauteur
-
-Pour chaque point :
-- Description simple
-- Qui contrôle / fréquence
-- Rappel : non-respect = risque humain et sanction
-
-Format : checklist 1 page, affichage chantier.
-Ajoute : « Ce document ne remplace pas le PPSPS ni les plans de prévention ; il sert de mémo opérationnel. »`;
-
-const FAQ_ITEMS = [
-  {
-    q: 'DTU, CCTP, marchés publics : que peut faire ChatGPT ?',
-    a: "L'IA peut aider à structurer des textes, à partir des références que vous citez. La conformité technique et contractuelle reste validée par vous, le bureau d’études et les instances de la mission.",
-  },
-  {
-    q: 'PPSPS et coordination sécurité : l’IA peut-elle les rédiger ?',
-    a: "Les documents réglementaires (PPSPS, plans de prévention, consignes officielles) relèvent des rôles et habilitations prévus par la réglementation. L'IA peut aider à des brouillons de comptes rendus ou de checklists, pas à se substituer au responsable désigné.",
-  },
-  {
-    q: "L'IA va-t-elle remplacer les chefs de chantier ?",
-    a: "Non. L'IA accélère la rédaction et la structuration ; la décision, l'autorité de chantier et la responsabilité restent humaines.",
-  },
-  {
-    q: 'Comment financer la formation si je suis salarié ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de l'employeur et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
-  },
-  {
-    q: 'Métrés et % avancement : ChatGPT calcule-t-il correctement ?',
-    a: "Elle peut présenter des tableaux et des pourcentages à partir des chiffres que vous fournissez. Les relevés sources et la validation des quantités restent votre responsabilité.",
-  },
-  {
-    q: 'Demandes de prolongation de délai : peut-on utiliser l’IA ?',
-    a: "Oui pour structurer un courrier : faits, causes, impacts, pièces à joindre — à relire et à faire valider selon votre organisation.",
-  },
-  {
-    q: 'Faut-il être bon en informatique ?',
-    a: "Non. On formule les demandes en français, avec des prompts que vous réutilisez et adaptez.",
-  },
-];
-
 const SOMMAIRE = [
-  { href: '#le-probleme', label: 'Le problème : coordination et paperasse TP' },
-  { href: '#la-solution', label: 'La solution : l’IA pour structurer votre coordination' },
-  { href: '#methode', label: 'Méthode pas à pas avec prompts ChatGPT' },
-  { href: '#resultats', label: 'Résultats concrets et témoignages' },
-  { href: '#faq', label: 'FAQ — questions des chefs de chantier TP sur l’IA' },
-  { href: '#a-propos', label: 'Qui est Laure Olivié ?' },
-  { href: '#rdv', label: 'Réservez votre visio découverte gratuite' },
+  { href: '#cas-usage', label: 'Cas d’usage IA chef de chantier TP' },
+  { href: '#le-probleme', label: 'Coordination et documentation TP' },
+  { href: '#public', label: 'Public & prérequis' },
+  { href: '#programme', label: 'Ce que vous apprenez' },
+  { href: '#methode', label: 'Méthode + prompts ChatGPT / Claude' },
+  { href: '#resultats', label: 'Résultats concrets' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#rdv', label: 'Visio découverte gratuite' },
 ];
 
 export default function FormationIaChefChantierTpPage() {
-  const faqSchema = getFAQSchema(FAQ_ITEMS);
+  const faqSchema = getFAQSchema([...CHEF_CHANTIER_FAQ]);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      <JsonLd id="schema-faq-page" schema={faqSchema} />
+    <div className="mx-auto max-w-4xl px-4 py-16 text-slate-800">
+      {faqSchema ? <JsonLd id="schema-faq-chef-chantier-tp" schema={faqSchema} /> : null}
 
       <nav className="mb-8 text-sm text-slate-600">
-        <Link href="/" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.home} className="text-[#377CF3] hover:underline">
           Accueil
         </Link>
         {' / '}
-        <Link href="/formations" className="text-[var(--accent)] hover:underline">
+        <Link href={LINKS.formations} className="text-[#377CF3] hover:underline">
           Formations
         </Link>
         {' / '}
@@ -168,31 +84,60 @@ export default function FormationIaChefChantierTpPage() {
       </nav>
 
       <article>
+        <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Formation IA pour chefs de chantier TP —{' '}
-          <span className="text-[var(--accent)]">gagnez du temps sur la coordination et la documentation</span>
+          {FORMATION_IA_CHEF_CHANTIER_TP_SEO.h1}
         </h1>
+        <p className="mt-2 text-xl font-medium text-[#377CF3]">
+          Gagnez du temps sur la coordination et la documentation
+        </p>
+
+        <EnBref>
+          {CHEF_CHANTIER_EN_BREF.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </EnBref>
+
         <p className="mt-6 text-xl text-slate-600">
-          Objectif : <strong>libérer jusqu’à environ 5 h par semaine</strong> sur rapports, mails et dossiers.{' '}
-          <strong>Île-de-France</strong> & <strong>Grand Paris</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          Objectif : accélérer rapports, mails et dossiers pour passer plus de temps sur le terrain.{' '}
+          <strong>Île-de-France</strong> &amp; <strong>Grand Paris</strong> — <strong>Qualiopi</strong> —
+          financement OPCO possible selon éligibilité.
         </p>
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L’IA aide à structurer textes et tableaux ; les décisions de chantier, la sécurité et les engagements contractuels
-            restent sous votre responsabilité et celles des personnes habilitées. Relisez toujours avant envoi.
+            L’IA (ChatGPT, Claude) aide à structurer textes et tableaux ; les décisions de chantier, la sécurité et les
+            engagements contractuels restent sous votre responsabilité et celles des personnes habilitées. Relisez
+            toujours avant envoi.
           </ShortAnswerBlock>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <RdvLink
+            campaign="formation-ia-chef-chantier-tp-hero"
+            ctaPosition="hero"
+            variant="primary"
+            className="rounded-lg px-5 py-3"
+          >
+            Réserver une visio découverte gratuite
+          </RdvLink>
+          <Link
+            href={LINKS.formationIaBtpNiveau1BatimentTp}
+            className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:text-[#377CF3]"
+          >
+            Voir NIV-01 — Bâtiment &amp; TP
+          </Link>
         </div>
 
         <nav
           aria-label="Sommaire"
-          className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6"
+          className="mt-10 rounded-2xl border border-slate-200 bg-[#F2F2F2] p-6"
         >
           <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
             {SOMMAIRE.map(({ href, label }) => (
               <li key={href}>
-                <a href={href} className="text-[var(--accent)] underline hover:no-underline">
+                <a href={href} className="text-[#377CF3] underline hover:no-underline">
                   {label}
                 </a>
               </li>
@@ -200,65 +145,93 @@ export default function FormationIaChefChantierTpPage() {
           </ol>
         </nav>
 
+        <section id="cas-usage" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Cas d&apos;usage concrets pour chefs de chantier TP
+          </h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Remontés en tête de page : les situations que vous traitez au quotidien sur chantiers eau, VRD et
+            terrassement.
+          </p>
+          <ul className="mt-6 space-y-5">
+            {CHEF_CHANTIER_USE_CASES.map((item) => (
+              <li key={item.title} className="rounded-xl border border-slate-200 bg-white p-5">
+                <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-2 leading-relaxed text-slate-600">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section id="le-probleme" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Le problème : coordination et paperasse TP
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-slate-600">
             Vous êtes <strong>chef de chantier TP</strong> en Île-de-France ou Grand Paris : équipes, sous-traitants,
             sécurité, <strong>rapports d’avancement</strong>, CCTP, planning et relations avec le maître d’ouvrage.
           </p>
-          <p className="mt-4 text-slate-600 leading-relaxed">Sans aide à la rédaction, une part importante du temps part en :</p>
+          <p className="mt-4 leading-relaxed text-slate-600">Sans aide à la rédaction, une part importante du temps part en :</p>
           <ul className="mt-4 space-y-3">
             {[
-              'Réunions et arbitrages du jour.',
-              'Coordination par courriels et échanges avec les entreprises.',
-              'Comptes rendus de chantier et suivi des écarts.',
-              'Demandes de variation et justification des délais.',
+              'Réunions et arbitrages du jour',
+              'Coordination par courriels avec les entreprises',
+              'Comptes rendus de chantier et suivi des écarts',
+              'Demandes de variation et justification des délais',
             ].map((item) => (
               <li key={item} className="flex gap-3 text-slate-700">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
                 {item}
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-slate-600 leading-relaxed">
-            Beaucoup de chefs de chantier cherchent à <strong>moins passer sur le clavier</strong> et plus sur le terrain
-            — d’où l’intérêt d’accélérer la mise en forme avec des assistants IA encadrés.
+          <p className="mt-6 leading-relaxed text-slate-600">
+            L’objectif n’est pas de remplacer votre autorité terrain : c’est d’accélérer la mise en forme pour
+            retrouver du temps sur le chantier — avec relecture systématique.
           </p>
         </section>
 
-        <section id="la-solution" className="scroll-mt-24 mt-14">
+        <section id="public" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
-            La solution : l’IA pour structurer votre coordination
+            À qui s&apos;adresse cette formation ?
           </h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            ChatGPT peut aider à : produire des brouillons de rapports à partir de notes, rédiger des mails de coordination,
-            structurer une analyse de variation CCTP, préparer des checklists de rappels sécurité — sous votre relecture et
-            dans le respect des documents officiels du chantier.
-          </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">1. Rapports d’avancement</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Synthèse factuelle : avancement, obstacles, planning, points à escalader.
-          </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">2. Coordination sous-traitants</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Courriers clairs, avec dates et demandes d’action explicites.
-          </p>
-
-          <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">3. Variations et sécurité</h3>
-          <p className="mt-3 text-slate-600 leading-relaxed">
-            Brouillons de demandes de variation ; rappels de sécurité complémentaires au PPSPS — jamais substituts aux
-            documents réglementaires.
-          </p>
+          <ul className="mt-6 space-y-3 text-slate-700">
+            {CHEF_CHANTIER_PUBLIC.map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+          <h3 className="mt-10 font-display text-xl font-semibold text-slate-900">Prérequis</h3>
+          <ul className="mt-4 space-y-3 text-slate-700">
+            {CHEF_CHANTIER_PREREQUIS.map((line) => (
+              <li key={line} className="flex gap-3">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.5} />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        <aside className="mt-10 rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 md:p-8">
+        <section id="programme" className="scroll-mt-24 mt-14">
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Ce que vous apprenez pendant la formation
+          </h2>
+          <ol className="mt-6 list-decimal space-y-6 pl-5 text-slate-700">
+            {CHEF_CHANTIER_PROGRAMME.map((item) => (
+              <li key={item.title}>
+                <strong className="text-slate-900">{item.title}</strong>
+                <p className="mt-2 leading-relaxed">{item.body}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <aside className="mt-10 rounded-2xl border-l-4 border-[#377CF3] bg-[#F2F2F2] p-6 md:p-8">
           <p className="font-medium text-slate-900">Aller plus loin</p>
           <p className="mt-2 text-slate-600">
-            <a href="#rdv" className="font-semibold text-[var(--accent)] underline hover:no-underline">
+            <a href="#rdv" className="font-semibold text-[#377CF3] underline hover:no-underline">
               Réservez votre visio découverte gratuite
             </a>{' '}
             — 30 minutes pour adapter ces usages à votre chantier TP.
@@ -266,42 +239,44 @@ export default function FormationIaChefChantierTpPage() {
         </aside>
 
         <section id="methode" className="scroll-mt-24 mt-14">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Méthode pas à pas</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">
+            Méthode pas à pas — prompts ChatGPT / Claude
+          </h2>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
             Étape 1 : rapport d’avancement quotidien
           </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_RAPPORT}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_RAPPORT_CHEF}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
             Étape 2 : emails de coordination sous-traitants
           </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_EMAILS}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_EMAILS_CHEF}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
             Étape 3 : gestion d’une variation CCTP
           </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_VARIATION}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_VARIATION_CHEF}
           </pre>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
             Étape 4 : rappels sécurité (complément au PPSPS)
           </h3>
-          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
-            {PROMPT_ALERTES}
+          <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm leading-relaxed text-slate-800">
+            {PROMPT_ALERTES_CHEF}
           </pre>
         </section>
 
         <section id="resultats" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">Résultats concrets</h2>
-          <p className="mt-4 text-slate-600 leading-relaxed">
-            Ordres de grandeur possibles — <strong>variables</strong> selon la taille du projet et votre temps de relecture
-            :
+          <p className="mt-4 leading-relaxed text-slate-600">
+            Ordres de grandeur possibles — <strong>variables</strong> selon la taille du projet et votre temps de
+            relecture :
           </p>
 
           <div className="mt-8 overflow-x-auto">
@@ -351,14 +326,12 @@ export default function FormationIaChefChantierTpPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-4 text-sm text-slate-500">
-            Aucun gain en heures par semaine n’est garanti : tout dépend du chantier et des exigences de votre entreprise.
-          </p>
+          <DisclaimerGains className="mt-4" />
 
           <blockquote className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-slate-700 italic leading-relaxed">
-              « J’avais moins de temps pour anticiper qu’écrire des mails. Les brouillons me font gagner du souffle sur la
-              coordination — je reste le seul à valider ce qui part. »
+            <p className="italic leading-relaxed text-slate-700">
+              « J’avais moins de temps pour anticiper qu’écrire des mails. Les brouillons me font gagner du souffle sur
+              la coordination — je reste le seul à valider ce qui part. »
             </p>
             <footer className="mt-4 text-sm font-medium text-slate-900">
               — Chef de chantier TP, témoignage de formation (FFB Île-de-France)
@@ -369,30 +342,39 @@ export default function FormationIaChefChantierTpPage() {
         <section id="faq" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">FAQ — chefs de chantier TP et IA</h2>
           <div className="mt-8 space-y-6">
-            {FAQ_ITEMS.map(({ q, a }) => (
+            {CHEF_CHANTIER_FAQ.map(({ q, a }) => (
               <div key={q} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed"><FAQAnswer content={a} /></p>
+                <p className="mt-2 leading-relaxed text-slate-600">
+                  <FAQAnswer content={a} />
+                </p>
               </div>
             ))}
           </div>
         </section>
 
         <LaureOlivieFormationPortrait />
-<section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
+        <section
+          id="rdv"
+          className="scroll-mt-24 mt-14 rounded-2xl bg-[#377CF3] p-8 text-white md:p-10"
+        >
           <h2 className="font-display text-2xl font-bold">Visio découverte gratuite (30 min)</h2>
-          <p className="mt-4 text-blue-100 leading-relaxed">
-            Rapports, mails, variations : démonstration sur un cas type. Vous repartez avec des prompts à adapter à votre
-            organisation.
+          <p className="mt-4 leading-relaxed text-blue-100">
+            Rapports, mails, variations : démonstration sur un cas type. Vous repartez avec des prompts à adapter à
+            votre organisation.
           </p>
           <div className="mt-8 flex flex-wrap gap-4" id="cta-calendly">
-            <RdvLink className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[var(--accent)] hover:bg-blue-50">
+            <RdvLink
+              campaign="formation-ia-chef-chantier-tp-rdv-final"
+              ctaPosition="footer"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] hover:bg-blue-50"
+            >
               Réserver votre visio découverte
               <ArrowRight size={20} strokeWidth={1.5} />
             </RdvLink>
             <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10" />
             <Link
-              href="/contact"
+              href={LINKS.contact}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
               Contact
@@ -407,22 +389,22 @@ export default function FormationIaChefChantierTpPage() {
 
         <section className="mt-14">
           <h2 className="font-display text-lg font-bold text-slate-900">
-            Formation IA chef de chantier TP — Île-de-France & Grand Paris
+            Formation IA chef de chantier TP — Île-de-France &amp; Grand Paris
           </h2>
-          <p className="mt-4 text-sm text-slate-600 leading-relaxed">
+          <p className="mt-4 text-sm leading-relaxed text-slate-600">
             OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
-            {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
+            {SITE_CONFIG.email}
+            {sitePhoneDisplaySuffix()}
           </p>
         </section>
 
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
+            { href: LINKS.formations, label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
-            { href: '/formation-ia-conducteur-de-travaux-btp', label: 'Formation IA conducteur de travaux BTP' },
-            { href: '/formation-ia-conducteur-engins-tp', label: 'Formation IA conducteur d’engins TP' },
-            { href: '/financement-constructys-formation-ia-btp', label: 'Financement Constructys' },
-            { href: buildSiteCalendlyCtaUrl('formation-ia-chef-chantier-tp-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux BTP' },
+            { href: LINKS.formationIaConducteurEnginsTp, label: 'Formation IA conducteur d’engins TP' },
+            { href: LINKS.financement, label: 'Financement Constructys' },
           ]}
         />
       </article>
