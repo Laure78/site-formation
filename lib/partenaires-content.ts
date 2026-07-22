@@ -1,8 +1,13 @@
 import {
+  ALT_LOGO_CNAM_ENTREPRISES,
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
+  ALT_LOGO_FFB_OFFICIEL,
+  ALT_LOGO_IFRB_77,
+  ALT_LOGO_LEFEBVRE_DALLOZ,
   ALT_LOGO_LINKEDIN_LEARNING,
   ALT_LOGO_UMB_FFB,
+  LOGO_LEFEBVRE_DALLOZ,
   LOGO_LINKEDIN_LEARNING,
   LOGO_UMB_FFB,
   PARTNER_WEBSITES,
@@ -40,12 +45,20 @@ export const PARTENAIRES_CTA_INTRO =
 
 export const PARTENAIRES_CTA_LABEL = 'Réserver ma visio découverte';
 
+export type PartenaireLogo = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type PartenaireCard = {
   id: string;
   title: string;
   subtitle?: string;
   description: string;
   href?: string;
+  logo: PartenaireLogo;
 };
 
 export const PARTENAIRES_CARDS: PartenaireCard[] = [
@@ -55,6 +68,12 @@ export const PARTENAIRES_CARDS: PartenaireCard[] = [
     description:
       "J'anime des actions de formation IA avec la Fédération Française du Bâtiment Grand Paris, premier réseau d'entreprises du bâtiment d'Île-de-France. Des sessions courtes, en présentiel, calibrées pour les PME et dirigeants du BTP franciliens.",
     href: PARTNER_WEBSITES.ffbGrandParis,
+    logo: {
+      src: '/images/partenaires/logo-ffb-grand-paris-formation-idf.webp',
+      alt: ALT_LOGO_FFB_GRAND_PARIS_IDF,
+      width: 400,
+      height: 120,
+    },
   },
   {
     id: 'csfe',
@@ -63,6 +82,12 @@ export const PARTENAIRES_CARDS: PartenaireCard[] = [
     description:
       "Même socle pédagogique avec la CSFE (étanchéité, bardage, isolation), membre de la FFB depuis 1929. Preuve que l'IA appliquée tient la route sur des métiers techniques et normés (DTU, toitures-terrasses, ouvrages d'art).",
     href: PARTNER_WEBSITES.csfe,
+    logo: {
+      src: '/images/partenaires/logo-csfe-partenaire-formation-btp.webp',
+      alt: ALT_LOGO_CSFE,
+      width: 360,
+      height: 120,
+    },
   },
   {
     id: 'umb-ffb',
@@ -71,6 +96,12 @@ export const PARTENAIRES_CARDS: PartenaireCard[] = [
     description:
       "J'accompagne aussi les métiers du bois de la FFB (charpente, menuiserie, agencement, construction bois) : la même méthode, déclinée sur un autre corps d'état, avec le vocabulaire de la filière.",
     href: PARTNER_WEBSITES.umbFfb,
+    logo: {
+      src: LOGO_UMB_FFB.src,
+      alt: ALT_LOGO_UMB_FFB,
+      width: LOGO_UMB_FFB.width,
+      height: LOGO_UMB_FFB.height,
+    },
   },
   {
     id: 'linkedin-learning',
@@ -78,6 +109,12 @@ export const PARTENAIRES_CARDS: PartenaireCard[] = [
     description:
       "Instructrice LinkedIn Learning : deux cours en français sur l'IA appliquée au BTP et aux TPE, pour transmettre au-delà de l'Île-de-France ce que j'enseigne en présentiel sur le terrain.",
     href: SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
+    logo: {
+      src: LOGO_LINKEDIN_LEARNING.src,
+      alt: ALT_LOGO_LINKEDIN_LEARNING,
+      width: LOGO_LINKEDIN_LEARNING.width,
+      height: LOGO_LINKEDIN_LEARNING.height,
+    },
   },
 ];
 
@@ -86,14 +123,10 @@ export type PartenaireLogoBandItem = {
   name: string;
   href?: string;
   /** Logo affiché uniquement si droit d'usage confirmé — sinon nom en texte. */
-  logo?: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
+  logo?: PartenaireLogo;
 };
 
+/** Grille logos — fichiers locaux dans /public/images/partenaires/. */
 export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
   {
     id: 'ffb-grand-paris',
@@ -104,6 +137,17 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       alt: ALT_LOGO_FFB_GRAND_PARIS_IDF,
       width: 400,
       height: 120,
+    },
+  },
+  {
+    id: 'ffb-idf',
+    name: 'FFB Île-de-France',
+    href: PARTNER_WEBSITES.ffbIdf,
+    logo: {
+      src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
+      alt: ALT_LOGO_FFB_OFFICIEL,
+      width: 200,
+      height: 80,
     },
   },
   {
@@ -130,11 +174,11 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
   },
   {
     id: 'cnam',
-    name: 'CNAM',
+    name: 'CNAM Entreprises',
     href: PARTNER_WEBSITES.cnamIdf,
     logo: {
       src: '/images/partenaires/logo-cnam-formation-continue-ia-btp.webp',
-      alt: 'Logo CNAM Entreprises — partenaire formation continue BTP',
+      alt: ALT_LOGO_CNAM_ENTREPRISES,
       width: 220,
       height: 72,
     },
@@ -144,10 +188,21 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
     name: 'Lefebvre Dalloz',
     href: PARTNER_WEBSITES.lefebvreDalloz,
     logo: {
-      src: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
-      alt: 'Logo Lefebvre Dalloz — partenaire formation professionnelle BTP',
+      src: LOGO_LEFEBVRE_DALLOZ.src,
+      alt: ALT_LOGO_LEFEBVRE_DALLOZ,
+      width: LOGO_LEFEBVRE_DALLOZ.width,
+      height: LOGO_LEFEBVRE_DALLOZ.height,
+    },
+  },
+  {
+    id: 'ifrb',
+    name: 'IFRB',
+    href: PARTNER_WEBSITES.ifrb,
+    logo: {
+      src: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+      alt: ALT_LOGO_IFRB_77,
       width: 200,
-      height: 64,
+      height: 80,
     },
   },
   {

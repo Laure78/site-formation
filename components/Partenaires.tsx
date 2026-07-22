@@ -35,10 +35,10 @@ function LogoBandItem({ item }: { item: (typeof PARTENAIRES_LOGO_BAND)[number] }
       <ExternalLinkAnchor
         href={item.href}
         title={`Site officiel ${item.name}`}
-        className="group flex shrink-0 flex-col items-center justify-center rounded-lg px-3 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+        className="group flex w-full max-w-[11.5rem] flex-col items-center justify-center rounded-lg px-2 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
       >
         {item.logo ? (
-          <div className="relative flex h-14 w-[10.5rem] items-center justify-center md:h-16 md:w-[11.5rem]">
+          <div className="relative flex h-14 w-full items-center justify-center md:h-16">
             <Image
               src={item.logo.src}
               alt={item.logo.alt}
@@ -58,7 +58,7 @@ function LogoBandItem({ item }: { item: (typeof PARTENAIRES_LOGO_BAND)[number] }
   }
 
   return (
-    <div className="flex shrink-0 items-center justify-center px-3 py-2">
+    <div className="flex w-full items-center justify-center px-2 py-2">
       <span className="text-sm font-semibold text-slate-800">{item.name}</span>
     </div>
   );
@@ -99,6 +99,16 @@ export function Partenaires({
           {PARTENAIRES_CARDS.map((card) => (
             <li key={card.id}>
               <article className={`${OFC_CARD} flex h-full flex-col p-6 md:p-7`}>
+                <div className="mb-4 flex h-16 items-center justify-center rounded-lg bg-[#F2F2F2]/80 px-4 md:h-[4.5rem]">
+                  <Image
+                    src={card.logo.src}
+                    alt={card.logo.alt}
+                    width={card.logo.width}
+                    height={card.logo.height}
+                    className="max-h-12 w-auto object-contain object-center md:max-h-14"
+                    loading="lazy"
+                  />
+                </div>
                 <h3 className="font-display text-lg font-bold text-slate-900">
                   {card.href ? (
                     <ExternalLinkAnchor href={card.href} className={`${OFC_LINK} hover:underline`}>
@@ -123,11 +133,13 @@ export function Partenaires({
           <p className="text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
             {PARTENAIRES_LOGO_BAND_TITLE}
           </p>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-5 md:gap-x-10">
+          <ul className="mt-6 grid list-none grid-cols-2 items-center justify-items-center gap-x-4 gap-y-6 sm:grid-cols-3 md:gap-x-8 lg:grid-cols-4">
             {PARTENAIRES_LOGO_BAND.map((item) => (
-              <LogoBandItem key={item.id} item={item} />
+              <li key={item.id} className="flex w-full justify-center">
+                <LogoBandItem item={item} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {showGeoCitation ? (
