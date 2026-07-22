@@ -6,6 +6,7 @@ import { ClaudeAiBtpTableOfContents } from '@/components/claude/ClaudeAiBtpTable
 import { ClaudeBtpCaseStudies } from '@/components/claude/ClaudeBtpCaseStudies';
 import { ClaudeBtpConversionCta } from '@/components/claude/ClaudeBtpConversionCta';
 import { ClaudeBtpFaqSections } from '@/components/claude/ClaudeBtpFaqSections';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { ClaudeBtpInterfaceDecisionGrid } from '@/components/claude/ClaudeBtpInterfaceDecisionGrid';
 import { ClaudeBtpInterfaceGallery } from '@/components/claude/ClaudeBtpInterfaceGallery';
 import { ClaudeBtpResourcesSection } from '@/components/claude/ClaudeBtpResourcesSection';
@@ -14,8 +15,7 @@ import { ClaudePromptBlock } from '@/components/claude/ClaudePromptBlock';
 import { ClaudeSkillTutorialBtpSection } from '@/components/claude/ClaudeSkillTutorialBtpSection';
 import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsLeadMagnetSection';
 import { FAQSchema } from '@/components/seo/FAQSchema';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { breadcrumbItemsFromPaths, createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
@@ -49,11 +49,6 @@ export const metadata = createPageMetadata({
 });
 
 const claudeAiBtpJsonLdGraph = buildClaudeAiBtpJsonLdGraph();
-const claudeBreadcrumb = breadcrumbItemsFromPaths([
-  { name: 'Accueil', path: '/' },
-  { name: 'Formation Claude AI BTP', path: '/formation-claude-ai-btp' },
-  { name: 'Guide', path: PATH },
-]);
 
 const PROMPT_PROJET = `# Projet [NOM ENTREPRISE] — 2026
 Je suis [Prénom NOM], [fonction] chez [entreprise].
@@ -197,11 +192,6 @@ export default function ClaudeAiBtpPillarPage() {
       <FAQSchema id="schema-claude-ai-btp-faq" items={faqSchemaItems} />
 
       <div className="min-h-screen bg-[#F8FAFC]">
-        <div className="border-b border-slate-100 bg-slate-50/80">
-          <div className="mx-auto max-w-6xl px-4 py-3">
-            <Breadcrumb items={claudeBreadcrumb} showVisual omitJsonLd className="text-sm" />
-          </div>
-        </div>
         <ClaudeAiBtpHero />
         <ClaudeAiBtpQuickNav />
 
@@ -514,6 +504,19 @@ export default function ClaudeAiBtpPillarPage() {
               </section>
 
               <ClaudeBtpFaqSections faqItems={faqItems} relatedQuestions={relatedQuestions} />
+
+              <RelatedLinks
+                path={PATH}
+                className="mt-14 !px-0"
+                tone="transparent"
+                excludeHrefs={[
+                  LINKS.blogCoursGratuitsClaudeAiPmeBtp,
+                  '/blog/claude-ai-btp-5-interfaces-chat-cowork-code',
+                  '/blog/guide-claude-ia-btp-code-projects-skills-mcp',
+                  '/blog/mcp-claude-model-context-protocol-btp',
+                  LINKS.outilsIaBtp,
+                ]}
+              />
 
               <ClaudeBtpConversionCta />
             </article>

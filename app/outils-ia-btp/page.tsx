@@ -1,13 +1,8 @@
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Scale, Shield } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { RdvLink } from '@/components/RdvLink';
 import { LINKS } from '@/lib/internal-links';
-import {
-  breadcrumbItemsFromPaths,
-  createPageMetadata,
-  getBreadcrumbSchema,
-} from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
@@ -27,11 +22,6 @@ export const metadata = createPageMetadata({
     'Gemini Google Workspace BTP',
   ],
 });
-
-const breadcrumbJson = getBreadcrumbSchema([
-  { name: 'Accueil', path: '/' },
-  { name: 'Outils IA BTP', path: PATH },
-]);
 
 const ARTICLES_OUTILS = [
   {
@@ -90,21 +80,6 @@ const ARTICLES_OUTILS = [
 export default function OutilsIABTPPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
-      />
-
-      <div className="mx-auto max-w-5xl px-4 pt-8">
-        <Breadcrumb
-          items={breadcrumbItemsFromPaths([
-            { name: 'Accueil', path: '/' },
-            { name: 'Outils IA BTP', path: PATH },
-          ])}
-          showVisual
-        />
-      </div>
-
       <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <h1 className="font-display text-4xl font-bold text-white md:text-5xl">

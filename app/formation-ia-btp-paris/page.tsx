@@ -1,13 +1,11 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { VoirAussi } from '@/components/VoirAussi';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
-import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { FAQSection } from '@/components/landing/FAQSection';
 import {
@@ -22,25 +20,24 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { GEO_FORMATION_PARIS_75 } from '@/lib/geo-formation-config';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 
 export const revalidate = 3600;
 
 const PATH = '/formation-ia-btp-paris';
 
-const META_TITLE = 'Formation IA bâtiment Paris | Laure Olivié';
-/** 159 caractères — phrase complète */
+/** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
+const META_TITLE = 'Formation IA bâtiment Paris';
+/** 155 caractères — phrase complète */
 const META_DESCRIPTION =
-  'Formation IA bâtiment et construction à Paris : devis, DCE, CR en présentiel intra dans vos locaux parisiens. Qualiopi, Constructys. Visio découverte gratuite.';
+  'Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. 1 592 pros formés, 4,85/5. Visio découverte.';
 
-const pageMetadataBase = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
-  openGraphTitle: META_TITLE,
-  openGraphDescription: META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-06-02',
@@ -62,15 +59,6 @@ const pageMetadataBase = createPageMetadata({
     alt: 'Formation IA bâtiment et construction à Paris — Laure Olivié, présentiel Qualiopi',
   },
 });
-
-export const metadata: Metadata = {
-  ...pageMetadataBase,
-  title: { absolute: META_TITLE },
-  alternates: {
-    ...pageMetadataBase.alternates,
-    canonical: PATH,
-  },
-};
 
 const COURSE_JSON_LD = {
   ...buildFormationIaCourseJsonLd({
@@ -115,12 +103,6 @@ export default function FormationIaBtpParisPage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-6xl">
-            <Breadcrumb
-              items={[
-                { label: 'Accueil', href: LINKS.home },
-                { label: 'Formation IA BTP Paris', href: PATH },
-              ]}
-            />
             <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
               <div className="min-w-0">
                 <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
@@ -247,6 +229,8 @@ export default function FormationIaBtpParisPage() {
           </div>
         </section>
 
+        <RelatedLinks path={PATH} />
+
         <InfosQualiopiLanding formationTitle="Formation IA BTP Paris (75)" />
 
         <FAQSection
@@ -287,6 +271,7 @@ export default function FormationIaBtpParisPage() {
                 LINKS.formationIleDeFrance,
                 LINKS.formateurIaBtp,
                 LINKS.formations,
+                ...getClusterRelatedHrefs(PATH),
               ],
             })}
           />

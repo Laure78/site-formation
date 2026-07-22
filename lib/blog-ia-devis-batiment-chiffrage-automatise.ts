@@ -32,7 +32,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
     'formation-ia-btp-guide-complet-2026',
     'guide-skill-ia-conducteur-travaux-btp',
   ],
-  coverImage: '/images/laure-olivie-formatrice.png',
+  coverImage: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
   faq: [
     {
       question: "L'IA peut-elle remplacer mon logiciel de devis (Batigest, Codial, Mediabat) ?",
@@ -91,7 +91,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
       title: "Qu'est-ce qu'un devis bâtiment généré par IA ?",
       content: `
 <p>L'<strong>IA devis bâtiment</strong> consiste à utiliser un assistant IA (ChatGPT, Claude, Mistral) pour transformer un brief chantier, un échange client ou un CCTP en devis structuré ligne par ligne.</p>
-<p>L'IA excelle sur trois points : la décomposition par lots, la rédaction de libellés techniques et la mise en forme selon votre trame. En revanche, elle ne remplace ni vos quantités terrain, ni vos déboursés, ni votre marge.</p>
+<p>L'IA excelle sur trois points : la décomposition par lots, la rédaction de libellés techniques et la mise en forme selon votre trame. En revanche, elle ne remplace ni vos quantités terrain, ni vos déboursés, ni votre marge. Le pas-à-pas prompts est dans <a href="${LINKS.blogChatgptDevisBtpMethode2026}" class="font-medium text-[var(--accent)] underline hover:no-underline">ChatGPT pour générer un devis BTP</a>.</p>
 <ul class="list-disc space-y-2 pl-5">
   <li>Elle structure le devis pour gagner du temps.</li>
   <li>Elle homogénéise le vocabulaire technique et les unités.</li>

@@ -95,7 +95,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     '@type': 'LocalBusiness',
     '@id': `${base}/#localbusiness`,
     name: SITE_CONFIG.legalName,
-    image: `${base}/images/laure-olivie-formatrice.png`,
+    image: `${base}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     url: base,
     email: SCHEMA_CONTACT.email,
     priceRange: '€€',

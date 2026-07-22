@@ -5,6 +5,7 @@ import { CourseSchema } from '@/components/seo/CourseSchema';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
 
@@ -121,12 +122,16 @@ export default function FormationClaudeAiTravauxPublicsPage() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-slate-600">
-            Voir aussi : <Link href={LINKS.formationClaudeAiBtp} className={OFC_LINK}>formation Claude AI BTP</Link> ·{' '}
-            <Link href={LINKS.formationClaudeAiBatiment} className={OFC_LINK}>formation Claude AI bâtiment</Link> ·{' '}
-            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>formation IA niveau 1 bâtiment &amp; travaux publics</Link>.
+            Programme complémentaire :{' '}
+            <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className={OFC_LINK}>
+              formation IA niveau 1 bâtiment &amp; travaux publics
+            </Link>
+            .
           </p>
         </div>
       </section>
+
+      <RelatedLinks path={PATH} excludeHrefs={[LINKS.claudeAiBtp]} />
     </main>
   );
 }

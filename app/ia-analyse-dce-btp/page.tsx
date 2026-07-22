@@ -1,11 +1,9 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -16,19 +14,15 @@ export const revalidate = 3600;
 
 const PATH = '/ia-analyse-dce-btp';
 
-const META_TITLE = 'IA et analyse de DCE dans le BTP | Laure Olivié';
+const META_TITLE = 'IA et analyse de DCE dans le BTP';
 const META_DESCRIPTION =
   "Analysez un DCE (CCTP, CCAP, RC) plus vite avec l'IA : méthode pas à pas, points de vigilance et confidentialité. Formation présentiel IDF. RDV gratuit.";
 
-const pageMetadataBase = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
-  openGraphTitle: META_TITLE,
-  openGraphDescription: META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-07-14',
@@ -44,15 +38,6 @@ const pageMetadataBase = createPageMetadata({
     "formation IA appels d'offres BTP",
   ],
 });
-
-export const metadata: Metadata = {
-  ...pageMetadataBase,
-  title: { absolute: META_TITLE },
-  alternates: {
-    ...pageMetadataBase.alternates,
-    canonical: PATH,
-  },
-};
 
 const STEPS = [
   {
@@ -126,12 +111,6 @@ export default function IaAnalyseDceBtpPage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
-            <Breadcrumb
-              items={[
-                { label: 'Accueil', href: LINKS.home },
-                { label: "Analyse DCE avec l'IA", href: PATH },
-              ]}
-            />
             <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Analyser un DCE avec l&apos;IA : la méthode pour le BTP
             </h1>

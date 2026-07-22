@@ -10,6 +10,8 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -35,13 +37,14 @@ import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '
 const PDF_HREF = LINKS.pdfProgrammeConduiteTravauxNiv03;
 
 const PAGE_META_DESCRIPTION =
-  'Formation IA pour le BTP — conduite de travaux : CCTP, PPSPS, CR, réception. Session 4 h, Qualiopi, Constructys.';
+  'IA conduite de travaux & suivi chantier : CCTP, PPSPS, CR et réception en 4 h, présentiel IDF. Qualiopi, Constructys selon éligibilité. Programme PDF et RDV.';
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-03');
 
 export const metadata = createPageMetadata({
   title: 'IA conduite travaux BTP — Claude',
   description: PAGE_META_DESCRIPTION,
+  descriptionFinal: true,
   path: LINKS.formationConduiteTravauxSuiviChantier,
   keywords: [
     'formation IA conducteur de travaux',
@@ -345,10 +348,12 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           subtitle="Public, prérequis, skills Claude et financement."
         />
 
-        <ContextualLinksSection
+        <RelatedLinks path={LINKS.formationConduiteTravauxSuiviChantier} />
+
+      <ContextualLinksSection
           title="Pages associées"
           subtitle="niveau 1 — productivité, fiche conducteur de travaux, financement OPCO."
-          links={FORMATION_NIV03_RELATED}
+          links={FORMATION_NIV03_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationConduiteTravauxSuiviChantier).includes(l.href))}
           tone="muted"
         />
 

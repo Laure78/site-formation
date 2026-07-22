@@ -13,13 +13,14 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { VoirAussi } from '@/components/VoirAussi';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
@@ -86,10 +87,10 @@ export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
     section: 'Formation IA appliquée au bâtiment',
   },
   image: {
-    url: '/images/og/formation-ia-charge-affaires-btp.png',
+    url: '/images/og/formation-ia-charge-affaires-btp.webp',
     width: 1200,
     height: 630,
-    alt: 'Formation IA pour chargés d\'affaires BTP — devis, appels d\'offres, avant-vente',
+    alt: 'Formation IA chargé d\'affaires BTP — devis, AO et suivi client',
   },
 });
 
@@ -177,13 +178,6 @@ export default function FormationIaChargeAffairesBtpPage() {
       {faqSchema ? <JsonLd data={faqSchema} id="jsonld-faq-charge-affaires" /> : null}
 
       <article>
-        <Breadcrumb
-          items={[
-            { label: 'Accueil', href: LINKS.home },
-            { label: 'Formations', href: LINKS.formations },
-            { label: "Chargé d'affaires BTP", href: PATH },
-          ]}
-        />
         <MetierIdfPresentielLine className="mb-4 mt-6" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour les chargés d&apos;affaires du BTP en Île-de-France
@@ -585,10 +579,13 @@ export default function FormationIaChargeAffairesBtpPage() {
           </div>
         </section>
 
+        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+
         <VoirAussi
           {...voirAussiMetierProps({
             currentPath: PATH,
             excludeHrefs: [
+              ...getClusterRelatedHrefs(PATH),
               LINKS.formations,
               LINKS.financement,
               LINKS.formationAO,

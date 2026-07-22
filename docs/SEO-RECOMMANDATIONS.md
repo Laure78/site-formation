@@ -29,7 +29,7 @@
 - Mettre à jour avec les mêmes infos NAP que le site (voir `docs/OPTIMISATION-GOOGLE-BUSINESS-PROFILE.md`)
 
 ### Image OG par défaut
-- Vérifier que `/images/laure-olivie-formatrice.png` existe et fait **1200×630 px** pour un rendu optimal sur les réseaux sociaux
+- Vérifier que `/images/laure-olivie-formatrice-ia-btp-qualiopi.png` existe et fait **1200×630 px** pour un rendu optimal sur les réseaux sociaux
 
 ## 📈 Contenu et liens
 

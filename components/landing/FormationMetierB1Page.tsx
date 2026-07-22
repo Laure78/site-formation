@@ -19,6 +19,8 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 
 type FAQItem = { question: string; answer: string };
 type Step = { title: string; prompt: string };
@@ -200,6 +202,8 @@ export function FormationMetierB1Page({
 
         <InfosQualiopiLanding formationTitle={courseName} />
 
+        <RelatedLinks path={path} className="mt-14 !px-0" tone="transparent" />
+
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Passez à l&apos;action</h2>
           <p className="mt-4 text-blue-100 leading-relaxed">
@@ -242,7 +246,9 @@ export function FormationMetierB1Page({
         <ContextualLinksSection
           title="Catalogue et ressources"
           subtitle="Programmes Qualiopi, financement Constructys, Claude AI et articles pratiques."
-          links={getMetierLandingCoreLinks({ csfePartnership: false })}
+          links={getMetierLandingCoreLinks({ csfePartnership: false }).filter(
+            (l) => !getClusterRelatedHrefs(path).includes(l.href),
+          )}
           tone="muted"
           className="mt-14"
         />
@@ -252,6 +258,7 @@ export function FormationMetierB1Page({
             currentPath: path,
             excludeHrefs: [
               ...getMetierLandingCoreLinks({ csfePartnership: false }).map((l) => l.href),
+              ...getClusterRelatedHrefs(path),
               LINKS.formations,
               LINKS.financement,
             ],

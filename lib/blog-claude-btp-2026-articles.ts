@@ -6,6 +6,7 @@
  */
 import type { BlogArticle } from './blog';
 import { carrouselAFormationArticle } from '@/lib/blog-carrousel-a-article';
+import { LINKS } from '@/lib/internal-links';
 
 const IMG = '/images/blog/guide-claude-btp-2026';
 const CAR7 = '/images/blog/carrousel-7-cas-usage-ia-btp';
@@ -40,10 +41,9 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
           'Ce carrousel pédagogique (support type « Carrousel B — Les 4 modules » / pack visuel OFC) résume sept situations où l’IA générative apporte un gain de temps mesurable : du chiffrage à la veille DTU, en passant par la sécurité et la coordination. Les chiffres illustrés (temps, pourcentages) sont des ordres de grandeur pédagogiques : à chaque usage, la validation humaine et le respect des obligations légales restent indispensables.',
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Pourquoi sept cas, et pour qui ?',
-        content:
-          'Les dirigeants de TPE et PME du bâtiment, les conducteurs de travaux et les équipes administratives y trouvent des repères « prêts à l’emploi » pour prioriser leurs expérimentations : commencer par un ou deux cas (souvent devis et comptes rendus) avant d’étendre à l’appel d’offres ou à la documentation sécurité. C’est aligné avec la formation « L’IA au service du bâtiment » et les financements OPCO dans les conditions habituelles.',
+        content: `<p class="text-slate-600 leading-relaxed">Les dirigeants de TPE et PME du bâtiment, les conducteurs de travaux et les équipes administratives y trouvent des repères « prêts à l’emploi » pour prioriser leurs expérimentations : commencer par un ou deux cas (souvent devis et comptes rendus) avant d’étendre à l’appel d’offres ou à la documentation sécurité. C’est aligné avec la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> et les financements OPCO dans les conditions habituelles — le panorama outils est aussi dans mon article sur les <a href="${LINKS.blog5AssistantsIaBtp}" class="text-[var(--accent)] font-medium underline">5 assistants IA pour le BTP</a>.</p>`,
       },
       {
         type: 'html',
@@ -149,10 +149,9 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
           'Ce format (support « Carrousel C — 5 compétences » / OFC) présente cinq assistants que vous pouvez configurer progressivement avec un seul outil conversationnel (ex. ChatGPT ou équivalent) : chiffrage, administratif, sécurité, planning, appels d’offres. L’objectif est de donner une « carte » lisible pour vos ateliers internes, sans remplacer votre logiciel métier ni vos obligations légales.',
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Lien avec les « 4 modules » de formation',
-        content:
-          'Le document « Carrousel B — Les 4 modules » sert souvent de fil conducteur pédagogique (découpage en blocs : sensibilisation, prompts, assistants, mise en œuvre). Les cinq assistants ci-dessous en sont le prolongement opérationnel : ils matérialisent ce que vos équipes peuvent activer en premier sur le terrain. Pour le détail technique avancé (Claude Code, Projects, MCP), voir aussi le guide dédié dans nos articles.',
+        content: `<p class="text-slate-600 leading-relaxed">Le document « Carrousel B — Les 4 modules » sert souvent de fil conducteur pédagogique (découpage en blocs : sensibilisation, prompts, assistants, mise en œuvre). Les cinq assistants ci-dessous en sont le prolongement opérationnel : ils matérialisent ce que vos équipes peuvent activer en premier sur le terrain. Pour les ancrer en session Qualiopi, le <a href="${LINKS.formations}" class="text-[var(--accent)] font-medium underline">catalogue des formations IA pour le BTP</a> détaille les parcours ; les cas concrets liés sont aussi dans mon article sur les <a href="${LINKS.blog7CasUsageIaBtp}" class="text-[var(--accent)] font-medium underline">7 cas d’usage IA dans le BTP</a>. Pour le détail technique avancé (Claude Code, Projects, MCP), voir aussi le guide dédié dans nos articles.</p>`,
       },
       {
         type: 'html',
@@ -269,7 +268,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Sur ce site',
         content:
-          '<p class="text-slate-600">Tous les articles et ressources <strong>Claude</strong> (Anthropic) pour le BTP sont listés sur la <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
+          `<p class="text-slate-600">Tous les articles et ressources <strong>Claude</strong> (Anthropic) pour le BTP sont listés sur la <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Avant de brancher Skills et MCP, je compare les outils dans <a href="${LINKS.blogComparatifChatgptClaudeGeminiBtp}" class="text-[var(--accent)] font-medium underline">ChatGPT vs Claude vs Gemini pour le BTP</a>.</p>`,
       },
       {
         type: 'paragraph',
@@ -463,7 +462,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'html',
         title: 'Sur ce site',
         content:
-          '<p class="text-slate-600">Les guides <strong>Claude</strong> sont regroupés sur la <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
+          `<p class="text-slate-600">Les guides <strong>Claude</strong> sont regroupés sur la <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Le contexte Projects / Skills est dans le <a href="${LINKS.blogGuideClaudeIaBtpCodeProjectsSkillsMcp}" class="text-[var(--accent)] font-medium underline">guide Claude IA pour le BTP</a>.</p>`,
       },
       {
         type: 'html',
@@ -568,10 +567,9 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         ],
       },
       {
-        type: 'paragraph',
+        type: 'html',
         title: 'Ressources associées',
-        content:
-          'Les PDF « PITEL » (modules 1 et 2, module 3 assistants) et le carrousel dédié aux prompts BTP pour LinkedIn complètent cet article : demandez-les lors de votre prise de contact ou en fin de formation pour garder une trace imprimable des modèles.',
+        content: `<p class="text-slate-600 leading-relaxed">Les PDF « PITEL » (modules 1 et 2, module 3 assistants) et le carrousel dédié aux prompts BTP pour LinkedIn complètent cet article : demandez-les lors de votre prise de contact ou en fin de formation pour garder une trace imprimable des modèles. Pour industrialiser la prod de contenus en entreprise, le <a href="${LINKS.formations}" class="text-[var(--accent)] font-medium underline">catalogue des formations IA pour le BTP</a> cadre le présentiel IDF ; côté Claude, le <a href="${LINKS.blogGuideClaudeIaBtpCodeProjectsSkillsMcp}" class="text-[var(--accent)] font-medium underline">guide Projects, Skills et MCP pour le BTP</a> prolonge ces prompts.</p>`,
       },
       {
         type: 'cta',

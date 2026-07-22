@@ -29,7 +29,7 @@ export function AccueilHeroVideoSection() {
           href={LINKS.videoFormationsIaBtp}
           className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
         >
-          Page vidéo dédiée
+          Voir la présentation vidéo des formations IA BTP
         </Link>
       </p>
     </section>

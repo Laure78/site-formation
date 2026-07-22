@@ -6,10 +6,37 @@ export type RessourceGuideEntry = {
   title: string;
   description: string;
   audience: string;
+  /** Libellé du bouton téléchargement (défaut : « PDF direct »). */
+  downloadLabel?: string;
 };
 
-/** Guides PDF lead magnets — source unique (hero, section page, menu header). */
+/** Guides / fichiers lead magnets — source unique (hero, section page, menu header). */
 export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
+  {
+    href: LINKS.guideDirigeantBtpOfc,
+    pdfHref: LINKS.pdfGuideDirigeantBtpOfc,
+    title: 'Guide du dirigeant BTP',
+    description:
+      'PDF gratuit : 6 leviers de pilotage (Go/No-Go, clauses, rentabilité, litiges, tableau de bord, recrutement) + 24 prompts Claude.',
+    audience: 'Dirigeants et directions de PME BTP',
+  },
+  {
+    href: LINKS.guideClaudeBtpOfc,
+    pdfHref: LINKS.pdfGuideClaudeBtpOfc,
+    title: 'Guide Claude BTP — Projets, Skills, MCP',
+    description:
+      'PDF gratuit (éd. 2026) : installer Projets, Skills, connecteurs MCP, instructions système et Cowork pour l’administratif chantier.',
+    audience: 'Dirigeants, CDT, chargés d’affaires, équipes admin PME BTP',
+  },
+  {
+    href: LINKS.bibliothequePromptsBtpParMetier,
+    pdfHref: LINKS.xlsxBibliothequePromptsBtpParMetier,
+    title: 'Bibliothèque prompts BTP par métier',
+    description:
+      'Excel gratuit : ~50 prompts prêts à copier (dirigeant, assistante travaux, bureau d’études, conducteur de travaux, chef de chantier).',
+    audience: 'Toute l’équipe bureau et chantier',
+    downloadLabel: 'Excel direct',
+  },
   {
     href: LINKS.guideAssistantsTravauxOfc,
     pdfHref: LINKS.pdfGuideAssistantsTravauxOfc,

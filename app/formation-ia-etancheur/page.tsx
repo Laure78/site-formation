@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
@@ -536,6 +538,8 @@ export default function FormationIaEtancheurPage() {
           <AuthorBio />
         </div>
 
+        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+
         <AllerPlusLoin
           links={[
             { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
@@ -544,7 +548,7 @@ export default function FormationIaEtancheurPage() {
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-etancheur-footer-rdv'), label: 'Prendre rendez-vous' },
-          ]}
+          ].filter((l) => !getClusterRelatedHrefs(PATH).includes(l.href))}
         />
       </article>
     </div>

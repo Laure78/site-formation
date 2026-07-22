@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Download, Calendar, Check } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -132,16 +131,6 @@ export default function GuideAssistantsTravauxOfcPage() {
       <JsonLd id="schema-guide-assistants-learning" schema={learningResourceJsonLd} />
       <JsonLd id="schema-guide-assistants-howto" schema={howToJsonLd} />
       {faqSchema ? <JsonLd id="schema-guide-assistants-faq" schema={faqSchema} /> : null}
-
-      <div className="mx-auto max-w-7xl px-4 pt-6">
-        <Breadcrumb
-          items={[
-            { label: 'Accueil', href: LINKS.home },
-            { label: 'Ressources', href: LINKS.ressources },
-            { label: 'Guide des Assistants Travaux', href: PATH },
-          ]}
-        />
-      </div>
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-assistants">
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">

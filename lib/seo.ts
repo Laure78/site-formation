@@ -12,6 +12,7 @@ import {
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_PERSON_AFFILIATIONS,
   SCHEMA_PUBLIC_SITE_URL,
   SCHEMA_STATS,
   buildIdfAreaServedSchemaEntities,
@@ -27,9 +28,13 @@ export {
   BRAND_TITLE_SUFFIX,
   SEO_TITLE_MAX_LENGTH,
   SEO_TITLE_SEGMENT_MAX_LENGTH,
+  META_DESCRIPTION_MIN_LENGTH,
+  META_DESCRIPTION_MAX_LENGTH,
   stripBrandSuffix,
   truncateForBrandedTitle,
   buildBrandedTitle,
+  assertMetaDescriptionLength,
+  warnSeoMetadataDev,
 } from '@/utils/metadata';
 
 const SITE_URL_DEFAULT = SCHEMA_PUBLIC_SITE_URL;
@@ -151,32 +156,15 @@ export function estimateWordCountFromPlainText(text: string): number {
   return trimmed.split(/\s+/).length;
 }
 
-/** Helper pour métadonnées de page avec Open Graph + Twitter (partages & GEO) */
-export function createPageMetadata({
-  title,
-  titleAbsolute,
-  description,
-  path = '',
-  keywords: _unusedKeywords,
-  openGraphType = 'website',
-  article,
-  image,
-  appendAuthorSuffix = false,
-  openGraphTitle,
-  openGraphDescription,
-  descriptionFinal,
-  robots,
-  alternatesLanguages,
-  category,
-}: {
+export type BuildMetadataInput = {
   title: string;
-  /** Titre HTML final (sans template layout) — voir `utils/metadata` */
+  /** Titre HTML final sans template layout — segment ou titre déjà suffixé (nettoyé puis re-suffixé). */
   titleAbsolute?: string;
   description: string;
+  /** Chemin absolu du site (ex. `/formation-ia-btp-ile-de-france`) — canonical auto-référencé. */
   path?: string;
   /** Ignoré — la meta keywords n’est plus émise (Google l’ignore). */
   keywords?: string[] | null;
-  /** article = pages formation / blog (meilleure sémantique pour les moteurs) */
   openGraphType?: 'website' | 'article';
   article?: {
     publishedTime: string;
@@ -193,7 +181,30 @@ export function createPageMetadata({
   robots?: Metadata['robots'];
   alternatesLanguages?: Record<string, string>;
   category?: string;
-}): Metadata {
+};
+
+/**
+ * Helper SEO unique : title ≤ 60 car. avec suffixe « | Laure Olivié »,
+ * description 150–160 (warning en dev), canonical auto-référencé depuis `path`.
+ * Le title segment est tronqué AVANT le suffixe, jamais en plein mot.
+ */
+export function buildMetadata({
+  title,
+  titleAbsolute,
+  description,
+  path = '',
+  keywords: _unusedKeywords,
+  openGraphType = 'website',
+  article,
+  image,
+  appendAuthorSuffix = false,
+  openGraphTitle,
+  openGraphDescription,
+  descriptionFinal,
+  robots,
+  alternatesLanguages,
+  category,
+}: BuildMetadataInput): Metadata {
   void _unusedKeywords;
   return buildPageMetadata({
     title,
@@ -212,6 +223,13 @@ export function createPageMetadata({
     alternatesLanguages,
     category,
   });
+}
+
+/** Alias — préférer `buildMetadata` pour les nouvelles pages. */
+export function createPageMetadata(
+  input: BuildMetadataInput,
+): Metadata {
+  return buildMetadata(input);
 }
 
 /** Schéma Course principal "Formation IA pour le BTP" (visible sur toutes les pages) */
@@ -330,7 +348,7 @@ export function getOrganizationSchema() {
     name: SITE_CONFIG.legalName,
     legalName: SITE_CONFIG.legalName,
     logo: { '@type': 'ImageObject', url: `${SITE_CONFIG.url}/logo-lo.svg` },
-    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
+    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     alternateName: [SITE_CONFIG.name, 'Laure Olivié Formation'],
     description:
       "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
@@ -393,7 +411,7 @@ export function getLocalBusinessSchema() {
     },
     areaServed: buildIdfAreaServedSchemaEntities(),
     priceRange: '€€',
-    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
+    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     hasMap: SITE_CONFIG.googleMapsUrl,
   };
 }
@@ -489,7 +507,7 @@ export function getArticleSchema({
   wordCount?: number;
 }) {
   const pageUrl = `${SITE_CONFIG.url}${path}`;
-  const imageUrl = image?.startsWith('http') ? image : image ? `${SITE_CONFIG.url}${image}` : `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`;
+  const imageUrl = image?.startsWith('http') ? image : image ? `${SITE_CONFIG.url}${image}` : `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`;
   const pubIso = dateToIso8601ForMeta(datePublished);
   const modIso = dateModified ? dateToIso8601ForMeta(dateModified) : pubIso;
   const base: Record<string, unknown> = {
@@ -718,10 +736,10 @@ export function getPersonSchema() {
     name: SITE_CONFIG.name,
     givenName: 'Laure',
     familyName: 'Olivié',
-    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice.png`,
+    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis 2022, basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB, CSFE.`,
+    description: `Formatrice IA spécialisée BTP depuis 2022, basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',
@@ -771,16 +789,11 @@ export function getPersonSchema() {
         name: SITE_CONFIG.legalName,
         url: SITE_CONFIG.url,
       },
-      {
-        '@type': 'Organization',
-        name: 'FFB Grand Paris',
-        url: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/grand-paris-idf',
-      },
-      {
-        '@type': 'Organization',
-        name: "CSFE — Chambre Syndicale Française de l'Étanchéité",
-        url: 'https://www.csfe.fr/',
-      },
+      ...SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
+        '@type': 'Organization' as const,
+        name: org.name,
+        url: org.url,
+      })),
     ],
     alumniOf: {
       '@type': 'EducationalOrganization',

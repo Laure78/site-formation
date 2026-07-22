@@ -61,6 +61,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Tuto — constat de retard', href: LINKS.tutoConstatRetard },
     ],
     guides: [
+      { label: 'Bibliothèque prompts IA BTP par métier (Excel)', href: LINKS.bibliothequePromptsBtpParMetier },
       { label: 'Guide — Assistants Travaux (12 missions marché)', href: LINKS.guideAssistantsTravauxOfc },
       { label: 'Guide — 6 outils IA pour conducteur de travaux', href: LINKS.guideConducteurTravauxIaBtp },
       { label: 'Bibliothèque skills — CR, DOE, réserves (.skill / .md)', href: LINKS.bibliothequeSkills },
@@ -92,6 +93,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     description: 'Automatisation terrain-bureau (Dispatch), aide-mémoire et cluster Claude IA pour le BTP.',
     tutos: [{ label: 'Tuto — Dispatch BTP (Anthropic)', href: LINKS.tutoDispatchBtp }],
     guides: [
+      { label: 'Guide Claude BTP — Projets, Skills, MCP (PDF)', href: LINKS.guideClaudeBtpOfc },
       { label: 'Bibliothèque skills Claude BTP — 21 téléchargements', href: LINKS.bibliothequeSkills },
       { label: 'Comparatif et usages — outils IA BTP', href: LINKS.outilsIaBtp },
       { label: 'Lead magnet — pack 3 skills Claude (texte)', href: LINKS.downloadClaudeSkillsBtp },
@@ -114,6 +116,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       'Se préparer avant les tutos : catalogue formations IA BTP, diagnostic offert et landing tutoriel Skill IA conducteur.',
     tutos: [],
     guides: [
+      { label: 'Guide du dirigeant BTP — 6 leviers + 24 prompts (PDF)', href: LINKS.guideDirigeantBtpOfc },
       { label: 'Catalogue des formations IA pour le BTP', href: LINKS.formations },
       { label: 'Diagnostic IA BTP (gratuit)', href: LINKS.diagnostic },
       { label: 'Tutoriel landing — Skill IA conducteur', href: LINKS.guideSkillIaConducteurTravaux },

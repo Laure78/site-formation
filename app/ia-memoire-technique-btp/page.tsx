@@ -1,11 +1,9 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { SchemaHowTo } from '@/components/seo/SchemaHowTo';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -16,19 +14,15 @@ export const revalidate = 3600;
 
 const PATH = '/ia-memoire-technique-btp';
 
-const META_TITLE = "Mémoire technique BTP avec l'IA | Laure Olivié";
+const META_TITLE = "Mémoire technique BTP avec l'IA";
 const META_DESCRIPTION =
   "Rédigez un mémoire technique BTP gagnant avec l'IA : plan, méthodologie, moyens et références structurés. Vous validez le contenu. Présentiel IDF. RDV gratuit.";
 
-const pageMetadataBase = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
-  openGraphTitle: META_TITLE,
-  openGraphDescription: META_DESCRIPTION,
   openGraphType: 'article',
   article: {
     publishedTime: '2026-07-14',
@@ -43,15 +37,6 @@ const pageMetadataBase = createPageMetadata({
     'Claude mémoire technique bâtiment',
   ],
 });
-
-export const metadata: Metadata = {
-  ...pageMetadataBase,
-  title: { absolute: META_TITLE },
-  alternates: {
-    ...pageMetadataBase.alternates,
-    canonical: PATH,
-  },
-};
 
 const STEPS = [
   {
@@ -125,12 +110,6 @@ export default function IaMemoireTechniqueBtpPage() {
       <article>
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
-            <Breadcrumb
-              items={[
-                { label: 'Accueil', href: LINKS.home },
-                { label: 'Mémoire technique avec l\'IA', href: PATH },
-              ]}
-            />
             <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
               Rédiger un mémoire technique avec l&apos;IA (BTP)
             </h1>

@@ -3,7 +3,12 @@ import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
-/** Bots IA — crawl autorisé pour le GEO (en plus des moteurs classiques). */
+/**
+ * Bots IA — Allow: / explicite (GEO / extraction).
+ * Obligatoires : GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended.
+ * Compléments Anthropic / Common Crawl : Claude-Web, anthropic-web, anthropic-ai, CCBot.
+ * Aucun Disallow sur le contenu public.
+ */
 const AI_CRAWLERS = [
   'GPTBot',
   'ClaudeBot',
@@ -11,6 +16,7 @@ const AI_CRAWLERS = [
   'Google-Extended',
   'Applebot-Extended',
   'Claude-Web',
+  'anthropic-web',
   'anthropic-ai',
   'CCBot',
 ] as const;
@@ -29,7 +35,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
-        allow: '/',
+        allow: '/' as const,
       })),
     ],
     sitemap: [`${SITE_BASE}/sitemap.xml`, `${SITE_BASE}/video-sitemap.xml`],

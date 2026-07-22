@@ -5,7 +5,8 @@ import { CourseSchema } from '@/components/seo/CourseSchema';
 import { createPageMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_SEC, OFC_SECTION_INNER, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { OFC_SEC, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export const revalidate = 3600;
@@ -121,12 +122,16 @@ export default function FormationClaudeAiBatimentPage() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-slate-600">
-            Voir aussi : <Link href={LINKS.formationClaudeAiBtp} className={OFC_LINK}>formation Claude AI BTP</Link> ·{' '}
-            <Link href={LINKS.formationClaudeAiTravauxPublics} className={OFC_LINK}>formation Claude AI travaux publics</Link> ·{' '}
-            <Link href={LINKS.financement} className={OFC_LINK}>financement Constructys</Link>.
+            Financement OPCO possible selon éligibilité — voir la page{' '}
+            <Link href={LINKS.financement} className={OFC_LINK}>
+              financement Constructys formation IA BTP
+            </Link>
+            .
           </p>
         </div>
       </section>
+
+      <RelatedLinks path={PATH} excludeHrefs={[LINKS.claudeAiBtp]} />
     </main>
   );
 }

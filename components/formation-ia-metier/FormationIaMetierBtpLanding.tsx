@@ -22,6 +22,8 @@ import { Essentiel } from '@/components/readability/Essentiel';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -159,6 +161,17 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             </p>
           )}
 
+          {config.umbPartnership && (
+            <p className="mt-6 rounded-xl border border-blue-100 bg-[#F2F2F2] px-4 py-3 text-sm text-slate-700">
+              <strong className="text-slate-900">Autorité métier :</strong> {OFC} est partenaire de l&apos;Union des
+              Métiers du Bois de la FFB (UMB-FFB) pour la sensibilisation et la formation IA des entreprises de
+              charpente, ossature bois, agencement et menuiserie.{' '}
+              <strong className="text-slate-900">Laure Olivié anime des sessions avec le réseau UMB-FFB</strong> —
+              un repère pour les TPE et PME du bois en Île-de-France. La page partenaires est liée dans « Catalogue et
+              ressources ».
+            </p>
+          )}
+
           <nav aria-label="Sommaire" className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
             <h2 className="font-display text-lg font-bold text-slate-900">Sommaire</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-700">
@@ -250,7 +263,11 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           <section id="temoignage" className="scroll-mt-24 mt-14">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-              {config.csfePartnership ? 'Témoignage — partenariat CSFE' : 'Témoignage'}
+              {config.csfePartnership
+                ? 'Témoignage — partenariat CSFE'
+                : config.umbPartnership
+                  ? 'Témoignage — partenariat UMB-FFB'
+                  : 'Témoignage'}
             </h2>
             <Citation
               className="mt-6"
@@ -274,6 +291,8 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             </div>
           </section>
 
+          <RelatedLinks path={config.path} className="mt-14 !px-0" tone="transparent" />
+
           {relatedMetierLinks.length > 0 ? (
             <ContextualLinksSection
               id="liens-internes"
@@ -282,7 +301,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 config.liensUtilesIntro ??
                 `Autres métiers du BTP où la formation IA appliquée au bâtiment est adaptée au vocabulaire terrain.`
               }
-              links={relatedMetierLinks}
+              links={relatedMetierLinks.filter(
+                (l) => !getClusterRelatedHrefs(config.path).includes(l.href),
+              )}
               className="mt-14 !bg-transparent !py-0"
             />
           ) : null}
@@ -296,7 +317,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                 : config.liensUtilesIntro ??
                   'Catalogue des formations, financement Constructys, Claude AI BTP et articles pratiques.'
             }
-            links={coreMetierLinks}
+            links={coreMetierLinks.filter(
+              (l) => !getClusterRelatedHrefs(config.path).includes(l.href),
+            )}
             tone="muted"
             className="mt-14"
           />
@@ -356,7 +379,10 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <VoirAussi
             {...voirAussiMetierProps({
               currentPath: config.path,
-              excludeHrefs: voirAussiExclude,
+              excludeHrefs: [
+                ...voirAussiExclude,
+                ...getClusterRelatedHrefs(config.path),
+              ],
             })}
           />
 

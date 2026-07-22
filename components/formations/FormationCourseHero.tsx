@@ -27,7 +27,6 @@ export function FormationCourseHero({
   summaryTitle = 'En résumé',
   summaryIcon: SummaryIcon = Building2,
   summaryItems,
-  breadcrumb,
   catalogueRef,
   heroVisual = 'promo-video',
 }: {
@@ -45,8 +44,6 @@ export function FormationCourseHero({
   summaryTitle?: string;
   summaryIcon?: LucideIcon;
   summaryItems: string[];
-  /** Fil d'Ariane affiché avant le lien « Retour au catalogue » et le H1 */
-  breadcrumb?: ReactNode;
   /** Réf catalogue — affiche le tarif en évidence sous le titre (NIV-01 à NIV-05). */
   catalogueRef?: string;
 }) {
@@ -75,7 +72,6 @@ export function FormationCourseHero({
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
           <div className="min-w-0 flex-1 lg:max-w-[min(100%,42rem)]">
-            {breadcrumb}
             <Link
               href="/formations"
               className="text-sm text-[var(--accent)] hover:underline"

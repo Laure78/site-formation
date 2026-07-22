@@ -159,7 +159,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         type: 'html',
         title: 'Sur ce site',
         content:
-          '<p class="text-slate-600">Ressources <strong>Claude</strong> : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
+          `<p class="text-slate-600">Ressources <strong>Claude</strong> : <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. Après le Go, enchaînez avec l'<a href="${LINKS.blogAnalyseDceNotebooklm}" class="text-[var(--accent)] font-medium underline">analyse DCE via NotebookLM et Claude</a>.</p>`,
       },
       {
         type: 'paragraph',
@@ -238,7 +238,7 @@ export const blogArticlesLsrAoModules: BlogArticle[] = [
         type: 'html',
         title: 'Sur ce site',
         content:
-          '<p class="text-slate-600">Guides <strong>Claude</strong> (interfaces, mémoire technique) : <a href="/claude-ai-btp" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>.</p>',
+          `<p class="text-slate-600">Guides <strong>Claude</strong> (interfaces, mémoire technique) : <a href="${LINKS.claudeAiBtp}" class="text-[var(--accent)] font-medium underline">page pilier Claude AI BTP</a>. La méthode complète est dans le <a href="${LINKS.blogIaMemoireTechniqueAppelOffresGuide2026}" class="text-[var(--accent)] font-medium underline">guide mémoire technique BTP avec l'IA</a>.</p>`,
       },
       {
         type: 'paragraph',

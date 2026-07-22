@@ -11,6 +11,8 @@ import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { JsonLd } from '@/components/JsonLd';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -35,13 +37,14 @@ const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
 
 const PAGE_META_DESCRIPTION =
-  "Formation IA pour le BTP — appels d'offres : DCE, mémoire technique, Cowork & Skills. 4 h, Qualiopi, Constructys.";
+  "IA appliquée aux appels d'offres BTP : DCE, mémoire technique et Cowork en 4 h, présentiel IDF. Qualiopi, Constructys selon éligibilité. Programme PDF et RDV.";
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-02');
 
 export const metadata = createPageMetadata({
   title: "IA appels d'offres BTP — DCE & MT",
   description: PAGE_META_DESCRIPTION,
+  descriptionFinal: true,
   path: '/formations/ia-appels-offre-btp',
   keywords: [
     'IA appel d\'offres BTP DCE CCTP',
@@ -414,6 +417,8 @@ export default function FormationIAAppelsOffreBTPPage() {
         </ul>
       </section>
 
+      <RelatedLinks path={LINKS.formationAO} />
+
       <ContextualLinksSection
         title="Pour aller plus loin"
         subtitle="Guides pratiques DCE, CCTP, NotebookLM et chiffrage BPU — angles complémentaires à la session formation."
@@ -430,7 +435,7 @@ export default function FormationIAAppelsOffreBTPPage() {
       <ContextualLinksSection
         title="Pages associées"
         subtitle="niveau 1 — productivité, guides DCE/CCTP et financement OPCO."
-        links={FORMATION_NIV02_RELATED}
+        links={FORMATION_NIV02_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationAO).includes(l.href))}
         tone="muted"
       />
 

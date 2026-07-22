@@ -6,10 +6,10 @@ const DESC =
   `Articles formation IA pour le BTP : devis, CCTP/DCE, appels d'offres, ChatGPT, Constructys. ${formatPersonnesFormeesCount()} pros formés. Qualiopi.`;
 
 const OG = {
-  url: '/og/blog-og.png',
+  url: '/og/og-blog-formation-ia-btp.png',
   width: 1200,
   height: 630,
-  alt: 'Blog Formation IA pour le BTP — guides, prompts et cas d’usage',
+  alt: 'Blog formation IA BTP — conseils ChatGPT et Claude pour le chantier',
 } as const;
 
 export function getBlogIndexMetadata(path: string, pageNum: number): Metadata {

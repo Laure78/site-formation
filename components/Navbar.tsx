@@ -398,8 +398,17 @@ function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
 /** Seuil scroll (px) — fond compact + compression visuelle du header. */
 const HEADER_COMPACT_SCROLL_PX = 80;
 
-/** Barre de navigation unique — importée par `app/layout.tsx` sur toutes les routes. */
+/** Header site unique — rendu depuis `app/layout.tsx` sur toutes les routes. */
+export function Header() {
+  return <NavbarInner />;
+}
+
+/** @deprecated Préférer `Header` — même chrome sticky. */
 export function Navbar() {
+  return <NavbarInner />;
+}
+
+function NavbarInner() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openFormations, setOpenFormations] = useState(false);

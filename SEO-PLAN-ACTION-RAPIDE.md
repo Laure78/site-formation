@@ -186,7 +186,7 @@ rg '<Image' app/ -A 2 | grep -E '(src=|alt=)'
 
 **Top 10 images à optimiser en priorité :**
 1. `/images/laure-olivie.png` (page expert)
-2. `/images/laure-olivie-circle.png` (homepage)
+2. `/images/laure-olivie-portrait-rond-fond-bleu-formation-ia-btp.png` (homepage)
 3. `/images/laure-linkedin-graz.png`
 4. `/images/formation-ia-btp-entreprise.png`
 5. `/images/ouvrier-plan-chantier.png`

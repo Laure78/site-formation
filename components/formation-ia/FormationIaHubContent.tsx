@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { FORMATION_IA_METIERS } from '@/lib/seo-formation-ia-hub-data';
 import { FORMATION_IA_GEO_CANONICAL } from '@/lib/seo-formation-ia-hub-links';
 import { LINKS } from '@/lib/internal-links';
+import { RelatedLinks } from '@/components/RelatedLinks';
 
 type Props = { hubPath: '/formation-ia' };
 
-export function FormationIaHubContent({ hubPath: _hubPath }: Props) {
+export function FormationIaHubContent({ hubPath }: Props) {
   const paris = FORMATION_IA_GEO_CANONICAL.find((v) => v.id === 'paris');
   const geoLinks = FORMATION_IA_GEO_CANONICAL.filter((v) => v.id !== 'idf');
 
@@ -76,6 +77,8 @@ export function FormationIaHubContent({ hubPath: _hubPath }: Props) {
             </Link>
           </p>
         </article>
+
+        <RelatedLinks path={hubPath} className="mt-12 !px-0" tone="transparent" />
       </div>
     </div>
   );

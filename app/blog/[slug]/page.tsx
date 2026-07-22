@@ -172,7 +172,7 @@ export default async function BlogArticlePage({ params }: Props) {
   const midCtaAfterIndex = getBlogCTAMidInsertAfterIndex(article.sections);
   const showMidBlogCTA =
     midCtaAfterIndex !== null && midCtaAfterIndex < article.sections.length - 1;
-  const defaultArticleImage = `${SITE_CONFIG.url}/images/og-default.jpg`;
+  const defaultArticleImage = `${SITE_CONFIG.url}/images/og-default-formation-ia-btp.jpg`;
   const articleSchemaImage = article.coverImage
     ? article.coverImage.trim().startsWith('http')
       ? article.coverImage.trim()

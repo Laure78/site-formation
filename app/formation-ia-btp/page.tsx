@@ -16,7 +16,7 @@ import {
 import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_STATS } from '@/lib/schema-constants';
-import { SOCIAL_PROOF, formatPersonnesFormeesCount } from '@/lib/constants';
+import { SOCIAL_PROOF } from '@/lib/constants';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
@@ -26,15 +26,17 @@ const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 
 const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
 
+const FORMATION_IA_BTP_META_DESCRIPTION =
+  'Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.';
+
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment IDF — ChatGPT 2026',
-  description:
-    `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO, chantier. ${formatPersonnesFormeesCount()} pros formés. Qualiopi. Visio découverte gratuite.`,
+  description: FORMATION_IA_BTP_META_DESCRIPTION,
+  descriptionFinal: true,
   path: PATH,
   appendAuthorSuffix: false,
   openGraphTitle: 'Formation IA pour les pros du BTP Île-de-France — ChatGPT 2026',
-  openGraphDescription:
-    `Formation IA appliquée au bâtiment en Île-de-France : ChatGPT pour devis, AO, chantier. ${formatPersonnesFormeesCount()} pros formés. Qualiopi. Visio découverte gratuite.`,
+  openGraphDescription: FORMATION_IA_BTP_META_DESCRIPTION,
   image: {
     url: ogImage.src,
     width: ogImage.width,

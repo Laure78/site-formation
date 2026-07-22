@@ -280,7 +280,7 @@ export function PillarPageHero({
             fill
             className="object-cover object-center"
             sizes="100vw"
-            priority
+            priority={!sideImage}
           />
           <div
             className="absolute inset-0 bg-gradient-to-br from-[#1E40AF]/85 via-[#377CF3]/82 to-[#2563EB]/85"

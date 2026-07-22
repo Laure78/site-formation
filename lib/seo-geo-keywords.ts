@@ -149,24 +149,24 @@ export function buildPromoVideoSectionHeading(): string {
   return 'La formation IA BTP en 2 minutes';
 }
 
-/** Meta descriptions départements IDF — une par code, 140–155 car., bénéfice + preuve. */
+/** Meta descriptions départements IDF — une par code, 150–160 car., finales (sans clamp). */
 export const FORMATION_IA_BTP_DEPT_META_BY_CODE: Record<string, string> = {
   '75':
-    `Formation IA BTP à Paris (75) : session intra par arrondissement sur vos devis et CR chantier. Présentiel uniquement · Île-de-France uniquement. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`,
+    'Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. 1 592 pros formés, 4,85/5. Visio découverte.',
   '77':
-    'Formation IA BTP en Seine-et-Marne (77) : devis, DCE et mémoires techniques sur vos documents réels. Présentiel intra. Qualiopi, Constructys.',
+    'Formation IA pour le BTP en Seine-et-Marne (77) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.',
   '78':
-    "Formation IA BTP dans les Yvelines (78) : devis, appels d'offres et CR sur vos vrais documents. Présentiel intra IDF. Qualiopi, Constructys.",
+    'Formation IA pour le BTP dans les Yvelines (78) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.',
   '91':
-    'Formation IA BTP en Essonne (91) : accélérez devis et comptes rendus chantier en présentiel intra, sur vos documents. Qualiopi, Constructys.',
+    'Formation IA pour le BTP en Essonne (91) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.',
   '92':
-    'Formation IA BTP dans les Hauts-de-Seine (92) : mémoires techniques et devis sur vos dossiers réels. Présentiel IDF. Qualiopi, Constructys.',
+    'Formation IA pour le BTP dans les Hauts-de-Seine (92) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. 1 592 pros, 4,85/5. Visio découverte.',
   '93':
-    'Formation IA BTP en Seine-Saint-Denis (93) : réponses marchés et CR chantier sur vos documents. Présentiel intra IDF. Qualiopi, Constructys.',
+    'Formation IA pour le BTP en Seine-Saint-Denis (93) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. 1 592 pros, 4,85/5. Visio découverte.',
   '94':
-    'Formation IA BTP dans le Val-de-Marne (94) : devis, DCE et relances chantier sur vos vrais documents. Présentiel intra IDF. Qualiopi, Constructys.',
+    'Formation IA pour le BTP dans le Val-de-Marne (94) : devis, DCE et CR sur vos documents réels. Présentiel, Qualiopi. 1 592 pros, 4,85/5. Visio découverte.',
   '95':
-    "Formation IA BTP dans le Val-d'Oise (95) : devis et administratif chantier en présentiel intra. Cergy, Argenteuil. Qualiopi, Constructys.",
+    "Formation IA pour le BTP dans le Val-d'Oise (95) : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.",
 };
 
 export function buildIdfDeptMetaDescription(
@@ -179,7 +179,7 @@ export function buildIdfDeptMetaDescription(
   return `Formation IA BTP en ${departementNom} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`;
 }
 
-/** Segment title (≤ 40 car.) — suffixe « | Laure Olivié » ajouté par createPageMetadata. */
+/** Segment title (≤ budget segment) — suffixe « | Laure Olivié » ajouté par buildMetadata. */
 export function buildIdfDeptPageTitle(departementNom: string, deptCode: string): string {
   const full = `Formation IA BTP ${departementNom} (${deptCode})`;
   if (full.length <= 40) return full;

@@ -16,14 +16,17 @@ import {
 const PATH = '/ressources/bibliotheque-skills';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
+const PAGE_META_DESCRIPTION =
+  'Claude AI BTP — bibliothèque skills gratuits : CR, DCE, mémoire technique, PPSPS et DOE au format .skill. OFC Qualiopi, présentiel IDF. Téléchargez maintenant.';
+
 export const metadata: Metadata = createPageMetadata({
   title: 'Bibliothèque skills Claude BTP — téléchargement .skill & .md',
-  description: `${BIBLIOTHEQUE_SKILLS_COUNT} skills BTP : ${BIBLIOTHEQUE_BEWORK_COUNT} prêts à importer (.skill) + ${BIBLIOTHEQUE_TUTO_COUNT} tutos pour les créer. CR, DCE, mémoire technique, PPSPS, DOE.`,
+  description: PAGE_META_DESCRIPTION,
+  descriptionFinal: true,
   path: PATH,
   openGraphType: 'website',
   openGraphTitle: 'Bibliothèque skills Claude BTP — .skill & .md gratuits',
-  openGraphDescription:
-    'Skills chantier et marchés publics signés BeWork : télécharge le .skill et importe dans Claude.ai ou Claude Code.',
+  openGraphDescription: PAGE_META_DESCRIPTION,
   appendAuthorSuffix: false,
 });
 

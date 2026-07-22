@@ -1,5 +1,6 @@
 import {
   buildIdfDeptMetaDescription,
+  FORMATION_IA_BTP_DEPT_META_BY_CODE,
   hasSeoGeoSignal,
   SEO_GEO_REGION,
 } from '@/lib/seo-geo-keywords';
@@ -50,9 +51,10 @@ export function buildDeptMetaDescription(
   deptCode: string,
   villesCourtes: string,
 ): string {
-  return clampMetaDescription(
-    buildIdfDeptMetaDescription(departementNom, deptCode, villesCourtes),
-  );
+  const text = buildIdfDeptMetaDescription(departementNom, deptCode, villesCourtes);
+  // Metas curatées déjà finales (150–160) — ne pas reclamper.
+  if (FORMATION_IA_BTP_DEPT_META_BY_CODE[deptCode]) return text;
+  return clampMetaDescription(text);
 }
 
 /** Enrichit description page : phrase SEO obligatoire + ancrage GEO IDF si page formation. */

@@ -15,6 +15,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { RelatedLinks } from '@/components/RelatedLinks';
 import {
   CONDUCTEUR_TRAVAUX_FAQ,
   CONDUCTEUR_TRAVAUX_USE_CASES,
@@ -385,6 +386,8 @@ export default function FormationIaConducteurTravauxPage() {
             </li>
           </ul>
         </section>
+
+        <RelatedLinks path="/formation-ia-conducteur-travaux" className="mt-14 !px-0" tone="transparent" />
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl border border-[#377CF3]/30 bg-[#F2F2F2] p-8">
           <h2 className="font-display text-2xl font-bold text-slate-900">

@@ -41,9 +41,10 @@ export function Footer() {
     { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Niveau 1 — bâtiment & TP' },
     { href: LINKS.formationAO, label: "Appels d'offres (niveau 2)" },
+    { href: LINKS.formationIaMarchePublicTravaux, label: 'Marché public de travaux' },
     { href: LINKS.financement, label: 'Financement' },
     { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
-    { href: LINKS.chatgptArtisans, label: 'ChatGPT BTP' },
+    { href: LINKS.chatgptArtisans, label: 'TPE & PME du bâtiment' },
     { href: LINKS.formationClaudeAiBtp, label: 'Formation Claude AI BTP' },
     { href: LINKS.formationIaBtpParis, label: 'Paris' },
   ];
@@ -67,13 +68,13 @@ export function Footer() {
     { href: LINKS.cgv, label: 'CGV' },
     { href: LINKS.mentionsLegales, label: 'Mentions légales' },
     { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
-    { href: LINKS.reglementInterieur, label: 'Règlement' },
+    { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
     { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
     { href: LINKS.annuaireHandicap, label: 'Annuaire handicap' },
     { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
     { href: LINKS.qualiopi, label: 'Certification Qualiopi' },
     { href: LINKS.reclamations, label: 'Réclamations' },
-    { href: '/llms.txt', label: 'Fichier llms.txt (assistants IA)' },
+    { href: '/llms.txt', label: 'llms.txt' },
   ];
 
   return (
@@ -110,6 +111,8 @@ export function Footer() {
                 src="/logo-lo.svg"
                 alt={SITE_LOGO_ALT}
                 title="Retour à l’accueil — laureolivie.fr"
+                width={80}
+                height={40}
                 className="h-10 w-auto"
                 fetchPriority="high"
               />

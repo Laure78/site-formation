@@ -17,6 +17,8 @@ import {
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { VoirAussi } from '@/components/VoirAussi';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
@@ -81,10 +83,10 @@ export const metadata = createMetierBtpPageMetadata('assistante gestion', {
     section: 'Formation IA pour les pros du BTP',
   },
   image: {
-    url: '/images/og/formation-ia-assistante-gestion-btp.png',
+    url: '/images/og/formation-ia-assistante-gestion-btp.webp',
     width: 1200,
     height: 630,
-    alt: 'Formation IA pour assistantes de gestion BTP — facturation, relances, back-office',
+    alt: 'Formation IA assistante de gestion BTP — administratif et suivi dossier',
   },
 });
 
@@ -641,10 +643,17 @@ export default function FormationIaAssistanteGestionBtpPage() {
           </p>
         </section>
 
+        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+
         <VoirAussi
           {...voirAussiMetierProps({
             currentPath: PATH,
-            excludeHrefs: [LINKS.formationIaAssistanteBtp, LINKS.financement, LINKS.formations],
+            excludeHrefs: [
+              ...getClusterRelatedHrefs(PATH),
+              LINKS.formationIaAssistanteBtp,
+              LINKS.financement,
+              LINKS.formations,
+            ],
           })}
         />
 

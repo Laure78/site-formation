@@ -49,6 +49,8 @@ import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display'
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { RelatedLinks } from '@/components/RelatedLinks';
+import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
 import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
@@ -57,8 +59,9 @@ import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '
 const SEO_TITLE =
   'Formation IA bâtiment & travaux publics (niveau 1)';
 
-/** Meta description — formation IA pour les pros du BTP */
-const SEO_DESCRIPTION = `Formation IA appliquée au bâtiment niveau 1 (${SESSION_DUREE_LIBELLE}) : BTP/TP, devis, chantier, admin. Qualiopi, formation IA pour le BTP.`;
+/** Meta description — formation IA pour les pros du BTP (150–160 car., finale). */
+const SEO_DESCRIPTION =
+  "L'IA au service du bâtiment & TP : devis, emails et CR chantier en 4 h, présentiel IDF. Qualiopi, Constructys selon éligibilité. Programme PDF et RDV.";
 
 const MAIL_PROGRAMME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA niveau 1 bâtiment & TP')}`;
@@ -70,6 +73,7 @@ const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-01');
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
   description: SEO_DESCRIPTION,
+  descriptionFinal: true,
   path: '/formations/ia-batiment-travaux-publics',
   keywords: [
     'formation IA bâtiment',
@@ -802,11 +806,13 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
+      <RelatedLinks path={LINKS.formationIaBtpNiveau1BatimentTp} />
+
       {/* Maillage interne — pages associées */}
       <ContextualLinksSection
         title="Pages associées"
         subtitle="Poursuivre votre parcours : niveau 2 appels d'offres, métier conducteur de travaux, financement et guides."
-        links={FORMATION_NIV01_RELATED}
+        links={FORMATION_NIV01_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationIaBtpNiveau1BatimentTp).includes(l.href))}
         tone="muted"
       />
 

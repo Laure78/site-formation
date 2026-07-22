@@ -166,6 +166,11 @@ export const FORMATION_NIV01_RELATED: ContextualLinkCard[] = [
 
 export const FORMATION_NIV02_RELATED: ContextualLinkCard[] = [
   {
+    href: LINKS.formationIaMarchePublicTravaux,
+    title: 'Formation IA marché public de travaux',
+    description: 'Hub commande publique — RC, CCAG-Travaux, Go-NoGo, lots.',
+  },
+  {
     href: LINKS.formationIaBtpNiveau1BatimentTp,
     title: `Revenir au ${formationCatalogueLinkLabel(NIV01)}`,
     description: 'Devis, administratif et productivité au quotidien.',
@@ -339,7 +344,7 @@ export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
 
 /** Liens catalogue + ressources — landings métier BTP. */
 export function getMetierLandingCoreLinks(
-  config: Pick<FormationIaMetierBtpConfig, 'csfePartnership'>
+  config: Pick<FormationIaMetierBtpConfig, 'csfePartnership' | 'umbPartnership'>
 ): ContextualLinkCard[] {
   const links: ContextualLinkCard[] = [];
 
@@ -348,6 +353,19 @@ export function getMetierLandingCoreLinks(
       href: LINKS.etudesCas,
       title: 'Étude de cas FFB & CSFE',
       description: 'Retour d’expérience étanchéité et formation IA.',
+    });
+  }
+
+  if (config.umbPartnership) {
+    links.push({
+      href: LINKS.partenaires,
+      title: 'Partenaires — UMB-FFB & FFB',
+      description: 'Union des Métiers du Bois : formations IA avec OFC.',
+    });
+    links.push({
+      href: LINKS.formationIleDeFrance,
+      title: 'Formation IA BTP Île-de-France',
+      description: 'Sessions présentiel IDF — catalogue et départements.',
     });
   }
 
@@ -390,6 +408,8 @@ export const FOOTER_METIER_LINKS: ContextualLinkCard[] = [
   { href: LINKS.formationChargeAffairesBtp, title: "Chargé d'affaires" },
   { href: LINKS.formationElectricienBtp, title: 'Électricien' },
   { href: LINKS.formationPlombierBtp, title: 'Plombier' },
+  { href: LINKS.formationIaCharpentierMenuisierBtp, title: 'Charpentier & menuisier' },
+  { href: LINKS.formationIaMaconBtp, title: 'Maçon & maçonnerie' },
   { href: LINKS.chatgptArtisans, title: 'TPE & PME du bâtiment' },
   { href: LINKS.formationIaDirigeantBtp, title: 'Dirigeant PME' },
   { href: LINKS.formationIaEtancheur, title: 'Étancheur' },

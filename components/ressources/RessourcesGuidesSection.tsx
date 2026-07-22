@@ -12,10 +12,10 @@ export function RessourcesGuidesSection() {
       <div className="mx-auto max-w-7xl px-4">
         <header className="mb-8 max-w-3xl">
           <h2 id="ressources-guides-heading" className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            Guides PDF
+            Guides &amp; fichiers à télécharger
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Documents complets à télécharger — méthode, prompts et checklists pour assistants travaux, maîtrise
+            Documents complets — méthode, prompts Excel et checklists pour assistants travaux, maîtrise
             d&apos;œuvre et conduite de travaux.
           </p>
         </header>
@@ -43,7 +43,7 @@ export function RessourcesGuidesSection() {
                   download
                 >
                   <Download className="h-4 w-4" aria-hidden />
-                  PDF direct
+                  {guide.downloadLabel ?? 'PDF direct'}
                 </a>
               </div>
             </article>

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Check, Download, Sparkles } from 'lucide-react';
-import { Breadcrumb } from '@/components/Breadcrumb';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RdvLink } from '@/components/RdvLink';
 import { ChecklistLeadMagnet } from '@/components/checklist/ChecklistLeadMagnet';
@@ -11,9 +10,7 @@ import { FAQ_CHECKLIST_IA_BTP } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import {
-  breadcrumbItemsFromPaths,
-  createPageMetadata,
-  getBreadcrumbSchema,
+  buildMetadata,
   getFAQSchema,
   SITE_CONFIG,
 } from '@/lib/seo';
@@ -27,14 +24,13 @@ const CANONICAL = `${BASE}${PATH}`;
 
 const META_TITLE = 'Checklist 10 prompts ChatGPT BTP gratuite';
 const META_DESCRIPTION =
-  'Formation IA pour le BTP : téléchargez 10 prompts ChatGPT gratuits (devis, emails, CR). Par Laure Olivié, Qualiopi.';
+  'Checklist IA pour le BTP : 10 prompts ChatGPT gratuits (devis, emails, CR) par Laure Olivié. Qualiopi, présentiel IDF. Téléchargez et réservez une visio.';
 
-export const metadata = createPageMetadata({
+export const metadata = buildMetadata({
   title: META_TITLE,
-  titleAbsolute: `${META_TITLE} | Laure Olivié`,
   description: META_DESCRIPTION,
+  descriptionFinal: true,
   path: PATH,
-  appendAuthorSuffix: false,
   keywords: [
     'checklist ChatGPT BTP',
     'prompts IA BTP',
@@ -44,8 +40,6 @@ export const metadata = createPageMetadata({
     'IA compte rendu chantier',
   ],
   openGraphType: 'website',
-  openGraphTitle: `${META_TITLE} | Laure Olivié`,
-  openGraphDescription: META_DESCRIPTION,
   image: {
     url: PHOTOS.formationSensibilisationAssistantsIaBtp2026.src,
     width: PHOTOS.formationSensibilisationAssistantsIaBtp2026.width,
@@ -61,15 +55,7 @@ const PROMPT_THEMES = [
   { title: 'Avis Google & LinkedIn', desc: 'Répondre aux avis et publier sans partir d’une page blanche.' },
 ] as const;
 
-const breadcrumbPaths = [
-  { name: 'Accueil', path: '/' },
-  { name: 'Ressources', path: LINKS.ressources },
-  { name: 'Checklist prompts ChatGPT BTP', path: PATH },
-] as const;
-
-const breadcrumbItems = breadcrumbItemsFromPaths([...breadcrumbPaths]);
 const faqSchema = getFAQSchema(FAQ_CHECKLIST_IA_BTP);
-const breadcrumbSchema = getBreadcrumbSchema([...breadcrumbPaths]);
 
 const pageJsonLd = {
   '@context': 'https://schema.org',
@@ -123,13 +109,6 @@ export default function ChecklistIABTPPage() {
     <div className="min-h-[80vh] bg-[#F8FAFC]">
       <JsonLd id="schema-checklist-webpage" schema={pageJsonLd} />
       <JsonLd id="schema-checklist-faq" schema={faqSchema} />
-      <JsonLd id="schema-checklist-breadcrumb" schema={breadcrumbSchema} />
-
-      <div className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems} omitJsonLd />
-        </div>
-      </div>
 
       <section className="px-4 py-10 sm:px-6 md:py-14 lg:px-8" aria-labelledby="checklist-ia-btp-h1">
         <div className="mx-auto max-w-5xl space-y-10">

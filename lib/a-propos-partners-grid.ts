@@ -72,7 +72,7 @@ export const A_PROPOS_PARTNERS_GRID: AProposPartner[] = [
     name: 'Lefebvre Dalloz',
     subtitle: 'Formation juridique et métier',
     href: 'https://www.lefebvre-dalloz-formation.fr/',
-    logo: '/images/partenaires/lefebvre-dalloz.png',
+    logo: '/images/partenaires/logo-lefebvre-dalloz-partenaire-formation-ia-btp.webp',
   },
   {
     name: 'IFRB (77, 78, 91, 95)',

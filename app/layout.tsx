@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
-import { Navbar } from '@/components/Navbar';
+import { Header } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
@@ -164,7 +164,7 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <SiteSearchProvider>
-        <Navbar />
+        <Header />
         <main className="flex-1" id="main-content">
           <GlobalBreadcrumbs />
           {children}
