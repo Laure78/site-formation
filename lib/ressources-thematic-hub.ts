@@ -6,6 +6,7 @@ import type { BlogCategoryId } from '@/lib/blog';
 import { blogCategoryListingHref } from '@/lib/blog-index-urls';
 import { LINKS } from '@/lib/internal-links';
 import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
+import { RESSOURCES_HUB_PILIERS } from '@/lib/maillage-ressources';
 
 export type RessourceThematicLink = { readonly label: string; readonly href: string };
 
@@ -13,6 +14,8 @@ export type RessourceThematicBlock = {
   readonly id: string;
   readonly title: string;
   readonly description: string;
+  /** Lien montant vers le pilier formation du thème. */
+  readonly pilier: RessourceThematicLink;
   readonly tutos: readonly RessourceThematicLink[];
   readonly guides: readonly RessourceThematicLink[];
   readonly articles: readonly RessourceThematicLink[];
@@ -26,6 +29,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     title: 'Appels d’offres & veille marchés',
     description:
       'Priorité marchés publics et privés : DCE, CCAP, mémoire technique et veille — tutos gratuits, fiche catalogue NIV-02 et méthodes blog pour PME BTP en Île-de-France.',
+    pilier: RESSOURCES_HUB_PILIERS['marches-et-veille'],
     tutos: [
       { label: 'Lexique BTP — parcours « Décrypter le DCE »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto PDF — skill Analyse CCAP', href: LINKS.pdfTutoSkillAnalyseCcap },
@@ -34,7 +38,6 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
     ],
     guides: [
-      { label: 'Formation catalogue — Niveau 2 (appels d’offre BTP)', href: LINKS.formationAO },
       { label: 'Bibliothèque skills — analyse DCE, mémoire, conformité (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: 'Landing — analyse CCTP / DCE', href: LINKS.formationIaAnalyseCctp },
       { label: 'Fiche formation — IA CCTP & analyse DCE', href: LINKS.formationIaCctpAnalyseDceBtp },
@@ -53,6 +56,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     title: 'Chantier, réception & livrables',
     description:
       'Comptes rendus, DOE, PV de levée de réserves, constats — contenus téléchargeables et pages métiers associées.',
+    pilier: RESSOURCES_HUB_PILIERS['chantier-livrables'],
     tutos: [
       { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — compte rendu de chantier', href: LINKS.tutoCrChantier },
@@ -64,9 +68,9 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Bibliothèque prompts IA BTP par métier (Excel)', href: LINKS.bibliothequePromptsBtpParMetier },
       { label: 'Guide — Assistants Travaux (12 missions marché)', href: LINKS.guideAssistantsTravauxOfc },
       { label: 'Guide — 6 outils IA pour conducteur de travaux', href: LINKS.guideConducteurTravauxIaBtp },
+      { label: "Guide Maître d'Œuvre × IA (12 missions)", href: LINKS.guideMaitriseOeuvreIa },
       { label: 'Bibliothèque skills — CR, DOE, réserves (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: '10 cas d’usage IA BTP (ressource synthèse)', href: LINKS.casUsage },
-      { label: 'Landing formation — IA conducteur de travaux', href: LINKS.formationConducteurTravaux },
       { label: 'PDF gratuit — guide conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
     ],
     articles: [
@@ -79,6 +83,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     id: 'qse-conformite',
     title: 'Prévention, santé au travail & conformité',
     description: 'Plans de prévention et DUERP : pas à pas PDF alignés métiers BTP.',
+    pilier: RESSOURCES_HUB_PILIERS['qse-conformite'],
     tutos: [
       { label: 'Tuto — skill PPSPS', href: LINKS.tutoPpsps },
       { label: 'Tuto — DUERP', href: LINKS.tutoDuerp },
@@ -91,13 +96,13 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     id: 'productivite-outils',
     title: 'Productivité & outils',
     description: 'Automatisation terrain-bureau (Dispatch), aide-mémoire et cluster Claude IA pour le BTP.',
+    pilier: RESSOURCES_HUB_PILIERS['productivite-outils'],
     tutos: [{ label: 'Tuto — Dispatch BTP (Anthropic)', href: LINKS.tutoDispatchBtp }],
     guides: [
       { label: 'Guide Claude BTP — Projets, Skills, MCP (PDF)', href: LINKS.guideClaudeBtpOfc },
       { label: 'Bibliothèque skills Claude BTP — 21 téléchargements', href: LINKS.bibliothequeSkills },
       { label: 'Comparatif et usages — outils IA BTP', href: LINKS.outilsIaBtp },
       { label: 'Lead magnet — pack 3 skills Claude (texte)', href: LINKS.downloadClaudeSkillsBtp },
-      { label: 'Formation SEO — Claude AI BTP', href: LINKS.formationClaudeAiBtp },
       { label: 'Formation SEO — Claude AI bâtiment', href: LINKS.formationClaudeAiBatiment },
       { label: 'Formation SEO — Claude AI travaux publics', href: LINKS.formationClaudeAiTravauxPublics },
     ],
@@ -114,6 +119,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     title: 'Cadre Qualiopi, diagnostic & stratégie',
     description:
       'Se préparer avant les tutos : catalogue formations IA BTP, diagnostic offert et landing tutoriel Skill IA conducteur.',
+    pilier: RESSOURCES_HUB_PILIERS['cadre-professionnel'],
     tutos: [],
     guides: [
       { label: 'Guide du dirigeant BTP — 6 leviers + 24 prompts (PDF)', href: LINKS.guideDirigeantBtpOfc },

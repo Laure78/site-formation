@@ -20,6 +20,7 @@ export type RessourcesThematicHubBlock = {
   readonly id: string;
   readonly title: string;
   readonly description: string;
+  readonly pilier: { label: string; href: string };
   readonly tutos: readonly { label: string; href: string }[];
   readonly guides: readonly { label: string; href: string }[];
   readonly articles: readonly { label: string; href: string }[];
@@ -119,6 +120,15 @@ function ThematicPanel({ block }: { block: RessourcesThematicHubBlock }) {
         <div>
           <h3 className="font-display text-xl font-bold text-slate-900 md:text-2xl">{block.title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-slate-600 md:text-base">{block.description}</p>
+          <p className="mt-4">
+            <Link
+              href={block.pilier.href}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#377CF3] transition hover:underline"
+            >
+              {block.pilier.label}
+              <ChevronRight size={16} aria-hidden className="shrink-0" />
+            </Link>
+          </p>
         </div>
       </div>
 

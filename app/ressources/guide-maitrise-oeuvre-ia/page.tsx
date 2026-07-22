@@ -20,6 +20,8 @@ import { PHOTOS } from '@/lib/photos';
 import { buildGuideMoeIaUnifiedGraphJsonLd } from '@/lib/schema-guide-moe-ia-jsonld';
 import { FINANCEMENT_FORMULATION_COURTE } from '@/lib/financement-copy';
 import { createPageMetadata } from '@/lib/seo';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 
 const CALENDLY_HERO = buildSiteCalendlyCtaUrl('ressources-guide-maitrise-oeuvre-ia-hero');
 const CALENDLY_MID = buildSiteCalendlyCtaUrl('ressources-guide-maitrise-oeuvre-ia-mid');
@@ -327,6 +329,12 @@ export default function GuideMaitriseOeuvreIaPage() {
           </div>
         </div>
       </section>
+
+      <MaillageRessourceFromConfig
+        config={getMaillageRessourceConfig(GUIDE_MOE_IA_PATH)!}
+        currentPath={GUIDE_MOE_IA_PATH}
+        excludeHrefs={[LINKS.formations, LINKS.aPropos, LINKS.contact]}
+      />
 
       <section className="bg-[#377CF3] py-16 text-center text-white" aria-labelledby="cta-final-moe">
         <div className="mx-auto max-w-3xl px-4">

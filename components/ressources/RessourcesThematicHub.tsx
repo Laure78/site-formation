@@ -11,6 +11,7 @@ export function RessourcesThematicHub() {
     id: block.id,
     title: block.title,
     description: block.description,
+    pilier: block.pilier,
     tutos: block.tutos,
     guides: block.guides,
     articles: block.articles,

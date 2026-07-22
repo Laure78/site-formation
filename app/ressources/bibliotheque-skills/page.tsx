@@ -1,10 +1,12 @@
-import Link from 'next/link';
-import { ArrowLeft, BookOpen, Download, Package } from 'lucide-react';
+import { BookOpen, Download, Package, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 import { BibliothequeSkillsContent } from '@/components/ressources/BibliothequeSkillsContent';
 import { JsonLd } from '@/components/JsonLd';
+import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
+import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SKILL_INSTALL_TUTORIAL } from '@/lib/bibliotheque-skills/tutorial';
 import {
   BIBLIOTHEQUE_BEWORK_COUNT,
@@ -13,8 +15,9 @@ import {
   BIBLIOTHEQUE_TUTO_COUNT,
 } from '@/lib/bibliotheque-skills';
 
-const PATH = '/ressources/bibliotheque-skills';
+const PATH = LINKS.bibliothequeSkills;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
+const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-bibliotheque-skills-final');
 
 const PAGE_META_DESCRIPTION =
   'Claude AI BTP — bibliothèque skills gratuits : CR, DCE, mémoire technique, PPSPS et DOE au format .skill. OFC Qualiopi, présentiel IDF. Téléchargez maintenant.';
@@ -85,13 +88,6 @@ export default function BibliothequeSkillsPage() {
       <JsonLd id="schema-bibliotheque-skills" schema={collectionJsonLd} />
 
       <main className="mx-auto max-w-6xl px-4 py-10 md:py-12">
-        <Link
-          href={LINKS.ressources}
-          className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-[#377CF3] hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" aria-hidden />
-          Retour aux ressources
-        </Link>
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
             Ressource gratuite · BeWork
@@ -100,11 +96,7 @@ export default function BibliothequeSkillsPage() {
             Bibliothèque skills Claude BTP
           </h1>
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
-            Skills métier prêts à importer et tutos pas à pas issus des{' '}
-            <Link href={LINKS.ressources} className="font-semibold text-[#377CF3] hover:underline">
-              ressources gratuites
-            </Link>
-            . Gratuit, sans inscription.
+            Skills métier prêts à importer et tutos pas à pas pour le BTP. Gratuit, sans inscription.
           </p>
 
           <ul className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -129,6 +121,31 @@ export default function BibliothequeSkillsPage() {
           <BibliothequeSkillsContent />
         </div>
       </main>
+
+      <MaillageRessourceFromConfig
+        config={getMaillageRessourceConfig(PATH)!}
+        currentPath={PATH}
+        layout="narrow"
+      />
+
+      <section className="border-t border-slate-200 bg-white px-4 py-10" aria-labelledby="cta-calendly-skills">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 id="cta-calendly-skills" className="font-display text-xl font-bold text-slate-900 md:text-2xl">
+            Passer à la pratique en formation
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+            Installer ces skills sur vos dossiers réels en présentiel Île-de-France — Qualiopi, Constructys selon
+            éligibilité.
+          </p>
+          <a
+            href={CALENDLY_FINAL}
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+          >
+            <Calendar className="h-4 w-4" aria-hidden />
+            Prendre un RDV découverte
+          </a>
+        </div>
+      </section>
 
       <footer className="border-t border-slate-200 bg-white px-4 py-8 text-center text-sm text-slate-600">
         <p>
