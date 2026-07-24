@@ -3,6 +3,12 @@ import { formatProfessionalsTrainedCount } from '@/lib/constants';
 /** Logo header (portrait circulaire bleu) — source unique, format WebP uniquement. */
 export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu-2026.webp' as const;
 
+/**
+ * Query de cache-bust pour favicons / PWA dérivés de `SITE_HEADER_LOGO_SRC`.
+ * À incrémenter quand on régénère `app/favicon.ico`, `public/icon-*.png`, etc.
+ */
+export const SITE_FAVICON_CACHE_BUST = '20260723-avatar' as const;
+
 /** Alt unique du logo header — identique sur tout le site. */
 export const SITE_LOGO_ALT =
   'Laure Olivié — formation IA pour le BTP, organisme certifié Qualiopi';

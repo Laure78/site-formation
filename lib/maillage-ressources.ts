@@ -179,6 +179,19 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
     ],
   },
+  [LINKS.guideChefDeChantierOfc]: {
+    pilier: {
+      href: LINKS.formationIaChefChantierTp,
+      label: 'Formation IA chef de chantier TP — présentiel IDF',
+    },
+    soeurs: [
+      {
+        href: LINKS.guideConducteurTravauxIaBtp,
+        label: 'Guide conducteur de travaux — 6 tutos Claude',
+      },
+      TUTO_CR,
+    ],
+  },
   [LINKS.guideConducteurTravauxIaBtp]: {
     pilier: {
       href: LINKS.formationConducteurTravaux,
@@ -186,8 +199,8 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     },
     soeurs: [
       {
-        href: LINKS.guideAssistantsTravauxOfc,
-        label: 'Guide des Assistants Travaux (12 missions)',
+        href: LINKS.guideChefDeChantierOfc,
+        label: 'Guide du chef de chantier — 6 skills Claude',
       },
       TUTO_CR,
     ],

@@ -13,6 +13,14 @@ export type RessourceGuideEntry = {
 /** Guides / fichiers lead magnets — source unique (hero, section page, menu header). */
 export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
   {
+    href: LINKS.guideChefDeChantierOfc,
+    pdfHref: LINKS.pdfGuideChefDeChantierOfc,
+    title: 'Guide du chef de chantier',
+    description:
+      'PDF gratuit : 6 skills Claude mobile (accueil sécurité, mode opératoire, causerie, rapport journalier, appro, auto-contrôle).',
+    audience: 'Chefs de chantier et encadrement terrain BTP',
+  },
+  {
     href: LINKS.guideDirigeantBtpOfc,
     pdfHref: LINKS.pdfGuideDirigeantBtpOfc,
     title: 'Guide du dirigeant BTP',
