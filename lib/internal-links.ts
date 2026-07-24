@@ -218,6 +218,10 @@ export const LINKS = {
   guideChefDeChantierOfc: '/ressources/guide-chef-de-chantier-ofc',
   /** PDF gratuit — Guide du chef de chantier OFC (~13 p.) */
   pdfGuideChefDeChantierOfc: '/ressources/pdf/guide-chef-de-chantier-ofc.pdf',
+  /** Lead magnet — Guide RH du BTP × IA OFC (18 cas d’usage) */
+  guideRhBtpIaOfc: '/ressources/guide-rh-btp-ia-ofc',
+  /** PDF gratuit — Guide RH BTP × IA OFC (~36 p.) */
+  pdfGuideRhBtpIaOfc: '/ressources/pdf/guide-rh-btp-ia-ofc.pdf',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',

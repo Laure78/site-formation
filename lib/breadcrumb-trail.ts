@@ -51,6 +51,7 @@ const RESSOURCES_TITLES: Record<string, string> = {
   '/ressources/guide-claude-btp-ofc': 'Guide Claude BTP — Projets, Skills, MCP',
   '/ressources/guide-dirigeant-btp-ofc': 'Guide du dirigeant BTP — 6 leviers IA',
   '/ressources/guide-chef-de-chantier-ofc': 'Guide du chef de chantier — 6 skills Claude',
+  '/ressources/guide-rh-btp-ia-ofc': 'Guide RH du BTP × IA — 18 cas d’usage',
   ...Object.fromEntries(TUTOS.map((t) => [`/ressources/${t.slug}`, t.shortTitle])),
 };
 

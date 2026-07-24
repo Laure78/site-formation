@@ -170,12 +170,28 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     },
     soeurs: [
       {
+        href: LINKS.guideRhBtpIaOfc,
+        label: 'Guide RH du BTP × IA — 18 cas d’usage',
+      },
+      {
         href: LINKS.guideClaudeBtpOfc,
         label: 'Guide pratique Claude pour le BTP',
       },
+    ],
+  },
+  [LINKS.guideRhBtpIaOfc]: {
+    pilier: {
+      href: LINKS.formationIaResponsableAdministratifBtp,
+      label: 'Formation IA responsable administratif BTP',
+    },
+    soeurs: [
       {
-        href: LINKS.bibliothequePromptsBtpParMetier,
-        label: 'Bibliothèque Excel de prompts IA par métier',
+        href: LINKS.guideDirigeantBtpOfc,
+        label: 'Guide du dirigeant BTP — 6 leviers IA',
+      },
+      {
+        href: LINKS.guideAssistantsTravauxOfc,
+        label: 'Guide des Assistants Travaux — 12 missions',
       },
     ],
   },

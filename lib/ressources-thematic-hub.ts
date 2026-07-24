@@ -124,6 +124,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     tutos: [],
     guides: [
       { label: 'Guide du dirigeant BTP — 6 leviers + 24 prompts (PDF)', href: LINKS.guideDirigeantBtpOfc },
+      { label: 'Guide RH du BTP × IA — 18 cas d’usage (PDF)', href: LINKS.guideRhBtpIaOfc },
       { label: 'Catalogue des formations IA pour le BTP', href: LINKS.formations },
       { label: 'Diagnostic IA BTP (gratuit)', href: LINKS.diagnostic },
       { label: 'Tutoriel landing — Skill IA conducteur', href: LINKS.guideSkillIaConducteurTravaux },
