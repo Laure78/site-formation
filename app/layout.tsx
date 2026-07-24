@@ -11,7 +11,7 @@ import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlin
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
 import { SITE_CONFIG } from '@/lib/seo';
-import { PHOTOS } from '@/lib/photos';
+import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
 import { OG_SITE_NAME } from '@/utils/metadata';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
@@ -107,15 +107,37 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: baseUrl,
       languages: { 'fr-FR': baseUrl },
     },
+    // Favicons = logo Navbar (`SITE_HEADER_LOGO_SRC` / avatar).
+    // `?v=` force le rechargement navigateur (les /favicon.ico sans query restent
+    // souvent en cache des semaines). `app/favicon.ico` + `app/icon.png` +
+    // `app/apple-icon.png` restent la source App Router (hash Next auto).
     icons: {
       icon: [
-        { url: '/favicon.ico', sizes: 'any' },
-        { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
-        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-        { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+        { url: `/favicon.ico?v=${SITE_FAVICON_CACHE_BUST}`, sizes: 'any' },
+        {
+          url: `/favicon-32.png?v=${SITE_FAVICON_CACHE_BUST}`,
+          sizes: '32x32',
+          type: 'image/png',
+        },
+        {
+          url: `/icon-192.png?v=${SITE_FAVICON_CACHE_BUST}`,
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          url: `/icon-512.png?v=${SITE_FAVICON_CACHE_BUST}`,
+          sizes: '512x512',
+          type: 'image/png',
+        },
       ],
-      shortcut: [{ url: '/favicon.ico' }],
-      apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+      shortcut: [{ url: `/favicon.ico?v=${SITE_FAVICON_CACHE_BUST}` }],
+      apple: [
+        {
+          url: `/apple-touch-icon.png?v=${SITE_FAVICON_CACHE_BUST}`,
+          sizes: '180x180',
+          type: 'image/png',
+        },
+      ],
     },
     appleWebApp: {
       capable: true,
