@@ -63,6 +63,10 @@ const TUTO_DOE: MaillageLink = {
   href: LINKS.tutoDoeDossierOuvragesExecutes,
   label: 'Tuto PDF — constituer un DOE',
 };
+const TUTO_DIUO: MaillageLink = {
+  href: LINKS.tutoSkillDiuoOfc,
+  label: 'Tuto — pièces DIUO pour le SPS',
+};
 const TUTO_PV: MaillageLink = {
   href: LINKS.tutoPvLeveeReserves,
   label: 'Tuto PDF — PV de levée de réserves',
@@ -126,7 +130,11 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoDoeDossierOuvragesExecutes]: {
     pilier: PILIER_CDT,
-    soeurs: [TUTO_CR, TUTO_PV],
+    soeurs: [TUTO_DIUO, TUTO_PV],
+  },
+  [LINKS.tutoSkillDiuoOfc]: {
+    pilier: PILIER_CDT,
+    soeurs: [TUTO_DOE, TUTO_PPSPS],
   },
   [LINKS.tutoPvLeveeReserves]: {
     pilier: PILIER_CDT,
@@ -141,7 +149,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       href: LINKS.formationConducteurTravaux,
       label: 'Formation IA chantier : PPSPS et conduite de travaux',
     },
-    soeurs: [TUTO_DUERP, TUTO_CR],
+    soeurs: [TUTO_DIUO, TUTO_DUERP],
   },
   [LINKS.tutoDuerp]: {
     pilier: {

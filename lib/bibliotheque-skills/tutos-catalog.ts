@@ -20,6 +20,7 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
   'tuto-tri-dce-claude-chrome': 'Veille DCE automatique sur BOAMP avec Claude in Chrome.',
   'tuto-cr-chantier': 'Dictée vocale → compte rendu de chantier formaté.',
   'tuto-doe-dossier-ouvrages-executes': 'Assemble un DOE structuré sans y passer le week-end.',
+  'tuto-skill-diuo-ofc': 'Prépare ta liasse DIUO (pièces SPS) lot par lot.',
   'tuto-pv-levee-reserves': 'PV de levée de réserves prêts à signer.',
   'tuto-ppsps': 'PPSPS complet à partir de 10 lignes de description chantier.',
   'tuto-duerp': 'DUERP BTP avec plan d\'actions priorisé.',

@@ -55,12 +55,13 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     id: 'chantier-livrables',
     title: 'Chantier, réception & livrables',
     description:
-      'Comptes rendus, DOE, PV de levée de réserves, constats — contenus téléchargeables et pages métiers associées.',
+      'Comptes rendus, DOE, DIUO (pièces SPS), PV de levée de réserves, constats — contenus téléchargeables et pages métiers associées.',
     pilier: RESSOURCES_HUB_PILIERS['chantier-livrables'],
     tutos: [
       { label: 'Lexique BTP — parcours « Sur le chantier au quotidien »', href: BEWORK_APP_PATHS.lexique },
       { label: 'Tuto — compte rendu de chantier', href: LINKS.tutoCrChantier },
       { label: 'Tuto — dossier DOE', href: LINKS.tutoDoeDossierOuvragesExecutes },
+      { label: 'Tuto — pièces DIUO pour le SPS', href: LINKS.tutoSkillDiuoOfc },
       { label: 'Tuto — PV levée de réserves', href: LINKS.tutoPvLeveeReserves },
       { label: 'Tuto — constat de retard', href: LINKS.tutoConstatRetard },
     ],

@@ -14,6 +14,7 @@ import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildRessourceTutoJsonLd } from '@/lib/schema-ressource-tuto-jsonld';
 import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
 import type { TutoBlock, TutoData, TutoStep } from '@/lib/tutos/types';
+import { tutoDownloadLabel } from '@/lib/tutos/types';
 import { computeHeroLearnAnchorIds } from '@/lib/tutos/hero-anchors';
 import { getTutoEnBref } from '@/lib/tutos/en-bref';
 
@@ -123,7 +124,7 @@ function StepBlock({ step }: { step: TutoStep }) {
   );
 }
 
-/** Bouton « Télécharger le PDF » primaire. */
+/** Bouton de téléchargement primaire (PDF ou Word selon le fichier). */
 function DownloadButton({
   href,
   variant = 'primary',
@@ -162,6 +163,7 @@ function CtaStat({ value, label }: { value: string; label: string }) {
 /** Page complète d'un tuto Ressource — reproduit fidèlement la mise en page du PDF source. */
 export function TutoPage({ tuto }: { tuto: TutoData }) {
   const pdfUrl = pdfUrlFor(tuto);
+  const downloadLabel = tutoDownloadLabel(tuto.pdfFile);
   const graph = buildRessourceTutoJsonLd(tuto);
   const heroAnchors = computeHeroLearnAnchorIds(tuto);
   const tutoPath = `${LINKS.ressources}/${tuto.slug}`;
@@ -224,9 +226,12 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <DownloadButton href={pdfUrl} variant="primary" />
+                <DownloadButton href={pdfUrl} variant="primary" label={downloadLabel} />
                 <p className="text-sm text-slate-600">
-                  Tutoriel gratuit — sans inscription, format PDF.
+                  Tutoriel gratuit — sans inscription
+                  {tuto.pdfFile.toLowerCase().endsWith('.docx')
+                    ? ', format Word.'
+                    : ', format PDF.'}
                 </p>
               </div>
 
@@ -411,7 +416,11 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             <DownloadButton
               href={pdfUrl}
               variant="outline"
-              label="Re-télécharger le PDF"
+              label={
+                tuto.pdfFile.toLowerCase().endsWith('.docx')
+                  ? 'Re-télécharger le Word'
+                  : 'Re-télécharger le PDF'
+              }
             />
           </div>
 

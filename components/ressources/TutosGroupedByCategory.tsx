@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Clock, Download } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import type { TutoData } from '@/lib/tutos/types';
-import { TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos/types';
+import { TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER, tutoDownloadLabel } from '@/lib/tutos/types';
 
 type BadgeMode = 'offert' | 'indexed';
 
@@ -74,7 +74,7 @@ function TutoCard({
             download
             className="inline-flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-[#FAFBFC] px-4 py-2.5 text-sm font-semibold text-[#377CF3] transition hover:border-[#377CF3]/30 hover:bg-[#377CF3]/5"
           >
-            Télécharger le PDF
+            {tutoDownloadLabel(tuto.pdfFile)}
             <Download size={16} aria-hidden />
           </a>
         </div>
