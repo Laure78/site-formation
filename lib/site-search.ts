@@ -106,6 +106,15 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'ile de france paris 75 78 91 92 93 94 95 77',
     },
     {
+      id: 'guide-rh-btp-ia-ofc',
+      title: 'Guide RH du BTP × IA — 18 cas d’usage',
+      description:
+        'PDF gratuit : recrutement, onboarding, droit social BTP, reporting RH et prompts Claude / ChatGPT.',
+      href: LINKS.guideRhBtpIaOfc,
+      kind: 'guide',
+      keywords: 'rh btp recrutement fiche poste cv onboarding droit social constructys reporting ia',
+    },
+    {
       id: 'guide-chef-de-chantier-ofc',
       title: 'Guide du chef de chantier — 6 skills Claude',
       description: 'PDF gratuit : accueil sécurité, rapport journalier, appro, auto-contrôle depuis le téléphone.',

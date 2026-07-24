@@ -13,6 +13,14 @@ export type RessourceGuideEntry = {
 /** Guides / fichiers lead magnets — source unique (hero, section page, menu header). */
 export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
   {
+    href: LINKS.guideRhBtpIaOfc,
+    pdfHref: LINKS.pdfGuideRhBtpIaOfc,
+    title: 'Guide RH du BTP × IA',
+    description:
+      'PDF gratuit : 18 cas d’usage (fiche de poste, offres, scoring CV, onboarding, droit social BTP, reporting) + prompts Claude.',
+    audience: 'RH, responsables admin et dirigeants de PME BTP',
+  },
+  {
     href: LINKS.guideChefDeChantierOfc,
     pdfHref: LINKS.pdfGuideChefDeChantierOfc,
     title: 'Guide du chef de chantier',
