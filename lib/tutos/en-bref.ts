@@ -28,6 +28,11 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto vise une constitution en environ 30 minutes, contre l’équivalent de deux week-ends de montage manuel.',
     'Outil : skill Claude dédié au DOE.',
   ],
+  'tuto-skill-diuo-ofc': [
+    'Vous préparez la liasse de pièces DIUO à transmettre au coordonnateur SPS (plans, sécurité permanente, accès, notices).',
+    'Le tuto vise environ 30 minutes, contre une demi-journée de course aux pièces avant réception.',
+    'Outil : skill Claude ; le DIUO reste élaboré et signé par le SPS.',
+  ],
   'tuto-pv-levee-reserves': [
     'Le skill rédige un PV de levée de réserves à structure juridique, à partir de vos interventions et références.',
     'Gain annoncé : environ 3 minutes de rédaction assistée, au lieu d’environ 30 minutes.',

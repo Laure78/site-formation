@@ -16,6 +16,7 @@ import { TUTO_TRI_DCE_CLAUDE_CHROME } from './tuto-tri-dce-claude-chrome';
 import { TUTO_PPSPS } from './tuto-ppsps';
 import { TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES } from './tuto-doe-dossier-ouvrages-executes';
 import { TUTO_PV_LEVEE_RESERVES } from './tuto-pv-levee-reserves';
+import { TUTO_SKILL_DIUO_OFC } from './tuto-skill-diuo-ofc';
 
 export const TUTOS: ReadonlyArray<TutoData> = [
   TUTO_MEMOIRE_TECHNIQUE,
@@ -23,6 +24,7 @@ export const TUTOS: ReadonlyArray<TutoData> = [
   TUTO_TRI_DCE_CLAUDE_CHROME,
   TUTO_CR_CHANTIER,
   TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES,
+  TUTO_SKILL_DIUO_OFC,
   TUTO_PV_LEVEE_RESERVES,
   TUTO_PPSPS,
   TUTO_DUERP,

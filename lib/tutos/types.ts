@@ -1,8 +1,9 @@
 /**
  * Types pour les pages Ressources / Tutos OFC.
  *
- * Chaque tuto correspond à un PDF signé OFC / Laure Olivié.
- * Le contenu textuel doit être repris **mot pour mot** depuis le PDF source.
+ * Chaque tuto correspond à un fichier téléchargeable signé OFC / Laure Olivié
+ * (PDF en général ; Word `.docx` accepté) dans `/public/ressources/pdf/`.
+ * Le contenu textuel doit être repris **mot pour mot** depuis le fichier source.
  */
 
 /** Rubrique d’index (/ressources, /ressources/tutos) — ordre d’affichage fixe. */
@@ -80,7 +81,10 @@ export type TutoData = {
   slug: string;
   /** Rubrique pour l’index ressources (grille groupée). */
   category: TutoCategoryId;
-  /** Nom du fichier PDF dans `/public/ressources/pdf/` */
+  /**
+   * Nom du fichier téléchargeable dans `/public/ressources/pdf/`
+   * (PDF en général ; `.docx` accepté — libellé UI dérivé de l’extension).
+   */
   pdfFile: string;
 
   /** Eyebrow hero (ex. « TUTO OFFERT PAR LAURE OLIVIÉ ») */
@@ -148,3 +152,12 @@ export type TutoData = {
     height: number;
   };
 };
+
+/** Libellé du bouton de téléchargement selon l’extension du fichier ressource. */
+export function tutoDownloadLabel(pdfFile: string): string {
+  const lower = pdfFile.toLowerCase();
+  if (lower.endsWith('.docx') || lower.endsWith('.doc')) {
+    return 'Télécharger le Word';
+  }
+  return 'Télécharger le PDF';
+}

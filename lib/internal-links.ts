@@ -241,6 +241,10 @@ export const LINKS = {
   tutoConstatRetard: '/ressources/tuto-constat-retard',
   tutoDispatchBtp: '/ressources/tuto-dispatch-btp',
   tutoDoeDossierOuvragesExecutes: '/ressources/tuto-doe-dossier-ouvrages-executes',
+  /** Tuto — skill pièces DIUO pour le SPS (liasse lot) */
+  tutoSkillDiuoOfc: '/ressources/tuto-skill-diuo-ofc',
+  /** Fichier téléchargeable — tuto skill DIUO OFC (.docx) */
+  pdfTutoSkillDiuoOfc: '/ressources/pdf/tuto-skill-diuo-ofc.docx',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
   /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */
