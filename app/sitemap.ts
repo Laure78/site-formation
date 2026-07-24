@@ -92,6 +92,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/bibliotheque-prompts-btp-par-metier', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-claude-btp-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-dirigeant-btp-ofc', priority: 0.85, changeFrequency: 'weekly' },
+    { path: '/ressources/guide-chef-de-chantier-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formateurIaBtp, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.iaAnalyseDce, priority: 0.88, changeFrequency: 'monthly' },

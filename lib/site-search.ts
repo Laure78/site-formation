@@ -106,6 +106,14 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'ile de france paris 75 78 91 92 93 94 95 77',
     },
     {
+      id: 'guide-chef-de-chantier-ofc',
+      title: 'Guide du chef de chantier — 6 skills Claude',
+      description: 'PDF gratuit : accueil sécurité, rapport journalier, appro, auto-contrôle depuis le téléphone.',
+      href: LINKS.guideChefDeChantierOfc,
+      kind: 'guide',
+      keywords: 'chef de chantier sécurité rapport journalier appro réserves claude mobile',
+    },
+    {
       id: 'guide-dirigeant-btp-ofc',
       title: 'Guide du dirigeant BTP — 6 leviers IA',
       description: 'PDF gratuit : Go/No-Go, clauses, rentabilité, litiges, tableau de bord, RH + 24 prompts.',
