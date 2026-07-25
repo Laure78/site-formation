@@ -79,7 +79,7 @@ const PHASES = [
 const FAQ = [
   {
     q: 'Que contient le Guide du chef de chantier ?',
-    a: 'Un PDF (~13 pages) : 6 skills Claude pensés pour le téléphone (dictée, photos, Word) — accueil sécurité, mode opératoire, quart d’heure sécurité, rapport journalier, demande d’appro, auto-contrôle & levée de réserves — avec prompts à monter une fois sur ordinateur puis à utiliser sur le chantier.',
+    a: 'Un PDF (~18 pages) : 6 skills Claude pensés pour le téléphone (dictée, photos, Word) — accueil sécurité, mode opératoire, quart d’heure sécurité, rapport journalier, demande d’appro, auto-contrôle & levée de réserves — avec prompts à monter une fois sur ordinateur puis à utiliser sur le chantier.',
   },
   {
     q: 'Est-ce le même guide que celui du conducteur de travaux ?',
