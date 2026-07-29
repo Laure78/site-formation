@@ -95,6 +95,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/guide-chef-de-chantier-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-rh-btp-ia-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-charge-affaires-ofc', priority: 0.85, changeFrequency: 'weekly' },
+    { path: '/ressources/guide-repondre-ao-btp-ofc-2026', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formateurIaBtp, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.iaAnalyseDce, priority: 0.88, changeFrequency: 'monthly' },

@@ -457,6 +457,10 @@ export default function FormationIAAppelsOffreBTPPage() {
         <AllerPlusLoin
           links={[
             { href: LINKS.formations, label: 'Catalogue formations' },
+            {
+              href: LINKS.guideRepondreAoBtpOfc2026,
+              label: 'Guide gratuit — répondre AO BTP (5 étapes)',
+            },
             { href: LINKS.formationPlateforme, label: 'Cours sur la plateforme' },
             { href: buildSiteCalendlyCtaUrl('formations-ia-appels-offre-btp-footer-rdv'), label: 'Prendre rendez-vous' },
             { href: LINKS.financement, label: 'Financement Constructys' },

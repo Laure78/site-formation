@@ -39,6 +39,10 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     ],
     guides: [
       {
+        label: 'Répondre AO BTP — méthode en 5 étapes (PDF 2026)',
+        href: LINKS.guideRepondreAoBtpOfc2026,
+      },
+      {
         label: 'Guide chargé d’affaires BTP × IA — 12 cas Claude (PDF)',
         href: LINKS.guideChargeAffairesOfc,
       },

@@ -226,6 +226,10 @@ export const LINKS = {
   guideChargeAffairesOfc: '/ressources/guide-charge-affaires-ofc',
   /** PDF gratuit — Guide chargé d’affaires OFC (~30 p.) */
   pdfGuideChargeAffairesOfc: '/ressources/pdf/guide-charge-affaires-ofc.pdf',
+  /** Lead magnet — Répondre AO BTP méthode 5 étapes (éd. 2026) */
+  guideRepondreAoBtpOfc2026: '/ressources/guide-repondre-ao-btp-ofc-2026',
+  /** PDF gratuit — Guide répondre AO BTP OFC 2026 (~12 p.) */
+  pdfGuideRepondreAoBtpOfc2026: '/ressources/pdf/guide-repondre-ao-btp-ofc-2026.pdf',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',

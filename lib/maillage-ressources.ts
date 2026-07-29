@@ -210,6 +210,10 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     },
     soeurs: [
       {
+        href: LINKS.guideRepondreAoBtpOfc2026,
+        label: 'Répondre AO BTP — méthode en 5 étapes (PDF 2026)',
+      },
+      {
         href: LINKS.tutoMemoireTechnique,
         label: 'Tuto — skill mémoire technique',
       },
@@ -217,9 +221,25 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
         href: LINKS.tutoAnalyseDce,
         label: 'Tuto — analyse de DCE',
       },
+    ],
+  },
+  [LINKS.guideRepondreAoBtpOfc2026]: {
+    pilier: {
+      href: LINKS.formationAO,
+      label: 'Formation IA appels d’offres BTP — présentiel IDF',
+    },
+    soeurs: [
       {
-        href: LINKS.guideConducteurTravauxIaBtp,
-        label: 'Guide conducteur de travaux — 6 tutos Claude',
+        href: LINKS.guideChargeAffairesOfc,
+        label: 'Guide chargé d’affaires — 12 cas Claude',
+      },
+      {
+        href: LINKS.tutoAnalyseDce,
+        label: 'Tuto — analyse de DCE',
+      },
+      {
+        href: LINKS.tutoMemoireTechnique,
+        label: 'Tuto — skill mémoire technique',
       },
     ],
   },
