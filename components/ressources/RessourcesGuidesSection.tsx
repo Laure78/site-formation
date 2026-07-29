@@ -15,8 +15,8 @@ export function RessourcesGuidesSection() {
             Guides &amp; fichiers à télécharger
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-            Documents complets — méthode, prompts Excel et checklists pour RH, chefs de chantier,
-            assistants travaux, maîtrise d&apos;œuvre et conduite de travaux.
+            Documents complets — méthode, prompts et checklists pour chargés d&apos;affaires, RH,
+            chefs de chantier, assistants travaux, maîtrise d&apos;œuvre et conduite de travaux.
           </p>
         </header>
 

@@ -38,6 +38,10 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Tuto — tri DCE (Claude in Chrome)', href: LINKS.tutoTriDceClaudeChrome },
     ],
     guides: [
+      {
+        label: 'Guide chargé d’affaires BTP × IA — 12 cas Claude (PDF)',
+        href: LINKS.guideChargeAffairesOfc,
+      },
       { label: 'Bibliothèque skills — analyse DCE, mémoire, conformité (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: 'Landing — analyse CCTP / DCE', href: LINKS.formationIaAnalyseCctp },
       { label: 'Fiche formation — IA CCTP & analyse DCE', href: LINKS.formationIaCctpAnalyseDceBtp },

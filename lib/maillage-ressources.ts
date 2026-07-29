@@ -203,6 +203,26 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
     ],
   },
+  [LINKS.guideChargeAffairesOfc]: {
+    pilier: {
+      href: LINKS.formationChargeAffairesBtp,
+      label: 'Formation IA chargé d’affaires BTP — présentiel IDF',
+    },
+    soeurs: [
+      {
+        href: LINKS.tutoMemoireTechnique,
+        label: 'Tuto — skill mémoire technique',
+      },
+      {
+        href: LINKS.tutoAnalyseDce,
+        label: 'Tuto — analyse de DCE',
+      },
+      {
+        href: LINKS.guideConducteurTravauxIaBtp,
+        label: 'Guide conducteur de travaux — 6 tutos Claude',
+      },
+    ],
+  },
   [LINKS.guideChefDeChantierOfc]: {
     pilier: {
       href: LINKS.formationIaChefChantierTp,
@@ -225,6 +245,10 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       {
         href: LINKS.guideChefDeChantierOfc,
         label: 'Guide du chef de chantier — 6 skills Claude',
+      },
+      {
+        href: LINKS.guideChargeAffairesOfc,
+        label: 'Guide chargé d’affaires — 12 cas Claude',
       },
       TUTO_CR,
     ],

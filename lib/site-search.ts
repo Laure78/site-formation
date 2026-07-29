@@ -115,6 +115,15 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'rh btp recrutement fiche poste cv onboarding droit social constructys reporting ia',
     },
     {
+      id: 'guide-charge-affaires-ofc',
+      title: 'Guide chargé d’affaires BTP × IA — 12 cas Claude',
+      description:
+        'PDF gratuit : DCE Go/No-Go, mémoire technique, DPGF, situations, avenants, DGD — prompts du DCE au solde.',
+      href: LINKS.guideChargeAffairesOfc,
+      kind: 'guide',
+      keywords: 'charge affaires btp dce memoire technique dpgf situation dgd appels offres claude',
+    },
+    {
       id: 'guide-chef-de-chantier-ofc',
       title: 'Guide du chef de chantier — 6 skills Claude',
       description: 'PDF gratuit : accueil sécurité, rapport journalier, appro, auto-contrôle depuis le téléphone.',

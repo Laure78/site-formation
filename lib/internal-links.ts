@@ -222,6 +222,10 @@ export const LINKS = {
   guideRhBtpIaOfc: '/ressources/guide-rh-btp-ia-ofc',
   /** PDF gratuit — Guide RH BTP × IA OFC (~36 p.) */
   pdfGuideRhBtpIaOfc: '/ressources/pdf/guide-rh-btp-ia-ofc.pdf',
+  /** Lead magnet — Guide du chargé d’affaires BTP × IA OFC (12 cas d’usage) */
+  guideChargeAffairesOfc: '/ressources/guide-charge-affaires-ofc',
+  /** PDF gratuit — Guide chargé d’affaires OFC (~30 p.) */
+  pdfGuideChargeAffairesOfc: '/ressources/pdf/guide-charge-affaires-ofc.pdf',
   pdfTutoSkillAnalyseCcap: '/ressources/pdf/tuto-skill-analyse-ccap-bework.pdf',
   /** Landing SEO du tutoriel Skill IA (canonical vers la ressource) */
   guideSkillIaConducteurTravaux: '/guide-skill-ia-conducteur-travaux',
