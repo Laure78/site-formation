@@ -13,6 +13,14 @@ export type RessourceGuideEntry = {
 /** Guides / fichiers lead magnets — source unique (hero, section page, menu header). */
 export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
   {
+    href: LINKS.guideRepondreAoBtpOfc2026,
+    pdfHref: LINKS.pdfGuideRepondreAoBtpOfc2026,
+    title: 'Répondre à un AO BTP — méthode 5 étapes',
+    description:
+      'PDF gratuit (éd. 2026) : DCE, Go/No-Go, chiffrage, mémoire technique, 4 prompts IA et 6 contrôles sur les sorties IA.',
+    audience: 'Dirigeants, chargés d’affaires, conducteurs de travaux',
+  },
+  {
     href: LINKS.guideChargeAffairesOfc,
     pdfHref: LINKS.pdfGuideChargeAffairesOfc,
     title: 'Guide du chargé d’affaires BTP × IA',

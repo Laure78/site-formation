@@ -124,6 +124,15 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'charge affaires btp dce memoire technique dpgf situation dgd appels offres claude',
     },
     {
+      id: 'guide-repondre-ao-btp-ofc-2026',
+      title: 'Répondre AO BTP — méthode en 5 étapes (2026)',
+      description:
+        'PDF gratuit : DCE, Go/No-Go, chiffrage, mémoire technique, 4 prompts IA et 6 contrôles sur les sorties IA.',
+      href: LINKS.guideRepondreAoBtpOfc2026,
+      kind: 'guide',
+      keywords: 'appel offres btp dce go no-go memoire technique dpgf prompts ia 2026',
+    },
+    {
       id: 'guide-chef-de-chantier-ofc',
       title: 'Guide du chef de chantier — 6 skills Claude',
       description: 'PDF gratuit : accueil sécurité, rapport journalier, appro, auto-contrôle depuis le téléphone.',

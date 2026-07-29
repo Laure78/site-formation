@@ -123,6 +123,10 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/ressources/guide-charge-affaires-ofc/page.tsx',
     'public/ressources/pdf/guide-charge-affaires-ofc.pdf',
   ],
+  '/ressources/guide-repondre-ao-btp-ofc-2026': [
+    'app/ressources/guide-repondre-ao-btp-ofc-2026/page.tsx',
+    'public/ressources/pdf/guide-repondre-ao-btp-ofc-2026.pdf',
+  ],
   '/formation-ia': ['app/formation-ia/page.tsx'],
   '/formation-ia/faq': ['app/formation-ia/faq/page.tsx'],
   '/ia-devis-batiment': ['app/ia-devis-batiment/page.tsx'],
