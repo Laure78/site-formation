@@ -198,6 +198,14 @@ export default function FormationIaChargeAffairesBtpPage() {
           <DisclaimerGains className="mt-3" />
         </div>
 
+        <p className="mt-6 rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm text-slate-700">
+          <span className="font-medium text-slate-900">Ressource gratuite :</span>{' '}
+          <Link href={LINKS.guideChargeAffairesOfc} className="font-medium text-[#377CF3] hover:underline">
+            Guide du chargé d&apos;affaires BTP × IA
+          </Link>{' '}
+          — PDF (~30 pages) : 12 cas Claude du DCE au DGD, prompts à copier.
+        </p>
+
         <section id="taches" className="scroll-mt-24 mt-14">
           <h2 className="font-display text-2xl font-bold text-slate-900">
             Les tâches du chargé d&apos;affaires que l&apos;IA accélère

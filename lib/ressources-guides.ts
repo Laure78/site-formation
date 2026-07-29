@@ -13,6 +13,14 @@ export type RessourceGuideEntry = {
 /** Guides / fichiers lead magnets — source unique (hero, section page, menu header). */
 export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
   {
+    href: LINKS.guideChargeAffairesOfc,
+    pdfHref: LINKS.pdfGuideChargeAffairesOfc,
+    title: 'Guide du chargé d’affaires BTP × IA',
+    description:
+      'PDF gratuit : 12 cas Claude (DCE Go/No-Go, mémoire, DPGF, situations, DGD) — prompts du DCE au solde d’affaire.',
+    audience: 'Chargés d’affaires, conducteurs de travaux, dirigeants PME BTP',
+  },
+  {
     href: LINKS.guideRhBtpIaOfc,
     pdfHref: LINKS.pdfGuideRhBtpIaOfc,
     title: 'Guide RH du BTP × IA',
