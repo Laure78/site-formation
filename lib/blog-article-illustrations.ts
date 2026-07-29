@@ -21,6 +21,22 @@ function fromPhoto(key: PhotoKey): BlogIllustration {
   return { src: p.src, alt: p.alt, width: p.width, height: p.height };
 }
 
+/** Overrides slug → miniature dédiée (1 image hero). */
+const SLUG_OVERRIDES: Record<string, BlogIllustration> = {
+  'memoire-reclamation-btp-ia': {
+    src: '/images/ressources/miniatures/miniature-memoire-reclamation.jpg',
+    alt: 'Mémoire de réclamation BTP — récupérer ce que le marché vous doit',
+    width: 1200,
+    height: 675,
+  },
+  'analyser-ccap-ia-btp': {
+    src: '/images/ressources/miniatures/miniature-tuto-analyse-ccap.jpg',
+    alt: 'Analyse express du CCAP — skill Claude pour appels d’offres BTP',
+    width: 1200,
+    height: 675,
+  },
+};
+
 /**
  * Pools thématiques (ordre = préférence de rotation).
  * Visuels blog 2026 (chantier, salle « L'IA dans le BTP », convention / flipchart, équipes BTP)
@@ -119,6 +135,9 @@ function hashSlug(slug: string): number {
  * Un seul visuel par article (hero sous le chapô) — rotation selon le slug et la catégorie.
  */
 export function getBlogArticleIllustrations(slug: string, _articleTitle?: string): BlogIllustration[] {
+  const override = SLUG_OVERRIDES[slug];
+  if (override) return [override];
+
   const cat = getArticleCategory(slug);
   const pool = POOLS[cat] ?? DEFAULT_POOL;
   const h = hashSlug(slug);

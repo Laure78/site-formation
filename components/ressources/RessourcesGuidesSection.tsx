@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
@@ -24,27 +25,43 @@ export function RessourcesGuidesSection() {
           {RESSOURCES_GUIDES.map((guide) => (
             <article
               key={guide.href}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md"
+              className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">{guide.audience}</p>
-              <h3 className="mt-2 font-display text-xl font-bold text-slate-900">{guide.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{guide.description}</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Link
-                  href={guide.href}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
-                >
-                  Voir le guide
-                  <ArrowRight className="h-4 w-4" aria-hidden />
+              {guide.thumbnail ? (
+                <Link href={guide.href} className="relative block aspect-[4/3] bg-[#F2F2F2]" tabIndex={-1}>
+                  <Image
+                    src={guide.thumbnail.src}
+                    alt={guide.thumbnail.alt}
+                    width={guide.thumbnail.width}
+                    height={guide.thumbnail.height}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
                 </Link>
-                <a
-                  href={guide.pdfHref}
-                  className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
-                  download
-                >
-                  <Download className="h-4 w-4" aria-hidden />
-                  {guide.downloadLabel ?? 'PDF direct'}
-                </a>
+              ) : null}
+              <div className="flex flex-1 flex-col p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                  {guide.audience}
+                </p>
+                <h3 className="mt-2 font-display text-xl font-bold text-slate-900">{guide.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{guide.description}</p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={guide.href}
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2d66d6]"
+                  >
+                    Voir le guide
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                  <a
+                    href={guide.pdfHref}
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#377CF3] hover:text-[#377CF3]"
+                    download
+                  >
+                    <Download className="h-4 w-4" aria-hidden />
+                    {guide.downloadLabel ?? 'PDF direct'}
+                  </a>
+                </div>
               </div>
             </article>
           ))}
