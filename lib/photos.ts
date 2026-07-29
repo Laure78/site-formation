@@ -418,10 +418,10 @@ export const PHOTOS = {
   },
 
   tutoPpspsHero2026: {
-    src: '/images/tuto-ppsps-hero-2026.png',
-    alt: 'Tuto : créer un skill Claude « PPSPS » pour le BTP',
-    width: 1024,
-    height: 1024,
+    src: '/images/ressources/miniatures/miniature-tuto-ppsps.jpg',
+    alt: 'Tuto skill Claude PPSPS — plan particulier sécurité chantier BTP',
+    width: 1200,
+    height: 675,
   },
 
   tutoPvLeveeReservesHero2026: {

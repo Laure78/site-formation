@@ -46,6 +46,13 @@ export const TUTO_SKILL_DIUO_OFC: TutoData = {
 
   totalTimeMinutes: 30,
 
+  heroImage: {
+    src: '/images/ressources/miniatures/miniature-tuto-diuo.jpg',
+    alt: 'Prépa DIUO — pièces que le coordonnateur SPS réclame, skill Claude',
+    width: 1200,
+    height: 675,
+  },
+
   heroLearnPoints: [
     'Réunir les pièces DIUO que le coordonnateur SPS attend de ton lot',
     'Structurer la liasse par rubrique : plans, sécurité, accès, notices',

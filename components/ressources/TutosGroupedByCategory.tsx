@@ -33,18 +33,18 @@ function TutoCard({
       {tuto.heroImage ? (
         <Link
           href={tutoUrl}
-          className="block overflow-hidden bg-[#F2F2F2] p-4 transition-colors group-hover:bg-[#EFF6FF]"
+          className="block overflow-hidden bg-[#F2F2F2]"
           tabIndex={-1}
           aria-hidden
         >
-          <div className="mx-auto aspect-square w-full max-w-[220px] overflow-hidden rounded-full shadow-[0_8px_24px_rgba(55,124,243,0.12)] ring-2 ring-white transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+          <div className="relative aspect-[16/10] w-full overflow-hidden">
             <Image
               src={tuto.heroImage.src}
               alt={tuto.heroImage.alt}
               width={tuto.heroImage.width}
               height={tuto.heroImage.height}
-              className="h-full w-full object-contain"
-              sizes="(max-width: 640px) 45vw, 220px"
+              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>
         </Link>

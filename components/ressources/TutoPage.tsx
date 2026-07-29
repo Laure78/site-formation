@@ -255,15 +255,21 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             </div>
 
             {tuto.heroImage ? (
-              <figure className="mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
-                <div className="overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white">
+              <figure className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:sticky lg:top-28">
+                <div
+                  className={
+                    tuto.heroImage.width > tuto.heroImage.height
+                      ? 'overflow-hidden rounded-2xl shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-1 ring-slate-200'
+                      : 'overflow-hidden rounded-full shadow-[0_20px_48px_-16px_rgba(55,124,243,0.22)] ring-4 ring-white'
+                  }
+                >
                   <Image
                     src={tuto.heroImage.src}
                     alt={tuto.heroImage.alt}
                     width={tuto.heroImage.width}
                     height={tuto.heroImage.height}
-                    className="h-auto w-full object-contain"
-                    sizes="(max-width: 1024px) 280px, 360px"
+                    className="h-auto w-full object-cover"
+                    sizes="(max-width: 1024px) 100vw, 420px"
                     priority
                   />
                 </div>
