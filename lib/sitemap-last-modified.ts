@@ -114,7 +114,10 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   ],
   '/ressources/guide-claude-btp-ofc': ['app/ressources/guide-claude-btp-ofc/page.tsx'],
   '/ressources/guide-dirigeant-btp-ofc': ['app/ressources/guide-dirigeant-btp-ofc/page.tsx'],
-  '/ressources/guide-chef-de-chantier-ofc': ['app/ressources/guide-chef-de-chantier-ofc/page.tsx'],
+  '/ressources/guide-chef-de-chantier-ofc': [
+    'app/ressources/guide-chef-de-chantier-ofc/page.tsx',
+    'public/ressources/pdf/guide-chef-de-chantier-ofc.pdf',
+  ],
   '/ressources/guide-rh-btp-ia-ofc': ['app/ressources/guide-rh-btp-ia-ofc/page.tsx'],
   '/formation-ia': ['app/formation-ia/page.tsx'],
   '/formation-ia/faq': ['app/formation-ia/faq/page.tsx'],
