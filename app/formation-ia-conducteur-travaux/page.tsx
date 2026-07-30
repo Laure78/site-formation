@@ -36,16 +36,10 @@ export const metadata = createPageMetadata({
   titleAbsolute: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.titleAbsolute,
   description: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.description,
   path: FORMATION_IA_CONDUCTEUR_TRAVAUX_PATH,
-  openGraphType: 'article',
+  openGraphType: 'website',
   appendAuthorSuffix: false,
   openGraphTitle: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.titleAbsolute,
   openGraphDescription: FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.description,
-  article: {
-    publishedTime: '2026-05-19',
-    modifiedTime: '2026-05-22',
-    author: 'Laure Olivié',
-    section: 'Formation IA pour les pros du BTP',
-  },
   image: {
     url: '/images/btp-conducteur-plans.png',
     width: 1200,

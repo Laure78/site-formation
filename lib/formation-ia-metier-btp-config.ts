@@ -5,7 +5,6 @@ import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { withMetierBtpIdfTitle } from '@/lib/formation-ia-metier-idf';
 import { LINKS } from '@/lib/internal-links';
-import { SITE_CONFIG } from '@/lib/seo';
 import { createPageMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
@@ -22,13 +21,7 @@ export function formationIaMetierBtpMetadata(config: FormationIaMetierBtpConfig)
     path: config.path,
     keywords: config.keywords,
     appendAuthorSuffix: false,
-    openGraphType: 'article',
-    article: {
-      publishedTime: '2026-04-16',
-      modifiedTime: '2026-04-16',
-      author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pros du BTP par métier',
-    },
+    openGraphType: 'website',
     image: config.ogImage ?? {
       url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,

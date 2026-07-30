@@ -140,6 +140,8 @@ export const LINKS = {
   formationIaCouvreurBtp: '/formation-ia-couvreur-btp',
   /** Landing métier — maçon / maçonnerie gros œuvre (DTU 20.1) */
   formationIaMaconBtp: '/formation-ia-macon-btp',
+  /** Landing SEO — gros œuvre (devis, DCE, suivi chantier) */
+  formationIaGrosOeuvreBtp: '/formation-ia-gros-oeuvre-btp',
   /** Décideurs — ROI, pilotage IA PME/ETI bâtiment */
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
   /** Chef TPE opérationnel — devis, admin quotidien */

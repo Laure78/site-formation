@@ -17,7 +17,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-charge-affaires
 
 const META_TITLE = 'IA chargé d’affaires BTP : 12 cas Claude';
 const META_DESCRIPTION =
-  'Guide PDF chargé d’affaires BTP : 12 cas Claude (DCE, mémoire, DPGF, DGD). Formation IA pour le BTP Qualiopi, présentiel IDF — téléchargez.';
+  'PDF chargé d’affaires BTP : 12 cas Claude (DCE, mémoire, DPGF, DGD). Formation IA pour le BTP en Île-de-France, Qualiopi — téléchargement PDF gratuit.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

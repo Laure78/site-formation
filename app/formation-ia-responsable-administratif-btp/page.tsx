@@ -45,7 +45,7 @@ export const metadata = createMetierBtpPageMetadata('responsable administratif',
   title: FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_SEO.title,
   description: FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_SEO.description,
   path: FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_PATH,
-  openGraphType: 'article',
+  openGraphType: 'website',
   appendAuthorSuffix: false,
   descriptionFinal: true,
   keywords: [
@@ -56,12 +56,6 @@ export const metadata = createMetierBtpPageMetadata('responsable administratif',
     'OPCO Constructys',
     'Qualiopi BTP',
   ],
-  article: {
-    publishedTime: '2026-07-22',
-    modifiedTime: '2026-07-22',
-    author: 'Laure Olivié',
-    section: 'Formation IA pour les pros du BTP',
-  },
 });
 
 const SOMMAIRE = [

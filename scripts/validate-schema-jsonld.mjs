@@ -43,10 +43,14 @@ function assertPerson(node, label) {
   }
   const knows = node.knowsAbout ?? [];
   for (const topic of [
+    'formation IA BTP',
+    "appels d'offres",
+    'mémoire technique',
+    'conduite de travaux',
+    'devis',
     'IA appliquée au BTP',
     'ChatGPT bâtiment',
     'Claude AI',
-    'mémoire technique',
     'analyse de DCE/CCTP',
     'devis BTP',
   ]) {
@@ -65,13 +69,20 @@ function assertOrganization(node, label) {
   if (node.taxID !== SCHEMA_CONTACT.siretDigits) throw new Error(`${label}: taxID SIRET incorrect`);
   if (!node.hasCredential) throw new Error(`${label}: hasCredential Qualiopi manquant`);
   const area = node.areaServed;
-  const areaName =
-    typeof area === 'string'
-      ? area
+  const areaNames = Array.isArray(area)
+    ? area.map((a) => (typeof a === 'string' ? a : a && typeof a === 'object' && 'name' in a ? a.name : null))
+    : typeof area === 'string'
+      ? [area]
       : area && typeof area === 'object' && 'name' in area
-        ? area.name
-        : null;
-  if (areaName !== 'Île-de-France') throw new Error(`${label}: areaServed incorrect`);
+        ? [area.name]
+        : [];
+  if (!areaNames.includes('Île-de-France')) {
+    throw new Error(`${label}: areaServed incorrect (Île-de-France requis)`);
+  }
+  // 8 départements IDF (75, 77, 78, 91, 92, 93, 94, 95) — labels depuis buildIdfAreaServedSchemaEntities
+  if (Array.isArray(area) && area.length < 9) {
+    throw new Error(`${label}: areaServed IDF incomplet (attendu Île-de-France + 8 départements)`);
+  }
   if (node.certifications) throw new Error(`${label}: propriété non schema.org « certifications »`);
   // Champs NAP layout (#organization) — sameAs LinkedIn + GBP, téléphone JSON-LD
   if (node['@id']?.endsWith('#organization') && node.telephone) {

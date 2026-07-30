@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
   if (!id) {
     return { title: 'Blog' };
   }
-  return getBlogCategoryMetadata(`/blog/categorie/${slug}`, 1, BLOG_CATEGORIES[id]);
+  return getBlogCategoryMetadata(`/blog/categorie/${slug}`, 1, BLOG_CATEGORIES[id], id);
 }
 
 export default async function BlogCategoryPage({ params }: Props) {

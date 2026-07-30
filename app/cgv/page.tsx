@@ -3,6 +3,7 @@ import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
 import { QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
+import { PROOF } from '@/lib/proof';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -379,7 +380,7 @@ export default function CGVPage() {
       {/* Pied de page */}
       <div className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
         <p className="font-semibold text-slate-900">
-          Version en vigueur au 03/06/2026 — OFC Création d&apos;Entreprise
+          Version en vigueur au {PROOF.majLe} — OFC Création d&apos;Entreprise
         </p>
         <div className="mt-6 space-y-1 text-sm text-slate-600">
           <p className="font-bold text-[var(--accent)]">

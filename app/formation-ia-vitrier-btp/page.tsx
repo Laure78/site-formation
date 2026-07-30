@@ -38,7 +38,7 @@ export const metadata = createMetierBtpPageMetadata('vitrier', {
     'OPCO Constructys vitrier',
     'Qualiopi vitrerie',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_BAREME = `Tu es expert vitrier miroitier. Voici mon barème indicatif Île-de-France (à ajuster selon mes achats réels) :

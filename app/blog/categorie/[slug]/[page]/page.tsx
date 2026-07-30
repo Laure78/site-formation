@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props) {
   if (!id || !Number.isFinite(n) || n < 2) {
     return { title: 'Blog' };
   }
-  return getBlogCategoryMetadata(`/blog/categorie/${slug}/${n}`, n, BLOG_CATEGORIES[id]);
+  return getBlogCategoryMetadata(`/blog/categorie/${slug}/${n}`, n, BLOG_CATEGORIES[id], id);
 }
 
 export default async function BlogCategoryPaginatedPage({ params }: Props) {

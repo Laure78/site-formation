@@ -96,7 +96,7 @@ export function HomeGuideConducteurTravauxSection() {
                     href={LINKS.guideConducteurTravauxIaBtp}
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-md shadow-[#377CF3]/25 transition hover:bg-[#2d66d6]"
                   >
-                    Voir le guide et télécharger
+                    Guide conducteur de travaux (PDF gratuit)
                     <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
                   </Link>
                   <a
@@ -110,18 +110,14 @@ export function HomeGuideConducteurTravauxSection() {
                 </div>
               </div>
 
-              <Link
-                href={LINKS.guideConducteurTravauxIaBtp}
-                title="Guide conducteur de travaux BTP — 6 skills Claude, PDF gratuit"
-                className="group relative min-h-[220px] border-t border-[#377CF3]/10 bg-slate-50 lg:min-h-0 lg:border-l lg:border-t-0"
-              >
+              <div className="relative min-h-[220px] border-t border-[#377CF3]/10 bg-slate-50 lg:min-h-0 lg:border-l lg:border-t-0">
                 <div className="relative aspect-[4/3] h-full min-h-[220px] w-full lg:absolute lg:inset-0 lg:aspect-auto">
                   <Image
                     src={photo.src}
                     alt={photo.alt}
                     fill
                     loading="lazy"
-                    className="object-cover transition group-hover:opacity-95"
+                    className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 480px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent lg:bg-gradient-to-l lg:from-slate-900/40 lg:via-transparent lg:to-transparent" />
@@ -129,7 +125,7 @@ export function HomeGuideConducteurTravauxSection() {
                     Conducteur de travaux — prompts inclus · ~400 Ko
                   </p>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
         </Reveal>

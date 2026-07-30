@@ -13,7 +13,7 @@ export const TUTO_SKILL_DIUO_OFC: TutoData = {
 
   metaTitle: 'Tuto skill DIUO : pièces SPS pour ton lot en 30 min',
   metaDescription:
-    "Prépare ta liasse DIUO pour le coordonnateur SPS en 30 min au lieu d'une demi-journée. Skill Claude pas à pas — formation IA pour le BTP, tuto gratuit.",
+    'Tuto skill DIUO SPS : préparer la liasse pièces lot en 30 min avec Claude. Formation IA pour le BTP, présentiel Île-de-France, Qualiopi — tuto gratuit.',
   keywords: [
     'DIUO BTP',
     'dossier intervention ultérieure ouvrage',
@@ -36,7 +36,7 @@ export const TUTO_SKILL_DIUO_OFC: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    'Tuto Skill pièces DIUO — liasse SPS BTP en 30 min avec Claude, par Laure Olivié',
+    'Professionnelle BTP, prépa DIUO pour le SPS — pièces lot chantier formation IA pour le BTP',
 
   publishedAt: '2026-07-24',
   updatedAt: '2026-07-24',
@@ -48,7 +48,7 @@ export const TUTO_SKILL_DIUO_OFC: TutoData = {
 
   heroImage: {
     src: '/images/ressources/miniatures/miniature-tuto-diuo.jpg',
-    alt: 'Prépa DIUO — pièces que le coordonnateur SPS réclame, skill Claude',
+    alt: 'Professionnelle BTP, prépa DIUO pour le SPS — pièces lot chantier formation IA pour le BTP',
     width: 1200,
     height: 675,
   },

@@ -9,7 +9,7 @@ export const metadata = createPageMetadata({
   description:
     'Formation IA pour soliers : DTU 53, chiffrage PVC/lino/parquet, documents chantier. Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 export default function FormationIaSolierRevetementsPage() {

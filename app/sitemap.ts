@@ -135,6 +135,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-ia-chef-chantier-tp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-canalisateur-tp', priority: 0.89, changeFrequency: 'monthly' },
     { path: LINKS.formationIaMaconBtp, priority: 0.89, changeFrequency: 'monthly' },
+    { path: LINKS.formationIaGrosOeuvreBtp, priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-etancheur', priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.formationIaMarchePublicTravaux, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationIaMarchePublicEtancheite, priority: 0.88, changeFrequency: 'monthly' },

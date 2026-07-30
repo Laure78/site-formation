@@ -13,6 +13,7 @@ import {
   FORMATION_COURSE_DURATION_ISO,
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import {
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
@@ -235,11 +236,7 @@ export function buildFormationCatalogueRichCourseJsonLd(
       '@id': organizationId,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
-      hasCredential: {
-        '@type': 'EducationalOccupationalCredential',
-        name: 'Certification Qualiopi',
-        credentialCategory: 'certification',
-      },
+      hasCredential: buildQualiopiCredentialSchema(),
     },
     instructor: { '@id': instructorId },
     aggregateRating: buildSchemaAggregateRating(),

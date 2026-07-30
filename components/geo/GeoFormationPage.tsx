@@ -50,13 +50,7 @@ export function geoFormationMetadata(props: GeoFormationPageProps) {
     description,
     descriptionFinal: true,
     path: geoFormationPath(slug),
-    openGraphType: 'article',
-    article: {
-      publishedTime: '2026-06-02',
-      modifiedTime: '2026-06-02',
-      author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pros du BTP',
-    },
+    openGraphType: 'website',
     image: {
       url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
       width: 1024,

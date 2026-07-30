@@ -14,7 +14,7 @@ export const TUTO_PPSPS: TutoData = {
 
   metaTitle: 'Tuto skill PPSPS BTP : Plan Particulier Sécurité 30 min',
   metaDescription:
-    "PPSPS BTP en 30 minutes : crée ton skill Claude pour rédiger ton Plan Particulier de Sécurité au lieu de 2 jours. Tuto gratuit.",
+    'Tuto skill Claude PPSPS : Plan Particulier de Sécurité chantier en 30 min. Formation IA pour le BTP, présentiel Île-de-France, Qualiopi — tuto gratuit.',
   keywords: [
     'PPSPS BTP',
     'Plan Particulier Sécurité Protection Santé',
@@ -38,7 +38,7 @@ export const TUTO_PPSPS: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    'Tuto Skill PPSPS — Plan Particulier de Sécurité BTP 30 min avec Claude, par Laure Olivié',
+    'Formatrice casque et gilet sur chantier — tuto skill Claude PPSPS formation IA Île-de-France',
 
   publishedAt: '2026-05-09',
   updatedAt: '2026-05-09',

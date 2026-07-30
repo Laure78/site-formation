@@ -29,7 +29,6 @@ import {
 import {
   createPageMetadata,
   getFAQSchema,
-  SITE_CONFIG,
 } from '@/lib/seo';
 import { COUNT_UP_PROS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
@@ -87,13 +86,7 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
     path: config.path,
     keywords: config.keywords,
     appendAuthorSuffix: false,
-    openGraphType: 'article',
-    article: {
-      publishedTime: '2026-04-15',
-      modifiedTime: '2026-04-15',
-      author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pros du BTP',
-    },
+    openGraphType: 'website',
     image: {
       url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,

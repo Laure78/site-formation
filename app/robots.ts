@@ -3,11 +3,13 @@ import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
+/** Zones privées / techniques — non indexables. */
+const PRIVATE_DISALLOW = ['/admin/', '/espace-apprenant/', '/api/'] as const;
+
 /**
  * Bots IA — Allow: / explicite (GEO / extraction).
  * Obligatoires : GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended.
  * Compléments Anthropic / Common Crawl : Claude-Web, anthropic-web, anthropic-ai, CCBot.
- * Aucun Disallow sur le contenu public.
  */
 const AI_CRAWLERS = [
   'GPTBot',
@@ -31,11 +33,13 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: [...PRIVATE_DISALLOW],
         crawlDelay: 1,
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: '/' as const,
+        disallow: [...PRIVATE_DISALLOW],
       })),
     ],
     sitemap: [`${SITE_BASE}/sitemap.xml`, `${SITE_BASE}/video-sitemap.xml`],

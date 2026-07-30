@@ -1,7 +1,7 @@
-import { QUALIOPI_SATISFACTION_SOURCING } from '@/config/qualiopi';
+import { PROOF } from '@/lib/proof';
 
 export function QualiopiSatisfactionSource({ className = '' }: { className?: string }) {
   return (
-    <p className={`text-xs leading-relaxed text-slate-500 ${className}`}>{QUALIOPI_SATISFACTION_SOURCING}</p>
+    <p className={`text-xs leading-relaxed text-slate-500 ${className}`}>{PROOF.mentionSource}</p>
   );
 }

@@ -1,6 +1,6 @@
 /**
- * Chiffres publics OFC — source unique (affichage, compteurs, JSON-LD).
- * Les indicateurs Qualiopi sont centralisés dans config/qualiopi.ts.
+ * Chiffres publics OFC — affichage, compteurs, JSON-LD.
+ * Source des formés / note : `lib/proof.ts` → `config/qualiopi.ts`.
  */
 import { QUALIOPI_STATS } from '@/config/qualiopi';
 

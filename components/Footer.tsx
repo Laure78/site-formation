@@ -7,76 +7,66 @@ import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
-import { SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
+import { SITE_LOGO_ALT } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
-import { FOOTER_GEO_LINKS, FOOTER_METIER_LINKS } from '@/lib/contextual-internal-links';
+import {
+  NAV_ENTREPRISE,
+  NAV_IDF,
+  NAV_LEGAL,
+  NAV_METIERS,
+  NAV_RESSOURCES,
+  NAV_SERVICES,
+  type NavItem,
+} from '@/lib/nav';
 import { FooterExploreStrip } from '@/components/layout/FooterExploreStrip';
-import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
-import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 
+function isExternalHref(href: string): boolean {
+  return /^https?:\/\//i.test(href);
+}
+
+function FooterNavLink({ item }: { item: NavItem }) {
+  const className = 'text-sm text-slate-600 transition-colors hover:text-[var(--accent)]';
+  if (isExternalHref(item.href)) {
+    return (
+      <ExternalLinkAnchor href={item.href} className={className} title={item.title}>
+        {item.label}
+      </ExternalLinkAnchor>
+    );
+  }
+  return (
+    <Link href={item.href} className={className} title={item.title}>
+      {item.label}
+    </Link>
+  );
+}
+
+function FooterNavColumn({
+  ariaLabel,
+  heading,
+  items,
+}: {
+  ariaLabel: string;
+  heading: string;
+  items: readonly NavItem[];
+}) {
+  return (
+    <nav aria-label={ariaLabel} className="min-w-0">
+      <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">{heading}</h3>
+      <ul className="mt-3 space-y-2">
+        {items.map((item) => (
+          <li key={item.href}>
+            <FooterNavLink item={item} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+/** Footer site unique — listes depuis `lib/nav.ts`. */
 export function Footer() {
-  const companyLinks = [
-    { href: LINKS.aPropos, label: 'À propos' as const, external: false as const },
-    { href: LINKS.partenaires, label: 'Partenaires' as const, external: false as const },
-    {
-      href: LINKS.bework,
-      label: 'BeWork — assistant travaux BTP' as const,
-      external: false as const,
-      linkTitle: 'BeWork — relais assistants travaux BTP (présentation)',
-    },
-    { href: LINKS.contact, label: 'Contact' as const, external: false as const },
-    { href: LINKS.prendreRdv, label: 'Rendez-vous' as const, external: false as const },
-    {
-      href: SITE_CONFIG.linkedinProfileUrl,
-      label: 'LinkedIn' as const,
-      external: true as const,
-      linkTitle: 'Profil LinkedIn — Laure Olivié',
-    },
-  ] as const;
-
-  const serviceLinks = [
-    { href: LINKS.formations, label: 'Catalogue' },
-    { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
-    { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Niveau 1 — bâtiment & TP' },
-    { href: LINKS.formationAO, label: "Appels d'offres (niveau 2)" },
-    { href: LINKS.formationIaMarchePublicTravaux, label: 'Marché public de travaux' },
-    { href: LINKS.financement, label: 'Financement' },
-    { href: LINKS.formationConducteurTravaux, label: 'Conducteur de travaux' },
-    { href: LINKS.chatgptArtisans, label: 'TPE & PME du bâtiment' },
-    { href: LINKS.formationClaudeAiBtp, label: 'Formation Claude AI BTP' },
-    { href: LINKS.formationIaBtpParis, label: 'Paris' },
-  ];
-
-  const resourceLinks = [
-    { href: LINKS.blog, label: 'Blog', external: false as const },
-    { href: LINKS.diagnostic, label: 'Diagnostic', external: false as const },
-    { href: LINKS.checklist, label: 'Checklist', external: false as const },
-    {
-      href: BEWORK_APP_PATHS.lexique,
-      label: 'Lexique BTP gratuit',
-      external: true as const,
-      linkTitle: 'Lexique & apprentissage BTP — parcours, flashcards et quiz (BeWork)',
-    },
-    { href: LINKS.skillIaConducteurTravaux, label: 'Guide Conducteur de travaux (PDF)', external: false as const },
-    { href: LINKS.etudesCas, label: 'Étude de cas', external: false as const },
-    { href: LINKS.casUsage, label: "Cas d'usage", external: false as const },
-  ];
-
-  const legalLinks = [
-    { href: LINKS.cgv, label: 'CGV' },
-    { href: LINKS.mentionsLegales, label: 'Mentions légales' },
-    { href: LINKS.politiqueConfidentialite, label: 'Confidentialité' },
-    { href: LINKS.reglementInterieur, label: 'Règlement intérieur' },
-    { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
-    { href: LINKS.annuaireHandicap, label: 'Annuaire handicap' },
-    { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
-    { href: LINKS.qualiopi, label: 'Certification Qualiopi' },
-    { href: LINKS.reclamations, label: 'Réclamations' },
-    { href: '/llms.txt', label: 'llms.txt' },
-  ];
-
   return (
     <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
@@ -88,10 +78,7 @@ export function Footer() {
             <p className="mt-0.5 text-sm text-slate-600">
               Catalogue <QualiopiWordmark />, financement Constructys — sessions 4 h.
             </p>
-            <Link
-              href={LINKS.skillIaConducteurTravaux}
-              className={`mt-3 inline-flex text-sm ${OFC_LINK}`}
-            >
+            <Link href={LINKS.skillIaConducteurTravaux} className={`mt-3 inline-flex text-sm ${OFC_LINK}`}>
               Guide Conducteur de travaux — PDF gratuit →
             </Link>
           </div>
@@ -152,99 +139,21 @@ export function Footer() {
               <span className="block">Guyancourt (78) · SIRET {SCHEMA_CONTACT.siretFormatted}</span>
               <span className="block">
                 Organisme de formation enregistré sous le n° de déclaration d&apos;activité {SCHEMA_CONTACT.nda}{' '}
-                auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de l&apos;État.
+                auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de
+                l&apos;État.
               </span>
             </address>
           </div>
 
-          <nav aria-label="Entreprise" className="min-w-0">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Entreprise</h3>
-            <ul className="mt-3 space-y-2">
-              {companyLinks.map((item) => (
-                <li key={item.label}>
-                  {item.external ? (
-                    <ExternalLinkAnchor
-                      href={item.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                      title={'linkTitle' in item ? item.linkTitle : undefined}
-                    >
-                      {item.label}
-                    </ExternalLinkAnchor>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label="Services" className="min-w-0">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Services</h3>
-            <ul className="mt-3 space-y-2">
-              {serviceLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label="Ressources" className="min-w-0">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Ressources</h3>
-            <ul className="mt-3 space-y-2">
-              {resourceLinks.map((item) => (
-                <li key={item.label}>
-                  {item.external ? (
-                    <ExternalLinkAnchor
-                      href={item.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                      title={'linkTitle' in item ? item.linkTitle : undefined}
-                    >
-                      {item.label}
-                    </ExternalLinkAnchor>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav aria-label="Légal" className="min-w-0">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">Légal</h3>
-            <ul className="mt-3 space-y-2">
-              {legalLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-[var(--accent)]"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <FooterNavColumn ariaLabel="Entreprise" heading="Entreprise" items={NAV_ENTREPRISE} />
+          <FooterNavColumn ariaLabel="Services" heading="Services" items={NAV_SERVICES} />
+          <FooterNavColumn ariaLabel="Ressources" heading="Ressources" items={NAV_RESSOURCES} />
+          <FooterNavColumn ariaLabel="Légal" heading="Légal" items={NAV_LEGAL} />
         </div>
 
         <div className="mt-10 grid gap-8 rounded-2xl border border-slate-200 bg-slate-50/60 p-5 md:grid-cols-2 md:p-6">
-          <FooterExploreStrip title="Formations IA par métier" links={FOOTER_METIER_LINKS} />
-          <FooterExploreStrip title="Formations en Île-de-France" links={FOOTER_GEO_LINKS} />
+          <FooterExploreStrip title="Formations IA par métier" links={NAV_METIERS} />
+          <FooterExploreStrip title="Formations en Île-de-France" links={NAV_IDF} />
         </div>
 
         <ReferentHandicapBlock variant="compact" className="mb-8" />
@@ -253,7 +162,9 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-6 sm:flex-row">
           <p className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-1 text-center text-xs text-slate-500 sm:justify-start">
-            <span>© {new Date().getFullYear()} {QUALIOPI_LEGAL.raisonSociale} ·</span>
+            <span>
+              © {new Date().getFullYear()} {QUALIOPI_LEGAL.raisonSociale} ·
+            </span>
             <QualiopiWordmark />
           </p>
           <div className="flex gap-2">

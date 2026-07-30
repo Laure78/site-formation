@@ -419,7 +419,7 @@ export const PHOTOS = {
 
   tutoPpspsHero2026: {
     src: '/images/ressources/miniatures/miniature-tuto-ppsps.jpg',
-    alt: 'Tuto skill Claude PPSPS — plan particulier sécurité chantier BTP',
+    alt: 'Formatrice casque et gilet sur chantier — tuto skill Claude PPSPS formation IA Île-de-France',
     width: 1200,
     height: 675,
   },

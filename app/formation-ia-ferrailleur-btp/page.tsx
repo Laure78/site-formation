@@ -33,7 +33,7 @@ export const metadata = createMetierBtpPageMetadata('ferrailleur', {
     'OPCO Constructys ferrailleur',
     'Qualiopi ferraillage',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_FERRAILLAGE = `"Calcule le tonnage d'armatures pour ce ferraillage béton :

@@ -42,19 +42,16 @@ import { buildMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
-import { EtudeCasClientsSection } from '@/components/landing/EtudeCasClientsSection';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import {
-  FORMATIONS_CATALOGUE,
   CATALOGUE_FORMATIONS_COUNT,
   cataloguePedagogicalLevelBadge,
   catalogueNiveauEtLevel,
   getFormationCatalogueByRef,
-  sortFormationsCatalogue,
   type CatalogueLevel,
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
@@ -75,12 +72,8 @@ import { Accordion } from '@/components/readability/Accordion';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { Citation } from '@/components/readability/Citation';
-import {
-  COUNT_UP_PROS,
-  COUNT_UP_PROS_PLUS,
-  COUNT_UP_RATING,
-  getStatsFreshnessLabel,
-} from '@/lib/readability-presets';
+import { PROOF, formatProofFormes } from '@/lib/proof';
+import { ProofStats } from '@/components/ProofStats';
 import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
@@ -92,6 +85,17 @@ const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
 const FORMATION_CLAUDE = getFormationCatalogueByRef('NIV-04')!;
 const FORMATION_MOE = getFormationCatalogueByRef('NIV-05')!;
 
+/** Aperçu catalogue home — 3 parcours phares (le reste sur /formations). */
+const HOME_CATALOGUE_PREVIEW = [FORMATION_NIVEAU1, FORMATION_AO, FORMATION_CONDUITE] as const;
+
+/** Puces fusionnées depuis l’offre BeWork/formations (ex-titre « Ce que vous gagnez concrètement »). */
+const GAINS_CONCRETS_MERGES = [
+  "Appels d'offres : analyse DCE et mémoire technique assistés — relecture métier obligatoire",
+  'Chantier : DOE, PV, CR à partir de vos notes — vous validez et signez',
+  'Communication : visuels avant/après et posts réseaux pour vos chantiers',
+  'Prompts sur mesure : méthodes adaptées à vos documents et process',
+] as const;
+
 function catalogueLevelBadge(ref: string, _level: CatalogueLevel): string {
   return cataloguePedagogicalLevelBadge(ref);
 }
@@ -100,21 +104,18 @@ const GAINS_COMMERCIAUX_CARDS = [
   {
     icon: CircleDollarSign,
     title: 'Augmentez votre rentabilité',
-    desc: "Réduisez vos coûts administratifs de 30 à 40 %. Répondez à plus d'appels d'offres avec les mêmes ressources.",
+    desc: "Réduisez le temps passé sur l'administratif et traitez davantage d'appels d'offres à effectif constant. Les gains varient selon l'organisation et le niveau de pratique.",
   },
   {
     icon: Rocket,
     title: 'Gagnez en réactivité commerciale',
     keyPoint: (
-      <KeyPoint
-        variant="inverse"
-        label="Réactivité commerciale"
-        subject="Réponse aux devis"
-        after="15 minutes"
-        before="2 jours"
-      />
+      <KeyPoint variant="inverse" label="Réactivité commerciale">
+        Un premier devis structuré en moins d&apos;une heure, contre une demi-journée en routine — selon la
+        complexité du chantier.
+      </KeyPoint>
     ),
-    desc: "Augmentez votre taux de transformation de 25 %.",
+    desc: 'Répondez plus vite aux demandes de devis — un délai de réponse court reste le premier levier de transformation.',
   },
   {
     icon: HeartHandshake,
@@ -124,7 +125,7 @@ const GAINS_COMMERCIAUX_CARDS = [
   {
     icon: LineChart,
     title: 'Développez votre CA sans embaucher',
-    desc: "Traitez 50 % de chantiers supplémentaires avec les mêmes effectifs. Optimisez vos marges.",
+    desc: 'Libérez du temps bureau pour absorber plus de chantiers à effectif constant, sans dégrader le suivi.',
   },
   {
     icon: Sparkles,
@@ -140,8 +141,7 @@ const GAINS_COMMERCIAUX_CARDS = [
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France';
-const HOME_META_DESCRIPTION =
-  'Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, 1 592 pros, 4,85/5. Visio découverte.';
+const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatProofFormes()} pros, ${PROOF.note}. Visio découverte.`;
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -192,8 +192,6 @@ export const metadata = buildMetadata({
 });
 
 export default function HomePage() {
-  const statsFreshness = getStatsFreshnessLabel();
-
   return (
     <div>
       {/* Hero — Formation IA pour le BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
@@ -245,28 +243,17 @@ export default function HomePage() {
                 Formation IA pour le BTP — devis, chantier, appels d&apos;offres
               </h1>
               <h2 className="mt-3 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                Présentiel uniquement · Île-de-France uniquement
+                Formation IA BTP en présentiel en Île-de-France — sessions de 4 h
               </h2>
               <p className="mt-2 max-w-xl text-sm font-medium text-slate-600 md:text-base">
-                Sessions 4 h en intra ou inter sur vos documents BTP réels
+                Présentiel uniquement · Île-de-France uniquement
               </p>
               <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                 Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
                 <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 sm:mt-7">
-                <StatCallout
-                  variant="inline"
-                  value={COUNT_UP_PROS}
-                  label="professionnels formés"
-                  freshnessLabel={statsFreshness}
-                />
-                <StatCallout
-                  variant="inline"
-                  value={COUNT_UP_RATING}
-                  label="note moyenne de satisfaction"
-                  freshnessLabel={statsFreshness}
-                />
+              <div className="mt-6 sm:mt-7">
+                <ProofStats className="rounded-2xl border border-slate-200" />
               </div>
               <QualiopiSatisfactionSource className="mt-3 max-w-2xl" />
             </div>
@@ -329,13 +316,13 @@ export default function HomePage() {
                 className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center gap-2 rounded-full border-2 border-emerald-600/30 bg-emerald-50/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-emerald-900 backdrop-blur-sm transition hover:border-emerald-600 hover:bg-emerald-100 md:min-w-[auto]"
               >
                 <FileText className="h-4 w-4 shrink-0" aria-hidden />
-                Guide CDT gratuit (PDF)
+                Guide conducteur de travaux (PDF gratuit)
               </Link>
               <Link
-                href="#programme"
+                href="#offre-formations"
                 className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
               >
-                Voir le programme
+                Voir le catalogue
               </Link>
             </div>
             <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
@@ -554,10 +541,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Étude de cas clients — FFB / CSFE (preuve B2B) */}
-      <EtudeCasClientsSection />
-
-      {/* Témoignages Google — sous « Ils m'ont fait confiance » (hiérarchie H2 → H3) */}
+      {/* Témoignages & étude de cas — un seul titre « Cas concrets… » */}
       <Suspense fallback={<GoogleReviewsSectionPlaceholder />}>
         <GoogleReviewsSection />
       </Suspense>
@@ -803,9 +787,15 @@ export default function HomePage() {
         <div className={OFC_INNER_ACCENT_BAND}>
           <div className="mx-auto max-w-7xl">
             <Reveal>
-              <p className="max-w-3xl text-base leading-relaxed text-blue-100/95 md:text-lg">
-                Ce que vous gagnez concrètement après la formation : rentabilité, réactivité commerciale,
-                fidélisation des équipes et image professionnelle — sans embaucher à tout prix.
+              <h2
+                id="gains-concrets-heading"
+                className="font-display text-3xl font-bold text-white md:text-4xl"
+              >
+                Ce que vous gagnez concrètement
+              </h2>
+              <p className="mt-3 max-w-3xl text-base leading-relaxed text-blue-100/95 md:text-lg">
+                Après la formation : rentabilité, réactivité commerciale, fidélisation des équipes et image
+                professionnelle — sans embaucher à tout prix.
               </p>
             </Reveal>
             <RevealGroup className="mt-8 grid gap-6 sm:grid-cols-2" staggerMs={60}>
@@ -840,6 +830,14 @@ export default function HomePage() {
                 );
               })}
             </RevealGroup>
+            <ul className="mt-8 space-y-3 text-base leading-relaxed text-blue-100/95">
+              {GAINS_CONCRETS_MERGES.map((line) => (
+                <li key={line} className="flex gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-white" strokeWidth={2} aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
             <DisclaimerGains className="mt-6 max-w-3xl text-blue-100/80" />
             <Accordion
               id="benefices-gains-commerciaux"
@@ -899,8 +897,8 @@ export default function HomePage() {
             </p>
             <CatalogueTarifStrip className="mt-5" />
           </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-2">
-            {sortFormationsCatalogue(FORMATIONS_CATALOGUE).map((cours) => (
+          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {HOME_CATALOGUE_PREVIEW.map((cours) => (
               <div
                 key={cours.ref}
                 className={`${OFC_CARD} flex flex-col overflow-hidden`}
@@ -985,6 +983,11 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <Reveal className="mt-10 text-center">
+            <p className="text-base font-semibold text-slate-700">
+              Catalogue complet : {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -1005,33 +1008,8 @@ export default function HomePage() {
             Programme détaillé de la formation
           </h3>
           <p className="mt-3 text-sm text-slate-600">
-            <Link
-              href={LINKS.formations}
-              className={OFC_LINK}
-              title={`Catalogue — ${CATALOGUE_FORMATIONS_COUNT} formations, programmes PDF`}
-            >
-              catalogue &amp; programmes PDF
-            </Link>
-            {' — '}
-            <Link href={LINKS.blog} className={OFC_LINK} title="Articles et guides IA BTP">
-              tous les articles
-            </Link>
-            {' · '}
-            <Link href={LINKS.claudeAiBtp} className={OFC_LINK} title="Guide Claude AI pour le BTP — interfaces, prompts, gains de temps">
-              Claude AI BTP
-            </Link>
-            {' · '}
-            <Link href={LINKS.iaMemoireTechnique} className={OFC_LINK} title="Mémoire technique BTP avec l'IA">
-              mémoire technique avec l&apos;IA
-            </Link>
-            {' · '}
-            <Link href={LINKS.iaCDT} className={OFC_LINK} title="IA pour conducteurs de travaux">
-              IA conducteur de travaux
-            </Link>
-            {' · '}
-            <Link href={LINKS.prendreRdv} className={OFC_LINK} title="Prendre rendez-vous — diagnostic gratuit">
-              prendre rendez-vous
-            </Link>
+            catalogue &amp; programmes PDF — articles et guides IA BTP · Claude AI BTP · mémoire technique · IA
+            conducteur de travaux
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
             {CATALOGUE_FORMATIONS_COUNT} parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> —{' '}
@@ -1043,15 +1021,6 @@ export default function HomePage() {
             <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
             depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>
-          <div className="mt-8">
-            <Link
-              href={LINKS.formations}
-              className="inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
-              title="Catalogue des formations IA pour les pros du BTP Qualiopi"
-            >
-              catalogue des formations IA appliquées au bâtiment
-            </Link>
-          </div>
           </Reveal>
           <Accordion id="programme-modules-detail" summaryLabel="Lire la suite — modules et ressources">
             <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerMs={45}>
@@ -1447,20 +1416,8 @@ export default function HomePage() {
             Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
             grâce à nos formations IA personnalisées pour le BTP.
           </p>
-          <RevealGroup className="mt-12 flex flex-wrap justify-center gap-8 md:gap-12" staggerMs={50}>
-            <StatCallout
-              variant="inverse"
-              value={COUNT_UP_PROS_PLUS}
-              label="Professionnels formés"
-              freshnessLabel={statsFreshness}
-            />
-            <StatCallout
-              variant="inverse"
-              value={COUNT_UP_RATING}
-              label="Note moyenne de satisfaction"
-              freshnessLabel={statsFreshness}
-            />
-            <StatCallout variant="inverse" value="OPCO" label="Financement possible selon éligibilité" />
+          <RevealGroup className="mt-12" staggerMs={50}>
+            <ProofStats variant="inverse" className="max-w-3xl mx-auto" />
           </RevealGroup>
           <QualiopiSatisfactionSource className="mx-auto mt-6 max-w-2xl text-center text-blue-100/90" />
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">

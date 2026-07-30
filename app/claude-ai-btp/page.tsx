@@ -15,7 +15,7 @@ import { ClaudePromptBlock } from '@/components/claude/ClaudePromptBlock';
 import { ClaudeSkillTutorialBtpSection } from '@/components/claude/ClaudeSkillTutorialBtpSection';
 import { ClaudeSkillsLeadMagnetSection } from '@/components/claude/ClaudeSkillsLeadMagnetSection';
 import { FAQSchema } from '@/components/seo/FAQSchema';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 import { buildClaudeAiBtpJsonLdGraph } from '@/lib/claude-ai-btp-jsonld';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
@@ -31,13 +31,7 @@ export const metadata = createPageMetadata({
     `Guide Claude AI BTP : Chat, Cowork, Code & Chrome. Prompts chantier, DCE, CR. Qualiopi, IDF. ${formatProfessionalsTrainedCount()} pros formés.`,
   path: PATH,
   keywords: null,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-04-13',
-    modifiedTime: '2026-04-18',
-    author: SITE_CONFIG.name,
-    section: 'Formation IA pour les pros du BTP',
-  },
+  openGraphType: 'website',
   image: {
     url: heroVisuel.src,
     width: heroVisuel.width,

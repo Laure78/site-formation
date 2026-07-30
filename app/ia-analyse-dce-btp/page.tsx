@@ -23,13 +23,7 @@ export const metadata = buildMetadata({
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-07-14',
-    modifiedTime: '2026-07-14',
-    author: 'Laure Olivié',
-    section: 'Méthode IA BTP',
-  },
+  openGraphType: 'website',
   keywords: [
     'analyser DCE avec IA',
     'analyse CCTP IA BTP',

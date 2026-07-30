@@ -114,6 +114,7 @@ const METIER_TITLES: Record<string, string> = {
   '/formation-ia-electricien-btp': 'Formation IA Électricien BTP',
   '/formation-ia-conducteur-de-travaux-btp': 'Formation IA Conducteur de travaux',
   '/formation-ia-macon-btp': 'Formation IA Maçon & Maçonnerie',
+  '/formation-ia-gros-oeuvre-btp': 'Formation IA Gros œuvre BTP',
   '/formation-ia-plombier-btp': 'Formation IA Plombier BTP',
   '/formation-ia-charpentier-btp': 'Formation IA Charpentier BTP',
   '/formation-ia-charpentier-menuisier-btp': 'Formation IA Charpentier & Menuisier bois',

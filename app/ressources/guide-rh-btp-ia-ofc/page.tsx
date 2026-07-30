@@ -17,7 +17,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-rh-btp-ia-ofc-f
 
 const META_TITLE = 'Guide RH BTP : 18 cas d’usage IA';
 const META_DESCRIPTION =
-  'Guide PDF RH BTP : 18 cas d’usage IA (recrutement, onboarding, droit social, reporting). Formation IA pour le BTP Qualiopi, présentiel IDF — téléchargez.';
+  'Guide RH BTP : 18 cas d’usage IA (recrutement, onboarding, droit social). Formation IA pour les pros du BTP, présentiel Île-de-France, Qualiopi — PDF gratuit.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

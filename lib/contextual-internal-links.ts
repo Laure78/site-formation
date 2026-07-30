@@ -401,23 +401,3 @@ export function getMetierRelatedLinks(
     description,
   }));
 }
-
-/** Footer — accès rapide aux landings métier les plus consultées. */
-export const FOOTER_METIER_LINKS: ContextualLinkCard[] = [
-  { href: LINKS.formationConducteurTravaux, title: 'Conducteur de travaux' },
-  { href: LINKS.formationChargeAffairesBtp, title: "Chargé d'affaires" },
-  { href: LINKS.formationElectricienBtp, title: 'Électricien' },
-  { href: LINKS.formationPlombierBtp, title: 'Plombier' },
-  { href: LINKS.formationIaCharpentierMenuisierBtp, title: 'Charpentier & menuisier' },
-  { href: LINKS.formationIaMaconBtp, title: 'Maçon & maçonnerie' },
-  { href: LINKS.chatgptArtisans, title: 'TPE & PME du bâtiment' },
-  { href: LINKS.formationIaDirigeantBtp, title: 'Dirigeant PME' },
-  { href: LINKS.formationIaEtancheur, title: 'Étancheur' },
-  { href: LINKS.formationIaAssistanteBtp, title: 'Assistante administrative' },
-];
-
-/** Footer — pages locales par département IDF. */
-export const FOOTER_GEO_LINKS: ContextualLinkCard[] = [
-  ...GEO_DEPARTMENT_EXTENDED.map(({ href, title }) => ({ href, title })),
-  { href: LINKS.formationIleDeFrance, title: 'Toute l’Île-de-France' },
-];

@@ -35,7 +35,7 @@ export const metadata = createMetierBtpPageMetadata('chef TPE', {
     'Qualiopi formation BTP',
     'prospection IA BTP',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_DEVIS_EXPRESS = `Crée un devis pour ce client (PME BTP, Île-de-France) :

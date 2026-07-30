@@ -17,7 +17,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-repondre-ao-btp
 
 const META_TITLE = 'IA appels d’offres BTP : méthode en 5 étapes';
 const META_DESCRIPTION =
-  'Guide PDF gratuit répondre AO BTP 2026 : méthode 5 étapes, 4 prompts IA et 6 contrôles. Formation IA pour le BTP Qualiopi, présentiel IDF — téléchargez.';
+  'Guide AO BTP 2026 : méthode 5 étapes, 4 prompts IA et contrôles. Formation IA appliquée au bâtiment, présentiel Île-de-France, Qualiopi — PDF gratuit.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

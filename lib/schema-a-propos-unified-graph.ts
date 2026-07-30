@@ -15,9 +15,10 @@ import {
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
+  buildIdfAreaServedSchemaEntities,
   buildPersonAffiliationSchemaNodes,
-  buildQualiopiCredentialSchema,
 } from '@/lib/schema-constants';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { getFAQSchema } from '@/lib/seo';
 import { buildAProposImageObjectJsonLd } from '@/lib/schema-image-objects';
 import { LINKEDIN_LEARNING_A_PROPOS_EMBEDS } from '@/lib/linkedin-learning-a-propos-embeds';
@@ -148,17 +149,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       latitude: SCHEMA_GEO.latitude,
       longitude: SCHEMA_GEO.longitude,
     },
-    areaServed: [
-      'Île-de-France',
-      'Paris',
-      'Yvelines',
-      'Hauts-de-Seine',
-      'Seine-et-Marne',
-      'Val-de-Marne',
-      'Seine-Saint-Denis',
-      "Val-d'Oise",
-      'Essonne',
-    ],
+    areaServed: buildIdfAreaServedSchemaEntities(),
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     openingHours: SCHEMA_OPENING_HOURS,

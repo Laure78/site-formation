@@ -1409,8 +1409,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
     ],
     relatedSlugs: [
+      'situation-travaux-ia-btp',
       'financer-formation-ia-btp-constructys',
-      '5-cas-usage-chatgpt-artisans-btp',
+      'comment-ia-gagne-5h-conducteurs-travaux',
       'formation-ia-btp-guide-complet-2026',
       'chatgpt-devis-btp-methode-2026',
     ],

@@ -33,7 +33,7 @@ export const metadata = createMetierBtpPageMetadata('maçon paysagiste', {
     'Qualiopi BTP',
     'appel d’offres paysager',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_DEVIS = `Crée un devis structuré pour ce projet maçon paysagiste :

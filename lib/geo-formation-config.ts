@@ -3,6 +3,7 @@
  */
 
 import { LINKS } from '@/lib/internal-links';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 
 export type GeoFormationPageSeo = {
   title: string;
@@ -101,7 +102,7 @@ export const GEO_FORMATION_PARIS_75: GeoFormationPageProps = {
   seo: {
     title: 'Formation IA bâtiment Paris | Laure Olivié',
     description:
-      'Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. 1 592 pros formés, 4,85/5. Visio découverte.',
+      `Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. ${formatProofFormes()} pros formés, ${PROOF.note}. Visio découverte.`,
   },
   h1: 'Formation IA bâtiment et construction à Paris',
   heroIntro:

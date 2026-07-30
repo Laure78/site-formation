@@ -40,7 +40,7 @@ export const metadata = createPageMetadata({
   description:
     `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Certifiée Qualiopi.`,
   path: PATH,
-  openGraphType: 'article',
+  openGraphType: 'website',
   openGraphTitle: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
   openGraphDescription:
     `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Certifiée Qualiopi.`,

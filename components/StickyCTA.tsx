@@ -46,14 +46,14 @@ export function StickyCTA() {
       <div className="flex shrink-0 items-center gap-2">
         <CTACalendly
           page={pathname}
-          ctaPosition="footer"
+          ctaPosition="floating"
           ctaId="sticky-mobile"
           utmSource="site"
-          utmMedium="sticky"
-          utmCampaign="sticky-mobile"
+          utmMedium="cta"
+          campaign="sticky-mobile"
           className="whitespace-nowrap rounded-lg bg-white px-6 py-4 text-base font-bold text-[#377CF3]"
         >
-          Prendre rendez-vous (30 min, gratuit)
+          Réservez votre visio découverte gratuite
         </CTACalendly>
         <button
           type="button"

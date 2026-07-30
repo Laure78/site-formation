@@ -41,7 +41,7 @@ export const metadata = createPageMetadata({
     'Qualiopi étanchéité',
     'CSFE formation IA',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_DEVIS = `Tu es expert étancheur en Île-de-France. Rédige un devis structuré pour une réfection d'étanchéité de toiture-terrasse :

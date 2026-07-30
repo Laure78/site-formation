@@ -21,6 +21,7 @@ import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { JsonLd } from '@/components/JsonLd';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { formatProofFormes } from '@/lib/proof';
 
 const MAIL_PROGRAMME_PME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA PME BTP')}`;
@@ -34,8 +35,7 @@ const HERO_RESUME_PME = [
   "Sans prérequis technique — trames prêtes à l'emploi.",
 ];
 
-const PAGE_META_DESCRIPTION =
-  'Formation IA dirigeants PME BTP en présentiel IDF : ChatGPT pour transformer le bureau. Qualiopi, Constructys selon éligibilité. 1 592 pros. RDV découverte.';
+const PAGE_META_DESCRIPTION = `Formation IA dirigeants PME BTP en présentiel IDF : ChatGPT pour transformer le bureau. Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros. RDV découverte.`;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA PME BTP — Dirigeants Bâtiment',

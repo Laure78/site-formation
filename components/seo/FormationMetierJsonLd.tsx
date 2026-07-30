@@ -22,6 +22,7 @@ import {
   SCHEMA_PUBLIC_SITE_URL,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
@@ -63,9 +64,6 @@ type Props = {
   /** id HTML du <script> (utile si plusieurs blocs sur une même page). */
   scriptId?: string;
 };
-
-/** Date d'expiration de la certification Qualiopi (action de formation). */
-const QUALIOPI_VALID_UNTIL = '2028-01-31';
 
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -134,18 +132,7 @@ function buildOrganizationNode() {
       addressRegion: SCHEMA_GEO.addressRegion,
       addressCountry: SCHEMA_GEO.addressCountry,
     },
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Certification Qualiopi — Actions de formation',
-      credentialCategory: 'Certification qualité',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'France Compétences',
-        url: 'https://www.francecompetences.fr/',
-      },
-      validIn: { '@type': 'Country', name: 'France' },
-      validUntil: QUALIOPI_VALID_UNTIL,
-    },
+    hasCredential: buildQualiopiCredentialSchema(),
     sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
   };
 }
