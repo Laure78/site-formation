@@ -255,6 +255,11 @@ export const LINKS = {
   tutoSkillDiuoOfc: '/ressources/tuto-skill-diuo-ofc',
   /** Fichier téléchargeable — tuto skill DIUO OFC (.docx) */
   pdfTutoSkillDiuoOfc: '/ressources/pdf/tuto-skill-diuo-ofc.docx',
+  /** Tuto — skill mémoire de réclamation (BeWork) */
+  tutoSkillMemoireReclamationBework: '/ressources/tuto-skill-memoire-reclamation-bework',
+  /** PDF — tuto skill mémoire de réclamation BeWork */
+  pdfTutoSkillMemoireReclamationBework:
+    '/ressources/pdf/tuto-skill-memoire-reclamation-bework.pdf',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
   /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */

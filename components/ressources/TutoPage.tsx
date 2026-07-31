@@ -10,6 +10,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LINKS } from '@/lib/internal-links';
+import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { buildRessourceTutoJsonLd } from '@/lib/schema-ressource-tuto-jsonld';
 import { FINANCEMENT_STAT_LABEL, FINANCEMENT_STAT_VAL } from '@/lib/financement-copy';
@@ -375,48 +376,68 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             </ul>
           </div>
 
-          <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
-            <div>
-              <h3 className="font-display text-xl font-bold text-[#377CF3]">Laure Olivié</h3>
-              <p className="text-slate-700">Formatrice IA × BTP</p>
-              <ul className="mt-3 space-y-1 text-sm">
-                <li>
-                  <Link
-                    href={LINKS.home}
-                    className="text-[#377CF3] hover:underline"
-                  >
-                    www.laureolivie.fr
-                  </Link>
-                </li>
-                <li className="flex items-center gap-2 text-slate-700">
-                  <Mail size={14} aria-hidden className="text-slate-400" />
-                  <a
-                    href={`mailto:${SITE_CONFIG.email}`}
-                    className="hover:underline"
-                  >
-                    {SITE_CONFIG.email}
-                  </a>
-                </li>
-              </ul>
+          {tuto.cta.brand === 'bework' ? (
+            <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <h3 className="font-display text-xl font-bold text-[#377CF3]">BeWork</h3>
+                <p className="text-slate-700">Partenaire administratif BTP — augmenté par l’IA</p>
+              </div>
+              <div className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-3">
+                <CtaStat value="3–5 j" label="Opérationnel" />
+                <CtaStat value="0" label="Recrutement à faire" />
+                <CtaStat value="100 %" label="Piloté en France" />
+              </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-3">
-              <CtaStat value={SOCIAL_PROOF.AVERAGE_RATING} label="Satisfaction" />
-              <CtaStat
-                value={formatProfessionalsTrainedCount()}
-                label="Personnes formées"
-              />
-              <CtaStat value={FINANCEMENT_STAT_VAL} label={FINANCEMENT_STAT_LABEL} />
+          ) : (
+            <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <h3 className="font-display text-xl font-bold text-[#377CF3]">Laure Olivié</h3>
+                <p className="text-slate-700">Formatrice IA × BTP</p>
+                <ul className="mt-3 space-y-1 text-sm">
+                  <li>
+                    <Link
+                      href={LINKS.home}
+                      className="text-[#377CF3] hover:underline"
+                    >
+                      www.laureolivie.fr
+                    </Link>
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-700">
+                    <Mail size={14} aria-hidden className="text-slate-400" />
+                    <a
+                      href={`mailto:${SITE_CONFIG.email}`}
+                      className="hover:underline"
+                    >
+                      {SITE_CONFIG.email}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-3">
+                <CtaStat value={SOCIAL_PROOF.AVERAGE_RATING} label="Satisfaction" />
+                <CtaStat
+                  value={formatProfessionalsTrainedCount()}
+                  label="Personnes formées"
+                />
+                <CtaStat value={FINANCEMENT_STAT_VAL} label={FINANCEMENT_STAT_LABEL} />
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={buildSiteCalendlyCtaUrl(`ressources-tuto-${tuto.slug}-rdv`)}
+              href={
+                tuto.cta.brand === 'bework'
+                  ? (tuto.cta.primaryHref ?? EXTERNAL_SITE_URLS.bework)
+                  : buildSiteCalendlyCtaUrl(`ressources-tuto-${tuto.slug}-rdv`)
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#377CF3] px-6 py-3.5 text-[0.95rem] font-semibold text-white shadow-sm transition-transform hover:scale-[1.02] hover:bg-[#2d66d6] active:scale-[0.98]"
             >
-              Réserver un appel découverte
+              {tuto.cta.brand === 'bework'
+                ? (tuto.cta.primaryLabel ?? 'Réserver un appel de cadrage BeWork')
+                : 'Réserver un appel découverte'}
               <ArrowRight size={18} aria-hidden />
             </a>
             <DownloadButton
@@ -430,16 +451,28 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             />
           </div>
 
-          <p className="mt-8 text-sm text-slate-600">
-            Atelier individuel ou en équipe — Qualiopi · financement possible selon éligibilité (Constructys / OPCO) ·{' '}
-            <Link
-              href={LINKS.financement}
-              className="text-[#377CF3] hover:underline"
-            >
-              voir le financement
-            </Link>
-            .
-          </p>
+          {tuto.cta.brand === 'bework' ? (
+            <p className="mt-8 text-sm text-slate-600">
+              Service BeWork de délégation administrative BTP — distinct des actions de formation
+              Qualiopi, non éligible OPCO. En savoir plus sur{' '}
+              <Link href={LINKS.bework} className="text-[#377CF3] hover:underline">
+                la page BeWork
+              </Link>
+              .
+            </p>
+          ) : (
+            <p className="mt-8 text-sm text-slate-600">
+              Atelier individuel ou en équipe — Qualiopi · financement possible selon éligibilité
+              (Constructys / OPCO) ·{' '}
+              <Link
+                href={LINKS.financement}
+                className="text-[#377CF3] hover:underline"
+              >
+                voir le financement
+              </Link>
+              .
+            </p>
+          )}
         </div>
       </section>
     </div>

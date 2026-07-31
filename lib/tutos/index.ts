@@ -17,11 +17,13 @@ import { TUTO_PPSPS } from './tuto-ppsps';
 import { TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES } from './tuto-doe-dossier-ouvrages-executes';
 import { TUTO_PV_LEVEE_RESERVES } from './tuto-pv-levee-reserves';
 import { TUTO_SKILL_DIUO_OFC } from './tuto-skill-diuo-ofc';
+import { TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK } from './tuto-skill-memoire-reclamation-bework';
 
 export const TUTOS: ReadonlyArray<TutoData> = [
   TUTO_MEMOIRE_TECHNIQUE,
   TUTO_ANALYSE_DCE,
   TUTO_TRI_DCE_CLAUDE_CHROME,
+  TUTO_SKILL_MEMOIRE_RECLAMATION_BEWORK,
   TUTO_CR_CHANTIER,
   TUTO_DOE_DOSSIER_OUVRAGES_EXECUTES,
   TUTO_SKILL_DIUO_OFC,

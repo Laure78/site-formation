@@ -136,6 +136,14 @@ export type TutoData = {
     subtitle: string;
     programTitle: string;
     programItems: string[];
+    /**
+     * `bework` : CTA partenaire BeWork (pas de preuve Qualiopi / OPCO / stats OFC).
+     * Défaut : `ofc` (Calendly + preuve sociale formation).
+     */
+    brand?: 'ofc' | 'bework';
+    /** Bouton principal (requis si brand = bework). */
+    primaryHref?: string;
+    primaryLabel?: string;
   };
 
   /** Durée totale du tutoriel — utilisée par HowTo schema */
