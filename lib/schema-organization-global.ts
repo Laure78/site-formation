@@ -4,11 +4,13 @@ import {
   SCHEMA_GEO,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_ORGANIZATION_SAME_AS,
+  SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
+  buildIdfAreaServedSchemaEntities,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
-import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
+import { QUALIOPI_LEGAL, buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 
 export type OrganizationOfcSchemaNodeOptions = {
   organizationId?: string;
@@ -31,9 +33,10 @@ export function buildOrganizationOfcSchemaNode(
   const includeAggregateRating = options.includeAggregateRating ?? true;
 
   return {
-    '@type': ['EducationalOrganization', 'LocalBusiness'],
+    '@type': ['Organization', 'EducationalOrganization', 'LocalBusiness'],
     '@id': organizationId,
     name: SCHEMA_ORGANIZATION_OFC.name,
+    legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
     alternateName: 'Laure Olivié — Formation IA pour le BTP',
     url: base,
     email: SCHEMA_CONTACT.email,
@@ -57,10 +60,7 @@ export function buildOrganizationOfcSchemaNode(
       latitude: SCHEMA_GEO.latitude,
       longitude: SCHEMA_GEO.longitude,
     },
-    areaServed: {
-      '@type': 'AdministrativeArea',
-      name: 'Île-de-France',
-    },
+    areaServed: buildIdfAreaServedSchemaEntities(),
     identifier: [
       {
         '@type': 'PropertyValue',
@@ -78,19 +78,11 @@ export function buildOrganizationOfcSchemaNode(
         value: QUALIOPI_LEGAL.certificatNumero,
       },
     ],
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'Qualiopi',
-      name: 'Certification Qualiopi — actions de formation',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'Certifopac',
-      },
-    },
+    hasCredential: buildQualiopiCredentialSchema(),
     founder: {
       '@type': 'Person',
       '@id': personId,
-      name: 'Laure Olivié',
+      name: SCHEMA_PERSON_LAURE.name,
     },
     ...(includeAggregateRating
       ? {

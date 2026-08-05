@@ -33,7 +33,7 @@ export const metadata = createMetierBtpPageMetadata('clôturiste', {
     'Qualiopi BTP',
     'automatisme portail',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_DEVIS = `Crée un devis pour cette clôture (Île-de-France) :

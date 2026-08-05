@@ -17,7 +17,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-chef-de-chantie
 
 const META_TITLE = 'Guide chef de chantier : 6 skills Claude';
 const META_DESCRIPTION =
-  'Guide PDF chef de chantier BTP : 6 skills Claude (accueil, rapport, appro, réserves). Formation IA pour le BTP Qualiopi, présentiel IDF — téléchargez.';
+  'Guide chef de chantier : 6 skills Claude (accueil, rapport, appro, réserves). Formation IA pour le BTP, présentiel Île-de-France, Qualiopi — PDF gratuit.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

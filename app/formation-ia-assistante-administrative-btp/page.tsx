@@ -36,7 +36,7 @@ export const metadata = createMetierBtpPageMetadata('assistante administrative',
     'OPCO Constructys',
     'Qualiopi BTP',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_COURRIERS = `Rédige 3 courriers types (PME BTP, Île-de-France) :

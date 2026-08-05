@@ -10,6 +10,7 @@ import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import type { FAQItem } from '@/lib/faq';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -23,21 +24,14 @@ const PATH = '/formateur-ia-btp';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
 const META_TITLE = 'Formateur IA bâtiment Île-de-France';
 /** 156 car. — intention « formateur » + IDF, sans ellipse */
-const META_DESCRIPTION =
-  'Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. 1 592 pros, 4,85/5. RDV découverte.';
+const META_DESCRIPTION = `Formateur IA BTP Île-de-France : Laure Olivié forme vos équipes en présentiel sur devis, DCE et chantier. Qualiopi, OFC. ${formatProofFormes()} pros, ${PROOF.note}. RDV découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-07-14',
-    modifiedTime: '2026-07-14',
-    author: 'Laure Olivié',
-    section: 'Formateur IA BTP',
-  },
+  openGraphType: 'website',
   keywords: [
     'formateur IA bâtiment',
     'formateur IA construction',

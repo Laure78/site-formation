@@ -8,6 +8,7 @@ import {
   buildFormationFicheCourseJsonLd,
   buildFormationFicheCourseNode,
 } from '@/lib/schema-formation-course-jsonld';
+import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
@@ -165,11 +166,7 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
         name: SITE_CONFIG.legalName,
         url: SITE_CONFIG.url,
         sameAs: 'https://www.linkedin.com/in/laure-olivie',
-        hasCredential: {
-          '@type': 'EducationalOccupationalCredential',
-          name: 'Qualiopi',
-          credentialCategory: 'certification',
-        },
+        hasCredential: buildQualiopiCredentialSchema(),
       },
       {
         '@type': 'ItemList',
@@ -297,7 +294,7 @@ export function getDedicatedFormationCoursePageJsonLd(
 ): Record<string, unknown> {
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   const organizationId = `${base}/#organization`;
-  const laurePersonId = `${base}/#laure`;
+  const laurePersonId = `${base}/#laure-olivie`;
 
   if (path === '/formations/formation-ia-cctp-analyse-dce-btp') {
     const price = tarifHtDepuisBadgeCatalogue('AVANCÉ');

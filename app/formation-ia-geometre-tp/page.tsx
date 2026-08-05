@@ -30,7 +30,7 @@ export const metadata = createPageMetadata({
     'Qualiopi BTP',
     'devis géomètre',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_RAPPORT = `Crée un rapport de levé topographique pro (chantier Grand Paris) à partir de ces notes brutes :

@@ -1,26 +1,34 @@
+import Link from 'next/link';
+import Image from 'next/image';
 import { getGoogleReviews, formatRating } from '@/lib/google-reviews';
 import { googleReviewsToMarqueeItems } from '@/lib/google-reviews-marquee';
 import { SITE_CONFIG } from '@/lib/seo';
 import { GoogleReviewsMarquee } from '@/components/landing/GoogleReviewsMarquee';
 import { Testimonial } from '@/components/testimonials/Testimonial';
 import { getFilledTestimonials } from '@/lib/testimonials';
-import { Star, Award, ExternalLink } from 'lucide-react';
+import { Star, Award, ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { RdvLink } from '@/components/RdvLink';
+import { CSFE_NOM_LIBRE } from '@/lib/csfe';
+import { PHOTOS } from '@/lib/photos';
+import { QualiopiWordmark } from '@/components/QualiopiLogo';
 
+const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
+
+/**
+ * Preuve sociale home — avis Google / témoignages + étude de cas FFB/CSFE.
+ * Un seul titre : « Cas concrets d'entreprises du BTP formées ».
+ */
 export async function GoogleReviewsSection() {
   const data = await getGoogleReviews();
 
   const hasGoogleApi = data && data.reviews.length > 0;
   const marqueeItems = hasGoogleApi ? googleReviewsToMarqueeItems(data.reviews) : [];
-  // Repli sans API Google : uniquement de VRAIS témoignages renseignés (voir lib/testimonials.ts).
   const testimonials = getFilledTestimonials();
 
   return (
-    <section
-      id="temoignages"
-      className={`${OFC_SEC.muted} scroll-mt-24`}
-    >
+    <section id="temoignages" className={`${OFC_SEC.muted} scroll-mt-24`}>
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <Reveal>
@@ -28,38 +36,34 @@ export async function GoogleReviewsSection() {
               <Award size={16} strokeWidth={1.5} />
               <span>{hasGoogleApi ? 'AVIS GOOGLE' : 'AVIS CLIENTS'}</span>
             </div>
-            <h3 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
+            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
               Cas concrets d&apos;entreprises du BTP formées
-            </h3>
+            </h2>
             <p className="mt-3 text-slate-600">
               {hasGoogleApi
-                ? 'Avis authentiques sur Google Business Profile — défilant ci-dessous.'
-                : 'Découvrez comment des entreprises du BTP comme la vôtre utilisent l’IA au quotidien.'}
+                ? 'Avis authentiques sur Google Business Profile — défilant ci-dessous. Étude de cas FFB & étanchéité en complément.'
+                : 'Retours d’entreprises du BTP formées à l’IA, et étude de cas FFB / filière étanchéité.'}
             </p>
           </Reveal>
 
           {hasGoogleApi ? (
             <Reveal>
-            <div className="flex flex-col items-end rounded-2xl border-2 border-[var(--accent)] bg-white px-6 py-4">
-              <div className="flex items-center gap-2">
-                <span className="text-4xl font-bold text-[var(--accent)]">
-                  {formatRating(data.rating)}
-                </span>
-                <div className="flex gap-0.5 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={20}
-                      fill={i < Math.floor(data.rating) ? 'currentColor' : 'none'}
-                      strokeWidth={1.5}
-                    />
-                  ))}
+              <div className="flex flex-col items-end rounded-2xl border-2 border-[var(--accent)] bg-white px-6 py-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-4xl font-bold text-[var(--accent)]">{formatRating(data.rating)}</span>
+                  <div className="flex gap-0.5 text-amber-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        size={20}
+                        fill={i < Math.floor(data.rating) ? 'currentColor' : 'none'}
+                        strokeWidth={1.5}
+                      />
+                    ))}
+                  </div>
                 </div>
+                <p className="mt-1 text-sm text-slate-600">{data.user_ratings_total} avis Google</p>
               </div>
-              <p className="mt-1 text-sm text-slate-600">
-                {data.user_ratings_total} avis Google
-              </p>
-            </div>
             </Reveal>
           ) : null}
         </div>
@@ -87,6 +91,78 @@ export async function GoogleReviewsSection() {
             <ExternalLink size={18} strokeWidth={1.5} />
           </a>
         </Reveal>
+
+        {/* Étude de cas FFB / CSFE — fusionnée sous le même H2 */}
+        <div className="mt-16 grid items-start gap-10 border-t border-slate-200 pt-12 lg:grid-cols-2 lg:gap-12">
+          <div className="min-w-0 max-w-3xl lg:max-w-none">
+            <Reveal>
+              <p className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--accent)] shadow-sm">
+                Étude de cas clients
+              </p>
+              <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                FFB &amp; étanchéité :{' '}
+                <span className="font-serif italic text-slate-800">ce qui a été mis en place</span>
+              </h3>
+              <p className="mt-4 text-lg text-slate-600">
+                Retour d&apos;expérience détaillé : défis, dispositif pédagogique, modules (mémoires, DCE, chantier) et
+                suites concrètes pour les entreprises du réseau.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm text-slate-700 md:text-base">
+                <li className="flex gap-2.5">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={2} aria-hidden />
+                  <span>Cas réels métier — pas de démonstration gadget.</span>
+                </li>
+                <li className="flex gap-2.5">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={2} aria-hidden />
+                  <span>Présentiel, documents anonymisés, validation humaine des sorties.</span>
+                </li>
+                <li className="flex gap-2.5">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={2} aria-hidden />
+                  <span className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                    <span>Financement OPCO /</span>
+                    <QualiopiWordmark />
+                    <span>lorsque les entreprises sont éligibles.</span>
+                  </span>
+                </li>
+              </ul>
+            </Reveal>
+            <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <RdvLink
+                page="/"
+                ctaPosition="middle"
+                campaign="accueil-temoignages-etude-cas"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-center text-sm font-semibold text-white shadow-md shadow-blue-500/15 transition-colors hover:bg-blue-700"
+              >
+                Réservez votre visio découverte gratuite
+              </RdvLink>
+              <Link
+                href={ETUDE_HREF}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 bg-white px-6 py-3.5 text-center text-sm font-semibold text-slate-800 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-soft)]"
+              >
+                Lire l&apos;étude de cas complète
+                <ArrowRight size={18} strokeWidth={2} aria-hidden />
+              </Link>
+            </Reveal>
+          </div>
+          <Reveal as="figure" className="min-w-0 lg:sticky lg:top-28">
+            <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-100 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)]">
+              <Image
+                src={PHOTOS.accueilEtudeCasFfbLaureIntervention.src}
+                alt={PHOTOS.accueilEtudeCasFfbLaureIntervention.alt}
+                title={PHOTOS.accueilEtudeCasFfbLaureIntervention.title}
+                width={PHOTOS.accueilEtudeCasFfbLaureIntervention.width}
+                height={PHOTOS.accueilEtudeCasFfbLaureIntervention.height}
+                loading="lazy"
+                className="h-auto w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-slate-500">
+              Laure Olivié — animation formation IA pour les pros du BTP en présentiel (réseau FFB, filière étanchéité /{' '}
+              {CSFE_NOM_LIBRE})
+            </figcaption>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

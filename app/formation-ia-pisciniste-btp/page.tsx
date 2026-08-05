@@ -34,7 +34,7 @@ export const metadata = createMetierBtpPageMetadata('pisciniste', {
     'Qualiopi BTP',
     'FFB piscine',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_DEVIS = `Crée un devis technique pour cette piscine (Grand Paris) :

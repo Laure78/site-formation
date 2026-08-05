@@ -20,7 +20,7 @@ export const FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_PATH =
 export const FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_SEO = {
   title: 'IA responsable admin BTP : devis & mails',
   description:
-    'Formation IA pour le BTP : responsables admin — devis, factures, mails, CR. Présentiel IDF, Qualiopi, Constructys selon éligibilité. Visio découverte.',
+    'Formation IA pour le BTP : responsables admin — devis, factures, mails, CR. Présentiel Île-de-France, Qualiopi, Constructys selon éligibilité. Visio découverte.',
   h1: 'Formation IA pour responsables administratifs dans le BTP',
   openGraphTitle: 'Formation IA responsable administratif BTP — devis, factures, mails',
 } as const;

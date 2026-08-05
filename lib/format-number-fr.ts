@@ -1,4 +1,4 @@
-/** Format nombre FR — espace milliers, virgule décimale (ex. 1 592 · 4,85). */
+/** Format nombre FR — espace milliers, virgule décimale (ex. `formatProofFormes()` · `PROOF.note`). */
 export function formatNumberFr(value: number, decimals = 0): string {
   return value.toLocaleString('fr-FR', {
     minimumFractionDigits: decimals,

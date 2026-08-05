@@ -25,13 +25,13 @@ function fromPhoto(key: PhotoKey): BlogIllustration {
 const SLUG_OVERRIDES: Record<string, BlogIllustration> = {
   'memoire-reclamation-btp-ia': {
     src: '/images/ressources/miniatures/miniature-memoire-reclamation.jpg',
-    alt: 'Mémoire de réclamation BTP — récupérer ce que le marché vous doit',
+    alt: 'Professionnelle BTP, mémoire de réclamation marché — ChatGPT BTP créances et délais',
     width: 1200,
     height: 675,
   },
   'analyser-ccap-ia-btp': {
     src: '/images/ressources/miniatures/miniature-tuto-analyse-ccap.jpg',
-    alt: 'Analyse express du CCAP — skill Claude pour appels d’offres BTP',
+    alt: 'Professionnelle BTP, titre Analyse Express du CCAP — appels d’offres formation IA pour le BTP',
     width: 1200,
     height: 675,
   },

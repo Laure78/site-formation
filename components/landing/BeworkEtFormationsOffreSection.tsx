@@ -2,11 +2,10 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowUpRight, Briefcase, Check, Clock, GraduationCap } from 'lucide-react';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { ArrowUpRight, Briefcase, Clock, GraduationCap } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
-import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
+import { CALENDLY_DEFAULT_BUTTON_TEXT } from '@/lib/calendly-embed-config';
 import { PHOTOS } from '@/lib/photos';
 import {
   TARIF_SESSION_AVANCE_HT,
@@ -14,16 +13,15 @@ import {
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
-import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
-import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING } from '@/lib/readability-presets';
 import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
 import { OFC_CARD, OFC_CARD_MUTED, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   formationCatalogueLinkLabel,
-  FORMATIONS_CATALOGUE,
+  CATALOGUE_FORMATIONS_COUNT,
+  getFormationCatalogueByRef,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 
@@ -37,11 +35,10 @@ const BEWORK_PILOTES = [
   'Relances et suivi administratif',
 ] as const;
 
-const CONCRET = [
-  'Appels d\'offres : analyse DCE et mémoire technique assistés — relecture métier obligatoire',
-  'Chantier : DOE, PV, CR à partir de vos notes — vous validez et signez',
-  'Communication : visuels avant/après et posts réseaux pour vos chantiers',
-  'Prompts sur mesure : méthodes adaptées à vos documents et process',
+const HOME_OFFRE_FORMATIONS = [
+  getFormationCatalogueByRef('NIV-01')!,
+  getFormationCatalogueByRef('NIV-02')!,
+  getFormationCatalogueByRef('NIV-03')!,
 ] as const;
 
 const POURQUOI = [
@@ -173,7 +170,7 @@ export function BeworkEtFormationsOffreSection() {
               (Constructys) selon éligibilité.
             </p>
             <div className="mt-6 space-y-4 text-sm leading-relaxed text-[#334155]">
-              {FORMATIONS_CATALOGUE.map((entry) => (
+              {HOME_OFFRE_FORMATIONS.map((entry) => (
                 <div
                   key={entry.ref}
                   className="rounded-xl border border-[#E2E8F0] bg-[#FAFBFD] p-4"
@@ -197,6 +194,9 @@ export function BeworkEtFormationsOffreSection() {
                   <p className="mt-2 text-sm leading-relaxed text-[#5A5A5A]">{entry.pitch}</p>
                 </div>
               ))}
+              <p className="text-sm leading-relaxed text-[#5A5A5A]">
+                Catalogue complet : {CATALOGUE_FORMATIONS_COUNT} parcours IA BTP (niveau 1 et 2).
+              </p>
               <div className="rounded-xl border border-dashed border-[#CBD5E1] bg-white p-4">
                 <p className="font-semibold text-[#1A1A1A]">Sur mesure</p>
                 <p className="mt-1.5 text-sm text-[#5A5A5A]">
@@ -211,14 +211,8 @@ export function BeworkEtFormationsOffreSection() {
                 campaign="home-offre-formations-rdv"
                 className="inline-flex flex-1 items-center justify-center rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] sm:flex-none"
               >
-                Prendre un rendez-vous découverte
+                {CALENDLY_DEFAULT_BUTTON_TEXT}
               </RdvLink>
-              <Link
-                href={LINKS.formations}
-                className="inline-flex flex-1 items-center justify-center rounded-lg border border-[#377CF3] bg-white px-4 py-2.5 text-center text-sm font-semibold text-[#377CF3] hover:bg-[#D4E3FC]/60 sm:flex-none"
-              >
-                Catalogue formations
-              </Link>
               <Link
                 href={LINKS.financement}
                 className={`${OFC_LINK} inline-flex items-center text-sm font-semibold`}
@@ -281,19 +275,13 @@ export function BeworkEtFormationsOffreSection() {
               On tient le bureau, vous tenez le chantier.
             </p>
             <div className="mt-6 mt-auto flex flex-wrap items-center gap-x-4 gap-y-3 pt-2">
-              <ExternalLinkAnchor
-                href={EXTERNAL_SITE_URLS.bework}
-                title="BeWork — site officiel bework.fr (nouvel onglet)"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF] sm:flex-none"
-              >
-                Demander un diagnostic
-                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
-              </ExternalLinkAnchor>
               <Link
                 href={LINKS.bework}
-                className={`${OFC_LINK} inline-flex items-center text-sm font-semibold`}
+                title="BeWork — délégation administrative BTP (page présentation)"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-center text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF] sm:flex-none"
               >
-                Voir les missions
+                Découvrir BeWork
+                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </Link>
             </div>
             </div>
@@ -302,36 +290,11 @@ export function BeworkEtFormationsOffreSection() {
 
         <Reveal>
         <div className="space-y-10 rounded-xl border border-slate-200 bg-white px-6 py-8 shadow-[0_4px_16px_rgba(55,124,243,0.06)] md:px-10 md:py-10">
-          <div>
-            <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
-              Ce que vous gagnez concrètement
-            </h3>
-            <KeyPoint
-              label="Devis"
-              subject="Structurer un poste"
-              after="quelques minutes"
-              before="1 h en routine"
-              className="mb-4"
-            />
-            <ul className="space-y-3">
-              {CONCRET.map((line) => (
-                <li key={line} className="flex gap-3 text-base leading-relaxed text-[#5A5A5A]">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div className="grid gap-10 md:grid-cols-2">
             <div>
               <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
                 Pourquoi Laure Olivié
               </h3>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <StatCallout variant="inline" value={COUNT_UP_PROS_PLUS} label="pros BTP formés" />
-                <StatCallout variant="inline" value={COUNT_UP_RATING} label="satisfaction" />
-              </div>
               <ul className="mt-4 space-y-2 text-base leading-relaxed text-[#5A5A5A]">
                 {POURQUOI.map((line) => (
                   <li key={line}>{line}</li>
@@ -361,7 +324,7 @@ export function BeworkEtFormationsOffreSection() {
               <a href={`mailto:${SITE_CONFIG.email}`} className={OFC_LINK}>
                 {SITE_CONFIG.email}
               </a>
-              <span className="font-medium text-[#5A5A5A]" title="Ouvert via le bouton « Découvrir BeWork » dans la carte BeWork ci-dessus">
+              <span className="font-medium text-[#5A5A5A]" title="Présentation BeWork via le bouton « Découvrir BeWork » dans la carte ci-dessus">
                 bework.fr
               </span>
               <span className="font-semibold text-[#334155]">laureolivie.fr</span>
@@ -373,7 +336,7 @@ export function BeworkEtFormationsOffreSection() {
                 campaign="home-offre-bework-formations-rdv"
                 className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
               >
-                Échanger sur vos besoins
+                {CALENDLY_DEFAULT_BUTTON_TEXT}
               </RdvLink>
             </div>
           </div>

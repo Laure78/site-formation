@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { PROOF } from '@/lib/proof';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -456,7 +457,7 @@ export default function ReglementInterieurPage() {
       </div>
 
       <p className="mt-12 text-center text-xs text-slate-500">
-        Version en vigueur au 03/06/2026 — OFC Création d&apos;Entreprise
+        Version en vigueur au {PROOF.majLe} — OFC Création d&apos;Entreprise
       </p>
 
       <div className="mt-8 border-t border-slate-200 pt-8">

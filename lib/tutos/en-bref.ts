@@ -33,6 +33,11 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Le tuto vise environ 30 minutes, contre une demi-journée de course aux pièces avant réception.',
     'Outil : skill Claude ; le DIUO reste élaboré et signé par le SPS.',
   ],
+  'tuto-skill-memoire-reclamation-bework': [
+    'Vous créez un skill Claude qui structure un mémoire de réclamation (faits, fondement CCAG art. 55, chiffrage, demande).',
+    'Le tuto vise environ 45 minutes pour monter une réclamation solide, contre une journée manuelle ; le délai de 30 jours reste critique.',
+    'Outil : skill Claude ; relecture humaine obligatoire avant transmission au maître d’ouvrage.',
+  ],
   'tuto-pv-levee-reserves': [
     'Le skill rédige un PV de levée de réserves à structure juridique, à partir de vos interventions et références.',
     'Gain annoncé : environ 3 minutes de rédaction assistée, au lieu d’environ 30 minutes.',

@@ -15,7 +15,7 @@ export const metadata = createPageMetadata({
     'suivi cubature IA',
     'sécurité chantier TP IA',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 export default function FormationIaConducteurEnginsTpPage() {

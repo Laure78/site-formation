@@ -78,14 +78,8 @@ export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
     'IA mémoire technique',
     'IA avant-vente bâtiment',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
   appendAuthorSuffix: false,
-  article: {
-    publishedTime: '2026-04-17',
-    modifiedTime: '2026-07-14',
-    author: 'Laure Olivié',
-    section: 'Formation IA appliquée au bâtiment',
-  },
   image: {
     url: '/images/og/formation-ia-charge-affaires-btp.webp',
     width: 1200,

@@ -39,9 +39,35 @@ export const QUALIOPI_LEGAL = {
   qualiopiCategoryMention:
     "La certification qualité a été délivrée au titre de la catégorie d'actions suivante : ACTIONS DE FORMATION",
   certificatNumero: '520911-1',
+  /** Libellé humain (footer, pages légales). */
   certificatValidite: 'du 16/01/2025 au 15/01/2028',
+  /** ISO 8601 — JSON-LD `validFrom` / `validUntil` (dérivé de `certificatValidite`). */
+  certificatValidFrom: '2025-01-16',
+  certificatValidUntil: '2028-01-15',
   certificatPdfHref: '/documents/certificat-qualiopi-ofc.pdf',
+  organismeCertificateur: 'Certifopac',
 } as const;
+
+/**
+ * Credential Qualiopi — Organization / EducationalOrganization / LocalBusiness.
+ * Source unique : `QUALIOPI_LEGAL` + `SCHEMA_CONTACT` (pas de hardcode SIRET / n° certificat).
+ */
+export function buildQualiopiCredentialSchema(): Record<string, unknown> {
+  const siren = SCHEMA_CONTACT.siretDigits.slice(0, 9);
+  return {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Certification Qualiopi — actions de formation',
+    credentialCategory: 'certification',
+    identifier: QUALIOPI_LEGAL.certificatNumero,
+    recognizedBy: {
+      '@type': 'Organization',
+      name: QUALIOPI_LEGAL.organismeCertificateur,
+    },
+    validFrom: QUALIOPI_LEGAL.certificatValidFrom,
+    validUntil: QUALIOPI_LEGAL.certificatValidUntil,
+    url: `https://annuaire-entreprises.data.gouv.fr/labels-certificats/${siren}`,
+  };
+}
 
 export const QUALIOPI_REFERENT_HANDICAP = {
   nom: 'Laure Olivié',

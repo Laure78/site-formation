@@ -1,20 +1,21 @@
 /**
- * Constantes Qualiopi — source unique (indicateurs, délais, version fiches).
- * Mettre à jour ici avant audit de surveillance.
+ * Constantes Qualiopi — indicateurs, délais, version fiches.
+ * Chiffres formés / note / répondants : source unique `lib/proof.ts`.
  */
+import { PROOF, PROOF_PERIODE } from '@/lib/proof';
 
 export const QUALIOPI_STATS = {
-  NB_FORMES: 1592,
-  NOTE_MOYENNE: '4,85/5',
+  NB_FORMES: PROOF.formes,
+  NOTE_MOYENNE: PROOF.note,
   NOTE_MOYENNE_VALEUR: 4.85,
-  PERIODE_DEBUT: '01/01/2024',
-  PERIODE_FIN: '31/12/2025',
-  NB_REPONDANTS: 412,
-  DATE_MAJ: '03/06/2026',
+  PERIODE_DEBUT: PROOF_PERIODE.debut,
+  PERIODE_FIN: PROOF_PERIODE.fin,
+  NB_REPONDANTS: PROOF.repondants,
+  DATE_MAJ: PROOF.majLe,
 } as const;
 
 export const QUALIOPI_FICHE_META = {
-  updatedAt: '03/06/2026',
+  updatedAt: PROOF.majLe,
   version: 'V2026.1',
 } as const;
 
@@ -33,7 +34,7 @@ export const QUALIOPI_CERTIFICAT_REALISATION =
 export const QUALIOPI_BEWORK_DISTINCTION =
   "BeWork est un service d'externalisation administrative, distinct des actions de formation certifiées Qualiopi d'OFC Création d'Entreprise. Il n'est pas éligible aux financements OPCO.";
 
-export const QUALIOPI_SATISFACTION_SOURCING = `Note calculée sur la base des questionnaires de satisfaction recueillis à l'issue des sessions du ${QUALIOPI_STATS.PERIODE_DEBUT} au ${QUALIOPI_STATS.PERIODE_FIN} — ${QUALIOPI_STATS.NB_REPONDANTS} répondants. Dernière mise à jour : ${QUALIOPI_STATS.DATE_MAJ}.`;
+export const QUALIOPI_SATISFACTION_SOURCING = PROOF.mentionSource;
 
 export const QUALIOPI_DISCLAIMER_GAINS =
   "Résultats observés chez nos clients formés. Les gains varient selon l'organisation, les outils en place et le niveau de pratique.";

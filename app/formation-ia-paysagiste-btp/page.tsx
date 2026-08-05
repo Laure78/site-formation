@@ -33,7 +33,7 @@ export const metadata = createMetierBtpPageMetadata('paysagiste', {
     'Qualiopi BTP',
     'aménagement extérieur IA',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_BRIEF = `Je reviens de visite chez un client à [Ville Île-de-France].

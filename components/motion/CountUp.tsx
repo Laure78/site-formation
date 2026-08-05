@@ -33,10 +33,10 @@ function isInViewport(el: HTMLElement, threshold: number): boolean {
 }
 
 /**
- * Compteur animé au scroll — chiffres clés (1 592 · 4,85 · %).
+ * Compteur animé au scroll — chiffres clés (`PROOF` / `formatProofFormes`).
  *
  * **SEO / accessibilité**
- * - La valeur finale est rendue dans le HTML serveur (`1 592`, `4,85/5`…).
+ * - La valeur finale est rendue dans le HTML serveur (ex. formés, note `/5`).
  * - Hors viewport : le texte final reste en place jusqu’à l’entrée dans l’écran.
  * - `prefers-reduced-motion: reduce` → pas d’animation, valeur finale conservée.
  */

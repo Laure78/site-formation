@@ -15,8 +15,7 @@ import {
 } from '@/lib/seo';
 import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
-import { SCHEMA_STATS } from '@/lib/schema-constants';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
@@ -24,10 +23,9 @@ const PATH = '/formation-ia-btp';
 
 const ogImage = PHOTOS.formationIaBtpOgPortrait2026;
 
-const personnesFormeesAffiche = `${Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')}+`;
+const personnesFormeesAffiche = `${formatProofFormes()}+`;
 
-const FORMATION_IA_BTP_META_DESCRIPTION =
-  'Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.';
+const FORMATION_IA_BTP_META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : ChatGPT pour devis, AO et chantier. Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, ${PROOF.note}. Visio découverte.`;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA bâtiment IDF — ChatGPT 2026',
@@ -153,7 +151,7 @@ export default function FormationIaBtpPillarPage() {
               Formation IA appliquée au bâtiment — ChatGPT pour le Bâtiment en Île-de-France
             </h1>
             <p className="mt-4 text-base font-semibold text-slate-800">
-              {Number(SCHEMA_STATS.personnesFormees).toLocaleString('fr-FR')} · {SOCIAL_PROOF.AVERAGE_RATING} · Qualiopi
+              {formatProofFormes()} · {PROOF.note} · Qualiopi
             </p>
             <div className="mx-auto mt-8 max-w-2xl space-y-6 text-left md:mx-0">
               <BlocCtaHaut />
@@ -545,7 +543,7 @@ export default function FormationIaBtpPillarPage() {
             <p className="font-display font-semibold text-slate-900">Nos chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
-                <strong>{SOCIAL_PROOF.AVERAGE_RATING}</strong> — note de satisfaction moyenne
+                <strong>{PROOF.note}</strong> — note de satisfaction moyenne
               </li>
               <li>
                 <strong>{personnesFormeesAffiche}</strong> professionnels du BTP formés

@@ -5,7 +5,7 @@ import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatis
 import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
 import { VoirAussi } from '@/components/VoirAussi';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
-import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { buildMetadata, getFAQSchema } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { FAQSection } from '@/components/landing/FAQSection';
 import {
@@ -13,6 +13,7 @@ import {
   buildFormationIaDeptPageLocalBusinessJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { voirAussiDepartementProps } from '@/lib/voir-aussi';
@@ -30,21 +31,14 @@ const PATH = '/formation-ia-btp-paris';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié ». */
 const META_TITLE = 'Formation IA bâtiment Paris';
 /** 155 caractères — phrase complète */
-const META_DESCRIPTION =
-  'Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. 1 592 pros formés, 4,85/5. Visio découverte.';
+const META_DESCRIPTION = `Formation IA pour le BTP à Paris : devis, DCE et comptes rendus sur vos documents. Présentiel intra, Qualiopi. ${formatProofFormes()} pros formés, ${PROOF.note}. Visio découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-06-02',
-    modifiedTime: '2026-07-14',
-    author: SITE_CONFIG.name,
-    section: 'Formation IA BTP Paris',
-  },
+  openGraphType: 'website',
   keywords: [
     'formation IA bâtiment Paris',
     'formation IA construction Paris',

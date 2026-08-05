@@ -74,14 +74,8 @@ export const metadata = createMetierBtpPageMetadata('assistante gestion', {
     'IA relance impayés BTP',
     'IA sous-traitance bâtiment',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
   appendAuthorSuffix: false,
-  article: {
-    publishedTime: '2026-04-17',
-    modifiedTime: '2026-04-17',
-    author: 'Laure Olivié',
-    section: 'Formation IA pour les pros du BTP',
-  },
   image: {
     url: '/images/og/formation-ia-assistante-gestion-btp.webp',
     width: 1200,

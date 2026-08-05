@@ -11,8 +11,8 @@ const CAS_USAGE_VISUELS = [
     photo: PHOTOS.accueilIaAppliqueeChantierBtp2026,
     title: 'IA appliquée au chantier',
     caption: 'Planification intelligente, rapports automatisés et contrôle documentaire — Laure Olivié formatrice IA BTP.',
-    href: LINKS.guideConducteurTravauxIaBtp,
-    linkLabel: 'Guide conducteur de travaux BTP — 6 skills Claude PDF gratuit',
+    href: '#guide-conducteur-travaux',
+    linkLabel: 'Guide conducteur de travaux (PDF gratuit)',
   },
   {
     photo: PHOTOS.accueilIaDevisChiffrageBtp2026,

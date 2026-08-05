@@ -9,6 +9,7 @@ import { getAProposOrganizationJsonLd } from '@/lib/schema-a-propos-organization
 import { SCHEMA_CONTACT, SCHEMA_GEO, SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 import { PHOTOS } from '@/lib/photos';
 import {
   A_PROPOS_AUTORITE_PARAGRAPHS,
@@ -56,8 +57,7 @@ const A_PROPOS_TOC = [
 ] as const;
 
 const A_PROPOS_META_TITLE = `Laure Olivié — formatrice IA BTP — Qualiopi`;
-const A_PROPOS_META_DESCRIPTION =
-  'Laure Olivié (OFC) : formatrice IA BTP, 10 ans terrain, Qualiopi, FFB et CSFE. 1 592 pros, 4,85/5. Formation IA pour le BTP en présentiel IDF. RDV découverte.';
+const A_PROPOS_META_DESCRIPTION = `Laure Olivié (OFC) : formatrice IA BTP, 10 ans terrain, Qualiopi, FFB et CSFE. ${formatProofFormes()} pros, ${PROOF.note}. Formation IA pour le BTP en présentiel IDF. RDV découverte.`;
 
 export const metadata = createPageMetadata({
   title: A_PROPOS_META_TITLE,

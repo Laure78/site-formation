@@ -55,6 +55,10 @@ const TUTO_TRI_DCE: MaillageLink = {
   href: LINKS.tutoTriDceClaudeChrome,
   label: 'Tuto PDF — trier un DCE avec Claude in Chrome',
 };
+const TUTO_MEMOIRE_RECLAMATION: MaillageLink = {
+  href: LINKS.tutoSkillMemoireReclamationBework,
+  label: 'Tuto — skill mémoire de réclamation',
+};
 const TUTO_CR: MaillageLink = {
   href: LINKS.tutoCrChantier,
   label: 'Tuto PDF — compte rendu de chantier',
@@ -96,7 +100,7 @@ const TUTO_DISPATCH: MaillageLink = {
 export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessourceConfig>> = {
   [LINKS.tutoMemoireTechnique]: {
     pilier: PILIER_AO,
-    soeurs: [TUTO_ANALYSE_DCE, TUTO_TRI_DCE],
+    soeurs: [TUTO_ANALYSE_DCE, TUTO_MEMOIRE_RECLAMATION],
     blog: [
       {
         href: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026,
@@ -116,11 +120,21 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.tutoTriDceClaudeChrome]: {
     pilier: PILIER_AO,
-    soeurs: [TUTO_ANALYSE_DCE, TUTO_MEMOIRE],
+    soeurs: [TUTO_ANALYSE_DCE, TUTO_MEMOIRE_RECLAMATION],
     blog: [
       {
         href: LINKS.blogIaAnalyseCcap,
         label: 'Article — analyser un CCAP avec l’IA',
+      },
+    ],
+  },
+  [LINKS.tutoSkillMemoireReclamationBework]: {
+    pilier: PILIER_AO,
+    soeurs: [TUTO_MEMOIRE, TUTO_ANALYSE_DCE],
+    blog: [
+      {
+        href: LINKS.blogMemoireReclamationBtpIa,
+        label: 'Article — mémoire de réclamation BTP (délais et méthode IA)',
       },
     ],
   },

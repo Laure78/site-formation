@@ -16,7 +16,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-claude-btp-ofc-
 
 const META_TITLE = 'Guide Claude BTP : Projets, Skills, MCP';
 const META_DESCRIPTION =
-  'Guide PDF Claude BTP gratuit : Projets, Skills, MCP, Cowork — administratif chantier. Formation IA pour le BTP Qualiopi, présentiel IDF. Téléchargez !';
+  'Guide PDF Claude BTP : Projets, Skills, MCP, Cowork pour l’admin chantier. Formation IA appliquée au bâtiment, présentiel Île-de-France, Qualiopi — gratuit.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

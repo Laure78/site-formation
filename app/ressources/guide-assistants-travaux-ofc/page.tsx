@@ -24,7 +24,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-assistants-trav
 const META_TITLE = 'Guide assistants travaux IA — 12 missions | Laure Olivié';
 /** Meta ≤ 160 car. + expression clé formation IA */
 const META_DESCRIPTION =
-  'Guide PDF gratuit : 12 missions d’assistant travaux (PPSPS, CR, DOE, DGD) outillées à l’IA. Formation IA pour le BTP Qualiopi, Île-de-France.';
+  'Guide PDF assistants travaux : 12 missions (PPSPS, CR, DOE, DGD) avec l’IA. Formation IA pour le BTP, présentiel Île-de-France, Qualiopi — PDF gratuit.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,

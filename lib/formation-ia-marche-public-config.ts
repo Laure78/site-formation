@@ -6,7 +6,7 @@
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { UMB_FFB_NOM_LIBRE } from '@/lib/umb-ffb';
 import { LINKS } from '@/lib/internal-links';
-import { SITE_CONFIG, createPageMetadata } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import type { Metadata } from 'next';
 import type { FormationIaMarchePublicConfig } from '@/lib/formation-ia-marche-public-types';
@@ -25,13 +25,7 @@ export function formationIaMarchePublicMetadata(
     path: config.path,
     keywords: config.keywords,
     appendAuthorSuffix: false,
-    openGraphType: 'article',
-    article: {
-      publishedTime: '2026-07-21',
-      modifiedTime: '2026-07-21',
-      author: SITE_CONFIG.name,
-      section: 'Formation IA marché public de travaux',
-    },
+    openGraphType: 'website',
     image: {
       url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,

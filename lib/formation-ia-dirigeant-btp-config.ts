@@ -24,13 +24,7 @@ export function formationIaDirigeantBtpMetadata(): Metadata {
       'Constructys formation',
     ],
     appendAuthorSuffix: false,
-    openGraphType: 'article',
-    article: {
-      publishedTime: '2026-04-19',
-      modifiedTime: '2026-04-19',
-      author: SITE_CONFIG.name,
-      section: 'Formation IA pour les pros du BTP — dirigeants',
-    },
+    openGraphType: 'website',
     image: {
       url: '/images/formation-ia-intra-entreprise-batiment.webp',
       width: 1024,

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     path: config.path,
     keywords: config.keywords,
     appendAuthorSuffix: false,
-    openGraphType: 'article',
+    openGraphType: 'website',
     image: config.ogImage,
   });
 }

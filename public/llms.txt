@@ -1,4 +1,5 @@
 # laureolivie.fr — signaux pour assistants IA et crawlers
+# Chiffres formés / note / répondants : source unique lib/proof.ts (PROOF)
 
 Site officiel de **Laure Olivié**, **formatrice IA spécialisée BTP** (et prestataire recherché sous la requête **formateur IA bâtiment / construction**). Organisme **OFC Création d'Entreprise** — certifié **Qualiopi** (valable jusqu'en janvier 2028), **financement possible selon éligibilité** (Constructys / OPCO). Modalités : **intra ou inter**, **exclusivement en présentiel en Île-de-France**.
 
@@ -38,6 +39,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - /ressources/guide-assistants-travaux-ofc — Guide des Assistants Travaux (12 missions marché, PDF gratuit)
 - /ressources/guide-maitrise-oeuvre-ia — Guide « Maître d'Œuvre × IA » (12 missions MOE, PDF gratuit)
 - /ressources/guide-conducteur-de-travaux — Guide conducteur de travaux (6 tutos Claude BTP, PDF gratuit)
+- /ressources/tuto-skill-memoire-reclamation-bework — Tuto skill mémoire de réclamation (CCAG art. 55, Claude)
 - /ressources — Hub tutos PDF, guides et fiches pratiques IA BTP
 
 ## Pages prioritaires
@@ -56,6 +58,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - https://www.laureolivie.fr/ia-memoire-technique-btp — méthode : mémoire technique BTP avec l'IA
 - https://www.laureolivie.fr/ia-compte-rendu-chantier — méthode : comptes rendus de chantier avec l'IA
 - https://www.laureolivie.fr/formation-ia-charge-affaires-btp — formation IA chargés d'affaires BTP
+- https://www.laureolivie.fr/formation-ia-gros-oeuvre-btp — formation IA gros œuvre (devis, DCE, suivi chantier)
 - https://www.laureolivie.fr/ia-devis-batiment — méthode : devis bâtiment avec l'IA
 
 ## Key pages
@@ -69,6 +72,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Mémoire technique BTP avec l'IA : /ia-memoire-technique-btp
 - Compte rendu de chantier avec l'IA : /ia-compte-rendu-chantier
 - Formation IA chargé d'affaires BTP : /formation-ia-charge-affaires-btp
+- Formation IA gros œuvre BTP : /formation-ia-gros-oeuvre-btp
 - Guide Claude AI BTP : /claude-ai-btp
 - Landing formation Claude AI BTP : /formation-claude-ai-btp
 - Ressources gratuites (tutos, guides) : /ressources

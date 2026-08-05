@@ -51,15 +51,9 @@ export const metadata = createMetierBtpPageMetadata('conducteur de travaux', {
   title: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.title,
   description: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
   path: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
-  openGraphType: 'article',
+  openGraphType: 'website',
   appendAuthorSuffix: false,
   descriptionFinal: true,
-  article: {
-    publishedTime: '2026-06-02',
-    modifiedTime: '2026-07-22',
-    author: 'Laure Olivié',
-    section: 'Formation IA pour les pros du BTP',
-  },
   image: {
     url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
     width: 1024,

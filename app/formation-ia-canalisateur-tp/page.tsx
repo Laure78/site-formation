@@ -30,7 +30,7 @@ export const metadata = createPageMetadata({
     'Qualiopi BTP',
     'travaux publics canalisation',
   ],
-  openGraphType: 'article',
+  openGraphType: 'website',
 });
 
 const PROMPT_DEVIS = `Crée un devis technique pour cette canalisation TP (Île-de-France) :

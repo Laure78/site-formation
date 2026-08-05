@@ -17,7 +17,7 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-dirigeant-btp-o
 
 const META_TITLE = 'Guide dirigeant BTP : 6 leviers IA';
 const META_DESCRIPTION =
-  'Guide PDF dirigeant BTP gratuit : 6 leviers (Go/No-Go, marge, litiges, RH) + 24 prompts. Formation IA pour le BTP Qualiopi, présentiel IDF. Téléchargez.';
+  'Guide PDF dirigeant BTP : 6 leviers IA (Go/No-Go, marge, litiges, RH) + 24 prompts. Formation IA pour le BTP, présentiel Île-de-France, Qualiopi — gratuit.';
 
 export const metadata = buildMetadata({
   title: META_TITLE,

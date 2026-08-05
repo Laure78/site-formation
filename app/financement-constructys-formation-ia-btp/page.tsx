@@ -92,11 +92,7 @@ export const metadata = createPageMetadata({
   appendAuthorSuffix: false,
   openGraphTitle: FINANCEMENT_META_TITLE,
   openGraphDescription: FINANCEMENT_META_DESCRIPTION,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-01-15',
-    modifiedTime: '2026-06-01',
-  },
+  openGraphType: 'website',
   image: {
     url: FINANCEMENT_HERO.src,
     width: FINANCEMENT_HERO.width,

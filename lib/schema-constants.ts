@@ -108,12 +108,16 @@ export const SCHEMA_PERSON_LAURE = {
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */
 export const SCHEMA_PERSON_KNOWS_ABOUT = [
+  'formation IA BTP',
+  "appels d'offres",
+  'mémoire technique',
+  'conduite de travaux',
+  'devis',
+  'devis BTP',
   'IA appliquée au BTP',
   'ChatGPT bâtiment',
   'Claude AI',
-  'mémoire technique',
   'analyse de DCE/CCTP',
-  'devis BTP',
 ] as const;
 
 /**
@@ -166,20 +170,6 @@ export function buildPersonAffiliationSchemaNodes(): Array<Record<string, unknow
     name: org.name,
     url: org.url,
   }));
-}
-
-/** Credential Qualiopi — Organization / EducationalOrganization. */
-export function buildQualiopiCredentialSchema(): Record<string, unknown> {
-  return {
-    '@type': 'EducationalOccupationalCredential',
-    name: 'Certification Qualiopi',
-    credentialCategory: 'certification',
-    recognizedBy: {
-      '@type': 'Organization',
-      name: 'Certifopac',
-    },
-    url: 'https://annuaire-entreprises.data.gouv.fr/labels-certificats/905244281',
-  };
 }
 
 /** 8 départements Île-de-France — labels Schema.org / Course.areaServed. */

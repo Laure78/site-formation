@@ -44,13 +44,7 @@ export const metadata = createPageMetadata({
     'Qualiopi BTP',
     'travaux publics IA',
   ],
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2025-01-15',
-    modifiedTime: '2026-07-22',
-    author: 'Laure Olivié',
-    section: 'Formation IA pour les pros du BTP',
-  },
+  openGraphType: 'website',
 });
 
 const SOMMAIRE = [

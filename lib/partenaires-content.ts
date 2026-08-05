@@ -43,7 +43,7 @@ export const PARTENAIRES_LOGO_BAND_TITLE = 'Ils me font confiance';
 export const PARTENAIRES_CTA_INTRO =
   'Vous représentez une fédération, un réseau ou une entreprise du BTP ? Réservons 30 minutes pour cadrer une session sur vos documents réels.';
 
-export const PARTENAIRES_CTA_LABEL = 'Réserver ma visio découverte';
+export const PARTENAIRES_CTA_LABEL = 'Réservez votre visio découverte gratuite';
 
 export type PartenaireLogo = {
   src: string;

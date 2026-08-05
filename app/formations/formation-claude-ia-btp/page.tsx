@@ -44,13 +44,7 @@ export const metadata = createPageMetadata({
   titleAbsolute: PAGE_META_TITLE,
   description: PAGE_META_DESCRIPTION,
   path: PATH,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-06-24',
-    modifiedTime: '2026-06-24',
-    author: SITE_CONFIG.name,
-    section: 'Formation IA pour les pros du BTP',
-  },
+  openGraphType: 'website',
   image: {
     url: HERO_VISUEL.src,
     width: HERO_VISUEL.width,

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   publisher: "OFC Création d'Entreprise",
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    type: "article",
+    type: "website",
     title: "Formation Claude AI BTP — L'IA d'Anthropic pour le bâtiment",
     description:
       "Maîtrisez Claude AI (Anthropic) pour vos devis, CCTP et mémoires techniques BTP. Session 4h, Qualiopi. Financement possible selon éligibilité.",
@@ -66,11 +66,6 @@ export const metadata: Metadata = {
         alt: "Formation Claude AI BTP — Laure Olivié, formatrice IA pour le bâtiment",
       },
     ],
-    publishedTime: "2026-04-23T08:00:00+02:00",
-    modifiedTime: new Date().toISOString(),
-    authors: ["https://www.laureolivie.fr/a-propos"],
-    section: "Formation IA pour les pros du BTP",
-    tags: ["Claude AI", "Anthropic", "BTP", "formation IA", "Qualiopi", "Constructys"],
   },
   twitter: {
     card: "summary_large_image",

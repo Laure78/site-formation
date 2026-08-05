@@ -33,13 +33,7 @@ export const metadata = createPageMetadata({
   description: FORMATION_IA_CONSTRUCTION_SEO.description,
   path: FORMATION_IA_CONSTRUCTION_PATH,
   appendAuthorSuffix: false,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-07-09',
-    modifiedTime: '2026-07-09',
-    author: 'Laure Olivié',
-    section: 'Formation IA construction',
-  },
+  openGraphType: 'website',
   image: {
     url: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
     width: 1024,

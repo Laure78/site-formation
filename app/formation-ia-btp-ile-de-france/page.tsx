@@ -12,6 +12,7 @@ import {
   IDF_COURSE_AREA_SERVED_NAMES,
 } from '@/lib/seo-formation-ia-schemas';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
@@ -33,21 +34,14 @@ const PATH = '/formation-ia-btp-ile-de-france';
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const META_TITLE = 'Formation IA BTP Île-de-France';
 /** 152 caractères — phrase complète, sans ellipse */
-const META_DESCRIPTION =
-  'Formation IA pour le BTP en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. 1 592 pros, 4,85/5. Visio découverte.';
+const META_DESCRIPTION = `Formation IA pour le BTP en Île-de-France : devis, DCE et CR. Présentiel, Qualiopi, Constructys selon éligibilité. ${formatProofFormes()} pros, ${PROOF.note}. Visio découverte.`;
 
 export const metadata = buildMetadata({
   title: META_TITLE,
   description: META_DESCRIPTION,
   descriptionFinal: true,
   path: PATH,
-  openGraphType: 'article',
-  article: {
-    publishedTime: '2026-05-19',
-    modifiedTime: '2026-07-14',
-    author: 'Laure Olivié',
-    section: 'Formation IA appliquée au bâtiment',
-  },
+  openGraphType: 'website',
   keywords: [
     'formation IA bâtiment Île-de-France',
     'formation IA construction Île-de-France',

@@ -20,7 +20,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { BlogArticleCard } from '@/components/blog/BlogArticleCard';
 import { buildBlogListingJsonLd, getBlogIndexLastModifiedIso } from '@/lib/blog-index-schema';
-import { blogCategoryListingHref } from '@/lib/blog-index-urls';
+import { blogCategoryListingHref, blogIndexListingHref } from '@/lib/blog-index-urls';
 
 const STARTER_SLUGS = [
   'formation-ia-btp-guide-complet-2026',
@@ -58,7 +58,6 @@ export function BlogIndexView({
   totalPages,
   mode,
   categoryId,
-  categoryPathSlug,
   searchQuery,
   canonicalPath,
 }: BlogIndexViewProps) {
@@ -74,15 +73,11 @@ export function BlogIndexView({
   });
   const faqSchema = getFAQSchema(FAQ_BLOG);
 
-  const paginationBase =
-    mode === 'category' && categoryPathSlug
-      ? `/blog/categorie/${categoryPathSlug}`
-      : '/blog';
-
   const buildPageHref = (p: number) => {
-    if (p <= 1) return paginationBase;
-    if (paginationBase === '/blog') return `/blog/page/${p}`;
-    return `${paginationBase}/${p}`;
+    if (mode === 'category' && categoryId) {
+      return blogCategoryListingHref(categoryId, p);
+    }
+    return blogIndexListingHref(p);
   };
 
   return (

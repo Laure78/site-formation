@@ -1,8 +1,8 @@
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PROOF, formatProofFormes } from '@/lib/proof';
 
 const ITEMS = [
-  `${formatProfessionalsTrainedCount()} pros formés`,
-  `${SOCIAL_PROOF.AVERAGE_RATING} satisfaction`,
+  `${formatProofFormes()} pros formés`,
+  `${PROOF.note} satisfaction`,
   'Financement possible selon éligibilité',
   'Qualiopi certifié',
 ] as const;

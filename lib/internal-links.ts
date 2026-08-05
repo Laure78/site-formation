@@ -140,6 +140,8 @@ export const LINKS = {
   formationIaCouvreurBtp: '/formation-ia-couvreur-btp',
   /** Landing métier — maçon / maçonnerie gros œuvre (DTU 20.1) */
   formationIaMaconBtp: '/formation-ia-macon-btp',
+  /** Landing SEO — gros œuvre (devis, DCE, suivi chantier) */
+  formationIaGrosOeuvreBtp: '/formation-ia-gros-oeuvre-btp',
   /** Décideurs — ROI, pilotage IA PME/ETI bâtiment */
   formationIaDirigeantBtp: '/formation-ia-dirigeant-btp',
   /** Chef TPE opérationnel — devis, admin quotidien */
@@ -253,6 +255,11 @@ export const LINKS = {
   tutoSkillDiuoOfc: '/ressources/tuto-skill-diuo-ofc',
   /** Fichier téléchargeable — tuto skill DIUO OFC (.docx) */
   pdfTutoSkillDiuoOfc: '/ressources/pdf/tuto-skill-diuo-ofc.docx',
+  /** Tuto — skill mémoire de réclamation (BeWork) */
+  tutoSkillMemoireReclamationBework: '/ressources/tuto-skill-memoire-reclamation-bework',
+  /** PDF — tuto skill mémoire de réclamation BeWork */
+  pdfTutoSkillMemoireReclamationBework:
+    '/ressources/pdf/tuto-skill-memoire-reclamation-bework.pdf',
   tutoPvLeveeReserves: '/ressources/tuto-pv-levee-reserves',
 
   /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */

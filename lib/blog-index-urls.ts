@@ -27,6 +27,11 @@ export function blogCategoryIdFromPathSlug(pathSlug: string): BlogCategoryId | n
   return PATH_TO_ID[pathSlug] ?? null;
 }
 
+/** Index blog paginé : `/blog` (p. 1) ou `/blog/page/N` (N ≥ 2). */
+export function blogIndexListingHref(page = 1): string {
+  return page <= 1 ? '/blog' : `/blog/page/${page}`;
+}
+
 export function blogCategoryListingHref(id: BlogCategoryId, page = 1): string {
   const base = `/blog/categorie/${BLOG_CATEGORY_PATH_SLUGS[id]}`;
   return page <= 1 ? base : `${base}/${page}`;

@@ -16,8 +16,8 @@ import { OFC_SEC } from '@/lib/ofc-section-classes';
 
 const cards = [
   {
-    href: LINKS.formations,
-    title: 'Catalogue formations',
+    href: '#offre-formations',
+    title: 'Voir le catalogue',
     desc: 'IA BTP Qualiopi — devis, chantier, appels d\u2019offres',
     Icon: GraduationCap,
   },
@@ -34,8 +34,8 @@ const cards = [
     Icon: Target,
   },
   {
-    href: LINKS.guideConducteurTravauxIaBtp,
-    title: 'Guide CDT — PDF gratuit',
+    href: '#guide-conducteur-travaux',
+    title: 'Guide conducteur de travaux (PDF gratuit)',
     desc: '6 skills Claude : DCE, PPSPS, CR, DOE — prompts inclus',
     Icon: FileText,
   },
@@ -58,8 +58,8 @@ const cards = [
     Icon: User,
   },
   {
-    href: LINKS.prendreRdv,
-    title: 'Échanger sur vos besoins',
+    href: '#rdv',
+    title: 'Réservez votre visio découverte gratuite',
     desc: 'Visio découverte gratuite — devis personnalisé',
     Icon: Calendar,
   },
