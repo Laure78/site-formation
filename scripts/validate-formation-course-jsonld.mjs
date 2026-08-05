@@ -2,8 +2,14 @@
  * Validation JSON-LD Schema.org — Course sur les fiches formation.
  * Usage : node scripts/validate-formation-course-jsonld.mjs
  */
-import { buildCatalogueCourseIaBtpNiv01JsonLd } from '../lib/schema-catalogue-course-jsonld.ts';
-import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '../lib/schema-catalogue-course-jsonld.ts';
+import {
+  buildCatalogueCourseIaBtpNiv01JsonLd,
+  buildCatalogueCourseIaAppelsOffreNiv02JsonLd,
+  buildCatalogueCourseConduiteTravauxNiv03JsonLd,
+  buildCatalogueCourseMaitriserClaudeNiv04JsonLd,
+  buildCatalogueCourseMaitriseOeuvreNiv05JsonLd,
+  buildClaudeIaChatCoworkCodeSkillsBtpJsonLd,
+} from '../lib/schema-catalogue-course-jsonld.ts';
 import { buildCatalogFormationCoursePageSchema } from '../lib/catalog-formation-course-page-jsonld.ts';
 import {
   FORMATIONS_CATALOG_SCHEMA,
@@ -15,7 +21,11 @@ import { getCourseSchema } from '../lib/seo.ts';
 
 const BLOCKS = [
   { name: 'catalogue-niv-01', schema: buildCatalogueCourseIaBtpNiv01JsonLd() },
+  { name: 'catalogue-niv-02', schema: buildCatalogueCourseIaAppelsOffreNiv02JsonLd() },
+  { name: 'catalogue-niv-03', schema: buildCatalogueCourseConduiteTravauxNiv03JsonLd() },
+  { name: 'catalogue-niv-04', schema: buildCatalogueCourseMaitriserClaudeNiv04JsonLd() },
   { name: 'catalogue-niv-05', schema: buildCatalogueCourseMaitriseOeuvreNiv05JsonLd() },
+  { name: 'catalogue-niv-06', schema: buildClaudeIaChatCoworkCodeSkillsBtpJsonLd() },
   {
     name: 'catalog-formation-page',
     schema: buildCatalogFormationCoursePageSchema(FORMATIONS_CATALOG_SCHEMA[0]),
@@ -39,6 +49,28 @@ const BLOCKS = [
   },
 ];
 
+function assertOfferRules(name, schema) {
+  const offers = schema.offers;
+  if (!offers || typeof offers !== 'object') {
+    throw new Error(`${name}: offers manquant`);
+  }
+  if (offers.priceCurrency !== 'EUR') {
+    throw new Error(`${name}: priceCurrency EUR requis`);
+  }
+  if (offers.category !== 'HT / session groupe') {
+    throw new Error(`${name}: category « HT / session groupe » requise`);
+  }
+  if (name === 'catalogue-niv-06') {
+    if ('price' in offers) {
+      throw new Error(`${name}: price doit être omis (intra sur devis)`);
+    }
+  } else if (name.startsWith('catalogue-niv-')) {
+    if (offers.price == null) {
+      throw new Error(`${name}: price requis`);
+    }
+  }
+}
+
 let ok = true;
 for (const { name, schema } of BLOCKS) {
   try {
@@ -48,6 +80,9 @@ for (const { name, schema } of BLOCKS) {
       throw new Error('@context schema.org requis');
     }
     assertFormationFicheCourseSchema(schema, name);
+    if (name.startsWith('catalogue-niv-')) {
+      assertOfferRules(name, schema);
+    }
     console.log(`✓ ${name}`);
   } catch (err) {
     ok = false;

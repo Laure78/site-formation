@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
+import { EnBref } from '@/app/components/EnBref';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
@@ -55,7 +56,7 @@ const FAQ_FORMATEUR: FAQItem[] = [
   },
   {
     q: 'Formateur IA bâtiment ou formatrice : quelle différence ?',
-    a: `La requête « formateur IA » désigne souvent le prestataire, homme ou femme. Laure Olivié est formatrice IA spécialisée bâtiment et construction : c'est le même métier, avec une expertise BTP concrète (ex-conductrice de travaux). Le choix se joue sur le terrain, la méthode et les preuves — pas sur le genre du titre.`,
+    a: `La requête « formateur IA » désigne souvent le prestataire, homme ou femme. Laure Olivié est formatrice IA spécialisée bâtiment et construction : c'est le même métier, avec une expertise BTP concrète (Dirigeante d'une entreprise de Travaux Publics dans les Yvelines). Le choix se joue sur le terrain, la méthode et les preuves — pas sur le genre du titre.`,
   },
   {
     q: 'Intervenez-vous à Paris intra-muros ?',
@@ -101,6 +102,16 @@ export default function FormateurIaBtpPage() {
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
               Formatrice IA spécialisée bâtiment et construction en Île-de-France
             </h1>
+            <EnBref>
+              <p>
+                En Île-de-France, Laure Olivié forme les professionnels du BTP à l&apos;intelligence artificielle
+                appliquée à leurs documents réels — devis, DCE, mémoires techniques, comptes rendus de chantier.
+                Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines, elle intervient via OFC
+                Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel uniquement, en intra ou en
+                inter. {formatProfessionalsTrainedCount()} professionnels formés, note moyenne{' '}
+                {SOCIAL_PROOF.AVERAGE_RATING}.
+              </p>
+            </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Vous cherchez un formateur IA pour le bâtiment ou la construction, à Paris ou en Île-de-France ?
               Laure Olivié forme vos équipes en présentiel, sur vos vrais documents.

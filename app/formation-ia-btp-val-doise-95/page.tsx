@@ -1,13 +1,13 @@
 import {
-  GeoFormationPage,
-  geoFormationMetadata,
-} from '@/components/geo/GeoFormationPage';
-import { GEO_FORMATION_VAL_DOISE_95 } from '@/lib/geo-formation-config';
-
+  DepartementPage,
+  departementPageMetadata,
+} from '@/components/formation-ia-btp/DepartementPage';
+import { DEPARTEMENT_VAL_DOISE_95 } from '@/lib/departement-pages';
 
 export const revalidate = 3600;
-export const metadata = geoFormationMetadata(GEO_FORMATION_VAL_DOISE_95);
+
+export const metadata = departementPageMetadata(DEPARTEMENT_VAL_DOISE_95);
 
 export default function FormationIaBtpValDoise95Page() {
-  return <GeoFormationPage {...GEO_FORMATION_VAL_DOISE_95} />;
+  return <DepartementPage data={DEPARTEMENT_VAL_DOISE_95} />;
 }

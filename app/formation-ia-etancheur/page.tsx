@@ -175,7 +175,7 @@ const SOMMAIRE = [
 
 const CAS_USAGE = [
   {
-    titre: 'Devis étanchéité bicouche en 15 min',
+    titre: 'Devis étanchéité bicouche structuré',
     description:
       "Vous décrivez le chantier (surface, support, isolant, complexité des relevés) ; ChatGPT structure le tableau lot par lot, vous reprenez la main sur les prix et le bordereau.",
   },
@@ -350,7 +350,7 @@ export default function FormationIaEtancheurPage() {
           </p>
 
           <h3 className="mt-8 font-display text-xl font-semibold text-slate-900">
-            Étape 1 — Devis étanchéité bicouche en 15 min
+            Étape 1 — Devis étanchéité bicouche structuré
           </h3>
           <pre className="mt-4 overflow-x-auto whitespace-pre-wrap rounded-xl bg-slate-100 p-4 text-sm text-slate-800 leading-relaxed">
             {PROMPT_DEVIS}

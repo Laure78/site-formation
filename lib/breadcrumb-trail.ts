@@ -6,12 +6,7 @@ import { FORMATION_CITIES } from '@/lib/formation-cities';
 import { autoBreadcrumbFromPathname } from '@/lib/auto-breadcrumb';
 import { formationsData } from '@/src/data/formations';
 import { TUTOS } from '@/lib/tutos';
-import { GEO_FORMATION_PAGE_CONFIGS, geoFormationPath } from '@/lib/geo-formation-config';
-import {
-  FORMATION_IA_BTP_SEINE_ET_MARNE_77,
-  FORMATION_IA_BTP_SEINE_SAINT_DENIS_93,
-  FORMATION_IA_BTP_VAL_DE_MARNE_94,
-} from '@/lib/formation-ia-btp-departements-config';
+import { DEPARTEMENT_PAGES } from '@/lib/departement-pages';
 import { getFormationIaEntry } from '@/lib/seo-formation-ia-hub-data';
 
 export type BreadcrumbHrefCrumb = { label: string; href: string };
@@ -95,15 +90,8 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
 
 function buildGeoBtpDeptLabels(): Record<string, string> {
   const labels: Record<string, string> = {};
-  for (const config of GEO_FORMATION_PAGE_CONFIGS) {
-    labels[geoFormationPath(config.slug)] = `${config.departement} (${config.code})`;
-  }
-  for (const config of [
-    FORMATION_IA_BTP_SEINE_ET_MARNE_77,
-    FORMATION_IA_BTP_SEINE_SAINT_DENIS_93,
-    FORMATION_IA_BTP_VAL_DE_MARNE_94,
-  ]) {
-    labels[config.path] = `${config.departementNom} (${config.deptCode})`;
+  for (const d of DEPARTEMENT_PAGES) {
+    labels[d.path] = `${d.nom} (${d.code})`;
   }
   return labels;
 }
@@ -118,7 +106,7 @@ const METIER_TITLES: Record<string, string> = {
   '/formation-ia-plombier-btp': 'Formation IA Plombier BTP',
   '/formation-ia-charpentier-btp': 'Formation IA Charpentier BTP',
   '/formation-ia-charpentier-menuisier-btp': 'Formation IA Charpentier & Menuisier bois',
-  '/formation-ia-couvreur-btp': 'Formation IA Couvreur BTP',
+  '/formation-ia-couvreur-btp': 'Formation IA couvreur-zingueur',
   '/formation-ia-peintre-btp': 'Formation IA Peintre BTP',
   '/formation-ia-menuisier-btp': 'Formation IA Menuisier BTP',
   '/formation-ia-plaquiste-btp': 'Formation IA Plaquiste BTP',

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { createPageMetadata } from '@/lib/seo';
-import { formatPersonnesFormeesCount } from '@/lib/constants';
+import { joinTitleSegments } from '@/utils/metadata';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import {
   blogCategoryListingHref,
@@ -8,8 +8,9 @@ import {
 } from '@/lib/blog-index-urls';
 import type { BlogCategoryId } from '@/lib/blog';
 
+/** Meta description index blog — 155 car., phrase complète. */
 const DESC =
-  `Articles formation IA pour le BTP : devis, CCTP/DCE, appels d'offres, ChatGPT, Constructys. ${formatPersonnesFormeesCount()} pros formés. Qualiopi.`;
+  "Articles IA pour le BTP : devis, CCTP/DCE, appels d'offres, ChatGPT, Constructys. 34 guides pratiques par Laure Olivié, Qualiopi, présentiel Île-de-France.";
 
 const OG = {
   url: '/og/og-blog-formation-ia-btp.png',
@@ -48,7 +49,7 @@ function withPagination(
 /**
  * Métadonnées index `/blog` et `/blog/page/N`.
  * - canonical auto-référencé via `path` (jamais forcé vers `/blog` sur les pages ≥ 2)
- * - title paginé : `Blog IA BTP — page N | Laure Olivié` (≤ 60 car. via `buildBrandedTitle`)
+ * - title paginé via `joinTitleSegments` + `buildBrandedTitle` (≤ 60 car.)
  * - robots index,follow explicites
  * - `pagination.previous` / `pagination.next` → `<link rel="prev|next">`
  */
@@ -56,8 +57,8 @@ export function getBlogIndexMetadata(path: string, pageNum: number): Metadata {
   const isFirst = pageNum <= 1;
   /** Segment seul — `createPageMetadata` ajoute « | Laure Olivié » (budget ≤ 45 car.). */
   const shortTitle = isFirst
-    ? 'Blog Formation IA pour les pros du BTP · Guides & cas d\'usage'
-    : `Blog IA BTP — page ${pageNum}`;
+    ? 'Blog IA pour le BTP — guides et cas d\'usage'
+    : joinTitleSegments('Blog IA BTP', `page ${pageNum}`);
 
   const { totalPages } = computeBlogListing({
     page: 1,
@@ -69,6 +70,7 @@ export function getBlogIndexMetadata(path: string, pageNum: number): Metadata {
   const meta = createPageMetadata({
     title: shortTitle,
     description: DESC,
+    descriptionFinal: true,
     path,
     keywords: null,
     appendAuthorSuffix: false,
@@ -87,8 +89,8 @@ export function getBlogCategoryMetadata(
 ): Metadata {
   const isFirst = pageNum <= 1;
   const shortTitle = isFirst
-    ? `Articles IA BTP — ${categoryLabel}`
-    : `Blog IA BTP — ${categoryLabel} p.${pageNum}`;
+    ? joinTitleSegments('Articles IA BTP', categoryLabel)
+    : joinTitleSegments('Blog IA BTP', categoryLabel, `p.${pageNum}`);
 
   const { totalPages } = computeBlogListing({
     page: 1,
@@ -97,9 +99,13 @@ export function getBlogCategoryMetadata(
     excludeFeatured: false,
   });
 
+  const categoryDescription =
+    `Catégorie « ${categoryLabel} » du blog IA BTP : devis, CCTP/DCE, appels d'offres, Constructys. Guides Laure Olivié, Qualiopi, présentiel Île-de-France.`;
+
   const meta = createPageMetadata({
     title: shortTitle,
-    description: `${DESC} Catégorie : ${categoryLabel}.`,
+    description: categoryDescription,
+    descriptionFinal: true,
     path,
     keywords: null,
     appendAuthorSuffix: false,

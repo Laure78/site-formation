@@ -34,9 +34,12 @@ function generateMetaDescription(idea: ContentIdea, shortAnswer: string): string
     const metier = title.replace('IA et ', '').replace(' : 5 gains de temps concrets', '').trim();
     return `5 gains de temps : IA et ${metier}. Devis, CR, emails. Formation 4h pratique, financement possible selon éligibilité.`.slice(0, MAX_META_LENGTH);
   }
-  if (title.includes('Devis en 15 min : le guide')) {
-    const metier = title.replace('Devis en 15 min : le guide ', '').trim();
-    return `Devis ${metier} en 15 min avec ChatGPT. Prompts, trames, exemples. Formation IA pour le BTP Constructys.`.slice(0, MAX_META_LENGTH);
+  if (title.includes('Devis structuré : le guide') || title.includes('Devis en 15 min : le guide')) {
+    const metier = title
+      .replace('Devis structuré : le guide ', '')
+      .replace('Devis en 15 min : le guide ', '')
+      .trim();
+    return `Devis ${metier} avec ChatGPT : trame en moins d'une heure. Prompts, exemples. Formation IA pour le BTP Constructys.`.slice(0, MAX_META_LENGTH);
   }
   if (title.includes("L'IA va-t-elle remplacer les")) {
     const metier = title.replace("L'IA va-t-elle remplacer les ", '').replace(' ?', '').trim();

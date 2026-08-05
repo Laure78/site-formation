@@ -35,6 +35,8 @@ import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/Format
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
+import type { DeptArticle, DeptPrepositionLocative } from '@/lib/formation-ia-btp-dept-grammar';
+import { deptLocatif } from '@/lib/formation-ia-btp-dept-grammar';
 
 export type FormationIaBtpDeptLandingConfig = {
   path: string;
@@ -42,8 +44,14 @@ export type FormationIaBtpDeptLandingConfig = {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
-  /** Nom du département seul, ex. « Yvelines » */
+  /** Nom du département seul, ex. « Yvelines » — alias de `nom` */
   departementNom: string;
+  /** Nom nu (même valeur que `departementNom`) */
+  nom: string;
+  /** Article défini : le | la | l' | les | null (Paris) */
+  article: DeptArticle;
+  /** Préposition locative : « en », « dans les », « à »… */
+  prepositionLocative: DeptPrepositionLocative;
   deptCode: string;
   badgeLine: string;
   cities: string[];
@@ -78,6 +86,11 @@ export type FormationIaBtpDeptLandingConfig = {
 };
 
 export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConfig) {
+  const grammar = {
+    nom: config.nom,
+    article: config.article,
+    prepositionLocative: config.prepositionLocative,
+  };
   return createPageMetadata({
     title: config.metaTitle,
     titleAbsolute: config.metaTitle,
@@ -91,12 +104,18 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
       url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,
       height: 630,
-      alt: `Session formation IA en ${config.departementNom} (${config.deptCode}) — Laure Olivié Qualiopi`,
+      alt: `Session formation IA ${deptLocatif(grammar)} (${config.deptCode}) — Laure Olivié Qualiopi`,
     },
   });
 }
 
 export function FormationIaBtpDepartementLanding({ config }: { config: FormationIaBtpDeptLandingConfig }) {
+  const locatif = deptLocatif({
+    nom: config.nom,
+    article: config.article,
+    prepositionLocative: config.prepositionLocative,
+  });
+
   const courseJson = buildFormationIaCourseJsonLd({
     name: config.courseName,
     description: config.courseDescription,
@@ -118,7 +137,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
     description: config.metaDescription,
   });
 
-  const crumbDept = `${config.departementNom} (${config.deptCode})`;
+  const crumbDept = `${config.nom} (${config.deptCode})`;
   const localContent = getDeptLocalSeoContent(config.deptCode);
   const statsFreshness = getStatsFreshnessLabel();
 
@@ -171,7 +190,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
           </div>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F2F2F2] px-4 py-2 text-base text-slate-700">
             <MapPin size={16} className="text-[#377CF3]" aria-hidden />
-            Siège : Guyancourt (78) — interventions dans les {config.departementNom} ({config.deptCode})
+            Siège : Guyancourt (78) — interventions {locatif} ({config.deptCode})
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <RdvLink
@@ -198,7 +217,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
       <section className={`${OFC_SEC.muted} scroll-mt-24`}>
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">
-            BTP dans le {config.departementNom} ({config.deptCode}) : défis communs
+            BTP {locatif} ({config.deptCode}) : défis communs
           </h2>
           <div className="mt-6 space-y-4 text-base text-slate-700 leading-relaxed md:text-lg">
             {config.tissuBtpLocal.map((p, i) => (
@@ -304,8 +323,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         <div className="mx-auto max-w-4xl">
           <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">{config.temoignagesTitle}</h2>
           <p className="mt-4 text-base text-slate-600 md:text-lg">
-            Retours anonymisés de participants en Île-de-France — entreprises du BTP ayant suivi une
-            session chez OFC Création d&apos;Entreprise (noms et marques modifiés lorsque nécessaire).
+            Retours anonymisés de participants aux sessions OFC en Île-de-France.
           </p>
           <ul className="mt-8 space-y-6">
             {config.temoignages.map((t) => (
@@ -394,8 +412,8 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-2xl font-bold md:text-3xl">Réserver un créneau découverte</h2>
           <p className="mt-4 text-lg text-blue-100 md:text-xl">
-            30 minutes pour cadrer votre besoin dans le {config.deptCode} — en présentiel, intra ou inter
-            selon vos contraintes.
+            30 minutes pour cadrer votre besoin {locatif} ({config.deptCode}) — en présentiel, intra
+            ou inter selon vos contraintes.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <RdvLink

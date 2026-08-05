@@ -66,8 +66,8 @@ const ARTICLES_OUTILS = [
     badge: 'Appels d’offres',
   },
   {
-    titre: '5 cas d’usage de ChatGPT pour les entreprises du bâtiment',
-    href: '/blog/5-cas-usage-chatgpt-artisans-btp',
+    titre: "5 cas d'usage de ChatGPT pour les entreprises du bâtiment",
+    href: LINKS.blog5CasUsageChatgptBtp,
     badge: 'Cas d’usage',
   },
   {

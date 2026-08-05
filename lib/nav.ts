@@ -83,6 +83,7 @@ export const NAV_METIERS: readonly NavItem[] = [
   { href: LINKS.formationIaCharpentierMenuisierBtp, label: 'Charpentier & menuisier' },
   { href: LINKS.formationIaMaconBtp, label: 'Maçon & maçonnerie' },
   { href: LINKS.formationIaGrosOeuvreBtp, label: 'Gros œuvre' },
+  { href: LINKS.formationIaCouvreurBtp, label: 'Couvreur-zingueur' },
   { href: LINKS.chatgptArtisans, label: 'TPE & PME du bâtiment' },
   { href: LINKS.formationIaDirigeantBtp, label: 'Dirigeant PME' },
   { href: LINKS.formationIaEtancheur, label: 'Étancheur' },

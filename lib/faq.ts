@@ -160,7 +160,7 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
-    a: 'Les gains sont mesurables dès la première semaine : temps de rédaction de devis divisé par 10, comptes rendus automatisés (2h gagnées/jour en moyenne), emails rédigés en quelques secondes. Pour des cas d\'usage ciblés, voir <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="/formation-ia-conducteur-de-travaux-btp">IA conducteur de travaux</a>. Un suivi post-formation vous aide à quantifier les économies.',
+    a: 'Les gains se constatent dès les premières semaines de pratique : premier devis structuré en moins d\'une heure vs demi-journée selon complexité, comptes rendus rédigés le jour même, moins de temps sur les relances. Pour des cas d\'usage ciblés, voir <a href="/ia-devis-batiment">IA devis bâtiment</a> et <a href="/formation-ia-conducteur-de-travaux-btp">IA conducteur de travaux</a>. Les gains varient selon l\'organisation et le niveau de pratique.',
   },
   {
     q: "Mes données BTP sont-elles sécurisées avec ChatGPT ?",
@@ -205,7 +205,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Quels résultats avec une formation IA pour les pros du BTP ?",
-    a: `Résultats mesurés après formation IA appliquée au bâtiment : devis divisé par 10 en temps, CR chantier automatisés (2h/jour gagnées), emails en quelques secondes. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. ROI : 3 à 5h économisées par semaine. Suivi post-formation inclus — <a href="/blog">ressources IA BTP</a>.`,
+    a: `Après formation IA appliquée au bâtiment : devis structurés sans page blanche, CR chantier plus réguliers, emails et relances plus fluides. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Gains variables selon l'organisation, les outils en place et le niveau de pratique. Suivi post-formation inclus — <a href="/blog">ressources IA BTP</a>.`,
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",

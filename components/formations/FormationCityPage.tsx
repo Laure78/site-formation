@@ -277,7 +277,9 @@ export function FormationCityPage({
             Des pros à {ville} gagnent déjà du temps avec l&apos;IA.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <KeyPoint label="Devis" subject="Un poste structuré" after="15 min" before="1 h en routine" />
+            <KeyPoint label="Devis">
+              Premier devis structuré en moins d&apos;une heure vs demi-journée selon complexité
+            </KeyPoint>
             <KeyPoint label="DCE">
               Un CCTP décortiqué en{' '}
               <strong className="font-semibold text-[#377CF3]">30 min</strong> — relecture métier obligatoire.

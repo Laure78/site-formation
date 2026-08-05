@@ -42,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dates git pour sitemap (généré au build)
+lib/sitemap-dates.generated.json

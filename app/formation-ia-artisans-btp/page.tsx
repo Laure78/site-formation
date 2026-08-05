@@ -83,7 +83,7 @@ const CAS_USAGE = [
   {
     icon: FileText,
     titre: 'Devis et chiffrages',
-    desc: 'Rédigez des devis professionnels en 15 minutes au lieu de 2 heures. Indiquez le type de chantier, les prestations et les quantités ; ChatGPT structure le descriptif, les prix et les conditions.',
+    desc: "Premier devis structuré en moins d'une heure vs demi-journée selon complexité. Indiquez le type de chantier, les prestations et les quantités ; ChatGPT structure le descriptif ; vous validez prix et conditions.",
   },
   {
     icon: MessageSquare,
@@ -109,7 +109,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Combien de temps économise-t-on avec ChatGPT dans le BTP ?',
-    a: "En moyenne 3 à 5 heures par semaine : devis (gain majeur), emails, comptes rendus. Les équipes formées rapportent un ROI positif dès la première semaine. La formation inclut des prompts prêts à l'emploi par type de besoin.",
+    a: "Un premier devis structuré en moins d'une heure vs demi-journée selon complexité ; moins de temps sur emails et comptes rendus. Les gains varient selon l'organisation et le niveau de pratique. La formation inclut des prompts prêts à l'emploi par type de besoin.",
   },
   {
     q: 'La formation ChatGPT pour entreprises BTP est-elle finançable ?',
@@ -248,35 +248,36 @@ export default function FormationIAArtisansBTPPage() {
               <tbody className="divide-y divide-slate-100 text-slate-700">
                 <tr>
                   <td className="px-3 py-3 font-medium">Devis complet</td>
-                  <td className="px-3 py-3">2 à 4 h</td>
-                  <td className="px-3 py-3">15 min</td>
-                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−85 %</td>
+                  <td className="px-3 py-3">Demi-journée (routine)</td>
+                  <td className="px-3 py-3">Moins d&apos;une heure</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">Selon complexité</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-3 font-medium">Email client / fournisseur</td>
-                  <td className="px-3 py-3">15 à 30 min</td>
-                  <td className="px-3 py-3">2 à 3 min</td>
-                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−85 %</td>
+                  <td className="px-3 py-3">Relances chronophages</td>
+                  <td className="px-3 py-3">Brouillon assisté + validation</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">Moins de page blanche</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-3 font-medium">CR de chantier</td>
-                  <td className="px-3 py-3">1h30 à 2h</td>
-                  <td className="px-3 py-3">3 à 5 min</td>
-                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−85 %</td>
+                  <td className="px-3 py-3">Souvent le soir / lendemain</td>
+                  <td className="px-3 py-3">Rédigé le jour même</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">CR plus frais</td>
                 </tr>
                 <tr>
                   <td className="px-3 py-3 font-medium">Relance client</td>
-                  <td className="px-3 py-3">15 min</td>
-                  <td className="px-3 py-3">1 min</td>
-                  <td className="px-3 py-3 font-semibold text-[#16A34A]">−95 %</td>
+                  <td className="px-3 py-3">Courriers récurrents</td>
+                  <td className="px-3 py-3">Trames réutilisables</td>
+                  <td className="px-3 py-3 font-semibold text-[#16A34A]">Documents homogènes</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="mt-4 text-sm italic text-slate-500">
-            Mesures réalisées en sessions OFC avec des dirigeants de TPE/PME BTP, entreprises
-            d&apos;électricité, plomberie, maçonnerie et peinture. +{formatProfessionalsTrainedCount()} professionnels formés, note{' '}
-            {SOCIAL_PROOF.AVERAGE_RATING}.
+            Sur les sessions OFC (TPE/PME BTP : électricité, plomberie, maçonnerie, peinture), les
+            participants rapportent ces ordres de grandeur. Gains variables selon l&apos;organisation,
+            les outils en place et le niveau de pratique. +{formatProfessionalsTrainedCount()}{' '}
+            professionnels formés, note {SOCIAL_PROOF.AVERAGE_RATING}.
           </p>
         </section>
 

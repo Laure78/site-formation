@@ -2,6 +2,7 @@
  * Mots-clés SEO + ancrage GEO Île-de-France — source unique (pages, meta, alt images, vidéo).
  */
 import { formatProfessionalsTrainedCount, siteStats } from '@/lib/constants';
+import { deptLocatif, getDeptGrammar } from '@/lib/formation-ia-btp-dept-grammar';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 
 export const SEO_KW_FORMATION_IA_BTP = 'formation IA pour le BTP' as const;
@@ -171,7 +172,8 @@ export function buildIdfDeptMetaDescription(
 ): string {
   const curated = FORMATION_IA_BTP_DEPT_META_BY_CODE[deptCode];
   if (curated) return curated;
-  return `Formation IA BTP en ${departementNom} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`;
+  const locatif = deptLocatif(getDeptGrammar(deptCode, departementNom));
+  return `Formation IA BTP ${locatif} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`;
 }
 
 /** Segment title (≤ budget segment) — suffixe « | Laure Olivié » ajouté par buildMetadata. */

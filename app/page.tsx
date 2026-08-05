@@ -46,20 +46,16 @@ import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
-import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import {
   CATALOGUE_FORMATIONS_COUNT,
-  cataloguePedagogicalLevelBadge,
-  catalogueNiveauEtLevel,
   getFormationCatalogueByRef,
-  type CatalogueLevel,
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
-import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
-import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
+import { DEVIS_GAIN_TEMPS_LIBELLE, GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
@@ -85,9 +81,6 @@ const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
 const FORMATION_CLAUDE = getFormationCatalogueByRef('NIV-04')!;
 const FORMATION_MOE = getFormationCatalogueByRef('NIV-05')!;
 
-/** Aperçu catalogue home — 3 parcours phares (le reste sur /formations). */
-const HOME_CATALOGUE_PREVIEW = [FORMATION_NIVEAU1, FORMATION_AO, FORMATION_CONDUITE] as const;
-
 /** Puces fusionnées depuis l’offre BeWork/formations (ex-titre « Ce que vous gagnez concrètement »). */
 const GAINS_CONCRETS_MERGES = [
   "Appels d'offres : analyse DCE et mémoire technique assistés — relecture métier obligatoire",
@@ -95,10 +88,6 @@ const GAINS_CONCRETS_MERGES = [
   'Communication : visuels avant/après et posts réseaux pour vos chantiers',
   'Prompts sur mesure : méthodes adaptées à vos documents et process',
 ] as const;
-
-function catalogueLevelBadge(ref: string, _level: CatalogueLevel): string {
-  return cataloguePedagogicalLevelBadge(ref);
-}
 
 const GAINS_COMMERCIAUX_CARDS = [
   {
@@ -111,8 +100,7 @@ const GAINS_COMMERCIAUX_CARDS = [
     title: 'Gagnez en réactivité commerciale',
     keyPoint: (
       <KeyPoint variant="inverse" label="Réactivité commerciale">
-        Un premier devis structuré en moins d&apos;une heure, contre une demi-journée en routine — selon la
-        complexité du chantier.
+        {DEVIS_GAIN_TEMPS_LIBELLE}
       </KeyPoint>
     ),
     desc: 'Répondez plus vite aux demandes de devis — un délai de réponse court reste le premier levier de transformation.',
@@ -585,27 +573,24 @@ export default function HomePage() {
                     title: 'Trop de temps sur les devis',
                     keyPoint: (
                       <KeyPoint label="Gain constaté">
-                        Un devis détaillé prend <span className="text-slate-500">2h à 4h</span> à rédiger. Avec
-                        l&apos;IA, vous passez à{' '}
-                        <strong className="font-semibold text-[#377CF3]">15 minutes chrono</strong> tout en gardant la
-                        qualité professionnelle.
+                        {DEVIS_GAIN_TEMPS_LIBELLE} L&apos;IA structure la trame ; vous validez prix et conditions.
                       </KeyPoint>
                     ),
                   },
                   {
                     icon: FileText,
                     title: "Les appels d'offres prennent des heures",
-                    desc: "Analysez un DCE, structurez votre mémoire technique et rédigez une réponse convaincante 5 fois plus rapidement.",
+                    desc: "Un mémoire technique structuré à partir d'une trame plutôt que d'une page blanche — analyse DCE et rédaction sous votre validation métier.",
                   },
                   {
                     icon: FileText,
                     title: "Les comptes rendus ne sont jamais faits",
-                    desc: "Générez automatiquement vos CR, rapports d'avancement et fiches de suivi depuis vos notes vocales.",
+                    desc: "Des comptes rendus rédigés le jour même de la visite, à partir de vos notes vocales ou écrites.",
                   },
                   {
                     icon: Mail,
                     title: "Trop d'emails à gérer",
-                    desc: "Rédigez vos emails clients, fournisseurs et sous-traitants en quelques secondes avec le bon ton professionnel.",
+                    desc: "Moins de temps sur les relances et les courriers récurrents, avec le bon ton professionnel.",
                   },
                 ].map((card) => {
                   const Icon = card.icon;
@@ -878,116 +863,6 @@ export default function HomePage() {
               </RevealGroup>
             </Accordion>
           </div>
-        </div>
-      </section>
-
-      {/* Catalogue formations */}
-      <section className={OFC_SEC.mutedMesh}>
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
-              <span>Formations IA pour le BTP</span>
-            </div>
-            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-              Nos formations IA pour le BTP et la construction
-            </h2>
-            <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-              Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
-              bâtiment et de la construction. Financement possible selon éligibilité.
-            </p>
-            <CatalogueTarifStrip className="mt-5" />
-          </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {HOME_CATALOGUE_PREVIEW.map((cours) => (
-              <div
-                key={cours.ref}
-                className={`${OFC_CARD} flex flex-col overflow-hidden`}
-              >
-                <Link
-                  href={cours.href}
-                  className="relative block w-full shrink-0 border-b border-[#E2E8F0] bg-[#F1F5F9] px-4 py-4"
-                  title={`Fiche formation — ${cours.title}`}
-                >
-                  <div className="relative mx-auto aspect-square w-full max-w-[200px] overflow-hidden sm:max-w-[220px] md:max-w-[240px]">
-                    <Image
-                      src={cours.visuel.src}
-                      alt={cours.visuel.alt}
-                      title={
-                        'title' in cours.visuel && typeof cours.visuel.title === 'string'
-                          ? cours.visuel.title
-                          : undefined
-                      }
-                      fill
-                      loading="lazy"
-                      className="object-contain object-center transition-opacity hover:opacity-95"
-                      sizes="(max-width: 640px) 200px, 240px"
-                    />
-                    <CataloguePriceBadge
-                      level={cours.level}
-                      variant="overlay"
-                    />
-                  </div>
-                </Link>
-                <div className="p-6">
-                <div className="flex items-start justify-between gap-2">
-                  <span className="text-sm text-slate-500">{catalogueNiveauEtLevel(cours.ref, cours.level)}</span>
-                  <span className="rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-medium text-[var(--accent)]">
-                    {catalogueLevelBadge(cours.ref, cours.level)}
-                  </span>
-                </div>
-                <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">
-                  <Link href={cours.href} className={OFC_LINK} title={`Voir la fiche : ${cours.title}`}>
-                    {cours.title}
-                  </Link>
-                </h3>
-                <CataloguePriceBadge
-                  level={cours.level}
-                  variant="banner"
-                  className="mt-4"
-                />
-                <div className="mt-3 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
-                  <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
-                    <Clock size={16} strokeWidth={1.5} />
-                    {cours.duree}
-                  </span>
-                  <span className="flex items-center gap-2 text-sm text-slate-600">
-                    <Users size={16} strokeWidth={1.5} />
-                    {cours.effectif}
-                  </span>
-                </div>
-                <p className="mt-4 font-semibold text-slate-900">
-                  OBJECTIFS PÉDAGOGIQUES
-                </p>
-                <ul className="mt-2 flex-1 space-y-2">
-                  {cours.objectifs.map((obj) => (
-                    <li key={obj} className="flex gap-2 text-sm text-slate-600">
-                      <Check size={18} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
-                      {obj}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={cours.href}
-                  className={`${OFC_CTA_PRIMARY} mt-6 block w-full py-3`}
-                >
-                  Voir la fiche formation
-                </Link>
-                <a
-                  href={cours.programmePdfHref}
-                  download
-                  className="mt-3 block w-full rounded-xl border-2 border-slate-200 py-3 text-center text-sm font-semibold text-slate-800 hover:border-[var(--accent)]"
-                >
-                  Télécharger le programme (PDF)
-                </a>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Reveal className="mt-10 text-center">
-            <p className="text-base font-semibold text-slate-700">
-              Catalogue complet : {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP
-            </p>
-          </Reveal>
         </div>
       </section>
 

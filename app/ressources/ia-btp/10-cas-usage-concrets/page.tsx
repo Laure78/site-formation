@@ -101,7 +101,7 @@ const DEMARRER_IA_BTP_STEPS = [
 const FAQ = [
   {
     q: "L'IA peut-elle vraiment faire gagner du temps dans le BTP ?",
-    a: "Oui, nos clients gagnent en moyenne 3 à 5 heures par semaine. Les gains les plus importants concernent la rédaction de devis (divisé par 3), l'analyse d'appels d'offres (divisé par 5) et la gestion administrative (emails, comptes rendus). Un conducteur de travaux peut rédiger un compte-rendu de chantier en 5 minutes au lieu de 30 minutes.",
+    a: "Oui : moins de temps sur les devis et les courriers récurrents, un mémoire technique structuré à partir d'une trame plutôt que d'une page blanche, des comptes rendus rédigés le jour même de la visite. Les gains varient selon l'organisation, les outils en place et le niveau de pratique.",
   },
   {
     q: "Faut-il être expert en informatique pour utiliser l'IA dans le BTP ?",
@@ -109,7 +109,7 @@ const FAQ = [
   },
   {
     q: "Combien coûte l'intégration de l'IA dans une entreprise BTP ?",
-    a: "L'investissement de départ est très faible. ChatGPT coûte 24€/mois par utilisateur. La formation est éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur — un reste à charge peut exister selon votre dossier. Le retour sur investissement est atteint en moins d'1 mois grâce au temps gagné.",
+    a: "L'investissement de départ est très faible. ChatGPT coûte environ 20 € TTC/mois par utilisateur selon l'offre. La formation est éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur — un reste à charge peut exister selon votre dossier. Le temps libéré sur devis, CR et courriers se mesure dès les premières semaines de pratique.",
   },
   {
     q: "L'IA peut-elle analyser les documents techniques BTP (CCTP, DCE) ?",
@@ -127,41 +127,42 @@ const CAS_USAGE = [
   {
     numero: '1',
     titre: 'Automatisation des devis bâtiment',
-    description: 'Générez des devis professionnels en 15 minutes au lieu de 2 heures.',
+    description:
+      "Premier devis structuré en moins d'une heure vs demi-journée selon complexité — l'IA structure la trame, vous validez prix et conditions.",
     exemple: 'Un électricien dicte les prestations (installation électrique complète maison 120m²). ChatGPT structure le descriptif technique, calcule les quantités de matériel, et génère un devis professionnel avec conditions générales.',
-    gain: '80% de temps économisé',
+    gain: 'Trame devis homogène, moins de page blanche',
     secteurs: ['Tous corps d\'état', 'TPE et PME bâtiment'],
   },
   {
     numero: '2',
     titre: 'Analyse d\'appels d\'offres (DCE, CCTP)',
-    description: 'Lisez et comprenez un DCE de 300 pages en 10 minutes au lieu de 3 heures.',
+    description: 'Synthétisez un DCE volumineux : exigences, délais, points de vigilance — avant de décider Go / No Go.',
     exemple: 'Un conducteur de travaux soumet le CCTP d\'un marché public à l\'IA. En quelques secondes, l\'IA extrait : exigences techniques, normes imposées, délais, pénalités, points de vigilance, et génère un tableau de synthèse Excel.',
-    gain: '5x plus rapide',
+    gain: 'DCE digéré plus vite, relecture métier',
     secteurs: ['Travaux publics', 'Entreprises générales', 'Génie civil'],
   },
   {
     numero: '3',
     titre: 'Rédaction de mémoires techniques',
-    description: 'Créez des mémoires techniques structurés et convaincants en moins d\'une heure.',
+    description: "Un mémoire technique structuré à partir d'une trame plutôt que d'une page blanche.",
     exemple: 'Un chargé d\'affaires fournit les informations clés (moyens humains, matériels, planning, références). L\'IA rédige un mémoire technique de 40 pages conforme aux attentes des acheteurs publics.',
-    gain: 'Divise par 3 le temps de rédaction',
+    gain: 'Mémoire calé sur les critères du RC',
     secteurs: ['Marchés publics', 'Appels d\'offres privés'],
   },
   {
     numero: '4',
     titre: 'Comptes rendus de chantier instantanés',
-    description: 'Rédigez des CR professionnels en 5 minutes à partir de notes vocales.',
+    description: 'Des comptes rendus rédigés le jour même de la visite, à partir de notes vocales.',
     exemple: 'Sur chantier, un conducteur dicte vocalement ses observations (avancement, incidents, décisions). De retour au bureau, il copie la transcription dans ChatGPT qui structure un CR formel, prêt à envoyer au client.',
-    gain: '80% de temps gagné',
+    gain: 'CR le jour même, documents homogènes',
     secteurs: ['Tous secteurs BTP'],
   },
   {
     numero: '5',
     titre: 'Gestion des emails clients et fournisseurs',
-    description: 'Répondez aux emails 3x plus vite avec un ton professionnel adapté.',
+    description: 'Moins de temps sur les relances et les courriers récurrents, avec le bon ton.',
     exemple: 'Une entreprise reçoit une réclamation client. Elle indique la situation à ChatGPT qui génère une réponse professionnelle, empathique, avec proposition de solution. L\'équipe corrige éventuellement et envoie.',
-    gain: '70% de temps économisé',
+    gain: 'Relances et courriers plus fluides',
     secteurs: ['TPE et PME', 'Entreprises de taille intermédiaire'],
   },
   {
@@ -169,15 +170,15 @@ const CAS_USAGE = [
     titre: 'Création d\'annonces de recrutement efficaces',
     description: 'Recrutez plus vite avec des annonces attractives et conformes.',
     exemple: 'Un chef d\'entreprise BTP demande à l\'IA de rédiger une annonce pour un maçon qualifié. L\'IA génère une annonce optimisée SEO (Pôle Emploi, Indeed), avec description attractive du poste, avantages, et questions de pré-sélection.',
-    gain: '+40% de candidatures qualifiées',
+    gain: 'Annonces plus claires et ciblées',
     secteurs: ['Fonction RH BTP'],
   },
   {
     numero: '7',
     titre: 'Pré-sélection de CV et candidatures',
-    description: 'Analysez 50 CV en 10 minutes et identifiez les meilleurs profils.',
+    description: 'Triez un volume élevé de CV et identifiez plus vite les profils à convoquer.',
     exemple: 'Un DRH copie 50 CV reçus pour un poste de conducteur de travaux. L\'IA analyse les profils, extrait les compétences, expériences, et génère un tableau comparatif avec recommandation des 5 meilleurs candidats.',
-    gain: '90% de temps gagné',
+    gain: 'Tri CV plus rapide, short-list claire',
     secteurs: ['Fonction RH', 'Grandes entreprises BTP'],
   },
   {
@@ -185,7 +186,7 @@ const CAS_USAGE = [
     titre: 'Planification et ordonnancement de chantier',
     description: 'Optimisez vos plannings chantier avec l\'IA.',
     exemple: 'Un conducteur de travaux fournit la liste des tâches, durées estimées, dépendances. L\'IA génère un planning Gantt optimisé, identifie le chemin critique, et propose des alternatives en cas de retard.',
-    gain: 'Réduit les retards de chantier',
+    gain: 'Planning plus lisible, alertes plus tôt',
     secteurs: ['Gestion de projet BTP'],
   },
   {
@@ -193,7 +194,7 @@ const CAS_USAGE = [
     titre: 'Veille réglementaire et normative BTP',
     description: 'Restez à jour sur les normes et réglementations sans effort.',
     exemple: 'Un bureau d\'études demande à l\'IA un résumé des évolutions de la RE2020 applicables en 2026. L\'IA liste les changements, impacts sur les projets en cours, et recommandations.',
-    gain: 'Conformité garantie',
+    gain: 'Veille structurée, relecture obligatoire',
     secteurs: ['Bureaux d\'études', 'Maîtrise d\'œuvre'],
   },
   {
@@ -230,9 +231,9 @@ export default function CasUsageIABTPPage() {
             IA dans le BTP : 10 cas d'usage concrets (2026)
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-blue-50">
-            Découvrez 10 applications pratiques et rentables de l'intelligence artificielle 
-            dans les entreprises du bâtiment et des travaux publics. 
-            Exemples réels, gains de temps mesurés, ROI immédiat.
+            Découvrez 10 applications pratiques de l&apos;intelligence artificielle
+            dans les entreprises du bâtiment et des travaux publics.
+            Exemples concrets, cas terrain, priorisation pour décider.
           </p>
         </div>
       </section>
@@ -244,33 +245,35 @@ export default function CasUsageIABTPPage() {
             Pourquoi l'IA change la donne dans le BTP en 2026
           </h2>
           <p className="text-slate-700">
-            L'intelligence artificielle n'est plus réservée aux grandes entreprises tech. 
-            En 2026, les entreprises du BTP qui intègrent l'IA gagnent <strong>3 à 5 heures par semaine</strong> et collaborateur, 
-            réduisent leurs coûts administratifs de <strong>30 à 40%</strong>, et remportent plus d'appels d'offres grâce à des réponses plus rapides et mieux structurées.
+            L&apos;intelligence artificielle n&apos;est plus réservée aux grandes entreprises tech.
+            En 2026, les entreprises du BTP qui l&apos;intègrent gagnent du temps sur les relances et courriers
+            récurrents, structurent leurs mémoires techniques à partir d&apos;une trame plutôt que d&apos;une page
+            blanche, et produisent des documents homogènes d&apos;un chantier à l&apos;autre — toujours sous
+            validation métier.
           </p>
 
           <div className="not-prose my-8 grid gap-6 sm:grid-cols-3">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
               <Clock size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">3-5h</p>
-              <p className="text-sm text-slate-600">gagnées par semaine</p>
+              <p className="mt-4 text-lg font-bold text-slate-900">Devis &amp; CR</p>
+              <p className="text-sm text-slate-600">moins de page blanche, trames réutilisables</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
               <TrendingUp size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">-30%</p>
-              <p className="text-sm text-slate-600">de coûts administratifs</p>
+              <p className="mt-4 text-lg font-bold text-slate-900">Appels d&apos;offres</p>
+              <p className="text-sm text-slate-600">mémoire calé sur les critères du RC</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
               <Euro size={40} className="mx-auto text-[var(--accent)]" strokeWidth={1.5} />
-              <p className="mt-4 text-3xl font-bold text-slate-900">&lt;1 mois</p>
-              <p className="text-sm text-slate-600">de retour sur investissement</p>
+              <p className="mt-4 text-lg font-bold text-slate-900">Documents homogènes</p>
+              <p className="text-sm text-slate-600">d&apos;un chantier à l&apos;autre</p>
             </div>
           </div>
 
           <p className="text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
 
           <p className="text-slate-700">
-            Pourtant, <strong>78% des TPE et PME du BTP</strong> n'ont jamais testé l'IA, 
+            Pourtant, beaucoup de TPE et PME du BTP n&apos;ont jamais testé l&apos;IA,
             par manque de temps ou par méconnaissance des usages concrets.
           </p>
           <p className="text-slate-700">

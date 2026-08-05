@@ -44,6 +44,22 @@ const LEGACY_PIPE_SUFFIX_PATTERN = /\s*\|\s*Qualiopi(?:\s*[·•].*)?\s*$/i;
 /** Mots / signes orphelins en fin de segment (après coupe). */
 const TRAILING_ORPHAN_WORDS = /\s+(?:de|du|des|la|le|les|pour|et|ou|à|en|un|une|d)\s*$/i;
 
+/** Séparateurs orphelins juste avant le suffixe marque (ex. « BTP · | Laure Olivié »). */
+const ORPHAN_BEFORE_BRAND_PATTERN = /(?:\s*[·•]\s*\||\s*\|\s*\|)/;
+
+/**
+ * Assemble des segments de titre en filtrant les vides / undefined
+ * avant de joindre avec « · » — évite « base · | Laure Olivié ».
+ */
+export function joinTitleSegments(
+  ...segments: Array<string | null | undefined | false>
+): string {
+  return segments
+    .map((s) => (typeof s === 'string' ? s.trim() : ''))
+    .filter(Boolean)
+    .join(' · ');
+}
+
 /** Retire le suffixe « | Laure Olivié » (et variantes) en fin de chaîne — y compris doublons. */
 export function stripBrandSuffix(title: string): string {
   let t = title.trim();
@@ -56,16 +72,30 @@ export function stripBrandSuffix(title: string): string {
   return t;
 }
 
-/** Nettoie les fins de titre coupées (ponctuation, conjonctions, « & » orphelin). */
+/** Nettoie les fins de titre coupées (ponctuation, conjonctions, « · » / « & » orphelins). */
 export function trimTitleOrphans(segment: string): string {
   let t = segment.trim();
   let prev = '';
   while (t !== prev) {
     prev = t;
-    t = t.replace(/[&—:;,.|–\-]\s*$/u, '').trim();
+    t = t.replace(/[&—:;,.|–\-·•]\s*$/u, '').trim();
     t = t.replace(TRAILING_ORPHAN_WORDS, '').trim();
   }
   return t;
+}
+
+/**
+ * Échoue en développement si le titre contient un séparateur orphelin
+ * (« · | » ou « | | »). En prod : warning uniquement.
+ */
+export function assertBrandedTitleClean(title: string, context?: string): void {
+  if (!ORPHAN_BEFORE_BRAND_PATTERN.test(title)) return;
+  const where = context ? ` (${context})` : '';
+  const message = `title séparateur orphelin (« · | » / « | | ») : « ${title} »${where}`;
+  if (isSeoDev()) {
+    throw new Error(`[seo] ${message}`);
+  }
+  warnSeoMetadataDev(message);
 }
 
 /**
@@ -99,7 +129,13 @@ export function buildBrandedTitle(
   maxTotal = SEO_TITLE_MAX_LENGTH,
   maxSegment = SEO_TITLE_SEGMENT_MAX_LENGTH,
 ): string {
-  const clean = stripBrandSuffix(segment);
+  // Normalise d’abord les sous-segments séparés par « · » (filtre les vides).
+  const joined = joinTitleSegments(
+    ...stripBrandSuffix(segment)
+      .split(/\s*[·•]\s*/)
+      .map((part) => part.trim()),
+  );
+  const clean = trimTitleOrphans(joined);
   const suffixLen = BRAND_TITLE_SUFFIX.length;
   const segmentBudget = Math.max(0, Math.min(maxSegment, maxTotal - suffixLen));
   let truncated = truncateForBrandedTitle(clean, segmentBudget);
@@ -109,6 +145,7 @@ export function buildBrandedTitle(
   while (truncated.length > segmentBudget && truncated.includes(' ')) {
     truncated = trimTitleOrphans(truncated.slice(0, truncated.lastIndexOf(' ')));
   }
+  truncated = trimTitleOrphans(truncated);
 
   if (clean.length > truncated.length) {
     warnSeoMetadataDev(
@@ -116,7 +153,9 @@ export function buildBrandedTitle(
     );
   }
 
+  // Suffixe marque EN DERNIER, après troncature du segment.
   const full = `${truncated}${BRAND_TITLE_SUFFIX}`;
+  assertBrandedTitleClean(full, 'buildBrandedTitle');
   if (full.length > maxTotal) {
     warnSeoMetadataDev(
       `title final > ${maxTotal} car. (${full.length}) : « ${full} »`,

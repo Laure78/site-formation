@@ -3,13 +3,20 @@
  * Présentiel uniquement (Onsite), zone Île-de-France, durée 4 h, intra / inter.
  */
 import {
+  SCHEMA_CONTACT,
   SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
 
 export const FORMATION_COURSE_DURATION_ISO = 'PT4H';
+/** Schema.org / Google — présentiel (jamais « online »). */
 export const FORMATION_COURSE_MODE_ONSITE = 'Onsite';
 export const FORMATION_COURSE_AREA_IDF = 'Île-de-France';
+export const FORMATION_COURSE_IN_LANGUAGE = 'fr-FR';
+/** Qualiopi — libellé court pour Course.educationalCredentialAwarded. */
+export const FORMATION_COURSE_CREDENTIAL_AWARDED = 'Certificat de réalisation';
+/** Offre catalogue — forfait session groupe HT. */
+export const FORMATION_COURSE_OFFER_CATEGORY = 'HT / session groupe';
 
 const FORBIDDEN_MODE_PATTERNS = [
   /\bBlended\b/i,
@@ -65,6 +72,19 @@ export function buildFormationCourseAreaServed(): Record<string, unknown> {
   };
 }
 
+/** Place Île-de-France — CourseInstance.location. */
+export function buildFormationCourseInstanceLocation(): Record<string, unknown> {
+  return {
+    '@type': 'Place',
+    name: FORMATION_COURSE_AREA_IDF,
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: FORMATION_COURSE_AREA_IDF,
+      addressCountry: 'FR',
+    },
+  };
+}
+
 /** Deux instances : intra-entreprise et inter-entreprises, présentiel IDF (courseMode Onsite, PT4H). */
 export function buildFormationCourseInstances(
   duration: string = FORMATION_COURSE_DURATION_ISO
@@ -75,32 +95,16 @@ export function buildFormationCourseInstances(
       name: 'Session intra-entreprise — présentiel',
       courseMode: FORMATION_COURSE_MODE_ONSITE,
       courseWorkload: duration,
-      inLanguage: 'fr',
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France (intra ou inter)',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: FORMATION_COURSE_AREA_IDF,
-          addressCountry: 'FR',
-        },
-      },
+      inLanguage: FORMATION_COURSE_IN_LANGUAGE,
+      location: buildFormationCourseInstanceLocation(),
     },
     {
       '@type': 'CourseInstance',
       name: 'Session inter-entreprises — présentiel',
       courseMode: FORMATION_COURSE_MODE_ONSITE,
       courseWorkload: duration,
-      inLanguage: 'fr',
-      location: {
-        '@type': 'Place',
-        name: 'Île-de-France (intra ou inter)',
-        address: {
-          '@type': 'PostalAddress',
-          addressRegion: FORMATION_COURSE_AREA_IDF,
-          addressCountry: 'FR',
-        },
-      },
+      inLanguage: FORMATION_COURSE_IN_LANGUAGE,
+      location: buildFormationCourseInstanceLocation(),
     },
   ];
 }
@@ -129,8 +133,14 @@ export function buildFormationFicheCourseNode(
       '@id': organizationId,
       name: SCHEMA_ORGANIZATION_OFC.name,
       url: base,
+      identifier: {
+        '@type': 'PropertyValue',
+        name: 'SIRET',
+        value: SCHEMA_CONTACT.siretFormatted,
+      },
     },
-    inLanguage: 'fr',
+    inLanguage: FORMATION_COURSE_IN_LANGUAGE,
+    educationalCredentialAwarded: FORMATION_COURSE_CREDENTIAL_AWARDED,
     timeRequired: duration,
     keywords: input.keywords ?? FORMATION_COURSE_KEYWORDS_DEFAULT,
     hasCourseInstance: buildFormationCourseInstances(duration),
@@ -214,6 +224,14 @@ export function assertFormationFicheCourseSchema(
   }
   if (course.courseMode !== FORMATION_COURSE_MODE_ONSITE) {
     throw new Error(`${label}: courseMode doit être « ${FORMATION_COURSE_MODE_ONSITE} »`);
+  }
+  if (course.inLanguage !== FORMATION_COURSE_IN_LANGUAGE) {
+    throw new Error(`${label}: inLanguage doit être « ${FORMATION_COURSE_IN_LANGUAGE} »`);
+  }
+  if (course.educationalCredentialAwarded !== FORMATION_COURSE_CREDENTIAL_AWARDED) {
+    throw new Error(
+      `${label}: educationalCredentialAwarded doit être « ${FORMATION_COURSE_CREDENTIAL_AWARDED} »`
+    );
   }
 
   const provider = course.provider;

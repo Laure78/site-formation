@@ -3,6 +3,7 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { JsonLd } from '@/components/JsonLd';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
+import { EnBref } from '@/app/components/EnBref';
 import { VoirAussi } from '@/components/VoirAussi';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
@@ -116,6 +117,15 @@ export default function FormationIaBtpIleDeFrancePage() {
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
               Formation IA pour le bâtiment et la construction en Île-de-France
             </h1>
+            <EnBref>
+              <p>
+                En Île-de-France, Laure Olivié propose des formations IA pour le BTP via OFC Création
+                d&apos;Entreprise, organisme certifié Qualiopi : sessions en présentiel uniquement, sur documents
+                réels — devis, DCE, mémoires techniques, comptes rendus. Catalogue inter et intra ; financement OPCO
+                possible selon éligibilité. {formatProfessionalsTrainedCount()} professionnels formés, note moyenne{' '}
+                {SOCIAL_PROOF.AVERAGE_RATING}.
+              </p>
+            </EnBref>
             <p className="mt-6 text-lg leading-relaxed text-slate-600">
               Laure Olivié forme les TPE et PME du bâtiment et de la construction en présentiel uniquement, en
               Île-de-France uniquement : devis, DCE, comptes rendus et administratif sur vos documents réels.{' '}

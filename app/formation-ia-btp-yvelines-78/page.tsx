@@ -1,13 +1,13 @@
 import {
-  GeoFormationPage,
-  geoFormationMetadata,
-} from '@/components/geo/GeoFormationPage';
-import { GEO_FORMATION_YVELINES_78 } from '@/lib/geo-formation-config';
-
+  DepartementPage,
+  departementPageMetadata,
+} from '@/components/formation-ia-btp/DepartementPage';
+import { DEPARTEMENT_YVELINES_78 } from '@/lib/departement-pages';
 
 export const revalidate = 3600;
-export const metadata = geoFormationMetadata(GEO_FORMATION_YVELINES_78);
+
+export const metadata = departementPageMetadata(DEPARTEMENT_YVELINES_78);
 
 export default function FormationIaBtpYvelines78Page() {
-  return <GeoFormationPage {...GEO_FORMATION_YVELINES_78} />;
+  return <DepartementPage data={DEPARTEMENT_YVELINES_78} />;
 }

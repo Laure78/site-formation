@@ -274,6 +274,19 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     },
     hubAnchor: 'Hub IA BTP — métiers enveloppe et structure',
   },
+  [LINKS.formationIaCouvreurBtp]: {
+    path: LINKS.formationIaCouvreurBtp,
+    close: [LINKS.formationIaEtancheur, LINKS.formationIaCharpentierMenuisierBtp],
+    catalogue: {
+      href: LINKS.formationIaBtpNiveau1BatimentTp,
+      label: 'Programme Qualiopi IA bâtiment & TP (niveau 1)',
+    },
+    blog: {
+      href: '/blog/ia-et-couvreur-5-gains-de-temps-concrets',
+      label: 'IA et couvreur : 5 gains de temps concrets',
+    },
+    hubAnchor: 'Hub IA BTP — métiers enveloppe et toiture',
+  },
   [LINKS.formationIaAssistanteBtp]: {
     path: LINKS.formationIaAssistanteBtp,
     close: [LINKS.formationIaAssistanteGestionBtp, LINKS.formationIaResponsableAdministratifBtp],
@@ -347,8 +360,8 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
       label: 'Catalogue — formation IA pour TPE & PME du bâtiment',
     },
     blog: {
-      href: '/blog/5-cas-usage-chatgpt-artisans-btp',
-      label: '5 cas d’usage ChatGPT pour entreprises du BTP',
+      href: LINKS.blog5CasUsageChatgptBtp,
+      label: "5 cas d'usage de ChatGPT pour les entreprises du bâtiment",
     },
     hubAnchor: 'Hub formation IA — métiers et lots BTP',
   },
@@ -471,8 +484,9 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
       label: 'Formation IA BTP Yvelines (78) — Guyancourt',
     },
     blog: {
-      href: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
-      label: 'Compte-rendu de chantier et IA — gagner du temps',
+      href: LINKS.blogCompteRenduChantierIa,
+      label:
+        'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5 h par semaine',
     },
   },
   {

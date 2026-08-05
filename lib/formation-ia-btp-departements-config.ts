@@ -7,16 +7,37 @@ import type { FAQItem } from '@/lib/faq';
 import { buildDeptMetaDescription } from '@/lib/meta-description';
 import { buildIdfDeptPageTitle } from '@/lib/seo-geo-keywords';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import {
+  deptDe,
+  deptLocatif,
+  deptWithArticle,
+  deptWithArticleCapitalized,
+  getDeptGrammar,
+  type DeptGrammar,
+} from '@/lib/formation-ia-btp-dept-grammar';
+import { DEPARTEMENT_PAGE_PATHS, TEMOIGNAGES_REGION_IDF } from '@/lib/departement-pages';
+
+/** Titre + citations région — même jeu que `TemoignagesRegion` (pas de localisation inventée). */
+const TEMOIGNAGES_REGION_BLOCK = {
+  temoignagesTitle: 'Témoignages de professionnels en Île-de-France',
+  temoignages: TEMOIGNAGES_REGION_IDF.map((t) => ({ text: t.text, attribution: t.attribution })),
+} as const;
 
 const OFC = 'OFC Création d\'Entreprise';
 
-function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
-  const d = `${nomDept} (${code})`;
+function capitalizeLocatif(grammar: DeptGrammar): string {
+  const loc = deptLocatif(grammar);
+  return loc.charAt(0).toUpperCase() + loc.slice(1);
+}
+
+function faqGeoBase(grammar: DeptGrammar, code: string, villes: string): FAQItem[] {
+  const d = `${grammar.nom} (${code})`;
+  const locatif = deptLocatif(grammar);
+  const sujet = deptWithArticleCapitalized(grammar);
   return [
     {
       q: `Intervenez-vous dans tout le département ${d} ?`,
-      a: `Oui. Intra dans vos locaux ou sur site dans les ${nomDept}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
+      a: `Oui. Intra dans vos locaux ou sur site ${locatif}, selon calendrier. Siège à Guyancourt (78) — déplacements vers ${villes} courants. Zones éloignées : journée bloquée ou demi-journées.`,
     },
     {
       q: 'Quelle est la différence entre session inter et intra pour mon équipe ?',
@@ -32,7 +53,7 @@ function faqGeoBase(nomDept: string, code: string, villes: string): FAQItem[] {
     },
     {
       q: 'Le financement Constructys s’applique-t-il aux entreprises du département ?',
-      a: `Règles Constructys nationales — éligibilité OPCO, plafonds pédagogiques. Le ${nomDept} ne change pas le barème ; programme Qualiopi aligné sur le guide financement du site.`,
+      a: `Règles Constructys nationales — éligibilité OPCO, plafonds pédagogiques. ${sujet} ne change pas le barème ; programme Qualiopi aligné sur le guide financement du site.`,
     },
     {
       q: 'Combien de temps à l’avance réserver une date ?',
@@ -67,7 +88,7 @@ function ffbCasClient(deptCode: string): string {
 /** Yvelines (78) — contenu détaillé (pilote SEO). */
 export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   path: '/formation-ia-btp-yvelines-78',
-  h1: 'Formation IA pour le BTP en Yvelines (78) — Versailles et agglomération',
+  h1: 'Formation IA pour le BTP dans les Yvelines (78) — Versailles et agglomération',
   metaTitle: buildIdfDeptPageTitle('Yvelines', '78'),
   metaDescription: buildDeptMetaDescription('Yvelines', '78', 'Versailles, SQY, Guyancourt'),
   keywords: [
@@ -79,6 +100,9 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'formation IA Guyancourt',
   ],
   departementNom: 'Yvelines',
+  nom: 'Yvelines',
+  article: 'les',
+  prepositionLocative: 'dans les',
   deptCode: '78',
   badgeLine: 'Yvelines (78) · Présentiel en Île-de-France · Qualiopi',
   cities: [
@@ -130,21 +154,8 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     `Limites : données perso, clauses confidentielles — comportements selon outil grand public ou espace pro.`,
     `Feuille de route semaine suivante : tâches prioritaires et documents pilotes pour tester sans disperser l'équipe.`,
   ],
-  temoignagesTitle: 'Témoignages de professionnels en Île-de-France (extraits anonymisés)',
-  temoignages: [
-    {
-      text: `On cherchait un format court sans bullshit tech. En quatre heures, on a posé des prompts sur nos vrais modèles de devis : le gain a été visible dès la semaine suivante sur les relances clients.`,
-      attribution: `Dirigeant, entreprise de second œuvre — périphérie de Versailles (${SOCIAL_PROOF.AVERAGE_RATING} à chaud)`,
-    },
-    {
-      text: `Nos conducteurs de travaux traînaient les comptes rendus. La méthode dictée → structuration avec relecture humaine nous a permis de fermer le sujet sans recruter.`,
-      attribution: `Responsable de travaux — secteur bâtiment, vallée de la Seine (78)`,
-    },
-    {
-      text: `Le côté financement Constructys nous a rassurés : on a eu les éléments pour monter le dossier avec notre référent OPCO, sans refaire le monde.`,
-      attribution: `Gérante, PME gros œuvre — bassin Mantes / Yvelines`,
-    },
-  ],
+  temoignagesTitle: TEMOIGNAGES_REGION_BLOCK.temoignagesTitle,
+  temoignages: [...TEMOIGNAGES_REGION_BLOCK.temoignages],
   financeTitle: 'Financement et Qualiopi : ce qui s’applique aux entreprises du 78',
   financeBody: [
     `Constructys : prise en charge possible selon éligibilité et plafonds nationaux. Qualiopi facilite la cohérence des pièces attendues.`,
@@ -159,7 +170,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
   deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
   casClientFfb: ffbCasClient('78'),
   faq: faqGeoBase(
-    'Yvelines',
+    getDeptGrammar('78'),
     '78',
     'Versailles, Guyancourt, Mantes-la-Jolie, Saint-Germain-en-Laye, Rambouillet',
   ),
@@ -181,10 +192,15 @@ function buildDeptConfig(opts: {
   tissuBtpLocal: string[];
 }): FormationIaBtpDeptLandingConfig {
   const { deptCode, departementNom } = opts;
-  const d = `${departementNom} (${deptCode})`;
-  const h1 = `Formation IA appliquée au bâtiment en ${opts.departementNom} (${opts.deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
-  const metaTitle = buildIdfDeptPageTitle(departementNom, deptCode);
-  const metaDescription = buildDeptMetaDescription(departementNom, deptCode, opts.triVillesMeta);
+  const grammar = getDeptGrammar(deptCode, departementNom);
+  const d = `${grammar.nom} (${deptCode})`;
+  const locatif = deptLocatif(grammar);
+  const de = deptDe(grammar);
+  const avecArticle = deptWithArticle(grammar);
+  const locatifCap = capitalizeLocatif(grammar);
+  const h1 = `Formation IA appliquée au bâtiment ${locatif} (${deptCode}) — ${opts.chefLieuAgglo} et agglomération`;
+  const metaTitle = buildIdfDeptPageTitle(grammar.nom, deptCode);
+  const metaDescription = buildDeptMetaDescription(grammar.nom, deptCode, opts.triVillesMeta);
   const courseName = `Formation IA pour les pros du BTP ${d} — Qualiopi, financement possible selon éligibilité`;
   return {
     path: opts.path,
@@ -192,32 +208,35 @@ function buildDeptConfig(opts: {
     metaTitle,
     metaDescription,
     keywords: opts.keywords,
-    departementNom,
+    departementNom: grammar.nom,
+    nom: grammar.nom,
+    article: grammar.article,
+    prepositionLocative: grammar.prepositionLocative,
     deptCode,
     badgeLine: opts.badgeLine,
     cities: opts.cities,
     courseName,
-    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP dans le département ${d}. Sessions 4 h, exclusivement en présentiel en Île-de-France. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
+    courseDescription: `${OFC} : formation IA et ChatGPT pour le BTP ${locatif} (${deptCode}). Sessions 4 h, exclusivement en présentiel en Île-de-France. Qualiopi, financement possible selon éligibilité. ${opts.perimetre}`,
     serviceName: `Accompagnement formation IA appliquée au bâtiment — département ${d}`,
-    serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du ${d} : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
-    areaServedCourse: [departementNom, opts.chefLieu, 'Île-de-France', 'France'],
-    areaServedService: [departementNom, 'Île-de-France', 'France'],
+    serviceDescription: `Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises ${de} (${deptCode}) : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
+    areaServedCourse: [grammar.nom, opts.chefLieu, 'Île-de-France', 'France'],
+    areaServedService: [grammar.nom, 'Île-de-France', 'France'],
     problemTitle: `BTP ${deptCode} : productivité attendue, temps admin réel`,
     problemBody: [
-      `Dans le ${d}, entreprises bâtiment, second œuvre et TP : chantiers exigeants, délais courts autour de ${opts.chefLieu} et axes ${opts.axes}. Relances, CR et dossiers AO s'accumulent.`,
+      `${locatifCap} (${deptCode}), entreprises bâtiment, second œuvre et TP : chantiers exigeants, délais courts autour de ${opts.chefLieu} et axes ${opts.axes}. Relances, CR et dossiers AO s'accumulent.`,
       `Plus le carnet est chargé, moins il reste de temps pour formaliser offres et échanges. L'IA réduit ce décalage — avec prompts CCTP, relecture obligatoire et règles sur données sensibles.`,
       `Support et conducteurs manquent de méthode partagée. Une intra ${opts.temoignageZone} aligne réflexes, prompts et garde-fous.`,
       `Financement Constructys : règles nationales au ${deptCode} — programme clair, objectifs mesurables, convention conforme Qualiopi.`,
     ],
     solutionTitle: `Formation IA BTP ${deptCode} : 4 h, résultats opérationnels`,
     solutionBody: [
-      `${OFC} pour le ${d} : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
+      `${OFC} pour ${avecArticle} (${deptCode}) : 4 h, vos documents réels, zéro jargon startup. Devis, mails, synthèses, brouillons mémoires — itérations guidées.`,
       `Siège Guyancourt (78) : déplacements IDF réalistes ${opts.temoignageZone}. Présentiel intra ou inter uniquement.`,
       `Catalogue NIV-01 (bases), NIV-02 (appels d'offres), NIV-03 (conduite de travaux), NIV-04 (Maîtriser Claude AI) et NIV-05 (maîtres d'œuvre). Programmes PDF sur chaque fiche.`,
       `Repartez avec modèles réutilisables et feuille de route 15 jours — quoi tester, quoi mesurer, comment partager en équipe.`,
     ],
-    villesTitle: `Villes et bassins d’emploi du ${d} (indicatif)`,
-    villesIntro: `Intra dans vos locaux ou sur site. Villes représentatives du ${d} — liste non exhaustive. Court échange pour confirmer logistique.`,
+    villesTitle: `Villes et bassins d'emploi ${de} (${deptCode}) (indicatif)`,
+    villesIntro: `Intra dans vos locaux ou sur site. Villes représentatives ${de} (${deptCode}) — liste non exhaustive. Court échange pour confirmer logistique.`,
     villesFooter: [
       `Enjeux locaux : ${opts.perimetre}. Exemples d'atelier adaptés à votre mix public/privé.`,
       `Vue régionale : page formation IA Île-de-France et catalogue des formations.`,
@@ -229,21 +248,8 @@ function buildDeptConfig(opts: {
       `Mini-bibliothèque de prompts métier, vocabulaire de vos lots.`,
       `Plan d'action 15 jours : priorités, indicateurs simples, partage interne des prompts.`,
     ],
-    temoignagesTitle: 'Témoignages de professionnels (extraits anonymisés)',
-    temoignages: [
-      {
-        text: `On voulait un format court et français, sans anglicismes inutiles. Les exemples sur nos mails et nos devis ont débloqué des collègues réfractaires aux « nouveaux outils ».`,
-        attribution: `Chef d’entreprise — travaux, ${opts.temoignageZone}`,
-      },
-      {
-        text: `La partie appels d’offres nous intéressait : on est repartis avec une méthode pour découpter les DCE et préparer des brouillons exploitables, puis relire avant envoi.`,
-        attribution: `Conducteur de travaux — ${d}`,
-      },
-      {
-        text: `Côté admin, on a réduit le temps passé sur les relances fournisseurs. Rien de magique : des prompts et de la discipline d’équipe.`,
-        attribution: `Responsable administratif — PME BTP, ${opts.chefLieu}`,
-      },
-    ],
+    temoignagesTitle: TEMOIGNAGES_REGION_BLOCK.temoignagesTitle,
+    temoignages: [...TEMOIGNAGES_REGION_BLOCK.temoignages],
     financeTitle: `Financement Constructys et Qualiopi — entreprises du ${deptCode}`,
     financeBody: [
       `Constructys : prise en charge possible selon règles en vigueur. Qualiopi ${OFC} — programme, objectifs, durée, public.`,
@@ -254,13 +260,13 @@ function buildDeptConfig(opts: {
     casUsageStandard: CAS_USAGE_FORMATION_BTP,
     deplacementGuyancourt: DEPLACEMENT_GUYANCOURT,
     casClientFfb: ffbCasClient(deptCode),
-    faq: faqGeoBase(departementNom, deptCode, opts.cities.slice(0, 4).join(', ')),
+    faq: faqGeoBase(grammar, deptCode, opts.cities.slice(0, 4).join(', ')),
   };
 }
 
 /** FAQ Seine-et-Marne (77) — nuance étendue ouest / est du département. */
 function faqSeineEtMarne77(): FAQItem[] {
-  const base = faqGeoBase('Seine-et-Marne', '77', 'Melun, Meaux, Marne-la-Vallée, Chelles');
+  const base = faqGeoBase(getDeptGrammar('77'), '77', 'Melun, Meaux, Marne-la-Vallée, Chelles');
   return base.map((item, index) => {
     if (index === 0) {
       return {
@@ -295,6 +301,9 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
     'formation IA Marne-la-Vallée',
   ],
   departementNom: 'Seine-et-Marne',
+  nom: 'Seine-et-Marne',
+  article: 'la',
+  prepositionLocative: 'en',
   deptCode: '77',
   badgeLine: 'Seine-et-Marne (77) · Présentiel en Île-de-France · Qualiopi',
   cities: [
@@ -311,7 +320,7 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
   courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP en Seine-et-Marne (77). Sessions 4 h, exclusivement en présentiel en Île-de-France. Melun, Meaux, Marne-la-Vallée, Sénart. Qualiopi, financement possible selon éligibilité.`,
   serviceName: 'Accompagnement formation IA appliquée au bâtiment — département Seine-et-Marne (77)',
   serviceDescription:
-    'Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises du Seine-et-Marne (77) : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.',
+    'Formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises de la Seine-et-Marne (77) : intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.',
   areaServedCourse: [
     'Seine-et-Marne',
     'Melun',
@@ -349,21 +358,8 @@ export const FORMATION_IA_BTP_SEINE_ET_MARNE_77: FormationIaBtpDeptLandingConfig
     `Mini-bibliothèque de prompts métier, vocabulaire de vos lots.`,
     `Plan d'action 15 jours : priorités, indicateurs simples, partage interne des prompts.`,
   ],
-  temoignagesTitle: 'Témoignages de professionnels (extraits anonymisés)',
-  temoignages: [
-    {
-      text: `On voulait un format court et français, sans anglicismes inutiles. Les exemples sur nos mails et nos devis ont débloqué des collègues réfractaires aux « nouveaux outils ».`,
-      attribution: 'Chef d’entreprise — travaux, Seine-et-Marne (77)',
-    },
-    {
-      text: `La partie appels d’offres nous intéressait : on est repartis avec une méthode pour découpter les DCE et préparer des brouillons exploitables, puis relire avant envoi.`,
-      attribution: 'Conducteur de travaux — Seine-et-Marne (77)',
-    },
-    {
-      text: `Côté admin, on a réduit le temps passé sur les relances fournisseurs. Rien de magique : des prompts et de la discipline d’équipe.`,
-      attribution: 'Responsable administratif — PME BTP, secteur Marne-la-Vallée',
-    },
-  ],
+  temoignagesTitle: TEMOIGNAGES_REGION_BLOCK.temoignagesTitle,
+  temoignages: [...TEMOIGNAGES_REGION_BLOCK.temoignages],
   financeTitle: 'Financement Constructys et Qualiopi — entreprises du 77',
   financeBody: [
     `Constructys : prise en charge possible selon règles en vigueur. Qualiopi ${OFC} — programme, objectifs, durée, public.`,
@@ -532,14 +528,7 @@ export const FORMATION_IA_BTP_VAL_DOISE_95 = buildDeptConfig({
   ],
 });
 
-/** URLs des 7 landings SEO « formation IA appliquée au bâtiment » par département (sitemap, contrôle maillage). */
+/** URLs des 8 landings SEO « formation IA BTP » par département (sitemap, contrôle maillage). */
 export const FORMATION_IA_BTP_DEPT_LANDING_PATHS = [
-  FORMATION_IA_BTP_SEINE_ET_MARNE_77.path,
-  FORMATION_IA_BTP_YVELINES_78.path,
-  FORMATION_IA_BTP_ESSONNE_91.path,
-  FORMATION_IA_BTP_HAUTS_DE_SEINE_92.path,
-  FORMATION_IA_BTP_SEINE_SAINT_DENIS_93.path,
-  FORMATION_IA_BTP_VAL_DE_MARNE_94.path,
-  FORMATION_IA_BTP_VAL_DOISE_95.path,
-  '/formation-ia-btp-paris',
+  ...DEPARTEMENT_PAGE_PATHS,
 ] as const;

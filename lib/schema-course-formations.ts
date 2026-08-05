@@ -2,13 +2,16 @@
  * Schémas JSON-LD Course + EducationalOrganization pour le catalogue et les fiches formation.
  */
 import { formationsData } from '@/src/data/formations';
+import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
   FORMATION_COURSE_DURATION_ISO,
+  FORMATION_COURSE_OFFER_CATEGORY,
   buildFormationFicheCourseJsonLd,
   buildFormationFicheCourseNode,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export const EDUCATIONAL_ORGANIZATION_FRAGMENT_ID =
@@ -26,7 +29,15 @@ export type FormationCatalogEntry = {
   occupationalCategory: string;
 };
 
-/** Données alignées sur le catalogue (NIV-01, NIV-02). */
+function teachesFromCatalogueDisplay(ref: string): string[] {
+  const entry = getFormationCatalogueByRef(ref);
+  if (!entry?.objectifs?.length) {
+    throw new Error(`FORMATIONS_CATALOG_SCHEMA: objectifs manquants pour ${ref}`);
+  }
+  return [...entry.objectifs];
+}
+
+/** Données alignées sur le catalogue (NIV-01 → NIV-06). */
 export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   {
     ref: 'NIV-01',
@@ -35,12 +46,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     name: "L'IA au service des pros du bâtiment et des travaux publics",
     description:
       "Formation niveau 1 — 4 h : IA pour bâtiment et travaux publics, devis, chantier, documents et administratif. Qualiopi, Constructys.",
-    teaches: [
-      'Usages de l’IA sur chantier et en bureau d’études',
-      'Devis, comptes rendus et courriers avec ChatGPT / Claude',
-      'Structuration de l’administratif et prompts métier BTP / TP',
-      'Bonnes pratiques, RGPD et validation humaine',
-    ],
+    teaches: teachesFromCatalogueDisplay('NIV-01'),
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
   {
@@ -50,13 +56,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     name: "L'IA appliquée aux appels d'offres BTP",
     description:
       "Formation niveau 2 — 4 h : assistants IA DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — Qualiopi, OPCO Constructys.",
-    teaches: [
-      'Paramétrage Claude AI Pro (Projects, instructions personnalisées) pour appels d\'offres',
-      'Analyse DCE via Cowork — 15 informations critiques, CCAP, CCTP, verdict Go / No Go',
-      'Structure d\'un plan de mémoire technique adapté aux pondérations du DCE',
-      'Rédaction des 5 sections clés d\'un mémoire technique avec les skills Cowork',
-      'Création de skills Cowork DCE/MT réutilisables, alimentés par les données entreprise',
-    ],
+    teaches: teachesFromCatalogueDisplay('NIV-02'),
     occupationalCategory: 'BTP, Bâtiment, Travaux Publics',
   },
   {
@@ -66,12 +66,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     name: "L'IA appliquée à la conduite de travaux",
     description:
       'Formation niveau 2 — 4 h : conduite de travaux et suivi chantier avec skills Claude (CCTP, DPGF, PPSPS, CR, réception). Qualiopi, Constructys.',
-    teaches: [
-      'Bibliothèque de skills Claude pour conducteurs de travaux',
-      'Analyse CCTP, DPGF et conformité DTU au démarrage chantier',
-      'PPSPS, CR, sous-traitants et suivi budget avec l’IA',
-      'Situations, PV de réserves, DOE et courriers de litige',
-    ],
+    teaches: teachesFromCatalogueDisplay('NIV-03'),
     occupationalCategory: 'BTP, conduite de travaux, suivi chantier',
   },
   {
@@ -81,12 +76,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     name: 'Maîtriser Claude AI pour le BTP',
     description:
       'Formation niveau 2 — 4 h le matin : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans l\'entreprise BTP. Qualiopi, Constructys.',
-    teaches: [
-      'Projets Claude et bibliothèque de Skills métier BTP',
-      'Cowork pour production documentaire supervisée (CR, mémoires, dossiers)',
-      'Connecteurs Gmail, Drive et agenda — sécurité RGPD',
-      'Claude Code pour automatisation et génération de documents en lot',
-    ],
+    teaches: teachesFromCatalogueDisplay('NIV-04'),
     occupationalCategory: 'BTP, référents IA, direction et fonctions support',
   },
   {
@@ -96,13 +86,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     name: "L'IA au service des maîtres d'œuvre",
     description:
       "Formation niveau 2 — 4 h : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et réserves. Qualiopi, Constructys.",
-    teaches: [
-      'Claude et ChatGPT pour cas d\'usage MOE (Projets, Connecteurs, Skills, Cowork)',
-      'Analyse DCE et extraction conformité / alertes contractuelles',
-      'Comptes rendus de chantier accélérés (notes vocales)',
-      'Courriers, ordres de service et actes administratifs MOE',
-      'Suivi réserves, réception et GPA avec assistant IA',
-    ],
+    teaches: teachesFromCatalogueDisplay('NIV-05'),
     occupationalCategory: 'BTP, maîtrise d\'œuvre, MOEX',
   },
   {
@@ -112,13 +96,7 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     name: 'Claude IA pour le BTP : Chat, Cowork & Code',
     description:
       'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure pour l\'administratif, les appels d\'offres, la gestion de chantier et le juridique. Qualiopi, Constructys.',
-    teaches: [
-      'Claude Chat, Cowork et Code pour équipes BTP',
-      'Installation et usage de skills sur-mesure (AO, chantier, juridique)',
-      'Analyse RC et DCE/DQE — GO / NO GO et chiffrage sécurisé',
-      'CCTP organisation, CR de chantier, levée des réserves et normes hors-gel',
-      'Qualification litiges marché de travaux',
-    ],
+    teaches: teachesFromCatalogueDisplay('NIV-06'),
     occupationalCategory: 'BTP, direction, bureau d\'études, conducteurs de travaux',
   },
 ];
@@ -129,9 +107,29 @@ function educationalLevelSchema(level: NiveauCatalogue): string {
   return level === 'DÉBUTANT' ? 'Beginner' : 'Advanced';
 }
 
+function buildCatalogOffer(
+  entry: FormationCatalogEntry,
+  courseUrl: string
+): Record<string, unknown> {
+  const offer: Record<string, unknown> = {
+    '@type': 'Offer',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: courseUrl,
+    category: FORMATION_COURSE_OFFER_CATEGORY,
+  };
+  // NIV-06 : intra sur devis — pas de price
+  if (entry.ref !== 'NIV-06') {
+    offer.price = tarifHtDepuisBadgeCatalogue(entry.level);
+  } else {
+    offer.description = 'Session intra sur devis';
+  }
+  return offer;
+}
+
 function buildCourseObject(entry: FormationCatalogEntry): Record<string, unknown> {
-  const price = tarifHtDepuisBadgeCatalogue(entry.level);
   const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const courseUrl = `${base}${entry.path}`;
   return {
     ...buildFormationFicheCourseNode({
       name: entry.name,
@@ -143,14 +141,7 @@ function buildCourseObject(entry: FormationCatalogEntry): Record<string, unknown
       organizationId: EDUCATIONAL_ORGANIZATION_FRAGMENT_ID,
     }),
     occupationalCategory: entry.occupationalCategory,
-    offers: {
-      '@type': 'Offer',
-      price,
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      url: `${base}${entry.path}`,
-      category: 'Formation professionnelle',
-    },
+    offers: buildCatalogOffer(entry, courseUrl),
   };
 }
 
@@ -166,6 +157,11 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
         name: SITE_CONFIG.legalName,
         url: SITE_CONFIG.url,
         sameAs: 'https://www.linkedin.com/in/laure-olivie',
+        identifier: {
+          '@type': 'PropertyValue',
+          name: 'SIRET',
+          value: SCHEMA_CONTACT.siretFormatted,
+        },
         hasCredential: buildQualiopiCredentialSchema(),
       },
       {
@@ -196,6 +192,20 @@ export function getCourseJsonLdFromFormationsData(
   if (!f) return null;
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   const path = `/formations/${slug}`;
+  const courseUrl = `${base}${path}`;
+  const isNiv06 = slug === 'formation-claude-ia-btp';
+  const offer: Record<string, unknown> = {
+    '@type': 'Offer',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: courseUrl,
+    category: FORMATION_COURSE_OFFER_CATEGORY,
+  };
+  if (!isNiv06) {
+    offer.price = f.price;
+  } else {
+    offer.description = 'Session intra sur devis';
+  }
   return {
     ...buildFormationFicheCourseJsonLd({
       name: f.name,
@@ -206,13 +216,7 @@ export function getCourseJsonLdFromFormationsData(
       instructorName: SITE_CONFIG.name,
       organizationId: `${base}/#organization`,
     }),
-    offers: {
-      '@type': 'Offer',
-      price: f.price,
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      url: `${base}${path}`,
-    },
+    offers: offer,
   };
 }
 
@@ -247,7 +251,8 @@ function buildDedicatedFormationCourseObject(opts: {
   name: string;
   description: string;
   educationalLevel: string;
-  priceString: string;
+  /** `undefined` = sur devis (NIV-06). */
+  priceString?: string;
   teaches: [string, string, string];
   organizationId: string;
   laurePersonId: string;
@@ -263,6 +268,18 @@ function buildDedicatedFormationCourseObject(opts: {
     organizationId,
     laurePersonId,
   } = opts;
+  const offer: Record<string, unknown> = {
+    '@type': 'Offer',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: courseUrl,
+    category: FORMATION_COURSE_OFFER_CATEGORY,
+  };
+  if (priceString != null) {
+    offer.price = priceString;
+  } else {
+    offer.description = 'Session intra sur devis';
+  }
   return {
     ...buildFormationFicheCourseJsonLd({
       name,
@@ -275,14 +292,7 @@ function buildDedicatedFormationCourseObject(opts: {
       instructorId: laurePersonId,
       timeRequired: DURATION_ISO,
     }),
-    offers: {
-      '@type': 'Offer',
-      price: priceString,
-      priceCurrency: 'EUR',
-      availability: 'https://schema.org/InStock',
-      url: courseUrl,
-      category: 'Formation professionnelle continue — financement possible selon éligibilité',
-    },
+    offers: offer,
   };
 }
 
@@ -321,11 +331,13 @@ export function getDedicatedFormationCoursePageJsonLd(
     throw new Error(`getDedicatedFormationCoursePageJsonLd: chemin inconnu ${path}`);
   }
 
-  const price = tarifHtDepuisBadgeCatalogue(entry.level);
   const teaches3 = entry.teaches.slice(0, 3);
   if (teaches3.length < 3) {
     throw new Error(`getDedicatedFormationCoursePageJsonLd: pas assez de compétences "teaches" pour ${path}`);
   }
+
+  const isNiv06 = entry.ref === 'NIV-06';
+  const price = isNiv06 ? undefined : tarifHtDepuisBadgeCatalogue(entry.level);
 
   return buildDedicatedFormationCourseObject({
     courseUrl: `${base}${entry.path}`,
@@ -333,7 +345,7 @@ export function getDedicatedFormationCoursePageJsonLd(
     name: entry.name,
     description: entry.description,
     educationalLevel: niveauCatalogueToFr(entry.level),
-    priceString: String(price),
+    priceString: price != null ? String(price) : undefined,
     teaches: [teaches3[0]!, teaches3[1]!, teaches3[2]!],
     organizationId,
     laurePersonId,
