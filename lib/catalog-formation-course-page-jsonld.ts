@@ -12,7 +12,10 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
-import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
+import {
+  FORMATION_COURSE_OFFER_CATEGORY,
+  buildFormationFicheCourseJsonLd,
+} from '@/lib/schema-formation-course-jsonld';
 import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 export function getFormationCatalogEntryByPath(
@@ -27,9 +30,23 @@ export function buildCatalogFormationCoursePageSchema(
   pageDescription?: string
 ): Record<string, unknown> {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-  const price = tarifHtDepuisBadgeCatalogue(entry.level);
-  const siren = SCHEMA_CONTACT.siretDigits.slice(0, 9);
   const description = pageDescription?.trim() || entry.description;
+  const courseUrl = `${base}${entry.path}`;
+  const isNiv06 = entry.ref === 'NIV-06';
+
+  const offer: Record<string, unknown> = {
+    '@type': 'Offer',
+    priceCurrency: 'EUR',
+    category: FORMATION_COURSE_OFFER_CATEGORY,
+    availability: 'https://schema.org/InStock',
+    validFrom: '2026-01-01',
+    url: courseUrl,
+  };
+  if (!isNiv06) {
+    offer.price = String(tarifHtDepuisBadgeCatalogue(entry.level));
+  } else {
+    offer.description = 'Session intra sur devis';
+  }
 
   return {
     ...buildFormationFicheCourseJsonLd({
@@ -47,8 +64,13 @@ export function buildCatalogFormationCoursePageSchema(
       '@id': `${base}/#organization`,
       name: "OFC Création d'Entreprise",
       url: base,
+      identifier: {
+        '@type': 'PropertyValue',
+        name: 'SIRET',
+        value: SCHEMA_CONTACT.siretFormatted,
+      },
       sameAs: [
-        `https://annuaire-entreprises.data.gouv.fr/entreprise/${siren}`,
+        `https://annuaire-entreprises.data.gouv.fr/entreprise/${SCHEMA_CONTACT.siretDigits.slice(0, 9)}`,
         SCHEMA_LINKEDIN_PROFILE_URL,
       ],
     },
@@ -58,14 +80,6 @@ export function buildCatalogFormationCoursePageSchema(
       jobTitle: SCHEMA_PERSON_LAURE.jobTitle,
       url: `${base}/a-propos`,
     },
-    offers: {
-      '@type': 'Offer',
-      price: String(price),
-      priceCurrency: 'EUR',
-      category: entry.ref,
-      availability: 'https://schema.org/InStock',
-      validFrom: '2026-01-01',
-      url: `${base}${entry.path}`,
-    },
+    offers: offer,
   };
 }

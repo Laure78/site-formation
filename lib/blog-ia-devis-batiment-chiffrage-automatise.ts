@@ -10,10 +10,10 @@ const N = formatProfessionalsTrainedCount();
 
 export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   slug: 'ia-devis-batiment-chiffrage-automatise',
-  title: 'IA et devis bâtiment : automatiser le chiffrage BTP en 15 minutes',
-  seoTitle: 'IA devis bâtiment : chiffrage BTP en 15 minutes',
+  title: 'IA et devis bâtiment : automatiser le chiffrage BTP sans page blanche',
+  seoTitle: 'IA devis bâtiment : chiffrage BTP structuré',
   description:
-    "Rédigez vos devis BTP avec l'IA en 15 min au lieu de 3 heures. Méthode en 5 étapes, prompts ChatGPT, exemples chantier. Finançable Constructys.",
+    "Rédigez vos devis BTP avec l'IA : premier devis structuré en moins d'une heure vs demi-journée. Méthode en 5 étapes, prompts ChatGPT. Finançable Constructys.",
   date: '2026-04-27',
   readingTime: '12 min',
   keywords: [
@@ -79,7 +79,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
       type: 'list',
       title: 'En bref',
       content: [
-        'Un devis BTP complet prend souvent 2 à 4 heures sans IA ; avec un prompt bien calibré, il passe à 15 à 20 minutes.',
+        'Un premier devis structuré en moins d\'une heure, contre une demi-journée en routine — selon la complexité du chantier.',
         "L'IA ne remplace ni votre bibliothèque de prix ni votre validation métier : elle structure, rédige et sécurise la trame.",
         'La méthode terrain tient en 5 étapes : brief, trame, décomposition poste par poste, contrôle anti-oubli, mise en forme.',
         "Trois prompts couvrent 90 % des devis courants : tous corps d'état, électricité, vérification anti-oublis.",
@@ -168,21 +168,21 @@ Ne réécris pas le devis, signale uniquement les manques.`,
     },
     {
       type: 'html',
-      title: 'Tableau de gains de temps mesurés en formation OFC',
+      title: 'Repères de temps — rédaction devis (formation OFC)',
       content: `
 <div class="mt-4 overflow-x-auto rounded-xl border border-slate-200">
 <table class="min-w-full text-left text-sm text-slate-700">
-<thead class="bg-slate-100"><tr><th class="px-3 py-2">Tâche de chiffrage</th><th class="px-3 py-2">Sans IA</th><th class="px-3 py-2">Avec IA</th><th class="px-3 py-2">Gain</th></tr></thead>
+<thead class="bg-slate-100"><tr><th class="px-3 py-2">Tâche de chiffrage</th><th class="px-3 py-2">Sans IA (ordre de grandeur)</th><th class="px-3 py-2">Avec IA (ordre de grandeur)</th></tr></thead>
 <tbody>
-<tr class="border-t border-slate-200"><td class="px-3 py-2">Devis rénovation salle de bain (6 m²)</td><td class="px-3 py-2">2 à 3 h</td><td class="px-3 py-2">15 min</td><td class="px-3 py-2">−90 %</td></tr>
-<tr class="border-t border-slate-200"><td class="px-3 py-2">Devis tous corps d'état (T3 complet)</td><td class="px-3 py-2">3 à 4 h</td><td class="px-3 py-2">25 à 30 min</td><td class="px-3 py-2">−85 %</td></tr>
-<tr class="border-t border-slate-200"><td class="px-3 py-2">Devis spécialisé électricité (maison)</td><td class="px-3 py-2">1h30 à 2h</td><td class="px-3 py-2">15 à 20 min</td><td class="px-3 py-2">−85 %</td></tr>
-<tr class="border-t border-slate-200"><td class="px-3 py-2">Vérification anti-oublis sur devis</td><td class="px-3 py-2">30 à 45 min</td><td class="px-3 py-2">5 min</td><td class="px-3 py-2">−90 %</td></tr>
-<tr class="border-t border-slate-200"><td class="px-3 py-2">Mise en forme finale (Excel/Word)</td><td class="px-3 py-2">30 à 45 min</td><td class="px-3 py-2">5 à 10 min</td><td class="px-3 py-2">−80 %</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2">Devis rénovation salle de bain</td><td class="px-3 py-2">Demi-journée en routine</td><td class="px-3 py-2">Premier jet structuré en moins d'une heure</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2">Devis tous corps d'état (T3)</td><td class="px-3 py-2">Demi-journée à une journée</td><td class="px-3 py-2">Trame structurée, relecture métier</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2">Devis spécialisé électricité</td><td class="px-3 py-2">Demi-journée en routine</td><td class="px-3 py-2">Moins d'une heure selon complexité</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2">Vérification anti-oublis</td><td class="px-3 py-2">Relecture manuelle longue</td><td class="px-3 py-2">Check-list assistée + validation</td></tr>
+<tr class="border-t border-slate-200"><td class="px-3 py-2">Mise en forme finale</td><td class="px-3 py-2">Reformattage manuel</td><td class="px-3 py-2">Trame homogène réutilisable</td></tr>
 </tbody>
 </table>
 </div>
-<p class="mt-4">Un conducteur de travaux qui produit 12 devis par mois récupère en moyenne 18 à 25 heures mensuelles.</p>`,
+<p class="mt-4">Un premier devis structuré en moins d'une heure, contre une demi-journée en routine — selon la complexité du chantier. Les gains varient selon l'organisation, les outils en place et le niveau de pratique.</p>`,
     },
     {
       type: 'html',

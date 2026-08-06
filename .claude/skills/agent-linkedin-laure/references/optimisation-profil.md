@@ -25,7 +25,7 @@ Structure : [ce qu'elle fait] + [cible BTP] + [preuve/différenciateur], < 220 c
 
 Exemples :
 ↳ « Je forme les pros du BTP à l'IA et ChatGPT · 10 ans de terrain avant la formation · +1 592 formés · Qualiopi »
-↳ « Ex-conductrice de travaux devenue formatrice IA pour le BTP · Je rends l'IA utile sur le chantier · 4,85/5 »
+↳ « Dirigeante d'une entreprise de Travaux Publics dans les Yvelines devenue formatrice IA pour le BTP · Je rends l'IA utile sur le chantier · 4,85/5 »
 ↳ « Formatrice IA du BTP (OFC) · Fondatrice BeWork · Du terrain, pas de la théorie · +1 592 pros formés »
 
 Règles :

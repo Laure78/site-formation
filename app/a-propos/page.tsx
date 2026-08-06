@@ -38,6 +38,7 @@ import { PillarStatGrid } from '@/components/pillar/PillarStatGrid';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
+import { EnBref } from '@/app/components/EnBref';
 import { BeWorkHighlightSection } from '@/components/landing/BeWorkHighlightSection';
 import { Reveal } from '@/components/motion/Reveal';
 import { Partenaires } from '@/components/Partenaires';
@@ -106,6 +107,16 @@ export default function AProposPage() {
         eyebrow="OFC Création d'Entreprise · Qualiopi · Guyancourt"
         title="Laure Olivié — Formatrice IA spécialisée BTP"
         titleId="a-propos-hero-title"
+        enBref={
+          <EnBref className="!mt-0">
+            <p>
+              Laure Olivié est formatrice IA spécialisée BTP depuis 2022 et dirige OFC Création d&apos;Entreprise,
+              organisme certifié Qualiopi basé à Guyancourt. Elle forme en présentiel, en Île-de-France, les
+              professionnels du bâtiment et des travaux publics sur ChatGPT et Claude appliqués à leurs documents
+              réels. {formatPersonnesFormeesCount()} professionnels formés, note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.
+            </p>
+          </EnBref>
+        }
         subtitle={
           <p className="tldr-bio mt-3 text-sm leading-relaxed text-[#334155] md:text-[15px]">
             {A_PROPOS_EEAT_INTRO}

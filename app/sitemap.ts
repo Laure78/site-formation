@@ -5,7 +5,7 @@ import { LINKS } from '@/lib/internal-links';
 import { formationsData } from '@/src/data/formations';
 import { getAllArticles, BLOG_CATEGORIES, type BlogCategoryId } from '@/lib/blog';
 import { FORMATION_IA_ALL_SLUGS } from '@/lib/seo-formation-ia-hub-data';
-import { FORMATION_IA_BTP_DEPT_LANDING_PATHS } from '@/lib/formation-ia-btp-departements-config';
+import { DEPARTEMENT_PAGE_PATHS } from '@/lib/departement-pages';
 import { computeBlogListing } from '@/lib/blog-index-query';
 import { BLOG_CATEGORY_PATH_SLUGS } from '@/lib/blog-index-urls';
 import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-dynamic-registry';
@@ -123,6 +123,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-ia-conducteur-de-travaux-btp', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/formation-ia-charge-affaires-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-assistante-gestion-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-assistante-travaux', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-assistante-administrative-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-responsable-administratif-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-pisciniste-btp', priority: 0.89, changeFrequency: 'monthly' },
@@ -140,16 +141,15 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: LINKS.formationIaMarchePublicTravaux, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationIaMarchePublicEtancheite, priority: 0.88, changeFrequency: 'monthly' },
     { path: '/formation-ia-solier-revetements', priority: 0.88, changeFrequency: 'monthly' },
-    { path: '/mentions-legales', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/politique-confidentialite', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/cgv', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/reglement-interieur', priority: 0.3, changeFrequency: 'yearly' },
+    // Pages légales indexables mais exclues du sitemap (faible valeur crawl) :
+    // /mentions-legales, /cgv, /reglement-interieur, /politique-confidentialite
     { path: '/annuaire-handicap', priority: 0.5, changeFrequency: 'yearly' },
     { path: LINKS.qualiopi, priority: 0.55, changeFrequency: 'yearly' },
     { path: LINKS.indicateursResultats, priority: 0.5, changeFrequency: 'yearly' },
     { path: LINKS.reclamations, priority: 0.45, changeFrequency: 'yearly' },
     { path: LINKS.accessibiliteHandicap, priority: 0.5, changeFrequency: 'yearly' },
     { path: '/install-pwa', priority: 0.7, changeFrequency: 'monthly' },
+    { path: '/ressources/tutos', priority: 0.88, changeFrequency: 'weekly' },
   ];
 
   return entries.map((e) => ({
@@ -171,6 +171,9 @@ function buildBlogSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
   });
 
   out.push(
+    // Articles publiables (MDX + BLOG_ARTICLES) — inclut notamment deux sujets distincts :
+    // /blog/compte-rendu-chantier-ia-automatiser-gagner-temps (guide CR dédié)
+    // /blog/5-cas-usage-chatgpt-artisans-btp (panorama 5 cas ChatGPT — dont CR en 1 point)
     ...getAllArticles().map((article) => ({
       url: `${baseUrl}/blog/${article.slug}`,
       lastModified: resolveSitemapLastModified(`/blog/${article.slug}`, { article }),
@@ -179,20 +182,7 @@ function buildBlogSitemapEntries(baseUrl: string): MetadataRoute.Sitemap {
     }))
   );
 
-  const mainListing = computeBlogListing({
-    page: 1,
-    categoryId: null,
-    q: null,
-    excludeFeatured: true,
-  });
-  for (let p = 2; p <= mainListing.totalPages; p++) {
-    out.push({
-      url: `${baseUrl}/blog/page/${p}`,
-      lastModified: resolveSitemapLastModified(`/blog/page/${p}`),
-      changeFrequency: 'daily',
-      priority: 0.72,
-    });
-  }
+  // Pagination `/blog/page/[n]` : indexable mais exclue du sitemap (faible valeur crawl).
 
   for (const id of Object.keys(BLOG_CATEGORIES) as BlogCategoryId[]) {
     const pathSlug = BLOG_CATEGORY_PATH_SLUGS[id];
@@ -258,18 +248,10 @@ function applySeoPriorityRules(
     };
   }
 
-  const legalPages = new Set<string>([
-    '/mentions-legales',
-    '/politique-confidentialite',
-    '/cgv',
-    '/reglement-interieur',
-    '/annuaire-handicap',
-  ]);
-
-  if (legalPages.has(pathOnly)) {
+  if (pathOnly === '/annuaire-handicap') {
     return {
       ...entry,
-      priority: 0.6,
+      priority: 0.5,
       changeFrequency: 'yearly',
     };
   }
@@ -277,9 +259,18 @@ function applySeoPriorityRules(
   return entry;
 }
 
+/** Chemins publics exclus du sitemap (restent indexables via canonical). */
+const SITEMAP_EXCLUDED_LOW_VALUE_PATHS = new Set<string>([
+  '/mentions-legales',
+  '/politique-confidentialite',
+  '/cgv',
+  '/reglement-interieur',
+]);
+
 /**
  * Sitemap App Router — `/sitemap.xml` (MetadataRoute.Sitemap).
- * `lastModified` : date de contenu réelle (git, date article, Supabase, tuto) — pas la date de build.
+ * `lastModified` : date de contenu réelle (carte git générée au build, date article,
+ * Supabase, tuto, mtime) — jamais la date de build runtime.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = normUrl(SITE_CONFIG.url);
@@ -344,7 +335,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: slug === 'btp-paris' ? 0.93 : 0.86,
   }));
 
-  const deptLandings: MetadataRoute.Sitemap = FORMATION_IA_BTP_DEPT_LANDING_PATHS.map((path) => ({
+  const deptLandings: MetadataRoute.Sitemap = DEPARTEMENT_PAGE_PATHS.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: resolveSitemapLastModified(path),
     changeFrequency: 'weekly' as const,
@@ -390,6 +381,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return merged.filter((e) => {
     const pathOnly = normUrl(e.url.replace(baseUrl, '') || '/');
     if (GSC_EXCLUDED_SITEMAP_PATHS.has(pathOnly)) return false;
+    if (SITEMAP_EXCLUDED_LOW_VALUE_PATHS.has(pathOnly)) return false;
+    // Pagination blog principale : jamais poussée dans le sitemap
+    if (/^\/blog\/page\/\d+$/.test(pathOnly)) return false;
     // Fichiers statiques : jamais dans le sitemap HTML
     if (/\.(txt|pdf)$/i.test(pathOnly)) return false;
     return true;

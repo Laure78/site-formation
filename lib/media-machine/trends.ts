@@ -22,7 +22,7 @@ const SEED_TITLES: string[] = [
   'Formation IA appliquée au bâtiment : ce qu\'il faut savoir en 2026',
   'Financement Constructys : mode d\'emploi',
   'ChatGPT pour PME BTP : erreurs à éviter',
-  'Devis en 15 min : le guide {metier}',
+  'Devis structuré : le guide {metier}',
   'L\'IA va-t-elle remplacer les {metier}s ?',
   'Automatiser vos emails clients avec l\'IA',
   'Appels d\'offres BTP : l\'IA comme assistant',

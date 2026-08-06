@@ -264,7 +264,7 @@ export default function FormationIaMaitriseOeuvrePage() {
                 </span>
               </p>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                Fondatrice d&apos;OFC Création d&apos;Entreprise. Ancienne conductrice de travaux (ALIA BTP,
+                Fondatrice d&apos;OFC Création d&apos;Entreprise. Dirigeante d&apos;une entreprise de Travaux Publics dans les Yvelines (ALIA BTP,
                 2017-2024). Plus de {SOCIAL_PROOF.PROFESSIONALS_TRAINED} professionnels formés — note de satisfaction{' '}
                 {SOCIAL_PROOF.AVERAGE_RATING}/5.
               </p>

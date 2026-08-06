@@ -67,7 +67,7 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
         keywords: ['IA appels offres BTP', 'DCE ChatGPT', 'mémoire technique IA'],
         articleTemplates: [
           'Répondre à un appel d\'offre avec l\'IA',
-          'Analyser un DCE 5 fois plus vite',
+          'Analyser un DCE sans partir de zéro',
           'Mémoire technique et ChatGPT',
         ],
       },
@@ -103,9 +103,9 @@ export const TOPIC_CLUSTERS: TopicCluster[] = [
         name: 'Gain de temps',
         keywords: ['gain temps devis', 'automatisation administrative', 'IA bureau'],
         articleTemplates: [
-          'Gagner 5h par semaine avec l\'IA',
+          'Gagner du temps bureau avec l\'IA',
           'Automatiser l\'administratif BTP',
-          'Devis en 15 min : mode d\'emploi',
+          'Devis structuré : mode d\'emploi',
         ],
       },
       {

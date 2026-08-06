@@ -263,7 +263,7 @@ export default function ClaudeAiBtpPillarPage() {
                         ['Analyse CCTP (80 pages)', '2 à 4 heures', '15 à 20 min', '−85 %'],
                         ['Décision Go/No-Go documentée', '45 à 90 min', '5 min', '−90 %'],
                         ['Mémoire technique (premier jet)', '1 à 2 jours', '2 à 4 heures', '−75 %'],
-                        ['Devis complet', '2 à 4 heures', '15 min', '−85 %'],
+                        ['Devis complet', 'Demi-journée (routine)', 'Moins d\'une heure', 'Selon complexité'],
                         ['Email client / MOA / fournisseur', '15 à 30 min', '2 à 3 min', '−85 %'],
                         ['Veille AO quotidienne', '30 à 60 min', '0 min (auto)', '−100 %'],
                         ['Extraction normes / DTU', '45 à 60 min', '3 à 5 min', '−90 %'],
@@ -281,7 +281,7 @@ export default function ClaudeAiBtpPillarPage() {
                   </table>
                 </div>
                 <p className="mt-5 text-sm text-[#64748B]">
-                  {`FFB Grand Paris, FFB Île-de-France (78/91/95), FFB IDF Est, CSFE, CNAM Île-de-France · +${formatProfessionalsTrainedCount()} formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
+                  {`Sur les sessions FFB et CSFE, les participants rapportent ces ordres de grandeur sur des dossiers comparables. Gains variables selon l'organisation, les outils en place et le niveau de pratique. · +${formatProfessionalsTrainedCount()} formés · ${SOCIAL_PROOF.AVERAGE_RATING}`}
                 </p>
               </section>
 

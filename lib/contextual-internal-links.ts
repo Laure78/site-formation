@@ -210,7 +210,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   },
   {
     href: LINKS.blogCommentIaGagne5hConducteursTravaux,
-    title: 'Gagner 5 h/semaine avec l’IA',
+    title: "Comment l'IA fait gagner 5 h par semaine aux conducteurs de travaux BTP",
     description: 'Méthode terrain pour conducteurs de travaux BTP.',
   },
   {

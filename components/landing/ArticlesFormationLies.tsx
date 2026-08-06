@@ -7,33 +7,34 @@ import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
+import { LINKS } from '@/lib/internal-links';
 
-/** Cartes « articles liés » — titres & accroches alignés maquette ; liens vers articles du blog. */
+/** Cartes « articles liés » — titres alignés sur le H1 réel de chaque article cible. */
 const ARTICLES = [
   {
-    href: '/blog/5-cas-usage-chatgpt-artisans-btp',
+    href: LINKS.blogCompteRenduChantierIa,
     image: PHOTOS.ouvrierPlan,
     category: 'Formation',
-    date: '5 mars 2026',
-    dateTime: '2026-03-05',
+    date: '10 avril 2026',
+    dateTime: '2026-04-10',
     title:
-      'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5h par semaine',
+      'Compte-rendu de chantier et IA : comment automatiser vos CR pour gagner 5 h par semaine',
     excerpt:
       'Les comptes-rendus de chantier consomment entre 3 et 5 heures par…',
   },
   {
-    href: '/blog/ia-devis-batiment-chiffrage-automatise',
+    href: LINKS.blogIaDevisBatimentChiffrageAutomatise,
     image: PHOTOS.architecteConcentration,
     category: 'Formation',
     date: '27 avril 2026',
     dateTime: '2026-04-27',
     title:
-      'IA et devis bâtiment : automatiser le chiffrage BTP en 15 minutes',
+      'IA et devis bâtiment : automatiser le chiffrage BTP sans page blanche',
     excerpt:
-      'Rédigez vos devis BTP avec l’IA en 15 min au lieu de 3 heures : méthode en 5 étapes et prompts ChatGPT…',
+      'Premier devis structuré en moins d’une heure vs demi-journée : méthode en 5 étapes et prompts ChatGPT…',
   },
   {
-    href: '/blog/financer-formation-ia-btp-constructys',
+    href: LINKS.blogFinancerFormationIaBtpConstructys,
     image: PHOTOS.formationEntreprise,
     category: 'Formation',
     date: '3 mars 2026',

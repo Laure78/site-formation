@@ -42,3 +42,9 @@ npm run dev
 - `app/auth/inscription` — Inscription
 - `app/espace-apprenant` — Espace apprenant (connecté)
 - `app/admin` — Espace formateur / admin (création de cours)
+
+## SEO / GEO — `public/llms.txt`
+
+Fichier servi en `text/plain` à `/llms.txt` (référencé en commentaire dans `/robots.txt`).
+
+**Maintenance obligatoire** : mettre à jour `public/llms.txt` à chaque création de page pilier, page métier, ou changement de tarif.

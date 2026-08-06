@@ -6,6 +6,11 @@ import { FAQ_FORMATIONS } from '@/lib/faq';
 import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { getFAQSchema } from '@/lib/seo';
+import {
+  FORMATION_COURSE_CREDENTIAL_AWARDED,
+  FORMATION_COURSE_MODE_ONSITE,
+  FORMATION_COURSE_OFFER_CATEGORY,
+} from '@/lib/schema-formation-course-jsonld';
 import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -162,15 +167,9 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}${NIV06_CATALOG.path}#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
               priceCurrency: 'EUR',
-              priceSpecification: {
-                '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
-                priceCurrency: 'EUR',
-                unitText: 'intra sur devis — référence 4 h, 8 participants max',
-                valueAddedTaxIncluded: false,
-              },
+              category: FORMATION_COURSE_OFFER_CATEGORY,
+              description: 'Session intra sur devis — 4 h matin, 8 participants max',
             },
           ],
         },
@@ -224,11 +223,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, en présentiel',
+                  name: 'Île-de-France',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -243,7 +242,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-batiment-travaux-publics`,
-                category: 'Formation professionnelle continue',
+                category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },
           },
@@ -264,11 +263,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, en présentiel',
+                  name: 'Île-de-France',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -283,7 +282,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-appels-offre-btp`,
-                category: 'Formation professionnelle continue',
+                category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },
           },
@@ -304,11 +303,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, en présentiel',
+                  name: 'Île-de-France',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -323,7 +322,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
-                category: 'Formation professionnelle continue — niveau avancé',
+                category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },
           },
@@ -344,11 +343,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, en présentiel (matin 9h–13h)',
+                  name: 'Île-de-France',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -363,7 +362,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/maitriser-claude-ai-btp`,
-                category: 'Formation professionnelle continue — niveau avancé',
+                category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },
           },
@@ -384,11 +383,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — inter ou intra, en présentiel',
+                  name: 'Île-de-France',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -403,7 +402,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-maitrise-oeuvre`,
-                category: 'Formation professionnelle continue — maîtrise d\'œuvre',
+                category: FORMATION_COURSE_OFFER_CATEGORY,
               },
             },
           },
@@ -424,11 +423,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               provider: { '@id': `${BASE}/#organization` },
               hasCourseInstance: {
                 '@type': 'CourseInstance',
-                courseMode: 'https://schema.org/OfflineEventAttendanceMode',
+                courseMode: FORMATION_COURSE_MODE_ONSITE,
                 courseWorkload: 'PT4H',
                 location: {
                   '@type': 'Place',
-                  name: 'Île-de-France — intra en présentiel (matin 9h–13h)',
+                  name: 'Île-de-France',
                   address: {
                     '@type': 'PostalAddress',
                     addressRegion: 'Île-de-France',
@@ -437,13 +436,14 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
                 },
                 instructor: { '@id': `${BASE}/#laure-olivie` },
               },
+              educationalCredentialAwarded: FORMATION_COURSE_CREDENTIAL_AWARDED,
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}${NIV06_CATALOG.path}`,
-                category: 'Formation professionnelle continue — skills Claude BTP',
+                category: FORMATION_COURSE_OFFER_CATEGORY,
+                description: 'Session intra sur devis',
               },
             },
           },

@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build",
+    "build": "node scripts/generate-sitemap-dates.mjs && node scripts/build-bibliotheque-skills.mjs && NODE_OPTIONS=--max-old-space-size=4096 next build",
+    "sitemap:dates": "node scripts/generate-sitemap-dates.mjs",
     "skills:build": "node scripts/build-bibliotheque-skills.mjs",
     "start": "next start",
     "lint": "eslint",
@@ -18,7 +19,9 @@
     "agent:index": "npx tsx scripts/index-knowledge.ts",
     "import:teachizy": "npx tsx scripts/import-teachizy.ts",
     "audit:qualiopi-liens": "node scripts/audit-liens-qualiopi.mjs",
-    "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs"
+    "validate:schema": "npx tsx scripts/validate-schema-jsonld.mjs && npx tsx scripts/validate-formation-course-jsonld.mjs && node scripts/validate-article-faq-jsonld.mjs",
+    "test:seo-titles": "npx tsx scripts/assert-branded-titles.ts",
+    "check:internal-links": "npx tsx scripts/check-internal-links.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",

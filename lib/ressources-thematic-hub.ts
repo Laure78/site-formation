@@ -98,8 +98,15 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
     tutos: [
       { label: 'Tuto — skill PPSPS', href: LINKS.tutoPpsps },
       { label: 'Tuto — DUERP', href: LINKS.tutoDuerp },
+      {
+        label: "Tuto — skill livret d'intégration",
+        href: LINKS.tutoSkillLivretIntegrationOfc,
+      },
     ],
-    guides: [{ label: 'Checklist prompts IA BTP (chantier)', href: LINKS.checklist }],
+    guides: [
+      { label: 'Guide RH BTP × IA (PDF)', href: LINKS.guideRhBtpIaOfc },
+      { label: 'Checklist prompts IA BTP (chantier)', href: LINKS.checklist },
+    ],
     articles: [],
     blogCategory: 'metiers',
   },

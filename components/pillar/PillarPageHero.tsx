@@ -30,6 +30,8 @@ export type PillarPageHeroProps = {
   eyebrow: string;
   title: string;
   titleId: string;
+  /** Résumé factuel « En bref » juste sous le H1 (citation IA / GEO). */
+  enBref?: ReactNode;
   subtitle?: ReactNode;
   metaLine?: string;
   tags?: readonly string[];
@@ -74,6 +76,7 @@ export function PillarPageHero({
   eyebrow,
   title,
   titleId,
+  enBref,
   subtitle,
   metaLine,
   tags,
@@ -160,6 +163,8 @@ export function PillarPageHero({
       >
         {title}
       </h1>
+
+      {enBref ? <div className="mt-5 max-w-2xl">{enBref}</div> : null}
 
       {subtitle ? (
         <div

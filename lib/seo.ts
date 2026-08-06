@@ -33,6 +33,8 @@ export {
   stripBrandSuffix,
   truncateForBrandedTitle,
   buildBrandedTitle,
+  joinTitleSegments,
+  assertBrandedTitleClean,
   assertMetaDescriptionLength,
   warnSeoMetadataDev,
 } from '@/utils/metadata';

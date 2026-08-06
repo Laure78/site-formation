@@ -13,7 +13,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: "ChatGPT peut-il aider à rédiger un mémoire technique pour un appel d'offres BTP ?",
-    a: "Oui. ChatGPT et Claude AI permettent de structurer et rédiger un mémoire technique en partant du CCTP et des documents du DCE. La méthode enseignée par Laure Olivié permet de produire un mémoire technique de qualité 3 à 5 fois plus rapidement, tout en conservant la validation métier de l'équipe BTP.",
+    a: "Oui. ChatGPT et Claude AI permettent de structurer et rédiger un mémoire technique en partant du CCTP et des documents du DCE. La méthode enseignée par Laure Olivié vise un mémoire technique structuré à partir d'une trame plutôt que d'une page blanche, tout en conservant la validation métier de l'équipe BTP.",
   },
   {
     q: 'Combien de temps dure la formation IA pour les pros du BTP ?',
@@ -21,7 +21,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: "L'IA va-t-elle remplacer les métiers du bâtiment ?",
-    a: "Non. L'IA ne remplace pas le geste technique ni l'expertise métier BTP. Elle automatise les tâches administratives et rédactionnelles : devis, emails, mémoires techniques, comptes rendus. Les professionnels du bâtiment formés à l'IA gagnent 3 à 5 heures par semaine sur l'administratif sans perdre leur valeur ajoutée métier.",
+    a: "Non. L'IA ne remplace pas le geste technique ni l'expertise métier BTP. Elle automatise les tâches administratives et rédactionnelles : devis, emails, mémoires techniques, comptes rendus. Les professionnels du bâtiment formés à l'IA passent moins de temps sur les relances et courriers récurrents, sans perdre leur valeur ajoutée métier.",
   },
   {
     q: 'Faut-il être informaticien pour utiliser ChatGPT dans le BTP ?',

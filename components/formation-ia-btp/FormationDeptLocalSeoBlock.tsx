@@ -3,6 +3,7 @@ import { Calendar } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import type { DeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
+import { deptLocatif, getDeptGrammar } from '@/lib/formation-ia-btp-dept-grammar';
 import { getFAQSchema } from '@/lib/seo';
 
 type Props = {
@@ -23,6 +24,7 @@ export function FormationDeptLocalSeoBlock({
 }: Props) {
   const calendlyCampaign = `dept-${content.deptCode}`;
   const faqSchema = getFAQSchema(content.faq);
+  const locatif = deptLocatif(getDeptGrammar(content.deptCode, content.departementNom));
 
   const sectionClass =
     variant === 'underH1'
@@ -58,7 +60,7 @@ export function FormationDeptLocalSeoBlock({
           </p>
 
           <h2 className="font-display mt-8 text-xl font-bold text-slate-900 md:text-2xl">
-            2 cas d&apos;usage prioritaires {content.deptCode === '75' ? 'à Paris' : `en ${content.departementNom}`}
+            2 cas d&apos;usage prioritaires {locatif}
           </h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-base leading-relaxed text-slate-700 md:text-lg">
             {content.casUsage.map((item) => (

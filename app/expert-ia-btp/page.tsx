@@ -5,6 +5,7 @@ import { Award, Briefcase, Users, GraduationCap, CheckCircle, TrendingUp, Star }
 import { createPageMetadata, getPersonSchema, SITE_CONFIG } from '@/lib/seo';
 import { PHOTOS } from '@/lib/photos';
 import { PortraitLinkedInLink } from '@/components/PortraitLinkedInLink';
+import { EnBref } from '@/app/components/EnBref';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
@@ -52,6 +53,15 @@ export default function ExpertIABTPPage() {
               <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
                 Laure Olivié
               </h1>
+              <EnBref className="!mt-5 border-white/20 bg-white/95">
+                <p>
+                  Laure Olivié est experte en intelligence artificielle pour le bâtiment et les travaux publics :
+                  appels d&apos;offres, mémoires techniques, devis et suivi de chantier. Elle accompagne les
+                  entreprises via OFC Création d&apos;Entreprise, organisme certifié Qualiopi, en présentiel, en
+                  Île-de-France. {formatProfessionalsTrainedCount()} professionnels formés, note moyenne{' '}
+                  {SOCIAL_PROOF.AVERAGE_RATING}.
+                </p>
+              </EnBref>
               <p className="mt-4 text-2xl font-semibold text-blue-100">
                 Expert IA pour le bâtiment et les travaux publics
               </p>

@@ -442,10 +442,10 @@ export default function FormationIaChargeAffairesBtpPage() {
             </table>
           </div>
           <p className="mt-6 text-slate-600 leading-relaxed">
-            Au-delà du temps gagné, les chargés d&apos;affaires formés par OFC rapportent une augmentation
-            moyenne de leur taux de transformation sur les AO de{' '}
-            <strong>+20 à +40 % dans les 3 mois</strong> — grâce à la qualité des mémoires techniques, à la
-            vitesse de réponse, et à la systématisation des relances.
+            Au-delà du temps gagné, les chargés d&apos;affaires formés par OFC rapportent surtout des
+            mémoires techniques plus homogènes, des réponses plus rapides aux demandes, et une
+            systématisation des relances — autant de leviers pour améliorer le taux de transformation.
+            Les gains varient selon l&apos;organisation, les outils en place et le niveau de pratique.
           </p>
         </section>
 

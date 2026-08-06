@@ -14,6 +14,7 @@ import {
 } from '@/lib/guide-assistants-travaux-content';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
+import { LINKS } from '@/lib/internal-links';
 
 const PATH = GUIDE_ASSISTANTS_TRAVAUX_PATH;
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -258,6 +259,16 @@ export default function GuideAssistantsTravauxOfcPage() {
           <h2 id="cta-calendly-assistants" className="font-display text-2xl font-bold text-slate-900">
             Passer à la pratique en formation
           </h2>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+            Pour une session dédiée au poste :{' '}
+            <a
+              href={LINKS.formationIaAssistanteTravaux}
+              className="font-semibold text-[#377CF3] underline hover:no-underline"
+            >
+              formation IA assistante travaux
+            </a>{' '}
+            (présentiel Île-de-France).
+          </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
               href={GUIDE_ASSISTANTS_TRAVAUX_PDF_PATH}

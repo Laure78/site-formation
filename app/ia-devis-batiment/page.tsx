@@ -7,13 +7,14 @@ import { CALENDLY_BOOKING_URL, buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
+import { DEVIS_GAIN_TEMPS_LIBELLE } from '@/lib/gains-temps-copy';
 import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA Devis BTP — Auto Devis Bâtiment',
   description:
-    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Gagnez 2h par devis. Finançable Constructys.',
+    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Premier devis structuré en moins d\'une heure. Finançable Constructys.',
   path: '/ia-devis-batiment',
   appendAuthorSuffix: false,
   keywords: [
@@ -38,7 +39,7 @@ const BENEFICES = [
   {
     icon: Clock,
     titre: 'Gain de temps',
-    desc: "Un devis détaillé passe de 2h à 4h à environ 15-20 minutes. L'IA structure le document ; vous ajustez les montants et les conditions.",
+    desc: `${DEVIS_GAIN_TEMPS_LIBELLE} L'IA structure le document ; vous ajustez les montants et les conditions.`,
   },
   {
     icon: Calculator,
@@ -145,7 +146,7 @@ const FAQ_IA_DEVIS_BATIMENT = [
   },
   {
     q: "Combien de temps peut-on gagner sur un devis avec l'IA ?",
-    a: "En pratique, 1 à 2 heures par devis détaillé une fois la méthode rodée. Les professionnels passent souvent d'une rédaction « à blanc » de 2 à 4 h à 15–30 minutes de relecture et d'ajustement des PU, selon la complexité du chantier et la qualité du prompt. Le <a href=\"/blog/ia-devis-batiment-chiffrage-automatise\">guide chiffrage automatisé IA devis bâtiment</a> reprend des exemples par métier (électricité, plomberie, maçonnerie) avec les temps constatés en formation.",
+    a: "En pratique, un premier devis structuré en moins d'une heure, contre une demi-journée en routine — selon la complexité du chantier et la qualité du prompt. L'IA structure ; vous relisez et ajustez les PU. Le <a href=\"/blog/ia-devis-batiment-chiffrage-automatise\">guide chiffrage automatisé IA devis bâtiment</a> reprend des exemples par métier (électricité, plomberie, maçonnerie).",
   },
   {
     q: "Faut-il une formation pour utiliser l'IA sur les devis ?",
@@ -180,7 +181,7 @@ export default function IADevisBatimentPage() {
           <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
             automatiser devis bâtiment
           </Link>
-          {' '}et gagner 2h à 4h par devis. Descriptifs techniques, chiffrages, variantes : productivité entreprise bâtiment garantie. Découvrez notre{' '}
+          {' '}et structurer un premier devis en moins d&apos;une heure (vs demi-journée selon complexité). Descriptifs techniques, chiffrages, variantes : documents plus homogènes d&apos;un chantier à l&apos;autre. Découvrez notre{' '}
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour le BTP
           </Link>
@@ -189,7 +190,7 @@ export default function IADevisBatimentPage() {
 
         <div className="mt-8">
           <ShortAnswerBlock>
-            L&apos;IA permet aux entreprises du BTP de gagner 3 à 5 h par semaine sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel.
+            L&apos;IA aide les entreprises du BTP à libérer du temps sur les devis, emails et comptes rendus. Une formation de 4 h suffit pour être opérationnel. Les gains varient selon l&apos;organisation et le niveau de pratique.
           </ShortAnswerBlock>
         </div>
 

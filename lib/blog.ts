@@ -938,11 +938,11 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'list',
         title: 'Résultats mesurés après une formation IA pour le BTP',
         content: [
-          'Devis divisé par 10 en temps de rédaction (2-5 minutes vs 1-2 heures)',
-          'Comptes rendus de chantier automatisés : 2h gagnées par jour',
-          'Emails clients rédigés en quelques secondes',
-          'Analyse DCE/CCTP 5x plus rapide pour les appels d\'offres',
-          'ROI global : 3 à 5 heures économisées par semaine',
+          "Premier devis structuré en moins d'une heure vs demi-journée selon complexité",
+          'Comptes rendus rédigés le jour même de la visite',
+          'Moins de temps sur les relances et courriers récurrents',
+          "Mémoire technique / analyse DCE structurés à partir d'une trame plutôt que d'une page blanche",
+          "Gains variables selon l'organisation, les outils en place et le niveau de pratique",
         ],
       },
       {
@@ -1019,7 +1019,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Pourquoi utiliser ChatGPT pour vos devis BTP ?',
         content:
-          'Une entreprise du BTP passe en moyenne 1 à 2 heures pour rédiger un devis détaillé. Avec ChatGPT, ce temps tombe à 2-5 minutes. Gain mesuré : 3 à 5 heures par semaine pour une structure qui réalise plusieurs devis par semaine. L\'IA rédige les descriptifs techniques, calcule les quantitatifs, structure le bordereau de prix selon les normes du bâtiment. Le devis reste à valider et personnaliser, mais 80% du travail est automatisé.',
+          "Une entreprise du BTP passe souvent une demi-journée en routine pour rédiger un devis détaillé. Avec ChatGPT et une trame rodée, un premier devis structuré sort en moins d'une heure — selon la complexité. L'IA rédige les descriptifs techniques et structure le bordereau ; le devis reste à valider et personnaliser (prix, quantités, engagements).",
       },
       {
         type: 'list',
@@ -1477,7 +1477,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           "Faut-il une formation pour utiliser ChatGPT ? — Pour des usages basiques, non. Pour les devis et documents techniques, une formation courte (4h) permet d'éviter les erreurs et d'obtenir des trames réutilisables.",
           "Mes données sont-elles sécurisées ? — Ne collez jamais de données clients réelles dans ChatGPT public. Utilisez ChatGPT Team ou Enterprise pour les données sensibles. La formation IA pour le BTP vous apprend les bonnes pratiques.",
-          "Combien de temps je gagne ? — En moyenne 3 à 5 heures par semaine sur les devis, emails et comptes rendus. Les équipes formées rapportent un ROI positif dès la première semaine.",
+          "Combien de temps je gagne ? — Un premier devis structuré en moins d'une heure vs demi-journée selon complexité ; des CR rédigés le jour même ; moins de temps sur les relances. Les gains varient selon l'organisation, les outils en place et le niveau de pratique.",
         ],
       },
       {
@@ -1491,7 +1491,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'ia-devis-gain-temps-pme-btp',
     title: 'IA et devis : gain de temps réel pour les PME BTP',
     description:
-      "L'IA réduit de 90% le temps de rédaction des devis bâtiment. Méthode terrain + témoignages de PME BTP : de 2h à 15 min par devis.",
+      "L'IA accélère la rédaction des devis bâtiment. Méthode terrain : premier devis structuré en moins d'une heure vs demi-journée selon complexité.",
     date: '2025-01-28',
     dateModified: '2026-04-16',
     keywords: ['IA devis BTP', 'gain de temps devis', 'devis bâtiment IA', 'productivité BTP'],
@@ -1500,19 +1500,19 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'definition',
         title: 'En bref',
         content:
-          "L'IA pour les devis bâtiment permet de passer de 2h à 4h de rédaction à environ 15-20 minutes. Vous fournissez un brief (type de chantier, prestations, quantités), l'IA structure le document. Vous conservez la maîtrise des prix et des marges.",
+          "Un premier devis structuré en moins d'une heure, contre une demi-journée en routine — selon la complexité du chantier. Vous fournissez un brief (type de chantier, prestations, quantités), l'IA structure le document. Vous conservez la maîtrise des prix et des marges.",
       },
       {
         type: 'paragraph',
         title: 'Le constat',
         content:
-          "Les PME du BTP perdent un temps considérable sur les devis. Un devis détaillé pour une rénovation, un chiffrage VRD ou un descriptif second œuvre peut prendre plusieurs heures. L'IA (ChatGPT, outils similaires) ne remplace pas le métreur ou le chargé d'affaires : elle accélère la mise en forme et la rédaction des parties répétitives.",
+          "Les PME du BTP perdent un temps considérable sur les devis. Un devis détaillé pour une rénovation, un chiffrage VRD ou un descriptif second œuvre peut prendre une demi-journée. L'IA (ChatGPT, outils similaires) ne remplace pas le métreur ou le chargé d'affaires : elle accélère la mise en forme et la rédaction des parties répétitives.",
       },
       {
         type: 'paragraph',
         title: 'Les gains mesurés',
         content:
-          "Les entreprises formées par Laure Olivié rapportent en moyenne : temps de devis divisé par 10, possibilité de proposer plusieurs variantes (avec/sans option) sans tout recopier, descriptifs plus professionnels et homogènes. Le gain est d'autant plus important que les devis se ressemblent (même structure, mêmes postes).",
+          "Les entreprises formées par Laure Olivié rapportent surtout : moins de page blanche sur les devis, possibilité de proposer plusieurs variantes (avec/sans option) sans tout recopier, descriptifs plus professionnels et homogènes d'un chantier à l'autre. Les gains varient selon l'organisation, les outils en place et le niveau de pratique.",
       },
       {
         type: 'paragraph',

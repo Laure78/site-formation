@@ -148,6 +148,8 @@ export const LINKS = {
   formationIaDirigeantPmeBtp: '/formation-ia-dirigeant-pme-btp',
   /** Landing SEO — assistante administrative BTP (courriers, mails, suivi chantier) */
   formationIaAssistanteBtp: '/formation-ia-assistante-administrative-btp',
+  /** Landing SEO — assistante / assistant travaux BTP (marché, PPSPS, CR, DOE) */
+  formationIaAssistanteTravaux: '/formation-ia-assistante-travaux',
   /** Landing SEO — assistante de gestion BTP (facturation, relances, DGD) */
   formationIaAssistanteGestionBtp: '/formation-ia-assistante-gestion-btp',
   /** Landing SEO — responsable administratif / RAF BTP (devis, factures, mails, dossiers) */
@@ -255,6 +257,10 @@ export const LINKS = {
   tutoSkillDiuoOfc: '/ressources/tuto-skill-diuo-ofc',
   /** Fichier téléchargeable — tuto skill DIUO OFC (.docx) */
   pdfTutoSkillDiuoOfc: '/ressources/pdf/tuto-skill-diuo-ofc.docx',
+  /** Tuto — skill livret d'intégration (accueil sécurité / RH BTP) */
+  tutoSkillLivretIntegrationOfc: '/ressources/tuto-skill-livret-integration-ofc',
+  /** PDF — tuto skill livret d'intégration OFC */
+  pdfTutoSkillLivretIntegrationOfc: '/ressources/pdf/tuto-skill-livret-integration-ofc.pdf',
   /** Tuto — skill mémoire de réclamation (BeWork) */
   tutoSkillMemoireReclamationBework: '/ressources/tuto-skill-memoire-reclamation-bework',
   /** PDF — tuto skill mémoire de réclamation BeWork */

@@ -27,7 +27,7 @@ export default function FormationIaSolierRevetementsPage() {
         'CR et relances chantier répétitives.',
       ]}
       useCases={[
-        { title: 'Devis PVC/lino/parquet en 15 min', description: 'Postes détaillés avec variantes matériaux.' },
+        { title: 'Devis PVC/lino/parquet structurés', description: 'Postes détaillés avec variantes matériaux — moins d\'une heure vs demi-journée selon complexité.' },
         { title: 'Checklist DTU 53', description: 'Points de contrôle support, collage, joints, tolérances.' },
         { title: 'Synthèse fournisseurs', description: 'Comparatif de solutions selon usage et trafic.' },
         { title: 'CR chantier et levées de réserves', description: 'Rédaction propre à partir de notes terrain.' },

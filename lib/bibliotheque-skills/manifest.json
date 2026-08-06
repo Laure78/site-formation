@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-11T10:55:34.531Z",
+  "generatedAt": "2026-08-05T14:01:58.172Z",
   "source": "/Users/laure/Documents/BeWork/bework/skills",
-  "count": 21,
+  "count": 24,
   "skills": [
     {
       "id": "3dmanager-cr-chantier",
       "name": "3dmanager-cr-chantier",
-      "description": "Rédige et met en forme les comptes rendus de réunion de chantier de 3D MANAGER (bureau d'études TCE / maîtrise d'œuvre d'exécution, agence Île-de-France) à partir de notes brutes, d'une dictée en vrac ou d'un vocal transcrit, et d'un historique de CR. Produit un .docx à la charte graphique 3D MANAGER — structure par corps d'état, observations numérotées en continu, reprise et mise à jour des points non soldés du CR précédent (statut Levé / En cours / En attente), bandeau logoté et pied de page légal ISO 9001. Déclencher dès que l'utilisateur écrit « rédige le CR de la visite », « génère le compte rendu de chantier », « mets en forme mes notes de chantier », « CR à la charte 3D Manager », « compte rendu MOEX », « nouveau CR à partir du précédent », ou dès qu'il fournit, dicte ou colle des constats de visite avec ou sans le CR précédent. Compatible tous lots TCE. Toujours utiliser ce skill plutôt que de rédiger un CR à la main quand un compte rendu de chantier 3D MANAGER est demandé.",
+      "description": "Rédige et met en forme les comptes rendus de réunion de chantier de 3D MANAGER (bureau d'études TCE / maîtrise d'œuvre d'exécution, agence Île-de-France) à partir de notes brutes, d'une dictée en vrac ou d'un vocal transcrit, et d'un historique de CR. Produit un .docx à la charte graphique 3D MANAGER — structure par corps d'état, observations numérotées en continu, reprise et mise à jour des points non soldés du CR précédent (statut Levé / En cours / En attente), bandeau logoté et pied de page légal ISO 9001. Déclencher dès que l'utilisateur écrit « rédige le CR de la visite », « génère le compte rendu de chantier », « mets en forme mes notes de chantier », « CR à la charte 3D Manager », « compte rendu chantier », « nouveau CR à partir du précédent », ou dès qu'il fournit, dicte ou colle des constats de visite avec ou sans le CR précédent. Compatible tous lots TCE. Toujours utiliser ce skill plutôt que de rédiger un CR à la main quand un compte rendu de chantier 3D MANAGER est demandé.",
       "mdUrl": "/ressources/skills/3dmanager-cr-chantier/3dmanager-cr-chantier.md",
       "skillMdUrl": "/ressources/skills/3dmanager-cr-chantier/SKILL.md",
       "skillUrl": "/ressources/skills/3dmanager-cr-chantier/3dmanager-cr-chantier.skill",
@@ -40,6 +40,33 @@
       "hasAssets": false
     },
     {
+      "id": "bework-essais-beton",
+      "name": "bework-essais-beton",
+      "description": "Suit les PV d'essais béton et Proctor pour une entreprise de gros œuvre — tableau de suivi, transmission bureau de contrôle, dossier de contrôle interne. Déclencher pour PV béton, Proctor, essais, contrôles béton, transmission BC.",
+      "mdUrl": "/ressources/skills/bework-essais-beton/bework-essais-beton.md",
+      "skillMdUrl": "/ressources/skills/bework-essais-beton/SKILL.md",
+      "skillUrl": "/ressources/skills/bework-essais-beton/bework-essais-beton.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "bework-memoire-technique-ao",
+      "name": "bework-memoire-technique-ao",
+      "description": "Rédige ou structure un mémoire technique pour AO bailleurs sociaux / marchés publics, côté entreprise de gros œuvre. Déclencher pour mémoire technique, MT, candidature AO, réponse RC valeur technique, bailleur HLM.",
+      "mdUrl": "/ressources/skills/bework-memoire-technique-ao/bework-memoire-technique-ao.md",
+      "skillMdUrl": "/ressources/skills/bework-memoire-technique-ao/SKILL.md",
+      "skillUrl": "/ressources/skills/bework-memoire-technique-ao/bework-memoire-technique-ao.skill",
+      "hasAssets": false
+    },
+    {
+      "id": "bework-reservations-reseaux",
+      "name": "bework-reservations-reseaux",
+      "description": "Traçabilité des plans de réservations des lots techniques, relances, refacturation des oublis, suivi du récolement réseaux pour le gros œuvre. Déclencher pour réservations, fourreaux, percements, récolement, réseaux encastrés.",
+      "mdUrl": "/ressources/skills/bework-reservations-reseaux/bework-reservations-reseaux.md",
+      "skillMdUrl": "/ressources/skills/bework-reservations-reseaux/SKILL.md",
+      "skillUrl": "/ressources/skills/bework-reservations-reseaux/bework-reservations-reseaux.skill",
+      "hasAssets": false
+    },
+    {
       "id": "controle-memoire-technique-btp",
       "name": "controle-memoire-technique-btp",
       "description": "\"Audite un mémoire technique BTP avec l'œil d'un évaluateur de marché public (acheteur, MOA, MOE, AMO). Attribue une note probable critère par critère, liste les faiblesses, les informations manquantes au regard du CCTP/RC, et les améliorations prioritaires avant remise. Produit un rapport d'audit Word : note globale estimée, scoring détaillé, top 10 faiblesses, top 5 améliorations à fort impact, verdict (conforme/à risque/non conforme). Tous corps d'état BTP : gros œuvre, second œuvre, étanchéité, couverture, bardage, plomberie, électricité, peinture, VRD, TP, génie civil, monuments historiques. Déclencher dès que l'utilisateur mentionne : relire mon mémoire technique, contrôler un MT, auditer mon offre, scorer ou noter mon mémoire, simuler la notation, anticiper la note, regard évaluateur, points faibles de mon MT, qu'est-ce qui manque, améliorer avant remise, relecture avant dépôt — ou qu'il fournit un MT à relire/auditer.\"",
@@ -51,7 +78,7 @@
     {
       "id": "dossier-intervention",
       "name": "dossier-intervention",
-      "description": "Prépare un dossier d'intervention BTP (DT/DICT, autorisations, planning, contacts, pièces manquantes).",
+      "description": "Prépare un dossier d'intervention BTP (DT/DICT, autorisations de voirie, constat d'huissier, planning, contacts, pièces manquantes). Adapté gros œuvre et VRD.",
       "mdUrl": "/ressources/skills/dossier-intervention/dossier-intervention.md",
       "skillMdUrl": "/ressources/skills/dossier-intervention/SKILL.md",
       "skillUrl": "/ressources/skills/dossier-intervention/dossier-intervention.skill",
@@ -78,7 +105,7 @@
     {
       "id": "moex-pieces-dce",
       "name": "moex-pieces-dce",
-      "description": "Saisie et mise en page des pièces écrites MOEX (CCTP, RC, CCAP) et tableaux DPGF quantitatifs pour consultation TCE.",
+      "description": "Saisie et mise en page des pièces écrites (CCTP, RC, CCAP) et tableaux DPGF quantitatifs pour consultation TCE.",
       "mdUrl": "/ressources/skills/moex-pieces-dce/moex-pieces-dce.md",
       "skillMdUrl": "/ressources/skills/moex-pieces-dce/SKILL.md",
       "skillUrl": "/ressources/skills/moex-pieces-dce/moex-pieces-dce.skill",
@@ -105,7 +132,7 @@
     {
       "id": "promotech-comparatif-offres",
       "name": "promotech-comparatif-offres",
-      "description": "Compare les offres d'un lot et prépare la recommandation d'attribution au maître d'ouvrage pour un MOEX PROMOTECH. Produit un tableau comparatif multi-critères, l'analyse des prix anormalement bas, les questions de mise au point et une trame de rapport d'analyse des offres (RAO). Déclencher dès que l'utilisateur écrit : compare ces offres, tableau comparatif des offres, classer les offres, quelle entreprise retenir, recommandation d'attribution, rapport d'analyse des offres, RAO, mise au point, prix anormalement bas.",
+      "description": "Compare les offres d'un lot et prépare la recommandation d'attribution au maître d'ouvrage pour un PROMOTECH. Produit un tableau comparatif multi-critères, l'analyse des prix anormalement bas, les questions de mise au point et une trame de rapport d'analyse des offres (RAO). Déclencher dès que l'utilisateur écrit : compare ces offres, tableau comparatif des offres, classer les offres, quelle entreprise retenir, recommandation d'attribution, rapport d'analyse des offres, RAO, mise au point, prix anormalement bas.",
       "mdUrl": "/ressources/skills/promotech-comparatif-offres/promotech-comparatif-offres.md",
       "skillMdUrl": "/ressources/skills/promotech-comparatif-offres/SKILL.md",
       "skillUrl": "/ressources/skills/promotech-comparatif-offres/promotech-comparatif-offres.skill",
@@ -123,7 +150,7 @@
     {
       "id": "promotech-courrier-moe",
       "name": "promotech-courrier-moe",
-      "description": "Rédige les courriers de maîtrise d'œuvre d'un MOEX PROMOTECH (logements collectifs IDF) — relance entreprise, mise en demeure, courrier au maître d'ouvrage, note de diffusion, certificat administratif. Au bon format, traçable et opposable. Déclencher dès que l'utilisateur écrit : rédige un courrier, relance entreprise, mise en demeure, courrier au MOA, note aux entreprises, certificat administratif, lettre recommandée chantier.",
+      "description": "Rédige les courriers de maîtrise d'œuvre d'un PROMOTECH (logements collectifs IDF) — relance entreprise, mise en demeure, courrier au maître d'ouvrage, note de diffusion, certificat administratif. Au bon format, traçable et opposable. Déclencher dès que l'utilisateur écrit : rédige un courrier, relance entreprise, mise en demeure, courrier au MOA, note aux entreprises, certificat administratif, lettre recommandée chantier.",
       "mdUrl": "/ressources/skills/promotech-courrier-moe/promotech-courrier-moe.md",
       "skillMdUrl": "/ressources/skills/promotech-courrier-moe/SKILL.md",
       "skillUrl": "/ressources/skills/promotech-courrier-moe/promotech-courrier-moe.skill",
@@ -150,7 +177,7 @@
     {
       "id": "promotech-pv-reserves",
       "name": "promotech-pv-reserves",
-      "description": "Produit les PV de réception et listes de réserves d'un MOEX PROMOTECH (logements collectifs IDF), classés par lot, et assure le suivi de leur levée. Déclencher dès que l'utilisateur écrit : fais le PV de réception, liste des réserves, PV de réception avec réserves, OPR, pré-réception, tableau de suivi des réserves, constat de levée, relance de réserves.",
+      "description": "Produit les PV de réception et listes de réserves d'un PROMOTECH (logements collectifs IDF), classés par lot, et assure le suivi de leur levée. Déclencher dès que l'utilisateur écrit : fais le PV de réception, liste des réserves, PV de réception avec réserves, OPR, pré-réception, tableau de suivi des réserves, constat de levée, relance de réserves.",
       "mdUrl": "/ressources/skills/promotech-pv-reserves/promotech-pv-reserves.md",
       "skillMdUrl": "/ressources/skills/promotech-pv-reserves/SKILL.md",
       "skillUrl": "/ressources/skills/promotech-pv-reserves/promotech-pv-reserves.skill",
@@ -159,7 +186,7 @@
     {
       "id": "promotech-suivi-acquereurs",
       "name": "promotech-suivi-acquereurs",
-      "description": "Gère la relation acquéreurs en VEFA pour un MOEX PROMOTECH (logements collectifs IDF) — réponses aux réclamations, réserves acquéreurs à la livraison, courriers de levée, suivi de la garantie de parfait achèvement. Déclencher dès que l'utilisateur écrit : réponds à l'acquéreur, réclamation acquéreur, réserves acquéreur, courrier de livraison, levée acquéreur, suivi GPA, désordre en GPA, parfait achèvement.",
+      "description": "Gère la relation acquéreurs en VEFA pour un PROMOTECH (logements collectifs IDF) — réponses aux réclamations, réserves acquéreurs à la livraison, courriers de levée, suivi de la garantie de parfait achèvement. Déclencher dès que l'utilisateur écrit : réponds à l'acquéreur, réclamation acquéreur, réserves acquéreur, courrier de livraison, levée acquéreur, suivi GPA, désordre en GPA, parfait achèvement.",
       "mdUrl": "/ressources/skills/promotech-suivi-acquereurs/promotech-suivi-acquereurs.md",
       "skillMdUrl": "/ressources/skills/promotech-suivi-acquereurs/SKILL.md",
       "skillUrl": "/ressources/skills/promotech-suivi-acquereurs/promotech-suivi-acquereurs.skill",
@@ -168,7 +195,7 @@
     {
       "id": "promotech-suivi-observations",
       "name": "promotech-suivi-observations",
-      "description": "Pilote le suivi des observations de chantier d'un MOEX PROMOTECH d'une réunion à l'autre. Construit le tableau de suivi des points ouverts, repère les retards, prépare les relances entreprises et l'ordre du jour de la prochaine réunion. Déclencher dès que l'utilisateur écrit : tableau de suivi des observations, points en attente, points en retard, qu'est-ce qui n'est pas levé, relancer les entreprises, ordre du jour de la réunion, suivi des réserves de chantier.",
+      "description": "Pilote le suivi des observations de chantier d'un PROMOTECH d'une réunion à l'autre. Construit le tableau de suivi des points ouverts, repère les retards, prépare les relances entreprises et l'ordre du jour de la prochaine réunion. Déclencher dès que l'utilisateur écrit : tableau de suivi des observations, points en attente, points en retard, qu'est-ce qui n'est pas levé, relancer les entreprises, ordre du jour de la réunion, suivi des réserves de chantier.",
       "mdUrl": "/ressources/skills/promotech-suivi-observations/promotech-suivi-observations.md",
       "skillMdUrl": "/ressources/skills/promotech-suivi-observations/SKILL.md",
       "skillUrl": "/ressources/skills/promotech-suivi-observations/promotech-suivi-observations.skill",

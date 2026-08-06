@@ -66,19 +66,21 @@ const CAS_USAGE = [
     icon: FileText,
     titre: 'Devis et chiffrages',
     keyPoint: (
-      <KeyPoint label="Gain terrain" subject="Devis professionnels" after="15 min" before="2h" />
+      <KeyPoint label="Gain terrain">
+        Premier devis structuré en moins d&apos;une heure vs demi-journée selon complexité
+      </KeyPoint>
     ),
     desc: "L'IA structure les descriptifs et variantes ; vous gardez la maîtrise des prix.",
   },
   { icon: Mail, titre: 'Emails et relances', desc: 'Automatisez les emails clients, fournisseurs et sous-traitants. Ton professionnel adapté au BTP.' },
-  { icon: Calculator, titre: 'Productivité sans embaucher', desc: 'Traitez plus de chantiers avec les mêmes effectifs. L\'IA libère du temps sur l\'administratif.' },
+  { icon: Calculator, titre: 'Productivité sans embaucher', desc: "Libérez du temps bureau pour absorber plus de chantiers à effectif constant, sans dégrader le suivi." },
   { icon: Users, titre: 'Comptes rendus et coordination', desc: 'CR de chantier, rapports d\'avancement : l\'IA formalise vos notes en documents structurés.' },
 ];
 
 const FAQ_PME = [
   {
     q: "Une PME du BTP peut-elle vraiment gagner en productivité avec l'IA ?",
-    a: "Oui. Les PME formées rapportent 3 à 5h gagnées par semaine et par personne sur devis, emails et CR. La formation IA Constructys vous donne des trames prêtes à l'emploi.",
+    a: "Oui : moins de temps sur les devis et courriers récurrents, des CR rédigés le jour même, des documents plus homogènes. La formation IA Constructys vous donne des trames prêtes à l'emploi. Les gains varient selon l'organisation et le niveau de pratique.",
   },
   {
     q: "La formation IA PME est-elle finançable ?",
@@ -153,8 +155,8 @@ export default function FormationIAPMEBTPPage() {
           <strong>outils opérationnels dès le lendemain</strong>.
         </p>
         <p className="mt-4">
-          Les PME du BTP gagnent souvent <strong>3 à 5 h par semaine</strong> par collaborateur sur
-          l&apos;administratif. Interventions en{' '}
+          Les PME du BTP passent souvent moins de temps sur l&apos;administratif récurrent (devis,
+          courriers, CR) une fois la méthode en place. Interventions en{' '}
           <Link href="/formation-ia-btp-ile-de-france" className="font-medium text-[var(--accent)] hover:underline">
             formation IA appliquée au bâtiment Île-de-France
           </Link>{' '}

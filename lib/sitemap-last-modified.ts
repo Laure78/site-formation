@@ -1,17 +1,48 @@
 import { execSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { getAllArticles, type BlogArticle } from '@/lib/blog';
 
 const ROOT = process.cwd();
 const gitCache = new Map<string, Date>();
+const mtimeCache = new Map<string, Date>();
 
-/** Repli stable si git indisponible — évite la date de build (`new Date()`). */
+/** Repli stable si git et mtime indisponibles — évite la date de build (`new Date()`). */
 export const SITEMAP_CONTENT_FALLBACK = new Date('2026-04-01');
+
+let generatedDates: Record<string, string> | null = null;
+
+function loadGeneratedDates(): Record<string, string> {
+  if (generatedDates) return generatedDates;
+  try {
+    const raw = readFileSync(path.join(ROOT, 'lib/sitemap-dates.generated.json'), 'utf8');
+    generatedDates = JSON.parse(raw) as Record<string, string>;
+  } catch {
+    generatedDates = {};
+  }
+  return generatedDates;
+}
 
 function normRoutePath(routePath: string): string {
   if (!routePath || routePath === '/') return '/';
   return routePath.startsWith('/') ? routePath.replace(/\/$/, '') || '/' : `/${routePath}`.replace(/\/$/, '');
+}
+
+/** mtime filesystem d’un fichier source (utile en prod sans historique git). */
+export function getFileMtimeLastModified(relativePath: string): Date | null {
+  const key = relativePath.replace(/\\/g, '/');
+  if (mtimeCache.has(key)) return mtimeCache.get(key)!;
+
+  const abs = path.join(ROOT, key);
+  if (!existsSync(abs)) return null;
+
+  try {
+    const d = statSync(abs).mtime;
+    mtimeCache.set(key, d);
+    return d;
+  } catch {
+    return null;
+  }
 }
 
 /** Dernière modification git d'un fichier source (cache en mémoire). */
@@ -37,6 +68,21 @@ export function getGitContentLastModified(relativePath: string): Date | null {
   }
 }
 
+/**
+ * Date de contenu d’un fichier source :
+ * 1) carte générée au build (git) · 2) git runtime · 3) mtime · 4) null
+ * Jamais `new Date()` (date de build).
+ */
+export function getSourceContentLastModified(relativePath: string): Date | null {
+  const key = relativePath.replace(/\\/g, '/');
+  const generated = loadGeneratedDates()[key];
+  if (generated) {
+    const d = new Date(generated);
+    if (!Number.isNaN(d.getTime())) return d;
+  }
+  return getGitContentLastModified(key) ?? getFileMtimeLastModified(key);
+}
+
 function maxDate(...dates: (Date | null | undefined)[]): Date {
   const valid = dates.filter((d): d is Date => d instanceof Date && !Number.isNaN(d.getTime()));
   if (!valid.length) return SITEMAP_CONTENT_FALLBACK;
@@ -44,7 +90,7 @@ function maxDate(...dates: (Date | null | undefined)[]): Date {
 }
 
 function fromGitFiles(...relativePaths: string[]): Date {
-  return maxDate(...relativePaths.map(getGitContentLastModified));
+  return maxDate(...relativePaths.map(getSourceContentLastModified));
 }
 
 let latestBlogContentDate: Date | null = null;
@@ -80,7 +126,39 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formation-claude-ai-travaux-publics': ['app/formation-claude-ai-travaux-publics/page.tsx'],
   '/formation-ia-btp-ile-de-france': [
     'app/formation-ia-btp-ile-de-france/page.tsx',
-    'lib/formation-ia-btp-departements-config.ts',
+    'lib/departement-pages/index.ts',
+  ],
+  '/formation-ia-btp-paris': [
+    'app/formation-ia-btp-paris/page.tsx',
+    'lib/departement-pages/paris-75.ts',
+  ],
+  '/formation-ia-btp-seine-et-marne-77': [
+    'app/formation-ia-btp-seine-et-marne-77/page.tsx',
+    'lib/departement-pages/seine-et-marne-77.ts',
+  ],
+  '/formation-ia-btp-yvelines-78': [
+    'app/formation-ia-btp-yvelines-78/page.tsx',
+    'lib/departement-pages/yvelines-78.ts',
+  ],
+  '/formation-ia-btp-essonne-91': [
+    'app/formation-ia-btp-essonne-91/page.tsx',
+    'lib/departement-pages/essonne-91.ts',
+  ],
+  '/formation-ia-btp-hauts-de-seine-92': [
+    'app/formation-ia-btp-hauts-de-seine-92/page.tsx',
+    'lib/departement-pages/hauts-de-seine-92.ts',
+  ],
+  '/formation-ia-btp-seine-saint-denis-93': [
+    'app/formation-ia-btp-seine-saint-denis-93/page.tsx',
+    'lib/departement-pages/seine-saint-denis-93.ts',
+  ],
+  '/formation-ia-btp-val-de-marne-94': [
+    'app/formation-ia-btp-val-de-marne-94/page.tsx',
+    'lib/departement-pages/val-de-marne-94.ts',
+  ],
+  '/formation-ia-btp-val-doise-95': [
+    'app/formation-ia-btp-val-doise-95/page.tsx',
+    'lib/departement-pages/val-doise-95.ts',
   ],
   '/formations/ia-btp-morangis': ['app/formations/ia-btp-morangis/page.tsx', 'lib/formation-cities.ts'],
   '/formations/ia-btp-longjumeau': ['app/formations/ia-btp-longjumeau/page.tsx', 'lib/formation-cities.ts'],
@@ -88,12 +166,12 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formations/ia-btp-saint-quentin-en-yvelines/page.tsx',
     'lib/formation-cities.ts',
   ],
-  '/formation-ia-btp-paris': ['app/formation-ia-btp-paris/page.tsx', 'lib/geo-formation-config.ts'],
   '/formation-ia-conducteur-de-travaux-btp': [
     'app/formation-ia-conducteur-de-travaux-btp/page.tsx',
   ],
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
   '/formation-ia-assistante-gestion-btp': ['app/formation-ia-assistante-gestion-btp/page.tsx'],
+  '/formation-ia-assistante-travaux': ['app/formation-ia-assistante-travaux/page.tsx'],
   '/etudes-de-cas/ffb-csfe': ['app/etudes-de-cas/ffb-csfe/page.tsx'],
   '/expert-ia-btp': ['app/expert-ia-btp/page.tsx'],
   '/formateur-ia-btp': ['app/formateur-ia-btp/page.tsx'],
@@ -233,8 +311,8 @@ export function resolveSitemapLastModified(
   }
 
   const genericPage = `app${p}/page.tsx`;
-  const gitDate = getGitContentLastModified(genericPage);
-  if (gitDate) return gitDate;
+  const contentDate = getSourceContentLastModified(genericPage);
+  if (contentDate) return contentDate;
 
   return SITEMAP_CONTENT_FALLBACK;
 }
