@@ -88,6 +88,7 @@ export const NAV_METIERS: readonly NavItem[] = [
   { href: LINKS.formationIaDirigeantBtp, label: 'Dirigeant PME' },
   { href: LINKS.formationIaEtancheur, label: 'Étancheur' },
   { href: LINKS.formationIaAssistanteBtp, label: 'Assistante administrative' },
+  { href: LINKS.formationIaAssistanteTravaux, label: 'Assistante travaux' },
 ];
 
 /** Bandeau « Formations en Île-de-France » */

@@ -41,6 +41,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - /ressources/guide-maitrise-oeuvre-ia — Guide « Maître d'Œuvre × IA » (12 missions MOE, PDF gratuit)
 - /ressources/guide-conducteur-de-travaux — Guide conducteur de travaux (6 tutos Claude BTP, PDF gratuit)
 - /ressources/tuto-skill-memoire-reclamation-bework — Tuto skill mémoire de réclamation (CCAG art. 55, Claude)
+- /ressources/tuto-skill-livret-integration-ofc — Tuto skill livret d'intégration BTP (accueil sécurité, J1/S1/M1)
 - /ressources — Hub tutos PDF, guides et fiches pratiques IA BTP
 
 ## Pages prioritaires
@@ -63,6 +64,8 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - https://www.laureolivie.fr/formation-ia-charge-affaires-btp — formation IA chargés d'affaires BTP
 - https://www.laureolivie.fr/formation-ia-gros-oeuvre-btp — formation IA gros œuvre (devis, DCE, suivi chantier)
 - https://www.laureolivie.fr/formation-ia-couvreur-btp — formation IA couvreur-zingueur (devis toiture, DTU 40.x, CR, AO)
+- https://www.laureolivie.fr/formation-ia-assistante-travaux — formation IA assistante travaux (PPSPS, CR, DOE, DC4)
+- https://www.laureolivie.fr/formation-ia-assistante-administrative-btp — formation IA assistante administrative BTP
 - https://www.laureolivie.fr/ia-devis-batiment — méthode : devis bâtiment avec l'IA
 
 ## Key pages
@@ -80,6 +83,7 @@ Financement : prise en charge Constructys ou OPCO selon statut, branche et condi
 - Formation IA chargé d'affaires BTP : /formation-ia-charge-affaires-btp
 - Formation IA gros œuvre BTP : /formation-ia-gros-oeuvre-btp
 - Formation IA couvreur-zingueur BTP : /formation-ia-couvreur-btp
+- Formation IA assistante travaux BTP : /formation-ia-assistante-travaux
 - Guide Claude AI BTP : /claude-ai-btp
 - Landing formation Claude AI BTP : /formation-claude-ai-btp
 - Ressources gratuites (tutos, guides) : /ressources

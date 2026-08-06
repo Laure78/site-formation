@@ -171,6 +171,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   ],
   '/formation-ia-dirigeant-btp': ['app/formation-ia-dirigeant-btp/page.tsx'],
   '/formation-ia-assistante-gestion-btp': ['app/formation-ia-assistante-gestion-btp/page.tsx'],
+  '/formation-ia-assistante-travaux': ['app/formation-ia-assistante-travaux/page.tsx'],
   '/etudes-de-cas/ffb-csfe': ['app/etudes-de-cas/ffb-csfe/page.tsx'],
   '/expert-ia-btp': ['app/expert-ia-btp/page.tsx'],
   '/formateur-ia-btp': ['app/formateur-ia-btp/page.tsx'],

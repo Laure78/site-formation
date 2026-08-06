@@ -58,6 +58,11 @@ export const TUTO_EN_BREF: Readonly<Record<string, readonly string[]>> = {
     'Gain annoncé : environ 30 minutes pour une première version ou une mise à jour, au lieu de plusieurs jours de rédaction manuelle.',
     'Outil : skill Claude ; le contenu signé reste sous la responsabilité du dirigeant.',
   ],
+  'tuto-skill-livret-integration-ofc': [
+    "Vous créez un skill Claude qui rédige un livret d'intégration BTP (8 blocs : sécurité, EPI, organigramme, parcours J1 / S1 / M1).",
+    'Le tuto vise environ 20 minutes, contre deux journées de rédaction manuelle à chaque recrutement.',
+    "Outil : skill Claude ; le livret trace l'accueil sécurité, il ne remplace pas la formation pratique obligatoire.",
+  ],
   'tuto-dispatch-btp': [
     'Dispatch relie votre téléphone au PC : vous dictez depuis le chantier, Claude poursuit le travail bureau (devis, mails, CR, feuilles d’heures).',
     'Installation indiquée en environ 5 minutes ; le tuto estime 2 à 4 heures de paperasse évitées par jour en usage régulier.',

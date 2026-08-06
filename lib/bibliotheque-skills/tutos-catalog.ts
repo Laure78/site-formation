@@ -21,6 +21,8 @@ const TUTO_SHORT_SUMMARY: Record<string, string> = {
   'tuto-cr-chantier': 'Dictée vocale → compte rendu de chantier formaté.',
   'tuto-doe-dossier-ouvrages-executes': 'Assemble un DOE structuré sans y passer le week-end.',
   'tuto-skill-diuo-ofc': 'Prépare ta liasse DIUO (pièces SPS) lot par lot.',
+  'tuto-skill-livret-integration-ofc':
+    "Génère un livret d'intégration BTP (sécurité, EPI, parcours J1/S1/M1).",
   'tuto-skill-memoire-reclamation-bework':
     'Monte un mémoire de réclamation CCAG chiffré et dans les délais.',
   'tuto-pv-levee-reserves': 'PV de levée de réserves prêts à signer.',

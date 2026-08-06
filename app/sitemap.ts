@@ -123,6 +123,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-ia-conducteur-de-travaux-btp', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/formation-ia-charge-affaires-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-assistante-gestion-btp', priority: 0.89, changeFrequency: 'monthly' },
+    { path: '/formation-ia-assistante-travaux', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-assistante-administrative-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-responsable-administratif-btp', priority: 0.89, changeFrequency: 'monthly' },
     { path: '/formation-ia-pisciniste-btp', priority: 0.89, changeFrequency: 'monthly' },

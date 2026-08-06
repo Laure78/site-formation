@@ -289,7 +289,7 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
   },
   [LINKS.formationIaAssistanteBtp]: {
     path: LINKS.formationIaAssistanteBtp,
-    close: [LINKS.formationIaAssistanteGestionBtp, LINKS.formationIaResponsableAdministratifBtp],
+    close: [LINKS.formationIaAssistanteTravaux, LINKS.formationIaAssistanteGestionBtp],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Formation IA catalogue — administratif et chantier',
@@ -300,9 +300,22 @@ const METIER_CLUSTER: Record<string, MetierClusterEntry> = {
     },
     hubAnchor: 'Hub formation IA pour les fonctions support BTP',
   },
+  [LINKS.formationIaAssistanteTravaux]: {
+    path: LINKS.formationIaAssistanteTravaux,
+    close: [LINKS.formationIaAssistanteBtp, LINKS.formationConducteurTravaux],
+    catalogue: {
+      href: LINKS.formationConduiteTravauxSuiviChantier,
+      label: 'Session catalogue — IA conduite de travaux & suivi chantier',
+    },
+    blog: {
+      href: LINKS.guideAssistantsTravauxOfc,
+      label: 'Guide des assistants travaux — 12 missions IA',
+    },
+    hubAnchor: 'Hub formation IA — suivi de marché et chantier',
+  },
   [LINKS.formationIaAssistanteGestionBtp]: {
     path: LINKS.formationIaAssistanteGestionBtp,
-    close: [LINKS.formationIaAssistanteBtp, LINKS.formationIaResponsableAdministratifBtp],
+    close: [LINKS.formationIaAssistanteTravaux, LINKS.formationIaAssistanteBtp],
     catalogue: {
       href: LINKS.formationIaBtpNiveau1BatimentTp,
       label: 'Session catalogue — IA pour le bureau et le chantier',
@@ -375,6 +388,7 @@ const METIER_LABELS: Record<string, string> = {
   [LINKS.formationIaDirigeantBtp]: 'Formation IA dirigeant PME BTP',
   [LINKS.formationIaEtancheur]: 'Formation IA étancheur BTP',
   [LINKS.formationIaAssistanteBtp]: 'Formation IA assistante administrative BTP',
+  [LINKS.formationIaAssistanteTravaux]: 'Formation IA assistante travaux BTP',
   [LINKS.formationIaAssistanteGestionBtp]: 'Formation IA assistante de gestion BTP',
   [LINKS.formationIaResponsableAdministratifBtp]: 'Formation IA responsable administratif BTP',
   [LINKS.formationIaCharpentierMenuisierBtp]: 'Formation IA charpentier & menuisier bois',

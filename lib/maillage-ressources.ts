@@ -87,6 +87,10 @@ const TUTO_DUERP: MaillageLink = {
   href: LINKS.tutoDuerp,
   label: 'Tuto PDF — mettre à jour le DUERP',
 };
+const TUTO_LIVRET_INTEGRATION: MaillageLink = {
+  href: LINKS.tutoSkillLivretIntegrationOfc,
+  label: "Tuto — skill livret d'intégration",
+};
 const TUTO_DISPATCH: MaillageLink = {
   href: LINKS.tutoDispatchBtp,
   label: 'Tuto PDF — Dispatch BTP (terrain → bureau)',
@@ -170,7 +174,21 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       href: LINKS.formationConducteurTravaux,
       label: 'Formation IA pour la prévention et le suivi chantier BTP',
     },
-    soeurs: [TUTO_PPSPS, TUTO_CR],
+    soeurs: [TUTO_PPSPS, TUTO_LIVRET_INTEGRATION],
+  },
+  [LINKS.tutoSkillLivretIntegrationOfc]: {
+    pilier: {
+      href: LINKS.formationIaDirigeantBtp,
+      label: 'Formation IA pour dirigeants de PME BTP',
+    },
+    soeurs: [
+      TUTO_DUERP,
+      TUTO_PPSPS,
+      {
+        href: LINKS.guideRhBtpIaOfc,
+        label: 'Guide RH BTP × IA — cas d’usage Claude',
+      },
+    ],
   },
   [LINKS.tutoDispatchBtp]: {
     pilier: PILIER_CLAUDE,
@@ -289,17 +307,17 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.guideAssistantsTravauxOfc]: {
     pilier: {
-      href: LINKS.formationIaAssistanteBtp,
-      label: 'Formation IA pour assistantes administratives BTP',
+      href: LINKS.formationIaAssistanteTravaux,
+      label: 'Formation IA pour assistantes travaux BTP',
     },
     soeurs: [
       {
-        href: LINKS.guideConducteurTravauxIaBtp,
-        label: 'Guide conducteur de travaux — 6 tutos Claude',
+        href: LINKS.formationIaAssistanteBtp,
+        label: 'Formation IA assistante administrative BTP',
       },
       {
-        href: LINKS.bibliothequePromptsBtpParMetier,
-        label: 'Prompts IA BTP par métier (Excel)',
+        href: LINKS.guideConducteurTravauxIaBtp,
+        label: 'Guide conducteur de travaux — 6 tutos Claude',
       },
     ],
   },
