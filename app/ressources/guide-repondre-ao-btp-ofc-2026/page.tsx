@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Download, Calendar, Check } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
@@ -6,6 +7,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 import { buildMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 
 const PATH = LINKS.guideRepondreAoBtpOfc2026;
@@ -14,6 +16,7 @@ const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 const FILE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${FILE_HREF}`;
 const CALENDLY_HERO = buildSiteCalendlyCtaUrl('ressources-guide-repondre-ao-btp-ofc-2026-hero');
 const CALENDLY_FINAL = buildSiteCalendlyCtaUrl('ressources-guide-repondre-ao-btp-ofc-2026-final');
+const THUMB = RESSOURCES_MINIATURES.guideRepondreAo;
 
 const META_TITLE = 'IA appels d’offres BTP : méthode en 5 étapes';
 const META_DESCRIPTION =
@@ -27,6 +30,12 @@ export const metadata = buildMetadata({
   openGraphType: 'article',
   openGraphTitle: 'Répondre à un AO BTP — méthode en 5 étapes (PDF 2026)',
   openGraphDescription: META_DESCRIPTION,
+  image: {
+    url: THUMB.src,
+    width: THUMB.width,
+    height: THUMB.height,
+    alt: THUMB.alt,
+  },
   keywords: [
     'répondre appel offres BTP',
     'méthode AO DCE',
@@ -140,6 +149,7 @@ const learningResourceJsonLd = {
     name: SITE_CONFIG.legalName,
     url: SITE_CONFIG.url,
   },
+  image: `${SITE_CONFIG.url.replace(/\/$/, '')}${THUMB.src}`,
   associatedMedia: {
     '@type': 'MediaObject',
     contentUrl: FILE_URL,
@@ -157,37 +167,52 @@ export default function GuideRepondreAoBtpOfc2026Page() {
       {faqSchema ? <JsonLd id="schema-guide-repondre-ao-faq" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-guide-repondre-ao">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:py-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
-            Ressource gratuite · PDF · Édition 2026
-          </p>
-          <h1
-            id="hero-guide-repondre-ao"
-            className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
-          >
-            Répondre à un appel d&apos;offres dans le BTP
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
-            La méthode en 5 étapes pour remettre une offre solide — DCE, Go/No-Go, chiffrage, mémoire
-            technique, contrôles IA. Par Laure Olivié (OFC), formation IA pour le BTP.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={FILE_HREF}
-              download
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-slate-100"
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:items-center md:gap-12 md:py-16 lg:grid-cols-2">
+          <div className="min-w-0">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/80">
+              Ressource gratuite · PDF · Édition 2026
+            </p>
+            <h1
+              id="hero-guide-repondre-ao"
+              className="mt-3 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl"
             >
-              <Download className="h-4 w-4" aria-hidden />
-              Télécharger le PDF
-            </a>
-            <a
-              href={CALENDLY_HERO}
-              className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              <Calendar className="h-4 w-4" aria-hidden />
-              RDV découverte formation
-            </a>
+              Répondre à un appel d&apos;offres dans le BTP
+            </h1>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
+              La méthode en 5 étapes pour remettre une offre solide — DCE, Go/No-Go, chiffrage, mémoire
+              technique, contrôles IA. Par Laure Olivié (OFC), formation IA pour le BTP.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={FILE_HREF}
+                download
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-slate-100"
+              >
+                <Download className="h-4 w-4" aria-hidden />
+                Télécharger le PDF
+              </a>
+              <a
+                href={CALENDLY_HERO}
+                className="inline-flex items-center gap-2 rounded-lg border border-white/40 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                <Calendar className="h-4 w-4" aria-hidden />
+                RDV découverte formation
+              </a>
+            </div>
           </div>
+          <figure className="mx-auto w-full max-w-xl lg:mx-0 lg:justify-self-end">
+            <div className="overflow-hidden rounded-2xl bg-white/95 p-1 shadow-[0_20px_48px_-16px_rgba(0,0,0,0.25)] ring-4 ring-white/30">
+              <Image
+                src={THUMB.src}
+                alt={THUMB.alt}
+                width={THUMB.width}
+                height={THUMB.height}
+                className="h-auto w-full object-contain"
+                sizes="(max-width: 1024px) 90vw, 520px"
+                priority
+              />
+            </div>
+          </figure>
         </div>
       </section>
 
