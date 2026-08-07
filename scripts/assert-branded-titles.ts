@@ -12,7 +12,7 @@ import {
   joinTitleSegments,
   BRAND_TITLE_SUFFIX,
   SEO_TITLE_MAX_LENGTH,
-} from '../utils/metadata.ts';
+} from '../utils/metadata';
 
 function expectThrows(fn: () => void, label: string): void {
   let threw = false;
