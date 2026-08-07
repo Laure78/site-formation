@@ -17,13 +17,19 @@ export const RESSOURCES_MINIATURES = {
     src: `${BASE}/miniature-50-prompts-btp.jpg`,
     alt: 'Professionnel BTP au bureau avec classeur prompts — ChatGPT BTP, 50 prompts métier gratuits',
     width: 1200,
-    height: 675,
+    height: 900,
+  },
+  guideRepondreAo: {
+    src: `${BASE}/miniature-guide-repondre-ao-btp.jpg`,
+    alt: 'Répondre à un appel d’offres dans le BTP — guide méthode AO, prompts et mémoire technique',
+    width: 1200,
+    height: 900,
   },
   guideClaude: {
     src: `${BASE}/miniature-guide-claude-btp.jpg`,
     alt: 'Guide Claude BTP Projets Skills MCP pour administratif chantier — formation IA appliquée au bâtiment',
-    width: 1200,
-    height: 675,
+    width: 959,
+    height: 1200,
   },
   guideChargeAffaires: {
     src: `${BASE}/miniature-guide-charge-affaires.jpg`,
@@ -58,8 +64,8 @@ export const RESSOURCES_MINIATURES = {
   nfP03001: {
     src: `${BASE}/miniature-nf-p-03-001.jpg`,
     alt: 'Schéma NF P 03-001 marchés privés de travaux — cadre admin BTP formation IA chantier',
-    width: 1200,
-    height: 675,
+    width: 959,
+    height: 1200,
   },
   tutoAnalyseCcap: {
     src: `${BASE}/miniature-tuto-analyse-ccap.jpg`,

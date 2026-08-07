@@ -37,13 +37,12 @@ function TutoCard({
           tabIndex={-1}
           aria-hidden
         >
-          <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <div className="relative aspect-video w-full overflow-hidden">
             <Image
               src={tuto.heroImage.src}
               alt={tuto.heroImage.alt}
-              width={tuto.heroImage.width}
-              height={tuto.heroImage.height}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              fill
+              className="object-contain transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           </div>

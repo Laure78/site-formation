@@ -28,13 +28,16 @@ export function RessourcesGuidesSection() {
               className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:border-[#377CF3]/40 hover:shadow-md"
             >
               {guide.thumbnail ? (
-                <Link href={guide.href} className="relative block aspect-[4/3] bg-[#F2F2F2]" tabIndex={-1}>
+                <Link
+                  href={guide.href}
+                  className="relative block aspect-video bg-[#F2F2F2]"
+                  tabIndex={-1}
+                >
                   <Image
                     src={guide.thumbnail.src}
                     alt={guide.thumbnail.alt}
-                    width={guide.thumbnail.width}
-                    height={guide.thumbnail.height}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </Link>

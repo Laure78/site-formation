@@ -22,6 +22,7 @@ export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
     description:
       'PDF gratuit (éd. 2026) : DCE, Go/No-Go, chiffrage, mémoire technique, 4 prompts IA et 6 contrôles sur les sorties IA.',
     audience: 'Dirigeants, chargés d’affaires, conducteurs de travaux',
+    thumbnail: RESSOURCES_MINIATURES.guideRepondreAo,
   },
   {
     href: LINKS.guideChargeAffairesOfc,
