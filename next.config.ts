@@ -447,10 +447,306 @@ const nextConfig: NextConfig = {
       { source: '/formation-ia-btp-cergy-pontoise', destination: '/formation-ia-btp-val-doise-95', permanent: true },
       { source: '/formation-ia-btp-melun', destination: '/formation-ia-btp-seine-et-marne-77', permanent: true },
 
+      // --- Images SEO phase 2 (retrait années / artisans) — 301 anciens chemins ---
+      {
+        source: '/images/blog-analyser-ccap-ia-btp-hero-2026.png',
+        destination: '/images/blog-analyser-ccap-ia-btp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/blog-btp-chantier-encadrement-2026.png',
+        destination: '/images/blog-btp-chantier-encadrement.png',
+        permanent: true,
+      },
+      {
+        source: '/images/blog-btp-chantier-plans-echange-2026.png',
+        destination: '/images/blog-btp-chantier-plans-echange.png',
+        permanent: true,
+      },
+      {
+        source: '/images/blog-formation-ia-btp-handshake-convention-2026.png',
+        destination: '/images/blog-formation-ia-btp-handshake-convention.png',
+        permanent: true,
+      },
+      {
+        source: '/images/blog-formation-ia-dans-btp-salle-2026.png',
+        destination: '/images/blog-formation-ia-dans-btp-salle.png',
+        permanent: true,
+      },
+      {
+        source: '/images/blog-ia-au-service-artisans-batiment-2026.png',
+        destination: '/images/formation-ia-batiment-salle-public.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-architecte-plans.png',
+        destination: '/images/professionnel-btp-plans-bureau.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-formation-bureau-conseil-2026.png',
+        destination: '/images/btp-formation-bureau-conseil.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-formation-chantier-equipe-2026.png',
+        destination: '/images/btp-formation-chantier-equipe.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-formation-chantier-plans-2026.png',
+        destination: '/images/btp-formation-chantier-plans.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-formation-ecran-ia-btp-2026.png',
+        destination: '/images/btp-formation-ecran-ia-btp.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-formation-salle-intervention-2026.png',
+        destination: '/images/btp-formation-salle-intervention.png',
+        permanent: true,
+      },
+      {
+        source: '/images/btp-formation-visio-chantier-2026.png',
+        destination: '/images/btp-formation-visio-chantier.png',
+        permanent: true,
+      },
+      {
+        source: '/images/claude-ai-btp-hero-2026.png',
+        destination: '/images/claude-ai-btp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/claude-btp-hero-chantier-2026.png',
+        destination: '/images/claude-btp-hero-chantier.png',
+        permanent: true,
+      },
+      {
+        source: '/images/constructys-plafonds-financement-pdc-batiment-juin-2026.png',
+        destination: '/images/constructys-plafonds-financement-pdc-batiment-juin.png',
+        permanent: true,
+      },
+      {
+        source: '/images/ffb-affiche-ia-tous-concernes.png',
+        destination: '/images/affiche-ffb-intelligence-artificielle-btp.png',
+        permanent: true,
+      },
+      {
+        source: '/images/financement-constructys-formation-ia-btp-hero-2026.jpg',
+        destination: '/images/financement-constructys-formation-ia-btp-hero.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/financement-constructys-formation-ia-btp-hero-2026.png',
+        destination: '/images/financement-constructys-formation-ia-btp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/financement-constructys-formation-ia-btp-hero-2026.webp',
+        destination: '/images/financement-constructys-formation-ia-btp-hero.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-btp-01-ia-artisans-batiment-2026.png',
+        destination: '/images/carte-catalogue-ia-batiment-btp-01.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-appels-offres-2026.png',
+        destination: '/images/formation-ia-appels-offres.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-appels-offres-btp-hero-2026.jpg',
+        destination: '/images/formation-ia-appels-offres-btp-hero.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-architecture-claude-presentiel-groupe-2026.jpg',
+        destination: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
+        destination: '/images/laure-olivie-formation-ia-batiment-salle.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-au-service-du-batiment-carte-btp-01-2026.png',
+        destination: '/images/formation-ia-au-service-du-batiment-carte-btp-01.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-carte-catalogue-btp-01-2026.png',
+        destination: '/images/formation-ia-btp-carte-catalogue-btp-01.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-catalogue-hero-laure-olivie-2026.jpg',
+        destination: '/images/formation-ia-btp-catalogue-hero-laure-olivie.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-catalogue-hero-laure-olivie-2026.webp',
+        destination: '/images/formation-ia-btp-catalogue-hero-laure-olivie.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-ffb-salle.jpg',
+        destination: '/images/laure-olivie-formation-ia-btp-salle.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-salle-interactive-2026.jpg',
+        destination: '/images/formation-ia-btp-salle-interactive.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-salle-moderne-2026.jpg',
+        destination: '/images/formation-ia-btp-salle-moderne.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-btp-visio-bureau-2026.jpg',
+        destination: '/images/formation-ia-btp-visio-bureau.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-claude-2026.png',
+        destination: '/images/formation-ia-claude.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-rh-2026.png',
+        destination: '/images/formation-ia-rh.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-sensibilisation-2026.png',
+        destination: '/images/formation-ia-sensibilisation.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-ia-tp-2026.png',
+        destination: '/images/formation-ia-tp.png',
+        permanent: true,
+      },
+      {
+        source: '/images/formation-sensibilisation-assistants-ia-btp-2026.png',
+        destination: '/images/formation-sensibilisation-assistants-ia-btp.png',
+        permanent: true,
+      },
+      {
+        source: '/images/guide-conducteur-travaux-hero-2026.png',
+        destination: '/images/guide-conducteur-travaux-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        destination: '/images/hero-accueil-formation-ia-btp-echange.png',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-avatar-bleu-2026.png',
+        destination: '/images/laure-avatar-bleu.png',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-avatar-bleu-2026.webp',
+        destination: '/images/laure-avatar-bleu.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-a-propos-hero-2026.jpg',
+        destination: '/images/laure-olivie-a-propos-hero.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-portrait-bleu-circulaire-2026.jpg',
+        destination: '/images/laure-olivie-portrait-bleu-circulaire.jpg',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-olivie-portrait-bleu-circulaire-2026.webp',
+        destination: '/images/laure-olivie-portrait-bleu-circulaire.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-portrait-header-2026.png',
+        destination: '/images/laure-portrait-header.png',
+        permanent: true,
+      },
+      {
+        source: '/images/laure-portrait-pro-2026.png',
+        destination: '/images/laure-portrait-pro.png',
+        permanent: true,
+      },
+      {
+        source: '/images/ressources-gratuites-ia-btp-hero-2026.png',
+        destination: '/images/ressources-gratuites-ia-btp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/ressources-ia-btp-hero-2026.png',
+        destination: '/images/ressources-ia-btp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-analyse-dce-hero-2026.png',
+        destination: '/images/tuto-analyse-dce-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-constat-retard-hero-2026.png',
+        destination: '/images/tuto-constat-retard-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-cr-chantier-hero-2026.png',
+        destination: '/images/tuto-cr-chantier-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-dispatch-btp-hero-2026.png',
+        destination: '/images/tuto-dispatch-btp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-doe-hero-2026.png',
+        destination: '/images/tuto-doe-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-duerp-hero-2026.png',
+        destination: '/images/tuto-duerp-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-memoire-technique-hero-2026.png',
+        destination: '/images/tuto-memoire-technique-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-ppsps-hero-2026.png',
+        destination: '/images/tuto-ppsps-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-pv-levee-reserves-hero-2026.png',
+        destination: '/images/tuto-pv-levee-reserves-hero.png',
+        permanent: true,
+      },
+      {
+        source: '/images/tuto-tri-dce-claude-chrome-hero-2026.png',
+        destination: '/images/tuto-tri-dce-claude-chrome-hero.png',
+        permanent: true,
+      },
       // --- Images renommées (SEO) — 301 vers nouveaux chemins /public ---
       {
         source: '/images/formation-ia-artisans-2026.png',
-        destination: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
+        destination: '/images/laure-olivie-formation-ia-batiment-salle.png',
         permanent: true,
       },
       {
@@ -469,7 +765,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/images/hero-accueil-formation-ia-btp-echange-2026.png',
+        source: '/images/hero-accueil-formation-ia-btp-echange.png',
         destination: '/images/formation-ia-btp-laure-olivie-ile-de-france.webp',
         permanent: true,
       },
@@ -695,13 +991,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/images/laure-avatar-bleu-2026.png',
-        destination: '/images/laure-avatar-bleu-2026.webp',
+        source: '/images/laure-avatar-bleu.png',
+        destination: '/images/laure-avatar-bleu.webp',
         permanent: true,
       },
       {
-        source: '/images/laure-portrait-header-2026.png',
-        destination: '/images/laure-avatar-bleu-2026.webp',
+        source: '/images/laure-portrait-header.png',
+        destination: '/images/laure-avatar-bleu.webp',
         permanent: true,
       },
       {

@@ -1,7 +1,7 @@
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 
 /** Logo header (portrait circulaire bleu) — source unique, format WebP uniquement. */
-export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu-2026.webp' as const;
+export const SITE_HEADER_LOGO_SRC = '/images/laure-avatar-bleu.webp' as const;
 
 /**
  * Query de cache-bust pour favicons / PWA dérivés de `SITE_HEADER_LOGO_SRC`.
@@ -177,7 +177,7 @@ export const PHOTOS = {
 
   /** Page pilier /claude-ai-btp — affiche promotionnelle circulaire */
   claudeBtpGuideHero2026: {
-    src: '/images/claude-ai-btp-hero-2026.png',
+    src: '/images/claude-ai-btp-hero.png',
     alt: "Affiche circulaire « Maîtriser Claude AI dans le BTP » — présentation par Laure Olivié",
     width: 1024,
     height: 1024,
@@ -232,7 +232,7 @@ export const PHOTOS = {
 
   /** Portrait principal 2026 — contact, ProfilePhoto, blog (carte laureolivie.fr) */
   portraitPro2026: {
-    src: '/images/laure-olivie-portrait-bleu-circulaire-2026.webp',
+    src: '/images/laure-olivie-portrait-bleu-circulaire.webp',
     alt: "Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment",
     title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
     width: 1024,
@@ -241,7 +241,7 @@ export const PHOTOS = {
 
   /** Hero page À propos — portrait circulaire IA & BTP (crane, ampoule, bâtiment) */
   aProposHero2026: {
-    src: '/images/laure-olivie-a-propos-hero-2026.jpg',
+    src: '/images/laure-olivie-a-propos-hero.jpg',
     alt: "Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment",
     title: 'Laure Olivié — formatrice IA spécialisée BTP, Qualiopi, Île-de-France',
     description:
@@ -252,37 +252,37 @@ export const PHOTOS = {
 
   /** Visuels formations 2026 */
   formationIATP2026: {
-    src: '/images/formation-ia-tp-2026.png',
-    alt: "Session « L'IA au service des Travaux Publics » animée par Laure Olivié en salle",
+    src: '/images/formation-ia-tp.png',
+    alt: 'Portrait circulaire Laure Olivié sur fond bleu, avec icônes grue et bâtiment',
     width: 1024,
     height: 768,
   },
   formationIAArtisans2026: {
-    src: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png',
+    src: '/images/laure-olivie-formation-ia-batiment-salle.png',
     alt: "Laure Olivié animant « L'IA au service du bâtiment » — écran projeté, public BTP",
     width: 1024,
     height: 682,
   },
   formationIAAppelsOffres2026: {
-    src: '/images/formation-ia-appels-offres-2026.png',
+    src: '/images/formation-ia-appels-offres.png',
     alt: "Session « Répondre aux appels d'offres avec l'IA » animée par Laure Olivié",
     width: 1024,
     height: 768,
   },
   formationIASensibilisation2026: {
-    src: '/images/formation-ia-sensibilisation-2026.png',
+    src: '/images/formation-ia-sensibilisation.png',
     alt: "Affiche sensibilisation IA — usages pratiques pour équipes du BTP",
     width: 866,
     height: 856,
   },
   formationIAClaude2026: {
-    src: '/images/formation-ia-claude-2026.png',
+    src: '/images/formation-ia-claude.png',
     alt: "Affiche formation — IA générative et Claude AI pour entreprises du bâtiment",
     width: 1024,
     height: 768,
   },
   formationIARH2026: {
-    src: '/images/formation-ia-rh-2026.png',
+    src: '/images/formation-ia-rh.png',
     alt: "Affiche formation — enjeux RH, recrutement et organisation en entreprise du BTP",
     width: 1024,
     height: 768,
@@ -290,13 +290,13 @@ export const PHOTOS = {
 
   /** Photos terrain / pédagogie 2026 (sessions réelles BTP) */
   btpFormationSalleIntervention2026: {
-    src: '/images/btp-formation-salle-intervention-2026.png',
+    src: '/images/btp-formation-salle-intervention.png',
     alt: "Intervenante devant un groupe de professionnels du bâtiment en salle de formation",
     width: 1024,
     height: 682,
   },
   btpFormationBureauConseil2026: {
-    src: '/images/btp-formation-bureau-conseil-2026.png',
+    src: '/images/btp-formation-bureau-conseil.png',
     alt: "Échange professionnel en entreprise du bâtiment autour d'un conseil IA",
     width: 1024,
     height: 682,
@@ -304,26 +304,26 @@ export const PHOTOS = {
 
   /** Fiche formation IA architecture / Claude — présentation en petit groupe, salle */
   formationIABtpArchiClaudePresentielGroupe2026: {
-    src: '/images/formation-ia-architecture-claude-presentiel-groupe-2026.jpg',
+    src: '/images/formation-ia-architecture-claude-presentiel-groupe.jpg',
     alt: "Formatrice animant une session en salle : écran avec schémas et plans techniques",
     width: 1024,
     height: 682,
   },
   btpFormationChantierPlans2026: {
-    src: '/images/btp-formation-chantier-plans-2026.png',
+    src: '/images/btp-formation-chantier-plans.png',
     alt: "Laure Olivié accompagne un participant au clavier, écran « Travail de l'IA »",
     width: 1024,
     height: 682,
   },
   btpFormationChantierEquipe2026: {
-    src: '/images/btp-formation-chantier-equipe-2026.png',
+    src: '/images/btp-formation-chantier-equipe.png',
     alt: "Réunion de chantier avec professionnels et plans sur le terrain",
     width: 1024,
     height: 682,
   },
   btpFormationEcranIABTP2026: {
-    src: '/images/btp-formation-ecran-ia-btp-2026.png',
-    alt: "Présentation « L'IA dans le BTP » en salle : devis, chantier et organisation",
+    src: '/images/btp-formation-ecran-ia-btp.png',
+    alt: 'Formatrice animant une session en salle : écran avec schémas et plans techniques',
     width: 1024,
     height: 682,
   },
@@ -332,7 +332,7 @@ export const PHOTOS = {
    * Visuel formation IA — assistants et prompts métier BTP (écran type « assistants personnalisés »).
    */
   formationSensibilisationAssistantsIaBtp2026: {
-    src: '/images/formation-sensibilisation-assistants-ia-btp-2026.png',
+    src: '/images/formation-sensibilisation-assistants-ia-btp.png',
     alt: "Présentation « Création d'Assistants IA BTP » en salle devant un groupe",
     width: 1024,
     height: 682,
@@ -340,20 +340,20 @@ export const PHOTOS = {
 
   /** Catalogue formations — sessions réelles « Formation IA pour le BTP », salle et participants */
   formationIaBtpSalleInteractive2026: {
-    src: '/images/formation-ia-btp-salle-interactive-2026.jpg',
+    src: '/images/formation-ia-btp-salle-interactive.jpg',
     alt: "Laure Olivié devant l'écran « Formation IA pour le BTP », participants aux ordinateurs",
     width: 1024,
     height: 682,
   },
   formationIaBtpSalleModerne2026: {
-    src: '/images/formation-ia-btp-salle-moderne-2026.jpg',
+    src: '/images/formation-ia-btp-salle-moderne.jpg',
     alt: 'Session en salle lumineuse : intervenante et groupe de professionnels du bâtiment',
     width: 1024,
     height: 682,
   },
 
   btpFormationVisioChantier2026: {
-    src: '/images/btp-formation-visio-chantier-2026.png',
+    src: '/images/btp-formation-visio-chantier.png',
     alt: 'Échange entre bureau et terrain sur des cas concrets d\'entreprise du bâtiment',
     width: 1024,
     height: 682,
@@ -363,7 +363,7 @@ export const PHOTOS = {
    * Carte catalogue « IA au service du bâtiment » (BTP-01) — présentation en salle, écran « L'IA au service du bâtiment ».
    */
   formationIABtpVisioBureau2026: {
-    src: '/images/formation-btp-01-ia-artisans-batiment-2026.png',
+    src: '/images/carte-catalogue-ia-batiment-btp-01.png',
     alt: "Carte catalogue BTP-01 — IA au service du bâtiment, Laure Olivié en présentation",
     width: 1024,
     height: 682,
@@ -371,7 +371,7 @@ export const PHOTOS = {
 
   /** Page pilier /formation-ia-btp — visuel carte catalogue BTP-01 (réf., badge débutant, titre). */
   formationIaBtpPillarCarteCatalogue2026: {
-    src: '/images/formation-ia-btp-carte-catalogue-btp-01-2026.png',
+    src: '/images/formation-ia-btp-carte-catalogue-btp-01.png',
     alt: "Carte catalogue BTP-01 débutant — salle avec professionnels aux ordinateurs",
     width: 776,
     height: 602,
@@ -387,7 +387,7 @@ export const PHOTOS = {
 
   /** Landing formation IA appels d'offres BTP — présentiel, écran « L'IA dans le BTP », public BTP (casque, gilet). */
   formationIaAppelsOffresBtpHero2026: {
-    src: '/images/formation-ia-appels-offres-btp-hero-2026.jpg',
+    src: '/images/formation-ia-appels-offres-btp-hero.jpg',
     alt: "Laure Olivié anime une session en salle : écran IA dans le BTP, public en gilet",
     width: 1024,
     height: 682,
@@ -395,7 +395,7 @@ export const PHOTOS = {
 
   /** Page /ressources — affiche hero tutos PDF, guides et fiches pratiques IA BTP gratuits */
   ressourcesIaBtpHero2026: {
-    src: '/images/ressources-gratuites-ia-btp-hero-2026.png',
+    src: '/images/ressources-gratuites-ia-btp-hero.png',
     alt: 'Ressources IA BTP : appels d’offres, DCE et tutos pour PME bâtiment en Île-de-France',
     title: 'Ressources IA BTP — appels d’offres, marchés et tutos gratuits, Laure Olivié',
     width: 1024,
@@ -404,14 +404,14 @@ export const PHOTOS = {
 
   /** Tuto skill Mémoire Technique BTP — visuel promotionnel page /ressources/tuto-memoire-technique */
   tutoMemoireTechniqueHero2026: {
-    src: '/images/tuto-memoire-technique-hero-2026.png',
+    src: '/images/tuto-memoire-technique-hero.png',
     alt: 'Tuto : créer un skill Claude qui rédige les mémoires techniques BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoDuerpHero2026: {
-    src: '/images/tuto-duerp-hero-2026.png',
+    src: '/images/tuto-duerp-hero.png',
     alt: 'Tuto : créer un skill Claude « DUERP » pour le BTP',
     width: 1024,
     height: 1024,
@@ -425,49 +425,49 @@ export const PHOTOS = {
   },
 
   tutoPvLeveeReservesHero2026: {
-    src: '/images/tuto-pv-levee-reserves-hero-2026.png',
+    src: '/images/tuto-pv-levee-reserves-hero.png',
     alt: 'Tuto : créer un skill Claude « PV de levée de réserves » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoConstatRetardHero2026: {
-    src: '/images/tuto-constat-retard-hero-2026.png',
+    src: '/images/tuto-constat-retard-hero.png',
     alt: 'Tuto : créer un skill Claude « constat de retard » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoDispatchBtpHero2026: {
-    src: '/images/tuto-dispatch-btp-hero-2026.png',
+    src: '/images/tuto-dispatch-btp-hero.png',
     alt: 'Tuto : piloter son PC depuis le chantier avec Claude (Dispatch BTP)',
     width: 1024,
     height: 1024,
   },
 
   tutoAnalyseDceHero2026: {
-    src: '/images/tuto-analyse-dce-hero-2026.png',
+    src: '/images/tuto-analyse-dce-hero.png',
     alt: 'Tuto : créer un skill Claude qui analyse un DCE de 220 pages en 3 minutes',
     width: 1024,
     height: 1024,
   },
 
   tutoTriDceClaudeChromeHero2026: {
-    src: '/images/tuto-tri-dce-claude-chrome-hero-2026.png',
+    src: '/images/tuto-tri-dce-claude-chrome-hero.png',
     alt: 'Tuto : trier ses DCE avec Claude in Chrome et veille BOAMP automatique',
     width: 1024,
     height: 1024,
   },
 
   tutoCrChantierHero2026: {
-    src: '/images/tuto-cr-chantier-hero-2026.png',
+    src: '/images/tuto-cr-chantier-hero.png',
     alt: 'Tuto : créer un skill Claude « compte rendu de chantier » pour le BTP',
     width: 1024,
     height: 1024,
   },
 
   tutoDoeHero2026: {
-    src: '/images/tuto-doe-hero-2026.png',
+    src: '/images/tuto-doe-hero.png',
     alt: 'Tuto : créer un skill Claude « DOE » (dossier des ouvrages exécutés) pour le BTP',
     width: 1024,
     height: 1024,
@@ -475,15 +475,17 @@ export const PHOTOS = {
 
   /** Guide PDF conducteur de travaux — 6 tutos Claude (lead magnet /ressources) */
   guideConducteurTravauxHero2026: {
-    src: '/images/guide-conducteur-travaux-hero-2026.png',
-    alt: "Guide conducteur de travaux BTP — 6 skills Claude pour piloter le chantier, PDF gratuit",
+    src: '/images/guide-conducteur-travaux-hero.png',
+    alt: 'Guide conducteur de travaux BTP — 6 skills Claude pour piloter le chantier, PDF gratuit',
+    title:
+      'Guide PDF gratuit : 6 skills Claude pour conducteurs de travaux — DCE, PPSPS, CR, DOE — OFC / Laure Olivié',
     width: 1024,
     height: 1024,
   },
 
   /** Page catalogue /formations — hero bannière (Laure Olivié, affiche formation IA BTP) */
   formationsCatalogueHero2026: {
-    src: '/images/formation-ia-btp-catalogue-hero-laure-olivie-2026.webp',
+    src: '/images/formation-ia-btp-catalogue-hero-laure-olivie.webp',
     alt: 'Affiche catalogue Formation IA pour le BTP : portrait Laure Olivié, 4 h présentiel',
     title: 'Catalogue formations IA pour le BTP — Laure Olivié, OFC Création d\'Entreprise Qualiopi',
     width: 1024,
@@ -492,7 +494,7 @@ export const PHOTOS = {
 
   /** Page financement Constructys — bannière hero plafonds OPCO 2026 */
   financementConstructysHero2026: {
-    src: '/images/financement-constructys-formation-ia-btp-hero-2026.webp',
+    src: '/images/financement-constructys-formation-ia-btp-hero.webp',
     alt: "Affiche Constructys finance votre formation IA BTP — plafonds 2026 et portrait Laure",
     title: 'Financement Constructys 2026 — formation IA pour le BTP, plafonds et OFC Qualiopi',
     width: 1024,
@@ -563,32 +565,32 @@ export const PHOTOS = {
    * Référencées par lib/blog-article-illustrations.ts selon la catégorie SEO.
    */
   blogBtpChantierPlansEchange2026: {
-    src: '/images/blog-btp-chantier-plans-echange-2026.png',
+    src: '/images/blog-btp-chantier-plans-echange.png',
     alt: "Laure Olivié sur chantier, plans à la main, en discussion avec des professionnels",
     width: 1024,
     height: 682,
   },
   blogBtpChantierEncadrement2026: {
-    src: '/images/blog-btp-chantier-encadrement-2026.png',
+    src: '/images/blog-btp-chantier-encadrement.png',
     alt: "Échange sur chantier entre la formatrice et des ouvriers du bâtiment",
     width: 1024,
     height: 762,
   },
   blogFormationIaDansLeBtpSalle2026: {
-    src: '/images/blog-formation-ia-dans-btp-salle-2026.png',
+    src: '/images/blog-formation-ia-dans-btp-salle.png',
     alt: "Présentation « L'IA dans le BTP » à un public de professionnels du bâtiment en salle",
     width: 1024,
     height: 682,
   },
   blogFormationIaBtpHandshakeFlipchart2026: {
-    src: '/images/blog-formation-ia-btp-handshake-convention-2026.png',
+    src: '/images/blog-formation-ia-btp-handshake-convention.png',
     alt:
       'Poignée de main en bureau — flipchart « Formation IA pour le BTP » avec les thèmes Devis, Chantier et Organisation',
     width: 1024,
     height: 682,
   },
   blogIaAuServiceArtisansBatiment2026: {
-    src: '/images/blog-ia-au-service-artisans-batiment-2026.png',
+    src: '/images/formation-ia-batiment-salle-public.png',
     alt: "Intervenante face à un public BTP en gilet de chantier — « L'IA au service du bâtiment »",
     width: 1024,
     height: 682,

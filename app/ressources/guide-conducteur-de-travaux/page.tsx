@@ -11,6 +11,7 @@ import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
+import { buildGuideConducteurTravauxImageObjectJsonLd } from '@/lib/schema-image-objects';
 
 const PATH = '/ressources/guide-conducteur-de-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
@@ -113,6 +114,10 @@ export default function SkillIaConducteurTravauxPage() {
     <div className="min-h-screen bg-white" style={{ color: '#1A1A1A' }}>
       <JsonLd id="schema-learning-resource-skill-ia" schema={learningResourceJsonLd} />
       <JsonLd id="schema-howto-skill-ia" schema={howToSkillJsonLd} />
+      <JsonLd
+        id="schema-image-guide-conducteur-travaux"
+        schema={buildGuideConducteurTravauxImageObjectJsonLd()}
+      />
       {faqSchema ? <JsonLd id="schema-faq-skill-ia" schema={faqSchema} /> : null}
 
       <section className="bg-[#377CF3] text-white" aria-labelledby="hero-skill-ia">
@@ -147,6 +152,7 @@ export default function SkillIaConducteurTravauxPage() {
                 <Image
                   src={PHOTOS.guideConducteurTravauxHero2026.src}
                   alt={PHOTOS.guideConducteurTravauxHero2026.alt}
+                  title={PHOTOS.guideConducteurTravauxHero2026.title}
                   width={PHOTOS.guideConducteurTravauxHero2026.width}
                   height={PHOTOS.guideConducteurTravauxHero2026.height}
                   className="h-auto w-full object-contain"

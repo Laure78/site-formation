@@ -6,6 +6,7 @@
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG, getArticleSchema, getFAQSchema } from '@/lib/seo';
+import { buildFinancementConstructysImageObjectJsonLd } from '@/lib/schema-image-objects';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
@@ -66,7 +67,7 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     datePublished: '2026-01-15',
     dateModified: '2026-06-01',
     authorName: SITE_CONFIG.name,
-    image: '/images/financement-constructys-formation-ia-btp-hero-2026.webp',
+    image: '/images/financement-constructys-formation-ia-btp-hero.webp',
   });
   const article = stripJsonLdContext(articleRaw as Record<string, unknown>);
   article['@id'] = `${pageUrl}#article`;
@@ -171,6 +172,13 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [faq, article, howTo, localBusiness, course],
+    '@graph': [
+      faq,
+      article,
+      howTo,
+      localBusiness,
+      course,
+      stripJsonLdContext(buildFinancementConstructysImageObjectJsonLd() as Record<string, unknown>),
+    ],
   };
 }

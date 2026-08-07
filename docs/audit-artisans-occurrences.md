@@ -208,9 +208,9 @@ Total occurrences restantes: 212
 | `lib/photos.ts` | 97 | 'Atelier FFB Les Rencontres des Artisans — intelligence artificielle au service des équipes du bâtiment, formation animée par Laure Olivié', | Ne pas toucher (nom officiel/citation partenaire) |
 | `lib/photos.ts` | 186 | src: '/images/laure-cours-ia-artisans-tpe-video-1.png', | Ne pas toucher (URL/slug/identifiant technique) |
 | `lib/photos.ts` | 193 | src: '/images/laure-cours-ia-artisans-tpe-video-2.png', | Ne pas toucher (URL/slug/identifiant technique) |
-| `lib/photos.ts` | 239 | src: '/images/formation-ia-artisans-batiment-laure-olivie-2026.png', | Ne pas toucher (URL/slug/identifiant technique) |
-| `lib/photos.ts` | 346 | src: '/images/formation-btp-01-ia-artisans-batiment-2026.png', | Ne pas toucher (URL/slug/identifiant technique) |
-| `lib/photos.ts` | 428 | src: '/images/blog-ia-au-service-artisans-batiment-2026.png', | Ne pas toucher (URL/slug/identifiant technique) |
+| `lib/photos.ts` | 239 | src: '/images/laure-olivie-formation-ia-batiment-salle.png', | Ne pas toucher (URL/slug/identifiant technique) |
+| `lib/photos.ts` | 346 | src: '/images/carte-catalogue-ia-batiment-btp-01.png', | Ne pas toucher (URL/slug/identifiant technique) |
+| `lib/photos.ts` | 428 | src: '/images/formation-ia-batiment-salle-public.png', | Ne pas toucher (URL/slug/identifiant technique) |
 | `lib/seo-architecture.ts` | 26 | id: 'chatgpt-artisans', | Remplacer (texte visible) |
 | `lib/seo-architecture.ts` | 27 | path: '/formation-ia-artisans-btp', | Ne pas toucher (URL/slug/identifiant technique) |
 | `lib/seo-architecture.ts` | 44 | { id: 'ia-artisans', path: '/blog/ia-artisans', name: 'IA pour entreprises BTP', pillarId: 'chatgpt-artisans' }, | Ne pas toucher (URL/slug/identifiant technique) |

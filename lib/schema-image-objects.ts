@@ -96,9 +96,61 @@ export function buildAProposImageObjectJsonLd() {
     contentUrl: `${base}${p.src}`,
     license: `${base}/mentions-legales`,
     acquireLicensePage: `${base}/contact`,
-    creditText: "OFC Création d'Entreprise",
+    creditText: HOME_HERO_IMAGE_CREDIT,
     copyrightNotice: `© ${year} OFC Création d'Entreprise`,
     creator: imageCreatorOrg,
     author: { '@type': 'Person', name: 'Laure Olivié' },
+  };
+}
+
+/** ImageObject — hero guide conducteur de travaux (lead magnet ressources). */
+export function buildGuideConducteurTravauxImageObjectJsonLd() {
+  const p = PHOTOS.guideConducteurTravauxHero2026;
+  const contentUrl = `${base}${p.src}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    '@id': `${base}/ressources/guide-conducteur-de-travaux#image`,
+    url: contentUrl,
+    contentUrl,
+    name: p.alt,
+    caption:
+      p.title ??
+      'Guide PDF gratuit OFC : 6 skills Claude pour conducteurs de travaux (DCE, PPSPS, CR, DOE).',
+    description: p.alt,
+    creditText: HOME_HERO_IMAGE_CREDIT,
+    license: `${base}/mentions-legales`,
+    acquireLicensePage: `${base}/contact`,
+    copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+    creator: imageCreatorOrg,
+    author: { '@type': 'Person', name: 'Laure Olivié' },
+    width: p.width,
+    height: p.height,
+  };
+}
+
+/** ImageObject — hero page financement Constructys. */
+export function buildFinancementConstructysImageObjectJsonLd() {
+  const p = PHOTOS.financementConstructysHero2026;
+  const contentUrl = `${base}${p.src}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    '@id': `${base}/financement-constructys-formation-ia-btp#image`,
+    url: contentUrl,
+    contentUrl,
+    name: p.alt,
+    caption:
+      p.title ??
+      'Financement Constructys / OPCO possible selon éligibilité — formation IA pour le BTP, OFC Qualiopi.',
+    description: p.alt,
+    creditText: HOME_HERO_IMAGE_CREDIT,
+    license: `${base}/mentions-legales`,
+    acquireLicensePage: `${base}/contact`,
+    copyrightNotice: `© ${year} OFC Création d'Entreprise`,
+    creator: imageCreatorOrg,
+    author: { '@type': 'Person', name: 'Laure Olivié' },
+    width: p.width,
+    height: p.height,
   };
 }
