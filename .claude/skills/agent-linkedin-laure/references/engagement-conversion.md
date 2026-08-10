@@ -32,11 +32,11 @@ Comment commenter :
 ↓ 2. approche : ouvre en livrant la promesse (ressource, réponse), sans vendre
 ↓ 3. qualification : une question sur son contexte (métier, taille, besoin)
 ↓ 4. gap : fais apparaître l'écart entre où elle est et où elle veut être
-↓ 5. offre : propose la bonne réponse → formation OFC ou diagnostic BeWork
+↓ 5. offre : propose la bonne réponse → formation OFC ou démonstration BeWork
 ↳ CTA OFC : appel découverte Calendly → https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
 ↳ CTA BeWork : diagnostic via le canal BeWork dédié (lien à fournir)
 
-Règle : une seule marque par conversation. Prescripteur ou dirigeant qui cherche à former ses équipes → OFC. Entreprise noyée sous l'administratif chantier → BeWork.
+Règle : une seule marque par conversation. Prescripteur ou dirigeant qui cherche à former ses équipes → OFC. Entreprise noyée sous l'administratif chantier ou les documents dispersés → BeWork (plateforme interne).
 
 ## Messages types
 
@@ -53,7 +53,7 @@ Règle : une seule marque par conversation. Prescripteur ou dirigeant qui cherch
 ↳ « [prénom], je reviens vers toi sans pression. Toujours d'actualité, le sujet [X] dont on parlait ? »
 
 ⦿ Message BeWork (voix nous/on, vouvoiement)
-↳ « Bonjour [prénom], chez BeWork on tient le bureau pour que vous teniez le chantier : délégation administrative BTP augmentée par l'IA. Un diagnostic gratuit vous dirait où vous gagnez du temps. On en parle ? »
+↳ « Bonjour [prénom], chez BeWork on configure des plateformes internes BTP augmentées par l'IA : chantiers, documents, marchés — adaptées à votre organisation. Une démonstration vous montrerait le socle. On en parle ? »
 
 ## Demande de recommandation
 

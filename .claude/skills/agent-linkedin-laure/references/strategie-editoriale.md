@@ -18,7 +18,7 @@
 ↳ crée le débat, fait commenter les prescripteurs
 
 ⦿ D — Offre & conversion
-↳ formations OFC, diagnostic BeWork, lead magnet, LinkedIn Learning
+↳ formations OFC, démonstration BeWork, lead magnet, LinkedIn Learning
 ↳ toujours avec une preuve (résultat élève, avis, chiffre)
 ↳ CTA clair : commentaire, DM, Calendly
 
@@ -33,7 +33,7 @@
 ⦿ ~70 % OFC / ~30 % BeWork
 ↓ OFC = socle de crédibilité, voix Laure 1re personne
 ↓ BeWork = fondatrice qui parle de son autre projet, voix nous/on
-↓ module selon la priorité commerciale : lancement de session OFC → pousse OFC ; campagne de diagnostics BeWork → monte à 40 %
+↓ module selon la priorité commerciale : lancement de session OFC → pousse OFC ; campagne de démos BeWork → monte à 40 %
 ↓ jamais deux marques dans le même post
 
 ## Cadence
@@ -76,7 +76,7 @@
 ⦿ D Offre & conversion
 ↳ « 1 592 pros formés. Voilà ce qu'ils font différemment aujourd'hui. »
 ↳ « Ma prochaine session OFC en Île-de-France : voilà ce qu'on y fait. »
-↳ « BeWork tient le bureau, tu tiens le chantier. Comment ça marche. »
+↳ « BeWork : une plateforme interne pour vos chantiers et documents. Comment ça marche. »
 
 ## Recyclage
 

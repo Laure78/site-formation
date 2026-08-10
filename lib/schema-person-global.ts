@@ -20,8 +20,9 @@ export type PersonLaureSchemaNodeOptions = {
 
 /**
  * Nœud JSON-LD `Person` — Laure Olivié.
- * Doctrine : formatrice IA depuis 2022 · 10 ans de terrain BTP.
- * Affiliation : OFC + FFB Grand Paris + CSFE + UMB-FFB · sameAs LinkedIn / LinkedIn Learning / Google.
+ * Doctrine : formatrice IA · 10 ans terrain BTP · présentiel IDF.
+ * Affiliation : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz, CAPEB.
+ * sameAs : LinkedIn, LinkedIn Learning, YouTube (constantes NAP — absents du Footer).
  * Injecté une seule fois via layout (`GlobalSiteJsonLd` → `#laure-olivie`).
  */
 export function buildPersonLaureSchemaNode(
@@ -37,21 +38,16 @@ export function buildPersonLaureSchemaNode(
     '@id': personId,
     name: SCHEMA_PERSON_LAURE.name,
     jobTitle: SCHEMA_PERSON_LAURE.jobTitle,
-    description:
-      'Formatrice IA (ChatGPT, Claude AI) pour le BTP depuis 2022, après 10 ans de terrain comme conductrice de travaux. Instructrice LinkedIn Learning.',
+    description: SCHEMA_PERSON_LAURE.description,
     url: pageUrl,
     image: schemaHeaderPersonImageUrl(),
     email: SCHEMA_CONTACT.email,
-    worksFor: { '@id': organizationId, '@type': 'Organization', name: SCHEMA_ORGANIZATION_OFC.name },
-    affiliation: [
-      {
-        '@type': 'Organization',
-        '@id': organizationId,
-        name: SCHEMA_ORGANIZATION_OFC.name,
-        url: base,
-      },
-      ...buildPersonAffiliationSchemaNodes(),
-    ],
+    worksFor: {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: SCHEMA_ORGANIZATION_OFC.name,
+    },
+    affiliation: [...buildPersonAffiliationSchemaNodes()],
     knowsAbout: [...SCHEMA_PERSON_KNOWS_ABOUT],
     sameAs: [...SCHEMA_PERSON_SAME_AS],
   };

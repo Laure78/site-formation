@@ -30,7 +30,7 @@ export const revalidate = 3600;
 /* ---------------------------------------------------------------- METADATA */
 
 const PAGE_URL = "https://www.laureolivie.fr/formation-claude-ai-btp";
-const OG_IMAGE = "/images/claude-btp-hero-chantier-2026.png";
+const OG_IMAGE = "/images/claude-btp-hero-chantier.png";
 
 export const metadata: Metadata = {
   title: "Formation Claude AI BTP — Anthropic",

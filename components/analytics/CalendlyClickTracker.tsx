@@ -2,9 +2,11 @@
 
 import { useEffect } from 'react';
 import { sendGTMEvent } from '@next/third-parties/google';
+import { toRdvCalendlyPosition } from '@/lib/calendly-analytics';
 
 /**
- * Événement GA4/GTM `calendly_click` sur tous les clics Calendly.
+ * Événement GA4/GTM `rdv_calendly_click` sur les clics Calendly hors `CalendlyEmbed`
+ * (liens nus, widgets Calendly). Les boutons `CalendlyEmbed` ont déjà leur tracking.
  */
 export function CalendlyClickTracker() {
   useEffect(() => {
@@ -20,20 +22,21 @@ export function CalendlyClickTracker() {
       if ((hit as HTMLElement).dataset?.calendlyTracked === 'component') return;
 
       const ctaPosition = (hit as HTMLElement).dataset?.ctaPosition ?? 'unknown';
-      const location = window.location.pathname;
+      const pagePath = window.location.pathname;
+      const position = toRdvCalendlyPosition(ctaPosition);
 
       sendGTMEvent({
-        event: 'calendly_click',
-        location,
-        cta_position: ctaPosition,
+        event: 'rdv_calendly_click',
+        page_path: pagePath,
+        position,
       });
 
       const w = window as Window & { gtag?: (...args: unknown[]) => void };
       if (typeof w.gtag !== 'function') return;
 
-      w.gtag('event', 'calendly_click', {
-        location,
-        cta_position: ctaPosition,
+      w.gtag('event', 'rdv_calendly_click', {
+        page_path: pagePath,
+        position,
       });
     };
 

@@ -86,7 +86,7 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous à Paris et en petite/grande couronne ?',
-    a: `Oui. Les sessions couvrent Paris (75) ainsi que la petite et la grande couronne francilienne (77, 78, 91, 92, 93, 94, 95). Pour un besoin centré sur Paris, voir aussi la page formation IA BTP à Paris.`,
+    a: `Oui. Les sessions couvrent Paris (75) ainsi que la petite et la grande couronne francilienne (77, 78, 91, 92, 93, 94, 95). Pour un besoin centré sur Paris, voir aussi la page formation IA à Paris.`,
   },
   {
     q: 'Sur quels documents travaille-t-on en formation ?',
@@ -201,8 +201,8 @@ export default function FormationIaBtpIleDeFrancePage() {
               Sessions <strong>intra</strong> dans vos locaux ou <strong>inter</strong> en salle, sur Paris et les huit
               départements franciliens : 75, 77, 78, 91, 92, 93, 94 et 95. Si votre besoin est centré sur la capitale,
               consultez la{' '}
-              <Link href={LINKS.formationParis} className={OFC_LINK} title="Formation IA bâtiment à Paris">
-                formation IA bâtiment à Paris
+              <Link href={LINKS.formationIaParis} className={OFC_LINK} title="Formation IA à Paris">
+                formation IA à Paris
               </Link>
               . Pour choisir le prestataire, découvrez{' '}
               <Link href={LINKS.formateurIaBtp} className={OFC_LINK} title="Formatrice IA spécialisée construction">
@@ -297,7 +297,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               currentPath: PATH,
               excludeHrefs: [
                 LINKS.formations,
-                LINKS.formationParis,
+                LINKS.formationIaParis,
                 LINKS.formateurIaBtp,
                 LINKS.aPropos,
               ],

@@ -141,6 +141,13 @@ function buildGeoSatelliteLinks(slug: string): RelatedLinkItem[] {
       description: 'Pilier géo : formats intra/inter, 8 départements, financement.',
     },
   ];
+  if (slug === 'paris') {
+    links.push({
+      href: LINKS.formationIaParis,
+      label: 'Formation IA à Paris — pilier présentiel BTP',
+      description: '4 h sur devis, DCE, mémoires et comptes rendus.',
+    });
+  }
   for (const n of neighbors) {
     const d = GEO_DEPT[n];
     if (!d) continue;
@@ -740,6 +747,55 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
       title: 'Formations IA BTP par département en Île-de-France',
       subtitle: 'Pilier géo : accédez aux landings locales (Paris et départements franciliens).',
       links: buildGeoPillarLinks(),
+    };
+  }
+  if (normalized === LINKS.formationIaParis) {
+    return {
+      cluster: 'geo',
+      title: 'Continuer autour de la formation IA à Paris',
+      subtitle: 'Pilier régional, départements voisins et pages métier proches.',
+      links: dedupeLinks([
+        {
+          href: LINKS.formationIleDeFrance,
+          label: 'Formation IA BTP Île-de-France — vue régionale',
+          description: 'Pilier géo : formats intra/inter, 8 départements.',
+        },
+        {
+          href: LINKS.formationParis,
+          label: 'Formation IA BTP Paris (75)',
+          description: 'Landing locale intramuros — sessions présentiel.',
+        },
+        {
+          href: LINKS.formationIaBtpHautsDeSeine92,
+          label: 'Formation IA BTP Hauts-de-Seine (92)',
+          description: 'Département voisin — intra dans vos locaux.',
+        },
+        {
+          href: LINKS.formationIaBtpSeineSaintDenis93,
+          label: 'Formation IA BTP Seine-Saint-Denis (93)',
+          description: 'Landing locale 93 — présentiel BTP.',
+        },
+        {
+          href: LINKS.formationIaBtpValDeMarne94,
+          label: 'Formation IA BTP Val-de-Marne (94)',
+          description: 'Landing locale 94 — présentiel BTP.',
+        },
+        {
+          href: LINKS.formations,
+          label: 'Catalogue formations IA pour le BTP',
+          description: 'Programmes Qualiopi 4 h — devis, DCE, CR.',
+        },
+        {
+          href: LINKS.formateurIaBtp,
+          label: 'Formatrice IA spécialisée BTP',
+          description: 'Parcours et preuves EEAT de Laure Olivié.',
+        },
+        {
+          href: LINKS.formationConducteurTravaux,
+          label: 'Formation IA conducteur de travaux BTP',
+          description: 'Page métier — CR, PPSPS, suivi chantier.',
+        },
+      ]).slice(0, 8),
     };
   }
   const geoSlug = geoSlugFromPath(normalized);

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Lock, LogIn, ShieldCheck, UserPlus, Zap } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Lock, LogIn, ShieldCheck, UserPlus, LayoutDashboard } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
@@ -10,9 +10,9 @@ import { BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
 
 export const revalidate = 3600;
 
-const META_TITLE = 'BeWork — plateforme assistants MOEX';
+const META_TITLE = 'BeWork — accéder à la plateforme';
 const META_DESCRIPTION =
-  'Connexion à la plateforme BeWork sur app.laureolivie.fr : déposer vos demandes MOEX, suivre vos livrables et collaborer avec des assistants travaux augmentés par l\'IA.';
+  'Connexion à la plateforme BeWork sur app.laureolivie.fr : espace entreprise pour chantiers, documents, marchés et outils IA métier.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -33,30 +33,30 @@ export const metadata = createPageMetadata({
 
 const FEATURES = [
   {
-    icon: Zap,
-    title: 'Déposer une demande MOEX',
-    desc: 'CR de chantier, analyse DCE, courrier MOA, PV de réception… Brief structuré et pièces jointes.',
+    icon: LayoutDashboard,
+    title: 'Espace entreprise',
+    desc: 'Chantiers, documents, tâches et validations dans un environnement adapté à votre organisation.',
   },
   {
     icon: ShieldCheck,
-    title: 'Suivi des livrables',
-    desc: 'Statuts visibles, relances et validation avant transmission — relais humain supervisé depuis la France.',
+    title: 'Outils IA métier',
+    desc: 'Analyses CCTP/CCAP, synthèses et aides à la préparation — toujours validées par vos équipes.',
   },
   {
     icon: Lock,
-    title: 'Espace sécurisé',
-    desc: 'Accès par compte, isolation entre utilisateurs. Documents traités de façon confidentielle.',
+    title: 'Accès sécurisé',
+    desc: 'Comptes par rôles, isolation des espaces clients, hébergement en Europe.',
   },
 ] as const;
 
 const FAQ = [
   {
     q: 'Qui peut accéder à la plateforme BeWork ?',
-    a: 'La plateforme est réservée aux assistants travaux (Beworkers) et aux maîtrises d\'œuvre d\'exécution (MOEX) qui externalisent leurs demandes documentaires via BeWork. Créez un compte ou connectez-vous si vous avez déjà reçu vos accès.',
+    a: 'La plateforme est réservée aux entreprises clientes BeWork et à leurs collaborateurs autorisés. Créez un compte ou connectez-vous si vous avez déjà reçu vos accès.',
   },
   {
     q: 'Quelle est la différence avec bework.fr ?',
-    a: 'bework.fr présente le service de relais administratif BeWork (diagnostic, prise en charge externalisée). app.laureolivie.fr est l\'espace de connexion pour déposer et suivre vos demandes une fois le service activé.',
+    a: 'bework.fr présente l\'offre BeWork (plateformes internes BTP, démonstration, étude tarifaire). app.laureolivie.fr est l\'espace de connexion pour utiliser votre plateforme une fois déployée.',
   },
   {
     q: 'Où trouver le lexique BTP gratuit ?',
@@ -91,13 +91,13 @@ function getPlateformePageJsonLd() {
       {
         '@type': 'SoftwareApplication',
         '@id': `${appUrl}#software`,
-        name: 'BeWork — Plateforme assistants MOEX',
+        name: 'BeWork — Plateforme interne BTP',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'Web',
         url: appUrl,
         inLanguage: 'fr-FR',
         description:
-          'Espace de connexion BeWork pour les assistants MOEX : dépôt de demandes, suivi des livrables et assistants chantier augmentés par l\'IA.',
+          'Espace de connexion BeWork : plateforme interne pour chantiers, documents, marchés et outils IA métier.',
         provider: {
           '@type': 'Organization',
           name: 'BeWork',
@@ -128,7 +128,7 @@ export default function BeworkPlateformePage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
-              Plateforme · Assistants MOEX
+              Plateforme · Espace entreprise
             </p>
             <p className="mt-1 text-sm font-medium text-[#377CF3]">
               Connexion sécurisée · app.laureolivie.fr
@@ -140,8 +140,8 @@ export default function BeworkPlateformePage() {
               Accéder à la plateforme BeWork
             </h1>
             <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              Déposez vos demandes MOEX, suivez vos livrables et collaborez avec des assistants travaux augmentés par
-              l&apos;IA. Espace distinct du site commercial{' '}
+              Connectez-vous à votre espace entreprise pour piloter chantiers, documents et marchés — avec des outils
+              IA métier. Espace distinct du site commercial{' '}
               <ExternalLinkAnchor
                 href={EXTERNAL_SITE_URLS.bework}
                 className="font-medium text-[#377CF3] hover:underline"
@@ -172,7 +172,7 @@ export default function BeworkPlateformePage() {
             <p className="mt-4 text-sm text-[#64748B]">
               Vous découvrez BeWork ?{' '}
               <Link href={LINKS.bework} className="font-medium text-[#377CF3] hover:underline">
-                Voir la présentation du service
+                Voir la présentation de la plateforme
               </Link>
             </p>
           </div>
@@ -180,7 +180,7 @@ export default function BeworkPlateformePage() {
           <figure className="overflow-hidden rounded-xl border border-slate-200/90 shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
             <Image
               src={BEWORK_PHOTO_HERO.src}
-              alt="Plateforme BeWork — assistants travaux MOEX"
+              alt="Plateforme BeWork — espace entreprise BTP"
               width={BEWORK_PHOTO_HERO.width}
               height={BEWORK_PHOTO_HERO.height}
               className="h-auto w-full"
@@ -271,13 +271,13 @@ export default function BeworkPlateformePage() {
           <p className="mt-6 text-sm text-white/80">
             Pas encore client BeWork ?{' '}
             <Link href={LINKS.bework} className="font-semibold underline underline-offset-2 hover:text-white">
-              Découvrir le service sur laureolivie.fr/bework
+              Découvrir BeWork sur laureolivie.fr/bework
             </Link>
             {' · '}
             <ExternalLinkAnchor
               href={EXTERNAL_SITE_URLS.bework}
               className="font-semibold underline underline-offset-2 hover:text-white"
-              title="Demander un diagnostic sur bework.fr"
+              title="Demander une démonstration sur bework.fr"
             >
               bework.fr
             </ExternalLinkAnchor>

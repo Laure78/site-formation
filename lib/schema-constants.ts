@@ -28,11 +28,13 @@ export const SCHEMA_YOUTUBE_CHANNEL_URL =
 export const SCHEMA_GOOGLE_BUSINESS_PROFILE_URL =
   'https://share.google/gLnYapEtSEq25mSQF' as const;
 
-/** sameAs Person — LinkedIn, LinkedIn Learning, fiche Google. */
+/** sameAs Person — LinkedIn, LinkedIn Learning, YouTube.
+ * Absents du Footer : URLs sourcées ici (constantes NAP / EEAT).
+ */
 export const SCHEMA_PERSON_SAME_AS = [
   SCHEMA_LINKEDIN_PROFILE_URL,
   SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
-  SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
+  SCHEMA_YOUTUBE_CHANNEL_URL,
 ] as const;
 
 /** sameAs Organization OFC — LinkedIn + fiche Google Business (pas LinkedIn Learning). */
@@ -41,8 +43,12 @@ export const SCHEMA_ORGANIZATION_SAME_AS = [
   SCHEMA_GOOGLE_BUSINESS_PROFILE_URL,
 ] as const;
 
-/** Affiliations professionnelles Person (fédérations / syndicats BTP). */
-export const SCHEMA_PERSON_AFFILIATIONS = [
+/** Affiliations professionnelles Person (fédérations / syndicats / partenaires BTP). */
+export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
+  name: string;
+  /** Si absent : ne pas inventer d’URL (commentaire // À COMPLÉTER dans le builder). */
+  url?: string;
+}> = [
   {
     name: 'FFB Grand Paris',
     url: 'https://www.ffbatiment.fr/organisation-ffb/federations-regionales/grand-paris-idf',
@@ -55,7 +61,20 @@ export const SCHEMA_PERSON_AFFILIATIONS = [
     name: 'UMB-FFB — Union des Métiers du Bois',
     url: 'https://www.ffbatiment.fr/organisation-ffb/unions-syndicats-metier/umb-ffb',
   },
+  {
+    name: 'CNAM Entreprise',
+    url: 'https://www.cnam-idf.fr/',
+  },
+  {
+    name: 'Lefebvre Dalloz',
+    url: 'https://www.lefebvre-dalloz-formation.fr/',
+  },
+  {
+    name: 'CAPEB',
+    // url: // À COMPLÉTER — absente du Footer et des constantes partenaires du dépôt
+  },
 ] as const;
+
 
 /** Contact & identifiants légaux (JSON-LD, mentions). */
 export const SCHEMA_CONTACT = {
@@ -103,21 +122,21 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA spécialisée BTP',
+  jobTitle: 'Formatrice IA et ChatGPT spécialisée BTP',
+  description:
+    "10 ans d'expérience terrain comme conductrice de travaux, forme les professionnels du BTP à l'IA appliquée à leurs documents réels, en présentiel en Île-de-France.",
 } as const;
 
 /** Thématiques Person — schéma global layout (entité Laure Olivié). */
 export const SCHEMA_PERSON_KNOWS_ABOUT = [
-  'formation IA BTP',
+  'intelligence artificielle',
+  'ChatGPT',
+  'BTP',
   "appels d'offres",
-  'mémoire technique',
-  'conduite de travaux',
   'devis',
-  'devis BTP',
-  'IA appliquée au BTP',
-  'ChatGPT bâtiment',
-  'Claude AI',
-  'analyse de DCE/CCTP',
+  'CCTP',
+  'DCE',
+  'mémoire technique',
 ] as const;
 
 /**
@@ -165,11 +184,16 @@ export function schemaHeaderPersonImageUrl(): string {
 
 /** Nœuds `affiliation` Schema.org pour Person. */
 export function buildPersonAffiliationSchemaNodes(): Array<Record<string, unknown>> {
-  return SCHEMA_PERSON_AFFILIATIONS.map((org) => ({
-    '@type': 'Organization',
-    name: org.name,
-    url: org.url,
-  }));
+  return SCHEMA_PERSON_AFFILIATIONS.map((org) => {
+    const node: Record<string, unknown> = {
+      '@type': 'Organization',
+      name: org.name,
+    };
+    if (org.url) {
+      node.url = org.url;
+    }
+    return node;
+  });
 }
 
 /** 8 départements Île-de-France — labels Schema.org / Course.areaServed. */

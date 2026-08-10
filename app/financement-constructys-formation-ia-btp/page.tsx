@@ -322,7 +322,7 @@ export default function FinancementConstructysFormationIABTPPage() {
 
               <figure className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
                 <Image
-                  src="/images/constructys-plafonds-financement-pdc-batiment-juin-2026.png"
+                  src="/images/constructys-plafonds-financement-pdc-batiment-juin.png"
                   alt="Tableau Constructys juin 2026 : plafonds coût pédagogique 24 € HT/h ou 19 € HT/h"
                   width={1024}
                   height={768}

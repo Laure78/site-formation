@@ -27,7 +27,7 @@ const FAQ_ITEMS = [
   },
 ] as const;
 
-const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier-2026.png';
+const OG_CLAUDE_FORMATION = '/images/claude-btp-hero-chantier.png';
 
 export const metadata = createPageMetadata({
   title: 'Claude AI travaux publics 2026 — OFC',

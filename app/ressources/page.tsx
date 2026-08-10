@@ -36,7 +36,7 @@ export const metadata: Metadata = createPageMetadata({
     'Guides et tutos IA pour marchés publics BTP (DCE, CCAP, mémoire), chantier et skills Claude — PME Île-de-France. Gratuit, sans inscription.',
   appendAuthorSuffix: false,
   image: {
-    url: '/images/ressources-gratuites-ia-btp-hero-2026.png',
+    url: '/images/ressources-gratuites-ia-btp-hero.png',
     width: 1024,
     height: 1024,
     alt: 'Ressources IA BTP : appels d’offres, DCE et tutos PDF pour PME du bâtiment en Île-de-France',

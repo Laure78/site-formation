@@ -10,10 +10,10 @@ export type BeworkPhoto = {
   caption?: string;
 };
 
-/** Visuel produit principal (bureau + chantier, DOE, situations) */
+/** Visuel produit principal (plateforme interne BTP) */
 export const BEWORK_PHOTO_HERO: BeworkPhoto = {
   src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-  alt: 'BeWork — relais administratif marchés travaux BTP, dossiers intervention, comptes rendus, DOE',
+  alt: 'BeWork — plateforme interne BTP, chantiers, documents et marchés',
   width: 1024,
   height: 1024,
 };
@@ -29,7 +29,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'suivi-chantier',
     title: 'Suivi de chantier & coordination',
     intro:
-      'Tableaux de bord, comptes rendus et relances — avec relecture humaine systématique.',
+      'Tableaux de bord, comptes rendus et tâches — dans votre espace entreprise, sous validation de vos équipes.',
     photos: [
       {
         src: '/images/bework/assistante-suivi-chantier-tableau.png',
@@ -50,15 +50,15 @@ export const BEWORK_GALLERY_SECTIONS: {
         alt: 'Assistante BeWork avec casque micro, notes sur suivi de chantier BTP',
         width: 1024,
         height: 682,
-        caption: 'Relais bureau-chantier supervisé depuis la France',
+        caption: 'Coordination documentaire sur la plateforme',
       },
     ],
   },
   {
     id: 'bureau-chantier',
-    title: 'Relais bureau-chantier',
+    title: 'Bureau et chantier reliés',
     intro:
-      'Plans, consignes sécurité et dossiers admin : le bureau tenu pendant que vous êtes sur le terrain.',
+      'Plans, consignes sécurité et dossiers admin : une seule plateforme pour faire circuler l’information.',
     photos: [
       {
         src: '/images/bework/assistante-plan-installation-chantier.png',
@@ -86,7 +86,7 @@ export const BEWORK_GALLERY_SECTIONS: {
         alt: 'Assistante BeWork au poste, règles d’or sécurité chantier et plateforme IA BTP',
         width: 768,
         height: 512,
-        caption: 'Sécurité chantier & assistants augmentés par l’IA',
+        caption: 'Sécurité chantier & outils IA sur la plateforme',
       },
     ],
   },
@@ -94,7 +94,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'planning-reporting',
     title: 'Planning & comptes rendus',
     intro:
-      'Plannings, CR et reporting structurés — pour sécuriser délais et trésorerie.',
+      'Plannings, CR et reporting structurés — pour piloter délais et décisions en équipe.',
     photos: [
       {
         src: '/images/bework/coordination-planning-chantier-bureau.png',
@@ -130,25 +130,25 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'maitre-oeuvre',
     title: 'Maître d’œuvre & marchés travaux',
     intro:
-      'Marchés publics, privés ou accords-cadres : relais administratif de bout en bout.',
+      'Marchés publics, privés ou accords-cadres : analyse collaborative et suivi documentaire dans la plateforme.',
     photos: [
       {
         src: '/images/bework/guide-maitre-oeuvre-moe.png',
-        alt: 'BeWork guide maître d’œuvre MOE BTP, assistant travaux augmenté par l’IA sur chantier',
+        alt: 'BeWork guide maître d’œuvre MOE BTP, plateforme IA sur chantier',
         width: 1024,
         height: 576,
         caption: 'Guide maître d’œuvre — marchés travaux BTP',
       },
       {
         src: '/images/bework-relais-administratif-chantier-support.webp',
-        alt: 'Assistante BeWork au casque, relais administratif marchés travaux BTP',
+        alt: 'Collaboratrice BeWork au casque, plateforme interne marchés travaux BTP',
         width: 1024,
         height: 629,
-        caption: 'Relais administratif — support dédié',
+        caption: 'Support déploiement plateforme',
       },
       {
         src: '/images/bework-hero-bureau-chantier-plans.png',
-        alt: 'Assistante BeWork au bureau avec plans et casque BTP, relais documents chantier',
+        alt: 'Collaboratrice BeWork au bureau avec plans et casque BTP, documents chantier',
         width: 1024,
         height: 576,
         caption: 'Bureau-chantier — plans et dossiers travaux',

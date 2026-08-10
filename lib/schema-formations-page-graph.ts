@@ -55,7 +55,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
         about: { '@id': `${BASE}/#organization` },
         breadcrumb: { '@id': `${BASE}/formations#breadcrumb` },
         mainEntity: { '@id': `${BASE}/formations#course-list` },
-        primaryImageOfPage: `${BASE}/images/formation-ia-btp-salle-interactive-2026.jpg`,
+        primaryImageOfPage: `${BASE}/images/formation-ia-btp-salle-interactive.jpg`,
         datePublished: '2024-01-15',
         dateModified: '2026-04-18',
         speakable: {

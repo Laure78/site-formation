@@ -15,6 +15,7 @@ import {
   CALENDLY_INLINE_DEFAULT_HEIGHT_PX,
   type CalendlyEmbedVariant,
 } from '@/lib/calendly-embed-config';
+import { toRdvCalendlyPosition } from '@/lib/calendly-analytics';
 
 /** `popup` conservé pour compatibilité — ouvre Calendly en nouvel onglet (plus de modal). */
 export type CalendlyEmbedType = 'popup' | 'inline' | 'link';
@@ -49,19 +50,24 @@ export type CalendlyEmbedProps = {
   'aria-label'?: string;
 };
 
-function trackCalendlyClick(location: string, ctaPosition: string, ctaId: string) {
+/**
+ * Événement GA4 `rdv_calendly_click` (page_path + position).
+ * No-op si `gtag` absent (NEXT_PUBLIC_GA_MEASUREMENT_ID non défini).
+ */
+function trackCalendlyClick(pagePath: string, ctaPosition: string, ctaId: string) {
+  const position = toRdvCalendlyPosition(ctaPosition);
   const payload = {
-    event: 'calendly_click',
-    location,
-    cta_position: ctaPosition,
+    event: 'rdv_calendly_click',
+    page_path: pagePath,
+    position,
     cta_id: ctaId,
   };
   sendGTMEvent(payload);
   const w = window as Window & { gtag?: (...args: unknown[]) => void };
   if (typeof w.gtag === 'function') {
-    w.gtag('event', 'calendly_click', {
-      location,
-      cta_position: ctaPosition,
+    w.gtag('event', 'rdv_calendly_click', {
+      page_path: pagePath,
+      position,
       cta_id: ctaId,
     });
   }
@@ -154,9 +160,9 @@ export function CalendlyEmbed({
       e.preventDefault();
       return;
     }
-    const location =
+    const pagePath =
       typeof window !== 'undefined' ? window.location.pathname : 'unknown';
-    trackCalendlyClick(location, ctaPosition, resolvedCtaId);
+    trackCalendlyClick(pagePath, ctaPosition, resolvedCtaId);
     onClick?.(e);
   };
 

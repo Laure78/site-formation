@@ -1,6 +1,7 @@
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
+const SITE_HOST = new URL(SITE_BASE).host;
 
 /**
  * Zones privées / techniques — non crawlables.
@@ -20,20 +21,28 @@ export const PRIVATE_DISALLOW = [
 /** Moteurs de recherche classiques. */
 const SEARCH_BOTS = ['Googlebot', 'Bingbot'] as const;
 
-/** OpenAI / ChatGPT. */
-const OPENAI_BOTS = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User'] as const;
-
-/** Anthropic / Claude. */
-const ANTHROPIC_BOTS = ['ClaudeBot', 'Claude-User', 'anthropic-ai'] as const;
-
-/** Perplexity. */
-const PERPLEXITY_BOTS = ['PerplexityBot', 'Perplexity-User'] as const;
-
-/** Google Gemini training / Apple / autres crawlers GEO. */
-const OTHER_AI_BOTS = [
+/**
+ * Bots IA / GEO à autoriser explicitement (Allow: /).
+ * Liste demandée : GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Claude-User,
+ * PerplexityBot, Google-Extended, Applebot-Extended, CCBot.
+ */
+const REQUIRED_AI_BOTS = [
+  'GPTBot',
+  'ChatGPT-User',
+  'OAI-SearchBot',
+  'ClaudeBot',
+  'Claude-User',
+  'PerplexityBot',
   'Google-Extended',
-  'Applebot',
   'Applebot-Extended',
+  'CCBot',
+] as const;
+
+/** Compléments crawlers IA / assistants (conservés). */
+const EXTRA_AI_BOTS = [
+  'anthropic-ai',
+  'Perplexity-User',
+  'Applebot',
   'Bytespider',
   'Amazonbot',
   'meta-externalagent',
@@ -50,20 +59,18 @@ const OTHER_AI_BOTS = [
  * la ligne llms.txt (GEO).
  *
  * Format aligné sur le serializer Next : `User-Agent:` (A majuscule),
- * ligne vide entre règles, Sitemap en fin.
+ * ligne vide entre règles, Host + Sitemap en fin.
  */
 export function buildRobotsTxt(): string {
   const lines: string[] = [
-    `# llms.txt — https://www.laureolivie.fr/llms.txt`,
+    `# llms.txt — ${SITE_BASE}/llms.txt`,
     '',
   ];
 
   const namedBots = [
     ...SEARCH_BOTS,
-    ...OPENAI_BOTS,
-    ...ANTHROPIC_BOTS,
-    ...PERPLEXITY_BOTS,
-    ...OTHER_AI_BOTS,
+    ...REQUIRED_AI_BOTS,
+    ...EXTRA_AI_BOTS,
   ];
 
   for (const agent of namedBots) {
@@ -82,6 +89,7 @@ export function buildRobotsTxt(): string {
   }
   lines.push('');
 
+  lines.push(`Host: ${SITE_HOST}`);
   lines.push(`Sitemap: ${SITE_BASE}/sitemap.xml`);
   lines.push(`Sitemap: ${SITE_BASE}/video-sitemap.xml`);
   lines.push('');

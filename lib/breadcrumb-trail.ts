@@ -60,6 +60,7 @@ const GEO_BTP_REGIONAL_TITLES: Record<string, string> = {
 /** Pages hors catalogues / géo / métier — libellés pour le fil global. */
 const STATIC_PAGE_TITLES: Record<string, string> = {
   '/formation-ia-btp-paris': 'Formation IA BTP Paris',
+  '/formation-ia-paris': 'Formation IA à Paris',
   '/formateur-ia-btp': 'Formateur IA BTP',
   '/partenaires': 'Partenaires',
   '/claude-ai-btp': 'Claude AI BTP',

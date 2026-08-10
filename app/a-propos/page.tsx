@@ -52,7 +52,7 @@ const A_PROPOS_TOC = [
   { label: 'Mission & valeurs', anchor: 'mission-valeurs' },
   { label: 'Clients & partenaires', anchor: 'clients-partenaires' },
   { label: 'LinkedIn Learning', anchor: 'linkedin-learning' },
-  { label: 'BeWork — relais admin BTP', anchor: 'bework' },
+  { label: 'BeWork — plateformes internes BTP', anchor: 'bework' },
   { label: 'Contact & Calendly', anchor: 'contact-calendly' },
   { label: 'FAQ', anchor: 'faq' },
 ] as const;
@@ -87,7 +87,7 @@ export default function AProposPage() {
   const allerPlusLoinLinks = [
     { href: LINKS.formateurIaBtp, label: 'Formateur / formatrice IA BTP — Laure Olivié' },
     { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
-    { href: LINKS.bework, label: 'BeWork — relais administratif BTP' },
+    { href: LINKS.bework, label: 'BeWork — plateformes internes BTP' },
     { href: LINKS.blog, label: 'Blog IA & ChatGPT BTP' },
     { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
     { href: LINKS.financement, label: 'Financement Constructys' },

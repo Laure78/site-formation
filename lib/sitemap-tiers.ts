@@ -6,10 +6,15 @@ import { LINKS } from '@/lib/internal-links';
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
 
 export const SITEMAP_PRIORITY = {
+  /** Accueil + pages tier-1 (catalogue, financement, à propos, blog index, contact). */
   tier1Static: 1.0,
   formationCatalog: 0.95,
+  /** Piliers géo / métier (ex. `/formation-ia-paris`). */
   metier: 0.9,
-  blogArticle: 0.8,
+  /** Satellites géo départementales. */
+  geoSatellite: 0.8,
+  /** Articles de blog. */
+  blogArticle: 0.6,
 } as const;
 
 /** Pages statiques principales — priorité 1.0 */

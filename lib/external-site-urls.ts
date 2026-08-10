@@ -4,9 +4,9 @@
  */
 
 export const EXTERNAL_SITE_URLS = {
-  /** BeWork — assistante gestion travaux BTP, relais bureau-chantier (site dédié). */
+  /** BeWork — plateformes internes intelligentes pour le BTP (site dédié). */
   bework: 'https://www.bework.fr/',
-  /** Plateforme BeWork — connexion assistants MOEX (sous-domaine Laure Olivié). */
+  /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
   beworkApp: 'https://app.laureolivie.fr/',
   /** Plateforme e-learning OFC — formations IA BTP (Teachizy). */
   teachizyFormation: 'https://formation-ia-chatgpt.teachizy.fr/',

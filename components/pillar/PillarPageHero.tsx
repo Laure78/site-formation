@@ -71,7 +71,7 @@ export type PillarPageHeroProps = {
 export function PillarPageHero({
   variant,
   surface = 'brand',
-  backgroundImageSrc = '/images/claude-btp-hero-chantier-2026.png',
+  backgroundImageSrc = '/images/claude-btp-hero-chantier.png',
   backgroundImageAlt = '',
   eyebrow,
   title,

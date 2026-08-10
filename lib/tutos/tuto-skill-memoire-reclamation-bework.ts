@@ -282,7 +282,7 @@ et rappelle-moi le délai pour le transmettre.`,
   cta: {
     eyebrow: 'PAS LE TEMPS DE LE FAIRE VOUS-MÊME ?',
     title: 'Faire appel à un Assistant Travaux BeWork',
-    subtitle: 'On tient le bureau, vous tenez le chantier',
+    subtitle: 'Plateformes internes intelligentes pour le BTP',
     programTitle: 'Assistant travaux BTP · Relais dossiers chantier · Augmenté par l’IA',
     programItems: [
       'Vous nous envoyez les pièces du litige (OS, CR, courriers, chiffrage).',

@@ -42,7 +42,7 @@ Règles :
 ⦿ CTA : lien Calendly OFC (appel découverte formation)
 ↳ https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation
 ↳ pour un usage LinkedIn, suffixe le lien avec ?utm_source=linkedin&utm_medium=profil pour tracer la source
-↳ ce lien = OFC/formation. Pour un diagnostic BeWork, utilise le canal BeWork dédié (lien à fournir)
+↳ ce lien = OFC/formation. Pour une démonstration BeWork, utilise le canal BeWork dédié (lien à fournir)
 
 ## Sélection à la une / Featured
 

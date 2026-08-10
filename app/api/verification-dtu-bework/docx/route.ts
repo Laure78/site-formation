@@ -421,7 +421,7 @@ export async function POST(req: Request): Promise<Response> {
             alignment: AlignmentType.CENTER,
             children: [
               new TextRun({
-                text: 'Un assistant travaux à vos côtés pour tenir le rythme du chantier.',
+                text: 'Plateformes internes intelligentes pour le BTP.',
                 italics: true,
                 bold: true,
                 color: BLUE,
@@ -434,7 +434,7 @@ export async function POST(req: Request): Promise<Response> {
             children: [
               new TextRun({
                 text:
-                  'Pour aller plus loin : faire appel à un Beworker — stats du site BeWork : 3 à 5 jours opérationnel / 0 recrutement / 100 % supervisé en France.',
+                  'Pour aller plus loin : intégrer ces analyses dans votre plateforme BeWork — démonstration sur bework.fr.',
                 size: 16,
                 color: DARK,
               }),

@@ -30,12 +30,13 @@ Un seul profil personnel, deux marques distinctes. Règle d'or : un post = une s
 ↳ modèle présentiel Île-de-France
 ↳ bleu #377CF3
 
-⦿ BeWork (bework.fr) → délégation administrative BTP augmentée par l'IA
+⦿ BeWork (bework.fr) → plateformes internes intelligentes pour le BTP, augmentées par l'IA
 ↳ voix collective nous/on, vouvoiement
-↳ slogan « On tient le bureau, vous tenez le chantier »
+↳ positionnement « Plateformes internes intelligentes pour le BTP »
 ↳ aucun hashtag, aucune mention OFC/Qualiopi
 ↳ France + Belgique/Suisse/Luxembourg
 ↳ bleu #1D4ED8
+↳ BeWork configure/déploie/forme — les collaborateurs du client utilisent la plateforme
 
 Règle d'arbitrage de marque :
 ↓ le profil reste d'abord celui de Laure/OFC (socle de crédibilité)
