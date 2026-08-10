@@ -106,6 +106,14 @@ function buildStaticPages(): SiteSearchEntry[] {
       keywords: 'ile de france paris 75 78 91 92 93 94 95 77',
     },
     {
+      id: 'page-formation-ia-paris',
+      title: 'Formation IA à Paris',
+      description: 'Présentiel 4 h — devis, DCE, mémoires et comptes rendus. Qualiopi.',
+      href: LINKS.formationIaParis,
+      kind: 'page',
+      keywords: 'formation ia paris chatgpt btp presentiel 75 qualiopi',
+    },
+    {
       id: 'guide-rh-btp-ia-ofc',
       title: 'Guide RH du BTP × IA — 18 cas d’usage',
       description:
@@ -198,11 +206,11 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'page-bework',
-      title: 'BeWork — relais administratif BTP',
-      description: 'Assistants IA pour le suivi administratif chantier.',
+      title: 'BeWork — plateformes internes BTP',
+      description: 'Plateforme interne BTP : chantiers, documents, marchés et IA métier.',
       href: LINKS.bework,
       kind: 'page',
-      keywords: 'bework assistant administratif',
+      keywords: 'bework plateforme interne chantier documents marchés ia',
     },
   ];
 }

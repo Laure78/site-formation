@@ -21,7 +21,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA pour les pros du BTP — Contact',
   description:
-    "Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou relais admin BeWork. RDV gratuit, Constructys. Île-de-France.",
+    "Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou plateforme BeWork. RDV gratuit, Constructys. Île-de-France.",
   path: '/contact',
 });
 

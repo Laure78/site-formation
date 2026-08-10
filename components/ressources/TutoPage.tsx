@@ -380,7 +380,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
             <div className="mt-8 grid gap-6 rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <h3 className="font-display text-xl font-bold text-[#377CF3]">BeWork</h3>
-                <p className="text-slate-700">Partenaire administratif BTP — augmenté par l’IA</p>
+                <p className="text-slate-700">Plateformes internes intelligentes pour le BTP</p>
               </div>
               <div className="grid grid-cols-3 gap-4 md:grid-cols-1 md:gap-3">
                 <CtaStat value="3–5 j" label="Opérationnel" />
@@ -453,7 +453,7 @@ export function TutoPage({ tuto }: { tuto: TutoData }) {
 
           {tuto.cta.brand === 'bework' ? (
             <p className="mt-8 text-sm text-slate-600">
-              Service BeWork de délégation administrative BTP — distinct des actions de formation
+              Service BeWork de plateforme interne BTP — distinct des actions de formation
               Qualiopi, non éligible OPCO. En savoir plus sur{' '}
               <Link href={LINKS.bework} className="text-[#377CF3] hover:underline">
                 la page BeWork

@@ -171,27 +171,27 @@ export function BeworkEtFormationsOffreSection() {
             className="scroll-mt-28 rounded-2xl border border-[#1D4ED8]/25 bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE]/40 px-6 py-7 shadow-[0_4px_16px_rgba(29,78,216,0.08)] md:px-8 md:py-8"
           >
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
-              BeWork · Relais administratif BTP
+              BeWork · Plateformes internes BTP
             </p>
             <h3
               id="offre-bework-title"
               className="mt-3 font-display text-xl font-bold tracking-tight text-[#1E3A8A] md:text-2xl"
             >
-              Pas le temps de former ? Déléguez l&apos;administratif
+              Centralisez chantiers, documents et marchés
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E3A8A]/90">
-              BeWork est votre relais administratif BTP augmenté par l&apos;IA : vous restez sur le terrain, le bureau
-              avance.
+              BeWork configure votre plateforme interne BTP, forme vos équipes et la fait évoluer — avec des outils IA
+              métier, sous validation de vos collaborateurs.
             </p>
             <p className="mt-2 max-w-3xl text-base font-semibold italic leading-relaxed text-[#1D4ED8]">
-              On tient le bureau, vous tenez le chantier.
+              Plateformes internes intelligentes pour le BTP.
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569]">
               {QUALIOPI_BEWORK_DISTINCTION}
             </p>
             <Link
               href={LINKS.bework}
-              title="BeWork — délégation administrative BTP"
+              title="BeWork — plateformes internes intelligentes pour le BTP"
               className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#1D4ED8] transition-colors hover:text-[#1E40AF] hover:underline"
             >
               Découvrir BeWork →

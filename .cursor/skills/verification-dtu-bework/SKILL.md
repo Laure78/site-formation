@@ -197,12 +197,12 @@ Référencée côté site par `lib/dtu-verification/base-dtu.json` (~échantillo
 ### Mentions obligatoires
 
 ✅ Header : logo blueprint (image réelle si possible — pas uniquement titre stylé)  
-✅ Tagline : « Assistants travaux augmentés par l’IA » (**pluriel**)  
-✅ Footer : « BeWork — Assistants travaux augmentés par l’IA · bework.fr — Relais bureau-chantier BTP »  
+✅ Tagline : « Plateformes internes intelligentes pour le BTP »
+✅ Footer : « BeWork — Plateformes internes intelligentes pour le BTP · bework.fr »
 ✅ Encadré avertissement légal page 1 (AFNOR / CSTB)  
-✅ Signature : « Un assistant travaux à vos côtés pour tenir le rythme du chantier. »  
-✅ CTA : « Faire appel à un Beworker » — pas « Assistant Travaux BeWork »  
-✅ Stats : « 3 à 5 jours opérationnel / 0 recrutement / 100% supervisé en France »  
+✅ Signature : « Plateformes internes intelligentes pour le BTP. »  
+✅ CTA : démonstration / déploiement plateforme BeWork — pas d'offre « Beworker » externalisé  
+✅ Pas d'anciennes stats « 3 à 5 jours opérationnel / 0 recrutement » 
 
 ## CONVENTION DE NOMMAGE
 
@@ -221,7 +221,7 @@ Référencée côté site par `lib/dtu-verification/base-dtu.json` (~échantillo
 - [ ] Confiance Élevé seulement si match net et peu ou pas d'alertes
 - [ ] Au moins une alerte typée par ligne si confiance Moyen / Faible (sauf stratégie outil défini autrement)
 - [ ] Encadré légal présent dans le Word — logo en en-tête — bleu `#1D4ED8`
-- [ ] Footer relais bureau-chantier BTP · pas de données OFC / formation dans le corpus BeWork
+- [ ] Footer plateforme BeWork · pas de données OFC / formation dans le corpus BeWork
 - [ ] Où prévu : Word + PDF + `present_files` *(site : PDF en option future)*  
 
 ## EXEMPLES DE SORTIE TABLEAU

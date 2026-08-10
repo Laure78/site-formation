@@ -18,7 +18,7 @@ type Props = {
 };
 
 /**
- * Mise en avant BeWork — service relais BTP (site externe), distinct des formations OFC Qualiopi.
+ * Mise en avant BeWork — plateformes internes BTP (site externe), distinct des formations OFC Qualiopi.
  */
 export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
   const isCard = surface === 'card';
@@ -40,28 +40,29 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#5A5A5A]">
-              Assistant de gestion travaux · Relais BTP
+              Plateformes internes intelligentes · BTP
             </p>
-            <p className="mt-1 text-sm font-medium text-[#377CF3]">Augmenté par l&apos;IA · note chantier</p>
+            <p className="mt-1 text-sm font-medium text-[#377CF3]">Configurée pour votre organisation · IA métier</p>
 
             <h2
               id={headingId}
               className="mt-4 font-display text-2xl font-bold tracking-tight text-[#1A1A1A] md:text-3xl"
             >
-              Un assistant travaux pour tenir le rythme du chantier
+              Une plateforme interne pour centraliser chantiers et documents
               {id ? (
                 <span className="a-propos-title-accent mt-3 block h-1 rounded-full bg-[#377CF3]" aria-hidden />
               ) : null}
             </h2>
 
             <p className="mt-4 text-base font-semibold leading-relaxed text-[#1A1A1A] md:text-lg">
-              CR, DCE, DOE, relances : BeWork produit vos livrables bureau pendant que vous êtes sur le terrain.
+              BeWork configure votre espace entreprise, forme vos équipes et fait évoluer la plateforme avec vos
+              besoins.
             </p>
 
             <p className="mt-4 text-[15px] leading-relaxed text-[#5A5A5A] md:text-base">
-              Service externalisé distinct des{' '}
-              <span className="text-[#334155]">formations Qualiopi OFC</span>. Comptes rendus, mémoires
-              techniques, dossiers travaux — relais opérationnel, pas de formation.
+              Service distinct des{' '}
+              <span className="text-[#334155]">formations Qualiopi OFC</span>. Chantiers, documents, marchés et outils
+              IA — plateforme interne, pas de formation.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -70,14 +71,14 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
                 title="BeWork — site officiel bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_16px_rgba(55,124,243,0.12)] transition-[transform,background-color,box-shadow] duration-200 hover:-translate-y-0.5 hover:bg-[#2A6BD9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#377CF3] focus-visible:ring-offset-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
-                Demander un diagnostic
+                Demander une démonstration
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
-                href={`${LINKS.bework}#bework-missions`}
+                href={`${LINKS.bework}#bework-modules`}
                 className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-5 py-3 text-sm font-semibold text-[#377CF3] transition-[transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-[#EFF6FF] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
-                Voir les missions prises en charge
+                Voir les modules plateforme
               </Link>
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
@@ -98,7 +99,7 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
               sizes="(min-width: 1024px) 480px, 50vw"
             />
             <figcaption className="border-t border-slate-100 px-4 py-2 text-xs text-[#5A5A5A]">
-              Déploiement rapide · sans recrutement · plateforme sécurisée · bework.fr
+              Socle commun · configuration métier · hébergement Europe · bework.fr
             </figcaption>
           </figure>
         </div>

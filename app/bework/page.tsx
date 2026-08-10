@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Check, Clock, ShieldCheck, Users } from 'lucide-react';
+import { ArrowUpRight, Check, Lock, ShieldCheck, Server } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
@@ -11,9 +11,9 @@ import { BEWORK_GALLERY_SECTIONS, BEWORK_PHOTO_HERO } from '@/lib/bework-photos'
 export const revalidate = 3600;
 const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
 
-const META_TITLE = 'BeWork — assistant travaux BTP externalisé';
+const META_TITLE = 'BeWork — plateformes internes BTP';
 const META_DESCRIPTION =
-  'BeWork : relais administratif BTP augmenté par l\'IA. CR, DCE, DOE, relances. Opérationnel en 3 à 5 jours. Site officiel bework.fr.';
+  'BeWork : plateforme interne BTP adaptée à votre organisation, augmentée par l\'IA. Chantiers, documents, marchés. Démo sur bework.fr.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -32,21 +32,44 @@ export const metadata = createPageMetadata({
   },
 });
 
-const MISSIONS = [
-  'Comptes rendus de chantier',
-  'Analyse de DCE & appels d\'offres',
-  'Mémoire technique',
-  'PPSPS & DOE',
-  'Chiffrage & relances de devis',
-  'Dossiers travaux & attachements',
-  'Situations & validations MOA',
-  'Relances & suivi administratif',
+const MODULES = [
+  'Chantiers et affaires',
+  'Documents et GED',
+  'Marchés publics et privés',
+  'Analyse IA (CCTP, CCAP…)',
+  'Comptes rendus',
+  'Tâches et validations',
+  'Réserves et DOE',
+  'Tableaux de bord',
 ] as const;
 
 const REASSURANCE = [
-  { icon: Clock, label: 'Opérationnel en 3 à 5 jours' },
-  { icon: Users, label: '0 recrutement' },
-  { icon: ShieldCheck, label: '100 % supervisé en France' },
+  { icon: Server, label: 'Hébergement en Europe' },
+  { icon: Lock, label: 'Accès contrôlés par rôles' },
+  { icon: ShieldCheck, label: 'Confidentialité renforcée' },
+] as const;
+
+const DEPLOIEMENT = [
+  {
+    step: '01',
+    title: 'Configuration',
+    desc: 'Modules, rôles et workflows adaptés à votre organisation.',
+  },
+  {
+    step: '02',
+    title: 'Formation par métier',
+    desc: 'Chaque collaborateur apprend uniquement les fonctions utiles à son poste.',
+  },
+  {
+    step: '03',
+    title: 'Déploiement progressif',
+    desc: 'Test avec un groupe pilote ou sur quelques chantiers, puis extension.',
+  },
+  {
+    step: '04',
+    title: 'Suivi et amélioration',
+    desc: 'Analyse des usages, simplification des parcours, évolution continue.',
+  },
 ] as const;
 
 function getBeworkPageJsonLd() {
@@ -58,7 +81,7 @@ function getBeworkPageJsonLd() {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: 'BeWork — assistant de gestion travaux BTP',
+        name: 'BeWork — plateformes internes intelligentes pour le BTP',
         description: META_DESCRIPTION,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${SITE_CONFIG.url}/#website` },
@@ -71,13 +94,20 @@ function getBeworkPageJsonLd() {
         ],
       },
       {
-        '@type': 'ProfessionalService',
-        '@id': `${BEWORK_SITE}#organization`,
+        '@type': 'SoftwareApplication',
+        '@id': `${BEWORK_SITE}#software`,
         name: 'BeWork',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
         url: BEWORK_SITE,
-        slogan: 'On tient le bureau, vous tenez le chantier',
+        slogan: 'Plateformes internes intelligentes pour le BTP',
         description:
-          'Partenaire administratif externalisé pour le BTP : comptes rendus, DCE, DOE, relances et coordination documentaire chantier, augmenté par l\'IA et validé par un humain.',
+          'Plateforme interne BTP adaptée à chaque organisation : chantiers, documents, marchés et outils IA métier. BeWork configure, forme les équipes et fait évoluer la plateforme.',
+        provider: {
+          '@type': 'Organization',
+          name: 'BeWork',
+          url: BEWORK_SITE,
+        },
         areaServed: ['FR', 'BE', 'CH', 'LU'],
         sameAs: [BEWORK_SITE],
       },
@@ -99,21 +129,20 @@ export default function BeworkPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
-              Assistant de gestion travaux · Relais BTP
+              Plateformes internes intelligentes · BTP
             </p>
             <p className="mt-1 text-sm font-medium text-[#377CF3]">
-              Augmenté par l&apos;IA · supervisé depuis la France
+              Configurée pour votre organisation · augmentée par l&apos;IA
             </p>
             <h1
               id="bework-hero-title"
               className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
             >
-              BeWork — relais administratif de vos marchés travaux
+              Votre plateforme interne BTP, adaptée à votre organisation
             </h1>
             <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              Vous envoyez vos demandes. L&apos;équipe produit CR, DCE, DOE et relances. Vous validez le sensible.
-              Suivi sur une plateforme simple.{' '}
-              <em className="not-italic text-[#334155]">On tient le bureau, vous tenez le chantier.</em>
+              Centralisez équipes, chantiers, documents et marchés. BeWork configure votre plateforme, forme vos
+              équipes et la fait évoluer avec vos besoins.
             </p>
             <ul className="mt-6 space-y-2">
               {REASSURANCE.map(({ icon: Icon, label }) => (
@@ -126,10 +155,10 @@ export default function BeworkPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <ExternalLinkAnchor
                 href={BEWORK_SITE}
-                title="BeWork — site officiel bework.fr (nouvel onglet)"
+                title="BeWork — demander une démonstration sur bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
               >
-                Demander un diagnostic
+                Demander une démonstration
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
@@ -140,7 +169,7 @@ export default function BeworkPage() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
-              Déjà client MOEX ?{' '}
+              Déjà client ?{' '}
               <Link href={LINKS.beworkPlateforme} className="font-medium text-[#377CF3] hover:underline">
                 Accéder à la plateforme
               </Link>
@@ -172,12 +201,13 @@ export default function BeworkPage() {
       <section aria-labelledby="bework-probleme" className="border-b border-slate-200 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
           <h2 id="bework-probleme" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            30 à 40&nbsp;% du temps bureau, pas sur le chantier
+            Informations dispersées, bureau et chantier déconnectés
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Un chantier moyen génère une quarantaine de documents critiques. Chaque retard expose à pénalités, retenue
-            de garantie ou solde impayé. BeWork prend en charge cette charge documentaire pour libérer votre équipe
-            terrain.
+            Emails, messages, Drive et dossiers partagés : chacun détient une partie de l&apos;information. CCTP, CCAP,
+            plans et comptes rendus sont difficiles à croiser. BeWork centralise équipes, documents et marchés dans une
+            plateforme interne que vos collaborateurs utilisent au quotidien — avec des outils IA métier, sous votre
+            validation.
           </p>
         </div>
       </section>
@@ -225,26 +255,52 @@ export default function BeworkPage() {
         </section>
       ))}
 
-      {/* Missions */}
-      <section aria-labelledby="bework-missions" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
+      {/* Modules */}
+      <section aria-labelledby="bework-modules" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 id="bework-missions" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Missions prises en charge
+          <h2 id="bework-modules" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+            Modules de votre plateforme
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            Marchés publics, privés, accords-cadres — France, Belgique, Suisse, Luxembourg.
+            Un socle commun maintenu par BeWork, configuré selon vos métiers, droits et workflows — France, Belgique,
+            Suisse, Luxembourg.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {MISSIONS.map((mission) => (
+            {MODULES.map((module) => (
               <li
-                key={mission}
+                key={module}
                 className="flex items-start gap-2.5 rounded-xl border border-slate-200/90 bg-[#FAFBFD] px-4 py-3 text-sm font-medium text-[#334155]"
               >
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-                {mission}
+                {module}
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Déploiement */}
+      <section aria-labelledby="bework-deploiement" className="border-b border-slate-200 px-4 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="bework-deploiement" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+            Nous accompagnons jusqu&apos;à l&apos;usage réel
+          </h2>
+          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            BeWork ne se substitue pas à vos salariés dans l&apos;analyse finale, la conduite des travaux ou les
+            décisions contractuelles. Ce sont vos collaborateurs autorisés qui utilisent la plateforme au quotidien.
+          </p>
+          <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {DEPLOIEMENT.map(({ step, title, desc }) => (
+              <li
+                key={step}
+                className="rounded-xl border border-slate-200/90 bg-white px-5 py-5 shadow-sm"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">{step}</p>
+                <h3 className="mt-2 font-semibold text-[#0F172A]">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#475569]">{desc}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 
@@ -252,17 +308,18 @@ export default function BeworkPage() {
       <section aria-labelledby="bework-cta" className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-4xl rounded-2xl bg-[#377CF3] px-6 py-10 text-center text-white md:px-12 md:py-14">
           <h2 id="bework-cta" className="font-display text-2xl font-bold md:text-3xl">
-            On tient le bureau, vous tenez le chantier
+            Construisons la plateforme adaptée à votre entreprise
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
-            Audit de votre premier dossier sous 48&nbsp;h. Opérationnel en 3 à 5 jours.
+            Diagnostic de votre organisation, puis configuration et déploiement. Demandez une démonstration
+            personnalisée.
           </p>
           <ExternalLinkAnchor
             href={BEWORK_SITE}
-            title="BeWork — demander un diagnostic sur bework.fr"
+            title="BeWork — demander une démonstration sur bework.fr"
             className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
           >
-            Demander un diagnostic
+            Demander une démonstration
             <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
           </ExternalLinkAnchor>
           <p className="mt-6 text-sm text-white/80">

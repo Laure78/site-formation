@@ -4,7 +4,7 @@
 
 ⦿ Niveau 1 — Conversion (les seules qui paient)
 ↳ DM qualifiés reçus
-↳ demandes de diagnostic BeWork / de formation OFC
+↳ demandes de démonstration BeWork / de formation OFC
 ↳ RDV Calendly pris
 
 ⦿ Niveau 2 — Autorité (le carburant de la conversion)

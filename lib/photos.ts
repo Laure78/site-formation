@@ -596,11 +596,11 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** BeWork — relais administratif marchés travaux (support casque, site bework.fr) */
+  /** BeWork — plateforme interne marchés travaux (support casque, site bework.fr) */
   beworkHeroRelaisAdministratif: {
     src: '/images/bework-relais-administratif-chantier-support.webp',
-    alt: "Assistante BeWork au casque — relais administratif chantier BTP, poste avec plans et écran",
-    title: 'BeWork — relais administratif chantier (CR, DCE, DOE), service complémentaire aux formations OFC',
+    alt: "Collaboratrice BeWork au casque — plateforme interne chantier BTP, poste avec plans et écran",
+    title: 'BeWork — plateforme interne BTP (chantiers, documents, marchés), service complémentaire aux formations OFC',
     width: 1024,
     height: 629,
   },
@@ -608,15 +608,15 @@ export const PHOTOS = {
   /** BeWork — bureau-chantier : plans, casque et poste de travail (site bework.fr) */
   beworkHeroBureauChantier: {
     src: '/images/bework-hero-bureau-chantier-plans.png',
-    alt: "Assistante BeWork au bureau avec plans de chantier et casque BTP",
+    alt: "Collaboratrice BeWork au bureau avec plans de chantier et casque BTP",
     width: 1024,
     height: 576,
   },
 
-  /** BeWork — visuel produit : relais admin marchés travaux, DOE, situations, tableau de bord */
+  /** BeWork — visuel produit : plateforme interne, DOE, situations, tableau de bord */
   beworkRelaisMarchesTravaux: {
     src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-    alt: "BeWork — relais administratif marchés travaux, dossiers intervention et comptes rendus",
+    alt: "BeWork — plateforme interne BTP, chantiers, documents et marchés",
     width: 1024,
     height: 1024,
   },
