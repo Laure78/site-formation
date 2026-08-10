@@ -53,7 +53,7 @@ Règle : une seule marque par conversation. Prescripteur ou dirigeant qui cherch
 ↳ « [prénom], je reviens vers toi sans pression. Toujours d'actualité, le sujet [X] dont on parlait ? »
 
 ⦿ Message BeWork (voix nous/on, vouvoiement)
-↳ « Bonjour [prénom], chez BeWork on configure des plateformes internes BTP augmentées par l'IA : chantiers, documents, marchés — adaptées à votre organisation. Une démonstration vous montrerait le socle. On en parle ? »
+↳ « Bonjour [prénom], chez BeWork on conçoit des solutions IA sur mesure pour le BTP : applications, automatisations, assistants — autour de votre façon de travailler. On en parle ? »
 
 ## Demande de recommandation
 

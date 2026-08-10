@@ -206,11 +206,11 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'page-bework',
-      title: 'BeWork — plateformes internes BTP',
-      description: 'Plateforme interne BTP : chantiers, documents, marchés et IA métier.',
+      title: 'BeWork — solutions IA sur mesure BTP',
+      description: 'Applications, automatisations, assistants et plateformes métier pour le BTP.',
       href: LINKS.bework,
       kind: 'page',
-      keywords: 'bework plateforme interne chantier documents marchés ia',
+      keywords: 'bework solutions ia applications automatisations assistants plateforme métier',
     },
   ];
 }

@@ -197,11 +197,11 @@ Référencée côté site par `lib/dtu-verification/base-dtu.json` (~échantillo
 ### Mentions obligatoires
 
 ✅ Header : logo blueprint (image réelle si possible — pas uniquement titre stylé)  
-✅ Tagline : « Plateformes internes intelligentes pour le BTP »
-✅ Footer : « BeWork — Plateformes internes intelligentes pour le BTP · bework.fr »
+✅ Tagline : « Solutions IA sur mesure pour le BTP »
+✅ Footer : « BeWork — Solutions IA sur mesure pour le BTP · bework.fr »
 ✅ Encadré avertissement légal page 1 (AFNOR / CSTB)  
-✅ Signature : « Plateformes internes intelligentes pour le BTP. »  
-✅ CTA : démonstration / déploiement plateforme BeWork — pas d'offre « Beworker » externalisé  
+✅ Signature : « Solutions IA sur mesure pour le BTP. »  
+✅ CTA : « Parler de mon besoin » sur bework.fr  
 ✅ Pas d'anciennes stats « 3 à 5 jours opérationnel / 0 recrutement » 
 
 ## CONVENTION DE NOMMAGE

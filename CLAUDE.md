@@ -4,7 +4,7 @@ Guide pour travailler dans ce dépôt. Écris et commente en **français**.
 
 ## Ce qu'est le projet
 
-`site-formation` — le site et la plateforme de **laureolivie.fr** : site vitrine SEO/GEO + LMS (espace apprenant, admin/formateur) pour **OFC Création d'Entreprise**, l'organisme de formation IA/ChatGPT pour le BTP de Laure Olivié. Le site héberge aussi une section **BeWork** (plateformes internes intelligentes pour le BTP), un pipeline média/agent et une bibliothèque de skills.
+`site-formation` — le site et la plateforme de **laureolivie.fr** : site vitrine SEO/GEO + LMS (espace apprenant, admin/formateur) pour **OFC Création d'Entreprise**, l'organisme de formation IA/ChatGPT pour le BTP de Laure Olivié. Le site héberge aussi une section **BeWork** (solutions IA sur mesure pour le BTP), un pipeline média/agent et une bibliothèque de skills.
 
 ## Stack & commandes
 
@@ -59,7 +59,7 @@ Un contenu = une seule marque. Ne jamais les mélanger sur une même page/sectio
 
 ⦿ **OFC Création d'Entreprise** — formation IA/ChatGPT pour le BTP. Bleu `#377CF3`. Voix Laure, 1re personne. Qualiopi/Constructys/OPCO. Calendly : `https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation`. Île-de-France.
 
-⦿ **BeWork** (bework.fr) — plateformes internes intelligentes pour le BTP, configurées pour chaque organisation et augmentées par l'IA. Bleu `#1D4ED8`. Voix collective nous/on. Positionnement : « Plateformes internes intelligentes pour le BTP ». **Service distinct, non éligible OPCO** : le logo Qualiopi et les mentions OPCO/OFC ne doivent JAMAIS apparaître dans la section BeWork. BeWork conçoit, déploie et fait évoluer la plateforme — ce sont les collaborateurs du client qui l'utilisent au quotidien.
+⦿ **BeWork** (bework.fr) — solutions IA sur mesure pour le BTP : applications métier, automatisations, assistants intelligents, analyse documentaire, intégrations et plateformes. Bleu `#1D4ED8`. Voix collective nous/on. Positionnement : « Solutions IA sur mesure pour le BTP » / « La technologie construite autour de votre entreprise ». CTA : « Parler de mon besoin ». **Service distinct, non éligible OPCO** : le logo Qualiopi et les mentions OPCO/OFC ne doivent JAMAIS apparaître dans la section BeWork. BeWork conçoit, déploie, forme et accompagne — les collaborateurs du client utilisent la solution au quotidien.
 
 ## Skills
 

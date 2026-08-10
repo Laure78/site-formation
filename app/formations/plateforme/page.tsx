@@ -61,7 +61,7 @@ const FAQ = [
   },
   {
     q: 'Quelle est la différence avec BeWork (app.laureolivie.fr) ?',
-    a: 'La plateforme Teachizy héberge les contenus pédagogiques et supports de formation IA BTP. BeWork (app.laureolivie.fr) est l’espace entreprise de la plateforme interne BTP — deux services distincts.',
+    a: 'La plateforme Teachizy héberge les contenus pédagogiques et supports de formation IA BTP. BeWork (app.laureolivie.fr) est l’espace entreprise des solutions IA métier BTP — deux services distincts.',
   },
 ] as const;
 

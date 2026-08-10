@@ -4,7 +4,7 @@
  */
 
 export const EXTERNAL_SITE_URLS = {
-  /** BeWork — plateformes internes intelligentes pour le BTP (site dédié). */
+  /** BeWork — solutions IA sur mesure pour le BTP (site dédié). */
   bework: 'https://www.bework.fr/',
   /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
   beworkApp: 'https://app.laureolivie.fr/',

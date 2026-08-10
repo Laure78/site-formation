@@ -421,7 +421,7 @@ export async function POST(req: Request): Promise<Response> {
             alignment: AlignmentType.CENTER,
             children: [
               new TextRun({
-                text: 'Plateformes internes intelligentes pour le BTP.',
+                text: 'Solutions IA sur mesure pour le BTP.',
                 italics: true,
                 bold: true,
                 color: BLUE,
@@ -434,7 +434,7 @@ export async function POST(req: Request): Promise<Response> {
             children: [
               new TextRun({
                 text:
-                  'Pour aller plus loin : intégrer ces analyses dans votre plateforme BeWork — démonstration sur bework.fr.',
+                  'Pour aller plus loin : parler de votre besoin sur bework.fr — BeWork étudie la solution adaptée.',
                 size: 16,
                 color: DARK,
               }),

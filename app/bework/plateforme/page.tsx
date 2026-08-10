@@ -12,7 +12,7 @@ export const revalidate = 3600;
 
 const META_TITLE = 'BeWork — accéder à la plateforme';
 const META_DESCRIPTION =
-  'Connexion à la plateforme BeWork sur app.laureolivie.fr : espace entreprise pour chantiers, documents, marchés et outils IA métier.';
+  'Connexion à la plateforme BeWork sur app.laureolivie.fr : espace entreprise pour vos solutions IA métier BTP.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -35,17 +35,17 @@ const FEATURES = [
   {
     icon: LayoutDashboard,
     title: 'Espace entreprise',
-    desc: 'Chantiers, documents, tâches et validations dans un environnement adapté à votre organisation.',
+    desc: 'Chantiers, documents, tâches et validations dans un environnement conçu autour de vos méthodes.',
   },
   {
     icon: ShieldCheck,
     title: 'Outils IA métier',
-    desc: 'Analyses CCTP/CCAP, synthèses et aides à la préparation — toujours validées par vos équipes.',
+    desc: 'Assistants, analyses documentaires et automatisations — toujours validés par vos équipes.',
   },
   {
     icon: Lock,
     title: 'Accès sécurisé',
-    desc: 'Comptes par rôles, isolation des espaces clients, hébergement en Europe.',
+    desc: 'Comptes par rôles, environnements privés, infrastructure européenne.',
   },
 ] as const;
 
@@ -56,7 +56,7 @@ const FAQ = [
   },
   {
     q: 'Quelle est la différence avec bework.fr ?',
-    a: 'bework.fr présente l\'offre BeWork (plateformes internes BTP, démonstration, étude tarifaire). app.laureolivie.fr est l\'espace de connexion pour utiliser votre plateforme une fois déployée.',
+    a: 'bework.fr présente l\'offre BeWork (solutions IA sur mesure pour le BTP). app.laureolivie.fr est l\'espace de connexion pour utiliser votre environnement une fois déployé.',
   },
   {
     q: 'Où trouver le lexique BTP gratuit ?',
@@ -140,8 +140,8 @@ export default function BeworkPlateformePage() {
               Accéder à la plateforme BeWork
             </h1>
             <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              Connectez-vous à votre espace entreprise pour piloter chantiers, documents et marchés — avec des outils
-              IA métier. Espace distinct du site commercial{' '}
+              Connectez-vous à votre espace entreprise pour piloter chantiers, documents et solutions IA métier.
+              Espace distinct du site commercial{' '}
               <ExternalLinkAnchor
                 href={EXTERNAL_SITE_URLS.bework}
                 className="font-medium text-[#377CF3] hover:underline"
@@ -172,7 +172,7 @@ export default function BeworkPlateformePage() {
             <p className="mt-4 text-sm text-[#64748B]">
               Vous découvrez BeWork ?{' '}
               <Link href={LINKS.bework} className="font-medium text-[#377CF3] hover:underline">
-                Voir la présentation de la plateforme
+                Voir la présentation BeWork
               </Link>
             </p>
           </div>
@@ -180,7 +180,7 @@ export default function BeworkPlateformePage() {
           <figure className="overflow-hidden rounded-xl border border-slate-200/90 shadow-[0_4px_16px_rgba(55,124,243,0.08)]">
             <Image
               src={BEWORK_PHOTO_HERO.src}
-              alt="Plateforme BeWork — espace entreprise BTP"
+              alt="Plateforme BeWork — solutions IA métier BTP"
               width={BEWORK_PHOTO_HERO.width}
               height={BEWORK_PHOTO_HERO.height}
               className="h-auto w-full"
@@ -277,7 +277,7 @@ export default function BeworkPlateformePage() {
             <ExternalLinkAnchor
               href={EXTERNAL_SITE_URLS.bework}
               className="font-semibold underline underline-offset-2 hover:text-white"
-              title="Demander une démonstration sur bework.fr"
+              title="Parler de mon besoin sur bework.fr"
             >
               bework.fr
             </ExternalLinkAnchor>

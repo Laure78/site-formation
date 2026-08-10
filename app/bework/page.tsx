@@ -11,9 +11,9 @@ import { BEWORK_GALLERY_SECTIONS, BEWORK_PHOTO_HERO } from '@/lib/bework-photos'
 export const revalidate = 3600;
 const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
 
-const META_TITLE = 'BeWork — plateformes internes BTP';
+const META_TITLE = 'BeWork — solutions IA sur mesure BTP';
 const META_DESCRIPTION =
-  'BeWork : plateforme interne BTP adaptée à votre organisation, augmentée par l\'IA. Chantiers, documents, marchés. Démo sur bework.fr.';
+  'BeWork conçoit des solutions IA pour le BTP : applications, automatisations, assistants et plateformes métier. Étude sur bework.fr.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -32,43 +32,58 @@ export const metadata = createPageMetadata({
   },
 });
 
-const MODULES = [
-  'Chantiers et affaires',
-  'Documents et GED',
-  'Marchés publics et privés',
-  'Analyse IA (CCTP, CCAP…)',
-  'Comptes rendus',
-  'Tâches et validations',
-  'Réserves et DOE',
-  'Tableaux de bord',
+const SOLUTIONS = [
+  'Applications métier IA',
+  'Agents IA',
+  'Automatisations',
+  'Analyse documentaire',
+  'Assistants intelligents',
+  'Intégrations logiciels',
+  'Recherche intelligente',
+  'Plateformes métier',
 ] as const;
 
 const REASSURANCE = [
-  { icon: Server, label: 'Hébergement en Europe' },
-  { icon: Lock, label: 'Accès contrôlés par rôles' },
-  { icon: ShieldCheck, label: 'Confidentialité renforcée' },
+  { icon: Lock, label: 'Accès par rôles' },
+  { icon: Server, label: 'Infrastructure européenne' },
+  { icon: ShieldCheck, label: 'Environnements privés · RGPD' },
 ] as const;
 
-const DEPLOIEMENT = [
+const METHODE = [
   {
     step: '01',
-    title: 'Configuration',
-    desc: 'Modules, rôles et workflows adaptés à votre organisation.',
+    title: 'Comprendre',
+    desc: 'Nous observons votre façon de travailler.',
   },
   {
     step: '02',
-    title: 'Formation par métier',
-    desc: 'Chaque collaborateur apprend uniquement les fonctions utiles à son poste.',
+    title: 'Imaginer',
+    desc: 'Nous définissons la solution utile.',
   },
   {
     step: '03',
-    title: 'Déploiement progressif',
-    desc: 'Test avec un groupe pilote ou sur quelques chantiers, puis extension.',
+    title: 'Construire',
+    desc: 'Nous développons et connectons les outils nécessaires.',
   },
   {
     step: '04',
-    title: 'Suivi et amélioration',
-    desc: 'Analyse des usages, simplification des parcours, évolution continue.',
+    title: 'Déployer',
+    desc: 'Nous intégrons la solution dans l’entreprise.',
+  },
+  {
+    step: '05',
+    title: 'Former',
+    desc: 'Nous formons les collaborateurs concernés.',
+  },
+  {
+    step: '06',
+    title: 'Accompagner',
+    desc: 'Jusqu’à l’utilisation réelle au quotidien.',
+  },
+  {
+    step: '07',
+    title: 'Faire évoluer',
+    desc: 'La solution évolue avec vos usages.',
   },
 ] as const;
 
@@ -81,7 +96,7 @@ function getBeworkPageJsonLd() {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: 'BeWork — plateformes internes intelligentes pour le BTP',
+        name: 'BeWork — solutions IA sur mesure pour le BTP',
         description: META_DESCRIPTION,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${SITE_CONFIG.url}/#website` },
@@ -94,20 +109,13 @@ function getBeworkPageJsonLd() {
         ],
       },
       {
-        '@type': 'SoftwareApplication',
-        '@id': `${BEWORK_SITE}#software`,
+        '@type': 'ProfessionalService',
+        '@id': `${BEWORK_SITE}#organization`,
         name: 'BeWork',
-        applicationCategory: 'BusinessApplication',
-        operatingSystem: 'Web',
         url: BEWORK_SITE,
-        slogan: 'Plateformes internes intelligentes pour le BTP',
+        slogan: 'Solutions IA sur mesure pour le BTP',
         description:
-          'Plateforme interne BTP adaptée à chaque organisation : chantiers, documents, marchés et outils IA métier. BeWork configure, forme les équipes et fait évoluer la plateforme.',
-        provider: {
-          '@type': 'Organization',
-          name: 'BeWork',
-          url: BEWORK_SITE,
-        },
+          'BeWork conçoit des solutions IA autour des métiers, méthodes et outils du BTP : applications métier, automatisations, assistants intelligents, analyse documentaire, intégrations et plateformes.',
         areaServed: ['FR', 'BE', 'CH', 'LU'],
         sameAs: [BEWORK_SITE],
       },
@@ -129,20 +137,21 @@ export default function BeworkPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
-              Plateformes internes intelligentes · BTP
+              Solutions IA sur mesure · BTP
             </p>
             <p className="mt-1 text-sm font-medium text-[#377CF3]">
-              Configurée pour votre organisation · augmentée par l&apos;IA
+              Autour de vos métiers, méthodes et outils
             </p>
             <h1
               id="bework-hero-title"
               className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
             >
-              Votre plateforme interne BTP, adaptée à votre organisation
+              Imaginez ce que l&apos;IA pourrait faire pour votre entreprise. Nous le construisons.
             </h1>
             <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              Centralisez équipes, chantiers, documents et marchés. BeWork configure votre plateforme, forme vos
-              équipes et la fait évoluer avec vos besoins.
+              BeWork conçoit des solutions IA autour de vos métiers, vos méthodes de travail et vos outils :
+              applications, automatisations, assistants intelligents, analyse documentaire, intégrations et
+              plateformes métier.
             </p>
             <ul className="mt-6 space-y-2">
               {REASSURANCE.map(({ icon: Icon, label }) => (
@@ -155,10 +164,10 @@ export default function BeworkPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <ExternalLinkAnchor
                 href={BEWORK_SITE}
-                title="BeWork — demander une démonstration sur bework.fr (nouvel onglet)"
+                title="BeWork — parler de mon besoin sur bework.fr (nouvel onglet)"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
               >
-                Demander une démonstration
+                Parler de mon besoin
                 <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
               </ExternalLinkAnchor>
               <Link
@@ -197,17 +206,16 @@ export default function BeworkPage() {
         </div>
       </section>
 
-      {/* Problème */}
-      <section aria-labelledby="bework-probleme" className="border-b border-slate-200 px-4 py-12 md:py-16">
+      {/* Approche */}
+      <section aria-labelledby="bework-approche" className="border-b border-slate-200 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 id="bework-probleme" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Informations dispersées, bureau et chantier déconnectés
+          <h2 id="bework-approche" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+            Votre besoin ne rentre pas dans une case ? Nous étudions la solution.
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Emails, messages, Drive et dossiers partagés : chacun détient une partie de l&apos;information. CCTP, CCAP,
-            plans et comptes rendus sont difficiles à croiser. BeWork centralise équipes, documents et marchés dans une
-            plateforme interne que vos collaborateurs utilisent au quotidien — avec des outils IA métier, sous votre
-            validation.
+            Nous partons de votre besoin, pas d&apos;un catalogue. Automatiser un processus, exploiter des documents,
+            créer un outil métier, connecter vos logiciels ou déployer une plateforme : chaque projet est étudié —
+            faisabilité, données, sécurité, autorisations, intégrations et architecture adaptée.
           </p>
         </div>
       </section>
@@ -255,45 +263,45 @@ export default function BeworkPage() {
         </section>
       ))}
 
-      {/* Modules */}
-      <section aria-labelledby="bework-modules" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
+      {/* Solutions */}
+      <section aria-labelledby="bework-solutions" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 id="bework-modules" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Modules de votre plateforme
+          <h2 id="bework-solutions" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+            Ce que nous pouvons créer
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            Un socle commun maintenu par BeWork, configuré selon vos métiers, droits et workflows — France, Belgique,
-            Suisse, Luxembourg.
+            Pas besoin d&apos;adopter toute la plateforme : un besoin précis ou un environnement complet — France,
+            Belgique, Suisse, Luxembourg.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {MODULES.map((module) => (
+            {SOLUTIONS.map((solution) => (
               <li
-                key={module}
+                key={solution}
                 className="flex items-start gap-2.5 rounded-xl border border-slate-200/90 bg-[#FAFBFD] px-4 py-3 text-sm font-medium text-[#334155]"
               >
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-                {module}
+                {solution}
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* Déploiement */}
-      <section aria-labelledby="bework-deploiement" className="border-b border-slate-200 px-4 py-12 md:py-16">
+      {/* Méthode */}
+      <section aria-labelledby="bework-methode" className="border-b border-slate-200 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 id="bework-deploiement" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Nous accompagnons jusqu&apos;à l&apos;usage réel
+          <h2 id="bework-methode" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
+            De l&apos;idée à l&apos;usage quotidien
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            BeWork ne se substitue pas à vos salariés dans l&apos;analyse finale, la conduite des travaux ou les
-            décisions contractuelles. Ce sont vos collaborateurs autorisés qui utilisent la plateforme au quotidien.
+            Nous concevons des outils simples et intuitifs, puis accompagnons vos collaborateurs jusqu&apos;à leur
+            utilisation réelle. La technologie s&apos;adapte aux équipes, pas l&apos;inverse.
           </p>
-          <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {DEPLOIEMENT.map(({ step, title, desc }) => (
+          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+            {METHODE.map(({ step, title, desc }) => (
               <li
                 key={step}
-                className="rounded-xl border border-slate-200/90 bg-white px-5 py-5 shadow-sm"
+                className="rounded-xl border border-slate-200/90 bg-white px-4 py-4 shadow-sm"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">{step}</p>
                 <h3 className="mt-2 font-semibold text-[#0F172A]">{title}</h3>
@@ -308,18 +316,18 @@ export default function BeworkPage() {
       <section aria-labelledby="bework-cta" className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-4xl rounded-2xl bg-[#377CF3] px-6 py-10 text-center text-white md:px-12 md:py-14">
           <h2 id="bework-cta" className="font-display text-2xl font-bold md:text-3xl">
-            Construisons la plateforme adaptée à votre entreprise
+            Parlez-nous de votre idée
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
-            Diagnostic de votre organisation, puis configuration et déploiement. Demandez une démonstration
-            personnalisée.
+            Décrivez ce que vous voulez améliorer, automatiser ou créer — nous étudions la solution. Plateformes
+            métier. Solutions IA. Expertise BTP.
           </p>
           <ExternalLinkAnchor
             href={BEWORK_SITE}
-            title="BeWork — demander une démonstration sur bework.fr"
+            title="BeWork — parler de mon besoin sur bework.fr"
             className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
           >
-            Demander une démonstration
+            Parler de mon besoin
             <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
           </ExternalLinkAnchor>
           <p className="mt-6 text-sm text-white/80">
