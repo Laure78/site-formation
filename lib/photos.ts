@@ -596,11 +596,11 @@ export const PHOTOS = {
     height: 682,
   },
 
-  /** BeWork — plateforme interne marchés travaux (support casque, site bework.fr) */
+  /** BeWork — solutions IA sur mesure BTP (support casque, site bework.fr) */
   beworkHeroRelaisAdministratif: {
     src: '/images/bework-relais-administratif-chantier-support.webp',
-    alt: "Collaboratrice BeWork au casque — plateforme interne chantier BTP, poste avec plans et écran",
-    title: 'BeWork — plateforme interne BTP (chantiers, documents, marchés), service complémentaire aux formations OFC',
+    alt: "Collaboratrice BeWork au casque — solutions IA chantier BTP, poste avec plans et écran",
+    title: 'BeWork — solutions IA sur mesure BTP, service complémentaire aux formations OFC',
     width: 1024,
     height: 629,
   },
@@ -613,10 +613,10 @@ export const PHOTOS = {
     height: 576,
   },
 
-  /** BeWork — visuel produit : plateforme interne, DOE, situations, tableau de bord */
+  /** BeWork — visuel produit : solutions IA, DOE, situations, tableau de bord */
   beworkRelaisMarchesTravaux: {
     src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-    alt: "BeWork — plateforme interne BTP, chantiers, documents et marchés",
+    alt: "BeWork — solutions IA sur mesure BTP, chantiers, documents et outils métier",
     width: 1024,
     height: 1024,
   },

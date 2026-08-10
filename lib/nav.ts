@@ -19,8 +19,8 @@ export const NAV_ENTREPRISE: readonly NavItem[] = [
   { href: LINKS.partenaires, label: 'Partenaires' },
   {
     href: LINKS.bework,
-    label: 'BeWork — plateformes internes BTP',
-    title: 'BeWork — plateformes internes intelligentes pour le BTP',
+    label: 'BeWork — solutions IA sur mesure BTP',
+    title: 'BeWork — solutions IA sur mesure pour le BTP',
   },
   { href: LINKS.contact, label: 'Contact' },
   { href: LINKS.prendreRdv, label: 'Rendez-vous' },

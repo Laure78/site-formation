@@ -10,10 +10,10 @@ export type BeworkPhoto = {
   caption?: string;
 };
 
-/** Visuel produit principal (plateforme interne BTP) */
+/** Visuel produit principal (solutions IA BTP) */
 export const BEWORK_PHOTO_HERO: BeworkPhoto = {
   src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-  alt: 'BeWork — plateforme interne BTP, chantiers, documents et marchés',
+  alt: 'BeWork — solutions IA sur mesure BTP, chantiers, documents et outils métier',
   width: 1024,
   height: 1024,
 };
@@ -29,7 +29,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'suivi-chantier',
     title: 'Suivi de chantier & coordination',
     intro:
-      'Tableaux de bord, comptes rendus et tâches — dans votre espace entreprise, sous validation de vos équipes.',
+      'Tableaux de bord, comptes rendus et tâches — dans un environnement conçu autour de vos méthodes.',
     photos: [
       {
         src: '/images/bework/assistante-suivi-chantier-tableau.png',
@@ -58,7 +58,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'bureau-chantier',
     title: 'Bureau et chantier reliés',
     intro:
-      'Plans, consignes sécurité et dossiers admin : une seule plateforme pour faire circuler l’information.',
+      'Plans, consignes et dossiers : solutions IA pour faire circuler l’information entre bureau et chantier.',
     photos: [
       {
         src: '/images/bework/assistante-plan-installation-chantier.png',
@@ -94,7 +94,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'planning-reporting',
     title: 'Planning & comptes rendus',
     intro:
-      'Plannings, CR et reporting structurés — pour piloter délais et décisions en équipe.',
+      'Plannings, CR et reporting — outils simples, validés par vos équipes.',
     photos: [
       {
         src: '/images/bework/coordination-planning-chantier-bureau.png',
@@ -130,7 +130,7 @@ export const BEWORK_GALLERY_SECTIONS: {
     id: 'maitre-oeuvre',
     title: 'Maître d’œuvre & marchés travaux',
     intro:
-      'Marchés publics, privés ou accords-cadres : analyse collaborative et suivi documentaire dans la plateforme.',
+      'Marchés publics, privés ou accords-cadres : analyse documentaire et suivi collaboratif selon votre besoin.',
     photos: [
       {
         src: '/images/bework/guide-maitre-oeuvre-moe.png',

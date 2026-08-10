@@ -76,7 +76,7 @@
 ⦿ D Offre & conversion
 ↳ « 1 592 pros formés. Voilà ce qu'ils font différemment aujourd'hui. »
 ↳ « Ma prochaine session OFC en Île-de-France : voilà ce qu'on y fait. »
-↳ « BeWork : une plateforme interne pour vos chantiers et documents. Comment ça marche. »
+↳ « BeWork : solutions IA sur mesure pour votre entreprise BTP. Comment ça marche. »
 
 ## Recyclage
 

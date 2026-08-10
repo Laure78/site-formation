@@ -33,7 +33,7 @@ export function construireMemoExplicatif(opts: {
       : 'Aucune ligne particulièrement critique ne ressort après filtrage — conserver cependant une relecture humaine métier systématique.',
     'Proposition de lignes rectifiées : le tableau « devis rectifié » agrège sous forme exhaustive les compléments de libellés et demandes descriptives identifiées par le moteur. Il doit être recyclé dans votre fichier de prix ou tableau de prix sous format interne après validation financière locale ; aucun montant ou unitaire n’a été régénéré ici.',
     'Prochaines étapes recommandées : acheminer cette version au conducteur ou au métreur pour arbitrage chantier ouvert sur les lignes en confiance Moyen ou Faible ; télécharger depuis AFNOR/CSTB chaque NF DTU retenue pour la défense contractuelle définitive ; archiver aussi la version brute du devis d’entrée comme trace dossier avant rectification.',
-    'Pour poursuivre après la phase test : déployer ces analyses dans votre plateforme BeWork (chantiers, documents, validations) — démonstration sur bework.fr.',
-    'Plateformes internes intelligentes pour le BTP · BeWork · bework.fr',
+    'Pour poursuivre après la phase test : parler de votre besoin sur bework.fr — BeWork étudie la solution IA adaptée à votre organisation.',
+    'Solutions IA sur mesure pour le BTP · BeWork · bework.fr',
   ];
 }
