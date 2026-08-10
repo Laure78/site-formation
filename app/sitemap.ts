@@ -97,6 +97,8 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/ressources/guide-charge-affaires-ofc', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/ressources/guide-repondre-ao-btp-ofc-2026', priority: 0.85, changeFrequency: 'weekly' },
     { path: '/formation-ia-btp-ile-de-france', priority: 0.9, changeFrequency: 'weekly' },
+    /** Pilier SEO Paris — priorité 0.9 (alignée `SITEMAP_PRIORITY.metier` via applySeoPriorityRules). */
+    { path: '/formation-ia-paris', priority: SITEMAP_PRIORITY.metier, changeFrequency: 'weekly' },
     { path: LINKS.formateurIaBtp, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.iaAnalyseDce, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.iaMemoireTechnique, priority: 0.88, changeFrequency: 'monthly' },
@@ -339,7 +341,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}${path}`,
     lastModified: resolveSitemapLastModified(path),
     changeFrequency: 'weekly' as const,
-    priority: 0.88 as const,
+    priority: SITEMAP_PRIORITY.geoSatellite,
   }));
 
   const dynamicMetierBtp: MetadataRoute.Sitemap = Object.keys(FORMATION_IA_METIER_DYNAMIC_REGISTRY).map(

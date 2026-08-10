@@ -128,6 +128,7 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formation-ia-btp-ile-de-france/page.tsx',
     'lib/departement-pages/index.ts',
   ],
+  '/formation-ia-paris': ['app/formation-ia-paris/page.tsx'],
   '/formation-ia-btp-paris': [
     'app/formation-ia-btp-paris/page.tsx',
     'lib/departement-pages/paris-75.ts',

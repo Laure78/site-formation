@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -13,9 +14,11 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-travaux';
+const GUIDE_THUMB = RESSOURCES_MINIATURES.guideAssistantsTravaux;
 
 /** Segment avant suffixe — total avec « | Laure Olivié » ≈ 52 car. (≤ 60). */
 const SEO_TITLE = 'Formation IA assistante travaux BTP';
@@ -40,6 +43,12 @@ export const metadata = createPageMetadata({
     'Qualiopi assistante travaux',
   ],
   openGraphType: 'website',
+  image: {
+    url: GUIDE_THUMB.src,
+    width: GUIDE_THUMB.width,
+    height: GUIDE_THUMB.height,
+    alt: GUIDE_THUMB.alt,
+  },
 });
 
 const PROMPT_PPS_ACCUEIL = `Tu es assistante / assistant travaux dans une PME BTP en Île-de-France.
@@ -208,6 +217,17 @@ export default function FormationIaAssistanteTravauxPage() {
           <strong>présentiel uniquement</strong> en Île-de-France et Grand Paris — financement OPCO
           possible selon éligibilité.
         </p>
+
+        <figure className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+          <Image
+            src={GUIDE_THUMB.src}
+            alt={GUIDE_THUMB.alt}
+            fill
+            className="object-cover object-top"
+            priority
+            sizes="(max-width: 896px) 100vw, 896px"
+          />
+        </figure>
 
         <div className="mt-8">
           <ShortAnswerBlock>

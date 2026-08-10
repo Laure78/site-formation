@@ -35,6 +35,8 @@ export const LINKS = {
     '/blog/subrogation-constructys-financement-formation-ia-btp-2026',
   /** Article — méthode IA pour gagner 5 h/semaine (conducteurs de travaux BTP) */
   blogCommentIaGagne5hConducteursTravaux: '/blog/comment-ia-gagne-5h-conducteurs-travaux',
+  /** Article — comment choisir une formation IA à Paris (BTP, présentiel) */
+  blogFormationIaParisChoisir: '/blog/formation-ia-paris-choisir',
   /** Article — sécurité données ChatGPT en entreprise BTP (RGPD, Enterprise) */
   blogSecuriteDonneesChatgptBtp: '/blog/securite-donnees-chatgpt-btp',
   aPropos: '/a-propos',
@@ -83,6 +85,8 @@ export const LINKS = {
   pdfProgrammeFormationAoBtpDetail2026: PDF_PROGRAMME_NIV02_AO_BTP,
   /** Canonique geo Paris (75) — formation IA BTP Paris */
   formationParis: '/formation-ia-btp-paris',
+  /** Pilier SEO — Formation IA à Paris (présentiel BTP) */
+  formationIaParis: '/formation-ia-paris',
   /** Hub zones IDF — 8 départements (pilier Île-de-France) */
   formationIaBtpIdfZones: '/formation-ia-btp-ile-de-france',
   /** Canonique SEO — formation IA BTP Paris (75) */

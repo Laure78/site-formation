@@ -57,9 +57,9 @@ export const RESSOURCES_MINIATURES = {
   },
   guideAssistantsTravaux: {
     src: `${BASE}/miniature-guide-assistants-travaux.jpg`,
-    alt: 'Assistante travaux BTP sur fond chantier — guide IA missions marché formation IA BTP',
-    width: 1200,
-    height: 675,
+    alt: 'Laure Olivié, Le Guide des Assistants Travaux — Claude Skills formation IA BTP',
+    width: 1024,
+    height: 576,
   },
   nfP03001: {
     src: `${BASE}/miniature-nf-p-03-001.jpg`,
@@ -90,5 +90,11 @@ export const RESSOURCES_MINIATURES = {
     alt: 'Formatrice casque et gilet sur chantier — tuto skill Claude PPSPS formation IA Île-de-France',
     width: 1200,
     height: 675,
+  },
+  tutoLivretIntegration: {
+    src: `${BASE}/miniature-tuto-livret-integration.jpg`,
+    alt: 'Laure Olivié, livret d’accueil du nouvel arrivant — skill Claude intégration BTP',
+    width: 1024,
+    height: 576,
   },
 } as const satisfies Record<string, RessourceMiniature>;

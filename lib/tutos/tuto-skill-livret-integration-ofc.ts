@@ -1,4 +1,5 @@
 import type { TutoData } from './types';
+import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
 export const TUTO_SKILL_LIVRET_INTEGRATION_OFC: TutoData = {
   slug: 'tuto-skill-livret-integration-ofc',
@@ -36,15 +37,17 @@ export const TUTO_SKILL_LIVRET_INTEGRATION_OFC: TutoData = {
     'Constructys',
   ],
   ogImageAlt:
-    "Livret d'intégration BTP — skill Claude accueil sécurité et parcours J1 S1 M1 formation IA",
+    'Laure Olivié, livret d’accueil du nouvel arrivant — skill Claude intégration BTP',
 
   publishedAt: '2026-08-06',
-  updatedAt: '2026-08-06',
+  updatedAt: '2026-08-07',
 
   cardSummary:
     "Génère un livret d'accueil complet à partir de tes documents internes : sécurité, EPI, organigramme et parcours J1 / S1 / M1 — 20 minutes au lieu de deux journées.",
 
   totalTimeMinutes: 20,
+
+  heroImage: RESSOURCES_MINIATURES.tutoLivretIntegration,
 
   heroLearnPoints: [
     "Transformer tes documents internes en un livret d'accueil complet et à jour",
