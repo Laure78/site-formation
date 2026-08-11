@@ -17,12 +17,24 @@ Chaque cours contient : métadonnées Qualiopi (objectifs, prérequis, programme
 
 ## Exécution
 
+### Option A — Admin (recommandé)
+
+1. Connectez-vous en admin  
+2. Allez sur **/admin/formations**  
+3. Cliquez **Sync catalogue /formations → LMS**
+
+Ou ouvrez : `/api/admin/sync-catalogue-lms` (GET, admin connectée).
+
+Cela crée / met à jour les **6** cours sans écraser les modules déjà enrichis.
+
+### Option B — SQL (modules pédagogiques complets)
+
 1. **Supabase** → **SQL Editor** → New query  
 2. Coller `supabase/seed_catalogue_formations_lms.sql`  
 3. **Run**  
-4. Vérifier : https://www.laureolivie.fr/admin/formations  
 
-Le script est **idempotent** (upsert par slug, recrée modules/leçons).
+Le script SQL recrée aussi les modules/leçons détaillés (idempotent).
+
 
 ## Notes
 
