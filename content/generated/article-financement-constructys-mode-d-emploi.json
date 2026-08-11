@@ -1,13 +1,13 @@
 {
-  "slug": "l-ia-va-t-elle-remplacer-les-macons",
-  "title": "L'IA va-t-elle remplacer les maçons ?",
-  "description": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "slug": "financement-constructys-mode-d-emploi",
+  "title": "Financement Constructys : mode d'emploi",
+  "description": "Financement Constructys formation IA pour le BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.",
   "date": "2026-08-11",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "prospection BTP IA",
+    "emails commerciaux ChatGPT",
+    "relance client IA",
+    "IA marketing BTP"
   ],
   "sections": [
     {
@@ -65,8 +65,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "L'IA va-t-elle remplacer les maçons ?",
-  "metaDescription": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "seoTitle": "Financement Constructys : mode d'emploi",
+  "metaDescription": "Financement Constructys formation IA pour le BTP : étapes, montant, démarches. prise en charge selon barèmes. Guide complet.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,7 +74,7 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",

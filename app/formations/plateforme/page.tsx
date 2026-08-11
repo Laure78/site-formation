@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, BookOpen, GraduationCap, LogIn, MonitorPlay, ShieldCheck } from 'lucide-react';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
+import { BookOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { EXTERNAL_SITE_URLS, TEACHIZY_PATHS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 
@@ -61,12 +59,13 @@ const FAQ = [
   },
   {
     q: 'Quelle est la différence avec BeWork (app.laureolivie.fr) ?',
-    a: 'La plateforme Teachizy héberge les contenus pédagogiques et supports de formation IA BTP. BeWork (app.laureolivie.fr) est l’espace entreprise des solutions IA métier BTP — deux services distincts.',
+    a: 'L’espace apprenant OFC héberge les contenus pédagogiques et supports de formation IA BTP. BeWork (app.laureolivie.fr) est l’espace entreprise des solutions IA métier BTP — deux services distincts.',
   },
 ] as const;
 
 function getPlateformePageJsonLd() {
   const pageUrl = `${SITE_CONFIG.url}${LINKS.formationPlateforme}`;
+  const appUrl = `${SITE_CONFIG.url}${LINKS.authConnexion}`;
   /** Fil d’Ariane : uniquement via `GlobalBreadcrumbs` (évite un 2ᵉ BreadcrumbList). */
 
   return {
@@ -85,7 +84,7 @@ function getPlateformePageJsonLd() {
       {
         '@type': 'WebApplication',
         name: 'Plateforme e-learning OFC — Formation IA BTP',
-        url: EXTERNAL_SITE_URLS.teachizyFormation,
+        url: appUrl,
         applicationCategory: 'EducationalApplication',
         operatingSystem: 'Web',
         offers: {
@@ -123,7 +122,7 @@ export default function FormationPlateformePage() {
               Espace apprenant · OFC Qualiopi
             </p>
             <p className="mt-1 text-sm font-medium text-[#377CF3]">
-              Plateforme e-learning · formation-ia-chatgpt.teachizy.fr
+              Plateforme e-learning · espace apprenant OFC
             </p>
             <h1
               id="formation-plateforme-title"
@@ -141,21 +140,9 @@ export default function FormationPlateformePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <FormationPlateformeConnexionButton variant="primary" label="Se connecter" />
-              <ExternalLinkAnchor
-                href={TEACHIZY_PATHS.home}
-                title="Découvrir la plateforme de formation IA BTP"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 hover:border-[#377CF3] hover:bg-[#EFF6FF] hover:text-[#377CF3]"
-              >
-                <GraduationCap className="h-4 w-4 shrink-0" aria-hidden />
-                Voir la plateforme
-              </ExternalLinkAnchor>
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
               Vous n&apos;êtes pas encore inscrit ?{' '}
-              <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-                Consulter le catalogue des formations
-              </Link>
-              {' · '}
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
                 Prendre rendez-vous
               </Link>
@@ -217,26 +204,15 @@ export default function FormationPlateformePage() {
             Déjà stagiaire OFC ?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
-            Connectez-vous avec les identifiants reçus après votre session ou votre inscription.
+            Connectez-vous en haut de page avec les identifiants reçus après votre session ou votre
+            inscription.
           </p>
-          <ExternalLinkAnchor
-            href={TEACHIZY_PATHS.login}
-            title="Connexion plateforme formation IA BTP"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
-          >
-            <LogIn className="h-4 w-4 shrink-0" aria-hidden />
-            Connexion à la plateforme
-            <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
-          </ExternalLinkAnchor>
           <p className="mt-6 text-sm text-white/80">
-            Besoin d&apos;une formation en présentiel ?{' '}
-            <Link href={LINKS.formations} className="font-semibold underline underline-offset-2 hover:text-white">
-              Voir le catalogue Qualiopi
-            </Link>
-            {' · '}
+            Besoin d&apos;une formation en présentiel ? Consultez le catalogue Qualiopi ou{' '}
             <Link href={LINKS.beworkPlateforme} className="font-semibold underline underline-offset-2 hover:text-white">
-              Plateforme BeWork (MOEX)
+              la plateforme BeWork (MOEX)
             </Link>
+            .
           </p>
         </div>
       </section>

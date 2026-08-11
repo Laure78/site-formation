@@ -1,6 +1,30 @@
 {
-  "date": "2026-07-12",
+  "date": "2026-08-11",
   "articles": [
+    {
+      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
+      "title": "ChatGPT pour PME BTP : erreurs à éviter"
+    },
+    {
+      "slug": "devis-structure-le-guide-electricien",
+      "title": "Devis structuré : le guide électricien"
+    },
+    {
+      "slug": "l-ia-va-t-elle-remplacer-les-macons",
+      "title": "L'IA va-t-elle remplacer les maçons ?"
+    },
+    {
+      "slug": "automatiser-vos-emails-clients-avec-l-ia",
+      "title": "Automatiser vos emails clients avec l'IA"
+    },
+    {
+      "slug": "appels-d-offres-btp-l-ia-comme-assistant",
+      "title": "Appels d'offres BTP : l'IA comme assistant"
+    },
+    {
+      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
+      "title": "Recrutement BTP : l'IA pour attirer les talents"
+    },
     {
       "slug": "comment-utiliser-chatgpt-pour-vos-devis-couvreur",
       "title": "Comment utiliser ChatGPT pour vos devis couvreur"
@@ -16,30 +40,6 @@
     {
       "slug": "financement-constructys-mode-d-emploi",
       "title": "Financement Constructys : mode d'emploi"
-    },
-    {
-      "slug": "chatgpt-pour-pme-btp-erreurs-a-eviter",
-      "title": "ChatGPT pour PME BTP : erreurs à éviter"
-    },
-    {
-      "slug": "devis-en-15-min-le-guide-macon",
-      "title": "Devis en 15 min : le guide maçon"
-    },
-    {
-      "slug": "l-ia-va-t-elle-remplacer-les-carreleurs",
-      "title": "L'IA va-t-elle remplacer les carreleurs ?"
-    },
-    {
-      "slug": "automatiser-vos-emails-clients-avec-l-ia",
-      "title": "Automatiser vos emails clients avec l'IA"
-    },
-    {
-      "slug": "appels-d-offres-btp-l-ia-comme-assistant",
-      "title": "Appels d'offres BTP : l'IA comme assistant"
-    },
-    {
-      "slug": "recrutement-btp-l-ia-pour-attirer-les-talents",
-      "title": "Recrutement BTP : l'IA pour attirer les talents"
     }
   ],
   "linkedinCount": 10

@@ -1,13 +1,13 @@
 {
-  "slug": "l-ia-va-t-elle-remplacer-les-macons",
-  "title": "L'IA va-t-elle remplacer les maçons ?",
-  "description": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "slug": "formation-ia-appliquee-au-batiment-ce-qu-il-faut-savoir-en-2026",
+  "title": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
+  "description": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. gain temps devis. Formation IA pour les pros du BTP financement possible selon éligibilité.",
   "date": "2026-08-11",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -65,8 +65,8 @@
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "L'IA va-t-elle remplacer les maçons ?",
-  "metaDescription": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "seoTitle": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026",
+  "metaDescription": "Formation IA appliquée au bâtiment : ce qu'il faut savoir en 2026. gain temps devis. Formation IA pour les pros du BTP financement possible selon éligibilité.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +74,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

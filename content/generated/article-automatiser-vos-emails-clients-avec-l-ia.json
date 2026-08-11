@@ -1,13 +1,13 @@
 {
-  "slug": "l-ia-va-t-elle-remplacer-les-macons",
-  "title": "L'IA va-t-elle remplacer les maçons ?",
-  "description": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "slug": "automatiser-vos-emails-clients-avec-l-ia",
+  "title": "Automatiser vos emails clients avec l'IA",
+  "description": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps mesurable. Formation éligible à un financement.",
   "date": "2026-08-11",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "gain temps devis",
+    "automatisation administrative",
+    "IA bureau",
+    "productivité IA"
   ],
   "sections": [
     {
@@ -61,12 +61,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "L'IA va-t-elle remplacer les maçons ?",
-  "metaDescription": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "seoTitle": "Automatiser vos emails clients avec l'IA",
+  "metaDescription": "Emails clients BTP : automatisez relances et réclamations avec l'IA. Gain de temps mesurable. Formation éligible à un financement.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -79,6 +79,10 @@
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/ia-devis-batiment",
+      "anchor": "IA devis bâtiment"
     },
     {
       "path": "/blog",

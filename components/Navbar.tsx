@@ -32,8 +32,6 @@ import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
-import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
 
 import type { LucideIcon } from 'lucide-react';
 import type { TutoCategoryId } from '@/lib/tutos';
@@ -143,14 +141,14 @@ function FormationsDropdownPanel({
             Espace apprenant
           </p>
           <div className="flex flex-col gap-2">
-            <ExternalLinkAnchor
-              href={TEACHIZY_PATHS.login}
+            <Link
+              href={LINKS.authConnexion}
               title="Connexion plateforme formation IA BTP"
               className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
             >
               <LogIn size={18} strokeWidth={1.75} className="shrink-0" aria-hidden />
               Connexion plateforme
-            </ExternalLinkAnchor>
+            </Link>
             <Link
               href={LINKS.formationPlateforme}
               className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-[#377CF3]"
@@ -816,14 +814,15 @@ function NavbarInner() {
                     })}
                   </ul>
                   <div className="mt-3 border-t border-slate-100 pt-3">
-                    <ExternalLinkAnchor
-                      href={TEACHIZY_PATHS.login}
+                    <Link
+                      href={LINKS.authConnexion}
                       title="Connexion plateforme formation"
+                      onClick={() => setMobileOpen(false)}
                       className="flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold text-[#377CF3]"
                     >
                       <LogIn size={18} strokeWidth={1.75} aria-hidden />
                       Connexion plateforme
-                    </ExternalLinkAnchor>
+                    </Link>
                     <Link
                       href={LINKS.formationPlateforme}
                       onClick={() => setMobileOpen(false)}
@@ -1008,7 +1007,11 @@ function NavbarInner() {
             </div>
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
-              <FormationPlateformeConnexionButton variant="navMobile" label="Connexion plateforme" />
+              <FormationPlateformeConnexionButton
+                variant="navMobile"
+                label="Connexion plateforme"
+                onClick={() => setMobileOpen(false)}
+              />
               <CalendlyEmbed
                 type="link"
                 variant="primary"
