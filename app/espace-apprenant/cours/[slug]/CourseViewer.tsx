@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2, Table2 } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
-import { isSpreadsheetUrl } from '@/lib/lesson-types';
+import { isSpreadsheetUrl, lienButtonLabel } from '@/lib/lesson-types';
 
 interface LessonResource {
   id: string;
@@ -271,7 +271,11 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                       <Table2 size={24} strokeWidth={1.5} />
                     </div>
                     <h3 className="mt-4 font-display text-xl font-semibold text-slate-900">
-                      Tableau Excel / Google Sheets
+                      {selectedLesson.content_url && isSpreadsheetUrl(selectedLesson.content_url)
+                        ? 'Tableau Excel / Google Sheets'
+                        : selectedLesson.content_url?.includes('document')
+                          ? 'Document Google Docs'
+                          : 'Lien ressource'}
                     </h3>
                     {selectedLesson.content_text ? (
                       <p className="mt-3 text-sm leading-relaxed text-slate-600 whitespace-pre-wrap">
@@ -290,9 +294,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                         className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
                       >
                         <ExternalLink size={18} strokeWidth={1.5} />
-                        {isSpreadsheetUrl(selectedLesson.content_url)
-                          ? 'Ouvrir le tableau'
-                          : 'Ouvrir le lien'}
+                        {lienButtonLabel(selectedLesson.content_url)}
                       </a>
                     ) : (
                       <p className="mt-6 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">

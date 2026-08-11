@@ -3,7 +3,7 @@ export const LESSON_TYPES = [
   { value: 'video', label: 'Vidéo YouTube ou autre' },
   { value: 'texte', label: 'Texte' },
   { value: 'pdf', label: 'Slides PDF' },
-  { value: 'lien', label: 'Lien Excel / Google Sheets' },
+  { value: 'lien', label: 'Lien Excel / Google Sheets / Docs' },
   { value: 'quiz', label: 'Quiz' },
 ] as const;
 
@@ -24,4 +24,14 @@ export function isSpreadsheetUrl(url: string): boolean {
     u.endsWith('.xls') ||
     u.endsWith('.csv')
   );
+}
+
+export function isGoogleDocsUrl(url: string): boolean {
+  return url.toLowerCase().includes('docs.google.com/document');
+}
+
+export function lienButtonLabel(url: string): string {
+  if (isSpreadsheetUrl(url)) return 'Ouvrir le tableau';
+  if (isGoogleDocsUrl(url)) return 'Ouvrir le document';
+  return 'Ouvrir le lien';
 }

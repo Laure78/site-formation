@@ -16,6 +16,9 @@ const SHEETS_MODULE3_URL =
 /** Kit Module 4 — réseaux sociaux */
 const SHEETS_MODULE4_URL =
   'https://docs.google.com/spreadsheets/d/1-PoS9GBl8irjYlbCgSPvvZw__hm8iXzZwGfv1darijU/edit?usp=sharing';
+/** Document Google Docs complémentaire (session FFB) */
+const DOCS_COMPLEMENT_URL =
+  'https://docs.google.com/document/d/1NOi7_qq53dIo78zfVoMSGP5emTwy6vPDs2YQszoiSgU/edit?usp=sharing';
 
 type LessonInput = {
   title: string;
@@ -152,6 +155,18 @@ export async function GET(request: Request) {
         type: 'pdf',
         content_url: `${BASE}/programme-ia-artisans-batiment.pdf`,
         order_index: 0,
+        duration_minutes: 5,
+      },
+    },
+    {
+      moduleId: m0,
+      lesson: {
+        title: 'Document complémentaire (Google Docs)',
+        type: 'lien',
+        content_url: DOCS_COMPLEMENT_URL,
+        content_text:
+          'Ouvrez le document Google Docs, puis Fichier → Créer une copie pour l’éditer.',
+        order_index: 1,
         duration_minutes: 5,
       },
     },

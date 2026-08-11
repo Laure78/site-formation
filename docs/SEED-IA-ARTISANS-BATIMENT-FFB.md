@@ -47,6 +47,7 @@ Pour en ajouter : **Admin → Formations → leçon → type « Lien Excel / Goo
 | Module | Contenu |
 |--------|---------|
 | Programme | PDF programme |
+| Programme | [Google Docs complémentaire](https://docs.google.com/document/d/1NOi7_qq53dIo78zfVoMSGP5emTwy6vPDs2YQszoiSgU/edit?usp=sharing) |
 | Module 1 | PDF support + leçon lien (kit prompts BTP) |
 | Module 2 | Texte objectifs + leçon lien (kit devis) |
 | Module 3 | Texte objectifs + leçon lien (kit chantier) |

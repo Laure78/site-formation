@@ -201,17 +201,17 @@ export default function ModifierLeconPage() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="block text-sm font-medium text-slate-700">
-                Lien du tableau Excel / Google Sheets
+                Lien Excel / Google Sheets / Google Docs
               </label>
               <input
                 type="url"
                 value={contentUrl}
                 onChange={(e) => setContentUrl(e.target.value)}
-                placeholder="https://docs.google.com/spreadsheets/d/… ou lien Excel Online"
+                placeholder="https://docs.google.com/spreadsheets/… ou /document/…"
                 className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
               />
               <p className="text-xs text-slate-500">
-                Partage « Toute personne disposant du lien ». Google Sheets, Excel Online, OneDrive, SharePoint ou .xlsx.
+                Partage « Toute personne disposant du lien ». Sheets, Docs, Excel Online, OneDrive…
               </p>
             </div>
             <div>

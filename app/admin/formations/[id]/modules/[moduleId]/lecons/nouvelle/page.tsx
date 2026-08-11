@@ -156,18 +156,18 @@ export default function NouvelleLeconPage() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="block text-sm font-medium text-slate-700">
-                Lien du tableau Excel / Google Sheets
+                Lien Excel / Google Sheets / Google Docs
               </label>
               <input
                 type="url"
                 value={contentUrl}
                 onChange={(e) => setContentUrl(e.target.value)}
                 required
-                placeholder="https://docs.google.com/spreadsheets/d/… ou lien Excel Online"
+                placeholder="https://docs.google.com/spreadsheets/… ou /document/…"
                 className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
               />
               <p className="text-xs text-slate-500">
-                Partagez le fichier en « Toute personne disposant du lien », puis collez l’URL ici. Formats : Google Sheets, Excel Online, OneDrive, SharePoint, ou fichier .xlsx hébergé.
+                Partagez en « Toute personne disposant du lien ». Google Sheets, Docs, Excel Online, OneDrive…
               </p>
             </div>
             <div>

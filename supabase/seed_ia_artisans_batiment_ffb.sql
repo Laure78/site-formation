@@ -70,6 +70,17 @@ Demi-journée 9h–13h · Présentiel ou distanciel · 12 participants max.',
     5
   );
 
+  insert into public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes)
+  values (
+    m0,
+    'Document complémentaire (Google Docs)',
+    'lien',
+    'https://docs.google.com/document/d/1NOi7_qq53dIo78zfVoMSGP5emTwy6vPDs2YQszoiSgU/edit?usp=sharing',
+    'Ouvrez le document Google Docs, puis Fichier → Créer une copie pour l''éditer.',
+    1,
+    5
+  );
+
   -- Module 1
   insert into public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes)
   values
