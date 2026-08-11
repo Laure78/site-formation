@@ -1,13 +1,14 @@
 {
-  "slug": "l-ia-va-t-elle-remplacer-les-macons",
-  "title": "L'IA va-t-elle remplacer les maçons ?",
-  "description": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "slug": "devis-structure-le-guide-electricien",
+  "title": "Devis structuré : le guide électricien",
+  "description": "Devis électricien avec ChatGPT : trame en moins d'une heure. Prompts, exemples. Formation IA pour le BTP Constructys.",
   "date": "2026-08-11",
   "keywords": [
-    "IA conducteur travaux",
-    "CR chantier automatique",
-    "planning IA",
-    "IA BTP"
+    "plombier IA",
+    "électricien ChatGPT",
+    "maçon IA",
+    "carreleur intelligence artificielle",
+    "ChatGPT entreprises BTP"
   ],
   "sections": [
     {
@@ -61,12 +62,12 @@
     },
     {
       "type": "cta",
-      "content": "Formation certifiée Qualiopi. Gagnez 3 à 5h par semaine sur vos devis et emails."
+      "content": "Réservez un échange de 30 minutes gratuit pour une formation sur-mesure."
     }
   ],
   "relatedSlugs": [],
-  "seoTitle": "L'IA va-t-elle remplacer les maçons ?",
-  "metaDescription": "L'IA remplace-t-elle les maçons ? Non : elle assiste le métier. Financement possible selon éligibilité.",
+  "seoTitle": "Devis structuré : le guide électricien",
+  "metaDescription": "Devis électricien avec ChatGPT : trame en moins d'une heure. Prompts, exemples. Formation IA pour le BTP Constructys.",
   "internalLinks": [
     {
       "path": "/formations",
@@ -74,11 +75,15 @@
     },
     {
       "path": "https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation?utm_source=site&utm_medium=cta&utm_campaign=media-machine-prendre-rdv",
-      "anchor": "devis formation"
+      "anchor": "prendre rendez-vous"
     },
     {
       "path": "/financement-constructys-formation-ia-btp",
       "anchor": "financement Constructys"
+    },
+    {
+      "path": "/formation-ia-artisans-btp",
+      "anchor": "ChatGPT pour entreprises BTP"
     },
     {
       "path": "/blog",
