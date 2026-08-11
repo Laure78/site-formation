@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
 
 export default function NouvelleFormationPage() {
   const router = useRouter();
@@ -56,6 +57,7 @@ export default function NouvelleFormationPage() {
         .single();
 
       if (err) throw err;
+      await enrollUserByEmail(supabase, data.id);
       router.push(`/admin/formations/${data.id}`);
       router.refresh();
     } catch (err) {

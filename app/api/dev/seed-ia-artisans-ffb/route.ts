@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getProfile, isAdmin } from '@/lib/auth';
+import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
 
 const SLUG = 'ia-artisans-batiment-ffb';
 const BASE = '/formations/ia-artisans-batiment-ffb';
@@ -283,7 +284,8 @@ export async function GET(request: Request) {
     }
   }
 
-  // Inscrire l’admin pour pouvoir prévisualiser
+  // Inscrire Laure + l’admin connecté pour prévisualiser
+  await enrollUserByEmail(supabase, course.id);
   await supabase.from('enrollments').upsert(
     { user_id: user.id, course_id: course.id, progress_percent: 0 },
     { onConflict: 'user_id,course_id' },
