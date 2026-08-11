@@ -1,12 +1,13 @@
+import Link from 'next/link';
 import { LogIn } from 'lucide-react';
-import { ExternalLinkAnchor } from '@/components/ExternalLink';
-import { TEACHIZY_PATHS } from '@/lib/external-site-urls';
+import { LINKS } from '@/lib/internal-links';
 
 type FormationPlateformeConnexionButtonProps = {
   /** nav = header desktop ; navMobile = drawer ; outline = bouton secondaire ; primary = CTA plein */
   variant?: 'nav' | 'navMobile' | 'outline' | 'primary';
   label?: string;
   className?: string;
+  onClick?: () => void;
 };
 
 const VARIANT_CLASSES: Record<
@@ -23,20 +24,22 @@ const VARIANT_CLASSES: Record<
     'inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]',
 };
 
-/** Lien Connexion — plateforme e-learning OFC (Teachizy). */
+/** Lien Connexion — plateforme e-learning OFC (espace apprenant LMS). */
 export function FormationPlateformeConnexionButton({
   variant = 'outline',
   label = 'Connexion',
   className = '',
+  onClick,
 }: FormationPlateformeConnexionButtonProps) {
   return (
-    <ExternalLinkAnchor
-      href={TEACHIZY_PATHS.login}
+    <Link
+      href={LINKS.authConnexion}
       title="Connexion à la plateforme de formation IA BTP — OFC Création d'Entreprise"
+      onClick={onClick}
       className={`${VARIANT_CLASSES[variant]} ${className}`.trim()}
     >
       <LogIn className="h-4 w-4 shrink-0" strokeWidth={1.75} aria-hidden />
       {label}
-    </ExternalLinkAnchor>
+    </Link>
   );
 }

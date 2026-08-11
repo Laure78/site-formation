@@ -3,13 +3,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Kanban, UserPlus, Clock, FileCheck, ExternalLink } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Clock, ExternalLink } from 'lucide-react';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/pipeline', label: 'Pipeline', icon: Kanban },
-  { href: '/admin/prospects', label: 'Prospects', icon: UserPlus },
-  { href: '/admin/leads', label: 'Leads Checklist', icon: FileCheck },
   { href: '/admin/disponibilites', label: 'Disponibilités', icon: Clock },
   { href: '/admin/formations', label: 'Formations', icon: BookOpen },
   { href: '/admin/apprenants', label: 'Apprenants', icon: Users },

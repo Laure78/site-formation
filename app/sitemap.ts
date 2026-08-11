@@ -67,6 +67,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: LINKS.bework, priority: 0.88, changeFrequency: 'monthly' },
     { path: LINKS.beworkPlateforme, priority: 0.9, changeFrequency: 'weekly' },
     { path: LINKS.formationPlateforme, priority: 0.9, changeFrequency: 'weekly' },
+    { path: LINKS.authConnexion, priority: 0.85, changeFrequency: 'monthly' },
     { path: LINKS.videoFormationsIaBtp, priority: 0.88, changeFrequency: 'monthly' },
     { path: '/etudes-de-cas/ffb-csfe', priority: 0.82, changeFrequency: 'monthly' },
     { path: '/expert-ia-btp', priority: 0.85, changeFrequency: 'monthly' },
