@@ -6,13 +6,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { FileUploadButton } from '@/components/FileUploadButton';
 import { Trash2 } from 'lucide-react';
-
-const LESSON_TYPES = [
-  { value: 'video', label: 'Vidéo YouTube ou autre' },
-  { value: 'texte', label: 'Texte' },
-  { value: 'pdf', label: 'Slides PDF' },
-  { value: 'quiz', label: 'Quiz' },
-] as const;
+import { LESSON_TYPES, lessonUsesContentUrl, type LessonTypeValue } from '@/lib/lesson-types';
 
 export default function ModifierLeconPage() {
   const router = useRouter();
@@ -22,7 +16,7 @@ export default function ModifierLeconPage() {
   const lessonId = params.lessonId as string;
 
   const [title, setTitle] = useState('');
-  const [type, setType] = useState<'video' | 'texte' | 'pdf' | 'quiz'>('texte');
+  const [type, setType] = useState<LessonTypeValue>('texte');
   const [contentText, setContentText] = useState('');
   const [contentUrl, setContentUrl] = useState('');
   const [duration, setDuration] = useState('');
@@ -44,7 +38,7 @@ export default function ModifierLeconPage() {
         return;
       }
       setTitle(data.title);
-      setType((data.type as typeof type) || 'texte');
+      setType((data.type as LessonTypeValue) || 'texte');
       setContentText(data.content_text || '');
       setContentUrl(data.content_url || '');
       setDuration(data.duration_minutes ? String(data.duration_minutes) : '');
@@ -59,8 +53,10 @@ export default function ModifierLeconPage() {
     setLoading(true);
     try {
       const supabase = createClient();
-      const contentTextVal = type === 'texte' ? (contentText?.trim() || null) : null;
-      const contentUrlVal = (type === 'video' || type === 'pdf') && contentUrl?.trim() ? contentUrl.trim() : null;
+      const contentTextVal =
+        type === 'texte' || type === 'lien' ? (contentText?.trim() || null) : null;
+      const contentUrlVal =
+        lessonUsesContentUrl(type) && contentUrl?.trim() ? contentUrl.trim() : null;
 
       const { error: updateError } = await supabase
         .from('lessons')
@@ -144,7 +140,7 @@ export default function ModifierLeconPage() {
           <label className="block text-sm font-medium text-slate-700">Type</label>
           <select
             value={type}
-            onChange={(e) => setType(e.target.value as typeof type)}
+            onChange={(e) => setType(e.target.value as LessonTypeValue)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           >
             {LESSON_TYPES.map((t) => (
@@ -191,7 +187,7 @@ export default function ModifierLeconPage() {
                 type="text"
                 value={contentUrl}
                 onChange={(e) => setContentUrl(e.target.value)}
-                placeholder="https://... ou /formations/appels-offres/mon-fichier.pdf"
+                placeholder="https://... ou /formations/.../mon-fichier.pdf"
                 className="flex-1 rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
               />
               <FileUploadButton
@@ -199,9 +195,36 @@ export default function ModifierLeconPage() {
                 onUrl={(url) => setContentUrl(url)}
               />
             </div>
-            <p className="text-xs text-slate-500">
-              Si &quot;Déposer&quot; ne fonctionne pas : placez votre PDF dans <code className="bg-slate-100 px-1 rounded">/public/formations/appels-offres/</code> puis collez l&apos;URL : <code className="bg-slate-100 px-1 rounded">/formations/appels-offres/votre-fichier.pdf</code>
-            </p>
+          </div>
+        )}
+        {type === 'lien' && (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-slate-700">
+                Lien du tableau Excel / Google Sheets
+              </label>
+              <input
+                type="url"
+                value={contentUrl}
+                onChange={(e) => setContentUrl(e.target.value)}
+                placeholder="https://docs.google.com/spreadsheets/d/… ou lien Excel Online"
+                className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+              />
+              <p className="text-xs text-slate-500">
+                Partage « Toute personne disposant du lien ». Google Sheets, Excel Online, OneDrive, SharePoint ou .xlsx.
+              </p>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700">
+                Texte d’aide (optionnel)
+              </label>
+              <textarea
+                value={contentText}
+                onChange={(e) => setContentText(e.target.value)}
+                rows={3}
+                className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+              />
+            </div>
           </div>
         )}
         <div>
