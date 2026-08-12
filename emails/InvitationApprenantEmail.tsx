@@ -5,6 +5,9 @@ import { INVITATION_TTL_DAYS_LABEL } from '@/lib/invitation-token';
 export type InvitationApprenantEmailProps = {
   formationTitle: string;
   inviteUrl: string;
+  loginUrl: string;
+  email: string;
+  temporaryPassword?: string | null;
   firstName?: string | null;
 };
 
@@ -28,28 +31,52 @@ export function invitationEmailSubject(formationTitle: string): string {
 export function invitationEmailText(props: InvitationApprenantEmailProps): string {
   const hello = props.firstName ? `Bonjour ${props.firstName},` : 'Bonjour,';
   const legal = invitationEmailLegalFooter();
-  return [
+  const lines = [
     hello,
     '',
     `Vous êtes invité(e) à accéder à la formation « ${props.formationTitle} » sur la plateforme Laure Olivié.`,
     '',
-    `Créez votre mot de passe via ce lien (valable ${INVITATION_TTL_DAYS_LABEL} jours) :`,
-    props.inviteUrl,
-    '',
+  ];
+
+  if (props.temporaryPassword) {
+    lines.push(
+      'Vos identifiants de connexion :',
+      `Email : ${props.email}`,
+      `Mot de passe temporaire : ${props.temporaryPassword}`,
+      '',
+      `Connectez-vous ici : ${props.loginUrl}`,
+      '',
+      'Après connexion, changez ce mot de passe temporaire pour plus de sécurité.',
+      ''
+    );
+  } else {
+    lines.push(
+      `Créez votre mot de passe via ce lien (valable ${INVITATION_TTL_DAYS_LABEL} jours) :`,
+      props.inviteUrl,
+      ''
+    );
+  }
+
+  lines.push(
     'Si vous n’êtes pas à l’origine de cette demande, ignorez cet email.',
     '',
-    legal,
-  ].join('\n');
+    legal
+  );
+  return lines.join('\n');
 }
 
 /** Template React Email (inline styles) — compatible Resend `react:`. */
 export function InvitationApprenantEmail({
   formationTitle,
   inviteUrl,
+  loginUrl,
+  email,
+  temporaryPassword,
   firstName,
 }: InvitationApprenantEmailProps) {
   const hello = firstName ? `Bonjour ${firstName},` : 'Bonjour,';
   const legal = invitationEmailLegalFooter();
+  const hasPassword = Boolean(temporaryPassword);
 
   return (
     <html lang="fr">
@@ -81,32 +108,112 @@ export function InvitationApprenantEmail({
                           Vous êtes invité(e) à accéder à la formation{' '}
                           <strong>{formationTitle}</strong> sur la plateforme Laure Olivié.
                         </p>
-                        <p style={{ margin: '0 0 24px', fontSize: 16, lineHeight: '24px' }}>
-                          Créez votre mot de passe pour activer votre compte. Ce lien expire dans{' '}
-                          {INVITATION_TTL_DAYS_LABEL} jours.
-                        </p>
-                        <p style={{ margin: '0 0 28px', textAlign: 'center' }}>
-                          <a
-                            href={inviteUrl}
-                            style={{
-                              display: 'inline-block',
-                              backgroundColor: '#377CF3',
-                              color: '#FFFFFF',
-                              textDecoration: 'none',
-                              fontWeight: 600,
-                              fontSize: 16,
-                              padding: '14px 28px',
-                              borderRadius: 10,
-                            }}
-                          >
-                            Créer mon mot de passe
-                          </a>
-                        </p>
-                        <p style={{ margin: 0, fontSize: 13, lineHeight: '20px', color: '#64748b' }}>
-                          Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :
-                          <br />
-                          <span style={{ wordBreak: 'break-all' }}>{inviteUrl}</span>
-                        </p>
+
+                        {hasPassword ? (
+                          <>
+                            <p style={{ margin: '0 0 12px', fontSize: 16, lineHeight: '24px' }}>
+                              Voici vos identifiants pour vous connecter :
+                            </p>
+                            <table
+                              width="100%"
+                              cellPadding={0}
+                              cellSpacing={0}
+                              role="presentation"
+                              style={{
+                                margin: '0 0 20px',
+                                backgroundColor: '#F8FAFC',
+                                border: '1px solid #E2E8F0',
+                                borderRadius: 10,
+                              }}
+                            >
+                              <tbody>
+                                <tr>
+                                  <td style={{ padding: '16px 18px' }}>
+                                    <p style={{ margin: '0 0 8px', fontSize: 13, color: '#64748b' }}>
+                                      Email
+                                    </p>
+                                    <p
+                                      style={{
+                                        margin: '0 0 14px',
+                                        fontSize: 16,
+                                        fontWeight: 600,
+                                        wordBreak: 'break-all',
+                                      }}
+                                    >
+                                      {email}
+                                    </p>
+                                    <p style={{ margin: '0 0 8px', fontSize: 13, color: '#64748b' }}>
+                                      Mot de passe temporaire
+                                    </p>
+                                    <p
+                                      style={{
+                                        margin: 0,
+                                        fontSize: 18,
+                                        fontWeight: 700,
+                                        letterSpacing: '0.04em',
+                                        fontFamily: 'ui-monospace, Menlo, Consolas, monospace',
+                                        color: '#0F172A',
+                                      }}
+                                    >
+                                      {temporaryPassword}
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <p style={{ margin: '0 0 24px', textAlign: 'center' }}>
+                              <a
+                                href={loginUrl}
+                                style={{
+                                  display: 'inline-block',
+                                  backgroundColor: '#377CF3',
+                                  color: '#FFFFFF',
+                                  textDecoration: 'none',
+                                  fontWeight: 600,
+                                  fontSize: 16,
+                                  padding: '14px 28px',
+                                  borderRadius: 10,
+                                }}
+                              >
+                                Se connecter à mon espace
+                              </a>
+                            </p>
+                            <p style={{ margin: 0, fontSize: 14, lineHeight: '22px', color: '#475569' }}>
+                              Après votre première connexion, changez ce mot de passe temporaire pour plus de
+                              sécurité. Page de connexion :{' '}
+                              <span style={{ wordBreak: 'break-all' }}>{loginUrl}</span>
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <p style={{ margin: '0 0 24px', fontSize: 16, lineHeight: '24px' }}>
+                              Créez votre mot de passe pour activer votre compte. Ce lien expire dans{' '}
+                              {INVITATION_TTL_DAYS_LABEL} jours.
+                            </p>
+                            <p style={{ margin: '0 0 28px', textAlign: 'center' }}>
+                              <a
+                                href={inviteUrl}
+                                style={{
+                                  display: 'inline-block',
+                                  backgroundColor: '#377CF3',
+                                  color: '#FFFFFF',
+                                  textDecoration: 'none',
+                                  fontWeight: 600,
+                                  fontSize: 16,
+                                  padding: '14px 28px',
+                                  borderRadius: 10,
+                                }}
+                              >
+                                Créer mon mot de passe
+                              </a>
+                            </p>
+                            <p style={{ margin: 0, fontSize: 13, lineHeight: '20px', color: '#64748b' }}>
+                              Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :
+                              <br />
+                              <span style={{ wordBreak: 'break-all' }}>{inviteUrl}</span>
+                            </p>
+                          </>
+                        )}
                       </td>
                     </tr>
                     <tr>

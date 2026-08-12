@@ -40,9 +40,9 @@ export function InviterForm({ courses }: Props) {
         return;
       }
       const labels: Record<ApiStatus, string> = {
-        cree: 'Apprenant créé — invitation envoyée par email.',
-        deja_invite: 'Déjà invité — une invitation valide existe déjà.',
-        renvoye: 'Invitation renvoyée.',
+        cree: 'Apprenant créé — email envoyé avec identifiants (mot de passe temporaire).',
+        deja_invite: 'Déjà invité — une invitation valide existe déjà. Utilisez « Renvoyer » si besoin.',
+        renvoye: 'Invitation renvoyée — nouvel email avec nouveau mot de passe temporaire.',
       };
       setMessage({
         type: 'ok',
@@ -64,7 +64,8 @@ export function InviterForm({ courses }: Props) {
     <div className="rounded-2xl border border-slate-200 bg-white p-6">
       <h3 className="font-display text-lg font-semibold text-slate-900">Ajouter un apprenant</h3>
       <p className="mt-1 text-sm text-slate-600">
-        Crée le compte (statut invité) et envoie un lien pour créer le mot de passe (expire sous 7 jours).
+        Crée le compte, l’inscrit à la formation et envoie un email avec le lien de connexion + un mot de
+        passe temporaire.
       </p>
       <form onSubmit={handleSubmit} className="mt-6 grid gap-4 sm:grid-cols-2">
         <div>

@@ -32,10 +32,10 @@ export function RequestNewLinkForm() {
 
   return (
     <form onSubmit={handleSubmit} className="rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm">
-      <h2 className="font-display text-lg font-semibold text-slate-900">Demander un nouveau lien</h2>
+      <h2 className="font-display text-lg font-semibold text-slate-900">Demander un nouvel accès</h2>
       <p className="mt-1 text-sm text-slate-600">
-        Indiquez l’email utilisé pour l’invitation. Pour des raisons de sécurité, le message de confirmation
-        est toujours le même.
+        Indiquez l’email de l’invitation. Si un compte correspond, un nouvel email avec identifiants et mot de
+        passe temporaire sera envoyé. Le message de confirmation est toujours le même (sécurité).
       </p>
       <label className="mt-4 block text-sm font-medium text-slate-700">Email</label>
       <input
@@ -51,7 +51,7 @@ export function RequestNewLinkForm() {
         disabled={loading}
         className="mt-4 w-full rounded-xl bg-[var(--accent)] py-2.5 font-medium text-white disabled:opacity-50"
       >
-        {loading ? 'Envoi…' : 'Demander un nouveau lien'}
+        {loading ? 'Envoi…' : 'Demander un nouvel accès'}
       </button>
     </form>
   );

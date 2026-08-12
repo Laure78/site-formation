@@ -4,32 +4,12 @@ import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { isAdmin } from '@/lib/auth';
 import { inviteApprenantSchema, inviteOrResendApprenant } from '@/lib/invitation';
-
-const MAX_CSV_ROWS = 50;
-
-function parseCsv(text: string): Record<string, string>[] {
-  const lines = text.trim().split(/\r?\n/).filter(Boolean);
-  if (lines.length < 2) return [];
-  if (lines.length - 1 > MAX_CSV_ROWS) {
-    throw new Error(`Le fichier CSV dépasse ${MAX_CSV_ROWS} lignes.`);
-  }
-  const headers = lines[0].split(',').map((h) => h.trim().toLowerCase());
-  const rows: Record<string, string>[] = [];
-  for (let i = 1; i < lines.length; i++) {
-    const values = lines[i].match(/("([^"]*)")|([^,\n]+)/g)?.map((v) => v.replace(/^"|"$/g, '').trim()) ?? [];
-    const row: Record<string, string> = {};
-    headers.forEach((h, j) => {
-      row[h] = values[j] ?? '';
-    });
-    rows.push(row);
-  }
-  return rows;
-}
+import { parseApprenantsCsv } from '@/lib/parse-apprenants-csv';
 
 export async function importApprenantsAction(
   csvText: string,
   courseId: string
-): Promise<{ invited: number; errors: string[] } | null> {
+): Promise<{ invited: number; skipped: number; errors: string[] } | null> {
   const supabase = await createClient();
   const {
     data: { user },
@@ -40,30 +20,69 @@ export async function importApprenantsAction(
 
   const courseParsed = z.string().uuid().safeParse(courseId);
   if (!courseParsed.success) {
-    return { invited: 0, errors: ['Identifiant de formation invalide'] };
+    return { invited: 0, skipped: 0, errors: ['Identifiant de formation invalide'] };
+  }
+
+  const { data: course } = await supabase
+    .from('courses')
+    .select('id')
+    .eq('id', courseParsed.data)
+    .eq('published', true)
+    .maybeSingle();
+  if (!course) {
+    return { invited: 0, skipped: 0, errors: ['Formation introuvable ou non publiée'] };
   }
 
   let rows: Record<string, string>[];
   try {
     if (csvText.length > 200_000) {
-      return { invited: 0, errors: ['Fichier CSV trop volumineux'] };
+      return { invited: 0, skipped: 0, errors: ['Fichier CSV trop volumineux (max 200 Ko)'] };
     }
-    rows = parseCsv(csvText);
+    rows = parseApprenantsCsv(csvText);
   } catch (e) {
-    return { invited: 0, errors: [e instanceof Error ? e.message : 'CSV invalide'] };
+    return { invited: 0, skipped: 0, errors: [e instanceof Error ? e.message : 'CSV invalide'] };
+  }
+
+  if (rows.length === 0) {
+    return {
+      invited: 0,
+      skipped: 0,
+      errors: [
+        'Aucune ligne de données. Le fichier doit contenir une ligne d’en-tête + au moins 1 apprenant.',
+      ],
+    };
   }
 
   const errors: string[] = [];
   let invited = 0;
+  let skipped = 0;
+  const seenEmails = new Set<string>();
 
   for (let i = 0; i < rows.length; i++) {
+    const lineNo = i + 2;
     const email = (rows[i].email ?? rows[i].mail ?? '').trim().toLowerCase();
-    const firstName = (rows[i].prenom ?? rows[i].first_name ?? rows[i].firstname ?? 'Apprenant').trim();
-    const lastName = (rows[i].nom ?? rows[i].last_name ?? rows[i].lastname ?? '—').trim();
+    const firstName = (
+      rows[i].prenom ??
+      rows[i].first_name ??
+      rows[i].firstname ??
+      'Apprenant'
+    ).trim();
+    const lastName = (
+      rows[i].nom ??
+      rows[i].last_name ??
+      rows[i].lastname ??
+      '—'
+    ).trim();
+
     if (!email) {
-      errors.push(`Ligne ${i + 2} : email manquant`);
+      errors.push(`Ligne ${lineNo} : email manquant`);
       continue;
     }
+    if (seenEmails.has(email)) {
+      errors.push(`Ligne ${lineNo} : email en doublon dans le fichier (${email})`);
+      continue;
+    }
+    seenEmails.add(email);
 
     const parsed = inviteApprenantSchema.safeParse({
       email,
@@ -73,22 +92,23 @@ export async function importApprenantsAction(
       action: 'create',
     });
     if (!parsed.success) {
-      errors.push(`Ligne ${i + 2} : ${parsed.error.issues[0]?.message ?? 'données invalides'}`);
+      errors.push(`Ligne ${lineNo} : ${parsed.error.issues[0]?.message ?? 'données invalides'}`);
       continue;
     }
 
     const result = await inviteOrResendApprenant(parsed.data, user.id);
 
     if (!result.ok) {
-      errors.push(`Ligne ${i + 2} : ${result.error}`);
+      errors.push(`Ligne ${lineNo} (${email}) : ${result.error}`);
     } else if (result.status === 'cree') {
       invited++;
     } else if (result.status === 'deja_invite') {
-      errors.push(`Ligne ${i + 2} : déjà invité (${email})`);
+      skipped++;
+      errors.push(`Ligne ${lineNo} : déjà invité (${email}) — invitation en attente`);
     }
   }
 
-  return { invited, errors };
+  return { invited, skipped, errors };
 }
 
 /** Server action — renvoi d’invitation (équivalent API action=resend). */

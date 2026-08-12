@@ -50,7 +50,7 @@ export function RenvoyerInvitationButton({ invitation }: { invitation: Invitatio
         setMsg(data.error ?? 'Erreur');
         return;
       }
-      setMsg('Invitation renvoyée');
+      setMsg('Email renvoyé (nouveau mot de passe)');
       router.refresh();
     } catch {
       setMsg('Erreur réseau');

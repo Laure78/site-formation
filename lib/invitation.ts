@@ -7,6 +7,7 @@ import {
   invitationExpiresAt,
 } from '@/lib/invitation-token';
 import { sendInvitationEmail } from '@/lib/send-invitation-email';
+import { generateInvitePassword } from '@/lib/password-policy';
 import { randomBytes } from 'crypto';
 
 /** Plafond de renvois d’email par chaîne d’invitation (anti-spam Resend). */
@@ -24,6 +25,8 @@ export const inviteApprenantSchema = z.object({
   formationId: z.string().uuid('Formation invalide'),
   action: z.enum(['create', 'resend']).default('create'),
   invitationId: z.string().uuid().optional(),
+  /** Envoie un mot de passe temporaire dans l’email (défaut : oui). */
+  includePassword: z.boolean().default(true),
 });
 
 export type InviteApprenantInput = z.infer<typeof inviteApprenantSchema>;
@@ -65,7 +68,7 @@ export async function getInvitationByToken(
   return row ?? null;
 }
 
-function tempPassword(): string {
+function bootstrapPassword(): string {
   return randomBytes(24).toString('base64url') + 'Aa1!';
 }
 
@@ -101,7 +104,6 @@ async function ensureInvitedUser(params: {
       full_name: fullName,
       updated_at: new Date().toISOString(),
     };
-    // Ne jamais écraser un rôle staff ; ne forcer apprenant que si déjà apprenant / vide
     if (!existingProfile.role || existingProfile.role === 'apprenant') {
       patch.role = 'apprenant';
     }
@@ -114,7 +116,7 @@ async function ensureInvitedUser(params: {
 
   const { data: created, error: createError } = await admin.auth.admin.createUser({
     email,
-    password: tempPassword(),
+    password: bootstrapPassword(),
     email_confirm: true,
     user_metadata: {
       first_name: params.firstName,
@@ -124,7 +126,6 @@ async function ensureInvitedUser(params: {
   });
   if (createError || !created.user) {
     if (/already|registered|exists/i.test(createError?.message ?? '')) {
-      // Pagination limitée : tenter listUsers puis matching exact
       for (let page = 1; page <= 5; page++) {
         const { data: listed } = await admin.auth.admin.listUsers({ page, perPage: 200 });
         const found = listed?.users?.find((u) => u.email?.toLowerCase() === email);
@@ -172,21 +173,105 @@ async function ensureInvitedUser(params: {
   return { userId: created.user.id };
 }
 
+/**
+ * Pose le mot de passe temporaire, active le compte et inscrit à la formation.
+ * Le mot de passe n’est jamais persisté en clair.
+ */
+async function setPasswordActivateAndEnroll(params: {
+  userId: string;
+  formationId: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+}): Promise<{ ok: true } | { ok: false; error: string }> {
+  const admin = createAdminClient();
+  const fullName = `${params.firstName} ${params.lastName}`.trim();
+
+  const { error: pwdError } = await admin.auth.admin.updateUserById(params.userId, {
+    password: params.password,
+    email_confirm: true,
+  });
+  if (pwdError) {
+    console.error('[setPasswordActivateAndEnroll] password update failed');
+    return { ok: false, error: 'Impossible de définir le mot de passe temporaire.' };
+  }
+
+  await admin
+    .from('profiles')
+    .update({
+      account_status: 'active',
+      first_name: params.firstName,
+      last_name: params.lastName,
+      full_name: fullName || null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', params.userId)
+    .neq('role', 'admin')
+    .neq('role', 'formateur');
+
+  await admin.from('enrollments').upsert(
+    { user_id: params.userId, course_id: params.formationId, progress_percent: 0 },
+    { onConflict: 'user_id,course_id' }
+  );
+
+  return { ok: true };
+}
+
 async function getFormationTitle(formationId: string): Promise<string | null> {
   const admin = createAdminClient();
   const { data } = await admin.from('courses').select('title').eq('id', formationId).maybeSingle();
   return data?.title ?? null;
 }
 
+async function createInvitationRow(params: {
+  email: string;
+  formationId: string;
+  invitedBy: string;
+  firstName: string;
+  lastName: string;
+  userId: string;
+  sentCount: number;
+}): Promise<{ id: string; token: string } | null> {
+  const admin = createAdminClient();
+  const token = generateInvitationToken();
+  const tokenHash = hashInvitationToken(token);
+  const expiresAt = invitationExpiresAt();
+
+  const { data: inserted, error: insertError } = await admin
+    .from('invitations')
+    .insert({
+      email: params.email,
+      formation_id: params.formationId,
+      token_hash: tokenHash,
+      status: 'pending',
+      expires_at: expiresAt.toISOString(),
+      invited_by: params.invitedBy,
+      first_name: params.firstName,
+      last_name: params.lastName,
+      user_id: params.userId,
+      sent_count: params.sentCount,
+    })
+    .select('id')
+    .single();
+
+  if (insertError || !inserted) {
+    console.error('[createInvitationRow] insert failed');
+    return null;
+  }
+  return { id: inserted.id, token };
+}
+
 /**
- * Crée une invitation + envoie l’email, ou indique « déjà invité ».
- * action=resend : révoque l’ancien token, en génère un nouveau, incrémente sent_count.
+ * Crée une invitation + envoie l’email (lien + mot de passe temporaire),
+ * ou indique « déjà invité ».
+ * action=resend : révoque l’ancien token, génère un nouveau MDP, renvoie l’email.
  */
 export async function inviteOrResendApprenant(
   input: InviteApprenantInput,
   invitedBy: string
 ): Promise<InviteApprenantResult> {
   const admin = createAdminClient();
+  const includePassword = input.includePassword !== false;
   const formationTitle = await getFormationTitle(input.formationId);
   if (!formationTitle) {
     return { ok: false, error: 'Formation introuvable', code: 'not_found' };
@@ -213,7 +298,7 @@ export async function inviteOrResendApprenant(
         .select('id, sent_count')
         .eq('email', input.email)
         .eq('formation_id', input.formationId)
-        .in('status', ['pending', 'expired'])
+        .in('status', ['pending', 'expired', 'accepted'])
         .order('created_at', { ascending: false })
         .limit(1)
         .maybeSingle();
@@ -244,42 +329,44 @@ export async function inviteOrResendApprenant(
 
     await admin.from('invitations').update({ status: 'revoked' }).eq('id', current.id);
 
-    const token = generateInvitationToken();
-    const tokenHash = hashInvitationToken(token);
-    const expiresAt = invitationExpiresAt();
+    const temporaryPassword = includePassword ? generateInvitePassword() : null;
+    if (temporaryPassword) {
+      const activated = await setPasswordActivateAndEnroll({
+        userId,
+        formationId: input.formationId,
+        firstName: input.firstName,
+        lastName: input.lastName,
+        password: temporaryPassword,
+      });
+      if (!activated.ok) {
+        return { ok: false, error: activated.error, code: 'auth' };
+      }
+    }
 
-    const { data: inserted, error: insertError } = await admin
-      .from('invitations')
-      .insert({
-        email: input.email,
-        formation_id: input.formationId,
-        token_hash: tokenHash,
-        status: 'pending',
-        expires_at: expiresAt.toISOString(),
-        invited_by: invitedBy,
-        first_name: input.firstName,
-        last_name: input.lastName,
-        user_id: userId,
-        sent_count: nextCount,
-      })
-      .select('id')
-      .single();
-
-    if (insertError || !inserted) {
-      console.error('[inviteOrResend] insert resend failed');
+    const created = await createInvitationRow({
+      email: input.email,
+      formationId: input.formationId,
+      invitedBy,
+      firstName: input.firstName,
+      lastName: input.lastName,
+      userId,
+      sentCount: nextCount,
+    });
+    if (!created) {
       return { ok: false, error: 'Échec de création de l’invitation' };
     }
 
     const sent = await sendInvitationEmail({
       to: input.email,
       formationTitle,
-      token,
+      token: created.token,
       firstName: input.firstName,
+      temporaryPassword,
     });
     if (!sent.ok) {
       return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
     }
-    return { ok: true, status: 'renvoye', invitationId: inserted.id };
+    return { ok: true, status: 'renvoye', invitationId: created.id };
   }
 
   const { data: existingPending } = await admin
@@ -305,48 +392,49 @@ export async function inviteOrResendApprenant(
     .eq('status', 'pending')
     .lt('expires_at', new Date().toISOString());
 
-  const token = generateInvitationToken();
-  const tokenHash = hashInvitationToken(token);
-  const expiresAt = invitationExpiresAt();
+  const temporaryPassword = includePassword ? generateInvitePassword() : null;
+  if (temporaryPassword) {
+    const activated = await setPasswordActivateAndEnroll({
+      userId,
+      formationId: input.formationId,
+      firstName: input.firstName,
+      lastName: input.lastName,
+      password: temporaryPassword,
+    });
+    if (!activated.ok) {
+      return { ok: false, error: activated.error, code: 'auth' };
+    }
+  }
 
-  const { data: inserted, error: insertError } = await admin
-    .from('invitations')
-    .insert({
-      email: input.email,
-      formation_id: input.formationId,
-      token_hash: tokenHash,
-      status: 'pending',
-      expires_at: expiresAt.toISOString(),
-      invited_by: invitedBy,
-      first_name: input.firstName,
-      last_name: input.lastName,
-      user_id: userId,
-      sent_count: 1,
-    })
-    .select('id')
-    .single();
-
-  if (insertError || !inserted) {
-    console.error('[inviteOrResend] insert create failed');
+  const created = await createInvitationRow({
+    email: input.email,
+    formationId: input.formationId,
+    invitedBy,
+    firstName: input.firstName,
+    lastName: input.lastName,
+    userId,
+    sentCount: 1,
+  });
+  if (!created) {
     return { ok: false, error: 'Échec de création de l’invitation' };
   }
 
   const sent = await sendInvitationEmail({
     to: input.email,
     formationTitle,
-    token,
+    token: created.token,
     firstName: input.firstName,
+    temporaryPassword,
   });
   if (!sent.ok) {
     return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
   }
 
-  return { ok: true, status: 'cree', invitationId: inserted.id };
+  return { ok: true, status: 'cree', invitationId: created.id };
 }
 
 /**
- * Demande publique d’un nouveau lien : réponse toujours neutre.
- * Renvoie un email uniquement si une invitation pending/expired existe.
+ * Demande publique d’un nouveau lien / identifiants : réponse toujours neutre.
  */
 export async function requestNewInvitationLink(emailRaw: string): Promise<void> {
   const parsed = z.string().trim().email().max(254).safeParse(emailRaw);
@@ -359,7 +447,7 @@ export async function requestNewInvitationLink(emailRaw: string): Promise<void> 
       .from('invitations')
       .select('id, email, formation_id, first_name, last_name, sent_count, invited_by, user_id')
       .eq('email', email)
-      .in('status', ['pending', 'expired'])
+      .in('status', ['pending', 'expired', 'accepted'])
       .order('created_at', { ascending: false })
       .limit(1)
       .maybeSingle();
@@ -375,6 +463,7 @@ export async function requestNewInvitationLink(emailRaw: string): Promise<void> 
         formationId: inv.formation_id,
         action: 'resend',
         invitationId: inv.id,
+        includePassword: true,
       },
       inv.invited_by || inv.user_id || inv.id
     );

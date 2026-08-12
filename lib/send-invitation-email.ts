@@ -4,6 +4,7 @@ import {
   invitationEmailSubject,
   invitationEmailText,
 } from '@/emails/InvitationApprenantEmail';
+import { LINKS } from '@/lib/internal-links';
 
 function siteBaseUrl(): string {
   return (
@@ -17,11 +18,17 @@ export function buildInviteUrl(token: string): string {
   return `${siteBaseUrl()}/invitation/${token}`;
 }
 
+export function buildLoginUrl(): string {
+  return `${siteBaseUrl()}${LINKS.authConnexion}`;
+}
+
 export async function sendInvitationEmail(params: {
   to: string;
   formationTitle: string;
   token: string;
   firstName?: string | null;
+  /** Mot de passe temporaire — envoyé une seule fois, jamais stocké. */
+  temporaryPassword?: string | null;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM || process.env.INVITATION_FROM_EMAIL;
@@ -33,6 +40,7 @@ export async function sendInvitationEmail(params: {
   }
 
   const inviteUrl = buildInviteUrl(params.token);
+  const loginUrl = buildLoginUrl();
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from,
@@ -41,11 +49,17 @@ export async function sendInvitationEmail(params: {
     react: InvitationApprenantEmail({
       formationTitle: params.formationTitle,
       inviteUrl,
+      loginUrl,
+      email: params.to,
+      temporaryPassword: params.temporaryPassword,
       firstName: params.firstName,
     }),
     text: invitationEmailText({
       formationTitle: params.formationTitle,
       inviteUrl,
+      loginUrl,
+      email: params.to,
+      temporaryPassword: params.temporaryPassword,
       firstName: params.firstName,
     }),
   });
