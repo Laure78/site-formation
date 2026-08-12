@@ -1,6 +1,6 @@
-# Seed LMS — 6 formations catalogue
+# Seed LMS — 5 formations catalogue
 
-Crée / met à jour les **6 parcours officiels** du site (`/formations`) dans la plateforme admin (`/admin/formations`).
+Crée / met à jour les **5 parcours officiels** du site (`/formations`) dans la plateforme admin (`/admin/formations`).
 
 ## Formations
 
@@ -11,7 +11,6 @@ Crée / met à jour les **6 parcours officiels** du site (`/formations`) dans la
 | NIV-03 | `ia-conduite-travaux-suivi-chantier` | `/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf` |
 | NIV-04 | `maitriser-claude-ai-btp` | `/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf` |
 | NIV-05 | `ia-maitrise-oeuvre` | `/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf` |
-| NIV-06 | `formation-claude-ia-btp` | `/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf` |
 
 Chaque cours contient : métadonnées Qualiopi (objectifs, prérequis, programme) · module « Programme & ressources » avec PDF · modules pédagogiques · leçons texte (+ PDF supports NIV-02).
 

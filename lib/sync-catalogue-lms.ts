@@ -42,7 +42,7 @@ export type SyncCatalogueResult = {
 
 /**
  * Crée ou met à jour un cours LMS pour chaque formation du catalogue `/formations`
- * (NIV-01 → NIV-06). Ne détruit pas les modules/leçons existants.
+ * (NIV-01 → NIV-05). Ne détruit pas les modules/leçons existants.
  */
 export async function syncCatalogueFormationsToLms(
   supabase: SupabaseClient,

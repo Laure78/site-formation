@@ -1,7 +1,7 @@
-import { PROOF } from '@/lib/proof';
+import { PREUVES_MENTION_SOURCE } from '@/lib/constants';
 
 export function QualiopiSatisfactionSource({ className = '' }: { className?: string }) {
   return (
-    <p className={`text-xs leading-relaxed text-slate-500 ${className}`}>{PROOF.mentionSource}</p>
+    <p className={`text-xs leading-relaxed text-slate-500 ${className}`}>{PREUVES_MENTION_SOURCE}</p>
   );
 }

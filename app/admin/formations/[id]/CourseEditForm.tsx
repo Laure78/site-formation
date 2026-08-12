@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Save } from 'lucide-react';
-import { TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 
 interface Props {
   courseId: string;
@@ -26,7 +26,7 @@ export function CourseEditForm({ courseId, initial }: Props) {
   const [prerequis, setPrerequis] = useState(initial.prerequis || '');
   const [programme, setProgramme] = useState(initial.programme || '');
   const [price, setPrice] = useState(
-    String(initial.price != null && initial.price > 0 ? initial.price : TARIF_SESSION_FORFAIT_HT)
+    String(initial.price != null && initial.price > 0 ? initial.price : TARIF_SESSION_AVANCE_HT)
   );
   const [published, setPublished] = useState(initial.published);
   const [loading, setLoading] = useState(false);
@@ -124,7 +124,8 @@ export function CourseEditForm({ courseId, initial }: Props) {
             className="mt-1 w-full max-w-xs rounded-lg border border-slate-300 px-4 py-2 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
           <p className="mt-1 text-xs text-slate-500">
-            Forfait unique : 1 200 € HT / session — TVA non applicable (art. 261-4-4° CGI).
+            Niveau 1 : {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT · niveaux 2 :{' '}
+            {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session — TVA non applicable (art. 261-4-4° CGI).
           </p>
         </div>
         <label className="flex items-center gap-2">

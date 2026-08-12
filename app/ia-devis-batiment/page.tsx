@@ -283,7 +283,7 @@ export default function IADevisBatimentPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             <strong className="text-slate-800">Méthode.</strong> Copiez le prompt dans une nouvelle
-            conversation, complétez les éléments entre crochets si nous en avons laissés, puis imposez
+            conversation, complétez les éléments entre crochets si j&apos;en ai laissés, puis imposez
             le format souhaité : tableau pour séparer fournitures et main d&apos;œuvre, TVA à 10 % pour
             une rénovation éligible, mentions de validité et de paiement. Relisez systématiquement : une
             bonne pratique pour le <strong className="text-slate-800">devis intelligent bâtiment</strong>{' '}

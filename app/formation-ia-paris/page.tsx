@@ -8,8 +8,7 @@ import { VoirAussi } from '@/components/VoirAussi';
 import { buildMetadata, getBreadcrumbSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import type { FAQItem } from '@/lib/faq';
 import { FORMATION_COURSE_MODE_ONSITE } from '@/lib/schema-formation-course-jsonld';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION, PREUVES, formatPersonnesFormeesCount } from '@/lib/constants';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
@@ -25,7 +24,7 @@ const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 /** Titre exact demandé — `buildMetadata` conserve le suffixe via titleAbsolute. */
 const META_TITLE_ABSOLUTE = 'Formation IA à Paris — Présentiel BTP | Laure Olivié';
 const META_DESCRIPTION =
-  'Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, 1 592 pros formés. Réservez votre visio.';
+  `Formation IA à Paris : 4h en présentiel pour maîtriser ChatGPT sur vos devis, DCE et comptes rendus. Qualiopi, ${formatPersonnesFormeesCount()} pros formés, ${PREUVES.satisfaction}. Réservez votre visio.`;
 
 export const metadata = buildMetadata({
   title: 'Formation IA à Paris — Présentiel BTP',
@@ -96,7 +95,7 @@ const FAQ_PARIS: FAQItem[] = [
   },
   {
     q: 'Qui peut suivre une formation ChatGPT Paris avec Laure Olivié ?',
-    a: `Les conducteurs de travaux, chargés d'affaires, assistantes travaux, dirigeants de PME BTP et fonctions support qui produisent devis, DCE, mémoires ou comptes rendus. Le public est francilien : Paris (75) et les départements 77, 78, 91, 92, 93, 94 et 95. Aucun prérequis technique avancé : un navigateur et vos dossiers suffisent.`,
+    a: `Les conducteurs de travaux, chargés d'affaires, assistantes travaux, dirigeants de PME BTP et fonctions support qui produisent devis, DCE, mémoires ou comptes rendus. Le public est francilien : ${IDF_ZONE_INTERVENTION}. Aucun prérequis technique avancé : un navigateur et vos dossiers suffisent.`,
   },
   {
     q: 'Sur quels documents travaille-t-on pendant les 4 heures ?',
@@ -108,7 +107,7 @@ const FAQ_PARIS: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous seulement intramuros ou aussi en petite couronne ?',
-    a: `Les deux. Paris (75) est couvert ; les sessions s'étendent aux départements 77, 78, 91, 92, 93, 94 et 95. Pour une vue régionale complète, la page Île-de-France détaille les formats inter et intra sur tout le bassin.`,
+    a: `Les deux. Les sessions couvrent ${IDF_ZONE_INTERVENTION}. Pour une vue régionale complète, la page Île-de-France détaille les formats inter et intra sur tout le bassin.`,
   },
   {
     q: 'Combien de professionnels avez-vous déjà formés ?',
@@ -175,7 +174,7 @@ export default function FormationIaParisPage() {
                 fonctions support des PME du bâtiment et des travaux publics.
               </p>
               <p>
-                {formatProofFormes()} professionnels formés, note moyenne {PROOF.note}. Financement OPCO
+                {formatPersonnesFormeesCount()} professionnels formés, note moyenne {PREUVES.satisfaction}. Financement OPCO
                 possible selon éligibilité — jamais présenté comme acquis.
               </p>
             </EnBref>
@@ -325,9 +324,9 @@ export default function FormationIaParisPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Les sessions ont lieu en présentiel : en <strong>intra</strong> dans les locaux de
-              l&apos;entreprise, ou en <strong>inter</strong> en salle. Paris (75) est couvert, ainsi que les
-              départements 77, 78, 91, 92, 93, 94 et 95. Basée à Guyancourt (78), Laure Olivié se déplace sur
-              vos sites franciliens — bureaux d&apos;études, bases travaux, salles fédérales.
+              l&apos;entreprise, ou en <strong>inter</strong> en salle — {IDF_ZONE_INTERVENTION}. Basée à
+              Guyancourt (78), Laure Olivié se déplace sur vos sites franciliens — bureaux d&apos;études, bases
+              travaux, salles fédérales.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               En intra, le groupe reste homogène (même entreprise, mêmes modèles de documents). En inter, les

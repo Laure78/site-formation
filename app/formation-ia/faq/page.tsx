@@ -16,7 +16,7 @@ const FAQ_ITEMS_LONG_TAIL = [
   },
   {
     q: 'Formation ChatGPT pour électricien financée par Constructys ?',
-    a: "Si votre entreprise est couverte par Constructys et que votre plan de développement des compétences le permet, une formation professionnelle peut être prise en charge selon les règles en vigueur. Vérifiez auprès de votre OPCO et conservez les objectifs pédagogiques clairs (délais, compétences). Nous vous guidons sur la page financement et au besoin en prise de contact.",
+    a: "Si votre entreprise est couverte par Constructys et que votre plan de développement des compétences le permet, une formation professionnelle peut être prise en charge selon les règles en vigueur. Vérifiez auprès de votre OPCO et conservez les objectifs pédagogiques clairs (délais, compétences). Je vous guide sur la page financement et au besoin en prise de contact.",
   },
   {
     q: 'Claude AI peut-il aider à rédiger un mémoire technique BTP ?',
@@ -28,7 +28,7 @@ const FAQ_ITEMS_LONG_TAIL = [
   },
   {
     q: "Comment l'IA aide un plombier à faire ses devis plus vite ?",
-    a: "En transformant un brief (prestations, quantités, contraintes d'accès) en structure de devis, puis en aidant à rédiger les libellés et variantes. L'IA accélère la mise en forme ; vous gardez la main sur les unités, les prix et les hypothèses. Nous insistons sur la relecture et la traçabilité interne.",
+    a: "En transformant un brief (prestations, quantités, contraintes d'accès) en structure de devis, puis en aidant à rédiger les libellés et variantes. L'IA accélère la mise en forme ; vous gardez la main sur les unités, les prix et les hypothèses. J'insiste sur la relecture et la traçabilité interne.",
   },
   {
     q: 'Formation IA pour les pros du BTP éligible OPCO Constructys en Île-de-France ?',
@@ -36,7 +36,7 @@ const FAQ_ITEMS_LONG_TAIL = [
   },
   {
     q: 'Quelle différence entre ChatGPT et Claude AI pour le BTP ?',
-    a: "ChatGPT excelle quand il faut itérer vite sur des formats courts (emails, listes, reformulations). Claude AI est souvent préférable pour analyser ou résumer des textes plus longs, comparer des variantes et produire des plans détaillés. En pratique, beaucoup d'équipes utilisent les deux : nous montrons comment choisir selon le cas.",
+    a: "ChatGPT excelle quand il faut itérer vite sur des formats courts (emails, listes, reformulations). Claude AI est souvent préférable pour analyser ou résumer des textes plus longs, comparer des variantes et produire des plans détaillés. En pratique, beaucoup d'équipes utilisent les deux : je montre comment choisir selon le cas.",
   },
   {
     q: 'Formation IA pour couvreur à Cergy-Pontoise ?',

@@ -1,52 +1,61 @@
 /**
- * Grille commerciale OFC : forfait unique par session, jusqu'à 12 participants.
+ * Grille commerciale OFC — dérivée de `data/formations.ts` (prix, durée, effectifs).
  * TVA : exonération art. 261-4-4° du CGI (formation professionnelle).
  */
 
 import { formatNumberFr } from '@/lib/format-number-fr';
+import {
+  EFFECTIF_CATALOGUE_MAX,
+  FORMATION_NIV01,
+  FORMATION_NIV02,
+  getFormationByCode,
+  libelleDureeFormation,
+  libelleEffectifFormation,
+  libelleEffectifMaxFormation,
+  PRIX_NIVEAU_1_HT,
+  PRIX_NIVEAU_2_HT,
+} from '@/data/formations';
+import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
-export const SESSION_DUREE_LIBELLE = '4 h';
+export const SESSION_DUREE_LIBELLE = FORMATION_NIV01.duree;
 
-/** NIV-04 Maîtriser Claude AI — session matin uniquement */
-export const SESSION_DUREE_MATIN_NIV04 = '4 h · matin (9h00 – 13h00)';
+/** NIV-04 — session matin uniquement */
+export const SESSION_DUREE_MATIN_NIV04 = libelleDureeFormation(
+  getFormationByCode('NIV-04')!
+);
+
+/** Prix niveau 1 (NIV-01) — source FORMATIONS */
+export const TARIF_SESSION_DEBUTANT_HT = PRIX_NIVEAU_1_HT;
+
+/** Prix niveau 2 (NIV-02…06) — source FORMATIONS */
+export const TARIF_SESSION_AVANCE_HT = PRIX_NIVEAU_2_HT;
 
 /**
- * Forfait HT unique pour toutes les formations catalogue / LMS (session complète).
- * Source unique — ne plus distinguer débutant / avancé sur le prix.
+ * @deprecated Préférer le prix par formation (`formation.prixHT` / `entry.prixHT`).
+ * Conservé pour les pages génériques : équivalent prix niveau 2.
  */
-export const TARIF_SESSION_FORFAIT_HT = 1200;
-
-/** @deprecated Alias — même montant que `TARIF_SESSION_FORFAIT_HT`. */
-export const TARIF_SESSION_DEBUTANT_HT = TARIF_SESSION_FORFAIT_HT;
-
-/** @deprecated Alias — même montant que `TARIF_SESSION_FORFAIT_HT`. */
-export const TARIF_SESSION_AVANCE_HT = TARIF_SESSION_FORFAIT_HT;
+export const TARIF_SESSION_FORFAIT_HT = PRIX_NIVEAU_2_HT;
 
 /** Montant HT affiché (espace milliers FR) — ex. 1 200 */
 export function formatTarifHt(amount: number): string {
   return formatNumberFr(amount);
 }
 
-/**
- * @deprecated Utiliser `TARIF_SESSION_FORFAIT_HT`.
- */
-export const TARIF_FORFAIT_DEBUTANT_HT = TARIF_SESSION_FORFAIT_HT;
+/** @deprecated Utiliser `TARIF_SESSION_DEBUTANT_HT`. */
+export const TARIF_FORFAIT_DEBUTANT_HT = TARIF_SESSION_DEBUTANT_HT;
 
-/**
- * @deprecated Utiliser `TARIF_SESSION_FORFAIT_HT`.
- */
-export const TARIF_FORFAIT_AVANCE_HT = TARIF_SESSION_FORFAIT_HT;
+/** @deprecated Utiliser `TARIF_SESSION_AVANCE_HT`. */
+export const TARIF_FORFAIT_AVANCE_HT = TARIF_SESSION_AVANCE_HT;
 
 export type NiveauTarif = 'debutant' | 'avance';
 
-/** Forfait unique quel que soit le niveau pédagogique. */
-export function tarifHtPourNiveau(_niveau?: NiveauTarif): number {
-  return TARIF_SESSION_FORFAIT_HT;
+export function tarifHtPourNiveau(niveau?: NiveauTarif): number {
+  return niveau === 'avance' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
 }
 
-/** Montant HT facturé pour la session (offre catalogue / comparatif). */
-export function tarifHtDepuisBadgeCatalogue(_level?: 'DÉBUTANT' | 'AVANCÉ'): number {
-  return TARIF_SESSION_FORFAIT_HT;
+/** Montant HT selon badge catalogue (débutant / avancé). */
+export function tarifHtDepuisBadgeCatalogue(level?: 'DÉBUTANT' | 'AVANCÉ'): number {
+  return level === 'AVANCÉ' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
 }
 
 /** Mention légale TVA — formations professionnelles. */
@@ -56,23 +65,29 @@ export const MENTIONS_TVA_EXONERATION =
 /** Version courte pour badges / libellés. */
 export const MENTIONS_TVA_EXONERATION_COURTE = 'TVA non applicable (art. 261-4-4° CGI)';
 
-/** Effectif maximal par groupe (sessions catalogue, inter ou intra) */
-export const EFFECTIF_GROUPE_MAX = 12;
+/** Effectif maximal catalogue (NIV-01) */
+export const EFFECTIF_GROUPE_MAX = EFFECTIF_CATALOGUE_MAX;
 
-/** Libellé carte / ligne tableau : forfait session */
-export function libelleTarifParticipant(_level?: 'DÉBUTANT' | 'AVANCÉ'): string {
-  const n = formatTarifHt(TARIF_SESSION_FORFAIT_HT);
-  return `${n} € HT / session forfaitaire (max ${EFFECTIF_GROUPE_MAX} participants) — ${MENTIONS_TVA_EXONERATION_COURTE}`;
+/** Libellé carte / ligne tableau : forfait session selon niveau badge */
+export function libelleTarifParticipant(level?: 'DÉBUTANT' | 'AVANCÉ'): string {
+  const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(level));
+  const effectif =
+    level === 'AVANCÉ'
+      ? libelleEffectifMaxFormation(FORMATION_NIV02)
+      : libelleEffectifMaxFormation(FORMATION_NIV01);
+  return `${n} € HT / session forfaitaire (${effectif}) — ${MENTIONS_TVA_EXONERATION_COURTE}`;
 }
 
-/** Libellé pour badges / cartes (icône « participants ») */
-export const LIBELLE_EFFECTIF_GROUPE_COURT = `${EFFECTIF_GROUPE_MAX} participants max`;
+/** Libellé pour badges / cartes (icône « participants ») — NIV-01 */
+export const LIBELLE_EFFECTIF_GROUPE_COURT = libelleEffectifMaxFormation(FORMATION_NIV01);
 
-/** Effectif formations niveau avancé NIV-02 (appels d'offres) — programme officiel */
-export const LIBELLE_EFFECTIF_GROUPE_NIV02 = '8 à 12 participants';
+/** Effectif NIV-02 (appels d'offres) */
+export const LIBELLE_EFFECTIF_GROUPE_NIV02 = libelleEffectifFormation(FORMATION_NIV02);
 
-/** Effectif formation NIV-03 conduite de travaux — création de skills */
-export const LIBELLE_EFFECTIF_GROUPE_NIV03 = '8 participants max';
+/** Effectif NIV-03 / NIV-04 (max 8) */
+export const LIBELLE_EFFECTIF_GROUPE_NIV03 = libelleEffectifMaxFormation(
+  getFormationByCode('NIV-03')!
+);
 
 /** Phrase complète pour modalités et encarts */
 export const LIBELLE_EFFECTIF_GROUPE = `Groupe de ${EFFECTIF_GROUPE_MAX} participants maximum`;
@@ -85,7 +100,7 @@ export const PERIMETRE_FORMATIONS_COURT = MODALITE_POSITIONNEMENT;
 
 /** Périmètre géographique et modalité — formulation standard avec exclusions explicites */
 export const PERIMETRE_FORMATIONS_STANDARD =
-  `Sessions inter en salle ou intra dans vos locaux (Paris et départements 77 à 95) — ${MODALITE_POSITIONNEMENT}.`;
+  `Sessions inter en salle ou intra dans vos locaux (${IDF_ZONE_INTERVENTION}) — ${MODALITE_POSITIONNEMENT}.`;
 
 /** Formulation standard — modalités (FAQ, pages, llms.txt) */
 export const MODALITE_FORMATIONS_STANDARD = PERIMETRE_FORMATIONS_STANDARD;
@@ -96,11 +111,24 @@ export const MODALITE_FORMATIONS_PRESENTIEL =
 
 /** Toutes les formations catalogue « niveau avancé » (ex. NIV-02 appels d'offres) */
 export const EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE =
-  'Abonnement Claude Pro (20 €/mois) et Cowork installé sur le poste requis pour le niveau avancé.';
+  'Un abonnement Claude AI Pro actif par participant (environ 18 € HT/mois, à souscrire par l\'entreprise avant la session) — non inclus dans le forfait.';
 
-/** Formations catalogue « niveau débutant » (BTP-01, BTP-04, etc.) — comptes gratuits suffisants */
+/**
+ * Prérequis communs — formations catalogue niveau 2 (Qualiopi + fiches).
+ * Ordre figé pour affichage cohérent.
+ */
+export const PREREQUIS_NIVEAU_2 = [
+  'Ordinateur portable par participant + connexion internet',
+  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  'Avoir suivi le niveau 1 ou pratiquer déjà l\'IA générative au quotidien',
+] as const;
+
+/**
+ * Comptes IA — intro catalogue / encart tarifs.
+ * Niveau 1 : gratuit OK · Niveaux 2 : Claude AI Pro requis (hors forfait).
+ */
 export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
-  'Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini.';
+  'Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit. Niveaux 2 : un abonnement Claude AI Pro par participant est requis (non inclus dans le forfait).';
 
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session (${LIBELLE_EFFECTIF_GROUPE_COURT}). ${MENTIONS_TVA_EXONERATION}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} — niveau 1 : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT (${libelleEffectifFormation(FORMATION_NIV01)}) ; niveaux 2 : ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT (effectifs selon fiche). ${MENTIONS_TVA_EXONERATION}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

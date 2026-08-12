@@ -298,7 +298,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
             Visio découverte gratuite — 30 minutes
           </h2>
           <p className="mt-3 leading-relaxed text-blue-100">
-            Échangeons sur vos CR, PPSPS et dossiers chantier : nous identifions les usages IA qui vous feront
+            Échangeons sur vos CR, PPSPS et dossiers chantier : j&apos;identifie les usages IA qui vous feront
             gagner le plus de temps dès la première semaine.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
@@ -470,7 +470,7 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
-            laureolivie@yahoo.fr ·{' '}
+            contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">
               www.laureolivie.fr
             </a>

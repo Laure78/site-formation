@@ -277,7 +277,7 @@ export default function FormationIATravauxPublicsLandingPage() {
               OPCO. Pour les entreprises du secteur BTP et des travaux publics, le financement passe
               en général par l&apos;<strong>OPCO Constructys</strong> (périmètre BTP / TP / négoce
               de matériaux), dans le cadre du plan de développement des compétences. Les modalités
-              exactes (plafonds, délais de dépôt sur la plateforme eGestion) évoluent : nous vous
+              exactes (plafonds, délais de dépôt sur la plateforme eGestion) évoluent : je vous
               indiquons les repères à jour sur votre <strong>devis personnalisé</strong>.
             </p>
             <p>
@@ -315,7 +315,7 @@ export default function FormationIATravauxPublicsLandingPage() {
           </h2>
           <p className="mt-4 text-lg text-slate-300">
             Décrivez votre structure (routes, VRD, génie civil, terrassement…) et le nombre de
-            participants : nous revenons vers vous avec une proposition adaptée et les options de{' '}
+            participants : je reviens vers vous avec une proposition adaptée et les options de{' '}
             <strong>prise en charge OPCO</strong>.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

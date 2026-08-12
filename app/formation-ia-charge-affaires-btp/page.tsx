@@ -10,7 +10,7 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { VoirAussi } from '@/components/VoirAussi';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -141,7 +141,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Où intervenez-vous en Île-de-France ?',
-    a: 'Présentiel uniquement : Paris (75) et départements 77, 78, 91, 92, 93, 94, 95 — intra dans vos locaux ou inter en salle.',
+    a: `Présentiel uniquement : ${IDF_ZONE_INTERVENTION} — intra dans vos locaux ou inter en salle.`,
   },
   {
     q: "Comment l'IA aide-t-elle un chargé d'affaires au quotidien ?",

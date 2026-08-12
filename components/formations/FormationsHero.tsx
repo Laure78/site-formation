@@ -6,7 +6,7 @@ import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
-import { PERIMETRE_FORMATIONS_COURT, formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
+import { PERIMETRE_FORMATIONS_COURT, formatTarifHt, TARIF_SESSION_DEBUTANT_HT, TARIF_SESSION_AVANCE_HT, SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
@@ -21,14 +21,15 @@ const QUICK_LINKS = [
 export function FormationsHero() {
   return (
     <MarketingLightHero
-      eyebrow={`Catalogue 2026 · ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi`}
-      title={`Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h (niveau 1 et niveau 2), programmes PDF`}
+      eyebrow={`${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi`}
+      title={`Catalogue des formations IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi de ${SESSION_DUREE_LIBELLE}`}
       titleId="formations-catalogue-hero-h1"
       description={
         <>
-          Sessions Qualiopi de 4 h en présentiel — {PERIMETRE_FORMATIONS_COURT}. Devis, appels d&apos;offres,
-          conduite de travaux, Claude AI : forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT
-          par session, financement possible selon éligibilité (Constructys).
+          Sessions Qualiopi de {SESSION_DUREE_LIBELLE} en présentiel — {PERIMETRE_FORMATIONS_COURT}. Devis, appels
+          d&apos;offres, conduite de travaux, Claude AI : niveau 1 {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)}&nbsp;€&nbsp;HT
+          · niveaux 2 {formatTarifHt(TARIF_SESSION_AVANCE_HT)}&nbsp;€&nbsp;HT, financement partiel possible selon
+          éligibilité (Constructys).
         </>
       }
       stats={[

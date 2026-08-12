@@ -27,6 +27,7 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
+import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
@@ -253,20 +254,20 @@ export default function FormationIAAppelsOffreBTPPage() {
               {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session.
             </span>
           </li>
-          <li className="flex gap-2">
-            <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-            <span>
-              <strong>Prérequis :</strong> abonnement Claude Pro (20 €/mois) et Cowork installé sur le poste. Documents
-              à préparer : DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de votre entreprise.
-              Avoir suivi la session niveau 1 « L&apos;IA au service des professionnels du BTP » ou maîtriser les bases
-              d&apos;une IA générative.
-            </span>
-          </li>
+            <li className="flex gap-2">
+              <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+              <PrerequisNiveau2
+                extras={[
+                  'Documents à préparer : DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de votre entreprise.',
+                  'Cowork installé sur le poste.',
+                ]}
+              />
+            </li>
         </ul>
         <p className="mt-4 text-sm text-slate-600">
           Devis et convention :{' '}
-          <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
-            laureolivie@yahoo.fr
+          <a href="mailto:contact@laureolivie.fr" className="font-medium text-[var(--accent)] hover:underline">
+            contact@laureolivie.fr
           </a>
         </p>
       </section>

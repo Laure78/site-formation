@@ -1,9 +1,7 @@
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { PREUVES_FEDERATIONS_OPCO } from '@/lib/constants';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-
-const ffbSocialProofLine = `Référence FFB : ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}`;
 
 const CARTES = [
   {
@@ -16,7 +14,7 @@ const CARTES = [
   },
   {
     title: 'Fédérations & OPCO',
-    desc: `Proposez à vos adhérents une formation IA concrète, avec des résultats mesurables. ${ffbSocialProofLine}.`,
+    desc: `Proposez à vos adhérents une formation IA concrète, avec des résultats mesurables. ${PREUVES_FEDERATIONS_OPCO}`,
   },
   {
     title: 'Bureaux d’études',

@@ -1,8 +1,9 @@
 /**
- * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-06).
+ * JSON-LD `Course` — catalogue officiel (NIV-01 à NIV-05).
  * Données fixes : `lib/schema-constants.ts`, `lib/internal-links.ts`, `lib/tarifs-sessions.ts`.
  * Objectifs pédagogiques (`teaches`) : source `lib/formations-catalogue-display.ts`.
  */
+import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormation } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
@@ -18,9 +19,6 @@ import {
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
-import {
-  TARIF_SESSION_FORFAIT_HT,
-} from '@/lib/tarifs-sessions';
 
 const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], string> = {
   [LINKS.formationIaBtpNiveau1BatimentTp]: 'NIV-01',
@@ -28,18 +26,29 @@ const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], 
   [LINKS.formationConduiteTravauxSuiviChantier]: 'NIV-03',
   [LINKS.formationMaitriserClaudeAiBtp]: 'NIV-04',
   [LINKS.formationIaMaitriseOeuvre]: 'NIV-05',
-  [LINKS.formationClaudeIaBtpFiche]: 'NIV-06',
 };
 
-const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
-  'NIV-01': 'Forfait unique session groupe HT — max 12 participants',
-  'NIV-02': 'Forfait unique session groupe HT — 8 à 12 participants',
-  'NIV-03': 'Forfait unique session groupe HT — 8 participants max',
-  'NIV-04': 'Forfait unique session groupe HT — matin, 8 participants max',
-  'NIV-05': 'Forfait unique session groupe HT — 3 à 8 participants',
-  'NIV-06': 'Forfait unique session groupe HT — intra, 4 h matin, 8 participants max',
-};
+function priceSpecDescription(ref: string): string {
+  const f = getFormationByCode(ref);
+  if (!f) return 'Forfait session groupe HT';
+  const effectif =
+    f.effectifMin === f.effectifMax
+      ? libelleEffectifMaxFormation(f)
+      : libelleEffectifFormation(f);
+  const matin = f.horaires ? ', matin' : '';
+  return `Forfait session groupe HT${matin} — ${effectif}`;
+}
 
+const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = Object.fromEntries(
+  (['NIV-01', 'NIV-02', 'NIV-03', 'NIV-04', 'NIV-05'] as const).map((ref) => [
+    ref,
+    priceSpecDescription(ref),
+  ])
+);
+
+function prixCatalogue(ref: string): number {
+  return getFormationByCode(ref)!.prixHT;
+}
 function teachesFromCatalogue(ref: string): string[] {
   const entry = getFormationCatalogueByRef(ref);
   if (!entry?.objectifs?.length) {
@@ -55,14 +64,12 @@ export type CatalogueCourseJsonLdConfig = {
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
-    | typeof LINKS.formationIaMaitriseOeuvre
-    | typeof LINKS.formationClaudeIaBtpFiche;
+    | typeof LINKS.formationIaMaitriseOeuvre;
   name: string;
   description: string;
-  /** Montant HT — omis pour NIV-06 (intra sur devis). */
   price?: number;
   keywords: readonly string[];
-  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05' | 'NIV-06';
+  courseCode: 'NIV-01' | 'NIV-02' | 'NIV-03' | 'NIV-04' | 'NIV-05';
   educationalLevel: 'Beginner' | 'Advanced';
 };
 
@@ -72,11 +79,9 @@ export type FormationCatalogueRichCourseConfig = {
     | typeof LINKS.formationAO
     | typeof LINKS.formationConduiteTravauxSuiviChantier
     | typeof LINKS.formationMaitriserClaudeAiBtp
-    | typeof LINKS.formationIaMaitriseOeuvre
-    | typeof LINKS.formationClaudeIaBtpFiche;
+    | typeof LINKS.formationIaMaitriseOeuvre;
   name: string;
   description: string;
-  /** Montant HT — `undefined` = sur devis (NIV-06). */
   price?: number;
   educationalLevel: 'Débutant' | 'Avancé';
   teaches: readonly string[];
@@ -87,7 +92,7 @@ export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
   name: "L'IA au service des pros du bâtiment et des travaux publics",
   description:
     'Formation IA niveau 1 pour le BTP : devis, comptes rendus, administratif. 4 h, présentiel Île-de-France.',
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-01'),
   keywords: ['Devis BTP', 'administratif', 'comptes rendus', 'PPSPS', 'construction'],
   courseCode: 'NIV-01',
   educationalLevel: 'Beginner',
@@ -98,7 +103,7 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
     "Formation IA niveau 2 : appels d'offres BTP, DCE, mémoire technique (Claude AI). 4 h, présentiel Île-de-France.",
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-02'),
   keywords: ['DCE', 'mémoire technique', 'Claude AI Pro', 'Cowork', 'Skills'],
   courseCode: 'NIV-02',
   educationalLevel: 'Advanced',
@@ -108,7 +113,7 @@ export const FORMATION_RICH_COURSE_NIV01: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationIaBtpNiveau1BatimentTp,
   name: CATALOGUE_COURSE_IA_BTP_NIV01.name,
   description: CATALOGUE_COURSE_IA_BTP_NIV01.description,
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-01'),
   educationalLevel: 'Débutant',
   teaches: teachesFromCatalogue('NIV-01'),
 };
@@ -117,7 +122,7 @@ export const FORMATION_RICH_COURSE_NIV02: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationAO,
   name: CATALOGUE_COURSE_IA_AO_NIV02.name,
   description: CATALOGUE_COURSE_IA_AO_NIV02.description,
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-02'),
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-02'),
 };
@@ -127,7 +132,7 @@ export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfi
   name: "L'IA appliquée à la conduite de travaux",
   description:
     'Formation IA niveau 2 : conduite de travaux et suivi chantier (CCTP, CR, PPSPS). 4 h, présentiel Île-de-France.',
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-03'),
   keywords: ['CCTP', 'DPGF', 'PPSPS', 'skills Claude', 'conduite de travaux'],
   courseCode: 'NIV-03',
   educationalLevel: 'Advanced',
@@ -137,17 +142,16 @@ export const FORMATION_RICH_COURSE_NIV03: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationConduiteTravauxSuiviChantier,
   name: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.name,
   description: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.description,
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-03'),
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-03'),
 };
 
 export const CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04: CatalogueCourseJsonLdConfig = {
   path: LINKS.formationMaitriserClaudeAiBtp,
-  name: 'Maîtriser Claude AI pour le BTP',
-  description:
-    'Formation IA niveau 2 : Maîtriser Claude AI pour le BTP (Projets, Skills, Cowork, Code). 4 h, présentiel Île-de-France.',
-  price: TARIF_SESSION_FORFAIT_HT,
+  name: getFormationByCode('NIV-04')!.titre,
+  description: `${getFormationByCode('NIV-04')!.accroche} Session ${getFormationByCode('NIV-04')!.duree}, présentiel Île-de-France, Qualiopi.`,
+  price: prixCatalogue('NIV-04'),
   keywords: ['Projets Claude', 'Skills', 'Cowork', 'Claude Code', 'connecteurs BTP'],
   courseCode: 'NIV-04',
   educationalLevel: 'Advanced',
@@ -157,7 +161,7 @@ export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationMaitriserClaudeAiBtp,
   name: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.name,
   description: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.description,
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-04'),
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-04'),
 };
@@ -167,7 +171,7 @@ export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig
   name: "L'IA au service des maîtres d'œuvre",
   description:
     "Formation IA niveau 2 pour maîtres d'œuvre : DCE, CR chantier, OS, réserves. 4 h, présentiel Île-de-France.",
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-05'),
   keywords: ['MOE', 'MOEX', 'DCE', 'CR chantier', 'réserves', 'Claude', 'ChatGPT'],
   courseCode: 'NIV-05',
   educationalLevel: 'Advanced',
@@ -177,19 +181,9 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationIaMaitriseOeuvre,
   name: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.name,
   description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
-  price: TARIF_SESSION_FORFAIT_HT,
+  price: prixCatalogue('NIV-05'),
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-05'),
-};
-
-export const FORMATION_RICH_COURSE_CLAUDE_SKILLS_BTP: FormationCatalogueRichCourseConfig = {
-  path: LINKS.formationClaudeIaBtpFiche,
-  name: 'Claude IA pour le BTP : Chat, Cowork & Code',
-  description:
-    'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure. Présentiel Île-de-France.',
-  price: TARIF_SESSION_FORFAIT_HT,
-  educationalLevel: 'Avancé',
-  teaches: teachesFromCatalogue('NIV-06'),
 };
 
 function buildCatalogueOffer(
@@ -221,7 +215,7 @@ function buildCatalogueOffer(
   return offer;
 }
 
-/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-06 (Rich Results). */
+/** JSON-LD `Course` enrichi — fiches catalogue NIV-01 à NIV-05 (Rich Results). */
 export function buildFormationCatalogueRichCourseJsonLd(
   config: FormationCatalogueRichCourseConfig
 ): Record<string, unknown> {
@@ -276,7 +270,6 @@ export function buildCatalogueCourseJsonLd(
     'NIV-03': FORMATION_RICH_COURSE_NIV03,
     'NIV-04': FORMATION_RICH_COURSE_NIV04,
     'NIV-05': FORMATION_RICH_COURSE_NIV05,
-    'NIV-06': FORMATION_RICH_COURSE_CLAUDE_SKILLS_BTP,
   };
   const rich = richByCode[config.courseCode];
   if (!rich) {
@@ -310,8 +303,4 @@ export function buildCatalogueCourseMaitriserClaudeNiv04JsonLd(): Record<string,
 
 export function buildCatalogueCourseMaitriseOeuvreNiv05JsonLd(): Record<string, unknown> {
   return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_NIV05);
-}
-
-export function buildClaudeIaChatCoworkCodeSkillsBtpJsonLd(): Record<string, unknown> {
-  return buildFormationCatalogueRichCourseJsonLd(FORMATION_RICH_COURSE_CLAUDE_SKILLS_BTP);
 }

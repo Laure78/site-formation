@@ -545,12 +545,12 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'En conclusion',
         content:
-          'Ce comparatif ChatGPT Claude Gemini BTP ne remplace pas un essai sur votre bureau : les outils évoluent, et ce qui compte est ce que vous validez devant un client ou dans un marché public. En formation, je vous montre les trois sur vos documents réels — devis, modèles de mails, extraits de pièces — pour que chacun reparte avec une feuille de route claire, sans promesse miracle. Si vous voulez qu’on verrouille ça ensemble avec votre métier (bâtiment, travaux publics, sous-traitance), c’est précisément le programme que je porte chez OFC Création d’Entreprise, avec certification Qualiopi et financement possible via l’OPCO Constructys selon les règles en vigueur.',
+          'Ce comparatif ChatGPT Claude Gemini BTP ne remplace pas un essai sur votre bureau : les outils évoluent, et ce qui compte est ce que vous validez devant un client ou dans un marché public. En formation Qualiopi, j’enseigne Claude AI (outil principal) et ChatGPT (usages administratifs) sur vos documents réels — devis, modèles de mails, extraits de pièces — pour que chacun reparte avec une feuille de route claire, sans promesse miracle. Si vous voulez qu’on verrouille ça ensemble avec votre métier (bâtiment, travaux publics, sous-traitance), c’est précisément le programme que je porte chez OFC Création d’Entreprise, avec certification Qualiopi et financement possible via l’OPCO Constructys selon les règles en vigueur.',
       },
       {
         type: 'cta',
         content:
-          'En formation, je vous montre les 3 outils sur vos documents réels — devis, courriers, appels d\'offres. Formation IA appliquée au bâtiment, Qualiopi, financement possible selon éligibilité.',
+          'En formation Qualiopi, Claude AI est l’outil principal enseigné ; ChatGPT sert aux usages administratifs et à la comparaison — sur vos devis, courriers et appels d\'offres. Financement possible selon éligibilité.',
         formationHref: '/formations',
       },
     ],
@@ -978,7 +978,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Questions fréquentes sur la formation IA pour les pros du BTP',
         content: [
           'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
-          'La formation inclut-elle un suivi post-formation ? — Oui. Support WhatsApp, accès 1 an aux ressources pédagogiques, suivi personnalisé pour garantir l\'application des acquis.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
           `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans de terrain BTP (conduite de chantier) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certification Qualiopi.`,
           'La formation est-elle éligible au CPF ? — Les formations présentielles accompagnées sont financement possible selon éligibilité pour les entreprises BTP selon les règles en vigueur. Contactez OFC Création d\'Entreprise pour vérifier votre éligibilité.',
@@ -986,7 +985,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'cta',
-        content: `Découvrez nos formations IA pour les pros du BTP certifiées Qualiopi. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Financement possible selon éligibilité.`,
+        content: `Découvrez mes formations IA pour les pros du BTP certifiées Qualiopi. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Financement possible selon éligibilité.`,
         formationHref: '/formations',
       },
     ],
@@ -1077,7 +1076,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'html',
         title: 'Formation ChatGPT pour devis BTP : comment aller plus loin ?',
-        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Présentiel uniquement · Île-de-France uniquement. Le cas chronométré est détaillé dans <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>. La formation inclut : création de prompts personnalisés pour votre métier, intégration dans votre workflow, suivi post-formation 1 an.</p>`,
+        content: `<p class="text-slate-600 leading-relaxed">Laure Olivié forme les dirigeants et équipes du BTP à automatiser leurs devis avec ChatGPT. La <a href="${LINKS.formationIaBtpNiveau1BatimentTp}" class="text-[var(--accent)] font-medium underline">formation IA bâtiment &amp; travaux publics</a> (session 4 h), certifiée Qualiopi, financement possible selon éligibilité (Constructys, OPCO), reprend ces prompts sur vos documents. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Présentiel uniquement · Île-de-France uniquement. Le cas chronométré est détaillé dans <a href="${LINKS.blogDevisBtpChatgpt20Minutes}" class="text-[var(--accent)] font-medium underline">devis ChatGPT BTP en 20 minutes</a>. La formation inclut : création de prompts personnalisés pour votre métier et intégration dans votre workflow.</p>`,
       },
       {
         type: 'faq',
@@ -1296,7 +1295,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'paragraph',
         title: 'Comment l’IA automatise la rédaction d’un CR de chantier',
         content:
-          'L’IA ne remplace ni votre jugement ni votre responsabilité : elle prend en charge la mise en forme, la structuration et une première rédaction à partir de vos entrées brutes. Vous validez le fond, les noms, les délais et les formulations sensibles. Le processus ci-dessous est celui que nous faisons pratiquer en formation sur des cas réels.',
+          'L’IA ne remplace ni votre jugement ni votre responsabilité : elle prend en charge la mise en forme, la structuration et une première rédaction à partir de vos entrées brutes. Vous validez le fond, les noms, les délais et les formulations sensibles. Le processus ci-dessous est celui que je fais pratiquer en formation sur des cas réels.',
       },
       {
         type: 'list',
@@ -1786,7 +1785,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'L’IA remplace-t-elle le chargé d’affaires ? — Non. Elle accélère la lecture et l’extraction ; le métier reste indispensable sur la faisabilité, le prix, la stratégie de réponse et la relation avec le maître d’ouvrage.',
           'Combien de temps pour analyser un CCTP avec l’IA ? — Avec la méthode en cinq étapes et des PDF exploitables, comptez souvent 20 à 50 minutes pour un CCTP d’environ 80 pages selon la complexité, plus votre temps de relecture.',
           'La formation IA appliquée au bâtiment est-elle financement possible selon éligibilité (Constructys) ? — Les actions certifiées Qualiopi d’OFC Création d’Entreprise peuvent être financées dans le cadre du plan de développement des compétences selon les règles Constructys et votre situation (plafonds, dont le plafond couramment cité de 24 € HT par heure et par stagiaire pour le coût pédagogique — à confirmer au moment du dossier). Les très petites entreprises disposent aussi de règles spécifiques sur la prise en charge des frais de salaires (par exemple 15 € HT par heure et par stagiaire dans les cas prévus par la branche).',
-          'Comment monter un dossier Constructys ? — Le dossier se dépose sur eGestion ; un délai minimum de quinze jours avant le début de l’action est habituellement requis. Nous vous guidons sur le programme et les pièces — prenez rendez-vous pour un premier échange.',
+          'Comment monter un dossier Constructys ? — Le dossier se dépose sur eGestion ; un délai minimum de quinze jours avant le début de l’action est habituellement requis. Je vous guide sur le programme et les pièces — prenez rendez-vous pour un premier échange.',
         ],
       },
       {

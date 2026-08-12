@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { formatPersonnesFormeesCount } from '@/lib/constants';
+import { formatPersonnesFormeesCount, formatPreuvesMajLe, PREUVES } from '@/lib/constants';
 import { QUALIOPI_STATS, QUALIOPI_SATISFACTION_SOURCING } from '@/config/qualiopi';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 
 // À mettre à jour chaque année — source : registre des sessions OFC
 const INDICATEURS_QUALIOPI = {
   anneeReference: '2025',
-  dateMiseAJour: QUALIOPI_STATS.DATE_MAJ,
+  dateMiseAJour: formatPreuvesMajLe(QUALIOPI_STATS.DATE_MAJ),
   tauxRealisation: '100 %',
   tauxAssiduite: '98 %',
 } as const;
@@ -65,7 +65,7 @@ export default function IndicateursResultatsPage() {
         <IndicateurCard
           label="Nombre de stagiaires formés (cumul)"
           value={formatPersonnesFormeesCount()}
-          hint={`Période de référence : ${QUALIOPI_STATS.PERIODE_DEBUT} — ${QUALIOPI_STATS.PERIODE_FIN}`}
+          hint={`Période de référence : ${PREUVES.periode} · ${QUALIOPI_STATS.NB_REPONDANTS} répondants`}
         />
         <IndicateurCard
           label="Taux de réalisation des sessions"

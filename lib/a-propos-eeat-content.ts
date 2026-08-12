@@ -27,7 +27,7 @@ export const A_PROPOS_AUTORITE_PARAGRAPHS = [
   `En tant qu'**instructrice LinkedIn Learning**, mes cours en ligne sont publics, vérifiables et complètent les sessions OFC en présentiel. Cette double présence — plateforme internationale et terrain Île-de-France — renforce la crédibilité pour les entreprises qui hésitent encore entre « buzz IA » et outil utile au quotidien.`,
 ] as const;
 
-export const A_PROPOS_CLIENTS_INTRO = `Mes clients et partenaires couvrent l'écosystème BTP francilien : fédérations professionnelles qui référencent l'organisme, OPCO qui instruisent les dossiers, PME qui montent en compétence en intra, et bureaux d'études qui cherchent à accélérer la production documentaire sans sacrifier la qualité technique. Chaque collaboration est construite sur des **objectifs pédagogiques explicites** et un **suivi post-formation** adapté au niveau du groupe.`;
+export const A_PROPOS_CLIENTS_INTRO = `Mes clients et partenaires couvrent l'écosystème BTP francilien : fédérations professionnelles qui référencent l'organisme, OPCO qui instruisent les dossiers, PME qui montent en compétence en intra, et bureaux d'études qui cherchent à accélérer la production documentaire sans sacrifier la qualité technique. Chaque collaboration est construite sur des **objectifs pédagogiques explicites**.`;
 
 export const A_PROPOS_MISSION = {
   mission: 'Transformer la productivité BTP par l\'IA opérationnelle',

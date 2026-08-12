@@ -3,6 +3,7 @@
  * Présentiel Île-de-France · Qualiopi · OFC Création d'Entreprise.
  */
 import type { FAQItem } from '@/lib/faq';
+import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 
@@ -94,7 +95,7 @@ export const GROS_OEUVRE_INTERNAL_LINKS = [
   {
     href: LINKS.formationIleDeFrance,
     title: 'Formation IA BTP Île-de-France',
-    description: 'Couverture géo Paris et départements 77 à 95 — présentiel uniquement.',
+    description: `Couverture géo ${IDF_ZONE_INTERVENTION} — présentiel uniquement.`,
   },
   {
     href: LINKS.formationIaMaconBtp,

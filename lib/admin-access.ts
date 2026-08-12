@@ -1,11 +1,13 @@
 import { createClient } from '@/lib/supabase/server';
-import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { getProfile, isAdmin, type Profile, type UserRole } from '@/lib/auth';
+
+/** Compte admin (auth Supabase) — distinct de l’email public CONTACT. */
+const DEFAULT_ADMIN_LOGIN_EMAIL = 'laureolivie@yahoo.fr';
 
 /** Emails autorisés à accéder à /admin (liste blanche, défense en profondeur). */
 function parseAllowedAdminEmails(): Set<string> {
   const fromEnv = process.env.ADMIN_ALLOWED_EMAILS?.trim();
-  const raw = fromEnv || SCHEMA_CONTACT.email;
+  const raw = fromEnv || DEFAULT_ADMIN_LOGIN_EMAIL;
   return new Set(
     raw
       .split(',')
@@ -48,9 +50,11 @@ export function sanitizeInternalPath(raw: string | null | undefined): string | n
   return path;
 }
 
+export type AdminAccessDeniedReason = 'unauthenticated' | 'forbidden';
+
 export type AdminAccessResult =
   | { ok: true; userId: string; profile: Profile; email: string }
-  | { ok: false; reason: 'unauthenticated' | 'forbidden' };
+  | { ok: false; reason: AdminAccessDeniedReason };
 
 /** Vérifie session + droits admin (server components, actions, routes API). */
 export async function requireAdminAccess(): Promise<AdminAccessResult> {
@@ -71,7 +75,7 @@ export async function requireAdminAccess(): Promise<AdminAccessResult> {
   return { ok: true, userId: user.id, profile: profile!, email: user.email };
 }
 
-export function adminAccessDeniedMessage(reason: AdminAccessResult['reason']): string {
+export function adminAccessDeniedMessage(reason: AdminAccessDeniedReason): string {
   if (reason === 'unauthenticated') return 'Non authentifié';
   return 'Accès réservé aux administrateurs autorisés';
 }

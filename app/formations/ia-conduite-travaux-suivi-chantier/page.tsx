@@ -27,6 +27,7 @@ import {
 
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
+import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
@@ -238,11 +239,11 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             </li>
             <li className="flex gap-2">
               <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              <span>
-                <strong>Prérequis :</strong> avoir suivi le niveau 1 « L&apos;IA au service des pros du bâtiment et
-                des travaux publics » ou pratiquer déjà un outil d&apos;IA générative. Compte Claude Pro recommandé.
-                Documents utiles : CCTP/DPGF récents, modèles de CR et courriers ST anonymisés.
-              </span>
+              <PrerequisNiveau2
+                extras={[
+                  'Documents utiles : CCTP/DPGF récents, modèles de CR et courriers ST anonymisés.',
+                ]}
+              />
             </li>
             <li className="flex gap-2">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />

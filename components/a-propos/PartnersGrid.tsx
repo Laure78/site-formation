@@ -74,7 +74,6 @@ export function PartnersGrid() {
                     'Accompagnement dossier Constructys',
                     'Format inter ou intra entreprise',
                     'Sessions Qualiopi en présentiel',
-                    'Suivi post-formation opérationnel',
                   ].map((point) => (
                     <span key={point} className="flex items-start gap-2 text-sm text-[#334155]">
                       <span className="mt-0.5 rounded-full bg-[#DBEAFE] p-1">

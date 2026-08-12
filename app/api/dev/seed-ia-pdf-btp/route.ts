@@ -65,7 +65,7 @@ export async function GET(request: Request) {
     description:
       'Formation intra-entreprise sur mesure pour PDF-BTP (Longjumeau) : 8 h en 2 sessions. Session 1 : fondamentaux IA, administratif de chantier, exercices. Session 2 : Claude AI, skills PDF BTP, assistant personnalisé. Qualiopi — financement OPCO Constructys possible selon éligibilité.',
     objectifs:
-      'Utiliser ChatGPT, Claude et Gemini pour le BTP · Rédiger devis, plannings, courriers et CR · Produire PV de réception et documents de clôture · Prompts avancés par métier · Créer un assistant IA PDF-BTP · Plan d’action individuel',
+      'Utiliser Claude AI et ChatGPT pour le BTP · Rédiger devis, plannings, courriers et CR · Produire PV de réception et documents de clôture · Prompts avancés par métier · Créer un assistant IA PDF-BTP · Plan d’action individuel',
     prerequis:
       'Aucun prérequis technique. Ordinateur portable + internet. Apporter des dossiers réels (devis, CR, courriers).',
     programme:

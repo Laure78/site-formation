@@ -5,7 +5,7 @@
  * @see .cursorrules — règles Schema.org & SEO
  */
 
-import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF } from '@/lib/constants';
+import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF, CONTACT } from '@/lib/constants';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
@@ -76,17 +76,17 @@ export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
 ] as const;
 
 
-/** Contact & identifiants légaux (JSON-LD, mentions). */
+/** Contact & identifiants légaux (JSON-LD, mentions) — email/téléphone depuis CONTACT. */
 export const SCHEMA_CONTACT = {
-  email: 'laureolivie@yahoo.fr',
+  email: CONTACT.email,
   /**
-   * Numéro public UI (E.164) — laisser vide pour masquer les liens `tel:` dans l’interface.
-   * Le JSON-LD Organization utilise `telephoneJsonLd` (source unique NAP vérifiable).
+   * Numéro public UI (E.164). Source : `CONTACT.phone`.
+   * Le JSON-LD Organization utilise aussi `telephoneJsonLd`.
    */
-  phone: '',
-  phoneDisplay: '',
+  phone: CONTACT.phone,
+  phoneDisplay: CONTACT.phoneDisplay,
   /** E.164 — champ `telephone` Schema.org Organization (layout / rich results). */
-  telephoneJsonLd: '+33695661818',
+  telephoneJsonLd: CONTACT.phone,
   siretFormatted: '905 244 281 00010',
   /** Sans espaces — annuaires, URLs, taxID Schema.org */
   siretDigits: '90524428100010',

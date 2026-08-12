@@ -6,7 +6,7 @@ export const FAQ_FORMATION_IA_BTP_PILLAR: FAQItem[] = [
   {
     q: 'Qu\'est-ce qu\'une formation IA BTP ?',
     a:
-      'Une session professionnelle de 4 h en présentiel, certifiée Qualiopi, pour apprendre à utiliser l\'IA (ChatGPT, Claude, Gemini) sur vos documents BTP : devis, DCE, comptes rendus, courriers. Travail sur vos cas réels, relecture humaine obligatoire. Voir le <a href="/formations">catalogue des 6 formations</a>.',
+      'Une session professionnelle de 4 h en présentiel, certifiée Qualiopi, pour apprendre à utiliser Claude AI et ChatGPT sur vos documents BTP : devis, DCE, comptes rendus, courriers. Travail sur vos cas réels, relecture humaine obligatoire. Voir le <a href="/formations">catalogue des 5 formations</a>.',
   },
   {
     q: 'Faut-il être bon en informatique pour suivre cette formation ?',
@@ -26,7 +26,7 @@ export const FAQ_FORMATION_IA_BTP_PILLAR: FAQItem[] = [
   {
     q: 'Quelle formation choisir : devis, appels d\'offres ou chantier ?',
     a:
-      'NIV-01 pour débuter (devis, emails, CR) ; NIV-02 pour les appels d\'offres et mémoires techniques ; NIV-03 pour la conduite de travaux ; NIV-04/NIV-06 pour Claude AI. Comparatif sur <a href="/formations">le catalogue formations</a> ou la page <a href="' +
+      'NIV-01 pour débuter (devis, emails, CR) ; NIV-02 pour les appels d\'offres et mémoires techniques ; NIV-03 pour la conduite de travaux ; NIV-04 pour Claude AI. Comparatif sur <a href="/formations">le catalogue formations</a> ou la page <a href="' +
       LINKS.formationConducteurTravaux +
       '">IA conducteur de travaux</a>.',
   },

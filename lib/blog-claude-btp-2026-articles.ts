@@ -274,7 +274,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         type: 'paragraph',
         title: 'À qui s’adresse ce guide ?',
         content:
-          'Dirigeants, conducteurs de travaux, chargés d’affaires, assistants administratifs et formatrices IA dans le BTP : vous savez déjà utiliser une IA en conversation, et vous voulez passer à l’étape « exécution » (fichiers, site, automatisation) sans devenir développeur. Les comptes gratuits suffisent pour découvrir ; les usages avancés (Claude Code, MCP, certaines intégrations) reposent souvent sur des offres payantes ou des clés API — nous le rappelons dans chaque section.',
+          'Dirigeants, conducteurs de travaux, chargés d’affaires, assistants administratifs et formatrices IA dans le BTP : vous savez déjà utiliser une IA en conversation, et vous voulez passer à l’étape « exécution » (fichiers, site, automatisation) sans devenir développeur. Les comptes gratuits suffisent pour découvrir ; les usages avancés (Claude Code, MCP, certaines intégrations) reposent souvent sur des offres payantes ou des clés API — je le rappelle dans chaque section.',
       },
       {
         type: 'html',

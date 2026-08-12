@@ -84,7 +84,7 @@ const courseJsonLd = {
     '@type': 'Person',
     '@id': `${SITE_CONFIG.url}/#person`,
     name: SITE_CONFIG.name,
-    jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+    jobTitle: 'Formatrice IA spécialisée BTP',
     url: `${SITE_CONFIG.url}/a-propos/`,
   },
 };
@@ -266,7 +266,8 @@ export default function FormationIaBtpPillarPage() {
                 Module 1 — Comprendre l&apos;IA sans jargon technique
               </h3>
               <p className="mt-2 text-slate-700">
-                Vous apprenez comment fonctionne ChatGPT, Claude et Gemini en 20 minutes. Pas de cours théorique inutile
+                Vous découvrez comment fonctionnent Claude AI et ChatGPT en 20 minutes — comparaison des usages et
+                premiers pas sur l&apos;administratif. Pas de cours théorique inutile
                 : vous partez directement sur des cas concrets. À la fin de ce module, vous utilisez l&apos;IA pour
                 rédiger votre premier document BTP.
               </p>
@@ -333,7 +334,7 @@ export default function FormationIaBtpPillarPage() {
                 Module 6 (optionnel intra) — Cas d&apos;usage spécifiques à votre activité
               </h3>
               <p className="mt-2 text-slate-700">
-                Pour les formations intra entreprise : nous travaillons sur <strong>vos documents réels</strong>. DPGF,
+                Pour les formations intra entreprise : je travaille sur <strong>vos documents réels</strong>. DPGF,
                 CCTP de vos marchés en cours, emails types de votre activité. La formation sort adaptée à votre métier
                 précis.
               </p>
@@ -540,7 +541,7 @@ export default function FormationIaBtpPillarPage() {
             </blockquote>
           </RevealGroup>
           <Reveal className="not-prose mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
-            <p className="font-display font-semibold text-slate-900">Nos chiffres</p>
+            <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
                 <strong>{PROOF.note}</strong> — note de satisfaction moyenne
@@ -559,7 +560,7 @@ export default function FormationIaBtpPillarPage() {
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Qui est Laure Olivié ?</h2>
           <p>
-            Laure Olivié est <strong>formatrice IA générative spécialiste BTP</strong> et fondatrice d&apos;OFC Création
+            Laure Olivié est <strong>formatrice IA spécialisée BTP</strong> et fondatrice d&apos;OFC Création
             d&apos;Entreprise (Qualiopi, SIRET 905 244 281 00010). Son parcours croise la <strong>direction d&apos;ALIA BTP</strong>{' '}
             (travaux publics, 2017-2024), la <strong>gestion de formations au CNFPT</strong> (2009-2019) et un{' '}
             <strong>Master Stratégie d&apos;entreprise au CNAM</strong> (2021) — une expertise rare : IA générative × réalités terrain.
@@ -630,7 +631,7 @@ export default function FormationIaBtpPillarPage() {
         </section>
 
         <section className="not-prose mt-16 border-t border-slate-200 pt-12">
-          <h2 className="font-display text-2xl font-bold text-slate-900">Liens vers nos formations spécialisées</h2>
+          <h2 className="font-display text-2xl font-bold text-slate-900">Liens vers mes formations spécialisées</h2>
           <ul className="mt-4 list-inside list-disc space-y-2 text-[var(--accent)] marker:text-[var(--accent)]">
             <li>
               <Link href={LINKS.formationIaConstruction} className="text-slate-700 hover:underline">
@@ -664,7 +665,7 @@ export default function FormationIaBtpPillarPage() {
             </li>
             <li>
               <Link href={LINKS.blog} className="text-slate-700 hover:underline">
-                Blog — tous nos articles sur l&apos;IA dans le BTP
+                Blog — tous mes articles sur l&apos;IA dans le BTP
               </Link>
             </li>
           </ul>

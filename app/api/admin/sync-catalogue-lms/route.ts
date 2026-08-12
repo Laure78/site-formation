@@ -3,7 +3,7 @@ import { requireAdminAccess, adminAccessDeniedMessage } from '@/lib/admin-access
 import { syncCatalogueFormationsToLms } from '@/lib/sync-catalogue-lms';
 import { createClient } from '@/lib/supabase/server';
 
-/** Synchronise les 6 formations `/formations` vers la plateforme LMS. */
+/** Synchronise les 5 formations `/formations` vers la plateforme LMS. */
 export async function POST() {
   const access = await requireAdminAccess();
   if (!access.ok) {

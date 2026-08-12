@@ -117,7 +117,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         name: 'Laure Olivié',
         givenName: 'Laure',
         familyName: 'Olivié',
-        jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+        jobTitle: 'Formatrice IA spécialisée BTP',
         description: getLaureOlivieSchemaPersonDescription(),
         url: `${base}/a-propos`,
         image: personImageUrl,

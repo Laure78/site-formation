@@ -1,5 +1,6 @@
 import { getFAQSchema } from '@/lib/seo';
 import { FINANCEMENT_FORMULATION_PRUDENTE, FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT } from '@/lib/financement-copy';
+import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 /** FAQ générique BTP — utilisée sur les articles sans section FAQ dédiée */
 const DEFAULT_BLOG_FAQ_ITEMS = [
@@ -29,7 +30,7 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
   },
   {
     q: "Laure Olivié intervient-elle en dehors de l'Île-de-France ou en distanciel ?",
-    a: "Non pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (Paris et départements 77 à 95), en inter ou intra. L'échange préalable de cadrage (30 min) peut se faire en visio.",
+    a: `Non pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (${IDF_ZONE_INTERVENTION}), en inter ou intra. L'échange préalable de cadrage (30 min) peut se faire en visio.`,
   },
 ] as const;
 

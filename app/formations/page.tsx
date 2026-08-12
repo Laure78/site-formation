@@ -28,9 +28,8 @@ import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/conf
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
-const FORMATIONS_OG_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
 const FORMATIONS_META_DESCRIPTION =
-  'Formations IA pour le BTP en 4 h : devis, AO, conduite de travaux et Claude AI. Présentiel IDF, Qualiopi, Constructys selon éligibilité. OFC — PDF et RDV.';
+  "5 formations IA pour le BTP en 4 h : devis, appels d'offres, conduite de travaux, Claude AI et maîtrise d'œuvre. Présentiel IDF, Qualiopi, Constructys.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     descriptionFinal: true,
     path: '/formations',
     appendAuthorSuffix: false,
-    openGraphTitle: FORMATIONS_OG_TITLE,
+    openGraphTitle: FORMATIONS_HTML_TITLE,
     openGraphDescription: FORMATIONS_META_DESCRIPTION,
     keywords: [
       'catalogue formation IA pour les pros du BTP',
@@ -60,8 +59,7 @@ export const metadata: Metadata = {
       url: PHOTOS.formationIaBtpSalleInteractive2026.src,
       width: 1200,
       height: 630,
-      alt:
-        `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics`,
+      alt: `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`,
     },
   }),
   alternates: {

@@ -21,7 +21,7 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: SITE_CONFIG.name,
-  jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+  jobTitle: 'Formatrice IA spécialisée BTP',
   url: `${SITE}/a-propos`,
   sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
   worksFor: {

@@ -64,7 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
     creator: SITE_CONFIG.name,
     publisher: 'OFC Création d\'Entreprise',
-    formatDetection: { email: false, telephone: false },
+    formatDetection: { telephone: true, email: true, address: false },
     category: 'education',
     openGraph: {
       type: 'website',

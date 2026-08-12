@@ -231,11 +231,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formations/ia-conduite-travaux-suivi-chantier/page.tsx',
     'lib/formations-catalogue-display.ts',
   ],
-  '/formations/formation-claude-ia-btp': [
-    'app/formations/formation-claude-ia-btp/page.tsx',
-    'lib/formations-catalogue-display.ts',
-    'lib/schema-catalogue-course-jsonld.ts',
-  ],
   '/mentions-legales': ['app/mentions-legales/page.tsx'],
   '/politique-confidentialite': ['app/politique-confidentialite/page.tsx'],
   '/cgv': ['app/cgv/page.tsx'],

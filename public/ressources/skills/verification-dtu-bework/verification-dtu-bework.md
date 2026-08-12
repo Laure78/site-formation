@@ -217,11 +217,11 @@ FONT = Century Gothic (fallback Calibri)
 **Mentions obligatoires** :
 - ✅ Header : logo blueprint officiel (image, pas de texte stylé)
 - ✅ Tagline : "Assistants travaux augmentés par l'IA" (toujours au PLURIEL)
-- ✅ Footer : "BeWork — Solutions IA sur mesure pour le BTP · bework.fr"
+- ✅ Footer : "BeWork — Assistants travaux augmentés par l'IA · bework.fr — Relais bureau-chantier BTP"
 - ✅ Encadré avertissement légal page 1 (AFNOR / CSTB)
-- ✅ Signature finale : "Solutions IA sur mesure pour le BTP." (positionnement site)
-- ✅ Pour les CTA : « Parler de mon besoin » sur bework.fr
-- ✅ Pas d'anciennes stats « 3 à 5 jours / 0 recrutement » (offre relais abandonnée)
+- ✅ Signature finale : "Un assistant travaux à vos côtés pour tenir le rythme du chantier." (slogan principal du site)
+- ✅ Pour les CTA : "Faire appel à un Beworker" (pas "Assistant Travaux BeWork")
+- ✅ Stats : "3 à 5 jours opérationnel / 0 recrutement / 100% supervisé en France"
 
 ## CONVENTION DE NOMMAGE
 
@@ -243,9 +243,9 @@ FONT = Century Gothic (fallback Calibri)
 - [ ] Encadré avertissement légal AFNOR / CSTB présent dans le Word page 1
 - [ ] Logo blueprint officiel dans le header (image, pas de texte)
 - [ ] Bleu officiel #1D4ED8 partout (pas l'ancien #2563EB)
-- [ ] Tagline "Solutions IA sur mesure pour le BTP"
-- [ ] Footer BeWork solutions IA (pas "Relais bureau-chantier" ni "Partenaire administratif")
-- [ ] Signature finale "Solutions IA sur mesure pour le BTP."
+- [ ] Tagline pluriel "Assistants travaux augmentés par l'IA"
+- [ ] Footer "Relais bureau-chantier BTP" (pas "Partenaire administratif BTP")
+- [ ] Signature finale "Un assistant travaux à vos côtés pour tenir le rythme du chantier."
 - [ ] Aucune mention OFC/Qualiopi/Laure Olivié/SIRET dans le rapport
 - [ ] PDF + Word générés et copiés dans `/mnt/user-data/outputs/`
 - [ ] Présentés via `present_files`

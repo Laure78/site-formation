@@ -224,7 +224,7 @@ export function IleDeFranceSeoSections() {
             Les formations certifiées <QualiopiWordmark /> peuvent être financées dans le cadre du plan de
             développement des compétences, selon les règles de votre branche — en particulier via
             l&apos;OPCO <strong className="text-slate-800">Constructys</strong> pour les entreprises
-            du BTP, sous conditions d&apos;éligibilité. Nous vous indiquons les informations utiles
+            du BTP, sous conditions d&apos;éligibilité. Je vous indique les informations utiles
             pour monter votre dossier côté employeur.
           </p>
           <p className="mt-4">

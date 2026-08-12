@@ -402,7 +402,7 @@ export const IDF_CHAPEAU_LOCAL = {
     },
   ] satisfies FAQItem[],
   internalLinks: [
-    { href: LINKS.formations, label: 'Catalogue formations', description: 'NIV-01 à NIV-06, Qualiopi' },
+    { href: LINKS.formations, label: 'Catalogue formations', description: 'NIV-01 à NIV-05, Qualiopi' },
     { href: '/formation-ia', label: 'Hub formations par métier', description: 'Conducteur, dirigeant, corps d\'état…' },
     { href: LINKS.financement, label: 'Financement Constructys', description: 'OPCO, dossier et convention' },
   ] as [DeptInternalLink, DeptInternalLink, DeptInternalLink],

@@ -492,7 +492,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
             Formation IA pour les pros du BTP à Saint-Quentin-en-Yvelines : prochaine étape
           </h2>
           <p className="mt-4 text-lg text-blue-100">
-            Réservez un échange gratuit de 30 minutes ou contactez-nous pour un devis et un programme adapté à
+            Réservez un échange gratuit de 30 minutes ou contactez-moi pour un devis et un programme adapté à
             votre entreprise du 78.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

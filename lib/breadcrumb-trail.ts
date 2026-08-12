@@ -16,8 +16,6 @@ const EXACT: Record<string, string> = {
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': "L'IA appliquée aux appels d'offres BTP",
   '/formations/ia-conduite-travaux-suivi-chantier': "L'IA appliquée à la conduite de travaux",
-  '/formations/formation-claude-ia-btp':
-    'Claude IA pour le BTP : Chat, Cowork & Code',
 };
 
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {

@@ -2,6 +2,7 @@
  * Textes et données Qualiopi — source unique (indicateur 1, footer, pages légales).
  */
 
+import { CONTACT } from '@/lib/constants';
 import {
   QUALIOPI_ACCESSIBILITE_EXACT,
   QUALIOPI_CERTIFICAT_REALISATION,
@@ -11,15 +12,13 @@ import {
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
-  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
-  EFFECTIF_GROUPE_MAX,
-  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   MENTIONS_TVA_EXONERATION_COURTE,
   MODALITE_FORMATIONS_PRESENTIEL,
+  PREREQUIS_NIVEAU_2,
   SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_FORFAIT_HT,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
+import { libelleEffectifMaxFormation } from '@/data/formations';
 import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
@@ -71,9 +70,9 @@ export function buildQualiopiCredentialSchema(): Record<string, unknown> {
 export const QUALIOPI_REFERENT_HANDICAP = {
   nom: 'Laure Olivié',
   role: 'Référente handicap',
-  email: 'laureolivie@yahoo.fr',
-  telephone: '06 95 66 18 18',
-  telephoneTel: '+33695661818',
+  email: CONTACT.email,
+  telephone: CONTACT.phoneDisplay,
+  telephoneTel: CONTACT.phone,
 } as const;
 
 export const QUALIOPI_MODALITES_ACCES = QUALIOPI_DELAI_ACCES_EXACT;
@@ -130,32 +129,24 @@ export type InfosQualiopiProps = {
 };
 
 function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
-  if (entry.ref === 'NIV-02' || entry.ref === 'NIV-03' || entry.ref === 'NIV-04' || entry.ref === 'NIV-05') {
-    return [
-      'Maîtrise de l\'outil informatique et des usages bureautiques courants.',
-      EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
-      'Pour NIV-03 : niveau 1 IA BTP recommandé ou expérience équivalente sur les usages IA chantier.',
-    ];
-  }
-  if (entry.ref === 'NIV-06') {
-    return [
-      'Maîtrise de l\'outil informatique. Expérience terrain BTP (chantier, appels d\'offres ou administratif).',
-      EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
-    ];
+  if (
+    entry.ref === 'NIV-02' ||
+    entry.ref === 'NIV-03' ||
+    entry.ref === 'NIV-04' ||
+    entry.ref === 'NIV-05'
+  ) {
+    return [...PREREQUIS_NIVEAU_2];
   }
   return [
     'Aucune compétence technique en IA requise.',
-    `Ordinateur portable et connexion internet. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
+    `Ordinateur portable et connexion internet. Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit.`,
   ];
 }
 
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
-  const montant = TARIF_SESSION_FORFAIT_HT;
+  const montant = entry.prixHT;
   const inter = `${formatTarifHt(montant)} € HT / session forfaitaire en inter-entreprise (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
-  const intra =
-    entry.ref === 'NIV-06'
-      ? `Intra-entreprise : sur devis (demande de devis par email ou formulaire de contact). ${MENTIONS_TVA_EXONERATION_COURTE}.`
-      : `Intra-entreprise : forfait ${formatTarifHt(montant)} € HT / session selon effectif et lieu (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
+  const intra = `Intra-entreprise : forfait ${formatTarifHt(montant)} € HT / session selon effectif et lieu (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
   return { inter, intra };
 }
 
@@ -194,7 +185,7 @@ export function buildLandingInfosQualiopiProps(formationTitle: string): InfosQua
     duree: SESSION_DUREE_LIBELLE,
     dureeJours: '0,5 jour (session unique)',
     modalitesAcces: QUALIOPI_MODALITES_ACCES,
-    tarifInter: `${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session forfaitaire en inter-entreprise (max ${EFFECTIF_GROUPE_MAX} participants). ${MENTIONS_TVA_EXONERATION_COURTE}.`,
+    tarifInter: `${formatTarifHt(entry.prixHT)} € HT / session forfaitaire en inter-entreprise (${libelleEffectifMaxFormation(entry)}). ${MENTIONS_TVA_EXONERATION_COURTE}.`,
     tarifIntra: tarifs.intra,
     methodes: QUALIOPI_METHODES_STANDARD,
     evaluation: QUALIOPI_EVALUATION_STANDARD,

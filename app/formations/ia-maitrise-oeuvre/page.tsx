@@ -9,12 +9,13 @@ import {
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF } from '@/lib/constants';
+import { SOCIAL_PROOF, CONTACT } from '@/lib/constants';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_SESSION_AVANCE_HT,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
+import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { buildCatalogueCourseMaitriseOeuvreNiv05JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import {
@@ -29,8 +30,8 @@ import { RelatedLinks } from '@/components/RelatedLinks';
 
 const PATH = LINKS.formationIaMaitriseOeuvre;
 const PDF_HREF = LINKS.pdfProgrammeIaMaitriseOeuvre;
-const PHONE_DISPLAY = '06 95 66 18 18';
-const PHONE_TEL = '0695661818';
+const PHONE_DISPLAY = CONTACT.phoneDisplay;
+const PHONE_TEL = CONTACT.phone;
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
 
@@ -175,6 +176,8 @@ export default function FormationIaMaitriseOeuvrePage() {
           </p>
         </section>
 
+        <PrerequisNiveau2 asSection />
+
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
@@ -227,7 +230,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               BET, assistant(e)s de gestion travaux.
             </li>
             <li>
-              <strong>Prérequis :</strong> aisance avec les outils numériques courants, aucun prérequis IA.
+              <PrerequisNiveau2 />
             </li>
             <li>
               <strong>Modalité :</strong> présentiel, en intra-entreprise ou en inter-entreprises. 70&nbsp;% pratique

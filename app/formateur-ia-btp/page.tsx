@@ -10,7 +10,7 @@ import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
 import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import type { FAQItem } from '@/lib/faq';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 import { LINKS } from '@/lib/internal-links';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
@@ -60,7 +60,7 @@ const FAQ_FORMATEUR: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous à Paris intra-muros ?',
-    a: `Oui. Sessions en présentiel à Paris (intra dans vos locaux ou inter en salle) pour les entreprises et chantiers parisiens. Pour la petite et grande couronne, voir aussi la couverture Île-de-France (75 à 95).`,
+    a: `Oui. Sessions en présentiel à Paris (intra dans vos locaux ou inter en salle) pour les entreprises et chantiers parisiens. Pour la petite et grande couronne, voir aussi la couverture ${IDF_ZONE_INTERVENTION}.`,
   },
   {
     q: 'Formez-vous en construction / travaux publics aussi ?',
@@ -194,7 +194,7 @@ export default function FormateurIaBtpPage() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Présentiel uniquement · Île-de-France uniquement. Sessions <strong>intra</strong> dans vos locaux ou{' '}
-              <strong>inter</strong> en salle — Paris (75) et départements 77, 78, 91, 92, 93, 94, 95. Détail région :{' '}
+              <strong>inter</strong> en salle — {IDF_ZONE_INTERVENTION}. Détail région :{' '}
               <Link href={LINKS.formationIleDeFrance} className={OFC_LINK}>
                 couverture présentiel francilienne
               </Link>

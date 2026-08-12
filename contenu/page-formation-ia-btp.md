@@ -148,7 +148,6 @@ La formation IA appliquée au bâtiment est une **formation pratique** : vous tr
 
 - **70 % de pratique** : exercices sur des cas BTP (vos documents en intra, des cas types en inter).
 - **Prompts et trames BTP** : formulations prêtes à réutiliser pour devis, emails, synthèses, suivi de chantier.
-- **Suivi post-formation** : **30 jours** d’accompagnement pour ancrer les usages (questions, relecture de cas, points de blocage) — *ajuster la formulation exacte selon votre offre commerciale actuelle.*
 
 **Financement** : formation certifiée **Qualiopi**, éligible **Constructys** (OPCO BTP) selon dossier — plafond pédagogique et délais à rappeler sur la page [financement Constructys](/financement-constructys-formation-ia-btp).
 
@@ -219,7 +218,7 @@ Oui. La formation couvre les usages transversaux (devis, emails, AO, communicati
 
 Laure Olivié est **formatrice IA et ChatGPT pour le BTP**. Elle a créé **OFC Création d’Entreprise** (certifié Qualiopi) avec une conviction : l’IA peut transformer le quotidien des PME du bâtiment, à condition d’être enseignée avec le **bon vocabulaire** et les **bons cas d’usage**.
 
-- Interventions : **Île-de-France** (Paris et départements limitrophes), intra / inter, exclusivement en présentiel.
+- Interventions : **Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)**, intra / inter, exclusivement en présentiel.
 - **Méthode** : 70 % de pratique, prompts réutilisables, zéro jargon inutile.
 
 **Schema Person** : renseigner dans Rank Math le nom, l’URL, le logo / photo, `sameAs` (LinkedIn, etc.), `jobTitle` (ex. *Formatrice IA & ChatGPT — BTP*).

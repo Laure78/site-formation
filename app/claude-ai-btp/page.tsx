@@ -492,7 +492,7 @@ export default function ClaudeAiBtpPillarPage() {
                 </div>
                 <p className="mt-6 text-sm text-[#64748B]">
                   <Link href={LINKS.outilsIaBtp} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-                    Outils IA BTP (ChatGPT, Claude, Gemini)
+                    Comparatif des outils IA pour le BTP
                   </Link>
                 </p>
               </section>

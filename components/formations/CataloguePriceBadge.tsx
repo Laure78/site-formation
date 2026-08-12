@@ -2,13 +2,17 @@ import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
 import {
   formatTarifHt,
   MENTIONS_TVA_EXONERATION_COURTE,
-  TARIF_SESSION_FORFAIT_HT,
+  TARIF_SESSION_AVANCE_HT,
+  TARIF_SESSION_DEBUTANT_HT,
 } from '@/lib/tarifs-sessions';
+import { PRIX_NIVEAU_1_HT, PRIX_NIVEAU_2_HT } from '@/data/formations';
 
 export type CataloguePriceVariant = 'overlay' | 'pill' | 'banner' | 'hero' | 'strip';
 
 type Props = {
   level: CatalogueLevel;
+  /** Prix HT session — source `formation.prixHT` / `entry.prixHT` */
+  prixHT?: number;
   variant?: CataloguePriceVariant;
   className?: string;
 };
@@ -29,12 +33,18 @@ function levelColors(level: CatalogueLevel) {
       };
 }
 
+function resolvePrix(level: CatalogueLevel, prixHT?: number): number {
+  if (typeof prixHT === 'number') return prixHT;
+  return level === 'DÉBUTANT' ? TARIF_SESSION_DEBUTANT_HT : TARIF_SESSION_AVANCE_HT;
+}
+
 export function CataloguePriceBadge({
   level,
+  prixHT,
   variant = 'pill',
   className = '',
 }: Props) {
-  const amount = formatTarifHt(TARIF_SESSION_FORFAIT_HT);
+  const amount = formatTarifHt(resolvePrix(level, prixHT));
   const colors = levelColors(level);
 
   if (variant === 'overlay') {
@@ -56,7 +66,7 @@ export function CataloguePriceBadge({
         className={`flex flex-wrap items-center justify-between gap-2 rounded-xl border px-4 py-3 ${colors.banner} ${className}`}
       >
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.14em] opacity-80">Forfait unique session</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] opacity-80">Forfait session</p>
           <p className="font-display text-2xl font-bold leading-none tracking-tight">
             {amount} € <span className="text-sm font-semibold">HT</span>
           </p>
@@ -105,7 +115,7 @@ export function CataloguePriceBadge({
   );
 }
 
-/** Bandeau récapitulatif — forfait unique toutes formations catalogue. */
+/** Bandeau récapitulatif — deux forfaits catalogue (niv. 1 / niv. 2). */
 export function CatalogueTarifStrip({ className = '', onAccent = false }: { className?: string; onAccent?: boolean }) {
   const wrap = onAccent
     ? 'border-white/25 bg-white/10 text-white'
@@ -121,7 +131,10 @@ export function CatalogueTarifStrip({ className = '', onAccent = false }: { clas
     >
       <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Tarif catalogue 2026</span>
       <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
-        Forfait unique · {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session
+        Niveau 1 · {formatTarifHt(PRIX_NIVEAU_1_HT)} € HT
+      </span>
+      <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
+        Niveau 2 · {formatTarifHt(PRIX_NIVEAU_2_HT)} € HT
       </span>
       <span className={`text-xs font-medium ${label}`}>
         {MENTIONS_TVA_EXONERATION_COURTE} · programmes PDF sur chaque fiche

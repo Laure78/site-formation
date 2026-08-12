@@ -2,7 +2,7 @@
 
 > **Mise à jour 2026** : utilisez plutôt  
 > **`supabase/seed_catalogue_formations_lms.sql`**  
-> (6 parcours catalogue NIV-01 → NIV-06 + PDF programmes).  
+> (5 parcours catalogue NIV-01 → NIV-05 + PDF programmes).  
 > Guide : [`SEED-CATALOGUE-FORMATIONS-LMS.md`](./SEED-CATALOGUE-FORMATIONS-LMS.md).
 
 ## Prérequis

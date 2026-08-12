@@ -29,6 +29,7 @@ import {
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { FinancementConstructysHero } from '@/components/financement/FinancementConstructysHero';
+import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
@@ -278,8 +279,9 @@ export default function FinancementConstructysFormationIABTPPage() {
                   </tbody>
                 </table>
               </div>
+              <ConstructysResteAChargeBox />
               <p className="mt-4 text-sm leading-relaxed text-slate-700">
-                <strong>Reste à charge et coût réel</strong> : les plafonds ci-dessus indiquent ce que Constructys peut prendre en charge dans la limite des règles. Selon votre taille d&apos;entreprise, une participation peut aussi couvrir une partie des frais de salaires du temps passé en formation et, dans certains cas, des frais annexes. Le tableau généraliste ne remplace pas votre interlocuteur régional : il vous donne un ordre de grandeur pour budgétiser une <strong>OPCO BTP formation ChatGPT</strong> ou un atelier sur l&apos;IA appliquée à vos chantiers. Pour une session intra avec plusieurs personnes, le plafond journalier groupe (<strong>840 € HT</strong> pour les TPE de moins de 11 salariés, <strong>665 € HT</strong> de 11 à moins de 50 salariés) peut structurer votre choix de durée et de nombre de participants.
+                <strong>Reste à charge et coût réel</strong> : les plafonds ci-dessus indiquent ce que Constructys peut prendre en charge partiellement dans la limite des règles. Selon votre taille d&apos;entreprise, une participation peut aussi couvrir une partie des frais de salaires du temps passé en formation et, dans certains cas, des frais annexes. Le tableau généraliste ne remplace pas votre interlocuteur régional : il vous donne un ordre de grandeur pour budgétiser une <strong>OPCO BTP formation ChatGPT</strong> ou un atelier sur l&apos;IA appliquée à vos chantiers. Pour une session intra avec plusieurs personnes, le plafond journalier groupe (<strong>840 € HT</strong> pour les TPE de moins de 11 salariés, <strong>665 € HT</strong> de 11 à moins de 50 salariés) peut structurer votre choix de durée et de nombre de participants.
               </p>
               <p className="mt-4 text-sm text-[#64748B]">
                 <a

@@ -20,13 +20,16 @@ import {
 import { FAQ_MAITRISER_CLAUDE_NIV04 } from '@/lib/faq';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import {
-  SESSION_DUREE_MATIN_NIV04,
-  TARIF_FORFAIT_AVANCE_HT,
-  LIBELLE_EFFECTIF_GROUPE_NIV03,
   MODALITE_FORMATIONS_PRESENTIEL,
-
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
+import {
+  getFormationByCode,
+  libelleDureeFormation,
+  libelleEffectifFormation,
+  libellePrixSessionHt,
+} from '@/data/formations';
+import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
@@ -34,11 +37,15 @@ import {
 import { buildCatalogueCourseMaitriserClaudeNiv04JsonLd } from '@/lib/schema-catalogue-course-jsonld';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
+const FORMATION = getFormationByCode('NIV-04')!;
 const PATH = LINKS.formationMaitriserClaudeAiBtp;
-const PDF_HREF = LINKS.pdfProgrammeMaitriserClaudeBtpNiv04;
+const PDF_HREF = FORMATION.pdfProgramme;
+const DUREE_LIBELLE = libelleDureeFormation(FORMATION);
+const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
+const PRIX_LIBELLE = libellePrixSessionHt(FORMATION);
 
 const PAGE_META_DESCRIPTION =
-  'Formation avancée Claude pour le BTP (4 h, matin). Projets, Skills, Cowork, connecteurs, Claude Code. 1 200 € HT. Qualiopi.';
+  `Formation avancée Claude pour le BTP (${DUREE_LIBELLE}). Projets, Skills, Cowork, connecteurs, Claude Code. ${formatTarifHt(FORMATION.prixHT)} € HT. Qualiopi.`;
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
 
@@ -115,19 +122,40 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   },
 ];
 
-const HERO_RESUME = [
-  `Parcours catalogue : industrialiser Claude en entreprise BTP — Projets, Skills, Cowork, connecteurs, Claude Code.`,
-  `Session ${SESSION_DUREE_MATIN_NIV04} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session.`,
-  `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
-  'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
-];
+/** Cas d'usage repris de l'ancienne NIV-06 (skills métier AO / chantier / juridique). */
+const CAS_USAGE_SESSION = [
+  {
+    titre: "Skills appels d'offres",
+    items: [
+      'Analyse RC : extraire MO/MOE, type de marché, dates, visite, critères, pièces — décider GO / NO GO',
+      'Analyse DCE/DQE : exigences par famille, postes oubliés, clauses à risque (CCAP)',
+      'Sécurisation du chiffrage — validation humaine avant réponse marché',
+    ],
+  },
+  {
+    titre: 'Skills chantier',
+    items: [
+      'CCTP organisation : phasage, contraintes, points d\'arrêt',
+      'CR de chantier : synthèse des actions, délais et photos à prendre (y compris à partir d\'une photo de CR MOE)',
+      'Levée des réserves : tableau de suivi, preuves, retenue de garantie',
+      'Normes / hors-gel : DTU, hors-gel IDF, classes de gel béton (XF)',
+    ],
+  },
+  {
+    titre: 'Skills juridiques — marché de travaux',
+    items: [
+      'Qualifier un litige (marché privé / public) et retrouver les références utiles',
+      'Produire des brouillons d\'écrits (mise en demeure, mémoire en réclamation)',
+      'L\'IA n\'est pas un avocat — validation par un professionnel du droit obligatoire avant envoi',
+    ],
+  },
+] as const;
 
-const OBJECTIFS_PEDAGOGIQUES = [
-  'Structurer l\'usage de Claude dans l\'entreprise avec les Projets et une bibliothèque de Skills',
-  'Déléguer la production documentaire à Cowork (CR, mémoires, dossiers) en autonomie supervisée',
-  'Connecter Claude à ses outils (Gmail, Drive, agenda) via les connecteurs, en sécurisant les données',
-  'Automatiser des tâches répétitives et générer des documents en lot avec Claude Code',
-  'Fiabiliser, sécuriser et réutiliser ses skills, connecteurs et automatisations Claude',
+const HERO_RESUME = [
+  FORMATION.accroche,
+  `Session ${DUREE_LIBELLE} — forfait ${PRIX_LIBELLE} / session.`,
+  EFFECTIF_LIBELLE.charAt(0).toUpperCase() + EFFECTIF_LIBELLE.slice(1) + '.',
+  'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
 ];
 
 const courseSchema = buildCatalogueCourseMaitriserClaudeNiv04JsonLd();
@@ -142,9 +170,9 @@ export default function FormationMaitriserClaudeAiBtpPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-04"
-        refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_MATIN_NIV04} · Niveau 2`}
-        title="Maîtriser Claude AI pour le BTP"
-        subtitle="Industrialisez Claude dans votre entreprise — Projets, Skills, Cowork, connecteurs et Claude Code"
+        refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
+        title={FORMATION.titre}
+        subtitle={FORMATION.accroche}
         badges={['Projets & Skills', 'Cowork · Connecteurs', 'Qualiopi']}
         summaryItems={HERO_RESUME}
         ctas={
@@ -185,9 +213,8 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           <strong>Claude Pro</strong> en entreprise (<strong>Projets</strong>, bibliothèque de{' '}
           <strong>Skills</strong>), déléguer la production documentaire via <strong>Cowork</strong>, relier{' '}
           <strong>Gmail</strong>, <strong>Drive</strong> et l&apos;agenda, et automatiser avec{' '}
-          <strong>Claude Code</strong> — sur vos cas réels, avec validation humaine systématique. Public : référents
-          IA, dirigeants, responsables digitaux, chargés d&apos;affaires et conducteurs de travaux. Complément des
-          parcours{' '}
+          <strong>Claude Code</strong> — sur vos cas réels, avec validation humaine systématique. Public :{' '}
+          {FORMATION.public.toLowerCase()}. Complément des parcours{' '}
           <Link href={LINKS.formationAO} className="font-medium text-[var(--accent)] hover:underline">
             formation appels d&apos;offres
           </Link>{' '}
@@ -197,13 +224,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             className="font-medium text-[var(--accent)] hover:underline"
           >
             formation conduite de travaux
-          </Link>
-          , ou la session{' '}
-          <Link
-            href={LINKS.formationClaudeIaBtpFiche}
-            className="font-medium text-[var(--accent)] hover:underline"
-          >
-            Claude IA : Chat, Cowork & skills BTP
           </Link>
           . {MODALITE_FORMATIONS_PRESENTIEL}
         </p>
@@ -217,32 +237,32 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             Claude Pro et veulent industrialiser l&apos;outil en entreprise BTP.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En 2026, la session se tient uniquement le matin ({SESSION_DUREE_MATIN_NIV04}, 9h00–13h00) pour
+            En 2026, la session se tient uniquement le matin ({DUREE_LIBELLE}) pour
             enchaîner Projets, Cowork, connecteurs et Claude Code sans coupure.
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">
             <li className="flex gap-2">
               <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>Public :</strong> référents IA, dirigeants, responsables digitaux, chargés d&apos;affaires et
-                conducteurs de travaux souhaitant industrialiser l&apos;usage de Claude dans l&apos;entreprise BTP.
+                <strong>Public :</strong> {FORMATION.public}.
               </span>
             </li>
             <li className="flex gap-2">
               <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>Format :</strong> session unique <strong>{SESSION_DUREE_MATIN_NIV04}</strong> — matin
+                <strong>Format :</strong> session unique <strong>{DUREE_LIBELLE}</strong> — matin
                 uniquement. Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
-                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
+                <strong>{PRIX_LIBELLE} par session</strong> — {EFFECTIF_LIBELLE}.
               </span>
             </li>
             <li className="flex gap-2">
               <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              <span>
-                <strong>Prérequis :</strong> abonnement Claude Pro et utilisation régulière de Claude. Option «
-                Exécution de code » activée. Documents utiles : chartes internes, modèles CR/mémoires, exemples de
-                dossiers anonymisés.
-              </span>
+              <PrerequisNiveau2
+                extras={[
+                  'Option « Exécution de code » activée.',
+                  'Documents utiles : chartes internes, modèles CR/mémoires, exemples de dossiers anonymisés (AO, CCTP, CR, PV).',
+                ]}
+              />
             </li>
           </ul>
           <p className="mt-4 text-sm text-slate-600">
@@ -256,15 +276,16 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            À l&apos;issue de cette formation, l&apos;entreprise dispose de Projets structurés, de Skills réutilisables,
-            de connecteurs outils et d&apos;une première automatisation Claude Code validée en interne.
+            À l&apos;issue de cette formation, l&apos;entreprise dispose de Projets structurés, de Skills réutilisables
+            (AO, chantier, administratif), de connecteurs outils et d&apos;une première automatisation Claude Code
+            validée en interne.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            En 2026, le forfait catalogue est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session
-            (8 participants max).
+            En 2026, le forfait catalogue est de {PRIX_LIBELLE} par session
+            ({FORMATION.effectifMax} participants max).
           </p>
           <ul className="mt-4 space-y-2 text-slate-700">
-            {OBJECTIFS_PEDAGOGIQUES.map((o) => (
+            {FORMATION.objectifs.map((o) => (
               <li key={o} className="flex gap-2">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
                 {o}
@@ -274,10 +295,39 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           <p className="mt-4 text-sm leading-relaxed text-slate-500">{GAINS_TEMPS_MENTION_PRUDENCE}</p>
         </section>
 
+        <section className="mt-12" aria-labelledby="cas-usage-session-heading">
+          <h2 id="cas-usage-session-heading" className="font-display text-2xl font-bold text-slate-900">
+            Cas d&apos;usage travaillés en session
+          </h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Au-delà de l&apos;industrialisation (Projets, Cowork, connecteurs, Claude Code), la session installe et
+            pratique des <strong>skills métier</strong> adaptés à vos dossiers réels — appels d&apos;offres, chantier
+            et juridique marché de travaux.
+          </p>
+          <div className="mt-8 space-y-6">
+            {CAS_USAGE_SESSION.map((bloc) => (
+              <div
+                key={bloc.titre}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h3 className="font-display text-lg font-semibold text-slate-900">{bloc.titre}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                  {bloc.items.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="programme" className="mt-12 scroll-mt-24">
           <h2 className="font-display text-2xl font-bold text-slate-900">Programme détaillé</h2>
           <p className="mt-2 text-sm text-slate-600">
-            Le programme enchaîne 4 modules techniques sur 4 h le matin : Projets &amp; Skills, Cowork,
+            Le programme enchaîne 4 modules techniques sur {FORMATION.duree} le matin : Projets &amp; Skills, Cowork,
             connecteurs Gmail/Drive et Claude Code.
           </p>
           <p className="mt-2 text-sm text-slate-600">
@@ -285,7 +335,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             des métiers du BTP, 621 répondants) — cette formation vise l&apos;industrialisation, pas la découverte.
           </p>
           <p className="mt-2 text-sm text-slate-600">
-            4 modules — total 4 h le matin — travail sur vos cas réels (documents anonymisés si besoin). Relecture
+            4 modules — total {DUREE_LIBELLE} — travail sur vos cas réels (documents anonymisés si besoin). Relecture
             humaine obligatoire avant tout envoi client ou marché.
           </p>
           <div className="mt-8 space-y-8">
@@ -324,9 +374,9 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
-              <strong>Durée :</strong> {SESSION_DUREE_MATIN_NIV04} · <strong>Forfait :</strong>{' '}
-              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session · <strong>Effectif :</strong>{' '}
-              {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
+              <strong>Durée :</strong> {DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
+              {PRIX_LIBELLE} / session · <strong>Effectif :</strong>{' '}
+              {EFFECTIF_LIBELLE} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).
             </li>
             <li>

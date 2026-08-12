@@ -18,8 +18,6 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
       return 'Téléchargez le programme détaillé de la formation Maîtriser Claude AI pour le BTP — Projets, Skills, Cowork et Claude Code.';
     case 'NIV-05':
       return "Téléchargez le programme détaillé de la formation L'IA au service des maîtres d'œuvre — MOEX, DCE, CR chantier et réserves.";
-    case 'NIV-06':
-      return 'Téléchargez le programme détaillé — Claude IA pour le BTP : Chat, Cowork & Code, skills sur-mesure AO, chantier et juridique.';
     default:
       return `Téléchargez le programme détaillé — ${formationTitle}.`;
   }

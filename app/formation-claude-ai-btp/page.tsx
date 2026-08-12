@@ -275,7 +275,7 @@ export default function FormationClaudeAiBtpPage() {
               très longs</strong> (jusqu&apos;à 200 000 tokens, soit environ 500 pages), il
               <strong> rédige avec une structure naturelle</strong> proche d&apos;un chargé d&apos;affaires
               expérimenté, et Anthropic <strong>n&apos;utilise pas vos données</strong> pour entraîner
-              ses modèles par défaut. Dans les formations OFC, nous constatons que Claude fait
+              ses modèles par défaut. Dans les formations OFC, je constate que Claude fait
               gagner <strong>jusqu&apos;à 3 heures par mémoire technique</strong> de 40 pages par
               rapport à un travail manuel.
             </p>

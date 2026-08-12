@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 export type MarketingLightHeroStat = {
   icon: LucideIcon;
@@ -165,6 +166,8 @@ export function MarketingLightHero({
                 );
               })}
             </ul>
+
+            <IndicateursResultatsLink className="mt-3" />
 
             {middle ? <div className="mt-8">{middle}</div> : null}
 

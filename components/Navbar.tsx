@@ -66,7 +66,7 @@ const FORMATIONS_MEGA: NavMega = {
   navIcon: GraduationCap,
   columns: [
     {
-      title: 'Nos formations',
+      title: 'Mes formations',
       links: CATALOGUE_FORMATIONS_NAV_LINKS,
     },
   ],

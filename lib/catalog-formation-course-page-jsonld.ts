@@ -32,7 +32,6 @@ export function buildCatalogFormationCoursePageSchema(
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const description = pageDescription?.trim() || entry.description;
   const courseUrl = `${base}${entry.path}`;
-  const isNiv06 = entry.ref === 'NIV-06';
 
   const offer: Record<string, unknown> = {
     '@type': 'Offer',
@@ -42,11 +41,7 @@ export function buildCatalogFormationCoursePageSchema(
     validFrom: '2026-01-01',
     url: courseUrl,
   };
-  if (!isNiv06) {
-    offer.price = String(tarifHtDepuisBadgeCatalogue(entry.level));
-  } else {
-    offer.description = 'Session intra sur devis';
-  }
+  offer.price = String(tarifHtDepuisBadgeCatalogue(entry.level));
 
   return {
     ...buildFormationFicheCourseJsonLd({

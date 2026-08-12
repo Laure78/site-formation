@@ -177,7 +177,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
     },
     {
       q: 'Le CCAG-Travaux 2021 est-il « enseigné » comme du droit ?',
-      a: 'Non : nous utilisons des repères pour cadrer la lecture des pièces et les prompts. Toute question juridique ou contentieuse relève d’un conseil compétent — pas de l’IA ni de la formation seule.',
+      a: 'Non : j’utilise des repères pour cadrer la lecture des pièces et les prompts. Toute question juridique ou contentieuse relève d’un conseil compétent — pas de l’IA ni de la formation seule.',
     },
     {
       q: 'Où trouver le tarif et le programme détaillé ?',
@@ -185,7 +185,7 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
     },
     {
       q: 'Le financement Constructys est-il garanti ?',
-      a: 'Non. Un financement OPCO Constructys est possible selon éligibilité (branche, disponibilité des fonds, dossier). Nous vous orientons lors de l’appel découverte — sans promesse de prise en charge automatique.',
+      a: 'Non. Un financement OPCO Constructys est possible selon éligibilité (branche, disponibilité des fonds, dossier). Je vous oriente lors de l’appel découverte — sans promesse de prise en charge automatique.',
     },
     {
       q: 'La formation est-elle disponible hors Île-de-France ou en distanciel ?',
@@ -244,7 +244,7 @@ export const FORMATION_IA_MARCHE_PUBLIC_ETANCHEITE: FormationIaMarchePublicConfi
     `Le mémoire technique doit parler le langage du lot : EPDM ou bitume, EEP, protections lourdes ou légères, végétalisation éventuelle, accès en hauteur. Un texte « générique enveloppe » ne convainc pas un jury de marché public.`,
     `Sans méthode, l’équipe reformule toute la nuit avant la date limite de dépôt. L’IA non cadrée invente des numéros de DTU 43.x ou des performances de système — inacceptable en commande publique.`,
   ],
-  solutionIntro: `Cette page lot complète le hub « marché public de travaux » avec le vocabulaire étanchéité. La session catalogue reste la fiche NIV-02 (appels d’offres) : ici, nous détaillons les cas d’usage DCE / mémoire pour le lot, avec les garde-fous CSFE et DTU.`,
+  solutionIntro: `Cette page lot complète le hub « marché public de travaux » avec le vocabulaire étanchéité. La session catalogue reste la fiche NIV-02 (appels d’offres) : ici, je détaille les cas d’usage DCE / mémoire pour le lot, avec les garde-fous CSFE et DTU.`,
   solutionGuards: [
     'L’IA structure brouillons et tableaux à partir de vos pièces — elle ne valide pas un système ni un avis technique',
     'Toujours croiser fascicules DTU 43.x, CCTP et notices fabricants avant envoi',

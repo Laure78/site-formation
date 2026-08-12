@@ -73,10 +73,11 @@ export const LINKS = {
   formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
   pdfProgrammeMaitriserClaudeBtpNiv04:
     '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
-  /** Fiche catalogue — Claude IA Chat, Cowork & Code (skills sur-mesure BTP, intra) */
-  formationClaudeIaBtpFiche: '/formations/formation-claude-ia-btp',
+  /** @deprecated Alias historique de la fiche NIV-06, fusionnée dans NIV-04. */
+  formationClaudeIaBtpFiche: '/formations/maitriser-claude-ai-btp',
+  /** @deprecated Alias historique du programme NIV-06, désormais programme NIV-04. */
   pdfProgrammeFormationClaudeIaBtp:
-    '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
+    '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
   /** NIV-05 — L'IA au service des maîtres d'œuvre (catalogue) */
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:

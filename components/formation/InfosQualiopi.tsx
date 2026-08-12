@@ -112,7 +112,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
               </Link>{' '}
               ou{' '}
               <Link href={LINKS.contact} className="font-medium text-[#377CF3] hover:underline">
-                nous contacter
+                me contacter
               </Link>{' '}
               pour vérifier les prochaines dates.
             </p>
@@ -171,7 +171,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </p>
             <p className="mt-3">
               <Link href={LINKS.annuaireHandicap} className="font-medium text-[#377CF3] hover:underline">
-                Consulter notre annuaire des partenaires handicap
+                Consulter l&apos;annuaire des partenaires handicap
               </Link>
             </p>
           </QualiopiItem>

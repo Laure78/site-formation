@@ -1,7 +1,7 @@
 -- ============================================================
--- SEED LMS — 6 formations catalogue officielles (/formations)
+-- SEED LMS — 5 formations catalogue officielles (/formations)
 -- ============================================================
--- Aligné sur lib/formations-catalogue-display.ts (NIV-01 → NIV-06)
+-- Aligné sur lib/formations-catalogue-display.ts (NIV-01 → NIV-05)
 -- Exécuter dans Supabase → SQL Editor → Run (idempotent)
 -- ============================================================
 
@@ -215,33 +215,6 @@ BEGIN
     '<p><strong>50 min</strong> — suivi des réserves, réception, GPA.</p><p><strong>Livrable :</strong> modèle de suivi + tableau GPA + 8 prompts.</p>',
     0, 50
   FROM public.modules WHERE course_id = cid AND order_index = 5;
-
-  -- =========================================================
-  -- NIV-06 — formation-claude-ia-btp
-  -- =========================================================
-  cid := public._ofc_seed_catalogue_course(
-    'formation-claude-ia-btp',
-    'Claude IA pour le BTP : Chat, Cowork & Code',
-    'Niveau 2 (4 h) : skills sur-mesure — administratif, appels d''offres, chantier et juridique avec Claude Chat, Cowork & Code.',
-    'Utiliser Claude Chat, Cowork et Code et installer des skills métier · Analyser un AO (RC, DCE/DQE) · Préparer et suivre un chantier (CCTP, CR, réserves, normes) · Qualifier un litige — l''IA n''est pas un avocat',
-    'Claude Pro. Dossiers AO / chantier anonymisés. Public : direction, BE, CDT, chefs de chantier, administratif.',
-    'Module 1 — Démarrer & installer les skills · Module 2 — Bureau d''études (RC & DCE) · Module 3 — Équipe travaux · Module 4 — Direction juridique + déploiement',
-    'avance',
-    4
-  );
-
-  INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Programme & ressources', 0) RETURNING id INTO m0;
-  INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 1 — Démarrer avec Claude & skills BTP', 1) RETURNING id INTO m1;
-  INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 2 — Bureau d''études : RC & DCE', 2) RETURNING id INTO m2;
-  INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 3 — Équipe travaux', 3) RETURNING id INTO m3;
-  INSERT INTO public.modules (course_id, title, order_index) VALUES (cid, 'Module 4 — Direction juridique & déploiement', 4) RETURNING id INTO m4;
-
-  INSERT INTO public.lessons (module_id, title, type, content_url, content_text, order_index, duration_minutes) VALUES
-    (m0, 'Programme officiel NIV-06 (PDF)', 'pdf', '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf', NULL, 0, 15),
-    (m1, 'Chat, Cowork, Code & installation des skills', 'texte', NULL, '<p><strong>60 min</strong> — 3 environnements, PDF, confidentialité, install .skill, économie de tokens.</p><p><strong>Livrable :</strong> skills installés + fiche réflexes tokens.</p>', 0, 60),
-    (m2, 'Skills analyse RC & DCE/DQE', 'texte', NULL, '<p><strong>60 min</strong> — GO/NO GO, postes oubliés, clauses à risque, chiffrage sécurisé.</p><p><strong>Livrable :</strong> fiche RC + fiche DCE sur un AO réel.</p>', 0, 60),
-    (m3, 'Skills CCTP, CR, réserves, normes', 'texte', NULL, '<p><strong>60 min</strong> — phasage, CR photo, levée des réserves, hors-gel / XF.</p><p><strong>Livrable :</strong> synthèse CR + fiche prépa + tableau réserves + mémo normes.</p>', 0, 60),
-    (m4, 'Skill juridique & plan de déploiement', 'texte', NULL, '<p><strong>60 min</strong> — litige privé/public, mise en demeure, mémoire, plan 30 jours.</p><p><strong>Livrable :</strong> plan de déploiement IA BTP + tuto skills & tokens.</p><p><em>Rappel : l''IA n''est pas un avocat — validation humaine obligatoire.</em></p>', 0, 60);
 
 END $$;
 

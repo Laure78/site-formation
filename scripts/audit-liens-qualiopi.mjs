@@ -44,7 +44,6 @@ const FORMATION_PDFS = [
     href: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
   },
   { ref: 'NIV-05', href: '/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf' },
-  { ref: 'NIV-06', href: '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf' },
 ];
 
 const EXTERNAL = [

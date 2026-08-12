@@ -92,11 +92,11 @@ export default async function MerciRDVPage({
             </p>
             <div className="mt-4 flex flex-wrap justify-center gap-6">
               <a
-                href="mailto:laureolivie@yahoo.fr"
+                href="mailto:contact@laureolivie.fr"
                 className="flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
               >
                 <Mail size={20} strokeWidth={1.5} />
-                laureolivie@yahoo.fr
+                contact@laureolivie.fr
               </a>
             </div>
           </div>

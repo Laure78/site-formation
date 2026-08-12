@@ -446,7 +446,7 @@ export default function FormationsLinkedInLearningPage() {
 
             <p className="mt-6 text-base leading-relaxed text-slate-700 md:text-lg">
               Le meilleur combo : découvre les bases en ligne, puis passe au présentiel en
-              Île-de-France pour appliquer l&apos;IA à tes vrais dossiers, avec suivi personnalisé.
+              Île-de-France pour appliquer l&apos;IA à tes vrais dossiers.
             </p>
             <p className="mt-3 text-base text-slate-600">
               Catalogue présentiel OFC :{' '}

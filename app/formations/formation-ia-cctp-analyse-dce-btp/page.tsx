@@ -16,9 +16,8 @@ import {
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
-  LIBELLE_EFFECTIF_GROUPE_COURT,
+  LIBELLE_EFFECTIF_GROUPE_NIV02,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
-
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
@@ -72,7 +71,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Constructys peut-il financer ma formation IA appliquée au bâtiment ?',
-    a: 'Le financement dépend de votre éligibilité au Plan de Développement des Compétences et de la validation du dossier. OFC est certifié Qualiopi et référencé Constructys : nous préparons les pièces adaptées.',
+    a: 'Le financement dépend de votre éligibilité au Plan de Développement des Compétences et de la validation du dossier. OFC est certifié Qualiopi et référencé Constructys : je prépare les pièces adaptées.',
   },
   {
     q: 'La formation est-elle adaptée aux marchés privés (pas que publics) ?',
@@ -80,7 +79,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     q: 'Comment se déroule une session intra ?',
-    a: 'Je me déplace dans vos locaux, en présentiel (Île-de-France). Nous travaillons sur des extraits anonymisés de vos DCE pour ancrer la méthode.',
+    a: 'Je me déplace dans vos locaux, en présentiel (Île-de-France). Je travaille sur des extraits anonymisés de vos DCE pour ancrer la méthode.',
   },
   {
     q: 'Quel est le délai pour organiser une formation ?',
@@ -166,8 +165,8 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
         badges={HERO_BULLETS}
         summaryItems={[
           `Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING} sur les évaluations OFC.`,
-          `Forfait catalogue niveau avancé : ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT / session (${SESSION_DUREE_LIBELLE}, jusqu'à 12 participants).`,
-          `${LIBELLE_EFFECTIF_GROUPE_COURT}.`,
+          `Forfait catalogue niveau avancé : ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT / session (${SESSION_DUREE_LIBELLE}, ${LIBELLE_EFFECTIF_GROUPE_NIV02}).`,
+          `${LIBELLE_EFFECTIF_GROUPE_NIV02}.`,
         ]}
         ctas={
           <>
@@ -286,7 +285,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
             <li className="flex gap-2">
               <Users className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
-                <strong>Effectifs :</strong> 1 à 12 participants en intra, 6 à 15 en inter selon organisme.
+                <strong>Effectifs :</strong> {LIBELLE_EFFECTIF_GROUPE_NIV02} (catalogue NIV-02).
               </span>
             </li>
             <li className="flex gap-2">
@@ -304,7 +303,7 @@ export default function FormationIaCctpAnalyseDceBtpPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">Tarifs et financement</h2>
           <p className="mt-3 text-slate-700">
             <strong>Tarif intra indicatif :</strong> à partir de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT pour une session de{' '}
-            {SESSION_DUREE_LIBELLE} (jusqu&apos;à 12 participants, selon cahier des charges).
+            {SESSION_DUREE_LIBELLE} ({LIBELLE_EFFECTIF_GROUPE_NIV02}, selon cahier des charges).
           </p>
           <p className="mt-3 text-slate-700">
             <strong>Tarif inter :</strong> selon organisme partenaire et dispositif (FFB, CSFE, CNAM, etc.).

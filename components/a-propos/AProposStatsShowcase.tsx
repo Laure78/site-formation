@@ -4,6 +4,7 @@ import { Award, ShieldCheck, Star, Users } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { CountUp } from '@/components/motion/CountUp';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const STATS = [
   {
@@ -69,6 +70,7 @@ export function AProposStatsShowcase() {
             </div>
           ))}
         </RevealGroup>
+        <IndicateursResultatsLink className="mt-5" />
       </div>
     </section>
   );

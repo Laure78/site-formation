@@ -21,7 +21,7 @@ export type OrganizationOfcSchemaNodeOptions = {
 
 /**
  * Nœud JSON-LD Organization — EducationalOrganization + LocalBusiness.
- * Doctrine : présentiel Île-de-France uniquement · email laureolivie@yahoo.fr · pas de GERESO.
+ * Doctrine : présentiel Île-de-France uniquement · email contact@laureolivie.fr · pas de GERESO.
  * areaServed : Île-de-France (+ 8 départements) · identifier SIRET.
  * Injecté une seule fois via layout (`GlobalSiteJsonLd` → `#organization`).
  */

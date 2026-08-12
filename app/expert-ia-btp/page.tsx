@@ -145,7 +145,7 @@ export default function ExpertIABTPPage() {
                   <ul className="mt-4 space-y-2 text-slate-700">
                     <li className="flex gap-2">
                       <CheckCircle size={20} className="shrink-0 text-[var(--accent)]" />
-                      <span>IA générative (ChatGPT, Claude, Gemini)</span>
+                      <span>Claude AI et ChatGPT (formation niveau 1 et 2)</span>
                     </li>
                     <li className="flex gap-2">
                       <CheckCircle size={20} className="shrink-0 text-[var(--accent)]" />

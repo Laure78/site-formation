@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
+import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import {
   CATALOGUE_FORMATIONS_COUNT,
   catalogueNiveauLabel,
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
-import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 
 export function FormationsComparisonTable({
   formations,
@@ -27,7 +28,8 @@ export function FormationsComparisonTable({
           Comparez les {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
-          Toutes Qualiopi, toutes 4 h, intra ou inter, exclusivement en présentiel en Île-de-France. Financement possible selon éligibilité.
+          Toutes Qualiopi, toutes {SESSION_DUREE_LIBELLE}, intra ou inter,
+          exclusivement en présentiel en Île-de-France. Financement partiel possible selon éligibilité.
         </p>
       </div>
 
@@ -81,9 +83,10 @@ export function FormationsComparisonTable({
                 <td className="px-[18px] py-3 align-top text-[#334155]">{row.duree}</td>
                 <td className="px-[18px] py-3 align-top">
                   <CataloguePriceBadge
-                    level={row.level}
-                    variant="pill"
-                  />
+                level={row.level}
+                prixHT={row.prixHT}
+                variant="pill"
+              />
                 </td>
                 <td className="px-[18px] py-3 align-top text-[#64748B]">{row.comparatif.casUsage}</td>
               </tr>
@@ -102,7 +105,7 @@ export function FormationsComparisonTable({
               <span className="inline-block rounded-md bg-[#EFF6FF] px-2 py-0.5 text-xs font-bold text-[#1E40AF]">
                 {catalogueNiveauLabel(row.ref)}
               </span>
-              <CataloguePriceBadge level={row.level} variant="pill" />
+              <CataloguePriceBadge level={row.level} prixHT={row.prixHT} variant="pill" />
             </div>
             <h3 className="mt-3 font-display text-base font-semibold text-[#0F172A]">
               <Link href={row.href} className="hover:text-[#377CF3] hover:underline">

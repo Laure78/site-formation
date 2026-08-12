@@ -30,7 +30,7 @@ export function ReferentHandicapBlock({
             <Mail className="h-4 w-4 shrink-0" aria-hidden />
             {email}
           </a>
-          <a href={`tel:${telephoneTel}`} className="inline-flex items-center gap-1.5 font-medium text-[#377CF3] hover:underline">
+          <a href={`tel:${telephoneTel}`} aria-label={`Appeler Laure Olivié au ${telephone}`} className="inline-flex items-center gap-1.5 font-medium text-[#377CF3] hover:underline">
             <Phone className="h-4 w-4 shrink-0" aria-hidden />
             {telephone}
           </a>
@@ -77,6 +77,7 @@ export function ReferentHandicapBlock({
           </a>
           <a
             href={`tel:${telephoneTel}`}
+            aria-label={`Appeler Laure Olivié au ${telephone}`}
             className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#377CF3] px-5 py-3 text-sm font-semibold text-[#377CF3] transition hover:bg-[#EFF6FF]"
           >
             <Phone className="h-4 w-4" aria-hidden />

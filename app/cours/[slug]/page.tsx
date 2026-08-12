@@ -24,8 +24,8 @@ const COURS_SLUG_CANONICAL_PATH: Record<string, string> = {
   'ia-conduite-travaux-suivi-chantier': LINKS.formationConduiteTravauxSuiviChantier,
   'maitriser-claude-ai-btp': LINKS.formationMaitriserClaudeAiBtp,
   'ia-maitrise-oeuvre': LINKS.formationIaMaitriseOeuvre,
-  'formation-claude-ia-btp': LINKS.formationClaudeIaBtpFiche,
-  'pdf-btp-claude-skills': LINKS.formationClaudeIaBtpFiche,
+  'formation-claude-ia-btp': LINKS.formationMaitriserClaudeAiBtp,
+  'pdf-btp-claude-skills': LINKS.formationMaitriserClaudeAiBtp,
 };
 
 function coursCanonicalUrl(slug: string): string {

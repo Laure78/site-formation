@@ -290,7 +290,7 @@ export default function FormationIaConstructionPage() {
           </div>
 
           <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 text-slate-700">
-            <p className="font-display font-semibold text-slate-900">Nos chiffres</p>
+            <p className="font-display font-semibold text-slate-900">Mes chiffres</p>
             <ul className="mt-3 list-inside list-disc space-y-1">
               <li>
                 <strong>{formatPersonnesFormeesCount()} professionnels formés</strong>

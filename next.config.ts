@@ -97,6 +97,17 @@ const nextConfig: NextConfig = {
         destination: '/prendre-rendez-vous',
         permanent: true,
       },
+      // Admin Agent Chat retiré
+      {
+        source: '/admin/agent',
+        destination: '/admin',
+        permanent: true,
+      },
+      {
+        source: '/admin/agent/:path*',
+        destination: '/admin',
+        permanent: true,
+      },
       // --- Consolidation blog (juin 2026) — mémoire technique (ia-devis couvert par B2 juillet) ---
       {
         source: '/blog/memoire-technique-btp-ia-gagner-temps-appels-offres',
@@ -108,13 +119,28 @@ const nextConfig: NextConfig = {
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
       // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
       {
+        source: '/formations/formation-claude-ia-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
+        destination: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
+        permanent: true,
+      },
+      {
+        source: '/formations/formation-claude-ia-btp/:path*',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
+      {
         source: '/formations/claude-ia-chat-cowork-code-skills-btp',
-        destination: '/formations/formation-claude-ia-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
       {
         source: '/formations/claude-ia-chat-cowork-code-skills-btp/:path*',
-        destination: '/formations/formation-claude-ia-btp/:path*',
+        destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
       { source: '/offres', destination: '/formations', permanent: true },

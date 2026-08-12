@@ -12,7 +12,7 @@ import {
   getFormationIleDeFrancePageLocalBusinessJsonLd,
   IDF_COURSE_AREA_SERVED_NAMES,
 } from '@/lib/seo-formation-ia-schemas';
-import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
+import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
@@ -61,7 +61,7 @@ export const metadata = buildMetadata({
 const COURSE_JSON_LD = {
   ...buildFormationIaCourseJsonLd({
     name: 'Formation IA pour le bâtiment et la construction en Île-de-France',
-    description: `${SITE_CONFIG.legalName} : formation IA appliquée au bâtiment et à la construction en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95). Sessions 4 h en présentiel, Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+    description: `${SITE_CONFIG.legalName} : formation IA appliquée au bâtiment et à la construction en ${IDF_ZONE_INTERVENTION}. Sessions 4 h en présentiel, Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
     path: PATH,
     areaServed: [...IDF_COURSE_AREA_SERVED_NAMES],
   }),
@@ -78,7 +78,7 @@ const COURSE_JSON_LD = {
 const FAQ_IDF: FAQItem[] = [
   {
     q: 'Où se déroulent les formations en Île-de-France ?',
-    a: `Exclusivement en présentiel en Île-de-France : en intra dans vos locaux ou en inter en salle. Basée à Guyancourt (78), Laure Olivié intervient sur Paris et les départements 75, 77, 78, 91, 92, 93, 94 et 95.`,
+    a: `Exclusivement en présentiel en Île-de-France : en intra dans vos locaux ou en inter en salle. Basée à Guyancourt (78), Laure Olivié intervient sur ${IDF_ZONE_INTERVENTION}.`,
   },
   {
     q: 'La formation IA construction est-elle finançable par Constructys ?',
@@ -86,7 +86,7 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: 'Intervenez-vous à Paris et en petite/grande couronne ?',
-    a: `Oui. Les sessions couvrent Paris (75) ainsi que la petite et la grande couronne francilienne (77, 78, 91, 92, 93, 94, 95). Pour un besoin centré sur Paris, voir aussi la page formation IA à Paris.`,
+    a: `Oui. Les sessions couvrent ${IDF_ZONE_INTERVENTION}. Pour un besoin centré sur Paris, voir aussi la page formation IA à Paris.`,
   },
   {
     q: 'Sur quels documents travaille-t-on en formation ?',
@@ -184,7 +184,7 @@ export default function FormationIaBtpIleDeFrancePage() {
                 formations IA pour le BTP
               </Link>
               — effectifs et tarifs à jour (ex. appels d&apos;offres : {LIBELLE_EFFECTIF_GROUPE_NIV02}). Présentiel
-              uniquement, sessions inter ou intra sur Paris et les départements 75 à 95.
+              uniquement, sessions inter ou intra sur {IDF_ZONE_INTERVENTION}.
             </p>
             <div className="mt-10">
               <FormationsCatalogueInteractive formations={FORMATIONS_CATALOGUE} />
@@ -198,8 +198,8 @@ export default function FormationIaBtpIleDeFrancePage() {
               Intra ou inter, partout en Île-de-France
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
-              Sessions <strong>intra</strong> dans vos locaux ou <strong>inter</strong> en salle, sur Paris et les huit
-              départements franciliens : 75, 77, 78, 91, 92, 93, 94 et 95. Si votre besoin est centré sur la capitale,
+              Sessions <strong>intra</strong> dans vos locaux ou <strong>inter</strong> en salle —{' '}
+              {IDF_ZONE_INTERVENTION}. Si votre besoin est centré sur la capitale,
               consultez la{' '}
               <Link href={LINKS.formationIaParis} className={OFC_LINK} title="Formation IA à Paris">
                 formation IA à Paris
