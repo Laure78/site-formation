@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
-import { getProfile, isAdmin } from '@/lib/auth';
+import { requireAdminAccess, adminAccessDeniedMessage } from '@/lib/admin-access';
 import { inviteApprenantSchema, inviteOrResendApprenant } from '@/lib/invitation';
 import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
 
@@ -18,16 +17,10 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) {
-    return NextResponse.json({ error: 'Non authentifié' }, { status: 401 });
-  }
-  const profile = await getProfile(user.id);
-  if (!profile || !isAdmin(profile.role)) {
-    return NextResponse.json({ error: 'Réservé aux administrateurs' }, { status: 403 });
+  const access = await requireAdminAccess();
+  if (!access.ok) {
+    const status = access.reason === 'unauthenticated' ? 401 : 403;
+    return NextResponse.json({ error: adminAccessDeniedMessage(access.reason) }, { status });
   }
 
   let body: unknown;
@@ -45,7 +38,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const result = await inviteOrResendApprenant(parsed.data, user.id);
+  const result = await inviteOrResendApprenant(parsed.data, access.userId);
   if (!result.ok) {
     const status =
       result.code === 'not_found'

@@ -2,12 +2,22 @@ import { NextRequest, NextResponse } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 import { isMiddlewareBypassPath, redirectApexToWww } from '@/lib/middleware/canonical-host';
 import { needsSupabaseSession } from '@/lib/middleware/public-marketing-paths';
+import { blockDevApiInProduction, enforceAdminAccess } from '@/lib/middleware/admin-guard';
 
 export async function middleware(request: NextRequest) {
   const apexRedirect = redirectApexToWww(request);
   if (apexRedirect) return apexRedirect;
 
   const { pathname } = request.nextUrl;
+
+  const devBlock = blockDevApiInProduction(request);
+  if (devBlock) return devBlock;
+
+  if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
+    const adminGuard = await enforceAdminAccess(request);
+    if (adminGuard) return adminGuard;
+  }
+
   if (isMiddlewareBypassPath(pathname)) {
     return NextResponse.next();
   }

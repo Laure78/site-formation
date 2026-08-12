@@ -8,6 +8,8 @@ export type InvitationApprenantEmailProps = {
   loginUrl: string;
   email: string;
   temporaryPassword?: string | null;
+  /** Compte déjà actif : pas de nouveau mot de passe, connexion avec identifiants existants. */
+  accountAlreadyActive?: boolean;
   firstName?: string | null;
 };
 
@@ -49,6 +51,14 @@ export function invitationEmailText(props: InvitationApprenantEmailProps): strin
       'Après connexion, changez ce mot de passe temporaire pour plus de sécurité.',
       ''
     );
+  } else if (props.accountAlreadyActive) {
+    lines.push(
+      'Votre compte est déjà actif. Connectez-vous avec vos identifiants habituels :',
+      props.loginUrl,
+      '',
+      'Vous avez été inscrit(e) à cette nouvelle formation.',
+      ''
+    );
   } else {
     lines.push(
       `Créez votre mot de passe via ce lien (valable ${INVITATION_TTL_DAYS_LABEL} jours) :`,
@@ -72,11 +82,13 @@ export function InvitationApprenantEmail({
   loginUrl,
   email,
   temporaryPassword,
+  accountAlreadyActive,
   firstName,
 }: InvitationApprenantEmailProps) {
   const hello = firstName ? `Bonjour ${firstName},` : 'Bonjour,';
   const legal = invitationEmailLegalFooter();
   const hasPassword = Boolean(temporaryPassword);
+  const useExistingAccount = Boolean(accountAlreadyActive && !hasPassword);
 
   return (
     <html lang="fr">
@@ -182,6 +194,30 @@ export function InvitationApprenantEmail({
                               Après votre première connexion, changez ce mot de passe temporaire pour plus de
                               sécurité. Page de connexion :{' '}
                               <span style={{ wordBreak: 'break-all' }}>{loginUrl}</span>
+                            </p>
+                          </>
+                        ) : useExistingAccount ? (
+                          <>
+                            <p style={{ margin: '0 0 16px', fontSize: 16, lineHeight: '24px' }}>
+                              Votre compte est déjà actif. Vous avez été inscrit(e) à cette
+                              formation — connectez-vous avec vos identifiants habituels.
+                            </p>
+                            <p style={{ margin: '0 0 24px', textAlign: 'center' }}>
+                              <a
+                                href={loginUrl}
+                                style={{
+                                  display: 'inline-block',
+                                  backgroundColor: '#377CF3',
+                                  color: '#FFFFFF',
+                                  textDecoration: 'none',
+                                  fontWeight: 600,
+                                  fontSize: 16,
+                                  padding: '14px 28px',
+                                  borderRadius: 10,
+                                }}
+                              >
+                                Accéder à mon espace
+                              </a>
                             </p>
                           </>
                         ) : (

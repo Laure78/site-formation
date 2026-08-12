@@ -2,9 +2,10 @@
 
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
-import { isAdmin } from '@/lib/auth';
+import { requireAdminAccess } from '@/lib/admin-access';
 import { inviteApprenantSchema, inviteOrResendApprenant } from '@/lib/invitation';
 import { parseApprenantsCsv } from '@/lib/parse-apprenants-csv';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export async function importApprenantsAction(
   csvText: string,
@@ -15,8 +16,17 @@ export async function importApprenantsAction(
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return null;
-  const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
-  if (!profile || !isAdmin(profile.role)) return null;
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return null;
+
+  const rl = checkRateLimit(`admin-import-csv:${user.id}`, 5, 10 * 60_000);
+  if (!rl.ok) {
+    return {
+      invited: 0,
+      skipped: 0,
+      errors: ['Trop d’imports récents. Réessayez dans quelques minutes.'],
+    };
+  }
 
   const courseParsed = z.string().uuid().safeParse(courseId);
   if (!courseParsed.success) {
@@ -96,7 +106,7 @@ export async function importApprenantsAction(
       continue;
     }
 
-    const result = await inviteOrResendApprenant(parsed.data, user.id);
+    const result = await inviteOrResendApprenant(parsed.data, admin.userId);
 
     if (!result.ok) {
       errors.push(`Ligne ${lineNo} (${email}) : ${result.error}`);
@@ -124,8 +134,8 @@ export async function resendInvitationAction(input: {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return { ok: false, error: 'Non authentifié' };
-  const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
-  if (!profile || !isAdmin(profile.role)) return { ok: false, error: 'Non autorisé' };
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return { ok: false, error: 'Non autorisé' };
 
   const parsed = inviteApprenantSchema.safeParse({
     email: input.email,
@@ -139,7 +149,7 @@ export async function resendInvitationAction(input: {
     return { ok: false, error: parsed.error.issues[0]?.message ?? 'Données invalides' };
   }
 
-  const result = await inviteOrResendApprenant(parsed.data, user.id);
+  const result = await inviteOrResendApprenant(parsed.data, admin.userId);
   if (!result.ok) return { ok: false, error: result.error };
   return { ok: true, status: result.status };
 }
@@ -150,8 +160,8 @@ export async function getApprenantsCsv(): Promise<string | null> {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return null;
-  const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
-  if (!profile || !isAdmin(profile.role)) return null;
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return null;
 
   function csvEscape(val: string | number | null | undefined): string {
     if (val == null) return '';
@@ -240,8 +250,8 @@ export async function resetProgressionAction(userId: string, courseId: string): 
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return false;
-  const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
-  if (!profile || !isAdmin(profile.role)) return false;
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return false;
 
   const { data: modules } = await supabase.from('modules').select('id').eq('course_id', ids.data.courseId);
   const moduleIds = (modules ?? []).map((m) => m.id);
@@ -274,8 +284,8 @@ export async function supprimerInscriptionAction(userId: string, courseId: strin
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) return false;
-  const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
-  if (!profile || !isAdmin(profile.role)) return false;
+  const admin = await requireAdminAccess();
+  if (!admin.ok) return false;
 
   const { data: modules } = await supabase.from('modules').select('id').eq('course_id', ids.data.courseId);
   const moduleIds = (modules ?? []).map((m) => m.id);

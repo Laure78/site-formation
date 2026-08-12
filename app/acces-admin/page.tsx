@@ -1,8 +1,11 @@
+import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { getProfile, isAdmin } from '@/lib/auth';
+import { canAccessAdmin } from '@/lib/admin-access';
+import { getProfile } from '@/lib/auth';
 import Link from 'next/link';
-import { AlertCircle, CheckCircle, ExternalLink } from 'lucide-react';
+import { AlertCircle, ExternalLink } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
+import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 
 export const metadata = createPageMetadata({
   title: 'Accès espace admin',
@@ -27,12 +30,12 @@ export default async function AccesAdminPage() {
           <div className="flex gap-3">
             <AlertCircle size={24} className="shrink-0 text-amber-600" />
             <div>
-              <p className="font-semibold text-amber-900">Vous n&apos;êtes pas connectée</p>
+              <p className="font-semibold text-amber-900">Connexion requise</p>
               <p className="mt-2 text-amber-800">
-                Connectez-vous d&apos;abord avec votre compte (email et mot de passe), puis revenez sur cette page.
+                Connectez-vous avec votre compte administrateur, puis accédez à l&apos;espace de gestion.
               </p>
               <Link
-                href="/auth/connexion?next=/acces-admin"
+                href="/auth/connexion?next=/admin"
                 className="mt-4 inline-block rounded-xl bg-amber-600 px-6 py-3 font-semibold text-white hover:bg-amber-700"
               >
                 Se connecter
@@ -45,34 +48,9 @@ export default async function AccesAdminPage() {
   }
 
   const profile = await getProfile(user.id);
-  const role = profile?.role ?? 'apprenant';
 
-  if (isAdmin(role)) {
-    return (
-      <div className="mx-auto max-w-2xl px-4 py-16">
-        <h1 className="font-display text-2xl font-bold text-slate-900">
-          Accès à l&apos;espace admin
-        </h1>
-        <div className="mt-8 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-6">
-          <div className="flex gap-3">
-            <CheckCircle size={24} className="shrink-0 text-emerald-600" />
-            <div>
-              <p className="font-semibold text-emerald-900">Vous avez accès à l&apos;admin</p>
-              <p className="mt-2 text-emerald-800">
-                Vous pouvez accéder à l&apos;espace d&apos;administration pour gérer les formations, les apprenants, etc.
-              </p>
-              <Link
-                href="/admin"
-                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white hover:bg-emerald-700"
-              >
-                Ouvrir l&apos;espace admin
-                <ExternalLink size={18} strokeWidth={1.5} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (canAccessAdmin(profile, user.email)) {
+    redirect('/admin');
   }
 
   return (
@@ -80,54 +58,50 @@ export default async function AccesAdminPage() {
       <h1 className="font-display text-2xl font-bold text-slate-900">
         Accès à l&apos;espace admin
       </h1>
-      <p className="mt-2 text-slate-600">
-        Connectée en tant que {user.email}
-      </p>
 
       <div className="mt-8 rounded-2xl border-2 border-amber-200 bg-amber-50 p-6">
         <div className="flex gap-3">
           <AlertCircle size={24} className="shrink-0 text-amber-600" />
           <div>
-            <p className="font-semibold text-amber-900">Accès admin non activé</p>
+            <p className="font-semibold text-amber-900">Accès non autorisé</p>
             <p className="mt-2 text-amber-800">
-              Votre compte a le rôle « apprenant ». Pour accéder à l&apos;admin, il faut modifier votre rôle dans la base de données Supabase.
+              Ce compte n&apos;a pas les droits d&apos;administration sur cette plateforme.
+              Si vous pensez qu&apos;il s&apos;agit d&apos;une erreur, contactez le responsable du site.
             </p>
+            <p className="mt-4 text-sm text-amber-900">
+              <a
+                href={`mailto:${SCHEMA_CONTACT.email}`}
+                className="font-medium underline hover:no-underline"
+              >
+                {SCHEMA_CONTACT.email}
+              </a>
+            </p>
+            <Link
+              href="/espace-apprenant"
+              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-white px-6 py-3 font-semibold text-amber-900 hover:bg-amber-100"
+            >
+              Retour à l&apos;espace apprenant
+              <ExternalLink size={18} strokeWidth={1.5} />
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h2 className="font-display text-lg font-semibold text-slate-900">
-          Solution : exécuter ce script SQL dans Supabase
-        </h2>
-        <ol className="mt-4 list-decimal space-y-3 text-slate-700">
-          <li>Ouvrez <strong>Supabase</strong> (supabase.com) et connectez-vous à votre projet.</li>
-          <li>Allez dans <strong>SQL Editor</strong> → <strong>New query</strong>.</li>
-          <li>Copiez-collez le code ci-dessous.</li>
-          <li>Remplacez <code className="rounded bg-slate-100 px-1">laureolivie@yahoo.fr</code> par votre email si besoin.</li>
-          <li>Cliquez sur <strong>Run</strong>.</li>
-          <li>Reconnectez-vous sur laureolivie.fr (déconnexion puis connexion).</li>
-          <li>Retournez sur cette page ou allez directement sur <Link href="/admin" className="text-[var(--accent)] font-medium hover:underline">/admin</Link>.</li>
-        </ol>
-
-        <div className="mt-6">
-          <label className="block text-sm font-medium text-slate-700">
-            Code SQL à exécuter :
-          </label>
-          <pre className="mt-2 overflow-x-auto rounded-xl bg-slate-900 p-4 text-sm text-slate-100">
-{`UPDATE public.profiles
-SET role = 'admin', full_name = 'Laure Olivié', updated_at = now()
-WHERE id IN (
-  SELECT id FROM auth.users 
-  WHERE email = 'laureolivie@yahoo.fr'
-);`}
-          </pre>
+      {process.env.NODE_ENV === 'development' && (
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="font-display text-lg font-semibold text-slate-900">
+            Mode développement — promotion admin
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            En local uniquement :{' '}
+            <Link href="/api/dev/promote-admin" className="text-[var(--accent)] font-medium hover:underline">
+              /api/dev/promote-admin
+            </Link>
+            {' '}ou voir{' '}
+            <code className="rounded bg-slate-100 px-1">docs/CONNEXION-ADMIN.md</code>.
+          </p>
         </div>
-
-        <p className="mt-4 text-sm text-slate-600">
-          Si vous n&apos;avez pas accès à Supabase, demandez à la personne qui gère le projet d&apos;exécuter ce script.
-        </p>
-      </div>
+      )}
     </div>
   );
 }

@@ -29,6 +29,8 @@ export async function sendInvitationEmail(params: {
   firstName?: string | null;
   /** Mot de passe temporaire — envoyé une seule fois, jamais stocké. */
   temporaryPassword?: string | null;
+  /** Compte déjà actif : pas de réinitialisation de mot de passe. */
+  accountAlreadyActive?: boolean;
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM || process.env.INVITATION_FROM_EMAIL;
@@ -52,6 +54,7 @@ export async function sendInvitationEmail(params: {
       loginUrl,
       email: params.to,
       temporaryPassword: params.temporaryPassword,
+      accountAlreadyActive: params.accountAlreadyActive,
       firstName: params.firstName,
     }),
     text: invitationEmailText({
@@ -60,6 +63,7 @@ export async function sendInvitationEmail(params: {
       loginUrl,
       email: params.to,
       temporaryPassword: params.temporaryPassword,
+      accountAlreadyActive: params.accountAlreadyActive,
       firstName: params.firstName,
     }),
   });

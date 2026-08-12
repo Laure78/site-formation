@@ -4,6 +4,24 @@ Si vous arrivez sur l'**Espace Apprenant** au lieu de l'**Admin** après connexi
 
 ---
 
+## Sécurité en production
+
+L’accès `/admin` est protégé par :
+
+1. **Middleware** — vérifie session + rôle avant chaque page/API admin
+2. **Liste blanche email** — seuls les emails autorisés peuvent accéder avec le rôle `admin`
+3. Variable d’environnement optionnelle :
+
+```bash
+ADMIN_ALLOWED_EMAILS=laureolivie@yahoo.fr
+```
+
+(Séparer plusieurs emails par des virgules. Par défaut : `laureolivie@yahoo.fr`.)
+
+Les comptes **formateur** conservent l’accès admin sans liste blanche (gérés via Supabase).
+
+---
+
 ## Étape 1 — Créer un compte (si ce n'est pas déjà fait)
 
 1. Allez sur **https://www.laureolivie.fr**

@@ -80,7 +80,7 @@ async function ensureInvitedUser(params: {
   email: string;
   firstName: string;
   lastName: string;
-}): Promise<{ userId: string }> {
+}): Promise<{ userId: string; accountStatus: string | null }> {
   const admin = createAdminClient();
   const fullName = `${params.firstName} ${params.lastName}`.trim();
   const email = params.email.toLowerCase();
@@ -111,7 +111,10 @@ async function ensureInvitedUser(params: {
       patch.account_status = 'invited';
     }
     await admin.from('profiles').update(patch).eq('id', existingProfile.id);
-    return { userId: existingProfile.id };
+    return {
+      userId: existingProfile.id,
+      accountStatus: existingProfile.account_status ?? patch.account_status ?? 'invited',
+    };
   }
 
   const { data: created, error: createError } = await admin.auth.admin.createUser({
@@ -150,7 +153,7 @@ async function ensureInvitedUser(params: {
             account_status: 'invited',
             updated_at: new Date().toISOString(),
           });
-          return { userId: found.id };
+          return { userId: found.id, accountStatus: 'invited' };
         }
         if (!listed?.users?.length || listed.users.length < 200) break;
       }
@@ -170,32 +173,69 @@ async function ensureInvitedUser(params: {
     updated_at: new Date().toISOString(),
   });
 
-  return { userId: created.user.id };
+  return { userId: created.user.id, accountStatus: 'invited' };
 }
 
-/**
- * Pose le mot de passe temporaire, active le compte et inscrit à la formation.
- * Le mot de passe n’est jamais persisté en clair.
- */
-async function setPasswordActivateAndEnroll(params: {
+async function getAccountStatus(userId: string): Promise<string | null> {
+  const admin = createAdminClient();
+  const { data } = await admin
+    .from('profiles')
+    .select('account_status')
+    .eq('id', userId)
+    .maybeSingle();
+  return data?.account_status ?? null;
+}
+async function enrollUserInFormation(userId: string, formationId: string): Promise<void> {
+  const admin = createAdminClient();
+  await admin.from('enrollments').upsert(
+    { user_id: userId, course_id: formationId, progress_percent: 0 },
+    { onConflict: 'user_id,course_id' }
+  );
+}
+
+async function updateApprenantProfileNames(params: {
   userId: string;
-  formationId: string;
   firstName: string;
   lastName: string;
-  password: string;
-}): Promise<{ ok: true } | { ok: false; error: string }> {
+}): Promise<void> {
   const admin = createAdminClient();
   const fullName = `${params.firstName} ${params.lastName}`.trim();
+  await admin
+    .from('profiles')
+    .update({
+      first_name: params.firstName,
+      last_name: params.lastName,
+      full_name: fullName || null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', params.userId)
+    .neq('role', 'admin')
+    .neq('role', 'formateur');
+}
 
-  const { error: pwdError } = await admin.auth.admin.updateUserById(params.userId, {
-    password: params.password,
+async function setUserPassword(
+  userId: string,
+  password: string
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  const admin = createAdminClient();
+  const { error: pwdError } = await admin.auth.admin.updateUserById(userId, {
+    password,
     email_confirm: true,
   });
   if (pwdError) {
-    console.error('[setPasswordActivateAndEnroll] password update failed');
+    console.error('[setUserPassword] update failed');
     return { ok: false, error: 'Impossible de définir le mot de passe temporaire.' };
   }
+  return { ok: true };
+}
 
+async function activateApprenantProfile(params: {
+  userId: string;
+  firstName: string;
+  lastName: string;
+}): Promise<void> {
+  const admin = createAdminClient();
+  const fullName = `${params.firstName} ${params.lastName}`.trim();
   await admin
     .from('profiles')
     .update({
@@ -208,12 +248,89 @@ async function setPasswordActivateAndEnroll(params: {
     .eq('id', params.userId)
     .neq('role', 'admin')
     .neq('role', 'formateur');
+}
 
-  await admin.from('enrollments').upsert(
-    { user_id: params.userId, course_id: params.formationId, progress_percent: 0 },
-    { onConflict: 'user_id,course_id' }
-  );
+async function markInvitationAccepted(invitationId: string): Promise<void> {
+  const admin = createAdminClient();
+  await admin
+    .from('invitations')
+    .update({
+      status: 'accepted',
+      accepted_at: new Date().toISOString(),
+    })
+    .eq('id', invitationId)
+    .eq('status', 'pending');
+}
 
+async function revokeInvitation(invitationId: string): Promise<void> {
+  const admin = createAdminClient();
+  await admin.from('invitations').update({ status: 'revoked' }).eq('id', invitationId);
+}
+
+/**
+ * Envoie l’email puis finalise le compte (mot de passe, activation, inscription).
+ * L’email part avant toute modification du mot de passe pour éviter un compte
+ * bloqué si Resend échoue. Un compte déjà actif n’a jamais son mot de passe réécrit.
+ */
+async function deliverInvitationCredentials(params: {
+  invitationId: string;
+  token: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  formationId: string;
+  formationTitle: string;
+  userId: string;
+  accountStatus: string | null;
+  includePassword: boolean;
+}): Promise<{ ok: true } | { ok: false; error: string; code?: 'email' | 'auth' }> {
+  const isActive = params.accountStatus === 'active';
+  const sendPassword = params.includePassword && !isActive;
+  const temporaryPassword = sendPassword ? generateInvitePassword() : null;
+
+  const sent = await sendInvitationEmail({
+    to: params.email,
+    formationTitle: params.formationTitle,
+    token: params.token,
+    firstName: params.firstName,
+    temporaryPassword,
+    accountAlreadyActive: isActive,
+  });
+
+  if (!sent.ok) {
+    await revokeInvitation(params.invitationId);
+    return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
+  }
+
+  if (sendPassword && temporaryPassword) {
+    const pwd = await setUserPassword(params.userId, temporaryPassword);
+    if (!pwd.ok) {
+      // Email déjà parti : ne pas révoquer l’invitation (l’apprenant a reçu le MDP).
+      console.error('[deliverInvitationCredentials] password set failed after email sent');
+      return { ok: false, error: pwd.error, code: 'auth' };
+    }
+    await activateApprenantProfile({
+      userId: params.userId,
+      firstName: params.firstName,
+      lastName: params.lastName,
+    });
+    await enrollUserInFormation(params.userId, params.formationId);
+    await markInvitationAccepted(params.invitationId);
+    return { ok: true };
+  }
+
+  if (isActive) {
+    await updateApprenantProfileNames({
+      userId: params.userId,
+      firstName: params.firstName,
+      lastName: params.lastName,
+    });
+    await enrollUserInFormation(params.userId, params.formationId);
+    await markInvitationAccepted(params.invitationId);
+    return { ok: true };
+  }
+
+  // Flux lien d’activation (includePassword=false) : invitation reste pending.
   return { ok: true };
 }
 
@@ -278,8 +395,9 @@ export async function inviteOrResendApprenant(
   }
 
   let userId: string;
+  let accountStatus: string | null;
   try {
-    ({ userId } = await ensureInvitedUser({
+    ({ userId, accountStatus } = await ensureInvitedUser({
       email: input.email,
       firstName: input.firstName,
       lastName: input.lastName,
@@ -288,6 +406,15 @@ export async function inviteOrResendApprenant(
     const msg = e instanceof Error ? e.message : 'Erreur utilisateur';
     const code = /staff/i.test(msg) ? 'forbidden' : undefined;
     return { ok: false, error: msg, code };
+  }
+
+  const currentStatus = (await getAccountStatus(userId)) ?? accountStatus;
+  if (currentStatus === 'disabled') {
+    return {
+      ok: false,
+      error: 'Ce compte apprenant est désactivé. Réactivez-le avant de renvoyer une invitation.',
+      code: 'forbidden',
+    };
   }
 
   if (input.action === 'resend') {
@@ -329,20 +456,6 @@ export async function inviteOrResendApprenant(
 
     await admin.from('invitations').update({ status: 'revoked' }).eq('id', current.id);
 
-    const temporaryPassword = includePassword ? generateInvitePassword() : null;
-    if (temporaryPassword) {
-      const activated = await setPasswordActivateAndEnroll({
-        userId,
-        formationId: input.formationId,
-        firstName: input.firstName,
-        lastName: input.lastName,
-        password: temporaryPassword,
-      });
-      if (!activated.ok) {
-        return { ok: false, error: activated.error, code: 'auth' };
-      }
-    }
-
     const created = await createInvitationRow({
       email: input.email,
       formationId: input.formationId,
@@ -356,15 +469,20 @@ export async function inviteOrResendApprenant(
       return { ok: false, error: 'Échec de création de l’invitation' };
     }
 
-    const sent = await sendInvitationEmail({
-      to: input.email,
-      formationTitle,
+    const delivered = await deliverInvitationCredentials({
+      invitationId: created.id,
       token: created.token,
+      email: input.email,
       firstName: input.firstName,
-      temporaryPassword,
+      lastName: input.lastName,
+      formationId: input.formationId,
+      formationTitle,
+      userId,
+      accountStatus: (await getAccountStatus(userId)) ?? accountStatus,
+      includePassword,
     });
-    if (!sent.ok) {
-      return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
+    if (!delivered.ok) {
+      return { ok: false, error: delivered.error, code: delivered.code };
     }
     return { ok: true, status: 'renvoye', invitationId: created.id };
   }
@@ -392,20 +510,6 @@ export async function inviteOrResendApprenant(
     .eq('status', 'pending')
     .lt('expires_at', new Date().toISOString());
 
-  const temporaryPassword = includePassword ? generateInvitePassword() : null;
-  if (temporaryPassword) {
-    const activated = await setPasswordActivateAndEnroll({
-      userId,
-      formationId: input.formationId,
-      firstName: input.firstName,
-      lastName: input.lastName,
-      password: temporaryPassword,
-    });
-    if (!activated.ok) {
-      return { ok: false, error: activated.error, code: 'auth' };
-    }
-  }
-
   const created = await createInvitationRow({
     email: input.email,
     formationId: input.formationId,
@@ -419,15 +523,20 @@ export async function inviteOrResendApprenant(
     return { ok: false, error: 'Échec de création de l’invitation' };
   }
 
-  const sent = await sendInvitationEmail({
-    to: input.email,
-    formationTitle,
+  const delivered = await deliverInvitationCredentials({
+    invitationId: created.id,
     token: created.token,
+    email: input.email,
     firstName: input.firstName,
-    temporaryPassword,
+    lastName: input.lastName,
+    formationId: input.formationId,
+    formationTitle,
+    userId,
+    accountStatus: (await getAccountStatus(userId)) ?? accountStatus,
+    includePassword,
   });
-  if (!sent.ok) {
-    return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
+  if (!delivered.ok) {
+    return { ok: false, error: delivered.error, code: delivered.code };
   }
 
   return { ok: true, status: 'cree', invitationId: created.id };
