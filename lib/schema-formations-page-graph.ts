@@ -167,9 +167,15 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}${NIV06_CATALOG.path}#course`,
               },
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
-              category: FORMATION_COURSE_OFFER_CATEGORY,
-              description: 'Session intra sur devis — 4 h matin, 8 participants max',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: TARIF_SESSION_FORFAIT_HT,
+                priceCurrency: 'EUR',
+                unitText: 'par session (intra, 4 h matin, 8 participants max)',
+                valueAddedTaxIncluded: false,
+              },
             },
           ],
         },

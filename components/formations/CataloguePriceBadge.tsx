@@ -1,5 +1,9 @@
 import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
-import { formatTarifHt, tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
+import {
+  formatTarifHt,
+  MENTIONS_TVA_EXONERATION_COURTE,
+  TARIF_SESSION_FORFAIT_HT,
+} from '@/lib/tarifs-sessions';
 
 export type CataloguePriceVariant = 'overlay' | 'pill' | 'banner' | 'hero' | 'strip';
 
@@ -30,7 +34,7 @@ export function CataloguePriceBadge({
   variant = 'pill',
   className = '',
 }: Props) {
-  const amount = formatTarifHt(tarifHtDepuisBadgeCatalogue(level));
+  const amount = formatTarifHt(TARIF_SESSION_FORFAIT_HT);
   const colors = levelColors(level);
 
   if (variant === 'overlay') {
@@ -52,7 +56,7 @@ export function CataloguePriceBadge({
         className={`flex flex-wrap items-center justify-between gap-2 rounded-xl border px-4 py-3 ${colors.banner} ${className}`}
       >
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.14em] opacity-80">Forfait session</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] opacity-80">Forfait unique session</p>
           <p className="font-display text-2xl font-bold leading-none tracking-tight">
             {amount} € <span className="text-sm font-semibold">HT</span>
           </p>
@@ -101,26 +105,27 @@ export function CataloguePriceBadge({
   );
 }
 
-/** Bandeau récapitulatif niveau 1 / niveau 2 — hero catalogue ou accueil. */
+/** Bandeau récapitulatif — forfait unique toutes formations catalogue. */
 export function CatalogueTarifStrip({ className = '', onAccent = false }: { className?: string; onAccent?: boolean }) {
   const wrap = onAccent
     ? 'border-white/25 bg-white/10 text-white'
     : 'border-[#377CF3]/15 bg-white';
   const label = onAccent ? 'text-white/80' : 'text-[#64748B]';
-  const price = onAccent ? 'text-white' : 'text-[#0F172A]';
+  const badge = onAccent
+    ? 'bg-white/20 text-white shadow-md'
+    : 'bg-[#EFF6FF] text-[#1E40AF]';
 
   return (
     <div
       className={`flex flex-wrap items-center gap-3 rounded-2xl border px-4 py-3 shadow-sm ${wrap} ${className}`}
     >
-      <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Forfaits 2026</span>
-      <span className={`inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] px-3 py-1.5 text-sm font-bold text-[#047857] ${onAccent ? 'shadow-md' : ''}`}>
-        Niveau 1 · {formatTarifHt(tarifHtDepuisBadgeCatalogue('DÉBUTANT'))} € HT
+      <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Tarif catalogue 2026</span>
+      <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
+        Forfait unique · {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session
       </span>
-      <span className={`inline-flex items-center gap-2 rounded-full bg-[#FED7AA] px-3 py-1.5 text-sm font-bold text-[#C2410C] ${onAccent ? 'shadow-md' : ''}`}>
-        Niveau 2 · {formatTarifHt(tarifHtDepuisBadgeCatalogue('AVANCÉ'))} € HT
+      <span className={`text-xs font-medium ${label}`}>
+        {MENTIONS_TVA_EXONERATION_COURTE} · programmes PDF sur chaque fiche
       </span>
-      <span className={`text-xs font-medium ${label}`}>/ session · programmes PDF sur chaque fiche</span>
     </div>
   );
 }

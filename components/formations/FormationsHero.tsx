@@ -6,7 +6,7 @@ import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
-import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
+import { PERIMETRE_FORMATIONS_COURT, formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
@@ -27,7 +27,8 @@ export function FormationsHero() {
       description={
         <>
           Sessions Qualiopi de 4 h en présentiel — {PERIMETRE_FORMATIONS_COURT}. Devis, appels d&apos;offres,
-          conduite de travaux, Claude AI : forfait par session, financement possible selon éligibilité (Constructys).
+          conduite de travaux, Claude AI : forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT
+          par session, financement possible selon éligibilité (Constructys).
         </>
       }
       stats={[
