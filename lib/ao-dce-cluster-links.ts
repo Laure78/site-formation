@@ -8,9 +8,6 @@ import type { ContextualLinkCard } from '@/lib/contextual-internal-links';
 /** Page pilier NIV-02 — cible transactionnelle (formation catalogue). */
 export const AO_DCE_PILAR = LINKS.formationAO;
 
-/** Fiche formation historique — canonical vers le pilier ; conserver l’URL pour backlinks. */
-export const AO_DCE_FORMATION_LEGACY = LINKS.formationIaCctpAnalyseDceBtp;
-
 /** Articles satellites — angles informationnels distincts. */
 export const AO_DCE_CLUSTER_BLOG = {
   guideAo5Etapes: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026,

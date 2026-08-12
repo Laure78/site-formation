@@ -2011,8 +2011,8 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
   links.push({ href: INTERNAL_LINKS.prendreRdv.path, label: getAnchor('prendreRdv') });
   if (slug === 'formation-ia-cctp-analyse-dce-btp') {
     links.splice(2, 0, {
-      href: LINKS.formationIaCctpAnalyseDceBtp,
-      label: getAnchor('formationIaCctpAnalyseDce', 0),
+      href: LINKS.formationAO,
+      label: getAnchor('appelsOffres', 0),
     });
   }
   switch (cat) {

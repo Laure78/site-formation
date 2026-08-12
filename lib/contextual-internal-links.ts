@@ -274,9 +274,6 @@ export const FORMATION_NIV04_RELATED: ContextualLinkCard[] = [
   },
 ];
 
-/** @deprecated La fiche Skills NIV-06 a été fusionnée dans NIV-04. */
-export const FORMATION_CLAUDE_SKILLS_BTP_RELATED = FORMATION_NIV04_RELATED;
-
 /** Hub global (SitelinksHub) — parcours utilisateur prioritaires. */
 export const SITE_NAV_HUB_ITEMS: ContextualLinkCard[] = [
   {

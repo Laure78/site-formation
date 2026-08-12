@@ -501,9 +501,6 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
 ];
 
-/** @deprecated La FAQ NIV-06 est désormais intégrée à la FAQ NIV-04. */
-export const FAQ_CLAUDE_IA_SKILLS_BTP = FAQ_MAITRISER_CLAUDE_NIV04;
-
 /** FAQ Formation IA conduite de travaux — NIV-03 */
 export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   {

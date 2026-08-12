@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { OFC_IDENTITE } from '@/lib/qualiopi-info';
 import { createPageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
@@ -29,7 +30,7 @@ export default function MentionsLegalesPage() {
             OFC CRÉATION D&apos;ENTREPRISE
           </p>
           <ul className="mt-4 space-y-2">
-            <li>Forme juridique : Société par Actions Simplifiée (SAS)</li>
+            <li>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</li>
             <li>Capital social : 10,00 €</li>
             <li>Siège social : 6 Rue Henri Dunant – 78280 Guyancourt</li>
             <li>SIREN : 905 244 281</li>

@@ -118,9 +118,6 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
   });
 
   const courseJson = buildFormationIaCourseJsonLd({
-    name: config.courseName,
-    description: config.courseDescription,
-    path: config.path,
     areaServed: config.areaServedCourse,
   });
 

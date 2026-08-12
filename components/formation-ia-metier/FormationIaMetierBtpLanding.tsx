@@ -19,7 +19,7 @@ import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import type { FormationIaMetierBtpConfig } from '@/lib/formation-ia-metier-btp-types';
 import { Essentiel } from '@/components/readability/Essentiel';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -114,6 +114,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
         teaches={config.courseTeaches}
         faqItems={faqItems}
         scriptId={`schema-formation-metier-${config.id}`}
+        catalogueProgrammeRef="NIV-01"
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
@@ -333,7 +334,10 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             />
           </div>
 
-          <InfosQualiopiLanding formationTitle={config.courseName} />
+          <RenvoiFicheCatalogue
+            programmeRef="NIV-01"
+            contexte={`pour les ${config.metierNomTitre}`}
+          />
 
           {config.showAuthorBio ? (
             <>

@@ -90,7 +90,7 @@ Lieu : PDF-BTP, 24 rue du Docteur Roux, 91160 Longjumeau · 7 participants.',
 
     (m7, 'Programme Session 2 — Claude AI & skills PDF BTP', 'pdf',
      '/formations/ia-pdf-btp-administratif-chantier/06-programme-session-2-claude.pdf', null, 0, 10),
-    (m7, 'Support de formation — Claude IA pour le BTP (Chat, Cowork & Code)', 'pdf',
+    (m7, 'Support de formation — Maîtriser Claude AI pour le BTP (Chat, Cowork & Code)', 'pdf',
      '/formations/ia-pdf-btp-administratif-chantier/07-support-claude-ia-btp.pdf', null, 1, 180),
     (m7, 'Synthèse / replay Zoom', 'pdf',
      '/formations/ia-pdf-btp-administratif-chantier/08-synthese-replay-zoom.pdf', null, 2, 20);

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
-import { QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
+import { OFC_IDENTITE, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
 import { PROOF } from '@/lib/proof';
 
 export const revalidate = 3600;
@@ -62,7 +62,7 @@ export default function CGVPage() {
           </p>
           <div className="mt-6 rounded-lg bg-slate-50 p-4 text-sm">
             <p>Raison sociale : OFC CRÉATION D&apos;ENTREPRISE</p>
-            <p>Forme juridique : SAS (Société par Actions Simplifiée)</p>
+            <p>Forme juridique : {OFC_IDENTITE.formeJuridiqueLongue}</p>
             <p>SIRET : 905 244 281 00010</p>
             <p>CODE NAF : 8559B - Autres enseignements</p>
             <p>Siège social : 6 rue Henri Dunant, 78280 GUYANCOURT</p>

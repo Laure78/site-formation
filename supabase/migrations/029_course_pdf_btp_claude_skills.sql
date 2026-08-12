@@ -1,5 +1,5 @@
 -- ============================================================
--- Formation LMS — Claude IA pour le BTP : Chat, Cowork & Code
+-- Formation LMS — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code (NIV-04)
 -- Client / contexte : PDF BTP (aménagement public, AO & chantier)
 -- Slug : pdf-btp-claude-skills
 -- Support : /formations/pdf-btp-claude-skills/Support_Claude_IA_PDF_BTP_Chat_Cowork_Code.pdf
@@ -26,7 +26,7 @@ BEGIN
     )
     VALUES (
       'pdf-btp-claude-skills',
-      'Claude IA pour le BTP : Chat, Cowork & Code — PDF BTP',
+      'Maîtriser Claude AI pour le BTP — Chat, Cowork & Code — PDF BTP',
       'Session intra 4 h (9h-13h) pour PDF BTP : installer Claude (Chat, Cowork, Code, Design, Chrome, M365), activer 6 skills PDF BTP (DCE/DQE, CCTP organisation, CR chantier, levée des réserves, normes/hors-gel, juridique), fiabiliser les résultats et économiser les tokens. Support de formation + cas pratiques AO et chantier.',
       'Utiliser Claude (chat, app, extensions) pour le bureau d''études et le chantier · Installer l''application Claude, les connecteurs et les 6 skills PDF BTP · Lancer les skills DCE/DQE, CCTP organisation, CR de chantier, levée des réserves, normes & hors-gel, juridique · Comprendre Claude Code, Claude Design et l''extension Chrome · Fiabiliser les résultats et économiser les tokens',
       'Compte Claude Pro (≈ 18 € HT/mois) · Ordinateur avec droits d''installation (app bureau recommandée) · Connexion internet · Pièces DCE anonymisées pour les ateliers (RC, CCAP, CCTP, DQE) · Un CR de chantier et/ou un PV de réserves pour le module travaux',
@@ -40,7 +40,7 @@ BEGIN
     RETURNING id INTO cid;
   ELSE
     UPDATE public.courses SET
-      title = 'Claude IA pour le BTP : Chat, Cowork & Code — PDF BTP',
+      title = 'Maîtriser Claude AI pour le BTP — Chat, Cowork & Code — PDF BTP',
       description = 'Session intra 4 h (9h-13h) pour PDF BTP : installer Claude (Chat, Cowork, Code, Design, Chrome, M365), activer 6 skills PDF BTP (DCE/DQE, CCTP organisation, CR chantier, levée des réserves, normes/hors-gel, juridique), fiabiliser les résultats et économiser les tokens. Support de formation + cas pratiques AO et chantier.',
       objectifs = 'Utiliser Claude (chat, app, extensions) pour le bureau d''études et le chantier · Installer l''application Claude, les connecteurs et les 6 skills PDF BTP · Lancer les skills DCE/DQE, CCTP organisation, CR de chantier, levée des réserves, normes & hors-gel, juridique · Comprendre Claude Code, Claude Design et l''extension Chrome · Fiabiliser les résultats et économiser les tokens',
       prerequis = 'Compte Claude Pro (≈ 18 € HT/mois) · Ordinateur avec droits d''installation (app bureau recommandée) · Connexion internet · Pièces DCE anonymisées pour les ateliers (RC, CCAP, CCTP, DQE) · Un CR de chantier et/ou un PV de réserves pour le module travaux',

@@ -9,7 +9,6 @@ import { voirAussiVilleProps } from '@/lib/voir-aussi';
 import { FAQSection } from '@/components/landing/FAQSection';
 import {
   createPageMetadata,
-  getCourseSchema,
   getFAQSchema,
   SITE_CONFIG,
   sitePhoneDisplaySuffix,
@@ -18,13 +17,17 @@ import { FAQ_IA_BTP_SAINT_QUENTIN_YVELINES } from '@/lib/faq';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
-import { SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { JsonLd } from '@/components/JsonLd';
+import { getFormationByCode } from '@/data/formations';
+import { buildCatalogueCourseIaBtpNiv01JsonLd } from '@/lib/schema-catalogue-course-jsonld';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
 export const revalidate = 3600;
 const PATH = LINKS.formationSaintQuentinYvelines;
+
+const CATALOGUE_NIV01 = getFormationByCode('NIV-01')!;
 
 const MAIL_RAPPEL_SQY =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Être rappelé — formation IA pour les pros du BTP Saint-Quentin-en-Yvelines')}`;
@@ -32,7 +35,7 @@ const MAIL_RAPPEL_SQY =
 const HERO_RESUME = [
   'Formation IA appliquée au bâtiment en présentiel sur la communauté d’agglomération de Saint-Quentin-en-Yvelines : Guyancourt, Montigny-le-Bretonneux, Trappes, Élancourt, Maurepas, La Verrière…',
   'Siège OFC à Guyancourt : une formatrice à proximité immédiate, sans frais de déplacement supplémentaires pour les entreprises du 78.',
-  `Session ${SESSION_DUREE_LIBELLE} — 100 % pratique sur vos documents : devis, comptes rendus de chantier, appels d'offres.`,
+  `Session ${CATALOGUE_NIV01.duree} — 100 % pratique sur vos documents : devis, comptes rendus de chantier, appels d'offres.`,
   'Financement possible par OPCO Constructys (plan de développement des compétences) selon éligibilité et dossier.',
   `Plus de ${formatProfessionalsTrainedCount()} professionnels BTP formés · Note ${SOCIAL_PROOF.AVERAGE_RATING} · Organisme certifié Qualiopi.`,
 ];
@@ -55,33 +58,15 @@ export const metadata = createPageMetadata({
   ],
 });
 
-const courseSchema = getCourseSchema({
-  name: 'Formation IA appliquée au bâtiment Saint-Quentin-en-Yvelines (78)',
-  description:
-    "Formation IA pour le BTP sur l'agglomération de Saint-Quentin-en-Yvelines : ChatGPT pour devis, comptes rendus de chantier, appels d'offres. Présentiel 78. Qualiopi, Constructys.",
-  path: PATH,
-  providerName: SITE_CONFIG.legalName,
-  areaServed: [
-    'Saint-Quentin-en-Yvelines',
-    'Guyancourt',
-    'Montigny-le-Bretonneux',
-    'Trappes',
-    'Élancourt',
-    'Maurepas',
-    'Yvelines',
-    'Île-de-France',
-  ],
-});
+/** Course = action catalogue NIV-01 (name, durée, offers, provider) — pas le titre géo local. */
+const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
 const faqSchema = getFAQSchema(FAQ_IA_BTP_SAINT_QUENTIN_YVELINES);
 
 export default function FormationIABTPSaintQuentinYvelinesPage() {
   return (
     <div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-      />
+      <JsonLd id="schema-formation-course-niv01" schema={courseSchema} />
       <JsonLd id="schema-faq-page" schema={faqSchema} />
 
       <FormationCourseHero
@@ -295,6 +280,11 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           </div>
         </div>
       </section>
+
+      <RenvoiFicheCatalogue
+        programmeRef="NIV-01"
+        contexte="à Saint-Quentin-en-Yvelines (78)"
+      />
 
       <section className="border-b border-slate-200 bg-white px-4 py-16">
         <div className="mx-auto max-w-6xl">

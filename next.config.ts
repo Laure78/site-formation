@@ -118,11 +118,23 @@ const nextConfig: NextConfig = {
       ...blogConsolidationRedirectsJuly2026(),
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
       // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
+      // Fiche legacy CCTP/DCE → catalogue NIV-02 (Qualiopi : une seule action de formation)
+      {
+        source: '/formations/formation-ia-cctp-analyse-dce-btp',
+        destination: '/formations/ia-appels-offre-btp',
+        permanent: true,
+      },
+      {
+        source: '/formations/formation-ia-cctp-analyse-dce-btp/:path*',
+        destination: '/formations/ia-appels-offre-btp',
+        permanent: true,
+      },
       {
         source: '/formations/formation-claude-ia-btp',
         destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
+
       {
         source: '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
         destination: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
@@ -157,7 +169,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/formation-ia-analyse-cctp',
-        destination: '/formations/formation-ia-cctp-analyse-dce-btp',
+        destination: '/formations/ia-appels-offre-btp',
         permanent: true,
       },
       {

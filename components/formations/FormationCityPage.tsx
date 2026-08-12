@@ -28,7 +28,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { KeyPoint } from '@/components/readability/KeyPoint';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 
 interface FormationCityPageProps {
@@ -358,7 +358,7 @@ export function FormationCityPage({
         </div>
       </section>
 
-      <InfosQualiopiLanding formationTitle={`Formation IA BTP à ${ville}`} />
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`à ${ville}`} />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">

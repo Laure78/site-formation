@@ -33,8 +33,8 @@ const BLOCKS = [
     schema: getCourseJsonLdFromFormationsData('ia-batiment-travaux-publics'),
   },
   {
-    name: 'dedicated-cctp',
-    schema: getDedicatedFormationCoursePageJsonLd('/formations/formation-ia-cctp-analyse-dce-btp'),
+    name: 'dedicated-niv-02',
+    schema: getDedicatedFormationCoursePageJsonLd('/formations/ia-appels-offre-btp'),
   },
   {
     name: 'geo-getCourseSchema',

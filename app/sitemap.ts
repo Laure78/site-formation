@@ -319,12 +319,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/formations/formation-ia-cctp-analyse-dce-btp`,
-      lastModified: resolveSitemapLastModified('/formations/formation-ia-cctp-analyse-dce-btp'),
-      changeFrequency: 'weekly',
-      priority: 0.92,
-    },
   ];
 
   const formationIaHub: MetadataRoute.Sitemap = FORMATION_IA_ALL_SLUGS.filter(

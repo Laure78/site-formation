@@ -18,7 +18,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Indicateurs de résultats — OFC formation BTP',
   description:
-    'Note moyenne de satisfaction, nombre de stagiaires formés, taux de réalisation et d\'assiduité — indicateur 2 Qualiopi. OFC Création d\'Entreprise.',
+    'Note moyenne de satisfaction, stagiaires formés, volume d\'heures-stagiaires, taux de réalisation, d\'assiduité et d\'abandon — indicateur 2 Qualiopi. OFC Création d\'Entreprise.',
   path: '/indicateurs-resultats',
 });
 
@@ -42,6 +42,19 @@ function IndicateurCard({ label, value, hint }: { label: string; value: string; 
 }
 
 export default function IndicateursResultatsPage() {
+  const { tauxAbandon, heuresRealisees } = PREUVES;
+  const hintAbandon = [
+    `Période : ${tauxAbandon.periode}`,
+    `Méthode : ${tauxAbandon.methode}`,
+    `Mise à jour : ${tauxAbandon.miseAJour}`,
+  ].join(' · ');
+  const hintHeures = [
+    'Notion : heures-stagiaires (durée × effectif présent) — pas les heures calendaires de session seules',
+    `Période : ${heuresRealisees.periode}`,
+    `Méthode : ${heuresRealisees.methode}`,
+    `Mise à jour : ${heuresRealisees.miseAJour}`,
+  ].join(' · ');
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
       <h1 className="font-display text-3xl font-bold text-slate-900 md:text-4xl">
@@ -68,6 +81,11 @@ export default function IndicateursResultatsPage() {
           hint={`Période de référence : ${PREUVES.periode} · ${QUALIOPI_STATS.NB_REPONDANTS} répondants`}
         />
         <IndicateurCard
+          label="Volume d'heures-stagiaires réalisées"
+          value={heuresRealisees.valeur}
+          hint={hintHeures}
+        />
+        <IndicateurCard
           label="Taux de réalisation des sessions"
           value={INDICATEURS_QUALIOPI.tauxRealisation}
           hint="Sessions réalisées / sessions planifiées sur l'année de référence"
@@ -76,6 +94,11 @@ export default function IndicateursResultatsPage() {
           label="Taux d'assiduité des stagiaires"
           value={INDICATEURS_QUALIOPI.tauxAssiduite}
           hint="Présence effective / présence attendue (feuilles d'émargement)"
+        />
+        <IndicateurCard
+          label="Taux d'abandon"
+          value={tauxAbandon.valeur}
+          hint={hintAbandon}
         />
       </div>
 
@@ -88,12 +111,18 @@ export default function IndicateursResultatsPage() {
               annuellement — {QUALIOPI_SATISFACTION_SOURCING}
             </li>
             <li>
+              <strong>Heures-stagiaires :</strong> {heuresRealisees.methode}
+            </li>
+            <li>
               <strong>Réalisation :</strong> nombre de sessions effectivement animées rapporté aux sessions
               conventionnées sur la période.
             </li>
             <li>
               <strong>Assiduité :</strong> heures de présence effective des stagiaires (émargement) rapportées aux
               heures prévues à la convention.
+            </li>
+            <li>
+              <strong>Abandon :</strong> {tauxAbandon.methode}
             </li>
           </ul>
         </section>

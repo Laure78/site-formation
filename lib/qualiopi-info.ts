@@ -8,30 +8,33 @@ import {
   QUALIOPI_CERTIFICAT_REALISATION,
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_FICHE_META,
+  QUALIOPI_MODALITES_ACCES_EXACT,
 } from '@/config/qualiopi';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
   MENTIONS_TVA_EXONERATION_COURTE,
   MODALITE_FORMATIONS_PRESENTIEL,
   PREREQUIS_NIVEAU_2,
-  SESSION_DUREE_LIBELLE,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
-import { libelleEffectifMaxFormation } from '@/data/formations';
 import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
 } from '@/lib/formations-catalogue-display';
 
+/** Identité juridique OFC — réexport (définition : `lib/ofc-identite.ts`). */
+export { OFC_IDENTITE } from '@/lib/ofc-identite';
+
 export const QUALIOPI_PROGRAMME_LAST_UPDATED = QUALIOPI_FICHE_META.updatedAt;
 export const QUALIOPI_FICHE_VERSION = QUALIOPI_FICHE_META.version;
 
 export const QUALIOPI_LEGAL = {
-  raisonSociale: "OFC Création d'Entreprise",
-  formeJuridique: 'SASU',
-  siret: SCHEMA_CONTACT.siretFormatted,
-  nda: SCHEMA_CONTACT.nda,
+  raisonSociale: OFC_IDENTITE.raisonSociale,
+  formeJuridique: OFC_IDENTITE.formeJuridique,
+  siret: OFC_IDENTITE.siret,
+  nda: OFC_IDENTITE.nda,
   ndaExactMention:
     "Enregistré sous le numéro 11788515078 auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de l'État.",
   qualiopiCategoryMention:
@@ -51,7 +54,7 @@ export const QUALIOPI_LEGAL = {
  * Source unique : `QUALIOPI_LEGAL` + `SCHEMA_CONTACT` (pas de hardcode SIRET / n° certificat).
  */
 export function buildQualiopiCredentialSchema(): Record<string, unknown> {
-  const siren = SCHEMA_CONTACT.siretDigits.slice(0, 9);
+  const siren = OFC_IDENTITE.siren;
   return {
     '@type': 'EducationalOccupationalCredential',
     name: 'Certification Qualiopi — actions de formation',
@@ -75,7 +78,7 @@ export const QUALIOPI_REFERENT_HANDICAP = {
   telephoneTel: CONTACT.phone,
 } as const;
 
-export const QUALIOPI_MODALITES_ACCES = QUALIOPI_DELAI_ACCES_EXACT;
+export const QUALIOPI_MODALITES_ACCES = `${QUALIOPI_MODALITES_ACCES_EXACT} ${QUALIOPI_DELAI_ACCES_EXACT}`;
 
 export const QUALIOPI_METHODES_STANDARD = [
   `Formation animée en présentiel par une formatrice experte IA × BTP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
@@ -105,8 +108,7 @@ export const QUALIOPI_MEDIATION_CM2C = {
   adresse: '49 rue de Ponthieu, 75008 Paris',
   siteUrl: 'https://www.cm2c.net',
   siteLabel: 'www.cm2c.net',
-  conditionPrealable:
-    "La médiation ne peut être saisie qu'après une réclamation écrite préalable auprès d'OFC restée sans réponse satisfaisante sous 15 jours ouvrés.",
+  conditionPrealable: `La médiation ne peut être saisie qu'après une réclamation écrite préalable auprès d'OFC restée sans réponse satisfaisante sous ${QUALIOPI_RECLAMATIONS.delaiReponse}.`,
   precisionLitiges:
     'La médiation de la consommation concerne les clients particuliers ; pour les litiges entre professionnels, règlement amiable puis juridictions compétentes selon les CGV.',
 } as const;
@@ -153,7 +155,7 @@ function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; i
 export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
   const entry = FORMATIONS_CATALOGUE.find((f) => f.ref === ref);
   if (!entry) {
-    return buildLandingInfosQualiopiProps('Formation IA BTP');
+    throw new Error(`[getInfosQualiopiForCatalogue] Référence catalogue inconnue : ${ref}`);
   }
   const tarifs = tarifsPourCatalogue(entry);
   return {
@@ -174,28 +176,9 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
   };
 }
 
-export function buildLandingInfosQualiopiProps(formationTitle: string): InfosQualiopiProps {
-  const entry = FORMATIONS_CATALOGUE[0];
-  const tarifs = tarifsPourCatalogue(entry);
-  return {
-    formationTitle,
-    programmeRef: 'NIV-01 (programme catalogue de référence)',
-    prerequis: prerequisPourCatalogue(entry),
-    objectifs: entry.objectifs,
-    duree: SESSION_DUREE_LIBELLE,
-    dureeJours: '0,5 jour (session unique)',
-    modalitesAcces: QUALIOPI_MODALITES_ACCES,
-    tarifInter: `${formatTarifHt(entry.prixHT)} € HT / session forfaitaire en inter-entreprise (${libelleEffectifMaxFormation(entry)}). ${MENTIONS_TVA_EXONERATION_COURTE}.`,
-    tarifIntra: tarifs.intra,
-    methodes: QUALIOPI_METHODES_STANDARD,
-    evaluation: QUALIOPI_EVALUATION_STANDARD,
-    handicap: QUALIOPI_HANDICAP_STANDARD,
-    lastUpdated: QUALIOPI_PROGRAMME_LAST_UPDATED,
-    version: QUALIOPI_FICHE_VERSION,
-  };
-}
-
 export const QUALIOPI_CONTACTS = {
+  nom: 'Laure Olivié',
+  fonction: 'Présidente et référente pédagogique, administrative et handicap',
   email: SCHEMA_CONTACT.email,
   telephone: QUALIOPI_REFERENT_HANDICAP.telephone,
   telephoneTel: QUALIOPI_REFERENT_HANDICAP.telephoneTel,

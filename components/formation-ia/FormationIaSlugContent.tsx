@@ -8,7 +8,7 @@ import {
   getSisterVilles,
   getVilleLinkedMetiers,
 } from '@/lib/seo-formation-ia-hub-links';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
@@ -237,7 +237,10 @@ export function FormationIaMetierBody({
         </Link>
       </p>
     </article>
-    <InfosQualiopiLanding formationTitle={`Formation IA — ${capitalizeFirst(metier.label)}`} />
+    <RenvoiFicheCatalogue
+      programmeRef="NIV-01"
+      contexte={`pour le métier « ${capitalizeFirst(metier.label)} »`}
+    />
     </>
   );
 }
@@ -370,7 +373,10 @@ export function FormationIaVilleBody({
         </Link>
       </p>
     </article>
-    <InfosQualiopiLanding formationTitle={`Formation IA pour les pros du BTP à ${ville.label}`} />
+    <RenvoiFicheCatalogue
+      programmeRef="NIV-01"
+      contexte={`à ${ville.label}`}
+    />
     </>
   );
 }
@@ -506,7 +512,10 @@ function FormationIaParisBody() {
         </Link>
       </p>
     </article>
-    <InfosQualiopiLanding formationTitle="Formation IA BTP Paris et Île-de-France" />
+    <RenvoiFicheCatalogue
+      programmeRef="NIV-01"
+      contexte="à Paris et en Île-de-France"
+    />
     </>
   );
 }

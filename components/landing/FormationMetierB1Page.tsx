@@ -16,7 +16,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -71,6 +71,7 @@ export function FormationMetierB1Page({
         level={level}
         faqItems={faqItems}
         scriptId={`schema-formation-metier-${slugId}`}
+        catalogueProgrammeRef="NIV-01"
       />
 
       <article>
@@ -200,7 +201,10 @@ export function FormationMetierB1Page({
 
         <LaureOlivieFormationPortrait showFullParcoursLink />
 
-        <InfosQualiopiLanding formationTitle={courseName} />
+        <RenvoiFicheCatalogue
+          programmeRef="NIV-01"
+          contexte={`pour les ${metierLabel}`}
+        />
 
         <RelatedLinks path={path} className="mt-14 !px-0" tone="transparent" />
 

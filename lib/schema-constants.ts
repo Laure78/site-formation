@@ -6,6 +6,7 @@
  */
 
 import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF, CONTACT } from '@/lib/constants';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
@@ -87,11 +88,11 @@ export const SCHEMA_CONTACT = {
   phoneDisplay: CONTACT.phoneDisplay,
   /** E.164 — champ `telephone` Schema.org Organization (layout / rich results). */
   telephoneJsonLd: CONTACT.phone,
-  siretFormatted: '905 244 281 00010',
+  siretFormatted: OFC_IDENTITE.siret,
   /** Sans espaces — annuaires, URLs, taxID Schema.org */
-  siretDigits: '90524428100010',
-  nda: '11788515078',
-  vatId: 'FR905244281',
+  siretDigits: `${OFC_IDENTITE.siren}00010`,
+  nda: OFC_IDENTITE.nda,
+  vatId: `FR${OFC_IDENTITE.siren}`,
 } as const;
 
 /** Coordonnées postales & GPS (siège — Guyancourt). */
@@ -144,10 +145,10 @@ export const SCHEMA_PERSON_KNOWS_ABOUT = [
  */
 export const SCHEMA_ORGANIZATION_OFC = {
   '@type': 'Organization' as const,
-  name: "OFC Création d'Entreprise",
-  legalName: "OFC Création d'Entreprise",
+  name: OFC_IDENTITE.raisonSociale,
+  legalName: OFC_IDENTITE.raisonSociale,
   /** Dénomination juridique complète (JSON-LD layout #ofc). */
-  legalNameSasu: "OFC Création d'Entreprise SASU",
+  legalNameSasu: `${OFC_IDENTITE.raisonSociale} ${OFC_IDENTITE.formeJuridique}`,
   description:
     "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
   descriptionShortGraph:

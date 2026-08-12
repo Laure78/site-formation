@@ -12,11 +12,14 @@ import {
   Target,
   Users,
 } from 'lucide-react';
-import { QUALIOPI_FICHE_META } from '@/config/qualiopi';
+import {
+  QUALIOPI_DELAI_ACCES_EXACT,
+  QUALIOPI_FICHE_META,
+  QUALIOPI_MODALITES_ACCES_EXACT,
+} from '@/config/qualiopi';
 import {
   QUALIOPI_CONTACTS,
   QUALIOPI_REFERENT_HANDICAP,
-  buildLandingInfosQualiopiProps,
   getInfosQualiopiForCatalogue,
   type InfosQualiopiProps,
 } from '@/lib/qualiopi-info';
@@ -105,7 +108,8 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
           </QualiopiItem>
 
           <QualiopiItem icon={Calendar} title="4. Modalités et délais d'accès">
-            <p>{validated.modalitesAcces}</p>
+            <p>{QUALIOPI_MODALITES_ACCES_EXACT}</p>
+            <p className="mt-2">{QUALIOPI_DELAI_ACCES_EXACT}</p>
             <p className="mt-2">
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
                 Prendre rendez-vous
@@ -178,6 +182,10 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
 
           <QualiopiItem icon={Mail} title="9. Contacts">
             <ul className="space-y-2">
+              <li className="text-slate-600">
+                <span className="font-medium text-slate-900">{QUALIOPI_CONTACTS.nom}</span>
+              </li>
+              <li className="text-slate-600">{QUALIOPI_CONTACTS.fonction}</li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
                 <a href={`mailto:${QUALIOPI_CONTACTS.email}`} className="font-medium text-[#377CF3] hover:underline">
@@ -219,8 +227,4 @@ export function InfosQualiopi(props: InfosQualiopiProps) {
 
 export function CatalogueInfosQualiopi({ programmeRef }: { programmeRef: string }) {
   return <InformationsReglementaires {...getInfosQualiopiForCatalogue(programmeRef)} />;
-}
-
-export function InfosQualiopiLanding({ formationTitle }: { formationTitle: string }) {
-  return <InformationsReglementaires {...buildLandingInfosQualiopiProps(formationTitle)} />;
 }

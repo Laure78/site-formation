@@ -30,7 +30,7 @@ import {
   type GeoFormationPageProps,
 } from '@/lib/geo-formation-config';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
 export type { GeoFormationPageProps };
@@ -79,9 +79,6 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
   const statsFreshness = getStatsFreshnessLabel();
 
   const courseJsonLd = buildFormationIaCourseJsonLd({
-    name: `Formation IA BTP ${deptLabel} — Qualiopi`,
-    description: metaDescription,
-    path,
     areaServed: [departement, ...villes, 'Île-de-France', 'France'],
   });
 
@@ -232,7 +229,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
         </div>
       </section>
 
-      <InfosQualiopiLanding formationTitle={`Formation IA BTP ${deptLabel}`} />
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`en ${deptLabel}`} />
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl px-4">

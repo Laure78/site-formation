@@ -215,7 +215,6 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/maitriser-claude-ai-btp',
   '/formations/ia-maitrise-oeuvre',
-  '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;
 
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
@@ -283,26 +282,6 @@ export function getDedicatedFormationCoursePageJsonLd(
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   const organizationId = `${base}/#organization`;
   const laurePersonId = `${base}/#laure-olivie`;
-
-  if (path === '/formations/formation-ia-cctp-analyse-dce-btp') {
-    const price = tarifHtDepuisBadgeCatalogue('AVANCÉ');
-    return buildDedicatedFormationCourseObject({
-      courseUrl: `${base}${path}`,
-      path,
-      name: 'Formation IA analyse CCTP & DCE pour entreprises BTP',
-      description:
-        'Session 4 h : analyser CCTP, DPGF et DCE avec l’IA, détecter les risques et préparer un mémoire technique aligné. Qualiopi, financement possible selon éligibilité (Constructys ou OPCO).',
-      educationalLevel: 'Avancé',
-      priceString: String(price),
-      teaches: [
-        'Structurer la lecture d’un CCTP et d’un DCE avec l’IA sans perdre le contrôle',
-        'Croiser exigences techniques, DPGF et critères du CCAP pour cadrer le chiffrage',
-        'Créer prompts, projets et assistants réutilisables pour les réponses aux marchés',
-      ],
-      organizationId,
-      laurePersonId,
-    });
-  }
 
   const entry = FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === path);
   if (!entry) {

@@ -221,7 +221,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formation-ia-marche-public-etancheite/page.tsx',
     'lib/formation-ia-marche-public-config.ts',
   ],
-  '/formations/formation-ia-cctp-analyse-dce-btp': ['app/formations/formation-ia-cctp-analyse-dce-btp/page.tsx'],
   '/formations/ia-batiment-travaux-publics': [
     'app/formations/ia-batiment-travaux-publics/page.tsx',
     'src/data/formations.ts',

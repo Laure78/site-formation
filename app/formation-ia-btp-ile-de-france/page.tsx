@@ -60,9 +60,6 @@ export const metadata = buildMetadata({
 
 const COURSE_JSON_LD = {
   ...buildFormationIaCourseJsonLd({
-    name: 'Formation IA pour le bâtiment et la construction en Île-de-France',
-    description: `${SITE_CONFIG.legalName} : formation IA appliquée au bâtiment et à la construction en ${IDF_ZONE_INTERVENTION}. Sessions 4 h en présentiel, Qualiopi. ${FINANCEMENT_FORMULATION_PRUDENTE}`,
-    path: PATH,
     areaServed: [...IDF_COURSE_AREA_SERVED_NAMES],
   }),
   about: [

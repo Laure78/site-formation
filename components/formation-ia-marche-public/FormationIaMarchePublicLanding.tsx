@@ -5,7 +5,7 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { Essentiel } from '@/components/readability/Essentiel';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
@@ -115,6 +115,7 @@ export function FormationIaMarchePublicLanding({
         teaches={config.courseTeaches}
         faqItems={faqItems}
         scriptId={`schema-formation-marche-public-${config.id}`}
+        catalogueProgrammeRef="NIV-02"
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
@@ -392,7 +393,10 @@ export function FormationIaMarchePublicLanding({
             excludeHrefs={excludeRelated}
           />
 
-          <InfosQualiopiLanding formationTitle={config.courseName} />
+          <RenvoiFicheCatalogue
+            programmeRef="NIV-02"
+            contexte="sur les marchés publics de travaux"
+          />
 
           <div className="mt-14">
             <CalendlyBlock

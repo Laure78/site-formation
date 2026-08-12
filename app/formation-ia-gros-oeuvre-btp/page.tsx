@@ -6,7 +6,7 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { Essentiel } from '@/components/readability/Essentiel';
 import { Citation } from '@/components/readability/Citation';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
@@ -86,6 +86,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
         teaches={[...GROS_OEUVRE_COURSE.teaches]}
         faqItems={faqItems}
         scriptId="schema-formation-metier-gros-oeuvre"
+        catalogueProgrammeRef="NIV-01"
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
@@ -287,7 +288,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
             </ul>
           </section>
 
-          <InfosQualiopiLanding formationTitle={GROS_OEUVRE_COURSE.name} />
+          <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour le gros œuvre BTP" />
 
           <LaureOlivieFormationPortrait
             contextLine="Elle accompagne notamment les équipes de gros œuvre sur devis, DCE et suivi de chantier — en présentiel en Île-de-France."

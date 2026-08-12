@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Réclamations & amélioration continue — OFC',
   description:
-    'Procédure de réclamation OFC : contact, délai de réponse 15 jours ouvrés, médiation. Amélioration continue Qualiopi — formations IA BTP.',
+    'Procédure de réclamation OFC : accusé de réception, délai de réponse, médiation CM2C. Amélioration continue Qualiopi — formations IA BTP.',
   path: '/reclamations',
 });
 
@@ -47,10 +47,6 @@ export default function ReclamationsPage() {
               Indiquez : vos coordonnées, l&apos;intitulé et la date de la formation, la nature de la réclamation,
               les pièces utiles (convention, échanges, facture).
             </li>
-            <li>
-              Vous recevez un accusé de réception et une réponse motivée sous{' '}
-              <strong>{QUALIOPI_RECLAMATIONS.delaiReponse}</strong>.
-            </li>
           </ol>
           <div className="mt-6 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 p-4">
             <Mail className="h-5 w-5 text-[#377CF3]" aria-hidden />
@@ -60,18 +56,37 @@ export default function ReclamationsPage() {
           </div>
         </section>
 
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">Traitement et amélioration continue</h2>
-          <p className="mt-4">
-            Chaque réclamation est enregistrée, analysée par la direction et, le cas échéant, intégrée au plan
-            d&apos;amélioration continue (indicateur Qualiopi). Les actions correctives peuvent porter sur la
-            pédagogie, l&apos;accueil, les supports ou les processus administratifs.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-display text-xl font-bold text-slate-900">Médiation</h2>
-          <MediationCm2cBlock className="mt-4" />
+        <section aria-labelledby="chronologie-reclamation">
+          <h2 id="chronologie-reclamation" className="font-display text-xl font-bold text-slate-900">
+            Chronologie du traitement
+          </h2>
+          <ol className="mt-6 space-y-4">
+            <li className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">Étape 1</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-slate-900">Accusé de réception</h3>
+              <p className="mt-2">
+                Sous <strong>{QUALIOPI_RECLAMATIONS.delaiAccuseReception}</strong> après réception de votre
+                réclamation écrite.
+              </p>
+            </li>
+            <li className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">Étape 2</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-slate-900">Instruction et réponse</h3>
+              <p className="mt-2">
+                Analyse par la direction et réponse motivée sous{' '}
+                <strong>{QUALIOPI_RECLAMATIONS.delaiReponse}</strong>.
+              </p>
+            </li>
+            <li className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#377CF3]">Étape 3</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-slate-900">Médiation</h3>
+              <p className="mt-2">
+                Si la réponse ne convient pas, vous pouvez saisir le médiateur de la consommation (CM2C), dans les
+                conditions indiquées ci-dessous.
+              </p>
+              <MediationCm2cBlock className="mt-4" />
+            </li>
+          </ol>
           <p className="mt-4">
             Voir également l&apos;article 15 des{' '}
             <Link href={LINKS.cgv} className="font-medium text-[#377CF3] hover:underline">
@@ -82,6 +97,15 @@ export default function ReclamationsPage() {
               règlement intérieur
             </Link>
             .
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-display text-xl font-bold text-slate-900">Traitement et amélioration continue</h2>
+          <p className="mt-4">
+            Chaque réclamation est enregistrée, analysée par la direction et, le cas échéant, intégrée au plan
+            d&apos;amélioration continue (indicateur Qualiopi). Les actions correctives peuvent porter sur la
+            pédagogie, l&apos;accueil, les supports ou les processus administratifs.
           </p>
         </section>
 

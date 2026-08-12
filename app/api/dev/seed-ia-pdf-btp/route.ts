@@ -234,7 +234,7 @@ export async function GET(request: Request) {
     {
       moduleId: m7,
       lesson: {
-        title: 'Support de formation — Claude IA pour le BTP (Chat, Cowork & Code)',
+        title: 'Support de formation — Maîtriser Claude AI pour le BTP (Chat, Cowork & Code)',
         type: 'pdf',
         content_url: `${BASE}/07-support-claude-ia-btp.pdf`,
         order_index: 1,

@@ -48,8 +48,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
         href: LINKS.guideChargeAffairesOfc,
       },
       { label: 'Bibliothèque skills — analyse DCE, mémoire, conformité (.skill / .md)', href: LINKS.bibliothequeSkills },
-      { label: 'Landing — analyse CCTP / DCE', href: LINKS.formationIaAnalyseCctp },
-      { label: 'Fiche formation — IA CCTP & analyse DCE', href: LINKS.formationIaCctpAnalyseDceBtp },
+      { label: 'Fiche formation — IA appels d’offres BTP (NIV-02)', href: LINKS.formationAO },
     ],
     articles: [
       { label: 'Guide — répondre aux AO BTP avec l’IA (5 étapes)', href: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026 },

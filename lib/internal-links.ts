@@ -73,11 +73,6 @@ export const LINKS = {
   formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
   pdfProgrammeMaitriserClaudeBtpNiv04:
     '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
-  /** @deprecated Alias historique de la fiche NIV-06, fusionnée dans NIV-04. */
-  formationClaudeIaBtpFiche: '/formations/maitriser-claude-ai-btp',
-  /** @deprecated Alias historique du programme NIV-06, désormais programme NIV-04. */
-  pdfProgrammeFormationClaudeIaBtp:
-    '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
   /** NIV-05 — L'IA au service des maîtres d'œuvre (catalogue) */
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
@@ -279,8 +274,11 @@ export const LINKS = {
 
   /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */
   repondreAoLanding: '/formations/ia-appels-offre-btp',
-  /** Analyse CCTP/DCE — maître (l'ancien `/formation-ia-analyse-cctp` redirige en 308) */
-  formationIaAnalyseCctp: '/formations/formation-ia-cctp-analyse-dce-btp',
+  /**
+   * Alias historique analyse CCTP/DCE → fiche catalogue NIV-02.
+   * L’ancienne URL `/formations/formation-ia-cctp-analyse-dce-btp` redirige en 308.
+   */
+  formationIaAnalyseCctp: '/formations/ia-appels-offre-btp',
   /** Article — méthode analyse CCTP en 20 min (cluster AO/DCE) */
   blogAnalyserCctpMethode20Min: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
   /** Article — analyser un CCAP avec l'IA (cluster AO/DCE) */
@@ -321,8 +319,11 @@ export const LINKS = {
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
   /** Article — 5 cas d'usage ChatGPT BTP (approfondissement CR / terrain) */
   blog5CasUsageChatgptBtp: '/blog/5-cas-usage-chatgpt-artisans-btp',
-  /** Fiche formation historique — canonical → formationAO (pilier NIV-02) */
-  formationIaCctpAnalyseDceBtp: '/formations/formation-ia-cctp-analyse-dce-btp',
+  /**
+   * @deprecated Alias → formationAO (NIV-02). Ancienne fiche CCTP supprimée (301/308).
+   * Conservé pour éviter de casser les imports ; préférer `formationAO`.
+   */
+  formationIaCctpAnalyseDceBtp: '/formations/ia-appels-offre-btp',
 
   // Pages légales & conformité
   cgv: '/cgv',

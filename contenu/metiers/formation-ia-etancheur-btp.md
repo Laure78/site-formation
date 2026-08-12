@@ -51,7 +51,7 @@ Le partenariat **CSFE** (Confédération des syndicats français de l’étanch�
 
 **Liens internes :**  
 → [Formation IA couvreur](/formation-ia-couvreur-btp/)  
-→ [Formation CCTP / analyse DCE](/formations/formation-ia-cctp-analyse-dce-btp)  
+→ [Formation IA appels d'offres BTP (CCTP / analyse DCE)](/formations/ia-appels-offre-btp)
 → [Blog : analyser un DCE avec l’IA](/blog/analyse-dce-notebooklm-claude-btp)
 
 ---

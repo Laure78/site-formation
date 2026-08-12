@@ -122,7 +122,7 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   },
 ];
 
-/** Cas d'usage repris de l'ancienne NIV-06 (skills métier AO / chantier / juridique). */
+/** Cas d'usage session — skills métier AO / chantier / juridique. */
 const CAS_USAGE_SESSION = [
   {
     titre: "Skills appels d'offres",
