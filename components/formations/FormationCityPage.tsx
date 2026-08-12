@@ -19,8 +19,7 @@ import {
 } from '@/components/formations/FormationCourseHero';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_DEBUTANT_HT,
-  TARIF_SESSION_AVANCE_HT,
+  TARIF_SESSION_FORFAIT_HT,
   MODALITE_FORMATIONS_STANDARD,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
@@ -55,7 +54,7 @@ export function FormationCityPage({
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
     `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
-    `Session ${SESSION_DUREE_LIBELLE} · niveau 1 ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT · niveaux 2 ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT · Qualiopi.`,
+    `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · Qualiopi.`,
     `Présentiel ${regionLabel} — intra ou inter selon convention.`,
     'Financement Constructys selon éligibilité.',
   ];

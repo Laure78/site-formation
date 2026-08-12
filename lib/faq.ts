@@ -21,6 +21,7 @@ import {
   FINANCEMENT_FORMULATION_PRUDENTE,
   FINANCEMENT_FORMULATION_COURTE,
   FINANCEMENT_PAGE_LINK_LABEL,
+  FINANCEMENT_FAQ_PARTIELLE_CORPS,
 } from '@/lib/financement-copy';
 
 export type FAQItem = { q: string; a: string };
@@ -45,9 +46,11 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
     a:
       "La formation niveau 1 « L'IA au service des pros du Bâtiment Travaux Publics » met l'accent sur l'IA générative (ChatGPT, Claude) pour les usages métiers et administratifs du bâtiment et des travaux publics. Le BIM n'est pas un module dédié dans cette session. Pour les documents longs (CCTP, DCE) et les réponses à marchés, le programme <a href=\"" +
       LINKS.formationAO +
-      "\">formation appels d'offres BTP</a> ou la page <a href=\"" +
-      LINKS.formationClaudeAiBtp +
-      "\">formation Claude AI BTP</a> complètent le parcours — le <a href=\"" +
+      "\">formation appels d'offres BTP</a> ou le <a href=\"" +
+      LINKS.claudeAiBtp +
+      "\">guide Claude AI BTP</a> (fiche catalogue : <a href=\"" +
+      LINKS.formationMaitriserClaudeAiBtp +
+      "\">Maîtriser Claude AI</a>) complètent le parcours — le <a href=\"" +
       LINKS.formations +
       "\">catalogue</a> permet de choisir le bon niveau.",
   },
@@ -83,7 +86,7 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'La formation IA pour les pros du BTP peut-elle être financée par Constructys ou mon OPCO ?',
-    a: `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}`,
+    a: `${FINANCEMENT_FAQ_PARTIELLE_CORPS} Selon éligibilité et barèmes en vigueur. Exemples de reste à charge et plafonds : <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
   },
   {
     q: 'Faut-il des compétences techniques pour suivre cette formation IA appliquée au bâtiment ?',
@@ -204,7 +207,7 @@ export const FAQ_GEO: FAQItem[] = [
   },
   {
     q: "Quels résultats avec une formation IA pour les pros du BTP ?",
-    a: `Après formation IA appliquée au bâtiment : devis structurés sans page blanche, CR chantier plus réguliers, emails et relances plus fluides. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Gains variables selon l'organisation, les outils en place et le niveau de pratique. Suivi post-formation inclus — <a href="/blog">ressources IA BTP</a>.`,
+    a: `Après formation IA appliquée au bâtiment : devis structurés sans page blanche, CR chantier plus réguliers, emails et relances plus fluides. ${formatProfessionalsTrainedCount()} professionnels formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Gains variables selon l'organisation, les outils en place et le niveau de pratique.`,
   },
   {
     q: "Formation IA appels d'offres BTP : quel programme ?",
@@ -228,7 +231,15 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Combien coûte une formation IA pour les pros du BTP du catalogue ?',
-    a: `Forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session pour toutes les formations catalogue (niveau 1 et niveau 2), TVA non applicable (art. 261-4-4° CGI). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (conduite de travaux, Maîtriser Claude AI et maîtres d&apos;œuvre : effectifs réduits selon fiche). ${FINANCEMENT_FORMULATION_PRUDENTE} Plafond indicatif Constructys : 24 € HT/h/stagiaire. Détail : <a href="${LINKS.financement}">financement Constructys formation IA appliquée au bâtiment</a>.`,
+    a: `Forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session pour toutes les formations catalogue (niveau 1 et niveau 2), TVA non applicable (art. 261-4-4° CGI). Chaque session dure 4 heures — jusqu&apos;à ${EFFECTIF_GROUPE_MAX} participants (conduite de travaux, Maîtriser Claude AI et maîtres d&apos;œuvre : effectifs réduits selon fiche). ${FINANCEMENT_FORMULATION_PRUDENTE}`,
+  },
+  {
+    q: 'Les formations IA pour les pros du BTP peuvent-elles être financées par Constructys ou mon OPCO ?',
+    a: `${FINANCEMENT_FAQ_PARTIELLE_CORPS} Selon éligibilité. Le détail des barèmes et exemples (niveau 1 / niveau 2) est sur la page <a href="${LINKS.financement}">${FINANCEMENT_PAGE_LINK_LABEL}</a>.`,
+  },
+  {
+    q: 'Faut-il un abonnement payant pour suivre la formation ?',
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} L&apos;abonnement Claude AI Pro (niveaux 2) est à souscrire par l&apos;entreprise avant la session — non inclus dans le forfait catalogue.`,
   },
   {
     q: 'Les formations IA pour les pros du BTP sont-elles certifiées Qualiopi ?',
@@ -236,7 +247,7 @@ export const FAQ_FORMATIONS: FAQItem[] = [
   },
   {
     q: 'Les formations sont-elles disponibles en inter ou en intra ?',
-    a: `Inter ou intra : ${MODALITE_FORMATIONS_STANDARD} En inter, sessions en Île-de-France (${IDF_ZONE_INTERVENTION}). En intra, session dédiée à votre entreprise. Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
+    a: `Inter ou intra : ${MODALITE_FORMATIONS_STANDARD} En inter ou en intra : ${IDF_ZONE_INTERVENTION}. Format : 4 heures, ${EFFECTIF_GROUPE_MAX} participants maximum, supports inclus. Vue d&apos;ensemble : <a href="${LINKS.formationIleDeFrance}">formation IA pour le BTP en Île-de-France</a>.`,
   },
   ...FAQ_IA_BTP_METIERS_CHANTIER_SEO,
 ];
@@ -252,11 +263,11 @@ export const FAQ_TARIFS: FAQItem[] = [
   },
   {
     q: "Combien coûte une formation IA pour les pros du BTP ?",
-    a: `Je propose uniquement des sessions de 4 heures, au forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session (tous niveaux), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. TVA non applicable (art. 261-4-4° CGI). Selon votre entreprise, le financement OPCO Constructys peut couvrir tout ou partie du coût — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
+    a: `Je propose uniquement des sessions de 4 heures, au forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session (tous niveaux), jusqu'à ${EFFECTIF_GROUPE_MAX} participants. TVA non applicable (art. 261-4-4° CGI). Selon votre entreprise, le financement OPCO Constructys peut couvrir partiellement le coût selon éligibilité — <a href="/financement-constructys-formation-ia-btp">guide financement</a> et <a href="/contact">accompagnement dossier</a>.`,
   },
   {
     q: "Comment financer ma formation IA ?",
-    a: 'Via l\'OPCO Constructys pour les entreprises du BTP. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires (15€ HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
+    a: 'Via l\'OPCO Constructys pour les entreprises du BTP, selon éligibilité. Le coût pédagogique est pris en charge partiellement jusqu\'à 24 € HT/heure/stagiaire (96 € HT pour 4 h) : au-delà d\'un certain effectif, un reste à charge est fréquent. Les entreprises de moins de 11 salariés peuvent également bénéficier d\'une prise en charge partielle des salaires (15 € HT/heure). Page dédiée : <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
   },
   {
     q: "Faut-il avancer des frais ?",
@@ -346,10 +357,6 @@ export const FAQ_A_PROPOS: FAQItem[] = [
   {
     q: "Quelle est votre expérience dans le BTP ?",
     a: 'Formatrice IA spécialisée BTP depuis 2022, avec 10 ans de terrain BTP (conductrice de travaux) auprès de TPE, PME et équipes du bâtiment et des travaux publics. Méthode 100 % opérationnelle — <a href="/a-propos#clients-partenaires">clients et partenaires</a>, <a href="/blog">articles et ressources</a>.',
-  },
-  {
-    q: "Proposez-vous un accompagnement post-formation ?",
-    a: 'Oui. Support WhatsApp, accès 1 an aux ressources, suivi personnalisé. L\'objectif : que vous appliquiez les acquis dès le lendemain sur vos vrais documents — voir le <a href="/formations">catalogue formations</a>.',
   },
 ];
 
@@ -489,7 +496,7 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
   },
   {
     q: 'Faut-il activer l\'option « Exécution de code » sur Claude Pro ?',
-    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant cette formation — sinon, commencer par la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
+    a: `Oui, c'est un prérequis pour tester les skills avancés et Claude Code en session. Il faut aussi un abonnement Claude Pro actif et une utilisation régulière avant cette formation — sinon, commencer par la <a href="${LINKS.formationIaBtpNiveau1BatimentTp}">formation niveau 1</a> ou le <a href="${LINKS.formationMaitriserClaudeAiBtp}">parcours Claude dédié BTP</a>.`,
   },
   {
     q: 'Quels skills Claude sont abordés pendant la formation ?',
@@ -592,7 +599,7 @@ export const FAQ_FORMATION_IA_APPELS_OFFRES_LANDING: FAQItem[] = [
   {
     q: "Combien de temps après la formation peut-on appliquer la méthode ?",
     a:
-      "Dès le lendemain. Les participants repartent avec leurs prompts personnalisés, leur bibliothèque structurée et un accès pendant 1 an aux ressources pédagogiques. Les entreprises formées avec la FFB Grand Paris ont généralement appliqué la méthode sur leur AO suivant dans la semaine.",
+      "Dès le lendemain. Les participants repartent avec leurs prompts personnalisés et leur bibliothèque structurée. Les entreprises formées avec la FFB Grand Paris ont généralement appliqué la méthode sur leur AO suivant dans la semaine.",
   },
   {
     q: "La formation couvre-t-elle uniquement les mémoires techniques ou aussi le chiffrage ?",
@@ -613,7 +620,7 @@ export const FAQ_BATIMENT: FAQItem[] = [
   },
   {
     q: 'Faut-il payer ChatGPT ou Claude pour suivre la formation niveau 1 ?',
-    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Le niveau débutant ne nécessite pas d'abonnement payant. Pour les marchés publics ou l'industrialisation Claude, voir le <a href="${LINKS.formationAO}">formation appels d'offres</a> ou le <a href="${LINKS.formationClaudeAiBtp}">parcours Claude AI BTP</a>.`,
+    a: `${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Le niveau débutant ne nécessite pas d'abonnement payant. Pour les marchés publics ou l'industrialisation Claude, voir le <a href="${LINKS.formationAO}">formation appels d'offres</a> ou le <a href="${LINKS.formationMaitriserClaudeAiBtp}">parcours Claude AI BTP</a>.`,
   },
   {
     q: 'On perd combien de temps sur l\'administratif qu\'on pourrait récupérer ?',
@@ -697,7 +704,7 @@ export const FAQ_CHECKLIST_IA_BTP: FAQItem[] = [
   },
   {
     q: 'Ces prompts fonctionnent-ils avec Claude AI ou ChatGPT ?',
-    a: `Oui. Les prompts sont conçus pour ChatGPT mais fonctionnent aussi avec Claude AI — la structure (rôle, contexte BTP, format attendu) reste identique. Pour Claude en contexte appels d’offres, voir aussi la <a href="${LINKS.formationClaudeAiBtp}">formation Claude IA BTP</a>.`,
+    a: `Oui. Les prompts sont conçus pour ChatGPT mais fonctionnent aussi avec Claude AI — la structure (rôle, contexte BTP, format attendu) reste identique. Pour Claude en contexte appels d’offres, voir aussi la <a href="${LINKS.formationMaitriserClaudeAiBtp}">formation Claude IA BTP</a>.`,
   },
   {
     q: 'Puis-je personnaliser ces prompts pour mon métier ?',
@@ -717,7 +724,7 @@ export const FAQ_CHECKLIST_PROMPTS: FAQItem[] = [
   },
   {
     q: "Ces prompts fonctionnent-ils avec d'autres outils IA ?",
-    a: `Oui. Les prompts sont conçus pour ChatGPT mais fonctionnent aussi avec Claude AI — la structure (rôle, contexte BTP, format attendu) reste identique. Voir le <a href="${LINKS.formations}">catalogue formations IA appliquées au bâtiment</a> et la page <a href="${LINKS.formationClaudeAiBtp}">formation Claude AI BTP</a>.`,
+    a: `Oui. Les prompts sont conçus pour ChatGPT mais fonctionnent aussi avec Claude AI — la structure (rôle, contexte BTP, format attendu) reste identique. Voir le <a href="${LINKS.formations}">catalogue formations IA appliquées au bâtiment</a> et la page <a href="${LINKS.formationMaitriserClaudeAiBtp}">formation Claude AI BTP</a>.`,
   },
   {
     q: "La formation est-elle finançable ?",

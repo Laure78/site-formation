@@ -155,6 +155,36 @@ const nextConfig: NextConfig = {
         destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
+      {
+        source: '/formation-claude-ai-btp',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-btp/:path*',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-batiment',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-batiment/:path*',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-travaux-publics',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-travaux-publics/:path*',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
       { source: '/offres', destination: '/formations', permanent: true },
       { source: '/formation-ia-et-chatgpt', destination: '/formations', permanent: true },
       {
@@ -975,7 +1005,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/partenaires/ifrb-78.jpg',
-        destination: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
         permanent: true,
       },
       // --- WebP (accueil) — 301 depuis chemins SEO .png / .jpg intermédiaires ---
@@ -1111,7 +1141,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/partenaires/logo-ifrb-77-formation-batiment.jpg',
-        destination: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.jpg',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
         permanent: true,
       },
       {

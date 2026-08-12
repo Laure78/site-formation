@@ -1,11 +1,11 @@
 import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
 import {
   formatTarifHt,
-  MENTIONS_TVA_EXONERATION_COURTE,
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
 } from '@/lib/tarifs-sessions';
-import { PRIX_NIVEAU_1_HT, PRIX_NIVEAU_2_HT } from '@/data/formations';
+import { PRIX_NIVEAU_2_HT } from '@/data/formations';
+import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 
 export type CataloguePriceVariant = 'overlay' | 'pill' | 'banner' | 'hero' | 'strip';
 
@@ -52,7 +52,10 @@ export function CataloguePriceBadge({
       <div
         className={`absolute bottom-3 left-3 z-10 flex flex-col rounded-xl border px-3 py-2 shadow-[0_8px_24px_-8px_rgba(15,23,42,0.35)] backdrop-blur-sm ${colors.surface} ${className}`}
       >
-        <span className="font-display text-[1.35rem] font-bold leading-none tracking-tight">{amount} €</span>
+        <span className="font-display text-[1.35rem] font-bold leading-none tracking-tight">
+          {amount} €
+          <MentionTvaAsterisque />
+        </span>
         <span className={`mt-1 text-[10px] font-bold uppercase tracking-[0.12em] ${colors.muted}`}>
           HT / session
         </span>
@@ -69,6 +72,7 @@ export function CataloguePriceBadge({
           <p className="text-[10px] font-bold uppercase tracking-[0.14em] opacity-80">Forfait session</p>
           <p className="font-display text-2xl font-bold leading-none tracking-tight">
             {amount} € <span className="text-sm font-semibold">HT</span>
+            <MentionTvaAsterisque />
           </p>
         </div>
         <div className="text-right text-xs font-medium opacity-90">
@@ -88,6 +92,7 @@ export function CataloguePriceBadge({
           <p className="font-display text-3xl font-bold leading-none tracking-tight text-[#0F172A] md:text-[2.15rem]">
             {amount} €{' '}
             <span className="text-base font-semibold text-[#64748B]">HT / session</span>
+            <MentionTvaAsterisque />
           </p>
         </div>
       </div>
@@ -99,7 +104,10 @@ export function CataloguePriceBadge({
       <span
         className={`inline-flex flex-wrap items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-bold shadow-sm backdrop-blur-sm ${colors.surface} ${className}`}
       >
-        <span className="font-display text-base leading-none">{amount} € HT</span>
+        <span className="font-display text-base leading-none">
+          {amount} € HT
+          <MentionTvaAsterisque />
+        </span>
         <span className={`text-[10px] font-semibold uppercase tracking-wide ${colors.muted}`}>/ session</span>
       </span>
     );
@@ -109,14 +117,28 @@ export function CataloguePriceBadge({
     <span
       className={`inline-flex shrink-0 flex-col items-end rounded-xl border px-3 py-2 text-right shadow-sm ${colors.surface} ${className}`}
     >
-      <span className="font-display text-lg font-bold leading-none">{amount} €</span>
+      <span className="font-display text-lg font-bold leading-none">
+        {amount} €
+        <MentionTvaAsterisque />
+      </span>
       <span className={`mt-0.5 text-[10px] font-bold uppercase tracking-wide ${colors.muted}`}>HT / session</span>
     </span>
   );
 }
 
-/** Bandeau récapitulatif — deux forfaits catalogue (niv. 1 / niv. 2). */
-export function CatalogueTarifStrip({ className = '', onAccent = false }: { className?: string; onAccent?: boolean }) {
+type StripProps = {
+  className?: string;
+  onAccent?: boolean;
+  /** Affiche la mention TVA unique sous le bandeau (une fois par page). */
+  showMention?: boolean;
+};
+
+/** Bandeau récapitulatif — forfait unique catalogue. */
+export function CatalogueTarifStrip({
+  className = '',
+  onAccent = false,
+  showMention = true,
+}: StripProps) {
   const wrap = onAccent
     ? 'border-white/25 bg-white/10 text-white'
     : 'border-[#377CF3]/15 bg-white';
@@ -124,21 +146,21 @@ export function CatalogueTarifStrip({ className = '', onAccent = false }: { clas
   const badge = onAccent
     ? 'bg-white/20 text-white shadow-md'
     : 'bg-[#EFF6FF] text-[#1E40AF]';
+  const forfait = formatTarifHt(PRIX_NIVEAU_2_HT);
 
   return (
-    <div
-      className={`flex flex-wrap items-center gap-3 rounded-2xl border px-4 py-3 shadow-sm ${wrap} ${className}`}
-    >
-      <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Tarif catalogue 2026</span>
-      <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
-        Niveau 1 · {formatTarifHt(PRIX_NIVEAU_1_HT)} € HT
-      </span>
-      <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
-        Niveau 2 · {formatTarifHt(PRIX_NIVEAU_2_HT)} € HT
-      </span>
-      <span className={`text-xs font-medium ${label}`}>
-        {MENTIONS_TVA_EXONERATION_COURTE} · programmes PDF sur chaque fiche
-      </span>
+    <div className={className}>
+      <div className={`flex flex-wrap items-center gap-3 rounded-2xl border px-4 py-3 shadow-sm ${wrap}`}>
+        <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Tarif catalogue 2026</span>
+        <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
+          Forfait unique · {forfait} € HT / session
+          <MentionTvaAsterisque className={onAccent ? 'text-white' : undefined} />
+        </span>
+        <span className={`text-xs font-medium ${label}`}>programmes PDF sur chaque fiche</span>
+      </div>
+      {showMention ? (
+        <MentionTVA className={`mt-3 max-w-3xl ${onAccent ? 'text-white/90' : ''}`.trim()} />
+      ) : null}
     </div>
   );
 }

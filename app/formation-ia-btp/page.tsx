@@ -567,7 +567,8 @@ export default function FormationIaBtpPillarPage() {
           </p>
           <p>
             Depuis 2022, elle forme les équipes des fédérations (FFB Grand Paris, FFB IDF, FFB IDF Est), des institutions
-            (CNAM Entreprise, Lefebvre Dalloz, CSFE) et des PME d&apos;Île-de-France sur ChatGPT, Claude, Copilot et Mistral —
+            (CNAM Entreprise, Lefebvre Dalloz, CSFE) et des PME d&apos;Île-de-France sur Claude AI (outil principal) et
+            ChatGPT (usages administratifs et comparaison) —
             devis, DCE, CCTP, CR chantier, DOE, PPSPS et mémoires techniques. <strong>Instructrice LinkedIn Learning</strong>{' '}
             (deux cours publiés en 2026).
           </p>

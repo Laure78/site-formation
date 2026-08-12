@@ -26,7 +26,6 @@ import {
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
-import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import {
   FORMATION_COURSE_MODE_ONSITE,
   buildFormationCourseAreaServed,
@@ -221,7 +220,6 @@ function buildCourseNode(params: {
     isAccessibleForFree: false,
     creditsAwarded: QUALIOPI_CERTIFICAT_REALISATION,
     timeRequired: duration,
-    aggregateRating: buildSchemaAggregateRating(),
     offers: {
       '@type': 'Offer',
       price: String(price),

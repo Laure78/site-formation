@@ -508,7 +508,7 @@ export function getArticleSchema({
       '@id': `${SITE_CONFIG.url}/#person`,
       name: authorName,
       url: `${SITE_CONFIG.url}/a-propos/`,
-      jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+      jobTitle: 'Formatrice IA spécialisée BTP',
     },
     publisher: {
       '@type': 'Organization',

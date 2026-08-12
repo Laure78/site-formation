@@ -230,9 +230,6 @@ export default function FormationIaMaitriseOeuvrePage() {
               BET, assistant(e)s de gestion travaux.
             </li>
             <li>
-              <PrerequisNiveau2 />
-            </li>
-            <li>
               <strong>Modalité :</strong> présentiel, en intra-entreprise ou en inter-entreprises. 70&nbsp;% pratique
               / 30&nbsp;% théorie.
             </li>

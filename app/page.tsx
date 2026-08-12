@@ -53,13 +53,13 @@ import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import {
   formatTarifHt,
-  TARIF_SESSION_DEBUTANT_HT,
-  TARIF_SESSION_AVANCE_HT,
+  TARIF_SESSION_FORFAIT_HT,
   SESSION_DUREE_LIBELLE,
 } from '@/lib/tarifs-sessions';
 import { FORMATIONS } from '@/data/formations';
-import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
+import { MentionFinancement } from '@/components/MentionFinancement';
+import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
 import { DEVIS_GAIN_TEMPS_LIBELLE, GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
@@ -276,7 +276,8 @@ export default function HomePage() {
           >
             <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
             — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
-            certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
+            certifié Qualiopi.{' '}
+            <MentionFinancement variant="court" />
           </p>
 
           <div className="mt-6 space-y-5 md:mt-7 md:space-y-6">
@@ -284,10 +285,17 @@ export default function HomePage() {
               idPrefix="accueil"
               items={[
                 'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
-                'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
+                <>
+                  OFC Création d’Entreprise certifié Qualiopi — <MentionFinancement variant="long" />
+                </>,
                 'Intra ou inter, présentiel uniquement · Île-de-France uniquement.',
                 'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                `Catalogue ${FORMATIONS.length} formations (${FORMATIONS.map((f) => f.titre).join(', ')}) — validation métier de votre côté.`,
+                <>
+                  Catalogue {FORMATIONS.length} formations Qualiopi — forfait unique{' '}
+                  {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT
+                  <MentionTvaAsterisque /> / session (Claude AI = une fiche : Maîtriser Claude AI pour
+                  le BTP).
+                </>,
               ]}
             />
             <p className="text-sm leading-relaxed text-slate-600">
@@ -320,13 +328,31 @@ export default function HomePage() {
             </div>
             <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
               <p className="text-sm leading-relaxed text-slate-600">
-                <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
+                <span className="font-medium text-slate-700">
+                  Catalogue ({FORMATIONS.length} formations) :
+                </span>{' '}
                 <Link
                   href={LINKS.formationIaBtpNiveau1BatimentTp}
                   className={OFC_LINK}
-                  title="Formation IA niveau 1 — bâtiment et travaux publics"
+                  title="L'IA au service des pros du bâtiment et des travaux publics"
                 >
-                  formation IA bâtiment &amp; travaux publics (niveau 1)
+                  IA bâtiment &amp; travaux publics
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationAO}
+                  className={OFC_LINK}
+                  title="L'IA appliquée aux appels d'offres BTP"
+                >
+                  IA appels d&apos;offres BTP
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationConduiteTravauxSuiviChantier}
+                  className={OFC_LINK}
+                  title={FORMATION_CONDUITE.title}
+                >
+                  IA conduite de travaux
                 </Link>
                 {' · '}
                 <Link
@@ -338,19 +364,11 @@ export default function HomePage() {
                 </Link>
                 {' · '}
                 <Link
-                  href={LINKS.formationClaudeAiBatiment}
+                  href={LINKS.formationIaMaitriseOeuvre}
                   className={OFC_LINK}
-                  title="Formation Claude AI bâtiment"
+                  title="L'IA au service des maîtres d'œuvre"
                 >
-                  formation Claude bâtiment
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationClaudeAiTravauxPublics}
-                  className={OFC_LINK}
-                  title="Formation Claude AI travaux publics"
-                >
-                  formation Claude travaux publics
+                  IA maîtres d&apos;œuvre
                 </Link>
                 {' · '}
                 <Link
@@ -359,22 +377,6 @@ export default function HomePage() {
                   title="Financement Constructys — formation IA pour le BTP"
                 >
                   financement Constructys
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationAO}
-                  className={OFC_LINK}
-                  title="IA et appels d'offres BTP"
-                >
-                  IA appels d&apos;offres BTP
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationConduiteTravauxSuiviChantier}
-                  className={OFC_LINK}
-                  title={FORMATION_CONDUITE.title}
-                >
-                  {FORMATION_CONDUITE.title}
                 </Link>
               </p>
             </div>
@@ -534,7 +536,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Témoignages & étude de cas — un seul titre « Cas concrets… » */}
+      {/* Étude de cas FFB / filière étanchéité — avis via Google ou data/temoignages si disponibles */}
       <Suspense fallback={<GoogleReviewsSectionPlaceholder />}>
         <GoogleReviewsSection />
       </Suspense>
@@ -905,8 +907,7 @@ export default function HomePage() {
             relation client — en{' '}
             <strong className="font-semibold text-slate-800">sessions de {SESSION_DUREE_LIBELLE}</strong>
             {' '}
-            (niveau 1 : {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)}&nbsp;€&nbsp;HT ; niveaux 2 :{' '}
-            {formatTarifHt(TARIF_SESSION_AVANCE_HT)}&nbsp;€&nbsp;HT — effectifs selon fiche). Téléchargez les{' '}
+            (forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT / session — effectifs selon fiche). Téléchargez les{' '}
             <strong className="font-semibold text-slate-800">programmes PDF</strong> depuis chaque fiche ou ci-dessous
             sur la page catalogue.
           </p>
@@ -1153,7 +1154,7 @@ export default function HomePage() {
                 Financement possible selon éligibilité
               </h3>
               <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-                {FINANCEMENT_FORMULATION_PRUDENTE}
+                <MentionFinancement variant="long" />
               </p>
               <Accordion id="financement-constructys-detail" summaryLabel="Lire la suite — barèmes et démarches">
                 <RevealGroup className="grid gap-6 md:grid-cols-3" staggerMs={45}>
@@ -1220,10 +1221,9 @@ export default function HomePage() {
                     Organisme de formation certifié Qualiopi
                   </h3>
                   <p className="mt-3 text-slate-600">
-                    OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi. Cette formation
-                    est éligible à une prise en charge partielle par Constructys ou votre OPCO
-                    selon éligibilité, dans le cadre du plan de développement des compétences
-                    de votre entreprise.
+                    OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi, dans le cadre du
+                    plan de développement des compétences de votre entreprise.{' '}
+                    <MentionFinancement variant="court" withLink={false} />.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <ExternalLinkAnchor
@@ -1382,7 +1382,7 @@ export default function HomePage() {
                   {
                     icon: Check,
                     title: 'Financement OPCO selon éligibilité',
-                    desc: 'Votre devis intègre les possibilités de prise en charge partielle Constructys selon éligibilité',
+                    desc: 'Financement possible selon éligibilité — détail Constructys sur devis après analyse de votre dossier.',
                   },
                   {
                     icon: Mail,

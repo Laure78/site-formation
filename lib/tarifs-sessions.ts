@@ -8,6 +8,7 @@ import {
   EFFECTIF_CATALOGUE_MAX,
   FORMATION_NIV01,
   FORMATION_NIV02,
+  FORMATIONS_COUNT,
   getFormationByCode,
   libelleDureeFormation,
   libelleEffectifFormation,
@@ -58,12 +59,15 @@ export function tarifHtDepuisBadgeCatalogue(level?: 'DÉBUTANT' | 'AVANCÉ'): nu
   return level === 'AVANCÉ' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
 }
 
-/** Mention légale TVA — formations professionnelles. */
+/** Mention légale TVA — formations professionnelles (source unique). */
 export const MENTIONS_TVA_EXONERATION =
-  'TVA non applicable — exonération art. 261-4-4° du CGI (actions de formation professionnelle)';
+  'Prix nets — OFC Création d\'Entreprise est exonérée de TVA sur les actions de formation professionnelle continue (art. 261-4-4°a du CGI).';
 
-/** Version courte pour badges / libellés. */
-export const MENTIONS_TVA_EXONERATION_COURTE = 'TVA non applicable (art. 261-4-4° CGI)';
+/** @deprecated Préférer `MentionTVA` / `MENTIONS_TVA_EXONERATION` (formulation complète). */
+export const MENTIONS_TVA_EXONERATION_COURTE = 'TVA non applicable (art. 261-4-4°a CGI)';
+
+/** Ancre HTML de la mention unique (`MentionTVA`). */
+export const MENTION_TVA_ANCHOR_ID = 'mention-tva' as const;
 
 /** Effectif maximal catalogue (NIV-01) */
 export const EFFECTIF_GROUPE_MAX = EFFECTIF_CATALOGUE_MAX;
@@ -131,4 +135,4 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit. Niveaux 2 : un abonnement Claude AI Pro par participant est requis (non inclus dans le forfait).';
 
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} — niveau 1 : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT (${libelleEffectifFormation(FORMATION_NIV01)}) ; niveaux 2 : ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT (effectifs selon fiche). ${MENTIONS_TVA_EXONERATION}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session* pour les ${FORMATIONS_COUNT} formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

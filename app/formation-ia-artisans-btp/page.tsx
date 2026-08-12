@@ -133,7 +133,7 @@ export default function FormationIAArtisansBTPPage() {
         </h1>
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
-          activité dans le bâtiment : devis, emails, comptes rendus. Notre{' '}
+          activité dans le bâtiment : devis, emails, comptes rendus. Ma{' '}
           <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>

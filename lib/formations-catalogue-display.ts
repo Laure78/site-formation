@@ -92,7 +92,7 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
   };
 }
 
-/** Six parcours officiels — dérivés de FORMATIONS. */
+/** Cinq parcours officiels — dérivés de FORMATIONS (Claude = NIV-04 unique). */
 export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] =
   FORMATIONS.map(toCatalogueEntry);
 

@@ -7,7 +7,6 @@ import { getFormationByCode, libelleEffectifFormation, libelleEffectifMaxFormati
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { getFormationCatalogueImageObjectJsonLd } from '@/lib/photo-seo';
-import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import {
   SCHEMA_CONTACT,
   SCHEMA_ORGANIZATION_OFC,
@@ -255,7 +254,6 @@ export function buildFormationCatalogueRichCourseJsonLd(
       hasCredential: buildQualiopiCredentialSchema(),
     },
     instructor: { '@id': instructorId },
-    aggregateRating: buildSchemaAggregateRating(),
     offers: buildCatalogueOffer(catalogueRef, courseUrl, config.price),
   };
 }

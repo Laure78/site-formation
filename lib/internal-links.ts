@@ -55,12 +55,17 @@ export const LINKS = {
   formationIaConstruction: '/formation-ia-construction',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
-  /** Landing SEO cluster Claude AI */
-  formationClaudeAiBtp: '/formation-claude-ai-btp',
-  formationClaudeAiBatiment: '/formation-claude-ai-batiment',
-  formationClaudeAiTravauxPublics: '/formation-claude-ai-travaux-publics',
+  /**
+   * @deprecated Anciennes landings SEO — 308 → pilier `/claude-ai-btp`.
+   * Fiche produit : `formationMaitriserClaudeAiBtp`.
+   */
+  formationClaudeAiBtp: '/claude-ai-btp',
+  /** @deprecated Alias → pilier `/claude-ai-btp` (section bâtiment). */
+  formationClaudeAiBatiment: '/claude-ai-btp',
+  /** @deprecated Alias → pilier `/claude-ai-btp` (section travaux publics). */
+  formationClaudeAiTravauxPublics: '/claude-ai-btp',
 
-  // Tier 2 — Formations (catalogue officiel — 2 niveaux)
+  // Tier 2 — Formations (catalogue officiel — 5 parcours)
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
   formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */

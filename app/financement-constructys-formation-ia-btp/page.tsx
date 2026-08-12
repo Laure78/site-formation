@@ -351,7 +351,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               </ul>
 
               <p className="mt-4 rounded-lg bg-[#EFF6FF]/80 px-4 py-3 text-sm leading-relaxed text-slate-700">
-                <strong>À noter pour nos formations IA.</strong> Nos sessions ChatGPT/Claude pour le BTP sont des <strong>actions non qualifiantes</strong> : c&apos;est le plafond pédagogique horaire (24 € ou 19 € HT/h selon l&apos;effectif) et le plafond jour/groupe en intra qui s&apos;appliquent — les frais annexes (8 %) réservés aux actions qualifiantes ne sont pas mobilisables. Ces modalités concernent les <strong>demandes reçues à partir du 1<sup>er</sup> juin 2026</strong>, pour une formation démarrant en 2026.
+                <strong>À noter pour mes formations IA.</strong> Mes sessions ChatGPT/Claude pour le BTP sont des <strong>actions non qualifiantes</strong> : c&apos;est le plafond pédagogique horaire (24 € ou 19 € HT/h selon l&apos;effectif) et le plafond jour/groupe en intra qui s&apos;appliquent — les frais annexes (8 %) réservés aux actions qualifiantes ne sont pas mobilisables. Ces modalités concernent les <strong>demandes reçues à partir du 1<sup>er</sup> juin 2026</strong>, pour une formation démarrant en 2026.
               </p>
             </section>
 

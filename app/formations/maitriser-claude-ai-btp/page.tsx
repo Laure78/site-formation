@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { LINKS } from '@/lib/internal-links';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
-import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
+import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
@@ -255,15 +255,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
                 <strong>{PRIX_LIBELLE} par session</strong> — {EFFECTIF_LIBELLE}.
               </span>
             </li>
-            <li className="flex gap-2">
-              <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              <PrerequisNiveau2
-                extras={[
-                  'Option « Exécution de code » activée.',
-                  'Documents utiles : chartes internes, modèles CR/mémoires, exemples de dossiers anonymisés (AO, CCTP, CR, PV).',
-                ]}
-              />
-            </li>
           </ul>
           <p className="mt-4 text-sm text-slate-600">
             Devis et convention :{' '}
@@ -272,6 +263,14 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             </a>
           </p>
         </section>
+
+        <PrerequisNiveau2
+          asSection
+          extras={[
+            'Option « Exécution de code » activée.',
+            'Documents utiles : chartes internes, modèles CR/mémoires, exemples de dossiers anonymisés (AO, CCTP, CR, PV).',
+          ]}
+        />
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>

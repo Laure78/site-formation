@@ -9,17 +9,16 @@ export const revalidate = 3600;
 const PATH = '/outils-ia-btp';
 
 export const metadata = createPageMetadata({
-  title: 'Outils IA BTP — ChatGPT, Claude, Gemini',
+  title: 'Outils IA BTP — Claude AI et ChatGPT',
   description:
-    'Comparatif ChatGPT, Claude et Gemini pour les professionnels et PME du BTP : articles, tutoriels et bonnes pratiques. OFC, Qualiopi. Explorez le guide.',
+    'Claude AI (outil principal) et ChatGPT (usages admin) pour les pros du BTP : articles, tutoriels et bonnes pratiques. OFC, Qualiopi.',
   path: PATH,
   keywords: [
-    'outils IA BTP ChatGPT Claude Gemini',
-    'comparatif ChatGPT Claude Gemini',
-    'IA générative bâtiment',
-    'ChatGPT PME BTP',
+    'outils IA BTP Claude ChatGPT',
+    'comparatif Claude ChatGPT BTP',
     'Claude AI BTP',
-    'Gemini Google Workspace BTP',
+    'ChatGPT PME BTP',
+    'formation IA pour le BTP',
   ],
 });
 
@@ -31,9 +30,9 @@ const ARTICLES_OUTILS = [
     linkLabel: 'Ouvrir l’outil',
   },
   {
-    titre: 'ChatGPT, Claude, Gemini : guide de démarrage IA BTP',
-    href: '/blog/outils-ia-btp-chatgpt-claude-gemini',
-    badge: 'Comparatif & tutoriel',
+    titre: 'ChatGPT vs Claude : lequel choisir quand on est dans le BTP ?',
+    href: LINKS.blogComparatifChatgptClaudeGeminiBtp,
+    badge: 'Comparatif',
   },
   {
     titre: 'Claude AI pour le BTP : les 5 interfaces expliquées et comment choisir la bonne',
@@ -83,11 +82,13 @@ export default function OutilsIABTPPage() {
       <section className="border-b border-slate-200 bg-gradient-to-br from-[var(--accent)] to-blue-800 px-4 py-16">
         <div className="mx-auto max-w-5xl">
           <h1 className="font-display text-4xl font-bold text-white md:text-5xl">
-            Outils IA pour le BTP : ChatGPT, Claude, Gemini
+            Outils IA pour le BTP : Claude AI et ChatGPT
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-50">
-            ChatGPT, Claude, Gemini : choisir le bon outil pour devis, courriers et mémoires techniques
-            en BTP. Méthode testée avec 1&nbsp;592+ professionnels formés (OFC, Qualiopi). Page dédiée{' '}
+            En formation, <strong className="font-semibold text-white">Claude AI</strong> est l&apos;outil principal
+            (niveaux 1 et 2) ; <strong className="font-semibold text-white">ChatGPT</strong> est cité en comparaison et
+            pour les usages administratifs (niveau 1). Devis, courriers, mémoires techniques — méthode testée avec
+            1&nbsp;592+ professionnels formés (OFC, Qualiopi). Page dédiée{' '}
             <Link href="/claude-ai-btp" className="font-semibold text-white underline decoration-white/80 hover:no-underline">
               Claude AI BTP
             </Link>
@@ -103,13 +104,13 @@ export default function OutilsIABTPPage() {
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
             Orientation rapide pour équipes terrain et bureau. Tarifs et fonctions évoluent — vérifiez les pages
-            officielles. <strong>Mise à jour : avril 2026</strong> (révision trimestrielle).
+            officielles. <strong>Mise à jour : août 2026</strong> (révision trimestrielle).
           </p>
 
           <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
-            <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+            <table className="w-full min-w-[520px] border-collapse text-left text-sm">
               <caption className="sr-only">
-                Comparatif indicatif ChatGPT, Claude et Gemini pour usage professionnel BTP
+                Comparatif indicatif Claude AI et ChatGPT pour usage professionnel BTP
               </caption>
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-50">
@@ -117,46 +118,47 @@ export default function OutilsIABTPPage() {
                     Critère
                   </th>
                   <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
-                    ChatGPT (OpenAI)
+                    Claude AI (Anthropic) — outil principal
                   </th>
                   <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
-                    Claude (Anthropic)
-                  </th>
-                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900">
-                    Gemini (Google)
+                    ChatGPT (OpenAI) — admin &amp; comparaison
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 bg-white text-slate-700">
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
+                    Rôle en formation OFC
+                  </th>
+                  <td className="px-4 py-3">Niveaux 1 et 2 — documents longs, DCE, mémoire, skills</td>
+                  <td className="px-4 py-3">Niveau 1 — emails, relances, trames admin, comparaison</td>
+                </tr>
+                <tr>
+                  <th scope="row" className="px-4 py-3 font-medium text-slate-900">
                     Entrée de gamme
                   </th>
-                  <td className="px-4 py-3">Compte gratuit avec limites ; usage courant pour tests</td>
                   <td className="px-4 py-3">Gratuit avec plafonds ; bon pour textes longs</td>
-                  <td className="px-4 py-3">Gratuit ; lié au compte Google</td>
+                  <td className="px-4 py-3">Compte gratuit avec limites ; usage courant pour tests</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
                     Offre pro (ordre de grandeur)
                   </th>
-                  <td className="px-4 py-3">Abonnement individuel ou équipe (tarif public variable)</td>
                   <td className="px-4 py-3">Pro / équipe selon offre Anthropic</td>
-                  <td className="px-4 py-3">Google AI Pro / Workspace selon formule</td>
+                  <td className="px-4 py-3">Abonnement individuel ou équipe (tarif public variable)</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
                     Atouts fréquents en BTP
                   </th>
-                  <td className="px-4 py-3">Écosystème large, plugins / intégrations, usage généraliste</td>
-                  <td className="px-4 py-3">Fichiers longs, ton posé, brouillons de mémoires</td>
-                  <td className="px-4 py-3">Lien natif avec Gmail, Drive, Docs si écosystème Google</td>
+                  <td className="px-4 py-3">Fichiers longs, ton posé, brouillons de mémoires, Cowork &amp; Skills</td>
+                  <td className="px-4 py-3">Écosystème large, usage généraliste, rédaction admin rapide</td>
                 </tr>
                 <tr>
                   <th scope="row" className="px-4 py-3 font-medium text-slate-900">
                     Données &amp; conformité
                   </th>
-                  <td className="px-4 py-3" colSpan={3}>
+                  <td className="px-4 py-3" colSpan={2}>
                     Paramètres compte, offres entreprise et DPA à valider selon votre politique interne. Voir l’article{' '}
                     <Link
                       href="/blog/confidentialite-donnees-ia-btp"

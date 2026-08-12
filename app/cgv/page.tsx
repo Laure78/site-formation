@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { createPageMetadata } from '@/lib/seo';
 import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
+import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_IDENTITE, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
 import { PROOF } from '@/lib/proof';
 
@@ -39,11 +40,11 @@ export default function CGVPage() {
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-x-6 text-sm">
             <a
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               className="inline-flex items-center gap-2 text-[var(--accent)] hover:underline"
             >
               <Mail size={16} strokeWidth={1.5} />
-              contact@laureolivie.fr
+              laureolivie@yahoo.fr
             </a>
           </div>
         </div>
@@ -119,7 +120,7 @@ export default function CGVPage() {
           </h3>
           <p className="mt-2">
             Via la page contact de www.laureolivie.fr (coordonnées et prise de rendez-vous Calendly) ; par email à
-            contact@laureolivie.fr ; par voie postale. Demande d&apos;inscription → proposition commerciale → convention
+            laureolivie@yahoo.fr ; par voie postale. Demande d&apos;inscription → proposition commerciale → convention
             de formation signée avant l&apos;entrée en formation → convocation.
           </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
@@ -152,9 +153,10 @@ export default function CGVPage() {
           </h2>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">4.1 Tarifs</h3>
           <p className="mt-2">
-            Prix en euros HT et TTC. Exonération TVA (article 261-4-4° CGI). Tarifs
-            au jour de la commande ou du devis.
+            Les prix des actions de formation sont indiqués en euros nets
+            <MentionTvaAsterisque />. Tarifs applicables au jour de la commande ou du devis.
           </p>
+          <MentionTVA className="mt-3" />
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
             4.2 Modalités de paiement
           </h3>
@@ -298,7 +300,7 @@ export default function CGVPage() {
           <p className="mt-4">
             Traitement pour gestion administrative, documents obligatoires,
             déclarations financeurs. Droits RGPD : accès, rectification,
-            opposition, limitation, portabilité. Contact : contact@laureolivie.fr.
+            opposition, limitation, portabilité. Contact : laureolivie@yahoo.fr.
             Voir Politique de confidentialité sur www.laureolivie.fr.
           </p>
         </section>
@@ -332,7 +334,7 @@ export default function CGVPage() {
           </h2>
           <p className="mt-4">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
-            contact@laureolivie.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
+            laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
             Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous {QUALIOPI_RECLAMATIONS.delaiAccuseReception}{' '}
             et une réponse vous est apportée sous {QUALIOPI_RECLAMATIONS.delaiReponse}. Chaque réclamation est enregistrée
             et analysée dans le cadre de notre démarche d&apos;amélioration continue Qualiopi.
@@ -360,7 +362,7 @@ export default function CGVPage() {
             ARTICLE 17 — RÉFÉRENT HANDICAP
           </h2>
           <p className="mt-4">
-            Référent : Laure OLIVIÉ — contact@laureolivie.fr.
+            Référent : Laure OLIVIÉ — laureolivie@yahoo.fr.
             Contact au moins 15 jours avant le début pour adaptation. Annuaire
             partenaires handicap disponible sur demande.
           </p>
@@ -390,10 +392,10 @@ export default function CGVPage() {
           <p>SIRET : 905 244 281 00010 | NDA : 11788515078</p>
           <p>
             <a
-              href="mailto:contact@laureolivie.fr"
+              href="mailto:laureolivie@yahoo.fr"
               className="text-[var(--accent)] hover:underline"
             >
-              contact@laureolivie.fr
+              laureolivie@yahoo.fr
             </a>
           </p>
           <p>

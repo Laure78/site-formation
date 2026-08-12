@@ -26,6 +26,8 @@ import {
 import { assertInfosReglementairesCompletes } from '@/lib/assert-infos-reglementaires';
 import { LINKS } from '@/lib/internal-links';
 import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
+import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
+import { MentionFinancement } from '@/components/MentionFinancement';
 
 function asList(items: string | readonly string[]): readonly string[] {
   return typeof items === 'string' ? [items] : items;
@@ -125,17 +127,15 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
           <QualiopiItem icon={Euro} title="5. Tarifs (HT)">
             <p>
               <strong>Inter-entreprise :</strong> {validated.tarifInter}
+              <MentionTvaAsterisque />
             </p>
             <p className="mt-2">
               <strong>Intra-entreprise :</strong> {validated.tarifIntra}
+              <MentionTvaAsterisque />
             </p>
+            <MentionTVA className="mt-3" />
             <p className="mt-2 text-slate-600">
-              TVA non applicable, art. 261-4-4° du CGI (formation professionnelle). Financement OPCO Constructys
-              possible selon éligibilité —{' '}
-              <Link href={LINKS.financement} className="font-medium text-[#377CF3] hover:underline">
-                voir le guide financement
-              </Link>
-              .
+              <MentionFinancement variant="court" />.
             </p>
           </QualiopiItem>
 

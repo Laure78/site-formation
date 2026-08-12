@@ -14,7 +14,7 @@ export function buildGlobalSiteJsonLdGraph(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      buildOrganizationOfcSchemaNode({ organizationId, personId, includeAggregateRating: true }),
+      buildOrganizationOfcSchemaNode({ organizationId, personId }),
       buildPersonLaureSchemaNode({ personId, organizationId }),
     ],
   };

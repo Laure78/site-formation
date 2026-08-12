@@ -3,10 +3,11 @@ import { Award, GraduationCap, LogIn, Star, Users } from 'lucide-react';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { MarketingLightHero } from '@/components/marketing/MarketingLightHero';
 import { CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
+import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
-import { PERIMETRE_FORMATIONS_COURT, formatTarifHt, TARIF_SESSION_DEBUTANT_HT, TARIF_SESSION_AVANCE_HT, SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
+import { PERIMETRE_FORMATIONS_COURT, formatTarifHt, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
@@ -27,9 +28,9 @@ export function FormationsHero() {
       description={
         <>
           Sessions Qualiopi de {SESSION_DUREE_LIBELLE} en présentiel — {PERIMETRE_FORMATIONS_COURT}. Devis, appels
-          d&apos;offres, conduite de travaux, Claude AI : niveau 1 {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)}&nbsp;€&nbsp;HT
-          · niveaux 2 {formatTarifHt(TARIF_SESSION_AVANCE_HT)}&nbsp;€&nbsp;HT, financement partiel possible selon
-          éligibilité (Constructys).
+          d&apos;offres, conduite de travaux avec Claude AI et ChatGPT : forfait unique{' '}
+          {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT
+          <MentionTvaAsterisque /> / session, financement partiel possible selon éligibilité (Constructys).
         </>
       }
       stats={[

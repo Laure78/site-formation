@@ -9,19 +9,21 @@ import {
   buildIdfAreaServedSchemaEntities,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
-import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { QUALIOPI_LEGAL, buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 
 export type OrganizationOfcSchemaNodeOptions = {
   organizationId?: string;
   personId?: string;
-  /** Inclure AggregateRating (questionnaires Qualiopi fin de session — voir QUALIOPI_STATS). */
+  /**
+   * @deprecated Ne plus utiliser : Google exige des `review[]` individuels vérifiables
+   * avec `aggregateRating`. Les notes Qualiopi restent affichées en clair sur le site.
+   */
   includeAggregateRating?: boolean;
 };
 
 /**
  * Nœud JSON-LD Organization — EducationalOrganization + LocalBusiness.
- * Doctrine : présentiel Île-de-France uniquement · email contact@laureolivie.fr · pas de GERESO.
+ * Doctrine : présentiel Île-de-France uniquement · email laureolivie@yahoo.fr · pas de GERESO.
  * areaServed : Île-de-France (+ 8 départements) · identifier SIRET.
  * Injecté une seule fois via layout (`GlobalSiteJsonLd` → `#organization`).
  */
@@ -31,7 +33,9 @@ export function buildOrganizationOfcSchemaNode(
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const organizationId = options.organizationId ?? `${base}/#organization`;
   const personId = options.personId ?? `${base}/#laure-olivie`;
-  const includeAggregateRating = options.includeAggregateRating ?? true;
+  // `includeAggregateRating` est volontairement ignoré : pas d’aggregateRating
+  // sans tableau `review` d’avis individuels vérifiables (rich results Google).
+  void options.includeAggregateRating;
 
   return {
     '@type': ['Organization', 'EducationalOrganization', 'LocalBusiness'],
@@ -86,15 +90,6 @@ export function buildOrganizationOfcSchemaNode(
       '@id': personId,
       name: SCHEMA_PERSON_LAURE.name,
     },
-    ...(includeAggregateRating
-      ? {
-          /**
-           * Source : questionnaires de fin de session Qualiopi (pas avis Google).
-           * Voir config/qualiopi.ts + /indicateurs-resultats — conformité rich results à valider.
-           */
-          aggregateRating: buildSchemaAggregateRating(),
-        }
-      : {}),
   };
 }
 

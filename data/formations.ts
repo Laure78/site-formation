@@ -35,7 +35,7 @@ export const FORMATIONS: readonly Formation[] = [
     duree: '4 h',
     effectifMin: 4,
     effectifMax: 12,
-    prixHT: 1000,
+    prixHT: 1200,
     accroche: 'Niveau 1 : bases opérationnelles pour équipes bâtiment et travaux publics.',
     objectifs: [
       'Comprendre les usages de l’IA générative utiles sur chantier et au bureau',

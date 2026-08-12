@@ -43,16 +43,6 @@ function stripAtContext(obj: Record<string, unknown>): Record<string, unknown> {
 /** Durées indicatives (cours complets LinkedIn Learning — à ajuster si besoin). */
 const LINKEDIN_COURSE_DURATION: [string, string] = ['PT2H', 'PT1H45M'];
 
-const AGGREGATE_RATING_VALUE = 4.85;
-
-const aggregateRating = {
-  '@type': 'AggregateRating',
-  ratingValue: AGGREGATE_RATING_VALUE,
-  ratingCount: SOCIAL_PROOF.PROFESSIONALS_TRAINED,
-  bestRating: 5,
-  worstRating: 1,
-};
-
 export function getAProposUnifiedJsonLd(): Record<string, unknown> {
   const faqRaw = getFAQSchema(FAQ_COMPLET);
   if (!faqRaw) throw new Error('FAQ À propos : schéma invalide');
@@ -118,7 +108,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
         name: 'Instructrice LinkedIn Learning',
       },
     ],
-    aggregateRating,
   };
 
   const organization = buildOrganizationOfcSchemaNode({
@@ -161,7 +150,6 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
     hasCredential: buildQualiopiCredentialSchema(),
     taxID: SCHEMA_CONTACT.siretDigits,
     vatID: SCHEMA_CONTACT.vatId,
-    aggregateRating,
     founder: { '@id': PERSON_ID },
   };
 

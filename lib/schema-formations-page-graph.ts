@@ -11,8 +11,6 @@ import {
   FORMATION_COURSE_OFFER_CATEGORY,
 } from '@/lib/schema-formation-course-jsonld';
 import {
-  TARIF_SESSION_DEBUTANT_HT,
-  TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_FORFAIT_HT,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
@@ -430,7 +428,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 2,
             name: 'Évaluer le niveau IA des participants',
-            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant. Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée. Niveau 1 : ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT (${libelleEffectifFormation(FORMATION_NIV01)}) ; niveaux 2 : ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT (effectifs selon fiche).`,
+            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant. Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée. Forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session (effectifs selon fiche — ex. niveau 1 : ${libelleEffectifFormation(FORMATION_NIV01)}).`,
           },
           {
             '@type': 'HowToStep',

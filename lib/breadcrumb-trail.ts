@@ -61,7 +61,6 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/formateur-ia-btp': 'Formateur IA BTP',
   '/partenaires': 'Partenaires',
   '/claude-ai-btp': 'Claude AI BTP',
-  '/formation-claude-ai-btp': 'Formation Claude AI BTP',
   '/formations-linkedin-learning': 'Formations LinkedIn Learning',
   '/checklist-ia-btp': 'Checklist IA BTP',
   '/outils-ia-btp': 'Outils IA BTP',

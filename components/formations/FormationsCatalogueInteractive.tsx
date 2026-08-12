@@ -23,6 +23,7 @@ import {
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
+import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -277,9 +278,7 @@ export function FormationsCatalogueInteractive({
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
               Forfait {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session
-            </span>
-            <span className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-slate-600">
-              TVA non applicable · art. 261-4-4° CGI
+              <MentionTvaAsterisque />
             </span>
           </div>
         </div>

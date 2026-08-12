@@ -11,6 +11,12 @@ export const FINANCEMENT_FORMULATION_PRUDENTE =
 export const FINANCEMENT_FORMULATION_COURTE =
   'Financement partiel possible selon éligibilité.';
 
+/**
+ * Mention courte avec lien (composant `MentionFinancement` variant="court").
+ * Libellé demandé pour l’accueil et les remplacements hors L’essentiel / FINANCEMENT.
+ */
+export const FINANCEMENT_FORMULATION_COURTE_LIEN = 'Financement possible selon éligibilité';
+
 /** Ancre lien interne vers la page financement (sans « 100 % ») */
 export const FINANCEMENT_PAGE_LINK_LABEL = 'financement Constructys formation IA pour le BTP';
 

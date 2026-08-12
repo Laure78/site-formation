@@ -33,6 +33,6 @@ export const PARTENAIRES_INSTITUTIONNELS: PartenaireInstitutionnel[] = [
     name: 'IFRB (77, 78, 91, 95)',
     desc: 'Institut de Formation Régional du Bâtiment — Île-de-France',
     href: 'https://www.ifrb-78-91-95.fr/',
-    logo: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+    logo: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
   },
 ];

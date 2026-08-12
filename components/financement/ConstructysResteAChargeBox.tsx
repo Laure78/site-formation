@@ -7,7 +7,6 @@ import {
   FORMATION_NIV01,
   FORMATION_NIV02,
   formatPrixHt,
-  libelleEffectifMaxFormation,
 } from '@/data/formations';
 
 /** Plafond Constructys pédagogique indicatif : 24 € HT/h × 4 h */
@@ -20,7 +19,7 @@ function plafondGroupe(effectifMax: number): number {
 const ROWS = [
   {
     formation: `Niveau 1 — ${formatPrixHt(FORMATION_NIV01.prixHT)} € HT`,
-    effectif: libelleEffectifMaxFormation(FORMATION_NIV01),
+    effectif: `${FORMATION_NIV01.effectifMax} participants`,
     priseEnCharge: (() => {
       const plafond = plafondGroupe(FORMATION_NIV01.effectifMax);
       return `jusqu’à ${formatPrixHt(plafond)} € HT → prise en charge possible du coût pédagogique`;
@@ -28,7 +27,7 @@ const ROWS = [
   },
   {
     formation: `Niveau 2 — ${formatPrixHt(FORMATION_NIV02.prixHT)} € HT`,
-    effectif: libelleEffectifMaxFormation(FORMATION_NIV02),
+    effectif: `${FORMATION_NIV02.effectifMax} participants`,
     priseEnCharge: (() => {
       const plafond = plafondGroupe(FORMATION_NIV02.effectifMax);
       const reste = FORMATION_NIV02.prixHT - plafond;

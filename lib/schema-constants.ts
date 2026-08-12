@@ -123,7 +123,7 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA et ChatGPT spécialisée BTP',
+  jobTitle: 'Formatrice IA spécialisée BTP',
   description:
     "10 ans d'expérience terrain comme conductrice de travaux, forme les professionnels du BTP à l'IA appliquée à leurs documents réels, en présentiel en Île-de-France.",
 } as const;

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { LINKS } from '@/lib/internal-links';
 import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
-import { FileText, Calendar, Users, Check, Download } from 'lucide-react';
+import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
@@ -238,14 +238,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               </span>
             </li>
             <li className="flex gap-2">
-              <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              <PrerequisNiveau2
-                extras={[
-                  'Documents utiles : CCTP/DPGF récents, modèles de CR et courriers ST anonymisés.',
-                ]}
-              />
-            </li>
-            <li className="flex gap-2">
               <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
               <span>
                 <strong>Suivi inclus :</strong> un rendez-vous visio J+30 pour ancrer les skills en conditions réelles.
@@ -259,6 +251,13 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             </a>
           </p>
         </section>
+
+        <PrerequisNiveau2
+          asSection
+          extras={[
+            'Documents utiles : CCTP/DPGF récents, modèles de CR et courriers ST anonymisés.',
+          ]}
+        />
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>

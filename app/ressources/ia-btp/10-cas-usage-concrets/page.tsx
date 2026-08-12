@@ -68,7 +68,7 @@ const DEMARRER_IA_BTP_STEPS = [
     title: 'Se former (4 h suffisent)',
     body: (
       <>
-        Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Nos
+        Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Mes
         formations de 4&nbsp;h sont certifiées Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
       </>
     ),

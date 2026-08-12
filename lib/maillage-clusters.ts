@@ -587,9 +587,6 @@ function buildCataloguePillarLinks(): RelatedLinkItem[] {
 
 const CLAUDE_PAGES = [
   LINKS.claudeAiBtp,
-  LINKS.formationClaudeAiBtp,
-  LINKS.formationClaudeAiBatiment,
-  LINKS.formationClaudeAiTravauxPublics,
   LINKS.formationMaitriserClaudeAiBtp,
 ] as const;
 
@@ -607,36 +604,16 @@ function buildClaudeLinks(path: string): RelatedLinkItem[] {
       description: 'Pilier outil — différencier Chat, Cowork et Claude Code.',
     });
   } else {
-    links.push(
-      {
-        href: LINKS.formationClaudeAiBtp,
-        label: 'Formation Claude AI BTP — landing programme',
-      },
-      {
-        href: LINKS.formationMaitriserClaudeAiBtp,
-        label: 'Fiche catalogue — maîtriser Claude AI pour le BTP (NIV-04)',
-      },
-      {
-        href: LINKS.formationClaudeAiBatiment,
-        label: 'Formation Claude AI bâtiment (second œuvre)',
-      },
-      {
-        href: LINKS.formationClaudeAiTravauxPublics,
-        label: 'Formation Claude AI travaux publics',
-      },
-    );
-    return dedupeLinks(links).slice(0, 5);
+    links.push({
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'Fiche catalogue — Maîtriser Claude AI pour le BTP (NIV-04)',
+    });
   }
-  // Satellites Claude : guide + autres landings/fiches + catalogue (intentions différenciées)
-  const labelMap: Record<string, string> = {
-    [LINKS.formationClaudeAiBtp]: 'Landing formation Claude AI pour le BTP',
-    [LINKS.formationClaudeAiBatiment]: 'Claude AI appliqué au bâtiment',
-    [LINKS.formationClaudeAiTravauxPublics]: 'Claude AI pour les travaux publics',
-    [LINKS.formationMaitriserClaudeAiBtp]: 'Maîtriser Claude AI BTP — session catalogue',
-  };
-  const others = CLAUDE_PAGES.filter((p) => p !== path && p !== LINKS.claudeAiBtp);
-  for (const href of others) {
-    links.push({ href, label: labelMap[href] ?? href });
+  if (path !== LINKS.formationMaitriserClaudeAiBtp) {
+    links.push({
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'Maîtriser Claude AI BTP — session catalogue',
+    });
   }
   links.push({
     href: LINKS.formations,

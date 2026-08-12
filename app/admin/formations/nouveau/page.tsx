@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 
 export default function NouvelleFormationPage() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function NouvelleFormationPage() {
   const [objectifs, setObjectifs] = useState('');
   const [prerequis, setPrerequis] = useState('');
   const [programme, setProgramme] = useState('');
-  const [price, setPrice] = useState(String(TARIF_SESSION_AVANCE_HT));
+  const [price, setPrice] = useState(String(TARIF_SESSION_FORFAIT_HT));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -157,12 +157,12 @@ export default function NouvelleFormationPage() {
             step="1"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder={String(TARIF_SESSION_AVANCE_HT)}
+            placeholder={String(TARIF_SESSION_FORFAIT_HT)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
           <p className="mt-1 text-xs text-slate-500">
-            Niveau 1 : {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT · niveaux 2 :{' '}
-            {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session — TVA non applicable (art. 261-4-4° CGI).
+            Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session (toutes formations catalogue) — TVA
+            non applicable (art. 261-4-4° CGI).
           </p>
         </div>
         <div className="flex gap-4">

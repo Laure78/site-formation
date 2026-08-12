@@ -544,7 +544,7 @@ export default function FormationIaEtancheurPage() {
           links={[
             { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
             { href: LINKS.repondreAoLanding, label: 'Formation IA appels d\u2019offres BTP' },
-            { href: LINKS.formationClaudeAiBatiment, label: 'Formation Claude AI bâtiment' },
+            { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude AI pour le BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-etancheur-footer-rdv'), label: 'Prendre rendez-vous' },

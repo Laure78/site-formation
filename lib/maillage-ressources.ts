@@ -39,7 +39,7 @@ const PILIER_CDT: MaillageLink = {
 
 /** Thème Productivité & outils */
 const PILIER_CLAUDE: MaillageLink = {
-  href: LINKS.formationClaudeAiBtp,
+  href: LINKS.formationMaitriserClaudeAiBtp,
   label: 'Formation Claude AI appliquée au BTP',
 };
 
@@ -336,7 +336,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
   },
   [LINKS.guideClaudeBtpOfc]: {
     pilier: {
-      href: LINKS.formationClaudeAiBtp,
+      href: LINKS.formationMaitriserClaudeAiBtp,
       label: 'Formation Claude AI pour les pros du BTP',
     },
     soeurs: [
@@ -405,7 +405,7 @@ export const RESSOURCES_HUB_PILIERS: Readonly<
     label: 'Formation IA prévention et conduite de chantier',
   },
   'productivite-outils': {
-    href: LINKS.formationClaudeAiBtp,
+    href: LINKS.formationMaitriserClaudeAiBtp,
     label: 'Découvrir la formation Claude AI pour le BTP',
   },
   'cadre-professionnel': {

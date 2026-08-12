@@ -13,6 +13,8 @@ const CAS_USAGE_VISUELS = [
     caption: 'Planification intelligente, rapports automatisés et contrôle documentaire — Laure Olivié formatrice IA BTP.',
     href: '#guide-conducteur-travaux',
     linkLabel: 'Guide conducteur de travaux (PDF gratuit)',
+    /** Badge visible — doit coller à la destination (ancre guide PDF, pas tuto). */
+    badge: 'Guide PDF gratuit',
   },
   {
     photo: PHOTOS.accueilIaDevisChiffrageBtp2026,
@@ -20,6 +22,7 @@ const CAS_USAGE_VISUELS = [
     caption: 'Notes, photos et plans transformés en devis structuré, conforme et prêt à envoyer.',
     href: LINKS.iaDevis,
     linkLabel: 'Méthode IA pour les devis bâtiment',
+    badge: 'Voir la méthode',
   },
   {
     photo: PHOTOS.accueilAnalyseDceAppelsOffresBtp2026,
@@ -27,6 +30,7 @@ const CAS_USAGE_VISUELS = [
     caption: 'Extraction IA, évaluation et synthèse Go/No Go — décisions plus rapides, sûres et documentées.',
     href: LINKS.iaAnalyseDce,
     linkLabel: 'Méthode : analyser un DCE avec l\'IA',
+    badge: 'Voir la méthode',
   },
   {
     photo: PHOTOS.accueilCompteRenduDoePvChantier2026,
@@ -34,6 +38,7 @@ const CAS_USAGE_VISUELS = [
     caption: 'Notes vocales sur chantier transformées en CR, DOE ou PV structurés — validation métier incluse.',
     href: LINKS.iaCompteRenduChantier,
     linkLabel: 'Méthode : comptes rendus de chantier avec l\'IA',
+    badge: 'Voir la méthode',
   },
 ] as const;
 
@@ -135,7 +140,7 @@ export function AccueilCasUsageIaVisuels() {
                       <p className="text-xs font-semibold leading-snug text-slate-900 sm:text-sm">{item.title}</p>
                       <p className="flex-1 text-[0.7rem] leading-relaxed text-slate-600 sm:text-xs">{item.caption}</p>
                       <p className="mt-auto inline-flex items-center gap-1 pt-1 text-[0.7rem] font-semibold text-[#377CF3] sm:text-xs">
-                        Tuto gratuit
+                        {item.badge}
                         <ArrowRight className="h-3 w-3 shrink-0 transition group-hover:translate-x-0.5" aria-hidden />
                       </p>
                     </figcaption>

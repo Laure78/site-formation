@@ -18,6 +18,7 @@ import {
   catalogueNiveauEtLevel,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
+import { MentionFinancement } from '@/components/MentionFinancement';
 
 const POURQUOI = [
   '10+ ans terrain (conductrice de travaux, dirigeante BTP)',
@@ -45,7 +46,7 @@ export function BeworkEtFormationsOffreSection() {
       className={OFC_SEC.mutedMesh}
     >
       <div className="mx-auto max-w-7xl space-y-12 md:space-y-14">
-        {/* Catalogue OFC — 6 fiches, ancre #offre-formations */}
+        {/* Catalogue OFC — 5 fiches (Claude = NIV-04 unique), ancre #offre-formations */}
         <div id="offre-formations" className="scroll-mt-28">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -59,7 +60,8 @@ export function BeworkEtFormationsOffreSection() {
             </h2>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
               Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
-              bâtiment et de la construction. Financement possible selon éligibilité.
+              bâtiment et de la construction.{' '}
+              <MentionFinancement variant="court" withLink={false} />.
             </p>
             <CatalogueTarifStrip className="mt-5" />
           </Reveal>

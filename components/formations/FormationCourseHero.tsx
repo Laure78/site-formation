@@ -88,12 +88,13 @@ export function FormationCourseHero({
               <p className="mt-2 text-lg font-medium text-slate-700">{subtitle}</p>
             ) : null}
             {catalogueEntry ? (
-              <CataloguePriceBadge
-                level={catalogueEntry.level}
-                prixHT={catalogueEntry.prixHT}
-                variant="hero"
-                className="mt-5"
-              />
+              <div className="mt-5">
+                <CataloguePriceBadge
+                  level={catalogueEntry.level}
+                  prixHT={catalogueEntry.prixHT}
+                  variant="hero"
+                />
+              </div>
             ) : null}
             <div className="mt-6 max-w-xl text-slate-600 [&_strong]:font-semibold [&_a]:font-medium [&_a]:text-[var(--accent)] [&_a]:hover:underline">
               {children}

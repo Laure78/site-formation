@@ -182,7 +182,7 @@ export default function IADevisBatimentPage() {
           <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
             automatiser devis bâtiment
           </Link>
-          {' '}et structurer un premier devis en moins d&apos;une heure (vs demi-journée selon complexité). Descriptifs techniques, chiffrages, variantes : documents plus homogènes d&apos;un chantier à l&apos;autre. Découvrez notre{' '}
+          {' '}et structurer un premier devis en moins d&apos;une heure (vs demi-journée selon complexité). Descriptifs techniques, chiffrages, variantes : documents plus homogènes d&apos;un chantier à l&apos;autre. Découvrez ma{' '}
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour le BTP
           </Link>
@@ -247,7 +247,7 @@ export default function IADevisBatimentPage() {
             <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
               utiliser ChatGPT dans le BTP
             </Link>
-            , notre formation pratique vous donne les trames prêtes à l&apos;emploi.
+            , ma formation pratique vous donne les trames prêtes à l&apos;emploi.
           </p>
           <p className="mt-6 text-slate-600 leading-relaxed">
             Sur les moteurs comme Google, les requêtes{' '}

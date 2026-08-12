@@ -215,7 +215,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           </Link>{' '}
           ou une{' '}
           <Link
-            href={LINKS.formationClaudeAiBtp}
+            href={LINKS.formationMaitriserClaudeAiBtp}
             className="font-medium text-[var(--accent)] hover:underline"
           >
             formation Claude AI dédiée au BTP
@@ -254,23 +254,22 @@ export default function FormationIAAppelsOffreBTPPage() {
               {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session.
             </span>
           </li>
-            <li className="flex gap-2">
-              <FileText className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
-              <PrerequisNiveau2
-                extras={[
-                  'Documents à préparer : DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de votre entreprise.',
-                  'Cowork installé sur le poste.',
-                ]}
-              />
-            </li>
         </ul>
         <p className="mt-4 text-sm text-slate-600">
           Devis et convention :{' '}
-          <a href="mailto:contact@laureolivie.fr" className="font-medium text-[var(--accent)] hover:underline">
-            contact@laureolivie.fr
+          <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
+            laureolivie@yahoo.fr
           </a>
         </p>
       </section>
+
+      <PrerequisNiveau2
+        asSection
+        extras={[
+          'Documents à préparer : DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de votre entreprise.',
+          'Cowork installé sur le poste.',
+        ]}
+      />
 
       <section className="mt-12">
         <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>

@@ -121,9 +121,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/claude-ai-btp': ['app/claude-ai-btp/page.tsx'],
   '/outils/cas-usage-ia-btp': ['app/outils/cas-usage-ia-btp/page.tsx'],
   '/outils-ia-btp': ['app/outils-ia-btp/page.tsx'],
-  '/formation-claude-ai-btp': ['app/formation-claude-ai-btp/page.tsx'],
-  '/formation-claude-ai-batiment': ['app/formation-claude-ai-batiment/page.tsx'],
-  '/formation-claude-ai-travaux-publics': ['app/formation-claude-ai-travaux-publics/page.tsx'],
   '/formation-ia-btp-ile-de-france': [
     'app/formation-ia-btp-ile-de-france/page.tsx',
     'lib/departement-pages/index.ts',

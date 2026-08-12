@@ -27,7 +27,7 @@ export function AuthorBlock({ className }: { className?: string }) {
             {SITE_CONFIG.name}
           </h3>
           <p className="mt-1 font-medium text-[var(--accent)]">
-            Formatrice en IA générative
+            Formatrice IA &amp; ChatGPT
           </p>
           <p className="mt-2 text-slate-600">
             Spécialiste de l&apos;intégration de l&apos;intelligence artificielle dans les entreprises du BTP.

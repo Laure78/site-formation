@@ -21,11 +21,8 @@ export const LAURE_OLIVIE_CLIENT_REFERENCES = [
 ] as const;
 
 export const LAURE_OLIVIE_IA_TOOLS = [
+  'Claude AI',
   'ChatGPT',
-  'Claude',
-  'Microsoft Copilot 365',
-  'Mistral AI',
-  'Perplexity',
 ] as const;
 
 export const LAURE_OLIVIE_FORMATION_THEMES = [
@@ -109,7 +106,7 @@ export const LAURE_OLIVIE_PARCOURS_CONDENSE = LAURE_OLIVIE_PARCOURS_TIMELINE.map
 
 /** Bio courte — encart formations (E-E-A-T, angle pédagogie & terrain). */
 export function getLaureOlivieFormationPortraitParagraph(contextLine?: string): string {
-  const base = `Formatrice IA spécialisée BTP depuis 2022, Laure Olivié s'appuie sur 10 ans de terrain BTP (conductrice de travaux, dirigeante d'ALIA BTP 2017-2024), une expérience de chargée de formation au CNFPT (2009-2019) et le rôle d'instructrice LinkedIn Learning. Elle a formé ${formatPersonnesFormeesCount()} professionnels du bâtiment et des travaux publics (${SOCIAL_PROOF.AVERAGE_RATING}, ${getStatsFreshnessLabel()}) sur ChatGPT, Claude, Copilot et Mistral — devis, DCE, CCTP, CR chantier et mémoires techniques. OFC Création d'Entreprise est certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}), finançable Constructys selon éligibilité.`;
+  const base = `Formatrice IA spécialisée BTP depuis 2022, Laure Olivié s'appuie sur 10 ans de terrain BTP (conductrice de travaux, dirigeante d'ALIA BTP 2017-2024), une expérience de chargée de formation au CNFPT (2009-2019) et le rôle d'instructrice LinkedIn Learning. Elle a formé ${formatPersonnesFormeesCount()} professionnels du bâtiment et des travaux publics (${SOCIAL_PROOF.AVERAGE_RATING}, ${getStatsFreshnessLabel()}) sur Claude AI (outil principal) et ChatGPT (usages administratifs) — devis, DCE, CCTP, CR chantier et mémoires techniques. OFC Création d'Entreprise est certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}), finançable Constructys selon éligibilité.`;
   return contextLine ? `${contextLine} ${base}` : base;
 }
 

@@ -5,7 +5,7 @@ import { ExternalLink } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { formatProfessionalsTrainedCount, SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -288,7 +288,7 @@ export default function FormationsLinkedInLearningPage() {
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             Découvre en ligne, approfondis en présentiel sur tes propres documents. Deux cours à la
-            demande sur LinkedIn Learning, puis formation OFC en Île-de-France (75–77–78–91–92–93–94–95).
+            demande sur LinkedIn Learning, puis formation OFC — {IDF_ZONE_INTERVENTION}.
           </p>
 
           <nav aria-label="Sommaire" className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 md:p-6">
