@@ -23,7 +23,7 @@ export const NAV_ENTREPRISE: readonly NavItem[] = [
     title: 'BeWork — solutions IA sur mesure pour le BTP',
   },
   { href: LINKS.contact, label: 'Contact' },
-  { href: LINKS.prendreRdv, label: 'Rendez-vous' },
+  { href: LINKS.prendreRdv, label: 'Prendre rendez-vous' },
   {
     href: SITE_CONFIG.linkedinProfileUrl,
     label: 'LinkedIn',

@@ -2,6 +2,7 @@
 
 import Script from 'next/script';
 import { CALENDLY_SCRIPT_READY_EVENT } from '@/lib/calendly';
+import { useCookieConsent } from '@/components/CookieConsentBanner';
 
 const CALENDLY_WIDGET_SRC = 'https://assets.calendly.com/assets/external/widget.js';
 
@@ -12,14 +13,18 @@ function notifyCalendlyReady() {
 }
 
 /**
- * Charge le script Calendly une fois (embed inline).
+ * Charge widget.js Calendly uniquement après acceptation du bandeau cookies,
+ * en `lazyOnload` (jamais avant le consentement).
  */
 export function CalendlyScriptLoader() {
+  const consent = useCookieConsent();
+  if (consent !== 'accepted') return null;
+
   return (
     <Script
       id="calendly-widget-js"
       src={CALENDLY_WIDGET_SRC}
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       onLoad={notifyCalendlyReady}
       onReady={notifyCalendlyReady}
     />

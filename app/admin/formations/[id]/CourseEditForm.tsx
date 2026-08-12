@@ -3,10 +3,20 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Save } from 'lucide-react';
+import { TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 
 interface Props {
   courseId: string;
-  initial: { title: string; slug: string; description?: string; objectifs?: string; prerequis?: string; programme?: string; published: boolean };
+  initial: {
+    title: string;
+    slug: string;
+    description?: string;
+    objectifs?: string;
+    prerequis?: string;
+    programme?: string;
+    price?: number;
+    published: boolean;
+  };
 }
 
 export function CourseEditForm({ courseId, initial }: Props) {
@@ -15,6 +25,9 @@ export function CourseEditForm({ courseId, initial }: Props) {
   const [objectifs, setObjectifs] = useState(initial.objectifs || '');
   const [prerequis, setPrerequis] = useState(initial.prerequis || '');
   const [programme, setProgramme] = useState(initial.programme || '');
+  const [price, setPrice] = useState(
+    String(initial.price != null && initial.price > 0 ? initial.price : TARIF_SESSION_FORFAIT_HT)
+  );
   const [published, setPublished] = useState(initial.published);
   const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -24,14 +37,18 @@ export function CourseEditForm({ courseId, initial }: Props) {
     setSaved(false);
     try {
       const supabase = createClient();
-      await supabase.from('courses').update({
-        title,
-        description: description || null,
-        objectifs: objectifs || null,
-        prerequis: prerequis || null,
-        programme: programme || null,
-        published,
-      }).eq('id', courseId);
+      await supabase
+        .from('courses')
+        .update({
+          title,
+          description: description || null,
+          objectifs: objectifs || null,
+          prerequis: prerequis || null,
+          programme: programme || null,
+          price: parseFloat(price) || 0,
+          published,
+        })
+        .eq('id', courseId);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } finally {
@@ -90,10 +107,33 @@ export function CourseEditForm({ courseId, initial }: Props) {
             rows={4}
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
-          <p className="mt-1 text-xs text-slate-500">Le programme détaillé est défini par les modules et leçons ci-dessous.</p>
+          <p className="mt-1 text-xs text-slate-500">
+            Le programme détaillé est défini par les modules et leçons ci-dessous.
+          </p>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-slate-700">
+            Prix forfaitaire HT (€)
+          </label>
+          <input
+            type="number"
+            min={0}
+            step={1}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            className="mt-1 w-full max-w-xs rounded-lg border border-slate-300 px-4 py-2 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
+          />
+          <p className="mt-1 text-xs text-slate-500">
+            Forfait unique : 1 200 € HT / session — TVA non applicable (art. 261-4-4° CGI).
+          </p>
         </div>
         <label className="flex items-center gap-2">
-          <input type="checkbox" checked={published} onChange={(e) => setPublished(e.target.checked)} className="rounded border-slate-300" />
+          <input
+            type="checkbox"
+            checked={published}
+            onChange={(e) => setPublished(e.target.checked)}
+            className="rounded border-slate-300"
+          />
           <span className="text-sm font-medium text-slate-700">Publiée</span>
         </label>
         <button

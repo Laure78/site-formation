@@ -14,12 +14,11 @@ import {
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   EFFECTIF_GROUPE_MAX,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  MENTIONS_TVA_EXONERATION_COURTE,
   MODALITE_FORMATIONS_PRESENTIEL,
   SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_AVANCE_HT,
-  TARIF_SESSION_DEBUTANT_HT,
+  TARIF_SESSION_FORFAIT_HT,
   formatTarifHt,
-  type NiveauTarif,
 } from '@/lib/tarifs-sessions';
 import {
   FORMATIONS_CATALOGUE,
@@ -151,13 +150,12 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
 }
 
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
-  const niveau: NiveauTarif = entry.level === 'DÉBUTANT' ? 'debutant' : 'avance';
-  const montant = niveau === 'debutant' ? TARIF_SESSION_DEBUTANT_HT : TARIF_SESSION_AVANCE_HT;
-  const inter = `${formatTarifHt(montant)} € HT / session en inter-entreprise (${entry.effectif.toLowerCase()}).`;
+  const montant = TARIF_SESSION_FORFAIT_HT;
+  const inter = `${formatTarifHt(montant)} € HT / session forfaitaire en inter-entreprise (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
   const intra =
     entry.ref === 'NIV-06'
-      ? 'Intra-entreprise : sur devis (demande de devis par email ou formulaire de contact).'
-      : `Intra-entreprise : sur devis — forfait session selon effectif et lieu (${entry.effectif.toLowerCase()}).`;
+      ? `Intra-entreprise : sur devis (demande de devis par email ou formulaire de contact). ${MENTIONS_TVA_EXONERATION_COURTE}.`
+      : `Intra-entreprise : forfait ${formatTarifHt(montant)} € HT / session selon effectif et lieu (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
   return { inter, intra };
 }
 
@@ -196,7 +194,7 @@ export function buildLandingInfosQualiopiProps(formationTitle: string): InfosQua
     duree: SESSION_DUREE_LIBELLE,
     dureeJours: '0,5 jour (session unique)',
     modalitesAcces: QUALIOPI_MODALITES_ACCES,
-    tarifInter: `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session en inter-entreprise (max ${EFFECTIF_GROUPE_MAX} participants). Niveau avancé : ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session.`,
+    tarifInter: `${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session forfaitaire en inter-entreprise (max ${EFFECTIF_GROUPE_MAX} participants). ${MENTIONS_TVA_EXONERATION_COURTE}.`,
     tarifIntra: tarifs.intra,
     methodes: QUALIOPI_METHODES_STANDARD,
     evaluation: QUALIOPI_EVALUATION_STANDARD,

@@ -1,6 +1,6 @@
 /**
- * Grille commerciale OFC : une durée de session unique, forfait par session selon le niveau,
- * jusqu'à 12 participants.
+ * Grille commerciale OFC : forfait unique par session, jusqu'à 12 participants.
+ * TVA : exonération art. 261-4-4° du CGI (formation professionnelle).
  */
 
 import { formatNumberFr } from '@/lib/format-number-fr';
@@ -10,46 +10,59 @@ export const SESSION_DUREE_LIBELLE = '4 h';
 /** NIV-04 Maîtriser Claude AI — session matin uniquement */
 export const SESSION_DUREE_MATIN_NIV04 = '4 h · matin (9h00 – 13h00)';
 
-/** Forfait HT pour la session complète — formations niveau débutant (catalogue) */
-export const TARIF_SESSION_DEBUTANT_HT = 1000;
+/**
+ * Forfait HT unique pour toutes les formations catalogue / LMS (session complète).
+ * Source unique — ne plus distinguer débutant / avancé sur le prix.
+ */
+export const TARIF_SESSION_FORFAIT_HT = 1200;
 
-/** Forfait HT pour la session complète — formations niveau avancé (catalogue) */
-export const TARIF_SESSION_AVANCE_HT = 1200;
+/** @deprecated Alias — même montant que `TARIF_SESSION_FORFAIT_HT`. */
+export const TARIF_SESSION_DEBUTANT_HT = TARIF_SESSION_FORFAIT_HT;
 
-/** Montant HT affiché (espace milliers FR) — ex. 1 000, 1 200 */
+/** @deprecated Alias — même montant que `TARIF_SESSION_FORFAIT_HT`. */
+export const TARIF_SESSION_AVANCE_HT = TARIF_SESSION_FORFAIT_HT;
+
+/** Montant HT affiché (espace milliers FR) — ex. 1 200 */
 export function formatTarifHt(amount: number): string {
   return formatNumberFr(amount);
 }
 
 /**
- * @deprecated Utiliser `TARIF_SESSION_DEBUTANT_HT` — conservé pour imports existants.
- * Les montants sont désormais des forfaits par session, non par participant.
+ * @deprecated Utiliser `TARIF_SESSION_FORFAIT_HT`.
  */
-export const TARIF_FORFAIT_DEBUTANT_HT = TARIF_SESSION_DEBUTANT_HT;
+export const TARIF_FORFAIT_DEBUTANT_HT = TARIF_SESSION_FORFAIT_HT;
 
 /**
- * @deprecated Utiliser `TARIF_SESSION_AVANCE_HT` — conservé pour imports existants.
+ * @deprecated Utiliser `TARIF_SESSION_FORFAIT_HT`.
  */
-export const TARIF_FORFAIT_AVANCE_HT = TARIF_SESSION_AVANCE_HT;
+export const TARIF_FORFAIT_AVANCE_HT = TARIF_SESSION_FORFAIT_HT;
 
 export type NiveauTarif = 'debutant' | 'avance';
 
-export function tarifHtPourNiveau(niveau: NiveauTarif): number {
-  return niveau === 'debutant' ? TARIF_SESSION_DEBUTANT_HT : TARIF_SESSION_AVANCE_HT;
+/** Forfait unique quel que soit le niveau pédagogique. */
+export function tarifHtPourNiveau(_niveau?: NiveauTarif): number {
+  return TARIF_SESSION_FORFAIT_HT;
 }
 
-/** Montant HT facturé pour la session (offre catalogue / comparatif) */
-export function tarifHtDepuisBadgeCatalogue(level: 'DÉBUTANT' | 'AVANCÉ'): number {
-  return level === 'DÉBUTANT' ? TARIF_SESSION_DEBUTANT_HT : TARIF_SESSION_AVANCE_HT;
+/** Montant HT facturé pour la session (offre catalogue / comparatif). */
+export function tarifHtDepuisBadgeCatalogue(_level?: 'DÉBUTANT' | 'AVANCÉ'): number {
+  return TARIF_SESSION_FORFAIT_HT;
 }
+
+/** Mention légale TVA — formations professionnelles. */
+export const MENTIONS_TVA_EXONERATION =
+  'TVA non applicable — exonération art. 261-4-4° du CGI (actions de formation professionnelle)';
+
+/** Version courte pour badges / libellés. */
+export const MENTIONS_TVA_EXONERATION_COURTE = 'TVA non applicable (art. 261-4-4° CGI)';
 
 /** Effectif maximal par groupe (sessions catalogue, inter ou intra) */
 export const EFFECTIF_GROUPE_MAX = 12;
 
 /** Libellé carte / ligne tableau : forfait session */
-export function libelleTarifParticipant(level: 'DÉBUTANT' | 'AVANCÉ'): string {
-  const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(level));
-  return `${n} € HT / session (max ${EFFECTIF_GROUPE_MAX} participants)`;
+export function libelleTarifParticipant(_level?: 'DÉBUTANT' | 'AVANCÉ'): string {
+  const n = formatTarifHt(TARIF_SESSION_FORFAIT_HT);
+  return `${n} € HT / session forfaitaire (max ${EFFECTIF_GROUPE_MAX} participants) — ${MENTIONS_TVA_EXONERATION_COURTE}`;
 }
 
 /** Libellé pour badges / cartes (icône « participants ») */
@@ -90,4 +103,4 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Comptes gratuits IA possibles : Claude AI, ChatGPT, Gemini.';
 
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session (niveau débutant) ou ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session (niveau avancé), ${LIBELLE_EFFECTIF_GROUPE_COURT}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} uniquement — forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session (${LIBELLE_EFFECTIF_GROUPE_COURT}). ${MENTIONS_TVA_EXONERATION}. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

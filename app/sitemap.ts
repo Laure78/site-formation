@@ -77,7 +77,7 @@ function getAdditionalMarketingRoutes(baseUrl: string): MetadataRoute.Sitemap {
     { path: '/formation-claude-ai-btp', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/formation-claude-ai-batiment', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/formation-claude-ai-travaux-publics', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/prendre-rdv', priority: 0.95, changeFrequency: 'weekly' },
+    { path: '/prendre-rendez-vous', priority: 0.95, changeFrequency: 'weekly' },
     { path: '/diagnostic-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/checklist-ia-btp', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/communaute-formateurs', priority: 0.85, changeFrequency: 'weekly' },

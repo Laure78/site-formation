@@ -43,7 +43,9 @@ export const LINKS = {
   partenaires: '/partenaires',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
-  prendreRdv: '/prendre-rdv',
+  prendreRdv: '/prendre-rendez-vous',
+  /** Alias historique — redirige vers `prendreRdv`. */
+  prendreRdvLegacy: '/prendre-rdv',
   /**
    * Ancien pilier `/formation-ia-btp` (308 → catalogue).
    * Canonique : `/formations` — préférer `LINKS.formations` pour les nouveaux liens.

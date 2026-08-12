@@ -15,12 +15,12 @@ type LessonInput = {
   duration_minutes: number;
 };
 
-/** Seed local — parcours PDF-BTP 8 h (2 sessions). */
+/**
+ * Seed parcours PDF-BTP 8 h (2 sessions).
+ * Admin uniquement. En prod : recrée modules/leçons sans supprimer le cours
+ * (conserve les inscriptions). En local : remplace entièrement le cours.
+ */
 export async function GET(request: Request) {
-  if (process.env.NODE_ENV !== 'development') {
-    return NextResponse.json({ error: 'Développement uniquement.' }, { status: 404 });
-  }
-
   const supabase = await createClient();
   const {
     data: { user },
@@ -37,30 +37,80 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Réservé aux administrateurs.' }, { status: 403 });
   }
 
-  await supabase.from('courses').delete().eq('slug', SLUG);
+  const isDev = process.env.NODE_ENV === 'development';
+  let courseId: string | null = null;
 
-  const { data: course, error: courseErr } = await supabase
-    .from('courses')
-    .insert({
-      slug: SLUG,
-      title: "L'IA au service de l'administratif et de la gestion de chantier — PDF-BTP",
-      description:
-        'Formation intra-entreprise sur mesure pour PDF-BTP (Longjumeau) : 8 h en 2 sessions. Session 1 : fondamentaux IA, administratif de chantier, exercices. Session 2 : Claude AI, skills PDF BTP, assistant personnalisé. Qualiopi — financement OPCO Constructys possible selon éligibilité.',
-      objectifs:
-        'Utiliser ChatGPT, Claude et Gemini pour le BTP · Rédiger devis, plannings, courriers et CR · Produire PV de réception et documents de clôture · Prompts avancés par métier · Créer un assistant IA PDF-BTP · Plan d’action individuel',
-      prerequis:
-        'Aucun prérequis technique. Ordinateur portable + internet. Apporter des dossiers réels (devis, CR, courriers).',
-      programme:
-        'Session 1 (4 h) — M1 Fondamentaux · M2 Administratif · M3 Exercices. Session 2 (4 h) — Claude & skills · Assistant · Bilan. PDF-BTP Longjumeau · 7 participants.',
-      price: 0,
-      published: true,
-      duration_hours: 8,
-      level: 'débutant',
-      category: 'formation-ia-btp',
-      creator_id: user.id,
-    })
-    .select('id')
-    .single();
+  if (isDev) {
+    await supabase.from('courses').delete().eq('slug', SLUG);
+  } else {
+    const { data: existing } = await supabase
+      .from('courses')
+      .select('id')
+      .eq('slug', SLUG)
+      .maybeSingle();
+    courseId = existing?.id ?? null;
+    if (courseId) {
+      const { data: mods } = await supabase.from('modules').select('id').eq('course_id', courseId);
+      const modIds = (mods ?? []).map((m) => m.id);
+      if (modIds.length > 0) {
+        await supabase.from('lessons').delete().in('module_id', modIds);
+        await supabase.from('modules').delete().eq('course_id', courseId);
+      }
+    }
+  }
+
+  const coursePayload = {
+    slug: SLUG,
+    title: "L'IA au service de l'administratif et de la gestion de chantier — PDF-BTP",
+    description:
+      'Formation intra-entreprise sur mesure pour PDF-BTP (Longjumeau) : 8 h en 2 sessions. Session 1 : fondamentaux IA, administratif de chantier, exercices. Session 2 : Claude AI, skills PDF BTP, assistant personnalisé. Qualiopi — financement OPCO Constructys possible selon éligibilité.',
+    objectifs:
+      'Utiliser ChatGPT, Claude et Gemini pour le BTP · Rédiger devis, plannings, courriers et CR · Produire PV de réception et documents de clôture · Prompts avancés par métier · Créer un assistant IA PDF-BTP · Plan d’action individuel',
+    prerequis:
+      'Aucun prérequis technique. Ordinateur portable + internet. Apporter des dossiers réels (devis, CR, courriers).',
+    programme:
+      'Session 1 (4 h) — M1 Fondamentaux · M2 Administratif · M3 Exercices. Session 2 (4 h) — Claude & skills · Assistant · Bilan. PDF-BTP Longjumeau · 7 participants.',
+    price: 1200,
+    published: true,
+    duration_hours: 8,
+    level: 'débutant',
+    category: 'formation-ia-btp',
+    creator_id: user.id,
+  };
+
+  let course: { id: string } | null = null;
+  let courseErr: { message: string } | null = null;
+
+  if (courseId) {
+    const { data, error } = await supabase
+      .from('courses')
+      .update({
+        title: coursePayload.title,
+        description: coursePayload.description,
+        objectifs: coursePayload.objectifs,
+        prerequis: coursePayload.prerequis,
+        programme: coursePayload.programme,
+        price: 1200,
+        published: true,
+        duration_hours: 8,
+        level: 'débutant',
+        category: 'formation-ia-btp',
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', courseId)
+      .select('id')
+      .single();
+    course = data;
+    courseErr = error;
+  } else {
+    const { data, error } = await supabase
+      .from('courses')
+      .insert(coursePayload)
+      .select('id')
+      .single();
+    course = data;
+    courseErr = error;
+  }
 
   if (courseErr || !course) {
     return NextResponse.json(

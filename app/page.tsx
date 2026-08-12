@@ -292,13 +292,12 @@ export default function HomePage() {
               .
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <CalendlyEmbed
-                type="link"
-                variant="pill"
-                campaign="accueil-hero"
-                ctaPosition="hero"
-                className="min-w-[min(100%,240px)] md:min-w-[auto]"
-              />
+              <Link
+                href={LINKS.prendreRdv}
+                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full bg-[var(--accent)] px-7 py-3 text-center text-[0.95rem] font-semibold text-white shadow-sm transition hover:bg-blue-700 md:min-w-[auto]"
+              >
+                Prendre rendez-vous
+              </Link>
               <Link
                 href="#guide-conducteur-travaux"
                 className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center gap-2 rounded-full border-2 border-emerald-600/30 bg-emerald-50/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-emerald-900 backdrop-blur-sm transition hover:border-emerald-600 hover:bg-emerald-100 md:min-w-[auto]"

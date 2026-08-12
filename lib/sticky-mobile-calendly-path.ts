@@ -1,6 +1,7 @@
 /** Pages sans bandeau sticky mobile (déjà en mode conversion ou hors site public). */
 const HIDDEN_PREFIXES = [
   '/prendre-rdv',
+  '/prendre-rendez-vous',
   '/admin',
   '/auth',
   '/espace-apprenant',

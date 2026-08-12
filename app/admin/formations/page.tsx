@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { Plus, Edit2 } from 'lucide-react';
 import { FORMATIONS_CATALOGUE } from '@/lib/formations-catalogue-display';
+import { formatTarifHt, MENTIONS_TVA_EXONERATION_COURTE } from '@/lib/tarifs-sessions';
 import { SyncCatalogueLmsButton } from './SyncCatalogueLmsButton';
 
 export default async function AdminFormationsPage() {
@@ -92,7 +93,20 @@ export default async function AdminFormationsPage() {
                         <strong>Programme :</strong> {(c as { programme?: string }).programme || '—'}
                       </p>
                     </td>
-                    <td className="px-6 py-4 text-slate-600">{c.price} €</td>
+                    <td className="px-6 py-4 text-slate-600">
+                      {c.price != null && Number(c.price) > 0 ? (
+                        <>
+                          <span className="font-medium text-slate-900">
+                            {formatTarifHt(Number(c.price))} € HT
+                          </span>
+                          <span className="mt-0.5 block text-xs text-slate-500">
+                            forfait · {MENTIONS_TVA_EXONERATION_COURTE}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-slate-400">—</span>
+                      )}
+                    </td>
                     <td className="px-6 py-4">
                       <span
                         className={`rounded-full px-2.5 py-1 text-xs font-medium ${

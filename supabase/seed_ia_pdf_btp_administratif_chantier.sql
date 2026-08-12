@@ -24,7 +24,7 @@ begin
     'Session 1 (4 h) — M1 Fondamentaux (45 min) · M2 Administratif chantier (2 h) · M3 Exercices & bilan S1 (1h15)
 Session 2 (4 h) — Prompts avancés / Claude & skills · Assistant IA · Bilan & attestations
 Lieu : PDF-BTP, 24 rue du Docteur Roux, 91160 Longjumeau · 7 participants.',
-    0,
+    1200,
     true,
     8,
     'débutant',

@@ -51,6 +51,16 @@ const nextConfig: NextConfig = {
         destination: 'https://www.laureolivie.fr/:path*',
         permanent: true,
       },
+      {
+        source: '/prendre-rdv',
+        destination: '/prendre-rendez-vous',
+        permanent: true,
+      },
+      {
+        source: '/prendre-rdv/',
+        destination: '/prendre-rendez-vous',
+        permanent: true,
+      },
       // --- Consolidation blog (juin 2026) — mémoire technique (ia-devis couvert par B2 juillet) ---
       {
         source: '/blog/memoire-technique-btp-ia-gagner-temps-appels-offres',

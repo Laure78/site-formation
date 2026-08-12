@@ -7,6 +7,7 @@ import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
+import { CookieConsentBanner } from '@/components/CookieConsentBanner';
 import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
@@ -181,6 +182,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <CalendlyScriptLoader />
         <CalendlyClickTracker />
+        <CookieConsentBanner />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"

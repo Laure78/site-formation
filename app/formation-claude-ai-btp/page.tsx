@@ -21,9 +21,7 @@ import { CourseSchema } from "@/components/seo/CourseSchema";
 import { getClusterRelatedHrefs } from "@/lib/maillage-clusters";
 import { buildSiteCalendlyCtaUrl } from "@/lib/calendly";
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT ,
-  formatTarifHt,
-} from "@/lib/tarifs-sessions";
+import { TARIF_SESSION_FORFAIT_HT, MENTIONS_TVA_EXONERATION_COURTE, formatTarifHt } from "@/lib/tarifs-sessions";
 import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
@@ -114,7 +112,7 @@ const faqItems = [
   },
   {
     q: "Faut-il un abonnement Claude Pro pour suivre la formation ?",
-    a: `Le niveau débutant (forfait ${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session) fonctionne avec le plan gratuit de Claude AI. Le niveau avancé (${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session) nécessite Claude Pro (environ 20 $/mois) pour accéder à Claude Sonnet 4.5/Opus et à l'upload de documents volumineux. Ce coût est modeste au regard du temps gagné — détails sur la <a href="/financement-constructys-formation-ia-btp">page financement</a>.`,
+    a: `Toutes les sessions sont au forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT (${MENTIONS_TVA_EXONERATION_COURTE}). Le niveau débutant fonctionne avec le plan gratuit de Claude AI. Le niveau avancé nécessite Claude Pro (environ 20 $/mois) pour Claude Sonnet 4.5/Opus et l'upload de documents volumineux. Détails sur la <a href="/financement-constructys-formation-ia-btp">page financement</a>.`,
   },
   {
     q: "Cette formation Claude AI est-elle financement possible selon éligibilité (Constructys) ?",
@@ -166,7 +164,7 @@ export default function FormationClaudeAiBtpPage() {
         description="Formation de 4 heures sur Claude AI (Anthropic) appliquée au BTP : devis, analyse de CCTP, mémoires techniques et comptes rendus de chantier."
         url={PAGE_URL}
         duration="PT4H"
-        price={TARIF_SESSION_AVANCE_HT}
+        price={TARIF_SESSION_FORFAIT_HT}
         level="Intermediate"
       />
       <Script
@@ -508,19 +506,21 @@ export default function FormationClaudeAiBtpPage() {
               Tarifs — Session Claude AI BTP de 4 h
             </h2>
             <p className="mt-3 text-slate-700">
-              Forfait par session selon le niveau pédagogique ({formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} ou{' '}
-              {formatTarifHt(TARIF_SESSION_AVANCE_HT)}{' '}
-              € HT). Formation éligible à une prise en charge par Constructys ou votre OPCO, selon statut, branche professionnelle et conditions en vigueur.
+              Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session —{' '}
+              {MENTIONS_TVA_EXONERATION_COURTE}. Formation éligible à une prise en charge par Constructys ou
+              votre OPCO, selon statut, branche professionnelle et conditions en vigueur.
             </p>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700">
               <li>
-                <strong>Niveau débutant :</strong> {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session — Compte gratuit Claude
-                AI suffisant.
+                <strong>Tous niveaux :</strong> {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT forfaitaire /
+                session.
               </li>
               <li>
-                <strong>Niveau avancé :</strong> {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session — Abonnement Claude Pro
-                requis (environ 20 $/mois) pour accéder à Claude Sonnet 4.5 et à l&apos;upload de
-                documents volumineux.
+                <strong>Niveau débutant :</strong> compte gratuit Claude AI souvent suffisant.
+              </li>
+              <li>
+                <strong>Niveau avancé :</strong> abonnement Claude Pro requis (environ 20 $/mois) pour Claude
+                Sonnet 4.5 et l&apos;upload de documents volumineux.
               </li>
             </ul>
             <p className="mt-4 text-sm text-slate-600">

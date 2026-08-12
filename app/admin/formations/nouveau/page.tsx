@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
+import { TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 
 export default function NouvelleFormationPage() {
   const router = useRouter();
@@ -14,7 +15,7 @@ export default function NouvelleFormationPage() {
   const [objectifs, setObjectifs] = useState('');
   const [prerequis, setPrerequis] = useState('');
   const [programme, setProgramme] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState(String(TARIF_SESSION_FORFAIT_HT));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -146,17 +147,22 @@ export default function NouvelleFormationPage() {
           />
         </div>
         <div>
-          <label htmlFor="price" className="block text-sm font-medium text-slate-700">Prix (€)</label>
+          <label htmlFor="price" className="block text-sm font-medium text-slate-700">
+            Prix forfaitaire HT (€)
+          </label>
           <input
             id="price"
             type="number"
             min="0"
-            step="0.01"
+            step="1"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder="0"
+            placeholder="1200"
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
+          <p className="mt-1 text-xs text-slate-500">
+            Forfait unique 1 200 € HT / session — TVA non applicable (art. 261-4-4° CGI).
+          </p>
         </div>
         <div className="flex gap-4">
           <button

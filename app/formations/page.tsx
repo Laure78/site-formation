@@ -279,7 +279,7 @@ export default function FormationsPage() {
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-            { href: buildSiteCalendlyCtaUrl('formations-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: 'Prendre rendez-vous' },
           ].filter((l) => !getClusterRelatedHrefs(LINKS.formations).includes(l.href))}
         />
       </div>

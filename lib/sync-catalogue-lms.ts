@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { FORMATIONS_CATALOGUE, type FormationCatalogueEntry } from '@/lib/formations-catalogue-display';
 import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
+import { tarifHtDepuisBadgeCatalogue } from '@/lib/tarifs-sessions';
 
 const PREREQUIS_DEFAUT =
   'Ordinateur portable + connexion internet. Aucune compétence technique préalable. Comptes IA (ChatGPT / Claude) recommandés.';
@@ -22,7 +23,7 @@ function coursePayload(entry: FormationCatalogueEntry) {
     objectifs: entry.objectifs.join(' · '),
     prerequis: PREREQUIS_DEFAUT,
     programme: `Parcours catalogue ${entry.ref} · ${entry.duree} · ${entry.effectif}. Programme PDF : ${entry.programmePdfHref}`,
-    price: 0,
+    price: tarifHtDepuisBadgeCatalogue(entry.level),
     published: true,
     duration_hours: parseDurationHours(entry.duree),
     level: catalogueLevelToLms(entry.level),

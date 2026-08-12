@@ -24,7 +24,6 @@ import {
   Landmark,
   LogIn,
 } from 'lucide-react';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
@@ -674,30 +673,21 @@ function NavbarInner() {
 
           <div className="site-header__actions">
             <FormationPlateformeConnexionButton variant="nav" />
-            <CalendlyEmbed
-              type="link"
-              variant="nav"
-              ctaPosition="inline"
-              ctaId="nav-rdv-desktop"
-              utmSource="site"
-              utmMedium="cta"
-              campaign="nav-prendre-rdv"
-              buttonText="Prendre RDV"
-            />
+            <Link
+              href={LINKS.prendreRdv}
+              className="cta-calendly cta-calendly--inline inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              Prendre rendez-vous
+            </Link>
           </div>
 
           <div className="site-header__rdv-mobile">
-            <CalendlyEmbed
-              type="link"
-              variant="nav"
-              ctaPosition="inline"
-              ctaId="nav-rdv-mobile-bar"
-              utmSource="site"
-              utmMedium="cta"
-              campaign="nav-prendre-rdv-mobile-bar"
-              buttonText="Prendre RDV"
-              className="max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
-            />
+            <Link
+              href={LINKS.prendreRdv}
+              className="cta-calendly cta-calendly--inline inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
+            >
+              Prendre rendez-vous
+            </Link>
           </div>
 
           <div className="flex items-center gap-1 lg:hidden">
@@ -1012,18 +1002,13 @@ function NavbarInner() {
                 label="Connexion plateforme"
                 onClick={() => setMobileOpen(false)}
               />
-              <CalendlyEmbed
-                type="link"
-                variant="primary"
-                ctaPosition="inline"
-                ctaId="nav-rdv-mobile"
-                utmSource="site"
-                utmMedium="cta"
-                campaign="nav-prendre-rdv-mobile"
+              <Link
+                href={LINKS.prendreRdv}
                 onClick={() => setMobileOpen(false)}
-                className="w-full rounded-full px-4 py-4 text-center text-[0.9375rem]"
-                buttonText="Prendre RDV"
-              />
+                className="w-full rounded-full bg-[var(--accent)] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white hover:bg-blue-700"
+              >
+                Prendre rendez-vous
+              </Link>
             </div>
           </nav>
         </div>

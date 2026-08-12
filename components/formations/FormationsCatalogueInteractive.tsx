@@ -24,7 +24,7 @@ import {
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'claude-skills';
@@ -276,10 +276,10 @@ export function FormationsCatalogueInteractive({
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-              Niveau 1 · {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session
+              Forfait {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session
             </span>
-            <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-              Niveau 2 · {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session
+            <span className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-slate-600">
+              TVA non applicable · art. 261-4-4° CGI
             </span>
           </div>
         </div>

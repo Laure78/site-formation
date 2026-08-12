@@ -302,8 +302,7 @@ export default async function BlogArticlePage({ params }: Props) {
             title="Prêt à vous former à l'IA ?"
             description="Réservez un échange de 30 minutes gratuit pour découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP."
             primaryLabel="Prendre rendez-vous"
-            primaryHref={CALENDLY_BOOKING_URL}
-            primaryCalendlyCampaign={`blog-article-${slug}-cta-block-early`}
+            primaryHref={LINKS.prendreRdv}
             secondaryLabel="Découvrir les formations"
             secondaryHref="/formations"
           />
