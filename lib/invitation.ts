@@ -5,16 +5,19 @@ import {
   generateInvitationToken,
   hashInvitationToken,
   invitationExpiresAt,
-  safeEqualHex,
 } from '@/lib/invitation-token';
 import { sendInvitationEmail } from '@/lib/send-invitation-email';
 import { randomBytes } from 'crypto';
+
+/** Plafond de renvois d’email par chaîne d’invitation (anti-spam Resend). */
+export const MAX_INVITATION_SENT_COUNT = 5;
 
 export const inviteApprenantSchema = z.object({
   email: z
     .string()
     .trim()
     .email('Email invalide')
+    .max(254)
     .transform((v) => v.toLowerCase()),
   firstName: z.string().trim().min(1, 'Prénom requis').max(80),
   lastName: z.string().trim().min(1, 'Nom requis').max(80),
@@ -27,7 +30,7 @@ export type InviteApprenantInput = z.infer<typeof inviteApprenantSchema>;
 
 export type InviteApprenantResult =
   | { ok: true; status: 'cree' | 'deja_invite' | 'renvoye'; invitationId: string }
-  | { ok: false; error: string; code?: 'validation' | 'auth' | 'email' | 'not_found' };
+  | { ok: false; error: string; code?: 'validation' | 'auth' | 'email' | 'not_found' | 'forbidden' };
 
 export type InvitationByTokenHash = {
   id: string;
@@ -42,11 +45,14 @@ export type InvitationByTokenHash = {
   sent_count: number;
 };
 
+const PRIVILEGED_ROLES = new Set(['admin', 'formateur', 'moderator']);
+
 /** Résout une invitation via le SHA-256 du token (RPC SECURITY DEFINER). */
 export async function getInvitationByToken(
   supabase: SupabaseClient,
   token: string
 ): Promise<InvitationByTokenHash | null> {
+  if (!token || token.length < 20 || token.length > 200) return null;
   const tokenHash = hashInvitationToken(token);
   const { data, error } = await supabase.rpc('get_invitation_by_token_hash', {
     p_token_hash: tokenHash,
@@ -56,15 +62,15 @@ export async function getInvitationByToken(
     return null;
   }
   const row = (Array.isArray(data) ? data[0] : data) as InvitationByTokenHash | undefined;
-  if (!row) return null;
-  // Confirmation locale en temps constant (hash recalculé vs valeur attendue de la RPC).
-  // La RPC a déjà filtré ; on garde le helper pour les appels qui comparent deux hash.
-  if (!safeEqualHex(tokenHash, hashInvitationToken(token))) return null;
-  return row;
+  return row ?? null;
 }
 
 function tempPassword(): string {
   return randomBytes(24).toString('base64url') + 'Aa1!';
+}
+
+function genericUserError(): Error {
+  return new Error('Impossible de préparer le compte. Contactez le support.');
 }
 
 async function ensureInvitedUser(params: {
@@ -74,21 +80,31 @@ async function ensureInvitedUser(params: {
 }): Promise<{ userId: string }> {
   const admin = createAdminClient();
   const fullName = `${params.firstName} ${params.lastName}`.trim();
+  const email = params.email.toLowerCase();
 
   const { data: existingProfile } = await admin
     .from('profiles')
-    .select('id, account_status')
-    .ilike('email', params.email)
+    .select('id, account_status, role')
+    .eq('email', email)
     .maybeSingle();
 
   if (existingProfile) {
+    if (PRIVILEGED_ROLES.has(existingProfile.role ?? '')) {
+      throw new Error(
+        'Cet email correspond à un compte staff. Impossible de l’inviter comme apprenant.'
+      );
+    }
+
     const patch: Record<string, string> = {
       first_name: params.firstName,
       last_name: params.lastName,
       full_name: fullName,
-      role: 'apprenant',
       updated_at: new Date().toISOString(),
     };
+    // Ne jamais écraser un rôle staff ; ne forcer apprenant que si déjà apprenant / vide
+    if (!existingProfile.role || existingProfile.role === 'apprenant') {
+      patch.role = 'apprenant';
+    }
     if (existingProfile.account_status !== 'active') {
       patch.account_status = 'invited';
     }
@@ -97,7 +113,7 @@ async function ensureInvitedUser(params: {
   }
 
   const { data: created, error: createError } = await admin.auth.admin.createUser({
-    email: params.email,
+    email,
     password: tempPassword(),
     email_confirm: true,
     user_metadata: {
@@ -107,30 +123,44 @@ async function ensureInvitedUser(params: {
     },
   });
   if (createError || !created.user) {
-    // Compte auth existant sans profil aligné : récupérer via listUsers (email exact)
     if (/already|registered|exists/i.test(createError?.message ?? '')) {
-      const { data: listed } = await admin.auth.admin.listUsers({ page: 1, perPage: 1000 });
-      const found = listed?.users?.find((u) => u.email?.toLowerCase() === params.email);
-      if (found) {
-        await admin.from('profiles').upsert({
-          id: found.id,
-          email: params.email,
-          first_name: params.firstName,
-          last_name: params.lastName,
-          full_name: fullName,
-          role: 'apprenant',
-          account_status: 'invited',
-          updated_at: new Date().toISOString(),
-        });
-        return { userId: found.id };
+      // Pagination limitée : tenter listUsers puis matching exact
+      for (let page = 1; page <= 5; page++) {
+        const { data: listed } = await admin.auth.admin.listUsers({ page, perPage: 200 });
+        const found = listed?.users?.find((u) => u.email?.toLowerCase() === email);
+        if (found) {
+          const { data: existingById } = await admin
+            .from('profiles')
+            .select('role')
+            .eq('id', found.id)
+            .maybeSingle();
+          if (existingById && PRIVILEGED_ROLES.has(existingById.role ?? '')) {
+            throw new Error(
+              'Cet email correspond à un compte staff. Impossible de l’inviter comme apprenant.'
+            );
+          }
+          await admin.from('profiles').upsert({
+            id: found.id,
+            email,
+            first_name: params.firstName,
+            last_name: params.lastName,
+            full_name: fullName,
+            role: 'apprenant',
+            account_status: 'invited',
+            updated_at: new Date().toISOString(),
+          });
+          return { userId: found.id };
+        }
+        if (!listed?.users?.length || listed.users.length < 200) break;
       }
     }
-    throw new Error(createError?.message ?? 'Création utilisateur impossible');
+    console.error('[ensureInvitedUser] createUser failed');
+    throw genericUserError();
   }
 
   await admin.from('profiles').upsert({
     id: created.user.id,
-    email: params.email,
+    email,
     first_name: params.firstName,
     last_name: params.lastName,
     full_name: fullName,
@@ -170,7 +200,9 @@ export async function inviteOrResendApprenant(
       lastName: input.lastName,
     }));
   } catch (e) {
-    return { ok: false, error: e instanceof Error ? e.message : 'Erreur utilisateur' };
+    const msg = e instanceof Error ? e.message : 'Erreur utilisateur';
+    const code = /staff/i.test(msg) ? 'forbidden' : undefined;
+    return { ok: false, error: msg, code };
   }
 
   if (input.action === 'resend') {
@@ -193,17 +225,24 @@ export async function inviteOrResendApprenant(
 
     const { data: current } = await admin
       .from('invitations')
-      .select('id, sent_count')
+      .select('id, sent_count, email')
       .eq('id', targetId)
+      .eq('email', input.email)
       .maybeSingle();
     if (!current) {
       return { ok: false, error: 'Invitation introuvable', code: 'not_found' };
     }
 
-    await admin
-      .from('invitations')
-      .update({ status: 'revoked' })
-      .eq('id', current.id);
+    const nextCount = (current.sent_count ?? 1) + 1;
+    if (nextCount > MAX_INVITATION_SENT_COUNT) {
+      return {
+        ok: false,
+        error: `Nombre maximum de renvois atteint (${MAX_INVITATION_SENT_COUNT}).`,
+        code: 'forbidden',
+      };
+    }
+
+    await admin.from('invitations').update({ status: 'revoked' }).eq('id', current.id);
 
     const token = generateInvitationToken();
     const tokenHash = hashInvitationToken(token);
@@ -221,13 +260,14 @@ export async function inviteOrResendApprenant(
         first_name: input.firstName,
         last_name: input.lastName,
         user_id: userId,
-        sent_count: (current.sent_count ?? 1) + 1,
+        sent_count: nextCount,
       })
       .select('id')
       .single();
 
     if (insertError || !inserted) {
-      return { ok: false, error: insertError?.message ?? 'Échec insertion invitation' };
+      console.error('[inviteOrResend] insert resend failed');
+      return { ok: false, error: 'Échec de création de l’invitation' };
     }
 
     const sent = await sendInvitationEmail({
@@ -237,12 +277,11 @@ export async function inviteOrResendApprenant(
       firstName: input.firstName,
     });
     if (!sent.ok) {
-      return { ok: false, error: sent.error, code: 'email' };
+      return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
     }
     return { ok: true, status: 'renvoye', invitationId: inserted.id };
   }
 
-  // create : si invitation pending encore valide → deja_invite
   const { data: existingPending } = await admin
     .from('invitations')
     .select('id, expires_at')
@@ -258,7 +297,6 @@ export async function inviteOrResendApprenant(
     return { ok: true, status: 'deja_invite', invitationId: existingPending.id };
   }
 
-  // Expirer les pending périmés
   await admin
     .from('invitations')
     .update({ status: 'expired' })
@@ -289,7 +327,8 @@ export async function inviteOrResendApprenant(
     .single();
 
   if (insertError || !inserted) {
-    return { ok: false, error: insertError?.message ?? 'Échec insertion invitation' };
+    console.error('[inviteOrResend] insert create failed');
+    return { ok: false, error: 'Échec de création de l’invitation' };
   }
 
   const sent = await sendInvitationEmail({
@@ -299,7 +338,7 @@ export async function inviteOrResendApprenant(
     firstName: input.firstName,
   });
   if (!sent.ok) {
-    return { ok: false, error: sent.error, code: 'email' };
+    return { ok: false, error: 'Échec d’envoi de l’email', code: 'email' };
   }
 
   return { ok: true, status: 'cree', invitationId: inserted.id };
@@ -310,8 +349,9 @@ export async function inviteOrResendApprenant(
  * Renvoie un email uniquement si une invitation pending/expired existe.
  */
 export async function requestNewInvitationLink(emailRaw: string): Promise<void> {
-  const email = emailRaw.trim().toLowerCase();
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+  const parsed = z.string().trim().email().max(254).safeParse(emailRaw);
+  if (!parsed.success) return;
+  const email = parsed.data.toLowerCase();
 
   try {
     const admin = createAdminClient();
@@ -325,6 +365,7 @@ export async function requestNewInvitationLink(emailRaw: string): Promise<void> 
       .maybeSingle();
 
     if (!inv?.formation_id) return;
+    if ((inv.sent_count ?? 1) >= MAX_INVITATION_SENT_COUNT) return;
 
     await inviteOrResendApprenant(
       {

@@ -11,7 +11,7 @@ Site officiel de **Laure Olivié**, **formatrice IA spécialisée BTP** (ChatGPT
 
 ## Catalogue formations (`/formations`)
 - **2 formations** de **4 h** chacune, certifiées **Qualiopi**, éligibles Constructys selon conditions : **NIV-01** bâtiment & travaux publics (débutant), **NIV-02** appels d’offre BTP (avancé). Programme PDF téléchargeable sur chaque fiche.
-- Tarifs catalogue : **NIV-01 — 1 000 € HT / session groupe** (max **12 participants**) · **NIV-02 — 1 200 € HT / session groupe** (max **12 participants**).
+- Tarifs catalogue : **forfait unique 1 200 € HT / session** (tous niveaux, max **12 participants** selon fiche). TVA non applicable (art. 261-4-4° CGI).
 - Complément hors catalogue : fiche **analyse CCTP & DCE** — URL `/formations/formation-ia-cctp-analyse-dce-btp`.
 
 ## Pages prioritaires

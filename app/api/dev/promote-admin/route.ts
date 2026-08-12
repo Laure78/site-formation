@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { isAdmin } from '@/lib/auth';
 
-/** Bootstrap local uniquement — promotion admin du compte connecté. */
+/** Bootstrap local uniquement — promotion admin du compte connecté (via service role). */
 export async function GET(request: Request) {
   if (process.env.NODE_ENV !== 'development') {
     return NextResponse.json({ error: 'Disponible en développement uniquement.' }, { status: 404 });
@@ -25,23 +26,34 @@ export async function GET(request: Request) {
     return NextResponse.redirect(new URL('/admin', request.url));
   }
 
-  const { error } = await supabase
-    .from('profiles')
-    .update({
-      role: 'admin',
-      full_name: profile?.full_name || 'Laure Olivié',
-      updated_at: new Date().toISOString(),
-    })
-    .eq('id', user.id);
+  // Service role requis : le trigger RLS bloque l’auto-promotion via le client user
+  try {
+    const admin = createAdminClient();
+    const { error } = await admin
+      .from('profiles')
+      .update({
+        role: 'admin',
+        full_name: profile?.full_name || 'Laure Olivié',
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', user.id);
 
-  if (error) {
+    if (error) {
+      return NextResponse.json(
+        {
+          error: 'Impossible de promouvoir le compte en admin.',
+          hint: 'Vérifiez SUPABASE_SERVICE_ROLE_KEY dans .env.local (voir docs/CONNEXION-ADMIN.md).',
+        },
+        { status: 500 }
+      );
+    }
+  } catch {
     return NextResponse.json(
       {
         error: 'Impossible de promouvoir le compte en admin.',
-        detail: error.message,
-        hint: 'Ajoutez SUPABASE_SERVICE_ROLE_KEY dans .env.local et exécutez le SQL dans docs/CONNEXION-ADMIN.md.',
+        hint: 'Ajoutez SUPABASE_SERVICE_ROLE_KEY dans .env.local.',
       },
-      { status: 500 },
+      { status: 500 }
     );
   }
 

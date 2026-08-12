@@ -52,6 +52,7 @@ import {
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
+import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
@@ -890,8 +891,9 @@ export default function HomePage() {
             {FORMATION_NIVEAU1.title} ; <strong className="font-semibold text-slate-800">niveau 2</strong> —{' '}
             {FORMATION_AO.title}, {FORMATION_CONDUITE.title}, {FORMATION_MOE.title} et {FORMATION_CLAUDE.title}. Les thèmes couverts
             incluent devis et chiffrage, réponses aux marchés, comptes rendus, DOE, emails et relation client — en{' '}
-            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (conduite de
-            travaux, maîtres d&apos;œuvre et Maîtriser Claude AI : effectifs réduits selon fiche). Téléchargez les{' '}
+            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait unique{' '}
+            {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT (conduite de travaux, maîtres d&apos;œuvre et
+            Maîtriser Claude AI : effectifs réduits selon fiche). Téléchargez les{' '}
             <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
             depuis chaque fiche ou ci-dessous sur la page catalogue.
           </p>

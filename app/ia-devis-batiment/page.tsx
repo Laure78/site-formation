@@ -9,6 +9,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { DEVIS_GAIN_TEMPS_LIBELLE } from '@/lib/gains-temps-copy';
 import { LINKS } from '@/lib/internal-links';
+import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -532,7 +533,8 @@ export default function IADevisBatimentPage() {
           </h2>
           <p className="mt-4 text-blue-100">
             Module dédié dans la formation « L&apos;IA au service du bâtiment » : session 4 h de pratique sur
-            vos vrais devis. Forfait selon niveau — financement possible selon éligibilité.
+            vos vrais devis. Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT — financement
+            possible selon éligibilité.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link

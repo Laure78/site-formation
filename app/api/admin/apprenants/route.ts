@@ -48,7 +48,14 @@ export async function POST(request: NextRequest) {
   const result = await inviteOrResendApprenant(parsed.data, user.id);
   if (!result.ok) {
     const status =
-      result.code === 'not_found' ? 404 : result.code === 'email' ? 502 : 400;
+      result.code === 'not_found'
+        ? 404
+        : result.code === 'email'
+          ? 502
+          : result.code === 'forbidden'
+            ? 403
+            : 400;
+    // Messages déjà génériques côté lib ; pas de détail infra
     return NextResponse.json({ error: result.error, code: result.code }, { status });
   }
 

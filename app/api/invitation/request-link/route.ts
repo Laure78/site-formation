@@ -4,8 +4,13 @@ import { requestNewInvitationLink } from '@/lib/invitation';
 import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
 
 const bodySchema = z.object({
-  email: z.string().trim().email().transform((v) => v.toLowerCase()),
+  email: z.string().trim().email().max(254).transform((v) => v.toLowerCase()),
 });
+
+const NEUTRAL = {
+  ok: true as const,
+  message: 'Si un compte correspond, un email sera envoyé.',
+};
 
 /**
  * Demande publique d’un nouveau lien d’invitation.
@@ -13,32 +18,25 @@ const bodySchema = z.object({
  */
 export async function POST(request: NextRequest) {
   const ip = clientIpFromRequest(request);
-  const rl = checkRateLimit(`invitation-request:${ip}`, 5, 15 * 60_000);
-  if (!rl.ok) {
-    return NextResponse.json(
-      { ok: true, message: 'Si un compte correspond, un email sera envoyé.' },
-      { status: 200 }
-    );
+  const rlIp = checkRateLimit(`invitation-request:ip:${ip}`, 5, 15 * 60_000);
+  if (!rlIp.ok) {
+    return NextResponse.json(NEUTRAL, { status: 200 });
   }
 
   let body: unknown;
   try {
     body = await request.json();
   } catch {
-    return NextResponse.json(
-      { ok: true, message: 'Si un compte correspond, un email sera envoyé.' },
-      { status: 200 }
-    );
+    return NextResponse.json(NEUTRAL, { status: 200 });
   }
 
   const parsed = bodySchema.safeParse(body);
   if (parsed.success) {
-    // Ne pas await trop longtemps côté client : fire-and-forget contrôlé
-    await requestNewInvitationLink(parsed.data.email);
+    const rlEmail = checkRateLimit(`invitation-request:email:${parsed.data.email}`, 3, 60 * 60_000);
+    if (rlEmail.ok) {
+      await requestNewInvitationLink(parsed.data.email);
+    }
   }
 
-  return NextResponse.json({
-    ok: true,
-    message: 'Si un compte correspond, un email sera envoyé.',
-  });
+  return NextResponse.json(NEUTRAL);
 }

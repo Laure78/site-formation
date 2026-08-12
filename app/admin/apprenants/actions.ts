@@ -1,12 +1,18 @@
 'use server';
 
+import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { isAdmin } from '@/lib/auth';
-import { inviteOrResendApprenant } from '@/lib/invitation';
+import { inviteApprenantSchema, inviteOrResendApprenant } from '@/lib/invitation';
+
+const MAX_CSV_ROWS = 50;
 
 function parseCsv(text: string): Record<string, string>[] {
   const lines = text.trim().split(/\r?\n/).filter(Boolean);
   if (lines.length < 2) return [];
+  if (lines.length - 1 > MAX_CSV_ROWS) {
+    throw new Error(`Le fichier CSV dépasse ${MAX_CSV_ROWS} lignes.`);
+  }
   const headers = lines[0].split(',').map((h) => h.trim().toLowerCase());
   const rows: Record<string, string>[] = [];
   for (let i = 1; i < lines.length; i++) {
@@ -32,7 +38,21 @@ export async function importApprenantsAction(
   const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
   if (!profile || !isAdmin(profile.role)) return null;
 
-  const rows = parseCsv(csvText);
+  const courseParsed = z.string().uuid().safeParse(courseId);
+  if (!courseParsed.success) {
+    return { invited: 0, errors: ['Identifiant de formation invalide'] };
+  }
+
+  let rows: Record<string, string>[];
+  try {
+    if (csvText.length > 200_000) {
+      return { invited: 0, errors: ['Fichier CSV trop volumineux'] };
+    }
+    rows = parseCsv(csvText);
+  } catch (e) {
+    return { invited: 0, errors: [e instanceof Error ? e.message : 'CSV invalide'] };
+  }
+
   const errors: string[] = [];
   let invited = 0;
 
@@ -45,16 +65,19 @@ export async function importApprenantsAction(
       continue;
     }
 
-    const result = await inviteOrResendApprenant(
-      {
-        email,
-        firstName: firstName || 'Apprenant',
-        lastName: lastName || '—',
-        formationId: courseId,
-        action: 'create',
-      },
-      user.id
-    );
+    const parsed = inviteApprenantSchema.safeParse({
+      email,
+      firstName: firstName || 'Apprenant',
+      lastName: lastName || '—',
+      formationId: courseParsed.data,
+      action: 'create',
+    });
+    if (!parsed.success) {
+      errors.push(`Ligne ${i + 2} : ${parsed.error.issues[0]?.message ?? 'données invalides'}`);
+      continue;
+    }
+
+    const result = await inviteOrResendApprenant(parsed.data, user.id);
 
     if (!result.ok) {
       errors.push(`Ligne ${i + 2} : ${result.error}`);
@@ -84,17 +107,19 @@ export async function resendInvitationAction(input: {
   const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
   if (!profile || !isAdmin(profile.role)) return { ok: false, error: 'Non autorisé' };
 
-  const result = await inviteOrResendApprenant(
-    {
-      email: input.email.trim().toLowerCase(),
-      firstName: input.firstName,
-      lastName: input.lastName,
-      formationId: input.formationId,
-      action: 'resend',
-      invitationId: input.invitationId,
-    },
-    user.id
-  );
+  const parsed = inviteApprenantSchema.safeParse({
+    email: input.email,
+    firstName: input.firstName,
+    lastName: input.lastName,
+    formationId: input.formationId,
+    action: 'resend',
+    invitationId: input.invitationId,
+  });
+  if (!parsed.success) {
+    return { ok: false, error: parsed.error.issues[0]?.message ?? 'Données invalides' };
+  }
+
+  const result = await inviteOrResendApprenant(parsed.data, user.id);
   if (!result.ok) return { ok: false, error: result.error };
   return { ok: true, status: result.status };
 }
@@ -184,6 +209,12 @@ export async function getApprenantsCsv(): Promise<string | null> {
 }
 
 export async function resetProgressionAction(userId: string, courseId: string): Promise<boolean> {
+  const ids = z.object({ userId: z.string().uuid(), courseId: z.string().uuid() }).safeParse({
+    userId,
+    courseId,
+  });
+  if (!ids.success) return false;
+
   const supabase = await createClient();
   const {
     data: { user },
@@ -192,7 +223,7 @@ export async function resetProgressionAction(userId: string, courseId: string): 
   const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
   if (!profile || !isAdmin(profile.role)) return false;
 
-  const { data: modules } = await supabase.from('modules').select('id').eq('course_id', courseId);
+  const { data: modules } = await supabase.from('modules').select('id').eq('course_id', ids.data.courseId);
   const moduleIds = (modules ?? []).map((m) => m.id);
   const { data: lessons } =
     moduleIds.length > 0
@@ -201,17 +232,23 @@ export async function resetProgressionAction(userId: string, courseId: string): 
 
   const lessonIds = (lessons ?? []).map((l) => l.id);
   if (lessonIds.length > 0) {
-    await supabase.from('lesson_progress').delete().eq('user_id', userId).in('lesson_id', lessonIds);
+    await supabase.from('lesson_progress').delete().eq('user_id', ids.data.userId).in('lesson_id', lessonIds);
   }
   await supabase
     .from('enrollments')
     .update({ progress_percent: 0 })
-    .eq('user_id', userId)
-    .eq('course_id', courseId);
+    .eq('user_id', ids.data.userId)
+    .eq('course_id', ids.data.courseId);
   return true;
 }
 
 export async function supprimerInscriptionAction(userId: string, courseId: string): Promise<boolean> {
+  const ids = z.object({ userId: z.string().uuid(), courseId: z.string().uuid() }).safeParse({
+    userId,
+    courseId,
+  });
+  if (!ids.success) return false;
+
   const supabase = await createClient();
   const {
     data: { user },
@@ -220,7 +257,7 @@ export async function supprimerInscriptionAction(userId: string, courseId: strin
   const profile = await import('@/lib/auth').then((m) => m.getProfile(user.id));
   if (!profile || !isAdmin(profile.role)) return false;
 
-  const { data: modules } = await supabase.from('modules').select('id').eq('course_id', courseId);
+  const { data: modules } = await supabase.from('modules').select('id').eq('course_id', ids.data.courseId);
   const moduleIds = (modules ?? []).map((m) => m.id);
   const { data: lessons } =
     moduleIds.length > 0
@@ -229,8 +266,8 @@ export async function supprimerInscriptionAction(userId: string, courseId: strin
   const lessonIds = (lessons ?? []).map((l) => l.id);
 
   if (lessonIds.length > 0) {
-    await supabase.from('lesson_progress').delete().eq('user_id', userId).in('lesson_id', lessonIds);
+    await supabase.from('lesson_progress').delete().eq('user_id', ids.data.userId).in('lesson_id', lessonIds);
   }
-  await supabase.from('enrollments').delete().eq('user_id', userId).eq('course_id', courseId);
+  await supabase.from('enrollments').delete().eq('user_id', ids.data.userId).eq('course_id', ids.data.courseId);
   return true;
 }

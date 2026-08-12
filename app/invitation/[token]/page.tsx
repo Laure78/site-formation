@@ -1,8 +1,15 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { getInvitationByToken } from '@/lib/invitation';
 import { InvitationAcceptForm } from './InvitationAcceptForm';
 import { RequestNewLinkForm } from './RequestNewLinkForm';
+
+/** Évite la fuite du token via Referer vers des sites tiers. */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  referrer: 'no-referrer',
+};
 
 export default async function InvitationPage({
   params,
@@ -13,28 +20,14 @@ export default async function InvitationPage({
   const supabase = await createClient();
   const invitation = await getInvitationByToken(supabase, token);
 
-  const invalid =
-    !invitation ||
-    invitation.status === 'revoked' ||
-    invitation.status === 'accepted' ||
-    (invitation.status === 'pending' && new Date(invitation.expires_at) <= new Date()) ||
-    invitation.status === 'expired';
-
-  if (invalid) {
-    const expired =
-      invitation &&
-      (invitation.status === 'expired' ||
-        (invitation.status === 'pending' && new Date(invitation.expires_at) <= new Date()));
-
+  // RPC ne renvoie que pending non expirée → pas de distinction état (anti-énumération)
+  if (!invitation) {
     return (
       <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <h1 className="font-display text-2xl font-bold text-slate-900">
-          {expired ? 'Lien expiré' : 'Lien invalide'}
-        </h1>
+        <h1 className="font-display text-2xl font-bold text-slate-900">Lien invalide ou expiré</h1>
         <p className="mt-4 text-slate-600">
-          {expired
-            ? 'Ce lien d’invitation a expiré (valable 7 jours). Vous pouvez demander un nouveau lien.'
-            : 'Ce lien d’invitation n’est plus valide. Demandez un nouveau lien si besoin.'}
+          Ce lien d’invitation n’est plus valide (valable 7 jours, usage unique). Vous pouvez demander un
+          nouveau lien si vous avez déjà reçu une invitation.
         </p>
         <div className="mt-8 text-left">
           <RequestNewLinkForm />
@@ -58,24 +51,14 @@ export default async function InvitationPage({
 
   return (
     <div className="mx-auto max-w-lg px-4 py-16">
-      <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-        <h1 className="font-display text-2xl font-bold text-slate-900">
-          Créer votre mot de passe
-        </h1>
-        <p className="mt-4 text-slate-600">
-          Accès à la formation <strong>{courseTitle}</strong>.
-        </p>
-        <p className="mt-2 text-sm text-slate-500">Email : {invitation.email}</p>
-        <div className="mt-8">
-          <InvitationAcceptForm token={token} />
-        </div>
-      </div>
-      <p className="mt-6 text-center text-sm text-slate-500">
-        Déjà un compte actif ?{' '}
-        <Link href="/auth/connexion" className="text-[var(--accent)] hover:underline">
-          Se connecter
-        </Link>
+      <h1 className="font-display text-2xl font-bold text-slate-900">Activer votre accès</h1>
+      <p className="mt-3 text-slate-600">
+        Bienvenue{invitation.first_name ? ` ${invitation.first_name}` : ''}. Choisissez un mot de passe pour
+        accéder à <strong>{courseTitle}</strong>.
       </p>
+      <div className="mt-8">
+        <InvitationAcceptForm token={token} />
+      </div>
     </div>
   );
 }

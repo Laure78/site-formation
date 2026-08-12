@@ -9,8 +9,7 @@ import { SITE_CONFIG, getArticleSchema, getFAQSchema } from '@/lib/seo';
 import { buildFinancementConstructysImageObjectJsonLd } from '@/lib/schema-image-objects';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_FORFAIT_AVANCE_HT,
-  TARIF_FORFAIT_DEBUTANT_HT,
+  TARIF_SESSION_FORFAIT_HT,
 } from '@/lib/tarifs-sessions';
 
 const PATH = '/financement-constructys-formation-ia-btp' as const;
@@ -153,16 +152,8 @@ export function getFinancementConstructysUnifiedJsonLd(): Record<string, unknown
     offers: [
       {
         '@type': 'Offer',
-        name: 'Niveau débutant',
-        price: String(TARIF_FORFAIT_DEBUTANT_HT),
-        priceCurrency: 'EUR',
-        availability: 'https://schema.org/InStock',
-        url: `${base}/formations`,
-      },
-      {
-        '@type': 'Offer',
-        name: 'Niveau avancé',
-        price: String(TARIF_FORFAIT_AVANCE_HT),
+        name: 'Session catalogue — forfait unique',
+        price: String(TARIF_SESSION_FORFAIT_HT),
         priceCurrency: 'EUR',
         availability: 'https://schema.org/InStock',
         url: `${base}/formations`,

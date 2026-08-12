@@ -17,7 +17,7 @@ import { voirAussiVilleProps } from '@/lib/voir-aussi';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, MODALITE_FORMATIONS_STANDARD ,
+import { SESSION_DUREE_LIBELLE, TARIF_SESSION_FORFAIT_HT, MODALITE_FORMATIONS_STANDARD ,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { JsonLd } from '@/components/JsonLd';
@@ -50,7 +50,7 @@ export function FormationCityPage({
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
     `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
-    `Session ${SESSION_DUREE_LIBELLE} · ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT (débutant) · Qualiopi.`,
+    `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · Qualiopi.`,
     `Présentiel ${regionLabel} — intra ou inter selon convention.`,
     'Financement Constructys selon éligibilité.',
   ];

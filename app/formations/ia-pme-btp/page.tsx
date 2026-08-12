@@ -14,9 +14,7 @@ import {
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_HT ,
-  formatTarifHt,
-} from '@/lib/tarifs-sessions';
+import { SESSION_DUREE_LIBELLE, TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { JsonLd } from '@/components/JsonLd';
 import { KeyPoint } from '@/components/readability/KeyPoint';
@@ -30,7 +28,7 @@ const MAIL_RAPPEL_PME =
 
 const HERO_RESUME_PME = [
   `Programme sur-mesure PME bâtiment : devis, chiffrages, emails, comptes rendus.`,
-  `Sessions ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € ou ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session selon niveau.`,
+  `Sessions ${SESSION_DUREE_LIBELLE} — forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT/session.`,
   'Interventions Île-de-France et France — Qualiopi, financement OPCO Constructys selon éligibilité.',
   "Sans prérequis technique — trames prêtes à l'emploi.",
 ];

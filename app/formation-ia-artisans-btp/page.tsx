@@ -292,7 +292,7 @@ export default function FormationIAArtisansBTPPage() {
             des prompts prêts à l&apos;emploi. Financement possible selon éligibilité.
           </p>
           <p className="mt-3 text-sm text-blue-100">
-            À partir de {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
+            Forfait unique {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT/session · Sessions de 4h · {LIBELLE_EFFECTIF_GROUPE_COURT}
           </p>
           <ul className="mt-6 space-y-2">
             {[

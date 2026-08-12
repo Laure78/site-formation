@@ -11,7 +11,7 @@ import {
   FORMATION_COURSE_MODE_ONSITE,
   FORMATION_COURSE_OFFER_CATEGORY,
 } from '@/lib/schema-formation-course-jsonld';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
@@ -94,11 +94,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/ia-batiment-travaux-publics#course`,
               },
-              price: TARIF_SESSION_DEBUTANT_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_DEBUTANT_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session',
                 valueAddedTaxIncluded: false,
@@ -107,11 +107,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             {
               '@type': 'Offer',
               itemOffered: { '@id': `${BASE}/formations/ia-appels-offre-btp#course` },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session',
                 valueAddedTaxIncluded: false,
@@ -122,11 +122,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (8 participants max)',
                 valueAddedTaxIncluded: false,
@@ -137,11 +137,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/maitriser-claude-ai-btp#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (8 participants max, matin)',
                 valueAddedTaxIncluded: false,
@@ -152,11 +152,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/ia-maitrise-oeuvre#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (3 à 8 participants, MOE/MOEX)',
                 valueAddedTaxIncluded: false,
@@ -238,7 +238,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_DEBUTANT_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-batiment-travaux-publics`,
@@ -278,7 +278,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-appels-offre-btp`,
@@ -318,7 +318,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
@@ -358,7 +358,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/maitriser-claude-ai-btp`,
@@ -398,7 +398,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-maitrise-oeuvre`,
@@ -476,7 +476,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 2,
             name: 'Évaluer le niveau IA des participants',
-            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant (${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session, jusqu'à 12 participants). Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée (${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session).`,
+            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant. Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée. Toutes les sessions catalogue sont au forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT (jusqu'à 12 participants).`,
           },
           {
             '@type': 'HowToStep',

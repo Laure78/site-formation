@@ -19,8 +19,7 @@ import {
 } from '@/lib/schema-formation-course-jsonld';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import {
-  TARIF_SESSION_AVANCE_HT,
-  TARIF_SESSION_DEBUTANT_HT,
+  TARIF_SESSION_FORFAIT_HT,
 } from '@/lib/tarifs-sessions';
 
 const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], string> = {
@@ -33,12 +32,12 @@ const CATALOGUE_REF_BY_PATH: Record<FormationCatalogueRichCourseConfig['path'], 
 };
 
 const PRICE_SPEC_DESCRIPTION_BY_REF: Record<string, string> = {
-  'NIV-01': 'Forfait session groupe HT — niveau 1, max 12 participants',
-  'NIV-02': 'Forfait session groupe HT — niveau 2, 8 à 12 participants',
-  'NIV-03': 'Forfait session groupe HT — niveau 2, 8 participants max',
-  'NIV-04': 'Forfait session groupe HT — niveau 2, matin, 8 participants max',
-  'NIV-05': 'Forfait session groupe HT — niveau 2, 3 à 8 participants',
-  'NIV-06': 'Session intra sur devis — 4 h matin, 8 participants max',
+  'NIV-01': 'Forfait unique session groupe HT — max 12 participants',
+  'NIV-02': 'Forfait unique session groupe HT — 8 à 12 participants',
+  'NIV-03': 'Forfait unique session groupe HT — 8 participants max',
+  'NIV-04': 'Forfait unique session groupe HT — matin, 8 participants max',
+  'NIV-05': 'Forfait unique session groupe HT — 3 à 8 participants',
+  'NIV-06': 'Forfait unique session groupe HT — intra, 4 h matin, 8 participants max',
 };
 
 function teachesFromCatalogue(ref: string): string[] {
@@ -88,7 +87,7 @@ export const CATALOGUE_COURSE_IA_BTP_NIV01: CatalogueCourseJsonLdConfig = {
   name: "L'IA au service des pros du bâtiment et des travaux publics",
   description:
     'Formation IA niveau 1 pour le BTP : devis, comptes rendus, administratif. 4 h, présentiel Île-de-France.',
-  price: TARIF_SESSION_DEBUTANT_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   keywords: ['Devis BTP', 'administratif', 'comptes rendus', 'PPSPS', 'construction'],
   courseCode: 'NIV-01',
   educationalLevel: 'Beginner',
@@ -99,7 +98,7 @@ export const CATALOGUE_COURSE_IA_AO_NIV02: CatalogueCourseJsonLdConfig = {
   name: "L'IA appliquée aux appels d'offres BTP",
   description:
     "Formation IA niveau 2 : appels d'offres BTP, DCE, mémoire technique (Claude AI). 4 h, présentiel Île-de-France.",
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   keywords: ['DCE', 'mémoire technique', 'Claude AI Pro', 'Cowork', 'Skills'],
   courseCode: 'NIV-02',
   educationalLevel: 'Advanced',
@@ -109,7 +108,7 @@ export const FORMATION_RICH_COURSE_NIV01: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationIaBtpNiveau1BatimentTp,
   name: CATALOGUE_COURSE_IA_BTP_NIV01.name,
   description: CATALOGUE_COURSE_IA_BTP_NIV01.description,
-  price: TARIF_SESSION_DEBUTANT_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   educationalLevel: 'Débutant',
   teaches: teachesFromCatalogue('NIV-01'),
 };
@@ -118,7 +117,7 @@ export const FORMATION_RICH_COURSE_NIV02: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationAO,
   name: CATALOGUE_COURSE_IA_AO_NIV02.name,
   description: CATALOGUE_COURSE_IA_AO_NIV02.description,
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-02'),
 };
@@ -128,7 +127,7 @@ export const CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03: CatalogueCourseJsonLdConfi
   name: "L'IA appliquée à la conduite de travaux",
   description:
     'Formation IA niveau 2 : conduite de travaux et suivi chantier (CCTP, CR, PPSPS). 4 h, présentiel Île-de-France.',
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   keywords: ['CCTP', 'DPGF', 'PPSPS', 'skills Claude', 'conduite de travaux'],
   courseCode: 'NIV-03',
   educationalLevel: 'Advanced',
@@ -138,7 +137,7 @@ export const FORMATION_RICH_COURSE_NIV03: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationConduiteTravauxSuiviChantier,
   name: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.name,
   description: CATALOGUE_COURSE_CONDUITE_TRAVAUX_NIV03.description,
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-03'),
 };
@@ -148,7 +147,7 @@ export const CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04: CatalogueCourseJsonLdConfi
   name: 'Maîtriser Claude AI pour le BTP',
   description:
     'Formation IA niveau 2 : Maîtriser Claude AI pour le BTP (Projets, Skills, Cowork, Code). 4 h, présentiel Île-de-France.',
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   keywords: ['Projets Claude', 'Skills', 'Cowork', 'Claude Code', 'connecteurs BTP'],
   courseCode: 'NIV-04',
   educationalLevel: 'Advanced',
@@ -158,7 +157,7 @@ export const FORMATION_RICH_COURSE_NIV04: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationMaitriserClaudeAiBtp,
   name: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.name,
   description: CATALOGUE_COURSE_MAITRISER_CLAUDE_NIV04.description,
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-04'),
 };
@@ -168,7 +167,7 @@ export const CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05: CatalogueCourseJsonLdConfig
   name: "L'IA au service des maîtres d'œuvre",
   description:
     "Formation IA niveau 2 pour maîtres d'œuvre : DCE, CR chantier, OS, réserves. 4 h, présentiel Île-de-France.",
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   keywords: ['MOE', 'MOEX', 'DCE', 'CR chantier', 'réserves', 'Claude', 'ChatGPT'],
   courseCode: 'NIV-05',
   educationalLevel: 'Advanced',
@@ -178,7 +177,7 @@ export const FORMATION_RICH_COURSE_NIV05: FormationCatalogueRichCourseConfig = {
   path: LINKS.formationIaMaitriseOeuvre,
   name: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.name,
   description: CATALOGUE_COURSE_MAITRISE_OEUVRE_NIV05.description,
-  price: TARIF_SESSION_AVANCE_HT,
+  price: TARIF_SESSION_FORFAIT_HT,
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-05'),
 };
@@ -187,8 +186,8 @@ export const FORMATION_RICH_COURSE_CLAUDE_SKILLS_BTP: FormationCatalogueRichCour
   path: LINKS.formationClaudeIaBtpFiche,
   name: 'Claude IA pour le BTP : Chat, Cowork & Code',
   description:
-    'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure. Présentiel Île-de-France, sur devis.',
-  // Intra sur devis — pas de price
+    'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure. Présentiel Île-de-France.',
+  price: TARIF_SESSION_FORFAIT_HT,
   educationalLevel: 'Avancé',
   teaches: teachesFromCatalogue('NIV-06'),
 };

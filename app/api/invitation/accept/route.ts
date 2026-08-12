@@ -5,20 +5,24 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { getInvitationByToken } from '@/lib/invitation';
 import { checkRateLimit, clientIpFromRequest } from '@/lib/rate-limit';
 import { generateInvitationToken, hashInvitationToken } from '@/lib/invitation-token';
+import { invitationPasswordSchema } from '@/lib/password-policy';
 
 const acceptSchema = z.object({
-  token: z.string().min(20),
-  password: z.string().min(10, 'Le mot de passe doit contenir au moins 10 caractères.'),
-  confirmPassword: z.string().min(10),
+  token: z.string().min(20).max(200),
+  password: invitationPasswordSchema,
+  confirmPassword: z.string().min(1).max(128),
 });
+
+const GENERIC_INVALID = 'Invitation invalide ou expirée.';
+const GENERIC_ERROR = 'Impossible d’activer le compte. Réessayez ou contactez le formateur.';
 
 export async function POST(request: NextRequest) {
   const ip = clientIpFromRequest(request);
-  const rl = checkRateLimit(`invitation-accept:${ip}`, 10, 15 * 60_000);
+  const rl = checkRateLimit(`invitation-accept:${ip}`, 8, 15 * 60_000);
   if (!rl.ok) {
     return NextResponse.json(
       { error: 'Trop de tentatives. Réessayez plus tard.' },
-      { status: 429 }
+      { status: 429, headers: { 'Retry-After': String(rl.retryAfterSec) } }
     );
   }
 
@@ -48,7 +52,7 @@ export async function POST(request: NextRequest) {
     invitation.status !== 'pending' ||
     new Date(invitation.expires_at) <= new Date()
   ) {
-    return NextResponse.json({ error: 'Invitation invalide ou expirée.' }, { status: 400 });
+    return NextResponse.json({ error: GENERIC_INVALID }, { status: 400 });
   }
 
   const admin = createAdminClient();
@@ -58,42 +62,49 @@ export async function POST(request: NextRequest) {
     const { data: profile } = await admin
       .from('profiles')
       .select('id')
-      .ilike('email', invitation.email)
+      .eq('email', invitation.email.toLowerCase())
       .maybeSingle();
     userId = profile?.id ?? null;
   }
 
   if (!userId) {
-    return NextResponse.json({ error: 'Compte introuvable. Contactez le formateur.' }, { status: 400 });
+    return NextResponse.json({ error: GENERIC_ERROR }, { status: 400 });
   }
 
-  const { error: pwdError } = await admin.auth.admin.updateUserById(userId, {
-    password: parsed.data.password,
-    email_confirm: true,
-  });
-  if (pwdError) {
-    return NextResponse.json({ error: pwdError.message }, { status: 400 });
+  const { data: profile } = await admin
+    .from('profiles')
+    .select('id, role, account_status, email')
+    .eq('id', userId)
+    .maybeSingle();
+
+  if (!profile) {
+    return NextResponse.json({ error: GENERIC_ERROR }, { status: 400 });
   }
 
-  const fullName = [invitation.first_name, invitation.last_name].filter(Boolean).join(' ') || null;
-  await admin.from('profiles').update({
-    account_status: 'active',
-    first_name: invitation.first_name,
-    last_name: invitation.last_name,
-    full_name: fullName,
-    updated_at: new Date().toISOString(),
-  }).eq('id', userId);
+  // Anti-takeover : ne jamais réécrire le mot de passe d’un compte déjà actif
+  // ni d’un compte privilégié (admin / formateur / moderator).
+  if (profile.role === 'admin' || profile.role === 'formateur' || profile.role === 'moderator') {
+    console.error('[invitation/accept] refus : compte privilégié', profile.role);
+    return NextResponse.json({ error: GENERIC_INVALID }, { status: 400 });
+  }
 
-  if (invitation.formation_id) {
-    await admin.from('enrollments').upsert(
-      { user_id: userId, course_id: invitation.formation_id, progress_percent: 0 },
-      { onConflict: 'user_id,course_id' }
+  if (profile.account_status === 'active') {
+    return NextResponse.json(
+      {
+        error:
+          'Ce compte est déjà activé. Connectez-vous ou utilisez « mot de passe oublié » si besoin.',
+      },
+      { status: 400 }
     );
   }
 
-  // Consommer le token (usage unique) — invalide le hash précédent
+  if (profile.account_status === 'disabled') {
+    return NextResponse.json({ error: GENERIC_INVALID }, { status: 400 });
+  }
+
+  // Consommer le token EN PREMIER (usage unique) pour éviter les courses concurrentes.
   const consumedHash = hashInvitationToken(generateInvitationToken());
-  await admin
+  const { data: consumed, error: consumeError } = await admin
     .from('invitations')
     .update({
       status: 'accepted',
@@ -101,7 +112,45 @@ export async function POST(request: NextRequest) {
       token_hash: consumedHash,
     })
     .eq('id', invitation.id)
-    .eq('status', 'pending');
+    .eq('status', 'pending')
+    .gt('expires_at', new Date().toISOString())
+    .select('id')
+    .maybeSingle();
+
+  if (consumeError || !consumed) {
+    return NextResponse.json({ error: GENERIC_INVALID }, { status: 400 });
+  }
+
+  const { error: pwdError } = await admin.auth.admin.updateUserById(userId, {
+    password: parsed.data.password,
+    email_confirm: true,
+  });
+  if (pwdError) {
+    console.error('[invitation/accept] update password failed');
+    // Token déjà consommé : ne pas exposer le détail ; l’admin pourra renvoyer une invitation.
+    return NextResponse.json({ error: GENERIC_ERROR }, { status: 400 });
+  }
+
+  const fullName = [invitation.first_name, invitation.last_name].filter(Boolean).join(' ') || null;
+  await admin
+    .from('profiles')
+    .update({
+      account_status: 'active',
+      first_name: invitation.first_name,
+      last_name: invitation.last_name,
+      full_name: fullName,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', userId)
+    .neq('role', 'admin')
+    .neq('role', 'formateur');
+
+  if (invitation.formation_id) {
+    await admin.from('enrollments').upsert(
+      { user_id: userId, course_id: invitation.formation_id, progress_percent: 0 },
+      { onConflict: 'user_id,course_id' }
+    );
+  }
 
   const { error: signInError } = await supabase.auth.signInWithPassword({
     email: invitation.email,
