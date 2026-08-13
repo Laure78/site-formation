@@ -29,7 +29,7 @@ begin
 Module 2 (60 min) — Devis et chiffrage assistés par l''IA
 Module 3 (60 min) — Gestion administrative du chantier (CR, DOE, planning)
 Module 4 (60 min) — Visibilité en ligne et réseaux sociaux + tuto CapCut
-Demi-journée 9h–13h · Présentiel ou distanciel · 12 participants max.',
+Demi-journée 9h–13h · Présentiel Île-de-France · 12 participants max.',
     0,
     true,
     4,

@@ -104,7 +104,7 @@ export async function GET(request: Request) {
       prerequis:
         'Savoir utiliser un ordinateur et un smartphone (navigation web, traitement de texte). Bonne maîtrise du français écrit et oral. Aucun prérequis IA.',
       programme:
-        "Module 1 (60 min) — Fondamentaux · Module 2 (60 min) — Devis & chiffrage · Module 3 (60 min) — Gestion chantier · Module 4 (60 min) — Réseaux + CapCut. Demi-journée 9h–13h · 12 participants max.",
+        "Module 1 (60 min) — Fondamentaux · Module 2 (60 min) — Devis & chiffrage · Module 3 (60 min) — Gestion chantier · Module 4 (60 min) — Réseaux + CapCut. Demi-journée 9h–13h · Présentiel Île-de-France · 12 participants max.",
       price: 0,
       published: true,
       duration_hours: 4,

@@ -97,6 +97,11 @@ const nextConfig: NextConfig = {
         destination: '/prendre-rendez-vous',
         permanent: true,
       },
+      {
+        source: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-replay-zoom.pdf',
+        destination: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-session.pdf',
+        permanent: true,
+      },
       // Admin Agent Chat retiré
       {
         source: '/admin/agent',

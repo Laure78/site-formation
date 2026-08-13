@@ -11,7 +11,7 @@ export const revalidate = 3600;
 
 const META_TITLE = 'Espace apprenant — formation IA BTP';
 const META_DESCRIPTION =
-  'Connexion à la plateforme e-learning OFC : supports de formation, modules IA BTP, ressources post-session et suivi pédagogique pour les stagiaires Qualiopi.';
+  'Connexion à l’espace apprenant OFC : supports post-session de formation IA pour le BTP, réservés aux stagiaires Qualiopi.';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -83,7 +83,7 @@ function getPlateformePageJsonLd() {
       },
       {
         '@type': 'WebApplication',
-        name: 'Plateforme e-learning OFC — Formation IA BTP',
+        name: 'Espace apprenant OFC — Formation IA BTP',
         url: appUrl,
         applicationCategory: 'EducationalApplication',
         operatingSystem: 'Web',
@@ -122,7 +122,7 @@ export default function FormationPlateformePage() {
               Espace apprenant · OFC Qualiopi
             </p>
             <p className="mt-1 text-sm font-medium text-[#377CF3]">
-              Plateforme e-learning · espace apprenant OFC
+              Supports post-session · présentiel Île-de-France
             </p>
             <h1
               id="formation-plateforme-title"

@@ -244,9 +244,9 @@ export async function GET(request: Request) {
     {
       moduleId: m7,
       lesson: {
-        title: 'Synthèse / replay Zoom',
+        title: 'Synthèse de session',
         type: 'pdf',
-        content_url: `${BASE}/08-synthese-replay-zoom.pdf`,
+        content_url: `${BASE}/08-synthese-session.pdf`,
         order_index: 2,
         duration_minutes: 20,
       },
