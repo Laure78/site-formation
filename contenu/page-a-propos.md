@@ -16,7 +16,6 @@ Laure Olivié est formatrice IA et ChatGPT pour le BTP. Fondatrice d'OFC Créati
 
 - 70 % pratique sur documents réels
 - Prompts BTP calibrés (devis, AO, chantier, administratif)
-- Accompagnement post-formation
 
 ## Chiffres clés (blocs)
 

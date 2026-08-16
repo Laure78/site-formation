@@ -21,15 +21,15 @@ import { LINKS } from '@/lib/internal-links';
 import { getFinancementConstructysUnifiedJsonLd } from '@/lib/schema-financement-constructys-page';
 import {
   SESSION_DUREE_LIBELLE,
-  TARIF_FORFAIT_DEBUTANT_HT,
-  TARIF_FORFAIT_AVANCE_HT,
+  TARIF_SESSION_FORFAIT_HT,
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   MODALITE_FORMATIONS_PRESENTIEL,
-
+  MENTIONS_TVA_EXONERATION_COURTE,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { FinancementConstructysHero } from '@/components/financement/FinancementConstructysHero';
+import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
 import { SommaireAncre } from '@/components/readability/SommaireAncre';
 import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
@@ -198,25 +198,22 @@ export default function FinancementConstructysFormationIABTPPage() {
               <h2 className="font-display text-lg font-bold text-slate-900 md:text-xl">Grille commerciale OFC — sessions de formation</h2>
               <p className="mt-2 text-sm text-slate-700">
                 L&apos;organisme propose un format unique : <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
-                <strong>forfait par session</strong> (jusqu&apos;à 12 participants) selon le niveau pédagogique :
+                <strong>forfait unique de {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT</strong> par session (jusqu&apos;à 12
+                participants), tous niveaux confondus. {MENTIONS_TVA_EXONERATION_COURTE}.
               </p>
               </Reveal>
               <RevealGroup className="mt-5 grid gap-3 sm:grid-cols-2" staggerMs={50}>
-                <div className="rounded-xl border border-slate-200 bg-white p-4">
+                <div className="rounded-xl border border-slate-200 bg-white p-4 sm:col-span-2">
                   <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
-                    4 h
+                    4 h · forfait
                   </span>
-                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT</p>
-                  <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau débutant (NIV-01)</p>
-                  <p className="mt-3 text-sm text-[#64748B]">{COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}</p>
-                </div>
-                <div className="rounded-xl border border-slate-200 bg-white p-4">
-                  <span className="inline-flex rounded-full bg-[#EFF6FF] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">
-                    4 h
-                  </span>
-                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT</p>
-                  <p className="mt-1 text-sm font-semibold text-[#0F172A]">Niveau avancé (NIV-02)</p>
-                  <p className="mt-3 text-sm text-[#64748B]">{EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}</p>
+                  <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">
+                    {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-[#0F172A]">Toutes formations catalogue</p>
+                  <p className="mt-3 text-sm text-[#64748B]">
+                    {COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} Pour le niveau avancé : {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
+                  </p>
                 </div>
               </RevealGroup>
               <Reveal>
@@ -282,8 +279,9 @@ export default function FinancementConstructysFormationIABTPPage() {
                   </tbody>
                 </table>
               </div>
+              <ConstructysResteAChargeBox />
               <p className="mt-4 text-sm leading-relaxed text-slate-700">
-                <strong>Reste à charge et coût réel</strong> : les plafonds ci-dessus indiquent ce que Constructys peut prendre en charge dans la limite des règles. Selon votre taille d&apos;entreprise, une participation peut aussi couvrir une partie des frais de salaires du temps passé en formation et, dans certains cas, des frais annexes. Le tableau généraliste ne remplace pas votre interlocuteur régional : il vous donne un ordre de grandeur pour budgétiser une <strong>OPCO BTP formation ChatGPT</strong> ou un atelier sur l&apos;IA appliquée à vos chantiers. Pour une session intra avec plusieurs personnes, le plafond journalier groupe (<strong>840 € HT</strong> pour les TPE de moins de 11 salariés, <strong>665 € HT</strong> de 11 à moins de 50 salariés) peut structurer votre choix de durée et de nombre de participants.
+                <strong>Reste à charge et coût réel</strong> : les plafonds ci-dessus indiquent ce que Constructys peut prendre en charge partiellement dans la limite des règles. Selon votre taille d&apos;entreprise, une participation peut aussi couvrir une partie des frais de salaires du temps passé en formation et, dans certains cas, des frais annexes. Le tableau généraliste ne remplace pas votre interlocuteur régional : il vous donne un ordre de grandeur pour budgétiser une <strong>OPCO BTP formation ChatGPT</strong> ou un atelier sur l&apos;IA appliquée à vos chantiers. Pour une session intra avec plusieurs personnes, le plafond journalier groupe (<strong>840 € HT</strong> pour les TPE de moins de 11 salariés, <strong>665 € HT</strong> de 11 à moins de 50 salariés) peut structurer votre choix de durée et de nombre de participants.
               </p>
               <p className="mt-4 text-sm text-[#64748B]">
                 <a
@@ -316,7 +314,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   Concrètement, la prise en charge du coût pédagogique se lit désormais selon votre effectif : <strong>24 € HT/h/stagiaire</strong> en dessous de 11 salariés (dans la limite de <strong>840 € HT/jour/groupe</strong> en intra), et <strong>19 € HT/h/stagiaire</strong> de 11 à moins de 50 salariés (dans la limite de <strong>665 € HT/jour/groupe</strong> en intra). Ce qui ne change pas : le dépôt sur eGestion <strong>au moins 15 jours avant</strong> le premier jour, la nécessité d&apos;un organisme certifié Qualiopi, et l&apos;interdiction de démarrer la formation avant la réception du dossier.
                 </p>
                 <p>
-                  <strong>Exemple chiffré sur une session IA de 4 h.</strong> Une PME de 20 salariés qui forme 6 personnes en intra (niveau NIV-01) : coût pédagogique pris en charge jusqu&apos;à 19 € × 4 h × 6 = <strong>456 € HT</strong>, dans la limite de 665 € HT/jour/groupe. Une TPE de moins de 11 salariés sur la même session : jusqu&apos;à 24 € × 4 h × 6 = <strong>576 € HT</strong>, dans la limite de 840 € HT/jour/groupe. Au-delà de ces plafonds, la différence avec le forfait OFC (1 000 € HT en NIV-01, 1 200 € HT en NIV-02) reste à la charge de l&apos;entreprise — d&apos;où l&apos;intérêt d&apos;arbitrer le nombre de participants par session.
+                  <strong>Exemple chiffré sur une session IA de 4 h.</strong> Une PME de 20 salariés qui forme 6 personnes en intra (niveau NIV-01) : coût pédagogique pris en charge jusqu&apos;à 19 € × 4 h × 6 = <strong>456 € HT</strong>, dans la limite de 665 € HT/jour/groupe. Une TPE de moins de 11 salariés sur la même session : jusqu&apos;à 24 € × 4 h × 6 = <strong>576 € HT</strong>, dans la limite de 840 € HT/jour/groupe. Au-delà de ces plafonds, la différence avec le forfait OFC ({formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session, toutes formations) reste à la charge de l&apos;entreprise — d&apos;où l&apos;intérêt d&apos;arbitrer le nombre de participants par session.
                 </p>
               </div>
 
@@ -353,7 +351,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               </ul>
 
               <p className="mt-4 rounded-lg bg-[#EFF6FF]/80 px-4 py-3 text-sm leading-relaxed text-slate-700">
-                <strong>À noter pour nos formations IA.</strong> Nos sessions ChatGPT/Claude pour le BTP sont des <strong>actions non qualifiantes</strong> : c&apos;est le plafond pédagogique horaire (24 € ou 19 € HT/h selon l&apos;effectif) et le plafond jour/groupe en intra qui s&apos;appliquent — les frais annexes (8 %) réservés aux actions qualifiantes ne sont pas mobilisables. Ces modalités concernent les <strong>demandes reçues à partir du 1<sup>er</sup> juin 2026</strong>, pour une formation démarrant en 2026.
+                <strong>À noter pour mes formations IA.</strong> Mes sessions ChatGPT/Claude pour le BTP sont des <strong>actions non qualifiantes</strong> : c&apos;est le plafond pédagogique horaire (24 € ou 19 € HT/h selon l&apos;effectif) et le plafond jour/groupe en intra qui s&apos;appliquent — les frais annexes (8 %) réservés aux actions qualifiantes ne sont pas mobilisables. Ces modalités concernent les <strong>demandes reçues à partir du 1<sup>er</sup> juin 2026</strong>, pour une formation démarrant en 2026.
               </p>
             </section>
 

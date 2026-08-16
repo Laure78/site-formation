@@ -334,7 +334,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Dans une entreprise du bâtiment, le temps se joue sur trois tables : le chantier, le client et
-            l&apos;administratif. La <strong>formation IA pour les pros du BTP</strong> que nous proposons ne vise pas à
+            l&apos;administratif. La <strong>formation IA pour les pros du BTP</strong> que je propose ne vise pas à
             transformer vos équipes en experts informatiques : il s&apos;agit de{' '}
             <strong>gagner des heures chaque semaine</strong> sur des tâches répétitives — devis, relances,
             courriers, synthèses — tout en gardant la main sur le fond technique et la relation de
@@ -376,7 +376,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           <p className="mt-3 text-slate-700 leading-relaxed">
             L&apos;<strong>automatisation devis BTP</strong> ne remplace pas votre expertise métier : elle
             accélère la mise en forme, la reformulation et la comparaison de variantes à partir de vos
-            données et de vos hypothèses. En session, nous travaillons la méthode : quoi confier à l&apos;IA,
+            données et de vos hypothèses. En session, je travaille la méthode : quoi confier à l&apos;IA,
             quoi vérifier systématiquement (quantités, taux, périmètre), comment capitaliser des trames
             pour les chantiers similaires. L&apos;objectif est un{' '}
             <strong>gain de temps mesurable</strong> sur les propositions commerciales.
@@ -389,7 +389,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           <p className="mt-3 text-slate-700 leading-relaxed">
             Pour l&apos;<strong>IA appels d&apos;offres</strong>, cette formation pose les bases : lecture
             aidée des pièces, plan de réponse, formulations professionnelles. Les dossiers publics complexes
-            méritent souvent un accompagnement spécifique : c&apos;est le rôle de notre module avancé dédié
+            méritent souvent un accompagnement spécifique : c&apos;est le rôle de mon module avancé dédié
             aux marchés, en complément de ce socle « bâtiment » généraliste.
           </p>
 
@@ -552,7 +552,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Nous organisons des sessions <strong>formation IA pour le BTP Paris</strong> et en{' '}
+            J&apos;organise des sessions <strong>formation IA pour le BTP Paris</strong> et en{' '}
             <strong>formation IA bâtiment Île-de-France</strong> : présentiel en salle ou{' '}
             <strong>intra-entreprise</strong> dans vos locaux selon vos contraintes. Interventions possibles
             notamment en <strong>Yvelines</strong>, <strong>Essonne</strong>,{' '}
@@ -578,7 +578,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             <strong>OPCO</strong> (notamment <strong>Constructys</strong> pour le périmètre BTP) dans le cadre
             du plan de développement des compétences — dossier et convention sur demande. Pour les
             dispositifs publics complémentaires (aides aux TPE/PME, accompagnements régionaux), les
-            éligibilités varient : nous pouvons orienter selon votre situation.
+            éligibilités varient : je peux vous orienter selon votre situation.
           </p>
           <p className="mt-6">
             <Link
@@ -829,7 +829,7 @@ export default function FormationIAuServiceDuBatimentPage() {
             la formation niveau 1 dans votre planning.
           </p>
           <p className="mt-4 text-lg text-blue-100">
-            Contactez-nous pour organiser cette formation dans votre entreprise du bâtiment.
+            Contactez-moi pour organiser cette formation dans votre entreprise du bâtiment.
           </p>
           <p className="mt-2 text-blue-100">
             Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}

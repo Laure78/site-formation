@@ -277,7 +277,7 @@ export const PHOTOS = {
   },
   formationIAClaude2026: {
     src: '/images/formation-ia-claude.png',
-    alt: "Affiche formation — IA générative et Claude AI pour entreprises du bâtiment",
+    alt: "Affiche formation — Claude AI et ChatGPT pour entreprises du bâtiment",
     width: 1024,
     height: 768,
   },
@@ -651,19 +651,10 @@ export const PHOTOS = {
   },
   formationNiv04MaitriserClaudeAiBtp2026: {
     src: '/images/formation-claude-ai-btp-catalogue.webp',
-    alt: "Affiche Maîtriser Claude AI pour le BTP — projets, skills et Cowork",
+    alt: 'Affiche Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
     description:
-      'Affiche « Maîtriser Claude AI pour le BTP » : Projets, Skills, Cowork, connecteurs et Claude Code — 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
-    title: 'Niveau 2 · Maîtriser Claude AI pour le BTP',
-    width: 1024,
-    height: 1024,
-  },
-  formationClaudeIaChatCoworkCodeSkillsBtp2026: {
-    src: '/images/formation-claude-ai-btp-catalogue.webp',
-    alt: 'Affiche Maîtriser Claude AI pour le BTP — projets, skills et Cowork',
-    description:
-      'Formation « Claude IA pour le BTP : Chat, Cowork & Code » — skills sur-mesure administratif, AO, chantier et juridique. 4 h intra IDF, 8 participants max. Laure Olivié, OFC Qualiopi.',
-    title: 'Claude IA pour le BTP : Chat, Cowork & Code',
+      'Affiche « Maîtriser Claude AI pour le BTP — Chat, Cowork & Code » : Projets, Skills métier, Cowork, connecteurs et Claude Code. 4 h, niveau avancé. Laure Olivié, OFC Qualiopi.',
+    title: 'Niveau 2 · Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
     width: 1024,
     height: 1024,
   },

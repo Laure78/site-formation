@@ -31,7 +31,7 @@ export function StickyRDVCTA() {
   if (!visible) return null;
 
   // Ne pas afficher sur la page RDV (déjà sur place)
-  if (pathname === '/prendre-rdv') return null;
+  if (pathname === '/prendre-rdv' || pathname === '/prendre-rendez-vous') return null;
 
   const isContactPage = pathname === '/contact';
 

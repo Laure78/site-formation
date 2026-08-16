@@ -3,9 +3,10 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2 } from 'lucide-react';
+import { Check, ChevronRight, Play, FileText, LayoutList, Lock, Menu, ExternalLink, Link2, Table2 } from 'lucide-react';
 import { YouTubeOrVideoEmbed } from '@/components/YouTubeOrVideoEmbed';
 import { SatisfactionSurvey } from '@/components/SatisfactionSurvey';
+import { isSpreadsheetUrl, lienButtonLabel } from '@/lib/lesson-types';
 
 interface LessonResource {
   id: string;
@@ -92,6 +93,7 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
     switch (type) {
       case 'video': return <Play size={16} strokeWidth={1.5} />;
       case 'pdf': return <FileText size={16} strokeWidth={1.5} />;
+      case 'lien': return <Table2 size={16} strokeWidth={1.5} />;
       case 'quiz': return <LayoutList size={16} strokeWidth={1.5} />;
       default: return <FileText size={16} strokeWidth={1.5} />;
     }
@@ -262,6 +264,43 @@ export function CourseViewer({ course, modules, completedLessonIds, enrollmentId
                 ) : selectedLesson.type === 'pdf' ? (
                   <div className="rounded-xl bg-slate-100 p-12 text-center">
                     <p className="text-slate-500">Aucun PDF configuré pour cette leçon</p>
+                  </div>
+                ) : selectedLesson.type === 'lien' ? (
+                  <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--accent-soft)] text-[var(--accent)]">
+                      <Table2 size={24} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="mt-4 font-display text-xl font-semibold text-slate-900">
+                      {selectedLesson.content_url && isSpreadsheetUrl(selectedLesson.content_url)
+                        ? 'Tableau Excel / Google Sheets'
+                        : selectedLesson.content_url?.includes('document')
+                          ? 'Document Google Docs'
+                          : 'Lien ressource'}
+                    </h3>
+                    {selectedLesson.content_text ? (
+                      <p className="mt-3 text-sm leading-relaxed text-slate-600 whitespace-pre-wrap">
+                        {selectedLesson.content_text}
+                      </p>
+                    ) : (
+                      <p className="mt-3 text-sm text-slate-600">
+                        Ouvrez le tableau pour consulter ou copier les prompts et ressources.
+                      </p>
+                    )}
+                    {selectedLesson.content_url ? (
+                      <a
+                        href={selectedLesson.content_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                      >
+                        <ExternalLink size={18} strokeWidth={1.5} />
+                        {lienButtonLabel(selectedLesson.content_url)}
+                      </a>
+                    ) : (
+                      <p className="mt-6 rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                        Lien non configuré — l’administrateur doit coller l’URL du tableau dans cette leçon.
+                      </p>
+                    )}
                   </div>
                 ) : selectedLesson.type === 'quiz' ? (
                   <div className="rounded-xl bg-slate-100 p-12 text-center">

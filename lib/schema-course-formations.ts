@@ -2,6 +2,7 @@
  * Schémas JSON-LD Course + EducationalOrganization pour le catalogue et les fiches formation.
  */
 import { formationsData } from '@/src/data/formations';
+import { getFormationByCode } from '@/data/formations';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
@@ -37,7 +38,7 @@ function teachesFromCatalogueDisplay(ref: string): string[] {
   return [...entry.objectifs];
 }
 
-/** Données alignées sur le catalogue (NIV-01 → NIV-06). */
+/** Données alignées sur le catalogue (NIV-01 → NIV-05). */
 export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
   {
     ref: 'NIV-01',
@@ -73,9 +74,8 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
     ref: 'NIV-04',
     level: 'AVANCÉ',
     path: '/formations/maitriser-claude-ai-btp',
-    name: 'Maîtriser Claude AI pour le BTP',
-    description:
-      'Formation niveau 2 — 4 h le matin : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans l\'entreprise BTP. Qualiopi, Constructys.',
+    name: getFormationByCode('NIV-04')!.titre,
+    description: `${getFormationByCode('NIV-04')!.accroche} Qualiopi, Constructys.`,
     teaches: teachesFromCatalogueDisplay('NIV-04'),
     occupationalCategory: 'BTP, référents IA, direction et fonctions support',
   },
@@ -88,16 +88,6 @@ export const FORMATIONS_CATALOG_SCHEMA: FormationCatalogEntry[] = [
       "Formation niveau 2 — 4 h : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et réserves. Qualiopi, Constructys.",
     teaches: teachesFromCatalogueDisplay('NIV-05'),
     occupationalCategory: 'BTP, maîtrise d\'œuvre, MOEX',
-  },
-  {
-    ref: 'NIV-06',
-    level: 'AVANCÉ',
-    path: '/formations/formation-claude-ia-btp',
-    name: 'Claude IA pour le BTP : Chat, Cowork & Code',
-    description:
-      'Formation IA pour le BTP — 4 h intra : Claude Chat, Cowork, Code et skills sur-mesure pour l\'administratif, les appels d\'offres, la gestion de chantier et le juridique. Qualiopi, Constructys.',
-    teaches: teachesFromCatalogueDisplay('NIV-06'),
-    occupationalCategory: 'BTP, direction, bureau d\'études, conducteurs de travaux',
   },
 ];
 
@@ -118,12 +108,7 @@ function buildCatalogOffer(
     url: courseUrl,
     category: FORMATION_COURSE_OFFER_CATEGORY,
   };
-  // NIV-06 : intra sur devis — pas de price
-  if (entry.ref !== 'NIV-06') {
-    offer.price = tarifHtDepuisBadgeCatalogue(entry.level);
-  } else {
-    offer.description = 'Session intra sur devis';
-  }
+  offer.price = getFormationByCode(entry.ref)?.prixHT ?? tarifHtDepuisBadgeCatalogue(entry.level);
   return offer;
 }
 
@@ -193,7 +178,6 @@ export function getCourseJsonLdFromFormationsData(
   const base = SITE_CONFIG.url.replace(/\/$/, '');
   const path = `/formations/${slug}`;
   const courseUrl = `${base}${path}`;
-  const isNiv06 = slug === 'formation-claude-ia-btp';
   const offer: Record<string, unknown> = {
     '@type': 'Offer',
     priceCurrency: 'EUR',
@@ -201,11 +185,7 @@ export function getCourseJsonLdFromFormationsData(
     url: courseUrl,
     category: FORMATION_COURSE_OFFER_CATEGORY,
   };
-  if (!isNiv06) {
-    offer.price = f.price;
-  } else {
-    offer.description = 'Session intra sur devis';
-  }
+  offer.price = f.price;
   return {
     ...buildFormationFicheCourseJsonLd({
       name: f.name,
@@ -234,9 +214,7 @@ export const DEDICATED_FORMATION_COURSE_PATHS = [
   '/formations/ia-appels-offre-btp',
   '/formations/ia-conduite-travaux-suivi-chantier',
   '/formations/maitriser-claude-ai-btp',
-  '/formations/formation-claude-ia-btp',
   '/formations/ia-maitrise-oeuvre',
-  '/formations/formation-ia-cctp-analyse-dce-btp',
 ] as const;
 
 export type DedicatedFormationCoursePath = (typeof DEDICATED_FORMATION_COURSE_PATHS)[number];
@@ -251,7 +229,6 @@ function buildDedicatedFormationCourseObject(opts: {
   name: string;
   description: string;
   educationalLevel: string;
-  /** `undefined` = sur devis (NIV-06). */
   priceString?: string;
   teaches: [string, string, string];
   organizationId: string;
@@ -306,26 +283,6 @@ export function getDedicatedFormationCoursePageJsonLd(
   const organizationId = `${base}/#organization`;
   const laurePersonId = `${base}/#laure-olivie`;
 
-  if (path === '/formations/formation-ia-cctp-analyse-dce-btp') {
-    const price = tarifHtDepuisBadgeCatalogue('AVANCÉ');
-    return buildDedicatedFormationCourseObject({
-      courseUrl: `${base}${path}`,
-      path,
-      name: 'Formation IA analyse CCTP & DCE pour entreprises BTP',
-      description:
-        'Session 4 h : analyser CCTP, DPGF et DCE avec l’IA, détecter les risques et préparer un mémoire technique aligné. Qualiopi, financement possible selon éligibilité (Constructys ou OPCO).',
-      educationalLevel: 'Avancé',
-      priceString: String(price),
-      teaches: [
-        'Structurer la lecture d’un CCTP et d’un DCE avec l’IA sans perdre le contrôle',
-        'Croiser exigences techniques, DPGF et critères du CCAP pour cadrer le chiffrage',
-        'Créer prompts, projets et assistants réutilisables pour les réponses aux marchés',
-      ],
-      organizationId,
-      laurePersonId,
-    });
-  }
-
   const entry = FORMATIONS_CATALOG_SCHEMA.find((e) => e.path === path);
   if (!entry) {
     throw new Error(`getDedicatedFormationCoursePageJsonLd: chemin inconnu ${path}`);
@@ -336,8 +293,7 @@ export function getDedicatedFormationCoursePageJsonLd(
     throw new Error(`getDedicatedFormationCoursePageJsonLd: pas assez de compétences "teaches" pour ${path}`);
   }
 
-  const isNiv06 = entry.ref === 'NIV-06';
-  const price = isNiv06 ? undefined : tarifHtDepuisBadgeCatalogue(entry.level);
+  const price = tarifHtDepuisBadgeCatalogue(entry.level);
 
   return buildDedicatedFormationCourseObject({
     courseUrl: `${base}${entry.path}`,

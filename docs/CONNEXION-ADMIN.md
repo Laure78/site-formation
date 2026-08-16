@@ -4,11 +4,29 @@ Si vous arrivez sur l'**Espace Apprenant** au lieu de l'**Admin** après connexi
 
 ---
 
+## Sécurité en production
+
+L’accès `/admin` est protégé par :
+
+1. **Middleware** — vérifie session + rôle avant chaque page/API admin
+2. **Liste blanche email** — seuls les emails autorisés peuvent accéder avec le rôle `admin`
+3. Variable d’environnement optionnelle :
+
+```bash
+ADMIN_ALLOWED_EMAILS=contact@laureolivie.fr
+```
+
+(Séparer plusieurs emails par des virgules. Par défaut : `contact@laureolivie.fr`.)
+
+Les comptes **formateur** conservent l’accès admin sans liste blanche (gérés via Supabase).
+
+---
+
 ## Étape 1 — Créer un compte (si ce n'est pas déjà fait)
 
 1. Allez sur **https://www.laureolivie.fr**
 2. Cliquez sur **S'inscrire** (en haut à droite)
-3. Remplissez : email (ex. laureolivie@yahoo.fr), mot de passe
+3. Remplissez : email (ex. contact@laureolivie.fr), mot de passe
 4. Validez l'inscription
 5. Vous serez redirigé vers l'Espace Apprenant
 
@@ -30,10 +48,10 @@ Par défaut, tout nouveau compte a le rôle **apprenant**. Il faut lui donner le
 Copiez-collez ce code dans l'éditeur (remplacez l'email par le vôtre si différent) :
 
 ```sql
--- Donner les droits admin à laureolivie@yahoo.fr
+-- Donner les droits admin à contact@laureolivie.fr
 UPDATE public.profiles
 SET role = 'admin', full_name = 'Laure Olivié', updated_at = now()
-WHERE id = (SELECT id FROM auth.users WHERE email = 'laureolivie@yahoo.fr' LIMIT 1);
+WHERE id = (SELECT id FROM auth.users WHERE email = 'contact@laureolivie.fr' LIMIT 1);
 ```
 
 5. Cliquez sur **Run** (Exécuter)
@@ -55,7 +73,7 @@ Si votre email apparaît, exécutez ensuite :
 INSERT INTO public.profiles (id, email, full_name, role, updated_at)
 SELECT id, email, 'Laure Olivié', 'admin', now()
 FROM auth.users
-WHERE email = 'laureolivie@yahoo.fr'
+WHERE email = 'contact@laureolivie.fr'
 ON CONFLICT (id) DO UPDATE SET role = 'admin', full_name = 'Laure Olivié', updated_at = now();
 ```
 
@@ -78,7 +96,7 @@ Vous devriez être redirigé vers **https://www.laureolivie.fr/admin** (tableau 
 1. **Vider le cache du navigateur** ou ouvrir une fenêtre de navigation privée
 2. **Vérifier votre rôle** dans Supabase :
    - SQL Editor → New query
-   - Exécutez : `SELECT email, role FROM public.profiles p JOIN auth.users u ON p.id = u.id WHERE u.email = 'laureolivie@yahoo.fr';`
+   - Exécutez : `SELECT email, role FROM public.profiles p JOIN auth.users u ON p.id = u.id WHERE u.email = 'contact@laureolivie.fr';`
    - Le champ `role` doit afficher `admin`
 3. **Accéder directement à l'URL admin** après connexion : https://www.laureolivie.fr/admin
 

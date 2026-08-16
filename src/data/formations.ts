@@ -1,51 +1,41 @@
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+/**
+ * @deprecated Prefer `@/data/formations` — conservé pour compatibilité imports historiques.
+ */
+export {
+  FORMATIONS as formationsList,
+  FORMATIONS,
+  getFormationByCode,
+  getFormationBySlug,
+  type Formation,
+  type FormationSlug,
+} from '@/data/formations';
 
-export const formationsData = {
-  'ia-batiment-travaux-publics': {
-    name: "L'IA au service des pros du bâtiment et des travaux publics",
-    ref: 'NIV-01',
-    level: 'Débutant',
-    duration: 'PT4H',
-    price: TARIF_SESSION_DEBUTANT_HT,
-    description:
-      'Formation niveau 1 : IA générative pour professionnels du bâtiment et des travaux publics — devis, chantier, administratif, documents. Sessions en présentiel.',
-  },
-  'ia-appels-offre-btp': {
-    name: "L'IA appliquée aux appels d'offres BTP",
-    ref: 'NIV-02',
-    level: 'Avancé',
-    duration: 'PT4H',
-    price: TARIF_SESSION_AVANCE_HT,
-    description:
-      'Formation niveau 2 : créer ses assistants IA pour DCE et mémoire technique avec Claude AI Pro, Cowork & Skills — méthode opérationnelle pour le BTP.',
-  },
-  'ia-conduite-travaux-suivi-chantier': {
-    name: "L'IA appliquée à la conduite de travaux",
-    ref: 'NIV-03',
-    level: 'Avancé',
-    duration: 'PT4H',
-    price: TARIF_SESSION_AVANCE_HT,
-    description:
-      'Formation NIV-03 : conduite de travaux et suivi chantier avec skills Claude — CCTP, DPGF, PPSPS, CR, réception.',
-  },
-  'maitriser-claude-ai-btp': {
-    name: 'Maîtriser Claude AI pour le BTP',
-    ref: 'NIV-04',
-    level: 'Avancé',
-    duration: 'PT4H',
-    price: TARIF_SESSION_AVANCE_HT,
-    description:
-      'Formation NIV-04 : industrialiser Claude (Projets, Skills, Cowork, connecteurs, Claude Code) dans votre entreprise BTP. Matin 9h–13h.',
-  },
-  'ia-maitrise-oeuvre': {
-    name: "L'IA au service des maîtres d'œuvre",
-    ref: 'NIV-05',
-    level: 'Avancé',
-    duration: 'PT4H',
-    price: TARIF_SESSION_AVANCE_HT,
-    description:
-      "Formation NIV-05 : IA pour maîtrise d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et suivi des réserves. 3 à 8 participants.",
-  },
-} as const;
+import {
+  FORMATIONS,
+  type FormationSlug,
+} from '@/data/formations';
 
-export type FormationSlug = keyof typeof formationsData;
+/** Shape historique (map par slug) — dérivée de FORMATIONS. */
+export const formationsData = Object.fromEntries(
+  FORMATIONS.map((f) => [
+    f.slug,
+    {
+      name: f.titre,
+      ref: f.code,
+      level: f.niveau === 1 ? 'Débutant' : 'Avancé',
+      duration: 'PT4H',
+      price: f.prixHT,
+      description: f.accroche,
+    },
+  ])
+) as Record<
+  FormationSlug,
+  {
+    name: string;
+    ref: string;
+    level: string;
+    duration: string;
+    price: number;
+    description: string;
+  }
+>;

@@ -2,8 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import {
@@ -162,6 +162,7 @@ export default function FormationIaVitrierBtpPage() {
           Formation IA pour vitriers miroitiers —{' '}
           <span className="text-[var(--accent)]">gagnez environ 3 h par semaine</span>
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Automatisez <strong>devis vitrage</strong>, <strong>métrages</strong> et <strong>fiches techniques</strong> avec
           ChatGPT — <strong>présentiel en Île-de-France</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
@@ -462,12 +463,10 @@ export default function FormationIaVitrierBtpPage() {
           </p>
         </section>
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: PATH,
-            excludeHrefs: ['/formations', '/formation-ia-couvreur-btp', '/formation-ia-etancheur', '/financement-constructys-formation-ia-btp'],
-          })}
-        />
+        <LiensConnexes
+          currentPath={PATH}
+          excludeHrefs={['/formations', '/formation-ia-couvreur-btp', '/formation-ia-etancheur', '/financement-constructys-formation-ia-btp']}
+          />
 
         <AllerPlusLoin
           links={[

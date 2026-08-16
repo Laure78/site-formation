@@ -1,6 +1,5 @@
 import { JsonLd } from '@/components/JsonLd';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
-import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 
 type CourseSchemaProps = {
@@ -42,7 +41,6 @@ export function CourseSchema({
       availability: 'https://schema.org/InStock',
       url: CALENDLY_OFFER_URL,
     },
-    aggregateRating: buildSchemaAggregateRating(),
     isAccessibleForFree: false,
     creditsAwarded: 'Certification Qualiopi',
   };

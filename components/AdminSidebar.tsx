@@ -3,7 +3,23 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, BookOpen, Users, Menu, X, BarChart3, MessageCircle, TrendingUp, ShieldCheck, Settings, Clock, ExternalLink } from 'lucide-react';
+import {
+  LayoutDashboard,
+  BookOpen,
+  Users,
+  Menu,
+  X,
+  BarChart3,
+  TrendingUp,
+  ShieldCheck,
+  Settings,
+  Clock,
+  ExternalLink,
+  LogOut,
+  LogIn,
+} from 'lucide-react';
+import { LINKS } from '@/lib/internal-links';
+import { adminSignOutAction } from '@/app/admin/actions';
 
 const nav = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
@@ -13,13 +29,13 @@ const nav = [
   { href: '/admin/progression', label: 'Progression', icon: TrendingUp },
   { href: '/admin/qualite', label: 'Qualiopi / Qualité', icon: ShieldCheck },
   { href: '/admin/media-dashboard', label: 'Article de blog automatisé', icon: BarChart3 },
-  { href: '/admin/agent', label: 'Agent Chat', icon: MessageCircle },
   { href: '/admin/parametres', label: 'Paramètres', icon: Settings },
 ];
 
 export function AdminSidebar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const loginHref = `${LINKS.authConnexion}?next=/admin`;
 
   return (
     <>
@@ -49,7 +65,9 @@ export function AdminSidebar() {
       >
         <div className="flex h-16 items-center justify-between border-b border-slate-200 px-4">
           <div className="flex items-center gap-2">
-            <Link href="/" className="font-display text-lg font-bold text-slate-900">LO</Link>
+            <Link href="/" className="font-display text-lg font-bold text-slate-900">
+              LO
+            </Link>
             <span className="hidden text-xs text-slate-500 sm:inline">Admin</span>
           </div>
           <button
@@ -61,7 +79,7 @@ export function AdminSidebar() {
             <X size={20} strokeWidth={1.5} />
           </button>
         </div>
-        <nav className="space-y-1 p-4">
+        <nav className="space-y-1 p-4 pb-48">
           {nav.map(({ href, label, icon: Icon }) => (
             <Link
               key={href}
@@ -78,7 +96,25 @@ export function AdminSidebar() {
             </Link>
           ))}
         </nav>
-        <div className="absolute bottom-4 left-4 right-4 space-y-1">
+        <div className="absolute bottom-4 left-4 right-4 space-y-1 border-t border-slate-100 pt-3">
+          <form action={adminSignOutAction}>
+            <button
+              type="submit"
+              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+              onClick={() => setOpen(false)}
+            >
+              <LogOut size={16} strokeWidth={1.5} />
+              Se déconnecter
+            </button>
+          </form>
+          <Link
+            href={loginHref}
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+            onClick={() => setOpen(false)}
+          >
+            <LogIn size={16} strokeWidth={1.5} />
+            Se connecter
+          </Link>
           <a
             href="/formations"
             target="_blank"

@@ -24,8 +24,12 @@ import {
   Landmark,
   LogIn,
 } from 'lucide-react';
-import { CalendlyEmbed } from '@/components/CalendlyEmbed';
-import { CATALOGUE_FORMATIONS_NAV_LINKS } from '@/lib/catalogue-formations-nav';
+import {
+  CATALOGUE_FORMATIONS_NAV_LINKS,
+  catalogueFormationNavContainsPath,
+  catalogueFormationNavParentHref,
+  type CatalogueFormationNavLink,
+} from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
@@ -49,6 +53,7 @@ type MegaLink = {
   label: string;
   description?: string;
   icon: LucideIcon;
+  pages?: CatalogueFormationNavLink['pages'];
 };
 
 type NavMega = {
@@ -67,7 +72,7 @@ const FORMATIONS_MEGA: NavMega = {
   navIcon: GraduationCap,
   columns: [
     {
-      title: 'Nos formations',
+      title: 'Mes formations',
       links: CATALOGUE_FORMATIONS_NAV_LINKS,
     },
   ],
@@ -84,6 +89,109 @@ function isActive(href: string, pathname: string) {
   return pathname === href || pathname.startsWith(href + '/');
 }
 
+function FormationsNavAccordion({
+  links,
+  pathname,
+  dense = false,
+  onNavigate,
+}: {
+  links: MegaLink[];
+  pathname: string;
+  dense?: boolean;
+  onNavigate?: () => void;
+}) {
+  const [openHref, setOpenHref] = useState<string | null>(() =>
+    catalogueFormationNavParentHref(pathname),
+  );
+
+  return (
+    <ul className="space-y-0.5 pb-2">
+      {links.map((link) => {
+        const ItemIcon = link.icon;
+        const pages = link.pages ?? [];
+        const hasPages = pages.length > 0;
+        const expanded = hasPages && openHref === link.href;
+        const linkActive = isActive(link.href, pathname);
+        const childActive = pages.some((p) => isActive(p.href, pathname));
+        const paddingY = dense ? 'py-3' : 'py-2.5';
+
+        return (
+          <li key={link.href}>
+            <div className="flex items-stretch">
+              <Link
+                href={link.href}
+                onClick={onNavigate}
+                className={`flex min-w-0 flex-1 gap-3 rounded-xl px-3 ${paddingY} transition-colors ${
+                  linkActive
+                    ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                    : childActive
+                      ? 'font-medium text-[var(--accent)] hover:bg-slate-50'
+                      : 'text-slate-800 hover:bg-slate-50'
+                }`}
+              >
+                <ItemIcon
+                  size={dense ? 18 : 20}
+                  strokeWidth={1.75}
+                  className={`mt-0.5 shrink-0 ${
+                    linkActive || childActive ? 'text-[var(--accent)]' : 'text-slate-400'
+                  }`}
+                  aria-hidden
+                />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
+                  {link.description ? (
+                    <span className="mt-1 block text-sm leading-relaxed text-slate-600">
+                      {link.description}
+                    </span>
+                  ) : null}
+                </span>
+              </Link>
+              {hasPages ? (
+                <button
+                  type="button"
+                  aria-expanded={expanded}
+                  aria-label={`Afficher les pages de ${link.label}`}
+                  className="flex shrink-0 items-center rounded-xl px-2 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-700"
+                  onClick={() => setOpenHref((current) => (current === link.href ? null : link.href))}
+                >
+                  <ChevronDown
+                    size={16}
+                    strokeWidth={2}
+                    className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
+                    aria-hidden
+                  />
+                </button>
+              ) : null}
+            </div>
+            {expanded ? (
+              <ul className="mb-1 ml-4 mt-0.5 space-y-0.5 border-l border-slate-200 pl-3">
+                {pages.map((page) => {
+                  const pageActive = isActive(page.href, pathname);
+                  return (
+                    <li key={page.href}>
+                      <Link
+                        href={page.href}
+                        onClick={onNavigate}
+                        className={`block rounded-lg px-3 ${dense ? 'py-2.5' : 'py-2'} text-sm leading-snug transition-colors ${
+                          pageActive
+                            ? 'bg-slate-50 font-medium text-[var(--accent)]'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                        }`}
+                      >
+                        {page.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : null}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 function FormationsDropdownPanel({
   mega,
   pathname,
@@ -92,47 +200,15 @@ function FormationsDropdownPanel({
   pathname: string;
 }) {
   return (
-    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,26rem)] pt-2">
+    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,28rem)] pt-2">
       <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
-        <div className="max-h-[min(70vh,28rem)] overflow-y-auto overscroll-contain px-2 pt-1">
+        <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
           {mega.columns.map((col) => (
             <div key={col.title}>
               <p className="px-3 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
                 {col.title}
               </p>
-              <ul className="space-y-0.5 pb-2">
-                {col.links.map((link) => {
-                  const ItemIcon = link.icon;
-                  const linkActive = isActive(link.href, pathname);
-                  return (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                          linkActive
-                            ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                            : 'text-slate-800 hover:bg-slate-50'
-                        }`}
-                      >
-                        <ItemIcon
-                          size={20}
-                          strokeWidth={1.75}
-                          className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                          aria-hidden
-                        />
-                        <span className="min-w-0 flex-1">
-                          <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                          {link.description ? (
-                            <span className="mt-1 block text-sm leading-relaxed text-slate-600">
-                              {link.description}
-                            </span>
-                          ) : null}
-                        </span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <FormationsNavAccordion links={col.links} pathname={pathname} />
             </div>
           ))}
         </div>
@@ -165,7 +241,7 @@ function FormationsDropdownPanel({
 
 function formationsDropdownActive(pathname: string): boolean {
   if (pathname.startsWith('/formations')) return true;
-  return CATALOGUE_FORMATIONS_NAV_LINKS.some((l) => isActive(l.href, pathname));
+  return catalogueFormationNavContainsPath(pathname);
 }
 
 function tutosInCategory(cat: TutoCategoryId) {
@@ -674,30 +750,21 @@ function NavbarInner() {
 
           <div className="site-header__actions">
             <FormationPlateformeConnexionButton variant="nav" />
-            <CalendlyEmbed
-              type="link"
-              variant="nav"
-              ctaPosition="inline"
-              ctaId="nav-rdv-desktop"
-              utmSource="site"
-              utmMedium="cta"
-              campaign="nav-prendre-rdv"
-              buttonText="Prendre RDV"
-            />
+            <Link
+              href={LINKS.prendreRdv}
+              className="cta-calendly cta-calendly--inline inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              Prendre rendez-vous
+            </Link>
           </div>
 
           <div className="site-header__rdv-mobile">
-            <CalendlyEmbed
-              type="link"
-              variant="nav"
-              ctaPosition="inline"
-              ctaId="nav-rdv-mobile-bar"
-              utmSource="site"
-              utmMedium="cta"
-              campaign="nav-prendre-rdv-mobile-bar"
-              buttonText="Prendre RDV"
-              className="max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
-            />
+            <Link
+              href={LINKS.prendreRdv}
+              className="cta-calendly cta-calendly--inline inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
+            >
+              Prendre rendez-vous
+            </Link>
           </div>
 
           <div className="flex items-center gap-1 lg:hidden">
@@ -785,34 +852,12 @@ function NavbarInner() {
               </div>
               {mobileFormationsOpen && (
                 <div className="pb-2 pl-1">
-                  <ul className="space-y-0.5">
-                    {FORMATIONS_MEGA.columns[0].links.map((link) => {
-                      const Icon = link.icon;
-                      return (
-                        <li key={link.href}>
-                          <Link
-                            href={link.href}
-                            onClick={() => setMobileOpen(false)}
-                            className={`flex gap-3 rounded-xl px-3 py-3 ${
-                              isActive(link.href, pathname)
-                                ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                                : 'text-slate-800'
-                            }`}
-                          >
-                            <Icon size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                            <span>
-                              <span className="block text-[0.9375rem]">{link.label}</span>
-                              {link.description ? (
-                                <span className="mt-0.5 block text-xs text-slate-500">
-                                  {link.description}
-                                </span>
-                              ) : null}
-                            </span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <FormationsNavAccordion
+                    links={FORMATIONS_MEGA.columns[0].links}
+                    pathname={pathname}
+                    dense
+                    onNavigate={() => setMobileOpen(false)}
+                  />
                   <div className="mt-3 border-t border-slate-100 pt-3">
                     <Link
                       href={LINKS.authConnexion}
@@ -1012,18 +1057,13 @@ function NavbarInner() {
                 label="Connexion plateforme"
                 onClick={() => setMobileOpen(false)}
               />
-              <CalendlyEmbed
-                type="link"
-                variant="primary"
-                ctaPosition="inline"
-                ctaId="nav-rdv-mobile"
-                utmSource="site"
-                utmMedium="cta"
-                campaign="nav-prendre-rdv-mobile"
+              <Link
+                href={LINKS.prendreRdv}
                 onClick={() => setMobileOpen(false)}
-                className="w-full rounded-full px-4 py-4 text-center text-[0.9375rem]"
-                buttonText="Prendre RDV"
-              />
+                className="w-full rounded-full bg-[var(--accent)] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white hover:bg-blue-700"
+              >
+                Prendre rendez-vous
+              </Link>
             </div>
           </nav>
         </div>

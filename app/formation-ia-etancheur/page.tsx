@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
@@ -538,13 +540,20 @@ export default function FormationIaEtancheurPage() {
           <AuthorBio />
         </div>
 
-        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+        <RelatedLinks
+          path={PATH}
+          className="mt-14 !px-0"
+          tone="transparent"
+          excludeHrefs={getLiensConnexesHrefs(PATH)}
+        />
+
+        <LiensConnexes currentPath={PATH} />
 
         <AllerPlusLoin
           links={[
             { href: LINKS.formations, label: 'Catalogue formations IA pour le BTP' },
             { href: LINKS.repondreAoLanding, label: 'Formation IA appels d\u2019offres BTP' },
-            { href: LINKS.formationClaudeAiBatiment, label: 'Formation Claude AI bâtiment' },
+            { href: LINKS.formationMaitriserClaudeAiBtp, label: 'Maîtriser Claude AI pour le BTP' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
             { href: buildSiteCalendlyCtaUrl('formation-ia-etancheur-footer-rdv'), label: 'Prendre rendez-vous' },

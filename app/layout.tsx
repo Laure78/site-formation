@@ -7,12 +7,12 @@ import { StickyBlogMetierRdvBar } from '@/components/StickyBlogMetierRdvBar';
 import { StickyMobileCalendlyCta } from '@/components/StickyMobileCalendlyCta';
 import { ScrollToTopButton } from '@/components/ScrollToTopButton';
 import { CalendlyScriptLoader } from '@/components/CalendlyScriptLoader';
+import { CookieConsentBanner } from '@/components/CookieConsentBanner';
 import { FormationCalendlyInlineGate } from '@/components/FormationCalendlyInlineGate';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { CalendlyClickTracker } from '@/components/analytics/CalendlyClickTracker';
-import { SITE_CONFIG } from '@/lib/seo';
+import { SITE_CONFIG, OG_SITE_NAME } from '@/lib/seo';
 import { PHOTOS, SITE_FAVICON_CACHE_BUST } from '@/lib/photos';
-import { OG_SITE_NAME } from '@/utils/metadata';
 import { clampMetaDescription } from '@/lib/meta-description';
 import { GlobalSitelinksJsonLd } from '@/components/schema/GlobalSitelinksJsonLd';
 import { GlobalSiteJsonLd } from '@/components/schema/GlobalSiteJsonLd';
@@ -63,7 +63,7 @@ export async function generateMetadata(): Promise<Metadata> {
     authors: [{ name: SITE_CONFIG.name, url: `${baseUrl}/a-propos` }],
     creator: SITE_CONFIG.name,
     publisher: 'OFC Création d\'Entreprise',
-    formatDetection: { email: false, telephone: false },
+    formatDetection: { telephone: true, email: true, address: false },
     category: 'education',
     openGraph: {
       type: 'website',
@@ -181,6 +181,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <CalendlyScriptLoader />
         <CalendlyClickTracker />
+        <CookieConsentBanner />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--accent)] focus:ring-offset-2"

@@ -3,8 +3,8 @@ import { ArrowRight, Check } from 'lucide-react';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { getMetierLandingCoreLinks } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -16,11 +16,12 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
+import { PreuveSociale } from '@/components/PreuveSociale';
 
 type FAQItem = { question: string; answer: string };
 type Step = { title: string; prompt: string };
@@ -71,11 +72,13 @@ export function FormationMetierB1Page({
         level={level}
         faqItems={faqItems}
         scriptId={`schema-formation-metier-${slugId}`}
+        catalogueProgrammeRef="NIV-01"
       />
 
       <article>
         <MetierIdfPresentielLine className="mb-4" />
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">{h1}</h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — {heroParagraph}
         </p>
@@ -200,9 +203,17 @@ export function FormationMetierB1Page({
 
         <LaureOlivieFormationPortrait showFullParcoursLink />
 
-        <InfosQualiopiLanding formationTitle={courseName} />
+        <RenvoiFicheCatalogue
+          programmeRef="NIV-01"
+          contexte={`pour les ${metierLabel}`}
+        />
 
-        <RelatedLinks path={path} className="mt-14 !px-0" tone="transparent" />
+        <RelatedLinks
+          path={path}
+          className="mt-14 !px-0"
+          tone="transparent"
+          excludeHrefs={getLiensConnexesHrefs(path)}
+        />
 
         <section id="rdv" className="scroll-mt-24 mt-14 rounded-2xl bg-[var(--accent)] p-8 text-white md:p-10">
           <h2 className="font-display text-2xl font-bold">Passez à l&apos;action</h2>
@@ -247,30 +258,24 @@ export function FormationMetierB1Page({
           title="Catalogue et ressources"
           subtitle="Programmes Qualiopi, financement Constructys, Claude AI et articles pratiques."
           links={getMetierLandingCoreLinks({ csfePartnership: false }).filter(
-            (l) => !getClusterRelatedHrefs(path).includes(l.href),
+            (l) =>
+              !getClusterRelatedHrefs(path).includes(l.href) &&
+              !getLiensConnexesHrefs(path).includes(l.href),
           )}
           tone="muted"
           className="mt-14"
         />
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: path,
-            excludeHrefs: [
-              ...getMetierLandingCoreLinks({ csfePartnership: false }).map((l) => l.href),
-              ...getClusterRelatedHrefs(path),
-              LINKS.formations,
-              LINKS.financement,
-            ],
-          })}
+        <LiensConnexes
+          currentPath={path}
+          excludeHrefs={[...getClusterRelatedHrefs(path), LINKS.financement]}
         />
 
         <AllerPlusLoin
           links={[
-            { href: LINKS.formations, label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.financement, label: 'Financement Constructys' },
             { href: allerPlusCalendlyHref, label: 'Prendre rendez-vous' },
-          ]}
+          ].filter((l) => !getLiensConnexesHrefs(path).includes(l.href))}
         />
       </article>
     </div>

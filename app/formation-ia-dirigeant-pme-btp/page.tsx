@@ -2,8 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -177,6 +177,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
           Formation IA pour chefs d&apos;entreprise TPE BTP —{' '}
           <span className="text-[var(--accent)]">devis, relances et prospection au quotidien</span>
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — vous êtes chef de TPE et touchez encore aux devis, mails clients et relances impayés : cette page
           cible l&apos;<strong>opérationnel quotidien</strong>, pas le pilotage stratégique CODIR. Pour la
@@ -441,12 +442,10 @@ export default function FormationIaDirigeantPmeBtpPage() {
           </p>
         </section>
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: PATH,
-            excludeHrefs: [LINKS.formationIaDirigeantBtp, LINKS.formations, LINKS.financement],
-          })}
-        />
+        <LiensConnexes
+          currentPath={PATH}
+          excludeHrefs={[LINKS.formationIaDirigeantBtp, LINKS.formations, LINKS.financement]}
+          />
 
         <AllerPlusLoin
           links={[

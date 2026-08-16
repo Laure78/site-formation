@@ -1,51 +1,94 @@
 'use client';
 
 import { useState } from 'react';
-import { UserPlus, Copy, Check } from 'lucide-react';
-import { createInvitationAction } from './actions';
+import { UserPlus } from 'lucide-react';
 
 interface Props {
   courses: { id: string; title: string }[];
 }
 
+type ApiStatus = 'cree' | 'deja_invite' | 'renvoye';
+
 export function InviterForm({ courses }: Props) {
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [courseId, setCourseId] = useState(courses[0]?.id ?? '');
-  const [link, setLink] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [message, setMessage] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim() || !courseId) return;
+    if (!email.trim() || !courseId || !firstName.trim() || !lastName.trim()) return;
     setLoading(true);
-    setLink(null);
+    setMessage(null);
     try {
-      const result = await createInvitationAction(email.trim(), courseId);
-      if (result?.url) {
-        setLink(result.url);
+      const res = await fetch('/api/admin/apprenants', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          formationId: courseId,
+          action: 'create',
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setMessage({ type: 'err', text: data.error ?? 'Erreur' });
+        return;
       }
+      const labels: Record<ApiStatus, string> = {
+        cree: 'Apprenant créé — email envoyé avec identifiants (mot de passe temporaire).',
+        deja_invite: 'Déjà invité — une invitation valide existe déjà. Utilisez « Renvoyer » si besoin.',
+        renvoye: 'Invitation renvoyée — nouvel email avec nouveau mot de passe temporaire.',
+      };
+      setMessage({
+        type: 'ok',
+        text: labels[data.status as ApiStatus] ?? data.message ?? 'OK',
+      });
+      if (data.status === 'cree') {
+        setEmail('');
+        setFirstName('');
+        setLastName('');
+      }
+    } catch {
+      setMessage({ type: 'err', text: 'Erreur réseau' });
     } finally {
       setLoading(false);
     }
   };
 
-  const copyLink = () => {
-    if (link) {
-      navigator.clipboard.writeText(link);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6">
-      <h3 className="font-display text-lg font-semibold text-slate-900">Inviter un apprenant</h3>
+      <h3 className="font-display text-lg font-semibold text-slate-900">Ajouter un apprenant</h3>
       <p className="mt-1 text-sm text-slate-600">
-        Envoyez un lien d&apos;invitation. L&apos;apprenant créera son mot de passe et accédera à la formation.
+        Crée le compte, l’inscrit à la formation et envoie un email avec le lien de connexion + un mot de
+        passe temporaire.
       </p>
-      <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-end">
-        <div className="flex-1">
+      <form onSubmit={handleSubmit} className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div>
+          <label className="block text-sm font-medium text-slate-700">Prénom</label>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+            className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-slate-900"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-slate-700">Nom</label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-slate-900"
+          />
+        </div>
+        <div className="sm:col-span-2">
           <label className="block text-sm font-medium text-slate-700">Email</label>
           <input
             type="email"
@@ -56,7 +99,7 @@ export function InviterForm({ courses }: Props) {
             placeholder="nom@exemple.fr"
           />
         </div>
-        <div className="flex-1">
+        <div className="sm:col-span-2">
           <label className="block text-sm font-medium text-slate-700">Formation</label>
           <select
             value={courseId}
@@ -64,36 +107,34 @@ export function InviterForm({ courses }: Props) {
             className="mt-1 w-full rounded-xl border border-slate-200 px-4 py-2.5 text-slate-900"
           >
             {courses.map((c) => (
-              <option key={c.id} value={c.id}>{c.title}</option>
+              <option key={c.id} value={c.id}>
+                {c.title}
+              </option>
             ))}
           </select>
         </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-2.5 font-medium text-white disabled:opacity-50"
-        >
-          <UserPlus size={18} strokeWidth={1.5} />
-          {loading ? 'Génération...' : 'Générer le lien'}
-        </button>
+        <div className="sm:col-span-2">
+          <button
+            type="submit"
+            disabled={loading}
+            className="flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-2.5 font-medium text-white disabled:opacity-50"
+          >
+            <UserPlus size={18} strokeWidth={1.5} />
+            {loading ? 'Envoi…' : 'Enregistrer et inviter'}
+          </button>
+        </div>
       </form>
 
-      {link && (
-        <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-          <p className="text-sm font-medium text-emerald-800">Lien d&apos;invitation généré</p>
-          <p className="mt-2 truncate rounded bg-white px-3 py-2 text-sm text-slate-700">{link}</p>
-          <button
-            type="button"
-            onClick={copyLink}
-            className="mt-3 flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700"
-          >
-            {copied ? <Check size={16} /> : <Copy size={16} />}
-            {copied ? 'Copié !' : 'Copier le lien'}
-          </button>
-          <p className="mt-3 text-xs text-emerald-700">
-            Envoyez ce lien par email à l&apos;apprenant. Il expire sous 7 jours.
-          </p>
-        </div>
+      {message && (
+        <p
+          className={`mt-4 rounded-xl px-4 py-3 text-sm ${
+            message.type === 'ok'
+              ? 'border border-emerald-200 bg-emerald-50 text-emerald-800'
+              : 'border border-red-200 bg-red-50 text-red-700'
+          }`}
+        >
+          {message.text}
+        </p>
       )}
     </div>
   );

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
@@ -8,7 +9,7 @@ const poppins = Poppins({
 
 export type EssentielProps = {
   /** 3 à 5 puces — phrases-clés déjà présentes sur la page (pas de paragraphe dupliqué). */
-  items: readonly string[];
+  items: readonly (string | ReactNode)[];
   className?: string;
   /** Préfixe d’id pour `aria-labelledby` si plusieurs blocs sur une même page. */
   idPrefix?: string;

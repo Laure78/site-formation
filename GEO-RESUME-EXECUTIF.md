@@ -34,7 +34,7 @@ Questions optimisées pour réponses directes IA :
 - **Bio dense** : 1592 formés, 4.85/5, 10 ans de terrain BTP · formatrice IA depuis 2022, Guyancourt (78), FFB
 - **HTML sémantique** : `<article>`, `<h1>`, `<h2>`, pas de divs génériques
 - **Bloc "Ils me font confiance"** : 7 clients institutionnels listés avec descriptions
-- **Localisation précise** : Île-de-France uniquement (75-77-78-91-92-93-94-95)
+- **Localisation précise** : Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)
 
 ### 4. 2 articles blog GEO (4500 mots)
 

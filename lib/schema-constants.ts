@@ -5,7 +5,8 @@
  * @see .cursorrules — règles Schema.org & SEO
  */
 
-import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF } from '@/lib/constants';
+import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF, CONTACT } from '@/lib/constants';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 
 /** URL canonique du site (alignée sur NEXT_PUBLIC_SITE_URL en prod). */
@@ -71,27 +72,27 @@ export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
   },
   {
     name: 'CAPEB',
-    // url: // À COMPLÉTER — absente du Footer et des constantes partenaires du dépôt
+    url: 'https://www.capeb.fr/',
   },
 ] as const;
 
 
-/** Contact & identifiants légaux (JSON-LD, mentions). */
+/** Contact & identifiants légaux (JSON-LD, mentions) — email/téléphone depuis CONTACT. */
 export const SCHEMA_CONTACT = {
-  email: 'laureolivie@yahoo.fr',
+  email: CONTACT.email,
   /**
-   * Numéro public UI (E.164) — laisser vide pour masquer les liens `tel:` dans l’interface.
-   * Le JSON-LD Organization utilise `telephoneJsonLd` (source unique NAP vérifiable).
+   * Numéro public UI (E.164). Source : `CONTACT.phone`.
+   * Le JSON-LD Organization utilise aussi `telephoneJsonLd`.
    */
-  phone: '',
-  phoneDisplay: '',
+  phone: CONTACT.phone,
+  phoneDisplay: CONTACT.phoneDisplay,
   /** E.164 — champ `telephone` Schema.org Organization (layout / rich results). */
-  telephoneJsonLd: '+33695661818',
-  siretFormatted: '905 244 281 00010',
+  telephoneJsonLd: CONTACT.phone,
+  siretFormatted: OFC_IDENTITE.siret,
   /** Sans espaces — annuaires, URLs, taxID Schema.org */
-  siretDigits: '90524428100010',
-  nda: '11788515078',
-  vatId: 'FR905244281',
+  siretDigits: `${OFC_IDENTITE.siren}00010`,
+  nda: OFC_IDENTITE.nda,
+  vatId: `FR${OFC_IDENTITE.siren}`,
 } as const;
 
 /** Coordonnées postales & GPS (siège — Guyancourt). */
@@ -122,7 +123,7 @@ export const SCHEMA_STATS = {
 export const SCHEMA_PERSON_LAURE = {
   '@type': 'Person' as const,
   name: 'Laure Olivié',
-  jobTitle: 'Formatrice IA et ChatGPT spécialisée BTP',
+  jobTitle: 'Formatrice IA spécialisée BTP',
   description:
     "10 ans d'expérience terrain comme conductrice de travaux, forme les professionnels du BTP à l'IA appliquée à leurs documents réels, en présentiel en Île-de-France.",
 } as const;
@@ -144,10 +145,10 @@ export const SCHEMA_PERSON_KNOWS_ABOUT = [
  */
 export const SCHEMA_ORGANIZATION_OFC = {
   '@type': 'Organization' as const,
-  name: "OFC Création d'Entreprise",
-  legalName: "OFC Création d'Entreprise",
+  name: OFC_IDENTITE.raisonSociale,
+  legalName: OFC_IDENTITE.raisonSociale,
   /** Dénomination juridique complète (JSON-LD layout #ofc). */
-  legalNameSasu: "OFC Création d'Entreprise SASU",
+  legalNameSasu: `${OFC_IDENTITE.raisonSociale} ${OFC_IDENTITE.formeJuridique}`,
   description:
     "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
   descriptionShortGraph:

@@ -38,6 +38,7 @@ export default async function AdminFormationEditPage({
             objectifs: c.objectifs,
             prerequis: c.prerequis,
             programme: c.programme,
+            price: course.price ?? 0,
             published: course.published ?? false,
           }}
         />

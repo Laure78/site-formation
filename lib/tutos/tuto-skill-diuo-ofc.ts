@@ -287,7 +287,7 @@ précautions d’intervention en toiture, et liste ce qui me manque.`,
       'On construit ton skill ensemble, sur tes vrais dossiers de chantier.',
       'On le calibre sur les attentes de ton coordonnateur SPS et de tes lots.',
       'Tu repars avec un skill opérationnel, utilisable dès la prochaine réception.',
-      'Format individuel ou équipe (4 à 14 h) — présentiel Île-de-France ou distanciel',
+      'Format individuel ou équipe — 4 à 14 h, en présentiel en Île-de-France.',
     ],
   },
 };

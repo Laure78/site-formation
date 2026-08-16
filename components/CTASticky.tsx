@@ -34,7 +34,7 @@ export function CTASticky() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [dismissed, onScroll, pathname]);
 
-  if (pathname === '/prendre-rdv') return null;
+  if (pathname === '/prendre-rdv' || pathname === '/prendre-rendez-vous') return null;
   if (isStickyBlogMetierRdvPath(pathname)) return null;
   if (!visible || dismissed) return null;
 

@@ -4,10 +4,10 @@ import { getGoogleReviews, formatRating } from '@/lib/google-reviews';
 import { googleReviewsToMarqueeItems } from '@/lib/google-reviews-marquee';
 import { SITE_CONFIG } from '@/lib/seo';
 import { GoogleReviewsMarquee } from '@/components/landing/GoogleReviewsMarquee';
-import { Testimonial } from '@/components/testimonials/Testimonial';
-import { getFilledTestimonials } from '@/lib/testimonials';
+import { Temoignages } from '@/components/Temoignages';
+import { getTemoignagesRemplis } from '@/data/temoignages';
 import { Star, Award, ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { Reveal } from '@/components/motion/Reveal';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { RdvLink } from '@/components/RdvLink';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
@@ -17,15 +17,22 @@ import { QualiopiWordmark } from '@/components/QualiopiLogo';
 const ETUDE_HREF = '/etudes-de-cas/ffb-csfe';
 
 /**
- * Preuve sociale home — avis Google / témoignages + étude de cas FFB/CSFE.
- * Un seul titre : « Cas concrets d'entreprises du BTP formées ».
+ * Preuve sociale home — avis Google si dispo, sinon étude de cas FFB/CSFE
+ * (sans annoncer d’avis absents). Option A : `Temoignages` dès que `data/temoignages.ts` est rempli.
  */
 export async function GoogleReviewsSection() {
   const data = await getGoogleReviews();
 
-  const hasGoogleApi = data && data.reviews.length > 0;
-  const marqueeItems = hasGoogleApi ? googleReviewsToMarqueeItems(data.reviews) : [];
-  const testimonials = getFilledTestimonials();
+  const hasGoogleApi = Boolean(data && data.reviews.length > 0);
+  const marqueeItems = hasGoogleApi && data ? googleReviewsToMarqueeItems(data.reviews) : [];
+  const hasTemoignages = getTemoignagesRemplis().length > 0;
+
+  const kicker = hasGoogleApi ? 'AVIS GOOGLE' : hasTemoignages ? 'AVIS CLIENTS' : 'BÉNÉFICES';
+  const heading = hasGoogleApi
+    ? 'Avis Google & étude de cas FFB'
+    : hasTemoignages
+      ? 'Avis clients & étude de cas FFB'
+      : 'Étude de cas : FFB & filière étanchéité';
 
   return (
     <section id="temoignages" className={`${OFC_SEC.muted} scroll-mt-24`}>
@@ -34,19 +41,22 @@ export async function GoogleReviewsSection() {
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
               <Award size={16} strokeWidth={1.5} />
-              <span>{hasGoogleApi ? 'AVIS GOOGLE' : 'AVIS CLIENTS'}</span>
+              <span>{kicker}</span>
             </div>
-            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-              Cas concrets d&apos;entreprises du BTP formées
-            </h2>
-            <p className="mt-3 text-slate-600">
-              {hasGoogleApi
-                ? 'Avis authentiques sur Google Business Profile — défilant ci-dessous. Étude de cas FFB & étanchéité en complément.'
-                : 'Retours d’entreprises du BTP formées à l’IA, et étude de cas FFB / filière étanchéité.'}
-            </p>
+            <h2 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">{heading}</h2>
+            {hasGoogleApi ? (
+              <p className="mt-3 text-slate-600">
+                Avis authentiques sur Google Business Profile — défilant ci-dessous. Étude de cas FFB &amp; étanchéité
+                en complément.
+              </p>
+            ) : hasTemoignages ? (
+              <p className="mt-3 text-slate-600">
+                Retours d&apos;entreprises formées à l&apos;IA — étude de cas FFB / filière étanchéité en complément.
+              </p>
+            ) : null}
           </Reveal>
 
-          {hasGoogleApi ? (
+          {hasGoogleApi && data ? (
             <Reveal>
               <div className="flex flex-col items-end rounded-2xl border-2 border-[var(--accent)] bg-white px-6 py-4">
                 <div className="flex items-center gap-2">
@@ -72,34 +82,42 @@ export async function GoogleReviewsSection() {
           <Reveal className="mt-10">
             <GoogleReviewsMarquee reviews={marqueeItems} />
           </Reveal>
-        ) : testimonials.length > 0 ? (
-          <RevealGroup className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerMs={45}>
-            {testimonials.map((t, i) => (
-              <Testimonial key={`${t.firstNameInitial}-${i}`} {...t} />
-            ))}
-          </RevealGroup>
+        ) : (
+          <Temoignages className="mt-10" />
+        )}
+
+        {hasGoogleApi ? (
+          <Reveal className="mt-10 text-center">
+            <a
+              href={SITE_CONFIG.googleBusinessProfileUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
+            >
+              Voir la fiche et tous les avis sur Google
+              <ExternalLink size={18} strokeWidth={1.5} />
+            </a>
+          </Reveal>
         ) : null}
 
-        <Reveal className="mt-10 text-center">
-          <a
-            href={SITE_CONFIG.googleBusinessProfileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border-2 border-[var(--accent)] px-8 py-3 font-semibold text-[var(--accent)] transition-colors hover:bg-[var(--accent-soft)]"
-          >
-            {hasGoogleApi ? 'Voir la fiche et tous les avis sur Google' : 'Fiche Google & avis'}
-            <ExternalLink size={18} strokeWidth={1.5} />
-          </a>
-        </Reveal>
-
-        {/* Étude de cas FFB / CSFE — fusionnée sous le même H2 */}
-        <div className="mt-16 grid items-start gap-10 border-t border-slate-200 pt-12 lg:grid-cols-2 lg:gap-12">
+        {/* Étude de cas FFB / CSFE */}
+        <div
+          className={`grid items-start gap-10 lg:grid-cols-2 lg:gap-12 ${
+            hasGoogleApi || hasTemoignages ? 'mt-16 border-t border-slate-200 pt-12' : 'mt-10'
+          }`}
+        >
           <div className="min-w-0 max-w-3xl lg:max-w-none">
             <Reveal>
-              <p className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--accent)] shadow-sm">
-                Étude de cas clients
-              </p>
-              <h3 className="mt-4 font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+              {!hasGoogleApi && !hasTemoignages ? null : (
+                <p className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-[var(--accent)] shadow-sm">
+                  Étude de cas
+                </p>
+              )}
+              <h3
+                className={`font-display text-2xl font-bold tracking-tight text-slate-900 md:text-3xl ${
+                  !hasGoogleApi && !hasTemoignages ? '' : 'mt-4'
+                }`}
+              >
                 FFB &amp; étanchéité :{' '}
                 <span className="font-serif italic text-slate-800">ce qui a été mis en place</span>
               </h3>

@@ -24,7 +24,7 @@ Centre de formation
 - **Ville :** Guyancourt (Yvelines)  
 - **Région :** Île-de-France  
 - **Téléphone :** 06 95 66 18 18  
-- **Email :** laureolivie@yahoo.fr  
+- **Email :** contact@laureolivie.fr  
 
 ---
 
@@ -40,7 +40,7 @@ Centre de formation
 > 
 > Certifiée Qualiopi. Financement OPCO Constructys possible selon éligibilité. Intervenante LinkedIn Learning.
 > 
-> Zones d'intervention : Paris, Yvelines, Hauts-de-Seine et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — exclusivement en présentiel.
+> Zones d'intervention : Paris et toute l'Île-de-France (75, 77, 78, 91, 92, 93, 94, 95) — exclusivement en présentiel.
 
 ---
 

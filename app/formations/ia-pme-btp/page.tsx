@@ -14,14 +14,15 @@ import {
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, TARIF_FORFAIT_AVANCE_HT ,
-  formatTarifHt,
-} from '@/lib/tarifs-sessions';
+import { SESSION_DUREE_LIBELLE, TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { JsonLd } from '@/components/JsonLd';
 import { KeyPoint } from '@/components/readability/KeyPoint';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { formatProofFormes } from '@/lib/proof';
+import { formationHref, getFormationByCode } from '@/data/formations';
+
+const CATALOGUE_NIV01 = getFormationByCode('NIV-01')!;
 
 const MAIL_PROGRAMME_PME =
   `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent('Demande de programme — formation IA PME BTP')}`;
@@ -30,7 +31,7 @@ const MAIL_RAPPEL_PME =
 
 const HERO_RESUME_PME = [
   `Programme sur-mesure PME bâtiment : devis, chiffrages, emails, comptes rendus.`,
-  `Sessions ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € ou ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session selon niveau.`,
+  `Sessions ${SESSION_DUREE_LIBELLE} — forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT/session.`,
   'Interventions Île-de-France et France — Qualiopi, financement OPCO Constructys selon éligibilité.',
   "Sans prérequis technique — trames prêtes à l'emploi.",
 ];
@@ -53,11 +54,11 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = getCourseSchema({
-  name: "Formation IA pour PME du BTP",
-  description:
-    "Formation IA PME bâtiment : devis, chiffrages, emails, comptes rendus. Paris, Île-de-France et France. Financement formation IA OPCO Constructys selon éligibilité. Financement possible selon éligibilité.",
-  path: '/formations/ia-pme-btp',
+  name: CATALOGUE_NIV01.titre,
+  description: CATALOGUE_NIV01.accroche,
+  path: formationHref(CATALOGUE_NIV01),
   providerName: SITE_CONFIG.legalName,
+  courseCode: CATALOGUE_NIV01.code,
   areaServed: ['France', 'Île-de-France'],
 });
 
@@ -206,7 +207,7 @@ export default function FormationIAPMEBTPPage() {
         </RdvLink>
       </div>
 
-      <InfosQualiopiLanding formationTitle="Formation IA pour PME du BTP" />
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="auprès des PME du BTP" />
 
       <div className="mt-12">
         <AllerPlusLoin

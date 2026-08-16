@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 import { CountUp } from '@/components/motion/CountUp';
 import { isStatCountUpValue, type StatCountUpValue } from '@/components/readability/stat-callout-types';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
 export type PillarStatItem = {
@@ -21,6 +22,8 @@ type Props = {
   /** Nombre de colonnes sur grand écran */
   columns?: 2 | 4 | 5;
   footnote?: ReactNode;
+  /** Lien indicateurs Qualiopi sous la grille (défaut : oui). */
+  showIndicateursLink?: boolean;
   className?: string;
 };
 
@@ -35,6 +38,7 @@ export function PillarStatGrid({
   items,
   columns = 4,
   footnote,
+  showIndicateursLink = true,
   className = '',
 }: Props) {
   const headingId = titleId ?? (id ? `${id}-title` : 'pillar-stat-title');
@@ -81,6 +85,7 @@ export function PillarStatGrid({
           );
         })}
       </RevealGroup>
+      {showIndicateursLink ? <IndicateursResultatsLink className="mt-5" /> : null}
       {footnote ? (
         <Reveal>
           <p className="mt-6 text-[13px] italic leading-relaxed text-[#94A3B8]">{footnote}</p>

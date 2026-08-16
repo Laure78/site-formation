@@ -2,8 +2,8 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -148,6 +148,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
           Formation IA pour maçons paysagistes —{' '}
           <span className="text-[var(--accent)]">gagnez du temps sur la paperasse et les dossiers</span>
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Objectif : <strong>libérer jusqu’à environ 2 h par semaine</strong> sur devis, mémoires techniques et mails de
           coordination. <strong>Présentiel en Île-de-France</strong> — <strong>Qualiopi</strong> — financement possible selon éligibilité.
@@ -387,12 +388,10 @@ export default function FormationIaMaconPaysagisteBtpPage() {
           </p>
         </section>
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: PATH,
-            excludeHrefs: ['/formations', '/formations/ia-appels-offre-btp', '/formation-ia-paysagiste-btp', '/formation-ia-charge-affaires-btp', '/financement-constructys-formation-ia-btp'],
-          })}
-        />
+        <LiensConnexes
+          currentPath={PATH}
+          excludeHrefs={['/formations', '/formations/ia-appels-offre-btp', '/formation-ia-paysagiste-btp', '/formation-ia-charge-affaires-btp', '/financement-constructys-formation-ia-btp']}
+          />
 
         <AllerPlusLoin
           links={[

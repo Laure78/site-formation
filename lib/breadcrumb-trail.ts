@@ -16,12 +16,9 @@ const EXACT: Record<string, string> = {
     "L'IA au service des pros du bâtiment et des travaux publics",
   '/formations/ia-appels-offre-btp': "L'IA appliquée aux appels d'offres BTP",
   '/formations/ia-conduite-travaux-suivi-chantier': "L'IA appliquée à la conduite de travaux",
-  '/formations/formation-claude-ia-btp':
-    'Claude IA pour le BTP : Chat, Cowork & Code',
 };
 
 const FORMATION_PATH_EXTRA_TITLES: Record<string, string> = {
-  '/formations/formation-ia-cctp-analyse-dce-btp': 'Formation IA CCTP & DCE',
   '/formations/ia-btp-morangis': 'Formation IA pour le BTP à Morangis',
   '/formations/ia-btp-longjumeau': 'Formation IA pour les pros du BTP à Longjumeau',
   '/formations/ia-btp-saint-quentin-en-yvelines':
@@ -64,7 +61,6 @@ const STATIC_PAGE_TITLES: Record<string, string> = {
   '/formateur-ia-btp': 'Formateur IA BTP',
   '/partenaires': 'Partenaires',
   '/claude-ai-btp': 'Claude AI BTP',
-  '/formation-claude-ai-btp': 'Formation Claude AI BTP',
   '/formations-linkedin-learning': 'Formations LinkedIn Learning',
   '/checklist-ia-btp': 'Checklist IA BTP',
   '/outils-ia-btp': 'Outils IA BTP',

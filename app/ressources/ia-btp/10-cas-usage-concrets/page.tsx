@@ -68,7 +68,7 @@ const DEMARRER_IA_BTP_STEPS = [
     title: 'Se former (4 h suffisent)',
     body: (
       <>
-        Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Nos
+        Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Mes
         formations de 4&nbsp;h sont certifiées Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
       </>
     ),
@@ -105,7 +105,7 @@ const FAQ = [
   },
   {
     q: "Faut-il être expert en informatique pour utiliser l'IA dans le BTP ?",
-    a: "Non, absolument pas. Les outils d'IA comme ChatGPT s'utilisent en langage naturel. Vous écrivez votre demande en français, l'IA génère le document. Nos formations de 4h suffisent pour maîtriser les bases et gagner immédiatement en productivité.",
+    a: "Non, absolument pas. Les outils d'IA comme ChatGPT s'utilisent en langage naturel. Vous écrivez votre demande en français, l'IA génère le document. Mes formations de 4h suffisent pour maîtriser les bases et gagner immédiatement en productivité.",
   },
   {
     q: "Combien coûte l'intégration de l'IA dans une entreprise BTP ?",

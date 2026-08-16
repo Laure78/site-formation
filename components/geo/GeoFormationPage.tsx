@@ -5,6 +5,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { CTABlock } from '@/components/CTABlock';
 import { RdvLink } from '@/components/RdvLink';
 import { StatCallout } from '@/components/readability/StatCallout';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { buildMetadata, SITE_CONFIG } from '@/lib/seo';
 import {
   buildFormationIaCourseJsonLd,
@@ -29,7 +30,7 @@ import {
   type GeoFormationPageProps,
 } from '@/lib/geo-formation-config';
 import { FormationDeptLocalSeoBlock } from '@/components/formation-ia-btp/FormationDeptLocalSeoBlock';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { getDeptLocalSeoContent } from '@/lib/formation-ia-btp-dept-local-content';
 
 export type { GeoFormationPageProps };
@@ -78,9 +79,6 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
   const statsFreshness = getStatsFreshnessLabel();
 
   const courseJsonLd = buildFormationIaCourseJsonLd({
-    name: `Formation IA BTP ${deptLabel} — Qualiopi`,
-    description: metaDescription,
-    path,
     areaServed: [departement, ...villes, 'Île-de-France', 'France'],
   });
 
@@ -146,6 +144,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
               freshnessLabel={statsFreshness}
             />
           </div>
+          <IndicateursResultatsLink className="mt-3 text-left" />
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <RdvLink
               campaign={`geo-formation-${slug}-hero`}
@@ -218,7 +217,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           <p className="mt-4 text-base leading-relaxed text-slate-700 md:text-lg">
             Professionnels du BTP et PME du bâtiment {deptPreposition} cherchent surtout à réduire le temps
             passé sur l&apos;administratif sans perdre le contrôle des prix et des engagements contractuels.
-            En formation, nous travaillons ces cas concrets — toujours avec relecture humaine avant envoi.
+            En formation, je travaille ces cas concrets — toujours avec relecture humaine avant envoi.
           </p>
           <ol className="mt-8 list-decimal space-y-4 pl-5 text-base text-slate-700 marker:font-semibold md:text-lg">
             {GEO_FORMATION_CAS_USAGE.map((item) => (
@@ -230,7 +229,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
         </div>
       </section>
 
-      <InfosQualiopiLanding formationTitle={`Formation IA BTP ${deptLabel}`} />
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`en ${deptLabel}`} />
 
       <section className={OFC_SEC.white}>
         <div className="mx-auto max-w-4xl px-4">

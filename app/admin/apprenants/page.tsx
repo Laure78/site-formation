@@ -3,19 +3,39 @@ import Link from 'next/link';
 import { InviterForm } from './InviterForm';
 import { ImportApprenantsForm } from './ImportApprenantsForm';
 import { ExportApprenantsButton } from './ExportApprenantsButton';
+import { RenvoyerInvitationButton } from './RenvoyerInvitationButton';
 
 export default async function AdminApprenantsPage() {
   const supabase = await createClient();
-  const [{ data: profiles }, { data: courses }, { data: enrollments }, { data: lastSessions }] = await Promise.all([
+  const [
+    { data: profiles },
+    { data: courses },
+    { data: enrollments },
+    { data: lastSessions },
+    { data: invitations },
+  ] = await Promise.all([
     supabase
       .from('profiles')
-      .select('id, first_name, last_name, full_name, email, created_at')
+      .select('id, first_name, last_name, full_name, email, created_at, account_status')
       .eq('role', 'apprenant')
       .order('created_at', { ascending: false }),
     supabase.from('courses').select('id, title').eq('published', true).order('title'),
     supabase.from('enrollments').select('user_id, course_id, progress_percent, courses(title)'),
     supabase.from('session_logs').select('user_id, started_at').order('started_at', { ascending: false }),
+    supabase
+      .from('invitations')
+      .select('id, email, first_name, last_name, formation_id, status, sent_count, expires_at')
+      .in('status', ['pending', 'expired'])
+      .order('created_at', { ascending: false })
+      .limit(50),
   ]);
+
+  const formationIds = [...new Set((invitations ?? []).map((i) => i.formation_id).filter(Boolean))] as string[];
+  const { data: invitationCourses } =
+    formationIds.length > 0
+      ? await supabase.from('courses').select('id, title').in('id', formationIds)
+      : { data: [] as { id: string; title: string }[] };
+  const courseTitleById = Object.fromEntries((invitationCourses ?? []).map((c) => [c.id, c.title]));
 
   const lastActivityByUser: Record<string, string> = {};
   for (const s of lastSessions ?? []) {
@@ -54,6 +74,53 @@ export default async function AdminApprenantsPage() {
         {(courses ?? []).length > 0 && <InviterForm courses={courses ?? []} />}
         <ImportApprenantsForm courses={courses ?? []} />
       </div>
+
+      {(invitations ?? []).length > 0 && (
+        <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-slate-200 px-6 py-4">
+            <h2 className="font-display text-lg font-semibold text-slate-900">Invitations envoyées</h2>
+            <p className="text-sm text-slate-600">
+              Email avec accès + mot de passe temporaire. « Renvoyer » génère un nouveau mot de passe.
+            </p>
+          </div>
+          <table className="w-full min-w-[640px]">
+            <thead>
+              <tr className="border-b border-slate-200 bg-slate-50">
+                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Apprenant</th>
+                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Formation</th>
+                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Statut</th>
+                <th className="px-6 py-3 text-left text-sm font-semibold text-slate-900">Envois</th>
+                <th className="px-6 py-3 text-right text-sm font-semibold text-slate-900">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(invitations ?? []).map((inv) => {
+                const title = inv.formation_id ? courseTitleById[inv.formation_id] ?? '—' : '—';
+                const name = [inv.first_name, inv.last_name].filter(Boolean).join(' ') || inv.email;
+                return (
+                  <tr key={inv.id} className="border-b border-slate-100 last:border-0">
+                    <td className="px-6 py-3">
+                      <p className="font-medium text-slate-900">{name}</p>
+                      <p className="text-sm text-slate-500">{inv.email}</p>
+                    </td>
+                    <td className="px-6 py-3 text-sm text-slate-700">{title}</td>
+                    <td className="px-6 py-3 text-sm capitalize text-slate-600">{inv.status}</td>
+                    <td className="px-6 py-3 text-sm text-slate-600">{inv.sent_count}</td>
+                    <td className="px-6 py-3 text-right">
+                      <RenvoyerInvitationButton
+                        invitation={{
+                          ...inv,
+                          courses: { title },
+                        }}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       <div className="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
         <table className="w-full min-w-[700px]">

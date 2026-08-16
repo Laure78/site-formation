@@ -1,19 +1,13 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
-import { getProfile, isAdmin } from '@/lib/auth';
 import { AdminSidebar } from '@/components/AdminSidebar';
+import { requireAdminAccess } from '@/lib/admin-access';
 
 export default async function AdminLayout({
   children,
 }: { children: React.ReactNode }) {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
-  if (!user) redirect('/auth/connexion');
-
-  const profile = await getProfile(user.id);
-  if (!profile || !isAdmin(profile.role)) {
-    redirect('/espace-apprenant');
+  const access = await requireAdminAccess();
+  if (!access.ok) {
+    redirect(access.reason === 'unauthenticated' ? '/auth/connexion?next=/admin' : '/espace-apprenant');
   }
 
   return (

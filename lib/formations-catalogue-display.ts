@@ -1,14 +1,19 @@
+/**
+ * Couche affichage catalogue — dérivée de `data/formations.ts` (source de vérité).
+ */
+
 import { PHOTOS } from '@/lib/photos';
-import { LINKS } from '@/lib/internal-links';
 import {
-  SESSION_DUREE_LIBELLE,
-  SESSION_DUREE_MATIN_NIV04,
-  LIBELLE_EFFECTIF_GROUPE_COURT,
-  LIBELLE_EFFECTIF_GROUPE_NIV02,
-  libelleTarifParticipant,
-  tarifHtDepuisBadgeCatalogue,
-  formatTarifHt,
-} from '@/lib/tarifs-sessions';
+  FORMATIONS,
+  FORMATIONS_COUNT,
+  formationHref,
+  getFormationByCode,
+  libelleDureeFormation,
+  libelleEffectifFormation,
+  libelleEffectifMaxFormation,
+  type Formation,
+} from '@/data/formations';
+import { formatTarifHt, MENTIONS_TVA_EXONERATION_COURTE } from '@/lib/tarifs-sessions';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -21,176 +26,78 @@ export type FormationCatalogueEntry = {
   duree: string;
   effectif: string;
   objectifs: string[];
-  /** Pitch une ligne — catalogue / cartes */
   pitch: string;
-  /** Slug URL fiche (segment final) — UTM intra-devis */
   slug: string;
-  /** Programme officiel PDF */
   programmePdfHref: string;
-  /** Profils « Quelle formation choisir ? » */
-  profileTags: Array<'debutant' | 'appels-offres' | 'conduite-travaux' | 'maitriser-claude' | 'maitrise-oeuvre' | 'claude-skills'>;
-  /** Ligne tableau comparatif */
+  prixHT: number;
+  effectifMin: number;
+  effectifMax: number;
+  profileTags: Array<
+    | 'debutant'
+    | 'appels-offres'
+    | 'conduite-travaux'
+    | 'maitriser-claude'
+    | 'maitrise-oeuvre'
+  >;
   comparatif: {
     publicLabel: string;
     casUsage: string;
   };
 };
 
-/** Six parcours officiels — niveau 1 et niveau 2 (programmes PDF). */
-export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] = [
-  {
-    ref: 'NIV-01',
-    level: 'DÉBUTANT',
-    title: "L'IA au service des pros du bâtiment et des travaux publics",
-    href: '/formations/ia-batiment-travaux-publics',
-    slug: 'ia-batiment-travaux-publics',
-    programmePdfHref: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
-    visuel: PHOTOS.formationNiv01IaBatimentTravauxPublics2026,
-    duree: SESSION_DUREE_LIBELLE,
-    effectif: LIBELLE_EFFECTIF_GROUPE_COURT,
-    pitch: "Niveau 1 : bases opérationnelles pour équipes bâtiment et travaux publics.",
-    profileTags: ['debutant'],
-    objectifs: [
-      'Comprendre les usages de l’IA générative utiles sur chantier et au bureau',
-      'Accélérer devis, comptes rendus, courriers et suivi client',
-      'Structurer l’administratif et repartir avec des prompts adaptés au BTP / TP',
-    ],
+const PHOTO_BY_CODE: Record<string, (typeof PHOTOS)[keyof typeof PHOTOS]> = {
+  'NIV-01': PHOTOS.formationNiv01IaBatimentTravauxPublics2026,
+  'NIV-02': PHOTOS.formationNiv02IaAppelsOffreBtp2026,
+  'NIV-03': PHOTOS.formationNiv03IaConduiteTravaux2026,
+  'NIV-04': PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
+  'NIV-05': PHOTOS.formationNiv05IaMaitriseOeuvre2026,
+};
+
+const PROFILE_TAGS_BY_CODE: Record<
+  string,
+  FormationCatalogueEntry['profileTags']
+> = {
+  'NIV-01': ['debutant'],
+  'NIV-02': ['appels-offres'],
+  'NIV-03': ['conduite-travaux'],
+  'NIV-04': ['maitriser-claude'],
+  'NIV-05': ['maitrise-oeuvre'],
+};
+
+function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
+  const photo = PHOTO_BY_CODE[f.code];
+  if (!photo) {
+    throw new Error(`Visuel catalogue manquant pour ${f.code}`);
+  }
+  return {
+    ref: f.code,
+    level: f.niveau === 1 ? 'DÉBUTANT' : 'AVANCÉ',
+    title: f.titre,
+    href: formationHref(f),
+    slug: f.slug,
+    programmePdfHref: f.pdfProgramme,
+    visuel: photo,
+    duree: libelleDureeFormation(f),
+    effectif: libelleEffectifFormation(f),
+    pitch: f.accroche,
+    objectifs: [...f.objectifs],
+    prixHT: f.prixHT,
+    effectifMin: f.effectifMin,
+    effectifMax: f.effectifMax,
+    profileTags: PROFILE_TAGS_BY_CODE[f.code] ?? [],
     comparatif: {
-      publicLabel: 'Dirigeants, conducteurs de travaux — bâtiment, TP, fonctions support',
-      casUsage: 'Devis, CR, documents, terrain',
+      publicLabel: f.public,
+      casUsage: f.casUsage,
     },
-  },
-  {
-    ref: 'NIV-02',
-    level: 'AVANCÉ',
-    title: "L'IA appliquée aux appels d'offres BTP",
-    href: '/formations/ia-appels-offre-btp',
-    slug: 'ia-appels-offre-btp',
-    programmePdfHref: LINKS.pdfProgrammeFormationAoBtpDetail2026,
-    visuel: PHOTOS.formationNiv02IaAppelsOffreBtp2026,
-    duree: SESSION_DUREE_LIBELLE,
-    effectif: LIBELLE_EFFECTIF_GROUPE_NIV02,
-    pitch:
-      "Niveau 2 : Claude AI Pro, Cowork & Skills — analyse DCE, mémoire technique et assistants IA réutilisables.",
-    profileTags: ['appels-offres'],
-    objectifs: [
-      'Paramétrer Claude AI Pro (Projects, instructions) et installer Cowork sur le poste',
-      'Analyser un DCE complet via Cowork — 15 informations critiques, verdict Go / No Go',
-      'Structurer et rédiger un mémoire technique avec les skills Cowork dédiés',
-      'Créer des skills DCE / MT personnalisés, alimentés par les données de l\'entreprise',
-    ],
-    comparatif: {
-      publicLabel: 'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux, directeurs techniques, bureaux d\'études',
-      casUsage: 'DCE, mémoires techniques, skills Cowork',
-    },
-  },
-  {
-    ref: 'NIV-03',
-    level: 'AVANCÉ',
-    title: "L'IA appliquée à la conduite de travaux",
-    href: LINKS.formationConduiteTravauxSuiviChantier,
-    slug: 'ia-conduite-travaux-suivi-chantier',
-    programmePdfHref: LINKS.pdfProgrammeConduiteTravauxNiv03,
-    visuel: PHOTOS.formationNiv03IaConduiteTravaux2026,
-    duree: SESSION_DUREE_LIBELLE,
-    effectif: '8 participants max',
-    pitch:
-      "Niveau 2 : pilotez vos chantiers avec l'IA — une bibliothèque de 20+ skills Claude, de l'analyse du CCTP à la réception des travaux.",
-    profileTags: ['conduite-travaux'],
-    objectifs: [
-      'Comprendre le fonctionnement des skills Claude et accéder à la bibliothèque de skills BTP mise à disposition',
-      'Préparer et démarrer un chantier avec l\'IA : analyse du CCTP, génération de la DPGF, conformité DTU, DICT, ordre de service, planning',
-      'Sécuriser le chantier (PPSPS, DUERP, SOGED) et le piloter au quotidien : CR, suivi, approvisionnements, sous-traitants, métré, avenants, budget',
-      'Gérer l\'administratif de suivi jusqu\'à la réception : situations, PV de réserves, DOE, litiges',
-    ],
-    comparatif: {
-      publicLabel:
-        'Conducteurs de travaux — chefs de chantier, responsables travaux, assistant(e)s travaux',
-      casUsage:
-        'Analyse CCTP & DPGF, PPSPS, CR, sous-traitants (DC4), PV de réserves, DOE, bibliothèque de skills',
-    },
-  },
-  {
-    ref: 'NIV-04',
-    level: 'AVANCÉ',
-    title: 'Maîtriser Claude AI pour le BTP',
-    href: LINKS.formationMaitriserClaudeAiBtp,
-    slug: 'maitriser-claude-ai-btp',
-    programmePdfHref: LINKS.pdfProgrammeMaitriserClaudeBtpNiv04,
-    visuel: PHOTOS.formationNiv04MaitriserClaudeAiBtp2026,
-    duree: '4 h · matin (9h00 – 13h00)',
-    effectif: '8 participants max',
-    pitch:
-      "Niveau 2 : industrialisez l'IA dans votre entreprise BTP — Projets, Skills, Cowork, connecteurs et Claude Code, sur vos cas réels.",
-    profileTags: ['maitriser-claude'],
-    objectifs: [
-      'Structurer l\'usage de Claude dans l\'entreprise avec les Projets et une bibliothèque de Skills',
-      'Déléguer la production documentaire à Cowork (CR, mémoires, dossiers) en autonomie supervisée',
-      'Connecter Claude à ses outils (Gmail, Drive, agenda) via les connecteurs, en sécurisant les données',
-      'Automatiser des tâches répétitives et générer des documents en lot avec Claude Code',
-      'Fiabiliser, sécuriser et réutiliser ses skills, connecteurs et automatisations Claude',
-    ],
-    comparatif: {
-      publicLabel:
-        'Référents IA, dirigeants, responsables digitaux, chargés d\'affaires et conducteurs de travaux',
-      casUsage: 'Projets Claude, Skills, Cowork, connecteurs (Gmail/Drive), Claude Code, automatisation',
-    },
-  },
-  {
-    ref: 'NIV-05',
-    level: 'AVANCÉ',
-    title: "L'IA au service des maîtres d'œuvre",
-    href: LINKS.formationIaMaitriseOeuvre,
-    slug: 'ia-maitrise-oeuvre',
-    programmePdfHref: LINKS.pdfProgrammeIaMaitriseOeuvre,
-    visuel: PHOTOS.formationNiv05IaMaitriseOeuvre2026,
-    duree: SESSION_DUREE_LIBELLE,
-    effectif: '3 à 8 participants',
-    pitch:
-      "Niveau 2 : IA pour maîtres d'œuvre d'exécution — analyse DCE, CR chantier, OS, courriers et suivi des réserves.",
-    profileTags: ['maitrise-oeuvre'],
-    objectifs: [
-      'Choisir entre Claude et ChatGPT selon le cas d\'usage MOE (Projets, Connecteurs, Skills, Cowork)',
-      'Analyser un DCE (CCTP, bordereau) et extraire conformité et alertes contractuelles',
-      'Rédiger un compte rendu de chantier en moins de 10 minutes à partir de notes vocales',
-      'Produire courriers, ordres de service et actes administratifs conformes',
-      'Organiser le suivi des réserves, la réception et le suivi client avec un assistant IA',
-    ],
-    comparatif: {
-      publicLabel:
-        'Maîtres d\'œuvre d\'exécution (MOEX), conducteurs de travaux, OPC, BET, assistant(e)s gestion travaux',
-      casUsage: 'Analyse DCE, CR chantier, OS, courriers MOE, réserves et réception',
-    },
-  },
-  {
-    ref: 'NIV-06',
-    level: 'AVANCÉ',
-    title: 'Claude IA pour le BTP : Chat, Cowork & Code',
-    href: LINKS.formationClaudeIaBtpFiche,
-    slug: 'formation-claude-ia-btp',
-    programmePdfHref: LINKS.pdfProgrammeFormationClaudeIaBtp,
-    visuel: PHOTOS.formationClaudeIaChatCoworkCodeSkillsBtp2026,
-    duree: SESSION_DUREE_MATIN_NIV04,
-    effectif: '8 participants max',
-    pitch:
-      "Skills sur-mesure — administratif, appels d'offres, chantier et juridique avec Claude Chat, Cowork & Code.",
-    profileTags: ['claude-skills'],
-    objectifs: [
-      'Utiliser Claude Chat, Cowork et Code et installer des skills adaptés à votre métier BTP',
-      'Analyser un appel d\'offres (RC, DCE/DQE) pour décider et sécuriser le chiffrage',
-      'Préparer et suivre un chantier : CCTP, CR, levée des réserves, normes/hors-gel',
-      'Qualifier un litige de marché de travaux et produire les écrits — l\'IA n\'est pas un avocat',
-    ],
-    comparatif: {
-      publicLabel:
-        'Direction, bureau d\'études, conducteurs de travaux, chefs de chantier, administratif',
-      casUsage: 'Skills Claude, RC/DCE, CCTP, CR, réserves, juridique marché de travaux',
-    },
-  },
-];
+  };
+}
+
+/** Cinq parcours officiels — dérivés de FORMATIONS (Claude = NIV-04 unique). */
+export const FORMATIONS_CATALOGUE: FormationCatalogueEntry[] =
+  FORMATIONS.map(toCatalogueEntry);
 
 /** Nombre de parcours catalogue — source unique pour copy SEO et JSON-LD. */
-export const CATALOGUE_FORMATIONS_COUNT = FORMATIONS_CATALOGUE.length;
+export const CATALOGUE_FORMATIONS_COUNT = FORMATIONS_COUNT;
 
 export function getFormationCatalogueByRef(ref: string): FormationCatalogueEntry | undefined {
   return FORMATIONS_CATALOGUE.find((e) => e.ref === ref);
@@ -207,11 +114,12 @@ export function getFormationCatalogueVisuel(ref: string) {
 
 /** Niveau pédagogique affiché (sans code NIV-XX). */
 export function catalogueNiveauLabel(ref: string): 'Niveau 1' | 'Niveau 2' {
-  return ref === 'NIV-01' ? 'Niveau 1' : 'Niveau 2';
+  const f = getFormationByCode(ref);
+  return f?.niveau === 1 ? 'Niveau 1' : 'Niveau 2';
 }
 
 export function isCatalogueNiveau1(ref: string): boolean {
-  return ref === 'NIV-01';
+  return getFormationByCode(ref)?.niveau === 1;
 }
 
 /** Ligne hero / carte : « Niveau 1 · Débutant » ou « Niveau 2 · Avancé ». */
@@ -251,14 +159,19 @@ export function sortFormationsCatalogue(
 }
 
 export function tarifLabel(level: CatalogueLevel): string {
-  return libelleTarifParticipant(level);
+  const entry =
+    FORMATIONS_CATALOGUE.find((e) =>
+      level === 'DÉBUTANT' ? e.level === 'DÉBUTANT' : e.level === 'AVANCÉ'
+    ) ?? FORMATIONS_CATALOGUE[0];
+  return libelleTarifPourEntry(entry);
+}
+
+function libelleTarifPourEntry(entry: FormationCatalogueEntry): string {
+  const n = formatTarifHt(entry.prixHT);
+  return `${n} € HT / session forfaitaire (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_EXONERATION_COURTE}`;
 }
 
 /** Libellé tarif carte catalogue */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
-  const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(entry.level));
-  if (entry.effectif !== LIBELLE_EFFECTIF_GROUPE_COURT) {
-    return `${n} € HT / session`;
-  }
-  return libelleTarifParticipant(entry.level);
+  return `${formatTarifHt(entry.prixHT)} € HT / session`;
 }

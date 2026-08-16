@@ -1,4 +1,4 @@
-export type LessonType = 'video' | 'pdf' | 'texte' | 'quiz';
+export type LessonType = 'video' | 'pdf' | 'texte' | 'quiz' | 'lien';
 
 export type UserRole = 'apprenant' | 'formateur' | 'admin';
 

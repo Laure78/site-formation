@@ -9,6 +9,14 @@ import {
 } from '@/lib/formations-catalogue-display';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 
+function iconForRef(ref: string) {
+  if (ref === 'NIV-01') return BookOpen;
+  if (ref === 'NIV-02') return Trophy;
+  if (ref === 'NIV-03') return HardHat;
+  if (ref === 'NIV-05') return Landmark;
+  return Cpu;
+}
+
 export function FormationsWhyMotifs() {
   return (
     <section className="mt-16 rounded-2xl border border-[#E2E8F0] bg-white p-5 md:p-10">
@@ -26,16 +34,7 @@ export function FormationsWhyMotifs() {
       </p>
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {FORMATIONS_CATALOGUE.map((entry) => {
-          const Icon =
-            entry.ref === 'NIV-01'
-              ? BookOpen
-              : entry.ref === 'NIV-02'
-                ? Trophy
-                : entry.ref === 'NIV-03'
-                  ? HardHat
-                  : entry.ref === 'NIV-05'
-                    ? Landmark
-                    : Cpu;
+          const Icon = iconForRef(entry.ref);
           const isDebutant = isCatalogueNiveau1(entry.ref);
           return (
             <div key={entry.ref} className={`${OFC_CARD} flex flex-col p-6 md:p-7`}>
@@ -52,18 +51,11 @@ export function FormationsWhyMotifs() {
                 </Link>
               </h3>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-[#475569] md:text-[0.9375rem]">
-                {entry.ref === 'NIV-01'
-                  ? 'Démarrer avec l\u2019IA : bâtiment & travaux publics'
-                  : entry.ref === 'NIV-02'
-                    ? 'DCE, mémoire technique, Cowork & Skills'
-                    : entry.ref === 'NIV-03'
-                      ? 'CCTP, CR, PPSPS, réception — skills Claude chantier'
-                      : entry.ref === 'NIV-05'
-                        ? 'DCE, CR chantier, OS, courriers MOE et réserves'
-                        : 'Projets, Cowork, connecteurs, Claude Code — matin 9h–13h'}
+                {entry.pitch}
               </p>
               <CataloguePriceBadge
                 level={entry.level}
+                prixHT={entry.prixHT}
                 variant="banner"
                 className="mt-5"
               />

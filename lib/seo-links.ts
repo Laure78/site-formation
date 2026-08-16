@@ -69,11 +69,6 @@ export const INTERNAL_LINKS = {
       'formation DCE',
       'assistant IA mémoire technique BTP',
       'parcours LMS appels d\'offres',
-    ],
-  },
-  formationIaCctpAnalyseDce: {
-    path: LINKS.formationIaCctpAnalyseDceBtp,
-    anchors: [
       'formation IA CCTP analyse DCE',
       'formation analyse CCTP et DCE BTP',
       'se former à l\'analyse CCTP avec l\'IA',

@@ -47,7 +47,7 @@ export function SatisfactionSurvey({ courseId, courseTitle, onSubmitted }: Props
       <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
         <p className="font-semibold text-emerald-800">Merci pour votre évaluation !</p>
         <p className="mt-1 text-sm text-emerald-700">
-          Votre retour nous aide à améliorer nos formations.
+          Votre retour m&apos;aide à améliorer mes formations.
         </p>
       </div>
     );

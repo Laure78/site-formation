@@ -302,8 +302,7 @@ export default async function BlogArticlePage({ params }: Props) {
             title="Prêt à vous former à l'IA ?"
             description="Réservez un échange de 30 minutes gratuit pour découvrir comment l'IA peut faire gagner du temps à votre entreprise du BTP."
             primaryLabel="Prendre rendez-vous"
-            primaryHref={CALENDLY_BOOKING_URL}
-            primaryCalendlyCampaign={`blog-article-${slug}-cta-block-early`}
+            primaryHref={LINKS.prendreRdv}
             secondaryLabel="Découvrir les formations"
             secondaryHref="/formations"
           />
@@ -493,7 +492,7 @@ export default async function BlogArticlePage({ params }: Props) {
               Articles associés — à lire aussi
             </h2>
             <p className="mt-2 text-sm text-slate-600">
-              Continuez à explorer nos ressources sur l&apos;IA pour le BTP.
+              Continuez à explorer mes ressources sur l&apos;IA pour le BTP.
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((a) => (
@@ -521,7 +520,7 @@ export default async function BlogArticlePage({ params }: Props) {
             Guides pratiques
           </h2>
           <p className="mt-2 text-sm text-slate-600">
-            Découvrez nos guides dédiés à l&apos;IA pour le BTP :
+            Découvrez mes guides dédiés à l&apos;IA pour le BTP :
           </p>
           <ul className="mt-4 flex flex-wrap gap-4">
             <li>

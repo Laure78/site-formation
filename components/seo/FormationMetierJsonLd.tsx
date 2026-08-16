@@ -19,19 +19,24 @@ import {
   SCHEMA_CONTACT,
   SCHEMA_GEO,
   SCHEMA_LINKEDIN_PROFILE_URL,
+  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PUBLIC_SITE_URL,
   schemaLogoUrl,
 } from '@/lib/schema-constants';
 import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
-import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import {
   FORMATION_COURSE_MODE_ONSITE,
   buildFormationCourseAreaServed,
   buildFormationCourseIdfPlace,
   buildFormationCourseInstances,
 } from '@/lib/schema-formation-course-jsonld';
+import {
+  formationHref,
+  getFormationByCode,
+} from '@/data/formations';
+import type { CatalogueProgrammeRef } from '@/components/qualiopi/RenvoiFicheCatalogue';
 
 export type FormationMetierFaqItem = {
   question: string;
@@ -63,6 +68,11 @@ type Props = {
   faqItems?: FormationMetierFaqItem[];
   /** id HTML du <script> (utile si plusieurs blocs sur une même page). */
   scriptId?: string;
+  /**
+   * Si fourni : le nœud Course (name, description, url, offers) est aligné sur
+   * la fiche catalogue — évite un name local + tarif NIV-01 contradictoires.
+   */
+  catalogueProgrammeRef?: CatalogueProgrammeRef;
 };
 
 const SITE_BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
@@ -99,8 +109,8 @@ function buildOrganizationNode() {
   return {
     '@type': ['Organization', 'EducationalOrganization'],
     '@id': ORGANIZATION_ID,
-    name: "OFC Création d'Entreprise",
-    legalName: "OFC Création d'Entreprise SASU",
+    name: SCHEMA_ORGANIZATION_OFC.name,
+    legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
     url: SITE_BASE,
     logo: {
       '@type': 'ImageObject',
@@ -210,7 +220,6 @@ function buildCourseNode(params: {
     isAccessibleForFree: false,
     creditsAwarded: QUALIOPI_CERTIFICAT_REALISATION,
     timeRequired: duration,
-    aggregateRating: buildSchemaAggregateRating(),
     offers: {
       '@type': 'Offer',
       price: String(price),
@@ -259,14 +268,43 @@ export function FormationMetierJsonLd({
   teaches,
   faqItems,
   scriptId,
+  catalogueProgrammeRef,
 }: Props) {
   const pageUrl = absoluteUrl(path);
+  const catalogue = catalogueProgrammeRef
+    ? getFormationByCode(catalogueProgrammeRef)
+    : undefined;
+  if (catalogueProgrammeRef && !catalogue) {
+    throw new Error(
+      `[FormationMetierJsonLd] Formation catalogue introuvable : ${catalogueProgrammeRef}`,
+    );
+  }
+  const courseUrl = catalogue ? absoluteUrl(formationHref(catalogue)) : pageUrl;
+  const courseOfficialName = catalogue?.titre ?? courseName;
+  const courseOfficialDescription = catalogue?.accroche ?? courseDescription;
+  const courseOfficialPrice = catalogue?.prixHT ?? price;
+  const courseOfficialLevel =
+    catalogue?.niveau === 1 ? 'Beginner' : catalogue ? 'Advanced' : level;
 
   const graph: object[] = [
     buildOrganizationNode(),
     buildPersonLaureNode(),
-    buildServiceNode({ pageUrl, metierLabel, courseName, courseDescription, price }),
-    buildCourseNode({ pageUrl, courseName, courseDescription, duration, price, level, teaches }),
+    buildServiceNode({
+      pageUrl,
+      metierLabel,
+      courseName,
+      courseDescription,
+      price: courseOfficialPrice,
+    }),
+    buildCourseNode({
+      pageUrl: courseUrl,
+      courseName: courseOfficialName,
+      courseDescription: courseOfficialDescription,
+      duration,
+      price: courseOfficialPrice,
+      level: courseOfficialLevel,
+      teaches: teaches ?? catalogue?.objectifs,
+    }),
   ];
 
   if (faqItems && faqItems.length >= 3) {

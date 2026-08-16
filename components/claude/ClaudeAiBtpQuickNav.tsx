@@ -7,8 +7,9 @@ const SECTIONS = [
   { id: 'en-bref', label: 'En bref' },
   { id: 'tableau-interfaces', label: '5 interfaces' },
   { id: 'prompts', label: 'Prompts' },
-  { id: 'tutoriel-skill-claude-btp', label: 'Tutoriel skill' },
-  { id: 'gains-temps', label: 'Gains' },
+  { id: 'claude-ai-batiment', label: 'Bâtiment' },
+  { id: 'claude-ai-travaux-publics', label: 'Travaux publics' },
+  { id: 'fiches-formation-claude', label: 'Formations' },
   { id: 'faq-claude', label: 'FAQ' },
 ] as const;
 

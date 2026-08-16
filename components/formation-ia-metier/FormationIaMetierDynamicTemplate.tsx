@@ -6,8 +6,8 @@ import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import type { FormationIaMetierDynamicConfig } from '@/lib/formation-ia-metier-dynamic-types';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
-import { VoirAussi } from '@/components/VoirAussi';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { PreuveSociale } from '@/components/PreuveSociale';
 
 function SectionCtaVisio({ className = '' }: { className?: string }) {
   return (
@@ -53,6 +53,7 @@ export function FormationIaMetierDynamicTemplate({
           <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             Formation IA pour {config.h1MetierPluriel} — Gagnez du temps sur devis, admin et chantier
           </h1>
+          <PreuveSociale className="mt-6" />
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             Sessions en présentiel en Île-de-France — {config.heroIntro}{' '}
             <strong className="font-semibold text-slate-800">
@@ -251,7 +252,7 @@ export function FormationIaMetierDynamicTemplate({
       </section>
 
       <div className="mx-auto max-w-4xl px-4 pb-14">
-        <VoirAussi {...voirAussiMetierProps({ currentPath: config.path })} />
+        <LiensConnexes currentPath={config.path} />
       </div>
     </div>
   );

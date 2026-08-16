@@ -9,6 +9,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { StatCallout } from '@/components/readability/StatCallout';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { Citation } from '@/components/readability/Citation';
 import type { FAQItem } from '@/lib/faq';
 import { LINKS } from '@/lib/internal-links';
@@ -117,9 +118,6 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
   });
 
   const courseJson = buildFormationIaCourseJsonLd({
-    name: config.courseName,
-    description: config.courseDescription,
-    path: config.path,
     areaServed: config.areaServedCourse,
   });
 
@@ -188,6 +186,7 @@ export function FormationIaBtpDepartementLanding({ config }: { config: Formation
               freshnessLabel={statsFreshness}
             />
           </div>
+          <IndicateursResultatsLink className="mt-3 text-left" />
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-[#F2F2F2] px-4 py-2 text-base text-slate-700">
             <MapPin size={16} className="text-[#377CF3]" aria-hidden />
             Siège : Guyancourt (78) — interventions {locatif} ({config.deptCode})

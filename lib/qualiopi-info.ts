@@ -2,38 +2,39 @@
  * Textes et données Qualiopi — source unique (indicateur 1, footer, pages légales).
  */
 
+import { CONTACT } from '@/lib/constants';
 import {
   QUALIOPI_ACCESSIBILITE_EXACT,
   QUALIOPI_CERTIFICAT_REALISATION,
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_FICHE_META,
+  QUALIOPI_MODALITES_ACCES_EXACT,
 } from '@/config/qualiopi';
+import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
-  COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
-  EFFECTIF_GROUPE_MAX,
-  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
+  MENTIONS_TVA_EXONERATION_COURTE,
   MODALITE_FORMATIONS_PRESENTIEL,
-  SESSION_DUREE_LIBELLE,
-  TARIF_SESSION_AVANCE_HT,
-  TARIF_SESSION_DEBUTANT_HT,
+  PREREQUIS_NIVEAU_2,
   formatTarifHt,
-  type NiveauTarif,
 } from '@/lib/tarifs-sessions';
 import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
 } from '@/lib/formations-catalogue-display';
 
+/** Identité juridique OFC — réexport (définition : `lib/ofc-identite.ts`). */
+export { OFC_IDENTITE } from '@/lib/ofc-identite';
+
 export const QUALIOPI_PROGRAMME_LAST_UPDATED = QUALIOPI_FICHE_META.updatedAt;
 export const QUALIOPI_FICHE_VERSION = QUALIOPI_FICHE_META.version;
 
 export const QUALIOPI_LEGAL = {
-  raisonSociale: "OFC Création d'Entreprise",
-  formeJuridique: 'SASU',
-  siret: SCHEMA_CONTACT.siretFormatted,
-  nda: SCHEMA_CONTACT.nda,
+  raisonSociale: OFC_IDENTITE.raisonSociale,
+  formeJuridique: OFC_IDENTITE.formeJuridique,
+  siret: OFC_IDENTITE.siret,
+  nda: OFC_IDENTITE.nda,
   ndaExactMention:
     "Enregistré sous le numéro 11788515078 auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de l'État.",
   qualiopiCategoryMention:
@@ -53,7 +54,7 @@ export const QUALIOPI_LEGAL = {
  * Source unique : `QUALIOPI_LEGAL` + `SCHEMA_CONTACT` (pas de hardcode SIRET / n° certificat).
  */
 export function buildQualiopiCredentialSchema(): Record<string, unknown> {
-  const siren = SCHEMA_CONTACT.siretDigits.slice(0, 9);
+  const siren = OFC_IDENTITE.siren;
   return {
     '@type': 'EducationalOccupationalCredential',
     name: 'Certification Qualiopi — actions de formation',
@@ -72,12 +73,12 @@ export function buildQualiopiCredentialSchema(): Record<string, unknown> {
 export const QUALIOPI_REFERENT_HANDICAP = {
   nom: 'Laure Olivié',
   role: 'Référente handicap',
-  email: 'laureolivie@yahoo.fr',
-  telephone: '06 95 66 18 18',
-  telephoneTel: '+33695661818',
+  email: CONTACT.email,
+  telephone: CONTACT.phoneDisplay,
+  telephoneTel: CONTACT.phone,
 } as const;
 
-export const QUALIOPI_MODALITES_ACCES = QUALIOPI_DELAI_ACCES_EXACT;
+export const QUALIOPI_MODALITES_ACCES = `${QUALIOPI_MODALITES_ACCES_EXACT} ${QUALIOPI_DELAI_ACCES_EXACT}`;
 
 export const QUALIOPI_METHODES_STANDARD = [
   `Formation animée en présentiel par une formatrice experte IA × BTP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
@@ -107,8 +108,7 @@ export const QUALIOPI_MEDIATION_CM2C = {
   adresse: '49 rue de Ponthieu, 75008 Paris',
   siteUrl: 'https://www.cm2c.net',
   siteLabel: 'www.cm2c.net',
-  conditionPrealable:
-    "La médiation ne peut être saisie qu'après une réclamation écrite préalable auprès d'OFC restée sans réponse satisfaisante sous 15 jours ouvrés.",
+  conditionPrealable: `La médiation ne peut être saisie qu'après une réclamation écrite préalable auprès d'OFC restée sans réponse satisfaisante sous ${QUALIOPI_RECLAMATIONS.delaiReponse}.`,
   precisionLitiges:
     'La médiation de la consommation concerne les clients particuliers ; pour les litiges entre professionnels, règlement amiable puis juridictions compétentes selon les CGV.',
 } as const;
@@ -131,40 +131,31 @@ export type InfosQualiopiProps = {
 };
 
 function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
-  if (entry.ref === 'NIV-02' || entry.ref === 'NIV-03' || entry.ref === 'NIV-04' || entry.ref === 'NIV-05') {
-    return [
-      'Maîtrise de l\'outil informatique et des usages bureautiques courants.',
-      EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
-      'Pour NIV-03 : niveau 1 IA BTP recommandé ou expérience équivalente sur les usages IA chantier.',
-    ];
-  }
-  if (entry.ref === 'NIV-06') {
-    return [
-      'Maîtrise de l\'outil informatique. Expérience terrain BTP (chantier, appels d\'offres ou administratif).',
-      EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
-    ];
+  if (
+    entry.ref === 'NIV-02' ||
+    entry.ref === 'NIV-03' ||
+    entry.ref === 'NIV-04' ||
+    entry.ref === 'NIV-05'
+  ) {
+    return [...PREREQUIS_NIVEAU_2];
   }
   return [
     'Aucune compétence technique en IA requise.',
-    `Ordinateur portable et connexion internet. ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT}`,
+    `Ordinateur portable et connexion internet. Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit.`,
   ];
 }
 
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
-  const niveau: NiveauTarif = entry.level === 'DÉBUTANT' ? 'debutant' : 'avance';
-  const montant = niveau === 'debutant' ? TARIF_SESSION_DEBUTANT_HT : TARIF_SESSION_AVANCE_HT;
-  const inter = `${formatTarifHt(montant)} € HT / session en inter-entreprise (${entry.effectif.toLowerCase()}).`;
-  const intra =
-    entry.ref === 'NIV-06'
-      ? 'Intra-entreprise : sur devis (demande de devis par email ou formulaire de contact).'
-      : `Intra-entreprise : sur devis — forfait session selon effectif et lieu (${entry.effectif.toLowerCase()}).`;
+  const montant = entry.prixHT;
+  const inter = `${formatTarifHt(montant)} € HT / session forfaitaire en inter-entreprise (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
+  const intra = `Intra-entreprise : forfait ${formatTarifHt(montant)} € HT / session selon effectif et lieu (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
   return { inter, intra };
 }
 
 export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
   const entry = FORMATIONS_CATALOGUE.find((f) => f.ref === ref);
   if (!entry) {
-    return buildLandingInfosQualiopiProps('Formation IA BTP');
+    throw new Error(`[getInfosQualiopiForCatalogue] Référence catalogue inconnue : ${ref}`);
   }
   const tarifs = tarifsPourCatalogue(entry);
   return {
@@ -185,28 +176,9 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
   };
 }
 
-export function buildLandingInfosQualiopiProps(formationTitle: string): InfosQualiopiProps {
-  const entry = FORMATIONS_CATALOGUE[0];
-  const tarifs = tarifsPourCatalogue(entry);
-  return {
-    formationTitle,
-    programmeRef: 'NIV-01 (programme catalogue de référence)',
-    prerequis: prerequisPourCatalogue(entry),
-    objectifs: entry.objectifs,
-    duree: SESSION_DUREE_LIBELLE,
-    dureeJours: '0,5 jour (session unique)',
-    modalitesAcces: QUALIOPI_MODALITES_ACCES,
-    tarifInter: `${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session en inter-entreprise (max ${EFFECTIF_GROUPE_MAX} participants). Niveau avancé : ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session.`,
-    tarifIntra: tarifs.intra,
-    methodes: QUALIOPI_METHODES_STANDARD,
-    evaluation: QUALIOPI_EVALUATION_STANDARD,
-    handicap: QUALIOPI_HANDICAP_STANDARD,
-    lastUpdated: QUALIOPI_PROGRAMME_LAST_UPDATED,
-    version: QUALIOPI_FICHE_VERSION,
-  };
-}
-
 export const QUALIOPI_CONTACTS = {
+  nom: 'Laure Olivié',
+  fonction: 'Présidente et référente pédagogique, administrative et handicap',
   email: SCHEMA_CONTACT.email,
   telephone: QUALIOPI_REFERENT_HANDICAP.telephone,
   telephoneTel: QUALIOPI_REFERENT_HANDICAP.telephoneTel,

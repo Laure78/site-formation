@@ -18,6 +18,7 @@ import {
   catalogueNiveauEtLevel,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
+import { MentionFinancement } from '@/components/MentionFinancement';
 
 const POURQUOI = [
   '10+ ans terrain (conductrice de travaux, dirigeante BTP)',
@@ -34,7 +35,7 @@ const POUR_QUI = [
 ] as const;
 
 /**
- * Accueil : catalogue OFC (6 formations) en priorité, puis encart BeWork compact
+ * Accueil : catalogue OFC (5 formations) en priorité, puis encart BeWork compact
  * (service distinct, non éligible OPCO — voir QUALIOPI_BEWORK_DISTINCTION).
  */
 export function BeworkEtFormationsOffreSection() {
@@ -45,7 +46,7 @@ export function BeworkEtFormationsOffreSection() {
       className={OFC_SEC.mutedMesh}
     >
       <div className="mx-auto max-w-7xl space-y-12 md:space-y-14">
-        {/* Catalogue OFC — 6 fiches, ancre #offre-formations */}
+        {/* Catalogue OFC — 5 fiches (Claude = NIV-04 unique), ancre #offre-formations */}
         <div id="offre-formations" className="scroll-mt-28">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -55,11 +56,12 @@ export function BeworkEtFormationsOffreSection() {
               id="offre-formations-title"
               className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
             >
-              Nos formations IA pour le BTP et la construction
+              Mes formations IA pour le BTP et la construction
             </h2>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
               Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
-              bâtiment et de la construction. Financement possible selon éligibilité.
+              bâtiment et de la construction.{' '}
+              <MentionFinancement variant="court" withLink={false} />.
             </p>
             <CatalogueTarifStrip className="mt-5" />
           </Reveal>
@@ -85,7 +87,7 @@ export function BeworkEtFormationsOffreSection() {
                       className="object-contain object-center"
                       sizes="(max-width: 640px) 200px, 240px"
                     />
-                    <CataloguePriceBadge level={cours.level} variant="overlay" />
+                    <CataloguePriceBadge level={cours.level} prixHT={cours.prixHT} variant="overlay" />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
@@ -98,7 +100,7 @@ export function BeworkEtFormationsOffreSection() {
                     </span>
                   </div>
                   <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{cours.title}</h3>
-                  <CataloguePriceBadge level={cours.level} variant="banner" className="mt-4" />
+                  <CataloguePriceBadge level={cours.level} prixHT={cours.prixHT} variant="banner" className="mt-4" />
                   <div className="mt-3 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
                     <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
                       <Clock size={16} strokeWidth={1.5} aria-hidden />

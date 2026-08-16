@@ -48,8 +48,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
         href: LINKS.guideChargeAffairesOfc,
       },
       { label: 'Bibliothèque skills — analyse DCE, mémoire, conformité (.skill / .md)', href: LINKS.bibliothequeSkills },
-      { label: 'Landing — analyse CCTP / DCE', href: LINKS.formationIaAnalyseCctp },
-      { label: 'Fiche formation — IA CCTP & analyse DCE', href: LINKS.formationIaCctpAnalyseDceBtp },
+      { label: 'Fiche formation — IA appels d’offres BTP (NIV-02)', href: LINKS.formationAO },
     ],
     articles: [
       { label: 'Guide — répondre aux AO BTP avec l’IA (5 étapes)', href: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026 },
@@ -121,8 +120,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: 'Bibliothèque skills Claude BTP — 21 téléchargements', href: LINKS.bibliothequeSkills },
       { label: 'Comparatif et usages — outils IA BTP', href: LINKS.outilsIaBtp },
       { label: 'Lead magnet — pack 3 skills Claude (texte)', href: LINKS.downloadClaudeSkillsBtp },
-      { label: 'Formation SEO — Claude AI bâtiment', href: LINKS.formationClaudeAiBatiment },
-      { label: 'Formation SEO — Claude AI travaux publics', href: LINKS.formationClaudeAiTravauxPublics },
+      { label: 'Formation — Maîtriser Claude AI pour le BTP', href: LINKS.formationMaitriserClaudeAiBtp },
     ],
     articles: [
       {

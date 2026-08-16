@@ -9,6 +9,7 @@ import { createPageMetadata, getFAQSchema } from '@/lib/seo';
 import { JsonLd } from '@/components/JsonLd';
 import { DEVIS_GAIN_TEMPS_LIBELLE } from '@/lib/gains-temps-copy';
 import { LINKS } from '@/lib/internal-links';
+import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -181,7 +182,7 @@ export default function IADevisBatimentPage() {
           <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
             automatiser devis bâtiment
           </Link>
-          {' '}et structurer un premier devis en moins d&apos;une heure (vs demi-journée selon complexité). Descriptifs techniques, chiffrages, variantes : documents plus homogènes d&apos;un chantier à l&apos;autre. Découvrez notre{' '}
+          {' '}et structurer un premier devis en moins d&apos;une heure (vs demi-journée selon complexité). Descriptifs techniques, chiffrages, variantes : documents plus homogènes d&apos;un chantier à l&apos;autre. Découvrez ma{' '}
           <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour le BTP
           </Link>
@@ -246,7 +247,7 @@ export default function IADevisBatimentPage() {
             <Link href={LINKS.formationParis} className="text-[var(--accent)] font-medium hover:underline">
               utiliser ChatGPT dans le BTP
             </Link>
-            , notre formation pratique vous donne les trames prêtes à l&apos;emploi.
+            , ma formation pratique vous donne les trames prêtes à l&apos;emploi.
           </p>
           <p className="mt-6 text-slate-600 leading-relaxed">
             Sur les moteurs comme Google, les requêtes{' '}
@@ -282,7 +283,7 @@ export default function IADevisBatimentPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             <strong className="text-slate-800">Méthode.</strong> Copiez le prompt dans une nouvelle
-            conversation, complétez les éléments entre crochets si nous en avons laissés, puis imposez
+            conversation, complétez les éléments entre crochets si j&apos;en ai laissés, puis imposez
             le format souhaité : tableau pour séparer fournitures et main d&apos;œuvre, TVA à 10 % pour
             une rénovation éligible, mentions de validité et de paiement. Relisez systématiquement : une
             bonne pratique pour le <strong className="text-slate-800">devis intelligent bâtiment</strong>{' '}
@@ -532,7 +533,8 @@ export default function IADevisBatimentPage() {
           </h2>
           <p className="mt-4 text-blue-100">
             Module dédié dans la formation « L&apos;IA au service du bâtiment » : session 4 h de pratique sur
-            vos vrais devis. Forfait selon niveau — financement possible selon éligibilité.
+            vos vrais devis. Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT — financement
+            possible selon éligibilité.
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <Link

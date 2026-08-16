@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types';
 import { CitationSentence } from '@/components/seo/CitationSentence';
 import { CTAInline } from '@/components/blog/CTAInline';
+import { EnBref } from '@/app/components/EnBref';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 const proseH2 =
@@ -52,5 +53,6 @@ export function getBlogMdxComponents(): MDXComponents {
       ) : null,
     CitationSentence,
     CTAInline,
+    EnBref,
   };
 }

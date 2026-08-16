@@ -4,9 +4,12 @@ import { LONGJUMEAU } from '@/lib/formation-cities';
 import { FAQ_FORMATION_VILLE } from '@/lib/faq';
 import { createPageMetadata, getCourseSchema, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { formationHref, getFormationByCode } from '@/data/formations';
 
 export const revalidate = 3600;
 // ISR : HTML mis en cache au edge et revalidé toutes les heures (3600 s)
+
+const CATALOGUE_NIV01 = getFormationByCode('NIV-01')!;
 
 export const metadata = createPageMetadata({
   title: 'Formation IA Longjumeau (91) — ChatGPT',
@@ -25,11 +28,11 @@ export const metadata = createPageMetadata({
 });
 
 const courseSchema = getCourseSchema({
-  name: 'Formation IA pour le BTP à Longjumeau',
-  description:
-    "Formation IA pour entreprises du BTP à Longjumeau et en Essonne (91). Devis, emails, appels d'offres, administratif. Qualiopi · Constructys · Île-de-France.",
-  path: '/formations/ia-btp-longjumeau',
+  name: CATALOGUE_NIV01.titre,
+  description: CATALOGUE_NIV01.accroche,
+  path: formationHref(CATALOGUE_NIV01),
   providerName: SITE_CONFIG.legalName,
+  courseCode: CATALOGUE_NIV01.code,
   areaServed: LONGJUMEAU.areaServed,
 });
 

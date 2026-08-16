@@ -1,4 +1,4 @@
-# Seed — Claude IA PDF BTP (Chat, Cowork & Code)
+# Seed — Maîtriser Claude AI pour le BTP (PDF BTP)
 
 Crée la formation LMS **PDF BTP** sur la plateforme (`/admin/formations` + `/espace-apprenant`).
 
@@ -7,7 +7,7 @@ Crée la formation LMS **PDF BTP** sur la plateforme (`/admin/formations` + `/es
 | Élément | Valeur |
 |--------|--------|
 | **Slug** | `pdf-btp-claude-skills` |
-| **Titre** | Claude IA pour le BTP : Chat, Cowork & Code — PDF BTP |
+| **Titre** | Maîtriser Claude AI pour le BTP — Chat, Cowork & Code — PDF BTP |
 | **Durée** | 4 h |
 | **Support PDF** | `/formations/pdf-btp-claude-skills/Support_Claude_IA_PDF_BTP_Chat_Cowork_Code.pdf` |
 

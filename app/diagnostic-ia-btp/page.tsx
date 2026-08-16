@@ -73,7 +73,7 @@ export default function DiagnosticIABTPPage() {
               où passez-vous le plus de temps ?
             </li>
             <li>
-              <strong>Votre niveau de maturité IA</strong> : utilisez-vous déjà ChatGPT, Claude, Gemini ? À quelle
+              <strong>Votre niveau de maturité IA</strong> : utilisez-vous déjà Claude AI ou ChatGPT ? À quelle
               fréquence ?
             </li>
             <li>

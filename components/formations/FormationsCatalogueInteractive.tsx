@@ -23,11 +23,12 @@ import {
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
+import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
-type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe' | 'claude-skills';
+type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe';
 
 const PROFILE_ICONS = {
   'NIV-01': BookOpen,
@@ -35,7 +36,6 @@ const PROFILE_ICONS = {
   'NIV-03': HardHat,
   'NIV-04': Cpu,
   'NIV-05': Landmark,
-  'NIV-06': Cpu,
 } as const;
 
 const PROFILE_IDS: Record<string, ProfileId> = {
@@ -44,7 +44,6 @@ const PROFILE_IDS: Record<string, ProfileId> = {
   'NIV-03': 'conduite',
   'NIV-04': 'claude',
   'NIV-05': 'moe',
-  'NIV-06': 'claude-skills',
 };
 
 const PROFILES = FORMATIONS_CATALOGUE.map((entry) => ({
@@ -100,6 +99,7 @@ function FormationCard({
           </span>
           <CataloguePriceBadge
             level={cours.level}
+            prixHT={cours.prixHT}
             variant="overlay"
           />
         </div>
@@ -116,6 +116,7 @@ function FormationCard({
         <p className="mt-2 text-base italic leading-snug text-[#475569]">{cours.pitch}</p>
         <CataloguePriceBadge
           level={cours.level}
+          prixHT={cours.prixHT}
           variant="banner"
           className="mt-4"
         />
@@ -242,7 +243,7 @@ export function FormationsCatalogueInteractive({
             vous correspond.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {PROFILES.map((p) => {
             const Icon = p.icon;
             const isActive = activeProfile === p.id;
@@ -276,10 +277,8 @@ export function FormationsCatalogueInteractive({
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex rounded-full bg-[#D1FAE5] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#047857]">
-              Niveau 1 · {formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT / session
-            </span>
-            <span className="inline-flex rounded-full bg-[#FED7AA] px-4 py-2 text-[13px] font-bold uppercase tracking-widest text-[#C2410C]">
-              Niveau 2 · {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT / session
+              Forfait {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session
+              <MentionTvaAsterisque />
             </span>
           </div>
         </div>

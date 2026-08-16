@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { Mail, Globe, Map, MapPin, GraduationCap } from 'lucide-react';
+import { Mail, Globe, Map, MapPin, GraduationCap, Phone } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import { CONTACT } from '@/lib/constants';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
@@ -21,6 +22,8 @@ import {
 import { FooterExploreStrip } from '@/components/layout/FooterExploreStrip';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { ReferentHandicapBlock } from '@/components/formation/ReferentHandicapBlock';
+
+const PHONE_ARIA_LABEL = `Appeler Laure Olivié au ${CONTACT.phoneDisplay}`;
 
 function isExternalHref(href: string): boolean {
   return /^https?:\/\//i.test(href);
@@ -124,14 +127,22 @@ export function Footer() {
                 data-no-cfemail
                 className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
               >
-                <Mail size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
+                <Mail size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" aria-hidden />
                 {SCHEMA_CONTACT.email}
+              </a>
+              <a
+                href={`tel:${CONTACT.phone}`}
+                aria-label={PHONE_ARIA_LABEL}
+                className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
+              >
+                <Phone size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" aria-hidden />
+                {CONTACT.phoneDisplay}
               </a>
               <Link
                 href={LINKS.home}
                 className="flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-100"
               >
-                <Globe size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" />
+                <Globe size={16} strokeWidth={1.5} className="shrink-0 text-[var(--accent)]" aria-hidden />
                 www.laureolivie.fr
               </Link>
             </div>
@@ -185,13 +196,21 @@ export function Footer() {
               <Map size={18} strokeWidth={1.5} />
             </ExternalLinkAnchor>
             <a
+              href={`tel:${CONTACT.phone}`}
+              aria-label={PHONE_ARIA_LABEL}
+              title={PHONE_ARIA_LABEL}
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
+            >
+              <Phone size={18} strokeWidth={1.5} aria-hidden />
+            </a>
+            <a
               href={`mailto:${SCHEMA_CONTACT.email}`}
               data-no-cfemail
               title="Envoyer un email"
               aria-label="Email"
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all hover:border-[var(--accent-soft)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent)]"
             >
-              <Mail size={18} strokeWidth={1.5} />
+              <Mail size={18} strokeWidth={1.5} aria-hidden />
             </a>
           </div>
         </div>

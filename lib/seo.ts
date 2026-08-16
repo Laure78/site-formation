@@ -4,7 +4,7 @@
  */
 
 import type { Metadata } from 'next';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF } from '@/lib/constants';
+import { formatProfessionalsTrainedCount, SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_CONTACT,
@@ -20,10 +20,14 @@ import {
 } from '@/lib/schema-constants';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
-import { buildPageMetadata } from '@/utils/metadata';
+import {
+  buildOpenGraphTwitterFields,
+  buildPageMetadata,
+} from '@/utils/metadata';
 
 export {
   buildPageMetadata,
+  buildOpenGraphTwitterFields,
   OG_SITE_NAME,
   withOgDescriptionSuffix,
   BRAND_TITLE_SUFFIX,
@@ -50,7 +54,7 @@ export const SITE_CONFIG = {
   legalName: 'OFC Création d\'Entreprise',
   /** ≤ ~120 car. — le layout ajoute « Laure Olivié, formatrice IA appliquée au bâtiment. » (meta SERP totale ≈ 155 car.) */
   description:
-    `Formation IA pour le BTP et formation IA appliquée au bâtiment en Île-de-France : Paris, 77–95. Formation IA travaux publics, ChatGPT, Qualiopi, Constructys. ${formatProfessionalsTrainedCount()}+ pros formés.`,
+    `Formation IA pour le BTP et formation IA appliquée au bâtiment en Île-de-France : ${IDF_ZONE_INTERVENTION}. Formation IA travaux publics, ChatGPT, Qualiopi, Constructys. ${formatProfessionalsTrainedCount()}+ pros formés.`,
   url: SITE_URL_DEFAULT,
   linkedinProfileUrl: LINKEDIN_PROFILE_URL,
   email: SCHEMA_CONTACT.email,
@@ -233,6 +237,42 @@ export function createPageMetadata(
   input: BuildMetadataInput,
 ): Metadata {
   return buildMetadata(input);
+}
+
+export type BuildSocialMetadataInput = {
+  title: string;
+  description: string;
+  path: string;
+  image?: { url: string; width?: number; height?: number; alt?: string };
+  type?: 'website' | 'article';
+};
+
+/**
+ * Open Graph + Twitter à partir de (title, description, path, image).
+ * Reprend le copy tel quel — pas de troncature ni de suffixe.
+ */
+export function buildSocialMetadata({
+  title,
+  description,
+  path,
+  image,
+  type = 'website',
+}: BuildSocialMetadataInput): Pick<Metadata, 'openGraph' | 'twitter'> {
+  const baseNorm = SITE_CONFIG.url.replace(/\/$/, '');
+  const pathNorm = path
+    ? path.startsWith('/')
+      ? path
+      : `/${path}`
+    : '';
+  const url = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
+  return buildOpenGraphTwitterFields({
+    title,
+    description,
+    url,
+    baseUrl: baseNorm,
+    image,
+    type,
+  });
 }
 
 /** Schéma Course principal "Formation IA pour le BTP" (visible sur toutes les pages) */
@@ -508,7 +548,7 @@ export function getArticleSchema({
       '@id': `${SITE_CONFIG.url}/#person`,
       name: authorName,
       url: `${SITE_CONFIG.url}/a-propos/`,
-      jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+      jobTitle: 'Formatrice IA spécialisée BTP',
     },
     publisher: {
       '@type': 'Organization',

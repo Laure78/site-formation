@@ -5,6 +5,7 @@
 import { BEWORK_APP_PATHS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
 import { SITE_CONFIG } from '@/lib/seo';
+import { FORMATIONS, formationHref } from '@/data/formations';
 
 export type NavItem = {
   href: string;
@@ -23,7 +24,7 @@ export const NAV_ENTREPRISE: readonly NavItem[] = [
     title: 'BeWork — solutions IA sur mesure pour le BTP',
   },
   { href: LINKS.contact, label: 'Contact' },
-  { href: LINKS.prendreRdv, label: 'Rendez-vous' },
+  { href: LINKS.prendreRdv, label: 'Prendre rendez-vous' },
   {
     href: SITE_CONFIG.linkedinProfileUrl,
     label: 'LinkedIn',
@@ -38,12 +39,19 @@ export const NAV_ENTREPRISE: readonly NavItem[] = [
 export const NAV_SERVICES: readonly NavItem[] = [
   { href: LINKS.formations, label: 'Catalogue' },
   { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
-  { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Niveau 1 — bâtiment & TP' },
-  { href: LINKS.formationAO, label: "Appels d'offres (niveau 2)" },
+  ...FORMATIONS.map((f) => ({
+    href: formationHref(f),
+    label: f.code === 'NIV-01' ? 'Niveau 1 — bâtiment & TP' : `${f.niveauLabel} — ${shortTitle(f.titre)}`,
+    title: f.titre,
+  })),
   { href: LINKS.formationIaMarchePublicTravaux, label: 'Marché public de travaux' },
   { href: LINKS.financement, label: 'Financement' },
-  { href: LINKS.formationClaudeAiBtp, label: 'Formation Claude AI BTP' },
 ];
+
+function shortTitle(titre: string): string {
+  if (titre.length <= 36) return titre;
+  return `${titre.slice(0, 34)}…`;
+}
 
 /** Colonne Ressources */
 export const NAV_RESSOURCES: readonly NavItem[] = [

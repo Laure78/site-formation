@@ -8,7 +8,7 @@ import { Breadcrumb } from '@/components/Breadcrumb';
 import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
 import { VoirAussi } from '@/components/VoirAussi';
 import { DepartementFormatriceGuyancourt } from '@/components/formation-ia-btp/DepartementFormatriceGuyancourt';
@@ -79,9 +79,6 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
     buildDeptMetaDescription(data.nom, data.code, data.villes.slice(0, 3).join(', '));
 
   const courseJson = buildFormationIaCourseJsonLd({
-    name: `Formation IA BTP ${deptLabel} — Qualiopi`,
-    description: metaDescription,
-    path: data.path,
     areaServed: [data.nom, ...data.villes, 'Île-de-France', 'France'],
   });
 
@@ -220,7 +217,7 @@ export function DepartementPage({ data }: { data: DepartementPageData }) {
       <DepartementCasUsageStandard />
 
       {/* 10. Informations réglementaires Qualiopi — partagé */}
-      <InfosQualiopiLanding formationTitle={`Formation IA BTP ${deptLabel}`} />
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`en ${deptLabel}`} />
 
       {/* 11. Témoignages région IDF — partagé */}
       <TemoignagesRegion />

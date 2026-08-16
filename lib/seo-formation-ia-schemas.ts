@@ -4,28 +4,35 @@ import {
   IDF_DEPT_AREA_SERVED_LABELS,
   buildIdfAreaServedSchemaEntities,
 } from '@/lib/schema-constants';
+import { formationHref, getFormationByCode } from '@/data/formations';
 
 export { IDF_COURSE_AREA_SERVED_NAMES, IDF_DEPT_AREA_SERVED_LABELS };
-export function buildFormationIaCourseJsonLd(opts: {
-  name: string;
-  description: string;
-  path: string;
+
+/**
+ * Course JSON-LD aligné sur la fiche catalogue NIV-01 (landings géo / métier / département).
+ * Ne jamais passer un `name` / `path` local : l’action certifiée reste NIV-01.
+ */
+export function buildFormationIaCourseJsonLd(opts?: {
   areaServed?: string[];
 }) {
+  const catalogue = getFormationByCode('NIV-01')!;
   return getCourseSchema({
-    name: opts.name,
-    description: opts.description,
-    path: opts.path,
+    name: catalogue.titre,
+    description: catalogue.accroche,
+    path: formationHref(catalogue),
     providerName: SITE_CONFIG.legalName,
     instructorName: SITE_CONFIG.name,
-    teaches: [
-      'ChatGPT',
-      'Claude AI',
-      'Formation IA pour les pros du BTP',
-      'Rédaction de devis et mémoires techniques',
-      'Automatisation administrative chantier',
-    ],
-    areaServed: opts.areaServed ?? ['Île-de-France', 'France'],
+    courseCode: catalogue.code,
+    teaches: catalogue.objectifs?.length
+      ? catalogue.objectifs
+      : [
+          'ChatGPT',
+          'Claude AI',
+          'Formation IA pour les pros du BTP',
+          'Rédaction de devis et mémoires techniques',
+          'Automatisation administrative chantier',
+        ],
+    areaServed: opts?.areaServed ?? ['Île-de-France', 'France'],
     educationalLevel: 'Professionnel',
     timeRequired: 'PT4H',
   });

@@ -47,12 +47,19 @@ import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLie
 import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
 import {
-  CATALOGUE_FORMATIONS_COUNT,
   getFormationCatalogueByRef,
 } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
-import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
+import {
+  formatTarifHt,
+  TARIF_SESSION_FORFAIT_HT,
+  SESSION_DUREE_LIBELLE,
+} from '@/lib/tarifs-sessions';
+import { FORMATIONS } from '@/data/formations';
+import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
+import { MentionFinancement } from '@/components/MentionFinancement';
+import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
 import { DEVIS_GAIN_TEMPS_LIBELLE, GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
@@ -68,18 +75,17 @@ import { Accordion } from '@/components/readability/Accordion';
 import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { Citation } from '@/components/readability/Citation';
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import {
+  formatPersonnesFormeesCount,
+  PREUVES,
+} from '@/lib/constants';
 import { ProofStats } from '@/components/ProofStats';
 import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 import { ANNUAIRE_ENTREPRISES_OFC_URL } from '@/lib/schema-constants';
 
-const FORMATION_NIVEAU1 = getFormationCatalogueByRef('NIV-01')!;
-const FORMATION_AO = getFormationCatalogueByRef('NIV-02')!;
 const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
-const FORMATION_CLAUDE = getFormationCatalogueByRef('NIV-04')!;
-const FORMATION_MOE = getFormationCatalogueByRef('NIV-05')!;
 
 /** Puces fusionnées depuis l’offre BeWork/formations (ex-titre « Ce que vous gagnez concrètement »). */
 const GAINS_CONCRETS_MERGES = [
@@ -129,7 +135,7 @@ const GAINS_COMMERCIAUX_CARDS = [
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France';
-const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatProofFormes()} pros, ${PROOF.note}. Visio découverte.`;
+const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatPersonnesFormeesCount()} pros, ${PREUVES.satisfaction}. Visio découverte.`;
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -238,7 +244,7 @@ export default function HomePage() {
               </p>
               <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
                 Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
-                <span className="font-serif italic text-[#377CF3]">Claude AI</span> et l&apos;IA générative.
+                <span className="font-serif italic text-[#377CF3]">Claude AI</span> et ChatGPT.
               </p>
               <div className="mt-6 sm:mt-7">
                 <ProofStats className="rounded-2xl border border-slate-200" />
@@ -270,7 +276,8 @@ export default function HomePage() {
           >
             <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
             — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
-            certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
+            certifié Qualiopi.{' '}
+            <MentionFinancement variant="court" />
           </p>
 
           <div className="mt-6 space-y-5 md:mt-7 md:space-y-6">
@@ -278,10 +285,17 @@ export default function HomePage() {
               idPrefix="accueil"
               items={[
                 'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
-                'OFC Création d’Entreprise certifié Qualiopi — financement Constructys selon éligibilité.',
+                <>
+                  OFC Création d’Entreprise certifié Qualiopi — <MentionFinancement variant="long" />
+                </>,
                 'Intra ou inter, présentiel uniquement · Île-de-France uniquement.',
                 'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                `Catalogue ${CATALOGUE_FORMATIONS_COUNT} formations (niveau 1 bâtiment & TP, niveau 2 : appels d'offres, conduite de travaux, Claude AI, maîtres d'œuvre) — validation métier de votre côté.`,
+                <>
+                  Catalogue {FORMATIONS.length} formations Qualiopi — forfait unique{' '}
+                  {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT
+                  <MentionTvaAsterisque /> / session (Claude AI = une fiche : Maîtriser Claude AI pour
+                  le BTP).
+                </>,
               ]}
             />
             <p className="text-sm leading-relaxed text-slate-600">
@@ -292,13 +306,12 @@ export default function HomePage() {
               .
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <CalendlyEmbed
-                type="link"
-                variant="pill"
-                campaign="accueil-hero"
-                ctaPosition="hero"
-                className="min-w-[min(100%,240px)] md:min-w-[auto]"
-              />
+              <Link
+                href={LINKS.prendreRdv}
+                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full bg-[var(--accent)] px-7 py-3 text-center text-[0.95rem] font-semibold text-white shadow-sm transition hover:bg-blue-700 md:min-w-[auto]"
+              >
+                Prendre rendez-vous
+              </Link>
               <Link
                 href="#guide-conducteur-travaux"
                 className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center gap-2 rounded-full border-2 border-emerald-600/30 bg-emerald-50/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-emerald-900 backdrop-blur-sm transition hover:border-emerald-600 hover:bg-emerald-100 md:min-w-[auto]"
@@ -315,51 +328,21 @@ export default function HomePage() {
             </div>
             <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
               <p className="text-sm leading-relaxed text-slate-600">
-                <span className="font-medium text-slate-700">Vous cherchez :</span>{' '}
+                <span className="font-medium text-slate-700">
+                  Catalogue ({FORMATIONS.length} formations) :
+                </span>{' '}
                 <Link
                   href={LINKS.formationIaBtpNiveau1BatimentTp}
                   className={OFC_LINK}
-                  title="Formation IA niveau 1 — bâtiment et travaux publics"
+                  title="L'IA au service des pros du bâtiment et des travaux publics"
                 >
-                  formation IA bâtiment &amp; travaux publics (niveau 1)
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationClaudeAiBtp}
-                  className={OFC_LINK}
-                  title="Formation Claude AI BTP dédiée"
-                >
-                  formation Claude AI BTP
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationClaudeAiBatiment}
-                  className={OFC_LINK}
-                  title="Formation Claude AI bâtiment"
-                >
-                  formation Claude bâtiment
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationClaudeAiTravauxPublics}
-                  className={OFC_LINK}
-                  title="Formation Claude AI travaux publics"
-                >
-                  formation Claude travaux publics
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.financement}
-                  className={OFC_LINK}
-                  title="Financement Constructys — formation IA pour le BTP"
-                >
-                  financement Constructys
+                  IA bâtiment &amp; travaux publics
                 </Link>
                 {' · '}
                 <Link
                   href={LINKS.formationAO}
                   className={OFC_LINK}
-                  title="IA et appels d'offres BTP"
+                  title="L'IA appliquée aux appels d'offres BTP"
                 >
                   IA appels d&apos;offres BTP
                 </Link>
@@ -369,7 +352,31 @@ export default function HomePage() {
                   className={OFC_LINK}
                   title={FORMATION_CONDUITE.title}
                 >
-                  {FORMATION_CONDUITE.title}
+                  IA conduite de travaux
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationMaitriserClaudeAiBtp}
+                  className={OFC_LINK}
+                  title="Maîtriser Claude AI pour le BTP — Chat, Cowork & Code"
+                >
+                  Maîtriser Claude AI pour le BTP
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.formationIaMaitriseOeuvre}
+                  className={OFC_LINK}
+                  title="L'IA au service des maîtres d'œuvre"
+                >
+                  IA maîtres d&apos;œuvre
+                </Link>
+                {' · '}
+                <Link
+                  href={LINKS.financement}
+                  className={OFC_LINK}
+                  title="Financement Constructys — formation IA pour le BTP"
+                >
+                  financement Constructys
                 </Link>
               </p>
             </div>
@@ -381,7 +388,7 @@ export default function HomePage() {
                 <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
                 destinée aux entreprises du bâtiment et de la construction (gros œuvre, second œuvre, travaux publics).
                 Elle apprend aux équipes à utiliser les outils d&apos;intelligence artificielle générative
-                (Claude AI, Gemini, etc.) pour automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP,
+                (Claude AI et ChatGPT) pour automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP,
                 appels d&apos;offres et mémoires techniques, comptes rendus de chantier, relances clients et documents
                 administratifs.
               </p>
@@ -529,7 +536,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Témoignages & étude de cas — un seul titre « Cas concrets… » */}
+      {/* Étude de cas FFB / filière étanchéité — avis via Google ou data/temoignages si disponibles */}
       <Suspense fallback={<GoogleReviewsSectionPlaceholder />}>
         <GoogleReviewsSection />
       </Suspense>
@@ -872,7 +879,7 @@ export default function HomePage() {
 
       <ArticlesFormationLies />
 
-      {/* Thématiques abordées — H3 sous « Nos formations IA spécialisées BTP » */}
+      {/* Thématiques abordées — H3 sous « Mes formations IA spécialisées BTP » */}
       <section id="programme" className={OFC_SEC.white}>
         <div className="mx-auto max-w-7xl">
           <Reveal>
@@ -880,21 +887,29 @@ export default function HomePage() {
             <span>THÉMATIQUES ABORDÉES</span>
           </div>
           <h3 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl">
-            Programme détaillé de la formation
+            Programme détaillé des formations
           </h3>
           <p className="mt-3 text-sm text-slate-600">
             catalogue &amp; programmes PDF — articles et guides IA BTP · Claude AI BTP · mémoire technique · IA
             conducteur de travaux
           </p>
           <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-            {CATALOGUE_FORMATIONS_COUNT} parcours officiels : <strong className="font-semibold text-slate-800">niveau 1</strong> —{' '}
-            {FORMATION_NIVEAU1.title} ; <strong className="font-semibold text-slate-800">niveau 2</strong> —{' '}
-            {FORMATION_AO.title}, {FORMATION_CONDUITE.title}, {FORMATION_MOE.title} et {FORMATION_CLAUDE.title}. Les thèmes couverts
-            incluent devis et chiffrage, réponses aux marchés, comptes rendus, DOE, emails et relation client — en{' '}
-            <strong className="font-semibold text-slate-800">sessions de 4 h</strong>, forfait par niveau (conduite de
-            travaux, maîtres d&apos;œuvre et Maîtriser Claude AI : effectifs réduits selon fiche). Téléchargez les{' '}
-            <strong className="font-semibold text-slate-800">programmes PDF</strong>{' '}
-            depuis chaque fiche ou ci-dessous sur la page catalogue.
+            {FORMATIONS.length} parcours officiels :{' '}
+            {FORMATIONS.map((f, i) => (
+              <span key={f.code}>
+                {i > 0 ? (i === FORMATIONS.length - 1 ? ' et ' : ' ; ') : null}
+                <strong className="font-semibold text-slate-800">{f.niveauLabel}</strong>
+                {' — '}
+                {f.titre}
+              </span>
+            ))}
+            . Les thèmes couverts incluent devis et chiffrage, réponses aux marchés, comptes rendus, DOE, emails et
+            relation client — en{' '}
+            <strong className="font-semibold text-slate-800">sessions de {SESSION_DUREE_LIBELLE}</strong>
+            {' '}
+            (forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT / session — effectifs selon fiche). Téléchargez les{' '}
+            <strong className="font-semibold text-slate-800">programmes PDF</strong> depuis chaque fiche ou ci-dessous
+            sur la page catalogue.
           </p>
           </Reveal>
           <Accordion id="programme-modules-detail" summaryLabel="Lire la suite — modules et ressources">
@@ -904,10 +919,10 @@ export default function HomePage() {
                   n: 1,
                   title: 'Devis & chiffrage avec l\'IA',
                   items: [
-                    'Créez des devis professionnels en 15 min',
-                    'Ajustez les prix selon vos marges',
-                    'Calculez automatiquement la rentabilité',
-                    'Générez des variantes en un clic',
+                    'Structurez un premier devis en moins d\'une heure, contre une demi-journée en routine',
+                    'Adaptez la trame à vos prix et vos marges — vous validez les montants',
+                    'Préparez vos éléments de rentabilité pour vérification',
+                    'Déclinez des variantes de libellés et d\'options plus rapidement',
                   ],
                 },
                 {
@@ -924,8 +939,8 @@ export default function HomePage() {
                   n: 3,
                   title: 'Comptes rendus et DOE',
                   items: [
-                    'Générez vos CR de chantier automatiquement',
-                    'Structurez vos DOE',
+                    'Rédigez vos CR de chantier à partir de vos notes ou d\'une dictée, en relecture',
+                    'Structurez vos DOE à partir des pièces existantes',
                     "Créez des rapports d'avancement",
                     'Documentez vos réunions de chantier',
                   ],
@@ -1054,8 +1069,8 @@ export default function HomePage() {
                   },
                   {
                     icon: Users,
-                    title: 'Accompagnement post-formation',
-                    desc: "Support WhatsApp. Accès 1 an aux ressources. Suivi personnalisé.",
+                    title: 'Supports fournis',
+                    desc: 'Vous repartez avec les supports de la session et vos prompts adaptés à vos documents.',
                   },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div
@@ -1139,15 +1154,15 @@ export default function HomePage() {
                 Financement possible selon éligibilité
               </h3>
               <p className="mt-3 max-w-none text-base leading-relaxed text-slate-600 md:text-lg">
-                {FINANCEMENT_FORMULATION_PRUDENTE}
+                <MentionFinancement variant="long" />
               </p>
               <Accordion id="financement-constructys-detail" summaryLabel="Lire la suite — barèmes et démarches">
                 <RevealGroup className="grid gap-6 md:grid-cols-3" staggerMs={45}>
                   {[
                     {
                       icon: Award,
-                      title: 'Financement possible',
-                      desc: "Coût pédagogique : plafond indicatif 24€ HT/heure/stagiaire. Sessions intra : 840€ HT/jour maximum — selon barèmes Constructys en vigueur.",
+                      title: 'Prise en charge partielle',
+                      desc: "Coût pédagogique : plafond indicatif 24 € HT/heure/stagiaire (96 € HT pour 4 h). Sessions intra : 840 € HT/jour maximum — selon barèmes Constructys et éligibilité.",
                     },
                     {
                       icon: Target,
@@ -1172,6 +1187,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </RevealGroup>
+                <ConstructysResteAChargeBox />
                 <div className="mt-10 text-center">
                   <Link
                     href={LINKS.financement}
@@ -1205,9 +1221,9 @@ export default function HomePage() {
                     Organisme de formation certifié Qualiopi
                   </h3>
                   <p className="mt-3 text-slate-600">
-                    OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi. Cette formation
-                    est éligible aux financements OPCO et peut être prise en charge dans le
-                    cadre du plan de développement des compétences de votre entreprise.
+                    OFC CRÉATION D&apos;ENTREPRISE est certifié Qualiopi, dans le cadre du
+                    plan de développement des compétences de votre entreprise.{' '}
+                    <MentionFinancement variant="court" withLink={false} />.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     <ExternalLinkAnchor
@@ -1289,7 +1305,7 @@ export default function HomePage() {
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
             Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
-            grâce à nos formations IA personnalisées pour le BTP.
+            grâce à mes formations IA personnalisées pour le BTP.
           </p>
           <RevealGroup className="mt-12" staggerMs={50}>
             <ProofStats variant="inverse" className="max-w-3xl mx-auto" />
@@ -1332,7 +1348,7 @@ export default function HomePage() {
               </h3>
               <p className="mt-3 text-slate-600">
                 Choisissez le jour et l&apos;heure qui vous conviennent pour un échange
-                de 30 minutes. Devis personnalisé sous 24h après notre rendez-vous.
+                de 30 minutes. Devis personnalisé sous 24h après l&apos;échange.
               </p>
               <CalendlyEmbed
                 type="link"
@@ -1366,7 +1382,7 @@ export default function HomePage() {
                   {
                     icon: Check,
                     title: 'Financement OPCO selon éligibilité',
-                    desc: 'Votre devis intègre les possibilités de prise en charge Constructys',
+                    desc: 'Financement possible selon éligibilité — détail Constructys sur devis après analyse de votre dossier.',
                   },
                   {
                     icon: Mail,

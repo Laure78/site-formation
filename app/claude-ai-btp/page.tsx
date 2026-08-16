@@ -147,6 +147,30 @@ const faqItems = [
     q: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',
     a: "Oui : le même programme formation Claude AI BTP (Claude Chat, Cowork, Code, Chrome) s'adapte aux équipes du bâtiment et des travaux publics partout en Île-de-France. Paris et la communauté d'agglomération de Saint-Quentin-en-Yvelines sont des zones d'intervention fréquentes ; en Essonne, les entreprises des Ulis, Morangis, Longjumeau et environs peuvent rejoindre une session inter ou demander une date intra.",
   },
+  {
+    q: 'Cette page est-elle différente de la formation Claude AI BTP catalogue ?',
+    a: 'Oui. Ce guide est informationnel (interfaces, prompts, usages bâtiment et TP). La fiche catalogue « Maîtriser Claude AI pour le BTP » est la session Qualiopi de 4 h — Projets, Skills, Cowork, connecteurs et Claude Code.',
+  },
+  {
+    q: 'Peut-on travailler sur nos devis et CCTP réels en formation bâtiment ?',
+    a: 'Oui. La session est conçue autour de vos documents terrain pour produire des livrables réutilisables dès la fin de la formation.',
+  },
+  {
+    q: "Y a-t-il un volet appels d'offres bâtiment ?",
+    a: "Oui : analyse de pièces, trame mémoire technique, vérification des exigences et formulation des réponses — notamment via la formation appels d'offres et le parcours Claude Pro / Cowork.",
+  },
+  {
+    q: 'Cette formation couvre-t-elle les dossiers TP (VRD, génie civil) ?',
+    a: 'Oui. Le programme cible les usages travaux publics : CCTP TP, DCE, planning, sous-traitance et mémoire technique.',
+  },
+  {
+    q: 'Claude AI est-il pertinent pour les mémoires techniques TP ?',
+    a: 'Oui, pour structurer le premier jet, organiser les arguments et consolider les pièces à vérifier avant dépôt — toujours sous validation métier.',
+  },
+  {
+    q: 'Peut-on mixer Claude AI et ChatGPT dans la même formation ?',
+    a: 'Oui, les deux outils sont traités avec une logique de complémentarité selon les tâches : Claude en outil principal (niveaux 1 et 2), ChatGPT en comparaison et usages administratifs (niveau 1).',
+  },
 ] as const;
 
 const relatedQuestions = [
@@ -340,32 +364,207 @@ export default function ClaudeAiBtpPillarPage() {
 
               <ClaudeBtpCaseStudies />
 
-              <section className="scroll-mt-28" id="claude-batiment-vs-tp" aria-labelledby="claude-batiment-vs-tp-title">
-                <h2 id="claude-batiment-vs-tp-title" className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl">
-                  Claude bâtiment vs Claude travaux publics : quelles différences ?
+              <section className="scroll-mt-28" id="claude-ai-batiment" aria-labelledby="claude-ai-batiment-title">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">Spécial bâtiment</p>
+                <h2
+                  id="claude-ai-batiment-title"
+                  className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                >
+                  Claude AI pour le bâtiment — gros œuvre, second œuvre, étanchéité
                 </h2>
                 <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-[#475569] md:text-base">
                   <p>
-                    Sur un contexte <strong className="text-[#0F172A]">Claude bâtiment</strong>, les usages les plus fréquents
-                    concernent la rédaction de devis détaillés, la structuration des réponses clients, la relecture de pièces
-                    techniques et la normalisation des comptes rendus de chantier. Les équipes travaillent souvent sur des lots
-                    second oeuvre, gros oeuvre, couverture ou étanchéité, avec un besoin fort de clarté documentaire et de
-                    vitesse d&apos;exécution.
-                  </p>
-                  <p>
-                    Côté <strong className="text-[#0F172A]">Claude travaux publics</strong>, l&apos;accent se déplace vers
-                    l&apos;analyse de CCTP/DCE plus volumineux, la coordination multi-intervenants, la planification, le suivi
-                    de sous-traitance et la préparation de mémoires techniques orientés marchés publics. Les prompts et les
-                    formats de sortie sont adaptés à cette complexité (tableaux de critères, synthèses Go/No-Go, trames de
-                    pilotage).
-                  </p>
-                  <p>
-                    En formation OFC, la logique est la même : <strong className="text-[#0F172A]">Claude AI et ChatGPT sont
-                    complémentaires</strong>. On règle d&apos;abord les objectifs opérationnels de l&apos;entreprise, puis on
-                    choisit l&apos;outil et la méthode selon le cas d&apos;usage réel. Résultat : des gains de temps concrets, sans
-                    déconnexion du terrain.
+                    Parcours orienté production chantier et bureau d&apos;études : structurer vos devis, fiabiliser vos
+                    comptes rendus, accélérer les réponses techniques et mieux exploiter Claude AI sur des dossiers
+                    bâtiment. Sur un contexte <strong className="text-[#0F172A]">Claude bâtiment</strong>, les usages les
+                    plus fréquents concernent la rédaction de devis détaillés, la structuration des réponses clients, la
+                    relecture de pièces techniques et la normalisation des comptes rendus de chantier. Les équipes
+                    travaillent souvent sur des lots second œuvre, gros œuvre, couverture ou étanchéité, avec un besoin
+                    fort de clarté documentaire et de vitesse d&apos;exécution.
                   </p>
                 </div>
+                <h3 className="mt-8 font-display text-xl font-bold text-[#0F172A]">Cas d&apos;usage bâtiment</h3>
+                <div className="mt-6 grid gap-6 md:grid-cols-2">
+                  {(
+                    [
+                      [
+                        'Étanchéité (CSFE)',
+                        'Préparer les éléments de dossier, notes techniques et réponses client avec un cadrage métier.',
+                      ],
+                      [
+                        'Couverture / charpente',
+                        'Structurer les variantes, clarifier les hypothèses et accélérer la rédaction pro.',
+                      ],
+                      [
+                        'Gros œuvre',
+                        'Synthétiser les pièces techniques et fiabiliser les CR de suivi d’exécution.',
+                      ],
+                      [
+                        'Second œuvre',
+                        'Générer des trames opérationnelles pour devis, relances et suivi planning.',
+                      ],
+                    ] as const
+                  ).map(([title, desc]) => (
+                    <article
+                      key={title}
+                      className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_6px_24px_rgba(15,23,42,0.04)]"
+                    >
+                      <h4 className="font-semibold text-[#0F172A]">{title}</h4>
+                      <p className="mt-2 text-sm text-[#475569]">{desc}</p>
+                    </article>
+                  ))}
+                </div>
+                <h3 className="mt-10 font-display text-xl font-bold text-[#0F172A]">Références terrain</h3>
+                <ul className="mt-4 space-y-3 text-sm text-[#334155] md:text-base">
+                  {[
+                    'Interventions en réseau FFB Grand Paris.',
+                    'Cas pratiques en lien avec la CSFE.',
+                    'Approche opérationnelle pour PME bâtiment et équipes travaux.',
+                  ].map((line) => (
+                    <li key={line} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-sm text-[#64748B]">
+                  Financement OPCO possible selon éligibilité — voir la page{' '}
+                  <Link href={LINKS.financement} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
+                    financement Constructys formation IA BTP
+                  </Link>
+                  .
+                </p>
+              </section>
+
+              <section
+                className="scroll-mt-28"
+                id="claude-ai-travaux-publics"
+                aria-labelledby="claude-ai-travaux-publics-title"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#377CF3]">
+                  Spécial travaux publics
+                </p>
+                <h2
+                  id="claude-ai-travaux-publics-title"
+                  className="mt-2 font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                >
+                  Claude AI pour les travaux publics — TP, génie civil, VRD
+                </h2>
+                <div className="mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-[#475569] md:text-base">
+                  <p>
+                    Parcours orienté exploitation et appels d&apos;offres TP : analyse CCTP, consolidation planning,
+                    coordination sous-traitants et rédaction des mémoires techniques avec Claude AI et ChatGPT. Côté{' '}
+                    <strong className="text-[#0F172A]">Claude travaux publics</strong>, l&apos;accent se déplace vers
+                    l&apos;analyse de CCTP/DCE plus volumineux, la coordination multi-intervenants, la planification, le
+                    suivi de sous-traitance et la préparation de mémoires techniques orientés marchés publics. Les prompts
+                    et les formats de sortie sont adaptés à cette complexité (tableaux de critères, synthèses Go/No-Go,
+                    trames de pilotage).
+                  </p>
+                  <p>
+                    En formation OFC, la logique est la même :{' '}
+                    <strong className="text-[#0F172A]">Claude AI et ChatGPT sont complémentaires</strong>. On règle
+                    d&apos;abord les objectifs opérationnels de l&apos;entreprise, puis on choisit l&apos;outil et la
+                    méthode selon le cas d&apos;usage réel — sans déconnexion du terrain.
+                  </p>
+                </div>
+                <h3 className="mt-8 font-display text-xl font-bold text-[#0F172A]">Usages TP couverts en formation</h3>
+                <div className="mt-6 grid gap-6 md:grid-cols-2">
+                  {(
+                    [
+                      ['Analyse CCTP TP', 'Synthétiser les exigences techniques et préparer le plan de réponse.'],
+                      ['Planning et coordination', 'Structurer les jalons, points durs et suivis opérationnels.'],
+                      [
+                        'Sous-traitance',
+                        'Formaliser les demandes, cadrer les relances et sécuriser la communication.',
+                      ],
+                      [
+                        'Mémoire technique TP',
+                        'Préparer un premier jet argumenté à valider par l’équipe métier.',
+                      ],
+                    ] as const
+                  ).map(([title, desc]) => (
+                    <article
+                      key={title}
+                      className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_6px_24px_rgba(15,23,42,0.04)]"
+                    >
+                      <h4 className="font-semibold text-[#0F172A]">{title}</h4>
+                      <p className="mt-2 text-sm text-[#475569]">{desc}</p>
+                    </article>
+                  ))}
+                </div>
+                <h3 className="mt-10 font-display text-xl font-bold text-[#0F172A]">Cadre opérationnel</h3>
+                <ul className="mt-4 space-y-3 text-sm text-[#334155] md:text-base">
+                  {[
+                    'Sessions orientées entreprise TP, avec documents réels.',
+                    'Méthode adaptée aux sessions inter/intra en présentiel en Île-de-France.',
+                    'Références partenaires TP et réseaux professionnels.',
+                  ].map((line) => (
+                    <li key={line} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#377CF3]" aria-hidden />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 text-sm text-[#64748B]">
+                  Programme complémentaire :{' '}
+                  <Link
+                    href={LINKS.formationIaBtpNiveau1BatimentTp}
+                    className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+                  >
+                    formation IA niveau 1 bâtiment &amp; travaux publics
+                  </Link>
+                  .
+                </p>
+              </section>
+
+              <section className="scroll-mt-28" id="fiches-formation-claude" aria-labelledby="fiches-formation-claude-title">
+                <h2
+                  id="fiches-formation-claude-title"
+                  className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
+                >
+                  Passer à une formation Claude (catalogue Qualiopi)
+                </h2>
+                <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569] md:text-base">
+                  Ce guide est informationnel. Pour industrialiser Claude en entreprise ou travailler un DCE réel,
+                  choisissez la fiche catalogue adaptée — sessions 4&nbsp;h, présentiel Île-de-France.
+                </p>
+                <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  <li>
+                    <Link
+                      href={LINKS.formationMaitriserClaudeAiBtp}
+                      className={`${OFC_CARD} flex h-full flex-col gap-2 p-5`}
+                    >
+                      <span className="font-display font-bold text-[#0F172A]">Maîtriser Claude AI pour le BTP</span>
+                      <span className="text-sm text-[#64748B]">
+                        Fiche produit NIV-04 — Projets, Skills, Cowork, connecteurs, Claude Code.
+                      </span>
+                      <span className="mt-auto pt-2 text-sm font-medium text-[#377CF3]">Voir la fiche →</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={LINKS.formationAO} className={`${OFC_CARD} flex h-full flex-col gap-2 p-5`}>
+                      <span className="font-display font-bold text-[#0F172A]">IA appels d&apos;offres BTP</span>
+                      <span className="text-sm text-[#64748B]">
+                        Fiche produit — Claude Pro, Cowork &amp; Skills sur DCE et mémoire technique.
+                      </span>
+                      <span className="mt-auto pt-2 text-sm font-medium text-[#377CF3]">Voir la fiche →</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      href={LINKS.pdfProgrammeMaitriserClaudeBtpNiv04}
+                      className={`${OFC_CARD} flex h-full flex-col gap-2 p-5`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="font-display font-bold text-[#0F172A]">Programme PDF — Claude AI BTP</span>
+                      <span className="text-sm text-[#64748B]">
+                        Télécharger le programme officiel de la fiche Maîtriser Claude AI.
+                      </span>
+                      <span className="mt-auto pt-2 text-sm font-medium text-[#377CF3]">Télécharger le PDF →</span>
+                    </a>
+                  </li>
+                </ul>
               </section>
 
               <section className="scroll-mt-28" aria-labelledby="formation-claude-idf">
@@ -492,7 +691,7 @@ export default function ClaudeAiBtpPillarPage() {
                 </div>
                 <p className="mt-6 text-sm text-[#64748B]">
                   <Link href={LINKS.outilsIaBtp} className="font-medium text-[#377CF3] underline-offset-2 hover:underline">
-                    Outils IA BTP (ChatGPT, Claude, Gemini)
+                    Comparatif des outils IA pour le BTP
                   </Link>
                 </p>
               </section>

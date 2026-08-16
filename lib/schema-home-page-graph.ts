@@ -44,7 +44,7 @@ export const HOME_PAGE_GRAPH_JSON_LD = {
       '@type': 'Person',
       '@id': 'https://www.laureolivie.fr/#laure',
       name: 'Laure Olivié',
-      jobTitle: 'Formatrice IA et ChatGPT pour le BTP',
+      jobTitle: 'Formatrice IA spécialisée BTP',
       url: 'https://www.laureolivie.fr/a-propos',
       worksFor: { '@id': 'https://www.laureolivie.fr/#business' },
       sameAs: [

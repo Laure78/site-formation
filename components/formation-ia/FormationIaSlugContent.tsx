@@ -8,7 +8,7 @@ import {
   getSisterVilles,
   getVilleLinkedMetiers,
 } from '@/lib/seo-formation-ia-hub-links';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 
@@ -80,7 +80,7 @@ export function FormationIaMetierBody({
         Dans la <strong>formation intelligence artificielle bâtiment</strong>, l&apos;objectif est
         simple : réduire le temps passé sur les tâches répétitives pour libérer du temps sur le
         terrain et la relation client. Pour la <strong>formation IA construction</strong> appliquée
-        à <strong>{metier.label}</strong>, nous travaillons des cas réels : pièces écrites,
+        à <strong>{metier.label}</strong>, je travaille des cas réels : pièces écrites,
         structuration d&apos;arguments techniques, relecture de courriers, préparation de synthèses
         avant réunion de coordination.
       </p>
@@ -103,7 +103,7 @@ export function FormationIaMetierBody({
         Cas d&apos;usage {tone} pour {metier.label}
       </h2>
       <p>
-        Au-delà des exemples génériques, nous adaptons les exercices à votre lot : pour la{' '}
+        Au-delà des exemples génériques, j&apos;adapte les exercices à votre lot : pour la{' '}
         <strong>formation IA construction</strong> dans le cadre de <strong>{metier.label}</strong>,
         l&apos;idée est de partir de vos propres modèles (devis, métrés, mails types) et de les
         améliorer avec <strong>ChatGPT</strong> (rapidité, variantes) puis avec <strong>Claude AI</strong>{' '}
@@ -149,7 +149,7 @@ export function FormationIaMetierBody({
       <p>
         Les chantiers en région parisienne imposent souvent des délais courts et une coordination
         multi-acteurs. La <strong>formation IA dirigeants BTP</strong> comme les sessions
-        opérationnelles côté terrain s&apos;appuient sur cette réalité : nous intégrons des exemples
+        opérationnelles côté terrain s&apos;appuient sur cette réalité : j&apos;intègre des exemples
         de flux documentaires fréquents (réponses aux demandes de précisions, relances, structuration
         de dossiers) pour une <strong>formation IA et intelligence artificielle pour le bâtiment</strong>{' '}
         directement utile à vos équipes.
@@ -167,7 +167,7 @@ export function FormationIaMetierBody({
       <p>
         L&apos;organisme OFC Création d&apos;Entreprise est certifié <QualiopiWordmark />. Selon votre branche et
         votre plan de développement des compétences, une prise en charge via{' '}
-        <strong>OPCO Constructys</strong> est fréquente pour les publics BTP : nous vous orientons
+        <strong>OPCO Constructys</strong> est fréquente pour les publics BTP : je vous oriente
         vers la bonne démarche (financements, justificatifs, objectifs pédagogiques). Pour toute
         question sur l&apos;éligibilité : consultez la page dédiée ou{' '}
         <Link href="/contact" className="text-[#377CF3] underline-offset-2 hover:underline">
@@ -180,10 +180,10 @@ export function FormationIaMetierBody({
         OFC Création d&apos;Entreprise — Laure Olivié
       </h2>
       <p>
-        <strong>Formatrice IA, ChatGPT et Claude AI pour le BTP</strong> — plus de{' '}
+        <strong>Formatrice IA spécialisée BTP</strong> — plus de{' '}
         {formatProfessionalsTrainedCount()} professionnels accompagnés, note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.
         SIRET 905 244 281 00010 — NDA 11788515078.
-        Siège : 6 rue Henri Dunant, 78280 Guyancourt — laureolivie@yahoo.fr.
+        Siège : 6 rue Henri Dunant, 78280 Guyancourt — contact@laureolivie.fr.
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">
@@ -237,7 +237,10 @@ export function FormationIaMetierBody({
         </Link>
       </p>
     </article>
-    <InfosQualiopiLanding formationTitle={`Formation IA — ${capitalizeFirst(metier.label)}`} />
+    <RenvoiFicheCatalogue
+      programmeRef="NIV-01"
+      contexte={`pour le métier « ${capitalizeFirst(metier.label)} »`}
+    />
     </>
   );
 }
@@ -274,7 +277,7 @@ export function FormationIaVilleBody({
       </h2>
       <p>
         La <strong>formation ChatGPT pour PME BTP</strong> et la <strong>formation Claude AI pour équipes du bâtiment</strong>{' '}
-        ne sont pas des « cours généralistes » : nous appliquons les assistants à vos livrables :
+        ne sont pas des « cours généralistes » : j&apos;applique les assistants à vos livrables :
         devis, mails, synthèses, préparation de réponses, relecture de documents. À {ville.label},
         les enjeux sont souvent liés au rythme des chantiers et à la densité des échanges : l&apos;IA
         sert à accélérer la structuration, pas à remplacer votre jugement technique.
@@ -282,7 +285,7 @@ export function FormationIaVilleBody({
       <p>
         Exemples fréquents : un <strong>formation ChatGPT peintre bâtiment Versailles</strong> ou une{' '}
         <strong>formation IA carreleur Île-de-France</strong> suivent la même méthode — seuls les
-        cas d&apos;atelier changent. Pour {ville.label}, nous insistons sur les scénarios utiles à votre
+        cas d&apos;atelier changent. Pour {ville.label}, j&apos;insiste sur les scénarios utiles à votre
         bassin d&apos;emploi (chantiers privés, copropriétés, marchés publics selon votre activité).
       </p>
 
@@ -370,7 +373,10 @@ export function FormationIaVilleBody({
         </Link>
       </p>
     </article>
-    <InfosQualiopiLanding formationTitle={`Formation IA pour les pros du BTP à ${ville.label}`} />
+    <RenvoiFicheCatalogue
+      programmeRef="NIV-01"
+      contexte={`à ${ville.label}`}
+    />
     </>
   );
 }
@@ -404,7 +410,7 @@ function FormationIaParisBody() {
       <p>
         Des chantiers du <strong>Paris</strong> central aux opérations en périphérie, la pression
         calendaire et la diversité des maîtres d&apos;ouvrage rendent l&apos;assistant IA intéressant
-        pour accélérer la préparation des écrits. Nous ne promettons pas la « magie » : nous
+        pour accélérer la préparation des écrits. Je ne promets pas la « magie » : je
         enseignons <strong>ChatGPT</strong> et <strong>Claude AI</strong> comme outils au service de
         vos procédures (relecture, plan, synthèse), avec des garde-fous adaptés au BTP.
       </p>
@@ -413,7 +419,7 @@ function FormationIaParisBody() {
         11e, 12e, 13e, 14e, 15e, 16e, 17e, 18e, 19e ou 20e arrondissement, les besoins se recoupent :
         réponses rapides, comptes rendus, structuration de dossiers. La différence se joue surtout dans
         vos contraintes locales (accès chantier, coordination urbaine, relations avec copropriétés) :
-        nous intégrons ces paramètres dans les ateliers.
+        j&apos;intègre ces paramètres dans les ateliers.
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">
@@ -429,7 +435,7 @@ function FormationIaParisBody() {
       </p>
 
       <h2 className="font-display text-xl font-semibold text-slate-900">
-        Exemples longue traîne couverts par nos ateliers (Paris & IDF)
+        Exemples longue traîne couverts par mes ateliers (Paris & IDF)
       </h2>
       <ul>
         <li>
@@ -506,7 +512,10 @@ function FormationIaParisBody() {
         </Link>
       </p>
     </article>
-    <InfosQualiopiLanding formationTitle="Formation IA BTP Paris et Île-de-France" />
+    <RenvoiFicheCatalogue
+      programmeRef="NIV-01"
+      contexte="à Paris et en Île-de-France"
+    />
     </>
   );
 }

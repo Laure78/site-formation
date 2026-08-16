@@ -26,7 +26,7 @@ export function ChecklistBanner() {
           href={LINKS.formations}
           className="inline-flex items-center gap-2 rounded-xl border-2 border-[#377CF3] px-6 py-3 font-semibold text-[#377CF3] transition-colors hover:bg-white"
         >
-          Découvrir nos formations IA pour les pros du BTP
+          Découvrir mes formations IA pour les pros du BTP
         </Link>
       </div>
     </div>

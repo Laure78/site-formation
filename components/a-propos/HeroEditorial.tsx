@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PHOTOS } from '@/lib/photos';
 import { StatCallout } from '@/components/readability/StatCallout';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 
 type Props = {
@@ -26,7 +27,7 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
             Laure Olivié — Formatrice IA pour les pros du BTP (Qualiopi, FFB, LinkedIn Learning)
           </h1>
           <p className="mt-4 text-2xl font-normal text-[#475569]">
-            Formatrice IA et ChatGPT pour les entreprises du BTP
+            Formatrice IA spécialisée BTP pour les entreprises du bâtiment
           </p>
           <p className="mt-6 text-lg leading-relaxed text-[#334155]">{lead}</p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -37,6 +38,7 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
             />
             <StatCallout variant="inline" value={SOCIAL_PROOF.AVERAGE_RATING} label="note moyenne" />
           </div>
+          <IndicateursResultatsLink className="mt-3 text-left" />
           <p className="mt-4 text-sm font-medium text-[#475569]">
             10 ans de terrain BTP · Qualiopi · LinkedIn Learning
           </p>

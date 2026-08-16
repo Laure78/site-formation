@@ -314,7 +314,7 @@ Consultez les documents :
 - `.cursor/CLAUDE.md` — Context professionnel
 
 **Besoin d'assistance technique ?**
-- Email : laureolivie@yahoo.fr
+- Email : contact@laureolivie.fr
 - Téléphone : 06 95 66 18 18
 
 ---

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
@@ -392,9 +393,10 @@ export default function FormationIaChefChantierTpPage() {
           </p>
         </section>
 
+        <LiensConnexes currentPath={LINKS.formationIaChefChantierTp} />
+
         <AllerPlusLoin
           links={[
-            { href: LINKS.formations, label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: LINKS.formationConducteurTravaux, label: 'Formation IA conducteur de travaux BTP' },
             { href: LINKS.formationIaConducteurEnginsTp, label: 'Formation IA conducteur d’engins TP' },

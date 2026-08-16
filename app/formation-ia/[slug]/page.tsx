@@ -10,7 +10,7 @@ import {
   buildFormationIaCourseJsonLd,
   buildFormationIaLocalBusinessJsonLd,
 } from '@/lib/seo-formation-ia-schemas';
-import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
+import { createPageMetadata } from '@/lib/seo';
 import {
   FormationIaMetierBody,
   FormationIaVilleBody,
@@ -46,25 +46,7 @@ export default async function FormationIaSlugPage({ params }: Props) {
   const entry = getFormationIaEntry(slug);
   if (!entry) notFound();
 
-  const path = `/formation-ia/${slug}`;
-  const courseName =
-    entry.kind === 'metier' && entry.metier
-      ? `Formation IA — ${entry.metier.label} (ChatGPT & Claude AI)`
-      : entry.kind === 'ville' && entry.ville
-        ? `Formation IA appliquée au bâtiment ${entry.ville.label} (ChatGPT & Claude AI)`
-        : 'Formation IA pour le BTP';
-
-  const courseDescription =
-    entry.kind === 'metier' && entry.metier
-      ? `Formation IA pour les pros du BTP pour ${entry.metier.label} (${entry.metier.categorie}) : ChatGPT et Claude AI pour devis, dossiers et chantier. Qualiopi, OFC Création d'Entreprise.`
-      : entry.kind === 'ville' && entry.ville
-        ? `Formation IA appliquée au bâtiment à ${entry.ville.label} (${entry.ville.deptName}) : ChatGPT et Claude AI pour les professionnels du BTP et les entreprises. Qualiopi, financement OPCO Constructys.`
-        : SITE_CONFIG.description;
-
   const courseJson = buildFormationIaCourseJsonLd({
-    name: courseName,
-    description: courseDescription,
-    path,
     areaServed:
       entry.kind === 'ville' && entry.ville
         ? [entry.ville.label, `${entry.ville.deptName}`, 'Île-de-France', 'France']

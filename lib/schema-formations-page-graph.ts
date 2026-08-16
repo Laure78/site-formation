@@ -7,18 +7,20 @@ import { FORMATIONS_CATALOG_SCHEMA } from '@/lib/schema-course-formations';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { getFAQSchema } from '@/lib/seo';
 import {
-  FORMATION_COURSE_CREDENTIAL_AWARDED,
   FORMATION_COURSE_MODE_ONSITE,
   FORMATION_COURSE_OFFER_CATEGORY,
 } from '@/lib/schema-formation-course-jsonld';
-import { TARIF_SESSION_AVANCE_HT, TARIF_SESSION_DEBUTANT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import {
+  TARIF_SESSION_FORFAIT_HT,
+  formatTarifHt,
+} from '@/lib/tarifs-sessions';
+import { FORMATION_NIV01, getFormationByCode, libelleEffectifFormation } from '@/data/formations';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 const NIV02_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-02')!;
 const NIV03_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-03')!;
 const NIV04_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-04')!;
 const NIV05_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-05')!;
-const NIV06_CATALOG = FORMATIONS_CATALOG_SCHEMA.find((e) => e.ref === 'NIV-06')!;
 const CATALOGUE_COUNT = FORMATIONS_CATALOG_SCHEMA.length;
 
 export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown> {
@@ -94,11 +96,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/ia-batiment-travaux-publics#course`,
               },
-              price: TARIF_SESSION_DEBUTANT_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_DEBUTANT_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session',
                 valueAddedTaxIncluded: false,
@@ -107,11 +109,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             {
               '@type': 'Offer',
               itemOffered: { '@id': `${BASE}/formations/ia-appels-offre-btp#course` },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session',
                 valueAddedTaxIncluded: false,
@@ -122,11 +124,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/ia-conduite-travaux-suivi-chantier#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (8 participants max)',
                 valueAddedTaxIncluded: false,
@@ -137,11 +139,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/maitriser-claude-ai-btp#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (8 participants max, matin)',
                 valueAddedTaxIncluded: false,
@@ -152,24 +154,15 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               itemOffered: {
                 '@id': `${BASE}/formations/ia-maitrise-oeuvre#course`,
               },
-              price: TARIF_SESSION_AVANCE_HT,
+              price: TARIF_SESSION_FORFAIT_HT,
               priceCurrency: 'EUR',
               priceSpecification: {
                 '@type': 'UnitPriceSpecification',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 unitText: 'par session (3 à 8 participants, MOE/MOEX)',
                 valueAddedTaxIncluded: false,
               },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@id': `${BASE}${NIV06_CATALOG.path}#course`,
-              },
-              priceCurrency: 'EUR',
-              category: FORMATION_COURSE_OFFER_CATEGORY,
-              description: 'Session intra sur devis — 4 h matin, 8 participants max',
             },
           ],
         },
@@ -238,7 +231,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_DEBUTANT_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-batiment-travaux-publics`,
@@ -278,7 +271,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-appels-offre-btp`,
@@ -318,7 +311,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-conduite-travaux-suivi-chantier`,
@@ -358,7 +351,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: getFormationByCode('NIV-04')!.prixHT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/maitriser-claude-ai-btp`,
@@ -398,52 +391,11 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
               },
               offers: {
                 '@type': 'Offer',
-                price: TARIF_SESSION_AVANCE_HT,
+                price: TARIF_SESSION_FORFAIT_HT,
                 priceCurrency: 'EUR',
                 availability: 'https://schema.org/InStock',
                 url: `${BASE}/formations/ia-maitrise-oeuvre`,
                 category: FORMATION_COURSE_OFFER_CATEGORY,
-              },
-            },
-          },
-          {
-            '@type': 'ListItem',
-            position: 6,
-            item: {
-              '@type': 'Course',
-              '@id': `${BASE}${NIV06_CATALOG.path}#course`,
-              name: NIV06_CATALOG.name,
-              description: NIV06_CATALOG.description,
-              url: `${BASE}${NIV06_CATALOG.path}`,
-              courseCode: 'NIV-06',
-              educationalLevel: 'Advanced',
-              inLanguage: 'fr-FR',
-              teaches: NIV06_CATALOG.teaches,
-              occupationalCategory: NIV06_CATALOG.occupationalCategory,
-              provider: { '@id': `${BASE}/#organization` },
-              hasCourseInstance: {
-                '@type': 'CourseInstance',
-                courseMode: FORMATION_COURSE_MODE_ONSITE,
-                courseWorkload: 'PT4H',
-                location: {
-                  '@type': 'Place',
-                  name: 'Île-de-France',
-                  address: {
-                    '@type': 'PostalAddress',
-                    addressRegion: 'Île-de-France',
-                    addressCountry: 'FR',
-                  },
-                },
-                instructor: { '@id': `${BASE}/#laure-olivie` },
-              },
-              educationalCredentialAwarded: FORMATION_COURSE_CREDENTIAL_AWARDED,
-              offers: {
-                '@type': 'Offer',
-                priceCurrency: 'EUR',
-                availability: 'https://schema.org/InStock',
-                url: `${BASE}${NIV06_CATALOG.path}`,
-                category: FORMATION_COURSE_OFFER_CATEGORY,
-                description: 'Session intra sur devis',
               },
             },
           },
@@ -476,7 +428,7 @@ export function buildFormationsPageUnifiedGraphJsonLd(): Record<string, unknown>
             '@type': 'HowToStep',
             position: 2,
             name: 'Évaluer le niveau IA des participants',
-            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant (${formatTarifHt(TARIF_SESSION_DEBUTANT_HT)} € HT par session, jusqu'à 12 participants). Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée (${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT par session).`,
+            text: `Si l'équipe n'a jamais utilisé ChatGPT ou Claude, partez sur une formation débutant. Si elle utilise déjà l'IA au quotidien et veut professionnaliser ses livrables, choisissez une formation avancée. Forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session (effectifs selon fiche — ex. niveau 1 : ${libelleEffectifFormation(FORMATION_NIV01)}).`,
           },
           {
             '@type': 'HowToStep',

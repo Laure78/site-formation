@@ -5,8 +5,10 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { Essentiel } from '@/components/readability/Essentiel';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { LINKS } from '@/lib/internal-links';
@@ -115,6 +117,7 @@ export function FormationIaMarchePublicLanding({
         teaches={config.courseTeaches}
         faqItems={faqItems}
         scriptId={`schema-formation-marche-public-${config.id}`}
+        catalogueProgrammeRef="NIV-02"
       />
 
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
@@ -389,10 +392,15 @@ export function FormationIaMarchePublicLanding({
             path={config.path}
             className="mt-14 !px-0"
             tone="transparent"
-            excludeHrefs={excludeRelated}
+            excludeHrefs={[...excludeRelated, ...getLiensConnexesHrefs(config.path)]}
           />
 
-          <InfosQualiopiLanding formationTitle={config.courseName} />
+          <LiensConnexes currentPath={config.path} excludeHrefs={excludeRelated} />
+
+          <RenvoiFicheCatalogue
+            programmeRef="NIV-02"
+            contexte="sur les marchés publics de travaux"
+          />
 
           <div className="mt-14">
             <CalendlyBlock

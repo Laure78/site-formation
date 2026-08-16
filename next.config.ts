@@ -31,6 +31,42 @@ const nextConfig: NextConfig = {
         source: '/llms.txt',
         headers: [{ key: 'Content-Type', value: 'text/plain; charset=utf-8' }],
       },
+      {
+        source: '/invitation/:path*',
+        headers: [
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Cache-Control', value: 'no-store' },
+        ],
+      },
+      {
+        source: '/admin/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'no-store, private' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+        ],
+      },
+      {
+        source: '/acces-admin',
+        headers: [
+          { key: 'Cache-Control', value: 'no-store, private' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+        ],
+      },
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
     ];
   },
   images: {
@@ -51,6 +87,32 @@ const nextConfig: NextConfig = {
         destination: 'https://www.laureolivie.fr/:path*',
         permanent: true,
       },
+      {
+        source: '/prendre-rdv',
+        destination: '/prendre-rendez-vous',
+        permanent: true,
+      },
+      {
+        source: '/prendre-rdv/',
+        destination: '/prendre-rendez-vous',
+        permanent: true,
+      },
+      {
+        source: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-replay-zoom.pdf',
+        destination: '/formations/ia-pdf-btp-administratif-chantier/08-synthese-session.pdf',
+        permanent: true,
+      },
+      // Admin Agent Chat retiré
+      {
+        source: '/admin/agent',
+        destination: '/admin',
+        permanent: true,
+      },
+      {
+        source: '/admin/agent/:path*',
+        destination: '/admin',
+        permanent: true,
+      },
       // --- Consolidation blog (juin 2026) — mémoire technique (ia-devis couvert par B2 juillet) ---
       {
         source: '/blog/memoire-technique-btp-ia-gagner-temps-appels-offres',
@@ -61,14 +123,71 @@ const nextConfig: NextConfig = {
       ...blogConsolidationRedirectsJuly2026(),
       // --- Plan de canonisation (juin 2026) — 9 doublons → page maître (308) ---
       // Placées en tête pour primer sur les redirections génériques (legacy/GSC) spreadées plus bas.
+      // Fiche legacy CCTP/DCE → catalogue NIV-02 (Qualiopi : une seule action de formation)
+      {
+        source: '/formations/formation-ia-cctp-analyse-dce-btp',
+        destination: '/formations/ia-appels-offre-btp',
+        permanent: true,
+      },
+      {
+        source: '/formations/formation-ia-cctp-analyse-dce-btp/:path*',
+        destination: '/formations/ia-appels-offre-btp',
+        permanent: true,
+      },
+      {
+        source: '/formations/formation-claude-ia-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
+
+      {
+        source: '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
+        destination: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
+        permanent: true,
+      },
+      {
+        source: '/formations/formation-claude-ia-btp/:path*',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
       {
         source: '/formations/claude-ia-chat-cowork-code-skills-btp',
-        destination: '/formations/formation-claude-ia-btp',
+        destination: '/formations/maitriser-claude-ai-btp',
         permanent: true,
       },
       {
         source: '/formations/claude-ia-chat-cowork-code-skills-btp/:path*',
-        destination: '/formations/formation-claude-ia-btp/:path*',
+        destination: '/formations/maitriser-claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-btp',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-btp/:path*',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-batiment',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-batiment/:path*',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-travaux-publics',
+        destination: '/claude-ai-btp',
+        permanent: true,
+      },
+      {
+        source: '/formation-claude-ai-travaux-publics/:path*',
+        destination: '/claude-ai-btp',
         permanent: true,
       },
       { source: '/offres', destination: '/formations', permanent: true },
@@ -85,7 +204,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/formation-ia-analyse-cctp',
-        destination: '/formations/formation-ia-cctp-analyse-dce-btp',
+        destination: '/formations/ia-appels-offre-btp',
         permanent: true,
       },
       {
@@ -891,7 +1010,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/partenaires/ifrb-78.jpg',
-        destination: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
         permanent: true,
       },
       // --- WebP (accueil) — 301 depuis chemins SEO .png / .jpg intermédiaires ---
@@ -1027,7 +1146,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/images/partenaires/logo-ifrb-77-formation-batiment.jpg',
-        destination: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
+        permanent: true,
+      },
+      {
+        source: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.jpg',
+        destination: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
         permanent: true,
       },
       {

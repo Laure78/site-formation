@@ -43,7 +43,9 @@ export const LINKS = {
   partenaires: '/partenaires',
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
-  prendreRdv: '/prendre-rdv',
+  prendreRdv: '/prendre-rendez-vous',
+  /** Alias historique — redirige vers `prendreRdv`. */
+  prendreRdvLegacy: '/prendre-rdv',
   /**
    * Ancien pilier `/formation-ia-btp` (308 → catalogue).
    * Canonique : `/formations` — préférer `LINKS.formations` pour les nouveaux liens.
@@ -53,12 +55,17 @@ export const LINKS = {
   formationIaConstruction: '/formation-ia-construction',
   /** Guide Claude AI — Anthropic, interfaces, prompts BTP */
   claudeAiBtp: '/claude-ai-btp',
-  /** Landing SEO cluster Claude AI */
-  formationClaudeAiBtp: '/formation-claude-ai-btp',
-  formationClaudeAiBatiment: '/formation-claude-ai-batiment',
-  formationClaudeAiTravauxPublics: '/formation-claude-ai-travaux-publics',
+  /**
+   * @deprecated Anciennes landings SEO — 308 → pilier `/claude-ai-btp`.
+   * Fiche produit : `formationMaitriserClaudeAiBtp`.
+   */
+  formationClaudeAiBtp: '/claude-ai-btp',
+  /** @deprecated Alias → pilier `/claude-ai-btp` (section bâtiment). */
+  formationClaudeAiBatiment: '/claude-ai-btp',
+  /** @deprecated Alias → pilier `/claude-ai-btp` (section travaux publics). */
+  formationClaudeAiTravauxPublics: '/claude-ai-btp',
 
-  // Tier 2 — Formations (catalogue officiel — 2 niveaux)
+  // Tier 2 — Formations (catalogue officiel — 5 parcours)
   /** Niveau 1 — bâtiment & travaux publics (programme PDF) */
   formationIaBtpNiveau1BatimentTp: '/formations/ia-batiment-travaux-publics',
   /** Niveau 2 — appels d'offre BTP (programme PDF) — alias historique « AO » */
@@ -71,10 +78,6 @@ export const LINKS = {
   formationMaitriserClaudeAiBtp: '/formations/maitriser-claude-ai-btp',
   pdfProgrammeMaitriserClaudeBtpNiv04:
     '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
-  /** Fiche catalogue — Claude IA Chat, Cowork & Code (skills sur-mesure BTP, intra) */
-  formationClaudeIaBtpFiche: '/formations/formation-claude-ia-btp',
-  pdfProgrammeFormationClaudeIaBtp:
-    '/formations/formation-claude-ia-btp/programme_OFC_IA_BTP_4h.pdf',
   /** NIV-05 — L'IA au service des maîtres d'œuvre (catalogue) */
   formationIaMaitriseOeuvre: '/formations/ia-maitrise-oeuvre',
   pdfProgrammeIaMaitriseOeuvre:
@@ -173,12 +176,22 @@ export const LINKS = {
   /** Landing SEO — chef de chantier travaux publics */
   formationIaChefChantierTp: '/formation-ia-chef-chantier-tp',
   formationIaCanalisateur: '/formation-ia-canalisateur-tp',
+  formationIaFerrailleurBtp: '/formation-ia-ferrailleur-btp',
+  formationIaVitrierBtp: '/formation-ia-vitrier-btp',
+  formationIaPiscinisteBtp: '/formation-ia-pisciniste-btp',
+  formationIaCloturisteBtp: '/formation-ia-cloturiste-btp',
+  formationIaGeometreTp: '/formation-ia-geometre-tp',
+  formationIaMaconPaysagisteBtp: '/formation-ia-macon-paysagiste-btp',
+  /** Landing SEO distincte de `/formation-ia-conducteur-de-travaux-btp` */
+  formationIaConducteurTravauxLanding: '/formation-ia-conducteur-travaux',
+  /** Landing catalogue PME (hors les 5 sessions NIV-01 à NIV-05) */
+  formationPmeBtp: '/formations/ia-pme-btp',
 
   /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */
   bework: '/bework',
   /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
   beworkPlateforme: '/bework/plateforme',
-  /** Point d'entrée indexable vers la plateforme e-learning OFC (stagiaires) */
+  /** Point d'entrée indexable vers l'espace apprenant OFC (stagiaires) */
   formationPlateforme: '/formations/plateforme',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
@@ -276,8 +289,11 @@ export const LINKS = {
 
   /** AO BTP — maître (l'ancien `/formation-ia-appels-offres-btp` redirige en 308) */
   repondreAoLanding: '/formations/ia-appels-offre-btp',
-  /** Analyse CCTP/DCE — maître (l'ancien `/formation-ia-analyse-cctp` redirige en 308) */
-  formationIaAnalyseCctp: '/formations/formation-ia-cctp-analyse-dce-btp',
+  /**
+   * Alias historique analyse CCTP/DCE → fiche catalogue NIV-02.
+   * L’ancienne URL `/formations/formation-ia-cctp-analyse-dce-btp` redirige en 308.
+   */
+  formationIaAnalyseCctp: '/formations/ia-appels-offre-btp',
   /** Article — méthode analyse CCTP en 20 min (cluster AO/DCE) */
   blogAnalyserCctpMethode20Min: '/blog/analyser-cctp-ia-methode-complete-20-minutes',
   /** Article — analyser un CCAP avec l'IA (cluster AO/DCE) */
@@ -296,6 +312,8 @@ export const LINKS = {
   blogAnalyseDceNotebooklm: '/blog/analyse-dce-notebooklm-claude-btp',
   /** Article — chiffrage CCTP/BPU (cluster AO/DCE) */
   blogChiffrageCctpBpu: '/blog/chiffrage-cctp-bpu-appels-offres-btp',
+  /** Article MDX — ChatGPT peintre bâtiment (devis, métré, relances) */
+  blogChatgptPeintreBatiment: '/blog/chatgpt-peintre-batiment',
   /** Article — IA devis bâtiment et chiffrage automatisé */
   blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
   /** Article — devis ChatGPT BTP en ~20 minutes (méthode terrain) */
@@ -318,8 +336,11 @@ export const LINKS = {
   blogCompteRenduChantierIa: '/blog/compte-rendu-chantier-ia-automatiser-gagner-temps',
   /** Article — 5 cas d'usage ChatGPT BTP (approfondissement CR / terrain) */
   blog5CasUsageChatgptBtp: '/blog/5-cas-usage-chatgpt-artisans-btp',
-  /** Fiche formation historique — canonical → formationAO (pilier NIV-02) */
-  formationIaCctpAnalyseDceBtp: '/formations/formation-ia-cctp-analyse-dce-btp',
+  /**
+   * @deprecated Alias → formationAO (NIV-02). Ancienne fiche CCTP supprimée (301/308).
+   * Conservé pour éviter de casser les imports ; préférer `formationAO`.
+   */
+  formationIaCctpAnalyseDceBtp: '/formations/ia-appels-offre-btp',
 
   // Pages légales & conformité
   cgv: '/cgv',

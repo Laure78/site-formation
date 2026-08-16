@@ -8,7 +8,7 @@ export const EXTERNAL_SITE_URLS = {
   bework: 'https://www.bework.fr/',
   /** Plateforme BeWork — connexion espace entreprise (sous-domaine Laure Olivié). */
   beworkApp: 'https://app.laureolivie.fr/',
-  /** Plateforme e-learning OFC — formations IA BTP (Teachizy). */
+  /** Espace apprenant OFC — supports post-session (Teachizy). */
   teachizyFormation: 'https://formation-ia-chatgpt.teachizy.fr/',
 } as const;
 

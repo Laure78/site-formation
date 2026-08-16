@@ -3,6 +3,8 @@
  * Chaque page d’un cluster reçoit 3–5 liens via `getClusterRelatedLinks(path)`.
  */
 import { LINKS } from '@/lib/internal-links';
+import { FORMATIONS } from '@/data/formations';
+import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 export type RelatedLinkItem = {
   href: string;
@@ -512,7 +514,7 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
   },
   {
     path: LINKS.formationMaitriserClaudeAiBtp,
-    catalogueAnchor: 'Catalogue formations — NIV-01 à NIV-06',
+    catalogueAnchor: 'Catalogue formations — NIV-01 à NIV-05',
     metier: {
       href: LINKS.formationConducteurTravaux,
       label: 'Usages Claude pour conducteurs de travaux',
@@ -542,22 +544,6 @@ const CATALOGUE_CLUSTER: CatalogueCluster[] = [
       label: 'Guide Maître d’Œuvre × IA (ressources)',
     },
   },
-  {
-    path: LINKS.formationClaudeIaBtpFiche,
-    catalogueAnchor: 'Comparer les 6 parcours du catalogue IA BTP',
-    metier: {
-      href: LINKS.formationConducteurTravaux,
-      label: 'Formation IA chantier — conducteur de travaux',
-    },
-    geo: {
-      href: LINKS.formationIleDeFrance,
-      label: 'Formation IA pour le BTP en Île-de-France',
-    },
-    blog: {
-      href: '/blog/cours-gratuits-claude-ai-conducteur-travaux-pme-btp',
-      label: 'Cours Claude AI pour conducteurs de travaux (blog)',
-    },
-  },
 ];
 
 function buildCatalogueSatelliteLinks(path: string): RelatedLinkItem[] | null {
@@ -574,13 +560,10 @@ function buildCatalogueSatelliteLinks(path: string): RelatedLinkItem[] | null {
     entry.blog,
   ];
   // Fiches Claude du catalogue : aussi vers le pilier outil
-  if (path === LINKS.formationMaitriserClaudeAiBtp || path === LINKS.formationClaudeIaBtpFiche) {
+  if (path === LINKS.formationMaitriserClaudeAiBtp) {
     links.push({
       href: LINKS.claudeAiBtp,
-      label:
-        path === LINKS.formationMaitriserClaudeAiBtp
-          ? 'Guide Claude AI BTP — Chat, Cowork, Code'
-          : 'Pilier Claude AI pour le BTP (méthode & usages)',
+      label: 'Guide Claude AI BTP — Chat, Cowork, Code',
       description: 'Différencier les intentions : guide vs sessions catalogue.',
     });
   }
@@ -592,9 +575,8 @@ function buildCataloguePillarLinks(): RelatedLinkItem[] {
     'NIV-01 — L’IA au service du bâtiment & TP',
     'NIV-02 — IA appliquée aux appels d’offres BTP',
     'NIV-03 — Conduite de travaux & suivi chantier',
-    'NIV-04 — Maîtriser Claude AI pour le BTP',
+    'NIV-04 — Maîtriser Claude AI pour le BTP — Chat, Cowork & Code',
     'NIV-05 — IA pour la maîtrise d’œuvre',
-    'NIV-06 — Skills Claude IA BTP (fiche catalogue)',
   ];
   return CATALOGUE_CLUSTER.map((c, i) => ({
     href: c.path,
@@ -605,11 +587,7 @@ function buildCataloguePillarLinks(): RelatedLinkItem[] {
 
 const CLAUDE_PAGES = [
   LINKS.claudeAiBtp,
-  LINKS.formationClaudeAiBtp,
-  LINKS.formationClaudeAiBatiment,
-  LINKS.formationClaudeAiTravauxPublics,
   LINKS.formationMaitriserClaudeAiBtp,
-  LINKS.formationClaudeIaBtpFiche,
 ] as const;
 
 function buildClaudeLinks(path: string): RelatedLinkItem[] {
@@ -626,41 +604,16 @@ function buildClaudeLinks(path: string): RelatedLinkItem[] {
       description: 'Pilier outil — différencier Chat, Cowork et Claude Code.',
     });
   } else {
-    links.push(
-      {
-        href: LINKS.formationClaudeAiBtp,
-        label: 'Formation Claude AI BTP — landing programme',
-      },
-      {
-        href: LINKS.formationMaitriserClaudeAiBtp,
-        label: 'Fiche catalogue — maîtriser Claude AI pour le BTP (NIV-04)',
-      },
-      {
-        href: LINKS.formationClaudeIaBtpFiche,
-        label: 'Skills Claude IA BTP — fiche NIV-06',
-      },
-      {
-        href: LINKS.formationClaudeAiBatiment,
-        label: 'Formation Claude AI bâtiment (second œuvre)',
-      },
-      {
-        href: LINKS.formationClaudeAiTravauxPublics,
-        label: 'Formation Claude AI travaux publics',
-      },
-    );
-    return dedupeLinks(links).slice(0, 5);
+    links.push({
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'Fiche catalogue — Maîtriser Claude AI pour le BTP (NIV-04)',
+    });
   }
-  // Satellites Claude : guide + autres landings/fiches + catalogue (intentions différenciées)
-  const labelMap: Record<string, string> = {
-    [LINKS.formationClaudeAiBtp]: 'Landing formation Claude AI pour le BTP',
-    [LINKS.formationClaudeAiBatiment]: 'Claude AI appliqué au bâtiment',
-    [LINKS.formationClaudeAiTravauxPublics]: 'Claude AI pour les travaux publics',
-    [LINKS.formationMaitriserClaudeAiBtp]: 'Maîtriser Claude AI BTP — session catalogue',
-    [LINKS.formationClaudeIaBtpFiche]: 'Formation Skills Claude IA BTP',
-  };
-  const others = CLAUDE_PAGES.filter((p) => p !== path && p !== LINKS.claudeAiBtp);
-  for (const href of others) {
-    links.push({ href, label: labelMap[href] ?? href });
+  if (path !== LINKS.formationMaitriserClaudeAiBtp) {
+    links.push({
+      href: LINKS.formationMaitriserClaudeAiBtp,
+      label: 'Maîtriser Claude AI BTP — session catalogue',
+    });
   }
   links.push({
     href: LINKS.formations,
@@ -710,7 +663,7 @@ function buildMarchePublicClusterLinks(path: string): RelatedLinkItem[] | null {
     {
       href: LINKS.formationIleDeFrance,
       label: 'Formation IA BTP en Île-de-France',
-      description: 'Hub géo — présentiel Paris et départements 77–95.',
+      description: `Hub géo — présentiel ${IDF_ZONE_INTERVENTION}.`,
     },
     {
       href: LINKS.blogIaMemoireTechniqueAppelOffresGuide2026,
@@ -745,7 +698,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
     return {
       cluster: 'geo',
       title: 'Formations IA BTP par département en Île-de-France',
-      subtitle: 'Pilier géo : accédez aux landings locales (Paris et départements franciliens).',
+      subtitle: `Pilier géo : accédez aux landings locales (${IDF_ZONE_INTERVENTION}).`,
       links: buildGeoPillarLinks(),
     };
   }
@@ -867,7 +820,7 @@ export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
     return {
       cluster: 'catalogue',
       title: 'Parcours du catalogue Qualiopi',
-      subtitle: 'Six fiches programme — NIV-01 à NIV-05 (aperçu) et Skills Claude.',
+      subtitle: `Cinq fiches programme — ${FORMATIONS[0].code} à ${FORMATIONS[FORMATIONS.length - 1].code}`,
       links: buildCataloguePillarLinks(),
     };
   }

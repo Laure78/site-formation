@@ -106,7 +106,7 @@ export const A_PROPOS_PERSON_SCRIPT_JSON_LD: Record<string, unknown> = {
   description: A_PROPOS_PROFILE_PERSON_DESCRIPTION,
   url: `${BASE}/a-propos`,
   image: `${BASE}${PHOTOS.aProposHero2026.src}`,
-  email: 'laureolivie@yahoo.fr',
+  email: SCHEMA_CONTACT.email,
   worksFor: {
     '@type': 'Organization',
     name: "OFC Création d'Entreprise",

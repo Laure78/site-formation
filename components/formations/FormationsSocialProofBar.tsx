@@ -1,8 +1,12 @@
-import { PROOF, formatProofFormes } from '@/lib/proof';
+import {
+  PREUVES,
+  formatPersonnesFormeesCount,
+} from '@/lib/constants';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const ITEMS = [
-  `${formatProofFormes()} pros formés`,
-  `${PROOF.note} satisfaction`,
+  `${formatPersonnesFormeesCount()} pros formés`,
+  `${PREUVES.satisfaction} satisfaction`,
   'Financement possible selon éligibilité',
   'Qualiopi certifié',
 ] as const;
@@ -20,6 +24,7 @@ export function FormationsSocialProofBar() {
           </li>
         ))}
       </ul>
+      <IndicateursResultatsLink className="mt-4" />
     </div>
   );
 }

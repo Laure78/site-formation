@@ -24,7 +24,7 @@ const VARIANT_CLASSES: Record<
     'inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]',
 };
 
-/** Lien Connexion — plateforme e-learning OFC (espace apprenant LMS). */
+/** Lien Connexion — espace apprenant OFC (supports post-session). */
 export function FormationPlateformeConnexionButton({
   variant = 'outline',
   label = 'Connexion',

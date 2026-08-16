@@ -10,7 +10,7 @@
     "prompts BTP par métier",
     "IA devis professionnel du BTP",
     "prompts électricien plombier",
-    "outils IA BTP ChatGPT Claude Gemini"
+    "outils IA BTP ChatGPT Claude"
   ],
   "relatedSlugs": [
     "outils-ia-btp-chatgpt-claude-gemini",
@@ -22,7 +22,7 @@
     {
       "type": "html",
       "title": "Pourquoi des prompts calibrés par métier",
-      "content": "<p>Un même outil (<strong>ChatGPT</strong>) donne des résultats très différents selon la <strong>consigne</strong> et le <strong>contexte métier</strong> que vous lui donnez. Les prompts ci-dessous intègrent le vocabulaire du BTP (devis, CCTP, DTU, chantier) et limitent les « inventions » : vous gardez la validation des prix et des normes.</p><p>Pour une vue d&apos;ensemble des outils (<strong>Claude</strong>, <strong>Gemini</strong>), voir le <a href=\"/blog/outils-ia-btp-chatgpt-claude-gemini\" class=\"text-[var(--accent)] font-medium underline\">comparatif ChatGPT, Claude et Gemini pour le BTP</a>, la page <a href=\"/outils-ia-btp\" class=\"text-[var(--accent)] font-medium underline\">Outils IA BTP</a> et la <a href=\"/claude-ai-btp\" class=\"text-[var(--accent)] font-medium underline\">page pilier Claude AI BTP</a>.</p>"
+      "content": "<p>Un même outil (<strong>ChatGPT</strong>) donne des résultats très différents selon la <strong>consigne</strong> et le <strong>contexte métier</strong> que vous lui donnez. Les prompts ci-dessous intègrent le vocabulaire du BTP (devis, CCTP, DTU, chantier) et limitent les « inventions » : vous gardez la validation des prix et des normes.</p><p>Pour une vue d&apos;ensemble (<strong>Claude AI</strong> outil principal, <strong>ChatGPT</strong> en comparaison et usages admin), voir la page <a href=\"/outils-ia-btp\" class=\"text-[var(--accent)] font-medium underline\">Outils IA BTP</a> et la <a href=\"/claude-ai-btp\" class=\"text-[var(--accent)] font-medium underline\">page pilier Claude AI BTP</a>.</p>"
     },
     {
       "type": "prompts",

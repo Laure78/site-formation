@@ -121,9 +121,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/claude-ai-btp': ['app/claude-ai-btp/page.tsx'],
   '/outils/cas-usage-ia-btp': ['app/outils/cas-usage-ia-btp/page.tsx'],
   '/outils-ia-btp': ['app/outils-ia-btp/page.tsx'],
-  '/formation-claude-ai-btp': ['app/formation-claude-ai-btp/page.tsx'],
-  '/formation-claude-ai-batiment': ['app/formation-claude-ai-batiment/page.tsx'],
-  '/formation-claude-ai-travaux-publics': ['app/formation-claude-ai-travaux-publics/page.tsx'],
   '/formation-ia-btp-ile-de-france': [
     'app/formation-ia-btp-ile-de-france/page.tsx',
     'lib/departement-pages/index.ts',
@@ -221,7 +218,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'app/formation-ia-marche-public-etancheite/page.tsx',
     'lib/formation-ia-marche-public-config.ts',
   ],
-  '/formations/formation-ia-cctp-analyse-dce-btp': ['app/formations/formation-ia-cctp-analyse-dce-btp/page.tsx'],
   '/formations/ia-batiment-travaux-publics': [
     'app/formations/ia-batiment-travaux-publics/page.tsx',
     'src/data/formations.ts',
@@ -230,11 +226,6 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
   '/formations/ia-conduite-travaux-suivi-chantier': [
     'app/formations/ia-conduite-travaux-suivi-chantier/page.tsx',
     'lib/formations-catalogue-display.ts',
-  ],
-  '/formations/formation-claude-ia-btp': [
-    'app/formations/formation-claude-ia-btp/page.tsx',
-    'lib/formations-catalogue-display.ts',
-    'lib/schema-catalogue-course-jsonld.ts',
   ],
   '/mentions-legales': ['app/mentions-legales/page.tsx'],
   '/politique-confidentialite': ['app/politique-confidentialite/page.tsx'],

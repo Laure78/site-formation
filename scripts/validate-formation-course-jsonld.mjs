@@ -8,7 +8,6 @@ import {
   buildCatalogueCourseConduiteTravauxNiv03JsonLd,
   buildCatalogueCourseMaitriserClaudeNiv04JsonLd,
   buildCatalogueCourseMaitriseOeuvreNiv05JsonLd,
-  buildClaudeIaChatCoworkCodeSkillsBtpJsonLd,
 } from '../lib/schema-catalogue-course-jsonld.ts';
 import { buildCatalogFormationCoursePageSchema } from '../lib/catalog-formation-course-page-jsonld.ts';
 import {
@@ -25,7 +24,6 @@ const BLOCKS = [
   { name: 'catalogue-niv-03', schema: buildCatalogueCourseConduiteTravauxNiv03JsonLd() },
   { name: 'catalogue-niv-04', schema: buildCatalogueCourseMaitriserClaudeNiv04JsonLd() },
   { name: 'catalogue-niv-05', schema: buildCatalogueCourseMaitriseOeuvreNiv05JsonLd() },
-  { name: 'catalogue-niv-06', schema: buildClaudeIaChatCoworkCodeSkillsBtpJsonLd() },
   {
     name: 'catalog-formation-page',
     schema: buildCatalogFormationCoursePageSchema(FORMATIONS_CATALOG_SCHEMA[0]),
@@ -35,8 +33,8 @@ const BLOCKS = [
     schema: getCourseJsonLdFromFormationsData('ia-batiment-travaux-publics'),
   },
   {
-    name: 'dedicated-cctp',
-    schema: getDedicatedFormationCoursePageJsonLd('/formations/formation-ia-cctp-analyse-dce-btp'),
+    name: 'dedicated-niv-02',
+    schema: getDedicatedFormationCoursePageJsonLd('/formations/ia-appels-offre-btp'),
   },
   {
     name: 'geo-getCourseSchema',
@@ -60,11 +58,7 @@ function assertOfferRules(name, schema) {
   if (offers.category !== 'HT / session groupe') {
     throw new Error(`${name}: category « HT / session groupe » requise`);
   }
-  if (name === 'catalogue-niv-06') {
-    if ('price' in offers) {
-      throw new Error(`${name}: price doit être omis (intra sur devis)`);
-    }
-  } else if (name.startsWith('catalogue-niv-')) {
+  if (name.startsWith('catalogue-niv-')) {
     if (offers.price == null) {
       throw new Error(`${name}: price requis`);
     }

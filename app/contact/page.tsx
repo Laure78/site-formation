@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { CheckCircle, Building2, Clock, Award } from 'lucide-react';
+import { CheckCircle, Building2, Clock, Award, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
@@ -10,18 +10,21 @@ import { ContactFormationHint } from '@/components/landing/ContactFormationHint'
 import { FAQSection } from '@/components/landing/FAQSection';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { LINKS } from '@/lib/internal-links';
-
-import { createPageMetadata, getFAQSchema } from '@/lib/seo';
+import { CONTACT } from '@/lib/constants';
+import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { FAQ_CONTACT } from '@/lib/faq';
 import { JsonLd } from '@/components/JsonLd';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
 export const revalidate = 3600;
 
+const TITLE = 'Formation IA pour les pros du BTP — Contact';
+const DESCRIPTION =
+  'Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou solutions IA BeWork. RDV gratuit, Constructys. Île-de-France.';
+
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour les pros du BTP — Contact',
-  description:
-    "Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou solutions IA BeWork. RDV gratuit, Constructys. Île-de-France.",
+  title: TITLE,
+  description: DESCRIPTION,
   path: '/contact',
 });
 
@@ -97,7 +100,7 @@ export default function ContactPage() {
             Votre projet formation IA BTP
           </h2>
           <p className="mt-3 text-slate-600">
-            Email ou créneau Calendly — réponse sous 24 h.
+            Email, téléphone ou créneau Calendly — réponse sous 24 h.
           </p>
           <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <div className="space-y-6">
@@ -270,7 +273,7 @@ export default function ContactPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">Réclamations</h2>
           <p className="mt-4 max-w-3xl text-slate-700">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
-            laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
+            contact@laureolivie.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
             Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous 48 h ouvrées et une réponse vous est
             apportée sous 15 jours ouvrés. Chaque réclamation est enregistrée et analysée dans le cadre de notre
             démarche d&apos;amélioration continue Qualiopi.
@@ -319,10 +322,18 @@ export default function ContactPage() {
               className="gap-2 px-6 py-3"
             />
             <a
-              href="mailto:laureolivie@yahoo.fr"
+              href={`tel:${CONTACT.phone}`}
+              aria-label={`Appeler Laure Olivié au ${CONTACT.phoneDisplay}`}
               className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"
             >
-              laureolivie@yahoo.fr
+              <Phone size={18} strokeWidth={1.75} aria-hidden />
+              {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href={`mailto:${SITE_CONFIG.email}`}
+              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-6 py-3 font-semibold text-white hover:bg-white/10"
+            >
+              {SITE_CONFIG.email}
             </a>
           </div>
           <div className="mt-12 border-t border-white/30 pt-8">

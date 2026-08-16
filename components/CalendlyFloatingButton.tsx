@@ -14,7 +14,7 @@ import { isStickyBlogMetierRdvPath } from '@/lib/sticky-blog-metier-rdv-path';
 export function CalendlyFloatingButton() {
   const pathname = usePathname();
 
-  if (pathname === '/prendre-rdv') return null;
+  if (pathname === '/prendre-rdv' || pathname === '/prendre-rendez-vous') return null;
 
   /** Au-dessus du bouton chat (bas droite) et du bandeau blog métiers si présent. */
   const positionClass = isStickyBlogMetierRdvPath(pathname)

@@ -28,9 +28,8 @@ import { QUALIOPI_ACCESSIBILITE_EXACT, QUALIOPI_DELAI_ACCES_EXACT } from '@/conf
 const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
-const FORMATIONS_OG_TITLE = `Catalogue formation IA pour le BTP : ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`;
 const FORMATIONS_META_DESCRIPTION =
-  'Formations IA pour le BTP en 4 h : devis, AO, conduite de travaux et Claude AI. Présentiel IDF, Qualiopi, Constructys selon éligibilité. OFC — PDF et RDV.';
+  "5 formations IA pour le BTP en 4 h : devis, appels d'offres, conduite de travaux, Claude AI et maîtrise d'œuvre. Présentiel IDF, Qualiopi, Constructys.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     descriptionFinal: true,
     path: '/formations',
     appendAuthorSuffix: false,
-    openGraphTitle: FORMATIONS_OG_TITLE,
+    openGraphTitle: FORMATIONS_HTML_TITLE,
     openGraphDescription: FORMATIONS_META_DESCRIPTION,
     keywords: [
       'catalogue formation IA pour les pros du BTP',
@@ -60,8 +59,7 @@ export const metadata: Metadata = {
       url: PHOTOS.formationIaBtpSalleInteractive2026.src,
       width: 1200,
       height: 630,
-      alt:
-        `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h pour entreprises du bâtiment et travaux publics`,
+      alt: `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`,
     },
   }),
   alternates: {
@@ -94,7 +92,7 @@ export default function FormationsPage() {
           <p className="max-w-5xl text-sm leading-relaxed text-[#334155] md:text-base">
             Formations IA pour le BTP pour <strong>TPE & PME du bâtiment et de la construction</strong>, dirigeants,
             conducteurs de travaux, chargés d&apos;affaires et équipes administratives : intelligence artificielle
-            bâtiment, formation IA travaux publics et{' '}
+            bâtiment avec Claude AI et ChatGPT, formation IA travaux publics et{' '}
             <Link href={LINKS.chatgptArtisans} className="font-medium text-[#377CF3] hover:underline">
               ChatGPT pour entreprises BTP
             </Link>{' '}
@@ -279,7 +277,7 @@ export default function FormationsPage() {
             { href: LINKS.diagnostic, label: 'Diagnostic IA BTP' },
             { href: LINKS.checklist, label: 'Checklist prompts ChatGPT BTP' },
             { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
-            { href: buildSiteCalendlyCtaUrl('formations-footer-rdv'), label: 'Prendre rendez-vous' },
+            { href: LINKS.prendreRdv, label: 'Prendre rendez-vous' },
           ].filter((l) => !getClusterRelatedHrefs(LINKS.formations).includes(l.href))}
         />
       </div>

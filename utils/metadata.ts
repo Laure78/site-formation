@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { enrichPageDescription } from '@/lib/meta-description';
 
 /** og:site_name — cohérence sur tout le site */
-export const OG_SITE_NAME = 'Laure Olivié — Formation IA pour le BTP';
+export const OG_SITE_NAME = 'Laure Olivié — Formation IA BTP';
 
 /** Suffixe unique de marque — appliqué par `app/layout.tsx` (`title.template`). */
 export const BRAND_TITLE_SUFFIX = ' | Laure Olivié';
@@ -227,7 +227,7 @@ function toIso8601Utc(date: string): string {
   return parsed.toISOString();
 }
 
-function resolveImageUrl(
+export function resolveOgImage(
   baseUrl: string,
   image?: { url: string; width?: number; height?: number; alt?: string }
 ) {
@@ -249,6 +249,58 @@ function resolveImageUrl(
     width: image.width ?? 1200,
     height: image.height ?? 630,
     alt: image.alt ?? defaultAlt,
+  };
+}
+
+/**
+ * Objets Open Graph + Twitter à partir d’un titre / description déjà figés.
+ * Ne réécrit pas le copy : `title` et `description` sont repris tels quels.
+ */
+export function buildOpenGraphTwitterFields({
+  title,
+  description,
+  url,
+  baseUrl,
+  image,
+  type = 'website',
+  article,
+}: {
+  title: string;
+  description: string;
+  url: string;
+  baseUrl: string;
+  image?: { url: string; width?: number; height?: number; alt?: string };
+  type?: 'website' | 'article';
+  article?: ArticleMetaInput;
+}): Pick<Metadata, 'openGraph' | 'twitter'> {
+  const img = resolveOgImage(baseUrl, image);
+  const articleOg =
+    type === 'article' && article
+      ? {
+          publishedTime: toIso8601Utc(article.publishedTime),
+          modifiedTime: toIso8601Utc(article.modifiedTime ?? article.publishedTime),
+          authors: [article.author ?? 'Laure Olivié'],
+          section: article.section ?? 'Formation IA pour les pros du BTP',
+        }
+      : {};
+
+  return {
+    openGraph: {
+      type,
+      title,
+      description,
+      url,
+      siteName: OG_SITE_NAME,
+      locale: 'fr_FR',
+      images: [img],
+      ...articleOg,
+    } as NonNullable<Metadata['openGraph']>,
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [img.url],
+    },
   };
 }
 
@@ -304,28 +356,15 @@ export function buildPageMetadata({
     : htmlTitle;
   const ogDescription =
     openGraphDescription != null ? openGraphDescription.trim() : metaDescription;
-  const img = resolveImageUrl(baseUrl, image);
-
-  const articleOg =
-    ogType === 'article' && article
-      ? {
-          publishedTime: toIso8601Utc(article.publishedTime),
-          modifiedTime: toIso8601Utc(article.modifiedTime ?? article.publishedTime),
-          authors: [article.author ?? 'Laure Olivié'],
-          section: article.section ?? 'Formation IA pour les pros du BTP',
-        }
-      : {};
-
-  const openGraph = {
-    type: ogType,
+  const { openGraph, twitter } = buildOpenGraphTwitterFields({
     title: ogTitle,
     description: ogDescription,
     url: canonical,
-    siteName: OG_SITE_NAME,
-    locale: 'fr_FR',
-    images: [img],
-    ...articleOg,
-  } as NonNullable<Metadata['openGraph']>;
+    baseUrl: baseNorm,
+    image,
+    type: ogType,
+    article,
+  });
 
   const other: Record<string, string> = {};
   if (ogType === 'article' && article) {
@@ -346,12 +385,7 @@ export function buildPageMetadata({
     description: metaDescription,
     ...(category ? { category } : {}),
     openGraph,
-    twitter: {
-      card: 'summary_large_image',
-      title: ogTitle,
-      description: ogDescription,
-      images: [img.url],
-    },
+    twitter,
     alternates: {
       canonical,
       languages: alternatesLanguages ?? { 'fr-FR': canonical, 'x-default': canonical },

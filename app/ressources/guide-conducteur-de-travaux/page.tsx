@@ -421,7 +421,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               Qui est Laure Olivié ?
             </h2>
             <p className="mt-4 text-slate-700 leading-relaxed">
-              Formatrice IA &amp; ChatGPT pour le BTP — OFC Création d&apos;Entreprise, certifiée Qualiopi. Sessions avec
+              Formatrice IA spécialisée BTP — OFC Création d&apos;Entreprise, certifiée Qualiopi. Sessions avec
               la FFB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
             </p>
             <p className="mt-3 font-semibold text-slate-900">

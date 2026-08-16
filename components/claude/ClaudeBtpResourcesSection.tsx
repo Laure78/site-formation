@@ -81,7 +81,7 @@ export function ClaudeBtpResourcesSection({ promptProjet }: Props) {
         ))}
       </div>
       <p className="mt-5 text-sm text-[#64748B]">
-        Workflows détaillés : section « Toutes nos ressources » ci-dessous.
+        Workflows détaillés : section « Toutes mes ressources » ci-dessous.
       </p>
       <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-[#377CF3]">Documentation</p>
       <AnthropicAuthorityLinks />

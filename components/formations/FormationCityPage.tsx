@@ -17,13 +17,17 @@ import { voirAussiVilleProps } from '@/lib/voir-aussi';
 import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
-import { SESSION_DUREE_LIBELLE, TARIF_FORFAIT_DEBUTANT_HT, MODALITE_FORMATIONS_STANDARD ,
+import {
+  SESSION_DUREE_LIBELLE,
+  TARIF_SESSION_FORFAIT_HT,
+  MODALITE_FORMATIONS_STANDARD,
   formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import { JsonLd } from '@/components/JsonLd';
 import { StatCallout } from '@/components/readability/StatCallout';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 import { KeyPoint } from '@/components/readability/KeyPoint';
-import { InfosQualiopiLanding } from '@/components/formation/InfosQualiopi';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { COUNT_UP_PROS_PLUS, COUNT_UP_RATING, getStatsFreshnessLabel } from '@/lib/readability-presets';
 
 interface FormationCityPageProps {
@@ -50,7 +54,7 @@ export function FormationCityPage({
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
     `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
-    `Session ${SESSION_DUREE_LIBELLE} · ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT (débutant) · Qualiopi.`,
+    `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · Qualiopi.`,
     `Présentiel ${regionLabel} — intra ou inter selon convention.`,
     'Financement Constructys selon éligibilité.',
   ];
@@ -172,6 +176,7 @@ export function FormationCityPage({
               freshnessLabel={statsFreshness}
             />
           </div>
+          <IndicateursResultatsLink className="mt-3 text-left" />
           <Link
             href="/a-propos"
             className="mt-6 inline-flex font-medium text-[var(--accent)] hover:underline"
@@ -242,7 +247,7 @@ export function FormationCityPage({
               Votre ville n&apos;est pas listée&nbsp;?
             </h3>
             <p className="mt-4 text-slate-600">
-              Interventions dans toute la {regionLabel}. Contactez-nous pour vérifier la disponibilité.
+              Interventions dans toute la {regionLabel}. Contactez-moi pour vérifier la disponibilité.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <RdvLink campaign={`${cityCamp}-zones-cta`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white hover:bg-blue-600">
@@ -352,7 +357,7 @@ export function FormationCityPage({
         </div>
       </section>
 
-      <InfosQualiopiLanding formationTitle={`Formation IA BTP à ${ville}`} />
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`à ${ville}`} />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">

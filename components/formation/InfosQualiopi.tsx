@@ -12,17 +12,22 @@ import {
   Target,
   Users,
 } from 'lucide-react';
-import { QUALIOPI_FICHE_META } from '@/config/qualiopi';
+import {
+  QUALIOPI_DELAI_ACCES_EXACT,
+  QUALIOPI_FICHE_META,
+  QUALIOPI_MODALITES_ACCES_EXACT,
+} from '@/config/qualiopi';
 import {
   QUALIOPI_CONTACTS,
   QUALIOPI_REFERENT_HANDICAP,
-  buildLandingInfosQualiopiProps,
   getInfosQualiopiForCatalogue,
   type InfosQualiopiProps,
 } from '@/lib/qualiopi-info';
 import { assertInfosReglementairesCompletes } from '@/lib/assert-infos-reglementaires';
 import { LINKS } from '@/lib/internal-links';
 import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
+import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
+import { MentionFinancement } from '@/components/MentionFinancement';
 
 function asList(items: string | readonly string[]): readonly string[] {
   return typeof items === 'string' ? [items] : items;
@@ -105,14 +110,15 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
           </QualiopiItem>
 
           <QualiopiItem icon={Calendar} title="4. Modalités et délais d'accès">
-            <p>{validated.modalitesAcces}</p>
+            <p>{QUALIOPI_MODALITES_ACCES_EXACT}</p>
+            <p className="mt-2">{QUALIOPI_DELAI_ACCES_EXACT}</p>
             <p className="mt-2">
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
                 Prendre rendez-vous
               </Link>{' '}
               ou{' '}
               <Link href={LINKS.contact} className="font-medium text-[#377CF3] hover:underline">
-                nous contacter
+                me contacter
               </Link>{' '}
               pour vérifier les prochaines dates.
             </p>
@@ -121,17 +127,15 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
           <QualiopiItem icon={Euro} title="5. Tarifs (HT)">
             <p>
               <strong>Inter-entreprise :</strong> {validated.tarifInter}
+              <MentionTvaAsterisque />
             </p>
             <p className="mt-2">
               <strong>Intra-entreprise :</strong> {validated.tarifIntra}
+              <MentionTvaAsterisque />
             </p>
+            <MentionTVA className="mt-3" />
             <p className="mt-2 text-slate-600">
-              TVA non applicable, art. 261-4-4° du CGI (formation professionnelle). Financement OPCO Constructys
-              possible selon éligibilité —{' '}
-              <Link href={LINKS.financement} className="font-medium text-[#377CF3] hover:underline">
-                voir le guide financement
-              </Link>
-              .
+              <MentionFinancement variant="court" />.
             </p>
           </QualiopiItem>
 
@@ -171,13 +175,17 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </p>
             <p className="mt-3">
               <Link href={LINKS.annuaireHandicap} className="font-medium text-[#377CF3] hover:underline">
-                Consulter notre annuaire des partenaires handicap
+                Consulter l&apos;annuaire des partenaires handicap
               </Link>
             </p>
           </QualiopiItem>
 
           <QualiopiItem icon={Mail} title="9. Contacts">
             <ul className="space-y-2">
+              <li className="text-slate-600">
+                <span className="font-medium text-slate-900">{QUALIOPI_CONTACTS.nom}</span>
+              </li>
+              <li className="text-slate-600">{QUALIOPI_CONTACTS.fonction}</li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
                 <a href={`mailto:${QUALIOPI_CONTACTS.email}`} className="font-medium text-[#377CF3] hover:underline">
@@ -219,8 +227,4 @@ export function InfosQualiopi(props: InfosQualiopiProps) {
 
 export function CatalogueInfosQualiopi({ programmeRef }: { programmeRef: string }) {
   return <InformationsReglementaires {...getInfosQualiopiForCatalogue(programmeRef)} />;
-}
-
-export function InfosQualiopiLanding({ formationTitle }: { formationTitle: string }) {
-  return <InformationsReglementaires {...buildLandingInfosQualiopiProps(formationTitle)} />;
 }

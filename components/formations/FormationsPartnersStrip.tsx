@@ -5,7 +5,7 @@ import {
   ALT_LOGO_CSFE,
   ALT_LOGO_FFB_GRAND_PARIS_IDF,
   ALT_LOGO_FFB_OFFICIEL,
-  ALT_LOGO_IFRB_77,
+  ALT_LOGO_IFRB,
   ALT_LOGO_LEFEBVRE_DALLOZ,
   PARTNER_WEBSITES,
 } from '@/lib/client-logos';
@@ -58,8 +58,8 @@ const LOGOS = [
   },
   {
     id: 'ifrb',
-    src: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
-    alt: ALT_LOGO_IFRB_77,
+    src: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
+    alt: ALT_LOGO_IFRB,
     width: 200,
     height: 80,
     href: PARTNER_WEBSITES.ifrb,

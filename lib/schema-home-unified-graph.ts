@@ -15,10 +15,9 @@ import {
 } from '@/lib/schema-constants';
 import { SITE_CONFIG, siteHasPublicPhone } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
 import { formatProfessionalsTrainedCount } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
-import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
 import { PHOTOS } from '@/lib/photos';
 import { buildHomeHeroImageObjectNode, HOME_HERO_IMAGE_OBJECT_ID } from '@/lib/schema-image-objects';
 import { buildPromoVideoObjectJsonLd } from '@/lib/schema-promo-video';
@@ -41,7 +40,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
   const personImageUrl = `${base}${PHOTOS.portraitPro2026.src}`;
   const dateModified = new Date().toISOString().split('T')[0];
 
-  const priceStr = String(TARIF_FORFAIT_DEBUTANT_HT);
+  const priceStr = String(TARIF_SESSION_FORFAIT_HT);
 
   return {
     '@context': 'https://schema.org',
@@ -117,7 +116,7 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
         name: 'Laure Olivié',
         givenName: 'Laure',
         familyName: 'Olivié',
-        jobTitle: 'Formatrice IA & ChatGPT spécialisée BTP',
+        jobTitle: 'Formatrice IA spécialisée BTP',
         description: getLaureOlivieSchemaPersonDescription(),
         url: `${base}/a-propos`,
         image: personImageUrl,
@@ -227,7 +226,6 @@ export function buildHomeUnifiedGraphJsonLd(): Record<string, unknown> {
           educationalRole:
             'Dirigeants PME BTP, entreprises de construction, conducteurs de travaux, chargés d\'affaires, équipes administratives BTP',
         },
-        aggregateRating: buildSchemaAggregateRating(),
       },
       {
         ...buildPromoVideoObjectJsonLd({ pageUrl: base, idSuffix: 'video-formation-ia-btp-accueil' }),

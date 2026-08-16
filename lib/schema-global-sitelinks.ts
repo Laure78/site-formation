@@ -45,7 +45,7 @@ const HAS_PART = [
     '@id': `${base}/a-propos#webpage`,
     url: `${base}/a-propos`,
     name: 'À propos',
-    description: 'Formatrice IA & ChatGPT pour le BTP — Qualiopi, OFC Création d’Entreprise',
+    description: 'Formatrice IA spécialisée BTP — Qualiopi, OFC Création d’Entreprise',
   },
   {
     '@type': 'WebPage',

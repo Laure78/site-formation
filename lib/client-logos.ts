@@ -1,18 +1,19 @@
 /**
  * Logos clients — banderole page d'accueil (fichiers dans /public/images/partenaires).
  *
- * Alts canoniques (SEO) — réutiliser partout où le même fichier apparaît.
+ * Alts canoniques (SEO) — un alt unique par fichier logo, ≤ 125 car., 1 mot-clé contextuel max.
+ * Format : « Logo [Organisation] — [contexte court] ».
  */
 export const ALT_LOGO_FFB_OFFICIEL =
   'Logo FFB — Fédération Française du Bâtiment' as const;
-export const ALT_LOGO_FFB_ARTISAN =
-  'Logo FFB Artisan — réseau FFB du bâtiment' as const;
+/** Même fichier que `ALT_LOGO_FFB_OFFICIEL` → même alt (règle : 1 fichier = 1 alt). */
+export const ALT_LOGO_FFB_ARTISAN = ALT_LOGO_FFB_OFFICIEL;
 export const ALT_LOGO_FFB_GRAND_PARIS_IDF =
-  'Logo FFB Grand Paris — fédération partenaire formation IA BTP' as const;
+  'Logo FFB Grand Paris — fédération du bâtiment Île-de-France' as const;
 export const ALT_LOGO_CSFE =
-  'Logo CSFE, Chambre Syndicale Française de l\'Étanchéité — partenaire formation IA' as const;
+  "Logo CSFE — Chambre Syndicale Française de l'Étanchéité" as const;
 export const ALT_LOGO_UMB_FFB =
-  'Logo UMB-FFB, Union des Métiers du Bois — partenaire formation IA bâtiment' as const;
+  'Logo UMB-FFB — Union des Métiers du Bois' as const;
 
 /** Logo officiel UMB-FFB (Union des Métiers du Bois). */
 export const LOGO_UMB_FFB = {
@@ -22,8 +23,7 @@ export const LOGO_UMB_FFB = {
   height: 480,
 } as const;
 
-export const ALT_LOGO_LINKEDIN_LEARNING =
-  'Logo LinkedIn Learning — instructrice Laure Olivié' as const;
+export const ALT_LOGO_LINKEDIN_LEARNING = 'Logo LinkedIn Learning' as const;
 
 /** Logo officiel LinkedIn Learning (bandeaux partenaires, EEAT, hubs). */
 export const LOGO_LINKEDIN_LEARNING = {
@@ -32,14 +32,13 @@ export const LOGO_LINKEDIN_LEARNING = {
   width: 600,
   height: 600,
 } as const;
-export const ALT_LOGO_CNAM_ENTREPRISES =
-  'Logo CNAM Entreprises — partenaire formation continue BTP' as const;
-export const ALT_LOGO_LEFEBVRE_DALLOZ =
-  'Logo Lefebvre Dalloz — partenaire formation professionnelle BTP' as const;
-export const ALT_LOGO_ARFAB =
-  'Logo ARFAB — association régionale de formation du bâtiment' as const;
-export const ALT_LOGO_IFRB_77 =
-  'Logo IFRB 77 — Institut Formation Régional du Bâtiment Yvelines' as const;
+export const ALT_LOGO_CNAM_ENTREPRISES = 'Logo CNAM Entreprises' as const;
+export const ALT_LOGO_LEFEBVRE_DALLOZ = 'Logo Lefebvre Dalloz Formation' as const;
+export const ALT_LOGO_ARFAB = 'Logo ARFAB — formation artisans du bâtiment' as const;
+export const ALT_LOGO_IFRB =
+  "Logo IFRB — Institut de Formation Régional du Bâtiment Yvelines, Essonne, Val-d'Oise" as const;
+/** @deprecated Alias — préférer `ALT_LOGO_IFRB`. */
+export const ALT_LOGO_IFRB_77 = ALT_LOGO_IFRB;
 
 /** Logo Lefebvre Dalloz Formation. */
 export const LOGO_LEFEBVRE_DALLOZ = {
@@ -76,6 +75,7 @@ export const PARTNER_WEBSITES = {
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
   linkedinLearning: 'https://www.linkedin.com/learning/',
+  capeb: 'https://www.capeb.fr/',
 } as const;
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
@@ -93,7 +93,7 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
   {
     id: 'ffb-artisan',
     name: 'FFB Artisan',
-    alt: ALT_LOGO_FFB_ARTISAN,
+    alt: ALT_LOGO_FFB_OFFICIEL,
     src: '/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp',
     width: 200,
     height: 80,
@@ -153,14 +153,14 @@ export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [
   },
   {
     id: 'ifrb',
-    name: 'IFRB 77',
-    alt: ALT_LOGO_IFRB_77,
-    src: '/images/partenaires/logo-ifrb-77-formation-batiment.webp',
+    name: 'IFRB',
+    alt: ALT_LOGO_IFRB,
+    src: '/images/partenaires/logo-ifrb-78-91-95-formation-batiment.webp',
     width: 200,
     height: 80,
     href: PARTNER_WEBSITES.ifrb,
     linkTitle: 'Site officiel IFRB — Institut de Formation Régional du Bâtiment',
-    caption: 'IFRB 77',
+    caption: 'IFRB 78 · 91 · 95',
   },
   {
     id: 'linkedin-learning',
