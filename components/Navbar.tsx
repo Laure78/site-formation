@@ -8,466 +8,33 @@ import { useEffect, useRef, useState } from 'react';
 import {
   Menu,
   X,
-  ChevronDown,
-  ArrowRight,
-  GraduationCap,
-  BookOpen,
-  UserCircle,
   Home,
+  GraduationCap,
   CircleDollarSign,
-  Sparkles,
   Layers,
-  FileText,
-  HardHat,
-  ShieldCheck,
-  Cpu,
   Landmark,
-  LogIn,
+  UserCircle,
 } from 'lucide-react';
-import {
-  CATALOGUE_FORMATIONS_NAV_LINKS,
-  catalogueFormationNavContainsPath,
-  catalogueFormationNavParentHref,
-  type CatalogueFormationNavLink,
-} from '@/lib/catalogue-formations-nav';
 import { LINKS } from '@/lib/internal-links';
+import { HEADER_NAV } from '@/lib/header-nav';
 import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
-import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
-import { RESSOURCES_GUIDES } from '@/lib/ressources-guides';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
-
+import {
+  HeaderMobileNavSection,
+  HeaderNavDropdown,
+  HeaderNavSimpleLink,
+} from '@/components/nav/HeaderNavDropdown';
 import type { LucideIcon } from 'lucide-react';
-import type { TutoCategoryId } from '@/lib/tutos';
 
-/** Icône par rubrique pour le mega-menu Tutos — cohérent desktop / mobile. */
-const TUTO_NAV_SECTION_ICON: Record<TutoCategoryId, LucideIcon> = {
-  'marches-et-veille': FileText,
-  'chantier-livrables': HardHat,
-  'qse-conformite': ShieldCheck,
-  productivite: Cpu,
+const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
+  accueil: Home,
+  formations: GraduationCap,
+  financement: CircleDollarSign,
+  ressources: Layers,
+  partenaires: Landmark,
+  'a-propos': UserCircle,
 };
-
-type MegaLink = {
-  href: string;
-  label: string;
-  description?: string;
-  icon: LucideIcon;
-  pages?: CatalogueFormationNavLink['pages'];
-};
-
-type NavMega = {
-  id: string;
-  label: string;
-  /** Lien « tout voir » sous le menu desktop (optionnel). */
-  allLabel?: string;
-  allHref?: string;
-  columns: { title: string; links: MegaLink[] }[];
-  navIcon: LucideIcon;
-};
-
-const FORMATIONS_MEGA: NavMega = {
-  id: 'formations',
-  label: 'Formations',
-  navIcon: GraduationCap,
-  columns: [
-    {
-      title: 'Mes formations',
-      links: CATALOGUE_FORMATIONS_NAV_LINKS,
-    },
-  ],
-};
-
-function isActive(href: string, pathname: string) {
-  if (href === '/') return pathname === '/';
-  if (href.startsWith('/#')) return pathname === '/';
-  if (href.includes('#')) {
-    const path = href.split('#')[0];
-    if (!path || path === '/') return pathname === '/';
-    return pathname === path || pathname.startsWith(path + '/');
-  }
-  return pathname === href || pathname.startsWith(href + '/');
-}
-
-function FormationsNavAccordion({
-  links,
-  pathname,
-  dense = false,
-  onNavigate,
-}: {
-  links: MegaLink[];
-  pathname: string;
-  dense?: boolean;
-  onNavigate?: () => void;
-}) {
-  const [openHref, setOpenHref] = useState<string | null>(() =>
-    catalogueFormationNavParentHref(pathname),
-  );
-
-  return (
-    <ul className="space-y-0.5 pb-2">
-      {links.map((link) => {
-        const ItemIcon = link.icon;
-        const pages = link.pages ?? [];
-        const hasPages = pages.length > 0;
-        const expanded = hasPages && openHref === link.href;
-        const linkActive = isActive(link.href, pathname);
-        const childActive = pages.some((p) => isActive(p.href, pathname));
-        const paddingY = dense ? 'py-3' : 'py-2.5';
-
-        return (
-          <li key={link.href}>
-            <div className="flex items-stretch">
-              <Link
-                href={link.href}
-                onClick={onNavigate}
-                className={`flex min-w-0 flex-1 gap-3 rounded-xl px-3 ${paddingY} transition-colors ${
-                  linkActive
-                    ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                    : childActive
-                      ? 'font-medium text-[var(--accent)] hover:bg-slate-50'
-                      : 'text-slate-800 hover:bg-slate-50'
-                }`}
-              >
-                <ItemIcon
-                  size={dense ? 18 : 20}
-                  strokeWidth={1.75}
-                  className={`mt-0.5 shrink-0 ${
-                    linkActive || childActive ? 'text-[var(--accent)]' : 'text-slate-400'
-                  }`}
-                  aria-hidden
-                />
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                  {link.description ? (
-                    <span className="mt-1 block text-sm leading-relaxed text-slate-600">
-                      {link.description}
-                    </span>
-                  ) : null}
-                </span>
-              </Link>
-              {hasPages ? (
-                <button
-                  type="button"
-                  aria-expanded={expanded}
-                  aria-label={`Afficher les pages de ${link.label}`}
-                  className="flex shrink-0 items-center rounded-xl px-2 text-slate-400 transition-colors hover:bg-slate-50 hover:text-slate-700"
-                  onClick={() => setOpenHref((current) => (current === link.href ? null : link.href))}
-                >
-                  <ChevronDown
-                    size={16}
-                    strokeWidth={2}
-                    className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
-                    aria-hidden
-                  />
-                </button>
-              ) : null}
-            </div>
-            {expanded ? (
-              <ul className="mb-1 ml-4 mt-0.5 space-y-0.5 border-l border-slate-200 pl-3">
-                {pages.map((page) => {
-                  const pageActive = isActive(page.href, pathname);
-                  return (
-                    <li key={page.href}>
-                      <Link
-                        href={page.href}
-                        onClick={onNavigate}
-                        className={`block rounded-lg px-3 ${dense ? 'py-2.5' : 'py-2'} text-sm leading-snug transition-colors ${
-                          pageActive
-                            ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                        }`}
-                      >
-                        {page.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : null}
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-function FormationsDropdownPanel({
-  mega,
-  pathname,
-}: {
-  mega: NavMega;
-  pathname: string;
-}) {
-  return (
-    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,22rem)] max-w-[min(100vw-2rem,28rem)] pt-2">
-      <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
-        <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
-          {mega.columns.map((col) => (
-            <div key={col.title}>
-              <p className="px-3 pb-1 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                {col.title}
-              </p>
-              <FormationsNavAccordion links={col.links} pathname={pathname} />
-            </div>
-          ))}
-        </div>
-        <div className="border-t border-slate-100 px-3 py-3">
-          <p className="px-1 pb-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Espace apprenant
-          </p>
-          <div className="flex flex-col gap-2">
-            <Link
-              href={LINKS.authConnexion}
-              title="Connexion plateforme formation IA BTP"
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]"
-            >
-              <LogIn size={18} strokeWidth={1.75} className="shrink-0" aria-hidden />
-              Connexion plateforme
-            </Link>
-            <Link
-              href={LINKS.formationPlateforme}
-              className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-[#377CF3]"
-            >
-              En savoir plus
-              <ArrowRight size={14} aria-hidden />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function formationsDropdownActive(pathname: string): boolean {
-  if (pathname.startsWith('/formations')) return true;
-  return catalogueFormationNavContainsPath(pathname);
-}
-
-function tutosInCategory(cat: TutoCategoryId) {
-  return TUTOS.filter((t) => t.category === cat);
-}
-
-type TutoNavContext = 'desktop' | 'mobile';
-
-/** Liste Tutos groupée par thématique (alignée sur les rubriques `/ressources/tutos`). */
-function ResourcesTutosNavBlocks({
-  pathname,
-  ctx,
-  onNavigate,
-}: {
-  pathname: string;
-  ctx: TutoNavContext;
-  /** Fermeture drawer mobile après clic lien */
-  onNavigate?: () => void;
-}) {
-  const dense = ctx === 'mobile';
-  const paddingY = dense ? 'py-3' : 'py-2.5';
-  const iconSz = dense ? 18 : 20;
-  const strokeW = dense ? undefined : (1.75 as const);
-
-  const categoryBlocks = TUTO_CATEGORY_ORDER.map((catId) => {
-    const items = tutosInCategory(catId);
-    if (!items.length) return null;
-    const SectionIcon = TUTO_NAV_SECTION_ICON[catId];
-    const label = TUTO_CATEGORY_META[catId].pillLabel;
-
-    return (
-      <div
-        key={catId}
-        className="mb-2 rounded-xl border border-slate-200/80 bg-[#F2F2F2] px-1.5 py-1.5 last:mb-0"
-      >
-        <p className="px-2.5 pb-1 pt-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
-          {label}
-        </p>
-        <ul className="space-y-0.5">
-          {items.map((tuto) => {
-            const href = `${LINKS.ressources}/${tuto.slug}`;
-            const linkActive = isActive(href, pathname);
-            return (
-              <li key={tuto.slug}>
-                <Link
-                  href={href}
-                  onClick={onNavigate}
-                  className={`flex gap-3 rounded-lg px-2.5 ${paddingY} transition-colors ${
-                    dense
-                      ? linkActive
-                        ? 'bg-white font-medium text-[var(--accent)] shadow-sm'
-                        : 'text-slate-800 hover:bg-white/80'
-                      : linkActive
-                        ? 'bg-white font-medium text-[var(--accent)] shadow-sm'
-                        : 'text-slate-800 hover:bg-white/90'
-                  }`}
-                >
-                  <SectionIcon
-                    size={iconSz}
-                    strokeWidth={strokeW ?? 1.75}
-                    className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                    aria-hidden
-                  />
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-[0.9375rem] leading-snug">{tuto.shortTitle}</span>
-                    <span className={`mt-1 block text-xs text-slate-500`}>
-                      Tuto PDF · {tuto.totalTimeMinutes} min
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
-  });
-
-  return <>{categoryBlocks}</>;
-}
-
-function ResourcesDropdownPanel({ pathname }: { pathname: string }) {
-  const claudeHubLinks: MegaLink[] = [
-    {
-      href: LINKS.claudeAiBtp,
-      label: 'Claude AI BTP',
-      description: 'Guide complet : interfaces, limites techniques, parcours formations',
-      icon: Sparkles,
-    },
-  ];
-  const guideLinks: MegaLink[] = RESSOURCES_GUIDES.map((guide, index) => ({
-    href: guide.href,
-    label: guide.title,
-    description: guide.description,
-    icon: index === 0 ? Landmark : HardHat,
-  }));
-  return (
-    <div className="absolute left-0 top-full z-[60] min-w-[min(100vw-2rem,24rem)] max-w-[min(100vw-2rem,28rem)] pt-2">
-      <div className="rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]">
-        <div className="border-b border-slate-100 px-4 pb-3">
-          <Link
-            href={LINKS.ressources}
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:text-[var(--accent)]/90"
-          >
-            Voir toutes les ressources
-            <ArrowRight
-              size={15}
-              className="transition-transform group-hover:translate-x-0.5"
-              aria-hidden
-            />
-          </Link>
-        </div>
-        <div className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain px-2 pt-1">
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Blog
-          </p>
-          <ul className="space-y-0.5 pb-2">
-            <li>
-              <Link
-                href={LINKS.blog}
-                className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                  isActive(LINKS.blog, pathname)
-                    ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                    : 'text-slate-800 hover:bg-slate-50'
-                }`}
-              >
-                <BookOpen
-                  size={20}
-                  strokeWidth={1.75}
-                  className={`mt-0.5 shrink-0 ${
-                    isActive(LINKS.blog, pathname) ? 'text-[var(--accent)]' : 'text-slate-400'
-                  }`}
-                  aria-hidden
-                />
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[0.9375rem] leading-snug">Blog IA &amp; ChatGPT BTP</span>
-                  <span className="mt-1 block text-xs text-slate-500">
-                    Guides, prompts et cas d&apos;usage pour les pros du bâtiment
-                  </span>
-                </span>
-              </Link>
-            </li>
-          </ul>
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
-            Tutos par thème
-          </p>
-          <div className="space-y-1 pb-2">
-            <ResourcesTutosNavBlocks pathname={pathname} ctx="desktop" />
-          </div>
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Claude AI BTP
-          </p>
-          <ul className="space-y-0.5 pb-2">
-            {claudeHubLinks.map((link) => {
-              const ItemIcon = link.icon;
-              const linkActive = isActive(link.href, pathname);
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                      linkActive
-                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                        : 'text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <ItemIcon
-                      size={20}
-                      strokeWidth={1.75}
-                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      {link.description ? (
-                        <span className="mt-1 block text-xs text-slate-500">
-                          {link.description}
-                        </span>
-                      ) : null}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <p className="px-3 pb-1 pt-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Guides PDF
-          </p>
-          <ul className="space-y-0.5 pb-2">
-            {guideLinks.map((link) => {
-              const ItemIcon = link.icon;
-              const linkActive = isActive(link.href, pathname);
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`flex gap-3 rounded-xl px-3 py-2.5 transition-colors ${
-                      linkActive
-                        ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                        : 'text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <ItemIcon
-                      size={20}
-                      strokeWidth={1.75}
-                      className={`mt-0.5 shrink-0 ${linkActive ? 'text-[var(--accent)]' : 'text-slate-400'}`}
-                      aria-hidden
-                    />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[0.9375rem] leading-snug">{link.label}</span>
-                      {link.description ? (
-                        <span className="mt-1 block text-xs text-slate-500">
-                          {link.description}
-                        </span>
-                      ) : null}
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /** Seuil scroll (px) — fond compact + compression visuelle du header. */
 const HEADER_COMPACT_SCROLL_PX = 80;
@@ -485,12 +52,18 @@ export function Navbar() {
 function NavbarInner() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openFormations, setOpenFormations] = useState(false);
-  const [openResources, setOpenResources] = useState(false);
-  const [mobileFormationsOpen, setMobileFormationsOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [openId, setOpenId] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
   const [compact, setCompact] = useState(false);
+  const [navPath, setNavPath] = useState(pathname);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  if (navPath !== pathname) {
+    setNavPath(pathname);
+    setMobileOpen(false);
+    setOpenId(null);
+    setMobileExpanded({});
+  }
 
   const clearCloseTimer = () => {
     if (closeTimer.current) {
@@ -499,33 +72,25 @@ function NavbarInner() {
     }
   };
 
-  const scheduleCloseAll = () => {
+  const scheduleClose = () => {
     clearCloseTimer();
-    closeTimer.current = setTimeout(() => {
-      setOpenFormations(false);
-      setOpenResources(false);
-    }, 180);
+    closeTimer.current = setTimeout(() => setOpenId(null), 180);
   };
 
-  const handleEnterFormations = () => {
+  const openItem = (id: string) => {
     clearCloseTimer();
-    setOpenFormations(true);
-    setOpenResources(false);
+    setOpenId(id);
   };
 
-  const handleEnterResources = () => {
+  const toggleItem = (id: string) => {
     clearCloseTimer();
-    setOpenResources(true);
-    setOpenFormations(false);
+    setOpenId((current) => (current === id ? null : id));
   };
 
-  useEffect(() => {
-    setMobileOpen(false);
-    setOpenFormations(false);
-    setOpenResources(false);
-    setMobileFormationsOpen(false);
-    setMobileResourcesOpen(false);
-  }, [pathname]);
+  const closeNav = () => {
+    clearCloseTimer();
+    setOpenId(null);
+  };
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -545,23 +110,40 @@ function NavbarInner() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const homeActive = pathname === '/';
-  const resourcesNavActive =
-    pathname.startsWith('/ressources') ||
-    pathname === LINKS.claudeAiBtp ||
-    pathname === LINKS.blog ||
-    pathname.startsWith(`${LINKS.blog}/`);
-  const aProposActive = pathname.startsWith('/a-propos');
-  const partenairesActive = pathname.startsWith('/partenaires');
-  const financementActive =
-    pathname === LINKS.financement || pathname.startsWith('/financement-constructys');
+  useEffect(() => {
+    if (!openId) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpenId(null);
+        const button = document.getElementById(`header-nav-btn-${openId}`);
+        button?.focus();
+      }
+    };
+
+    const onPointerDown = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      if (target.closest('[data-header-nav-pill]') || target.closest('[data-header-dropdown]')) {
+        return;
+      }
+      setOpenId(null);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('mousedown', onPointerDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('mousedown', onPointerDown);
+    };
+  }, [openId]);
 
   return (
     <>
       <header
         className="site-header"
         data-compact={compact ? 'true' : 'false'}
-        onMouseLeave={scheduleCloseAll}
+        onMouseLeave={scheduleClose}
       >
         <div className="site-header__inner">
           <Link href="/" className="site-header__brand">
@@ -582,166 +164,43 @@ function NavbarInner() {
           <nav
             className="site-header__nav-pill"
             aria-label="Navigation principale"
+            data-header-nav-pill=""
           >
-            <Link
-              href="/"
-              aria-current={homeActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
-                homeActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <Home
-                size={16}
-                strokeWidth={1.75}
-                className="hidden shrink-0 text-slate-500 2xl:block"
-                aria-hidden
-              />
-              Accueil
-            </Link>
-
-            <div
-              className="relative flex items-stretch"
-              onMouseEnter={handleEnterFormations}
-              onMouseLeave={scheduleCloseAll}
-            >
-              <Link
-                href={LINKS.formations}
-                aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
-                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2.5 2xl:pl-3.5 ${
-                  formationsDropdownActive(pathname) || openFormations
-                    ? 'bg-white text-slate-900 shadow-sm'
-                    : 'text-slate-700 hover:text-slate-900'
-                }`}
-              >
-                {FORMATIONS_MEGA.label}
-              </Link>
-              <button
-                type="button"
-                aria-expanded={openFormations}
-                aria-haspopup="true"
-                aria-label="Ouvrir le menu des formations"
-                className={`flex items-center rounded-full py-2 pr-2 pl-0.5 text-slate-500 transition-colors xl:pr-2.5 ${
-                  openFormations ? 'text-slate-800' : 'hover:text-slate-700'
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  clearCloseTimer();
-                  setOpenFormations((v) => !v);
-                  setOpenResources(false);
-                }}
-              >
-                <ChevronDown
-                  size={15}
-                  strokeWidth={2}
-                  className={`shrink-0 transition-transform duration-200 ${
-                    openFormations ? 'rotate-180' : ''
-                  }`}
-                  aria-hidden
+            {HEADER_NAV.map((item) => {
+              const hasChildren = Boolean(item.children?.length);
+              if (!hasChildren) {
+                const Icon = MOBILE_NAV_ICON[item.id];
+                return (
+                  <HeaderNavSimpleLink
+                    key={item.id}
+                    item={item}
+                    pathname={pathname}
+                    icon={
+                      Icon ? (
+                        <Icon
+                          size={16}
+                          strokeWidth={1.75}
+                          className="hidden shrink-0 text-slate-500 2xl:block"
+                          aria-hidden
+                        />
+                      ) : undefined
+                    }
+                  />
+                );
+              }
+              return (
+                <HeaderNavDropdown
+                  key={item.id}
+                  item={item}
+                  pathname={pathname}
+                  open={openId === item.id}
+                  onOpen={() => openItem(item.id)}
+                  onClose={scheduleClose}
+                  onToggle={() => toggleItem(item.id)}
+                  onNavigate={closeNav}
                 />
-              </button>
-              {openFormations && (
-                <FormationsDropdownPanel mega={FORMATIONS_MEGA} pathname={pathname} />
-              )}
-            </div>
-
-            <Link
-              href={LINKS.financement}
-              aria-current={financementActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
-                financementActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <CircleDollarSign
-                size={16}
-                strokeWidth={1.75}
-                className="hidden shrink-0 text-slate-500 2xl:block"
-                aria-hidden
-              />
-              Financement
-            </Link>
-
-            <div
-              className="relative flex items-stretch"
-              onMouseEnter={handleEnterResources}
-              onMouseLeave={scheduleCloseAll}
-            >
-              <Link
-                href={LINKS.ressources}
-                aria-current={resourcesNavActive ? 'page' : undefined}
-                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2.5 2xl:pl-3.5 ${
-                  resourcesNavActive || openResources
-                    ? 'bg-white text-slate-900 shadow-sm'
-                    : 'text-slate-700 hover:text-slate-900'
-                }`}
-              >
-                Ressources
-              </Link>
-              <button
-                type="button"
-                aria-expanded={openResources}
-                aria-haspopup="true"
-                aria-label="Ouvrir le menu Ressources"
-                className={`flex items-center rounded-full py-2 pr-2 pl-0.5 text-slate-500 transition-colors xl:pr-2.5 ${
-                  openResources ? 'text-slate-800' : 'hover:text-slate-700'
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  clearCloseTimer();
-                  setOpenResources((v) => !v);
-                  setOpenFormations(false);
-                }}
-              >
-                <ChevronDown
-                  size={15}
-                  strokeWidth={2}
-                  className={`shrink-0 transition-transform duration-200 ${
-                    openResources ? 'rotate-180' : ''
-                  }`}
-                  aria-hidden
-                />
-              </button>
-              {openResources && <ResourcesDropdownPanel pathname={pathname} />}
-            </div>
-
-            <Link
-              href={LINKS.partenaires}
-              aria-current={partenairesActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
-                partenairesActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <Landmark
-                size={16}
-                strokeWidth={1.75}
-                className="hidden shrink-0 text-slate-500 2xl:block"
-                aria-hidden
-              />
-              Partenaires
-            </Link>
-
-            <Link
-              href={LINKS.aPropos}
-              aria-current={aProposActive ? 'page' : undefined}
-              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all xl:px-2.5 2xl:px-3.5 ${
-                aProposActive
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-slate-700 hover:text-slate-900'
-              }`}
-            >
-              <UserCircle
-                size={16}
-                strokeWidth={1.75}
-                className="hidden shrink-0 text-slate-500 2xl:block"
-                aria-hidden
-              />
-              À propos
-            </Link>
+              );
+            })}
           </nav>
 
           <div className="site-header__search hidden xl:flex">
@@ -801,255 +260,36 @@ function NavbarInner() {
               <X size={22} />
             </button>
           </div>
-          <nav className="min-h-0 flex-1 overflow-y-auto px-4 py-4" aria-label="Navigation mobile">
-            <div className="border-b border-slate-100 py-1">
-              <Link
-                href="/"
-                aria-current={homeActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  homeActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <Home
-                  size={18}
-                  strokeWidth={1.75}
-                  className={homeActive ? 'text-[var(--accent)]' : 'text-slate-400'}
+          <nav className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4" aria-label="Navigation mobile">
+            {HEADER_NAV.map((item) => {
+              const Icon = MOBILE_NAV_ICON[item.id];
+              return (
+                <HeaderMobileNavSection
+                  key={item.id}
+                  item={item}
+                  pathname={pathname}
+                  expanded={Boolean(mobileExpanded[item.id])}
+                  onToggle={() =>
+                    setMobileExpanded((current) => ({
+                      ...current,
+                      [item.id]: !current[item.id],
+                    }))
+                  }
+                  onNavigate={() => setMobileOpen(false)}
+                  icon={
+                    Icon ? (
+                      <Icon
+                        size={18}
+                        strokeWidth={1.75}
+                        className={
+                          item.isActive?.(pathname) ? 'text-[var(--accent)]' : 'text-slate-400'
+                        }
+                      />
+                    ) : undefined
+                  }
                 />
-                Accueil
-              </Link>
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <div className="flex items-stretch">
-                <Link
-                  href={LINKS.formations}
-                  aria-current={formationsDropdownActive(pathname) ? 'page' : undefined}
-                  onClick={() => setMobileOpen(false)}
-                  className={`flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-semibold ${
-                    formationsDropdownActive(pathname) ? 'text-[var(--accent)]' : 'text-slate-900'
-                  }`}
-                >
-                  <GraduationCap
-                    size={18}
-                    strokeWidth={1.75}
-                    className={formationsDropdownActive(pathname) ? 'text-[var(--accent)]' : 'text-slate-400'}
-                  />
-                  {FORMATIONS_MEGA.label}
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setMobileFormationsOpen((v) => !v)}
-                  aria-expanded={mobileFormationsOpen}
-                  aria-label="Afficher le catalogue des formations"
-                  className="flex shrink-0 items-center px-2 text-slate-400"
-                >
-                  <ChevronDown
-                    size={18}
-                    className={`transition-transform ${mobileFormationsOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-              </div>
-              {mobileFormationsOpen && (
-                <div className="pb-2 pl-1">
-                  <FormationsNavAccordion
-                    links={FORMATIONS_MEGA.columns[0].links}
-                    pathname={pathname}
-                    dense
-                    onNavigate={() => setMobileOpen(false)}
-                  />
-                  <div className="mt-3 border-t border-slate-100 pt-3">
-                    <Link
-                      href={LINKS.authConnexion}
-                      title="Connexion plateforme formation"
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold text-[#377CF3]"
-                    >
-                      <LogIn size={18} strokeWidth={1.75} aria-hidden />
-                      Connexion plateforme
-                    </Link>
-                    <Link
-                      href={LINKS.formationPlateforme}
-                      onClick={() => setMobileOpen(false)}
-                      className="mt-1 block px-3 py-1 text-xs font-medium text-slate-500 hover:text-[#377CF3]"
-                    >
-                      Espace apprenant — en savoir plus
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <Link
-                href={LINKS.financement}
-                aria-current={financementActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  financementActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <CircleDollarSign
-                  size={18}
-                  strokeWidth={1.75}
-                  className={financementActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                Financement
-              </Link>
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <div className="flex items-stretch">
-                <Link
-                  href={LINKS.ressources}
-                  aria-current={resourcesNavActive ? 'page' : undefined}
-                  onClick={() => setMobileOpen(false)}
-                  className={`flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-semibold ${
-                    resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                  }`}
-                >
-                  <Layers
-                    size={18}
-                    strokeWidth={1.75}
-                    className={resourcesNavActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                  />
-                  Ressources
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setMobileResourcesOpen((v) => !v)}
-                  aria-expanded={mobileResourcesOpen}
-                  aria-label="Afficher le détail des ressources"
-                  className="flex shrink-0 items-center px-2 text-slate-400"
-                >
-                  <ChevronDown
-                    size={18}
-                    className={`transition-transform ${mobileResourcesOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-              </div>
-              {mobileResourcesOpen && (
-                <div className="pb-2 pl-1">
-                  <Link
-                    href={LINKS.ressources}
-                    onClick={() => setMobileOpen(false)}
-                    className="mb-3 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-[var(--accent)]"
-                  >
-                    Voir toutes les ressources
-                    <ArrowRight size={14} />
-                  </Link>
-                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Blog
-                  </p>
-                  <Link
-                    href={LINKS.blog}
-                    onClick={() => setMobileOpen(false)}
-                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
-                      isActive(LINKS.blog, pathname)
-                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                        : 'text-slate-800'
-                    }`}
-                  >
-                    <BookOpen size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Blog IA &amp; ChatGPT BTP</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">
-                        Guides, prompts et cas d&apos;usage pour les pros du bâtiment
-                      </span>
-                    </span>
-                  </Link>
-                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    Tutos par thème
-                  </p>
-                  <ResourcesTutosNavBlocks
-                    pathname={pathname}
-                    ctx="mobile"
-                    onNavigate={() => setMobileOpen(false)}
-                  />
-                  <p className="px-3 pb-2 pt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Claude AI BTP
-                  </p>
-                  <Link
-                    href={LINKS.claudeAiBtp}
-                    onClick={() => setMobileOpen(false)}
-                    className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
-                      isActive(LINKS.claudeAiBtp, pathname)
-                        ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                        : 'text-slate-800'
-                    }`}
-                  >
-                    <Sparkles size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                    <span>
-                      <span className="block text-[0.9375rem]">Guide Claude AI BTP</span>
-                      <span className="mt-0.5 block text-xs text-slate-500">
-                        Interfaces BTP, limites et parcours formation
-                      </span>
-                    </span>
-                  </Link>
-                  <p className="px-3 pb-2 pt-3 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-400">
-                    Guides PDF
-                  </p>
-                  {RESSOURCES_GUIDES.map((guide, index) => (
-                    <Link
-                      key={guide.href}
-                      href={guide.href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`mb-2 flex gap-3 rounded-xl px-3 py-3 ${
-                        isActive(guide.href, pathname)
-                          ? 'bg-[var(--accent-soft)] font-medium text-[var(--accent)]'
-                          : 'text-slate-800'
-                      }`}
-                    >
-                      {index === 0 ? (
-                        <Landmark size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                      ) : (
-                        <HardHat size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-slate-400" />
-                      )}
-                      <span>
-                        <span className="block text-[0.9375rem]">{guide.title}</span>
-                        <span className="mt-0.5 block text-xs text-slate-500">{guide.description}</span>
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <Link
-                href={LINKS.partenaires}
-                aria-current={partenairesActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  partenairesActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <Landmark
-                  size={18}
-                  strokeWidth={1.75}
-                  className={partenairesActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                Partenaires
-              </Link>
-            </div>
-
-            <div className="border-b border-slate-100 py-1">
-              <Link
-                href="/a-propos"
-                aria-current={aProposActive ? 'page' : undefined}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] font-medium ${
-                  aProposActive ? 'text-[var(--accent)]' : 'text-slate-900'
-                }`}
-              >
-                <UserCircle
-                  size={18}
-                  strokeWidth={1.75}
-                  className={aProposActive ? 'text-[var(--accent)]' : 'text-slate-400'}
-                />
-                À propos
-              </Link>
-            </div>
+              );
+            })}
 
             <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
               <FormationPlateformeConnexionButton
