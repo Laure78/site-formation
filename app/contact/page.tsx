@@ -18,10 +18,13 @@ import { OFC_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER, OFC_SECTION_INNER_WIDE } from '@/lib/ofc-section-classes';
 export const revalidate = 3600;
 
+const TITLE = 'Formation IA pour les pros du BTP — Contact';
+const DESCRIPTION =
+  'Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou solutions IA BeWork. RDV gratuit, Constructys. Île-de-France.';
+
 export const metadata = createPageMetadata({
-  title: 'Formation IA pour les pros du BTP — Contact',
-  description:
-    "Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou solutions IA BeWork. RDV gratuit, Constructys. Île-de-France.",
+  title: TITLE,
+  description: DESCRIPTION,
   path: '/contact',
 });
 
@@ -270,7 +273,7 @@ export default function ContactPage() {
           <h2 className="font-display text-2xl font-bold text-slate-900">Réclamations</h2>
           <p className="mt-4 max-w-3xl text-slate-700">
             Réclamations : toute réclamation relative à une prestation de formation peut être adressée par email à
-            laureolivie@yahoo.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
+            contact@laureolivie.fr (objet : Réclamation) ou par courrier à OFC Création d&apos;Entreprise, 6 rue Henri
             Dunant, 78280 Guyancourt. Un accusé de réception vous est envoyé sous 48 h ouvrées et une réponse vous est
             apportée sous 15 jours ouvrés. Chaque réclamation est enregistrée et analysée dans le cadre de notre
             démarche d&apos;amélioration continue Qualiopi.

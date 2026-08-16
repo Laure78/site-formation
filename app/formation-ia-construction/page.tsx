@@ -4,6 +4,7 @@ import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { JsonLd } from '@/components/JsonLd';
 import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
@@ -374,6 +375,15 @@ export default function FormationIaConstructionPage() {
             </li>
           </ul>
         </section>
+
+        <LiensConnexes
+          currentPath={LINKS.formationIaConstruction}
+          excludeHrefs={[
+            LINKS.formations,
+            LINKS.formationIaBtpParis,
+            LINKS.formationConducteurTravaux,
+          ]}
+        />
 
         <FormationPartenairesMention className="!max-w-none !px-0" />
 

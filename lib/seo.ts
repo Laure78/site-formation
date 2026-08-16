@@ -20,10 +20,14 @@ import {
 } from '@/lib/schema-constants';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { buildPersonLaureSchemaNode } from '@/lib/schema-person-global';
-import { buildPageMetadata } from '@/utils/metadata';
+import {
+  buildOpenGraphTwitterFields,
+  buildPageMetadata,
+} from '@/utils/metadata';
 
 export {
   buildPageMetadata,
+  buildOpenGraphTwitterFields,
   OG_SITE_NAME,
   withOgDescriptionSuffix,
   BRAND_TITLE_SUFFIX,
@@ -233,6 +237,42 @@ export function createPageMetadata(
   input: BuildMetadataInput,
 ): Metadata {
   return buildMetadata(input);
+}
+
+export type BuildSocialMetadataInput = {
+  title: string;
+  description: string;
+  path: string;
+  image?: { url: string; width?: number; height?: number; alt?: string };
+  type?: 'website' | 'article';
+};
+
+/**
+ * Open Graph + Twitter à partir de (title, description, path, image).
+ * Reprend le copy tel quel — pas de troncature ni de suffixe.
+ */
+export function buildSocialMetadata({
+  title,
+  description,
+  path,
+  image,
+  type = 'website',
+}: BuildSocialMetadataInput): Pick<Metadata, 'openGraph' | 'twitter'> {
+  const baseNorm = SITE_CONFIG.url.replace(/\/$/, '');
+  const pathNorm = path
+    ? path.startsWith('/')
+      ? path
+      : `/${path}`
+    : '';
+  const url = `${baseNorm}${pathNorm}`.replace(/\/$/, '') || baseNorm;
+  return buildOpenGraphTwitterFields({
+    title,
+    description,
+    url,
+    baseUrl: baseNorm,
+    image,
+    type,
+  });
 }
 
 /** Schéma Course principal "Formation IA pour le BTP" (visible sur toutes les pages) */

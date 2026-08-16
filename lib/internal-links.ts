@@ -176,12 +176,22 @@ export const LINKS = {
   /** Landing SEO — chef de chantier travaux publics */
   formationIaChefChantierTp: '/formation-ia-chef-chantier-tp',
   formationIaCanalisateur: '/formation-ia-canalisateur-tp',
+  formationIaFerrailleurBtp: '/formation-ia-ferrailleur-btp',
+  formationIaVitrierBtp: '/formation-ia-vitrier-btp',
+  formationIaPiscinisteBtp: '/formation-ia-pisciniste-btp',
+  formationIaCloturisteBtp: '/formation-ia-cloturiste-btp',
+  formationIaGeometreTp: '/formation-ia-geometre-tp',
+  formationIaMaconPaysagisteBtp: '/formation-ia-macon-paysagiste-btp',
+  /** Landing SEO distincte de `/formation-ia-conducteur-de-travaux-btp` */
+  formationIaConducteurTravauxLanding: '/formation-ia-conducteur-travaux',
+  /** Landing catalogue PME (hors les 5 sessions NIV-01 à NIV-05) */
+  formationPmeBtp: '/formations/ia-pme-btp',
 
   /** Page présentation BeWork sur laureolivie.fr (site officiel : bework.fr) */
   bework: '/bework',
   /** Point d'entrée indexable vers la plateforme app.laureolivie.fr */
   beworkPlateforme: '/bework/plateforme',
-  /** Point d'entrée indexable vers la plateforme e-learning OFC (stagiaires) */
+  /** Point d'entrée indexable vers l'espace apprenant OFC (stagiaires) */
   formationPlateforme: '/formations/plateforme',
   /** Connexion espace apprenant LMS (indexable SEO/GEO) */
   authConnexion: '/auth/connexion',
@@ -302,6 +312,8 @@ export const LINKS = {
   blogAnalyseDceNotebooklm: '/blog/analyse-dce-notebooklm-claude-btp',
   /** Article — chiffrage CCTP/BPU (cluster AO/DCE) */
   blogChiffrageCctpBpu: '/blog/chiffrage-cctp-bpu-appels-offres-btp',
+  /** Article MDX — ChatGPT peintre bâtiment (devis, métré, relances) */
+  blogChatgptPeintreBatiment: '/blog/chatgpt-peintre-batiment',
   /** Article — IA devis bâtiment et chiffrage automatisé */
   blogIaDevisBatimentChiffrageAutomatise: '/blog/ia-devis-batiment-chiffrage-automatise',
   /** Article — devis ChatGPT BTP en ~20 minutes (méthode terrain) */

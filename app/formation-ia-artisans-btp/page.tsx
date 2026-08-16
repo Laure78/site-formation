@@ -2,10 +2,10 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { Check, FileText, MessageSquare, ClipboardList, Shield, ArrowRight } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { JsonLd } from '@/components/JsonLd';
@@ -131,6 +131,7 @@ export default function FormationIAArtisansBTPPage() {
           Formation IA pour entreprises BTP : <span className="text-[var(--accent)]">ChatGPT</span>{' '}
           pour devis, emails et comptes rendus
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — guide pratique pour utiliser l&apos;intelligence artificielle dans votre TPE, PME BTP ou
           activité dans le bâtiment : devis, emails, comptes rendus. Ma{' '}
@@ -349,18 +350,16 @@ export default function FormationIAArtisansBTPPage() {
 
         <RelatedLinks path={LINKS.chatgptArtisans} className="mt-14 !px-0" tone="transparent" />
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: '/formation-ia-artisans-btp',
-            excludeHrefs: [
+        <LiensConnexes
+          currentPath="/formation-ia-artisans-btp"
+          excludeHrefs={[
               ...getClusterRelatedHrefs(LINKS.chatgptArtisans),
               LINKS.formationIaBtpNiveau1BatimentTp,
               LINKS.iaDevis,
               LINKS.iaCDT,
               LINKS.blog,
-            ],
-          })}
-        />
+            ]}
+          />
 
         <AllerPlusLoin
           links={[

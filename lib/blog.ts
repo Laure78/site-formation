@@ -2089,6 +2089,7 @@ export function getArticleCategory(slug: string): BlogCategoryId {
   if (s.includes('compte-rendu') || s.includes('cr-chantier') || s.includes('doe') || s.includes('pv-reception')) return 'productivite';
   if (s.includes('emails') || s.includes('automatiser-vos') || s.includes('emails-clients')) return 'productivite';
   if (s.includes('devis') || s.includes('ia-devis')) return 'devis';
+  if (s.includes('peintre') || s.includes('peinture')) return 'metiers';
   if (s.includes('ia-et-') || s.includes('remplacer-les')) return 'metiers';
   if (s.includes('confidentialite-donnees') || s.includes('securite-donnees-chatgpt')) return 'chatgpt';
   return 'chatgpt'; // défaut : ChatGPT & bonnes pratiques

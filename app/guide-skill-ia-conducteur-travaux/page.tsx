@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Calendar, CheckCircle2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
-import { SITE_CONFIG, getBreadcrumbSchema } from '@/lib/seo';
+import { SITE_CONFIG, buildSocialMetadata, getBreadcrumbSchema } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 
@@ -10,10 +10,19 @@ export const revalidate = 3600;
 const PATH = '/guide-skill-ia-conducteur-travaux';
 const RESOURCE_PATH = '/ressources/guide-conducteur-de-travaux';
 
+const TITLE = 'Tutoriel Skill IA conducteur de travaux BTP';
+const DESCRIPTION =
+  'Tutoriel Skill IA pour conducteurs de travaux : méthode en 7 étapes, cas d’usage chantier, template prêt à copier-coller.';
+
 export const metadata: Metadata = {
-  title: 'Tutoriel Skill IA conducteur de travaux BTP',
-  description:
-    'Tutoriel Skill IA pour conducteurs de travaux : méthode en 7 étapes, cas d’usage chantier, template prêt à copier-coller.',
+  title: TITLE,
+  description: DESCRIPTION,
+  ...buildSocialMetadata({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: RESOURCE_PATH,
+    type: 'website',
+  }),
   alternates: {
     canonical: `${SITE_CONFIG.url}${RESOURCE_PATH}`,
   },

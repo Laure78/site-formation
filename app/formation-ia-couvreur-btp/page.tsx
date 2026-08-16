@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { PreuveSociale } from '@/components/PreuveSociale';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
@@ -209,6 +212,7 @@ export default function FormationIaCouvreurBtpPage() {
         <h1 className="font-display text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
           Formation IA pour couvreurs-zingueurs en Île-de-France
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Devis toiture, métrés, zinguerie, CR de chantier et réponses aux appels d&apos;offres :{' '}
           <strong>ChatGPT et Claude AI</strong> accélèrent l&apos;écrit administratif des entreprises de
@@ -464,7 +468,14 @@ export default function FormationIaCouvreurBtpPage() {
           </p>
         </section>
 
-        <RelatedLinks path={PATH} className="mt-14 !px-0" tone="transparent" />
+        <RelatedLinks
+          path={PATH}
+          className="mt-14 !px-0"
+          tone="transparent"
+          excludeHrefs={getLiensConnexesHrefs(PATH)}
+        />
+
+        <LiensConnexes currentPath={PATH} excludeHrefs={getClusterRelatedHrefs(PATH)} />
 
         <AllerPlusLoin
           links={[

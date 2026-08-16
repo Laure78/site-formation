@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import {
   createPageMetadata,
   getFAQSchema,
@@ -348,6 +349,7 @@ export default function FormationIATravauxPublicsLandingPage() {
             Catalogue formations
           </Link>
           <div className="mt-8">
+            <LiensConnexes currentPath={LINKS.formationIaTravauxPublics} excludeHrefs={[LINKS.formations]} />
             <AllerPlusLoin
               links={[
                 { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'Fiche catalogue NIV-01 (4 h, PDF)' },

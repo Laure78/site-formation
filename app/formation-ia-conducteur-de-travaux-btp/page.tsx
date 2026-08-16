@@ -11,8 +11,7 @@ import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { VoirAussi } from '@/components/VoirAussi';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { CONDUCTEUR_TRAVAUX_RELATED } from '@/lib/contextual-internal-links';
 import {
   EFFECTIF_GROUPE_MAX,
@@ -23,6 +22,7 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { PreuveSociale } from '@/components/PreuveSociale';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import {
@@ -103,6 +103,8 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.h1}
           </h1>
+
+          <PreuveSociale className="mt-6" />
 
           <EnBref>
             {CDT_BTP_EN_BREF.map((p) => (
@@ -459,18 +461,16 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           tone="muted"
         />
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH,
-            excludeHrefs: CONDUCTEUR_TRAVAUX_RELATED.map((l) => l.href),
-          })}
-        />
+        <LiensConnexes
+          currentPath={FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_PATH}
+          excludeHrefs={CONDUCTEUR_TRAVAUX_RELATED.map((l) => l.href)}
+          />
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
-            laureolivie@yahoo.fr ·{' '}
+            contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">
               www.laureolivie.fr
             </a>

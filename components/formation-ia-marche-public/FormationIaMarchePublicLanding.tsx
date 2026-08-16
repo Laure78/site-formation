@@ -7,6 +7,8 @@ import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { Essentiel } from '@/components/readability/Essentiel';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { LINKS } from '@/lib/internal-links';
@@ -390,8 +392,10 @@ export function FormationIaMarchePublicLanding({
             path={config.path}
             className="mt-14 !px-0"
             tone="transparent"
-            excludeHrefs={excludeRelated}
+            excludeHrefs={[...excludeRelated, ...getLiensConnexesHrefs(config.path)]}
           />
+
+          <LiensConnexes currentPath={config.path} excludeHrefs={excludeRelated} />
 
           <RenvoiFicheCatalogue
             programmeRef="NIV-02"

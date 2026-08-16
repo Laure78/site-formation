@@ -9,10 +9,10 @@ import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import {
   EFFECTIF_GROUPE_MAX,
   SESSION_DUREE_LIBELLE,
@@ -100,6 +100,8 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {FORMATION_IA_RESPONSABLE_ADMINISTRATIF_BTP_SEO.h1}
           </h1>
+
+          <PreuveSociale className="mt-6" />
 
           <EnBref>
             {RAF_BTP_EN_BREF.map((p) => (
@@ -426,18 +428,16 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           </div>
         </section>
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: path,
-            excludeHrefs: [
+        <LiensConnexes
+          currentPath={path}
+          excludeHrefs={[
               ...getClusterRelatedHrefs(path),
               LINKS.formationIaAssistanteBtp,
               LINKS.formationIaBtpNiveau1BatimentTp,
               LINKS.financement,
               LINKS.contact,
-            ],
-          })}
-        />
+            ]}
+          />
 
         <AllerPlusLoin
           links={[
@@ -450,7 +450,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
-            laureolivie@yahoo.fr ·{' '}
+            contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">
               www.laureolivie.fr
             </a>

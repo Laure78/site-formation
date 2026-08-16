@@ -2,10 +2,10 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
-import { VoirAussi } from '@/components/VoirAussi';
+import { PreuveSociale } from '@/components/PreuveSociale';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -172,6 +172,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           Formation IA assistante administrative BTP —{' '}
           <span className="text-[var(--accent)]">courriers, mails et suivi chantier</span>
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — cette page cible l&apos;<strong>administratif relationnel et le suivi chantier</strong> : courriers
           fournisseurs, mails clients, comptes rendus et synthèses — pas la facturation d&apos;avancement ni les
@@ -436,18 +437,16 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
           excludeHrefs={[LINKS.formationIaAssistanteGestionBtp]}
         />
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: PATH,
-            excludeHrefs: [
+        <LiensConnexes
+          currentPath={PATH}
+          excludeHrefs={[
               ...getClusterRelatedHrefs(PATH),
               LINKS.formationIaAssistanteGestionBtp,
               LINKS.formationIaResponsableAdministratifBtp,
               LINKS.formations,
               LINKS.financement,
-            ],
-          })}
-        />
+            ]}
+          />
 
         <AllerPlusLoin
           links={[

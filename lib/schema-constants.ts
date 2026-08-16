@@ -72,7 +72,7 @@ export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
   },
   {
     name: 'CAPEB',
-    // url: // À COMPLÉTER — absente du Footer et des constantes partenaires du dépôt
+    url: 'https://www.capeb.fr/',
   },
 ] as const;
 

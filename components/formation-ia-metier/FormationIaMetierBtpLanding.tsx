@@ -8,12 +8,10 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { VoirAussi } from '@/components/VoirAussi';
 import {
   getMetierLandingCoreLinks,
   getMetierRelatedLinks,
 } from '@/lib/contextual-internal-links';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { SITE_CONFIG } from '@/lib/seo';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
@@ -23,7 +21,10 @@ import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { RelatedLinks } from '@/components/RelatedLinks';
+import { LiensConnexes } from '@/components/LiensConnexes';
+import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
+import { PreuveSociale } from '@/components/PreuveSociale';
 
 const OFC = "OFC Création d'Entreprise";
 
@@ -91,10 +92,6 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
   const sommaire = sommaireForConfig(config);
   const relatedMetierLinks = getMetierRelatedLinks(config);
   const coreMetierLinks = getMetierLandingCoreLinks(config);
-  const voirAussiExclude = [
-    ...coreMetierLinks.map((l) => l.href),
-    ...relatedMetierLinks.map((l) => l.href),
-  ];
 
   const faqItems = config.faq.map((item) => ({
     question: item.q,
@@ -126,6 +123,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {config.h1}
           </h1>
+          <PreuveSociale className="mt-6" />
           <div className="mt-8">
             <OfcPromoVideoEmbed variant="heroColumn" />
           </div>
@@ -292,7 +290,12 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             </div>
           </section>
 
-          <RelatedLinks path={config.path} className="mt-14 !px-0" tone="transparent" />
+          <RelatedLinks
+            path={config.path}
+            className="mt-14 !px-0"
+            tone="transparent"
+            excludeHrefs={getLiensConnexesHrefs(config.path)}
+          />
 
           {relatedMetierLinks.length > 0 ? (
             <ContextualLinksSection
@@ -319,7 +322,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   'Catalogue des formations, financement Constructys, Claude AI BTP et articles pratiques.'
             }
             links={coreMetierLinks.filter(
-              (l) => !getClusterRelatedHrefs(config.path).includes(l.href),
+              (l) =>
+                !getClusterRelatedHrefs(config.path).includes(l.href) &&
+                !getLiensConnexesHrefs(config.path).includes(l.href),
             )}
             tone="muted"
             className="mt-14"
@@ -380,14 +385,9 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             </>
           ) : null}
 
-          <VoirAussi
-            {...voirAussiMetierProps({
-              currentPath: config.path,
-              excludeHrefs: [
-                ...voirAussiExclude,
-                ...getClusterRelatedHrefs(config.path),
-              ],
-            })}
+          <LiensConnexes
+            currentPath={config.path}
+            excludeHrefs={getClusterRelatedHrefs(config.path)}
           />
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">

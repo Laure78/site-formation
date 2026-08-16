@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { RdvLink } from '@/components/RdvLink';
+import { PreuveSociale } from '@/components/PreuveSociale';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -16,10 +17,9 @@ import {
 } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
-import { VoirAussi } from '@/components/VoirAussi';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
-import { voirAussiMetierProps } from '@/lib/voir-aussi';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
@@ -186,6 +186,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
           Formation IA assistante de gestion BTP —{' '}
           <span className="text-[#377CF3]">facturation, relances impayés et DGD</span>
         </h1>
+        <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Sessions en présentiel en Île-de-France — cette page cible le <strong>back-office chiffré</strong> : factures d&apos;avancement, relances
           impayés, attestations sous-traitants et décomptes généraux définitifs — distinct de l&apos;administratif
@@ -644,24 +645,22 @@ export default function FormationIaAssistanteGestionBtpPage() {
           excludeHrefs={[LINKS.formationIaAssistanteBtp]}
         />
 
-        <VoirAussi
-          {...voirAussiMetierProps({
-            currentPath: PATH,
-            excludeHrefs: [
+        <LiensConnexes
+          currentPath={PATH}
+          excludeHrefs={[
               ...getClusterRelatedHrefs(PATH),
               LINKS.formationIaAssistanteBtp,
               LINKS.formationIaResponsableAdministratifBtp,
               LINKS.financement,
               LINKS.formations,
-            ],
-          })}
-        />
+            ]}
+          />
 
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
           <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
-            laureolivie@yahoo.fr ·{' '}
+            contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">
               www.laureolivie.fr
             </a>

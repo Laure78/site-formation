@@ -2,6 +2,7 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -402,9 +403,10 @@ export default function FormationIaGeometreTpPage() {
           </p>
         </section>
 
+        <LiensConnexes currentPath={LINKS.formationIaGeometreTp} />
+
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA appliquées au bâtiment' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: '/formation-ia-conducteur-de-travaux-btp', label: 'Formation IA conducteur de travaux BTP' },
             { href: '/formation-ia-charge-affaires-btp', label: 'Formation IA chargé d’affaires BTP' },

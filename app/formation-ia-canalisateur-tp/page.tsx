@@ -2,6 +2,7 @@ import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import Link from 'next/link';
 import { ArrowRight, Check, Phone } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { RdvLink } from '@/components/RdvLink';
 import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG, sitePhoneDisplaySuffix } from '@/lib/seo';
@@ -404,9 +405,10 @@ export default function FormationIaCanalisateurTpPage() {
           </p>
         </section>
 
+        <LiensConnexes currentPath={LINKS.formationIaCanalisateur} />
+
         <AllerPlusLoin
           links={[
-            { href: '/formations', label: 'Catalogue formations IA pour les pros du BTP' },
             { href: LINKS.formationIaBtpNiveau1BatimentTp, label: 'NIV-01 — Bâtiment & travaux publics' },
             { href: '/formations/ia-appels-offre-btp', label: 'Formation IA appels d’offres BTP' },
             { href: '/formation-ia-chef-chantier-tp', label: 'Formation IA chef de chantier TP' },

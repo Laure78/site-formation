@@ -9,7 +9,9 @@ import { FormationMetierJsonLd } from '@/components/seo/FormationMetierJsonLd';
 import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
+import { PreuveSociale } from '@/components/PreuveSociale';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { LiensConnexes } from '@/components/LiensConnexes';
 import { OfcPromoVideoEmbed } from '@/components/media/OfcPromoVideoEmbed';
 import { createPageMetadata } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -98,6 +100,8 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {FORMATION_IA_GROS_OEUVRE_BTP_H1}
           </h1>
+
+          <PreuveSociale className="mt-6" />
 
           <div className="mt-8">
             <OfcPromoVideoEmbed variant="heroColumn" />
@@ -294,6 +298,8 @@ export default function FormationIaGrosOeuvreBtpPage() {
             contextLine="Elle accompagne notamment les équipes de gros œuvre sur devis, DCE et suivi de chantier — en présentiel en Île-de-France."
             showFullParcoursLink={false}
           />
+
+          <LiensConnexes currentPath={PATH} />
 
           <section
             id="cta-final"
