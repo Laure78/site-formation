@@ -10,12 +10,13 @@ export type BeworkPhoto = {
   caption?: string;
 };
 
-/** Visuel produit principal (solutions IA BTP) */
+/** Visuel hero — schéma plateforme centrale et connexion logiciels BTP */
 export const BEWORK_PHOTO_HERO: BeworkPhoto = {
-  src: '/images/bework-relais-marches-travaux-bureau-chantier.png',
-  alt: 'BeWork — solutions IA sur mesure BTP, chantiers, documents et outils métier',
-  width: 1024,
-  height: 1024,
+  src: '/images/bework/bework-plateforme-centrale-connecter-logiciels-btp.gif',
+  alt: 'Schéma BeWork — plateforme BTP centrale reliant chantiers, GED, finance et logiciels existants',
+  width: 800,
+  height: 800,
+  caption: 'Une plateforme centrale. Vos outils autour. Des informations qui circulent.',
 };
 
 /** Galerie — assistants travaux par usage métier */

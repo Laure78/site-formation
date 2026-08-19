@@ -1,19 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Check, Lock, ShieldCheck, Server } from 'lucide-react';
+import { ArrowUpRight, Lock, ShieldCheck, Server, Eye } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
-import { BEWORK_GALLERY_SECTIONS, BEWORK_PHOTO_HERO } from '@/lib/bework-photos';
+import { BEWORK_GALLERY_SECTIONS, BEWORK_PHOTO_HERO, type BeworkPhoto } from '@/lib/bework-photos';
 
 export const revalidate = 3600;
 const BEWORK_SITE = EXTERNAL_SITE_URLS.bework;
 
-const META_TITLE = 'BeWork — solutions IA sur mesure BTP';
+const META_TITLE = 'BeWork — plateforme BTP sur mesure | Laure Olivié';
 const META_DESCRIPTION =
-  'BeWork conçoit des solutions IA pour le BTP : applications, automatisations, assistants et plateformes métier. Étude sur bework.fr.';
+  'BeWork construit la plateforme de votre entreprise BTP, connecte vos logiciels existants et automatise vos processus. Étude de votre besoin sur bework.fr.';
+const OG_IMAGE_ALT = BEWORK_PHOTO_HERO.alt;
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -28,63 +29,49 @@ export const metadata = createPageMetadata({
     url: BEWORK_PHOTO_HERO.src,
     width: BEWORK_PHOTO_HERO.width,
     height: BEWORK_PHOTO_HERO.height,
-    alt: BEWORK_PHOTO_HERO.alt,
+    alt: OG_IMAGE_ALT,
   },
 });
 
-const SOLUTIONS = [
-  'Applications métier IA',
-  'Agents IA',
-  'Automatisations',
-  'Analyse documentaire',
-  'Assistants intelligents',
-  'Intégrations logiciels',
-  'Recherche intelligente',
-  'Plateformes métier',
-] as const;
-
-const REASSURANCE = [
+const REASSURANCE_BADGES = [
   { icon: Lock, label: 'Accès par rôles' },
+  { icon: Eye, label: 'Environnements privés' },
   { icon: Server, label: 'Infrastructure européenne' },
-  { icon: ShieldCheck, label: 'Environnements privés · RGPD' },
+  { icon: ShieldCheck, label: 'RGPD' },
 ] as const;
 
 const METHODE = [
-  {
-    step: '01',
-    title: 'Comprendre',
-    desc: 'Nous observons votre façon de travailler.',
-  },
-  {
-    step: '02',
-    title: 'Imaginer',
-    desc: 'Nous définissons la solution utile.',
-  },
-  {
-    step: '03',
-    title: 'Construire',
-    desc: 'Nous développons et connectons les outils nécessaires.',
-  },
-  {
-    step: '04',
-    title: 'Déployer',
-    desc: 'Nous intégrons la solution dans l’entreprise.',
-  },
-  {
-    step: '05',
-    title: 'Former',
-    desc: 'Nous formons les collaborateurs concernés.',
-  },
-  {
-    step: '06',
-    title: 'Accompagner',
-    desc: 'Jusqu’à l’utilisation réelle au quotidien.',
-  },
-  {
-    step: '07',
-    title: 'Faire évoluer',
-    desc: 'La solution évolue avec vos usages.',
-  },
+  { step: '01', title: 'Comprendre', desc: 'Votre organisation, vos métiers, vos équipes et vos logiciels.' },
+  { step: '02', title: 'Concevoir', desc: 'Votre plateforme, vos modules et vos processus.' },
+  { step: '03', title: 'Connecter', desc: 'Étudier les possibilités d\u2019intégration avec votre environnement existant.' },
+  { step: '04', title: 'Construire', desc: 'Développer votre environnement BeWork.' },
+  { step: '05', title: 'Déployer', desc: 'Mettre la solution en place dans votre entreprise.' },
+  { step: '06', title: 'Former', desc: 'Former réellement les collaborateurs jusqu\u2019à l\u2019usage quotidien.' },
+  { step: '07', title: 'Faire évoluer', desc: 'Faire évoluer la plateforme avec votre entreprise.' },
+] as const;
+
+const ROLES = [
+  { role: 'Direction', desc: 'Vue globale : chantiers, finances, alertes.' },
+  { role: 'Conducteur de travaux', desc: 'Suivi chantier, documents, équipes, commandes.' },
+  { role: 'Chargé d\u2019affaires', desc: 'Devis, marchés, situations, relation client.' },
+  { role: 'Administratif', desc: 'Facturation, fournisseurs, contrôles, paiements.' },
+] as const;
+
+const SUR_MESURE = [
+  { title: 'Analyse documentaire', desc: 'Lire, synthétiser et extraire l\u2019information utile de vos documents BTP.' },
+  { title: 'Recherche intelligente', desc: 'Retrouver une information sans connaître son emplacement.' },
+  { title: 'Assistants spécialisés', desc: 'Devis, comptes rendus, CCTP, DOE.' },
+  { title: 'Automatisations complexes', desc: 'Workflows avancés sur vos processus les plus spécifiques.' },
+  { title: 'Applications métier', desc: 'Outils que les logiciels standards ne couvrent pas.' },
+  { title: 'Traitement de données', desc: 'Exploiter vos données chantier, financières et opérationnelles.' },
+] as const;
+
+const CTA_USE_CASES = [
+  'Automatiser un processus',
+  'Exploiter vos documents',
+  'Créer un outil métier',
+  'Connecter vos logiciels',
+  'Créer une plateforme',
 ] as const;
 
 function getBeworkPageJsonLd() {
@@ -96,7 +83,7 @@ function getBeworkPageJsonLd() {
         '@type': 'WebPage',
         '@id': `${pageUrl}#webpage`,
         url: pageUrl,
-        name: 'BeWork — solutions IA sur mesure pour le BTP',
+        name: META_TITLE,
         description: META_DESCRIPTION,
         inLanguage: 'fr-FR',
         isPartOf: { '@id': `${SITE_CONFIG.url}/#website` },
@@ -113,9 +100,8 @@ function getBeworkPageJsonLd() {
         '@id': `${BEWORK_SITE}#organization`,
         name: 'BeWork',
         url: BEWORK_SITE,
-        slogan: 'Solutions IA sur mesure pour le BTP',
-        description:
-          'BeWork conçoit des solutions IA autour des métiers, méthodes et outils du BTP : applications métier, automatisations, assistants intelligents, analyse documentaire, intégrations et plateformes.',
+        slogan: 'La plateforme construite autour de votre entreprise BTP',
+        description: META_DESCRIPTION,
         areaServed: ['FR', 'BE', 'CH', 'LU'],
         sameAs: [BEWORK_SITE],
       },
@@ -123,13 +109,68 @@ function getBeworkPageJsonLd() {
   };
 }
 
+function GalleryGrid({ photos, columns = 3 }: { photos: BeworkPhoto[]; columns?: 2 | 3 }) {
+  const colClass = columns === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
+  return (
+    <div className={`mt-8 grid gap-5 ${colClass}`}>
+      {photos.map((photo) => (
+        <figure
+          key={photo.src}
+          className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm"
+        >
+          <div className="relative aspect-[3/2] w-full overflow-hidden bg-[#EFF6FF]">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 1024px) 360px, 50vw"
+            />
+          </div>
+          {photo.caption ? (
+            <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-[#64748B]">
+              {photo.caption}
+            </figcaption>
+          ) : null}
+        </figure>
+      ))}
+    </div>
+  );
+}
+
+function CtaBework({ className = '' }: { className?: string }) {
+  return (
+    <ExternalLinkAnchor
+      href={BEWORK_SITE}
+      title="BeWork — parler de mon besoin sur bework.fr (nouvel onglet)"
+      className={`inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9] ${className}`}
+    >
+      Parler de mon besoin
+      <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
+    </ExternalLinkAnchor>
+  );
+}
+
+const galerieConstruire = BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'suivi-chantier');
+const galerieConnecter = BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'bureau-chantier');
+const galeriePlanning = BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'planning-reporting');
+
+const photosConstruire = [
+  ...(galerieConstruire?.photos ?? []),
+  ...(galeriePlanning?.photos.filter((p) => p.caption?.toLowerCase().includes('gantt')) ?? []),
+  ...(BEWORK_GALLERY_SECTIONS.find((s) => s.id === 'maitre-oeuvre')?.photos.filter((p) =>
+    p.caption?.toLowerCase().includes('plans et dossiers'),
+  ) ?? []),
+];
+
+const photosConnecter = galerieConnecter?.photos.slice(0, 3) ?? [];
 
 export default function BeworkPage() {
   return (
     <div className="min-h-screen bg-[#F2F2F2]">
       <JsonLd id="schema-bework-page" schema={getBeworkPageJsonLd()} />
 
-      {/* Hero */}
+      {/* 1. Hero */}
       <section
         aria-labelledby="bework-hero-title"
         className="border-b border-slate-200 bg-white px-4 py-14 md:py-20"
@@ -137,39 +178,39 @@ export default function BeworkPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B]">
-              Solutions IA sur mesure · BTP
+              Construire · Connecter · Automatiser
             </p>
             <p className="mt-1 text-sm font-medium text-[#377CF3]">
-              Autour de vos métiers, méthodes et outils
+              Une solution sur mesure pensée pour le BTP
             </p>
             <h1
               id="bework-hero-title"
               className="mt-4 font-display text-3xl font-bold tracking-tight text-[#0F172A] md:text-4xl"
             >
-              Imaginez ce que l&apos;IA pourrait faire pour votre entreprise. Nous le construisons.
+              La plateforme construite autour de votre entreprise&nbsp;BTP.
             </h1>
             <p className="mt-5 text-base leading-relaxed text-[#475569] md:text-lg">
-              BeWork conçoit des solutions IA autour de vos métiers, vos méthodes de travail et vos outils :
-              applications, automatisations, assistants intelligents, analyse documentaire, intégrations et
-              plateformes métier.
+              Centralisez vos chantiers, vos équipes, vos documents et votre gestion dans un
+              environnement conçu pour votre organisation. BeWork peut également connecter vos
+              logiciels existants et automatiser vos processus.
             </p>
-            <ul className="mt-6 space-y-2">
-              {REASSURANCE.map(({ icon: Icon, label }) => (
-                <li key={label} className="flex items-center gap-2.5 text-sm font-medium text-[#334155]">
-                  <Icon className="h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+            <p className="mt-3 text-sm font-medium italic text-[#334155]">
+              Vous gardez ce qui fonctionne. Nous construisons ce qui manque et faisons travailler
+              l&apos;ensemble ensemble.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {REASSURANCE_BADGES.map(({ icon: Icon, label }) => (
+                <li
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-[#FAFBFD] px-3 py-1.5 text-xs font-medium text-[#334155]"
+                >
+                  <Icon className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
                   {label}
                 </li>
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ExternalLinkAnchor
-                href={BEWORK_SITE}
-                title="BeWork — parler de mon besoin sur bework.fr (nouvel onglet)"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
-              >
-                Parler de mon besoin
-                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden />
-              </ExternalLinkAnchor>
+              <CtaBework />
               <Link
                 href={LINKS.formations}
                 className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
@@ -196,106 +237,209 @@ export default function BeworkPage() {
             <Image
               src={BEWORK_PHOTO_HERO.src}
               alt={BEWORK_PHOTO_HERO.alt}
+              title="BeWork — chantiers, planning, GED, commandes, finance et équipes connectés à vos outils"
               width={BEWORK_PHOTO_HERO.width}
               height={BEWORK_PHOTO_HERO.height}
               className="h-auto w-full"
               priority
               sizes="(min-width: 1024px) 560px, 100vw"
             />
+            {BEWORK_PHOTO_HERO.caption ? (
+              <figcaption className="border-t border-slate-100 bg-[#0F172A] px-4 py-3 text-center text-sm leading-snug text-white">
+                {BEWORK_PHOTO_HERO.caption}
+              </figcaption>
+            ) : null}
           </figure>
         </div>
       </section>
 
-      {/* Approche */}
-      <section aria-labelledby="bework-approche" className="border-b border-slate-200 px-4 py-12 md:py-16">
+      {/* 2. Verbatim */}
+      <section aria-labelledby="bework-verbatim" className="border-b border-slate-200 px-4 py-12 md:py-16">
         <div className="mx-auto max-w-3xl">
-          <h2 id="bework-approche" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Votre besoin ne rentre pas dans une case ? Nous étudions la solution.
+          <h2
+            id="bework-verbatim"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Votre logiciel ne correspond pas à votre façon de travailler&nbsp;?
           </h2>
           <p className="mt-5 text-[15px] leading-relaxed text-[#475569] md:text-base">
-            Nous partons de votre besoin, pas d&apos;un catalogue. Automatiser un processus, exploiter des documents,
-            créer un outil métier, connecter vos logiciels ou déployer une plateforme : chaque projet est étudié —
-            faisabilité, données, sécurité, autorisations, intégrations et architecture adaptée.
+            Les mêmes informations ressaisies dans plusieurs outils. Des documents éparpillés entre
+            emails, serveurs et applications. Des logiciels qui ne communiquent pas. Un Excel de
+            suivi devenu indispensable — et fragile.
+          </p>
+          <p className="mt-4 text-sm font-semibold text-[#334155]">
+            Notre réponse&nbsp;: nous construisons la plateforme autour de votre façon de travailler.
+            Pas l&apos;inverse.
           </p>
         </div>
       </section>
 
-      {/* Galeries par usage */}
-      {BEWORK_GALLERY_SECTIONS.map((section) => (
-        <section
-          key={section.id}
-          id={section.id}
-          aria-labelledby={`bework-${section.id}-title`}
-          className="border-b border-slate-200 px-4 py-12 md:py-16 even:bg-white odd:bg-[#F8FAFC]"
-        >
-          <div className="mx-auto max-w-6xl">
-            <h2
-              id={`bework-${section.id}-title`}
-              className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
-            >
-              {section.title}
-            </h2>
-            <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">{section.intro}</p>
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {section.photos.map((photo) => (
-                <figure
-                  key={photo.src}
-                  className="overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm"
-                >
-                  <div className="relative aspect-[3/2] w-full overflow-hidden bg-[#EFF6FF]">
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      fill
-                      className="object-cover object-top"
-                      sizes="(min-width: 1024px) 360px, 50vw"
-                    />
-                  </div>
-                  {photo.caption ? (
-                    <figcaption className="border-t border-slate-100 px-3 py-2 text-xs text-[#64748B]">
-                      {photo.caption}
-                    </figcaption>
-                  ) : null}
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
-
-      {/* Solutions */}
-      <section aria-labelledby="bework-solutions" className="border-b border-slate-200 bg-white px-4 py-12 md:py-16">
+      {/* 3. Construire */}
+      <section
+        aria-labelledby="bework-construire"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
         <div className="mx-auto max-w-6xl">
-          <h2 id="bework-solutions" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            Ce que nous pouvons créer
-          </h2>
-          <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            Pas besoin d&apos;adopter toute la plateforme : un besoin précis ou un environnement complet — France,
-            Belgique, Suisse, Luxembourg.
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+            Construire
           </p>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {SOLUTIONS.map((solution) => (
+          <h2
+            id="bework-construire"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Tout votre fonctionnement au même endroit.
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Le problème n&apos;est pas de manquer d&apos;outils. C&apos;est qu&apos;ils ne
+            travaillent pas ensemble. Chantiers, documents, planning, gestion, achats et pilotage
+            réunis dans un seul environnement&nbsp;: affaires, avancement, échéances, équipes et
+            informations importantes, sans fichiers perdus ni appels pour savoir où en est le
+            dossier.
+          </p>
+          {photosConstruire.length > 0 ? <GalleryGrid photos={photosConstruire} /> : null}
+        </div>
+      </section>
+
+      {/* 4. Connecter */}
+      <section
+        aria-labelledby="bework-connecter"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+            Connecter
+          </p>
+          <h2
+            id="bework-connecter"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Vous avez déjà vos logiciels. BeWork peut les faire travailler ensemble.
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Notre objectif n&apos;est pas de tout remplacer. Nous étudions comment connecter ce que
+            vous utilisez déjà&nbsp;: gestion BTP, comptabilité, trésorerie, messagerie, documents,
+            planning. L&apos;information circule entre le bureau et le chantier, les données sont
+            centralisées, la double saisie disparaît.
+          </p>
+          <p className="mt-3 text-xs italic text-[#64748B]">
+            Toutes les intégrations ne sont pas systématiquement disponibles — les possibilités sont
+            étudiées au cas par cas.
+          </p>
+          {photosConnecter.length > 0 ? <GalleryGrid photos={photosConnecter} /> : null}
+        </div>
+      </section>
+
+      {/* 5. Automatiser */}
+      <section
+        aria-labelledby="bework-automatiser"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+            Automatiser
+          </p>
+          <h2
+            id="bework-automatiser"
+            className="mt-2 font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Automatisez ce qui se répète tous les jours.
+          </h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Lorsqu&apos;une action peut être automatisée de manière fiable, BeWork crée le processus
+            correspondant. Un devis accepté ouvre le chantier, initialise le budget, prépare les
+            dossiers, génère les premières tâches et informe les collaborateurs concernés.
+          </p>
+          <p className="mt-3 text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Chaque entreprise fonctionne différemment&nbsp;: les automatisations sont construites
+            autour de vos propres processus, pas d&apos;un modèle générique.
+          </p>
+        </div>
+      </section>
+
+      {/* 6. Sur mesure */}
+      <section
+        aria-labelledby="bework-sur-mesure"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="bework-sur-mesure"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Et si votre besoin va plus loin&nbsp;?
+          </h2>
+          <p className="mt-4 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Certaines entreprises ont des besoins qu&apos;aucun logiciel standard ne couvre. BeWork
+            développe alors les outils spécifiques nécessaires.
+          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SUR_MESURE.map(({ title, desc }) => (
               <li
-                key={solution}
-                className="flex items-start gap-2.5 rounded-xl border border-slate-200/90 bg-[#FAFBFD] px-4 py-3 text-sm font-medium text-[#334155]"
+                key={title}
+                className="rounded-xl border border-slate-200/90 bg-white px-5 py-4 shadow-sm"
               >
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#377CF3]" strokeWidth={2} aria-hidden />
-                {solution}
+                <h3 className="font-semibold text-[#0F172A]">{title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">{desc}</p>
               </li>
             ))}
           </ul>
+          <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-[#475569] md:text-base">
+            Nous utilisons la technologie adaptée au problème à résoudre.{' '}
+            <strong className="font-semibold text-[#334155]">
+              L&apos;IA n&apos;est pas le produit&nbsp;: c&apos;est l&apos;un des outils que nous
+              pouvons utiliser pour construire la bonne solution.
+            </strong>
+          </p>
+          <p className="mt-3 text-sm font-medium text-[#64748B]">
+            France · Belgique · Suisse romande · Luxembourg.
+          </p>
         </div>
       </section>
 
-      {/* Méthode */}
-      <section aria-labelledby="bework-methode" className="border-b border-slate-200 px-4 py-12 md:py-16">
+      {/* 7. Rôles */}
+      <section
+        aria-labelledby="bework-roles"
+        className="border-b border-slate-200 bg-white px-4 py-12 md:py-16"
+      >
         <div className="mx-auto max-w-6xl">
-          <h2 id="bework-methode" className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl">
-            De l&apos;idée à l&apos;usage quotidien
+          <h2
+            id="bework-roles"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Chacun voit ce qui lui est utile.
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {ROLES.map(({ role, desc }) => (
+              <div
+                key={role}
+                className="rounded-xl border border-slate-200/90 bg-[#FAFBFD] px-5 py-4 shadow-sm"
+              >
+                <h3 className="font-semibold text-[#0F172A]">{role}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-[#475569]">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
+            La complexité reste invisible. Nous concevons des interfaces simples et accompagnons vos
+            collaborateurs jusqu&apos;à l&apos;utilisation réelle au quotidien.
+          </p>
+        </div>
+      </section>
+
+      {/* 8. Méthode */}
+      <section
+        aria-labelledby="bework-methode"
+        className="border-b border-slate-200 bg-[#F8FAFC] px-4 py-12 md:py-16"
+      >
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="bework-methode"
+            className="font-display text-2xl font-bold text-[#0F172A] md:text-3xl"
+          >
+            Nous ne livrons pas simplement un logiciel.
           </h2>
           <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-[#475569]">
-            Nous concevons des outils simples et intuitifs, puis accompagnons vos collaborateurs jusqu&apos;à leur
-            utilisation réelle. La technologie s&apos;adapte aux équipes, pas l&apos;inverse.
+            Nous accompagnons vos équipes jusqu&apos;à son utilisation réelle au quotidien.
           </p>
           <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {METHODE.map(({ step, title, desc }) => (
@@ -303,7 +447,9 @@ export default function BeworkPage() {
                 key={step}
                 className="rounded-xl border border-slate-200/90 bg-white px-4 py-4 shadow-sm"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">{step}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">
+                  {step}
+                </p>
                 <h3 className="mt-2 font-semibold text-[#0F172A]">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#475569]">{desc}</p>
               </li>
@@ -312,16 +458,48 @@ export default function BeworkPage() {
         </div>
       </section>
 
-      {/* CTA final */}
+      {/* 9. Données */}
+      <section className="border-b border-slate-200 bg-white px-4 py-10 md:py-12">
+        <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-6 text-center">
+          {REASSURANCE_BADGES.map(({ icon: Icon, label }) => (
+            <span
+              key={label}
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#334155]"
+            >
+              <Icon className="h-5 w-5 shrink-0 text-[#377CF3]" strokeWidth={1.75} aria-hidden />
+              {label}
+            </span>
+          ))}
+        </div>
+        <p className="mx-auto mt-4 max-w-xl text-center text-sm font-semibold text-[#334155]">
+          Vos données restent les vôtres.
+        </p>
+      </section>
+
+      {/* 10. CTA final */}
       <section aria-labelledby="bework-cta" className="px-4 py-14 md:py-20">
         <div className="mx-auto max-w-4xl rounded-2xl bg-[#377CF3] px-6 py-10 text-center text-white md:px-12 md:py-14">
-          <h2 id="bework-cta" className="font-display text-2xl font-bold md:text-3xl">
-            Parlez-nous de votre idée
+          <h2
+            id="bework-cta"
+            className="font-display text-2xl font-bold md:text-3xl"
+          >
+            Montrez-nous comment votre entreprise fonctionne.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90">
-            Décrivez ce que vous voulez améliorer, automatiser ou créer — nous étudions la solution. Plateformes
-            métier. Solutions IA. Expertise BTP.
+            Vous n&apos;avez pas besoin de savoir quelle technologie utiliser. Expliquez-nous comment
+            vous travaillez aujourd&apos;hui, les outils que vous utilisez et ce que vous aimeriez
+            améliorer. Nous étudierons comment construire l&apos;environnement adapté.
           </p>
+          <ul className="mx-auto mt-6 flex max-w-lg flex-wrap justify-center gap-2 text-sm text-white/80">
+            {CTA_USE_CASES.map((uc) => (
+              <li
+                key={uc}
+                className="rounded-full border border-white/30 px-3 py-1"
+              >
+                {uc}
+              </li>
+            ))}
+          </ul>
           <ExternalLinkAnchor
             href={BEWORK_SITE}
             title="BeWork — parler de mon besoin sur bework.fr"
@@ -332,11 +510,17 @@ export default function BeworkPage() {
           </ExternalLinkAnchor>
           <p className="mt-6 text-sm text-white/80">
             Vous cherchez plutôt à former vos équipes à l&apos;IA ?{' '}
-            <Link href={LINKS.formations} className="font-semibold underline underline-offset-2 hover:text-white">
-              Voir le catalogue formations Qualiopi
+            <Link
+              href={LINKS.formations}
+              className="font-semibold underline underline-offset-2 hover:text-white"
+            >
+              Catalogue formations Qualiopi
             </Link>
             {' · '}
-            <Link href={LINKS.contact} className="font-semibold underline underline-offset-2 hover:text-white">
+            <Link
+              href={LINKS.contact}
+              className="font-semibold underline underline-offset-2 hover:text-white"
+            >
               Contacter Laure Olivié
             </Link>
           </p>
