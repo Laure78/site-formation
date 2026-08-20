@@ -108,24 +108,25 @@ const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_DEBUTANT_HT);
 
 const POINTS_MARQUANTS = [
-  'Parcours catalogue niveau 1 : bâtiment et travaux publics — devis, chantier, administratif.',
+  'Parcours catalogue niveau 1 : fondamentaux IA, devis, documents réglementaires et communication digitale.',
   `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_SESSION_LIBELLE} (niveau débutant).`,
-  `${LIBELLE_EFFECTIF_GROUPE}.`,
+  `${LIBELLE_EFFECTIF_GROUPE} — 70 % pratique.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité.',
 ];
 
 const OBJECTIFS_FORMATION = [
-  'Identifier les usages de l’IA générative utiles dans le bâtiment et les travaux publics (sans prérequis technique).',
-  'Accélérer devis, propositions, comptes rendus chantier et messages clients.',
-  'Structurer l’administratif : relances, modèles et check-lists.',
-  'Repartir avec des trames et prompts adaptés à votre métier (BTP / TP).',
+  'Maîtriser les outils IA adaptés aux métiers du BTP pour automatiser les tâches chronophages (mails, devis, documents, communication).',
+  'Générer des devis techniques conformes aux DTU et règles professionnelles, adaptés à votre métier.',
+  'Rédiger des documents réglementaires (DOE, PV de réception, fiches techniques, rapports de fin de chantier) avec l’IA.',
+  'Créer du contenu professionnel pour valoriser votre expertise BTP sur les réseaux sociaux et auprès de vos clients.',
+  'Appliquer les bonnes pratiques RGPD pour sécuriser les données entreprise et clients.',
 ];
 
 const MOYENS_PEDAGOGIQUES = [
-  `Formation animée par une formatrice experte en IA appliquée au BTP — ${MODALITE_FORMATIONS_PRESENTIEL}`,
-  'Exercices guidés et cas concrets sur des situations types bâtiment et travaux publics.',
-  'Atelier sur vos documents réels (anonymisés ou fictifs si besoin).',
-  'Supports pédagogiques et ressources téléchargeables selon la convention.',
+  'Formation 70 % pratique / 30 % théorie — animée par une formatrice experte en IA appliquée au BTP',
+  `Exercices guidés et cas concrets sur des situations types bâtiment et travaux publics — ${MODALITE_FORMATIONS_PRESENTIEL}`,
+  'Atelier sur vos documents réels (anonymisés ou fictifs si besoin)',
+  'Kits de prompts BTP livrés à l’issue de chaque module',
 ];
 
 const MOYENS_TECHNIQUES = [
@@ -167,8 +168,9 @@ const MODALITES = [
   {
     icon: FileText,
     title: 'Pré-requis',
-    primary: 'Aucune compétence technique en IA',
-    secondary: 'Ordinateur et connexion internet — ' + COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
+    primary: 'Ordinateur et smartphone',
+    secondary:
+      'Navigation web, traitement de texte, bonne maîtrise du français — ' + COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   },
   {
     icon: Award,
@@ -187,42 +189,41 @@ const MODALITES = [
 const LIVRABLES = [
   {
     icon: FolderOpen,
-    title: 'Trames et prompts',
-    desc: 'Modèles de devis, emails, relances et courriers adaptés au vocabulaire BTP.',
+    title: 'Fiche-mémo RTC & outils IA',
+    desc: 'Méthode Rôle + Tâche + Contexte et liste d’outils recommandés pour votre métier BTP.',
   },
   {
     icon: Bot,
-    title: 'Bibliothèque de prompts',
-    desc: 'Prompts réutilisables par type de tâche (devis, CR, administratif).',
+    title: 'Kits de prompts BTP Pro',
+    desc: 'Devis, grilles tarifaires, analyse de rentabilité — adaptés à votre activité.',
   },
   {
     icon: ClipboardList,
-    title: 'Check-lists et méthode',
-    desc: 'Repères pour relecture humaine, conformité et gain de temps mesurable.',
+    title: 'Trames DOE / PV / CR',
+    desc: 'Modèles pour dossiers des ouvrages exécutés, réception et comptes rendus de chantier.',
   },
   {
     icon: Monitor,
-    title: 'Ressources de suivi',
-    desc: 'Supports de formation et ressources selon modalités convenues avec l’organisme.',
+    title: 'Communication digitale',
+    desc: 'Kit de prompts « Communication Technique BTP » + calendrier éditorial type pour 1 mois.',
   },
 ];
 
 const CAS_USAGE_BATIMENT = [
   {
-    titre: 'Répondre à un appel d’offres avec l’IA',
+    titre: 'Générer un devis conforme aux DTU',
     texte:
-      'Structurer une lecture de DCE, lister les points sensibles et produire un premier plan de réponse — toujours validé par votre expertise. Pour les dossiers complexes, la formation dédiée « appels d’offre » complète ce socle.',
-    lien: { href: '/formations/ia-appels-offre-btp', label: 'Formation appels d’offres BTP' },
+      'Partir d’un bordereau ou de notes terrain pour structurer un devis technique, inclure les références DTU et sécuriser les montants — toujours validé par votre expertise.',
   },
   {
-    titre: 'Générer ou fiabiliser un devis',
+    titre: 'Rédiger DOE, PV de réception et CR chantier',
     texte:
-      'Partir d’un historique ou d’un métré pour accélérer la proposition commerciale, tout en gardant la main sur les prix et les hypothèses : l’automatisation devis BTP s’apprend avec des garde-fous.',
+      'Transformer des notes ou une dictée en documents réglementaires structurés (DOE, PV, comptes rendus) — avec relecture humaine obligatoire.',
   },
   {
-    titre: 'Répondre à un client ou relancer un chantier',
+    titre: 'Valoriser son expertise sur les réseaux sociaux',
     texte:
-      'Emails clairs, ton professionnel, relances sans friction : l’IA aide à formuler vite, vous gardez le relationnel et la signature.',
+      'Transformer une photo de chantier en post professionnel, construire un calendrier éditorial et positionner votre entreprise comme experte de son métier.',
   },
 ];
 
@@ -246,11 +247,11 @@ const AVANT_APRES = [
 ];
 
 const PUBLIC_CIBLE = [
-  'TPE & PME du bâtiment et des travaux publics',
-  'Dirigeants et responsables d’entreprises du bâtiment',
-  'Conducteurs de travaux et chargés d’affaires',
+  'Dirigeants d’entreprises du BTP (gros œuvre, second œuvre, étanchéité, couverture, électricité, plomberie, VRD, TP)',
+  'Chargés d’affaires et conducteurs de travaux',
+  'Techniciens bureau d’études',
+  'Assistantes administratives et fonctions support',
   'Encadrement de chantier, chefs d’équipe, techniciens',
-  'Assistantes et assistants administratifs, gestionnaires',
   'Commerciaux et relation client',
 ];
 
@@ -264,7 +265,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         catalogueRef="NIV-01"
         refLine="Niveau 1 · Débutant"
         title="L'IA au service des pros du bâtiment et des travaux publics"
-        subtitle="Niveau 1 — devis, chantier, administratif et documents (bâtiment & travaux publics)"
+        subtitle="Niveau 1 — fondamentaux IA, devis, documents réglementaires et communication (bâtiment & TP)"
         badges={[
           'OPCO / plan de développement des compétences',
           'Accessible débutant',
@@ -600,16 +601,15 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-3xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Déroulé de la formation</h2>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            Le déroulé alterne 4 modules thématiques (devis, emails, CR chantier, administratif) en démonstrations
-            courtes et ateliers guidés sur {SESSION_DUREE_LIBELLE}.
+            Le déroulé alterne 4 modules thématiques (fondamentaux IA, devis, documents réglementaires,
+            communication digitale) en démonstrations courtes et ateliers guidés sur {SESSION_DUREE_LIBELLE}.
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             La session de <strong>{SESSION_DUREE_LIBELLE}</strong> alterne démonstrations courtes et ateliers
-            guidés. Quatre modules couvrent le chiffrage et les devis, la relation client par email, les
-            comptes rendus et la documentation de chantier, puis l&apos;administratif et la capitalisation
-            (trames, bibliothèque de prompts). La pédagogie est volontairement <strong>terrain</strong> :
-            vous manipulez les outils sur des cas types du bâtiment, avec possibilité d&apos;anonymiser vos
-            propres documents.
+            guidés — <strong>70 % pratique</strong>. Quatre modules d&apos;1 h couvrent les fondamentaux IA et la
+            méthode RTC, le devis et le chiffrage, les documents réglementaires (DOE, PV, CR) et la communication
+            digitale. La pédagogie est volontairement <strong>terrain</strong> : vous manipulez les outils sur des
+            cas types du bâtiment, avec possibilité d&apos;anonymiser vos propres documents.
           </p>
           <p className="mt-4">
             <a
@@ -627,9 +627,9 @@ export default function FormationIAuServiceDuBatimentPage() {
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Objectifs pédagogiques</h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            À l&apos;issue de la session, le stagiaire sait identifier des usages IA utiles, accélérer devis et
-            CR et capitaliser des prompts métier.
+          <p className="mt-3 text-slate-600">
+            À l&apos;issue de la session, le stagiaire maîtrise les usages IA utiles au BTP, accélère devis et
+            documents réglementaires et repart avec des kits de prompts métier.
           </p>
           <p className="mt-3 max-w-2xl text-slate-600">
             À l&apos;issue de la formation, vous êtes en mesure de :
@@ -655,12 +655,12 @@ export default function FormationIAuServiceDuBatimentPage() {
             Programme détaillé de la formation
           </h2>
           <p className="mt-3 text-slate-600">
-            Le programme détaillé niveau 1 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs : chiffrage, relation
-            client, documentation chantier et gestion administrative.
+            Le programme détaillé niveau 1 répartit {SESSION_DUREE_LIBELLE} sur quatre blocs d&apos;1 h :
+            fondamentaux IA, devis et chiffrage, documents réglementaires et communication digitale.
           </p>
           <p className="mt-3 text-slate-600">
-            <strong>{SESSION_DUREE_LIBELLE}</strong> — quatre modules condensés : devis et chiffrage,
-            emails et relation client, comptes rendus et documentation chantier, gestion administrative.
+            <strong>{SESSION_DUREE_LIBELLE}</strong> — quatre modules : fondamentaux IA (méthode RTC, RGPD),
+            devis et chiffrage assistés, documents réglementaires (DOE, PV, CR) et communication digitale.
             Ateliers pratiques sur vos cas.
           </p>
           <ProgrammeAccordionBatiment />

@@ -28,10 +28,10 @@ export const INFOS_PRATIQUES_HANDICAP_ENCART =
 /** Grandes parties du programme — titres modules (fiches catalogue). */
 export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[]> = {
   'NIV-01': [
-    "Module 1 — Devis et chiffrage avec l'IA",
-    'Module 2 — Emails et relation client',
-    'Module 3 — Comptes rendus, DOE et documentation chantier',
-    'Module 4 — Gestion administrative et automatisation',
+    'Module 1 — Les fondamentaux de l’IA pour le BTP',
+    'Module 2 — Devis et chiffrage assistés par l’IA',
+    'Module 3 — Documents réglementaires et gestion de chantier avec l’IA',
+    'Module 4 — Communication digitale et visibilité du professionnel BTP',
   ],
   'NIV-02': [
     'Module 1 — Paramétrage de Claude AI Pro & Cowork',
@@ -60,7 +60,7 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
 };
 
 const PREREQUIS_NIV01 =
-  'Aucune compétence technique en IA requise. Ordinateur portable et connexion internet. Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit.';
+  'Savoir utiliser un ordinateur et un smartphone (navigation web, traitement de texte). Bonne maîtrise du français écrit et oral. Aucun prérequis en intelligence artificielle. Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit.';
 
 function stripLabelPrefix(text: string, prefix: RegExp): string {
   return text.replace(prefix, '').trim();
@@ -134,6 +134,6 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     modalitesEvaluation: [...QUALIOPI_EVALUATION_STANDARD],
     modalitePedagogique: MODALITE_PEDAGOGIQUE_CATALOGUE,
     accessibiliteHandicap: INFOS_PRATIQUES_HANDICAP_ENCART,
-    dateMaj: QUALIOPI_FICHE_META.updatedAt,
+    dateMaj: formation.programmeUpdatedAt ?? QUALIOPI_FICHE_META.updatedAt,
   };
 }

@@ -21,6 +21,8 @@ export type Formation = {
   public: string;
   casUsage: string;
   pdfProgramme: string;
+  /** Date de mise à jour du programme PDF (JJ/MM/AAAA) — affichée dans Informations pratiques */
+  programmeUpdatedAt?: string;
   /** Chemin public de l’affiche catalogue */
   image: string;
 };
@@ -33,18 +35,23 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 1,
     niveauLabel: 'Niveau 1',
     duree: '4 h',
+    horaires: '9h00 — 13h00',
     effectifMin: 4,
     effectifMax: 12,
     prixHT: 1200,
-    accroche: 'Niveau 1 : bases opérationnelles pour équipes bâtiment et travaux publics.',
+    accroche: 'Niveau 1 : fondamentaux IA, devis, documents réglementaires et communication digitale pour le BTP.',
     objectifs: [
-      'Comprendre les usages de l’IA générative utiles sur chantier et au bureau',
-      'Accélérer devis, comptes rendus, courriers et suivi client',
-      'Structurer l’administratif et repartir avec des prompts adaptés au BTP / TP',
+      'Maîtriser les outils IA adaptés aux métiers du BTP pour automatiser les tâches chronophages (mails, devis, documents, communication)',
+      'Générer des devis techniques conformes aux DTU et règles professionnelles, adaptés à son métier',
+      'Rédiger des documents réglementaires (DOE, PV de réception, fiches techniques, rapports de fin de chantier) avec l’IA',
+      'Créer du contenu professionnel pour valoriser son expertise BTP sur les réseaux sociaux et auprès de ses clients',
+      'Appliquer les bonnes pratiques RGPD dans l’utilisation de l’IA pour sécuriser les données entreprise et clients',
     ],
-    public: 'Dirigeants, conducteurs de travaux — bâtiment, TP, fonctions support',
-    casUsage: 'Devis, CR, documents, terrain',
+    public:
+      'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, couverture, électricité, plomberie, VRD, TP), conducteurs de travaux, techniciens BE, assistantes administratives',
+    casUsage: 'Devis, DOE, PV, CR, communication digitale',
     pdfProgramme: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
+    programmeUpdatedAt: '20/08/2026',
     image: '/images/formation-ia-batiment-travaux-publics.webp',
   },
   {
