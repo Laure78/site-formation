@@ -980,7 +980,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
           'Combien de temps faut-il pour maîtriser ChatGPT dans le BTP ? — Les sessions catalogue sont calibrées sur 4 heures (niveau débutant ou avancé selon le programme — forfait par session). Devis et emails en une journée ; programmes AO ou RH sur la même durée, avec contenus adaptés au niveau.',
           'Mes données BTP sont-elles sécurisées avec ChatGPT ? — Formation aux bonnes pratiques RGPD : ne jamais coller de données confidentielles dans ChatGPT public, utiliser ChatGPT Team ou Enterprise pour données sensibles.',
           `Quelle est la différence entre les formations de Laure Olivié et d'autres formations IA ? — Spécialisation BTP : 10 ans de terrain BTP (conduite de chantier) · formatrice IA depuis 2022. Méthode 100% pratique sur vrais documents. ${formatProfessionalsTrainedCount()} formés, note ${SOCIAL_PROOF.AVERAGE_RATING}. Certification Qualiopi.`,
-          'La formation est-elle éligible au CPF ? — Les formations présentielles accompagnées sont financement possible selon éligibilité pour les entreprises BTP selon les règles en vigueur. Contactez OFC Création d\'Entreprise pour vérifier votre éligibilité.',
+          'Comment financer une formation IA pour mon équipe BTP ? — Via votre OPCO (Constructys pour le BTP) dans le cadre du plan de développement des compétences, selon éligibilité et barèmes en vigueur. Contactez OFC Création d\'Entreprise pour cadrer votre dossier.',
         ],
       },
       {
@@ -1114,8 +1114,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'OPCO construction',
       'formation intelligence artificielle bâtiment',
       'plan développement des compétences',
-      'FNE formation',
-      'CPF formation',
       'Qualiopi Constructys',
     ],
     sections: [
@@ -1147,9 +1145,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       },
       {
         type: 'paragraph',
-        title: 'Trois leviers à connaître (PDC, FNE, CPF)',
+        title: 'Le plan de développement des compétences et votre OPCO',
         content:
-          'Le plan de développement des compétences (PDC) reste le socle pour financer les salariés : entreprises du BTP, financement mutualisé pour les structures de moins de 50 salariés selon les règles applicables. Le FNE-Formation peut compléter ou cibler certaines priorités (dont le numérique et la transition) : utile notamment pour structurer un projet IA sur des effectifs plus importants — vérifiez l’éligibilité et les budgets auprès de Constructys. Le Compte personnel de formation (CPF) peut financer des parcours certifiants (RNCP, RS) en co-construction avec l’employeur ; pour former une équipe entière sur une session intra ou inter, le PDC et les dispositifs entreprise restent en pratique les plus adaptés. Toute simulation définitive repose sur votre situation et les textes en vigueur.',
+          "Le plan de développement des compétences (PDC) est le levier principal pour financer vos salariés : entreprises du BTP, financement mutualisé pour les structures de moins de 50 salariés selon les règles applicables. Pour le BTP, l'OPCO est en général Constructys. Les sessions catalogue OFC (4 h, présentiel Île-de-France) s'inscrivent dans ce cadre — éligibilité, plafonds et délais de dossier à confirmer au moment du montage. Toute simulation définitive repose sur votre situation et les textes en vigueur.",
       },
       {
         type: 'paragraph',
@@ -1163,7 +1161,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           'Dirigeant ou TPE éligible à un dispositif renforcé — reste à charge souvent nul ou très faible sur le coût pédagogique, sous réserve d’accord préalable.',
           'PME sous le seuil des 50 salariés — financement mutualisé via le PDC : dans de nombreux cas, le reste à charge entreprise est limité si le dossier est complet et dans les plafonds.',
-          'Entreprises plus grandes — combinaison PDC et leviers type FNE selon projets numériques et accords : reste à charge variable ; anticipez le cadrage avec votre service RH et Constructys.',
+          'Entreprises plus grandes — financement via le PDC et votre interlocuteur OPCO Constructys : reste à charge variable selon barèmes et dossier.',
         ],
       },
       {
@@ -1183,8 +1181,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           'Déposer le dossier trop tard par rapport à la date de formation.',
           'Choisir un organisme non certifié Qualiopi alors que votre politique de formation ou votre OPCO l’exige pour la prise en charge.',
-          'Négliger les dispositifs complémentaires (FNE, priorités branche) alors que votre projet IA pourrait les mobiliser.',
-          'Confondre financement entreprise (PDC, OPCO) et prise en charge individuelle au titre du CPF.',
+          'Sous-estimer le reste à charge au-delà des plafonds pédagogiques OPCO.',
         ],
       },
       {
@@ -1193,7 +1190,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         content: [
           'Constructys finance-t-il les formations à l’IA ? — Oui, lorsque l’action entre dans le cadre du développement des compétences et des priorités de branche (y compris le numérique et l’innovation), sous réserve d’éligibilité et de budget. Vérifiez toujours le catalogue et les notes en vigueur.',
           'Peut-on viser une prise en charge à 100 % du coût pédagogique ? — C’est possible pour certaines TPE et situations ; pour d’autres structures, un reste à charge existe. La réponse est toujours individuelle.',
-          'Les entreprises de plus de cinquante salariés ont-elles des solutions ? — Oui, notamment via le PDC et des opérations FNE ciblées ; le montage se fait avec votre interlocuteur Constructys.',
+          'Les entreprises de plus de cinquante salariés ont-elles des solutions ? — Oui, via le PDC et votre interlocuteur OPCO Constructys ; le montage se fait selon éligibilité et barèmes en vigueur.',
           'Quel délai pour monter un dossier ? — Comptez en pratique deux à trois semaines avant la date souhaitée pour sécuriser la validation, en plus du délai légal minimum de quinze jours pour le dépôt lorsqu’il s’applique.',
           'Pourquoi privilégier Qualiopi ? — La certification Qualiopi est un gage de qualité de processus ; elle est souvent requise ou fortement recommandée pour les financements professionnels et rassure les financeurs.',
         ],

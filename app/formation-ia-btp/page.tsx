@@ -127,8 +127,8 @@ function BlocCtaMilieu() {
     <div className="not-prose rounded-2xl border-2 border-[var(--accent)] bg-white p-6 shadow-md">
       <p className="font-display text-lg font-bold text-slate-900">Pas sûr(e) d&apos;être éligible Constructys ?</p>
       <p className="mt-2 text-slate-700">
-        En 30 minutes de visio, je vérifie votre situation et vous explique exactement ce que Constructys prend en
-        charge pour votre entreprise.
+        En 30 minutes de visio, je vérifie votre situation et vous explique ce que Constructys peut prendre en
+        charge selon votre dossier et les barèmes en vigueur.
       </p>
       <div className="mt-4">
         <CtaVisio />
@@ -479,12 +479,13 @@ export default function FormationIaBtpPillarPage() {
             <li>Vous contactez Laure pour définir la formation adaptée à votre équipe</li>
             <li>OFC prépare le dossier de prise en charge Constructys</li>
             <li>Vous soumettez le dossier au moins 15 jours avant la formation</li>
-            <li>La formation se déroule — Constructys règle directement OFC</li>
-            <li>Vous n&apos;avez rien à avancer</li>
+            <li>La formation se déroule — selon convention et dossier accepté, Constructys peut régler directement OFC</li>
+            <li>Selon votre dossier, vous pouvez ne pas avoir à avancer la part prise en charge</li>
           </ol>
           <p>
-            <strong>Pour les entreprises de plus de 50 salariés</strong>, le FNE-Formation peut couvrir jusqu&apos;à 100
-            % des coûts pour les formations de transformation digitale (minimum 14 heures).
+            <strong>Pour les entreprises de plus de 50 salariés</strong>, le financement passe par votre OPCO
+            (Constructys pour le BTP) dans le cadre du plan de développement des compétences — montage de dossier
+            selon éligibilité et barèmes en vigueur.
           </p>
           <p className="rounded-lg border border-amber-200 bg-amber-50/80 p-4 text-sm">
             <strong>TVA</strong> — intra-entreprise : {MENTIONS_TVA_INTRA_COURTE} Inter-entreprise :{' '}

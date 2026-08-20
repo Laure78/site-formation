@@ -9,8 +9,6 @@ import {
   SESSION_DUREE_LIBELLE,
   EFFECTIF_GROUPE_MAX,
   MODALITE_FORMATIONS_STANDARD,
-  formatTarifHt,
-  libelleTarifSessionForfaitaire,
   libelleTarifSessionForfaitaire,
   MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
@@ -102,8 +100,8 @@ export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
       `Le module standard est de 4 heures, exclusivement en présentiel dans vos locaux (intra) ou en salle en Île-de-France (inter). Ce format s'intègre dans une demi-journée de travail. Forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux).`,
   },
   {
-    q: 'Proposez-vous des sessions à distance ou hors Île-de-France ?',
-    a: `Non. ${MODALITE_FORMATIONS_STANDARD} L'appel découverte (visio ou téléphone) sert uniquement à cadrer votre projet avant devis.`,
+    q: 'Où se déroulent les sessions de formation ?',
+    a: `${MODALITE_FORMATIONS_STANDARD} L'appel découverte (visio ou téléphone) sert uniquement à cadrer votre projet avant devis.`,
   },
   {
     q: 'Comment démarrer une formation IA pour mon entreprise BTP ?',
@@ -160,8 +158,8 @@ export const FAQ_ITEMS: readonly FAQItem[] = [
     a: `Oui. ${MODALITE_FORMATIONS_STANDARD} Couverture : ${IDF_ZONE_INTERVENTION}. Pour cadrer votre format : <a href="/prendre-rdv">prendre rendez-vous</a> ou <a href="/contact">contact</a>.`,
   },
   {
-    q: 'Proposez-vous des formations à distance ou hors Île-de-France ?',
-    a: `Non. Les sessions OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="/prendre-rdv">prendre rendez-vous</a>.`,
+    q: 'Où se déroulent les formations catalogue ?',
+    a: `Sessions OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux, ${IDF_ZONE_INTERVENTION}). L'échange préalable de 30 min (visio ou téléphone) sert uniquement à cadrer votre projet — voir <a href="/prendre-rdv">prendre rendez-vous</a>.`,
   },
   {
     q: "Comment mesurer le ROI de la formation IA ?",
@@ -331,10 +329,6 @@ export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
     a: "Oui, les très petites entreprises sont éligibles. La participation aux frais de salaires suit un barème spécifique (par exemple 15 € HT par heure et par stagiaire hors cas particuliers). Les plafonds pédagogiques restent alignés sur les règles Constructys 2026.",
   },
   {
-    q: "La formation IA est-elle éligible au CPF ?",
-    a: 'Les sessions catalogue OFC (4 h, présentiel Île-de-France) ne sont pas éligibles au CPF : ce dispositif vise surtout des parcours certifiants (RNCP, RS). Pour financer une équipe, le plan de développement des compétences et Constructys restent les leviers adaptés — <a href="/prendre-rdv">prendre rendez-vous</a> pour cadrer votre dossier.',
-  },
-  {
     q: "Constructys finance-t-il les formations en présentiel ?",
     a: `Oui. Les formations catalogue OFC se déroulent exclusivement en présentiel, en intra dans vos locaux ou en inter en Île-de-France. ${FINANCEMENT_FORMULATION_PRUDENTE} Je vous renseigne sur votre dossier (programme, évaluation, dépôt eGestion) — page <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour les pros du BTP</a>.`,
   },
@@ -370,11 +364,11 @@ export const FAQ_PRENDRE_RDV: FAQItem[] = [
   },
   {
     q: "Comment se déroule le RDV ?",
-    a: `Vous réservez un créneau via <a href="${buildSiteCalendlyCtaUrl('prendre-rdv-faq-calendly')}" rel="noopener noreferrer">Calendly</a> (agenda en ligne). L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement Constructys — <a href="/financement-constructys-formation-ia-btp">guide OPCO</a>.`,
+    a: `Vous réservez un créneau via <a href="${buildSiteCalendlyCtaUrl('prendre-rdv-faq-calendly')}" rel="noopener noreferrer">Calendly</a>. L'échange se fait en visioconférence ou par téléphone selon ce que vous choisissez. À l'issue, vous recevez un devis détaillé avec les possibilités de financement OPCO — <a href="/financement-constructys-formation-ia-btp">guide Constructys</a>.`,
   },
   {
-    q: 'La formation se fait-elle en visio ou hors Île-de-France ?',
-    a: 'Non. Le RDV de cadrage est en visio ou par téléphone ; la formation OFC elle-même : présentiel uniquement · Île-de-France uniquement (inter ou intra).',
+    q: 'La formation se déroule-t-elle en visio ?',
+    a: 'Non pour la session catalogue : présentiel uniquement · Île-de-France uniquement (inter ou intra). Le RDV de cadrage préalable se fait en visio ou par téléphone.',
   },
   {
     q: "Que faire si aucun créneau ne me convient ?",
@@ -467,7 +461,7 @@ export const FAQ_IA_BTP_PARIS: FAQItem[] = [
   },
   {
     q: "La formation IA Paris est-elle finançable ?",
-    a: 'Oui, éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Le coût pédagogique est couvert jusqu\'à 24€ HT/heure/stagiaire — détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
+    a: 'Financement partiel possible via Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Plafond pédagogique indicatif : 24 € HT/heure/stagiaire — détails sur <a href="/financement-constructys-formation-ia-btp">financement Constructys formation IA pour le BTP</a>.',
   },
   {
     q: "Quel est le format de la formation IA pour le BTP Paris ?",

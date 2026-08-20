@@ -188,8 +188,8 @@ Propose une structure de courrier ou de DGD (titres uniquement) : faits, pièces
       a: 'Non. Un financement OPCO Constructys est possible selon éligibilité (branche, disponibilité des fonds, dossier). Je vous oriente lors de l’appel découverte — sans promesse de prise en charge automatique.',
     },
     {
-      q: 'La formation est-elle disponible hors Île-de-France ou en distanciel ?',
-      a: 'Non pour le catalogue OFC actuel : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux franciliens).',
+      q: 'Où se déroule la formation ?',
+      a: 'Catalogue OFC : présentiel uniquement · Île-de-France uniquement (inter en salle ou intra dans vos locaux franciliens).',
     },
   ],
   inlineLinkHrefs: [

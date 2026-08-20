@@ -8,9 +8,7 @@ import { ShortAnswerBlock } from '@/components/landing/ShortAnswerBlock';
 import { getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
-import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT ,
-  formatTarifHt,
-} from '@/lib/tarifs-sessions';
+import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_AVANCE_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { LiensConnexes } from '@/components/LiensConnexes';
@@ -461,7 +459,7 @@ export default function FormationIaChargeAffairesBtpPage() {
             Formation BTP-02 — IA et appels d&apos;offres BTP : avancé
           </h3>
           <p className="mt-2 text-sm text-slate-600">
-            Référence : BTP-02 · Avancé · 4 h · {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € HT/session ·{' '}
+            Référence : BTP-02 · Avancé · 4 h · {libelleTarifSessionForfaitaire(TARIF_FORFAIT_AVANCE_HT)} ·{' '}
             {EFFECTIF_GROUPE_MAX} participants max
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">

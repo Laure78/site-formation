@@ -66,7 +66,7 @@ const ESSENTIEL = [
   'Gros œuvre en Île-de-France : devis, DCE / CCTP lot 2, planning et CR — présentiel uniquement.',
   'Session 4 h · organisme certifié Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
   `Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note ${PROOF.note} (questionnaires fin de session).`,
-  'Financement OPCO Constructys possible selon éligibilité — pas de distanciel pour les sessions.',
+  'Financement OPCO Constructys possible selon éligibilité — sessions en présentiel uniquement.',
 ] as const;
 
 export default function FormationIaGrosOeuvreBtpPage() {

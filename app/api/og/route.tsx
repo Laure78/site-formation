@@ -49,7 +49,7 @@ export async function GET(request: Request) {
             opacity: 0.8,
           }}
         >
-          {`Qualiopi · Finançable Constructys · ${formatProfessionalsTrainedCount()} professionnels formés`}
+          {`Qualiopi · Finançable par Constructys selon éligibilité · ${formatProfessionalsTrainedCount()} professionnels formés`}
         </div>
       </div>
     ),

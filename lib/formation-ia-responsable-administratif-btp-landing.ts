@@ -181,8 +181,8 @@ export const RAF_BTP_FAQ = [
     a: 'Non. On part de zéro, sans code. Les exercices portent sur vos documents types (anonymisés si besoin).',
   },
   {
-    q: 'La formation est-elle en distanciel ou e-learning ?',
-    a: 'Non : sessions en présentiel en Île-de-France / Grand Paris uniquement, conformément au cadre OFC.',
+    q: 'La formation est-elle en présentiel ?',
+    a: 'Oui : sessions en présentiel en Île-de-France uniquement, conformément au cadre OFC.',
   },
   {
     q: 'Combien dure la session catalogue ?',

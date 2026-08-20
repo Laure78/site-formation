@@ -46,7 +46,7 @@ export const QUALIOPI_DELAI_ACCES_EXACT =
   "Délai d'accès : entrée en formation sous 2 à 4 semaines après signature de la convention. En cas de prise en charge OPCO (Constructys), prévoir un délai minimum de 15 jours entre la demande de financement et le début de la formation.";
 
 export const QUALIOPI_MODALITES_ACCES_EXACT =
-  "Modalités d'accès : inscription par e-mail ou via la prise de rendez-vous en ligne, suivie d'un échange préalable pour analyser le besoin, puis signature de la convention de formation. " +
+  "Modalités d'accès : inscription par e-mail ou via Calendly (visio découverte), suivie d'un échange préalable pour analyser le besoin, puis signature de la convention de formation. " +
   'Formation dispensée en présentiel uniquement, en Île-de-France : en intra dans les locaux du client, ou en inter sur un lieu communiqué à la convocation.';
 
 /** Aligné sur `CONTACT` (`lib/constants.ts`) — pas d’import pour éviter cycle config ↔ constants. */

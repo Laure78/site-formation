@@ -29,8 +29,8 @@ const DEFAULT_BLOG_FAQ_ITEMS = [
     a: "Non. ChatGPT et Claude AI fonctionnent en français naturel, sans code. Les formations de Laure Olivié sont conçues pour des professionnels BTP sans compétence technique : équipes terrain, conducteurs de travaux, assistantes administratives, dirigeants de PME. La prise en main se fait en moins d'une heure.",
   },
   {
-    q: "Laure Olivié intervient-elle en dehors de l'Île-de-France ou en distanciel ?",
-    a: `Non pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (${IDF_ZONE_INTERVENTION}), en inter ou intra. L'échange préalable de cadrage (30 min) peut se faire en visio.`,
+    q: "Laure Olivié intervient-elle en présentiel en Île-de-France ?",
+    a: `Oui pour les sessions OFC : présentiel uniquement · Île-de-France uniquement (${IDF_ZONE_INTERVENTION}), en inter ou intra. L'échange préalable de cadrage (30 min) peut se faire en visio.`,
   },
 ] as const;
 

@@ -200,7 +200,7 @@ export function CalendlyEmbed({
       href={resolvedUrl}
       id={id}
       title={title}
-      aria-label={ariaLabel ?? (typeof label === 'string' ? label : 'Prendre rendez-vous en ligne')}
+      aria-label={ariaLabel ?? (typeof label === 'string' ? label : 'Prendre rendez-vous — visio découverte')}
       target="_blank"
       rel="noopener noreferrer"
       data-calendly

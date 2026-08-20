@@ -49,7 +49,7 @@ const REF_TABLE = [
   { label: 'Note de satisfaction (questionnaires fin de formation)', value: siteStats.noteMoyenneAffichee },
   {
     label: 'Financement OPCO Constructys',
-    value: "Jusqu'à 100 % du coût pédagogique selon barème et éligibilité",
+    value: 'Prise en charge partielle selon barème et éligibilité',
   },
   { label: 'Partenaires institutionnels', value: '8+' },
   { label: 'Cours LinkedIn Learning', value: '2' },

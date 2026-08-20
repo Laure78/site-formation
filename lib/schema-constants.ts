@@ -148,7 +148,7 @@ export const SCHEMA_ORGANIZATION_OFC = {
   description:
     "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
   descriptionShortGraph:
-    `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${formatPersonnesFormeesCount()} professionnels formés. Finançable Constructys.`,
+    `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${formatPersonnesFormeesCount()} professionnels formés. Finançable par Constructys selon éligibilité.`,
   foundingYear: '2021',
 } as const;
 

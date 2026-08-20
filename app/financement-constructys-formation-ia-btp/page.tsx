@@ -440,7 +440,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                 <div className="rounded-xl border border-slate-200 bg-white p-4">
                   <p className="text-[10px] font-bold uppercase tracking-wide text-[#377CF3]">TPE</p>
                   <p className="mt-2 text-xs leading-snug text-slate-700 md:text-sm">
-                    <strong>Si vous êtes un professionnel du BTP seul (TPE &lt; 11 salariés) :</strong> Constructys couvre jusqu&apos;à 24 € HT/h pédagogique + 15 € HT/h pour les frais de salaires (sauf FEEBAT).
+                    <strong>Si vous êtes un professionnel du BTP seul (TPE &lt; 11 salariés) :</strong> Constructys peut financer partiellement jusqu&apos;à 24 € HT/h pédagogique + 15 € HT/h pour les frais de salaires (sauf FEEBAT), selon éligibilité et dossier.
                   </p>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white p-4">
@@ -474,7 +474,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                     <strong>OFC Création d&apos;Entreprise</strong> est certifié Qualiopi : c&apos;est une condition sérieuse pour rassurer les financeurs OPCO. Au-delà du certificat, nous vous aidons à aligner les intitulés, le programme et les heures avec les attentes de la <strong>prise en charge Constructys</strong>, pour éviter les allers-retours inutiles. Que vous visiez une formation courte sur ChatGPT ou un parcours plus large sur l&apos;IA au service du chantier, l&apos;objectif est le même : un dossier lisible, déposé dans les délais, pour que votre équipe se concentre sur le terrain.
                   </p>
                   <p>
-                    En pratique, vous n&apos;avez pas à deviner les intitulés : nous vous expliquons quoi envoyer, dans quel ordre, et comment éviter les oublis qui bloquent un dossier en ligne. L&apos;objectif est que la <strong>prise en charge Constructys</strong> soit une étape simple, pas un second métier. Si vous hésitez entre inter-entreprise et intra-entreprise, nous pouvons vous aider à arbitrer en fonction des plafonds et de votre agenda chantier (sessions catalogue OFC : 4 h, présentiel Île-de-France uniquement).
+                    En pratique, vous n&apos;avez pas à deviner les intitulés : nous vous expliquons quoi envoyer, dans quel ordre, et comment éviter les oublis qui bloquent un dossier sur eGestion. L&apos;objectif est un montage de dossier OPCO simple, pas un second métier. Si vous hésitez entre inter-entreprise et intra-entreprise, nous pouvons vous aider à arbitrer en fonction des plafonds et de votre agenda chantier (sessions catalogue OFC : 4 h, présentiel Île-de-France uniquement).
                   </p>
                 </div>
                 <ul className="space-y-2 text-sm text-slate-700">
@@ -528,7 +528,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               id="faq"
               headingId="faq-financement-title"
               title="Questions fréquentes — Constructys formation IA"
-              subtitle="Réponses courtes pour avancer : éligibilité, plafonds, CPF et retard de dossier."
+              subtitle="Réponses courtes pour avancer : éligibilité, plafonds et retard de dossier."
               items={FAQ_FINANCEMENT_IA_BTP}
             />
 

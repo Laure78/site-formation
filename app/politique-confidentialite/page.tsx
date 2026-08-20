@@ -240,7 +240,7 @@ export default function PolitiqueConfidentialitePage() {
                 </tr>
                 <tr>
                   <td className="border border-slate-200 px-4 py-3">
-                    Déclarations obligatoires (OPCO, État, Régions)
+                    Déclarations obligatoires (OPCO)
                   </td>
                   <td className="border border-slate-200 px-4 py-3">
                     Obligation légale
@@ -346,7 +346,7 @@ export default function PolitiqueConfidentialitePage() {
           </h3>
           <p className="mt-2 text-slate-600">
             Vos données peuvent être transmises à : Organismes de financement
-            (OPCO, Pôle Emploi, Régions, État/Caisse des Dépôts pour le CPF),
+            (OPCO, notamment Constructys pour le BTP),
             partenaires techniques (hébergeur, plateforme pédagogique en ligne,
             messagerie, CRM), autorités compétentes (DREETS, administration
             fiscale, Qualiopi, autorités judiciaires sur réquisition),

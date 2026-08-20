@@ -15,7 +15,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'Formation IA Devis BTP — Auto Devis Bâtiment',
   description:
-    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Premier devis structuré en moins d\'une heure. Finançable Constructys.',
+    'Formation IA pour automatiser vos devis BTP avec ChatGPT. Méthode, prompts, templates. Premier devis structuré en moins d\'une heure. Finançable par Constructys selon éligibilité.',
   path: '/ia-devis-batiment',
   appendAuthorSuffix: false,
   keywords: [

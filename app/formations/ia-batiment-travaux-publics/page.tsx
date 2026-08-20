@@ -579,11 +579,9 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             Le siège de l&apos;organisme est situé à {SITE_CONFIG.geo.city} ({SITE_CONFIG.geo.département}).
-            Le financement des actions de formation passe le plus souvent par votre{' '}
+            Le financement des actions de formation passe par votre{' '}
             <strong>OPCO</strong> (notamment <strong>Constructys</strong> pour le périmètre BTP) dans le cadre
-            du plan de développement des compétences — dossier et convention sur demande. Pour les
-            dispositifs publics complémentaires (aides aux TPE/PME, accompagnements régionaux), les
-            éligibilités varient : je peux vous orienter selon votre situation.
+            du plan de développement des compétences — dossier et convention sur demande.
           </p>
           <p className="mt-6">
             <Link

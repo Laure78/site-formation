@@ -50,7 +50,7 @@ export const GROS_OEUVRE_FAQ: FAQItem[] = [
   },
   {
     q: 'Convient-elle aux TPE et PME de gros œuvre en Île-de-France ?',
-    a: `Oui : sessions inter et intra en présentiel uniquement en Île-de-France, sur vos cas anonymisés (devis, DCE, CR, planning). Pas de distanciel ni d’e-learning pour les sessions de formation.`,
+    a: `Oui : sessions inter et intra en présentiel uniquement en Île-de-France, sur vos cas anonymisés (devis, DCE, CR, planning).`,
   },
   {
     q: 'Comment protéger les données chantier (plans, DCE, relevés) ?',

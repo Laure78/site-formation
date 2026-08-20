@@ -372,7 +372,7 @@ export const blogArticlesClaudeBtp2026: BlogArticle[] = [
         title: 'Six commandes « / » utiles pour une OF ou une PME BTP',
         content: `<figure class="my-6">
 <img src="${IMG}/slide-11.png" alt="Skills BTP prêts à copier : convention Qualiopi, devis formation, email prospection Constructys, programme, CR réunion, fiche stagiaire" class="w-full rounded-xl border border-slate-200 shadow-sm" loading="lazy" width="1200" height="675" />
-<figcaption class="mt-2 text-center text-sm text-slate-500">Exemples inspirés du terrain formation : conventions, devis à 1 200 € HT/session, prospection, comptes rendus.</figcaption>
+<figcaption class="mt-2 text-center text-sm text-slate-500">Exemples inspirés du terrain formation : conventions, devis à 1 200 € HT / session forfaitaire, prospection, comptes rendus.</figcaption>
 </figure>`,
       },
       {

@@ -393,8 +393,8 @@ export const IDF_CHAPEAU_LOCAL = {
       a: 'Oui, les 8 départements franciliens, en présentiel uniquement.',
     },
     {
-      q: 'Faites-vous du distanciel ou des interventions en région ?',
-      a: "Non : présentiel uniquement · Île-de-France uniquement.",
+      q: 'Quelle est la zone d’intervention ?',
+      a: "Présentiel uniquement · Île-de-France uniquement (8 départements franciliens).",
     },
     {
       q: 'Où êtes-vous basée ?',

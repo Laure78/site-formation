@@ -18,7 +18,7 @@ export const FORMATION_IA_CONSTRUCTION_PATH = '/formation-ia-construction' as co
 export const FORMATION_IA_CONSTRUCTION_SEO = {
   title: 'Formation IA Construction IDF | Laure Olivié',
   description:
-    "Formation IA construction en présentiel Île-de-France : DCE, chiffrage, appels d'offres. Qualiopi, finançable Constructys. Réservez votre visio découverte.",
+    "Formation IA construction en présentiel Île-de-France : DCE, chiffrage, appels d'offres. Qualiopi, finançable par Constructys selon éligibilité. Réservez votre visio découverte.",
   h1: 'Formation IA pour les Entreprises de Construction en Île-de-France',
 } as const;
 

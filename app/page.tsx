@@ -829,7 +829,7 @@ export default function HomePage() {
                 </p>
                 <p className="mt-5 text-sm leading-relaxed text-slate-600">
                   <Link href={LINKS.formationsLinkedInLearning} className={`${OFC_LINK} font-semibold`}>
-                    Instructrice LinkedIn Learning — découvrez mes 2 formations en ligne
+                    Instructrice LinkedIn Learning — découvrez mes 2 cours à la demande
                   </Link>
                 </p>
               </div>
@@ -1011,7 +1011,7 @@ export default function HomePage() {
                 id="rdv-creneau-heading"
                 className="mt-4 font-display text-3xl font-bold text-slate-900 md:text-4xl"
               >
-                Réservez un créneau en ligne
+                Réservez un créneau de visio découverte
               </h3>
               <p className="mt-3 text-slate-600">
                 Choisissez le jour et l&apos;heure qui vous conviennent pour un échange

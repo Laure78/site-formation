@@ -85,7 +85,7 @@ const FAQ_PME = [
   },
   {
     q: "La formation IA PME est-elle finançable ?",
-    a: "Oui. financement possible via Constructys ou OPCO selon éligibilité pour les entreprises du BTP de moins de 50 salariés. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
+    a: "Oui. financement possible via Constructys ou OPCO selon éligibilité pour les entreprises du BTP de moins de 50 salariés. Plafond pédagogique indicatif : 24 € HT/heure/stagiaire selon barèmes et dossier.",
   },
   {
     q: "Faut-il des compétences techniques ?",

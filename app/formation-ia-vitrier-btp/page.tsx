@@ -456,7 +456,7 @@ export default function FormationIaVitrierBtpPage() {
         <section className="mt-14">
           <h2 className="font-display text-lg font-bold text-slate-900">OFC Création d’Entreprise</h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Organisme certifié Qualiopi · Finançable Constructys, FSE+, OPCO selon
+            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Organisme certifié Qualiopi · Financement OPCO Constructys selon éligibilité
             règles en vigueur · {SITE_CONFIG.geo.streetAddress}, {SITE_CONFIG.geo.postalCode} {SITE_CONFIG.geo.city} ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
             <a href={SITE_CONFIG.url} className="text-[var(--accent)] hover:underline">

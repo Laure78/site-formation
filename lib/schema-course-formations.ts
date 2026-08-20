@@ -154,7 +154,7 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
         '@id': `${SITE_CONFIG.url}/formations#course-list`,
         name: 'Catalogue des formations IA pour le BTP',
         description:
-          'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d’offres, ChatGPT. Finançable Constructys.',
+          'Formations IA pour dirigeants et équipes du BTP (bâtiment et travaux publics). Devis, appels d’offres, ChatGPT. Finançable par Constructys selon éligibilité.',
         numberOfItems: list.length,
         itemListElement: list.map((entry, i) => ({
           '@type': 'ListItem',

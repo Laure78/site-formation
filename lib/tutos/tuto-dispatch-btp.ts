@@ -315,7 +315,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
       'Setup Dispatch en direct sur ton PC et ton téléphone',
       'Calibrage sur tes vraies tâches admin du quotidien',
       'Tu repars opérationnel le soir même',
-      'Format individuel ou équipe — Qualiopi — Finançable Constructys',
+      'Format individuel ou équipe — Qualiopi — Finançable par Constructys selon éligibilité',
     ],
   },
 };

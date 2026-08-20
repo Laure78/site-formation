@@ -190,7 +190,7 @@ export default function CGVPage() {
           <p className="mt-4">
             Demande OPCO au moins 4 semaines avant. L&apos;Organisme transmet les
             documents nécessaires. En cas de refus partiel, le Client reste redevable.
-            Autres dispositifs : CPF, plan de développement des compétences,
+            Autres dispositifs : plan de développement des compétences (OPCO),
             financement personnel. Accompagnement possible dans les démarches.
           </p>
         </section>

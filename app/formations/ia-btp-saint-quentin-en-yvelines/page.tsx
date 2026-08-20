@@ -439,7 +439,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           </p>
           <p className="mt-2 text-sm text-slate-600">
             Plus de {formatProfessionalsTrainedCount()} professionnels BTP formés · Note {SOCIAL_PROOF.AVERAGE_RATING} ·
-            Qualiopi · Constructys / FSE+
+            Qualiopi · OPCO Constructys selon éligibilité
           </p>
           <p className="mt-6 text-sm text-slate-500">
             SIRET {SITE_CONFIG.siret} · NDA 11788515078 · {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}

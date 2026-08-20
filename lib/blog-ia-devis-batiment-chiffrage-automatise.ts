@@ -13,7 +13,7 @@ export const blogArticleIaDevisBatimentChiffrageAutomatise: BlogArticle = {
   title: 'IA et devis bâtiment : automatiser le chiffrage BTP sans page blanche',
   seoTitle: 'IA devis bâtiment : chiffrage BTP structuré',
   description:
-    "Rédigez vos devis BTP avec l'IA : premier devis structuré en moins d'une heure vs demi-journée. Méthode en 5 étapes, prompts ChatGPT. Finançable Constructys.",
+    "Rédigez vos devis BTP avec l'IA : premier devis structuré en moins d'une heure vs demi-journée. Méthode en 5 étapes, prompts ChatGPT. Finançable par Constructys selon éligibilité.",
   date: '2026-04-27',
   readingTime: '12 min',
   keywords: [
