@@ -34,6 +34,8 @@ import {
   FormationCourseHero,
 } from '@/components/formations/FormationCourseHero';
 import { buildCatalogueCourseIaAppelsOffreNiv02JsonLd } from '@/lib/schema-catalogue-course-jsonld';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 const PDF_HREF = LINKS.pdfProgrammeFormationAoBtpDetail2026;
 const KIT_7_PROMPTS_HREF = '/formations/ia-appels-offre-btp/Kit_IA_AO_BTP_7_prompts.html';
@@ -398,6 +400,11 @@ export default function FormationIAAppelsOffreBTPPage() {
           Le forfait est de {TARIF_SESSION_LIBELLE} avec Cowork
           configuré, 30 prompts AO et 3 modèles Word de mémoire technique.
         </p>
+        <p className="mt-4 text-sm text-slate-700 leading-relaxed">
+          En {new Date().getFullYear()}, OFC affiche une note de satisfaction de {siteStats.noteMoyenneAffichee} sur plus de{' '}
+          {formatPersonnesFormeesCount()} professionnels formés ({getStatsFreshnessLabel()}).
+        </p>
+        <IndicateursResultatsLink className="mt-2 text-left" />
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong> {TARIF_SESSION_LIBELLE}{' '}
