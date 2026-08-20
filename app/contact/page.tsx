@@ -20,7 +20,7 @@ export const revalidate = 3600;
 
 const TITLE = 'Formation IA pour les pros du BTP — Contact';
 const DESCRIPTION =
-  'Contact Laure Olivié : formation IA pour le BTP (Qualiopi) ou solutions IA BeWork. RDV gratuit, Constructys. Île-de-France.';
+  'Contact Laure Olivié : formation IA pour le BTP (organisme certifié Qualiopi) ou solutions IA BeWork. RDV gratuit, Constructys. Île-de-France.';
 
 export const metadata = createPageMetadata({
   title: TITLE,
@@ -151,7 +151,7 @@ export default function ContactPage() {
               {
                 icon: Award,
                 title: 'Financement OPCO',
-                desc: "Formation Qualiopi avec prise en charge Constructys possible",
+                desc: 'Formations OFC (organisme certifié Qualiopi) — prise en charge Constructys possible',
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div
@@ -197,7 +197,7 @@ export default function ContactPage() {
               relances clients. »
             </blockquote>
             <p>
-              Mes <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">formations IA pour le BTP</Link> sont certifiées Qualiopi et peuvent être prises en
+              Mes <Link href="/formations" className="text-[var(--accent)] font-medium hover:underline">formations IA pour le BTP</Link> sont dispensées par un organisme certifié Qualiopi et peuvent être prises en
               prise en charge par votre OPCO selon éligibilité (Constructys, etc.). Je vous
               accompagne également dans les démarches administratives pour
               faciliter le financement de votre formation.

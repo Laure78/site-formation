@@ -59,7 +59,7 @@ export default async function AttestationPage({
           <h1 className="font-display text-2xl font-bold text-slate-900">
             Attestation de suivi de formation
           </h1>
-          <p className="mt-2 text-sm text-slate-600">Formation certifiée Qualiopi</p>
+          <p className="mt-2 text-sm text-slate-600">Formation dispensée par un organisme certifié Qualiopi</p>
         </div>
 
         <div className="mt-12 space-y-4">

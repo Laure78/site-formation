@@ -25,6 +25,8 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-charge-affaires-btp';
 
@@ -37,7 +39,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   ...buildFormationFicheCourseJsonLd({
     name: "Formation IA pour Chargé d'Affaires BTP",
     description:
-      "Formation ChatGPT et Claude AI pour chargés d'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Qualiopi. Financement possible selon éligibilité. Présentiel Île-de-France.",
+      "Formation ChatGPT et Claude AI pour chargés d'affaires BTP : pré-chiffrage devis, mémoire technique, analyse DCE, relances prospects, argumentaires prix. Organisme certifié Qualiopi. Financement possible selon éligibilité. Présentiel Île-de-France.",
     path: PATH,
     educationalLevel: 'Advanced',
     organizationId: `${BASE_URL}/#organization`,
@@ -70,7 +72,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
 export const metadata = createMetierBtpPageMetadata('chargé d\'affaires', {
   title: SEO_TITLE,
   description:
-    "Formation IA pour chargés d'affaires BTP : chiffrage, DCE, mémoires techniques, relances. Présentiel Île-de-France, Qualiopi, Constructys possible. RDV gratuit.",
+    "Formation IA pour chargés d'affaires BTP : chiffrage, DCE, mémoires techniques, relances. Présentiel Île-de-France — organisme certifié Qualiopi, Constructys possible. RDV gratuit.",
   path: PATH,
   keywords: [
     'formation IA chargé d\'affaires BTP',
@@ -179,7 +181,7 @@ export default function FormationIaChargeAffairesBtpPage() {
         <PreuveSociale className="mt-6" />
         <p className="mt-4 text-lg text-slate-600">
           Le chargé d&apos;affaires jongle entre chiffrage, marchés et relation client ; l&apos;IA lui
-          rend des heures, sous sa validation. Sessions présentiel IDF · Qualiopi ·{' '}
+          rend des heures, sous sa validation. Sessions présentiel IDF · organisme certifié Qualiopi ·{' '}
           {FINANCEMENT_FORMULATION_PRUDENTE}
         </p>
 
@@ -187,7 +189,7 @@ export default function FormationIaChargeAffairesBtpPage() {
           <ShortAnswerBlock>
             Un chargé d&apos;affaires BTP consacre souvent une part importante de son temps à produire
             des devis et des mémoires techniques. Avec l&apos;IA, il accélère ces livrables — toujours
-            avec relecture métier — pour se recentrer sur la décision commerciale. Formation certifiée{' '}
+            avec relecture métier — pour se recentrer sur la décision commerciale. Formation dispensée par un organisme certifié{' '}
             <strong>Qualiopi</strong>, financement OPCO possible selon éligibilité.
           </ShortAnswerBlock>
           <DisclaimerGains className="mt-3" />
@@ -603,9 +605,11 @@ export default function FormationIaChargeAffairesBtpPage() {
             ]}
           />
 
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
+
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
-          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">

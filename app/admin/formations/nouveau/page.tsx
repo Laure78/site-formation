@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { enrollUserByEmail } from '@/lib/lms-auto-enroll';
-import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 export default function NouvelleFormationPage() {
   const router = useRouter();
@@ -161,8 +161,8 @@ export default function NouvelleFormationPage() {
             className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
           <p className="mt-1 text-xs text-slate-500">
-            Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session (toutes formations catalogue) — TVA
-            non applicable (art. 261-4-4° CGI).
+            Forfait unique {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (toutes formations catalogue) —{' '}
+            {MENTIONS_TVA_REGIMES_COURT}
           </p>
         </div>
         <div className="flex gap-4">

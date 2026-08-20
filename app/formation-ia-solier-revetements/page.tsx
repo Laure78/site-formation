@@ -7,7 +7,7 @@ const PATH = '/formation-ia-solier-revetements';
 export const metadata = createPageMetadata({
   title: 'Formation IA solier revêtements — ChatGPT BTP',
   description:
-    'Formation IA pour soliers : DTU 53, chiffrage PVC/lino/parquet, documents chantier. Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour soliers : DTU 53, chiffrage PVC/lino/parquet, documents chantier. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   openGraphType: 'website',
 });

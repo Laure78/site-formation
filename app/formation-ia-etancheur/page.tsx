@@ -17,13 +17,15 @@ import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-etancheur';
 const PAGE_URL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
 const SEO_TITLE = 'Formation IA pour Étancheur — ChatGPT BTP';
 const SEO_DESCRIPTION =
-  "Formation IA dédiée aux entreprises d'étanchéité : devis, mémoires techniques, CCTP. Qualiopi. Financement possible selon éligibilité. Partenaire CSFE.";
+  "Formation IA dédiée aux entreprises d'étanchéité : devis, mémoires techniques, CCTP. Organisme certifié Qualiopi. Financement possible selon éligibilité. Partenaire CSFE.";
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
@@ -530,7 +532,7 @@ export default function FormationIaEtancheurPage() {
             Formation IA pour étancheur — présentiel en Île-de-France uniquement
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d&apos;Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d&apos;Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>

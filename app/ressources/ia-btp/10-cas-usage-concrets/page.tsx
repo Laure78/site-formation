@@ -69,7 +69,7 @@ const DEMARRER_IA_BTP_STEPS = [
     body: (
       <>
         Une formation courte et pratique permet de maîtriser les bases et de créer vos premiers prompts BTP. Mes
-        formations de 4&nbsp;h sont certifiées Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
+        formations de 4&nbsp;h sont dispensées par un organisme certifié Qualiopi. {FINANCEMENT_FORMULATION_PRUDENTE}
       </>
     ),
     Icon: GraduationCap,

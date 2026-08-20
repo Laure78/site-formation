@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { AccueilHeroVideoSection } from '@/components/landing/AccueilHeroVideoSection';
+import { AccueilHeroSection } from '@/components/landing/AccueilHeroSection';
+import { AccueilPreuveSocialeSection } from '@/components/landing/AccueilPreuveSocialeSection';
+import { AccueilBeworkAccordionSection } from '@/components/landing/AccueilBeworkAccordionSection';
 import { AccueilCasUsageIaVisuels } from '@/components/landing/AccueilCasUsageIaVisuels';
-import { CitationSentence } from '@/components/seo/CitationSentence';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import {
   FileText,
@@ -28,15 +29,13 @@ import {
 import { ProfilePhoto } from '@/components/landing/ProfilePhoto';
 import { GoogleReviewsSection } from '@/components/landing/GoogleReviewsSection';
 import { GoogleReviewsSectionPlaceholder } from '@/components/landing/GoogleReviewsSectionPlaceholder';
-import { HomeDeferredClientsLogos } from '@/components/landing/HomeDeferredClientsLogos';
 import { HomeDeferredLinkedInLearning } from '@/components/landing/HomeDeferredLinkedInLearning';
 import { HomeFaqDetailsList } from '@/components/landing/HomeFaqDetailsList';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { QualiopiBadge } from '@/components/QualiopiLogo';
-import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
-import { Partenaires } from '@/components/Partenaires';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
 import { QUALIOPI_FINANCEMENT_FORMULATION } from '@/config/qualiopi';
+import { QUALIOPI_LEGAL } from '@/lib/qualiopi-info';
 import Image from 'next/image';
 import { buildMetadata } from '@/lib/seo';
 import { FAQ_ITEMS_HOME, buildHomeFAQPageJsonLd } from '@/lib/faq';
@@ -44,48 +43,36 @@ import { JsonLd } from '@/components/JsonLd';
 import { PHOTOS } from '@/lib/photos';
 import { PourQuiSection } from '@/components/landing/PourQuiSection';
 import { ArticlesFormationLies } from '@/components/landing/ArticlesFormationLies';
-import { FFBIAAccrocheSection } from '@/components/landing/FFBIAAccrocheSection';
 import { CSFE_NOM_COMPLET, CSFE_NOM_LIBRE } from '@/lib/csfe';
-import {
-  getFormationCatalogueByRef,
-} from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { LOGO_LINKEDIN_LEARNING } from '@/lib/client-logos';
 import {
-  formatTarifHt,
+  libelleTarifSessionForfaitaire,
   TARIF_SESSION_FORFAIT_HT,
   SESSION_DUREE_LIBELLE,
 } from '@/lib/tarifs-sessions';
 import { FORMATIONS } from '@/data/formations';
 import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
 import { MentionFinancement } from '@/components/MentionFinancement';
-import { MentionTvaAsterisque } from '@/components/MentionTVA';
-import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_LINK, OFC_BENEFIT_CARD, OFC_GAIN_CARD, OFC_PROBLEM_SOLUTION_CARD, OFC_HOWTO_STEP, OFC_CTA_PRIMARY, OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_INSET_PANEL, OFC_INNER_ACCENT_BAND } from '@/lib/ofc-section-classes';
 import { DEVIS_GAIN_TEMPS_LIBELLE, GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { SCHEMA_CONTACT } from '@/lib/schema-constants';
 import { buildHomeUnifiedGraphJsonLd } from '@/lib/schema-home-unified-graph';
-import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { HomePrincipalSections } from '@/components/landing/HomePrincipalSections';
 import { SelecteurMetier } from '@/components/SelecteurMetier/SelecteurMetier';
 import { BeworkEtFormationsOffreSection } from '@/components/landing/BeworkEtFormationsOffreSection';
 import { HomeGuideConducteurTravauxSection } from '@/components/landing/HomeGuideConducteurTravauxSection';
-import { Essentiel } from '@/components/readability/Essentiel';
 import { Accordion } from '@/components/readability/Accordion';
-import { StatCallout } from '@/components/readability/StatCallout';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { Citation } from '@/components/readability/Citation';
 import {
   formatPersonnesFormeesCount,
   PREUVES,
 } from '@/lib/constants';
-import { ProofStats } from '@/components/ProofStats';
-import { GoogleBusinessProfileCta } from '@/components/GoogleBusinessProfileCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
 import { ANNUAIRE_ENTREPRISES_OFC_URL } from '@/lib/schema-constants';
-
-const FORMATION_CONDUITE = getFormationCatalogueByRef('NIV-03')!;
 
 /** Puces fusionnées depuis l’offre BeWork/formations (ex-titre « Ce que vous gagnez concrètement »). */
 const GAINS_CONCRETS_MERGES = [
@@ -188,217 +175,9 @@ export const metadata = buildMetadata({
 export default function HomePage() {
   return (
     <div>
-      {/* Hero — Formation IA pour le BTP (charte OFC #377CF3, fond neutre #F2F2F2) */}
-      <section className={`${OFC_SEC.hero} relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23377cf3\' fill-opacity=\'0.045\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-90" />
-        <div
-          className="pointer-events-none absolute -right-24 top-1/2 h-[min(480px,70vh)] w-[min(560px,55vw)] -translate-y-1/2 rounded-full bg-[#377CF3]/[0.06] blur-3xl md:right-0"
-          aria-hidden
-        />
-        {/* Réseau léger aligné couleur primaire OFC */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.12] md:opacity-[0.14]"
-          aria-hidden
-        >
-          <svg className="absolute left-1/2 top-0 h-[min(520px,75vh)] w-[min(900px,100%)] -translate-x-1/2" viewBox="0 0 400 280" fill="none">
-            <defs>
-              <linearGradient id="heroMesh" x1="200" y1="0" x2="200" y2="280" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#377CF3" stopOpacity="0.45" />
-                <stop offset="1" stopColor="#377CF3" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M40 120 L120 60 L200 100 L280 40 L360 90 M120 60 L120 180 M200 100 L200 220 M280 40 L280 160 M40 120 L80 200 M360 90 L320 200"
-              stroke="url(#heroMesh)"
-              strokeWidth="0.75"
-            />
-            {[
-              [120, 60],
-              [200, 100],
-              [280, 40],
-              [40, 120],
-              [360, 90],
-              [120, 180],
-              [200, 220],
-              [280, 160],
-            ].map(([cx, cy], i) => (
-              <circle key={i} cx={cx} cy={cy} r="2.5" fill="#377CF3" fillOpacity="0.28" />
-            ))}
-          </svg>
-        </div>
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
-            <div className="min-w-0">
-              <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-[#377CF3]/20 bg-white/95 px-3 py-1.5 text-xs font-medium text-[#377CF3] shadow-[0_1px_6px_-2px_rgba(55,124,243,0.25)] backdrop-blur-sm ring-1 ring-white/80 sm:px-4 sm:py-2 sm:text-sm">
-                <Sparkles size={14} strokeWidth={1.5} className="shrink-0 text-[#377CF3] sm:h-4 sm:w-4" aria-hidden />
-                <span>Formation IA BTP · Qualiopi · Constructys</span>
-              </div>
-              <h1 className="mt-5 text-balance font-display text-[1.7rem] font-bold leading-[1.14] tracking-tight text-slate-900 sm:text-[1.95rem] md:text-[2.2rem] lg:text-[2.45rem] lg:leading-[1.11]">
-                Formation IA pour le BTP — devis, chantier, appels d&apos;offres
-              </h1>
-              <h2 className="mt-3 max-w-xl font-display text-lg font-semibold leading-snug tracking-tight text-slate-800 md:text-xl lg:text-[1.35rem]">
-                Formation IA BTP en présentiel en Île-de-France — sessions de 4 h
-              </h2>
-              <p className="mt-2 max-w-xl text-sm font-medium text-slate-600 md:text-base">
-                Présentiel uniquement · Île-de-France uniquement
-              </p>
-              <p className="mt-3 max-w-2xl text-base font-medium leading-relaxed text-slate-700 md:text-lg">
-                Gagnez du temps sur vos devis, comptes rendus et réponses aux appels d&apos;offres avec{' '}
-                <span className="font-serif italic text-[#377CF3]">Claude AI</span> et ChatGPT.
-              </p>
-              <div className="mt-6 sm:mt-7">
-                <ProofStats className="rounded-2xl border border-slate-200" />
-              </div>
-              <QualiopiSatisfactionSource className="mt-3 max-w-2xl" />
-            </div>
+      <AccueilHeroSection />
 
-            <aside className="flex w-full min-w-0 flex-col lg:sticky lg:top-24">
-              <div className="w-full rounded-2xl bg-gradient-to-b from-white to-[#F2F2F2]/80 p-1 shadow-[0_16px_40px_-22px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/60">
-                <div className="rounded-[0.85rem] bg-white p-3 sm:p-4">
-                  <AccueilHeroVideoSection />
-                </div>
-              </div>
-            </aside>
-          </div>
-
-          <Partenaires
-            id="accueil-partenaires"
-            showPageLink
-            showGeoCitation
-            calendlyCampaign="accueil-partenaires"
-            className="!mt-8 !bg-transparent !py-0 md:!mt-10 [&>div]:!px-0"
-          />
-
-          <p
-            className="citation-sentence mt-6 rounded-2xl border border-slate-200/70 bg-white p-4 text-[0.9375rem] leading-relaxed text-slate-800 shadow-[inset_4px_0_0_0_#377CF3,0_12px_40px_-18px_rgba(15,23,42,0.12)] md:mt-7 md:p-5 md:text-lg"
-            data-citation="true"
-            itemProp="description"
-          >
-            <strong>Laure Olivié</strong> forme vos équipes BTP à utiliser l&apos;IA sur leurs vrais documents
-            — devis, CR, DCE, mémoires techniques. Organisme <strong>OFC Création d&apos;Entreprise</strong>{' '}
-            certifié Qualiopi.{' '}
-            <MentionFinancement variant="court" />
-          </p>
-
-          <div className="mt-6 space-y-5 md:mt-7 md:space-y-6">
-            <Essentiel
-              idPrefix="accueil"
-              items={[
-                'Sessions 4 h en présentiel IDF : devis, comptes rendus, appels d’offres et mémoires techniques (Claude AI, ChatGPT).',
-                <>
-                  OFC Création d’Entreprise certifié Qualiopi — <MentionFinancement variant="long" />
-                </>,
-                'Intra ou inter, présentiel uniquement · Île-de-France uniquement.',
-                'Travail sur vos documents BTP réels : DCE, CCTP, relances clients et administratif chantier.',
-                <>
-                  Catalogue {FORMATIONS.length} formations Qualiopi — forfait unique{' '}
-                  {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT
-                  <MentionTvaAsterisque /> / session (Claude AI = une fiche : Maîtriser Claude AI pour
-                  le BTP).
-                </>,
-              ]}
-            />
-            <p className="text-sm leading-relaxed text-slate-600">
-              Volume formé et satisfaction :{' '}
-              <Link href={LINKS.indicateursResultats} className={OFC_LINK}>
-                indicateurs de résultats Qualiopi
-              </Link>
-              .
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <Link
-                href={LINKS.prendreRdv}
-                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full bg-[var(--accent)] px-7 py-3 text-center text-[0.95rem] font-semibold text-white shadow-sm transition hover:bg-blue-700 md:min-w-[auto]"
-              >
-                Prendre rendez-vous
-              </Link>
-              <Link
-                href="#guide-conducteur-travaux"
-                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center gap-2 rounded-full border-2 border-emerald-600/30 bg-emerald-50/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-emerald-900 backdrop-blur-sm transition hover:border-emerald-600 hover:bg-emerald-100 md:min-w-[auto]"
-              >
-                <FileText className="h-4 w-4 shrink-0" aria-hidden />
-                Guide conducteur de travaux (PDF gratuit)
-              </Link>
-              <Link
-                href="#offre-formations"
-                className="inline-flex min-h-[46px] min-w-[min(100%,240px)] items-center justify-center rounded-full border-2 border-[#377CF3]/35 bg-white/90 px-7 py-3 text-center text-[0.95rem] font-semibold text-[#377CF3] backdrop-blur-sm transition hover:border-[#377CF3] hover:bg-[var(--accent-soft)] md:min-w-[auto]"
-              >
-                Voir le catalogue
-              </Link>
-            </div>
-            <div className="rounded-xl border border-slate-200/90 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
-              <p className="text-sm leading-relaxed text-slate-600">
-                <span className="font-medium text-slate-700">
-                  Catalogue ({FORMATIONS.length} formations) :
-                </span>{' '}
-                <Link
-                  href={LINKS.formationIaBtpNiveau1BatimentTp}
-                  className={OFC_LINK}
-                  title="L'IA au service des pros du bâtiment et des travaux publics"
-                >
-                  IA bâtiment &amp; travaux publics
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationAO}
-                  className={OFC_LINK}
-                  title="L'IA appliquée aux appels d'offres BTP"
-                >
-                  IA appels d&apos;offres BTP
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationConduiteTravauxSuiviChantier}
-                  className={OFC_LINK}
-                  title={FORMATION_CONDUITE.title}
-                >
-                  IA conduite de travaux
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationMaitriserClaudeAiBtp}
-                  className={OFC_LINK}
-                  title="Maîtriser Claude AI pour le BTP — Chat, Cowork & Code"
-                >
-                  Maîtriser Claude AI pour le BTP
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.formationIaMaitriseOeuvre}
-                  className={OFC_LINK}
-                  title="L'IA au service des maîtres d'œuvre"
-                >
-                  IA maîtres d&apos;œuvre
-                </Link>
-                {' · '}
-                <Link
-                  href={LINKS.financement}
-                  className={OFC_LINK}
-                  title="Financement Constructys — formation IA pour le BTP"
-                >
-                  financement Constructys
-                </Link>
-              </p>
-            </div>
-            <Reveal>
-              <p
-                className="text-sm text-slate-600 italic"
-                data-citation="true"
-              >
-                <strong>Définition.</strong> Une « formation IA appliquée au bâtiment » est une formation professionnelle
-                destinée aux entreprises du bâtiment et de la construction (gros œuvre, second œuvre, travaux publics).
-                Elle apprend aux équipes à utiliser les outils d&apos;intelligence artificielle générative
-                (Claude AI et ChatGPT) pour automatiser leurs tâches récurrentes : devis, analyse de DCE et CCTP,
-                appels d&apos;offres et mémoires techniques, comptes rendus de chantier, relances clients et documents
-                administratifs.
-              </p>
-            </Reveal>
-            <CitationSentence text="La formation IA pour le BTP animée par Laure Olivié aide les professionnels du BTP et conducteurs de travaux à gagner du temps : automatisation des devis, de l'administratif et des dossiers d'appels d'offres avec l'IA adaptée au chantier (Claude AI)." />
-          </div>
-        </div>
-      </section>
-
-      <HomeGuideConducteurTravauxSection />
+      <AccueilPreuveSocialeSection />
 
       <section
         aria-labelledby="home-selecteur-cas-usage-ia"
@@ -457,89 +236,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      <HomeDeferredClientsLogos />
-
-      {/* CTA mi-page — visio découverte */}
-      <section className={OFC_SEC.mutedCompact}>
-        <Reveal className="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <div>
-            <h2 className="font-display text-xl font-bold text-slate-900 md:text-2xl">
-              30 min pour cadrer votre formation IA BTP
-            </h2>
-            <p className="mt-2 text-slate-600">
-              Devis, financement Constructys, format intra ou inter — sans engagement.
-            </p>
-          </div>
-          <CalendlyEmbed
-            type="link"
-            variant="primary"
-            campaign="accueil-mid-page"
-            ctaPosition="middle"
-            className="shrink-0"
-          />
-        </Reveal>
-      </section>
-
-      {/* Référence clients — bande charte OFC (#377CF3, alignée sur le CTA Calendly) */}
-      <section className={OFC_SEC.accent}>
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-            <div className="max-w-xl shrink-0">
-              <Reveal>
-                <p className="inline-flex rounded-full border border-white/35 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-white">
-                  Référence & partenaires
-                </p>
-                <h3 className="mt-4 font-display text-2xl font-bold md:text-3xl">
-                  FFB, CSFE… une formation IA plébiscitée par le réseau pro
-                </h3>
-                <p className="mt-4 text-white/90">
-                  Devis, chantier, appels d&apos;offres : cas réels, gains concrets — pas de gadget.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link
-                    href="/a-propos#clients-partenaires"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15"
-                  >
-                    Voir les clients & partenaires
-                  </Link>
-                  <GoogleBusinessProfileCta variant="inverse" label="Ma fiche Google" />
-                </div>
-              </Reveal>
-              <RevealGroup className="mt-8 grid max-w-xl grid-cols-2 gap-3 sm:gap-4" staggerMs={50}>
-                <div className="flex flex-col justify-center rounded-2xl border border-white/25 bg-white/10 px-4 py-3 text-left text-sm text-white/95 backdrop-blur-sm sm:py-4">
-                  <span className="font-semibold">Indicateurs Qualiopi</span>
-                  <span className="mt-1 text-xs text-white/80">
-                    Volume formé et satisfaction — sourcing en tête de page
-                  </span>
-                </div>
-                <StatCallout
-                  variant="inverse"
-                  className="rounded-2xl border border-white/25 bg-white/10 px-2 py-3 backdrop-blur-sm sm:px-4 sm:py-4"
-                  value="OPCO"
-                  label="financement possible"
-                />
-              </RevealGroup>
-            </div>
-            <div className="relative w-full min-h-[min(22rem,55vw)] overflow-hidden rounded-2xl border border-white/25 bg-black/10 lg:min-h-[28rem] lg:max-w-[min(100%,32rem)] xl:min-h-[32rem] xl:max-w-[36rem]">
-              <Image
-                src={PHOTOS.accueilReferencePartenairesLaureOFC2026.src}
-                alt={PHOTOS.accueilReferencePartenairesLaureOFC2026.alt}
-                title={PHOTOS.accueilReferencePartenairesLaureOFC2026.title}
-                fill
-                loading="lazy"
-                className="object-cover object-[center_15%]"
-                sizes="(max-width: 1024px) 100vw, 576px"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Étude de cas FFB / filière étanchéité — avis via Google ou data/temoignages si disponibles */}
-      <Suspense fallback={<GoogleReviewsSectionPlaceholder />}>
-        <GoogleReviewsSection />
-      </Suspense>
 
       {/* Les bénéfices — H2 unique + sous-sections H3 */}
       <section
@@ -604,9 +300,9 @@ export default function HomePage() {
                   return (
                   <div
                     key={card.title}
-                    className="h-full rounded-2xl border border-slate-200 bg-slate-50/50 p-6 transition-shadow hover:shadow-lg"
+                    className={`${OFC_BENEFIT_CARD} h-full rounded-2xl border border-slate-200 bg-slate-50/50 p-6`}
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent)] text-white shadow-lg shadow-blue-500/20">
+                    <div className="ofc-benefit-icon flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent)] text-white shadow-lg shadow-blue-500/20">
                       <Icon size={24} strokeWidth={1.5} />
                     </div>
                     <h4 className="mt-4 font-semibold text-slate-900">{card.title}</h4>
@@ -662,7 +358,7 @@ export default function HomePage() {
                 ].map(({ problem, solution }, index) => (
                   <article
                     key={problem}
-                    className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/70 bg-white/90 shadow-[0_4px_24px_-6px_rgba(15,23,42,0.08)] ring-1 ring-slate-900/[0.04] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-12px_rgba(37,99,235,0.14)] hover:ring-blue-500/10"
+                    className={`${OFC_PROBLEM_SOLUTION_CARD} group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200/70 bg-white/90 shadow-[0_4px_24px_-6px_rgba(15,23,42,0.08)] ring-1 ring-slate-900/[0.04] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_48px_-12px_rgba(37,99,235,0.14)] hover:ring-blue-500/10`}
                   >
                     <div className="relative border-b border-dashed border-slate-200/90 bg-gradient-to-br from-rose-50/90 via-white to-transparent px-5 pb-5 pt-6 sm:px-6">
                       <div className="absolute right-4 top-4 text-[0.65rem] font-bold tabular-nums text-rose-300/90">
@@ -683,7 +379,7 @@ export default function HomePage() {
                     <div className="relative flex h-12 shrink-0 items-center justify-center bg-white/50">
                       <div className="absolute left-8 right-8 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-200 to-transparent" aria-hidden />
                       <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 bg-white shadow-[0_4px_14px_-4px_rgba(37,99,235,0.35)] ring-4 ring-white">
-                        <ArrowDown className="h-4 w-4 text-[var(--accent)]" strokeWidth={2.5} aria-hidden />
+                        <ArrowDown className="ofc-problem-arrow h-4 w-4 text-[var(--accent)]" strokeWidth={2.5} aria-hidden />
                       </div>
                     </div>
                     <div className="flex flex-1 flex-col bg-gradient-to-br from-[var(--accent-soft)]/40 via-white to-blue-50/30 px-5 pb-6 pt-1 sm:px-6">
@@ -749,7 +445,7 @@ export default function HomePage() {
                 ].map((c, idx) => (
                   <div
                     key={c.title}
-                    className="rounded-2xl border border-white/80 bg-white p-6 shadow-sm"
+                    className={`${OFC_HOWTO_STEP} rounded-2xl border border-white/80 bg-white p-6 shadow-sm`}
                     itemScope
                     itemProp="step"
                     itemType="https://schema.org/HowToStep"
@@ -796,7 +492,7 @@ export default function HomePage() {
                 return (
                 <div
                   key={card.title}
-                  className="group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30"
+                  className={`${OFC_GAIN_CARD} group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30`}
                 >
                   <div className="relative flex h-[3.75rem] w-[3.75rem] items-center justify-center" aria-hidden>
                     <span className="benefit-icon-halo absolute -inset-1 z-0 rounded-2xl opacity-90 transition-opacity duration-300 group-hover/card:opacity-100" />
@@ -842,7 +538,7 @@ export default function HomePage() {
                   return (
                   <div
                     key={card.title}
-                    className="group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30"
+                    className={`${OFC_GAIN_CARD} group/card rounded-2xl border border-white/10 bg-white/[0.08] p-6 shadow-lg shadow-blue-950/20 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.14] hover:shadow-xl hover:shadow-blue-950/30`}
                   >
                     <div className="relative flex h-[3.75rem] w-[3.75rem] items-center justify-center" aria-hidden>
                       <span className="benefit-icon-halo absolute -inset-1 z-0 rounded-2xl opacity-90 transition-opacity duration-300 group-hover/card:opacity-100" />
@@ -873,11 +569,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <FFBIAAccrocheSection />
+      <HomeGuideConducteurTravauxSection />
 
       <PourQuiSection />
-
-      <ArticlesFormationLies />
 
       {/* Thématiques abordées — H3 sous « Mes formations IA spécialisées BTP » */}
       <section id="programme" className={OFC_SEC.white}>
@@ -907,7 +601,7 @@ export default function HomePage() {
             relation client — en{' '}
             <strong className="font-semibold text-slate-800">sessions de {SESSION_DUREE_LIBELLE}</strong>
             {' '}
-            (forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT / session — effectifs selon fiche). Téléchargez les{' '}
+            (forfait unique {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} — effectifs selon fiche). Téléchargez les{' '}
             <strong className="font-semibold text-slate-800">programmes PDF</strong> depuis chaque fiche ou ci-dessous
             sur la page catalogue.
           </p>
@@ -1064,7 +758,7 @@ export default function HomePage() {
                   },
                   {
                     icon: Check,
-                    title: 'Certification Qualiopi',
+                    title: 'Organisme certifié Qualiopi',
                     desc: QUALIOPI_FINANCEMENT_FORMULATION,
                   },
                   {
@@ -1171,7 +865,7 @@ export default function HomePage() {
                     },
                     {
                       icon: Check,
-                      title: 'Certification Qualiopi',
+                      title: 'Organisme certifié Qualiopi',
                       desc: "Organisme certifié Qualiopi. Démarches administratives simplifiées. Accompagnement complet pour monter le dossier.",
                     },
                   ].map(({ icon: Icon, title, desc }) => (
@@ -1208,6 +902,9 @@ export default function HomePage() {
                   <Link href={LINKS.qualiopi} className="block hover:opacity-95">
                     <QualiopiBadge />
                   </Link>
+                  <p className="mt-3 text-xs leading-relaxed text-slate-600">
+                    {QUALIOPI_LEGAL.qualiopiCategoryMention}
+                  </p>
                   <ExternalLinkAnchor
                     href={ANNUAIRE_ENTREPRISES_OFC_URL}
                     title="Consulter la fiche OFC Création d'Entreprise sur l'Annuaire des Entreprises (data.gouv.fr)"
@@ -1228,7 +925,7 @@ export default function HomePage() {
                   <div className="mt-4 flex flex-wrap gap-3">
                     <ExternalLinkAnchor
                       href={ANNUAIRE_ENTREPRISES_OFC_URL}
-                      title="Vérifier la certification Qualiopi — fiche entreprise officielle"
+                      title="Vérifier l'organisme certifié Qualiopi — fiche entreprise officielle"
                       className="inline-flex items-center gap-2 rounded-lg border border-[var(--accent)] bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)] hover:bg-blue-100"
                     >
                       Vérifier la certification (annuaire des entreprises) →
@@ -1241,6 +938,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Suspense fallback={<GoogleReviewsSectionPlaceholder />}>
+        <GoogleReviewsSection />
+      </Suspense>
 
       {/* FAQ */}
       <section className={OFC_SEC.muted}>
@@ -1281,61 +982,27 @@ export default function HomePage() {
                 <Mail size={20} strokeWidth={1.5} />
                 {SCHEMA_CONTACT.email}
               </a>
-              <CalendlyEmbed
-                type="link"
-                variant="secondary"
-                campaign="accueil-faq"
-                ctaPosition="middle"
-                className="gap-2 px-6 py-3 text-slate-800"
+              <Link
+                href={LINKS.accueilRdv}
+                className={`${OFC_CTA_SECONDARY} inline-flex items-center justify-center gap-2 px-6 py-3`}
               >
                 <Calendar size={20} strokeWidth={1.5} />
                 Réservez votre visio découverte gratuite
-              </CalendlyEmbed>
+              </Link>
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* CTA final — Prêt à transformer */}
-      <section className={`${OFC_SEC.accentLoose} relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60" />
-        <Reveal className="relative mx-auto max-w-4xl text-center text-white">
-          <h2 className="font-display text-3xl font-bold md:text-4xl">
-            Prêt à transformer votre métier avec l&apos;IA ?
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100">
-            Rejoignez les professionnels qui gagnent déjà plusieurs heures par semaine
-            grâce à mes formations IA personnalisées pour le BTP.
-          </p>
-          <RevealGroup className="mt-12" staggerMs={50}>
-            <ProofStats variant="inverse" className="max-w-3xl mx-auto" />
-          </RevealGroup>
-          <QualiopiSatisfactionSource className="mx-auto mt-6 max-w-2xl text-center text-blue-100/90" />
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CalendlyEmbed
-              type="link"
-              variant="on-accent"
-              campaign="accueil-fin-page"
-              ctaPosition="footer"
-              className="gap-2"
-            >
-              <Calendar size={20} strokeWidth={1.5} />
-              Réservez votre visio découverte gratuite
-            </CalendlyEmbed>
-            <PublicPhoneCta className="inline-flex items-center gap-2 rounded-xl border-2 border-white/60 px-8 py-4 font-semibold text-white hover:bg-white/10" />
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Prise de RDV — H3 après le CTA final (#rdv conservé pour ancres) */}
+      {/* Prise de RDV — bloc Calendly unique (#rdv) */}
       <section
         id="rdv"
         aria-labelledby="rdv-creneau-heading"
         className={OFC_SEC.muted}
       >
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
+          <div className="grid min-w-0 gap-8 lg:grid-cols-2 lg:gap-16">
+            <div className="min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
                 <Calendar size={16} strokeWidth={1.5} />
                 <span>PRENDRE RDV</span>
@@ -1350,16 +1017,6 @@ export default function HomePage() {
                 Choisissez le jour et l&apos;heure qui vous conviennent pour un échange
                 de 30 minutes. Devis personnalisé sous 24h après l&apos;échange.
               </p>
-              <CalendlyEmbed
-                type="link"
-                variant="primary"
-                campaign="accueil-section-rdv"
-                ctaPosition="footer"
-                className="mt-6 gap-2 px-6 py-3"
-              >
-                <Calendar size={20} strokeWidth={1.5} />
-                Réservez votre visio découverte gratuite
-              </CalendlyEmbed>
               <p className="mt-4 text-sm text-slate-600">
                 Email :{' '}
                 <a
@@ -1402,7 +1059,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
+            <div className="accueil-rdv-calendly min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4 md:p-6">
               <CalendlyEmbed
                 type="inline"
                 campaign="accueil-rdv-inline"
@@ -1413,6 +1070,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ArticlesFormationLies />
+
+      <AccueilBeworkAccordionSection />
 
       <JsonLd id="schema-home-unified-graph" schema={buildHomeUnifiedGraphJsonLd()} />
       <JsonLd id="faq-schema-home" schema={HOME_FAQ_PAGE_JSON_LD} />

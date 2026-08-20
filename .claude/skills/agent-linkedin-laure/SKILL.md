@@ -130,7 +130,7 @@ Preuves :
 ⦿ 2 formations LinkedIn Learning publiées
 
 Réseau prescripteur = canal de distribution n°1 :
-↳ FFB Grand Paris, FFB IDF, CAPEB, GERESO, Lefebvre Dalloz, CNAM
+↳ FFB Grand Paris, FFB IDF, GERESO, Lefebvre Dalloz, CNAM
 
 ## 9. Programmation & publication (mode 7)
 

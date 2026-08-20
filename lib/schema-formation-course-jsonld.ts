@@ -16,7 +16,7 @@ export const FORMATION_COURSE_IN_LANGUAGE = 'fr-FR';
 /** Qualiopi — libellé court pour Course.educationalCredentialAwarded. */
 export const FORMATION_COURSE_CREDENTIAL_AWARDED = 'Certificat de réalisation';
 /** Offre catalogue — forfait session groupe HT. */
-export const FORMATION_COURSE_OFFER_CATEGORY = 'HT / session groupe';
+export const FORMATION_COURSE_OFFER_CATEGORY = 'HT / session forfaitaire';
 
 const FORBIDDEN_MODE_PATTERNS = [
   /\bBlended\b/i,

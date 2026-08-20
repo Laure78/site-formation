@@ -25,8 +25,9 @@ import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
   COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT,
   MODALITE_FORMATIONS_PRESENTIEL,
-  MENTIONS_TVA_EXONERATION_COURTE,
+  MENTIONS_TVA_REGIMES_COURT,
   formatTarifHt,
+  libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
 import { FinancementConstructysHero } from '@/components/financement/FinancementConstructysHero';
 import { ConstructysResteAChargeBox } from '@/components/financement/ConstructysResteAChargeBox';
@@ -61,7 +62,7 @@ const STEPS = [
     text: "Construire, travaux publics, négoce de matériaux : si c'est votre cas, Constructys est votre OPCO.",
   },
   {
-    title: 'Choisir une formation certifiée Qualiopi et demander un devis',
+    title: 'Choisir une formation dispensée par un organisme certifié Qualiopi et demander un devis',
     text: "OFC délivre des programmes avec programme détaillé et devis — deux pièces que Constructys attend.",
   },
   {
@@ -198,8 +199,8 @@ export default function FinancementConstructysFormationIABTPPage() {
               <h2 className="font-display text-lg font-bold text-slate-900 md:text-xl">Grille commerciale OFC — sessions de formation</h2>
               <p className="mt-2 text-sm text-slate-700">
                 L&apos;organisme propose un format unique : <strong>session de {SESSION_DUREE_LIBELLE}</strong>, avec un{' '}
-                <strong>forfait unique de {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT</strong> par session (jusqu&apos;à 12
-                participants), tous niveaux confondus. {MENTIONS_TVA_EXONERATION_COURTE}.
+                <strong>forfait unique de {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}</strong>{' '}
+                (jusqu&apos;à 12 participants), tous niveaux confondus. {MENTIONS_TVA_REGIMES_COURT}.
               </p>
               </Reveal>
               <RevealGroup className="mt-5 grid gap-3 sm:grid-cols-2" staggerMs={50}>
@@ -208,7 +209,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                     4 h · forfait
                   </span>
                   <p className="mt-3 font-display text-2xl font-bold text-[#1E40AF] md:text-[1.75rem]">
-                    {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT
+                    {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
                   </p>
                   <p className="mt-1 text-sm font-semibold text-[#0F172A]">Toutes formations catalogue</p>
                   <p className="mt-3 text-sm text-[#64748B]">
@@ -314,7 +315,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                   Concrètement, la prise en charge du coût pédagogique se lit désormais selon votre effectif : <strong>24 € HT/h/stagiaire</strong> en dessous de 11 salariés (dans la limite de <strong>840 € HT/jour/groupe</strong> en intra), et <strong>19 € HT/h/stagiaire</strong> de 11 à moins de 50 salariés (dans la limite de <strong>665 € HT/jour/groupe</strong> en intra). Ce qui ne change pas : le dépôt sur eGestion <strong>au moins 15 jours avant</strong> le premier jour, la nécessité d&apos;un organisme certifié Qualiopi, et l&apos;interdiction de démarrer la formation avant la réception du dossier.
                 </p>
                 <p>
-                  <strong>Exemple chiffré sur une session IA de 4 h.</strong> Une PME de 20 salariés qui forme 6 personnes en intra (niveau NIV-01) : coût pédagogique pris en charge jusqu&apos;à 19 € × 4 h × 6 = <strong>456 € HT</strong>, dans la limite de 665 € HT/jour/groupe. Une TPE de moins de 11 salariés sur la même session : jusqu&apos;à 24 € × 4 h × 6 = <strong>576 € HT</strong>, dans la limite de 840 € HT/jour/groupe. Au-delà de ces plafonds, la différence avec le forfait OFC ({formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session, toutes formations) reste à la charge de l&apos;entreprise — d&apos;où l&apos;intérêt d&apos;arbitrer le nombre de participants par session.
+                  <strong>Exemple chiffré sur une session IA de 4 h.</strong> Une PME de 20 salariés qui forme 6 personnes en intra (niveau NIV-01) : coût pédagogique pris en charge jusqu&apos;à 19 € × 4 h × 6 = <strong>456 € HT</strong>, dans la limite de 665 € HT/jour/groupe. Une TPE de moins de 11 salariés sur la même session : jusqu&apos;à 24 € × 4 h × 6 = <strong>576 € HT</strong>, dans la limite de 840 € HT/jour/groupe. Au-delà de ces plafonds, la différence avec le forfait OFC ({libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}, toutes formations) reste à la charge de l&apos;entreprise — d&apos;où l&apos;intérêt d&apos;arbitrer le nombre de participants par session.
                 </p>
               </div>
 
@@ -565,7 +566,7 @@ export default function FinancementConstructysFormationIABTPPage() {
                     target="_blank"
                     className="inline-flex items-center gap-1 font-medium text-[#377CF3] hover:underline"
                   >
-                    Ministère du Travail — Certification Qualiopi
+                    Ministère du Travail — Qualiopi (organisme)
                     <ArrowUpRight className="h-4 w-4" aria-hidden />
                   </a>
                 </li>

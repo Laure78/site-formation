@@ -155,7 +155,7 @@ export function BlogIndexView({
         <CTABlock
           variant="compact"
           title="Prêt à vous former à l'IA ?"
-          description="Réservez un échange de 30 minutes gratuit pour discuter de votre projet. Formation certifiée Qualiopi · Financement possible selon éligibilité."
+          description="Réservez un échange de 30 minutes gratuit pour discuter de votre projet. Formation dispensée par un organisme certifié Qualiopi · Financement possible selon éligibilité."
           primaryLabel="Prendre rendez-vous"
           primaryHref={CALENDLY_BOOKING_URL}
           primaryCalendlyCampaign="blog-index-block-top"

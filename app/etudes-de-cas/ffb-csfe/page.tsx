@@ -102,7 +102,7 @@ const BENEFICES_CLIENTS = [
   'Meilleure réactivité sur les devis, relances et dossiers techniques.',
   'Image professionnelle renforcée (documents structurés, ton homogène).',
   'Formation éligible au financement OPCO (dont Constructys pour le BTP) pour les entreprises éligibles.',
-  'Accompagnement par une formatrice terrain BTP, certification Qualiopi (OFC Création d’Entreprise).',
+  'Accompagnement par une formatrice terrain BTP, organisme certifié Qualiopi (OFC Création d’Entreprise).',
 ] as const;
 
 export default function EtudeDeCasFfbCsfePage() {

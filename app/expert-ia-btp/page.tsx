@@ -120,7 +120,7 @@ export default function ExpertIABTPPage() {
                   <ul className="mt-4 space-y-2 text-slate-700">
                     <li className="flex gap-2">
                       <CheckCircle size={20} className="shrink-0 text-[var(--accent)]" />
-                      <span><strong>Certification Qualiopi</strong> — Organisme de formation certifié</span>
+                      <span><strong>Organisme certifié Qualiopi</strong> — Organisme de formation certifié</span>
                     </li>
                     <li className="flex gap-2">
                       <CheckCircle size={20} className="shrink-0 text-[var(--accent)]" />

@@ -125,7 +125,7 @@ export default function ConnexionPage() {
 
           <ul className="mt-6 max-w-xl space-y-2 text-sm leading-relaxed text-slate-700 md:text-base">
             <li>
-              <strong className="font-semibold text-slate-900">Formation certifiée Qualiopi</strong>
+              <strong className="font-semibold text-slate-900">Formation dispensée par un organisme certifié Qualiopi</strong>
               {' — '}
               financement OPCO Constructys possible selon éligibilité.
             </li>

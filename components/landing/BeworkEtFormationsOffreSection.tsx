@@ -3,13 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Check, Clock, Users } from 'lucide-react';
-import { RdvLink } from '@/components/RdvLink';
 import { LINKS } from '@/lib/internal-links';
 import { CALENDLY_DEFAULT_BUTTON_TEXT } from '@/lib/calendly-embed-config';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
-import { SITE_CONFIG } from '@/lib/seo';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
-import { QUALIOPI_BEWORK_DISTINCTION } from '@/config/qualiopi';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import {
   FORMATIONS_CATALOGUE,
@@ -20,23 +17,8 @@ import {
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
 import { MentionFinancement } from '@/components/MentionFinancement';
 
-const POURQUOI = [
-  '10+ ans terrain (conductrice de travaux, dirigeante BTP)',
-  'Qualiopi · actions déclarées',
-  'Références : FFB Grand Paris, FFB IDF, CSFE',
-  'Instructrice LinkedIn Learning (IA BTP)',
-] as const;
-
-const POUR_QUI = [
-  'Dirigeants PME et ETI BTP',
-  'Chargés d’affaires, conducteurs de travaux, bureaux d’études',
-  'Support : admin, RH, communication',
-  'Fédérations, OPCO, organismes BTP',
-] as const;
-
 /**
- * Accueil : catalogue OFC (5 formations) en priorité, puis encart BeWork compact
- * (service distinct, non éligible OPCO — voir QUALIOPI_BEWORK_DISTINCTION).
+ * Accueil : catalogue OFC (5 formations) — ancre #offre-formations.
  */
 export function BeworkEtFormationsOffreSection() {
   return (
@@ -45,8 +27,7 @@ export function BeworkEtFormationsOffreSection() {
       aria-labelledby="offre-formations-title"
       className={OFC_SEC.mutedMesh}
     >
-      <div className="mx-auto max-w-7xl space-y-12 md:space-y-14">
-        {/* Catalogue OFC — 5 fiches (Claude = NIV-04 unique), ancre #offre-formations */}
+      <div className="mx-auto max-w-7xl">
         <div id="offre-formations" className="scroll-mt-28">
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-[var(--accent)]">
@@ -59,7 +40,7 @@ export function BeworkEtFormationsOffreSection() {
               Mes formations IA pour le BTP et la construction
             </h2>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-              Formations IA Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
+              Formations IA — organisme certifié Qualiopi / OPCO — intra ou inter, en présentiel en Île-de-France, pour les équipes du
               bâtiment et de la construction.{' '}
               <MentionFinancement variant="court" withLink={false} />.
             </p>
@@ -150,108 +131,18 @@ export function BeworkEtFormationsOffreSection() {
               Catalogue complet : {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP
             </p>
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <RdvLink
-                page="/"
-                ctaPosition="middle"
-                campaign="home-offre-formations-rdv"
-                className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
+              <Link
+                href={LINKS.accueilRdv}
+                className={`${OFC_CTA_PRIMARY} inline-flex items-center justify-center px-5 py-3 text-center text-sm font-semibold`}
               >
                 {CALENDLY_DEFAULT_BUTTON_TEXT}
-              </RdvLink>
+              </Link>
               <Link href={LINKS.financement} className={`${OFC_LINK} inline-flex items-center text-sm font-semibold`}>
                 Financement OPCO&nbsp;: modalités Constructys
               </Link>
             </div>
           </Reveal>
         </div>
-
-        {/* Encart BeWork compact — charte #1D4ED8, un seul lien /bework */}
-        <Reveal>
-          <aside
-            id="offre-bework"
-            aria-labelledby="offre-bework-title"
-            className="scroll-mt-28 rounded-2xl border border-[#1D4ED8]/25 bg-gradient-to-br from-[#EFF6FF] via-white to-[#DBEAFE]/40 px-6 py-7 shadow-[0_4px_16px_rgba(29,78,216,0.08)] md:px-8 md:py-8"
-          >
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-[#1D4ED8]">
-              BeWork · Solutions IA sur mesure BTP
-            </p>
-            <h3
-              id="offre-bework-title"
-              className="mt-3 font-display text-xl font-bold tracking-tight text-[#1E3A8A] md:text-2xl"
-            >
-              Imaginez ce que l&apos;IA pourrait faire pour votre entreprise
-            </h3>
-            <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E3A8A]/90">
-              BeWork conçoit des solutions IA autour de vos métiers et outils : applications, automatisations,
-              assistants et plateformes métier.
-            </p>
-            <p className="mt-2 max-w-3xl text-base font-semibold italic leading-relaxed text-[#1D4ED8]">
-              La technologie construite autour de votre entreprise.
-            </p>
-            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569]">
-              {QUALIOPI_BEWORK_DISTINCTION}
-            </p>
-            <Link
-              href={LINKS.bework}
-              title="BeWork — solutions IA sur mesure pour le BTP"
-              className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#1D4ED8] transition-colors hover:text-[#1E40AF] hover:underline"
-            >
-              Découvrir BeWork →
-            </Link>
-          </aside>
-        </Reveal>
-
-        <Reveal>
-          <div className="space-y-10 rounded-xl border border-slate-200 bg-white px-6 py-8 shadow-[0_4px_16px_rgba(55,124,243,0.06)] md:px-10 md:py-10">
-            <div className="grid gap-10 md:grid-cols-2">
-              <div>
-                <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
-                  Pourquoi Laure Olivié
-                </h3>
-                <ul className="mt-4 space-y-2 text-base leading-relaxed text-[#5A5A5A]">
-                  {POURQUOI.map((line) => (
-                    <li key={line}>{line}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
-                  Pour qui
-                </h3>
-                <ul className="mt-4 space-y-2 text-base leading-relaxed text-[#5A5A5A]">
-                  {POUR_QUI.map((line) => (
-                    <li key={line}>— {line}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="border-t border-[#F2F2F2] pt-8">
-              <h3 className="border-l-4 border-[#377CF3] pl-3 font-display text-lg font-bold text-[#1A1A1A] md:text-xl">
-                Contact
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-[#5A5A5A]">
-                Formations en présentiel en Île-de-France (intra ou inter). Écrivez-moi ou prenez un créneau découverte.
-              </p>
-              <div className="mt-4 flex flex-col gap-2 text-base text-[#1A1A1A] sm:flex-row sm:flex-wrap sm:gap-x-6">
-                <a href={`mailto:${SITE_CONFIG.email}`} className={OFC_LINK}>
-                  {SITE_CONFIG.email}
-                </a>
-                <span className="font-semibold text-[#334155]">laureolivie.fr</span>
-              </div>
-              <div className="mt-6">
-                <RdvLink
-                  page="/"
-                  ctaPosition="middle"
-                  campaign="home-offre-bework-formations-rdv"
-                  className="inline-flex items-center justify-center rounded-lg bg-[#377CF3] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A6BD9]"
-                >
-                  {CALENDLY_DEFAULT_BUTTON_TEXT}
-                </RdvLink>
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );

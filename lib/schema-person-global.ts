@@ -21,7 +21,7 @@ export type PersonLaureSchemaNodeOptions = {
 /**
  * Nœud JSON-LD `Person` — Laure Olivié.
  * Doctrine : formatrice IA · 10 ans terrain BTP · présentiel IDF.
- * Affiliation : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz, CAPEB.
+ * Affiliation : FFB Grand Paris, CSFE, UMB-FFB, CNAM, Lefebvre Dalloz.
  * sameAs : LinkedIn, LinkedIn Learning, YouTube (constantes NAP — absents du Footer).
  * Injecté une seule fois via layout (`GlobalSiteJsonLd` → `#laure-olivie`).
  */

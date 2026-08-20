@@ -118,7 +118,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
         <article>
           <MetierIdfPresentielLine className="mb-3" />
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            {config.normeRef.replace(/^le |^la /i, '').trim()} · Qualiopi · Île-de-France
+            {config.normeRef.replace(/^le |^la /i, '').trim()} · organisme certifié Qualiopi · Île-de-France
           </p>
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {config.h1}
@@ -129,7 +129,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
           </div>
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour {config.metierNom} du BTP : devis, chantier, mémoires techniques.
-            Sessions en présentiel en Île-de-France (4 h), certifiées Qualiopi. Financement possible selon éligibilité.
+            Sessions en présentiel en Île-de-France (4 h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité.
             Plus de{' '}
             <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong> formés · note{' '}
             <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.
@@ -317,7 +317,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
             title={relatedMetierLinks.length > 0 ? 'Catalogue et ressources' : 'Liens utiles'}
             subtitle={
               relatedMetierLinks.length > 0
-                ? 'Programmes Qualiopi, Claude AI, financement Constructys et articles de fond.'
+                ? 'Programmes catalogue — organisme certifié Qualiopi, Claude AI, financement Constructys et articles de fond.'
                 : config.liensUtilesIntro ??
                   'Catalogue des formations, financement Constructys, Claude AI BTP et articles pratiques.'
             }
@@ -360,7 +360,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
                   Laure Olivié — formatrice IA &amp; BTP
                 </h2>
                 <p className="mt-4 text-slate-700 leading-relaxed">
-                  <strong>{SITE_CONFIG.name}</strong> est formatrice certifiée Qualiopi pour {OFC}. Elle accompagne les
+                  <strong>{SITE_CONFIG.name}</strong> est formatrice organisme certifié Qualiopi pour {OFC}. Elle accompagne les
                   entreprises du bâtiment et des travaux publics sur ChatGPT, Claude et les usages responsables de
                   l&apos;IA (devis, mémoires techniques, comptes rendus). Instructrice LinkedIn Learning, elle a formé
                   plus de {formatProfessionalsTrainedCount()} professionnels · note moyenne {SOCIAL_PROOF.AVERAGE_RATING}.{' '}
@@ -392,7 +392,7 @@ export function FormationIaMetierBtpLanding({ config }: { config: FormationIaMet
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">
             <p>
-              <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Certifiée Qualiopi
+              <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Organisme certifié Qualiopi
               · {SITE_CONFIG.email} ·{' '}
               <a href={SITE_CONFIG.url} className={OFC_LINK}>
                 www.laureolivie.fr

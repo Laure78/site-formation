@@ -32,7 +32,7 @@ const PARCOURS = [
   },
   {
     year: '2023',
-    text: 'Certification Qualiopi (NDA 11788515078) — référentiel national qualité.',
+    text: 'Organisme certifié Qualiopi (NDA 11788515078) — référentiel national qualité.',
   },
   {
     year: '2024',
@@ -127,7 +127,7 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
                 />
               </div>
               <p className="mt-4 text-sm font-semibold leading-snug text-slate-900">
-                Certifiée Qualiopi via Certifopac (NDA 11788515078)
+                Organisme certifié Qualiopi via Certifopac (NDA 11788515078)
               </p>
               <p className="mt-2 max-w-xs text-xs leading-relaxed text-slate-600">
                 Actions de formation — référentiel national qualité.
@@ -206,7 +206,7 @@ export function AProposEeatSections({ hideTimeline = false }: AProposEeatSection
           </div>
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm text-slate-600 md:text-base">
             Deux cours publiés en tant qu&apos;instructrice officielle — extraits vidéo ci-dessous. Pour les sessions{' '}
-            <strong>en entreprise</strong>, certifiées <QualiopiWordmark /> et finançables{' '}
+            <strong>en entreprise</strong>, dispensées par un organisme certifié <QualiopiWordmark /> et finançables{' '}
             <strong>Constructys</strong> (dont la formation IA pour le BTP en présentiel en Île-de-France), consultez le{' '}
             <Link
               href={LINKS.formations}

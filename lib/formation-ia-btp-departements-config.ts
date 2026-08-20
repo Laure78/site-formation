@@ -114,7 +114,7 @@ export const FORMATION_IA_BTP_YVELINES_78: FormationIaBtpDeptLandingConfig = {
     'Saint-Germain-en-Laye',
   ],
   courseName: 'Formation IA pour le BTP Yvelines (78) — Qualiopi, financement possible selon éligibilité',
-  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, exclusivement en présentiel, devis et chantier. Certification Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
+  courseDescription: `${OFC} : formation IA et ChatGPT pour entreprises du BTP dans les Yvelines (78). Sessions 4 h, exclusivement en présentiel, devis et chantier. Organisme certifié Qualiopi, financement possible selon éligibilité. Guyancourt, Versailles, Mantes, SQY.`,
   serviceName: `Accompagnement formation IA pour les pros du BTP — département des Yvelines (78)`,
   serviceDescription: `Prestation de formation professionnelle en intelligence artificielle appliquée au bâtiment et aux travaux publics pour les entreprises implantées dans le département des Yvelines (78) : interventions intra-entreprise, calendrier Île-de-France, organisme certifié Qualiopi.`,
   areaServedCourse: [

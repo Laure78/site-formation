@@ -4,7 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { FileText, Calendar, Users, Check, Download, ExternalLink } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { FORMATION_NIV02_RELATED } from '@/lib/contextual-internal-links';
 import { FORMATION_AO_CLUSTER_ARTICLES } from '@/lib/ao-dce-cluster-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -26,6 +26,7 @@ import {
   LIBELLE_EFFECTIF_GROUPE_NIV02,
 
   formatTarifHt,
+  libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
 import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -125,9 +126,11 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   },
 ];
 
+const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_AVANCE_HT);
+
 const HERO_RESUME_AO = [
   `Parcours catalogue : assistants IA DCE & mémoire technique — Claude AI Pro, Cowork & Skills.`,
-  `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé).`,
+  `Session ${SESSION_DUREE_LIBELLE} — 75 % pratique — forfait ${TARIF_SESSION_LIBELLE} (niveau avancé).`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV02}.`,
   'Qualiopi. Financement possible selon éligibilité (OPCO Constructys).',
 ];
@@ -147,7 +150,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
         title="L'IA appliquée aux appels d'offres BTP"
         subtitle="Créer ses assistants IA pour DCE et mémoire technique — Claude AI Pro, Cowork & Skills"
-        badges={['Claude Pro & Cowork', 'Skills DCE / MT', 'Qualiopi']}
+        badges={['Claude Pro & Cowork', 'Skills DCE / MT', 'Organisme Qualiopi']}
         summaryItems={HERO_RESUME_AO}
         ctas={
           <>
@@ -250,7 +253,7 @@ export default function FormationIAAppelsOffreBTPPage() {
               <strong>Format :</strong> action de formation — session unique <strong>{SESSION_DUREE_LIBELLE}</strong>{' '}
               (75 % pratique / 25 % théorie) en demi-journée : 9h00–13h00 ou 13h30–17h30 (à convenir). Intra ou inter,
               exclusivement en présentiel en Île-de-France. Forfait{' '}
-              <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> (niveau avancé,{' '}
+              <strong>{TARIF_SESSION_LIBELLE}</strong> (niveau avancé,{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV02}). Inscription jusqu&apos;à 7 jours avant la session.
             </span>
           </li>
@@ -278,8 +281,8 @@ export default function FormationIAAppelsOffreBTPPage() {
           technique aligné sur les critères pondérés du marché.
         </p>
         <p className="mt-4 text-slate-700 leading-relaxed">
-          En 2026, le forfait catalogue est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par
-          session de {SESSION_DUREE_LIBELLE}, finançable OPCO Constructys selon éligibilité (donnée interne OFC).
+          En 2026, le forfait catalogue est de {TARIF_SESSION_LIBELLE},{' '}
+          finançable OPCO Constructys selon éligibilité (donnée interne OFC).
         </p>
         <ul className="mt-4 space-y-2 text-slate-700">
           {[
@@ -372,7 +375,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         </h2>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           La plateforme OFC peut compléter la session avec des ressources selon convention ; la formation reste
-          certifiée Qualiopi, formation catalogue.
+          dispensée par un organisme certifié Qualiopi — formation catalogue.
         </p>
         <p className="mt-3 text-sm text-slate-700 leading-relaxed">
           Des contenus et approfondissements peuvent compléter la session sur la plateforme (accès selon
@@ -392,13 +395,13 @@ export default function FormationIAAppelsOffreBTPPage() {
       <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
         <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
         <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-          Le forfait est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session avec Cowork
+          Le forfait est de {TARIF_SESSION_LIBELLE} avec Cowork
           configuré, 30 prompts AO et 3 modèles Word de mémoire technique.
         </p>
         <ul className="mt-4 space-y-2 text-sm text-slate-700">
           <li>
-            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-            {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session (niveau avancé) · <strong>Financement :</strong>{' '}
+            <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong> {TARIF_SESSION_LIBELLE}{' '}
+            (niveau avancé) · <strong>Financement :</strong>{' '}
             prise en charge Constructys ou OPCO selon votre statut, votre branche professionnelle et les conditions en
             vigueur · <strong>Inscription :</strong> jusqu&apos;à 7 jours avant la
             session.
@@ -439,7 +442,7 @@ export default function FormationIAAppelsOffreBTPPage() {
         tone="muted"
       />
 
-      <CatalogueInfosQualiopi programmeRef="NIV-02" />
+      <CatalogueInfosPratiques programmeRef="NIV-02" />
 
       <div className="mt-10 flex flex-wrap gap-4">
         <RdvLink

@@ -9,7 +9,7 @@
 ## Commentaires stratégiques
 
 Où commenter :
-↳ pages et posts FFB, CAPEB, GERESO, Lefebvre Dalloz
+↳ pages et posts FFB, GERESO, Lefebvre Dalloz
 ↳ dirigeants de PME BTP
 ↳ créateurs de contenu IA (pour capter leur audience)
 
@@ -44,7 +44,7 @@ Règle : une seule marque par conversation. Prescripteur ou dirigeant qui cherch
 ↳ « Salut [prénom], je vois qu'on partage le terrain BTP. Je forme les pros à l'IA sur des cas concrets de chantier. Ravie d'échanger. »
 
 ⦿ Connexion prescripteur (OFC, vouvoiement)
-↳ « Bonjour [prénom], nos réseaux se croisent autour de la formation BTP. Je travaille avec la FFB et la CAPEB sur l'IA appliquée au chantier. Au plaisir d'échanger. »
+↳ « Bonjour [prénom], nos réseaux se croisent autour de la formation BTP. Je travaille avec la FFB sur l'IA appliquée au chantier. Au plaisir d'échanger. »
 
 ⦿ Suite de lead magnet (OFC)
 ↳ « [prénom], tu as téléchargé [ressource]. Dis-moi ce que tu comptes en faire, je te donne le prochain pas concret. »

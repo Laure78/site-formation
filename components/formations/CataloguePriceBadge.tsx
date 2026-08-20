@@ -1,6 +1,7 @@
 import type { CatalogueLevel } from '@/lib/formations-catalogue-display';
 import {
   formatTarifHt,
+  libelleTarifSessionForfaitaire,
   TARIF_SESSION_AVANCE_HT,
   TARIF_SESSION_DEBUTANT_HT,
 } from '@/lib/tarifs-sessions';
@@ -91,7 +92,7 @@ export function CataloguePriceBadge({
           <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#64748B]">Tarif catalogue</p>
           <p className="font-display text-3xl font-bold leading-none tracking-tight text-[#0F172A] md:text-[2.15rem]">
             {amount} €{' '}
-            <span className="text-base font-semibold text-[#64748B]">HT / session</span>
+            <span className="text-base font-semibold text-[#64748B]">HT / session forfaitaire</span>
             <MentionTvaAsterisque />
           </p>
         </div>
@@ -121,7 +122,7 @@ export function CataloguePriceBadge({
         {amount} €
         <MentionTvaAsterisque />
       </span>
-      <span className={`mt-0.5 text-[10px] font-bold uppercase tracking-wide ${colors.muted}`}>HT / session</span>
+      <span className={`mt-0.5 text-[10px] font-bold uppercase tracking-wide ${colors.muted}`}>HT / session forfaitaire</span>
     </span>
   );
 }
@@ -146,14 +147,13 @@ export function CatalogueTarifStrip({
   const badge = onAccent
     ? 'bg-white/20 text-white shadow-md'
     : 'bg-[#EFF6FF] text-[#1E40AF]';
-  const forfait = formatTarifHt(PRIX_NIVEAU_2_HT);
 
   return (
     <div className={className}>
       <div className={`flex flex-wrap items-center gap-3 rounded-2xl border px-4 py-3 shadow-sm ${wrap}`}>
         <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${label}`}>Tarif catalogue 2026</span>
         <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-bold ${badge}`}>
-          Forfait unique · {forfait} € HT / session
+          Forfait unique · {libelleTarifSessionForfaitaire(PRIX_NIVEAU_2_HT)}
           <MentionTvaAsterisque className={onAccent ? 'text-white' : undefined} />
         </span>
         <span className={`text-xs font-medium ${label}`}>programmes PDF sur chaque fiche</span>

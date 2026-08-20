@@ -16,6 +16,8 @@ import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 
 const PATH = '/formation-ia-paris';
@@ -157,7 +159,7 @@ export default function FormationIaParisPage() {
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-              Présentiel · Qualiopi · Paris &amp; Île-de-France
+              Présentiel · organisme certifié Qualiopi · Paris &amp; Île-de-France
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
               Formation IA à Paris : maîtrisez ChatGPT sur vos dossiers de chantier
@@ -225,7 +227,7 @@ export default function FormationIaParisPage() {
               <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">
                 formations IA pour le BTP
               </Link>{' '}
-              décline ces usages en sessions Qualiopi de 4 heures, en inter ou en intra. Pour une vue sur
+              décline ces usages en sessions — organisme certifié Qualiopi de 4 heures, en inter ou en intra. Pour une vue sur
               toute la région, la page{' '}
               <Link
                 href={LINKS.formationIleDeFrance}
@@ -371,9 +373,9 @@ export default function FormationIaParisPage() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 md:text-lg">
               Preuves : {formatProfessionalsTrainedCount()} professionnels formés, note{' '}
-              {SOCIAL_PROOF.AVERAGE_RATING}, certification Qualiopi (actions de formation), instructrice
+              {SOCIAL_PROOF.AVERAGE_RATING}, organisme certifié Qualiopi (actions de formation), instructrice
               LinkedIn Learning. Interventions avec FFB Grand Paris, {CSFE_NOM_COMPLET}, UMB-FFB, CNAM
-              Entreprise, Lefebvre Dalloz et CAPEB. En savoir plus sur{' '}
+              Entreprise et Lefebvre Dalloz. En savoir plus sur{' '}
               <Link href={LINKS.aPropos} className={OFC_LINK} title="À propos de Laure Olivié">
                 Laure Olivié et OFC Création d&apos;Entreprise
               </Link>
@@ -479,6 +481,7 @@ export default function FormationIaParisPage() {
             })}
           />
         </div>
+        <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="à Paris" />
       </article>
     </>
   );

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import {
   createPageMetadata,
@@ -362,6 +363,8 @@ export default function FormationIATravauxPublicsLandingPage() {
           </div>
         </div>
       </div>
+
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les entreprises de travaux publics" />
     </div>
   );
 }

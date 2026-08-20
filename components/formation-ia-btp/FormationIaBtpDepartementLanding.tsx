@@ -105,7 +105,7 @@ export function formationIaBtpDeptMetadata(config: FormationIaBtpDeptLandingConf
       url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,
       height: 630,
-      alt: `Session formation IA ${deptLocatif(grammar)} (${config.deptCode}) — Laure Olivié Qualiopi`,
+      alt: `Session formation IA ${deptLocatif(grammar)} (${config.deptCode}) — Laure Olivié — organisme certifié Qualiopi`,
     },
   });
 }

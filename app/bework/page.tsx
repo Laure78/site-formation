@@ -215,7 +215,7 @@ export default function BeworkPage() {
                 href={LINKS.formations}
                 className="inline-flex items-center justify-center rounded-lg border border-[#377CF3] bg-white px-6 py-3 text-sm font-semibold text-[#377CF3] hover:bg-[#EFF6FF]"
               >
-                Formations IA Qualiopi
+                Formations IA — organisme certifié Qualiopi
               </Link>
             </div>
             <p className="mt-4 text-sm text-[#64748B]">
@@ -227,7 +227,7 @@ export default function BeworkPage() {
             <p className="mt-2 text-xs text-[#64748B]">
               Service distinct des{' '}
               <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
-                formations certifiées Qualiopi
+                formations dispensées par un organisme certifié Qualiopi
               </Link>{' '}
               proposées par Laure Olivié sur ce site.
             </p>
@@ -514,7 +514,7 @@ export default function BeworkPage() {
               href={LINKS.formations}
               className="font-semibold underline underline-offset-2 hover:text-white"
             >
-              Catalogue formations Qualiopi
+              Catalogue formations dispensées par un organisme certifié Qualiopi
             </Link>
             {' · '}
             <Link

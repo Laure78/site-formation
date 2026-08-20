@@ -141,7 +141,7 @@ const faqItems = [
   },
   {
     q: 'Où suivre une formation Claude AI BTP en Île-de-France (Paris, Yvelines, Essonne) ?',
-    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment exclusivement en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.). Les sessions inter sont planifiées selon le calendrier Qualiopi ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
+    a: "OFC Création d'Entreprise anime des formations IA appliquées au bâtiment exclusivement en présentiel en Île-de-France (Paris, Yvelines, Essonne, Hauts-de-Seine, etc.). Les sessions inter sont planifiées selon le calendrier des sessions OFC (organisme certifié Qualiopi) ; les entreprises peuvent aussi organiser une formation intra sur leur site ou en salle partenaire.",
   },
   {
     q: 'Proposez-vous une formation Claude AI BTP à Paris, Saint-Quentin-en-Yvelines ou en Essonne (Les Ulis, Morangis, Longjumeau) ?',
@@ -149,7 +149,7 @@ const faqItems = [
   },
   {
     q: 'Cette page est-elle différente de la formation Claude AI BTP catalogue ?',
-    a: 'Oui. Ce guide est informationnel (interfaces, prompts, usages bâtiment et TP). La fiche catalogue « Maîtriser Claude AI pour le BTP » est la session Qualiopi de 4 h — Projets, Skills, Cowork, connecteurs et Claude Code.',
+    a: 'Oui. Ce guide est informationnel (interfaces, prompts, usages bâtiment et TP). La fiche catalogue « Maîtriser Claude AI pour le BTP » est la session de 4 h (organisme certifié Qualiopi) — Projets, Skills, Cowork, connecteurs et Claude Code.',
   },
   {
     q: 'Peut-on travailler sur nos devis et CCTP réels en formation bâtiment ?',
@@ -522,7 +522,7 @@ export default function ClaudeAiBtpPillarPage() {
                   id="fiches-formation-claude-title"
                   className="font-display text-2xl font-bold tracking-tight text-[#0F172A] md:text-3xl"
                 >
-                  Passer à une formation Claude (catalogue Qualiopi)
+                  Passer à une formation Claude (catalogue — organisme certifié Qualiopi)
                 </h2>
                 <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[#475569] md:text-base">
                   Ce guide est informationnel. Pour industrialiser Claude en entreprise ou travailler un DCE réel,
@@ -576,7 +576,7 @@ export default function ClaudeAiBtpPillarPage() {
                     Formation en Île-de-France
                   </h2>
                   <p className="max-w-md text-sm text-[#64748B]">
-                    Sessions intra ou inter — programme Qualiopi, présentiel IDF (devis, DCE, CR, mémoires techniques).
+                    Sessions intra ou inter — programme catalogue (organisme certifié Qualiopi), présentiel IDF (devis, DCE, CR, mémoires techniques).
                   </p>
                 </div>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

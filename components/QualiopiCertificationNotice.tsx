@@ -13,7 +13,7 @@ type QualiopiCertificationNoticeProps = {
 };
 
 /**
- * Logo Qualiopi Certifopac (mention catégorie intégrée au visuel officiel) + liens certificat.
+ * Logo Qualiopi Certifopac + mention périmètre obligatoire + liens certificat.
  * @see https://certifopac.fr/qualiopi/ressources/usage-logo/
  */
 export function QualiopiCertificationNotice({
@@ -21,16 +21,21 @@ export function QualiopiCertificationNotice({
   showCertificateLink = true,
   compact = false,
 }: QualiopiCertificationNoticeProps) {
+  const textSize = compact ? 'text-xs' : 'text-sm';
+
   return (
-    <div className={`flex flex-col gap-4 ${className}`}>
-      <QualiopiBadge />
+    <div className={`flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5 ${className}`}>
+      <QualiopiBadge className="shrink-0" />
       <div className="min-w-0 text-center sm:text-left">
-        <p className={`text-slate-600 ${compact ? 'text-xs' : 'text-sm'}`}>
+        <p className={`leading-snug text-slate-600 ${textSize}`}>
+          {QUALIOPI_LEGAL.qualiopiCategoryMention}
+        </p>
+        <p className={`mt-2 text-slate-600 ${textSize}`}>
           Certificateur : Certifopac — certificat n° {QUALIOPI_LEGAL.certificatNumero}, validité{' '}
           {QUALIOPI_LEGAL.certificatValidite}
         </p>
         <div
-          className={`mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start ${compact ? 'text-xs' : 'text-sm'}`}
+          className={`mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 sm:justify-start ${textSize}`}
         >
           {showCertificateLink ? (
             <a
@@ -38,7 +43,7 @@ export function QualiopiCertificationNotice({
               className="font-medium text-[#377CF3] hover:underline"
               download
             >
-              Télécharger le certificat PDF
+              {QUALIOPI_LEGAL.certificatPdfLabel}
             </a>
           ) : null}
           <ExternalLinkAnchor

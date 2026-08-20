@@ -54,7 +54,7 @@ export function FormationCityPage({
   const mailRappelVille = `mailto:${SITE_CONFIG.email}?subject=${encodeURIComponent(`Être rappelé — formation IA appliquée au bâtiment ${ville}`)}`;
   const summaryVille = [
     `IA BTP à ${ville} — devis, emails, appels d'offres, admin.`,
-    `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · Qualiopi.`,
+    `Session ${SESSION_DUREE_LIBELLE} · forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT · organisme certifié Qualiopi.`,
     `Présentiel ${regionLabel} — intra ou inter selon convention.`,
     'Financement Constructys selon éligibilité.',
   ];

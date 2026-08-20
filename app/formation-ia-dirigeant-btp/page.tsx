@@ -8,7 +8,7 @@ const PATH = '/formation-ia-dirigeant-btp';
 export const metadata = createMetierBtpPageMetadata('dirigeant', {
   title: 'Formation IA dirigeant BTP — pilotage',
   description:
-    "Formation IA pour dirigeants et CODIR BTP : roadmap 90 jours, ROI, formation d'équipe, gouvernance IA. Qualiopi. Financement possible selon éligibilité.",
+    "Formation IA pour dirigeants et CODIR BTP : roadmap 90 jours, ROI, formation d'équipe, gouvernance IA. Organisme certifié Qualiopi. Financement possible selon éligibilité.",
   path: PATH,
   keywords: ['formation IA dirigeant BTP', 'ROI IA PME BTP', 'pilotage stratégique IA', 'formation équipe IA'],
   openGraphType: 'website',

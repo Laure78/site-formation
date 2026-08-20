@@ -162,7 +162,7 @@ export function FormationIaMetierBody({
 
       <h2 className="font-display flex flex-wrap items-center gap-2 text-xl font-semibold text-slate-900">
         <QualiopiLogoInline heightPx={28} className="hidden sm:inline-block" />
-        <span>Financement OPCO Constructys & certification Qualiopi</span>
+        <span>Financement OPCO Constructys — organisme certifié Qualiopi</span>
       </h2>
       <p>
         L&apos;organisme OFC Création d&apos;Entreprise est certifié <QualiopiWordmark />. Selon votre branche et

@@ -35,7 +35,7 @@ export const PHOTOS = {
   /** Logo Qualiopi Certifopac — bloc officiel AFC (mention + République française intégrées) */
   qualiopiLogoOfficiel: {
     src: '/images/logo-qualiopi-certifopac-actions-formation.png',
-    alt: 'Logo Qualiopi processus certifié — Certifopac, actions de formation',
+    alt: 'Logo Qualiopi — certification qualité des prestataires d\'actions de formation',
     width: 1536,
     height: 802,
   },

@@ -1,6 +1,6 @@
 /**
  * Grille commerciale OFC — dérivée de `data/formations.ts` (prix, durée, effectifs).
- * TVA : exonération art. 261-4-4° du CGI (formation professionnelle).
+ * TVA : inter art. 293 B du CGI · intra art. 261-4-4° du CGI.
  */
 
 import { formatNumberFr } from '@/lib/format-number-fr';
@@ -59,12 +59,41 @@ export function tarifHtDepuisBadgeCatalogue(level?: 'DÉBUTANT' | 'AVANCÉ'): nu
   return level === 'AVANCÉ' ? TARIF_SESSION_AVANCE_HT : TARIF_SESSION_DEBUTANT_HT;
 }
 
-/** Mention légale TVA — formations professionnelles (source unique). */
-export const MENTIONS_TVA_EXONERATION =
-  'Prix nets — OFC Création d\'Entreprise est exonérée de TVA sur les actions de formation professionnelle continue (art. 261-4-4°a du CGI).';
+/** TVA — sessions inter-entreprise (art. 293 B du CGI). */
+export const MENTIONS_TVA_INTER_COURTE = 'TVA non applicable, article 293 B du CGI.';
 
-/** @deprecated Préférer `MentionTVA` / `MENTIONS_TVA_EXONERATION` (formulation complète). */
-export const MENTIONS_TVA_EXONERATION_COURTE = 'TVA non applicable (art. 261-4-4°a CGI)';
+/** TVA — formations intra-entreprise (art. 261-4-4° du CGI). */
+export const MENTIONS_TVA_INTRA_COURTE = 'TVA exonérée, article 261-4-4° du CGI.';
+
+/** Synthèse TVA catalogue (inter + intra) — FAQ, encarts. */
+export const MENTIONS_TVA_REGIMES_COURT =
+  `Inter-entreprise : ${MENTIONS_TVA_INTER_COURTE} Intra-entreprise : ${MENTIONS_TVA_INTRA_COURTE}`;
+
+/** Mention légale TVA — footnote unique (`MentionTVA`). */
+export const MENTIONS_TVA_EXONERATION = `Prix nets — ${MENTIONS_TVA_REGIMES_COURT}`;
+
+/** @deprecated Préférer `MENTIONS_TVA_INTER_COURTE` ou `MENTIONS_TVA_INTRA_COURTE` selon le régime. */
+export const MENTIONS_TVA_EXONERATION_COURTE = MENTIONS_TVA_INTER_COURTE;
+
+/** Libellé canonique — ex. « 1 200 € HT / session forfaitaire » */
+export function libelleTarifSessionForfaitaire(amount: number): string {
+  return `${formatTarifHt(amount)} € HT / session forfaitaire`;
+}
+
+/** Tarif inter-entreprise + mention TVA inter. */
+export function libelleTarifInterEntreprise(amount: number, effectifLabel: string): string {
+  return `${libelleTarifSessionForfaitaire(amount)} en inter-entreprise (${effectifLabel}). ${MENTIONS_TVA_INTER_COURTE}`;
+}
+
+/** Tarif intra-entreprise + mention TVA intra. */
+export function libelleTarifIntraEntreprise(amount: number, effectifLabel: string): string {
+  return `Intra-entreprise : forfait ${libelleTarifSessionForfaitaire(amount)} selon effectif et lieu (${effectifLabel}). ${MENTIONS_TVA_INTRA_COURTE}`;
+}
+
+/** Bloc tarif Qualiopi / Informations pratiques (inter + intra). */
+export function libelleTarifsCatalogueComplets(amount: number, effectifLabel: string): string {
+  return `${libelleTarifInterEntreprise(amount, effectifLabel)} ${libelleTarifIntraEntreprise(amount, effectifLabel)}`;
+}
 
 /** Ancre HTML de la mention unique (`MentionTVA`). */
 export const MENTION_TVA_ANCHOR_ID = 'mention-tva' as const;
@@ -74,12 +103,11 @@ export const EFFECTIF_GROUPE_MAX = EFFECTIF_CATALOGUE_MAX;
 
 /** Libellé carte / ligne tableau : forfait session selon niveau badge */
 export function libelleTarifParticipant(level?: 'DÉBUTANT' | 'AVANCÉ'): string {
-  const n = formatTarifHt(tarifHtDepuisBadgeCatalogue(level));
   const effectif =
     level === 'AVANCÉ'
       ? libelleEffectifMaxFormation(FORMATION_NIV02)
       : libelleEffectifMaxFormation(FORMATION_NIV01);
-  return `${n} € HT / session forfaitaire (${effectif}) — ${MENTIONS_TVA_EXONERATION_COURTE}`;
+  return `${libelleTarifSessionForfaitaire(tarifHtDepuisBadgeCatalogue(level))} (${effectif}) — ${MENTIONS_TVA_REGIMES_COURT}`;
 }
 
 /** Libellé pour badges / cartes (icône « participants ») — NIV-01 */
@@ -135,4 +163,4 @@ export const COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT =
   'Niveau 1 : un compte gratuit Claude AI ou ChatGPT suffit. Niveaux 2 : un abonnement Claude AI Pro par participant est requis (non inclus dans le forfait).';
 
 export const ENCART_TARIFS_COMMERCIAUX =
-  `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session* pour les ${FORMATIONS_COUNT} formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;
+  `Sessions en ${SESSION_DUREE_LIBELLE} — forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}* pour les ${FORMATIONS_COUNT} formations catalogue (effectifs selon fiche). ${COMPTES_IA_GRATUITS_NIVEAU_DEBUTANT} ${MODALITE_FORMATIONS_PRESENTIEL}`;

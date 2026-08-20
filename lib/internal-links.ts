@@ -44,6 +44,8 @@ export const LINKS = {
   contact: '/contact',
   financement: '/financement-constructys-formation-ia-btp',
   prendreRdv: '/prendre-rendez-vous',
+  /** Calendly inline — ancre unique page d'accueil */
+  accueilRdv: '/#rdv',
   /** Alias historique — redirige vers `prendreRdv`. */
   prendreRdvLegacy: '/prendre-rdv',
   /**

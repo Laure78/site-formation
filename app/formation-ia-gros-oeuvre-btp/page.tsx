@@ -48,7 +48,7 @@ export const metadata: Metadata = createPageMetadata({
     url: '/images/formation-ia-intra-entreprise-batiment.webp',
     width: 1024,
     height: 571,
-    alt: 'Formation IA pour le gros œuvre — session Qualiopi, devis et suivi chantier',
+    alt: 'Formation IA pour le gros œuvre — session OFC (organisme certifié Qualiopi), devis et suivi chantier',
   },
 });
 
@@ -64,7 +64,7 @@ const SOMMAIRE = [
 
 const ESSENTIEL = [
   'Gros œuvre en Île-de-France : devis, DCE / CCTP lot 2, planning et CR — présentiel uniquement.',
-  'Session 4 h Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
+  'Session 4 h · organisme certifié Qualiopi : brouillons encadrés, relecture humaine — l’IA ne tranche pas la conformité.',
   `Déjà ${formatProofFormes(PROOF.formes)} professionnels formés · note ${PROOF.note} (questionnaires fin de session).`,
   'Financement OPCO Constructys possible selon éligibilité — pas de distanciel pour les sessions.',
 ] as const;
@@ -95,7 +95,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
         <article>
           <MetierIdfPresentielLine className="mb-3" />
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            DTU 20.1 · Qualiopi · Île-de-France
+            DTU 20.1 · organisme certifié Qualiopi · Île-de-France
           </p>
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {FORMATION_IA_GROS_OEUVRE_BTP_H1}
@@ -110,7 +110,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
           <p className="mt-6 text-lg leading-relaxed text-slate-600">
             {OFC} — formation IA &amp; ChatGPT pour les entreprises de gros œuvre du BTP : devis, DCE, suivi de
             chantier. Sessions en <strong className="text-slate-800">présentiel uniquement</strong> en Île-de-France
-            (4&nbsp;h), certifiées Qualiopi. Financement possible selon éligibilité. Plus de{' '}
+            (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement possible selon éligibilité. Plus de{' '}
             <strong className="text-slate-800">{formatProofFormes(PROOF.formes)} professionnels</strong> formés · note{' '}
             <strong className="text-slate-800">{PROOF.note}</strong>.
           </p>
@@ -278,7 +278,7 @@ export default function FormationIaGrosOeuvreBtpPage() {
               Formations et pages proches
             </h2>
             <p className="mt-4 text-slate-600">
-              Catalogue Qualiopi, couverture Île-de-France et métiers en interface avec le gros œuvre.
+              Catalogue — organisme certifié Qualiopi, couverture Île-de-France et métiers en interface avec le gros œuvre.
             </p>
             <ul className="mt-8 space-y-4">
               {GROS_OEUVRE_INTERNAL_LINKS.map((l) => (

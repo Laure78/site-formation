@@ -19,6 +19,7 @@ import {
   ArrowRight,
   Sparkles,
   UserCircle,
+  Download,
 } from 'lucide-react';
 import { ProgrammeAccordionBatiment } from '@/components/formations/ProgrammeAccordionBatiment';
 import { FAQSection } from '@/components/landing/FAQSection';
@@ -42,13 +43,14 @@ import {
   LIBELLE_EFFECTIF_GROUPE_COURT,
 
   formatTarifHt,
+  libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
 import { GAINS_TEMPS_MENTION_PRUDENCE } from '@/lib/gains-temps-copy';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import { LINKS } from '@/lib/internal-links';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { getClusterRelatedHrefs } from '@/lib/maillage-clusters';
 import { FORMATION_NIV01_RELATED } from '@/lib/contextual-internal-links';
@@ -103,9 +105,11 @@ export const metadata = createPageMetadata({
 const faqSchema = getFAQSchema(FAQ_BATIMENT);
 const courseSchema = buildCatalogueCourseIaBtpNiv01JsonLd();
 
+const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_DEBUTANT_HT);
+
 const POINTS_MARQUANTS = [
   'Parcours catalogue niveau 1 : bâtiment et travaux publics — devis, chantier, administratif.',
-  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT par session (niveau débutant).`,
+  `Session unique ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_SESSION_LIBELLE} (niveau débutant).`,
   `${LIBELLE_EFFECTIF_GROUPE}.`,
   'Qualiopi, financement OPCO Constructys selon éligibilité.',
 ];
@@ -140,7 +144,7 @@ const MODALITES = [
     icon: Clock,
     title: 'Durée',
     primary: SESSION_DUREE_LIBELLE,
-    secondary: `Forfait ${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (niveau débutant)`,
+    secondary: `Forfait ${TARIF_SESSION_LIBELLE} (niveau débutant)`,
   },
   {
     icon: MapPin,
@@ -152,7 +156,7 @@ const MODALITES = [
     icon: UserCircle,
     title: 'Effectif',
     primary: LIBELLE_EFFECTIF_GROUPE_COURT,
-    secondary: 'Par session et par groupe',
+    secondary: 'Par session forfaitaire',
   },
   {
     icon: Users,
@@ -169,13 +173,13 @@ const MODALITES = [
   {
     icon: Award,
     title: 'Certification',
-    primary: 'Formation Qualiopi',
+    primary: 'OFC Qualiopi',
     secondary: 'Certificat de réalisation',
   },
   {
     icon: DollarSign,
     title: 'Tarif & financement',
-    primary: `${formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (débutant)`,
+    primary: `${TARIF_SESSION_LIBELLE} (débutant)`,
     secondary: 'Financement OPCO selon éligibilité — Constructys, AKTO, OPCO EP',
   },
 ];
@@ -278,10 +282,12 @@ export default function FormationIAuServiceDuBatimentPage() {
               Prendre rendez-vous
             </RdvLink>
             <a
-              href={MAIL_PROGRAMME}
-              className="rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
+              href={LINKS.pdfProgrammeIaBtpNiveau1BatimentTp}
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 text-center font-semibold text-slate-800 hover:border-[var(--accent)]"
             >
-              Demander le programme
+              <Download size={20} strokeWidth={1.5} aria-hidden />
+              Télécharger le programme (PDF)
             </a>
             <a
               href={MAIL_RAPPEL}
@@ -311,9 +317,9 @@ export default function FormationIAuServiceDuBatimentPage() {
           quotidien : <strong>devis, DCE, CCTP, appels d&apos;offres, mémoires techniques, comptes rendus de chantier, relances clients et documents administratifs</strong>, avec des trames et prompts
           prêts à l&apos;emploi. Approche accessible, <strong>aucun jargon inutile</strong> — des cas réels
           issus du terrain BTP.{' '}
-          <strong>Forfait {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT par session</strong> (niveau débutant).
+          <strong>Forfait {TARIF_SESSION_LIBELLE}</strong> (niveau débutant).
           Financement possible via <strong>l&apos;OPCO Constructys</strong> selon éligibilité (formation
-          certifiée Qualiopi).
+          organisme certifié Qualiopi).
         </p>
       </FormationCourseHero>
 
@@ -548,8 +554,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             En 2026, une session niveau 1 reste calibrée sur {SESSION_DUREE_LIBELLE} pour un forfait de{' '}
-            {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€ HT par groupe (niveau débutant, max{' '}
-            {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
+            {TARIF_SESSION_LIBELLE} (niveau débutant, max {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}).
           </p>
           <p className="mt-4 text-slate-700 leading-relaxed">
             J&apos;organise des sessions <strong>formation IA pour le BTP Paris</strong> et en{' '}
@@ -669,9 +674,9 @@ export default function FormationIAuServiceDuBatimentPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="font-display text-3xl font-bold text-slate-900">Modalités pratiques</h2>
           <p className="mt-3 max-w-2xl text-slate-600">
-            La session niveau 1 dure {SESSION_DUREE_LIBELLE}, coûte {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)}&nbsp;€
-            HT forfait par groupe ({LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en
-            intra ou inter en Île-de-France.
+            La session niveau 1 dure {SESSION_DUREE_LIBELLE}, coûte {TARIF_SESSION_LIBELLE} (
+            {LIBELLE_EFFECTIF_GROUPE_COURT.toLowerCase()}, niveau débutant) et se tient en intra ou inter en
+            Île-de-France.
           </p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {MODALITES.map((mod) => (
@@ -751,8 +756,8 @@ export default function FormationIAuServiceDuBatimentPage() {
             </h2>
           </div>
           <p className="mt-4 text-slate-700 leading-relaxed">
-            L&apos;évaluation combine mise en situation continue, questionnaire de satisfaction et attestation
-            Qualiopi en fin de session.
+            L&apos;évaluation combine mise en situation continue, questionnaire de satisfaction et certificat de
+            réalisation en fin de session.
           </p>
           <ul className="mt-8 space-y-3 text-slate-700">
             {MODALITES_EVALUATION.map((line) => (
@@ -816,7 +821,7 @@ export default function FormationIAuServiceDuBatimentPage() {
         tone="muted"
       />
 
-      <CatalogueInfosQualiopi programmeRef="NIV-01" />
+      <CatalogueInfosPratiques programmeRef="NIV-01" />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">
@@ -833,7 +838,7 @@ export default function FormationIAuServiceDuBatimentPage() {
           </p>
           <p className="mt-2 text-blue-100">
             Financement OPCO selon éligibilité. Session {SESSION_DUREE_LIBELLE} — forfait{' '}
-            {formatTarifHt(TARIF_FORFAIT_DEBUTANT_HT)} € HT / session (niveau débutant).
+            {TARIF_SESSION_LIBELLE} (niveau débutant).
           </p>
           <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <RdvLink

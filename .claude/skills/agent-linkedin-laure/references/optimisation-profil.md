@@ -63,7 +63,7 @@ Ordre recommandé :
 ## Compétences / Recommandations
 
 ⦿ compétences : IA générative, ChatGPT, formation professionnelle, BTP, conduite de travaux
-⦿ recommandations : demande-en après chaque session, aux prescripteurs (FFB, CAPEB, GERESO)
+⦿ recommandations : demande-en après chaque session, aux prescripteurs (FFB, GERESO)
 ↳ voir le modèle de demande de recommandation dans engagement-conversion
 
 ## Double positionnement sur profil perso

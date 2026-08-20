@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, GraduationCap } from 'lucide-react';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
+import { OFC_CAS_USAGE_CARD } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
@@ -75,8 +76,8 @@ export function AccueilCasUsageIaVisuels() {
             </p>
             <Link
               href={LINKS.formations}
-              title="Catalogue des formations IA pour le BTP — Qualiopi, présentiel Île-de-France"
-              className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] transition hover:border-[#377CF3]/35 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+              title="Catalogue des formations IA pour le BTP — organisme certifié Qualiopi, présentiel Île-de-France"
+              className={`${OFC_CAS_USAGE_CARD} group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_32px_-20px_rgba(15,23,42,0.14)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
             >
               <figure className="flex flex-col">
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 sm:aspect-[16/10]">
@@ -86,7 +87,7 @@ export function AccueilCasUsageIaVisuels() {
                     title={sessionPhoto.title}
                     fill
                     loading="lazy"
-                    className="object-cover transition group-hover:opacity-95"
+                    className="ofc-cas-usage-image object-cover"
                     sizes="(max-width: 640px) 100vw, 448px"
                   />
                 </div>
@@ -122,7 +123,7 @@ export function AccueilCasUsageIaVisuels() {
                   key={item.photo.src}
                   href={item.href}
                   title={item.linkLabel}
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition hover:border-[#377CF3]/35 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+                  className={`${OFC_CAS_USAGE_CARD} group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
                 >
                   <figure className="flex h-full flex-col">
                     <div className="relative aspect-square w-full overflow-hidden bg-slate-50">
@@ -132,7 +133,7 @@ export function AccueilCasUsageIaVisuels() {
                         title={`Cas d'usage formation IA BTP — ${item.title}`}
                         fill
                         loading="lazy"
-                        className="object-cover transition group-hover:opacity-95"
+                        className="ofc-cas-usage-image object-cover"
                         sizes="(max-width: 1280px) 25vw, 220px"
                       />
                     </div>

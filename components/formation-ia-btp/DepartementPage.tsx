@@ -58,7 +58,7 @@ export function departementPageMetadata(data: DepartementPageData) {
       url: '/images/laure-olivie-formatrice-ia-btp-qualiopi.webp',
       width: 1200,
       height: 630,
-      alt: `Session formation IA ${locatif} (${data.code}) — Laure Olivié Qualiopi`,
+      alt: `Session formation IA ${locatif} (${data.code}) — Laure Olivié — organisme certifié Qualiopi`,
     },
   });
 }

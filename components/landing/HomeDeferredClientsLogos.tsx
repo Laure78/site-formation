@@ -13,10 +13,10 @@ const ClientsLogosMarquee = dynamic(
 );
 
 /** Bande logos partenaires — import dynamique + montage au scroll. */
-export function HomeDeferredClientsLogos() {
+export function HomeDeferredClientsLogos({ embedded = false }: { embedded?: boolean }) {
   return (
     <DeferUntilVisible fallback={<ClientsLogosMarqueePlaceholder />} minHeight="11rem">
-      <ClientsLogosMarquee />
+      <ClientsLogosMarquee embedded={embedded} />
     </DeferUntilVisible>
   );
 }

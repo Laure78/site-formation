@@ -155,7 +155,7 @@ const FAQ_IA_DEVIS_BATIMENT = [
   },
   {
     q: "La formation IA devis est-elle finançable par l'OPCO ?",
-    a: "Oui, selon éligibilité et dossier monté dans les délais. Les sessions certifiées Qualiopi (module devis inclus) peuvent être prises en charge par Constructys ou votre OPCO BTP, dans la limite des plafonds horaires et du délai eGestion (15 jours calendaires avant la session). Le <a href=\"/financement-constructys-formation-ia-btp\">guide financement Constructys formation IA BTP</a> détaille les pièces, les plafonds 2026 et les erreurs qui font rejeter un dossier.",
+    a: "Oui, selon éligibilité et dossier monté dans les délais. Les sessions dispensées par un organisme certifié Qualiopi (module devis inclus) peuvent être prises en charge par Constructys ou votre OPCO BTP, dans la limite des plafonds horaires et du délai eGestion (15 jours calendaires avant la session). Le <a href=\"/financement-constructys-formation-ia-btp\">guide financement Constructys formation IA BTP</a> détaille les pièces, les plafonds 2026 et les erreurs qui font rejeter un dossier.",
   },
 ] as const;
 
@@ -472,7 +472,7 @@ export default function IADevisBatimentPage() {
           <ul className="mt-6 list-inside list-disc space-y-2 text-slate-700">
             <li>Atelier sur vos cas réels : devis types, variantes, relances après envoi.</li>
             <li>Rappels TVA, mentions légales et structure de document professionnelle.</li>
-            <li>Certification Qualiopi — financement OPCO Constructys selon éligibilité et dossier.</li>
+            <li>Organisme certifié Qualiopi — financement OPCO Constructys selon éligibilité et dossier.</li>
           </ul>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <RdvLink

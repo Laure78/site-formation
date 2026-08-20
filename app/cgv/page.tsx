@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata = createPageMetadata({
   title: 'CGV — OFC Création d\'Entreprise',
   description:
-    "CGV des formations OFC : vente, délais, annulations, paiement. Organisme Qualiopi. À lire avant de réserver votre formation IA pour le BTP.",
+    "CGV des formations OFC : vente, délais, annulations, paiement. Organisme certifié Qualiopi. À lire avant de réserver votre formation IA pour le BTP.",
   path: '/cgv',
   keywords: ['CGV formation professionnelle', 'conditions vente formation BTP', 'Qualiopi OFC'],
 });
@@ -71,7 +71,7 @@ export default function CGVPage() {
               Numéro de déclaration d&apos;activité : 11788515078 (auprès du préfet
               de région d&apos;Île-de-France)
             </p>
-            <p>Certification Qualiopi : Organisme certifié pour Actions de formation</p>
+            <p>Organisme certifié Qualiopi — ACTIONS DE FORMATION</p>
             <p className="mt-2 italic">
               Cet enregistrement ne vaut pas agrément de l&apos;État.
             </p>

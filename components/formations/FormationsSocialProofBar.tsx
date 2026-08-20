@@ -8,7 +8,7 @@ const ITEMS = [
   `${formatPersonnesFormeesCount()} pros formés`,
   `${PREUVES.satisfaction} satisfaction`,
   'Financement possible selon éligibilité',
-  'Qualiopi certifié',
+  'Organisme certifié Qualiopi',
 ] as const;
 
 export function FormationsSocialProofBar() {

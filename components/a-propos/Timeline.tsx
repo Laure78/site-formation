@@ -15,7 +15,7 @@ export function Timeline() {
           Expérience professionnelle
         </h2>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#64748B]">
-          De la conduite de travaux à la formation IA certifiée Qualiopi — un parcours construit sur le terrain, pas
+          De la conduite de travaux à la formation IA (organisme certifié Qualiopi) — un parcours construit sur le terrain, pas
           depuis un bureau tech.
         </p>
         <ol className="relative mt-12 max-w-4xl space-y-6 border-l border-[#E2E8F0] pl-8 lg:border-0 lg:pl-0">

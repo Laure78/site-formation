@@ -4,7 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { FORMATION_NIV04_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -45,13 +45,13 @@ const EFFECTIF_LIBELLE = libelleEffectifFormation(FORMATION);
 const PRIX_LIBELLE = libellePrixSessionHt(FORMATION);
 
 const PAGE_META_DESCRIPTION =
-  `Formation avancée Claude pour le BTP (${DUREE_LIBELLE}). Projets, Skills, Cowork, connecteurs, Claude Code. ${formatTarifHt(FORMATION.prixHT)} € HT. Qualiopi.`;
+  `Formation avancée Claude pour le BTP (${DUREE_LIBELLE}). Projets, Skills, Cowork, connecteurs, Claude Code. ${PRIX_LIBELLE}. Qualiopi.`;
 
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-04');
 
 export const metadata = createPageMetadata({
-  title: 'Maîtriser Claude AI BTP — 4 h Qualiopi',
-  titleAbsolute: 'Maîtriser Claude AI BTP — 4 h Qualiopi',
+  title: 'Maîtriser Claude AI BTP — 4 h · organisme certifié Qualiopi',
+  titleAbsolute: 'Maîtriser Claude AI BTP — 4 h · organisme certifié Qualiopi',
   description: PAGE_META_DESCRIPTION,
   path: PATH,
   keywords: [
@@ -62,7 +62,7 @@ export const metadata = createPageMetadata({
     'connecteurs Claude Gmail Drive',
     'Projets Claude BTP',
     'industrialiser IA BTP',
-    'formation IA avancée Qualiopi',
+    'formation IA avancée — organisme certifié Qualiopi',
   ],
   image: {
     url: CATALOGUE_VISUEL.src,
@@ -173,7 +173,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
         refLine={`Intra · inter · présentiel en Île-de-France · ${DUREE_LIBELLE} · ${FORMATION.niveauLabel}`}
         title={FORMATION.titre}
         subtitle={FORMATION.accroche}
-        badges={['Projets & Skills', 'Cowork · Connecteurs', 'Qualiopi']}
+        badges={['Projets & Skills', 'Cowork · Connecteurs', 'Organisme Qualiopi']}
         summaryItems={HERO_RESUME}
         ctas={
           <>
@@ -380,7 +380,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
             </li>
             <li>
               <strong>Supports remis :</strong> trames Projets/Skills, workflows Cowork, checklist connecteurs &
-              sécurité, exemples Claude Code, attestation Qualiopi en fin de session.
+              sécurité, exemples Claude Code, certificat de réalisation en fin de session.
             </li>
             <li>
               <strong>Évaluation :</strong> exercices sur vos cas réels, validation formateur en continu,
@@ -404,7 +404,7 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           tone="muted"
         />
 
-        <CatalogueInfosQualiopi programmeRef="NIV-04" />
+        <CatalogueInfosPratiques programmeRef="NIV-04" />
 
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink

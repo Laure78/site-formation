@@ -204,7 +204,7 @@ export default function FormateurIaBtpPage() {
               </Link>
               . Pour choisir un programme précis, voir les{' '}
               <Link href={LINKS.formations} className={OFC_LINK}>
-                parcours catalogue Qualiopi
+                parcours catalogue — organisme certifié Qualiopi
               </Link>
               .
             </p>

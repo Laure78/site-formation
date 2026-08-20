@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { RdvLink } from '@/components/RdvLink';
 import { FAQSection } from '@/components/landing/FAQSection';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { InlinePublicPhoneLink } from '@/components/PublicPhoneCta';
 import { LINKS } from '@/lib/internal-links';
 import {
@@ -17,6 +18,7 @@ import { FAQ_FORMATION_IA_BTP_PILLAR } from '@/lib/formation-ia-btp-pillar-faq';
 import { PHOTOS } from '@/lib/photos';
 import { PROOF, formatProofFormes } from '@/lib/proof';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
+import { MENTIONS_TVA_INTER_COURTE, MENTIONS_TVA_INTRA_COURTE } from '@/lib/tarifs-sessions';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 export const revalidate = 3600;
 const PATH = '/formation-ia-btp';
@@ -59,7 +61,7 @@ const courseName =
 const courseBase = getCourseSchema({
   name: courseName,
   description:
-    "Formation pratique à l'IA et ChatGPT pour les professionnels du BTP : devis, appels d'offres, gestion de chantier, communication. Certifiée Qualiopi. Financement possible selon éligibilité.",
+    "Formation pratique à l'IA et ChatGPT pour les professionnels du BTP : devis, appels d'offres, gestion de chantier, communication. Organisme certifié Qualiopi. Financement possible selon éligibilité.",
   path: PATH,
   providerName: SITE_CONFIG.legalName,
   areaServed: ['Île-de-France', 'Grand Paris', 'Yvelines', 'Paris', 'France'],
@@ -145,13 +147,13 @@ export default function FormationIaBtpPillarPage() {
         <div className="mx-auto grid max-w-6xl items-start gap-10 md:grid-cols-[1fr_minmax(0,420px)]">
           <div className="text-center md:text-left">
             <p className="text-sm font-medium uppercase tracking-wide text-[var(--accent)]">
-              OFC Création d&apos;Entreprise · Qualiopi · Constructys
+              OFC Création d&apos;Entreprise · organisme certifié Qualiopi · Constructys
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.75rem] lg:leading-tight">
               Formation IA appliquée au bâtiment — ChatGPT pour le Bâtiment en Île-de-France
             </h1>
             <p className="mt-4 text-base font-semibold text-slate-800">
-              {formatProofFormes()} · {PROOF.note} · Qualiopi
+              {formatProofFormes()} · {PROOF.note} · organisme certifié Qualiopi
             </p>
             <div className="mx-auto mt-8 max-w-2xl space-y-6 text-left md:mx-0">
               <BlocCtaHaut />
@@ -454,9 +456,10 @@ export default function FormationIaBtpPillarPage() {
           <Reveal as="div" className="space-y-4 text-slate-700">
           <h2 className="font-display text-2xl font-bold text-slate-900">Financement Constructys — selon éligibilité</h2>
           <p>
-            La formation IA appliquée au bâtiment est <strong>certifiée Qualiopi</strong> et éligible à une prise en charge par
-            Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en
-            vigueur.
+            La formation IA appliquée au bâtiment est dispensée par{' '}
+            <strong>OFC Création d&apos;Entreprise, organisme certifié Qualiopi</strong>, et peut faire l&apos;objet
+            d&apos;une prise en charge par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle
+            et les conditions en vigueur.
           </p>
           <p>
             <strong>Barèmes indicatifs Constructys</strong> (Plan de Développement des Compétences) — à
@@ -484,8 +487,8 @@ export default function FormationIaBtpPillarPage() {
             % des coûts pour les formations de transformation digitale (minimum 14 heures).
           </p>
           <p className="rounded-lg border border-amber-200 bg-amber-50/80 p-4 text-sm">
-            <strong>TVA</strong> : exonérée pour les formations intra (article 261-4-4° du CGI). TVA non applicable pour
-            les sessions inter (article 293B du CGI).
+            <strong>TVA</strong> — intra-entreprise : {MENTIONS_TVA_INTRA_COURTE} Inter-entreprise :{' '}
+            {MENTIONS_TVA_INTER_COURTE}
           </p>
           <p>
             <Link href={LINKS.financement} className="font-semibold text-[var(--accent)] hover:underline">
@@ -684,6 +687,8 @@ export default function FormationIaBtpPillarPage() {
           · {SITE_CONFIG.url.replace(/^https?:\/\//, '')}
         </p>
       </article>
+
+      <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les professionnels du BTP" />
 
       <div className="mx-auto max-w-3xl px-4 pb-8">
         <FAQSection items={FAQ_FORMATION_IA_BTP_PILLAR} title="Questions fréquentes — formation IA pour les pros du BTP" />

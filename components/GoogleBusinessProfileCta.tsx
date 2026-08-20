@@ -13,7 +13,7 @@ const VARIANT_CLASSES: Record<NonNullable<GoogleBusinessProfileCtaProps['variant
   outline:
     'rounded-xl border-2 border-[#377CF3] px-5 py-2.5 text-sm font-semibold text-[#377CF3] transition-colors hover:bg-[#EFF6FF]',
   inverse:
-    'rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15',
+    'inline-flex min-h-11 items-center justify-center rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
   subtle:
     'inline-flex items-center gap-1.5 font-medium text-[#377CF3] underline-offset-2 hover:underline',
 };

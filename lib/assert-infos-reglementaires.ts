@@ -90,7 +90,7 @@ export function assertInfosReglementairesCompletes(
 
   assertLastUpdatedWithin12Months(lastUpdated);
 
-  if (!/261-4-4|TVA non applicable/i.test(`${tarifInter} ${tarifIntra}`)) {
+  if (!/293\s*B|261-4-4|TVA non applicable|TVA exonérée/i.test(`${tarifInter} ${tarifIntra}`)) {
     // La mention TVA est injectée dans le composant UI ; on ne bloque pas les props tarif.
   }
 

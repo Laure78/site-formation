@@ -42,7 +42,7 @@ export function CourseSchema({
       url: CALENDLY_OFFER_URL,
     },
     isAccessibleForFree: false,
-    creditsAwarded: 'Certification Qualiopi',
+    creditsAwarded: 'Certificat de réalisation',
   };
 
   return <JsonLd id={`schema-course-${name.toLowerCase().replace(/\s+/g, '-')}`} schema={schema} />;

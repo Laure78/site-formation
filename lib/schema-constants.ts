@@ -70,10 +70,6 @@ export const SCHEMA_PERSON_AFFILIATIONS: ReadonlyArray<{
     name: 'Lefebvre Dalloz',
     url: 'https://www.lefebvre-dalloz-formation.fr/',
   },
-  {
-    name: 'CAPEB',
-    url: 'https://www.capeb.fr/',
-  },
 ] as const;
 
 

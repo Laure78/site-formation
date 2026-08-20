@@ -4,7 +4,7 @@ import { FooterTelOrMailLink } from '@/components/PublicPhoneCta';
 import { Calendar, Users, Check, Download } from 'lucide-react';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { ContextualLinksSection } from '@/components/layout/ContextualLinksSection';
-import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { FORMATION_NIV03_RELATED } from '@/lib/contextual-internal-links';
 import { RdvLink } from '@/components/RdvLink';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
@@ -26,6 +26,7 @@ import {
   EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 
   formatTarifHt,
+  libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
 import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -120,9 +121,11 @@ const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   },
 ];
 
+const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_AVANCE_HT);
+
 const HERO_RESUME = [
   `Parcours catalogue : conduite de travaux & suivi chantier — bibliothèque de 20+ skills Claude.`,
-  `Session ${SESSION_DUREE_LIBELLE} — forfait ${formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session.`,
+  `Session ${SESSION_DUREE_LIBELLE} — forfait ${TARIF_SESSION_LIBELLE}.`,
   `${LIBELLE_EFFECTIF_GROUPE_NIV03}.`,
   'Qualiopi — financement possible selon éligibilité (Constructys / OPCO).',
 ];
@@ -149,7 +152,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         refLine={`Intra · inter · présentiel en Île-de-France · ${SESSION_DUREE_LIBELLE} · Niveau 2`}
         title="L'IA appliquée à la conduite de travaux"
         subtitle="Pilotez vos chantiers avec l'IA — de l'analyse du CCTP à la réception des travaux"
-        badges={['Skills Claude BTP', 'Suivi chantier', 'Qualiopi']}
+        badges={['Skills Claude BTP', 'Suivi chantier', 'Organisme Qualiopi']}
         summaryItems={HERO_RESUME}
         ctas={
           <>
@@ -234,7 +237,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
               <span>
                 <strong>Format :</strong> session unique <strong>{SESSION_DUREE_LIBELLE}</strong> en demi-journée
                 (9h00–13h00 ou 13h30–17h30). Intra ou inter, exclusivement en présentiel en Île-de-France. Forfait{' '}
-                <strong>{formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA par session</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
+                <strong>{TARIF_SESSION_LIBELLE}</strong> — {LIBELLE_EFFECTIF_GROUPE_NIV03}.
               </span>
             </li>
             <li className="flex gap-2">
@@ -317,7 +320,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            Le forfait est de {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)}&nbsp;€ HT par session, avec
+            Le forfait est de {TARIF_SESSION_LIBELLE}, avec
             bibliothèque de skills, trames CR/PPSPS/DOE et un rendez-vous visio J+30 inclus.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
@@ -327,13 +330,13 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-              {formatTarifHt(TARIF_FORFAIT_AVANCE_HT)} € net de TVA / session · <strong>Effectif :</strong>{' '}
+              <strong>Forfait :</strong> {TARIF_SESSION_LIBELLE} · <strong>Effectif :</strong>{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).
             </li>
             <li>
               <strong>Supports remis :</strong> accès à la bibliothèque de 20+ skills Claude BTP, trames CR / PPSPS /
-              courriers ST / PV réserves / DOE, fiches méthode par module, attestation Qualiopi en fin de session.
+              courriers ST / PV réserves / DOE, fiches méthode par module, certificat de réalisation en fin de session.
             </li>
             <li>
               <strong>Évaluation :</strong> exercices pratiques sur documents participants, validation formateur en
@@ -357,7 +360,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           tone="muted"
         />
 
-        <CatalogueInfosQualiopi programmeRef="NIV-03" />
+        <CatalogueInfosPratiques programmeRef="NIV-03" />
 
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink

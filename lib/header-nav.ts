@@ -106,7 +106,6 @@ const PARTENAIRES_SECTION_CHILDREN: readonly HeaderNavLink[] = [
   { href: `${LINKS.partenaires}#cnam-entreprise`, label: 'CNAM Entreprise' },
   { href: `${LINKS.partenaires}#lefebvre-dalloz`, label: 'Lefebvre Dalloz' },
   { href: `${LINKS.partenaires}#ifrb-77`, label: 'IFRB 77' },
-  { href: `${LINKS.partenaires}#capeb`, label: 'CAPEB' },
   { href: LINKS.etudesCas, label: 'Étude de cas FFB & CSFE' },
   { href: LINKS.formationsLinkedInLearning, label: 'Formations LinkedIn Learning' },
 ];

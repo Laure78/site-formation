@@ -477,7 +477,7 @@ export default function PolitiqueConfidentialitePage() {
                     Durée de la formation + 5 ans
                   </td>
                   <td className="border border-slate-200 px-4 py-3">
-                    Certification Qualiopi
+                    Organisme certifié Qualiopi
                   </td>
                 </tr>
                 <tr>
@@ -486,7 +486,7 @@ export default function PolitiqueConfidentialitePage() {
                   </td>
                   <td className="border border-slate-200 px-4 py-3">5 ans</td>
                   <td className="border border-slate-200 px-4 py-3">
-                    Certification Qualiopi
+                    Organisme certifié Qualiopi
                   </td>
                 </tr>
               </tbody>

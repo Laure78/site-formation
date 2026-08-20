@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Save } from 'lucide-react';
-import { TARIF_SESSION_FORFAIT_HT, formatTarifHt } from '@/lib/tarifs-sessions';
+import { TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 interface Props {
   courseId: string;
@@ -124,8 +124,8 @@ export function CourseEditForm({ courseId, initial }: Props) {
             className="mt-1 w-full max-w-xs rounded-lg border border-slate-300 px-4 py-2 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20"
           />
           <p className="mt-1 text-xs text-slate-500">
-            Forfait unique {formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT / session (toutes formations catalogue) — TVA
-            non applicable (art. 261-4-4° CGI).
+            Forfait unique {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (toutes formations catalogue) —{' '}
+            {MENTIONS_TVA_REGIMES_COURT}
           </p>
         </div>
         <label className="flex items-center gap-2">

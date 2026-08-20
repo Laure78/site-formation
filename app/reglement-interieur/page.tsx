@@ -68,7 +68,7 @@ export default function ReglementInterieurPage() {
             <strong>Siège social :</strong> 6 rue Henri Dunant, 78280 GUYANCOURT
           </p>
           <p>
-            <strong>Certification Qualiopi :</strong> Organisme certifié
+            <strong>Organisme certifié Qualiopi :</strong> Organisme certifié
           </p>
         </div>
       </div>

@@ -221,7 +221,7 @@ export function IleDeFranceSeoSections() {
             Financement possible
           </h2>
           <p className="mt-4 max-w-3xl text-slate-600 leading-relaxed">
-            Les formations certifiées <QualiopiWordmark /> peuvent être financées dans le cadre du plan de
+            Les formations dispensées par un organisme certifié <QualiopiWordmark /> peuvent être financées dans le cadre du plan de
             développement des compétences, selon les règles de votre branche — en particulier via
             l&apos;OPCO <strong className="text-slate-800">Constructys</strong> pour les entreprises
             du BTP, sous conditions d&apos;éligibilité. Je vous indique les informations utiles

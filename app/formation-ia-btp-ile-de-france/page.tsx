@@ -28,6 +28,8 @@ import { FormationsCatalogueInteractive } from '@/components/formations/Formatio
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { LIBELLE_EFFECTIF_GROUPE_NIV02 } from '@/lib/tarifs-sessions';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 
 const PATH = '/formation-ia-btp-ile-de-france';
@@ -109,7 +111,7 @@ export default function FormationIaBtpIleDeFrancePage() {
         <section className={`${OFC_SEC.white} border-b border-slate-200`}>
           <div className="mx-auto max-w-4xl">
             <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-              Présentiel · Qualiopi · Constructys · Île-de-France
+              Présentiel · organisme certifié Qualiopi · Constructys · Île-de-France
             </p>
             <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-slate-900 md:text-4xl lg:text-[2.5rem]">
               Formation IA pour le bâtiment et la construction en Île-de-France
@@ -249,7 +251,7 @@ export default function FormationIaBtpIleDeFrancePage() {
               </Link>
               , ou parcourir les{' '}
               <Link href={LINKS.formations} className={OFC_LINK} title="Catalogue formations IA pour le BTP">
-                programmes Qualiopi de 4 h
+                programmes catalogue — organisme certifié Qualiopi de 4 h
               </Link>
               .
             </p>
@@ -301,6 +303,8 @@ export default function FormationIaBtpIleDeFrancePage() {
             })}
           />
         </div>
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="en Île-de-France" />
       </article>
     </>
   );

@@ -13,13 +13,15 @@ import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-geometre-tp';
 
 export const metadata = createPageMetadata({
   title: 'Formation IA Géomètre TP Île-de-France',
   description:
-    'Automatisez rapports levés topographiques, devis, documentation technique. Formation Qualiopi. Financement possible selon éligibilité.',
+    'Automatisez rapports levés topographiques, devis, documentation technique. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA géomètre',
@@ -123,7 +125,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation (salarié ou entreprise) ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
     q: 'Faut-il être bon en informatique ?',
@@ -398,7 +400,7 @@ export default function FormationIaGeometreTpPage() {
             Formation IA géomètre TP — Île-de-France & Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
@@ -414,6 +416,8 @@ export default function FormationIaGeometreTpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-geometre-tp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

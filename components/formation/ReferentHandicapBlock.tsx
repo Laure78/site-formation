@@ -37,7 +37,7 @@ export function ReferentHandicapBlock({
         </p>
         {showQualiopi ? (
           <p className="mt-2 text-xs text-slate-600">
-            {QUALIOPI_LEGAL.raisonSociale} — certifiée <QualiopiWordmark /> (actions de formation)
+            {QUALIOPI_LEGAL.raisonSociale} — organisme certifié <QualiopiWordmark /> (actions de formation)
           </p>
         ) : null}
       </div>

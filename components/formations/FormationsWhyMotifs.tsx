@@ -28,7 +28,7 @@ export function FormationsWhyMotifs() {
         journée terrain, rédigez un mémoire technique, analysez un DCE, pilotez un chantier ou
         industrialisez Claude en entreprise. Pour les entreprises de construction comme pour le bâtiment et les
         TP, plutôt qu&apos;une formation généraliste, le catalogue OFC propose{' '}
-        <strong>{CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi</strong> — un niveau 1 et{' '}
+        <strong>{CATALOGUE_FORMATIONS_COUNT} parcours catalogue — organisme certifié Qualiopi</strong> — un niveau 1 et{' '}
         {CATALOGUE_FORMATIONS_COUNT - 1} formations niveau 2 — avec
         programmes PDF téléchargeables sur chaque fiche.
       </p>

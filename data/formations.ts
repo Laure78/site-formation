@@ -197,7 +197,7 @@ export function formatPrixHt(amount: number): string {
 }
 
 export function libellePrixSessionHt(f: Pick<Formation, 'prixHT'>): string {
-  return `${formatPrixHt(f.prixHT)} € HT`;
+  return `${formatPrixHt(f.prixHT)} € HT / session forfaitaire`;
 }
 
 export const FORMATION_NIV01 = getFormationByCode('NIV-01')!;

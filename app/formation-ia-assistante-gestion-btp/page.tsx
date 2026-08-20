@@ -26,6 +26,8 @@ import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/Metier
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-gestion-btp';
 
@@ -38,7 +40,7 @@ const COURSE_JSON_LD: Record<string, unknown> = {
   ...buildFormationFicheCourseJsonLd({
     name: 'Formation IA pour Assistante de Gestion BTP',
     description:
-      "Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation d'avancement, relances impayés, DC4, DGD, paie chantier, TVA autoliquidation. Qualiopi. Financement possible selon éligibilité.",
+      "Formation ChatGPT et Claude AI pour assistantes de gestion BTP : facturation d'avancement, relances impayés, DC4, DGD, paie chantier, TVA autoliquidation. Organisme certifié Qualiopi. Financement possible selon éligibilité.",
     path: PATH,
     educationalLevel: 'Advanced',
     organizationId: `${BASE_URL}/#organization`,
@@ -202,7 +204,7 @@ export default function FormationIaAssistanteGestionBtpPage() {
             Une assistante de gestion BTP produit chaque semaine 20 à 30 documents administratifs :
             factures d&apos;avancement, relances, attestations sous-traitants, DGD, éléments variables de
             paie. L&apos;IA automatise 70 % de cette production répétitive, soit 6 à 8 heures libérées par
-            semaine. Formation certifiée <strong>Qualiopi</strong>, financement possible selon éligibilité.
+            semaine. Formation dispensée par un organisme certifié <strong>Qualiopi</strong>, financement possible selon éligibilité.
           </ShortAnswerBlock>
         </div>
 
@@ -656,9 +658,11 @@ export default function FormationIaAssistanteGestionBtpPage() {
             ]}
           />
 
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
+
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
-          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">

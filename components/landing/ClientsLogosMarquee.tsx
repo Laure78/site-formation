@@ -82,7 +82,12 @@ function LogoRow({
   );
 }
 
-export function ClientsLogosMarquee() {
+type ClientsLogosMarqueeProps = {
+  /** Sans wrapper `<section>` — fusion preuve sociale accueil. */
+  embedded?: boolean;
+};
+
+export function ClientsLogosMarquee({ embedded = false }: ClientsLogosMarqueeProps) {
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -93,12 +98,8 @@ export function ClientsLogosMarquee() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  return (
-    <section
-      className={`${OFC_SEC.mutedCompact} scroll-mt-24`}
-      aria-labelledby="clients-logos-heading"
-    >
-      <div className="mx-auto max-w-6xl px-4 sm:px-8">
+  const inner = (
+      <div className={embedded ? undefined : 'mx-auto max-w-6xl px-4 sm:px-8'}>
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8 lg:gap-10">
           <div className="flex shrink-0 md:pt-0.5">
             <span
@@ -143,6 +144,18 @@ export function ClientsLogosMarquee() {
           )}
         </div>
       </div>
+  );
+
+  if (embedded) {
+    return <div className="min-w-0 overflow-hidden">{inner}</div>;
+  }
+
+  return (
+    <section
+      className={`${OFC_SEC.mutedCompact} scroll-mt-24`}
+      aria-labelledby="clients-logos-heading"
+    >
+      {inner}
     </section>
   );
 }

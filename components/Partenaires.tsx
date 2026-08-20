@@ -14,7 +14,7 @@ import {
   PARTENAIRES_SECTION_TITLE,
 } from '@/lib/partenaires-content';
 import { LINKS } from '@/lib/internal-links';
-import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
 type PartenairesProps = {
@@ -25,6 +25,10 @@ type PartenairesProps = {
   showPageLink?: boolean;
   /** Affiche la phrase GEO citable (§7 brief). */
   showGeoCitation?: boolean;
+  /** Intégré dans le hero accueil — `<div>` sans padding section. */
+  embedded?: boolean;
+  /** Lien vers #rdv au lieu d’un embed Calendly (accueil). */
+  rdvAnchor?: boolean;
   calendlyCampaign?: string;
   className?: string;
 };
@@ -69,18 +73,15 @@ export function Partenaires({
   headingLevel = 'h2',
   showPageLink = false,
   showGeoCitation = false,
+  embedded = false,
+  rdvAnchor = false,
   calendlyCampaign = 'partenaires-section',
   className = '',
 }: PartenairesProps) {
   const Heading = headingLevel;
 
-  return (
-    <section
-      id={id}
-      className={`${OFC_SEC.mutedCompact} scroll-mt-24 ${className}`.trim()}
-      aria-labelledby={`${id}-heading`}
-    >
-      <div className={OFC_SECTION_INNER}>
+  const inner = (
+      <div className={`${embedded ? 'min-w-0' : OFC_SECTION_INNER}`.trim()}>
         <div className="mx-auto max-w-4xl text-center">
           <Heading
             id={`${id}-heading`}
@@ -153,16 +154,26 @@ export function Partenaires({
 
         <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4 text-center">
           <p className="text-sm leading-relaxed text-slate-600 md:text-base">{PARTENAIRES_CTA_INTRO}</p>
-          <CalendlyEmbed
-            type="link"
-            variant="primary"
-            ctaPosition="middle"
-            campaign={calendlyCampaign}
-            className="min-w-[min(100%,280px)]"
-          >
-            {PARTENAIRES_CTA_LABEL}
-            <ArrowRight size={18} strokeWidth={1.5} aria-hidden className="ml-1.5" />
-          </CalendlyEmbed>
+          {rdvAnchor ? (
+            <Link
+              href={LINKS.accueilRdv}
+              className={`${OFC_CTA_PRIMARY} inline-flex min-w-[min(100%,280px)] items-center justify-center gap-1`}
+            >
+              {PARTENAIRES_CTA_LABEL}
+              <ArrowRight size={18} strokeWidth={1.5} aria-hidden className="ml-1.5" />
+            </Link>
+          ) : (
+            <CalendlyEmbed
+              type="link"
+              variant="primary"
+              ctaPosition="middle"
+              campaign={calendlyCampaign}
+              className="min-w-[min(100%,280px)]"
+            >
+              {PARTENAIRES_CTA_LABEL}
+              <ArrowRight size={18} strokeWidth={1.5} aria-hidden className="ml-1.5" />
+            </CalendlyEmbed>
+          )}
           {showPageLink ? (
             <Link href={LINKS.partenaires} className={`${OFC_LINK} text-sm font-semibold`}>
               Voir le détail des partenariats →
@@ -170,6 +181,28 @@ export function Partenaires({
           ) : null}
         </div>
       </div>
+  );
+
+  if (embedded) {
+    return (
+      <div
+        id={id}
+        className={`min-w-0 overflow-hidden ${className}`.trim()}
+        role="region"
+        aria-labelledby={`${id}-heading`}
+      >
+        {inner}
+      </div>
+    );
+  }
+
+  return (
+    <section
+      id={id}
+      className={`${OFC_SEC.mutedCompact} scroll-mt-24 ${className}`.trim()}
+      aria-labelledby={`${id}-heading`}
+    >
+      {inner}
     </section>
   );
 }

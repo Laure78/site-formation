@@ -40,7 +40,7 @@ export function HeroEditorial({ lead, qualiopiText, catalogueHref, calendlyHeroH
           </div>
           <IndicateursResultatsLink className="mt-3 text-left" />
           <p className="mt-4 text-sm font-medium text-[#475569]">
-            10 ans de terrain BTP · Qualiopi · LinkedIn Learning
+            10 ans de terrain BTP · organisme certifié Qualiopi · LinkedIn Learning
           </p>
           <p className="mt-5 text-base leading-relaxed text-[#334155]">{qualiopiText}</p>
           <div className="mt-8 flex flex-wrap gap-3">

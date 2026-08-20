@@ -124,7 +124,7 @@ export function FormationIaMarchePublicLanding({
         <article>
           <MetierIdfPresentielLine className="mb-3" />
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            Commande publique · Qualiopi · Île-de-France
+            Commande publique · organisme certifié Qualiopi · Île-de-France
           </p>
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             {config.h1}
@@ -136,7 +136,7 @@ export function FormationIaMarchePublicLanding({
             {config.introParagraph ?? (
               <>
                 {OFC} — formation IA pour répondre et gérer un marché public de travaux : DCE, Go-NoGo, mémoire
-                technique. Sessions en présentiel en Île-de-France (4&nbsp;h), certifiées Qualiopi. Financement
+                technique. Sessions en présentiel en Île-de-France (4&nbsp;h), dispensées par un organisme certifié Qualiopi. Financement
                 Constructys possible selon éligibilité. Plus de{' '}
                 <strong className="text-slate-800">{formatProfessionalsTrainedCount()} professionnels</strong>{' '}
                 formés · note <strong className="text-slate-800">{SOCIAL_PROOF.AVERAGE_RATING}</strong>.

@@ -15,6 +15,8 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-ferrailleur-btp';
 
@@ -89,7 +91,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Ma formation IA est-elle finançable si je suis ferrailleur (OPCO BTP) ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi ; le financement Constructys dépend de votre statut, de votre branche et des règles du plan de développement des compétences. Nous étudions votre dossier avec vous — aucun engagement de prise en charge à 100 % sans analyse d'éligibilité.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi ; le financement Constructys dépend de votre statut, de votre branche et des règles du plan de développement des compétences. Nous étudions votre dossier avec vous — aucun engagement de prise en charge à 100 % sans analyse d'éligibilité.",
   },
 ];
 
@@ -131,7 +133,7 @@ export default function FormationIaFerrailleurBtpPage() {
         <PreuveSociale className="mt-6" />
         <p className="mt-6 text-xl text-slate-600">
           Optimisez <strong>quantitatifs</strong>, <strong>factures</strong> et <strong>devis</strong> acier béton avec ChatGPT —{' '}
-          <strong>présentiel en Île-de-France</strong>. Formation <strong>Qualiopi</strong> — financement possible selon éligibilité.
+          <strong>présentiel en Île-de-France</strong>. Formation dispensée par un organisme certifié <strong>Qualiopi</strong> — financement possible selon éligibilité.
         </p>
 
         <div className="mt-8">
@@ -429,7 +431,7 @@ export default function FormationIaFerrailleurBtpPage() {
         <section className="mt-14">
           <h2 className="font-display text-lg font-bold text-slate-900">OFC Création d’Entreprise</h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Certifiée Qualiopi · Finançable Constructys, FSE+, OPCO selon
+            SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Organisme certifié Qualiopi · Finançable Constructys, FSE+, OPCO selon
             règles en vigueur · {SITE_CONFIG.geo.streetAddress}, {SITE_CONFIG.geo.postalCode} {SITE_CONFIG.geo.city} ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()} ·{' '}
             <a href={SITE_CONFIG.url} className="text-[var(--accent)] hover:underline">
@@ -452,6 +454,8 @@ export default function FormationIaFerrailleurBtpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-ferrailleur-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

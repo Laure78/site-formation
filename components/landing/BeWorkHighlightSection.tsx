@@ -61,7 +61,7 @@ export function BeWorkHighlightSection({ id, surface = 'band' }: Props) {
 
             <p className="mt-4 text-[15px] leading-relaxed text-[#5A5A5A] md:text-base">
               Service distinct des{' '}
-              <span className="text-[#334155]">formations Qualiopi OFC</span>. Solutions IA sur mesure, pas de
+              <span className="text-[#334155]">formations OFC (organisme certifié Qualiopi)</span>. Solutions IA sur mesure, pas de
               formation.
             </p>
 

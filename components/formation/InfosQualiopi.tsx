@@ -7,11 +7,15 @@ import {
   ClipboardCheck,
   Clock,
   Euro,
+  LineChart,
   Mail,
   Phone,
   Target,
   Users,
 } from 'lucide-react';
+import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
+import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
+import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import {
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_FICHE_META,
@@ -208,6 +212,20 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
               Organisme certifié Qualiopi — actions de formation
             </p>
           </QualiopiItem>
+        </div>
+
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="flex items-center gap-2 text-[#377CF3]">
+            <LineChart className="h-5 w-5 shrink-0" strokeWidth={1.75} aria-hidden />
+            <h3 className="font-semibold text-slate-900">Indicateurs de résultats</h3>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-slate-700">
+            En {new Date().getFullYear()}, OFC Création d&apos;Entreprise affiche une note de satisfaction de{' '}
+            <strong>{siteStats.noteMoyenneAffichee}</strong> sur plus de{' '}
+            <strong>{formatPersonnesFormeesCount()} professionnels formés</strong> ({getStatsFreshnessLabel()}).
+          </p>
+          <QualiopiSatisfactionSource className="mt-2" />
+          <IndicateursResultatsLink className="mt-3 text-left" />
         </div>
 
         <p className="mt-8 text-center text-xs text-slate-500">

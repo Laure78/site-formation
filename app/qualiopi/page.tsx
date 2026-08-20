@@ -10,7 +10,7 @@ import { ANNUAIRE_ENTREPRISES_OFC_URL } from '@/lib/schema-constants';
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
-  title: 'Certification Qualiopi — OFC Création d\'Entreprise',
+  title: 'Organisme certifié Qualiopi — OFC Création d\'Entreprise',
   description:
     'OFC Création d\'Entreprise certifié Qualiopi (actions de formation) par Certifopac. Certificat téléchargeable, NDA 11788515078.',
   path: '/qualiopi',
@@ -25,6 +25,9 @@ export default function QualiopiPage() {
 
       <div className="mt-10">
         <QualiopiBadge />
+        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-slate-600">
+          {QUALIOPI_LEGAL.qualiopiCategoryMention}
+        </p>
       </div>
 
       <article className="mt-10 space-y-6 text-slate-700">
@@ -45,7 +48,7 @@ export default function QualiopiPage() {
             className="inline-flex rounded-xl bg-[#377CF3] px-5 py-3 text-sm font-semibold text-white hover:bg-[#2d66d6]"
             download
           >
-            Télécharger le certificat Qualiopi (PDF)
+            {QUALIOPI_LEGAL.certificatPdfLabel}
           </a>
           <Link
             href={LINKS.indicateursResultats}

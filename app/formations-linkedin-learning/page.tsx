@@ -87,7 +87,7 @@ const FAQ_ITEMS = [
   {
     q: 'Comment aller plus loin après les cours ?',
     aDirect:
-      'Réserver une visio découverte pour une formation OFC en présentiel en Île-de-France (Qualiopi, finançable Constructys selon éligibilité).',
+      'Réserver une visio découverte pour une formation OFC en présentiel en Île-de-France (organisme certifié Qualiopi, finançable Constructys selon éligibilité).',
     aMore:
       'La visio clarifie ton contexte (équipe, documents, objectifs) et propose le format présentiel adapté à ton entreprise.',
   },
@@ -330,7 +330,7 @@ export default function FormationsLinkedInLearningPage() {
                 du bâtiment et des travaux publics.
               </p>
               <p>
-                Les actions de formation OFC Création d&apos;Entreprise sont certifiées Qualiopi.
+                Les actions de formation OFC Création d&apos;Entreprise sont dispensées par un organisme certifié Qualiopi.
                 Interventions et partenariats : FFB Grand Paris · CSFE · UMB-FFB · CNAM · Lefebvre
                 Dalloz.
               </p>

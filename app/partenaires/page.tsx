@@ -184,7 +184,7 @@ export default function PartenairesPage() {
           {
             href: LINKS.formationIleDeFrance,
             title: 'Formation IA BTP en Île-de-France',
-            description: 'Présentiel francilien : Paris et départements, sessions Qualiopi.',
+            description: 'Présentiel francilien : Paris et départements, sessions — organisme certifié Qualiopi.',
           },
           {
             href: LINKS.contact,

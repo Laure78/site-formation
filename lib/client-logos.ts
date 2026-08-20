@@ -75,7 +75,6 @@ export const PARTNER_WEBSITES = {
   ifrb: 'https://www.ifrb-78-91-95.fr/',
   arfab: 'https://www.arfab.fr/',
   linkedinLearning: 'https://www.linkedin.com/learning/',
-  capeb: 'https://www.capeb.fr/',
 } as const;
 
 export const CLIENT_LOGOS_MARQUEE: ClientLogoItem[] = [

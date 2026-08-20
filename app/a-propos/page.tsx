@@ -104,7 +104,7 @@ export default function AProposPage() {
         layoutDensity="compact"
         surface="muted"
         entranceAnimation
-        eyebrow="OFC Création d'Entreprise · Qualiopi · Guyancourt"
+        eyebrow="OFC Création d'Entreprise · organisme certifié Qualiopi · Guyancourt"
         title="Laure Olivié — Formatrice IA spécialisée BTP"
         titleId="a-propos-hero-title"
         enBref={

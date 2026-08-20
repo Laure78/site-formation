@@ -72,7 +72,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
 
   const defaultH1 = `Formation IA BTP ${deptLabel} — Présentiel dans vos locaux`;
   const defaultIntro =
-    "Devis, comptes rendus, appels d'offres et administratif : session 4 h sur vos documents réels — ChatGPT et Claude AI, certification Qualiopi.";
+    "Devis, comptes rendus, appels d'offres et administratif : session 4 h sur vos documents réels — ChatGPT et Claude AI, organisme certifié Qualiopi.";
 
   const localContent = getDeptLocalSeoContent(code);
 
@@ -99,7 +99,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,400px)] lg:gap-12">
             <div className="min-w-0">
               <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-                {deptLabel} · Présentiel · Qualiopi · Constructys
+                {deptLabel} · Présentiel · organisme certifié Qualiopi · Constructys
               </p>
               <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
                 {h1 ?? defaultH1}
@@ -238,7 +238,7 @@ export function GeoFormationPage(props: GeoFormationPageProps) {
             description={
               <>
                 30 minutes pour cadrer vos besoins {deptPreposition} : devis, CR, AO, financement
-                Constructys. Formation certifiée Qualiopi — présentiel uniquement.
+                Constructys. Formation dispensée par un organisme certifié Qualiopi — présentiel uniquement.
               </>
             }
             primaryLabel="Prendre rendez-vous (30 min, gratuit)"

@@ -16,6 +16,7 @@ import {
   UserCircle,
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
+import { OFC_CTA_PRIMARY_PILL } from '@/lib/ofc-interaction-classes';
 import { HEADER_NAV } from '@/lib/header-nav';
 import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
@@ -210,8 +211,8 @@ function NavbarInner() {
           <div className="site-header__actions">
             <FormationPlateformeConnexionButton variant="nav" />
             <Link
-              href={LINKS.prendreRdv}
-              className="cta-calendly cta-calendly--inline inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
+              href={LINKS.accueilRdv}
+              className={`${OFC_CTA_PRIMARY_PILL} cta-calendly cta-calendly--inline text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs`}
             >
               Prendre rendez-vous
             </Link>
@@ -219,8 +220,8 @@ function NavbarInner() {
 
           <div className="site-header__rdv-mobile">
             <Link
-              href={LINKS.prendreRdv}
-              className="cta-calendly cta-calendly--inline inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs"
+              href={LINKS.accueilRdv}
+              className={`${OFC_CTA_PRIMARY_PILL} cta-calendly cta-calendly--inline text-sm max-[380px]:px-3 max-[380px]:py-2 max-[380px]:text-xs`}
             >
               Prendre rendez-vous
             </Link>
@@ -298,9 +299,9 @@ function NavbarInner() {
                 onClick={() => setMobileOpen(false)}
               />
               <Link
-                href={LINKS.prendreRdv}
+                href={LINKS.accueilRdv}
                 onClick={() => setMobileOpen(false)}
-                className="w-full rounded-full bg-[var(--accent)] px-4 py-4 text-center text-[0.9375rem] font-semibold text-white hover:bg-blue-700"
+                className={`${OFC_CTA_PRIMARY_PILL} cta-calendly w-full text-center text-[0.9375rem]`}
               >
                 Prendre rendez-vous
               </Link>

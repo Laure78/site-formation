@@ -28,7 +28,7 @@ export function FormationsComparisonTable({
           Comparez les {CATALOGUE_FORMATIONS_COUNT} formations IA pour le BTP d&apos;un coup d&apos;œil
         </h2>
         <p className="mt-3 text-lg text-[#64748B]">
-          Toutes Qualiopi, toutes {SESSION_DUREE_LIBELLE}, intra ou inter,
+          Toutes — organisme certifié Qualiopi, toutes {SESSION_DUREE_LIBELLE}, intra ou inter,
           exclusivement en présentiel en Île-de-France. Financement partiel possible selon éligibilité.
         </p>
       </div>

@@ -23,7 +23,7 @@ export const metadata = createPageMetadata({
     'formation IA pour les pros du BTP Morangis',
     'formation IA appliquée au bâtiment Les Ulis',
     'OPCO Constructys Essonne',
-    'Qualiopi formation IA bâtiment 91',
+    'formation IA bâtiment — organisme certifié Qualiopi 91',
   ],
 });
 

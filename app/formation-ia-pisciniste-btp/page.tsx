@@ -16,13 +16,15 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-pisciniste-btp';
 
 export const metadata = createMetierBtpPageMetadata('pisciniste', {
   title: 'Formation IA Pisciniste BTP Île-de-France',
   description:
-    'Automatisez vos devis piscine, fiches techniques, relances clients. Formation Qualiopi. Financement possible selon éligibilité.',
+    'Automatisez vos devis piscine, fiches techniques, relances clients. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA pisciniste BTP',
@@ -113,7 +115,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation en tant que pisciniste ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
     q: 'ChatGPT peut-il m’aider avec les démarches administratives (permis, déclaration) ?',
@@ -391,7 +393,7 @@ export default function FormationIaPiscinisteBtpPage() {
             Formation IA pisciniste — Île-de-France & Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
@@ -410,6 +412,8 @@ export default function FormationIaPiscinisteBtpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-pisciniste-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

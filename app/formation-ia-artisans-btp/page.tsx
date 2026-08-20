@@ -20,11 +20,13 @@ import { TARIF_SESSION_DEBUTANT_HT, LIBELLE_EFFECTIF_GROUPE_COURT ,
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 export const metadata = createMetierBtpPageMetadata('artisans', {
   title: 'Formation IA artisans BTP — ChatGPT',
   description:
-    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
+    'Formation IA ChatGPT pour BTP : devis, emails, CR chantier en 4h. Organisme certifié Qualiopi. Financement possible selon éligibilité. TPE, PME et professionnels du bâtiment.',
   path: '/formation-ia-artisans-btp',
   keywords: [
     'formation IA PME BTP',
@@ -64,7 +66,7 @@ const serviceJsonLd = {
   provider: { '@id': `${baseUrl}/#organization` },
   areaServed: { '@type': 'State', name: 'Île-de-France' },
   description:
-    'Formation ChatGPT 4h pour TPE/PME et professionnels du BTP : devis, emails, comptes rendus de chantier. Qualiopi. Financement possible selon éligibilité.',
+    'Formation ChatGPT 4h pour TPE/PME et professionnels du BTP : devis, emails, comptes rendus de chantier. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Formation IA pour le BTP',
@@ -113,7 +115,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'La formation ChatGPT pour entreprises BTP est-elle finançable ?',
-    a: "Oui. La formation IA Constructys est certifiée Qualiopi et éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
+    a: "Oui. La formation IA Constructys est dispensée par un organisme certifié Qualiopi et éligible à une prise en charge par Constructys ou votre OPCO selon statut, branche et conditions en vigueur. Coût pédagogique couvert jusqu'à 24€ HT/heure/stagiaire.",
   },
 ];
 
@@ -138,7 +140,7 @@ export default function FormationIAArtisansBTPPage() {
           <Link href={LINKS.formationIaBtpNiveau1BatimentTp} className="text-[var(--accent)] font-medium hover:underline">
             formation IA pour entreprises du bâtiment
           </Link>
-          {' '}est certifiée Qualiopi, financement possible selon éligibilité.
+          {' '}est un organisme certifié Qualiopi, financement possible selon éligibilité.
         </p>
 
         {/* En bref unique : gains + définition */}
@@ -370,6 +372,8 @@ export default function FormationIAArtisansBTPPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-artisans-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ].filter((l) => !getClusterRelatedHrefs(LINKS.chatgptArtisans).includes(l.href))}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

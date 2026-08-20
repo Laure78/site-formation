@@ -13,7 +13,8 @@ import { SOCIAL_PROOF, CONTACT } from '@/lib/constants';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_SESSION_AVANCE_HT,
-  formatTarifHt,
+  libelleTarifSessionForfaitaire,
+  MENTIONS_TVA_REGIMES_COURT,
 } from '@/lib/tarifs-sessions';
 import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
@@ -25,7 +26,7 @@ import {
   FINANCEMENT_STAT_LABEL,
 } from '@/lib/financement-copy';
 import { AUTHOR_HEADSHOT_OBJECT_POSITION } from '@/lib/author-headshot';
-import { CatalogueInfosQualiopi } from '@/components/formation/InfosQualiopi';
+import { CatalogueInfosPratiques } from '@/components/InfosPratiques';
 import { RelatedLinks } from '@/components/RelatedLinks';
 
 const PATH = LINKS.formationIaMaitriseOeuvre;
@@ -36,15 +37,15 @@ const PHONE_TEL = CONTACT.phone;
 const CATALOGUE_VISUEL = getFormationCatalogueVisuel('NIV-05');
 
 export const metadata = createPageMetadata({
-  title: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
-  titleAbsolute: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
+  title: 'Formation IA maîtres d\'œuvre MOEX — organisme certifié Qualiopi',
+  titleAbsolute: 'Formation IA maîtres d\'œuvre MOEX — organisme certifié Qualiopi',
   description:
-    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Certifiée Qualiopi.`,
+    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Organisme certifié Qualiopi.`,
   path: PATH,
   openGraphType: 'website',
-  openGraphTitle: 'Formation IA maîtres d\'œuvre MOEX — Qualiopi',
+  openGraphTitle: 'Formation IA maîtres d\'œuvre MOEX — organisme certifié Qualiopi',
   openGraphDescription:
-    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Certifiée Qualiopi.`,
+    `Formation IA & ChatGPT pour la maîtrise d'œuvre d'exécution : analyse DCE, comptes rendus de chantier, OS et courriers, suivi des réserves. 4h, ${FINANCEMENT_FORMULATION_COURTE} Organisme certifié Qualiopi.`,
   alternatesLanguages: { 'fr-FR': `${SITE_CONFIG.url}${PATH}` },
   image: {
     url: CATALOGUE_VISUEL.src,
@@ -61,9 +62,11 @@ const HERO_BADGES = [
   `${SOCIAL_PROOF.AVERAGE_RATING} satisfaction`,
 ];
 
+const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_SESSION_AVANCE_HT);
+
 const HERO_RESUME = [
   `Session ${SESSION_DUREE_LIBELLE} — maîtrise d'œuvre d'exécution, 5 modules opérationnels.`,
-  `Forfait ${formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT — TVA exonérée (art. 261-4-4° CGI).`,
+  `Forfait ${TARIF_SESSION_LIBELLE}. ${MENTIONS_TVA_REGIMES_COURT}`,
   '3 à 8 participants — intra ou inter, présentiel Île-de-France.',
   `${FINANCEMENT_FORMULATION_PRUDENTE} ${FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}`,
 ];
@@ -234,8 +237,7 @@ export default function FormationIaMaitriseOeuvrePage() {
               / 30&nbsp;% théorie.
             </li>
             <li>
-              <strong>Tarif :</strong> {formatTarifHt(TARIF_SESSION_AVANCE_HT)} € HT — TVA exonérée (art.
-              261-4-4° CGI).
+              <strong>Tarif :</strong> {TARIF_SESSION_LIBELLE}. {MENTIONS_TVA_REGIMES_COURT}
             </li>
             <li>
               <strong>Financement :</strong> {FINANCEMENT_FORMULATION_PRUDENTE} {FINANCEMENT_CONSTRUCTYS_PLAFONDS_COURT}
@@ -257,7 +259,7 @@ export default function FormationIaMaitriseOeuvrePage() {
             <div className="min-w-0 flex-1">
               <p className="text-lg font-semibold text-slate-900">Laure Olivié</p>
               <p className="mt-1 text-slate-700">
-                Experte IA &amp; BTP — formatrice certifiée{' '}
+                Experte IA &amp; BTP — formatrice au sein d'un organisme certifié{' '}
                 <span className="inline-flex items-center gap-1">
                   Qualiopi
                   <QualiopiLogoInline heightPx={16} />
@@ -278,7 +280,7 @@ export default function FormationIaMaitriseOeuvrePage() {
           </div>
         </section>
 
-        <CatalogueInfosQualiopi programmeRef="NIV-05" />
+        <CatalogueInfosPratiques programmeRef="NIV-05" />
 
         <RelatedLinks path={PATH} className="mt-12 !px-0" tone="transparent" />
 
@@ -307,7 +309,7 @@ export default function FormationIaMaitriseOeuvrePage() {
             </a>
           </div>
           <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-white/90">
-            Certifié Qualiopi
+            Organisme certifié Qualiopi
             <QualiopiLogoInline heightPx={20} alt="" />
           </p>
         </section>

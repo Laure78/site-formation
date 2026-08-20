@@ -71,7 +71,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
 
       <FormationCourseHero
         catalogueRef="NIV-01"
-        refLine="Laure Olivié · OFC Création d'Entreprise · Guyancourt (78280) · Qualiopi · Constructys"
+        refLine="Laure Olivié · OFC Création d'Entreprise · Guyancourt (78280) · organisme certifié Qualiopi · Constructys"
         title={
           <>
             Formation IA pour les pros du BTP Saint-Quentin-en-Yvelines (78) —{' '}
@@ -80,7 +80,7 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
         }
         subtitle="Devis, comptes rendus de chantier, appels d'offres — méthode terrain, Île-de-France"
         badges={[
-          'Certification Qualiopi',
+          'Organisme certifié Qualiopi',
           'Financement OPCO Constructys selon dossier',
           'Inter FFB · intra entreprise',
         ]}
@@ -293,7 +293,8 @@ export default function FormationIABTPSaintQuentinYvelinesPage() {
           </h2>
           <div className="mt-6 max-w-3xl space-y-6 text-slate-600">
             <p>
-              La formation est certifiée Qualiopi et peut être financée par OPCO Constructys dans le cadre du plan
+              La formation est proposée par OFC Création d&apos;Entreprise, organisme certifié Qualiopi, et peut être
+              financée par OPCO Constructys dans le cadre du plan
               de développement des compétences, selon les règles applicables à votre entreprise (plafonds
               pédagogiques, dossier sur eGestion, délais — voir le{' '}
               <Link href={LINKS.financement} className="text-[var(--accent)] font-medium hover:underline">

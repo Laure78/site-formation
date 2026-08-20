@@ -15,13 +15,15 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-macon-paysagiste-btp';
 
 export const metadata = createMetierBtpPageMetadata('maçon paysagiste', {
   title: 'Formation IA maçon paysagiste BTP IDF',
   description:
-    'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Formation Qualiopi. Financement possible selon éligibilité.',
+    'Automatisez vos devis dallage, terrasses, maçonnerie paysagère. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA maçon paysagiste',
@@ -101,7 +103,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation en tant que maçon paysagiste ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
     q: "L'IA va-t-elle remplacer les maçons paysagistes ?",
@@ -383,7 +385,7 @@ export default function FormationIaMaconPaysagisteBtpPage() {
             Formation IA maçon paysagiste — Île-de-France & Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
@@ -403,6 +405,8 @@ export default function FormationIaMaconPaysagisteBtpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-macon-paysagiste-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

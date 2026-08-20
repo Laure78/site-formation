@@ -17,13 +17,15 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-dirigeant-pme-btp';
 
 export const metadata = createMetierBtpPageMetadata('chef TPE', {
   title: 'Formation IA chef TPE BTP — devis',
   description:
-    'Formation IA pour chefs TPE BTP : devis express, relances clients, prospection et admin courant. Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour chefs TPE BTP : devis express, relances clients, prospection et admin courant. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA chef entreprise BTP',
@@ -32,7 +34,7 @@ export const metadata = createMetierBtpPageMetadata('chef TPE', {
     'formation IA Île-de-France',
     'automatiser administratif BTP',
     'OPCO Constructys dirigeant',
-    'Qualiopi formation BTP',
+    'formation BTP — organisme certifié Qualiopi',
     'prospection IA BTP',
   ],
   openGraphType: 'website',
@@ -130,7 +132,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation si je suis chef d’entreprise BTP ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre branche, de la taille de l'entreprise et des dispositifs (plan de développement des compétences, etc.). Nous étudions votre dossier avec vous.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre branche, de la taille de l'entreprise et des dispositifs (plan de développement des compétences, etc.). Nous étudions votre dossier avec vous.",
   },
   {
     q: "ChatGPT peut-il m'aider avec la paie et RH ?",
@@ -437,7 +439,7 @@ export default function FormationIaDirigeantPmeBtpPage() {
             Formation IA chef d’entreprise BTP — Île-de-France & Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
@@ -455,6 +457,8 @@ export default function FormationIaDirigeantPmeBtpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-dirigeant-pme-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

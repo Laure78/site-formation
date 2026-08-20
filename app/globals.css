@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* Corps : --font-body (Next font Plus Jakarta sur <html>) */
+  /* ——— Typographie (corps Inter via --font-body, titres Outfit via --font-display) ——— */
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 
-  /* Lisibilité BTP — corps de texte légèrement agrandi (mobile + desktop) */
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5;
   --text-sm: 0.9375rem;
@@ -15,25 +14,87 @@
   --text-lg--line-height: 1.6;
   --text-xl: 1.3125rem;
   --text-xl--line-height: 1.5;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.35;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.25;
+
+  /* ——— Couleurs OFC (utilitaires Tailwind : bg-ofc-accent, text-ofc-ink, etc.) ——— */
+  --color-ofc-accent: #377cf3;
+  --color-ofc-accent-hover: #2d66d6;
+  --color-ofc-accent-soft: #eff6ff;
+  --color-ofc-surface: #f2f2f2;
+  --color-ofc-ink: #0f172a;
+  --color-ofc-ink-muted: #475569;
+  --color-ofc-ink-subtle: #64748b;
+  --color-ofc-border: rgba(15, 23, 42, 0.08);
+  --color-ofc-border-strong: rgba(15, 23, 42, 0.14);
+  --color-ofc-on-accent: #ffffff;
+
+  /* ——— Rayons (rounded-ofc-card, rounded-ofc-pill…) ——— */
+  --radius-ofc-sm: 0.5rem;
+  --radius-ofc-md: 0.75rem;
+  --radius-ofc-lg: 1rem;
+  --radius-ofc-xl: 1.25rem;
+  --radius-ofc-card: 1rem;
+  --radius-ofc-pill: 9999px;
+
+  /* ——— Ombres (shadow-ofc-md…) ——— */
+  --shadow-ofc-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-ofc-md: 0 4px 16px -4px rgba(15, 23, 42, 0.08);
+  --shadow-ofc-lg: 0 12px 32px -12px rgba(15, 23, 42, 0.1);
+  --shadow-ofc-accent: 0 8px 24px -8px rgba(55, 124, 243, 0.22);
+
+  /* ——— Durées animation ——— */
+  --duration-ofc-fast: 150ms;
+  --duration-ofc-base: 300ms;
+  --duration-ofc-slow: 450ms;
 }
 
 @layer base {
   :root {
-    /* Charte OFC — bleu primaire #377CF3 */
-    --accent: #377cf3;
-    --accent-soft: #eff6ff;
-    --muted: #64748b;
-    /* CTA header « Prendre RDV » — même bleu que les boutons primaires (sticky RDV, etc.) */
-    --nav-cta-bg: #377cf3;
-    --nav-cta-hover: #2d66d6;
-    --header-border: rgba(15, 23, 42, 0.08);
-    --ofc-surface: #f2f2f2;
-    --ofc-blue: #377cf3;
-    --ofc-blue-hover: #2d66d6;
+    /* Alias sémantiques — source unique (Tailwind @theme ci-dessus) */
+    --ofc-color-accent: var(--color-ofc-accent);
+    --ofc-color-accent-hover: var(--color-ofc-accent-hover);
+    --ofc-color-accent-soft: var(--color-ofc-accent-soft);
+    --ofc-color-surface: var(--color-ofc-surface);
+    --ofc-color-ink: var(--color-ofc-ink);
+    --ofc-color-ink-muted: var(--color-ofc-ink-muted);
+    --ofc-color-ink-subtle: var(--color-ofc-ink-subtle);
+    --ofc-color-border: var(--color-ofc-border);
+    --ofc-color-border-strong: var(--color-ofc-border-strong);
+    --ofc-color-on-accent: var(--color-ofc-on-accent);
+
+    /* Legacy — conserver pour le code existant (→ tokens sémantiques) */
+    --accent: var(--ofc-color-accent);
+    --accent-soft: var(--ofc-color-accent-soft);
+    --muted: var(--ofc-color-ink-subtle);
+    --nav-cta-bg: var(--ofc-color-accent);
+    --nav-cta-hover: var(--ofc-color-accent-hover);
+    --header-border: var(--ofc-color-border);
+    --ofc-surface: var(--ofc-color-surface);
+    --ofc-blue: var(--ofc-color-accent);
+    --ofc-blue-hover: var(--ofc-color-accent-hover);
+
     --site-header-height: 4rem;
+
+    /* Espacement sections — base 4 px, cible DA 96–160 px desktop */
     --ofc-section-py: 4rem;
-    --ofc-section-py-md: 5rem;
-    --ofc-section-py-lg: 5.5rem;
+    --ofc-section-py-md: 6rem;
+    --ofc-section-py-lg: 7rem;
+    --ofc-section-py-xl: 8.75rem;
+
+    /* Motion */
+    --ofc-duration-fast: var(--duration-ofc-fast);
+    --ofc-duration-base: var(--duration-ofc-base);
+    --ofc-duration-slow: var(--duration-ofc-slow);
+    --ofc-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ofc-reveal-distance: 10px;
+    --reveal-duration: var(--ofc-duration-base);
+
+    /* Largeur de lecture */
+    --ofc-read-width: 42rem;
+    --ofc-read-width-wide: 48rem;
   }
 
   @media (min-width: 1024px) {
@@ -42,9 +103,17 @@
     }
   }
 
+  @media (min-width: 1280px) {
+    :root {
+      --ofc-section-py-lg: 8rem;
+      --ofc-section-py-xl: 10rem;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--site-header-height);
+    overflow-x: clip;
     /* 17px mobile → 18px desktop (base navigateur 16px) */
     font-size: 106.25%;
   }
@@ -73,6 +142,99 @@
 
 .font-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ——— Échelle typographique OFC (DA : hero marqué, corps 17–18 px, lecture 65–75 car.) ——— */
+.ofc-type-hero {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2.125rem, 1.65rem + 1.75vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.ofc-type-h2 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.75rem, 1.45rem + 0.9vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+.ofc-type-h3 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.375rem, 1.2rem + 0.5vw, 1.75rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.ofc-type-lead {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--ofc-color-ink-muted);
+}
+
+.ofc-type-body {
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--ofc-color-ink-muted);
+}
+
+.ofc-type-caption {
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--ofc-color-ink-subtle);
+}
+
+.ofc-type-label {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ofc-color-ink-subtle);
+}
+
+.ofc-read-width {
+  max-width: var(--ofc-read-width);
+}
+
+.ofc-read-width-wide {
+  max-width: var(--ofc-read-width-wide);
+}
+
+.accueil-hero-details {
+  border-top: 1px solid var(--ofc-color-border);
+  padding-top: 2.5rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.accueil-hero-fold {
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .accueil-hero-fold {
+    gap: 1.5rem;
+  }
+
+  .accueil-rdv-calendly [data-calendly] > div:first-of-type {
+    height: min(560px, 72vh) !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .accueil-rdv-calendly [data-calendly] > div:first-of-type {
+    height: 620px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .accueil-hero-details {
+    padding-top: 3rem;
+  }
 }
 
 /* Icônes modernisées - conteneur arrondi avec accent */
@@ -215,7 +377,7 @@
 
 /* Accordéon OFC — animation grid-rows, contenu toujours dans le DOM */
 .ofc-accordion-summary {
-  @apply mt-4 inline-flex cursor-pointer list-none items-center gap-2 rounded-lg px-1 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply mt-4 inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-lg px-2 py-2.5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
 .ofc-accordion-summary::-webkit-details-marker {
@@ -280,7 +442,7 @@
   [data-reveal][data-reveal-state='pending'] {
     /* Contenu toujours lisible — pas d’opacity:0 (évite les grands vides au scroll). */
     opacity: 1;
-    transform: translateY(var(--reveal-distance, 8px));
+    transform: translateY(var(--reveal-distance, var(--ofc-reveal-distance)));
     will-change: transform;
   }
 
@@ -289,8 +451,8 @@
     transform: translateY(0);
     will-change: auto;
     transition:
-      opacity var(--reveal-duration, 0.4s) cubic-bezier(0.25, 0.46, 0.45, 0.94),
-      transform var(--reveal-duration, 0.4s) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      opacity var(--reveal-duration, var(--ofc-duration-base)) var(--ofc-ease-out),
+      transform var(--reveal-duration, var(--ofc-duration-base)) var(--ofc-ease-out);
     transition-delay: var(--reveal-delay, 0ms);
   }
 }
@@ -451,29 +613,313 @@
   }
 }
 
+/* Accueil — hero animé & cartes sections */
+@keyframes ofc-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ofc-hero-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-50%) scale(1.06);
+  }
+}
+
+@keyframes ofc-hero-mesh-node-pulse {
+  0%,
+  100% {
+    fill-opacity: 0.22;
+  }
+  50% {
+    fill-opacity: 0.55;
+  }
+}
+
+@keyframes ofc-hero-mesh-line-draw {
+  from {
+    stroke-dashoffset: 400;
+    stroke-opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accueil-hero-glow {
+    animation: ofc-hero-glow-breathe 8s ease-in-out infinite;
+  }
+
+  .accueil-hero-content > * {
+    opacity: 0;
+    animation: ofc-hero-enter 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .accueil-hero-content > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .accueil-hero-content > *:nth-child(2) {
+    animation-delay: 0.12s;
+  }
+  .accueil-hero-content > *:nth-child(3) {
+    animation-delay: 0.19s;
+  }
+  .accueil-hero-content > *:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+  .accueil-hero-content > *:nth-child(5) {
+    animation-delay: 0.33s;
+  }
+  .accueil-hero-content > *:nth-child(6) {
+    animation-delay: 0.4s;
+  }
+
+  .accueil-hero-aside {
+    opacity: 0;
+    animation: ofc-hero-enter 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.18s forwards;
+  }
+
+  .ofc-hero-mesh-line {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: ofc-hero-mesh-line-draw 2.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+  }
+
+  .ofc-hero-mesh-node {
+    animation: ofc-hero-mesh-node-pulse 3.5s ease-in-out infinite;
+  }
+
+  /* Cartes bénéfices & cas d'usage accueil */
+  @keyframes ofc-benefit-icon-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      box-shadow: 0 10px 15px -3px rgba(55, 124, 243, 0.25);
+    }
+    50% {
+      transform: scale(1.08);
+      box-shadow: 0 14px 28px -6px rgba(55, 124, 243, 0.45);
+    }
+  }
+
+  @keyframes ofc-gain-shimmer {
+    0% {
+      transform: translateX(-120%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(220%) skewX(-12deg);
+    }
+  }
+
+  @keyframes ofc-arrow-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(3px);
+    }
+  }
+
+  @keyframes ofc-cas-accent-grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .ofc-benefit-card {
+    transition:
+      transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .ofc-benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(55, 124, 243, 0.35);
+    box-shadow: 0 18px 40px -14px rgba(55, 124, 243, 0.22);
+  }
+
+  .ofc-benefit-card:hover .ofc-benefit-icon {
+    animation: ofc-benefit-icon-pulse 1.2s ease-in-out infinite;
+  }
+
+  .ofc-problem-solution-card:hover .ofc-problem-arrow {
+    animation: ofc-arrow-bounce 0.9s ease-in-out infinite;
+  }
+
+  .ofc-howto-step {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .ofc-howto-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #377cf3, #6366f1);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 0 2px 2px 0;
+  }
+
+  .ofc-howto-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -12px rgba(55, 124, 243, 0.18);
+    border-color: rgba(55, 124, 243, 0.25);
+  }
+
+  .ofc-howto-step:hover::before {
+    transform: scaleY(1);
+  }
+
+  .ofc-gain-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ofc-gain-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.12) 50%,
+      transparent 60%
+    );
+    transform: translateX(-120%) skewX(-12deg);
+    pointer-events: none;
+  }
+
+  .ofc-gain-card:hover::after {
+    animation: ofc-gain-shimmer 0.85s ease forwards;
+  }
+
+  .ofc-gain-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .ofc-cas-usage-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      box-shadow 0.35s ease,
+      border-color 0.35s ease;
+  }
+
+  .ofc-cas-usage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #377cf3, #6366f1, #10b981);
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: 2;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .ofc-cas-usage-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(55, 124, 243, 0.4);
+    box-shadow: 0 20px 44px -16px rgba(55, 124, 243, 0.28);
+  }
+
+  .ofc-cas-usage-card:hover::before {
+    animation: ofc-cas-accent-grow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .ofc-cas-usage-card .ofc-cas-usage-image {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .ofc-cas-usage-card:hover .ofc-cas-usage-image {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accueil-hero-content > *,
+  .accueil-hero-aside {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .accueil-hero-glow {
+    animation: none !important;
+  }
+
+  .ofc-benefit-card:hover,
+  .ofc-howto-step:hover,
+  .ofc-gain-card:hover,
+  .ofc-cas-usage-card:hover {
+    transform: none !important;
+  }
+
+  .ofc-benefit-card:hover .ofc-benefit-icon,
+  .ofc-problem-solution-card:hover .ofc-problem-arrow,
+  .ofc-gain-card:hover::after,
+  .ofc-cas-usage-card:hover::before {
+    animation: none !important;
+  }
+
+  .ofc-cas-usage-card:hover .ofc-cas-usage-image {
+    transform: none !important;
+  }
+}
+
 /* ——— Micro-interactions OFC (cartes · CTA · liens) ——— */
 @layer components {
   .ofc-card {
-    @apply rounded-2xl border border-slate-200/90 bg-white shadow-sm;
+    @apply rounded-ofc-card border bg-white shadow-ofc-sm;
+    border-color: color-mix(in srgb, var(--ofc-color-ink) 12%, transparent);
     @apply transition-[transform,box-shadow,border-color] duration-150 ease-out;
   }
 
   .ofc-card:hover {
-    @apply -translate-y-0.5 border-[#377CF3];
-    box-shadow: 0 10px 28px -10px rgba(55, 124, 243, 0.24);
+    @apply -translate-y-0.5 border-ofc-accent;
+    box-shadow: var(--shadow-ofc-accent);
   }
 
   .ofc-card:active {
-    @apply translate-y-0 border-[#377CF3]/90 shadow-sm;
+    @apply translate-y-0 border-ofc-accent/90 shadow-ofc-sm;
   }
 
   .ofc-card:focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-[#377CF3];
+    @apply outline outline-2 outline-offset-2 outline-ofc-accent;
   }
 
-  /** Cartes maillage interne sur fond gris OFC (#F2F2F2). */
+  /** Cartes maillage interne sur fond gris OFC. */
   .ofc-card-muted {
-    @apply bg-[#F2F2F2] font-semibold text-[#377CF3];
+    @apply bg-ofc-surface font-semibold text-ofc-accent;
   }
 
   .ofc-card-muted:hover {
@@ -481,42 +927,42 @@
   }
 
   .ofc-cta-primary {
-    @apply inline-flex items-center justify-center rounded-xl bg-[#377CF3] px-8 py-4 text-base font-semibold text-white;
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-lg bg-ofc-accent px-8 py-4 text-base font-semibold text-white;
     @apply transition-[transform,background-color,box-shadow] duration-150 ease-out;
-    @apply hover:bg-[#2d66d6] hover:shadow-[0_6px_20px_-6px_rgba(55,124,243,0.45)];
+    @apply hover:bg-ofc-accent-hover hover:shadow-ofc-accent;
     @apply active:scale-[0.98];
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3];
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent;
   }
 
   .ofc-cta-primary-pill {
-    @apply inline-flex min-h-[46px] items-center justify-center rounded-full bg-[#377CF3] px-7 py-3 text-center text-[0.95rem] font-semibold text-white;
-    @apply shadow-[0_4px_14px_-4px_rgba(55,124,243,0.65)] ring-2 ring-[#377CF3]/90 ring-offset-2 ring-offset-[#f5f9ff];
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-pill bg-ofc-accent px-7 py-3 text-center text-[0.95rem] font-semibold text-white;
+    @apply shadow-ofc-accent ring-2 ring-ofc-accent/90 ring-offset-2 ring-offset-ofc-accent-soft;
     @apply transition-[transform,background-color,box-shadow] duration-150 ease-out;
-    @apply hover:bg-[#2d66d6] hover:shadow-[0_6px_22px_-6px_rgba(55,124,243,0.55)];
+    @apply hover:bg-ofc-accent-hover;
     @apply active:scale-[0.97];
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3];
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent;
   }
 
   .ofc-cta-secondary {
-    @apply inline-flex items-center justify-center rounded-xl border-2 border-[#377CF3] bg-white px-8 py-4 text-base font-semibold text-[#377CF3];
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-lg border-2 border-ofc-accent bg-white px-8 py-4 text-base font-semibold text-ofc-accent;
     @apply transition-[transform,background-color,border-color] duration-150 ease-out;
-    @apply hover:border-[#2d66d6] hover:bg-[#F2F2F2];
+    @apply hover:border-ofc-accent-hover hover:bg-ofc-surface;
     @apply active:scale-[0.98];
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3];
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent;
   }
 
   .ofc-cta-on-accent {
-    @apply inline-flex items-center justify-center rounded-xl border-2 border-white bg-white px-8 py-4 font-semibold text-[#377CF3];
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-lg border-2 border-white bg-white px-8 py-4 font-semibold text-ofc-accent;
     @apply transition-[transform,background-color,box-shadow] duration-150 ease-out;
-    @apply hover:bg-[#F2F2F2] hover:shadow-[0_4px_16px_-6px_rgba(15,23,42,0.12)];
+    @apply hover:bg-ofc-surface hover:shadow-ofc-md;
     @apply active:scale-[0.98];
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
   }
 
   .ofc-cta-compact {
-    @apply inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-bold text-[#377CF3];
+    @apply inline-flex min-h-11 items-center justify-center rounded-ofc-md bg-white px-6 py-3 text-sm font-bold text-ofc-accent;
     @apply transition-[transform,background-color,box-shadow] duration-150 ease-out;
-    @apply hover:bg-[#F2F2F2] hover:shadow-[0_4px_14px_-6px_rgba(15,23,42,0.1)];
+    @apply hover:bg-ofc-surface hover:shadow-ofc-md;
     @apply active:scale-[0.98];
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
   }
@@ -640,17 +1086,26 @@
 
   .site-header[data-compact='true'] .site-header__rdv .ofc-cta-primary,
   .site-header[data-compact='true'] .site-header__actions .ofc-cta-primary,
-  .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary {
+  .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary,
+  .site-header[data-compact='true'] .site-header__rdv .ofc-cta-primary-pill,
+  .site-header[data-compact='true'] .site-header__actions .ofc-cta-primary-pill,
+  .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary-pill {
     @apply py-2 text-sm;
   }
 
-  .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary {
-    @apply max-[380px]:px-3 max-[380px]:py-1.5 max-[380px]:text-[0.6875rem];
+  .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary,
+  .site-header[data-compact='true'] .site-header__rdv-mobile .ofc-cta-primary-pill {
+    @apply max-[380px]:min-h-11 max-[380px]:px-3 max-[380px]:py-2.5 max-[380px]:text-xs;
+  }
+
+  /* Liens / pills sur bandeau accent interne — touch 44 px */
+  .ofc-on-accent-link {
+    @apply inline-flex min-h-11 items-center justify-center rounded-full border border-white/50 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
   }
 
   /* ——— Rythme visuel sections OFC ——— */
   .ofc-section {
-    @apply relative scroll-mt-24 px-4;
+    @apply relative scroll-mt-24 px-4 sm:px-6 lg:px-8;
     padding-top: var(--ofc-section-py);
     padding-bottom: var(--ofc-section-py);
   }
@@ -669,22 +1124,32 @@
     }
   }
 
+  @media (min-width: 1280px) {
+    .ofc-section {
+      padding-top: var(--ofc-section-py-xl);
+      padding-bottom: var(--ofc-section-py-xl);
+    }
+  }
+
   .ofc-section--compact {
     --ofc-section-py: 3rem;
-    --ofc-section-py-md: 3.5rem;
-    --ofc-section-py-lg: 4rem;
+    --ofc-section-py-md: 4rem;
+    --ofc-section-py-lg: 5rem;
+    --ofc-section-py-xl: 6rem;
   }
 
   .ofc-section--hero {
-    --ofc-section-py: 3.5rem;
-    --ofc-section-py-md: 5rem;
-    --ofc-section-py-lg: 6rem;
+    --ofc-section-py: 3rem;
+    --ofc-section-py-md: 4.5rem;
+    --ofc-section-py-lg: 5.5rem;
+    --ofc-section-py-xl: 6.5rem;
   }
 
   .ofc-section--loose {
     --ofc-section-py: 5rem;
-    --ofc-section-py-md: 6rem;
-    --ofc-section-py-lg: 6.5rem;
+    --ofc-section-py-md: 6.5rem;
+    --ofc-section-py-lg: 8rem;
+    --ofc-section-py-xl: 10rem;
   }
 
   .ofc-section--white {
@@ -692,19 +1157,25 @@
   }
 
   .ofc-section--muted {
-    background-color: #f2f2f2;
+    background-color: var(--ofc-color-surface);
   }
 
   .ofc-section--soft {
-    background-color: var(--accent-soft);
+    background-color: var(--ofc-color-accent-soft);
   }
 
   .ofc-section--accent {
-    @apply bg-[#377CF3] text-white;
+    background-color: var(--ofc-color-accent);
+    color: var(--ofc-color-on-accent);
   }
 
   .ofc-section--hero-bg {
-    background: linear-gradient(180deg, #f2f2f2 0%, #f5f9ff 42%, #ffffff 100%);
+    background: linear-gradient(
+      180deg,
+      var(--ofc-color-surface) 0%,
+      #f5f9ff 42%,
+      #ffffff 100%
+    );
   }
 
   .ofc-section--mesh {

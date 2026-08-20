@@ -80,7 +80,7 @@ export function FormationIaDirigeantBtpLanding() {
       <div className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <article>
           <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-            Décideurs · PME du bâtiment · Qualiopi
+            Décideurs · PME du bâtiment · organisme certifié Qualiopi
           </p>
           <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
             Formation IA dirigeant BTP : ROI, équipes et avantage concurrentiel
@@ -192,7 +192,7 @@ export function FormationIaDirigeantBtpLanding() {
                   sensibilisation dirigeant
                 </strong>{' '}
                 (vision, ROI, risques) avec des{' '}
-                <strong className="text-slate-900">sessions métier</strong> sur le catalogue Qualiopi — le tout cohérent
+                <strong className="text-slate-900">sessions métier</strong> sur le catalogue — organisme certifié Qualiopi — le tout cohérent
                 avec votre organisation réelle (intra vs inter, exclusivement en présentiel en Île-de-France).
               </p>
             </div>
@@ -204,7 +204,7 @@ export function FormationIaDirigeantBtpLanding() {
             </h2>
             <div className="mt-6 space-y-4 text-slate-700 leading-relaxed">
               <p>
-                Le coût direct inclut les <strong className="text-slate-900">sessions certifiées</strong> (forfaits par
+                Le coût direct inclut les <strong className="text-slate-900">sessions (organisme certifié Qualiopi)</strong> (forfaits par
                 session selon le module) et le <strong className="text-slate-900">temps interne</strong> de cadrage
                 et de conduite du changement — souvent sous-estimé. Les outils (licences pro, comptes entreprise)
                 s’ajoutent selon vos choix techniques.
@@ -308,7 +308,7 @@ export function FormationIaDirigeantBtpLanding() {
 
           <section className="mt-14 border-t border-slate-200 pt-10 text-sm text-slate-600">
             <p>
-              <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Certifiée Qualiopi
+              <strong>{SITE_CONFIG.legalName}</strong> — SIRET {SITE_CONFIG.siret} · NDA 11788515078 · Organisme certifié Qualiopi
               · {SITE_CONFIG.email} ·{' '}
               <a href={SITE_CONFIG.url} className={OFC_LINK}>
                 www.laureolivie.fr

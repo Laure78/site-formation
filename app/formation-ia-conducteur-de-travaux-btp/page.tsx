@@ -47,6 +47,8 @@ const CALENDLY_FINAL = buildSiteCalendlyCtaUrl(
   'formation-ia-conducteur-de-travaux-btp-rdv-final'
 );
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const metadata = createMetierBtpPageMetadata('conducteur de travaux', {
   title: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.title,
   description: FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_BTP_SEO.description,
@@ -466,9 +468,11 @@ export default function FormationIaConducteurDeTravauxBtpPage() {
           excludeHrefs={CONDUCTEUR_TRAVAUX_RELATED.map((l) => l.href)}
           />
 
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
+
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
-          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">

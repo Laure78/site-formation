@@ -19,13 +19,15 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-administrative-btp';
 
 export const metadata = createMetierBtpPageMetadata('assistante administrative', {
   title: 'IA assistante admin BTP — courriers',
   description:
-    'Formation IA pour assistantes administratives BTP : courriers, mails, suivi chantier, comptes rendus. Qualiopi. Financement possible selon éligibilité.',
+    'Formation IA pour assistantes administratives BTP : courriers, mails, suivi chantier, comptes rendus. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA assistante administrative BTP',
@@ -125,7 +127,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation si je suis assistante administrative salariée ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre employeur et des règles du plan de développement des compétences — aucune promesse de « zéro reste à charge » sans étude de dossier.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre employeur et des règles du plan de développement des compétences — aucune promesse de « zéro reste à charge » sans étude de dossier.",
   },
   {
     q: "ChatGPT peut-il m'aider avec la paie et RH ?",
@@ -425,7 +427,7 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
             Formation IA assistante administrative BTP — Île-de-France & Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
@@ -456,6 +458,8 @@ export default function FormationIaAssistanteAdministrativeBtpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-assistante-administrative-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ].filter((l) => !getClusterRelatedHrefs(PATH).includes(l.href))}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

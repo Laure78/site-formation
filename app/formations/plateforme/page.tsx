@@ -11,7 +11,7 @@ export const revalidate = 3600;
 
 const META_TITLE = 'Espace apprenant — formation IA BTP';
 const META_DESCRIPTION =
-  'Connexion à l’espace apprenant OFC : supports post-session de formation IA pour le BTP, réservés aux stagiaires Qualiopi.';
+  'Connexion à l’espace apprenant OFC : supports post-session de formation IA pour le BTP, réservés aux stagiaires OFC (organisme certifié Qualiopi).';
 
 export const metadata = createPageMetadata({
   title: META_TITLE,
@@ -208,7 +208,7 @@ export default function FormationPlateformePage() {
             inscription.
           </p>
           <p className="mt-6 text-sm text-white/80">
-            Besoin d&apos;une formation en présentiel ? Consultez le catalogue Qualiopi ou{' '}
+            Besoin d&apos;une formation en présentiel ? Consultez le catalogue — organisme certifié Qualiopi ou{' '}
             <Link href={LINKS.beworkPlateforme} className="font-semibold underline underline-offset-2 hover:text-white">
               la plateforme BeWork (MOEX)
             </Link>

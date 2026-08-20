@@ -27,6 +27,8 @@ import {
   buildFormationIaConstructionCourseJsonLd,
 } from '@/lib/formation-ia-construction-landing';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
@@ -110,7 +112,7 @@ export default function FormationIaConstructionPage() {
       <article>
         <header>
           <p className="text-sm font-medium uppercase tracking-wide text-[#377CF3]">
-            {SITE_CONFIG.legalName} · Qualiopi · Constructys · Présentiel Île-de-France
+            {SITE_CONFIG.legalName} · organisme certifié Qualiopi · Constructys · Présentiel Île-de-France
           </p>
           <h1 className="font-display mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem] lg:leading-tight">
             {FORMATION_IA_CONSTRUCTION_SEO.h1}
@@ -124,7 +126,7 @@ export default function FormationIaConstructionPage() {
             <ShortAnswerBlock>
               Formation IA construction pour entreprises générales, BET et directions travaux : analyse
               DCE, mémoires techniques, DPGF et reporting MOA/MOE. Session 4 h en présentiel,
-              certifiée Qualiopi, {FINANCEMENT_FORMULATION_PRUDENTE.toLowerCase()}
+              organisme certifié Qualiopi, {FINANCEMENT_FORMULATION_PRUDENTE.toLowerCase()}
             </ShortAnswerBlock>
           </div>
 
@@ -391,7 +393,9 @@ export default function FormationIaConstructionPage() {
           <p>
             {SITE_CONFIG.name} — {SITE_CONFIG.legalName}
           </p>
-          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <RenvoiFicheCatalogue programmeRef="NIV-01" />
+
+          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
         </footer>
       </article>
     </div>

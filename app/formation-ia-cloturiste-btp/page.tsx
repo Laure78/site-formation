@@ -15,13 +15,15 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { createMetierBtpPageMetadata } from '@/lib/formation-ia-metier-idf';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-cloturiste-btp';
 
 export const metadata = createMetierBtpPageMetadata('clôturiste', {
   title: 'Formation IA Clôturiste BTP Île-de-France',
   description:
-    'Automatisez vos devis clôtures, portails, grillages. Formation Qualiopi. Financement possible selon éligibilité.',
+    'Automatisez vos devis clôtures, portails, grillages. Organisme certifié Qualiopi. Financement possible selon éligibilité.',
   path: PATH,
   keywords: [
     'formation IA clôturiste',
@@ -109,7 +111,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Comment financer la formation en tant que clôturiste ?',
-    a: "OFC Création d'Entreprise est certifiée Qualiopi et enregistrée Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
+    a: "OFC Création d'Entreprise est un organisme certifié Qualiopi et enregistré Constructys. Le financement dépend de votre situation et des règles du plan de développement des compétences — étude de dossier au cas par cas.",
   },
   {
     q: "L'IA va-t-elle remplacer les clôturistes ?",
@@ -389,7 +391,7 @@ export default function FormationIaCloturisteBtpPage() {
             Formation IA clôturiste — Île-de-France & Grand Paris
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}{sitePhoneDisplaySuffix()}
           </p>
         </section>
@@ -409,6 +411,8 @@ export default function FormationIaCloturisteBtpPage() {
             { href: buildSiteCalendlyCtaUrl('formation-ia-cloturiste-btp-footer-rdv'), label: 'Prendre rendez-vous' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

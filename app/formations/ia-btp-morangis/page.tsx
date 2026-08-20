@@ -23,7 +23,7 @@ export const metadata = createPageMetadata({
     'formation IA pour les pros du BTP Les Ulis',
     'formation IA appliquée au bâtiment Longjumeau',
     'OPCO Constructys Essonne',
-    'Qualiopi formation IA bâtiment 91',
+    'formation IA bâtiment — organisme certifié Qualiopi 91',
   ],
 });
 

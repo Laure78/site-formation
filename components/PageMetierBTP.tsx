@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { EnBref } from '@/app/components/EnBref';
 import { CalendlyEmbed } from '@/components/CalendlyEmbed';
 import { DisclaimerGains } from '@/components/formation/DisclaimerGains';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { FAQAnswer } from '@/components/landing/FAQAnswer';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
@@ -117,7 +118,7 @@ export function PageMetierBTP({
         metierLabel={metier}
         path={path}
         courseName={`Formation IA ${metier} BTP`}
-        courseDescription={`Formation IA et ChatGPT pour ${metier} du BTP : brouillons, tableaux, documents de chantier. Présentiel Île-de-France, Qualiopi. Référentiel : ${norme}.`}
+        courseDescription={`Formation IA et ChatGPT pour ${metier} du BTP : brouillons, tableaux, documents de chantier. Présentiel Île-de-France — organisme certifié Qualiopi. Référentiel : ${norme}.`}
         duration="PT4H"
         price={TARIF_FORFAIT_DEBUTANT_HT}
         level="Professionnel"
@@ -131,7 +132,7 @@ export function PageMetierBTP({
       <article className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <MetierIdfPresentielLine className="mb-3" />
         <p className="text-sm font-semibold uppercase tracking-wide text-[#377CF3]">
-          {norme} · Qualiopi · Île-de-France
+          {norme} · organisme certifié Qualiopi · Île-de-France
         </p>
         <h1 className="font-display mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-[2.35rem]">
           {titre}
@@ -280,6 +281,8 @@ export function PageMetierBTP({
             ]}
           />
         ) : null}
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" contexte={`pour les ${metier}s`} />
 
         <LaureOlivieFormationPortrait
           id="qui-est-laure-olivie"

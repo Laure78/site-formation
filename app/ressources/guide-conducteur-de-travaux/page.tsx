@@ -99,7 +99,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Ce guide remplace une formation présentielle ?',
-    a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA pour les pros du BTP certifiée Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
+    a: 'Non : c’est un support autonome à parcourir à votre rythme. Une formation IA pour les pros du BTP dispensée par un organisme certifié Qualiopi reste pertinente pour monter en compétences sur vos cas réels, avec exercices terrain et mise en équipe.',
   },
   {
     q: 'Où trouver d’autres tutos BTP en pages web ?',
@@ -421,7 +421,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               Qui est Laure Olivié ?
             </h2>
             <p className="mt-4 text-slate-700 leading-relaxed">
-              Formatrice IA spécialisée BTP — OFC Création d&apos;Entreprise, certifiée Qualiopi. Sessions avec
+              Formatrice IA spécialisée BTP — OFC Création d&apos;Entreprise, organisme certifié Qualiopi. Sessions avec
               la FFB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
             </p>
             <p className="mt-3 font-semibold text-slate-900">

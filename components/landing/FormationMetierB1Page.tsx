@@ -244,7 +244,7 @@ export function FormationMetierB1Page({
 
         <section className="mt-14">
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d&apos;Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d&apos;Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>
@@ -256,7 +256,7 @@ export function FormationMetierB1Page({
 
         <ContextualLinksSection
           title="Catalogue et ressources"
-          subtitle="Programmes Qualiopi, financement Constructys, Claude AI et articles pratiques."
+          subtitle="Programmes catalogue — organisme certifié Qualiopi, financement Constructys, Claude AI et articles pratiques."
           links={getMetierLandingCoreLinks({ csfePartnership: false }).filter(
             (l) =>
               !getClusterRelatedHrefs(path).includes(l.href) &&

@@ -13,7 +13,7 @@ import {
   libelleEffectifMaxFormation,
   type Formation,
 } from '@/data/formations';
-import { formatTarifHt, MENTIONS_TVA_EXONERATION_COURTE } from '@/lib/tarifs-sessions';
+import { formatTarifHt, libelleTarifSessionForfaitaire, MENTIONS_TVA_REGIMES_COURT } from '@/lib/tarifs-sessions';
 
 export type CatalogueLevel = 'DÉBUTANT' | 'AVANCÉ';
 
@@ -167,11 +167,10 @@ export function tarifLabel(level: CatalogueLevel): string {
 }
 
 function libelleTarifPourEntry(entry: FormationCatalogueEntry): string {
-  const n = formatTarifHt(entry.prixHT);
-  return `${n} € HT / session forfaitaire (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_EXONERATION_COURTE}`;
+  return `${libelleTarifSessionForfaitaire(entry.prixHT)} (${libelleEffectifMaxFormation(entry)}) — ${MENTIONS_TVA_REGIMES_COURT}`;
 }
 
 /** Libellé tarif carte catalogue */
 export function tarifLabelForEntry(entry: FormationCatalogueEntry): string {
-  return `${formatTarifHt(entry.prixHT)} € HT / session`;
+  return libelleTarifSessionForfaitaire(entry.prixHT);
 }

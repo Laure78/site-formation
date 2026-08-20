@@ -29,7 +29,7 @@ const baseUrl = SITE_CONFIG.url.replace(/\/$/, '');
 
 const FORMATIONS_HTML_TITLE = 'Catalogue formations IA pour le BTP';
 const FORMATIONS_META_DESCRIPTION =
-  "5 formations IA pour le BTP en 4 h : devis, appels d'offres, conduite de travaux, Claude AI et maîtrise d'œuvre. Présentiel IDF, Qualiopi, Constructys.";
+  "5 formations IA pour le BTP en 4 h : devis, appels d'offres, conduite de travaux, Claude AI et maîtrise d'œuvre. Présentiel IDF — organisme certifié Qualiopi, Constructys.";
 
 export const metadata: Metadata = {
   ...createPageMetadata({
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
       "formation IA appels d'offre BTP",
       'formation IA RH BTP',
       'formation IA architecte',
-      'formation IA Qualiopi',
+      'formation IA — organisme certifié Qualiopi',
       'formation IA Constructys',
       'formation IA appliquée au bâtiment Île-de-France',
     ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       url: PHOTOS.formationIaBtpSalleInteractive2026.src,
       width: 1200,
       height: 630,
-      alt: `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi de 4 h`,
+      alt: `Catalogue formation IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} formations dispensées par un organisme certifié Qualiopi de 4 h`,
     },
   }),
   alternates: {

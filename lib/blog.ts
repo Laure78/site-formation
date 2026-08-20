@@ -22,7 +22,7 @@ import {
   clusterMaillageHtmlSection,
 } from '@/lib/ao-dce-cluster-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
-import { formatTarifHt, TARIF_SESSION_FORFAIT_HT } from '@/lib/tarifs-sessions';
+import { formatTarifHt, TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import {
   getAllMdxBlogSlugs,
   getMdxFrontmatter,
@@ -949,7 +949,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       {
         type: 'html',
         title: 'Combien coûte une formation IA pour les pros du BTP ?',
-        content: `<p class="text-slate-600 leading-relaxed">Les sessions catalogue sont calibrées sur 4 h, au forfait unique ${formatTarifHt(TARIF_SESSION_FORFAIT_HT)} € HT par session (tous niveaux), jusqu'à 12 participants. Pour les entreprises du BTP, financement possible selon éligibilité par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. Le montage OPCO est détaillé dans mon <a href="${LINKS.blogFinancerFormationIaBtpConstructys}" class="text-[var(--accent)] font-medium underline">guide Constructys pour financer une formation IA BTP</a>. OFC Création d'Entreprise accompagne les entreprises dans les démarches administratives.</p>`,
+        content: `<p class="text-slate-600 leading-relaxed">Les sessions catalogue sont calibrées sur 4 h, au forfait unique ${libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)} (tous niveaux), jusqu'à 12 participants. Pour les entreprises du BTP, financement possible selon éligibilité par OPCO Constructys : 24€ HT/heure/stagiaire pour le coût pédagogique, 15€ HT/heure pour les salaires (entreprises de moins de 11 salariés). Le dossier doit être soumis 15 jours avant via la plateforme eGestion. Le montage OPCO est détaillé dans mon <a href="${LINKS.blogFinancerFormationIaBtpConstructys}" class="text-[var(--accent)] font-medium underline">guide Constructys pour financer une formation IA BTP</a>. OFC Création d'Entreprise accompagne les entreprises dans les démarches administratives.</p>`,
       },
       {
         type: 'paragraph',

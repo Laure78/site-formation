@@ -17,13 +17,15 @@ import { LINKS } from '@/lib/internal-links';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-couvreur-btp';
 
 /** Segment avant suffixe — total avec « | Laure Olivié » = 53 car. (≤ 60). */
 const SEO_TITLE = 'Formation IA couvreur-zingueur BTP IDF';
 const SEO_DESCRIPTION =
-  "Formation IA pour couvreurs-zingueurs en Île-de-France : devis toiture, CR de chantier, DTU et appels d'offres. Présentiel, Qualiopi. Visio découverte.";
+  "Formation IA pour couvreurs-zingueurs en Île-de-France : devis toiture, CR de chantier, DTU et appels d'offres. Présentiel — organisme certifié Qualiopi. Visio découverte.";
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
@@ -216,7 +218,7 @@ export default function FormationIaCouvreurBtpPage() {
         <p className="mt-6 text-xl text-slate-600">
           Devis toiture, métrés, zinguerie, CR de chantier et réponses aux appels d&apos;offres :{' '}
           <strong>ChatGPT et Claude AI</strong> accélèrent l&apos;écrit administratif des entreprises de
-          couverture, sans remplacer le terrain. Formation <strong>Qualiopi</strong>,{' '}
+          couverture, sans remplacer le terrain. Formation dispensée par un organisme certifié <strong>Qualiopi</strong>,{' '}
           <strong>présentiel uniquement</strong> en Île-de-France et Grand Paris — financement OPCO possible
           selon éligibilité.
         </p>
@@ -462,7 +464,7 @@ export default function FormationIaCouvreurBtpPage() {
             Formation IA couvreur-zingueur — présentiel en Île-de-France uniquement
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d&apos;Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d&apos;Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>

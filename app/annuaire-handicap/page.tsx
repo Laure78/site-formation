@@ -224,7 +224,7 @@ export default function AnnuaireHandicapPage() {
         <p className="mt-2 font-semibold text-slate-900">
           OFC Création d&apos;Entreprise
         </p>
-        <p>SIRET : 905 244 281 00010 | Certification Qualiopi</p>
+        <p>SIRET : 905 244 281 00010 | Organisme certifié Qualiopi</p>
         <p>
           Numéro de déclaration d&apos;activité : 11788515078 (auprès du préfet
           de région d&apos;Île-de-France)

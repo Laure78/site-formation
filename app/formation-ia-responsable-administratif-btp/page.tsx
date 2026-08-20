@@ -39,6 +39,8 @@ import {
   buildResponsableAdministratifBtpCourseJsonLd,
 } from '@/lib/formation-ia-responsable-administratif-btp-landing';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 
 export const metadata = createMetierBtpPageMetadata('responsable administratif', {
@@ -363,7 +365,7 @@ export default function FormationIaResponsableAdministratifBtpPage() {
             Financement Constructys — selon éligibilité
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
-            OFC Création d&apos;Entreprise est certifiée Qualiopi. Un{' '}
+            OFC Création d&apos;Entreprise est un organisme certifié Qualiopi. Un{' '}
             <strong>financement OPCO Constructys est possible selon éligibilité</strong> et constitution du dossier —
             jamais « garanti » a priori. Pour les plafonds, démarches eGestion et cas de figure (salarié, dirigeant),
             consultez le{' '}
@@ -446,9 +448,11 @@ export default function FormationIaResponsableAdministratifBtpPage() {
           ].filter((l) => !getClusterRelatedHrefs(path).includes(l.href))}
         />
 
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
+
         <footer className="mt-14 border-t border-slate-200 pt-8 text-sm text-slate-500">
           <p>Laure Olivié — Formatrice IA pour les pros du BTP, OFC Création d&apos;Entreprise</p>
-          <p>Certifiée Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
+          <p>Organisme certifié Qualiopi · SIRET 905 244 281 00010 · NDA 11788515078</p>
           <p>
             contact@laureolivie.fr ·{' '}
             <a href="https://www.laureolivie.fr" className="underline">

@@ -26,6 +26,22 @@ export const QUALIOPI_FICHE_META = {
   version: 'V2026.1',
 } as const;
 
+export const QUALIOPI_MENTION_PERIMETRE =
+  "La certification qualité a été délivrée au titre de la catégorie d'action suivante : ACTIONS DE FORMATION.";
+
+export const QUALIOPI_CERTIFICAT_PDF_LABEL = 'Télécharger notre certificat Qualiopi (PDF)';
+
+export const QUALIOPI_NDA_MENTION_REGLEMENTAIRE =
+  "Déclaration d'activité enregistrée sous le n° 11788515078 auprès du préfet de région d'Île-de-France. Cet enregistrement ne vaut pas agrément de l'État.";
+
+export const QUALIOPI_ORGANISME_CERTIFIE = 'organisme certifié Qualiopi';
+
+export const QUALIOPI_FORMATION_DISPENSEE =
+  'formation dispensée par un organisme certifié Qualiopi';
+
+export const QUALIOPI_FORMATIONS_DISPENSEES =
+  'formations dispensées par un organisme certifié Qualiopi';
+
 export const QUALIOPI_DELAI_ACCES_EXACT =
   "Délai d'accès : entrée en formation sous 2 à 4 semaines après signature de la convention. En cas de prise en charge OPCO (Constructys), prévoir un délai minimum de 15 jours entre la demande de financement et le début de la formation.";
 
@@ -44,7 +60,7 @@ export const QUALIOPI_CERTIFICAT_REALISATION =
   "Certificat de réalisation et attestation de fin de formation délivrés à l'issue de la session.";
 
 export const QUALIOPI_BEWORK_DISTINCTION =
-  "BeWork est un service de solutions IA sur mesure pour le BTP (conception, déploiement, accompagnement), distinct des actions de formation certifiées Qualiopi d'OFC Création d'Entreprise. Il n'est pas éligible aux financements OPCO.";
+  "BeWork est un service de solutions IA sur mesure pour le BTP (conception, déploiement, accompagnement), distinct des actions de formation de l'organisme certifié Qualiopi OFC Création d'Entreprise. Il n'est pas éligible aux financements OPCO.";
 
 export const QUALIOPI_SATISFACTION_SOURCING = PREUVES_MENTION_SOURCE;
 

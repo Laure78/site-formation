@@ -5,19 +5,22 @@
 import { CONTACT } from '@/lib/constants';
 import {
   QUALIOPI_ACCESSIBILITE_EXACT,
+  QUALIOPI_CERTIFICAT_PDF_LABEL,
   QUALIOPI_CERTIFICAT_REALISATION,
   QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_FICHE_META,
+  QUALIOPI_MENTION_PERIMETRE,
   QUALIOPI_MODALITES_ACCES_EXACT,
+  QUALIOPI_NDA_MENTION_REGLEMENTAIRE,
 } from '@/config/qualiopi';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { SITE_CONFIG } from '@/lib/seo';
 import {
-  MENTIONS_TVA_EXONERATION_COURTE,
+  libelleTarifIntraEntreprise,
+  libelleTarifInterEntreprise,
   MODALITE_FORMATIONS_PRESENTIEL,
   PREREQUIS_NIVEAU_2,
-  formatTarifHt,
 } from '@/lib/tarifs-sessions';
 import {
   FORMATIONS_CATALOGUE,
@@ -35,10 +38,9 @@ export const QUALIOPI_LEGAL = {
   formeJuridique: OFC_IDENTITE.formeJuridique,
   siret: OFC_IDENTITE.siret,
   nda: OFC_IDENTITE.nda,
-  ndaExactMention:
-    "Enregistré sous le numéro 11788515078 auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de l'État.",
-  qualiopiCategoryMention:
-    "La certification qualité a été délivrée au titre de la catégorie d'actions suivante : ACTIONS DE FORMATION",
+  ndaExactMention: QUALIOPI_NDA_MENTION_REGLEMENTAIRE,
+  qualiopiCategoryMention: QUALIOPI_MENTION_PERIMETRE,
+  certificatPdfLabel: QUALIOPI_CERTIFICAT_PDF_LABEL,
   certificatNumero: '520911-1',
   /** Libellé humain (footer, pages légales). */
   certificatValidite: 'du 16/01/2025 au 15/01/2028',
@@ -146,10 +148,11 @@ function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
 }
 
 function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; intra: string } {
-  const montant = entry.prixHT;
-  const inter = `${formatTarifHt(montant)} € HT / session forfaitaire en inter-entreprise (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
-  const intra = `Intra-entreprise : forfait ${formatTarifHt(montant)} € HT / session selon effectif et lieu (${entry.effectif.toLowerCase()}). ${MENTIONS_TVA_EXONERATION_COURTE}.`;
-  return { inter, intra };
+  const effectif = entry.effectif.toLowerCase();
+  return {
+    inter: libelleTarifInterEntreprise(entry.prixHT, effectif),
+    intra: libelleTarifIntraEntreprise(entry.prixHT, effectif),
+  };
 }
 
 export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {

@@ -7,7 +7,7 @@ import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { LINKS } from '@/lib/internal-links';
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { CATALOGUE_FORMATIONS_COUNT } from '@/lib/formations-catalogue-display';
-import { PERIMETRE_FORMATIONS_COURT, formatTarifHt, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE } from '@/lib/tarifs-sessions';
+import { PERIMETRE_FORMATIONS_COURT, TARIF_SESSION_FORFAIT_HT, SESSION_DUREE_LIBELLE, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
 import { PHOTOS } from '@/lib/photos';
 
 const QUICK_LINKS = [
@@ -22,19 +22,19 @@ const QUICK_LINKS = [
 export function FormationsHero() {
   return (
     <MarketingLightHero
-      eyebrow={`${CATALOGUE_FORMATIONS_COUNT} formations Qualiopi`}
-      title={`Catalogue des formations IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} parcours Qualiopi de ${SESSION_DUREE_LIBELLE}`}
+      eyebrow={`${CATALOGUE_FORMATIONS_COUNT} parcours catalogue — organisme certifié Qualiopi`}
+      title={`Catalogue des formations IA pour le BTP — ${CATALOGUE_FORMATIONS_COUNT} parcours de ${SESSION_DUREE_LIBELLE}`}
       titleId="formations-catalogue-hero-h1"
       description={
         <>
-          Sessions Qualiopi de {SESSION_DUREE_LIBELLE} en présentiel — {PERIMETRE_FORMATIONS_COURT}. Devis, appels
+          Sessions en présentiel — organisme certifié Qualiopi — {SESSION_DUREE_LIBELLE} · {PERIMETRE_FORMATIONS_COURT}. Devis, appels
           d&apos;offres, conduite de travaux avec Claude AI et ChatGPT : forfait unique{' '}
-          {formatTarifHt(TARIF_SESSION_FORFAIT_HT)}&nbsp;€&nbsp;HT
-          <MentionTvaAsterisque /> / session, financement partiel possible selon éligibilité (Constructys).
+          {libelleTarifSessionForfaitaire(TARIF_SESSION_FORFAIT_HT)}
+          <MentionTvaAsterisque /> — financement partiel possible selon éligibilité (Constructys).
         </>
       }
       stats={[
-        { icon: GraduationCap, value: CATALOGUE_FORMATIONS_COUNT, label: 'formations Qualiopi' },
+        { icon: GraduationCap, value: CATALOGUE_FORMATIONS_COUNT, label: 'parcours catalogue' },
         { icon: Users, value: formatProfessionalsTrainedCount(), label: 'pros formés' },
         { icon: Star, value: SOCIAL_PROOF.AVERAGE_RATING, label: 'satisfaction clients' },
       ]}
@@ -67,7 +67,7 @@ export function FormationsHero() {
           <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600">
             <span className="inline-flex items-center gap-1">
               <Award className="h-3.5 w-3.5 shrink-0 text-[#377CF3]" strokeWidth={2.5} aria-hidden />
-              Qualiopi certifié
+              Organisme certifié Qualiopi
             </span>
             <span className="text-slate-300" aria-hidden>
               ·

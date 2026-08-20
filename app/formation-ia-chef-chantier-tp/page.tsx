@@ -28,6 +28,8 @@ import {
   PROMPT_VARIATION_CHEF,
 } from '@/lib/formation-ia-chef-chantier-tp-landing';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 
 export const metadata = createPageMetadata({
@@ -387,7 +389,7 @@ export default function FormationIaChefChantierTpPage() {
             Formation IA chef de chantier TP — Île-de-France &amp; Grand Paris
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-slate-600">
-            OFC Création d’Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
+            OFC Création d’Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA 11788515078 ·{' '}
             {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>
@@ -403,6 +405,8 @@ export default function FormationIaChefChantierTpPage() {
             { href: LINKS.financement, label: 'Financement Constructys' },
           ]}
         />
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" />
       </article>
     </div>
   );

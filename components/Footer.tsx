@@ -3,7 +3,7 @@ import { Mail, Globe, Map, MapPin, GraduationCap, Phone } from 'lucide-react';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { SITE_CONFIG } from '@/lib/seo';
 import { PERIMETRE_FORMATIONS_COURT } from '@/lib/tarifs-sessions';
-import { SCHEMA_CONTACT } from '@/lib/schema-constants';
+import { SCHEMA_CONTACT, SCHEMA_GEO } from '@/lib/schema-constants';
 import { CONTACT } from '@/lib/constants';
 import { QualiopiWordmark } from '@/components/QualiopiLogo';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
@@ -79,7 +79,7 @@ export function Footer() {
               Formations IA pour les pros du BTP &amp; ChatGPT entreprise
             </p>
             <p className="mt-0.5 text-sm text-slate-600">
-              Catalogue <QualiopiWordmark />, financement Constructys — sessions 4 h.
+              Catalogue — organisme certifié <QualiopiWordmark /> — financement Constructys, sessions 4 h.
             </p>
             <Link href={LINKS.skillIaConducteurTravaux} className={`mt-3 inline-flex text-sm ${OFC_LINK}`}>
               Guide Conducteur de travaux — PDF gratuit →
@@ -112,7 +112,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-3 max-w-xs text-sm leading-snug text-slate-600">
-              IA pour PME du bâtiment et équipes BTP — méthode terrain, Qualiopi.
+              {QUALIOPI_LEGAL.raisonSociale} — IA pour PME du bâtiment et équipes BTP, méthode terrain.
             </p>
             <p className="mt-2 max-w-xs text-xs font-medium leading-snug text-slate-500">
               {PERIMETRE_FORMATIONS_COURT}
@@ -147,12 +147,17 @@ export function Footer() {
               </Link>
             </div>
             <address className="not-italic mt-3 space-y-1 text-[11px] leading-snug text-slate-500">
-              <span className="block">Guyancourt (78) · SIRET {SCHEMA_CONTACT.siretFormatted}</span>
-              <span className="block">
-                Organisme de formation enregistré sous le n° de déclaration d&apos;activité {SCHEMA_CONTACT.nda}{' '}
-                auprès du préfet de région Île-de-France. Cet enregistrement ne vaut pas agrément de
-                l&apos;État.
+              <span className="block font-medium text-slate-600">
+                {QUALIOPI_LEGAL.raisonSociale} · SIRET {SCHEMA_CONTACT.siretFormatted} · NDA{' '}
+                {SCHEMA_CONTACT.nda}
               </span>
+              <span className="block">
+                {SCHEMA_GEO.streetAddress}, {SCHEMA_GEO.postalCode} {SCHEMA_GEO.addressLocality}
+              </span>
+              <span className="block">
+                {SCHEMA_CONTACT.email} · {CONTACT.phoneDisplay}
+              </span>
+              <span className="block">{QUALIOPI_LEGAL.ndaExactMention}</span>
             </address>
           </div>
 
@@ -167,7 +172,15 @@ export function Footer() {
           <FooterExploreStrip title="Formations en Île-de-France" links={NAV_IDF} />
         </div>
 
-        <ReferentHandicapBlock variant="compact" className="mb-8" />
+        <ReferentHandicapBlock variant="compact" className="mb-3" />
+        <p className="mb-8 text-center text-sm">
+          <Link
+            href={LINKS.accessibiliteHandicap}
+            className="font-medium text-[#377CF3] underline-offset-2 hover:underline"
+          >
+            Accessibilité handicap — informations complètes et adaptations possibles
+          </Link>
+        </p>
 
         <QualiopiCertificationNotice className="mt-8 rounded-xl border border-slate-200 bg-slate-50/80 px-4 py-4" />
 

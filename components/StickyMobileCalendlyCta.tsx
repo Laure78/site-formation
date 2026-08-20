@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -8,6 +9,8 @@ import {
   deriveCalendlyCampaign,
 } from '@/lib/calendly';
 import { CALENDLY_DEFAULT_BUTTON_TEXT } from '@/lib/calendly-embed-config';
+import { LINKS } from '@/lib/internal-links';
+import { OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 import { shouldShowStickyMobileCalendlyBar } from '@/lib/sticky-mobile-calendly-path';
 
 const SESSION_DISMISS_KEY = 'ofc-sticky-mobile-calendly-dismissed';
@@ -91,6 +94,7 @@ export function StickyMobileCalendlyCta() {
     setDismissed(true);
   }, []);
 
+  const isHome = pathname === '/' || pathname === '';
   const show = mounted && eligible && !dismissed && scrolled && !footerVisible;
 
   if (!eligible) return null;
@@ -116,17 +120,26 @@ export function StickyMobileCalendlyCta() {
         >
           <X className="h-4 w-4" strokeWidth={2} aria-hidden />
         </button>
-        <CalendlyEmbed
-          type="link"
-          variant="primary"
-          buttonText={CALENDLY_DEFAULT_BUTTON_TEXT}
-          ctaPosition="floating"
-          ctaId="sticky-mobile-bar"
-          utmSource="site"
-          utmMedium="sticky-mobile"
-          campaign={campaign}
-          className="block w-full min-h-[48px] rounded-xl px-4 py-3.5 pr-12 text-center text-[0.8125rem] font-semibold leading-snug"
-        />
+        {isHome ? (
+          <Link
+            href={LINKS.accueilRdv}
+            className={`${OFC_CTA_PRIMARY} cta-calendly block w-full min-h-12 rounded-xl px-4 py-3.5 pr-12 text-center text-[0.8125rem] font-semibold leading-snug`}
+          >
+            {CALENDLY_DEFAULT_BUTTON_TEXT}
+          </Link>
+        ) : (
+          <CalendlyEmbed
+            type="link"
+            variant="primary"
+            buttonText={CALENDLY_DEFAULT_BUTTON_TEXT}
+            ctaPosition="floating"
+            ctaId="sticky-mobile-bar"
+            utmSource="site"
+            utmMedium="sticky-mobile"
+            campaign={campaign}
+            className="block w-full min-h-12 rounded-xl px-4 py-3.5 pr-12 text-center text-[0.8125rem] font-semibold leading-snug"
+          />
+        )}
       </div>
     </div>
   );

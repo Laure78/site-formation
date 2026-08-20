@@ -334,35 +334,6 @@ export const PARTENAIRES_PAGE_SECTIONS: PartenairePageSection[] = [
       </>,
     ],
   },
-  {
-    id: 'capeb',
-    h2: 'CAPEB',
-    subtitle: 'Confédération de l’Artisanat et des Petites Entreprises du Bâtiment',
-    officialHref: PARTNER_WEBSITES.capeb,
-    officialLabel: 'Site officiel CAPEB',
-    paragraphs: [
-      <>
-        La CAPEB représente les petites entreprises du bâtiment. Les adhérents sont des
-        dirigeants de TPE et des équipes de terrain qui, de plus en plus, rédigent aussi
-        au bureau (devis, relances, comptes rendus).
-      </>,
-      <>
-        Lorsque le réseau me confie une intervention, j’anime une formation IA en
-        présentiel en Île-de-France : mêmes thèmes concrets (devis, mails, CR), même
-        cadre Qualiopi OFC, sans jargon startup.
-      </>,
-      <>
-        Les TPE du bâtiment n’ont souvent ni service RH ni « chef de projet digital ».
-        L’atelier vise donc un usage immédiat : un devis mieux cadré, un mail de relance
-        propre, un CR de visite lisible. Je ne vends pas d’outil, je n’installe rien dans
-        l’entreprise, je n’interviens pas dans la vie syndicale de la confédération.
-      </>,
-      <>
-        Je décris ici des formations déléguées, pas un partenariat exclusif, ni une
-        labellisation CAPEB du catalogue OFC.
-      </>,
-    ],
-  },
 ];
 
 export const PARTENAIRES_PAGE_CLOSING: ReactNode[] = [

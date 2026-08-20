@@ -18,6 +18,8 @@ import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOli
 import { TARIF_SESSION_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { RESSOURCES_MINIATURES } from '@/lib/ressources-miniatures';
 
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
+
 export const revalidate = 3600;
 const PATH = '/formation-ia-assistante-travaux';
 const GUIDE_THUMB = RESSOURCES_MINIATURES.guideAssistantsTravaux;
@@ -25,7 +27,7 @@ const GUIDE_THUMB = RESSOURCES_MINIATURES.guideAssistantsTravaux;
 /** Segment avant suffixe — total avec « | Laure Olivié » ≈ 52 car. (≤ 60). */
 const SEO_TITLE = 'Formation IA assistante travaux BTP';
 const SEO_DESCRIPTION =
-  'Formation IA pour assistantes travaux en Île-de-France : PPSPS, CR chantier, DOE, DC4 et suivi de marché. Présentiel Qualiopi. Visio découverte (30 min).';
+  'Formation IA pour assistantes travaux en Île-de-France : PPSPS, CR chantier, DOE, DC4 et suivi de marché. Présentiel — organisme certifié Qualiopi. Visio découverte (30 min).';
 
 export const metadata = createPageMetadata({
   title: SEO_TITLE,
@@ -215,7 +217,8 @@ export default function FormationIaAssistanteTravauxPage() {
         <p className="mt-6 text-xl text-slate-600">
           PPSPS, CR de chantier, DC4, OS, visas et DOE :{' '}
           <strong>ChatGPT et Claude AI</strong> accélèrent l&apos;écrit des assistantes et assistants
-          travaux, sans remplacer la coordination terrain. Formation <strong>Qualiopi</strong>,{' '}
+          travaux, sans remplacer la coordination terrain. Session OFC —{' '}
+          <strong>organisme certifié Qualiopi</strong>,{' '}
           <strong>présentiel uniquement</strong> en Île-de-France et Grand Paris — financement OPCO
           possible selon éligibilité.
         </p>
@@ -492,7 +495,7 @@ export default function FormationIaAssistanteTravauxPage() {
             Formation IA assistante travaux — présentiel en Île-de-France uniquement
           </h2>
           <p className="mt-4 text-sm text-slate-600 leading-relaxed">
-            OFC Création d&apos;Entreprise · Certifiée Qualiopi · SIRET {SITE_CONFIG.siret} · NDA
+            OFC Création d&apos;Entreprise · Organisme certifié Qualiopi · SIRET {SITE_CONFIG.siret} · NDA
             11788515078 · {SITE_CONFIG.email}
             {sitePhoneDisplaySuffix()}
           </p>

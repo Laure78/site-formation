@@ -15,6 +15,7 @@ import { EFFECTIF_GROUPE_MAX, TARIF_FORFAIT_DEBUTANT_HT ,
 import { SOCIAL_PROOF, formatProfessionalsTrainedCount } from '@/lib/constants';
 import { PHOTOS } from '@/lib/photos';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
+import { RenvoiFicheCatalogue } from '@/components/qualiopi/RenvoiFicheCatalogue';
 import { RelatedLinks } from '@/components/RelatedLinks';
 import { LiensConnexes } from '@/components/LiensConnexes';
 import { getLiensConnexesHrefs } from '@/lib/liens-connexes';
@@ -78,7 +79,7 @@ export default function FormationIaConducteurTravauxPage() {
             {FORMATION_IA_CONDUCTEUR_TRAVAUX_SEO.h1}
           </h1>
           <p className="mt-4 text-lg text-slate-600">
-            Laure Olivié · {SITE_CONFIG.legalName} · Qualiopi · Finançable Constructys
+            Laure Olivié · {SITE_CONFIG.legalName} · organisme certifié Qualiopi · Finançable Constructys
           </p>
 
           <figure className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
@@ -95,7 +96,7 @@ export default function FormationIaConducteurTravauxPage() {
           <div className="mt-8">
             <ShortAnswerBlock>
               Automatisez CR, PPSPS, mails chantier et rapports de réception avec ChatGPT et Claude AI.
-              Formation certifiée <strong>Qualiopi</strong>, éligible <strong>Constructys</strong> selon dossier —{' '}
+              Formation dispensée par un organisme certifié <strong>Qualiopi</strong>, éligible <strong>Constructys</strong> selon dossier —{' '}
               <strong>+{formatProfessionalsTrainedCount()} professionnels</strong> formés, note{' '}
               {SOCIAL_PROOF.AVERAGE_RATING}.
             </ShortAnswerBlock>
@@ -168,7 +169,7 @@ export default function FormationIaConducteurTravauxPage() {
           </p>
           <p className="mt-4 leading-relaxed text-slate-600">
             La formation <strong>L&apos;IA au service des professionnels du BTP (NIV-01)</strong> couvre ces usages en
-            4 h pratiques, sur vos documents réels, avec certification Qualiopi — programme détaillé plus bas sur cette
+            4 h pratiques, sur vos documents réels, dispensée par un organisme certifié Qualiopi — programme détaillé plus bas sur cette
             page.
           </p>
 
@@ -414,6 +415,8 @@ export default function FormationIaConducteurTravauxPage() {
             <PublicPhoneCta className="inline-flex items-center rounded-lg border border-slate-300 px-5 py-3 font-medium text-slate-800 hover:bg-white" />
           </div>
         </section>
+
+        <RenvoiFicheCatalogue programmeRef="NIV-01" contexte="pour les conducteurs de travaux" />
 
         <LaureOlivieFormationPortrait />
 </article>

@@ -77,7 +77,7 @@ export const NAV_LEGAL: readonly NavItem[] = [
   { href: LINKS.accessibiliteHandicap, label: 'Accessibilité & handicap' },
   { href: LINKS.annuaireHandicap, label: 'Annuaire handicap' },
   { href: LINKS.indicateursResultats, label: 'Indicateurs de résultats' },
-  { href: LINKS.qualiopi, label: 'Certification Qualiopi' },
+  { href: LINKS.qualiopi, label: 'Organisme certifié Qualiopi' },
   { href: LINKS.reclamations, label: 'Réclamations' },
   { href: '/llms.txt', label: 'llms.txt' },
 ];

@@ -3,20 +3,21 @@ import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import { ALT_LOGO_CSFE, ALT_LOGO_FFB_OFFICIEL } from '@/lib/client-logos';
 import { OFC_SEC } from '@/lib/ofc-section-classes';
 
+type FFBIAAccrocheSectionProps = {
+  /** Intégré dans `AccueilPreuveSocialeSection` — sans wrapper `<section>`. */
+  embedded?: boolean;
+};
+
 /**
  * Aligné campagne FFB terrain : citation + visuel affiche + logos réseau (FFB / CSFE).
  */
-export function FFBIAAccrocheSection() {
-  return (
-    <section
-      className={OFC_SEC.white}
-      aria-labelledby="ffb-ia-accroche-titre"
-    >
-      <div className="mx-auto max-w-6xl">
+export function FFBIAAccrocheSection({ embedded = false }: FFBIAAccrocheSectionProps) {
+  const content = (
+      <div className={embedded ? undefined : 'mx-auto max-w-6xl'}>
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <div className="mx-auto w-full max-w-[min(100%,640px)] lg:mx-0">
-            <div className="flex aspect-video w-full items-center justify-center gap-8 overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.22)]">
-              <div className="relative h-20 w-full max-w-[240px]">
+            <div className="flex aspect-auto w-full flex-col items-center justify-center gap-6 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.22)] sm:flex-row sm:gap-8 sm:p-8">
+              <div className="relative h-16 w-full max-w-[200px] sm:h-20 sm:max-w-[240px]">
                 <Image
                   src="/images/partenaires/logo-ffb-partenaire-formation-ia-btp.webp"
                   alt={ALT_LOGO_FFB_OFFICIEL}
@@ -27,7 +28,7 @@ export function FFBIAAccrocheSection() {
                   sizes="240px"
                 />
               </div>
-              <div className="relative h-20 w-full max-w-[240px]">
+              <div className="relative h-16 w-full max-w-[200px] sm:h-20 sm:max-w-[240px]">
                 <Image
                   src="/images/partenaires/logo-csfe-partenaire-formation-btp.webp"
                   alt={ALT_LOGO_CSFE}
@@ -77,6 +78,18 @@ export function FFBIAAccrocheSection() {
         </div>
 
       </div>
+  );
+
+  if (embedded) {
+    return content;
+  }
+
+  return (
+    <section
+      className={OFC_SEC.white}
+      aria-labelledby="ffb-ia-accroche-titre"
+    >
+      {content}
     </section>
   );
 }
