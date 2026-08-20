@@ -4,7 +4,7 @@ import { createPageMetadata } from '@/lib/seo';
 import { MediationCm2cBlock } from '@/components/qualiopi/MediationCm2cBlock';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { OFC_IDENTITE, QUALIOPI_RECLAMATIONS } from '@/lib/qualiopi-info';
-import { PROOF } from '@/lib/proof';
+import { LINKS } from '@/lib/internal-links';
 
 export const revalidate = 3600;
 export const metadata = createPageMetadata({
@@ -33,10 +33,12 @@ export default function CGVPage() {
           <p className="mt-2 text-sm text-slate-600">
             Organisme de formation certifié Qualiopi
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm text-slate-600">
-            <span>SIRET : 905 244 281 00010</span>
-            <span>NDA : 11788515078</span>
-            <span>6 rue Henri Dunant, 78280 GUYANCOURT</span>
+          <div className="mt-6 space-y-1 text-sm text-slate-600">
+            <p className="flex flex-wrap justify-center gap-x-6">
+              <span>SIRET : 905 244 281 00010</span>
+              <span>NDA : 11788515078</span>
+            </p>
+            <p>6 rue Henri Dunant, 78280 GUYANCOURT</p>
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-x-6 text-sm">
             <a
@@ -123,6 +125,15 @@ export default function CGVPage() {
             contact@laureolivie.fr ; par voie postale. Demande d&apos;inscription → proposition commerciale → convention
             de formation signée avant l&apos;entrée en formation → convocation.
           </p>
+          <p className="mt-2">
+            Les prérequis, objectifs, contenus, durée, tarifs, méthodes mobilisées, modalités
+            d&apos;évaluation et conditions d&apos;accessibilité de chaque formation sont consultables
+            sur la{' '}
+            <Link href={LINKS.formations} className="text-[var(--accent)] hover:underline">
+              fiche programme
+            </Link>{' '}
+            correspondante avant toute contractualisation.
+          </p>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
             3.2 Délai de rétractation (personnes physiques)
           </h3>
@@ -144,6 +155,17 @@ export default function CGVPage() {
           <p className="mt-2">
             Contrat de formation (L.6353-3) pour particuliers ; convention (L.6353-2)
             pour entreprises ; programme détaillé ; règlement intérieur.
+          </p>
+          <h3 className="mt-6 font-semibold text-[var(--accent)]">
+            3.5 — DÉLAIS D&apos;ACCÈS
+          </h3>
+          <p className="mt-2">
+            Le délai moyen entre la demande d&apos;inscription et l&apos;entrée en formation est de
+            2 à 4 semaines en inter-entreprises et de 4 à 6 semaines en intra-entreprise,
+            ce délai intégrant l&apos;instruction du dossier de prise en charge OPCO. En cas de
+            financement direct par le Client, l&apos;entrée en formation peut intervenir sous
+            10 jours ouvrés selon les disponibilités de sessions. Le délai applicable est
+            confirmé au Client dans la proposition commerciale.
           </p>
         </section>
 
@@ -255,7 +277,7 @@ export default function CGVPage() {
             <li>Non-présentation : facturation intégrale</li>
           </ul>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            9.2 Par le Client — Intra-entreprise
+            9.3 Par le Client — Intra-entreprise
           </h3>
           <ul className="mt-2 list-disc space-y-1 pl-6">
             <li>Plus de 21 jours : annulation sans frais</li>
@@ -263,11 +285,16 @@ export default function CGVPage() {
             <li>Moins de 14 jours : facturation intégrale</li>
           </ul>
           <h3 className="mt-6 font-semibold text-[var(--accent)]">
-            9.3 Remplacement / 9.4 Interruption
+            9.4 Remplacement
           </h3>
           <p className="mt-2">
-            Remplacement possible sans frais (préavis 3 jours ouvrés). Interruption
-            par le Stagiaire : formation due en totalité, aucun remboursement.
+            Remplacement possible sans frais (préavis 3 jours ouvrés).
+          </p>
+          <h3 className="mt-6 font-semibold text-[var(--accent)]">
+            9.5 Interruption
+          </h3>
+          <p className="mt-2">
+            Interruption par le Stagiaire : formation due en totalité, aucun remboursement.
           </p>
         </section>
 
@@ -382,7 +409,7 @@ export default function CGVPage() {
       {/* Pied de page */}
       <div className="mt-16 rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center">
         <p className="font-semibold text-slate-900">
-          Version en vigueur au {PROOF.majLe} — OFC Création d&apos;Entreprise
+          Version en vigueur au 20/08/2026 — OFC Création d&apos;Entreprise
         </p>
         <div className="mt-6 space-y-1 text-sm text-slate-600">
           <p className="font-bold text-[var(--accent)]">
