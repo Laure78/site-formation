@@ -125,7 +125,7 @@ function BlocCtaHaut() {
 function BlocCtaMilieu() {
   return (
     <div className="not-prose rounded-2xl border-2 border-[var(--accent)] bg-white p-6 shadow-md">
-      <p className="font-display text-lg font-bold text-slate-900">Pas sûr(e) d&apos;être éligible Constructys ?</p>
+      <p className="font-display text-lg font-bold text-slate-900">Pas sûr(e) du financement Constructys ?</p>
       <p className="mt-2 text-slate-700">
         En 30 minutes de visio, je vérifie votre situation et vous explique ce que Constructys peut prendre en
         charge selon votre dossier et les barèmes en vigueur.
@@ -520,7 +520,7 @@ export default function FormationIaBtpPillarPage() {
             <blockquote className="rounded-2xl border-l-4 border-[var(--accent)] bg-slate-50 p-6 text-slate-800">
               <p className="italic">
                 « La partie sur les mémoires techniques a tout changé pour nous. On répond à 2 fois plus d&apos;AO
-                qu&apos;avant avec la même équipe. Le financement Constructys s&apos;est fait sans aucune complication. »
+                qu&apos;avant avec la même équipe. Le dossier Constructys a été monté avec l&apos;accompagnement OFC, selon les règles en vigueur. »
               </p>
               <footer className="mt-3 text-sm font-semibold text-slate-600">
                 — Sophie R., chargée d&apos;affaires, entreprise de second œuvre 78

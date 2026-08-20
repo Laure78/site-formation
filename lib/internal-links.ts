@@ -15,7 +15,7 @@ export const LINKS = {
   formations: '/formations',
   /** Hub métiers & zones IDF — pilier cluster « métiers » */
   formationIaHub: '/formation-ia',
-  /** Hub — 2 formations LinkedIn Learning (en ligne, à la demande) */
+  /** Hub — 2 formations LinkedIn Learning (à la demande) */
   formationsLinkedInLearning: '/formations-linkedin-learning',
   blog: '/blog',
   /** Article pilier GEO — guide formation IA appliquée au bâtiment 2026 */

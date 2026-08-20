@@ -194,7 +194,7 @@ export function getAProposUnifiedJsonLd(): Record<string, unknown> {
       '@type': 'Course',
       '@id': courseId,
       name: item.courseLabel,
-      description: `Formation en ligne LinkedIn Learning — ${item.courseLabel}. Instructrice : Laure Olivié.`,
+      description: `Cours LinkedIn Learning à la demande — ${item.courseLabel}. Instructrice : Laure Olivié.`,
       url: item.courseHref,
       provider: { '@type': 'Organization', name: 'LinkedIn Learning' },
       instructor: { '@id': PERSON_ID },

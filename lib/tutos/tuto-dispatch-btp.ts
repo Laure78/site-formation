@@ -298,7 +298,7 @@ export const TUTO_DISPATCH_BTP: TutoData = {
     },
     {
       q: "Quelle est la différence entre Dispatch et l'app Claude classique sur téléphone ?",
-      a: "L'app classique te permet de discuter avec Claude depuis ton téléphone, mais sans accès à tes fichiers PC ni à tes apps installées. Dispatch ajoute la dimension « ton PC fait le travail pour toi ». C'est la différence entre demander un conseil à un assistant à distance et lui dire de faire le boulot directement sur ton ordinateur.",
+      a: "L'app classique te permet de discuter avec Claude depuis ton téléphone, mais sans accès à tes fichiers PC ni à tes apps installées. Dispatch ajoute la dimension « ton PC fait le travail pour toi ». C'est la différence entre demander un conseil à un assistant externe et lui dire de faire le boulot directement sur ton ordinateur.",
     },
     {
       q: 'Dispatch va-t-il rester disponible sur le plan Pro à 20€/mois ?',

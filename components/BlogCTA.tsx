@@ -35,7 +35,7 @@ export function BlogCTA({ className = '', articleSlug, idSuffix = 'end' }: BlogC
         Vous souhaitez être accompagné ?
       </h3>
       <p className="mt-3 text-[15px] leading-relaxed text-slate-700 md:text-base">
-        Formation de 4h éligible à une prise en charge par Constructys ou votre OPCO selon conditions en vigueur. Zéro théorie, 100% pratique sur vos documents réels.
+        Formation de 4 h — financement OPCO possible selon éligibilité (Constructys ou votre OPCO). Zéro théorie, 100 % pratique sur vos documents réels.
       </p>
       <div className="mt-5">
         <CalendlyEmbed

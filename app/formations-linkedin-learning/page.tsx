@@ -72,11 +72,11 @@ const FAQ_ITEMS = [
       'L’accès se fait via LinkedIn Learning : abonnement individuel, entreprise, ou essai gratuit proposé par LinkedIn selon les périodes.',
   },
   {
-    q: 'Ces cours en ligne remplacent-ils la formation en présentiel ?',
+    q: 'Ces cours LinkedIn Learning remplacent-ils la formation OFC en présentiel ?',
     aDirect:
-      'Non, ils sont complémentaires : le présentiel travaille sur tes propres documents.',
+      'Non, ils sont complémentaires : le présentiel OFC travaille sur tes propres documents.',
     aMore:
-      'En ligne tu découvres les bases à ton rythme. En formation OFC (présentiel, Île-de-France), on applique l’IA à tes devis, DCE et comptes rendus réels.',
+      'Sur LinkedIn Learning tu découvres les bases à ton rythme. En formation OFC (présentiel, Île-de-France), on applique l’IA à tes devis, DCE et comptes rendus réels.',
   },
   {
     q: 'Faut-il être à l’aise avec l’informatique ?',
@@ -287,7 +287,7 @@ export default function FormationsLinkedInLearningPage() {
             Formations LinkedIn Learning — l&apos;IA appliquée au BTP par Laure Olivié
           </h1>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-            Découvre en ligne, approfondis en présentiel sur tes propres documents. Deux cours à la
+            Découvre les bases sur LinkedIn Learning, approfondis en présentiel sur tes propres documents. Deux cours à la
             demande sur LinkedIn Learning, puis formation OFC — {IDF_ZONE_INTERVENTION}.
           </p>
 
@@ -359,7 +359,7 @@ export default function FormationsLinkedInLearningPage() {
               Les 2 formations disponibles sur LinkedIn Learning
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-              Formations en ligne, à la demande, accessibles avec un abonnement LinkedIn Learning (ou
+              Cours LinkedIn Learning à la demande, accessibles avec un abonnement (ou
               l&apos;essai gratuit LinkedIn).
             </p>
 
@@ -402,7 +402,7 @@ export default function FormationsLinkedInLearningPage() {
                       Critère
                     </th>
                     <th scope="col" className="px-4 py-3 font-semibold md:px-5">
-                      LinkedIn Learning (en ligne)
+                      LinkedIn Learning (à la demande)
                     </th>
                     <th scope="col" className="px-4 py-3 font-semibold md:px-5">
                       Formations OFC (présentiel, Île-de-France)
@@ -445,7 +445,7 @@ export default function FormationsLinkedInLearningPage() {
             </div>
 
             <p className="mt-6 text-base leading-relaxed text-slate-700 md:text-lg">
-              Le meilleur combo : découvre les bases en ligne, puis passe au présentiel en
+              Le meilleur combo : découvre les bases sur LinkedIn Learning, puis passe au présentiel en
               Île-de-France pour appliquer l&apos;IA à tes vrais dossiers.
             </p>
             <p className="mt-3 text-base text-slate-600">
@@ -550,7 +550,7 @@ export default function FormationsLinkedInLearningPage() {
               Prochaine étape : visio découverte gratuite
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/90 md:text-lg">
-              Tu as vu les bases en ligne ? Passe au présentiel en Île-de-France pour travailler sur
+              Tu as suivi les bases sur LinkedIn Learning ? Passe au présentiel en Île-de-France pour travailler sur
               tes documents réels — devis, DCE, comptes rendus.
             </p>
             <div className="mt-8">

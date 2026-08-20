@@ -4,7 +4,6 @@ import {
   AlertTriangle,
   ArrowUpRight,
   CheckCircle,
-  Download,
   ExternalLink,
   ListOrdered,
 } from 'lucide-react';
@@ -18,11 +17,7 @@ import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
 import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
-
-const CONSTRUCTYS_SITE = {
-  href: EXTERNAL_SITE_URLS.constructys,
-  title: 'Constructys — OPCO du BTP',
-} as const;
+import { getFinancementConstructysUnifiedJsonLd } from '@/lib/schema-financement-constructys-page';
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_SESSION_FORFAIT_HT,
@@ -40,9 +35,10 @@ import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
+const CONSTRUCTYS_SITE = {
+  href: EXTERNAL_SITE_URLS.constructys,
+  title: 'Constructys — OPCO du BTP',
 } as const;
-
-import { getFinancementConstructysUnifiedJsonLd } from '@/lib/schema-financement-constructys-page';
 
 const FINANCEMENT_HERO = PHOTOS.financementConstructysHero2026;
 
