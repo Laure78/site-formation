@@ -402,7 +402,7 @@ export default function FormationIAAppelsOffreBTPPage() {
           <li>
             <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong> {TARIF_SESSION_LIBELLE}{' '}
             (niveau avancé) · <strong>Financement :</strong>{' '}
-            prise en charge Constructys ou OPCO selon votre statut, votre branche professionnelle et les conditions en
+            prise en charge partielle par Constructys ou OPCO selon votre statut, votre branche professionnelle et les conditions en
             vigueur · <strong>Inscription :</strong> jusqu&apos;à 7 jours avant la
             session.
           </li>

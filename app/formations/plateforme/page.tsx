@@ -51,7 +51,7 @@ const FEATURES = [
 const FAQ = [
   {
     q: 'Qui peut se connecter à la plateforme ?',
-    a: 'Les stagiaires ayant suivi une formation OFC Création d’Entreprise (ou bénéficiant d’un accès selon convention) disposent d’identifiants pour consulter les supports et modules en ligne.',
+    a: 'Les stagiaires ayant suivi une formation OFC Création d’Entreprise (ou bénéficiant d’un accès selon convention) disposent d’identifiants pour consulter les supports numériques après la session présentielle.',
   },
   {
     q: 'Je n’ai pas encore de compte — que faire ?',

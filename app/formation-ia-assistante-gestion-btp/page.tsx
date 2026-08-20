@@ -10,6 +10,7 @@ import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import {
   EFFECTIF_GROUPE_MAX,
+  TARIF_FORFAIT_AVANCE_HT,
   TARIF_FORFAIT_DEBUTANT_HT,
   libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';

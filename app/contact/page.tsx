@@ -151,7 +151,7 @@ export default function ContactPage() {
               {
                 icon: Award,
                 title: 'Financement OPCO',
-                desc: 'Formations OFC (organisme certifié Qualiopi) — prise en charge Constructys possible',
+                desc: 'Formations OFC (organisme certifié Qualiopi) — finançables par Constructys selon éligibilité',
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div

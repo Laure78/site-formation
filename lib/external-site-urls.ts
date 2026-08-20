@@ -10,6 +10,12 @@ export const EXTERNAL_SITE_URLS = {
   beworkApp: 'https://app.laureolivie.fr/',
   /** Espace apprenant OFC — supports post-session (Teachizy). */
   teachizyFormation: 'https://app.teachizy.fr/',
+  /** OPCO Constructys — conditions et actualités financement formation BTP. */
+  constructys: 'https://www.constructys.fr/',
+  /** Plateforme de dépôt des dossiers de financement Constructys. */
+  constructysEgestion: 'https://egestion.constructys.fr/',
+  /** AGEFIPH — insertion professionnelle et handicap. */
+  agefiph: 'https://www.agefiph.fr/',
 } as const;
 
 /** Chemins utiles sur app.laureolivie.fr */

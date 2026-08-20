@@ -3,6 +3,10 @@
  * Éviter les promesses absolues (100 %, garanti, gratuit, aucun reste à charge).
  */
 
+/** Formulation SEO / badges — Constructys sans promesse de prise en charge. */
+export const FINANCEMENT_CONSTRUCTYS_FORMULATION =
+  'Finançable par Constructys selon éligibilité';
+
 /** Formulation prudente — paragraphes, FAQ détaillées, pages financement */
 export const FINANCEMENT_FORMULATION_PRUDENTE =
   'Formation éligible à une prise en charge partielle par Constructys ou votre OPCO, selon votre statut, votre branche professionnelle et les conditions en vigueur.';

@@ -309,8 +309,8 @@ export const FAQ_FINANCEMENT: FAQItem[] = [
 /** FAQ page financement Constructys formation IA appliquée au bâtiment — schema.org FAQPage */
 export const FAQ_FINANCEMENT_IA_BTP: FAQItem[] = [
   {
-    q: "Ma formation IA est-elle éligible Constructys ?",
-    a: 'Oui, si votre entreprise relève du secteur BTP (bâtiment, travaux publics, négoce de matériaux) et que la formation est inscrite au plan de développement des compétences. Les actions dispensées par un organisme certifié Qualiopi, comme OFC, répondent aux exigences OPCO pour la prise en charge — voir le <a href="/formations">catalogue formations IA pour le BTP</a>.',
+    q: "Ma formation IA peut-elle être financée par Constructys ?",
+    a: `${FINANCEMENT_FORMULATION_PRUDENTE} Voir le <a href="/formations">catalogue formations IA pour le BTP</a>.`,
   },
   {
     q: "Quel est le montant maximum remboursé ?",

@@ -133,7 +133,7 @@ const faqItems = [
   },
   {
     q: "Claude AI est-il finançable dans le cadre d'une formation BTP ?",
-    a: "La formation à son usage peut faire l'objet d'une prise en charge selon éligibilité. OFC Création d'Entreprise propose une formation IA appliquée au bâtiment éligible Constructys (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés peuvent également bénéficier de la prise en charge des salaires pendant la formation (15 € HT/h), selon conditions en vigueur.",
+    a: "La formation à son usage peut faire l'objet d'une prise en charge partielle selon éligibilité. OFC Création d'Entreprise propose une formation IA appliquée au bâtiment finançable par Constructys selon éligibilité (plafond indicatif : 24 € HT/heure/stagiaire) dans le cadre du Plan de Développement des Compétences 2026. Les entreprises de moins de 11 salariés peuvent également bénéficier d'une prise en charge partielle des salaires pendant la formation (15 € HT/h), selon conditions en vigueur.",
   },
   {
     q: 'Combien de temps faut-il pour être opérationnel sur Claude AI ?',

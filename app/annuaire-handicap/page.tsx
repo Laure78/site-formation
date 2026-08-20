@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { ExternalLinkAnchor } from '@/components/ExternalLink';
 import {
-  Download,
-  FileText,
   Users,
   MapPin,
   Phone,
@@ -59,25 +57,20 @@ export default function AnnuaireHandicapPage() {
 
       <ReferentHandicapBlock className="mt-10" />
 
-      {/* Téléchargement */}
-      <div className="mt-12 flex flex-wrap justify-center gap-4">
-        <a
-          href="/documents/annuaire-handicap.pdf"
-          download
-          className="inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+      {/* Contacts utiles — version web (pas de PDF séparé) */}
+      <p className="mt-12 text-center text-sm text-slate-600">
+        Les contacts détaillés figurent ci-dessous. Pour les ressources officielles :{' '}
+        <ExternalLinkAnchor href="https://www.agefiph.fr/" className="font-medium text-[var(--accent)] hover:underline">
+          AGEFIPH
+        </ExternalLinkAnchor>
+        {' · '}
+        <ExternalLinkAnchor
+          href="https://www.service-public.fr/particuliers/vosdroits/F16562"
+          className="font-medium text-[var(--accent)] hover:underline"
         >
-          <Download size={20} strokeWidth={1.5} />
-          Télécharger l&apos;annuaire complet
-        </a>
-        <a
-          href="/documents/annuaire-handicap.pdf"
-          download
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-slate-300 px-6 py-3 font-semibold text-slate-700 transition-colors hover:bg-slate-50"
-        >
-          <FileText size={20} strokeWidth={1.5} />
-          Télécharger le PDF complet (10 pages)
-        </a>
-      </div>
+          MDPH (service-public.fr)
+        </ExternalLinkAnchor>
+      </p>
 
       {/* AGEFIPH */}
       <section className="mt-16 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">

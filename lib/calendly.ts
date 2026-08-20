@@ -1,5 +1,5 @@
 /**
- * Prise de RDV en ligne — agenda Calendly.
+ * Prise de RDV via Calendly — visio découverte.
  * Surcharge possible : NEXT_PUBLIC_CALENDLY_URL dans .env.local
  */
 export const CALENDLY_BOOKING_URL =

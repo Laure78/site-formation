@@ -1138,7 +1138,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         type: 'list',
         title: 'Constructys : rôle et périmètre',
         content: [
-          'OPCO Constructys couvre le secteur de la construction, des travaux publics et le négoce de matériaux — vérifiez votre rattachement en cas d’activité mixte.',
+          'L’OPCO Constructys accompagne le secteur de la construction, des travaux publics et le négoce de matériaux — vérifiez votre rattachement en cas d’activité mixte.',
           'Missions principales : financer la formation professionnelle, accompagner les entreprises sur les compétences et orienter vers les bons dispositifs selon l’effectif et la convention collective.',
           'Les barèmes et plafonds évoluent : pour le catalogue et les entreprises éligibles, les règles de prise en charge (dont le plafond couramment cité de 24 € HT par heure et par stagiaire pour le coût pédagogique, dans la limite des montants en vigueur) doivent être confirmées au moment du dossier.',
         ],

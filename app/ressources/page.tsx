@@ -81,7 +81,7 @@ export default function RessourcesIndexPage() {
                   Mes formations LinkedIn Learning
                 </h2>
                 <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
-                  2 formations en ligne sur l&apos;IA appliquée au BTP.
+                  2 cours LinkedIn Learning à la demande sur l&apos;IA appliquée au BTP.
                 </p>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function RessourcesIndexPage() {
           <div className="mb-2 max-w-3xl">
             <h2 className="font-display text-2xl font-bold text-slate-900 md:text-3xl">Tutoriels PDF par thème</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
-              Parcours pas à pas signés OFC — lis en ligne ou télécharge le PDF directement.
+              Parcours pas à pas signés OFC — lisez sur le site ou téléchargez le PDF directement.
             </p>
           </div>
 

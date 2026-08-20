@@ -16,9 +16,13 @@ import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata } from '@/lib/seo';
 import { formatPersonnesFormeesCount } from '@/lib/constants';
 import { FAQ_FINANCEMENT_IA_BTP } from '@/lib/faq';
-import { EXTERNAL_AUTHORITY_LINKS } from '@/lib/seo-links';
+import { EXTERNAL_SITE_URLS } from '@/lib/external-site-urls';
 import { LINKS } from '@/lib/internal-links';
-import { getFinancementConstructysUnifiedJsonLd } from '@/lib/schema-financement-constructys-page';
+
+const CONSTRUCTYS_SITE = {
+  href: EXTERNAL_SITE_URLS.constructys,
+  title: 'Constructys — OPCO du BTP',
+} as const;
 import {
   SESSION_DUREE_LIBELLE,
   TARIF_SESSION_FORFAIT_HT,
@@ -36,7 +40,9 @@ import { PillarFaqAccordion } from '@/components/pillar/PillarFaqAccordion';
 import { PillarConversionCta } from '@/components/pillar/PillarConversionCta';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
 
-const CONSTRUCTYS_SITE = EXTERNAL_AUTHORITY_LINKS.constructys;
+} as const;
+
+import { getFinancementConstructysUnifiedJsonLd } from '@/lib/schema-financement-constructys-page';
 
 const FINANCEMENT_HERO = PHOTOS.financementConstructysHero2026;
 
@@ -285,14 +291,13 @@ export default function FinancementConstructysFormationIABTPPage() {
                 <strong>Reste à charge et coût réel</strong> : les plafonds ci-dessus indiquent ce que Constructys peut prendre en charge partiellement dans la limite des règles. Selon votre taille d&apos;entreprise, une participation peut aussi couvrir une partie des frais de salaires du temps passé en formation et, dans certains cas, des frais annexes. Le tableau généraliste ne remplace pas votre interlocuteur régional : il vous donne un ordre de grandeur pour budgétiser une <strong>OPCO BTP formation ChatGPT</strong> ou un atelier sur l&apos;IA appliquée à vos chantiers. Pour une session intra avec plusieurs personnes, le plafond journalier groupe (<strong>840 € HT</strong> pour les TPE de moins de 11 salariés, <strong>665 € HT</strong> de 11 à moins de 50 salariés) peut structurer votre choix de durée et de nombre de participants.
               </p>
               <p className="mt-4 text-sm text-[#64748B]">
-                <a
-                  href="/documents/conditions-constructys-2026.pdf"
-                  download
+                <ExternalLinkAnchor
+                  href={EXTERNAL_SITE_URLS.constructys}
                   className="inline-flex items-center gap-2 font-medium text-[#377CF3] hover:underline"
                 >
-                  <Download size={16} strokeWidth={1.5} aria-hidden />
-                  Télécharger les conditions de prise en charge Constructys 2026 (PDF)
-                </a>
+                  <ExternalLink size={16} strokeWidth={1.5} aria-hidden />
+                  Consulter les conditions officielles Constructys (site constructys.fr)
+                </ExternalLinkAnchor>
               </p>
             </section>
 
@@ -434,7 +439,7 @@ export default function FinancementConstructysFormationIABTPPage() {
 
             <section id="mon-cas" className="scroll-mt-24">
               <h2 className="font-display text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
-                Mon cas : quelle prise en charge Constructys espérer ?
+                Mon cas : quelle participation Constructys selon éligibilité ?
               </h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="rounded-xl border border-slate-200 bg-white p-4">
@@ -471,7 +476,7 @@ export default function FinancementConstructysFormationIABTPPage() {
               <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-start">
                 <div className="space-y-3 text-sm leading-relaxed text-slate-700">
                   <p>
-                    <strong>OFC Création d&apos;Entreprise</strong> est certifié Qualiopi : c&apos;est une condition sérieuse pour rassurer les financeurs OPCO. Au-delà du certificat, nous vous aidons à aligner les intitulés, le programme et les heures avec les attentes de la <strong>prise en charge Constructys</strong>, pour éviter les allers-retours inutiles. Que vous visiez une formation courte sur ChatGPT ou un parcours plus large sur l&apos;IA au service du chantier, l&apos;objectif est le même : un dossier lisible, déposé dans les délais, pour que votre équipe se concentre sur le terrain.
+                    <strong>OFC Création d&apos;Entreprise</strong> est certifié Qualiopi : c&apos;est une condition sérieuse pour rassurer les financeurs OPCO. Au-delà du certificat, nous vous aidons à aligner les intitulés, le programme et les heures avec les attentes d&apos;un dossier <strong>finançable par Constructys selon éligibilité</strong>, pour éviter les allers-retours inutiles. Que vous visiez une formation courte sur ChatGPT ou un parcours plus large sur l&apos;IA au service du chantier, l&apos;objectif est le même : un dossier lisible, déposé dans les délais, pour que votre équipe se concentre sur le terrain.
                   </p>
                   <p>
                     En pratique, vous n&apos;avez pas à deviner les intitulés : nous vous expliquons quoi envoyer, dans quel ordre, et comment éviter les oublis qui bloquent un dossier sur eGestion. L&apos;objectif est un montage de dossier OPCO simple, pas un second métier. Si vous hésitez entre inter-entreprise et intra-entreprise, nous pouvons vous aider à arbitrer en fonction des plafonds et de votre agenda chantier (sessions catalogue OFC : 4 h, présentiel Île-de-France uniquement).
