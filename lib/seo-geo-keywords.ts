@@ -173,7 +173,7 @@ export function buildIdfDeptMetaDescription(
   const curated = FORMATION_IA_BTP_DEPT_META_BY_CODE[deptCode];
   if (curated) return curated;
   const locatif = deptLocatif(getDeptGrammar(deptCode, departementNom));
-  return `Formation IA BTP ${locatif} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`;
+  return `Formation IA BTP ${locatif} (${deptCode}) : présentiel intra sur vos documents réels. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)}+ pros formés.`;
 }
 
 /** Segment title (≤ budget segment) — suffixe « | Laure Olivié » ajouté par buildMetadata. */
@@ -186,5 +186,5 @@ export function buildIdfDeptPageTitle(departementNom: string, deptCode: string):
 }
 
 export function buildIdfRegionalMetaDescription(): string {
-  return `Formation IA BTP en présentiel dans toute l'Île-de-France : devis, DCE, comptes rendus sur vos vrais documents. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)} pros formés.`;
+  return `Formation IA BTP en présentiel dans toute l'Île-de-France : devis, DCE, comptes rendus sur vos vrais documents. Qualiopi, Constructys. ${formatProfessionalsTrainedCount(siteStats.personnesFormees)}+ pros formés.`;
 }

@@ -13,6 +13,12 @@ export const COUNT_UP_PROS_PLUS: StatCountUpValue = {
   prefix: '+',
 };
 
+/** Hero accueil — compteur jusqu'à 1 500, suffixe « + » statique. */
+export const COUNT_UP_PROS_PLUS_SUFFIX: StatCountUpValue = {
+  to: siteStats.personnesFormees,
+  suffix: '+',
+};
+
 export const COUNT_UP_RATING: StatCountUpValue = {
   to: siteStats.noteMoyenneValeur,
   decimals: 2,

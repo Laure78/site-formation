@@ -124,7 +124,7 @@ Différenciateur unique, à réactiver en boucle :
 ↳ 10 ans de terrain (conductrice de travaux, dirigeante d'ALIA BTP en TP) AVANT d'être formatrice. Aucun concurrent ne peut le copier. C'est l'angle d'autorité.
 
 Preuves :
-⦿ +1 592 pros formés
+⦿ 1 500+ pros formés
 ⦿ 4,85/5
 ⦿ Qualiopi (finançable Constructys)
 ⦿ 2 formations LinkedIn Learning publiées

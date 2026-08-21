@@ -4,7 +4,7 @@
  */
 
 import type { Metadata } from 'next';
-import { formatProfessionalsTrainedCount, SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
+import { formatProfessionalsTrainedCount, PROS_FORMES_TEXTE, SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
 import {
   SCHEMA_CONTACT,
@@ -764,7 +764,7 @@ export function getPersonSchema() {
     image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
     jobTitle: 'Formatrice IA spécialisée BTP',
     alternateName: ['Laure Olivié', 'Laure Olivie'],
-    description: `Formatrice IA spécialisée BTP depuis 2022, basée à Guyancourt (78). ${formatProfessionalsTrainedCount()} professionnels formés. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
+    description: `Formatrice IA spécialisée BTP depuis fin 2021, basée à Guyancourt (78). ${PROS_FORMES_TEXTE}. Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}. 10 ans de terrain BTP (conductrice de travaux). Instructrice LinkedIn Learning. Certification Qualiopi. Réseau FFB Grand Paris, CSFE, UMB-FFB.`,
     knowsAbout: [
       'Formation IA pour le BTP',
       'Formation ChatGPT entreprise BTP',
@@ -827,9 +827,9 @@ export function getPersonSchema() {
     },
     award: [
       'Formatrice LinkedIn Learning 2024',
-      `${formatProfessionalsTrainedCount()} professionnels formés (statistique officielle)`,
+      `${PROS_FORMES_TEXTE} (statistique officielle)`,
       `Note moyenne ${SOCIAL_PROOF.AVERAGE_RATING}`,
-      '10 ans de terrain BTP · formatrice IA spécialisée BTP depuis 2022',
+      '10 ans de terrain BTP · formatrice IA spécialisée BTP depuis fin 2021',
     ],
     numberOfEmployees: {
       '@type': 'QuantitativeValue',

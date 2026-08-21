@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
-import { formatPersonnesFormeesCount, formatPreuvesMajLe, PREUVES } from '@/lib/constants';
+import { formatPreuvesMajLe, PREUVES, PROS_FORMES_TEXTE, PROS_FORMES_TEXTE_COMPLET } from '@/lib/constants';
 import { QUALIOPI_STATS, QUALIOPI_SATISFACTION_SOURCING } from '@/config/qualiopi';
 import { QualiopiCertificationNotice } from '@/components/QualiopiCertificationNotice';
 
@@ -64,6 +64,10 @@ export default function IndicateursResultatsPage() {
         Publication des indicateurs liés à la qualité des actions de formation (indicateur 2 du référentiel
         Qualiopi) — OFC Création d&apos;Entreprise.
       </p>
+      <p className="mt-3 text-sm font-medium text-slate-800">
+        {PROS_FORMES_TEXTE_COMPLET.charAt(0).toUpperCase()}
+        {PROS_FORMES_TEXTE_COMPLET.slice(1)} (toutes actions confondues).
+      </p>
       <p className="mt-2 text-sm font-medium text-slate-700">
         Mis à jour le : {INDICATEURS_QUALIOPI.dateMiseAJour} · Année de référence :{' '}
         {INDICATEURS_QUALIOPI.anneeReference}
@@ -77,8 +81,8 @@ export default function IndicateursResultatsPage() {
         />
         <IndicateurCard
           label="Nombre de stagiaires formés (cumul)"
-          value={formatPersonnesFormeesCount()}
-          hint={`Période de référence : ${PREUVES.periode} · ${QUALIOPI_STATS.NB_REPONDANTS} répondants`}
+          value="Plus de 1 500"
+          hint={`${PROS_FORMES_TEXTE_COMPLET} · Période de référence satisfaction : ${PREUVES.periode} · ${QUALIOPI_STATS.NB_REPONDANTS} répondants`}
         />
         <IndicateurCard
           label="Volume d'heures-stagiaires réalisées"

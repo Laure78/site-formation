@@ -209,7 +209,11 @@ const LIVRABLES = [
   },
 ];
 
-const CAS_USAGE_BATIMENT = [
+const CAS_USAGE_BATIMENT: Array<{
+  titre: string;
+  texte: string;
+  lien?: { href: string; label: string };
+}> = [
   {
     titre: 'Générer un devis conforme aux DTU',
     texte:

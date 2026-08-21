@@ -9,7 +9,7 @@
 ## Rank Math
 
 - **Title :** Formation IA Couvreur BTP — Devis Toiture & Zinguerie | Laure Olivié  
-- **Meta description :** Formation IA couvreur : devis toiture, fiches intervention, zinguerie et DTU 40. ChatGPT BTP. Qualiopi, Constructys. 1 592 pros formés. Île-de-France. Visio gratuite.  
+- **Meta description :** Formation IA couvreur : devis toiture, fiches intervention, zinguerie et DTU 40. ChatGPT BTP. Qualiopi, Constructys. 1 500+ pros formés. Île-de-France. Visio gratuite.  
 - **Slug :** `formation-ia-couvreur-btp`
 
 ---
@@ -18,7 +18,7 @@
 
 Formation IA pour Couvreurs — Devis Toiture, Fiches Chantier & Zinguerie (Île-de-France)
 
-**Hero :** OFC · Qualiopi · Constructys · 1 592 pros formés · 4,85/5  
+**Hero :** OFC · Qualiopi · Constructys · 1 500+ pros formés · 4,85/5  
 **CTA Calendly #1 :** Réservez votre visio découverte gratuite
 
 ---

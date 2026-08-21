@@ -67,7 +67,7 @@ import { Accordion } from '@/components/readability/Accordion';
 import { KeyPoint } from '@/components/readability/KeyPoint';
 import { Citation } from '@/components/readability/Citation';
 import {
-  formatPersonnesFormeesCount,
+  formatPersonnesFormeesCountPlus,
   PREUVES,
 } from '@/lib/constants';
 import { Reveal, RevealGroup } from '@/components/motion/Reveal';
@@ -122,7 +122,7 @@ const GAINS_COMMERCIAUX_CARDS = [
 
 /** Segment sans suffixe — `buildMetadata` ajoute « | Laure Olivié » (total ≤ 60). */
 const HOME_META_TITLE = 'Formation IA pour le BTP en Île-de-France';
-const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatPersonnesFormeesCount()} pros, ${PREUVES.satisfaction}. Visio découverte.`;
+const HOME_META_DESCRIPTION = `Formation IA pour le BTP en présentiel IDF : devis, DCE et CR. Qualiopi, Constructys selon éligibilité. Laure Olivié, ${formatPersonnesFormeesCountPlus()} pros, ${PREUVES.satisfaction}. Visio découverte.`;
 
 const HOME_FAQ_PAGE_JSON_LD = buildHomeFAQPageJsonLd();
 
@@ -732,7 +732,7 @@ export default function HomePage() {
               <Citation
                 className="mt-6"
                 variant="formatrice"
-                quote="Formatrice IA spécialisée BTP depuis 2022, après 10 ans de terrain BTP comme conductrice de travaux. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
+                quote="Formatrice IA spécialisée BTP depuis fin 2021, après 10 ans de terrain BTP comme conductrice de travaux. Mon objectif : zéro théorie, 100 % pratique. Vous repartez avec des outils opérationnels dès le lendemain."
                 author="Laure Olivié"
                 role="Formatrice IA BTP — OFC Création d'Entreprise"
               />

@@ -60,7 +60,7 @@ Composants : `FormationsHero`, `FormationsCatalogueInteractive`, `FormationsComp
 | `lib/tarifs-sessions.ts` | Grille commerciale (1200 € HT / session) |
 | `lib/qualiopi-info.ts` | Textes Ind. 1, contacts, certificat, `getInfosQualiopiForCatalogue()` |
 | `config/qualiopi.ts` | Délais d'accès, modalités, version fiche, stats |
-| `lib/constants.ts` | `PREUVES` (1592 formés, 4,85/5, période, date MAJ) |
+| `lib/constants.ts` | `PREUVES` (plus de 1 500 professionnels formés, 4,85/5, période, date MAJ) |
 | `src/data/formations.ts` | Données LMS / JSON-LD complémentaires |
 | `lib/faq.ts` | FAQ formations (catalogue, tarifs, modalités) |
 | Landings métier / geo | `lib/formation-ia-*-landing.ts`, `lib/formation-ia-metier-eight-rich.ts`, `lib/geo-formation-config.ts`, etc. |

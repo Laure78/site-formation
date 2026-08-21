@@ -74,7 +74,7 @@
 ↳ « Arrête de croire que la formation IA, c'est pour les jeunes. »
 
 ⦿ D Offre & conversion
-↳ « 1 592 pros formés. Voilà ce qu'ils font différemment aujourd'hui. »
+↳ « 1 500+ pros formés. Voilà ce qu'ils font différemment aujourd'hui. »
 ↳ « Ma prochaine session OFC en Île-de-France : voilà ce qu'on y fait. »
 ↳ « BeWork : solutions IA sur mesure pour votre entreprise BTP. Comment ça marche. »
 

@@ -32,7 +32,8 @@ export const IDF_ZONE_INTERVENTION =
  * Période et mise à jour : voir `/indicateurs-resultats`.
  */
 export const PREUVES = {
-  prosFormes: 1592,
+  /** Arrondi public affiché « 1 500+ » — registre interne > 1 500 depuis déc. 2021. */
+  prosFormes: 1500,
   satisfaction: '4,85/5',
   repondants: 412,
   periode: '01/01/2024 – 31/12/2025',
@@ -78,7 +79,17 @@ export const PREUVES_MENTION_SOURCE =
 
 /** Bloc « Fédérations & OPCO » — accueil, pour qui. */
 export const PREUVES_FEDERATIONS_OPCO =
-  `Toutes actions confondues : ${PREUVES.prosFormes.toLocaleString('fr-FR')} professionnels formés, ${PREUVES.satisfaction} de satisfaction — dont des sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.` as const;
+  'Depuis décembre 2021, plus de 1 500 professionnels formés toutes actions confondues, 4,85/5 de satisfaction — dont des sessions animées avec FFB Grand Paris, CSFE et UMB-FFB.' as const;
+
+/** Formulation publique arrondie (texte courant, llms.txt, JSON-LD texte). */
+export const PROS_FORMES_TEXTE = 'plus de 1 500 professionnels formés' as const;
+
+/** Ancrage temporal — activité formation IA BTP OFC. */
+export const PROS_FORMES_DEPUIS = 'depuis décembre 2021' as const;
+
+/** Formulation complète indicateurs / llms.txt. */
+export const PROS_FORMES_TEXTE_COMPLET =
+  `${PROS_FORMES_TEXTE} ${PROS_FORMES_DEPUIS}` as const;
 
 export const siteStats = {
   personnesFormees: PREUVES.prosFormes,
@@ -101,6 +112,11 @@ export const SOCIAL_PROOF = {
 
 export function formatPersonnesFormeesCount(value: number = siteStats.personnesFormees): string {
   return value.toLocaleString('fr-FR');
+}
+
+/** Affichage compteur / meta : « 1 500+ » */
+export function formatPersonnesFormeesCountPlus(value: number = siteStats.personnesFormees): string {
+  return `${formatPersonnesFormeesCount(value)}+`;
 }
 
 /** @deprecated Alias — utiliser `formatPersonnesFormeesCount`. */

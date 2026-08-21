@@ -9,7 +9,7 @@
 ## Réglages SEO (Rank Math)
 
 - **Title :** Formation IA Électricien BTP — Devis & SAV | Laure Olivié | Qualiopi  
-- **Meta description :** Formation IA pour électriciens BTP : devis TGBT, relances SAV, emails clients avec ChatGPT. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Île-de-France. Visio gratuite.  
+- **Meta description :** Formation IA pour électriciens BTP : devis TGBT, relances SAV, emails clients avec ChatGPT. 1 500+ pros formés. Qualiopi. Financement possible selon éligibilité. Île-de-France. Visio gratuite.  
 - **Slug :** `formation-ia-electricien-btp`
 
 ---
@@ -19,7 +19,7 @@
 Formation IA pour Électriciens BTP — Devis, SAV & Emails Automatisés en Île-de-France
 
 **Sous-texte hero :** OFC Création d’Entreprise · Qualiopi · Financement Constructys selon dossier · Sessions Île-de-France  
-**Chiffres :** 1 592 professionnels formés · 4,85/5 · Qualiopi  
+**Chiffres :** plus de 1 500 professionnels formés · 4,85/5 · Qualiopi  
 
 **CTA Calendly #1 :** Réservez votre visio découverte gratuite
 

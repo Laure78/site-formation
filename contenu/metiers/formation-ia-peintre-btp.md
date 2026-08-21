@@ -9,7 +9,7 @@
 ## Rank Math
 
 - **Title :** Formation IA Peintre BTP — Devis, Métré & Relation Client | Laure Olivié  
-- **Meta description :** Formation IA peinture bâtiment : devis par pièce, métrés, finitions DTU 59, emails clients. Qualiopi, Constructys. 1 592 pros formés. Île-de-France. Visio gratuite.  
+- **Meta description :** Formation IA peinture bâtiment : devis par pièce, métrés, finitions DTU 59, emails clients. Qualiopi, Constructys. 1 500+ pros formés. Île-de-France. Visio gratuite.  
 - **Slug :** `formation-ia-peintre-btp`
 
 ---
@@ -18,7 +18,7 @@
 
 Formation IA pour Peintres en Bâtiment — Devis, Métré & Communication Client
 
-**Hero :** OFC · Qualiopi · Constructys · 1 592 pros · 4,85/5  
+**Hero :** OFC · Qualiopi · Constructys · 1 500+ pros · 4,85/5  
 **CTA #1 :** Réservez votre visio découverte gratuite
 
 ---

@@ -5,7 +5,7 @@
  * @see .cursorrules — règles Schema.org & SEO
  */
 
-import { siteStats, formatPersonnesFormeesCount, SOCIAL_PROOF, CONTACT } from '@/lib/constants';
+import { siteStats, formatPersonnesFormeesCount, PROS_FORMES_TEXTE, PROS_FORMES_TEXTE_COMPLET, CONTACT, SOCIAL_PROOF } from '@/lib/constants';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import { SITE_HEADER_LOGO_SRC } from '@/lib/photos';
 
@@ -112,7 +112,11 @@ export const ANNUAIRE_ENTREPRISES_OFC_URL =
 
 /** Statistiques publiques (cohérence biographies / schémas). */
 export const SCHEMA_STATS = {
-  personnesFormees: String(siteStats.personnesFormees),
+  /** Valeur numérique JSON-LD (QuantitativeValue, numberOfEmployees). */
+  personnesFormees: siteStats.personnesFormees,
+  /** Formulation texte publique arrondie. */
+  personnesFormeesTexte: PROS_FORMES_TEXTE,
+  personnesFormeesTexteComplet: PROS_FORMES_TEXTE_COMPLET,
 } as const;
 
 /** Person — Laure Olivié (fragments réutilisables JSON-LD). */
@@ -148,7 +152,7 @@ export const SCHEMA_ORGANIZATION_OFC = {
   description:
     "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
   descriptionShortGraph:
-    `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${formatPersonnesFormeesCount()} professionnels formés. Finançable par Constructys selon éligibilité.`,
+    `Organisme de formation certifié Qualiopi spécialisé en formation IA et ChatGPT pour les entreprises du BTP. ${PROS_FORMES_TEXTE}. Finançable par Constructys selon éligibilité.`,
   foundingYear: '2021',
 } as const;
 

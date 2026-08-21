@@ -9,7 +9,7 @@
 ## SEO Rank Math
 
 - **Title :** Formation IA Plombier BTP — Devis & Fiches Intervention | Laure Olivié  
-- **Meta description :** Formation IA plombier chauffagiste : devis rapides, relances SAV, fiches d’intervention avec ChatGPT. Qualiopi, Constructys. Île-de-France. 1 592 pros formés. Visio gratuite.  
+- **Meta description :** Formation IA plombier chauffagiste : devis rapides, relances SAV, fiches d’intervention avec ChatGPT. Qualiopi, Constructys. Île-de-France. 1 500+ pros formés. Visio gratuite.  
 - **Slug :** `formation-ia-plombier-btp`
 
 ---
@@ -18,7 +18,7 @@
 
 Formation IA pour Plombiers & Chauffagistes BTP — Devis, SAV et Fiches d’Intervention
 
-**Hero :** OFC · Qualiopi · Constructys · Île-de-France · 1 592 pros formés · 4,85/5  
+**Hero :** OFC · Qualiopi · Constructys · Île-de-France · 1 500+ pros formés · 4,85/5  
 **CTA Calendly #1 :** Réservez votre visio découverte gratuite
 
 ---

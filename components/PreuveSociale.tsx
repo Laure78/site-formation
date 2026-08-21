@@ -5,7 +5,7 @@ import {
   ALT_LOGO_UMB_FFB,
   LOGO_UMB_FFB,
 } from '@/lib/client-logos';
-import { PREUVES, formatPersonnesFormeesCount } from '@/lib/constants';
+import { PREUVES, PROS_FORMES_TEXTE } from '@/lib/constants';
 import { Temoignage } from '@/components/Temoignage';
 
 export type PreuveSocialeProps = {
@@ -53,7 +53,8 @@ export function PreuveSociale({ auteur, role, texte, className = '' }: PreuveSoc
       className={`rounded-2xl border border-slate-200 bg-[#F2F2F2] px-5 py-4 md:px-6 md:py-5 ${className}`.trim()}
     >
       <p className="text-center text-sm font-semibold text-[#377CF3] md:text-base">
-        {formatPersonnesFormeesCount()} professionnels du BTP formés · {PREUVES.satisfaction}
+        {PROS_FORMES_TEXTE.charAt(0).toUpperCase()}
+        {PROS_FORMES_TEXTE.slice(1)} · {PREUVES.satisfaction}
       </p>
       <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
         {LOGOS.map((logo) => (

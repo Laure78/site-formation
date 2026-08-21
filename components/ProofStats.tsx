@@ -1,7 +1,9 @@
+import type { ReactNode } from 'react';
 import {
   PREUVES,
-  formatPersonnesFormeesCount,
 } from '@/lib/constants';
+import { COUNT_UP_PROS_PLUS_SUFFIX } from '@/lib/readability-presets';
+import { CountUp } from '@/components/motion/CountUp';
 import { IndicateursResultatsLink } from '@/components/formation/IndicateursResultatsLink';
 
 type ProofStatsProps = {
@@ -12,11 +14,19 @@ type ProofStatsProps = {
   showQualiopi?: boolean;
 };
 
-const STATS_BASE = [
-  { value: formatPersonnesFormeesCount(), label: 'Pros formés' },
+type StatItem = {
+  value: ReactNode;
+  label: string;
+};
+
+const STATS_BASE: StatItem[] = [
+  {
+    value: <CountUp {...COUNT_UP_PROS_PLUS_SUFFIX} className="tabular-nums" />,
+    label: 'Pros formés depuis 2021',
+  },
   { value: PREUVES.satisfaction, label: 'Satisfaction' },
   { value: 'OPCO', label: 'Financement possible' },
-] as const;
+];
 
 /**
  * Bloc preuve sociale compact — formés / note / OPCO (source `PREUVES`).
@@ -26,7 +36,7 @@ export function ProofStats({
   variant = 'default',
   showQualiopi = false,
 }: ProofStatsProps) {
-  const stats = showQualiopi
+  const stats: StatItem[] = showQualiopi
     ? [...STATS_BASE, { value: 'Qualiopi', label: 'Certifié' }]
     : [...STATS_BASE];
 

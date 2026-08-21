@@ -26,7 +26,7 @@ def with_og_suffix(d: str) -> str:
 SITE_CONFIG_DESCRIPTION = (
     "Expert en formation IA pour le BTP : intelligence artificielle bâtiment et travaux publics, "
     "ChatGPT BTP pour artisans et conducteurs de travaux. Devis, appels d'offres, chantier — gain de temps, "
-    "automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — +1 592 pros formés, note 4,85/5. "
+    "automatisation, productivité. Qualiopi, OPCO Constructys. Laure Olivié — 1 500+ pros formés, note 4,85/5. "
     "Île-de-France & France."
 )
 

@@ -18,7 +18,7 @@ Domaine canonique : `https://www.laureolivie.fr/formation-ia-btp/`
 ### Rank Math (ou équivalent)
 
 - **Title SEO** : `Formation IA appliquée au bâtiment Île-de-France — ChatGPT 2026 | Laure Olivié`
-- **Meta description** : `Formation IA pour le BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 592 pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.`
+- **Meta description** : `Formation IA pour le BTP en Île-de-France. ChatGPT pour devis, AO, chantier. 1 500+ pros formés. Qualiopi. Financement possible selon éligibilité. Visio gratuite.`
 - **Schema FAQPage** : activer sur cette page pour le bloc FAQ (section 8) — *Rank Math → Schema → FAQ* ou module FAQ Elementor compatible Rank Math.
 
 ### Schémas structurés
@@ -74,7 +74,7 @@ Formation IA pour les pros du BTP — ChatGPT pour le Bâtiment en Île-de-Franc
 
 ### Chiffres clés (sous-titre ou ligne de badges)
 
-- **1 592** professionnels formés  
+- **plus de 1 500 professionnels formés** professionnels formés  
 - **4,85/5** satisfaction  
 - **Qualiopi** (certification OFC)
 

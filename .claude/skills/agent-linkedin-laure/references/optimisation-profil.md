@@ -15,7 +15,7 @@
 ## Photo & bannière
 
 ⦿ photo : visage net, regard caméra, tenue crédible terrain + formation
-⦿ bannière : slogan OFC + preuve (« +1 592 pros formés · 4,85/5 · Qualiopi ») + bleu #377CF3
+⦿ bannière : slogan OFC + preuve (« 1 500+ pros formés · 4,85/5 · Qualiopi ») + bleu #377CF3
 ↳ route la refonte bannière vers le skill `banniere-linkedin-ofc`
 ↳ BeWork n'apparaît pas sur la bannière (le profil est d'abord OFC)
 
@@ -24,9 +24,9 @@
 Structure : [ce qu'elle fait] + [cible BTP] + [preuve/différenciateur], < 220 caractères.
 
 Exemples :
-↳ « Je forme les pros du BTP à l'IA et ChatGPT · 10 ans de terrain avant la formation · +1 592 formés · Qualiopi »
+↳ « Je forme les pros du BTP à l'IA et ChatGPT · 10 ans de terrain avant la formation · plus de 1 500 professionnels formés · Qualiopi »
 ↳ « Dirigeante d'une entreprise de Travaux Publics dans les Yvelines devenue formatrice IA pour le BTP · Je rends l'IA utile sur le chantier · 4,85/5 »
-↳ « Formatrice IA du BTP (OFC) · Fondatrice BeWork · Du terrain, pas de la théorie · +1 592 pros formés »
+↳ « Formatrice IA du BTP (OFC) · Fondatrice BeWork · Du terrain, pas de la théorie · 1 500+ pros formés »
 
 Règles :
 ↓ toujours un chiffre de preuve
@@ -37,7 +37,7 @@ Règles :
 
 ⦿ ligne 1 = hook (visible avant le « voir plus »)
 ↳ « J'ai conduit des chantiers pendant 10 ans avant de former à l'IA. Ça change tout. »
-⦿ preuve : parcours ALIA BTP + 1 592 pros + Qualiopi + LinkedIn Learning
+⦿ preuve : parcours ALIA BTP + 1 500+ pros + Qualiopi + LinkedIn Learning
 ⦿ offre : ce que fait OFC (formations IA présentiel Île-de-France), puis BeWork en fondatrice
 ⦿ CTA : lien Calendly OFC (appel découverte formation)
 ↳ https://calendly.com/formation-ia-artisans-btp-appel-decouverte/appel_decouverte_formation

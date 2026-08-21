@@ -20,7 +20,7 @@
 
 Formation IA pour Conducteurs de Travaux — Comptes Rendus, Planning, AO & Sous-Traitants
 
-**Hero :** OFC · Qualiopi · Constructys · 1 592 pros formés  
+**Hero :** OFC · Qualiopi · Constructys · 1 500+ pros formés  
 **CTA #1 :** Réservez votre visio découverte gratuite
 
 ---
