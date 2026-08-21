@@ -50,6 +50,8 @@ export type PartenaireLogo = {
   alt: string;
   width: number;
   height: number;
+  /** Compense les marges excessives dans le fichier source (scale + overflow hidden). */
+  imageClassName?: string;
 };
 
 export type PartenaireCard = {
@@ -159,6 +161,7 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       alt: ALT_LOGO_CSFE,
       width: 360,
       height: 120,
+      imageClassName: 'scale-90',
     },
   },
   {
@@ -181,6 +184,7 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       alt: ALT_LOGO_CNAM_ENTREPRISES,
       width: 220,
       height: 72,
+      imageClassName: 'scale-90',
     },
   },
   {
@@ -203,6 +207,7 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       alt: ALT_LOGO_IFRB,
       width: 200,
       height: 80,
+      imageClassName: 'scale-150',
     },
   },
   {
@@ -214,6 +219,7 @@ export const PARTENAIRES_LOGO_BAND: PartenaireLogoBandItem[] = [
       alt: ALT_LOGO_LINKEDIN_LEARNING,
       width: LOGO_LINKEDIN_LEARNING.width,
       height: LOGO_LINKEDIN_LEARNING.height,
+      imageClassName: 'scale-[2.35]',
     },
   },
 ];

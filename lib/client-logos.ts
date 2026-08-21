@@ -48,6 +48,12 @@ export const LOGO_LEFEBVRE_DALLOZ = {
   height: 60,
 } as const;
 
+/** Cadre uniforme — grille « Ils me font confiance » (header Partenaires). */
+export const PARTNER_LOGO_BAND_CELL = {
+  className: 'relative h-12 w-[10.5rem] shrink-0 overflow-hidden md:h-14 md:w-[11.5rem]',
+  sizes: '(max-width: 768px) 168px, 184px',
+} as const;
+
 export type ClientLogoItem = {
   id: string;
   name: string;

@@ -127,7 +127,6 @@ export const HEADER_NAV: readonly HeaderNavItem[] = [
         href: formationHref(formation),
         label: FORMATION_NAV_LABELS[formation.code] ?? formation.titre,
       })),
-      { href: LINKS.formationIaHub, label: 'Formations par métier' },
       { href: LINKS.formationPlateforme, label: 'Espace apprenant' },
     ],
     footer: { href: LINKS.formations, label: 'Toutes les formations' },

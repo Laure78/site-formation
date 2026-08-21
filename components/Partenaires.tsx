@@ -13,6 +13,7 @@ import {
   PARTENAIRES_LOGO_BAND_TITLE,
   PARTENAIRES_SECTION_TITLE,
 } from '@/lib/partenaires-content';
+import { PARTNER_LOGO_BAND_CELL } from '@/lib/client-logos';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
@@ -42,13 +43,13 @@ function LogoBandItem({ item }: { item: (typeof PARTENAIRES_LOGO_BAND)[number] }
         className="group flex w-full max-w-[11.5rem] flex-col items-center justify-center rounded-lg px-2 py-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
       >
         {item.logo ? (
-          <div className="relative flex h-14 w-full items-center justify-center md:h-16">
+          <div className={PARTNER_LOGO_BAND_CELL.className}>
             <Image
               src={item.logo.src}
               alt={item.logo.alt}
-              width={item.logo.width}
-              height={item.logo.height}
-              className="max-h-14 w-auto object-contain object-center opacity-90 transition group-hover:opacity-100 md:max-h-16"
+              fill
+              sizes={PARTNER_LOGO_BAND_CELL.sizes}
+              className={`object-contain object-center opacity-90 transition group-hover:opacity-100 ${item.logo.imageClassName ?? ''}`.trim()}
               loading="lazy"
             />
           </div>
@@ -134,9 +135,12 @@ export function Partenaires({
           <p className="text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
             {PARTENAIRES_LOGO_BAND_TITLE}
           </p>
-          <ul className="mt-6 grid list-none grid-cols-2 items-center justify-items-center gap-x-4 gap-y-6 sm:grid-cols-3 md:gap-x-8 lg:grid-cols-4">
+          <ul className="mt-6 grid list-none grid-cols-2 items-center justify-items-center gap-x-4 gap-y-8 sm:grid-cols-3 md:gap-x-6 lg:grid-cols-4">
             {PARTENAIRES_LOGO_BAND.map((item) => (
-              <li key={item.id} className="flex w-full justify-center">
+              <li
+                key={item.id}
+                className="flex h-12 w-full max-w-[11.5rem] items-center justify-center md:h-14"
+              >
                 <LogoBandItem item={item} />
               </li>
             ))}
