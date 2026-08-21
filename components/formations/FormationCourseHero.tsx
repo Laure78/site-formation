@@ -115,6 +115,13 @@ export function FormationCourseHero({
             {footerLinks ? (
               <div className="mt-4 flex flex-wrap gap-4 text-sm">{footerLinks}</div>
             ) : null}
+            {catalogueRef ? (
+              <p className="mt-4 text-sm">
+                <a href="#informations-pratiques" className="font-medium text-[var(--accent)] hover:underline">
+                  Informations réglementaires Qualiopi (indicateur 1)
+                </a>
+              </p>
+            ) : null}
           </div>
           <div className="w-full shrink-0 lg:w-[400px]">
             {resolvedImage}

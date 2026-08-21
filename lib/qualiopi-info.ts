@@ -26,6 +26,9 @@ import {
   FORMATIONS_CATALOGUE,
   type FormationCatalogueEntry,
 } from '@/lib/formations-catalogue-display';
+import { getFormationByCode } from '@/data/formations';
+import { PROGRAMME_CONTENU_CATALOGUE } from '@/lib/infos-pratiques-catalogue';
+import type { FormationCode } from '@/data/formations';
 
 /** Identité juridique OFC — réexport (définition : `lib/ofc-identite.ts`). */
 export { OFC_IDENTITE } from '@/lib/ofc-identite';
@@ -119,9 +122,12 @@ export type InfosQualiopiProps = {
   formationTitle: string;
   prerequis: string | readonly string[];
   objectifs: readonly string[];
+  contenu: readonly string[];
+  programmePdfHref: string;
   duree: string;
   dureeJours?: string;
   modalitesAcces: string;
+  delaiAcces: string;
   tarifInter: string;
   tarifIntra: string;
   methodes: readonly string[];
@@ -157,8 +163,14 @@ function tarifsPourCatalogue(entry: FormationCatalogueEntry): { inter: string; i
 
 export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
   const entry = FORMATIONS_CATALOGUE.find((f) => f.ref === ref);
-  if (!entry) {
+  const formation = getFormationByCode(ref);
+  if (!entry || !formation) {
     throw new Error(`[getInfosQualiopiForCatalogue] Référence catalogue inconnue : ${ref}`);
+  }
+  const code = formation.code as FormationCode;
+  const contenu = PROGRAMME_CONTENU_CATALOGUE[code];
+  if (!contenu?.length) {
+    throw new Error(`[getInfosQualiopiForCatalogue] Contenu programme manquant pour ${ref}`);
   }
   const tarifs = tarifsPourCatalogue(entry);
   return {
@@ -166,16 +178,19 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
     programmeRef: entry.ref,
     prerequis: prerequisPourCatalogue(entry),
     objectifs: entry.objectifs,
+    contenu: [...contenu],
+    programmePdfHref: formation.pdfProgramme,
     duree: entry.duree,
     dureeJours: '0,5 jour (session unique)',
-    modalitesAcces: QUALIOPI_MODALITES_ACCES,
+    modalitesAcces: QUALIOPI_MODALITES_ACCES_EXACT,
+    delaiAcces: QUALIOPI_DELAI_ACCES_EXACT,
     tarifInter: tarifs.inter,
     tarifIntra: tarifs.intra,
     methodes: QUALIOPI_METHODES_STANDARD,
     evaluation: QUALIOPI_EVALUATION_STANDARD,
     handicap: QUALIOPI_HANDICAP_STANDARD,
-    lastUpdated: QUALIOPI_PROGRAMME_LAST_UPDATED,
-    version: QUALIOPI_FICHE_VERSION,
+    lastUpdated: formation.programmeUpdatedAt,
+    version: formation.programmeVersion,
   };
 }
 

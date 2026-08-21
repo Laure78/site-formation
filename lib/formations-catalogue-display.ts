@@ -21,6 +21,8 @@ export type FormationCatalogueEntry = {
   ref: string;
   level: CatalogueLevel;
   title: string;
+  programmeVersion: string;
+  programmeUpdatedAt: string;
   href: string;
   visuel: (typeof PHOTOS)[keyof typeof PHOTOS];
   duree: string;
@@ -73,6 +75,8 @@ function toCatalogueEntry(f: Formation): FormationCatalogueEntry {
     ref: f.code,
     level: f.niveau === 1 ? 'DÉBUTANT' : 'AVANCÉ',
     title: f.titre,
+    programmeVersion: f.programmeVersion,
+    programmeUpdatedAt: f.programmeUpdatedAt,
     href: formationHref(f),
     slug: f.slug,
     programmePdfHref: f.pdfProgramme,
@@ -129,11 +133,18 @@ export function catalogueNiveauEtLevel(ref: string, level: CatalogueLevel): stri
   return `${niveau} · ${levelLabel}`;
 }
 
-/** Libellé lien UI — titre officiel (sans code NIV-XX). */
+/** Libellé lien UI — titre officiel (sans code NIV-XX ni version). */
 export function formationCatalogueLinkLabel(
   entry: Pick<FormationCatalogueEntry, 'title'>
 ): string {
   return entry.title;
+}
+
+/** Sous-titre catalogue : « Version 2 · 20/08/2026 ». */
+export function formationCatalogueVersionLine(
+  entry: Pick<FormationCatalogueEntry, 'programmeVersion' | 'programmeUpdatedAt'>
+): string {
+  return `${entry.programmeVersion} · ${entry.programmeUpdatedAt}`;
 }
 
 /** Badge pédagogique affiché sur cartes accueil : NIVEAU 1 ou NIVEAU 2. */

@@ -17,9 +17,7 @@ import { IndicateursResultatsLink } from '@/components/formation/IndicateursResu
 import { QualiopiSatisfactionSource } from '@/components/formation/QualiopiSatisfactionSource';
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 import {
-  QUALIOPI_DELAI_ACCES_EXACT,
   QUALIOPI_FICHE_META,
-  QUALIOPI_MODALITES_ACCES_EXACT,
 } from '@/config/qualiopi';
 import {
   QUALIOPI_CONTACTS,
@@ -29,6 +27,7 @@ import {
 } from '@/lib/qualiopi-info';
 import { assertInfosReglementairesCompletes } from '@/lib/assert-infos-reglementaires';
 import { LINKS } from '@/lib/internal-links';
+import { QUALIOPI_INDICATEUR1_LABELS } from '@/lib/qualiopi-indicateur1-labels';
 import { FormationPartenairesMention } from '@/components/formations/FormationPartenairesMention';
 import { MentionTVA, MentionTvaAsterisque } from '@/components/MentionTVA';
 import { MentionFinancement } from '@/components/MentionFinancement';
@@ -56,7 +55,7 @@ function QualiopiItem({ icon: Icon, title, children }: ItemProps) {
 }
 
 /**
- * Bloc Qualiopi indicateur 1 — 9 sections obligatoires.
+ * Bloc Qualiopi indicateur 1 — 11 sections obligatoires (grille audit).
  * Throw au build / SSR si une section manque (via assertInfosReglementairesCompletes).
  */
 export function InformationsReglementaires(props: InfosQualiopiProps) {
@@ -64,9 +63,11 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
   const {
     dureeJours,
     version = QUALIOPI_FICHE_META.version,
+    programmePdfHref,
   } = props;
   const methodesList = asList(validated.methodes);
   const evaluationList = asList(validated.evaluation);
+  const labels = QUALIOPI_INDICATEUR1_LABELS;
 
   return (
     <section
@@ -89,7 +90,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
         </header>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <QualiopiItem icon={Users} title="1. Prérequis">
+          <QualiopiItem icon={Users} title={`1. ${labels.prerequis}`}>
             <ul className="list-disc space-y-1.5 pl-4">
               {asList(validated.prerequis).map((line) => (
                 <li key={line}>{line}</li>
@@ -97,7 +98,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </ul>
           </QualiopiItem>
 
-          <QualiopiItem icon={Target} title="2. Objectifs de la formation">
+          <QualiopiItem icon={Target} title={`2. ${labels.objectifs}`}>
             <p className="mb-2 text-slate-600">Objectifs opérationnels et évaluables :</p>
             <ul className="list-disc space-y-1.5 pl-4">
               {validated.objectifs.map((obj) => (
@@ -106,17 +107,29 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </ul>
           </QualiopiItem>
 
-          <QualiopiItem icon={Clock} title="3. Durée">
+          <QualiopiItem icon={BookOpen} title={`3. ${labels.contenu}`}>
+            <ul className="list-disc space-y-1.5 pl-4">
+              {validated.contenu.map((module) => (
+                <li key={module}>{module}</li>
+              ))}
+            </ul>
+            <p className="mt-3">
+              <Link href={programmePdfHref} className="font-medium text-[#377CF3] hover:underline">
+                Télécharger le programme détaillé (PDF)
+              </Link>
+            </p>
+          </QualiopiItem>
+
+          <QualiopiItem icon={Clock} title={`4. ${labels.duree}`}>
             <p>
               <strong>{validated.duree}</strong>
               {dureeJours ? ` — ${dureeJours}` : null}
             </p>
           </QualiopiItem>
 
-          <QualiopiItem icon={Calendar} title="4. Modalités et délais d'accès">
-            <p>{QUALIOPI_MODALITES_ACCES_EXACT}</p>
-            <p className="mt-2">{QUALIOPI_DELAI_ACCES_EXACT}</p>
-            <p className="mt-2">
+          <QualiopiItem icon={Calendar} title={`5. ${labels.modalitesAcces}`}>
+            <p>{validated.modalitesAcces}</p>
+            <p className="mt-3">
               <Link href={LINKS.prendreRdv} className="font-medium text-[#377CF3] hover:underline">
                 Prendre rendez-vous
               </Link>{' '}
@@ -128,7 +141,11 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </p>
           </QualiopiItem>
 
-          <QualiopiItem icon={Euro} title="5. Tarifs (HT)">
+          <QualiopiItem icon={Calendar} title={`6. ${labels.delaisAcces}`}>
+            <p>{validated.delaiAcces}</p>
+          </QualiopiItem>
+
+          <QualiopiItem icon={Euro} title={`7. ${labels.tarif}`}>
             <p>
               <strong>Inter-entreprise :</strong> {validated.tarifInter}
               <MentionTvaAsterisque />
@@ -143,7 +160,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </p>
           </QualiopiItem>
 
-          <QualiopiItem icon={BookOpen} title="6. Méthodes mobilisées">
+          <QualiopiItem icon={BookOpen} title={`8. ${labels.methodes}`}>
             <ul className="list-disc space-y-1.5 pl-4">
               {methodesList.map((line) => (
                 <li key={line}>{line}</li>
@@ -151,7 +168,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </ul>
           </QualiopiItem>
 
-          <QualiopiItem icon={ClipboardCheck} title="7. Modalités d'évaluation">
+          <QualiopiItem icon={ClipboardCheck} title={`9. ${labels.evaluation}`}>
             <ul className="list-disc space-y-1.5 pl-4">
               {evaluationList.map((line) => (
                 <li key={line}>{line}</li>
@@ -159,7 +176,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </ul>
           </QualiopiItem>
 
-          <QualiopiItem icon={Accessibility} title="8. Accessibilité handicap">
+          <QualiopiItem icon={Accessibility} title={`10. ${labels.handicap}`}>
             <p>{validated.handicap}</p>
             <p className="mt-3 text-slate-600">
               Référente handicap : {QUALIOPI_REFERENT_HANDICAP.nom} —{' '}
@@ -184,7 +201,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
             </p>
           </QualiopiItem>
 
-          <QualiopiItem icon={Mail} title="9. Contacts">
+          <QualiopiItem icon={Mail} title={`11. ${labels.contact}`}>
             <ul className="space-y-2">
               <li className="text-slate-600">
                 <span className="font-medium text-slate-900">{QUALIOPI_CONTACTS.nom}</span>
@@ -238,7 +255,7 @@ export function InformationsReglementaires(props: InfosQualiopiProps) {
   );
 }
 
-/** Alias historique — même composant (9 sections + garde build). */
+/** Alias historique — même composant (11 sections audit + garde build). */
 export function InfosQualiopi(props: InfosQualiopiProps) {
   return <InformationsReglementaires {...props} />;
 }

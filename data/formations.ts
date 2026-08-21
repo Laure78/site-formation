@@ -21,8 +21,10 @@ export type Formation = {
   public: string;
   casUsage: string;
   pdfProgramme: string;
-  /** Date de mise à jour du programme PDF (JJ/MM/AAAA) — affichée dans Informations pratiques */
-  programmeUpdatedAt?: string;
+  /** Version du programme (ex. « Version 2 ») — affichée dans le catalogue */
+  programmeVersion: string;
+  /** Date de mise à jour du programme PDF (JJ/MM/AAAA) — catalogue et Informations pratiques */
+  programmeUpdatedAt: string;
   /** Chemin public de l’affiche catalogue */
   image: string;
 };
@@ -51,6 +53,7 @@ export const FORMATIONS: readonly Formation[] = [
       'Dirigeants BTP (gros œuvre, second œuvre, étanchéité, couverture, électricité, plomberie, VRD, TP), conducteurs de travaux, techniciens BE, assistantes administratives',
     casUsage: 'Devis, DOE, PV, CR, communication digitale',
     pdfProgramme: '/formations/pdf/programme-niveau-1-ia-batiment-travaux-publics.pdf',
+    programmeVersion: 'Version 2',
     programmeUpdatedAt: '20/08/2026',
     image: '/images/formation-ia-batiment-travaux-publics.webp',
   },
@@ -77,6 +80,8 @@ export const FORMATIONS: readonly Formation[] = [
     casUsage: 'DCE, mémoires techniques, skills Cowork',
     pdfProgramme:
       '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf',
+    programmeVersion: 'Version 2',
+    programmeUpdatedAt: '21/08/2026',
     image: '/images/formation-ia-appels-offres-btp.webp',
   },
   {
@@ -102,6 +107,8 @@ export const FORMATIONS: readonly Formation[] = [
     casUsage:
       'Analyse CCTP & DPGF, PPSPS, CR, sous-traitants (DC4), PV de réserves, DOE, bibliothèque de skills',
     pdfProgramme: '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
+    programmeVersion: 'Version 2',
+    programmeUpdatedAt: '21/08/2026',
     image: '/images/formation-ia-conduite-travaux-btp.webp',
   },
   {
@@ -129,6 +136,8 @@ export const FORMATIONS: readonly Formation[] = [
     casUsage:
       'Projets Claude, Skills métier (AO, chantier, administratif, juridique), Cowork, connecteurs Gmail/Drive, Claude Code',
     pdfProgramme: '/formations/maitriser-claude-ai-btp/Programme_Maitriser_Claude_BTP_OFC.pdf',
+    programmeVersion: 'Version 2',
+    programmeUpdatedAt: '21/08/2026',
     image: '/images/formation-claude-ai-btp-catalogue.webp',
   },
   {
@@ -154,6 +163,8 @@ export const FORMATIONS: readonly Formation[] = [
       "Maîtres d'œuvre d'exécution (MOEX), conducteurs de travaux, OPC, BET, assistant(e)s gestion travaux",
     casUsage: 'Analyse DCE, CR chantier, OS, courriers MOE, réserves et réception',
     pdfProgramme: '/formations/ia-maitrise-oeuvre/programme_OFC_IA_MOE_4h.pdf',
+    programmeVersion: 'Version 2',
+    programmeUpdatedAt: '21/08/2026',
     image: '/images/formation-ia-maitrise-oeuvre-btp.webp',
   },
 ] as const;

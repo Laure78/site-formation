@@ -799,6 +799,8 @@ export default function FormationIAuServiceDuBatimentPage() {
         </div>
       </section>
 
+      <CatalogueInfosPratiques programmeRef="NIV-01" />
+
       {/* FAQ */}
       <section className="border-b border-slate-200 bg-slate-50 px-4 py-16">
         <div className="mx-auto max-w-4xl">
@@ -818,8 +820,6 @@ export default function FormationIAuServiceDuBatimentPage() {
         links={FORMATION_NIV01_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationIaBtpNiveau1BatimentTp).includes(l.href))}
         tone="muted"
       />
-
-      <CatalogueInfosPratiques programmeRef="NIV-01" />
 
       {/* CTA final */}
       <section className="bg-[var(--accent)] px-4 py-16 text-white">

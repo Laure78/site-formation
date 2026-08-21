@@ -8,8 +8,10 @@ export type InfosReglementairesRequired = {
   formationTitle: string;
   prerequis: string | readonly string[];
   objectifs: readonly string[];
+  contenu: readonly string[];
   duree: string;
   modalitesAcces: string;
+  delaiAcces: string;
   tarifInter: string;
   tarifIntra: string;
   methodes: readonly string[];
@@ -63,43 +65,43 @@ export function assertLastUpdatedWithin12Months(lastUpdated: string, now = new D
   limit.setFullYear(limit.getFullYear() - 1);
   if (d < limit) {
     throw new Error(
-      `[InfosReglementaires] Date de mise à jour trop ancienne (${lastUpdated}) — > 12 mois. Mettre à jour QUALIOPI_FICHE_META.updatedAt.`,
+      `[InfosReglementaires] Date de mise à jour trop ancienne (${lastUpdated}) — > 12 mois. Mettre à jour la date programme dans data/formations.ts.`,
     );
   }
 }
 
 /**
- * Valide les 9 sections + métadonnées programme.
+ * Valide les 11 sections audit + métadonnées programme.
  * À appeler côté serveur / au rendu (build + SSR).
  */
 export function assertInfosReglementairesCompletes(
   props: Partial<InfosReglementairesRequired> & { dureeJours?: string; version?: string },
 ): InfosReglementairesRequired {
   const formationTitle = nonEmptyText(props.formationTitle, 'formationTitle');
-  const prerequis = nonEmptyList(props.prerequis, '1. Prérequis');
-  const objectifs = nonEmptyList(props.objectifs, '2. Objectifs');
-  const duree = nonEmptyText(props.duree, '3. Durée');
-  const modalitesAcces = nonEmptyText(props.modalitesAcces, "4. Modalités et délais d'accès");
-  const tarifInter = nonEmptyText(props.tarifInter, '5. Tarifs (inter)');
-  const tarifIntra = nonEmptyText(props.tarifIntra, '5. Tarifs (intra)');
-  const methodes = nonEmptyList(props.methodes, '6. Méthodes mobilisées');
-  const evaluation = nonEmptyList(props.evaluation, "7. Modalités d'évaluation");
-  const handicap = nonEmptyText(props.handicap, '8. Accessibilité handicap');
+  const prerequis = nonEmptyList(props.prerequis, 'Prérequis');
+  const objectifs = nonEmptyList(props.objectifs, 'Objectifs');
+  const contenu = nonEmptyList(props.contenu, 'Contenu de la formation');
+  const duree = nonEmptyText(props.duree, 'Durée');
+  const modalitesAcces = nonEmptyText(props.modalitesAcces, "Modalités d'accès");
+  const delaiAcces = nonEmptyText(props.delaiAcces, "Délais d'accès");
+  const tarifInter = nonEmptyText(props.tarifInter, 'Tarifs (inter)');
+  const tarifIntra = nonEmptyText(props.tarifIntra, 'Tarifs (intra)');
+  const methodes = nonEmptyList(props.methodes, 'Méthodes pédagogiques mobilisées');
+  const evaluation = nonEmptyList(props.evaluation, "Modalités d'évaluation");
+  const handicap = nonEmptyText(props.handicap, 'Accessibilité aux personnes en situation de handicap');
   const lastUpdated = nonEmptyText(props.lastUpdated, 'date de mise à jour');
   const programmeRef = nonEmptyText(props.programmeRef, 'référence programme');
 
   assertLastUpdatedWithin12Months(lastUpdated);
 
-  if (!/293\s*B|261-4-4|TVA non applicable|TVA exonérée/i.test(`${tarifInter} ${tarifIntra}`)) {
-    // La mention TVA est injectée dans le composant UI ; on ne bloque pas les props tarif.
-  }
-
   return {
     formationTitle,
     prerequis,
     objectifs,
+    contenu,
     duree,
     modalitesAcces,
+    delaiAcces,
     tarifInter,
     tarifIntra,
     methodes,

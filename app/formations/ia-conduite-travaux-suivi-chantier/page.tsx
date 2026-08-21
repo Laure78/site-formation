@@ -345,6 +345,8 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           </ul>
         </section>
 
+        <CatalogueInfosPratiques programmeRef="NIV-03" />
+
         <FAQSection
           items={FAQ_CONDUITE_TRAVAUX_NIV03}
           title="Questions fréquentes — conduite de travaux"
@@ -359,8 +361,6 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           links={FORMATION_NIV03_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationConduiteTravauxSuiviChantier).includes(l.href))}
           tone="muted"
         />
-
-        <CatalogueInfosPratiques programmeRef="NIV-03" />
 
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink

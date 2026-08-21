@@ -6,7 +6,6 @@
 import { getFormationByCode, type FormationCode } from '@/data/formations';
 import {
   QUALIOPI_DELAI_ACCES_EXACT,
-  QUALIOPI_FICHE_META,
   QUALIOPI_MODALITES_ACCES_EXACT,
 } from '@/config/qualiopi';
 import {
@@ -15,6 +14,7 @@ import {
 } from '@/lib/qualiopi-info';
 import { getFormationCatalogueByRef } from '@/lib/formations-catalogue-display';
 import type { InfosPratiquesFormation } from '@/lib/infos-pratiques-types';
+import { assertInfosPratiquesCompletes } from '@/lib/assert-infos-pratiques';
 import { libelleTarifsCatalogueComplets, PREREQUIS_NIVEAU_2 } from '@/lib/tarifs-sessions';
 
 /** Modalité pédagogique fixe — toutes les actions catalogue OFC. */
@@ -117,7 +117,10 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     throw new Error(`[getInfosPratiquesForCatalogue] Contenu programme manquant pour ${ref}`);
   }
 
-  return {
+  return assertInfosPratiquesCompletes({
+    formationTitle: entry.title,
+    programmeRef: entry.ref,
+    programmeVersion: formation.programmeVersion,
     prerequis: prerequisPourRef(code),
     objectifs: [...entry.objectifs],
     contenu: [...contenu],
@@ -134,6 +137,6 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     modalitesEvaluation: [...QUALIOPI_EVALUATION_STANDARD],
     modalitePedagogique: MODALITE_PEDAGOGIQUE_CATALOGUE,
     accessibiliteHandicap: INFOS_PRATIQUES_HANDICAP_ENCART,
-    dateMaj: formation.programmeUpdatedAt ?? QUALIOPI_FICHE_META.updatedAt,
-  };
+    dateMaj: formation.programmeUpdatedAt,
+  });
 }

@@ -23,10 +23,11 @@ import {
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge } from '@/components/formations/CataloguePriceBadge';
+import { FormationCatalogueTitle } from '@/components/formations/FormationCatalogueTitle';
 import { MentionTvaAsterisque } from '@/components/MentionTVA';
 import { calendlyCatalogueUrl } from '@/lib/calendly';
 import { TARIF_SESSION_FORFAIT_HT, libelleTarifSessionForfaitaire } from '@/lib/tarifs-sessions';
-import { OFC_CARD, OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { OFC_CARD, OFC_CTA_PRIMARY } from '@/lib/ofc-interaction-classes';
 
 type ProfileId = 'debutant' | 'ao' | 'conduite' | 'claude' | 'moe';
 
@@ -109,9 +110,7 @@ function FormationCard({
           {catalogueNiveauEtLevel(cours.ref, cours.level)}
         </p>
         <h3 className="mt-2 font-display text-[22px] font-semibold leading-snug text-[#0F172A]">
-          <Link href={cours.href} className={OFC_LINK}>
-            {cours.title}
-          </Link>
+          <FormationCatalogueTitle entry={cours} />
         </h3>
         <p className="mt-2 text-base italic leading-snug text-[#475569]">{cours.pitch}</p>
         <CataloguePriceBadge

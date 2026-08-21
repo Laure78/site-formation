@@ -389,6 +389,8 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           </ul>
         </section>
 
+        <CatalogueInfosPratiques programmeRef="NIV-04" />
+
         <FAQSection
           items={FAQ_MAITRISER_CLAUDE_NIV04}
           title="Questions fréquentes — Maîtriser Claude AI"
@@ -403,8 +405,6 @@ export default function FormationMaitriserClaudeAiBtpPage() {
           links={FORMATION_NIV04_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationMaitriserClaudeAiBtp).includes(l.href))}
           tone="muted"
         />
-
-        <CatalogueInfosPratiques programmeRef="NIV-04" />
 
         <div className="mt-10 flex flex-wrap gap-4">
           <RdvLink

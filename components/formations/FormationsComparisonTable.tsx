@@ -5,6 +5,7 @@ import type { FormationCatalogueEntry } from '@/lib/formations-catalogue-display
 import {
   CATALOGUE_FORMATIONS_COUNT,
   catalogueNiveauLabel,
+  formationCatalogueVersionLine,
   sortFormationsCatalogue,
 } from '@/lib/formations-catalogue-display';
 
@@ -67,6 +68,9 @@ export function FormationsComparisonTable({
                   <Link href={row.href} className="underline-offset-2 hover:text-[#377CF3] hover:underline">
                     {row.title}
                   </Link>
+                  <span className="mt-0.5 block text-xs font-normal text-[#64748B]">
+                    {formationCatalogueVersionLine(row)}
+                  </span>
                 </td>
                 <td className="px-[18px] py-3 align-top">
                   <span
@@ -111,6 +115,9 @@ export function FormationsComparisonTable({
               <Link href={row.href} className="hover:text-[#377CF3] hover:underline">
                 {row.title}
               </Link>
+              <span className="mt-0.5 block text-xs font-normal text-[#64748B]">
+                {formationCatalogueVersionLine(row)}
+              </span>
             </h3>
             <p className="mt-2 text-[#64748B]">
               <span className="font-medium text-[#334155]">Niveau : </span>

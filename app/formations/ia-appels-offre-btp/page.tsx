@@ -436,6 +436,8 @@ export default function FormationIAAppelsOffreBTPPage() {
         tone="white"
       />
 
+      <CatalogueInfosPratiques programmeRef="NIV-02" />
+
       <FAQSection
         items={FAQ_APPELS_OFFRE}
         title="Questions fréquentes"
@@ -448,8 +450,6 @@ export default function FormationIAAppelsOffreBTPPage() {
         links={FORMATION_NIV02_RELATED.filter((l) => !getClusterRelatedHrefs(LINKS.formationAO).includes(l.href))}
         tone="muted"
       />
-
-      <CatalogueInfosPratiques programmeRef="NIV-02" />
 
       <div className="mt-10 flex flex-wrap gap-4">
         <RdvLink

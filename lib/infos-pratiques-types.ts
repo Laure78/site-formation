@@ -1,5 +1,8 @@
-/** Données obligatoires — aucun champ optionnel (Indicateur 1 Qualiopi). */
+/** Données obligatoires — aucun champ optionnel (Indicateur 1 Qualiopi, fiches catalogue). */
 export type InfosPratiquesFormation = {
+  formationTitle: string;
+  programmeRef: string;
+  programmeVersion: string;
   prerequis: string;
   objectifs: string[];
   contenu: string[];

@@ -15,6 +15,7 @@ import {
   catalogueNiveauEtLevel,
 } from '@/lib/formations-catalogue-display';
 import { CataloguePriceBadge, CatalogueTarifStrip } from '@/components/formations/CataloguePriceBadge';
+import { FormationCatalogueTitle } from '@/components/formations/FormationCatalogueTitle';
 import { MentionFinancement } from '@/components/MentionFinancement';
 
 /**
@@ -80,7 +81,12 @@ export function BeworkEtFormationsOffreSection() {
                       {cataloguePedagogicalLevelBadge(cours.ref)}
                     </span>
                   </div>
-                  <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">{cours.title}</h3>
+                  <h3 className="mt-3 font-display text-xl font-semibold text-slate-900">
+                    <FormationCatalogueTitle
+                      entry={cours}
+                      versionClassName="mt-1 block text-xs font-normal leading-snug text-slate-500"
+                    />
+                  </h3>
                   <CataloguePriceBadge level={cours.level} prixHT={cours.prixHT} variant="banner" className="mt-4" />
                   <div className="mt-3 flex flex-wrap gap-4 rounded-lg bg-slate-50 px-4 py-3">
                     <span className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
