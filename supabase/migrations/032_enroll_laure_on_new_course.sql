@@ -1,4 +1,4 @@
--- Inscription automatique de contact@laureolivie.fr à chaque nouvelle formation LMS
+-- Inscription automatique de laureolivie@yahoo.fr à chaque nouvelle formation LMS
 create or replace function public.enroll_laure_on_new_course()
 returns trigger
 language plpgsql
@@ -10,7 +10,7 @@ declare
 begin
   select id into uid
   from auth.users
-  where lower(email) = 'contact@laureolivie.fr'
+  where lower(email) = 'laureolivie@yahoo.fr'
   limit 1;
 
   if uid is not null then

@@ -23,7 +23,7 @@ export const MODALITE_PEDAGOGIQUE_CATALOGUE =
 
 /** Encart accessibilité handicap — texte réglementaire affiché dans le composant. */
 export const INFOS_PRATIQUES_HANDICAP_ENCART =
-  "Nos formations sont accessibles aux personnes en situation de handicap. Laure Olivié, référente handicap, étudie avec vous les adaptations nécessaires (matériel, rythme, supports, accès aux locaux) avant l'entrée en formation. Contact : 06 95 66 18 18 — contact@laureolivie.fr";
+  "Nos formations sont accessibles aux personnes en situation de handicap. Laure Olivié, référente handicap, étudie avec vous les adaptations nécessaires (matériel, rythme, supports, accès aux locaux) avant l'entrée en formation. Contact : 06 95 66 18 18 — laureolivie@yahoo.fr";
 
 /** Grandes parties du programme — titres modules (fiches catalogue). */
 export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[]> = {

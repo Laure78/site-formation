@@ -262,8 +262,8 @@ export default function FormationIAAppelsOffreBTPPage() {
         </ul>
         <p className="mt-4 text-sm text-slate-600">
           Devis et convention :{' '}
-          <a href="mailto:contact@laureolivie.fr" className="font-medium text-[var(--accent)] hover:underline">
-            contact@laureolivie.fr
+          <a href="mailto:laureolivie@yahoo.fr" className="font-medium text-[var(--accent)] hover:underline">
+            laureolivie@yahoo.fr
           </a>
         </p>
       </section>
