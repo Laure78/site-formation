@@ -204,7 +204,7 @@ function NavbarInner() {
             })}
           </nav>
 
-          <div className="site-header__search hidden xl:flex">
+          <div className="site-header__search hidden 2xl:flex">
             <SiteSearchTrigger className="px-2 py-2" />
           </div>
 

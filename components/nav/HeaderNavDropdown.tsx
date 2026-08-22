@@ -12,7 +12,7 @@ import {
 } from '@/lib/header-nav';
 
 const TRIGGER_CLASS =
-  'inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2.5 2xl:pl-3.5';
+  'inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2 xl:pr-0.5 2xl:pl-3.5';
 const TRIGGER_ACTIVE = 'bg-white text-slate-900 shadow-sm';
 const TRIGGER_IDLE = 'text-slate-700 hover:text-slate-900';
 const LINK_CLASS =
@@ -168,7 +168,7 @@ export function HeaderNavSimpleLink({
     <Link
       href={item.href}
       aria-current={active ? 'page' : undefined}
-      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:px-2.5 2xl:px-3.5 ${
+      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:px-2 2xl:px-3.5 ${
         active ? TRIGGER_ACTIVE : TRIGGER_IDLE
       }`}
     >
