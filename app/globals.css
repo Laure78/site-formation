@@ -78,8 +78,8 @@
 
     --site-header-height: 4rem;
 
-    /* Header desktop 2 lignes (menu + barre actions) */
-    --site-header-height-lg: 6.5rem;
+    /* Header desktop : barre actions + menu (1 ligne) */
+    --site-header-height-lg: 5.5rem;
 
     /* Espacement sections — base 4 px, cible DA 96–160 px desktop */
     --ofc-section-py: 4rem;
@@ -1053,12 +1053,11 @@
   .site-header__nav-pill {
     @apply mx-1 hidden min-w-0 flex-1 items-center justify-start gap-0.5 overflow-x-auto rounded-full border border-slate-200/80 bg-slate-100/90 px-1.5 py-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] [scrollbar-width:none] sm:gap-0.5 sm:px-2;
     @apply transition-[padding] duration-200 ease-out motion-reduce:transition-none;
-    @apply lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:flex-none lg:w-full lg:max-w-none lg:overflow-visible lg:rounded-2xl lg:px-2.5 lg:py-2;
-    @apply lg:grid lg:grid-cols-3 lg:justify-items-stretch lg:gap-x-1 lg:gap-y-1;
+    @apply lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:flex lg:w-full lg:max-w-none lg:flex-nowrap lg:items-center lg:justify-center lg:gap-1 lg:overflow-visible lg:rounded-full lg:px-3 lg:py-1.5;
   }
 
   .site-header__nav-pill > * {
-    @apply shrink-0 lg:justify-self-center;
+    @apply shrink-0;
   }
 
   .site-header__nav-pill::-webkit-scrollbar {
