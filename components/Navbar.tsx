@@ -17,7 +17,10 @@ import {
 } from 'lucide-react';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY_PILL } from '@/lib/ofc-interaction-classes';
-import { HEADER_NAV } from '@/lib/header-nav';
+import {
+  headerNavItemIsActive,
+  HEADER_NAV,
+} from '@/lib/header-nav';
 import { PHOTOS, SITE_LOGO_ALT, SITE_LOGO_TITLE } from '@/lib/photos';
 import { SiteSearchTrigger } from '@/components/search/SiteSearchTrigger';
 import { FormationPlateformeConnexionButton } from '@/components/formation/FormationPlateformeConnexionButton';
@@ -37,8 +40,9 @@ const MOBILE_NAV_ICON: Record<string, LucideIcon> = {
   'a-propos': UserCircle,
 };
 
-/** Seuil scroll (px) — fond compact + compression visuelle du header. */
-const HEADER_COMPACT_SCROLL_PX = 80;
+/** Seuil scroll (px) — mode compact avec hysteresis pour éviter les oscillations. */
+const HEADER_COMPACT_ON_PX = 120;
+const HEADER_COMPACT_OFF_PX = 48;
 
 /** Header site unique — rendu depuis `app/layout.tsx` sur toutes les routes. */
 export function Header() {
@@ -95,6 +99,17 @@ function NavbarInner() {
 
   useEffect(() => {
     if (!mobileOpen) return;
+    const initial: Record<string, boolean> = {};
+    for (const item of HEADER_NAV) {
+      if (item.children?.length && headerNavItemIsActive(item, pathname)) {
+        initial[item.id] = true;
+      }
+    }
+    setMobileExpanded(initial);
+  }, [mobileOpen, pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
@@ -105,11 +120,29 @@ function NavbarInner() {
   useEffect(() => () => clearCloseTimer(), []);
 
   useEffect(() => {
-    const onScroll = () => setCompact(window.scrollY > HEADER_COMPACT_SCROLL_PX);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setCompact((prev) => {
+        if (!prev && y > HEADER_COMPACT_ON_PX) return true;
+        if (prev && y < HEADER_COMPACT_OFF_PX) return false;
+        return prev;
+      });
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (!openId) return;
@@ -181,7 +214,7 @@ function NavbarInner() {
                         <Icon
                           size={16}
                           strokeWidth={1.75}
-                          className="hidden shrink-0 text-slate-500 2xl:block"
+                          className="hidden shrink-0 text-current/70 xl:block"
                           aria-hidden
                         />
                       ) : undefined
@@ -232,7 +265,7 @@ function NavbarInner() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="rounded-lg p-2.5 text-slate-700 hover:bg-slate-100"
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 transition-colors hover:bg-slate-100"
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             >
@@ -242,73 +275,104 @@ function NavbarInner() {
         </div>
       </header>
 
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex flex-col bg-white lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu de navigation"
-        >
-          <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
-            <SiteSearchTrigger className="px-2 py-2" showLabel />
-            <span className="font-display text-lg font-bold text-slate-900">Menu</span>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(false)}
-              className="rounded-lg p-2.5 text-slate-700 hover:bg-slate-100"
-              aria-label="Fermer"
-            >
-              <X size={22} />
-            </button>
-          </div>
-          <nav className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4" aria-label="Navigation mobile">
-            {HEADER_NAV.map((item) => {
-              const Icon = MOBILE_NAV_ICON[item.id];
-              return (
-                <HeaderMobileNavSection
-                  key={item.id}
-                  item={item}
-                  pathname={pathname}
-                  expanded={Boolean(mobileExpanded[item.id])}
-                  onToggle={() =>
-                    setMobileExpanded((current) => ({
-                      ...current,
-                      [item.id]: !current[item.id],
-                    }))
-                  }
-                  onNavigate={() => setMobileOpen(false)}
-                  icon={
-                    Icon ? (
-                      <Icon
-                        size={18}
-                        strokeWidth={1.75}
-                        className={
-                          item.isActive?.(pathname) ? 'text-[var(--accent)]' : 'text-slate-400'
-                        }
-                      />
-                    ) : undefined
-                  }
-                />
-              );
-            })}
-
-            <div className="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-6">
-              <FormationPlateformeConnexionButton
-                variant="navMobile"
-                label="Connexion plateforme"
-                onClick={() => setMobileOpen(false)}
-              />
+      {mobileOpen ? (
+        <>
+          <button
+            type="button"
+            className="header-mobile-backdrop lg:hidden"
+            aria-label="Fermer le menu"
+            onClick={() => setMobileOpen(false)}
+          />
+          <div
+            className="header-mobile-drawer lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu de navigation"
+          >
+            <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-4">
               <Link
-                href={LINKS.accueilRdv}
+                href="/"
                 onClick={() => setMobileOpen(false)}
-                className={`${OFC_CTA_PRIMARY_PILL} cta-calendly w-full text-center text-[0.9375rem]`}
+                className="flex items-center gap-2.5"
               >
-                Prendre rendez-vous
+                <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full ring-1 ring-slate-200/70">
+                  <Image
+                    src={PHOTOS.siteAvatar.src}
+                    alt=""
+                    fill
+                    className={AUTHOR_HEADSHOT_IMAGE_CLASS}
+                    sizes="36px"
+                  />
+                </span>
+                <span className="font-display text-base font-bold text-slate-900">Laure Olivié</span>
               </Link>
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-700 hover:bg-slate-100"
+                aria-label="Fermer"
+              >
+                <X size={22} strokeWidth={1.75} />
+              </button>
             </div>
-          </nav>
-        </div>
-      )}
+            <div className="border-b border-slate-100 px-4 py-3">
+              <SiteSearchTrigger className="w-full justify-start px-3 py-2.5" showLabel />
+            </div>
+            <nav
+              className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-4 py-4"
+              aria-label="Navigation mobile"
+            >
+              {HEADER_NAV.map((item) => {
+                const Icon = MOBILE_NAV_ICON[item.id];
+                return (
+                  <HeaderMobileNavSection
+                    key={item.id}
+                    item={item}
+                    pathname={pathname}
+                    expanded={Boolean(mobileExpanded[item.id])}
+                    onToggle={() =>
+                      setMobileExpanded((current) => ({
+                        ...current,
+                        [item.id]: !current[item.id],
+                      }))
+                    }
+                    onNavigate={() => setMobileOpen(false)}
+                    icon={
+                      Icon ? (
+                        <Icon
+                          size={18}
+                          strokeWidth={1.75}
+                          className={
+                            item.isActive?.(pathname) || pathname === item.href
+                              ? 'text-[#377CF3]'
+                              : 'text-slate-400'
+                          }
+                        />
+                      ) : undefined
+                    }
+                  />
+                );
+              })}
+            </nav>
+            <div className="shrink-0 border-t border-slate-200 bg-white px-4 py-4">
+              <div className="flex flex-col gap-3">
+                <FormationPlateformeConnexionButton
+                  variant="navMobile"
+                  label="Connexion plateforme"
+                  onClick={() => setMobileOpen(false)}
+                />
+                <Link
+                  href={LINKS.accueilRdv}
+                  onClick={() => setMobileOpen(false)}
+                  className={`${OFC_CTA_PRIMARY_PILL} cta-calendly w-full text-center text-[0.9375rem]`}
+                >
+                  Prendre rendez-vous
+                </Link>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : null}
     </>
   );
 }

@@ -11,13 +11,15 @@ import {
   type HeaderNavItem,
 } from '@/lib/header-nav';
 
-const TRIGGER_CLASS =
-  'inline-flex items-center gap-1 whitespace-nowrap rounded-full py-2 pl-2 pr-1 text-sm font-medium transition-all xl:pl-2 xl:pr-0.5 2xl:pl-3.5';
-const TRIGGER_ACTIVE = 'bg-white text-slate-900 shadow-sm';
-const TRIGGER_IDLE = 'text-slate-700 hover:text-slate-900';
-const LINK_CLASS =
-  'block rounded-lg px-3 py-2 text-sm leading-snug text-slate-700 transition-colors hover:bg-slate-50 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]';
-const LINK_ACTIVE = 'bg-slate-50 font-medium text-[var(--accent)]';
+function triggerClass(active: boolean, simple = false) {
+  return [
+    'header-nav-trigger',
+    simple ? 'header-nav-trigger--simple' : '',
+    active ? 'header-nav-trigger--active' : 'header-nav-trigger--idle',
+  ]
+    .filter(Boolean)
+    .join(' ');
+}
 
 export function HeaderNavDropdown({
   item,
@@ -40,7 +42,8 @@ export function HeaderNavDropdown({
   const buttonId = `header-nav-btn-${item.id}`;
   const wrapRef = useRef<HTMLDivElement>(null);
   const [box, setBox] = useState<{ top: number; left: number; right: number } | null>(null);
-  const active = headerNavItemIsActive(item, pathname) || open;
+  const routeActive = headerNavItemIsActive(item, pathname);
+  const highlighted = routeActive || open;
   const children = item.children ?? [];
 
   useLayoutEffect(() => {
@@ -71,81 +74,81 @@ export function HeaderNavDropdown({
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
     >
-      <Link
-        href={item.href}
-        aria-current={headerNavItemIsActive(item, pathname) ? 'page' : undefined}
-        className={`${TRIGGER_CLASS} ${active ? TRIGGER_ACTIVE : TRIGGER_IDLE} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]`}
-      >
-        {item.label}
-      </Link>
-      <button
-        id={buttonId}
-        type="button"
-        aria-expanded={open}
-        aria-haspopup="true"
-        aria-controls={panelId}
-        aria-label={`Ouvrir le menu ${item.label}`}
-        className={`flex items-center rounded-full py-2 pr-2 pl-0.5 text-slate-500 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:pr-2.5 ${
-          open ? 'text-slate-800' : 'hover:text-slate-700'
-        }`}
-        onClick={(event) => {
-          event.preventDefault();
-          onToggle();
-        }}
-      >
-        <ChevronDown
-          size={15}
-          strokeWidth={2}
-          className={`shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-          aria-hidden
-        />
-      </button>
+      <div className={triggerClass(highlighted)}>
+        <Link
+          href={item.href}
+          aria-current={routeActive ? 'page' : undefined}
+          className="header-nav-trigger__link"
+        >
+          {item.label}
+        </Link>
+        <button
+          id={buttonId}
+          type="button"
+          aria-expanded={open}
+          aria-haspopup="true"
+          aria-controls={panelId}
+          aria-label={`Ouvrir le menu ${item.label}`}
+          className="header-nav-trigger__toggle"
+          onClick={(event) => {
+            event.preventDefault();
+            onToggle();
+          }}
+        >
+          <ChevronDown
+            size={15}
+            strokeWidth={2.25}
+            className={`shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+            aria-hidden
+          />
+        </button>
+      </div>
       {open && box
         ? createPortal(
             <div
               id={panelId}
               data-header-dropdown=""
-              className="min-w-[15.5rem] max-w-[min(100vw-2rem,22rem)] pt-2"
+              className="header-nav-dropdown-panel min-w-[16.5rem] max-w-[min(100vw-2rem,24rem)] pt-1"
               style={{
                 position: 'fixed',
-                top: box.top,
+                top: box.top - 4,
                 zIndex: 60,
                 ...(item.dropdownAlign === 'end' ? { right: box.right } : { left: box.left }),
               }}
               onMouseEnter={onOpen}
               onMouseLeave={onClose}
             >
-              <ul
-                className="max-h-[min(70vh,32rem)] overflow-y-auto overscroll-contain rounded-2xl border border-slate-200/80 bg-white py-2 shadow-[0_16px_48px_-12px_rgba(15,23,42,0.18)]"
-                aria-labelledby={buttonId}
-              >
-                {children.map((child) => {
-                  const childActive = headerNavLinkIsActive(child.href, pathname);
-                  return (
-                    <li key={`${child.href}-${child.label}`}>
-                      <Link
-                        href={child.href}
-                        onClick={onNavigate}
-                        className={`${LINK_CLASS} ${childActive ? LINK_ACTIVE : ''}`}
-                      >
-                        {child.label}
-                      </Link>
-                    </li>
-                  );
-                })}
+              <div className="header-nav-dropdown-menu" aria-labelledby={buttonId}>
+                <p className="header-nav-dropdown-heading">{item.label}</p>
+                <ul>
+                  {children.map((child) => {
+                    const childActive = headerNavLinkIsActive(child.href, pathname);
+                    return (
+                      <li key={`${child.href}-${child.label}`}>
+                        <Link
+                          href={child.href}
+                          onClick={onNavigate}
+                          className={`header-nav-dropdown-link ${
+                            childActive ? 'header-nav-dropdown-link--active' : ''
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
                 {item.footer ? (
-                  <li className="mt-1 border-t border-slate-100 pt-1">
-                    <Link
-                      href={item.footer.href}
-                      onClick={onNavigate}
-                      className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm font-semibold text-[var(--accent)] transition-colors hover:bg-[#EFF6FF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
-                    >
+                  <div className="mt-2 border-t border-slate-100 px-2 pt-2">
+                    <Link href={item.footer.href} onClick={onNavigate} className="header-nav-dropdown-footer">
                       {item.footer.label}
-                      <span aria-hidden>→</span>
+                      <span aria-hidden className="text-base leading-none">
+                        →
+                      </span>
                     </Link>
-                  </li>
+                  </div>
                 ) : null}
-              </ul>
+              </div>
             </div>,
             document.body,
           )
@@ -165,16 +168,16 @@ export function HeaderNavSimpleLink({
 }) {
   const active = headerNavItemIsActive(item, pathname);
   return (
-    <Link
-      href={item.href}
-      aria-current={active ? 'page' : undefined}
-      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2 text-sm font-medium transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:px-2 2xl:px-3.5 ${
-        active ? TRIGGER_ACTIVE : TRIGGER_IDLE
-      }`}
-    >
-      {icon}
-      {item.label}
-    </Link>
+    <div className={triggerClass(active, true)}>
+      <Link
+        href={item.href}
+        aria-current={active ? 'page' : undefined}
+        className="header-nav-trigger__link"
+      >
+        {icon}
+        {item.label}
+      </Link>
+    </div>
   );
 }
 
@@ -200,15 +203,17 @@ export function HeaderMobileNavSection({
   const hasMenu = children.length > 0;
 
   return (
-    <div className="border-b border-slate-100 py-1">
-      <div className="flex items-stretch">
+    <div
+      className={`header-mobile-section mb-2 ${itemActive ? 'header-mobile-section--active' : ''}`}
+    >
+      <div className="header-mobile-section__head">
         <Link
           href={item.href}
           aria-current={itemActive ? 'page' : undefined}
           onClick={onNavigate}
-          className={`flex min-w-0 flex-1 items-center gap-2 rounded-lg px-2 py-3 text-[0.9375rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] ${
-            hasMenu ? 'font-semibold' : 'font-medium'
-          } ${itemActive ? 'text-[var(--accent)]' : 'text-slate-900'}`}
+          className={`header-mobile-section__link ${
+            itemActive ? 'font-semibold text-[#2563EB]' : 'font-medium text-slate-900'
+          }`}
         >
           {icon}
           {item.label}
@@ -222,10 +227,11 @@ export function HeaderMobileNavSection({
             aria-controls={panelId}
             aria-haspopup="true"
             aria-label={`Afficher le menu ${item.label}`}
-            className="flex shrink-0 items-center rounded-lg px-2 text-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
+            className="header-mobile-section__toggle"
           >
             <ChevronDown
               size={18}
+              strokeWidth={2.25}
               className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
               aria-hidden
             />
@@ -233,7 +239,7 @@ export function HeaderMobileNavSection({
         ) : null}
       </div>
       {hasMenu && expanded ? (
-        <ul id={panelId} className="space-y-0.5 pb-2 pl-1" aria-labelledby={buttonId}>
+        <ul id={panelId} className="header-mobile-submenu" aria-labelledby={buttonId}>
           {children.map((child) => {
             const childActive = headerNavLinkIsActive(child.href, pathname);
             return (
@@ -241,10 +247,10 @@ export function HeaderMobileNavSection({
                 <Link
                   href={child.href}
                   onClick={onNavigate}
-                  className={`block rounded-lg px-3 py-2.5 text-sm leading-snug ${
+                  className={`header-mobile-submenu-link ${
                     childActive
-                      ? 'bg-slate-50 font-medium text-[var(--accent)]'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      ? 'header-mobile-submenu-link--active'
+                      : 'header-mobile-submenu-link--idle'
                   }`}
                 >
                   {child.label}
@@ -257,10 +263,12 @@ export function HeaderMobileNavSection({
               <Link
                 href={item.footer.href}
                 onClick={onNavigate}
-                className="flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-[var(--accent)]"
+                className="header-nav-dropdown-footer mx-0"
               >
                 {item.footer.label}
-                <span aria-hidden>→</span>
+                <span aria-hidden className="text-base leading-none">
+                  →
+                </span>
               </Link>
             </li>
           ) : null}
