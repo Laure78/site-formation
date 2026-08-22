@@ -27,7 +27,16 @@ import {
   type FormationCatalogueEntry,
 } from '@/lib/formations-catalogue-display';
 import { getFormationByCode } from '@/data/formations';
-import { PROGRAMME_CONTENU_CATALOGUE } from '@/lib/infos-pratiques-catalogue';
+import {
+  DELAI_ACCES_NIV02,
+  DELAI_ACCES_NIV03,
+  EVALUATION_NIV02,
+  EVALUATION_NIV03,
+  MODALITES_ACCES_NIV02,
+  PROGRAMME_CONTENU_CATALOGUE,
+  PREREQUIS_NIV02,
+  PREREQUIS_NIV03,
+} from '@/lib/infos-pratiques-catalogue';
 import type { FormationCode } from '@/data/formations';
 
 /** Identité juridique OFC — réexport (définition : `lib/ofc-identite.ts`). */
@@ -139,12 +148,13 @@ export type InfosQualiopiProps = {
 };
 
 function prerequisPourCatalogue(entry: FormationCatalogueEntry): string[] {
-  if (
-    entry.ref === 'NIV-02' ||
-    entry.ref === 'NIV-03' ||
-    entry.ref === 'NIV-04' ||
-    entry.ref === 'NIV-05'
-  ) {
+  if (entry.ref === 'NIV-02') {
+    return [PREREQUIS_NIV02];
+  }
+  if (entry.ref === 'NIV-03') {
+    return [PREREQUIS_NIV03];
+  }
+  if (entry.ref === 'NIV-04' || entry.ref === 'NIV-05') {
     return [...PREREQUIS_NIVEAU_2];
   }
   return [
@@ -173,6 +183,8 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
     throw new Error(`[getInfosQualiopiForCatalogue] Contenu programme manquant pour ${ref}`);
   }
   const tarifs = tarifsPourCatalogue(entry);
+  const isNiv02 = code === 'NIV-02';
+  const isNiv03 = code === 'NIV-03';
   return {
     formationTitle: entry.title,
     programmeRef: entry.ref,
@@ -182,12 +194,12 @@ export function getInfosQualiopiForCatalogue(ref: string): InfosQualiopiProps {
     programmePdfHref: formation.pdfProgramme,
     duree: entry.duree,
     dureeJours: '0,5 jour (session unique)',
-    modalitesAcces: QUALIOPI_MODALITES_ACCES_EXACT,
-    delaiAcces: QUALIOPI_DELAI_ACCES_EXACT,
+    modalitesAcces: isNiv02 ? MODALITES_ACCES_NIV02 : QUALIOPI_MODALITES_ACCES_EXACT,
+    delaiAcces: isNiv02 ? DELAI_ACCES_NIV02 : isNiv03 ? DELAI_ACCES_NIV03 : QUALIOPI_DELAI_ACCES_EXACT,
     tarifInter: tarifs.inter,
     tarifIntra: tarifs.intra,
     methodes: QUALIOPI_METHODES_STANDARD,
-    evaluation: QUALIOPI_EVALUATION_STANDARD,
+    evaluation: isNiv02 ? [...EVALUATION_NIV02] : isNiv03 ? [...EVALUATION_NIV03] : QUALIOPI_EVALUATION_STANDARD,
     handicap: QUALIOPI_HANDICAP_STANDARD,
     lastUpdated: formation.programmeUpdatedAt,
     version: formation.programmeVersion,

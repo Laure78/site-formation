@@ -529,7 +529,7 @@ export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   },
   {
     q: 'Que contient la bibliothèque de 20+ skills Claude BTP ?',
-    a: `Des assistants préconfigurés pour analyse CCTP/DPGF, sécurité chantier, CR, approvisionnements, sous-traitants, situations, réception et DOE — personnalisables en atelier. Vous repartez aussi avec trames CR, courriers ST et check-lists par module.`,
+    a: `Des assistants préconfigurés pour analyse CCTP/DPGF, sécurité chantier (PPSPS, DUERP, SOGED), CR, approvisionnements, sous-traitants (DC4), métré, situations, réception, DOE et assistant juridique — personnalisables en atelier. Vous repartez avec les skills activés et classés par phase de chantier.`,
   },
 ];
 

@@ -65,24 +65,27 @@ export const FORMATIONS: readonly Formation[] = [
     niveau: 2,
     niveauLabel: 'Niveau 2',
     duree: '4 h',
-    effectifMin: 4,
-    effectifMax: 8,
+    horaires: '9h00 — 13h00 ou 13h30 — 17h30 (à convenir)',
+    effectifMin: 8,
+    effectifMax: 12,
     prixHT: 1200,
     accroche:
       'Niveau 2 : Claude AI Pro, Cowork & Skills — analyse DCE, mémoire technique et assistants IA réutilisables.',
     objectifs: [
-      'Paramétrer Claude AI Pro (Projects, instructions) et installer Cowork sur le poste',
-      'Analyser un DCE complet via Cowork — 15 informations critiques, verdict Go / No Go',
-      'Structurer et rédiger un mémoire technique avec les skills Cowork dédiés',
-      "Créer des skills DCE / MT personnalisés, alimentés par les données de l'entreprise",
+      'Paramétrer Claude AI Pro (Projects, instructions personnalisées) pour l\'adapter à son métier et à ses appels d\'offres',
+      'Analyser un DCE complet via Cowork en extrayant les 15 informations critiques (critères de jugement, clauses éliminatoires, pénalités, délais)',
+      'Structurer un plan de mémoire technique adapté aux pondérations spécifiques du DCE avec l\'assistance de l\'IA',
+      'Rédiger les 5 sections clés d\'un mémoire technique (présentation, méthodologie, moyens, sécurité, environnement) en utilisant les skills dédiés',
+      'Créer et configurer ses propres skills spécialisés DCE et mémoire technique, alimentés par ses données d\'entreprise et réutilisables sur ses futurs appels d\'offres',
+      'Contrôler la fiabilité des productions générées (anti-hallucination, relecture experte) avant toute remise d\'offre',
     ],
     public:
-      "Dirigeants, responsables d'affaires, chargés d'études, conducteurs de travaux, directeurs techniques, bureaux d'études",
+      'Dirigeants, responsables d\'affaires, chargés d\'études, conducteurs de travaux et directeurs techniques de TPE/PME du BTP et de bureaux d\'études',
     casUsage: 'DCE, mémoires techniques, skills Cowork',
     pdfProgramme:
       '/formations/ia-appels-offre-btp/Programme_IA_AO_DCE_MT_ClaudePro_OFC.pdf',
     programmeVersion: 'Version 2',
-    programmeUpdatedAt: '21/08/2026',
+    programmeUpdatedAt: '22/08/2026',
     image: '/images/formation-ia-appels-offres-btp.webp',
   },
   {
@@ -99,7 +102,7 @@ export const FORMATIONS: readonly Formation[] = [
       "Niveau 2 : pilotez vos chantiers avec l'IA — une bibliothèque de 20+ skills Claude, de l'analyse du CCTP à la réception des travaux.",
     objectifs: [
       'Comprendre le fonctionnement des skills Claude et accéder à la bibliothèque de skills BTP mise à disposition',
-      "Préparer et démarrer un chantier avec l'IA : analyse du CCTP, génération de la DPGF, conformité DTU, DICT, ordre de service, planning",
+      "Préparer et démarrer un chantier avec l'IA : analyse du CCTP, génération de la DPGF, DICT, ordre de service, planning",
       'Sécuriser le chantier (PPSPS, DUERP, SOGED) et le piloter au quotidien : CR, suivi, approvisionnements, sous-traitants, métré, avenants, budget',
       "Gérer l'administratif de suivi jusqu'à la réception : situations, PV de réserves, DOE, litiges",
     ],
@@ -108,8 +111,8 @@ export const FORMATIONS: readonly Formation[] = [
     casUsage:
       'Analyse CCTP & DPGF, PPSPS, CR, sous-traitants (DC4), PV de réserves, DOE, bibliothèque de skills',
     pdfProgramme: '/formations/ia-conduite-travaux-suivi-chantier/Programme_IA_Conduite_Travaux_OFC.pdf',
-    programmeVersion: 'Version 2',
-    programmeUpdatedAt: '21/08/2026',
+    programmeVersion: 'Version 3',
+    programmeUpdatedAt: '22/08/2026',
     image: '/images/formation-ia-conduite-travaux-btp.webp',
   },
   {

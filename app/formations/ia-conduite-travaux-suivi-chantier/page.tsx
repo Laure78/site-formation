@@ -23,12 +23,11 @@ import {
   SESSION_DUREE_LIBELLE,
   TARIF_FORFAIT_AVANCE_HT,
   LIBELLE_EFFECTIF_GROUPE_NIV03,
-  EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE,
 
   formatTarifHt,
   libelleTarifSessionForfaitaire,
 } from '@/lib/tarifs-sessions';
-import { PrerequisNiveau2 } from '@/components/formation/PrerequisNiveau2';
+import { PREREQUIS_NIV03 } from '@/lib/infos-pratiques-catalogue';
 import { getFormationCatalogueVisuel } from '@/lib/formations-catalogue-display';
 import {
   FormationCourseHero,
@@ -37,6 +36,10 @@ import { buildCatalogueCourseConduiteTravauxNiv03JsonLd } from '@/lib/schema-cat
 import { formatPersonnesFormeesCount, getStatsFreshnessLabel, siteStats } from '@/lib/constants';
 
 const PDF_HREF = LINKS.pdfProgrammeConduiteTravauxNiv03;
+const PDF_DOWNLOAD_NAME = 'Programme_IA_Conduite_Travaux_OFC.pdf';
+
+const CLAUDE_PRO_RECOMMANDE_NIV03 =
+  'Un compte Claude Pro est recommandé par participant (environ 18 € HT/mois, à souscrire par l\'entreprise si besoin) — non inclus dans le forfait.';
 
 const PAGE_META_DESCRIPTION =
   'IA conduite de travaux & suivi chantier : CCTP, PPSPS, CR et réception en 4 h, présentiel IDF. Qualiopi, Constructys selon éligibilité. Programme PDF et RDV.';
@@ -78,47 +81,57 @@ type ProgrammeBloc = {
 const PROGRAMME_BLOCS: ProgrammeBloc[] = [
   {
     heading: 'Module 1 — Installation & démarrage de chantier',
-    meta: '60 min · Skills Analyse CCTP & DPGF',
+    meta: '60 min · Bibliothèque & skills CCTP, DPGF, DTU',
     objectifs: [
-      'Prise en main de la bibliothèque de skills Claude mise à disposition (20+ skills BTP)',
-      'Skill Analyse CCTP, DPGF & conformité DTU — extraction des exigences et points de vigilance',
-      'Préparation au démarrage : plan d\'installation, DICT, fiches techniques et agréments matériaux',
-      'Ordre de service de démarrage, constat d\'état des lieux, planning indicatif',
+      'Prise en main de la bibliothèque de skills — activer l\'option « Exécution de code » et accéder à la bibliothèque BTP mise à disposition',
+      'Le principe : utiliser un skill, l\'adapter à votre charte, en créer un nouveau (un skill = une « Compétence » dans Claude)',
+      'Skill « Analyse CCTP, DPGF & conformité DTU » — extraire ouvrages, contraintes, points d\'arrêt et exigences techniques ; générer une trame de DPGF ; identifier les DTU applicables',
+      'Préparer et lancer le chantier : plan d\'installation, DICT, fiches techniques et agréments matériaux (MOE / BET)',
+      'Ordre de service de démarrage, constat d\'état des lieux et trame de planning prévisionnel',
     ],
-    livrable: 'Fiche synthèse CCTP/DPGF + brouillon OS et planning à valider en interne',
+    livrable:
+      'Bibliothèque activée + skills « Analyse CCTP, DPGF & DTU », « DICT », « Fiches techniques », « OS de démarrage » et « Planning »',
   },
   {
     heading: 'Module 2 — Sécurité de chantier',
-    meta: '35 min · PPSPS, DUERP, SOGED',
+    meta: '35 min · Skills PPSPS, DUERP, SOGED',
     objectifs: [
-      'Structurer un PPSPS à partir de vos contraintes chantier réelles',
-      'Cadrer un DUERP et un SOGED avec l\'IA — relecture QSE obligatoire',
-      'Lister les interfaces et responsabilités avant diffusion',
+      'Skill « PPSPS » — générer un PPSPS à structure réglementaire complète, adapté au corps d\'état et au chantier',
+      'Skill « Évaluation des risques » — DUERP de chantier, analyse de risques poste par poste, fiches de prévention et consignes de sécurité',
+      'Skill « Gestion des déchets (SOGED) » — schéma d\'organisation, tri et traçabilité des déchets de chantier',
     ],
-    livrable: 'Structures PPSPS / DUERP / SOGED prêtes à compléter et signer',
+    livrable: 'Skills « PPSPS », « DUERP » et « SOGED » prêts à l\'emploi',
   },
   {
     heading: 'Module 3 — Gestion de chantier',
-    meta: '70 min · CR, approvisionnements, sous-traitants, coûts',
+    meta: '70 min · CR, suivi, approvisionnements, sous-traitants, coûts',
     objectifs: [
-      'Réunions & comptes rendus — synthèses et relances',
-      'Suivi, journal de chantier et approvisionnements (bons de commande, comparatif fournisseurs)',
-      'Sous-traitants : DC4, agréments, courriers de coordination',
-      'Quantités & coûts : métré assisté, avenants, suivi déboursé et budget',
+      'Réunions & comptes rendus — CR par corps d\'état, observations numérotées, reprise des points non soldés (Levé / En cours / En attente) ; génération à partir de notes ou d\'une dictée transcrite',
+      'Suivi, relances & journal de chantier — tableau de suivi, relances entreprises, constat de retard, rapport journalier et reportage photo daté',
+      'Approvisionnements & sous-traitants — bons de commande, comparatif fournisseurs ; DC4 (déclaration) et dossier d\'agrément',
+      'Quantités & coûts — métré et devis de travaux supplémentaires ou modificatifs ; suivi du déboursé et du budget de chantier',
     ],
-    livrable: 'Modèles CR, courriers ST et tableaux de suivi réutilisables',
+    livrable:
+      'Skills « CR de chantier », « Suivi & journal », « Approvisionnements », « Sous-traitants (DC4) », « Métré », « Avenants » et « Budget chantier »',
   },
   {
     heading: 'Module 4 — Administratif de suivi de chantier',
     meta: '50 min · Situations, réception, DOE, litiges',
     objectifs: [
-      'Situations de travaux et pièces de facturation — structuration des écrits',
-      'Réception & réserves — PV de réserves et courriers MOE/MOA',
-      'DOE — plan de constitution du dossier des ouvrages exécutés',
-      'Assistant juridique : mise en demeure, mémoire en réclamation (brouillons à valider)',
+      'Skill « Situations de travaux » — situations d\'avancement mensuelles et états d\'acompte',
+      'Skill « Réception & réserves » — PV de réception, liste de réserves par lot, suivi et constats de levée',
+      'Skills « DOE » & « Assistant juridique » — dossier des ouvrages exécutés, relances et courriers de clôture ; mise en demeure ou mémoire en réclamation (brouillons à valider)',
     ],
-    livrable: 'Trames situations, PV réserves, check-list DOE et courriers types',
+    livrable:
+      'Skills « Situations », « PV de réserves », « DOE » et « Assistant juridique » — et accès complet à la bibliothèque OFC : 20+ skills classés par phase de chantier',
   },
+];
+
+const METHODES_PEDAGOGIQUES = [
+  '70 % de pratique : chaque participant utilise, adapte et teste les skills sur son ordinateur, à partir de ses vrais documents de chantier.',
+  'Bibliothèque incluse : chaque participant repart avec l\'accès à plus de 20 skills BTP prêts à l\'emploi, classés par phase de chantier.',
+  'Fil rouge chronologique : un même chantier de bâtiment sert de support, de l\'analyse du CCTP jusqu\'à la réception des travaux.',
+  'Moyens : un ordinateur portable par participant, un accès internet haut débit et un compte Claude (Pro recommandé). Supports de prompts et fiches méthodes remis à chaque participant.',
 ];
 
 const TARIF_SESSION_LIBELLE = libelleTarifSessionForfaitaire(TARIF_FORFAIT_AVANCE_HT);
@@ -132,7 +145,7 @@ const HERO_RESUME = [
 
 const OBJECTIFS_PEDAGOGIQUES = [
   'Comprendre le fonctionnement des skills Claude et accéder à la bibliothèque de skills BTP mise à disposition',
-  'Préparer et démarrer un chantier avec l\'IA : analyse du CCTP, génération de la DPGF, conformité DTU, DICT, ordre de service, planning',
+  'Préparer et démarrer un chantier avec l\'IA : analyse du CCTP, génération de la DPGF, DICT, ordre de service, planning',
   'Sécuriser le chantier (PPSPS, DUERP, SOGED) et le piloter au quotidien : CR, suivi, approvisionnements, sous-traitants, métré, avenants, budget',
   'Gérer l\'administratif de suivi jusqu\'à la réception : situations, PV de réserves, DOE, litiges',
 ];
@@ -164,7 +177,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
             </RdvLink>
             <a
               href={PDF_HREF}
-              download
+              download={PDF_DOWNLOAD_NAME}
               className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-6 py-3.5 font-semibold text-slate-800 hover:border-[var(--accent)]"
             >
               <Download size={20} strokeWidth={1.5} />
@@ -208,7 +221,7 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           >
             conducteur de travaux
           </Link>
-          . {EXIGENCE_CLAUDE_PRO_NIVEAU_AVANCE}
+          . {CLAUDE_PRO_RECOMMANDE_NIV03}
         </p>
       </FormationCourseHero>
 
@@ -255,12 +268,13 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           </p>
         </section>
 
-        <PrerequisNiveau2
-          asSection
-          extras={[
-            'Documents utiles : CCTP/DPGF récents, modèles de CR et courriers ST anonymisés.',
-          ]}
-        />
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-bold text-slate-900">Prérequis</h2>
+          <p className="mt-4 text-slate-700 leading-relaxed">{PREREQUIS_NIV03}</p>
+          <p className="mt-4 text-slate-700 leading-relaxed">
+            Documents utiles : CCTP/DPGF récents, modèles de CR et courriers ST anonymisés.
+          </p>
+        </section>
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-bold text-slate-900">Objectifs pédagogiques</h2>
@@ -291,8 +305,20 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
           </p>
           <p className="mt-2 text-sm text-slate-600">
             4 modules — phasage chantier (installation → sécurité → gestion → administratif) — total{' '}
-            {SESSION_DUREE_LIBELLE}. Travail sur vos documents réels (anonymisés si besoin).
+            {SESSION_DUREE_LIBELLE}. Travail sur vos documents réels (anonymisés si besoin). Pédagogie{' '}
+            <strong>70&nbsp;% pratique / 30&nbsp;% théorie</strong>.
           </p>
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 className="font-display text-lg font-semibold text-slate-900">Méthodes &amp; moyens pédagogiques</h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-700">
+              {METHODES_PEDAGOGIQUES.map((line) => (
+                <li key={line} className="flex gap-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" strokeWidth={1.5} />
+                  {line}
+                </li>
+              ))}
+            </ul>
+          </div>
           <div className="mt-8 space-y-8">
             {PROGRAMME_BLOCS.map((bloc) => (
               <div
@@ -320,27 +346,29 @@ export default function FormationIaConduiteTravauxSuiviChantierPage() {
         <section className="mt-12 rounded-2xl border border-[var(--accent)] bg-[var(--accent-soft)] p-6">
           <h2 className="font-display text-xl font-bold text-slate-900">Livrables &amp; tarification</h2>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            Le forfait est de {TARIF_SESSION_LIBELLE}, avec
-            bibliothèque de skills, trames CR/PPSPS/DOE et un rendez-vous visio J+30 inclus.
+            Le forfait est de {TARIF_SESSION_LIBELLE}, avec bibliothèque de 20+ skills Claude BTP,
+            fiches méthode par module et un rendez-vous visio J+30 inclus.
           </p>
           <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            En {new Date().getFullYear()}, OFC affiche une indicateurs publiés sur la page dédiée sur plus de {formatPersonnesFormeesCount()} professionnels formés
+            En {new Date().getFullYear()}, OFC a formé plus de {formatPersonnesFormeesCount()} professionnels
             ({getStatsFreshnessLabel()}).
           </p>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
             <li>
               <strong>Durée :</strong> {SESSION_DUREE_LIBELLE} · <strong>Forfait :</strong>{' '}
-              <strong>Forfait :</strong> {TARIF_SESSION_LIBELLE} · <strong>Effectif :</strong>{' '}
+              {TARIF_SESSION_LIBELLE} · <strong>Effectif :</strong>{' '}
               {LIBELLE_EFFECTIF_GROUPE_NIV03} · <strong>Financement :</strong> possible selon éligibilité
               (Constructys / OPCO).
             </li>
             <li>
-              <strong>Supports remis :</strong> accès à la bibliothèque de 20+ skills Claude BTP, trames CR / PPSPS /
-              courriers ST / PV réserves / DOE, fiches méthode par module, certificat de réalisation en fin de session.
+              <strong>Supports remis :</strong> accès à la bibliothèque de 20+ skills Claude BTP classés par
+              phase de chantier, fiches méthode et supports de prompts par module, certificat de réalisation
+              en fin de session.
             </li>
             <li>
-              <strong>Évaluation :</strong> exercices pratiques sur documents participants, validation formateur en
-              continu, questionnaire de satisfaction à chaud et à froid (J+30).
+              <strong>Évaluation :</strong> auto-positionnement en début de session, mises en situation et
+              exercices pratiques sur documents participants, validation formateur en continu, questionnaire
+              de satisfaction à chaud en fin de session.
             </li>
           </ul>
         </section>

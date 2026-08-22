@@ -34,9 +34,11 @@ export const PROGRAMME_CONTENU_CATALOGUE: Record<FormationCode, readonly string[
     'Module 4 — Communication digitale et visibilité du professionnel BTP',
   ],
   'NIV-02': [
-    'Module 1 — Paramétrage de Claude AI Pro & Cowork',
+    'Accueil, cadrage et positionnement (15 min)',
+    'Module 1 — Paramétrage de Claude AI Pro et de Cowork',
     'Module 2 — Analyse express de DCE avec Cowork',
     'Module 3 — Rédiger son mémoire technique avec Cowork',
+    'Bilan, plan d\'action et clôture (15 min)',
   ],
   'NIV-03': [
     'Module 1 — Installation & démarrage de chantier',
@@ -67,6 +69,42 @@ const MODALITES_ACCES_NIV01 =
 
 const DELAI_ACCES_NIV01 =
   "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
+
+export const MODALITE_PEDAGOGIQUE_NIV02 =
+  'Action de formation — intra-entreprise — 100 % présentiel — 75 % pratique / 25 % théorie';
+
+export const PREREQUIS_NIV02 =
+  "Formation de niveau 2 : bases d'une IA générative acquises, ou avoir suivi la session « L'IA au service des professionnels du BTP » (niveau 1). Abonnement Claude Pro actif (environ 18 € HT / mois, à la charge de l'entreprise) avec Cowork installé. Chaque participant apporte un DCE complet récent (RC + CCAP + CCTP) et 2 à 3 mémoires techniques de son entreprise.";
+
+export const MODALITES_ACCES_NIV02 =
+  "Inscription sur demande auprès d'OFC (laureolivie@yahoo.fr — 06 95 66 18 18) : entretien d'analyse du besoin et vérification des prérequis → devis et programme personnalisé → convention de formation signée → demande de prise en charge OPCO → convocation des participants. Un questionnaire de positionnement est adressé à chaque participant avant la session.";
+
+export const DELAI_ACCES_NIV02 =
+  "Inscription jusqu'à 15 jours calendaires avant le démarrage, sous réserve des disponibilités de la formatrice et du client. Ce délai correspond au minimum exigé par les OPCO pour l'instruction d'une demande de prise en charge. Le délai exact est confirmé lors de la demande de formation.";
+
+export const PREREQUIS_NIV03 =
+  "Savoir utiliser un ordinateur. Bonne maîtrise du français écrit. Avoir suivi le Niveau 1 ou pratiquer déjà un outil d'IA générative. Compte Claude Pro recommandé.";
+
+export const MODALITE_PEDAGOGIQUE_NIV03 =
+  'Action de formation — Présentiel — 70 % pratique / 30 % théorie';
+
+export const DELAI_ACCES_NIV03 =
+  "Inscription jusqu'à 7 jours ouvrés avant la session.";
+
+export const EVALUATION_NIV03 = [
+  'Recueil des attentes et auto-positionnement des participants en début de session.',
+  'Évaluation continue par mises en situation : chaque participant crée et teste ses propres skills tout au long de la session.',
+  'Questionnaire de satisfaction à chaud remis en fin de formation.',
+  'Attestation de fin de formation individuelle et certificat de réalisation remis à chaque participant.',
+] as const;
+
+export const EVALUATION_NIV02 = [
+  'Évaluation en amont : vérification des prérequis et questionnaire de positionnement adressé à chaque participant avant la session.',
+  'Auto-positionnement en début et en fin de session afin de mesurer la progression sur chacun des objectifs visés.',
+  'Évaluation des acquis : évaluation continue par les exercices pratiques sur les DCE et mémoires techniques réels des participants, avec validation individuelle par la formatrice.',
+  'Évaluation de la satisfaction : questionnaire à chaud en fin de session, suivi d\'un questionnaire à froid à J+30.',
+  'Feuille d\'émargement signée par demi-journée ; attestation individuelle de fin de formation et certificat de réalisation.',
+] as const;
 
 const EVALUATION_NIV01 = [
   'Questionnaire de positionnement adressé à chaque participant avant la session.',
@@ -107,6 +145,8 @@ function libelleDureeInfosPratiques(f: NonNullable<ReturnType<typeof getFormatio
 
 function prerequisPourRef(ref: FormationCode): string {
   if (ref === 'NIV-01') return PREREQUIS_NIV01;
+  if (ref === 'NIV-02') return PREREQUIS_NIV02;
+  if (ref === 'NIV-03') return PREREQUIS_NIV03;
   return PREREQUIS_NIVEAU_2.join(' ');
 }
 
@@ -142,17 +182,35 @@ export function getInfosPratiquesForCatalogue(ref: string): InfosPratiquesFormat
     modalitesAcces: sanitizeInfosPratiquesText(
       code === 'NIV-01'
         ? MODALITES_ACCES_NIV01
-        : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
+        : code === 'NIV-02'
+          ? MODALITES_ACCES_NIV02
+          : stripLabelPrefix(QUALIOPI_MODALITES_ACCES_EXACT, /^Modalités d'accès\s*:\s*/i)
     ),
     delaiAcces: sanitizeInfosPratiquesText(
-      code === 'NIV-01'
-        ? DELAI_ACCES_NIV01
+      code === 'NIV-01' || code === 'NIV-02' || code === 'NIV-03'
+        ? code === 'NIV-02'
+          ? DELAI_ACCES_NIV02
+          : code === 'NIV-03'
+            ? DELAI_ACCES_NIV03
+            : DELAI_ACCES_NIV01
         : stripLabelPrefix(QUALIOPI_DELAI_ACCES_EXACT, /^Délai d'accès\s*:\s*/i)
     ),
     tarif: tarifPourRef(code),
     methodes: [...QUALIOPI_METHODES_STANDARD],
-    modalitesEvaluation: code === 'NIV-01' ? [...EVALUATION_NIV01] : [...QUALIOPI_EVALUATION_STANDARD],
-    modalitePedagogique: MODALITE_PEDAGOGIQUE_CATALOGUE,
+    modalitesEvaluation:
+      code === 'NIV-01'
+        ? [...EVALUATION_NIV01]
+        : code === 'NIV-02'
+          ? [...EVALUATION_NIV02]
+          : code === 'NIV-03'
+            ? [...EVALUATION_NIV03]
+            : [...QUALIOPI_EVALUATION_STANDARD],
+    modalitePedagogique:
+      code === 'NIV-02'
+        ? MODALITE_PEDAGOGIQUE_NIV02
+        : code === 'NIV-03'
+          ? MODALITE_PEDAGOGIQUE_NIV03
+          : MODALITE_PEDAGOGIQUE_CATALOGUE,
     accessibiliteHandicap: INFOS_PRATIQUES_HANDICAP_ENCART,
     dateMaj: formation.programmeUpdatedAt,
   });

@@ -23,6 +23,11 @@ function programmeDownloadDescription(catalogueRef: string, formationTitle: stri
   }
 }
 
+const PDF_DOWNLOAD_NAMES: Partial<Record<string, string>> = {
+  'NIV-02': 'programme_OFC_Niveau2_IA_AO_ClaudePro.pdf',
+  'NIV-03': 'Programme_IA_Conduite_Travaux_OFC.pdf',
+};
+
 /**
  * Bandeau CTA téléchargement du programme PDF — sous le hero des fiches catalogue.
  */
@@ -31,6 +36,7 @@ export function FormationProgrammePdfDownloadBanner({
   catalogueRef,
   formationTitle,
 }: Props) {
+  const downloadName = PDF_DOWNLOAD_NAMES[catalogueRef];
   return (
     <section
       className="border-b border-slate-200 bg-white px-4 py-8"
@@ -48,7 +54,7 @@ export function FormationProgrammePdfDownloadBanner({
         </div>
         <a
           href={pdfHref}
-          download
+          {...(downloadName ? { download: downloadName } : { download: true })}
           className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 font-semibold text-white hover:bg-blue-700"
         >
           Télécharger le PDF
