@@ -212,7 +212,7 @@ function NavbarInner() {
                     icon={
                       Icon ? (
                         <Icon
-                          size={16}
+                          size={18}
                           strokeWidth={1.75}
                           className="hidden shrink-0 text-current/70 xl:block"
                           aria-hidden

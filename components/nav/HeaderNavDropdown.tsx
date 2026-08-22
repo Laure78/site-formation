@@ -70,11 +70,11 @@ export function HeaderNavDropdown({
   return (
     <div
       ref={wrapRef}
-      className="relative flex items-stretch justify-center"
+      className="relative flex w-full items-stretch justify-center"
       onMouseEnter={onOpen}
       onMouseLeave={onClose}
     >
-      <div className={triggerClass(highlighted)}>
+      <div className={`${triggerClass(highlighted)} w-full`}>
         <Link
           href={item.href}
           aria-current={routeActive ? 'page' : undefined}
@@ -96,7 +96,7 @@ export function HeaderNavDropdown({
           }}
         >
           <ChevronDown
-            size={15}
+            size={17}
             strokeWidth={2.25}
             className={`shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
             aria-hidden
@@ -168,7 +168,7 @@ export function HeaderNavSimpleLink({
 }) {
   const active = headerNavItemIsActive(item, pathname);
   return (
-    <div className={triggerClass(active, true)}>
+    <div className={`${triggerClass(active, true)} w-full`}>
       <Link
         href={item.href}
         aria-current={active ? 'page' : undefined}

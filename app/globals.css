@@ -76,10 +76,10 @@
     --ofc-blue: var(--ofc-color-accent);
     --ofc-blue-hover: var(--ofc-color-accent-hover);
 
-    --site-header-height: 4rem;
+    --site-header-height: 4.25rem;
 
-    /* Header desktop : barre actions + menu (1 ligne) */
-    --site-header-height-lg: 5.5rem;
+    /* Header desktop : barre actions + menu (2 lignes) */
+    --site-header-height-lg: 7rem;
 
     /* Espacement sections — base 4 px, cible DA 96–160 px desktop */
     --ofc-section-py: 4rem;
@@ -1022,8 +1022,8 @@
 
   .site-header__inner {
     @apply mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 sm:gap-4 sm:px-8;
-    @apply py-2 transition-[transform,padding] duration-200 ease-out motion-reduce:transition-none;
-    @apply lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-3 lg:gap-y-2 lg:py-2.5;
+    @apply py-2.5 transition-[transform,padding] duration-200 ease-out motion-reduce:transition-none;
+    @apply lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto_auto] lg:grid-rows-[auto_auto] lg:items-center lg:gap-x-4 lg:gap-y-3 lg:py-3;
   }
 
   .site-header__brand {
@@ -1038,7 +1038,7 @@
   }
 
   .site-header[data-compact='true'] .site-header__inner {
-    @apply py-2 lg:py-2.5;
+    @apply py-2.5 lg:py-3;
   }
 
   .site-header__logo-mark {
@@ -1051,13 +1051,13 @@
   }
 
   .site-header__nav-pill {
-    @apply mx-1 hidden min-w-0 flex-1 items-center justify-start gap-1 overflow-x-auto rounded-2xl border border-slate-200/70 bg-white/80 px-2 py-1.5 shadow-[0_1px_3px_rgba(15,23,42,0.06)] backdrop-blur-sm [scrollbar-width:none] sm:gap-1.5 sm:px-2.5;
+    @apply mx-1 hidden min-w-0 flex-1 items-center justify-start gap-1.5 overflow-x-auto rounded-2xl border border-slate-200/70 bg-white/80 px-2.5 py-2 shadow-[0_1px_3px_rgba(15,23,42,0.06)] backdrop-blur-sm [scrollbar-width:none] sm:gap-2 sm:px-3;
     @apply transition-[padding,box-shadow] duration-200 ease-out motion-reduce:transition-none;
-    @apply lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:flex lg:w-full lg:max-w-none lg:flex-nowrap lg:items-center lg:justify-center lg:gap-1.5 lg:overflow-visible lg:rounded-2xl lg:px-3 lg:py-2;
+    @apply lg:col-span-4 lg:col-start-1 lg:row-start-2 lg:mx-0 lg:flex lg:w-full lg:max-w-none lg:flex-nowrap lg:items-stretch lg:justify-between lg:gap-2 lg:overflow-visible lg:rounded-2xl lg:px-4 lg:py-2.5 xl:gap-2.5 xl:px-5 xl:py-3;
   }
 
   .site-header__nav-pill > * {
-    @apply shrink-0;
+    @apply shrink-0 lg:flex lg:min-h-[3rem] lg:flex-1 lg:justify-center xl:min-h-[3.25rem];
   }
 
   .site-header__nav-pill::-webkit-scrollbar {
@@ -1065,12 +1065,12 @@
   }
 
   .site-header[data-compact='true'] .site-header__nav-pill {
-    @apply py-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] lg:py-2;
+    @apply py-2 shadow-[0_1px_2px_rgba(15,23,42,0.05)] lg:py-2.5 xl:py-2.5;
   }
 
   /* ——— Navigation header — triggers, dropdowns, mobile ——— */
   .header-nav-trigger {
-    @apply inline-flex items-stretch rounded-xl text-[0.8125rem] font-medium transition-all duration-150 motion-reduce:transition-none xl:text-sm;
+    @apply inline-flex min-h-11 w-full items-stretch rounded-xl text-sm font-medium transition-all duration-150 motion-reduce:transition-none xl:min-h-12 xl:text-[0.9375rem] 2xl:text-base;
   }
 
   .header-nav-trigger--idle {
@@ -1082,15 +1082,15 @@
   }
 
   .header-nav-trigger__link {
-    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-l-xl py-2 pl-2.5 pr-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:pl-3 2xl:pl-3.5;
+    @apply inline-flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-l-xl py-2.5 pl-3 pr-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] xl:py-3 xl:pl-4 2xl:pl-5;
   }
 
   .header-nav-trigger--simple .header-nav-trigger__link {
-    @apply rounded-xl px-2.5 xl:px-3 2xl:px-3.5;
+    @apply rounded-xl px-3.5 xl:px-4 2xl:px-5;
   }
 
   .header-nav-trigger__toggle {
-    @apply inline-flex items-center rounded-r-xl py-2 pr-2 pl-0.5 text-current/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] hover:text-current xl:pr-2.5;
+    @apply inline-flex items-center rounded-r-xl py-2.5 pr-2.5 pl-0.5 text-current/70 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3] hover:text-current xl:py-3 xl:pr-3;
   }
 
   .header-nav-dropdown-panel {
